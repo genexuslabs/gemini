@@ -1,9 +1,0 @@
-div {
-    --myComponent-color: var(--color--one);
-}
-:host(.night) div {
-    --myComponent-color: var(--color--three);
-}
-div {
-    color: var(--myComponent-color);
-}

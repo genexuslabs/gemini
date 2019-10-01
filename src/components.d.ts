@@ -25,40 +25,6 @@ export namespace Components {
     */
     'type': string;
   }
-  interface GxgTab {
-    /**
-    * The kind of tab Possible values: primary, secondary.
-    */
-    'type': string;
-  }
-  interface MyComponent {
-    /**
-    * The firsty name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
-  interface MyOtherComponent {
-    /**
-    * The firsty name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
 }
 
 declare global {
@@ -75,30 +41,9 @@ declare global {
     prototype: HTMLGxgButtonElement;
     new (): HTMLGxgButtonElement;
   };
-
-  interface HTMLGxgTabElement extends Components.GxgTab, HTMLStencilElement {}
-  var HTMLGxgTabElement: {
-    prototype: HTMLGxgTabElement;
-    new (): HTMLGxgTabElement;
-  };
-
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
-
-  interface HTMLMyOtherComponentElement extends Components.MyOtherComponent, HTMLStencilElement {}
-  var HTMLMyOtherComponentElement: {
-    prototype: HTMLMyOtherComponentElement;
-    new (): HTMLMyOtherComponentElement;
-  };
   interface HTMLElementTagNameMap {
     'gxg-base-component-template': HTMLGxgBaseComponentTemplateElement;
     'gxg-button': HTMLGxgButtonElement;
-    'gxg-tab': HTMLGxgTabElement;
-    'my-component': HTMLMyComponentElement;
-    'my-other-component': HTMLMyOtherComponentElement;
   }
 }
 
@@ -119,47 +64,10 @@ declare namespace LocalJSX {
     */
     'type'?: string;
   }
-  interface GxgTab extends JSXBase.HTMLAttributes<HTMLGxgTabElement> {
-    /**
-    * The kind of tab Possible values: primary, secondary.
-    */
-    'type'?: string;
-  }
-  interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
-    /**
-    * The firsty name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
-  interface MyOtherComponent extends JSXBase.HTMLAttributes<HTMLMyOtherComponentElement> {
-    /**
-    * The firsty name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
 
   interface IntrinsicElements {
     'gxg-base-component-template': GxgBaseComponentTemplate;
     'gxg-button': GxgButton;
-    'gxg-tab': GxgTab;
-    'my-component': MyComponent;
-    'my-other-component': MyOtherComponent;
   }
 }
 
