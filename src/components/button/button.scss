@@ -1,0 +1,265 @@
+/*
+NOTES:
+
+1. About Default Button / Primary Button
+By default, if the user does not provide a value for the 'type' property which defines the type of 
+button, the button will be a 'Primary' button type. For this reason, the styles thar are applied
+for the '.button' class apply for the 'Primary' button time automatically. At the same time, the .button
+properties are 'inherited' or shared accross the other type of buttons, and overrided when needed.
+
+2. About button margin :
+Button margin prevents outline overlapping with adjacent elements. For this reason, button margin
+should be at least, the same width of the button outline. Button outline is visible when the button 
+is on focus, and only visible, at the time of writting, for the 'primary' and 'secondary' types.
+
+3. About properties 'inheritance' :
+There are, at the time of writting, four type of buttons: Primary, Secondary, Text Only, and Icon
+Only. Some button properties are 'global', meaning that all the buttons share the same value for
+that given property. For example, the border-style, or the border-width, is a global property, because
+the four buttons use a solid border type, and a 1px border-width. 
+
+On the other hand, there are 'individual' properties. These type of properties could be different for
+each single type of button.For example, the background-color is an individual property, because
+'Primary' button uses a blue background, and 'Secondary' button uses a white background.
+
+Global properties are defined on the .button class, which is shared across all the type of buttons,
+and are not redefined for on the individual button type classes (.button--secondary, .button--text-only, etc)
+
+Individual properties are defined on the .button class (which are the properties for the 'Primary'
+button, since it is the default button) and are then redefined for each button type.
+
+Finally, there are some properties that are shared, and not shared at the same
+time. padding-left and padding-right is such an example. 'Primary' and 'Secondary'
+button types share the same padding-left/right, but 'Text Only', and 'Icon Only' button
+type use a different value, each one. For this cases, we only redifine the
+property value when it changes. This means that 'Secondary' button padding
+is not redefined, but 'inhertied' from the 'Primary' button padding, since it
+is the same value.
+
+Global properties:
+- border-syle
+- border-width
+- border-radius
+- display
+- align-items
+- justify-content
+- margin-top
+- margin-right
+- margin-bottom
+- margin-left
+- min-height
+- font-family
+- font-size
+- font-style
+- font-weight
+- letter-spacing
+- line-height
+- outline-style
+- outline-color
+- outline-width
+- cursor
+
+Individual properties:
+- background
+- border-color
+- color
+- padding-top
+- padding-right
+- padding-botton
+- padding-left
+*/
+
+
+// 'PRIMARY' BUTTON TYPE
+// ----------------------------------------------------------------------------------
+
+:host(.button) .button-native {
+
+    background: var(--color--primary);
+
+    border-color: var(--color--primary);
+    border-style: var(--border-style--regular);
+    border-width: var(--border-width--sm);
+    border-radius: var(--border-radius--sm);
+
+    color: var(--color--white);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: var(--outline-width--regular);
+    margin-right: var(--outline-width--regular);
+    margin-bottom: var(--outline-width--regular);
+    margin-left: var(--outline-width--regular);
+
+    padding-top: 0;
+    padding-right: var(--spacing--lg);
+    padding-bottom: 0;
+    padding-left: var(--spacing--lg);
+    
+    min-height: var(--spacing--lg);
+
+    font-family: var(--font-family--primary);
+    font-size: var(--font-size--md);
+    font-style: var(--font-style--regular);
+    font-weight: var(--font-weight--semibold);
+    letter-spacing: var(--letter-spacing--regular);
+    line-height: var(--line-height--regular);
+
+    //if button has icon:
+    slot[name=icon] {color: var(--color-white)};
+
+    &:hover:not([disabled]) {
+        background: var(--color--secondary);
+        border-color: var(--color--secondary);
+        color: var(--color--white);
+        cursor: pointer;
+        slot[name=icon] {color: var(--color--white-9)};
+    }
+    &:focus:not([disabled]) {
+        background: var(--color--primary);
+        border-color: var(--color--primary);
+        color: var(--color--white);
+        slot[name=icon] {color: var(--color--white)};
+        outline-style: var(--outline-style--regular);
+        outline-color: var(--color--yellow);
+        outline-width: var(--outline-width--regular);
+    }
+    &:active:not([disabled]) {
+        background: var(--color--primary-active);
+        border-color: var(--color--primary-active);
+        color: var(--color--white);
+        slot[name=icon] {color: var(--color--white)};
+    }
+}
+:host(.button.button--disabled) .button-native {
+    background: var(--color--disabled);
+    border-color: var(--color--disabled);
+    color: var(--color--white-6);
+    cursor: not-allowed;
+
+    //if button has icon:
+    slot[name=icon] {color: var(--color--white-6)};
+}
+
+
+
+
+// 'SECONDARY' BUTTON TYPE
+// ----------------------------------------------------------------------------------
+
+:host(.button--secondary) .button-native {
+    // This are the styles for 'secondary button' type.
+        
+    //Enabled
+    background: var(--color--white);
+    border-color: var(--color--primary);
+    color: var(--color--primary);
+   
+    &:hover:not([disabled]) {
+        background: var(--color--secondary-1);
+        border-color: var(--color--primary);
+        color: var(--color--primary);
+    }
+    &:focus:not([disabled]) {
+        background: var(--color--white);
+        border-color: var(--color--primary);
+        color: var(--color--primary);
+    }
+    &:active:not([disabled]) {
+        background: var(--color--white);
+        border-color: var(--color--primary);
+        color: var(--color--primary);
+    }
+}
+:host(.button--secondary.button--disabled) .button-native {
+    background: var(--color--white);
+    border-color: var(--color--disabled);
+    color: var(--color--disabled);
+    cursor: not-allowed;
+}
+
+
+
+// 'TEXT ONLY' BUTTON TYPE
+// ----------------------------------------------------------------------------------
+
+:host(.button--text-only) .button-native {
+    // This are the styles for 'secondary button' type.
+
+    //Enabled
+    background: var(--color--white);
+    border-color: transparent;
+    color: var(--color--primary);
+   
+    &:hover:not([disabled]) {
+        background: var(--color--secondary-1);
+        border-color: transparent;
+        color: var(--color--primary);
+    }
+    &:focus:not([disabled]) {
+        background: var(--color--white);
+        border-color: transparent;
+        color: var(--color--primary);
+        outline-style: var(--outline-style--regular);
+        outline-color: var(--color--yellow);
+        outline-width: var(--outline-width--regular);
+    }
+    &:active:not([disabled]) {
+        background: var(--color--white);
+        border-color: transparent;
+        color: var(--color--primary);
+    }
+    padding-right: var(--spacing--md);
+    padding-left: var(--spacing--md);
+
+    &:focus {
+        outline: none;
+    }
+}
+:host(.button--text-only.button--disabled) .button-native {
+    background: var(--color--white);
+    border-color: var(--color--disabled);
+    color: var(--color--disabled);
+}
+
+
+// 'ICON ONLY' BUTTON TYPE
+// ----------------------------------------------------------------------------------
+
+:host(.button--icon-only) .button-native {
+
+    background: var(--color--primary);
+    border-color: var(--color--primary);
+    color: var(--color--white);
+
+    &:hover:not([disabled]) {
+        background: var(--color--primary);
+        border-color: var(--color--primary);
+        color: var(--color--white);
+    }
+    &:focus:not([disabled]) {
+        background: var(--color--primary);
+        border-color: var(--color--primary);
+        color: var(--color--white);
+    }
+    &:active:not([disabled]) {
+        background: var(--color--primary);
+        border-color: var(--color--primary);
+        color: var(--color--white);
+    }
+    padding-right: 0;
+    padding-left: 0;
+
+    min-width: var(--spacing--lg);
+
+    &:focus {
+        outline: none;
+    }
+}
+:host(.button--icon-only.button--disabled) .button-native {
+    background: var(--color--primary);
+    border-color: var(--color--primary);
+    color: var(--color--white);
+}

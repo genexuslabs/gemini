@@ -1,0 +1,20 @@
+//Tokens for colors
+:host {
+    --color--primary: rgb(2, 102, 160);
+    --color--primary-active: rgb(0, 86, 136);  
+    --color--secondary: rgb(0, 119, 222);
+    --color--secondary-1: rgba(0, 119, 222, 0.1);
+    --color--disabled: rgb(155, 155, 155);
+    --color--yellow: rgb(255, 192, 10);
+    
+    /*not present in "Abstract" branding guide*/
+    --color--white: rgb(255,255,255);
+    --color--white-9: rgba(255,255,255,.9);
+    --color--white-6: rgba(255,255,255,.6);
+    --color--link: rgb(0, 119, 222);
+}
+//Tokens for colors (Dark Mode)
+:host(.dark){
+
+    
+}

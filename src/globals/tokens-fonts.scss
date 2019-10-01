@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+//Tokens for fonts
+:host {
+    /*font families*/
+    --font-family--primary: 'Open Sans', sans-serif;
+    --font-family--secondary: sans-serif; /*None, at the time of writting*/
+
+    /*font weights*/
+    --font-weight--regular: 400;
+    --font-weight--semibold: 600;
+    --font-weight--bold: 700;
+
+    /*font sizes*/
+    --font-size--sm: 10px;
+    --font-size--md: 11px;
+
+    /*font styles*/
+    --font-style--regular: normal;
+
+    /*font line heights*/
+    --line-height--regular: normal;
+
+    /*font letter spacings*/
+    --letter-spacing--regular: normal;
+}
+
+
