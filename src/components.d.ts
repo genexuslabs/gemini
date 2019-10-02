@@ -9,12 +9,6 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface GxgBaseComponentTemplate {
-    /**
-    * The kind of base-component-template Possible values: primary, secondary.
-    */
-    'type': string;
-  }
   interface GxgButton {
     /**
     * The state of the button. Whether is disabled or not. Possible values: false, true
@@ -30,30 +24,17 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLGxgBaseComponentTemplateElement extends Components.GxgBaseComponentTemplate, HTMLStencilElement {}
-  var HTMLGxgBaseComponentTemplateElement: {
-    prototype: HTMLGxgBaseComponentTemplateElement;
-    new (): HTMLGxgBaseComponentTemplateElement;
-  };
-
   interface HTMLGxgButtonElement extends Components.GxgButton, HTMLStencilElement {}
   var HTMLGxgButtonElement: {
     prototype: HTMLGxgButtonElement;
     new (): HTMLGxgButtonElement;
   };
   interface HTMLElementTagNameMap {
-    'gxg-base-component-template': HTMLGxgBaseComponentTemplateElement;
     'gxg-button': HTMLGxgButtonElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface GxgBaseComponentTemplate extends JSXBase.HTMLAttributes<HTMLGxgBaseComponentTemplateElement> {
-    /**
-    * The kind of base-component-template Possible values: primary, secondary.
-    */
-    'type'?: string;
-  }
   interface GxgButton extends JSXBase.HTMLAttributes<HTMLGxgButtonElement> {
     /**
     * The state of the button. Whether is disabled or not. Possible values: false, true
@@ -66,7 +47,6 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'gxg-base-component-template': GxgBaseComponentTemplate;
     'gxg-button': GxgButton;
   }
 }
