@@ -92,3 +92,5 @@ dist/
 www/
 loader/
 .stencil/
+
+storybook-static/

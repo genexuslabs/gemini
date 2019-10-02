@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
     "story": "npm-run-all --parallel start storybook",
     "validate": "npm run test && npm run build",
-    "validate.ci": "npm run test && npm run build --max-workers 1 --debug"
+    "validate.ci": "npm run test && npm run build --max-workers 1 --debug",
+    "build-storybook": "build-storybook -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
