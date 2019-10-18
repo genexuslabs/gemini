@@ -25,15 +25,16 @@ export class MyComponent {
       <Host class={{
         'button': true,
         'button--primary': this.type === 'primary',
-        'button--secondary': this.type === 'secondary',
+        'button--outlined': this.type === 'outlined',
         'button--text-only': this.type === 'text-only',
         'button--icon-only': this.type === 'icon-only',
+        'button--icon-only button--icon-only--secondary': this.type === 'icon-only-secondary',
         'button--disabled': this.disabled === true,
         }}
       >
       <button class="button-native" disabled={this.disabled === true}>
-        <slot/>
         <slot name="icon"/>
+        <slot/>
       </button>
       </Host>
     );

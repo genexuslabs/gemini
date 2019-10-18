@@ -1,6 +1,8 @@
 // 'PRIMARY' BUTTON TYPE
 // ----------------------------------------------------------------------------------
-
+:host {
+    display: inline-block;
+}
 :host(.button) .button-native {
 
     background: var(--color--primary);
@@ -16,7 +18,6 @@
     align-items: center;
     justify-content: center;
 
-    
     margin-top: var(--outline-width--regular);
     margin-right: var(--outline-width--regular);
     margin-bottom: var(--outline-width--regular);
@@ -37,20 +38,29 @@
     line-height: var(--line-height--regular);
 
     //if button has icon:
-    slot[name=icon] {color: var(--color-white)};
+    ::slotted(img[slot=icon]) {
+        width: var(--icon-size);
+        filter: invert(1);
+        margin-right: var(--spacing--sm);
+        display: inline-block;
+    };
 
     &:hover:not([disabled]) {
         background: var(--color--secondary);
         border-color: var(--color--secondary);
         color: var(--color--white);
         cursor: pointer;
-        slot[name=icon] {color: var(--color--white-9)};
+        ::slotted(img[slot=icon]) {
+            opacity: var(--icon-hover-opacity);
+        };
     }
     &:focus:not([disabled]) {
         background: var(--color--primary);
         border-color: var(--color--primary);
         color: var(--color--white);
-        slot[name=icon] {color: var(--color--white)};
+        ::slotted(img[slot=icon]) {
+            opacity: var(--icon-hover-opacity);
+        };
         outline-style: var(--outline-style--regular);
         outline-color: var(--color--yellow);
         outline-width: var(--outline-width--regular);
@@ -59,7 +69,9 @@
         background: var(--color--primary-active);
         border-color: var(--color--primary-active);
         color: var(--color--white);
-        slot[name=icon] {color: var(--color--white)};
+        ::slotted(img[slot=icon]) {
+            opacity: var(--icon-hover-opacity);
+        };
     }
 }
 :host(.button.button--disabled) .button-native {
@@ -69,40 +81,42 @@
     cursor: not-allowed;
 
     //if button has icon:
-    slot[name=icon] {color: var(--color--white-6)};
+    ::slotted(img[slot=icon]) {
+        opacity: var(--icon-hover-opacity);
+    };
 }
 
 
 
 
-// 'SECONDARY' BUTTON TYPE
+// 'OUTLINED' BUTTON TYPE
 // ----------------------------------------------------------------------------------
 
-:host(.button--secondary) .button-native {
-    // This are the styles for 'secondary button' type.
+:host(.button--outlined) .button-native {
+    // This are the styles for 'outlined button' type.
         
     //Enabled
-    background: var(--color--white);
+    background: transparent;
     border-color: var(--color--primary);
     color: var(--color--primary);
    
     &:hover:not([disabled]) {
-        background: var(--color--secondary-1);
-        border-color: var(--color--primary);
-        color: var(--color--primary);
-    }
+        background: transparent;
+        border-color: var(--color--secondary);
+        color: var(--color--secondary);
+    } 
     &:focus:not([disabled]) {
-        background: var(--color--white);
+        background: transparent;
         border-color: var(--color--primary);
         color: var(--color--primary);
     }
     &:active:not([disabled]) {
-        background: var(--color--white);
-        border-color: var(--color--primary);
-        color: var(--color--primary);
+        background: transparent;
+        border-color: var(--color--primary-active);
+        color: var(--color--primary-active);
     }
 }
-:host(.button--secondary.button--disabled) .button-native {
+:host(.button--outlined.button--disabled) .button-native {
     background: var(--color--white);
     border-color: var(--color--disabled);
     color: var(--color--disabled);
@@ -125,7 +139,7 @@
     &:hover:not([disabled]) {
         background: var(--color--secondary-1);
         border-color: transparent;
-        color: var(--color--primary);
+        color: var(--color--secondary);
     }
     &:focus:not([disabled]) {
         background: var(--color--white);
@@ -136,9 +150,9 @@
         outline-width: var(--outline-width--regular);
     }
     &:active:not([disabled]) {
-        background: var(--color--white);
+        background: transparent;
         border-color: transparent;
-        color: var(--color--primary);
+        color: var(--color--primary-active);
     }
     padding-right: var(--spacing--md);
     padding-left: var(--spacing--md);
@@ -148,8 +162,8 @@
     }
 }
 :host(.button--text-only.button--disabled) .button-native {
-    background: var(--color--white);
-    border-color: var(--color--disabled);
+    background: transparent;
+    border-color: transparent;
     color: var(--color--disabled);
 }
 
@@ -174,10 +188,14 @@
         color: var(--color--white);
     }
     &:active:not([disabled]) {
-        background: var(--color--primary);
-        border-color: var(--color--primary);
+        background: var(--color--primary-active);
+        border-color: var(--color--primary-active);
         color: var(--color--white);
     }
+    
+    ::slotted(img[slot=icon]) {
+        margin-right: 0;
+    };
     padding-right: 0;
     padding-left: 0;
 
@@ -187,8 +205,15 @@
         outline: none;
     }
 }
-:host(.button--icon-only.button--disabled) .button-native {
-    background: var(--color--primary);
-    border-color: var(--color--primary);
-    color: var(--color--white);
+
+
+// 'ICON ONLY SECONDARY' BUTTON TYPE
+// ----------------------------------------------------------------------------------
+
+:host(.button--icon-only.button--icon-only--secondary) .button-native {
+
+    width: var(--spacing--md);
+    height: var(--spacing--md);
+    min-width: var(--spacing--md);
+    min-height: var(--spacing--md);
 }

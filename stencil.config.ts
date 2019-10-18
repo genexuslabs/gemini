@@ -29,6 +29,7 @@ export const config: Config = {
         'src/globals/tokens-borders.scss',
         'src/globals/tokens-colors.scss',
         'src/globals/tokens-fonts.scss',
+        'src/globals/tokens-icons.scss',
         'src/globals/tokens-outlines.scss',
         'src/globals/tokens-spacing.scss'
       ]
