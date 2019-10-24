@@ -1,83 +1,85 @@
-// 'PRIMARY' BUTTON TYPE
-// ----------------------------------------------------------------------------------
+/*********************************
+'PRIMARY' BUTTON TYPE
+*********************************/
+
 :host {
     display: inline-block;
 }
 :host(.button) .button-native {
 
-    background: var(--color--primary);
+    background: var(--color-primary-enabled);
 
-    border-color: var(--color--primary);
-    border-style: var(--border-style--regular);
-    border-width: var(--border-width--sm);
-    border-radius: var(--border-radius--sm);
+    border-color: var(--color-primary-enabled);
+    border-style: var(--border-style-regular);
+    border-width: var(--border-width-sm);
+    border-radius: var(--border-radius-sm);
 
-    color: var(--color--white);
+    color: var(--color-white);
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    margin-top: var(--outline-width--regular);
-    margin-right: var(--outline-width--regular);
-    margin-bottom: var(--outline-width--regular);
-    margin-left: var(--outline-width--regular);
+    margin-top: var(--outline-width-regular);
+    margin-right: var(--outline-width-regular);
+    margin-bottom: var(--outline-width-regular);
+    margin-left: var(--outline-width-regular);
 
     padding-top: 0;
-    padding-right: var(--spacing--lg);
+    padding-right: var(--spacing-comp-05);
     padding-bottom: 0;
-    padding-left: var(--spacing--lg);
+    padding-left: var(--spacing-comp-05);
     
-    min-height: var(--spacing--lg);
+    min-height: var(--spacing-comp-05);
 
-    font-family: var(--font-family--primary);
-    font-size: var(--font-size--md);
-    font-style: var(--font-style--regular);
-    font-weight: var(--font-weight--semibold);
-    letter-spacing: var(--letter-spacing--regular);
-    line-height: var(--line-height--regular);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-md);
+    font-style: var(--font-style-regular);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-comp-regular);
+    line-height: var(--line-height-regular);
 
     //if button has icon:
     ::slotted(img[slot=icon]) {
         width: var(--icon-size);
         filter: invert(1);
-        margin-right: var(--spacing--sm);
+        margin-right: var(--spacing-comp-01);
         display: inline-block;
     };
 
     &:hover:not([disabled]) {
-        background: var(--color--secondary);
-        border-color: var(--color--secondary);
-        color: var(--color--white);
+        background: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+        color: var(--color-white);
         cursor: pointer;
         ::slotted(img[slot=icon]) {
             opacity: var(--icon-hover-opacity);
         };
     }
     &:focus:not([disabled]) {
-        background: var(--color--primary);
-        border-color: var(--color--primary);
-        color: var(--color--white);
+        background: var(--color-primary-enabled);
+        border-color: var(--color-primary-enabled);
+        color: var(--color-white);
         ::slotted(img[slot=icon]) {
             opacity: var(--icon-hover-opacity);
         };
-        outline-style: var(--outline-style--regular);
-        outline-color: var(--color--yellow);
-        outline-width: var(--outline-width--regular);
+        outline-style: var(--outline-style-regular);
+        outline-color: var(--color-yellow);
+        outline-width: var(--outline-width-regular);
     }
     &:active:not([disabled]) {
-        background: var(--color--primary-active);
-        border-color: var(--color--primary-active);
-        color: var(--color--white);
+        background: var(--color-primary-active);
+        border-color: var(--color-primary-active);
+        color: var(--color-white);
         ::slotted(img[slot=icon]) {
             opacity: var(--icon-hover-opacity);
         };
     }
 }
 :host(.button.button--disabled) .button-native {
-    background: var(--color--disabled);
-    border-color: var(--color--disabled);
-    color: var(--color--white-6);
+    background: var(--color-primary-disabled);
+    border-color: var(--color-primary-disabled);
+    color: var(--color-white-6);
     cursor: not-allowed;
 
     //if button has icon:
@@ -89,73 +91,78 @@
 
 
 
-// 'OUTLINED' BUTTON TYPE
-// ----------------------------------------------------------------------------------
+/*********************************
+'OUTLINED' BUTTON TYPE
+*********************************/
 
 :host(.button--outlined) .button-native {
     // This are the styles for 'outlined button' type.
         
     //Enabled
     background: transparent;
-    border-color: var(--color--primary);
-    color: var(--color--primary);
+    border-color: var(--color-primary-enabled);
+    color: var(--color-primary-enabled);
    
     &:hover:not([disabled]) {
         background: transparent;
-        border-color: var(--color--secondary);
-        color: var(--color--secondary);
+        border-color: var(--color-primary-hover);
+        color: var(--color-primary-hover);
     } 
     &:focus:not([disabled]) {
         background: transparent;
-        border-color: var(--color--primary);
-        color: var(--color--primary);
+        border-color: var(--color-primary-enabled);
+        color: var(--color-primary-enabled);
     }
     &:active:not([disabled]) {
         background: transparent;
-        border-color: var(--color--primary-active);
-        color: var(--color--primary-active);
+        border-color: var(--color-primary-active);
+        color: var(--color-primary-active);
     }
 }
 :host(.button--outlined.button--disabled) .button-native {
-    background: var(--color--white);
-    border-color: var(--color--disabled);
-    color: var(--color--disabled);
+    background: var(--color-transparent);
+    border-color: var(--color-disabled);
+    color: var(--color-disabled);
     cursor: not-allowed;
 }
 
 
 
-// 'TEXT ONLY' BUTTON TYPE
-// ----------------------------------------------------------------------------------
+/*********************************
+'TEXT ONLY' BUTTON TYPE
+*********************************/
 
 :host(.button--text-only) .button-native {
     // This are the styles for 'secondary button' type.
 
     //Enabled
-    background: var(--color--white);
+    background: var(--color-white);
     border-color: transparent;
-    color: var(--color--primary);
+    color: var(--color-primary-enabled);
    
     &:hover:not([disabled]) {
-        background: var(--color--secondary-1);
+
+        --color-primary-hover: rgb(0,119,222);
+
+        background: rgba(var(--color-primary-rgb), 0.1);
         border-color: transparent;
-        color: var(--color--secondary);
+        color: var(--color-primary-hover);
     }
     &:focus:not([disabled]) {
-        background: var(--color--white);
+        background: transparent;
         border-color: transparent;
-        color: var(--color--primary);
-        outline-style: var(--outline-style--regular);
-        outline-color: var(--color--yellow);
-        outline-width: var(--outline-width--regular);
+        color: var(--color-primary-enabled);
+        outline-style: var(--outline-style-regular);
+        outline-color: var(--color-yellow);
+        outline-width: var(--outline-width-regular);
     }
     &:active:not([disabled]) {
         background: transparent;
         border-color: transparent;
-        color: var(--color--primary-active);
+        color: var(--color-primary-active);
     }
-    padding-right: var(--spacing--md);
-    padding-left: var(--spacing--md);
+    padding-right: var(--spacing-comp-04);
+    padding-left: var(--spacing-comp-04);
 
     &:focus {
         outline: none;
@@ -164,33 +171,34 @@
 :host(.button--text-only.button--disabled) .button-native {
     background: transparent;
     border-color: transparent;
-    color: var(--color--disabled);
+    color: var(--color-disabled);
 }
 
 
-// 'ICON ONLY' BUTTON TYPE
-// ----------------------------------------------------------------------------------
+/*********************************
+'ICON ONLY' BUTTON TYPE
+*********************************/
 
 :host(.button--icon-only) .button-native {
 
-    background: var(--color--primary);
-    border-color: var(--color--primary);
-    color: var(--color--white);
+    background: var(--color-primary-enabled);
+    border-color: var(--color-primary-enabled);
+    color: var(--color-white);
 
     &:hover:not([disabled]) {
-        background: var(--color--primary);
-        border-color: var(--color--primary);
-        color: var(--color--white);
+        background: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+        color: var(--color-white);
     }
     &:focus:not([disabled]) {
-        background: var(--color--primary);
-        border-color: var(--color--primary);
-        color: var(--color--white);
+        background: var(--color-primary-enabled);
+        border-color: var(--color-primary-enabled);
+        color: var(--color-white);
     }
     &:active:not([disabled]) {
-        background: var(--color--primary-active);
-        border-color: var(--color--primary-active);
-        color: var(--color--white);
+        background: var(--color-primary-active);
+        border-color: var(--color-primary-active);
+        color: var(--color-white);
     }
     
     ::slotted(img[slot=icon]) {
@@ -199,7 +207,7 @@
     padding-right: 0;
     padding-left: 0;
 
-    min-width: var(--spacing--lg);
+    min-width: var(--spacing-comp-05);
 
     &:focus {
         outline: none;
@@ -207,13 +215,14 @@
 }
 
 
-// 'ICON ONLY SECONDARY' BUTTON TYPE
-// ----------------------------------------------------------------------------------
+/*********************************
+'ICON ONLY SECONDARY' BUTTON TYPE
+*********************************/
 
 :host(.button--icon-only.button--icon-only--secondary) .button-native {
 
-    width: var(--spacing--md);
-    height: var(--spacing--md);
-    min-width: var(--spacing--md);
-    min-height: var(--spacing--md);
+    width: var(--spacing-comp-04);
+    height: var(--spacing-comp-04);
+    min-width: var(--spacing-comp-04);
+    min-height: var(--spacing-comp-04);
 }

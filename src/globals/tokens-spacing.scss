@@ -1,5 +1,27 @@
+/*********************************
+TOKENS FOR SPACING COMPONENTS
+*********************************/
+/*This is the spacing for the components itself (inside the component)*/
 :host {
-    --spacing--sm: 5px;
-    --spacing--md: 16px;
-    --spacing--lg: 24px; 
+    --spacing-comp-01: 4px;
+    --spacing-comp-02: 8px;
+    --spacing-comp-03: 12px;
+    --spacing-comp-04: 16px;
+    --spacing-comp-05: 24px;
+    --spacing-comp-06: 32px; 
+    --spacing-comp-07: 40px; 
+}
+
+/*********************************
+TOKENS FOR SPACING LAYOUT
+*********************************/
+/*This is the spacing for the layout/environment in which the components are embedded (outside the component)*/
+:host {
+    --spacing-lay-01: 8px;
+    --spacing-lay-02: 16px;
+    --spacing-lay-03: 24px;
+    --spacing-lay-04: 32px;
+    --spacing-lay-05: 48px;
+    --spacing-lay-06: 72px; 
+    --spacing-lay-07: 96px; 
 }

@@ -94,3 +94,6 @@ loader/
 .stencil/
 
 storybook-static/
+
+# Documentacion
+documentation/

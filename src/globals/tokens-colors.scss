@@ -1,17 +1,49 @@
-//Tokens for colors
+/*********************************
+TOKENS FOR COLORS
+*********************************/
+
 :host {
-    --color--primary: rgb(2, 102, 160);
-    --color--primary-active: rgb(0, 86, 136);  
-    --color--secondary: rgb(0, 119, 222);
-    --color--secondary-1: rgba(0, 119, 222, 0.1);
-    --color--disabled: rgb(155, 155, 155);
-    --color--yellow: rgb(255, 192, 10);
+    
+    //Shades of gray
+    --gray-01: #FBFBFB;
+    --gray-02: #F3F2F2;
+    --gray-03: #DAD9D9;
+    --gray-04: #979696;
+    --gray-05: #5B5A5A;
+    --gray-06: #1C1B1B;
+    --color-disabled: var(--gray-04);
+
+    //Gemini
+    --color-primary-rgb: 2,102,160; //Edit this value to change '--color-primary'
+    --color-primary: rgb(var(--color-primary-rgb)); //Do not edit this value.
+    --color-secondary: #CFDEE6;
+
+    //Primary
+    --color-primary-enabled: var(--color-primary);
+    --color-primary-active: #005688;
+    --color-primary-hover: #0077DE;
+    --color-primary-disabled: var(--color-disabled); 
+
+    //Secondary
+    --color-secondary-enabled: var(--color-secondary);
+    --color-secondary-active: #6A8C9F; 
+    --color-secondary-hover: #97B0BF; 
+    --color-secondary-disabled: var(--color-disabled); 
+
+    //Alert
+    --color-error: #FFEAEE;
+    --color-warning: #FFE7E6;
+    --color-error: #E1F3F1;
+
+    //Other
+    --color-white: #FFF;
     
     /*not present in "Abstract" branding guide*/
-    --color--white: rgb(255,255,255);
-    --color--white-9: rgba(255,255,255,.9);
-    --color--white-6: rgba(255,255,255,.6);
-    --color--link: rgb(0, 119, 222);
+    --color-white-9: rgba(255,255,255,.9);
+    --color-white-6: rgba(255,255,255,.6);
+    --color-link: rgb(0, 119, 222);
+    --color-secondary-1: rgba(0, 119, 222, 0.1);
+    --color-yellow: rgb(255, 192, 10);
 }
 //Tokens for colors (Dark Mode)
 :host(.dark){

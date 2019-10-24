@@ -24,7 +24,6 @@ export const config: Config = {
     sass({
       injectGlobalPaths: [
         'src/globals/general.scss',
-        'src/globals/icon-moon.scss',
         'src/globals/normalize.scss',
         'src/globals/tokens-borders.scss',
         'src/globals/tokens-colors.scss',

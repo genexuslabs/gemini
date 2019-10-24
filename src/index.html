@@ -67,34 +67,34 @@
 
 
   <script>
-    //const gxgComponents = document.getElementsByClassName('gxg-component');
+    // //const gxgComponents = document.getElementsByClassName('gxg-component');
     
-    // Query for the toggle that is used to change between themes
-    const toggle = document.querySelector('#toggleDarkTheme');
+    // // Query for the toggle that is used to change between themes
+    // const toggle = document.querySelector('#toggleDarkTheme');
     
-    // Listen for the toggle check/uncheck to toggle the dark class on the <body>
-    toggle.addEventListener('change', (ev) => {
-        // for(var i = 0; i < gxgComponents.length; i++) {
-          //gxgComponents[i].classList.toggle('dark-mode')
-          document.getElementsByTagName('body')[0].classList.toggle('dark-mode')
-        // }
-    });
+    // // Listen for the toggle check/uncheck to toggle the dark class on the <body>
+    // toggle.addEventListener('change', (ev) => {
+    //     // for(var i = 0; i < gxgComponents.length; i++) {
+    //       //gxgComponents[i].classList.toggle('dark-mode')
+    //       document.getElementsByTagName('body')[0].classList.toggle('dark-mode')
+    //     // }
+    // });
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    // Listen for changes to the prefers-color-scheme media query
-    prefersDark.addListener((e) => checkToggle(e.matches));
+    // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    // // Listen for changes to the prefers-color-scheme media query
+    // prefersDark.addListener((e) => checkToggle(e.matches));
 
-    (function() {
-      // your page initialization code here
-      // the DOM will be available here
-      checkToggle(prefersDark.matches);
-    })();
+    // (function() {
+    //   // your page initialization code here
+    //   // the DOM will be available here
+    //   checkToggle(prefersDark.matches);
+    // })();
 
-    // Called by the media query to check/uncheck the toggle
-    function checkToggle(shouldCheck) {
-      if(shouldCheck && !toggle.checked || !shouldCheck && toggle.checked)
-        toggle.click();
-    }
+    // // Called by the media query to check/uncheck the toggle
+    // function checkToggle(shouldCheck) {
+    //   if(shouldCheck && !toggle.checked || !shouldCheck && toggle.checked)
+    //     toggle.click();
+    // }
   </script>
 </body>
 </html>
