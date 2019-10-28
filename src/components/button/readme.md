@@ -1,5 +1,5 @@
 # Button
-<ol>
+<ul>
     <li style="margin-bottom:10px">
         <h2>About Default Button / Primary Button</h2>
         By default, if the user does not provide a value for the 'type' property which defines the type of button, the button will be a 'Primary' button type. For this reason, the styles thar are applied for the '.button' class apply for the 'Primary' button time automatically. At the same time, the .button properties are 'inherited' or shared accross the other type of buttons, and overrided when needed.
@@ -45,10 +45,14 @@
             <li>padding-botton</li>
             <li>padding-left</li>
         </ul>
-<ul></ul>
     </li>
 </ul>
-
+<style>
+    ol,ul {
+        list-style-type: none;
+        padding-left: 0 !important;
+    }
+</style>
 <!-- Auto Generated Below -->
 
 
