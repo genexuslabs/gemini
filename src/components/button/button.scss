@@ -42,6 +42,7 @@
     //if button has icon:
     ::slotted(img[slot=icon]) {
         width: var(--icon-size);
+        height: var(--icon-size);
         filter: invert(1);
         margin-right: var(--spacing-comp-01);
         display: inline-block;
