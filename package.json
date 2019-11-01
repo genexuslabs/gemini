@@ -17,7 +17,7 @@
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve --docs",
-    "test": "stencil test gi",
+    "test": "stencil test --e2e",
     "test.watch": "stencil test --e2e --watchAll",
     "generate": "stencil generate",
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
