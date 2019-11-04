@@ -1,7 +1,7 @@
 {
-  "name": "gx-geminis-ds",
+  "name": "@genexus/gemini",
   "version": "0.1.0",
-  "description": "Stencil Component Starter",
+  "description": "Gemini design system",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
@@ -9,7 +9,7 @@
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/gx-geminis-ds/gx-geminis-ds.js",
+  "unpkg": "dist/gemini/gemini.js",
   "files": [
     "dist/",
     "loader/"
