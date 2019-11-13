@@ -32,9 +32,9 @@ stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
 stories
   .add(
-    "Primary Text Only",
+    "Primary - Text",
     () => `
-        <gxg-button type="primary-text-only" disabled=${boolean(
+        <gxg-button type="primary" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}> ${text("Button Label", "Button")}</gxg-button>
@@ -46,9 +46,9 @@ stories
     }
   )
   .add(
-    "Primary Text Icon",
+    "Primary - Text / Icon",
     () => `
-        <gxg-button type="primary-text-icon" disabled=${boolean(
+        <gxg-button disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}><img slot="icon" src="${select(
@@ -64,9 +64,9 @@ stories
     }
   )
   .add(
-    "Primary Icon Only",
+    "Primary - Icon",
     () => `
-        <gxg-button type="primary-icon-only" disabled=${boolean(
+        <gxg-button type="icon-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}><img slot="icon" src="${select(
@@ -82,9 +82,9 @@ stories
     }
   )
   .add(
-    "Secondary Text Only",
+    "Secondary - Text",
     () => `
-        <gxg-button type="secondary-text-only" disabled=${boolean(
+        <gxg-button type="text-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}>${text("Button Label", "Button")}</gxg-button>
@@ -96,9 +96,9 @@ stories
     }
   )
   .add(
-    "Secondary Icon Only",
+    "Secondary - Icon",
     () => `
-        <gxg-button type="secondary-icon-only" disabled=${boolean(
+        <gxg-button type="icon-only-secondary" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}><img slot="icon" src="${select(

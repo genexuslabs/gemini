@@ -2,7 +2,7 @@
 TOKENS FOR SPACING COMPONENTS
 *********************************/
 /*This is the spacing for the components itself (inside the component)*/
-:host {
+:root {
   --spacing-comp-01: 4px;
   --spacing-comp-02: 8px;
   --spacing-comp-03: 12px;
@@ -16,7 +16,7 @@ TOKENS FOR SPACING COMPONENTS
 TOKENS FOR SPACING LAYOUT
 *********************************/
 /*This is the spacing for the layout/environment in which the components are embedded (outside the component)*/
-:host {
+:root {
   --spacing-lay-01: 8px;
   --spacing-lay-02: 16px;
   --spacing-lay-03: 24px;

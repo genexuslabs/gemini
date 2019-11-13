@@ -1,0 +1,22 @@
+/*********************************
+ICON
+*********************************/
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host(.svgIcon) {
+  margin-right: 0;
+  svg {
+    width: 100%;
+    height: 100%;
+    * {
+      fill: var(--button-icon-color);
+    }
+  }
+}
+:host(.svgIcon.svgIcon--black) {
+  svg {
+    * {
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "button.scss",
   shadow: true
 })
-export class MyComponent {
+export class Button {
   /**
    * The kind of button
    * Possible values: primary, secondary, text-only, icon-only
@@ -23,12 +23,14 @@ export class MyComponent {
       <Host
         class={{
           button: true,
-          "button--primary": this.type === "primary",
-          "button--outlined": this.type === "outlined",
-          "button--text-only": this.type === "text-only",
-          "button--icon-only": this.type === "icon-only",
+          "button--primary-text-only": this.type === "primary-text-only",
+          "button--primary-text-icon": this.type === "primary-text-icon",
+          "button--primary-icon-only": this.type === "primary-icon-only",
+          "button--secondary-text-only": this.type === "secondary-text-only",
+          "button--secondary-icon-only": this.type === "secondary-icon-only",
           "button--icon-only button--icon-only--secondary":
             this.type === "icon-only-secondary",
+          "button--outlined": this.type === "outlined",
           "button--disabled": this.disabled === true
         }}
       >
