@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Method } from "@stencil/core";
+import { Component, Prop, h, Host } from "@stencil/core";
 
 /*Icons (plugin needed for this --> https://www.npmjs.com/package/stencil-inline-svg)*/
 import add from "../../assets/icons/gxg-icon-add.svg";
