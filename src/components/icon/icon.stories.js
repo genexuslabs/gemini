@@ -15,8 +15,16 @@ KNOBS
 /*Icons Knob*/
 const label = "Icon";
 const options = {
-  Add: "./assets/icons/gxg-icon-add.svg",
-  ArrowDown: "./assets/icons/gxg-icon-arrow-down.svg"
+  Add: "add",
+  "Arrow Down": "arrowDown",
+  Close: "close",
+  "Color Picker": "colorPicker",
+  Duplicate: "duplicate",
+  Edit: "edit",
+  Magic: "magic",
+  More: "more",
+  Remove: "remove",
+  Triangle: "triangle"
 };
 const defaultValue = options.Add;
 
@@ -32,9 +40,9 @@ stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
 stories
   .add(
-    "Primary - Text",
+    "Primary Text Only",
     () => `
-        <gxg-button type="primary" disabled=${boolean(
+        <gxg-button type="primary-text-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}> ${text("Button Label", "Button")}</gxg-button>
@@ -46,16 +54,17 @@ stories
     }
   )
   .add(
-    "Primary - Text / Icon",
+    "Primary Text + Icon",
     () => `
-        <gxg-button disabled=${boolean(
+        <gxg-button type="primary-text-icon" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
-        )}><img slot="icon" src="${select(
+        )}><gxg-icon slot="icon" type="${select(
       label,
       options,
       defaultValue
-    )}">${text("Button Label", "Button")}</gxg-button>
+    )}"></gxg-icon
+        >${text("Button Label", "Button")}</gxg-button>
         `,
     {
       notes: {
@@ -64,16 +73,17 @@ stories
     }
   )
   .add(
-    "Primary - Icon",
+    "Primary Icon Only",
     () => `
-        <gxg-button type="icon-only" disabled=${boolean(
+        <gxg-button type="primary-icon-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
-        )}><img slot="icon" src="${select(
+        )}><gxg-icon slot="icon" type="${select(
       label,
       options,
       defaultValue
-    )}"></gxg-button>
+    )}"></gxg-icon
+            ></gxg-button>
         `,
     {
       notes: {
@@ -82,9 +92,9 @@ stories
     }
   )
   .add(
-    "Secondary - Text",
+    "Secondary Text Only",
     () => `
-        <gxg-button type="text-only" disabled=${boolean(
+        <gxg-button type="secondary-text-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
         )}>${text("Button Label", "Button")}</gxg-button>
@@ -96,16 +106,17 @@ stories
     }
   )
   .add(
-    "Secondary - Icon",
+    "Secondary Icon Only",
     () => `
-        <gxg-button type="icon-only-secondary" disabled=${boolean(
+        <gxg-button type="secondary-icon-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
-        )}><img slot="icon" src="${select(
+        )}><gxg-icon slot="icon" type="${select(
       label,
       options,
       defaultValue
-    )}"></gxg-button>
+    )}"></gxg-icon
+            ></gxg-button>
         `,
     {
       notes: {

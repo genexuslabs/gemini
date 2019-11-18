@@ -10,8 +10,8 @@ export class Button {
    * The kind of button
    * Possible values: primary, secondary, text-only, icon-only
    */
-
   @Prop() type = "primary";
+
   /**
    * The state of the button. Whether is disabled or not.
    * Possible values: false, true

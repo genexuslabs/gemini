@@ -64,7 +64,9 @@
   }
 
   //Transition
-  @include ui-animation(color, background, box-shadow);
+  transition: background $ui-animaton-speed $ui-animation-timing-function,
+    color $ui-animaton-speed $ui-animation-timing-function,
+    box-shadow $ui-animaton-speed $ui-animation-timing-function;
 }
 :host(.button.button--disabled) .button-native {
   background: var(--color-primary-disabled);
@@ -139,7 +141,7 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
   color: var(--color-primary-enabled);
 
   &:hover:not([disabled]) {
-    background: transparent;
+    background: rgba(var(--color-primary-hover-rgb), 0.1);
     color: var(--color-primary-hover);
   }
   &:focus:not([disabled]) {

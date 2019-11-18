@@ -50,6 +50,7 @@
     "puppeteer": "1.19.0",
     "stencil-inline-svg": "^1.0.1",
     "storybook-addon-themes": "^5.2.0",
+    "storybook-dark-mode": "^0.1.9",
     "write-file-webpack-plugin": "^4.5.1"
   },
   "license": "MIT",
