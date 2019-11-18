@@ -1,13 +1,5 @@
-# Button
+# gxg-icon
 
-<h2></h2>
-
-<style>
-    ol,ul {
-        list-style-type: none;
-        padding-left: 0 !important;
-    }
-</style>
 <!-- Auto Generated Below -->
 
 ## Properties

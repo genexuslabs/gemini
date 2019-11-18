@@ -6,6 +6,9 @@ ICON
 
 :host(.svgIcon) {
   margin-right: 0;
+  display: inline-block;
+  width: var(--spacing-comp-03);
+  height: var(--spacing-comp-03);
   svg {
     width: 100%;
     height: 100%;
@@ -14,6 +17,12 @@ ICON
     }
   }
 }
+:host(.svgIcon) .svg-icon-native {
+  line-height: 0;
+  width: 100%;
+  height: 100%;
+}
+
 :host(.svgIcon.svgIcon--black) {
   svg {
     * {

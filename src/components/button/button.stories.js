@@ -15,10 +15,18 @@ KNOBS
 /*Icons Knob*/
 const label = "Icon";
 const options = {
-  Add: "./assets/icons/gxg-icon-add.svg",
-  ArrowDown: "./assets/icons/gxg-icon-arrow-down.svg"
+  add: "add",
+  arrowDown: "arrowDown",
+  close: "close",
+  colorPicker: "colorPicker",
+  duplicate: "duplicate",
+  edit: "edit",
+  magic: "magic",
+  more: "more",
+  remove: "remove",
+  triangle: "triangle"
 };
-const defaultValue = options.Add;
+const defaultValue = options.add;
 
 /*Disabled Knob*/
 const labelDisabled = "Disabled";
@@ -51,11 +59,12 @@ stories
         <gxg-button type="primary-text-icon" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
-        )}><img slot="icon" src="${select(
+        )}><gxg-icon slot="icon" type="${select(
       label,
       options,
       defaultValue
-    )}">${text("Button Label", "Button")}</gxg-button>
+    )}"></gxg-icon
+        >${text("Button Label", "Button")}</gxg-button>
         `,
     {
       notes: {
@@ -69,11 +78,12 @@ stories
         <gxg-button type="primary-icon-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
-        )}><img slot="icon" src="${select(
+        )}><gxg-icon slot="icon" type="${select(
       label,
       options,
       defaultValue
-    )}"></gxg-button>
+    )}"></gxg-icon
+            ></gxg-button>
         `,
     {
       notes: {
@@ -101,11 +111,12 @@ stories
         <gxg-button type="secondary-icon-only" disabled=${boolean(
           labelDisabled,
           defaultValueDisabled
-        )}><img slot="icon" src="${select(
+        )}><gxg-icon slot="icon" type="${select(
       label,
       options,
       defaultValue
-    )}"></gxg-button>
+    )}"></gxg-icon
+            ></gxg-button>
         `,
     {
       notes: {
