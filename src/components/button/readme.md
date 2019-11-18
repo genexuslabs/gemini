@@ -14,7 +14,6 @@
             <li><code>outlined</code></li>
         </ul>
     </li>
-    
     <li>
         For the <em>icon</em> button types you have to pass an <em>icon component</em> as well, as part of the button content: 
         <code>&lt;gxg-icon slot=&quot;icon&quot; type=&quot;add&quot;&gt;&lt;/gxg-icon&gt;</code>. <em>gxg-icon</em> component expect the <em>type</em> property, which is the name of the icon. Note that gxg-icon has a <em>slot</em> property set to "icon". This property/value ensures that the icon will be positioned at the left side of the button label. To see the list of available icons check the <em>icon</em> component on the Storybook documentation (to be completed).
