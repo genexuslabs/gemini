@@ -6,6 +6,8 @@
 
 A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
 
+You can try the design system components [here](https://gx-gemini.netlify.com/).
+
 ## Getting Started
 
 ```bash
