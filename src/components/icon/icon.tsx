@@ -19,11 +19,15 @@ import triangle from "../../assets/icons/gxg-icon-triangle.svg";
 })
 export class Icon {
   /**
-   * The type of icon
-   * Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
+   * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
    * Example: the value for the "gxg-icon-add.svg" file is "add".
    */
   @Prop() type = "none";
+
+  /**
+   * The color of the icon. To see the
+   *
+   */
   @Prop() color: string;
 
   testAction() {
