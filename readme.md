@@ -44,6 +44,55 @@ npm run build
 - Put a script tag similar to this `<script src='node_modules/@genexus/gemini/dist/gx-gemini-ds.js'></script>` in the head of your index.html
 - Then you can start using the layout editor in your template, JSX, html etc
 
+## Using this design system with Stencil
+
+### Install Stencil
+
+- Install Stencil : `npm init stencil`
+- Choose “component”
+- Set a project name “project-name”
+- `cd project-name`
+- Install packages : `npm install`
+
+### Install Gemini Package
+
+- `npm install @genexus/gemini --save`
+- Install sass plugin : `npm install @stencil/sass --save-dev`
+- Go to `stencil.config.ts`, and import @stencil/sass, and add it as a plugin.
+- Add a globalStyle at `src/global/global.scss`
+
+`stencil.config.ts` should look like this:
+
+      import { Config } from "@stencil/core";
+      import { sass } from "@stencil/sass";
+
+      export const config: Config = {
+      namespace: "project-name",
+      outputTargets: [
+         {
+            type: "dist",
+            esmLoaderPath: "../loader"
+         },
+         {
+            type: "docs-readme"
+         },
+         {
+            type: "www",
+            serviceWorker: null // disable service workers
+         }
+      ],
+      globalStyle: "src/globals/global.scss",
+      plugins: [sass()]
+      };
+
+- Create `global.scss` at src/global
+- Include “gemini.css” import inside global.scss:
+  `@import "../../node_modules/@genexus/gemini/dist/gemini/gemini.css";`
+- Include “gemini” import on `src/index.ts`, on the first line : `import "@genexus/gemini";`
+- On index.html, where components are to be consumed, import the project stylesheet (which is importing gemini stylesheet with all the available tokens). The name of the stylesheet shall be the same as the project name:
+  `<link rel="stylesheet" href="/build/project-name.css" />`
+- Done! You can now consume Gemini custom components : `<gxg-button>Button</gxg-button>`
+
 ## Authors
 
 See the list of [contributors](https://github.com/genexuslabs/gemini/contributors) who participated in this project.

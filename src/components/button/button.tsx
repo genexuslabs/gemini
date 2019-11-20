@@ -8,9 +8,9 @@ import { Component, Prop, h, Host } from "@stencil/core";
 export class Button {
   /**
    * The kind of button
-   * Possible values: primary, secondary, text-only, icon-only
+   * Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
    */
-  @Prop() type = "primary";
+  @Prop() type = "primary-text-only";
 
   /**
    * The state of the button. Whether is disabled or not.
