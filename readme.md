@@ -87,7 +87,7 @@ export const config: Config = {
 `@import "../../node_modules/@genexus/gemini/dist/gemini/gemini.css";`
 
 7. Add an import to Gemini's JavaScript file inside `src/index.ts`: `import "@genexus/gemini";`
-8. After defining a globalStyle in point 4, you must edit, your component's library will output a CSS file. You must include this CSS file in your `src/index.html` file. The name of the stylesheet will be the same as the project name:
+8. After defining a globalStyle in point 4, your components library will output a CSS file. You must include this CSS file in your `src/index.html` file. The name of the stylesheet will be the same as the project name:
    `<link rel="stylesheet" href="/build/project-name.css" />`
 9. Done! You can now consume Gemini's web components and use its CSS variables: `<gxg-button>Button</gxg-button>`
 
