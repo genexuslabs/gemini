@@ -35,63 +35,61 @@ npm run build
 
 ### Script tag
 
-- Put a script tag similar to this `<script src='https://unpkg.com/@genexus/gemini/dist/gx-gemini-ds.js'></script>` in the head of your index.html
-- Then you can start using the layout editor in your template, JSX, html etc
+- Put a script tag similar to this `<script src='https://unpkg.com/@genexus/gemini/dist/gemini.js'></script>` in the head of your index.html
+- Put a link tag similar to this `<link href="https://unpkg.com/@genexus/gemini/dist/gemini/gemini.css" rel="stylesheet" />` in the head of your index.html
+- Then you can start using the layout editor in your template, JSX, html etc.
 
 ### Node Modules
 
 - Run `npm install @genexus/gemini --save`
-- Put a script tag similar to this `<script src='node_modules/@genexus/gemini/dist/gx-gemini-ds.js'></script>` in the head of your index.html
-- Then you can start using the layout editor in your template, JSX, html etc
+- Put a script tag similar to this `<script src='node_modules/@genexus/gemini/dist/gemini.js'></script>` in the head of your index.html
+- Put a link tag similar to this `<link href="node_modules/@genexus/gemini/dist/gemini/gemini.css" rel="stylesheet" />` in the head of your index.html
+- Then you can start using the layout editor in your template, JSX, html etc.
 
 ## Using this design system with Stencil
 
-### Install Stencil
+### Install Gemini
 
-- Install Stencil : `npm init stencil`
-- Choose “component”
-- Set a project name “project-name”
-- `cd project-name`
-- Install packages : `npm install`
+1. `npm install @genexus/gemini --save`
+2. Install the SASS plugin for Stencil: `npm install @stencil/sass --save-dev`
+3. Edit `stencil.config.ts` as explained [here](https://github.com/ionic-team/stencil-sass).
+4. Also, add `globalStyle` in `stencil.config.ts` pointing to `src/global/global.scss`
 
-### Install Gemini Package
+The `stencil.config.ts` file should look something like this:
 
-- `npm install @genexus/gemini --save`
-- Install sass plugin : `npm install @stencil/sass --save-dev`
-- Go to `stencil.config.ts`, and import @stencil/sass, and add it as a plugin.
-- Add a globalStyle at `src/global/global.scss`
+```
+import { Config } from "@stencil/core";
+import { sass } from "@stencil/sass";
 
-`stencil.config.ts` should look like this:
+export const config: Config = {
+   namespace: "project-name",
+   outputTargets: [
+      {
+         type: "dist",
+         esmLoaderPath: "../loader"
+      },
+      {
+         type: "docs-readme"
+      },
+      {
+         type: "www",
+         serviceWorker: null
+      }
+   ],
+   globalStyle: "src/globals/global.scss",
+   plugins: [sass()]
+};
+```
 
-      import { Config } from "@stencil/core";
-      import { sass } from "@stencil/sass";
+5. Create the `global.scss` file under `src/global`.
+6. Add an import to Gemini's stylesheet inside `global.scss`:
 
-      export const config: Config = {
-      namespace: "project-name",
-      outputTargets: [
-         {
-            type: "dist",
-            esmLoaderPath: "../loader"
-         },
-         {
-            type: "docs-readme"
-         },
-         {
-            type: "www",
-            serviceWorker: null // disable service workers
-         }
-      ],
-      globalStyle: "src/globals/global.scss",
-      plugins: [sass()]
-      };
+`@import "../../node_modules/@genexus/gemini/dist/gemini/gemini.css";`
 
-- Create `global.scss` at src/global
-- Include “gemini.css” import inside global.scss:
-  `@import "../../node_modules/@genexus/gemini/dist/gemini/gemini.css";`
-- Include “gemini” import on `src/index.ts`, on the first line : `import "@genexus/gemini";`
-- On index.html, where components are to be consumed, import the project stylesheet (which is importing gemini stylesheet with all the available tokens). The name of the stylesheet shall be the same as the project name:
-  `<link rel="stylesheet" href="/build/project-name.css" />`
-- Done! You can now consume Gemini custom components : `<gxg-button>Button</gxg-button>`
+7. Add an import to Gemini's JavaScript file inside `src/index.ts`: `import "@genexus/gemini";`
+8. After defining a globalStyle in point 4, your components library will output a CSS file. You must include this CSS file in your `src/index.html` file. The name of the stylesheet will be the same as the project name:
+   `<link rel="stylesheet" href="/build/project-name.css" />`
+9. Done! You can now consume Gemini's web components and use its CSS variables: `<gxg-button>Button</gxg-button>`
 
 ## Authors
 
