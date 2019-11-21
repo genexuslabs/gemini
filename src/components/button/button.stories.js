@@ -16,15 +16,7 @@ KNOBS
 const label = "Icon";
 const options = {
   add: "add",
-  arrowDown: "arrowDown",
-  close: "close",
-  colorPicker: "colorPicker",
-  duplicate: "duplicate",
-  edit: "edit",
-  magic: "magic",
-  more: "more",
-  remove: "remove",
-  triangle: "triangle"
+  addSmall: "arrowDown"
 };
 const defaultValue = options.add;
 

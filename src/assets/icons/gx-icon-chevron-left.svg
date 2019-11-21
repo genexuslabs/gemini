@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Chevron Left</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Chevron-Left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Chevron-Up" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) translate(5.000000, 8.000000)" fill="#111111">
+            <polygon id="Arrow" transform="translate(7.265165, 4.000000) rotate(-270.000000) translate(-7.265165, -4.000000) " points="8.93933983 4 3.46966991 9.46966991 4.53033009 10.5303301 11.0606602 4 4.53033009 -2.53033009 3.46966991 -1.46966991"></polygon>
+        </g>
+    </g>
+</svg>

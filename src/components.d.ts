@@ -20,9 +20,13 @@ export namespace Components {
   }
   interface GxgIcon {
     /**
-     * The color of the icon
+     * The color of the icon. To see the
      */
     color: string;
+    /**
+     * The size of the icon. Possible values: regular, small.
+     */
+    size: string;
     /**
      * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */
@@ -63,9 +67,13 @@ declare namespace LocalJSX {
   }
   interface GxgIcon {
     /**
-     * The color of the icon
+     * The color of the icon. To see the
      */
     color?: string;
+    /**
+     * The size of the icon. Possible values: regular, small.
+     */
+    size?: string;
     /**
      * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */

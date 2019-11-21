@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Color Picker Small</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Color-Picker-Small" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(11.630435, 11.958334) rotate(-315.000000) translate(-11.630435, -11.958334) translate(8.000000, 5.000000)">
+            <rect id="Rectangle" stroke="#000000" x="2.3152175" y="0.5" width="2.630435" height="12.9166675" rx="1.3152175"></rect>
+            <rect id="Rectangle" fill="#000000" x="1.8152175" y="0" width="3.630435" height="6.050725"></rect>
+            <path d="M3.62866233,2.29206663 C4.1299208,2.29206663 4.53627108,2.69841691 4.53627108,3.19967538 L4.53627108,8.04025538 C4.53627108,8.54151385 4.1299208,8.94786413 3.62866233,8.94786413 C3.12740386,8.94786413 2.72105358,8.54151385 2.72105358,8.04025538 L2.72105358,3.19967538 C2.72105358,2.69841691 3.12740386,2.29206663 3.62866233,2.29206663 Z" id="Rectangle" fill="#000000" transform="translate(3.628662, 5.619965) rotate(-90.000000) translate(-3.628662, -5.619965) "></path>
+        </g>
+    </g>
+</svg>
