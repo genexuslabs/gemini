@@ -8,26 +8,6 @@ import {
   select
 } from "@storybook/addon-knobs";
 
-/*************
-KNOBS
-*************/
-
-/*Icons Knob*/
-const label = "Icon";
-const options = {
-  add: "add",
-  arrowDown: "arrowDown",
-  close: "close",
-  colorPicker: "colorPicker",
-  duplicate: "duplicate",
-  edit: "edit",
-  magic: "magic",
-  more: "more",
-  remove: "remove",
-  triangle: "triangle"
-};
-const defaultValue = options.add;
-
 /*Disabled Knob*/
 const labelDisabled = "Disabled";
 const defaultValueDisabled = false;
@@ -35,7 +15,18 @@ const defaultValueDisabled = false;
 /*************
 STORIES
 *************/
+
+const arrayIcons = ["add", "chevronDown", "chevronLeft"];
+
 function iconsSet(size) {
+  // const returnIcons = ``;
+  // arrayIcons.forEach();
+
+  // function addIcon() {
+  //   sum += item;
+  //   document.getElementById("demo").innerHTML = sum;
+  // }
+
   return `
   <gxg-icon size="${size}" slot="icon" type="add"></gxg-icon>
   <gxg-icon size="${size}" slot="icon" type="chevronDown"></gxg-icon>
