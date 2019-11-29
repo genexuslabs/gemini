@@ -13,7 +13,7 @@ ICON
     width: 100%;
     height: 100%;
     * {
-      fill: var(--button-icon-color);
+      fill: var(--icon-color, var(--icon-color-default));
     }
   }
 }

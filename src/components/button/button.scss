@@ -90,7 +90,9 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-icon) .button-native {
   //Redefine icon color for this button type
-  --button-icon-color: var(--color-on-primary);
+  ::slotted([slot="icon"]) {
+    --icon-color: var(--color-on-primary);
+  }
 }
 
 /*********************************
@@ -118,7 +120,9 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 
   ::slotted([slot="icon"]) {
     margin-right: 0;
+    --icon-color: var(--color-on-primary);
   }
+
   padding-right: 0;
   padding-left: 0;
 

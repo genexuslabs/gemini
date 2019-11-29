@@ -16,7 +16,28 @@ KNOBS
 const label = "Icon";
 const options = {
   add: "add",
-  addSmall: "arrowDown"
+  chevronDown: "chevronDown",
+  chevronLeft: "chevronLeft",
+  chevronRight: "chevronRight",
+  chevronUp: "chevronUp",
+  chevronDown: "chevronDown",
+  chevronClose: "chevronClose",
+  chevronColorPicker: "chevronColorPicker",
+  deleted: "deleted",
+  down: "down",
+  drag: "drag",
+  duplicate: "duplicate",
+  edit: "edit",
+  editWand: "editWand",
+  error: "error",
+  levelUp: "levelUp",
+  moreInfo: "moreInfo",
+  search: "search",
+  settings: "settings",
+  showMore: "showMore",
+  success: "success",
+  up: "up",
+  warning: "warning"
 };
 const defaultValue = options.add;
 

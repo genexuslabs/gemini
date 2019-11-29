@@ -5,39 +5,41 @@
  * It contains typing information for all components that exist in this project.
  */
 
-import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
+
 
 export namespace Components {
   interface GxgButton {
     /**
-     * The state of the button. Whether is disabled or not. Possible values: false, true
-     */
-    disabled: boolean;
+    * The state of the button. Whether is disabled or not. Possible values: false, true
+    */
+    'disabled': boolean;
     /**
-     * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
-     */
-    type: string;
+    * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
+    */
+    'type': string;
   }
   interface GxgIcon {
     /**
-     * The color of the icon. To see the
-     */
-    color: string;
+    * The color of the icon. To see the
+    */
+    'color': string;
     /**
-     * The size of the icon. Possible values: regular, small.
-     */
-    size: string;
+    * The size of the icon. Possible values: regular, small.
+    */
+    'size': string;
     /**
-     * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
-     */
-    type: string;
+    * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
+    */
+    'type': string;
   }
 }
 
 declare global {
-  interface HTMLGxgButtonElement
-    extends Components.GxgButton,
-      HTMLStencilElement {}
+
+
+  interface HTMLGxgButtonElement extends Components.GxgButton, HTMLStencilElement {}
   var HTMLGxgButtonElement: {
     prototype: HTMLGxgButtonElement;
     new (): HTMLGxgButtonElement;
@@ -49,51 +51,53 @@ declare global {
     new (): HTMLGxgIconElement;
   };
   interface HTMLElementTagNameMap {
-    "gxg-button": HTMLGxgButtonElement;
-    "gxg-icon": HTMLGxgIconElement;
+    'gxg-button': HTMLGxgButtonElement;
+    'gxg-icon': HTMLGxgIconElement;
   }
 }
 
 declare namespace LocalJSX {
   interface GxgButton {
     /**
-     * The state of the button. Whether is disabled or not. Possible values: false, true
-     */
-    disabled?: boolean;
+    * The state of the button. Whether is disabled or not. Possible values: false, true
+    */
+    'disabled'?: boolean;
     /**
-     * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
-     */
-    type?: string;
+    * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
+    */
+    'type'?: string;
   }
   interface GxgIcon {
     /**
-     * The color of the icon. To see the
-     */
-    color?: string;
+    * The color of the icon. To see the
+    */
+    'color'?: string;
     /**
-     * The size of the icon. Possible values: regular, small.
-     */
-    size?: string;
+    * The size of the icon. Possible values: regular, small.
+    */
+    'size'?: string;
     /**
-     * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
-     */
-    type?: string;
+    * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
+    */
+    'type'?: string;
   }
 
   interface IntrinsicElements {
-    "gxg-button": GxgButton;
-    "gxg-icon": GxgIcon;
+    'gxg-button': GxgButton;
+    'gxg-icon': GxgIcon;
   }
 }
 
 export { LocalJSX as JSX };
 
+
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      "gxg-button": LocalJSX.GxgButton &
-        JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
-      "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      'gxg-button': LocalJSX.GxgButton & JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
+      'gxg-icon': LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
     }
   }
 }
+
+

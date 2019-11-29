@@ -19,6 +19,9 @@
         font-family: arial;
         color: var(--color-text);
       }
+      p {
+        margin-bottom: 10px;
+      }
     </style>
   </head>
   <body>
@@ -32,13 +35,28 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
+    <h2>Icon Module</h2>
+    <p>regular size</p>
     <gxg-icon slot="icon" type="add"></gxg-icon>
+    <gxg-icon slot="icon" type="add" color="warning"></gxg-icon>
+    <gxg-icon slot="icon" type="add" color="success"></gxg-icon>
+    <gxg-icon slot="icon" type="add" color="error"></gxg-icon>
 
+    <p>small size</p>
+    <gxg-icon size="small" slot="icon" type="add"></gxg-icon>
+    <gxg-icon size="small" type="add" color="warning"></gxg-icon>
+    <gxg-icon size="small" type="add" color="success"></gxg-icon>
+    <gxg-icon size="small" type="add" color="error"></gxg-icon>
+
+    <h2>Button Module</h2>
+
+    <p>Primary text only</p>
     <!-- PRIMARY TEXT ONLY -->
     <gxg-button type="primary-text-only">Primary Text Only</gxg-button> <br />
     <gxg-button type="primary-text-only" disabled>Primary Text Only</gxg-button>
     <br />
 
+    <p>Primary text + Icon</p>
     <!--PRIMARY TEXT + ICON-->
     <gxg-button type="primary-text-icon">
       Primary Text Icon<gxg-icon slot="icon" type="add"></gxg-icon
@@ -49,42 +67,17 @@
     >
     <br />
 
+    <p>Primary Icon Only</p>
     <!--PRIMARY ICON ONLY-->
     <gxg-button type="primary-icon-only"
       ><gxg-icon slot="icon" type="add"></gxg-icon
     ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="arrowDown"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="close"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="colorPicker"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="duplicate"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="edit"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="magic"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="more"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="remove"></gxg-icon
-    ></gxg-button>
-    <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="triangle"></gxg-icon
-    ></gxg-button>
-    <br />
+
     <gxg-button type="primary-icon-only" disabled
       ><gxg-icon slot="icon" type="add"></gxg-icon></gxg-button
     ><br />
 
+    <p>Secondary Text Only</p>
     <!--SECONDARY TEXT ONLY-->
     <gxg-button type="secondary-text-only">Secondary text only</gxg-button>
     <br />
@@ -94,13 +87,15 @@
     <br />
 
     <!--SECONDARY ICON ONLY-->
+    <p>Secondary Icon Only</p>
     <gxg-button type="secondary-icon-only"
-      ><gxg-icon slot="icon" type="add" color=""></gxg-icon></gxg-button
+      ><gxg-icon slot="icon" type="add"></gxg-icon></gxg-button
     ><br />
     <gxg-button type="secondary-icon-only" disabled
       ><gxg-icon slot="icon" type="add"></gxg-icon></gxg-button
     ><br />
 
+    <p>Outlined</p>
     <gxg-button type="outlined">Outlined</gxg-button> <br />
 
     <gxg-button type="outlined" disabled>Outlined Disabled</gxg-button> <br />

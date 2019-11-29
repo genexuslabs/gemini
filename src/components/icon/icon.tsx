@@ -46,6 +46,61 @@ import upSmall from "../../assets/icons/gx-icon-up-small.svg";
 import warning from "../../assets/icons/gx-icon-warning.svg";
 import warningSmall from "../../assets/icons/gx-icon-warning-small.svg";
 
+const DEFAULT_COLOR = "onbackground";
+
+const COLOR_MAPPINGS = {
+  onbackground: "color-on-background",
+  error: "color-error-dark",
+  warning: "color-warning-dark",
+  success: "color-success-dark"
+};
+
+const ICONS_MAPPINGS = {
+  add,
+  addSmall,
+  chevronDown,
+  chevronDownSmall,
+  chevronLeft,
+  chevronLeftSmall,
+  chevronRight,
+  chevronRightSmall,
+  chevronUp,
+  chevronUpSmall,
+  chevronClose,
+  chevronCloseSmall,
+  chevronColorPicker,
+  chevronColorPickerSmall,
+  deleted,
+  deletedSmall,
+  down,
+  downSmall,
+  drag,
+  dragSmall,
+  duplicate,
+  duplicateSmall,
+  edit,
+  editSmall,
+  editWand,
+  editWandSmall,
+  error,
+  errorSmall,
+  levelUp,
+  levelUpSmall,
+  moreInfo,
+  moreInfoSmall,
+  search,
+  searchSmall,
+  settings,
+  settingsSmall,
+  showMore,
+  showMoreSmall,
+  success,
+  successSmall,
+  up,
+  upSmall,
+  warning,
+  warningSmall
+};
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
@@ -74,52 +129,7 @@ export class Icon {
   }
 
   render() {
-    const icons = {
-      add,
-      addSmall,
-      chevronDown,
-      chevronDownSmall,
-      chevronLeft,
-      chevronLeftSmall,
-      chevronRight,
-      chevronRightSmall,
-      chevronUp,
-      chevronUpSmall,
-      chevronClose,
-      chevronCloseSmall,
-      chevronColorPicker,
-      chevronColorPickerSmall,
-      deleted,
-      deletedSmall,
-      down,
-      downSmall,
-      drag,
-      dragSmall,
-      duplicate,
-      duplicateSmall,
-      edit,
-      editSmall,
-      editWand,
-      editWandSmall,
-      error,
-      errorSmall,
-      levelUp,
-      levelUpSmall,
-      moreInfo,
-      moreInfoSmall,
-      search,
-      searchSmall,
-      settings,
-      settingsSmall,
-      showMore,
-      showMoreSmall,
-      success,
-      successSmall,
-      up,
-      upSmall,
-      warning,
-      warningSmall
-    };
+    const icons = ICONS_MAPPINGS;
     return (
       <Host
         class={{
@@ -129,11 +139,25 @@ export class Icon {
       >
         <div
           class="svg-icon-native"
+          style={{
+            "--icon-color": this.mapColorToCssVar(COLOR_MAPPINGS[this.color]),
+            "--icon-color-default": this.mapColorToCssVar(
+              COLOR_MAPPINGS[DEFAULT_COLOR]
+            )
+          }}
           innerHTML={
             this.size == "small" ? icons[this.type + "Small"] : icons[this.type]
           }
         />
       </Host>
     );
+  }
+
+  private mapColorToCssVar(color): string {
+    if (color) {
+      return `var(--${color})`;
+    }
+
+    return null;
   }
 }
