@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
-    <title>Color Picker</title>
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>gx-icon-color-picker</title>
     <desc>Created with Sketch.</desc>
-    <g id="Color-Picker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-2" transform="translate(11.673913, 11.958333) rotate(-315.000000) translate(-11.673913, -11.958333) translate(7.000000, 3.000000)">
-            <rect id="Rectangle" stroke="#000000" x="2.8369565" y="0.5" width="3.673913" height="16.9166665" rx="1.8369565"></rect>
-            <rect id="Rectangle" fill="#000000" x="2.3369565" y="0" width="4.673913" height="7.789855"></rect>
-            <path d="M4.67163082,2.95086402 C5.31696353,2.95086402 5.84010907,3.47400955 5.84010907,4.11934227 L5.84010907,10.3512263 C5.84010907,10.996559 5.31696353,11.5197045 4.67163082,11.5197045 C4.0262981,11.5197045 3.50315257,10.996559 3.50315257,10.3512263 L3.50315257,4.11934227 C3.50315257,3.47400955 4.0262981,2.95086402 4.67163082,2.95086402 Z" id="Rectangle" fill="#000000" transform="translate(4.671631, 7.235284) rotate(-90.000000) translate(-4.671631, -7.235284) "></path>
-        </g>
+    <g id="gx-icon-color-picker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14.336,14.999 L14.3369565,15.8315218 C14.3369565,16.4768545 13.813811,17 13.1684782,17 C12.5231455,17 12,16.4768545 12,15.8315218 L11.999,14.999 L5.5,15 C4.11928813,15 3,13.8807119 3,12.5 C3,11.1192881 4.11928813,10 5.5,10 L11.999,9.999 L12,9.16847825 C12,8.52314553 12.5231455,8 13.1684782,8 C13.813811,8 14.3369565,8.52314553 14.3369565,9.16847825 L14.336,9.999 L18.5,10 C19.8807119,10 21,11.1192881 21,12.5 C21,13.8807119 19.8807119,15 18.5,15 L14.336,14.999 Z M11.999,10.999 L5.5,11 C4.67157288,11 4,11.6715729 4,12.5 C4,13.2796961 4.59488808,13.9204487 5.35553999,13.9931334 L5.5,14 L11.999,13.999 L11.999,10.999 Z" id="Combined-Shape" fill="#000000" transform="translate(12.000000, 12.500000) rotate(-45.000000) translate(-12.000000, -12.500000) "></path>
     </g>
 </svg>
