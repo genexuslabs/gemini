@@ -165,6 +165,64 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 }
 
 /*********************************
+SECONDARY 'TEXT ICON' BUTTON TYPE
+*********************************/
+
+:host(.button--secondary-text-icon) .button-native {
+  // This are the styles for 'secondary button' type.
+
+  //Enabled
+  background: transparent;
+  color: var(--color-primary-enabled);
+
+  //Redefine icon color for this button type
+  ::slotted([slot="icon"]) {
+    --icon-color: var(--color-primary-enabled);
+  }
+
+  &:hover:not([disabled]) {
+    background: rgba(var(--color-primary-hover-rgb), 0.1);
+    color: var(--color-primary-hover);
+
+    ::slotted([slot="icon"]) {
+      --icon-color: var(--color-primary-hover);
+    }
+  }
+  &:focus:not([disabled]) {
+    background: transparent;
+    color: var(--color-primary-enabled);
+
+    ::slotted([slot="icon"]) {
+      --icon-color: var(--color-primary-enabled);
+    }
+  }
+  &:active:not([disabled]) {
+    color: var(--color-primary-active);
+    box-shadow: none;
+
+    ::slotted([slot="icon"]) {
+      --icon-color: var(--color-primary-enabled);
+    }
+  }
+
+  padding-right: var(--spacing-comp-02);
+  padding-left: var(--spacing-comp-02);
+
+  &:focus {
+    outline: none;
+  }
+}
+:host(.button--secondary-text-icon.button--disabled) .button-native {
+  //Redefine icon color for this button type
+  ::slotted([slot="icon"]) {
+    --icon-color: var(--color-primary-disabled);
+  }
+
+  background: transparent;
+  color: var(--color-primary-disabled);
+}
+
+/*********************************
 'SECONDARY ICON ONLY' BUTTON TYPE
 *********************************/
 :host(.button--secondary-icon-only) .button-native {

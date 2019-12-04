@@ -119,6 +119,25 @@ stories
     }
   )
   .add(
+    "Secondary Text Icon",
+    () => `
+        <gxg-button type="secondary-text-icon" disabled=${boolean(
+          labelDisabled,
+          defaultValueDisabled
+        )}><gxg-icon slot="icon" type="${select(
+      label,
+      options,
+      defaultValue
+    )}"></gxg-icon
+                >${text("Button Label", "Button")}</gxg-button>
+        `,
+    {
+      notes: {
+        markdown: readme
+      }
+    }
+  )
+  .add(
     "Secondary Icon Only",
     () => `
         <gxg-button type="secondary-icon-only" disabled=${boolean(

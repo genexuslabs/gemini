@@ -27,6 +27,7 @@ export class Button {
           "button--primary-text-icon": this.type === "primary-text-icon",
           "button--primary-icon-only": this.type === "primary-icon-only",
           "button--secondary-text-only": this.type === "secondary-text-only",
+          "button--secondary-text-icon": this.type === "secondary-text-icon",
           "button--secondary-icon-only": this.type === "secondary-icon-only",
           "button--icon-only button--icon-only--secondary":
             this.type === "icon-only-secondary",
