@@ -53,7 +53,7 @@ npm run build
 1. `npm install @genexus/gemini --save`
 2. Install the SASS plugin for Stencil: `npm install @stencil/sass --save-dev`
 3. Edit `stencil.config.ts` as explained [here](https://github.com/ionic-team/stencil-sass).
-4. Also, add `globalStyle` in `stencil.config.ts` pointing to `src/global/global.scss`
+4. Also, add `globalStyle` in `stencil.config.ts` pointing to `src/globals/global.scss`
 
 The `stencil.config.ts` file should look something like this:
 
@@ -81,7 +81,7 @@ export const config: Config = {
 };
 ```
 
-5. Create the `global.scss` file under `src/global`.
+5. Create the `global.scss` file under `src/globals`.
 6. Add an import to Gemini's stylesheet inside `global.scss`:
 
 `@import "../../node_modules/@genexus/gemini/dist/gemini/gemini.css";`
