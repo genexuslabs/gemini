@@ -35,7 +35,10 @@ export class Button {
           "button--disabled": this.disabled === true
         }}
       >
-        <button class="button-native" disabled={this.disabled === true}>
+        <button
+          class="button-native gxg-text-general"
+          disabled={this.disabled === true}
+        >
           <slot name="icon" />
           <slot />
         </button>

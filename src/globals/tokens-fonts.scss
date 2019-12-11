@@ -15,6 +15,7 @@ TOKENS FOR FONTS
   --font-weight-bold: 700;
 
   /*font sizes*/
+  --font-size-xs: 9px;
   --font-size-sm: 10px;
   --font-size-md: 11px;
 
@@ -25,5 +26,216 @@ TOKENS FOR FONTS
   --line-height-regular: normal;
 
   /*font letter spacings*/
-  --letter-spacing-regular: normal;
+  --letter-spacing-xs: 0.2px;
+  --letter-spacing-sm: 0.25px;
+  --letter-spacing-md: 0.3px;
+  --letter-spacing-lg: 0.6px;
+}
+
+/*********************************
+TITLES STYLES
+*********************************/
+/*Title 01*/
+@mixin gxg-heading-title-01 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-md);
+  color: var(--color-on-background);
+  text-align: left;
+}
+@mixin gxg-heading-title-01--negative {
+  color: var(--color-on-primary);
+}
+.gxg-heading-title-01 {
+  @include gxg-heading-title-01;
+  &--negative {
+    @include gxg-heading-title-01--negative;
+  }
+}
+
+/*Title 02*/
+@mixin gxg-heading-title-02 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-sm);
+  color: var(--color-on-background);
+  text-align: left;
+  text-transform: uppercase;
+}
+@mixin gxg-heading-title-02--negative {
+  color: var(--color-on-primary);
+}
+.gxg-heading-title-02 {
+  @include gxg-heading-title-02;
+  &--negative {
+    @include gxg-heading-title-02--negative;
+  }
+}
+
+/*Title 03*/
+@mixin gxg-heading-title-03 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-sm);
+  color: var(--color-on-background);
+  text-align: left;
+  text-transform: uppercase;
+}
+@mixin gxg-heading-title-03--negative {
+  color: var(--color-on-primary);
+}
+.gxg-heading-title-03 {
+  @include gxg-heading-title-03;
+  &--negative {
+    @include gxg-heading-title-03--negative;
+  }
+}
+
+/*Text General*/
+@mixin gxg-text-general {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-on-background);
+  text-align: left;
+}
+@mixin gxg-text-general--negative {
+  color: var(--color-on-primary);
+}
+@mixin gxg-text-general--gray {
+  color: var(--gray-04);
+}
+.gxg-text-general {
+  @include gxg-text-general;
+  &--negative {
+    @include gxg-text-general--negative;
+  }
+  &--gray {
+    @include gxg-text-general--gray;
+  }
+}
+
+/*Text Link*/
+@mixin gxg-text-link {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-primary);
+  text-align: left;
+  text-decoration: underline;
+}
+@mixin gxg-text-link--hover {
+  color: var(--color-primary-hover);
+}
+@mixin gxg-text-link--active {
+  color: var(--color-primary-active);
+}
+
+.gxg-text-link {
+  @include gxg-text-link;
+
+  &:hover {
+    @include gxg-text-link--hover;
+  }
+  &:active {
+    @include gxg-text-link--active;
+  }
+}
+
+/*Text Quote*/
+@mixin gxg-text-quote {
+  font-family: var(--font-family-primary);
+  font-style: italic;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-on-background);
+  text-align: left;
+}
+@mixin gxg-text-quote--negative {
+  color: var(--color-on-primary);
+}
+.gxg-text-quote {
+  @include gxg-text-quote;
+  &--negative {
+    @include gxg-text-quote--negative;
+  }
+}
+
+/*Tab*/
+@mixin gxg-tab {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-lg);
+  color: var(--color-on-background);
+  text-align: center;
+  text-transform: uppercase;
+}
+@mixin gxg-tab--active {
+  font-weight: var(--font-weight-bold);
+}
+@mixin gxg-tab--disabled {
+  color: var(--color-primary-disabled);
+  pointer-events: none;
+}
+
+.gxg-tab {
+  @include gxg-tab;
+  &--active {
+    @include gxg-tab--active;
+  }
+  &--disabled {
+    @include gxg-tab--disabled;
+  }
+}
+
+/*Label*/
+@mixin gxg-label {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-primary-enabled);
+  text-align: center;
+}
+@mixin gxg-label--disabled {
+  color: var(--color-primary-disabled);
+  pointer-events: none;
+}
+@mixin gxg-label--hover {
+  color: var(--color-primary-hover);
+}
+@mixin gxg-label--active {
+  color: var(--color-primary-active);
+}
+@mixin gxg-label--negative {
+  color: var(--color-on-primary);
+}
+@mixin gxg-label--negative-disabled {
+  color: var(--color-on-disabled);
+}
+.gxg-label {
+  @include gxg-label;
+
+  &--disabled {
+    @include gxg-label--disabled;
+  }
+  &:not(.gxg-label--negative):not(.gxg-label--negative-disabled):hover {
+    @include gxg-label--hover;
+  }
+  &:not(.gxg-label--negative):not(.gxg-label--negative-disabled):active {
+    @include gxg-label--active;
+  }
+  &--negative {
+    @include gxg-label--negative;
+  }
+  &--negative-disabled {
+    @include gxg-label--negative-disabled;
+  }
 }

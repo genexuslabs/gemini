@@ -35,6 +35,111 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
+    <h2>Typography</h2>
+    <!-- Quote -->
+    <q class="gxg-text-quote">Text/Quote/Positive</q><br /><br />
+    <div
+      style="background: var(--color-primary-active); display: inline-block; padding: 10px 15px;"
+    >
+      <q class="gxg-text-quote gxg-text-quote--negative">Text/Quote/Negative</q>
+    </div>
+    <br /><br />
+
+    <!-- Tab/Enabled -->
+    <div style="width: 100px;">
+      <p class="gxg-tab">tab</p>
+    </div>
+    <!-- Tab/Active -->
+    <div style="width: 100px;">
+      <p class="gxg-tab gxg-tab--active">tab/active</p>
+    </div>
+    <!-- Tab/Disabled -->
+    <div style="width: 100px;">
+      <p class="gxg-tab gxg-tab--disabled" disabled>tab/disabled</p>
+    </div>
+    <br /><br />
+
+    <!-- Label-->
+    <div style="width: 200px;">
+      <span class="gxg-label">Label</span>
+    </div>
+    <!-- Label/Disabled -->
+    <div style="width: 200px;">
+      <span class="gxg-label gxg-label--disabled" disabled>Label/Disabled</span>
+    </div>
+    <br /><br />
+
+    <!-- Label Negative-->
+    <div style="width: 200px;">
+      <div
+        style="background: var(--color-primary-active); display: inline-block; padding: 10px 15px;"
+      >
+        <span class="gxg-label gxg-label--negative">Label/Negative</span>
+      </div>
+      <div
+        style="background: var(--color-primary-disabled); display: inline-block; padding: 10px 15px;"
+      >
+        <span class="gxg-label gxg-label--negative-disabled"
+          >Label/Negative/Disabled</span
+        >
+      </div>
+    </div>
+    <!-- Label/Disabled -->
+    <div style="width: 200px;">
+      <span class="gxg-label gxg-label--negative gxg-label--disabled" disabled
+        >Label/Negative/Disabled</span
+      >
+    </div>
+    <br /><br />
+
+    <!-- Title 01 -->
+    <h1 class="gxg-heading-title-01">Heading title 01</h1>
+    <div
+      style="background: var(--color-primary-active); display: inline-block; padding: 0 15px;"
+    >
+      <h1 class="gxg-heading-title-01 gxg-heading-title-01--negative">
+        Heading title 01 negative
+      </h1>
+    </div>
+    <br /><br />
+
+    <!-- Title 02 -->
+    <h2 class="gxg-heading-title-02">Heading title 02</h2>
+    <div
+      style="background: var(--color-primary-active); display: inline-block; padding: 0 15px;"
+    >
+      <h2 class="gxg-heading-title-02 gxg-heading-title-02--negative">
+        Heading title 02 negative
+      </h2>
+    </div>
+    <br /><br />
+
+    <!-- Title 03 -->
+    <h3 class="gxg-heading-title-03">Heading title 03</h3>
+    <div
+      style="background: var(--color-primary-active); display: inline-block; padding: 0 15px;"
+    >
+      <h3 class="gxg-heading-title-03 gxg-heading-title-03--negative">
+        Heading title 03 negative
+      </h3>
+    </div>
+    <br /><br />
+
+    <!-- Text General -->
+    <p class="gxg-text-general">Text General</p>
+    <div
+      style="background: var(--color-primary-active); display: inline-block; padding: 0 15px;"
+    >
+      <p class="gxg-text-general gxg-text-general--negative">
+        Text General Negative
+      </p>
+    </div>
+    <p class="gxg-text-general gxg-text-general--gray">Text General Gray</p>
+
+    <!-- Text Link -->
+    <a class="gxg-text-link" href="#">Text Link</a>
+    <br /><br />
+
     <h2>Icon Module</h2>
     <p>regular size</p>
     <gxg-icon slot="icon" type="add"></gxg-icon>
@@ -102,7 +207,7 @@
     <!--SECONDARY ICON ONLY-->
     <p>Secondary Icon Only</p>
     <gxg-button type="secondary-icon-only"
-      ><gxg-icon slot="icon" type="add"></gxg-icon></gxg-button
+      ><gxg-icon slot="icon" image="add"></gxg-icon></gxg-button
     ><br />
     <gxg-button type="secondary-icon-only" disabled
       ><gxg-icon slot="icon" type="add"></gxg-icon></gxg-button

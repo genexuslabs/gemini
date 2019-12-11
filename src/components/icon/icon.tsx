@@ -104,7 +104,8 @@ const ICONS_MAPPINGS = {
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
-  shadow: true
+  shadow: true,
+  assetsDirs: ["assets"]
 })
 export class Icon {
   /**
@@ -123,10 +124,6 @@ export class Icon {
    *
    */
   @Prop() color: string;
-
-  testAction() {
-    return "add";
-  }
 
   render() {
     const icons = ICONS_MAPPINGS;

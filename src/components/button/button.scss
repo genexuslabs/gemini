@@ -131,7 +131,6 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 /*********************************
 SECONDARY 'TEXT ONLY' BUTTON TYPE
 *********************************/
-
 :host(.button--secondary-text-only) .button-native {
   // This are the styles for 'secondary button' type.
 
@@ -167,7 +166,6 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 /*********************************
 SECONDARY 'TEXT ICON' BUTTON TYPE
 *********************************/
-
 :host(.button--secondary-text-icon) .button-native {
   // This are the styles for 'secondary button' type.
 
@@ -260,7 +258,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 /*********************************
 'OUTLINED' BUTTON TYPE
 *********************************/
-
 :host(.button--outlined) .button-native {
   // This are the styles for 'outlined button' type.
 
