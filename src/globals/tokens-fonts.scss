@@ -36,7 +36,7 @@ TOKENS FOR FONTS
 TITLES STYLES
 *********************************/
 /*Title 01*/
-@mixin gxg-heading-title-01 {
+@mixin gxg-title-01 {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-md);
@@ -44,18 +44,18 @@ TITLES STYLES
   color: var(--color-on-background);
   text-align: left;
 }
-@mixin gxg-heading-title-01--negative {
+@mixin gxg-title-01--negative {
   color: var(--color-on-primary);
 }
-.gxg-heading-title-01 {
-  @include gxg-heading-title-01;
+.gxg-title-01 {
+  @include gxg-title-01;
   &--negative {
-    @include gxg-heading-title-01--negative;
+    @include gxg-title-01--negative;
   }
 }
 
 /*Title 02*/
-@mixin gxg-heading-title-02 {
+@mixin gxg-title-02 {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xs);
@@ -64,18 +64,18 @@ TITLES STYLES
   text-align: left;
   text-transform: uppercase;
 }
-@mixin gxg-heading-title-02--negative {
+@mixin gxg-title-02--negative {
   color: var(--color-on-primary);
 }
-.gxg-heading-title-02 {
-  @include gxg-heading-title-02;
+.gxg-title-02 {
+  @include gxg-title-02;
   &--negative {
-    @include gxg-heading-title-02--negative;
+    @include gxg-title-02--negative;
   }
 }
 
 /*Title 03*/
-@mixin gxg-heading-title-03 {
+@mixin gxg-title-03 {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-xs);
@@ -84,18 +84,18 @@ TITLES STYLES
   text-align: left;
   text-transform: uppercase;
 }
-@mixin gxg-heading-title-03--negative {
+@mixin gxg-title-03--negative {
   color: var(--color-on-primary);
 }
-.gxg-heading-title-03 {
-  @include gxg-heading-title-03;
+.gxg-title-03 {
+  @include gxg-title-03;
   &--negative {
-    @include gxg-heading-title-03--negative;
+    @include gxg-title-03--negative;
   }
 }
 
-/*Text General*/
-@mixin gxg-text-general {
+/*Text*/
+@mixin gxg-text {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-md);
@@ -103,24 +103,24 @@ TITLES STYLES
   color: var(--color-on-background);
   text-align: left;
 }
-@mixin gxg-text-general--negative {
+@mixin gxg-text--negative {
   color: var(--color-on-primary);
 }
-@mixin gxg-text-general--gray {
+@mixin gxg-text--gray {
   color: var(--gray-04);
 }
-.gxg-text-general {
-  @include gxg-text-general;
+.gxg-text {
+  @include gxg-text;
   &--negative {
-    @include gxg-text-general--negative;
+    @include gxg-text--negative;
   }
   &--gray {
-    @include gxg-text-general--gray;
+    @include gxg-text--gray;
   }
 }
 
-/*Text Link*/
-@mixin gxg-text-link {
+/*Link*/
+@mixin gxg-link {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-md);
@@ -129,26 +129,26 @@ TITLES STYLES
   text-align: left;
   text-decoration: underline;
 }
-@mixin gxg-text-link--hover {
+@mixin gxg-link--hover {
   color: var(--color-primary-hover);
 }
-@mixin gxg-text-link--active {
+@mixin gxg-link--active {
   color: var(--color-primary-active);
 }
 
-.gxg-text-link {
-  @include gxg-text-link;
+.gxg-link {
+  @include gxg-link;
 
   &:hover {
-    @include gxg-text-link--hover;
+    @include gxg-link--hover;
   }
   &:active {
-    @include gxg-text-link--active;
+    @include gxg-link--active;
   }
 }
 
-/*Text Quote*/
-@mixin gxg-text-quote {
+/*Quote*/
+@mixin gxg-quote {
   font-family: var(--font-family-primary);
   font-style: italic;
   font-weight: var(--font-weight-regular);
@@ -157,13 +157,13 @@ TITLES STYLES
   color: var(--color-on-background);
   text-align: left;
 }
-@mixin gxg-text-quote--negative {
+@mixin gxg-quote--negative {
   color: var(--color-on-primary);
 }
-.gxg-text-quote {
-  @include gxg-text-quote;
+.gxg-quote {
+  @include gxg-quote;
   &--negative {
-    @include gxg-text-quote--negative;
+    @include gxg-quote--negative;
   }
 }
 
