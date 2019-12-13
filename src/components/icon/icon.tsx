@@ -1,50 +1,14 @@
-import { Component, Prop, h, Host } from "@stencil/core";
-
-/*Icons (plugin needed for this --> https://www.npmjs.com/package/stencil-inline-svg)*/
-import add from "../../assets/icons/gx-icon-add.svg";
-import addSmall from "../../assets/icons/gx-icon-add-small.svg";
-import chevronDown from "../../assets/icons/gx-icon-chevron-down.svg";
-import chevronDownSmall from "../../assets/icons/gx-icon-chevron-down-small.svg";
-import chevronLeft from "../../assets/icons/gx-icon-chevron-left.svg";
-import chevronLeftSmall from "../../assets/icons/gx-icon-chevron-left-small.svg";
-import chevronRight from "../../assets/icons/gx-icon-chevron-right.svg";
-import chevronRightSmall from "../../assets/icons/gx-icon-chevron-right-small.svg";
-import chevronUp from "../../assets/icons/gx-icon-chevron-up.svg";
-import chevronUpSmall from "../../assets/icons/gx-icon-chevron-up-small.svg";
-import chevronClose from "../../assets/icons/gx-icon-close.svg";
-import chevronCloseSmall from "../../assets/icons/gx-icon-close-small.svg";
-import chevronColorPicker from "../../assets/icons/gx-icon-color-picker.svg";
-import chevronColorPickerSmall from "../../assets/icons/gx-icon-color-picker-small.svg";
-import deleted from "../../assets/icons/gx-icon-deleted.svg";
-import deletedSmall from "../../assets/icons/gx-icon-deleted-small.svg";
-import down from "../../assets/icons/gx-icon-down.svg";
-import downSmall from "../../assets/icons/gx-icon-down-small.svg";
-import drag from "../../assets/icons/gx-icon-drag.svg";
-import dragSmall from "../../assets/icons/gx-icon-drag-small.svg";
-import duplicate from "../../assets/icons/gx-icon-duplicate.svg";
-import duplicateSmall from "../../assets/icons/gx-icon-duplicate-small.svg";
-import edit from "../../assets/icons/gx-icon-edit.svg";
-import editSmall from "../../assets/icons/gx-icon-edit-small.svg";
-import editWand from "../../assets/icons/gx-icon-edit-wand.svg";
-import editWandSmall from "../../assets/icons/gx-icon-edit-wand-small.svg";
-import error from "../../assets/icons/gx-icon-error.svg";
-import errorSmall from "../../assets/icons/gx-icon-error-small.svg";
-import levelUp from "../../assets/icons/gx-icon-level-up.svg";
-import levelUpSmall from "../../assets/icons/gx-icon-level-up-small.svg";
-import moreInfo from "../../assets/icons/gx-icon-more-info.svg";
-import moreInfoSmall from "../../assets/icons/gx-icon-more-info-small.svg";
-import search from "../../assets/icons/gx-icon-search.svg";
-import searchSmall from "../../assets/icons/gx-icon-search-small.svg";
-import settings from "../../assets/icons/gx-icon-settings.svg";
-import settingsSmall from "../../assets/icons/gx-icon-settings-small.svg";
-import showMore from "../../assets/icons/gx-icon-show-more.svg";
-import showMoreSmall from "../../assets/icons/gx-icon-show-more-small.svg";
-import success from "../../assets/icons/gx-icon-success.svg";
-import successSmall from "../../assets/icons/gx-icon-success-small.svg";
-import up from "../../assets/icons/gx-icon-up.svg";
-import upSmall from "../../assets/icons/gx-icon-up-small.svg";
-import warning from "../../assets/icons/gx-icon-warning.svg";
-import warningSmall from "../../assets/icons/gx-icon-warning-small.svg";
+import {
+  Component,
+  Prop,
+  Host,
+  Watch,
+  State,
+  getAssetPath,
+  h,
+  Element
+} from "@stencil/core";
+import { getSvgContent, iconContent } from "./requests";
 
 const DEFAULT_COLOR = "onbackground";
 
@@ -55,52 +19,6 @@ const COLOR_MAPPINGS = {
   success: "color-success-dark"
 };
 
-const ICONS_MAPPINGS = {
-  add,
-  addSmall,
-  chevronDown,
-  chevronDownSmall,
-  chevronLeft,
-  chevronLeftSmall,
-  chevronRight,
-  chevronRightSmall,
-  chevronUp,
-  chevronUpSmall,
-  chevronClose,
-  chevronCloseSmall,
-  chevronColorPicker,
-  chevronColorPickerSmall,
-  deleted,
-  deletedSmall,
-  down,
-  downSmall,
-  drag,
-  dragSmall,
-  duplicate,
-  duplicateSmall,
-  edit,
-  editSmall,
-  editWand,
-  editWandSmall,
-  error,
-  errorSmall,
-  levelUp,
-  levelUpSmall,
-  moreInfo,
-  moreInfoSmall,
-  search,
-  searchSmall,
-  settings,
-  settingsSmall,
-  showMore,
-  showMoreSmall,
-  success,
-  successSmall,
-  up,
-  upSmall,
-  warning,
-  warningSmall
-};
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
@@ -108,11 +26,23 @@ const ICONS_MAPPINGS = {
   assetsDirs: ["assets"]
 })
 export class Icon {
+  private io?: IntersectionObserver;
+
+  @Element() element: HTMLElement;
+
+  @State() private svgContent?: string;
+  @State() private isVisible = false;
+
   /**
-   * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
-   * Example: the value for the "gxg-icon-add.svg" file is "add".
+   * The color of the icon.
+   *
    */
-  @Prop() type = "none";
+  @Prop() color: "black" | "error" | "onbackground" | "success" | "warning";
+
+  /**
+   * If enabled, ion-icon will be loaded lazily when it's visible in the viewport.
+   */
+  @Prop() lazy = false;
 
   /**
    * The size of the icon. Possible values: regular, small.
@@ -120,13 +50,77 @@ export class Icon {
   @Prop() size = "regular";
 
   /**
-   * The color of the icon. To see the
-   *
+   * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
+   * Example: the value for the "gxg-icon-add.svg" file is "add".
    */
-  @Prop() color: string;
+  @Prop() type = "none";
+
+  connectedCallback() {
+    // purposely do not return the promise here because loading
+    // the svg file should not hold up loading the app
+    // only load the svg if it's visible
+    this.waitUntilVisible(this.element, "50px", () => {
+      this.isVisible = true;
+      this.getIcon();
+    });
+  }
+
+  disconnectedCallback() {
+    if (this.io) {
+      this.io.disconnect();
+      this.io = undefined;
+    }
+  }
+
+  private waitUntilVisible(
+    el: HTMLElement,
+    rootMargin: string,
+    callback: () => void
+  ) {
+    if (
+      this.lazy &&
+      typeof window !== "undefined" &&
+      (window as any).IntersectionObserver
+    ) {
+      const io = (this.io = new (window as any).IntersectionObserver(
+        (data: IntersectionObserverEntry[]) => {
+          if (data[0].isIntersecting) {
+            io.disconnect();
+            this.io = undefined;
+            callback();
+          }
+        },
+        { rootMargin }
+      ));
+
+      io.observe(el);
+    } else {
+      // browser doesn't support IntersectionObserver
+      // so just fallback to always show it
+      callback();
+    }
+  }
+
+  @Watch("type")
+  @Watch("size")
+  private async getIcon() {
+    if (this.isVisible) {
+      const isSmall = this.size === "small";
+      const suffix = isSmall ? "-small" : "";
+      const fileName = `gx-icon-${this.type}${suffix}.svg`;
+
+      const url = getAssetPath(`assets/${fileName}`);
+      if (url) {
+        if (iconContent.has(url)) {
+          this.svgContent = iconContent.get(url);
+        } else {
+          this.svgContent = await getSvgContent(url);
+        }
+      }
+    }
+  }
 
   render() {
-    const icons = ICONS_MAPPINGS;
     return (
       <Host
         class={{
@@ -142,15 +136,13 @@ export class Icon {
               COLOR_MAPPINGS[DEFAULT_COLOR]
             )
           }}
-          innerHTML={
-            this.size == "small" ? icons[this.type + "Small"] : icons[this.type]
-          }
+          innerHTML={this.svgContent}
         />
       </Host>
     );
   }
 
-  private mapColorToCssVar(color): string {
+  private mapColorToCssVar(color: string): string {
     if (color) {
       return `var(--${color})`;
     }
