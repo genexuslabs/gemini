@@ -1,2 +1,139 @@
 $ui-animaton-speed: 0.2s;
 $ui-animation-timing-function: ease-in-out;
+
+/*****************************************************
+TYPOGRAPHY
+*****************************************************/
+/*Title 01*/
+@mixin gxg-title-01 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-md);
+  color: var(--color-on-background);
+  text-align: left;
+}
+@mixin gxg-title-01--negative {
+  color: var(--color-on-primary);
+}
+/*Title 02*/
+@mixin gxg-title-02 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-sm);
+  color: var(--color-on-background);
+  text-align: left;
+  text-transform: uppercase;
+}
+@mixin gxg-title-02--negative {
+  color: var(--color-on-primary);
+}
+/*Title 03*/
+@mixin gxg-title-03 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-xs);
+  letter-spacing: var(--letter-spacing-sm);
+  color: var(--color-on-background);
+  text-align: left;
+  text-transform: uppercase;
+}
+@mixin gxg-title-03--negative {
+  color: var(--color-on-primary);
+}
+/*Text*/
+@mixin gxg-text {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-on-background);
+  text-align: left;
+}
+@mixin gxg-text--negative {
+  color: var(--color-on-primary);
+}
+@mixin gxg-text--gray {
+  color: var(--gray-04);
+}
+/*Link*/
+@mixin gxg-link {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-primary);
+  text-align: left;
+  text-decoration: underline;
+}
+@mixin gxg-link--hover {
+  color: var(--color-primary-hover);
+}
+@mixin gxg-link--active {
+  color: var(--color-primary-active);
+}
+/*Quote*/
+@mixin gxg-quote {
+  font-family: var(--font-family-primary);
+  font-style: italic;
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-on-background);
+  text-align: left;
+}
+@mixin gxg-quote--negative {
+  color: var(--color-on-primary);
+}
+/*Tab*/
+@mixin gxg-tab {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-lg);
+  color: var(--color-on-background);
+  text-align: center;
+  text-transform: uppercase;
+}
+@mixin gxg-tab--active {
+  font-weight: var(--font-weight-bold);
+}
+@mixin gxg-tab--disabled {
+  color: var(--color-primary-disabled);
+  pointer-events: none;
+}
+/*Label*/
+$gxg-label-color: var(--color-primary-enabled);
+@mixin gxg-label {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-xs);
+  color: $gxg-label-color;
+  text-align: center;
+}
+$gxg-label--hover-color: var(--color-primary-hover);
+@mixin gxg-label--hover {
+  color: $gxg-label--hover-color;
+}
+$gxg-label--focus-color: var(--color-primary-active);
+@mixin gxg-label--focus {
+  color: $gxg-label--focus-color;
+}
+$gxg-label--active-color: var(--color-primary-active);
+@mixin gxg-label--active {
+  color: $gxg-label--active-color;
+}
+$gxg-label--disabled-color: var(--color-primary-disabled);
+@mixin gxg-label--disabled {
+  color: $gxg-label--disabled-color;
+}
+$gxg-label--negative-color: var(--color-on-primary);
+@mixin gxg-label--negative {
+  color: $gxg-label--negative-color;
+}
+$gxg-label--negative-disabled-color: var(--color-on-disabled);
+@mixin gxg-label--negative-disabled {
+  color: $gxg-label--negative-disabled-color;
+}

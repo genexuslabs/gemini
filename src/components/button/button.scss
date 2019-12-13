@@ -1,37 +1,27 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
 /*****************************************************
 'PRIMARY TEXT ONLY' && 'PRIMARY TEXT ICON' BUTTON TYPE
 *****************************************************/
-@import "../../globals/normalize.scss";
-@import "../../globals/mixins";
 
 :host {
   display: inline-block;
 }
 :host(.button) .button-native {
+  @include gxg-label;
   background: var(--color-primary-enabled);
-
   border: 0;
   box-shadow: inset 0px 0px 0px 1px transparent;
   border-radius: var(--border-radius-sm);
-
-  color: var(--color-on-primary);
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding-top: 0;
   padding-right: var(--spacing-comp-05);
   padding-bottom: 0;
   padding-left: var(--spacing-comp-05);
-
   min-height: var(--spacing-comp-05);
-
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-md);
-  font-style: var(--font-style-regular);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-comp-regular);
   line-height: var(--line-height-regular);
 
   //if button has icon:
@@ -44,18 +34,15 @@
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
-    color: var(--color-on-primary);
     cursor: pointer;
   }
   &:focus:not([disabled]) {
     background: var(--color-primary-enabled);
-    color: var(--color-on-primary);
-    box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
+    box-shadow: var(--box-shadow-values) var(--color-primary-active);
     outline: none;
   }
   &:active:not([disabled]) {
     background: var(--color-primary-active);
-    color: var(--color-on-primary);
   }
 
   //Transition
@@ -65,7 +52,7 @@
 }
 :host(.button.button--disabled) .button-native {
   background: var(--color-primary-disabled);
-  color: var(--color-on-disabled);
+  @include gxg-label--disabled;
   cursor: not-allowed;
 
   //if button has icon:
@@ -78,15 +65,28 @@
 PRIMARY 'TEXT ONLY' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-only) .button-native {
+  @include gxg-label--negative;
+}
+:host(.button--primary-text-only.button--disabled) .button-native {
+  @include gxg-label--negative-disabled;
 }
 
 /*********************************
 PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-icon) .button-native {
+  @include gxg-label--negative;
+
   //Redefine icon color for this button type
   ::slotted([slot="icon"]) {
-    --icon-color: var(--color-on-primary);
+    --icon-color: #{$gxg-label--negative-color};
+  }
+}
+:host(.button--primary-text-icon.button--disabled) .button-native {
+  @include gxg-label--negative-disabled;
+  //Redefine icon color for this button type
+  ::slotted([slot="icon"]) {
+    --icon-color: #{$gxg-label--negative-disabled-color};
   }
 }
 
@@ -95,18 +95,18 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-icon-only) .button-native {
   //Redefine icon color for this button type
-  --button-icon-color: var(--color-on-primary);
+  //--button-icon-color: var(--color-on-primary);
 
   background: var(--color-primary-enabled);
   color: var(--color-white);
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
-    color: var(--color-white);
+    @include gxg-label--hover;
   }
   &:focus:not([disabled]) {
     background: var(--color-primary-enabled);
-    color: var(--color-white);
+    @include gxg-label--hover;
   }
   &:active:not([disabled]) {
     background: var(--color-primary-active);
@@ -115,7 +115,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 
   ::slotted([slot="icon"]) {
     margin-right: 0;
-    --icon-color: var(--color-on-primary);
+    --icon-color: #{$gxg-label--negative-color};
   }
 
   padding-right: 0;
@@ -127,6 +127,11 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
     outline: none;
   }
 }
+:host(.button--primary-icon-only.button--disabled) .button-native {
+  ::slotted([slot="icon"]) {
+    --icon-color: #{$gxg-label--negative-disabled-color};
+  }
+}
 
 /*********************************
 SECONDARY 'TEXT ONLY' BUTTON TYPE
@@ -136,18 +141,18 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 
   //Enabled
   background: transparent;
-  color: var(--color-primary-enabled);
 
   &:hover:not([disabled]) {
+    @include gxg-label--hover;
     background: rgba(var(--color-primary-hover-rgb), 0.1);
-    color: var(--color-primary-hover);
   }
   &:focus:not([disabled]) {
+    @include gxg-label--focus;
     background: transparent;
-    color: var(--color-primary-enabled);
+    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
   }
   &:active:not([disabled]) {
-    color: var(--color-primary-active);
+    @include gxg-label--active;
     box-shadow: none;
   }
 
@@ -160,7 +165,7 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 }
 :host(.button--secondary-text-only.button--disabled) .button-native {
   background: transparent;
-  color: var(--color-primary-disabled);
+  @include gxg-label--disabled;
 }
 
 /*********************************
@@ -171,35 +176,32 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   //Enabled
   background: transparent;
-  color: var(--color-primary-enabled);
 
   //Redefine icon color for this button type
   ::slotted([slot="icon"]) {
-    --icon-color: var(--color-primary-enabled);
+    --icon-color: #{$gxg-label-color};
   }
 
   &:hover:not([disabled]) {
+    @include gxg-label--hover;
     background: rgba(var(--color-primary-hover-rgb), 0.1);
-    color: var(--color-primary-hover);
-
     ::slotted([slot="icon"]) {
-      --icon-color: var(--color-primary-hover);
+      --icon-color: #{$gxg-label--hover-color};
     }
   }
   &:focus:not([disabled]) {
+    @include gxg-label--focus;
     background: transparent;
-    color: var(--color-primary-enabled);
-
+    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
     ::slotted([slot="icon"]) {
-      --icon-color: var(--color-primary-enabled);
+      --icon-color: #{$gxg-label--focus-color};
     }
   }
   &:active:not([disabled]) {
-    color: var(--color-primary-active);
+    @include gxg-label--active;
     box-shadow: none;
-
     ::slotted([slot="icon"]) {
-      --icon-color: var(--color-primary-enabled);
+      --icon-color: #{$gxg-label--active-color};
     }
   }
 
@@ -213,11 +215,11 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 :host(.button--secondary-text-icon.button--disabled) .button-native {
   //Redefine icon color for this button type
   ::slotted([slot="icon"]) {
-    --icon-color: var(--color-primary-disabled);
+    --icon-color: #{$gxg-label--disabled-color};
   }
 
   background: transparent;
-  color: var(--color-primary-disabled);
+  @include gxg-label--disabled;
 }
 
 /*********************************
@@ -225,20 +227,27 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 *********************************/
 :host(.button--secondary-icon-only) .button-native {
   ::slotted([slot="icon"]) {
+    --icon-color: #{$gxg-label-color};
     margin-right: 0;
   }
-
   &:hover:not([disabled]) {
     background: transparent;
-    --button-icon-color: var(--color-primary-hover);
+    ::slotted([slot="icon"]) {
+      --icon-color: #{$gxg-label--hover-color};
+    }
   }
   &:focus:not([disabled]) {
     background: transparent;
-    --button-icon-color: var(--color-primary-enabled);
+    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
+    ::slotted([slot="icon"]) {
+      --icon-color: #{$gxg-label--focus-color};
+    }
   }
   &:active:not([disabled]) {
     background: transparent;
-    --button-icon-color: var(--color-primary-active);
+    ::slotted([slot="icon"]) {
+      --icon-color: #{$gxg-label--active-color};
+    }
   }
 
   background: transparent;
@@ -251,8 +260,9 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 }
 :host(.button--secondary-icon-only.button--disabled) .button-native {
   background: transparent;
-  --button-icon-color: var(--color-primary-disabled);
-  cursor: not-allowed;
+  ::slotted([slot="icon"]) {
+    --icon-color: #{$gxg-label--disabled-color};
+  }
 }
 
 /*********************************
@@ -261,33 +271,31 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 :host(.button--outlined) .button-native {
   // This are the styles for 'outlined button' type.
 
-  box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
+  box-shadow: inset 0px 0px 0px 1px $gxg-label-color;
 
   //Enabled
   background: var(--color-white);
-  color: var(--color-primary-enabled);
   padding-left: var(--spacing-comp-05);
   padding-right: var(--spacing-comp-05);
 
   &:hover:not([disabled]) {
+    @include gxg-label--hover;
     background: transparent;
-    box-shadow: inset 0px 0px 0px 1px var(--color-primary-hover);
-    color: var(--color-primary-hover);
+    box-shadow: inset 0px 0px 0px 1px $gxg-label--hover-color;
   }
   &:focus:not([disabled]) {
+    @include gxg-label--focus;
     background: transparent;
-    box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
-    color: var(--color-primary-enabled);
+    box-shadow: inset 0px 0px 0px 2px $gxg-label--focus-color;
   }
   &:active:not([disabled]) {
+    @include gxg-label--active;
     background: transparent;
-    box-shadow: inset 0px 0px 0px 1px var(--color-primary-active);
-    color: var(--color-primary-active);
+    box-shadow: inset 0px 0px 0px 1px $gxg-label--active-color;
   }
 }
 :host(.button--outlined.button--disabled) .button-native {
-  box-shadow: inset 0px 0px 0px 1px var(--color-primary-disabled);
+  box-shadow: inset 0px 0px 0px 1px $gxg-label--disabled-color;
   background: var(--color-transparent);
-  color: var(--color-primary-disabled);
-  cursor: not-allowed;
+  @include gxg-label--disabled;
 }
