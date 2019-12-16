@@ -15,12 +15,12 @@ KNOBS
 /*Icons Knob*/
 const label = "Color";
 const options = {
-  default: "color-on-background",
+  default: "onbackground",
   error: "error",
   warning: "warning",
   success: "success"
 };
-const defaultValue = options.add;
+const defaultValue = options.default;
 
 /*Disabled Knob*/
 const labelDisabled = "Disabled";
@@ -36,8 +36,8 @@ const arrayIconsNames = [
   "chevronLeft",
   "chevronRight",
   "chevronUp",
-  "chevronClose",
-  "chevronColorPicker",
+  "close",
+  "colorPicker",
   "deleted",
   "down",
   "drag",
