@@ -22,6 +22,7 @@
     "generate": "stencil generate",
     "storybook": "start-storybook -p 9001 -c .storybook -s www",
     "story": "npm-run-all --parallel start storybook",
+    "svgo": "svgo --folder=./src/components/icon/assets --enable removeDimensions",
     "validate": "npm run test && npm run build",
     "validate.ci": "npm run test && npm run build -- --max-workers 1 --debug",
     "build-storybook": "build-storybook -c .storybook"
@@ -51,6 +52,7 @@
     "stencil-inline-svg": "^1.0.1",
     "storybook-addon-themes": "^5.2.0",
     "storybook-dark-mode": "^0.1.9",
+    "svgo": "^1.3.2",
     "write-file-webpack-plugin": "^4.5.1"
   },
   "license": "MIT",

@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 24 24" version="1.1" 
-    xmlns="http://www.w3.org/2000/svg" 
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
-    <title>Add</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Add" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Path" fill="#111111" points="12.6315789 4 12.6315789 11.3684211 20 11.3684211 20 12.6315789 12.6315789 12.6315789 12.6315789 20 11.3684211 20 11.3684211 12.6315789 4 12.6315789 4 11.3684211 11.3684211 11.3684211 11.3684211 4"></polygon>
-    </g>
-</svg>
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#111" d="M12.632 4v7.368H20v1.264h-7.368V20h-1.264v-7.368H4v-1.264h7.368V4z" fill-rule="evenodd"/></svg>

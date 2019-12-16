@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
-    <title>Edit</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Edit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(5.000000, 5.000000)" fill="#111111" id="Combined-Shape">
-            <path d="M0.810366093,10.4884136 L3.5115864,13.1896339 L1.77280413e-12,14 L0.810366093,10.4884136 Z M9.45427109,1.8445086 L12.1554914,4.54572891 L4.05183047,12.6493898 L1.35061016,9.94816953 L9.45427109,1.8445086 Z M12.3223541,0.390639137 L13.6093609,1.67764588 C13.9998852,2.06817018 13.9998852,2.70133516 13.6093609,3.09185945 L12.6957355,4.00548485 L9.99451515,1.30426454 L10.9081406,0.390639137 C11.2986648,0.000114844874 11.9318298,0.000114844874 12.3223541,0.390639137 Z"></path>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.81 15.488l2.702 2.702L5 19l.81-3.512zm8.644-8.643l2.701 2.7-8.103 8.104-2.701-2.7 8.103-8.104zm2.868-1.454l1.287 1.287a1 1 0 010 1.414l-.913.913-2.701-2.7.913-.914a1 1 0 011.414 0z" fill="#111" fill-rule="evenodd"/></svg>
