@@ -1,6 +1,5 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
-import { inlineSvg } from "stencil-inline-svg";
 
 export const config: Config = {
   namespace: "gemini",
@@ -19,5 +18,5 @@ export const config: Config = {
     }
   ],
   globalStyle: "src/globals/global.scss",
-  plugins: [sass(), inlineSvg()]
+  plugins: [sass()]
 };
