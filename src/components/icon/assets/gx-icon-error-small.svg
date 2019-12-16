@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
-    <title>Error small</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Error-small" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M12.6,12.6 L11.4,12.6 L11.4,9 L12.6,9 M12.6,15 L11.4,15 L11.4,13.8 L12.6,13.8 M12,6 C8.6862915,6 6,8.6862915 6,12 C6,13.5912989 6.63214104,15.1174224 7.75735931,16.2426407 C8.88257758,17.367859 10.4087011,18 12,18 C13.5912989,18 15.1174224,17.367859 16.2426407,16.2426407 C17.367859,15.1174224 18,13.5912989 18,12 C18,10.4087011 17.367859,8.88257758 16.2426407,7.75735931 C15.1174224,6.63214104 13.5912989,6 12,6 Z" id="Shape" fill="#000000"></path>
-    </g>
-</svg>

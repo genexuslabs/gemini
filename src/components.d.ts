@@ -24,13 +24,13 @@ export namespace Components {
      */
     color: "black" | "error" | "onbackground" | "success" | "warning";
     /**
-     * If enabled, ion-icon will be loaded lazily when it's visible in the viewport.
+     * If enabled, the icon will be loaded lazily when it's visible in the viewport.
      */
     lazy: boolean;
     /**
      * The size of the icon. Possible values: regular, small.
      */
-    size: string;
+    size: "regular" | "small";
     /**
      * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */
@@ -75,13 +75,13 @@ declare namespace LocalJSX {
      */
     color?: "black" | "error" | "onbackground" | "success" | "warning";
     /**
-     * If enabled, ion-icon will be loaded lazily when it's visible in the viewport.
+     * If enabled, the icon will be loaded lazily when it's visible in the viewport.
      */
     lazy?: boolean;
     /**
      * The size of the icon. Possible values: regular, small.
      */
-    size?: string;
+    size?: "regular" | "small";
     /**
      * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */

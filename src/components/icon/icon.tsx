@@ -40,14 +40,14 @@ export class Icon {
   @Prop() color: "black" | "error" | "onbackground" | "success" | "warning";
 
   /**
-   * If enabled, ion-icon will be loaded lazily when it's visible in the viewport.
+   * If enabled, the icon will be loaded lazily when it's visible in the viewport.
    */
   @Prop() lazy = false;
 
   /**
    * The size of the icon. Possible values: regular, small.
    */
-  @Prop() size = "regular";
+  @Prop() size: "regular" | "small" = "regular";
 
   /**
    * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
@@ -102,12 +102,9 @@ export class Icon {
   }
 
   @Watch("type")
-  @Watch("size")
   private async getIcon() {
     if (this.isVisible) {
-      const isSmall = this.size === "small";
-      const suffix = isSmall ? "-small" : "";
-      const fileName = `gx-icon-${this.type}${suffix}.svg`;
+      const fileName = `${this.type}.svg`;
 
       const url = getAssetPath(`assets/${fileName}`);
       if (url) {
@@ -125,7 +122,8 @@ export class Icon {
       <Host
         class={{
           svgIcon: true,
-          "svgIcon--black": this.color === "black"
+          "svgIcon--black": this.color === "black",
+          "svgIcon--small": this.size === "small"
         }}
       >
         <div

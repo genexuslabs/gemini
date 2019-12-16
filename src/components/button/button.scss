@@ -26,10 +26,9 @@
 
   //if button has icon:
   ::slotted([slot="icon"]) {
-    width: var(--icon-size);
-    height: var(--icon-size);
+    --icon-size: var(--icon-size-small);
     margin-right: var(--spacing-comp-01);
-    display: inline-block;
+    display: flex;
   }
 
   &:hover:not([disabled]) {
