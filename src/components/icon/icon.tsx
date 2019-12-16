@@ -19,6 +19,8 @@ const COLOR_MAPPINGS = {
   success: "color-success-dark"
 };
 
+const CAMEL_CASE_TO_HYPHENED_REGEX = /(.)([A-Z])/g;
+
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
@@ -104,7 +106,12 @@ export class Icon {
   @Watch("type")
   private async getIcon() {
     if (this.isVisible) {
-      const fileName = `${this.type}.svg`;
+      if (this.type === "none") {
+        this.svgContent = "";
+        return;
+      }
+
+      const fileName = this.getFileName();
 
       const url = getAssetPath(`assets/${fileName}`);
       if (url) {
@@ -115,6 +122,13 @@ export class Icon {
         }
       }
     }
+  }
+
+  private getFileName() {
+    const name = this.type
+      .replace(CAMEL_CASE_TO_HYPHENED_REGEX, "$1-$2")
+      .toLowerCase();
+    return `${name}.svg`;
   }
 
   render() {
