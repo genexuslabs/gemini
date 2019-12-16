@@ -70,6 +70,10 @@
       "prettier --write",
       "git add"
     ],
+    "src/components/icon/assets/*.svg": [
+      "svgo --enable removeDimensions",
+      "git add"
+    ],
     "*.{tsx,ts,jsx,js}": [
       "eslint --fix",
       "git add"
