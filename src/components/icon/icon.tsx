@@ -1,12 +1,12 @@
 import {
   Component,
-  Prop,
+  Element,
   Host,
-  Watch,
+  Prop,
   State,
+  Watch,
   getAssetPath,
-  h,
-  Element
+  h
 } from "@stencil/core";
 import { getSvgContent, iconContent } from "./requests";
 
@@ -55,7 +55,7 @@ export class Icon {
    * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
    * Example: the value for the "gxg-icon-add.svg" file is "add".
    */
-  @Prop() type = "none";
+  @Prop() type: IconType = "none";
 
   connectedCallback() {
     // purposely do not return the promise here because loading
@@ -162,3 +162,50 @@ export class Icon {
     return null;
   }
 }
+
+export type IconType =
+  | "none"
+  | "add"
+  | "chevron-down-small"
+  | "chevron-down"
+  | "chevron-left-small"
+  | "chevron-left"
+  | "chevron-right-small"
+  | "chevron-right"
+  | "chevron-up-small"
+  | "chevron-up"
+  | "close-small"
+  | "close"
+  | "color-picker-small"
+  | "color-picker"
+  | "deleted-small"
+  | "deleted"
+  | "down-small"
+  | "down"
+  | "drag-small"
+  | "drag"
+  | "duplicate-small"
+  | "duplicate"
+  | "edit-small"
+  | "edit-wand-small"
+  | "edit-wand"
+  | "edit"
+  | "error-small"
+  | "error"
+  | "level-up-small"
+  | "level-up"
+  | "more-info-small"
+  | "more-info"
+  | "search-small"
+  | "search"
+  | "settings-small"
+  | "settings"
+  | "show-more-small"
+  | "show-more"
+  | "success-small"
+  | "success"
+  | "up-small"
+  | "up"
+  | "warning-small"
+  | "add-small"
+  | "warning";

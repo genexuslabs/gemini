@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Host, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "gxg-button",
@@ -10,7 +10,7 @@ export class Button {
    * The kind of button
    * Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
    */
-  @Prop() type = "primary-text-only";
+  @Prop() type: ButtonType = "primary-text-only";
 
   /**
    * The state of the button. Whether is disabled or not.
@@ -46,3 +46,13 @@ export class Button {
     );
   }
 }
+
+export type ButtonType =
+  | "primary-text-only"
+  | "primary-text-icon"
+  | "primary-icon-only"
+  | "secondary-text-only"
+  | "secondary-text-icon"
+  | "secondary-icon-only"
+  | "icon-only-secondary"
+  | "outlined";
