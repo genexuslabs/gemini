@@ -13,6 +13,11 @@ import { getSvgContent, iconContent } from "./requests";
 const DEFAULT_COLOR = "onbackground";
 
 const COLOR_MAPPINGS = {
+  /*NOTE: If you add, or remove colors from this mapping, remember to update the fixes on /components/button/button.scss. Search for : "Icon color fix" 
+  These fixes force the icon color inside the button to be always the color it should be for a particular button.
+  For example, all icons inside a "primary" button type should always be white, even if the user set the color for the icon as "warning" which 
+  should be orange.*/
+
   onbackground: "color-on-background",
   negative: "color-on-primary",
   error: "color-error-dark",

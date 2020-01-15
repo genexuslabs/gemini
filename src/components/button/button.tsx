@@ -23,13 +23,19 @@ export class Button {
       <Host
         class={{
           button: true,
-          "button--primary-text-only": this.type === "primary-text-only",
-          "button--primary-text-icon": this.type === "primary-text-icon",
-          "button--primary-icon-only": this.type === "primary-icon-only",
-          "button--secondary-text-only": this.type === "secondary-text-only",
-          "button--secondary-text-icon": this.type === "secondary-text-icon",
-          "button--secondary-icon-only": this.type === "secondary-icon-only",
-          "button--icon-only button--icon-only--secondary":
+          "button--primary button--primary-text-only":
+            this.type === "primary-text-only",
+          "button--primary button--primary-text-icon":
+            this.type === "primary-text-icon",
+          "button--primary button--primary-icon-only":
+            this.type === "primary-icon-only",
+          "button--secondary button--secondary-text-only":
+            this.type === "secondary-text-only",
+          "button--secondary button--secondary-text-icon":
+            this.type === "secondary-text-icon",
+          "button--secondary button--secondary-icon-only":
+            this.type === "secondary-icon-only",
+          "button--secondary button--icon-only button--icon-only--secondary":
             this.type === "icon-only-secondary",
           "button--outlined": this.type === "outlined",
           "button--disabled": this.disabled === true
