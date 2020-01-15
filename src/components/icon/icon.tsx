@@ -40,7 +40,7 @@ export class Icon {
    * The color of the icon.
    *
    */
-  @Prop() color: "black" | "error" | "onbackground" | "success" | "warning";
+  @Prop() color: "onbackground" | "negative" | "error" | "success" | "warning";
 
   /**
    * If enabled, the icon will be loaded lazily when it's visible in the viewport.
@@ -136,8 +136,7 @@ export class Icon {
     return (
       <Host
         class={{
-          svgIcon: true,
-          "svgIcon--black": this.color === "black"
+          svgIcon: true
         }}
       >
         <div
