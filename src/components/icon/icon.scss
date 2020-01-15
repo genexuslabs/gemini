@@ -9,8 +9,9 @@ ICON
   width: var(--icon-size);
   height: var(--icon-size);
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   svg {
-    flex: 1;
     * {
       fill: var(--icon-color, var(--icon-color-default));
     }
@@ -18,11 +19,12 @@ ICON
 
   .svg-icon-native {
     line-height: 0;
-    flex: 1;
+    flex: var(--svg-icon-native-flex-value);
   }
 }
 
-:host(.svgIcon--small) {
-  width: var(--icon-size-small);
-  height: var(--icon-size-small);
+:host([size="small"]) {
+  .svg-icon-native {
+    flex: var(--svg-icon-native-flex-value-small);
+  }
 }

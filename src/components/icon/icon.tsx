@@ -14,6 +14,7 @@ const DEFAULT_COLOR = "onbackground";
 
 const COLOR_MAPPINGS = {
   onbackground: "color-on-background",
+  negative: "color-on-primary",
   error: "color-error-dark",
   warning: "color-warning-dark",
   success: "color-success-dark"
@@ -52,7 +53,7 @@ export class Icon {
   @Prop() size: "regular" | "small" = "regular";
 
   /**
-   * The type of icon. Possible values: each of the icons in src/assets/icons. The value is always the name of the svg file without the "gxg-icon-" prefix.
+   * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix.
    * Example: the value for the "gxg-icon-add.svg" file is "add".
    */
   @Prop() type: IconType = "none";
@@ -136,8 +137,7 @@ export class Icon {
       <Host
         class={{
           svgIcon: true,
-          "svgIcon--black": this.color === "black",
-          "svgIcon--small": this.size === "small"
+          "svgIcon--black": this.color === "black"
         }}
       >
         <div
@@ -166,46 +166,24 @@ export class Icon {
 export type IconType =
   | "none"
   | "add"
-  | "chevron-down-small"
   | "chevron-down"
-  | "chevron-left-small"
   | "chevron-left"
-  | "chevron-right-small"
   | "chevron-right"
-  | "chevron-up-small"
   | "chevron-up"
-  | "close-small"
   | "close"
-  | "color-picker-small"
   | "color-picker"
-  | "deleted-small"
   | "deleted"
-  | "down-small"
   | "down"
-  | "drag-small"
   | "drag"
-  | "duplicate-small"
   | "duplicate"
-  | "edit-small"
-  | "edit-wand-small"
   | "edit-wand"
   | "edit"
-  | "error-small"
   | "error"
-  | "level-up-small"
   | "level-up"
-  | "more-info-small"
   | "more-info"
-  | "search-small"
   | "search"
-  | "settings-small"
   | "settings"
-  | "show-more-small"
   | "show-more"
-  | "success-small"
   | "success"
-  | "up-small"
   | "up"
-  | "warning-small"
-  | "add-small"
   | "warning";
