@@ -24,7 +24,7 @@ export namespace Components {
     /**
      * The color of the icon.
      */
-    color: "black" | "error" | "onbackground" | "success" | "warning";
+    color: "onbackground" | "negative" | "error" | "success" | "warning";
     /**
      * If enabled, the icon will be loaded lazily when it's visible in the viewport.
      */
@@ -75,7 +75,7 @@ declare namespace LocalJSX {
     /**
      * The color of the icon.
      */
-    color?: "black" | "error" | "onbackground" | "success" | "warning";
+    color?: "onbackground" | "negative" | "error" | "success" | "warning";
     /**
      * If enabled, the icon will be loaded lazily when it's visible in the viewport.
      */
