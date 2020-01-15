@@ -9,6 +9,10 @@
   display: inline-block;
 }
 :host(.button) .button-native {
+  --svg-icon-native-flex-value-small: var(
+    --svg-icon-native-flex-value
+  ); // Force Icon size inside button to always be regular size.
+
   @include gxg-label;
   background: var(--color-primary-enabled);
   border: 0;

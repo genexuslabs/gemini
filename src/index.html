@@ -148,6 +148,18 @@
     <gxg-icon size="small" type="add" color="success"></gxg-icon>
     <gxg-icon size="small" type="add" color="error"></gxg-icon>
 
+    <p>
+      over dark background ('color' should be 'negative' for the black icon)
+    </p>
+    <div
+      style="background: var(--color-primary-active); display: inline-block; padding: 10px 15px;"
+    >
+      <gxg-icon slot="icon" type="add" color="negative"></gxg-icon>
+      <gxg-icon slot="icon" type="add" color="warning"></gxg-icon>
+      <gxg-icon slot="icon" type="add" color="success"></gxg-icon>
+      <gxg-icon slot="icon" type="add" color="error"></gxg-icon>
+    </div>
+
     <h2>Button Module</h2>
 
     <p>Primary text only</p>
@@ -159,7 +171,7 @@
     <p>Primary text + Icon</p>
     <!--PRIMARY TEXT + ICON-->
     <gxg-button type="primary-text-icon">
-      Primary Text Icon<gxg-icon slot="icon" type="add"></gxg-icon
+      Primary Text Icon<gxg-icon size="small" slot="icon" type="add"></gxg-icon
     ></gxg-button>
     <br />
     <gxg-button type="primary-text-icon" disabled
@@ -170,7 +182,7 @@
     <p>Primary Icon Only</p>
     <!--PRIMARY ICON ONLY-->
     <gxg-button type="primary-icon-only"
-      ><gxg-icon slot="icon" type="add"></gxg-icon
+      ><gxg-icon slot="icon" type="add" size="small"></gxg-icon
     ></gxg-button>
 
     <gxg-button type="primary-icon-only" disabled
