@@ -16,24 +16,24 @@
     </li>   
     <li>
         For the <em>icon</em> button types you will have to add an <em>icon component</em> as well, as part of the button content: 
-        <code>&lt;gxg-icon slot=&quot;icon&quot; type=&quot;add&quot;&gt;&lt;/gxg-icon&gt;</code>. <em>gxg-icon</em> component expect the <em>type</em> property, which is the name of the icon. Note that gxg-icon has a <em>slot</em> property set to "icon". This property/value ensures that the icon will be positioned at the left side of the button label. To see the list of available icons check the <em>icon</em> component on the Storybook documentation.
+        <code>&lt;gxg-icon slot=&quot;icon&quot; type=&quot;add&quot;&gt;&lt;/gxg-icon&gt;</code>. <em>gxg-icon</em> component expect the <em>type</em> property, which is the name of the icon. Note that gxg-icon has a <em>slot</em> property set to "icon". This property/value ensures that the icon will be positioned at the left side of the button label. To see the list of available icons check the <em>icon</em> component on the Storybook documentation. <strong><br><br>note:</strong> When using an icon inside a <code>gxg-button</code> element, there is no need to set the icon <em>size</em> property, since the size will be set automatically by the button itself.
     </li>
 </ol>
 <style>
-    h2 {
-        font-size: 20px;
-        padding-bottom: 5px;
-    }
-    code {
-        font-size: 10px;
-        color: #1EA7FD;
-    }
-    ul li {
-        margin: 10px 0 !important;
-    }
-    em {
-        font-weight: normal;
-    }
+  h2 {
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
+  code {
+    font-size: 10px;
+    color: #1ea7fd;
+  }
+  ul li {
+    margin: 10px 0 !important;
+  }
+  em {
+    font-weight: normal;
+  }
 </style>
 <!-- Auto Generated Below -->
 
