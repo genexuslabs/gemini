@@ -1,6 +1,6 @@
 # gxg-icon
 
-<!-- Auto Generated Below -->
+<p><strong>note:</strong> When using an icon inside a <code>gxg-button</code> element, there is no need to set the icon <em>size</em> property, since the size will be set automatically by the button itself.</p>
 
 ## Properties
 
