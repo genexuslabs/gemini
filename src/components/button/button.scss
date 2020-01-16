@@ -7,11 +7,12 @@
 
 :host {
   display: inline-block;
+  line-height: 0;
 }
 :host(.button) .button-native {
-  --svg-icon-native-flex-value-small: var(
-    --svg-icon-native-flex-value
-  ); // Force Icon size inside button to always be regular size.
+  --svg-icon-native-flex-value: var(
+    --svg-icon-native-flex-value-small
+  ); // Force Icon size inside button to always be small size.
 
   @include gxg-label;
   background: var(--color-primary-enabled);
@@ -30,9 +31,9 @@
 
   //if button has icon:
   ::slotted([slot="icon"]) {
-    --icon-size: var(--icon-size-small);
-    margin-right: var(--spacing-comp-01);
-    display: flex;
+    // --icon-size: var(--icon-size-small);
+    // margin-right: var(--spacing-comp-01);
+    // display: flex;
   }
 
   &:hover:not([disabled]) {
@@ -124,7 +125,8 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
   padding-right: 0;
   padding-left: 0;
 
-  min-width: var(--spacing-comp-05);
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
 
   &:focus {
     outline: none;
@@ -256,10 +258,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-right: 0;
   padding-left: 0;
-  width: var(--spacing-comp-04);
-  height: var(--spacing-comp-04);
-  min-width: var(--spacing-comp-04);
-  min-height: var(--spacing-comp-04);
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
 }
 :host(.button--secondary-icon-only.button--disabled) .button-native {
   background: transparent;
