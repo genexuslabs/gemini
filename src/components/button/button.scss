@@ -8,7 +8,12 @@
 :host {
   display: inline-block;
   line-height: 0;
+
+  ::slotted([slot="icon"]) {
+    pointer-events: none;
+  } //this prevents the icon from disabling .button-native focus
 }
+
 :host(.button) .button-native {
   --svg-icon-native-flex-value: var(
     --svg-icon-native-flex-value-small
@@ -28,13 +33,6 @@
   padding-left: var(--spacing-comp-05);
   min-height: var(--spacing-comp-05);
   line-height: var(--line-height-regular);
-
-  //if button has icon:
-  ::slotted([slot="icon"]) {
-    // --icon-size: var(--icon-size-small);
-    // margin-right: var(--spacing-comp-01);
-    // display: flex;
-  }
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
