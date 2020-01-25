@@ -113,9 +113,13 @@ TYPOGRAPHY
 /*Label*/
 $gxg-label-color: var(--color-primary-enabled);
 @mixin gxg-label {
-  font-family: var(--font-family-primary);
+  font-family: var(
+    --font-family-primary
+  ) !important; //!Important to prevent style overring on storybook
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-md);
+  font-size: var(
+    --font-size-md
+  ) !important; //!Important to prevent style overring on storybook
   letter-spacing: var(--letter-spacing-xs);
   color: $gxg-label-color;
   text-align: center;
@@ -144,4 +148,29 @@ $gxg-label--negative-color: var(--color-on-primary);
 $gxg-label--negative-disabled-color: var(--color-on-disabled);
 @mixin gxg-label--negative-disabled {
   color: $gxg-label--negative-disabled-color;
+}
+
+/*****************************************************
+GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
+*****************************************************/
+@mixin gxg-button-styles {
+  @include gxg-label;
+  background: var(--color-primary-enabled);
+  border: 0;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+  border-radius: var(--border-radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-right: var(--spacing-comp-05);
+  padding-bottom: 0;
+  padding-left: var(--spacing-comp-05);
+  min-height: var(--spacing-comp-05);
+  line-height: var(--line-height-regular);
+
+  //Transition
+  transition: background $ui-animaton-speed $ui-animation-timing-function,
+    color $ui-animaton-speed $ui-animation-timing-function,
+    box-shadow $ui-animaton-speed $ui-animation-timing-function;
 }

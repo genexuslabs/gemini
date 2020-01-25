@@ -19,20 +19,8 @@
     --svg-icon-native-flex-value-small
   ); // Force Icon size inside button to always be small size.
 
-  @include gxg-label;
-  background: var(--color-primary-enabled);
-  border: 0;
-  box-shadow: inset 0px 0px 0px 1px transparent;
-  border-radius: var(--border-radius-sm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 0;
-  padding-right: var(--spacing-comp-05);
-  padding-bottom: 0;
-  padding-left: var(--spacing-comp-05);
-  min-height: var(--spacing-comp-05);
-  line-height: var(--line-height-regular);
+  @include gxg-button-styles;
+  /*button styles are included on a mixin, because they are used on both, gxg-button, and gxg-button-group elements*/
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
@@ -46,11 +34,6 @@
   &:active:not([disabled]) {
     background: var(--color-primary-active);
   }
-
-  //Transition
-  transition: background $ui-animaton-speed $ui-animation-timing-function,
-    color $ui-animaton-speed $ui-animation-timing-function,
-    box-shadow $ui-animaton-speed $ui-animation-timing-function;
 }
 :host(.button.button--disabled) .button-native {
   background: var(--color-primary-disabled);

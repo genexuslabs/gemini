@@ -20,6 +20,20 @@ export namespace Components {
      */
     type: ButtonType;
   }
+  interface GxgButtonGroup {
+    /**
+     * The id of the button that you would like to show active initially
+     */
+    SelectedButtonId: string;
+    /**
+     * The main title that will show up above the buttons group
+     */
+    title: string;
+    /**
+     * The main title alignment
+     */
+    titleAlignment: "left" | "center" | "right";
+  }
   interface GxgIcon {
     /**
      * The color of the icon.
@@ -49,6 +63,14 @@ declare global {
     new (): HTMLGxgButtonElement;
   };
 
+  interface HTMLGxgButtonGroupElement
+    extends Components.GxgButtonGroup,
+      HTMLStencilElement {}
+  var HTMLGxgButtonGroupElement: {
+    prototype: HTMLGxgButtonGroupElement;
+    new (): HTMLGxgButtonGroupElement;
+  };
+
   interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
@@ -56,6 +78,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     "gxg-button": HTMLGxgButtonElement;
+    "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-icon": HTMLGxgIconElement;
   }
 }
@@ -70,6 +93,20 @@ declare namespace LocalJSX {
      * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
      */
     type?: ButtonType;
+  }
+  interface GxgButtonGroup {
+    /**
+     * The id of the button that you would like to show active initially
+     */
+    SelectedButtonId?: string;
+    /**
+     * The main title that will show up above the buttons group
+     */
+    title?: string;
+    /**
+     * The main title alignment
+     */
+    titleAlignment?: "left" | "center" | "right";
   }
   interface GxgIcon {
     /**
@@ -92,6 +129,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     "gxg-button": GxgButton;
+    "gxg-button-group": GxgButtonGroup;
     "gxg-icon": GxgIcon;
   }
 }
@@ -103,6 +141,8 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
+      "gxg-button-group": LocalJSX.GxgButtonGroup &
+        JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
     }
   }
