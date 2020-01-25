@@ -63,7 +63,6 @@ export class ButtonGroup {
   }
 
   setActiveButton(event: MouseEvent) {
-    let i;
     const buttonsHtmlCollection = this.el.children;
     Array.from(buttonsHtmlCollection).forEach(function(button) {
       button.removeAttribute("data-active");
@@ -78,10 +77,10 @@ export class ButtonGroup {
 
   render() {
     let header = null;
-    if (this.title !== "") {
+    if (this.buttonGroupTitle !== "") {
       header = (
         <header class="button-group-header">
-          <h1 class="button-group-header-title">{this.title}</h1>
+          <h1 class="button-group-header-title">{this.buttonGroupTitle}</h1>
         </header>
       );
     }
