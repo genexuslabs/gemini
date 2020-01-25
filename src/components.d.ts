@@ -28,7 +28,7 @@ export namespace Components {
     /**
      * The main title that will show up above the buttons group
      */
-    title: string;
+    buttonGroupTitle: string;
     /**
      * The main title alignment
      */
@@ -102,7 +102,7 @@ declare namespace LocalJSX {
     /**
      * The main title that will show up above the buttons group
      */
-    title?: string;
+    buttonGroupTitle?: string;
     /**
      * The main title alignment
      */

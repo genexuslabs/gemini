@@ -28,7 +28,7 @@ stories
   .add(
     "Two buttons",
     () => `
-    <gxg-button-group title="${text(
+    <gxg-button-group buttonGroupTitle="${text(
       "Maint Title",
       "The Title"
     )}" title-alignment="${select(label, options, defaultValue)}">
@@ -51,7 +51,7 @@ stories
   .add(
     "Three buttons",
     () => `
-    <gxg-button-group title="${text(
+    <gxg-button-group buttonGroupTitle="${text(
       "Main Title",
       "The Title"
     )}" title-alignment="${select(

@@ -33,7 +33,7 @@
 | Property           | Attribute            | Description                                                       | Type                            | Default     |
 | ------------------ | -------------------- | ----------------------------------------------------------------- | ------------------------------- | ----------- |
 | `SelectedButtonId` | `selected-button-id` | The id of the button that you would like to show active initially | `string`                        | `undefined` |
-| `title`            | `title`              | The main title that will show up above the buttons group          | `string`                        | `undefined` |
+| `buttonGroupTitle` | `button-group-title` | The main title that will show up above the buttons group          | `string`                        | `undefined` |
 | `titleAlignment`   | `title-alignment`    | The main title alignment                                          | `"center" \| "left" \| "right"` | `"left"`    |
 
 ---

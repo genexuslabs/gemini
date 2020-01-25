@@ -9,7 +9,7 @@ export class ButtonGroup {
   /**
   The main title that will show up above the buttons group
   */
-  @Prop() title: string;
+  @Prop() buttonGroupTitle: string;
 
   /**
   The main title alignment
