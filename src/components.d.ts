@@ -46,7 +46,7 @@ export namespace Components {
     /**
      * The size of the icon. Possible values: regular, small.
      */
-    size: "regular" | "small";
+    size: "regular" | "small" | "tiny";
     /**
      * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */
@@ -120,7 +120,7 @@ declare namespace LocalJSX {
     /**
      * The size of the icon. Possible values: regular, small.
      */
-    size?: "regular" | "small";
+    size?: "regular" | "small" | "tiny";
     /**
      * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */

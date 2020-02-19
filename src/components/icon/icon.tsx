@@ -50,7 +50,7 @@ export class Icon {
   /**
    * The size of the icon. Possible values: regular, small.
    */
-  @Prop() size: "regular" | "small" = "regular";
+  @Prop() size: "regular" | "small" | "tiny" = "regular";
 
   /**
    * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix.
@@ -136,7 +136,9 @@ export class Icon {
     return (
       <Host
         class={{
-          svgIcon: true
+          svgIcon: true,
+          "svgIcon--small": this.size === "small",
+          "svgIcon--tiny": this.size === "tiny"
         }}
       >
         <div

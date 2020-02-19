@@ -25,8 +25,9 @@ ICON
   }
 }
 
-:host([size="small"]) {
-  .svg-icon-native {
-    flex: var(--svg-icon-native-flex-value-small);
-  }
+:host(.svgIcon--small) .svg-icon-native {
+  flex: var(--svg-icon-native-flex-value-small);
 }
+// :host(.svgIcon__tiny) .svg-icon-native {
+//   flex: 0.5;
+// }
