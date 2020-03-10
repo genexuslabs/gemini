@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Host, Prop, h, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-alert",
@@ -6,10 +6,24 @@ import { Component, Host, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class Alert {
-  @Prop() something: string;
+  constructor() {
+    this.setAlertInactive = this.setAlertInactive.bind(this);
+  }
+
+  /**
+   * The type of alert
+   * Possible values: more-info, error, warning, success
+   */
   @Prop() type: AlertType = "more-info";
+  /**
+   * The title
+   */
   @Prop() alertTitle: string;
-  @Prop({ reflect: true }) active = true;
+  /**
+   * An attribute that determines wether the alert is active (visible) or not (not visible)
+   *
+   */
+  @Prop({ reflect: true }) active: boolean;
 
   iconColor(): "onbackground" | "negative" | "error" | "success" | "warning" {
     if (this.type === "more-info") return "negative";
@@ -27,14 +41,19 @@ export class Alert {
   }
 
   setAlertInactive() {
-    console.log("set alert inactive");
     this.active = false;
   }
 
-  render() {
-    console.log("something:");
-    console.log(this.something);
+  @Watch("active")
+  validateName(newValue: boolean) {
+    if (newValue === true) {
+      setTimeout(() => {
+        this.setAlertInactive();
+      }, 3500);
+    }
+  }
 
+  render() {
     return (
       <Host
         class={{
@@ -68,7 +87,7 @@ export class Alert {
           <div class="alert-message-close">
             <gxg-button
               type="secondary-icon-only"
-              onClick={this.setAlertInactive.bind(this)}
+              onClick={this.setAlertInactive}
             >
               <gxg-icon
                 slot="icon"

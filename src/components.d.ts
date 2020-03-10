@@ -12,9 +12,17 @@ import { IconType } from "./components/icon/icon";
 
 export namespace Components {
   interface GxgAlert {
+    /**
+     * An attribute that determines wether the alert is active (visible) or not (not visible)
+     */
     active: boolean;
+    /**
+     * The title
+     */
     alertTitle: string;
-    something: string;
+    /**
+     * The type of alert Possible values: more-info, error, warning, success
+     */
     type: AlertType;
   }
   interface GxgButton {
@@ -101,9 +109,17 @@ declare global {
 
 declare namespace LocalJSX {
   interface GxgAlert {
+    /**
+     * An attribute that determines wether the alert is active (visible) or not (not visible)
+     */
     active?: boolean;
+    /**
+     * The title
+     */
     alertTitle?: string;
-    something?: string;
+    /**
+     * The type of alert Possible values: more-info, error, warning, success
+     */
     type?: AlertType;
   }
   interface GxgButton {
