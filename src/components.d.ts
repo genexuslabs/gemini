@@ -6,10 +6,17 @@
  */
 
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { IconType } from "./components/icon/icon";
 
 export namespace Components {
+  interface GxgAlert {
+    active: boolean;
+    alertTitle: string;
+    something: string;
+    type: AlertType;
+  }
   interface GxgButton {
     /**
      * The state of the button. Whether is disabled or not. Possible values: false, true
@@ -55,6 +62,14 @@ export namespace Components {
 }
 
 declare global {
+  interface HTMLGxgAlertElement
+    extends Components.GxgAlert,
+      HTMLStencilElement {}
+  var HTMLGxgAlertElement: {
+    prototype: HTMLGxgAlertElement;
+    new (): HTMLGxgAlertElement;
+  };
+
   interface HTMLGxgButtonElement
     extends Components.GxgButton,
       HTMLStencilElement {}
@@ -77,6 +92,7 @@ declare global {
     new (): HTMLGxgIconElement;
   };
   interface HTMLElementTagNameMap {
+    "gxg-alert": HTMLGxgAlertElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-icon": HTMLGxgIconElement;
@@ -84,6 +100,12 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface GxgAlert {
+    active?: boolean;
+    alertTitle?: string;
+    something?: string;
+    type?: AlertType;
+  }
   interface GxgButton {
     /**
      * The state of the button. Whether is disabled or not. Possible values: false, true
@@ -128,6 +150,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    "gxg-alert": GxgAlert;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
     "gxg-icon": GxgIcon;
@@ -139,6 +162,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      "gxg-alert": LocalJSX.GxgAlert &
+        JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &

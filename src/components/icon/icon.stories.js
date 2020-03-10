@@ -15,7 +15,8 @@ KNOBS
 /*Icons Knob*/
 const label = "Color";
 const options = {
-  default: "onbackground",
+  onbackground: "onbackground",
+  negative: "negative",
   error: "error",
   warning: "warning",
   success: "success"

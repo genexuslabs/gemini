@@ -174,3 +174,7 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
     color $ui-animaton-speed $ui-animation-timing-function,
     box-shadow $ui-animaton-speed $ui-animation-timing-function;
 }
+
+@mixin ui-animation($property) {
+  transition: $property 0.2s ease-in-out;
+}
