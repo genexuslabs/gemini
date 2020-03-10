@@ -44,6 +44,20 @@
 | `disabled` | `disabled` | The state of the button. Whether is disabled or not. Possible values: false, true                                                               | `boolean`                                                                                                                                                                             | `false`               |
 | `type`     | `type`     | The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined | `"icon-only-secondary" \| "outlined" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only"` | `"primary-text-only"` |
 
+## Dependencies
+
+### Used by
+
+- [gxg-alert](../alert)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-alert --> gxg-button
+  style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
