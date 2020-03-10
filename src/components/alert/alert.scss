@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: var(--font-family-primary);
 
   /*TYPES OF ALERTS*/
   &--more-info {
@@ -58,6 +59,6 @@
 }
 .alert-message--description {
   font-size: var(--font-size-md);
-  margin-top: var(--spacing-comp-01);
+  margin-top: 0;
   margin-bottom: 0;
 }
