@@ -4,8 +4,9 @@
 :host {
   position: fixed;
   bottom: -100px;
-  left: var(--spacing-lay-02);
+  left: var(--spacing-comp-02);
   width: 350px;
+  z-index: 100;
 
   @include ui-animation(bottom);
 }
