@@ -178,3 +178,35 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
 @mixin ui-animation($property) {
   transition: $property 0.2s ease-in-out;
 }
+
+/*****************************************************
+FORM ELEMENTS
+*****************************************************/
+
+@mixin form-element-common-styles-label {
+  @include gxg-text();
+}
+@mixin form-element-common-styles-label--above {
+  display: block;
+  margin-bottom: var(--spacing-comp-01);
+}
+@mixin form-element-common-styles {
+  border-width: var(--border-width-sm);
+  border-color: var(--gray-04);
+  border-style: var(--border-style-regular);
+  border-radius: var(--border-radius-sm);
+  padding-left: var(--spacing-comp-01);
+  padding-right: var(--spacing-comp-01);
+  color: var(--color-on-secondary);
+}
+@mixin form-element-common-styles-error {
+  border-color: var(--gray-04);
+  background-color: var(--color-error-light);
+  color: var(--color-error-dark);
+}
+
+@mixin form-element-common-styles-wrapper {
+  margin-bottom: var(--spacing-comp-03);
+  position: relative;
+  display: inline-block;
+}

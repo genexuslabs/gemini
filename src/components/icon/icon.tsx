@@ -188,3 +188,5 @@ export type IconType =
   | "success"
   | "up"
   | "warning";
+
+//Keep updated icon type on "form-input component as well"

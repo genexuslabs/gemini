@@ -1,0 +1,12 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: flex;
+  align-items: center;
+  @include gxg-text();
+  text-transform: uppercase;
+  font-size: var(--font-size-xs);
+  margin-bottom: 0;
+  margin-left: -4px;
+}

@@ -1,0 +1,19 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+/*****************************************************
+FORM ELEMENT WRAPPER
+*****************************************************/
+.form-element-wrapper {
+  @include form-element-common-styles-wrapper();
+}
+
+/*****************************************************
+LABEL
+*****************************************************/
+label {
+  @include form-element-common-styles-label();
+}
+.label--above {
+  @include form-element-common-styles-label--above();
+}

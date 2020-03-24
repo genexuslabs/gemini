@@ -9,6 +9,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { IconType } from "./components/icon/icon";
+import { IconType as IconType1 } from "./components/icon/icon";
 
 export namespace Components {
   interface GxgAlert {
@@ -48,6 +49,104 @@ export namespace Components {
      * The main title alignment
      */
     titleAlignment: "left" | "center" | "right";
+  }
+  interface GxgFormInput {
+    /**
+     * If input is disabled
+     */
+    disabled: boolean;
+    /**
+     * If input has errors
+     */
+    error: boolean;
+    /**
+     * Input icon possible values: the same as the values for the icon component
+     */
+    icon: IconType;
+    /**
+     * Input icon side possible values: left, right
+     */
+    iconSide: string;
+    /**
+     * Wether the input is inline or block
+     */
+    inline: boolean;
+    /**
+     * The input id
+     */
+    inputId: string;
+    /**
+     * The input label
+     */
+    label: string;
+    /**
+     * The input label position possible values: top, left
+     */
+    labelPosition: string;
+    /**
+     * The input name
+     */
+    name: string;
+    /**
+     * The input placeholder
+     */
+    placeholder: string;
+    /**
+     * The kind of input Possible values: checkbox
+     */
+    type: string;
+    /**
+     * The input value
+     */
+    value: string;
+    /**
+     * If input has warning
+     */
+    warning: boolean;
+  }
+  interface GxgFormMessage {
+    /**
+     * The kind of message Possible values: error, warning
+     */
+    messageType: string;
+  }
+  interface GxgFormTextarea {
+    /**
+     * If textarea is disabled
+     */
+    disabled: boolean;
+    /**
+     * If textarea has errors
+     */
+    error: boolean;
+    /**
+     * The textarea id
+     */
+    inputId: string;
+    /**
+     * The textarea label
+     */
+    label: string;
+    /**
+     * The input label position possible values: top, left
+     */
+    labelPosition: string;
+    /**
+     * The textarea name
+     */
+    name: string;
+    /**
+     * The textarea placeholder
+     */
+    placeholder: string;
+    /**
+     * The textarea value
+     */
+    value: string;
+    /**
+     * If textarea has warnings
+     */
+    warning: boolean;
   }
   interface GxgIcon {
     /**
@@ -94,6 +193,30 @@ declare global {
     new (): HTMLGxgButtonGroupElement;
   };
 
+  interface HTMLGxgFormInputElement
+    extends Components.GxgFormInput,
+      HTMLStencilElement {}
+  var HTMLGxgFormInputElement: {
+    prototype: HTMLGxgFormInputElement;
+    new (): HTMLGxgFormInputElement;
+  };
+
+  interface HTMLGxgFormMessageElement
+    extends Components.GxgFormMessage,
+      HTMLStencilElement {}
+  var HTMLGxgFormMessageElement: {
+    prototype: HTMLGxgFormMessageElement;
+    new (): HTMLGxgFormMessageElement;
+  };
+
+  interface HTMLGxgFormTextareaElement
+    extends Components.GxgFormTextarea,
+      HTMLStencilElement {}
+  var HTMLGxgFormTextareaElement: {
+    prototype: HTMLGxgFormTextareaElement;
+    new (): HTMLGxgFormTextareaElement;
+  };
+
   interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
@@ -103,6 +226,9 @@ declare global {
     "gxg-alert": HTMLGxgAlertElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
+    "gxg-form-input": HTMLGxgFormInputElement;
+    "gxg-form-message": HTMLGxgFormMessageElement;
+    "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
   }
 }
@@ -146,6 +272,104 @@ declare namespace LocalJSX {
      */
     titleAlignment?: "left" | "center" | "right";
   }
+  interface GxgFormInput {
+    /**
+     * If input is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If input has errors
+     */
+    error?: boolean;
+    /**
+     * Input icon possible values: the same as the values for the icon component
+     */
+    icon?: IconType;
+    /**
+     * Input icon side possible values: left, right
+     */
+    iconSide?: string;
+    /**
+     * Wether the input is inline or block
+     */
+    inline?: boolean;
+    /**
+     * The input id
+     */
+    inputId?: string;
+    /**
+     * The input label
+     */
+    label?: string;
+    /**
+     * The input label position possible values: top, left
+     */
+    labelPosition?: string;
+    /**
+     * The input name
+     */
+    name?: string;
+    /**
+     * The input placeholder
+     */
+    placeholder?: string;
+    /**
+     * The kind of input Possible values: checkbox
+     */
+    type?: string;
+    /**
+     * The input value
+     */
+    value?: string;
+    /**
+     * If input has warning
+     */
+    warning?: boolean;
+  }
+  interface GxgFormMessage {
+    /**
+     * The kind of message Possible values: error, warning
+     */
+    messageType?: string;
+  }
+  interface GxgFormTextarea {
+    /**
+     * If textarea is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If textarea has errors
+     */
+    error?: boolean;
+    /**
+     * The textarea id
+     */
+    inputId?: string;
+    /**
+     * The textarea label
+     */
+    label?: string;
+    /**
+     * The input label position possible values: top, left
+     */
+    labelPosition?: string;
+    /**
+     * The textarea name
+     */
+    name?: string;
+    /**
+     * The textarea placeholder
+     */
+    placeholder?: string;
+    /**
+     * The textarea value
+     */
+    value?: string;
+    /**
+     * If textarea has warnings
+     */
+    warning?: boolean;
+  }
   interface GxgIcon {
     /**
      * The color of the icon.
@@ -169,6 +393,9 @@ declare namespace LocalJSX {
     "gxg-alert": GxgAlert;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
+    "gxg-form-input": GxgFormInput;
+    "gxg-form-message": GxgFormMessage;
+    "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
   }
 }
@@ -184,6 +411,12 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &
         JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
+      "gxg-form-input": LocalJSX.GxgFormInput &
+        JSXBase.HTMLAttributes<HTMLGxgFormInputElement>;
+      "gxg-form-message": LocalJSX.GxgFormMessage &
+        JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
+      "gxg-form-textarea": LocalJSX.GxgFormTextarea &
+        JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
     }
   }

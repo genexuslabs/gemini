@@ -35,6 +35,150 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
+    <h2>Form</h2>
+    <form>
+      <h3>Input text</h3>
+      <gxg-form-input
+        type="text"
+        id="name1"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        onchange="validarNombre()"
+        inline="true"
+      ></gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name2"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        disabled
+      ></gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name3"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        error
+      ></gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        warning
+      ></gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        warning
+      ></gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        warning
+        inline
+        icon="search"
+        icon-position="left"
+      >
+      </gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        warning
+        inline
+        icon="search"
+        icon-position="right"
+      >
+      </gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        error
+        inline
+        icon="search"
+        icon-position="right"
+      >
+      </gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        inline
+        icon="search"
+        icon-position="right"
+      >
+      </gxg-form-input>
+
+      <h3>Textarea</h3>
+      <gxg-form-textarea
+        id="textarea1"
+        name="textarea1"
+        label="Default"
+        placeholder="Placeholder text"
+        warning
+      >
+      </gxg-form-textarea>
+    </form>
+
+    <script>
+      document.getElementById("name1").addEventListener(
+        "keyup",
+        function(evt) {
+          let inputVal = this.value;
+          if (inputVal.length < 3) {
+            console.log("inputVal.length < 3");
+            this.setAttribute("error", "error");
+            this.innerHTML = `<gxg-form-message message-type="error">
+                This is an error message 1
+              </gxg-form-message>`;
+          }
+          if (inputVal.length > 6) {
+            console.log("inputVal.length > 6");
+            this.setAttribute("error", "error");
+            this.innerHTML = `<gxg-form-message message-type="warning">
+                This is a warning message
+              </gxg-form-message>`;
+          }
+        },
+        false
+      );
+    </script>
+
     <h2>Alert</h2>
     <div>
       <gxg-alert something="algo" test="testing" type="more-info" active="true">
@@ -57,7 +201,11 @@
     <h2>Tabs</h2>
 
     <h2>Button Group</h2>
-    <gxg-button-group button-group-title="The title" title-alignment="left">
+    <gxg-button-group
+      button-group-title="The title"
+      title-alignment="left"
+      selected-button-id="id2"
+    >
       <button id="id1" value="primero">Left</button>
       <button id="id2" value="segundo">Middle</button>
       <button id="id3" value="tercero">Right</button>

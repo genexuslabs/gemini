@@ -1,0 +1,182 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+@mixin form-element-common-styles {
+  border-width: var(--border-width-sm);
+  border-color: var(--gray-04);
+  border-style: var(--border-style-regular);
+  border-radius: var(--border-radius-sm);
+  padding-left: var(--spacing-comp-01);
+  padding-right: var(--spacing-comp-01);
+  color: var(--color-on-secondary);
+}
+@mixin form-element-common-styles-error {
+  border-color: var(--gray-04);
+  background-color: var(--color-error-light);
+  color: var(--color-error-dark);
+}
+
+:host {
+  display: flex;
+}
+:host([inline]) {
+  display: inline-flex;
+}
+/*****************************************************
+FORM ELEMENT WRAPPER
+*****************************************************/
+.form-element-wrapper {
+  @include form-element-common-styles-wrapper();
+}
+.inner-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gxg-icon {
+    position: absolute;
+  }
+}
+
+/*****************************************************
+LABEL
+*****************************************************/
+label {
+  @include form-element-common-styles-label();
+}
+.label--above {
+  @include form-element-common-styles-label--above();
+}
+
+input {
+  @include gxg-text();
+  position: relative;
+}
+/*****************************************************
+TEXT
+*****************************************************/
+input[type="text"] {
+  @include form-element-common-styles();
+  height: var(--spacing-comp-05);
+  box-sizing: border-box;
+
+  &:focus {
+    //box-shadow: var(--border-width-md) 0 var(border-color);
+    outline-style: solid;
+    outline-color: var(--color-primary-active);
+    outline-width: var(--border-width-md);
+  }
+}
+input[disabled] {
+  background-color: var(--color-on-disabled);
+  color: var(--gray-04);
+}
+input[disabled]::-webkit-input-placeholder {
+  color: var(--gray-04);
+}
+.input--error[type="text"],
+.input--warning[type="text"] {
+  margin-bottom: 0;
+}
+.input--error[type="text"] {
+  border-color: var(--color-error-dark);
+  background-color: var(--color-error-light);
+  margin-bottom: 0;
+}
+.input--warning[type="text"] {
+  border-color: var(--color-warning-dark);
+  background-color: var(--color-warning-light);
+}
+
+/*****************************************************
+INPUT TEXT ICON
+*****************************************************/
+::slotted(gxg-icon) {
+  // position: absolute;
+}
+::slotted(gxg-icon[slot="icon-left"]) {
+  left: 0;
+}
+// Input with icon (on the left, or on the right)
+
+:host([icon-position="left"]) input {
+  padding-left: 20px;
+}
+:host([icon-position="left"]) .inner-wrapper {
+}
+:host([icon-position="left"]) input {
+  padding-left: 20px;
+}
+:host([icon-position="right"]) input {
+  padding-right: 20px;
+}
+:host([icon-position="right"]) .inner-wrapper {
+  flex-direction: row-reverse;
+}
+
+/*****************************************************
+CHECKBOX
+*****************************************************/
+input[type="checkbox"] {
+  // https://codepen.io/spacemonkey/pen/vmZROv
+
+  // position: absolute; // take it out of document flow
+  // opacity: 0; // hide it
+
+  // & + label {
+  //   position: relative;
+  //   cursor: pointer;
+  //   padding: 0;
+  // }
+
+  // // Box.
+  // & + label:before {
+  //   content: "";
+  //   margin-right: 10px;
+  //   display: inline-block;
+  //   vertical-align: text-top;
+  //   width: 20px;
+  //   height: 20px;
+  //   background: white;
+  // }
+
+  // // Box hover
+  // &:hover + label:before {
+  //   background: #f35429;
+  // }
+
+  // // Box focus
+  // &:focus + label:before {
+  //   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  // }
+
+  // // Box checked
+  // &:checked + label:before {
+  //   background: #f35429;
+  // }
+
+  // // Disabled state label.
+  // &:disabled + label {
+  //   color: #b8b8b8;
+  //   cursor: auto;
+  // }
+
+  // // Disabled box.
+  // &:disabled + label:before {
+  //   box-shadow: none;
+  //   background: #ddd;
+  // }
+
+  // // Checkmark. Could be replaced with an image
+  // &:checked + label:after {
+  //   content: "";
+  //   position: absolute;
+  //   left: 5px;
+  //   top: 9px;
+  //   background: white;
+  //   width: 2px;
+  //   height: 2px;
+  //   box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+  //     4px -6px 0 white, 4px -8px 0 white;
+  //   transform: rotate(45deg);
+  // }
+}
