@@ -60,6 +60,10 @@ export namespace Components {
      */
     error: boolean;
     /**
+     * If input is full width
+     */
+    fullWidth: boolean;
+    /**
      * Input icon possible values: the same as the values for the icon component
      */
     icon: IconType;
@@ -110,6 +114,52 @@ export namespace Components {
      */
     messageType: string;
   }
+  interface GxgFormSelect {
+    /**
+     * If select is disabled
+     */
+    disabled: boolean;
+    /**
+     * If select has errors
+     */
+    error: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
+    /**
+     * Wether the select is inline or block
+     */
+    inline: boolean;
+    /**
+     * The select label
+     */
+    label: string;
+    /**
+     * The select label position possible values: top, left
+     */
+    labelPosition: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    maxVisibleOptions: string;
+    /**
+     * The select name
+     */
+    name: string;
+    /**
+     * The select id
+     */
+    selectId: string;
+    /**
+     * If select has warnings
+     */
+    warning: boolean;
+    /**
+     * The select width
+     */
+    width: string;
+  }
   interface GxgFormTextarea {
     /**
      * If textarea is disabled
@@ -127,10 +177,6 @@ export namespace Components {
      * The textarea label
      */
     label: string;
-    /**
-     * The input label position possible values: top, left
-     */
-    labelPosition: string;
     /**
      * The textarea name
      */
@@ -209,6 +255,14 @@ declare global {
     new (): HTMLGxgFormMessageElement;
   };
 
+  interface HTMLGxgFormSelectElement
+    extends Components.GxgFormSelect,
+      HTMLStencilElement {}
+  var HTMLGxgFormSelectElement: {
+    prototype: HTMLGxgFormSelectElement;
+    new (): HTMLGxgFormSelectElement;
+  };
+
   interface HTMLGxgFormTextareaElement
     extends Components.GxgFormTextarea,
       HTMLStencilElement {}
@@ -228,6 +282,7 @@ declare global {
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-form-input": HTMLGxgFormInputElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
+    "gxg-form-select": HTMLGxgFormSelectElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
   }
@@ -282,6 +337,10 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
+     * If input is full width
+     */
+    fullWidth?: boolean;
+    /**
      * Input icon possible values: the same as the values for the icon component
      */
     icon?: IconType;
@@ -332,6 +391,52 @@ declare namespace LocalJSX {
      */
     messageType?: string;
   }
+  interface GxgFormSelect {
+    /**
+     * If select is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If select has errors
+     */
+    error?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
+    /**
+     * Wether the select is inline or block
+     */
+    inline?: boolean;
+    /**
+     * The select label
+     */
+    label?: string;
+    /**
+     * The select label position possible values: top, left
+     */
+    labelPosition?: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    maxVisibleOptions?: string;
+    /**
+     * The select name
+     */
+    name?: string;
+    /**
+     * The select id
+     */
+    selectId?: string;
+    /**
+     * If select has warnings
+     */
+    warning?: boolean;
+    /**
+     * The select width
+     */
+    width?: string;
+  }
   interface GxgFormTextarea {
     /**
      * If textarea is disabled
@@ -349,10 +454,6 @@ declare namespace LocalJSX {
      * The textarea label
      */
     label?: string;
-    /**
-     * The input label position possible values: top, left
-     */
-    labelPosition?: string;
     /**
      * The textarea name
      */
@@ -395,6 +496,7 @@ declare namespace LocalJSX {
     "gxg-button-group": GxgButtonGroup;
     "gxg-form-input": GxgFormInput;
     "gxg-form-message": GxgFormMessage;
+    "gxg-form-select": GxgFormSelect;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
   }
@@ -415,6 +517,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormInputElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
+      "gxg-form-select": LocalJSX.GxgFormSelect &
+        JSXBase.HTMLAttributes<HTMLGxgFormSelectElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;

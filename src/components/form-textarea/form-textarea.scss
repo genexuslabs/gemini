@@ -13,7 +13,29 @@ LABEL
 *****************************************************/
 label {
   @include form-element-common-styles-label();
-}
-.label--above {
   @include form-element-common-styles-label--above();
+}
+textarea {
+  @include gxg-text();
+}
+
+/*****************************************************
+TEXTAREA
+*****************************************************/
+textarea {
+  display: block;
+  @include form-element-common-styles;
+
+  &:focus {
+    @include form-element-common-styles-focus();
+  }
+}
+textarea[disabled] {
+  @include form-element-common-styles-disabled();
+}
+textarea.textarea--error {
+  @include form-element-common-styles-error();
+}
+textarea.textarea--warning {
+  @include form-element-common-styles-warning();
 }

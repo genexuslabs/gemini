@@ -37,7 +37,168 @@
 
     <h2>Form</h2>
     <form>
+      <h3>Select</h3>
+      <gxg-form-select
+        id="select1"
+        name="select1"
+        label="Default"
+        error
+        width="200px"
+        max-visible-options="4"
+      >
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option selected value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select2" name="select2" label="Default" disabled>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option selected value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select3" name="select3" label="Default" error>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option selected value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select4" name="select4" label="Default" inline>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option selected value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+      </gxg-form-select>
+
+      <h3>Select Block</h3>
+      <gxg-form-select id="select1" name="select1" label="Default" block>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select2" name="select2" label="Default" block>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select3" name="select3" label="Default" block>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select4" name="select4" label="Default" block>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+
+      <h3>Select Fullwidth</h3>
+      <gxg-form-select id="select1" name="select1" label="Default" full-width>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+
+      <gxg-form-select id="select2" name="select2" label="Default" full-width>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+
+      <h3>Textarea</h3>
+      <gxg-form-textarea
+        id="textarea1"
+        name="textarea1"
+        label="Default"
+        placeholder="Placeholder text"
+      >
+      </gxg-form-textarea>
+
+      <gxg-form-textarea
+        id="textarea2"
+        name="textarea2"
+        label="Default"
+        placeholder="Placeholder text"
+        disabled
+      >
+      </gxg-form-textarea>
+
+      <gxg-form-textarea
+        id="textarea2"
+        name="textarea2"
+        label="Default"
+        placeholder="Warning"
+        warning
+      >
+      </gxg-form-textarea>
+
+      <gxg-form-textarea
+        id="textarea2"
+        name="textarea2"
+        label="Error"
+        placeholder="Placeholder text"
+        error
+      >
+      </gxg-form-textarea>
+
       <h3>Input text</h3>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        warning
+        full-width
+        icon="search"
+        icon-position="left"
+        vaule="hola"
+      >
+      </gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name4"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        warning
+        full-width
+        icon="search"
+        icon-position="right"
+        value="dsda"
+      >
+      </gxg-form-input>
+
       <gxg-form-input
         type="text"
         id="name1"
@@ -46,7 +207,17 @@
         label-position="above"
         placeholder="Placeholder text"
         onchange="validarNombre()"
-        inline="true"
+        full-width
+      ></gxg-form-input>
+
+      <gxg-form-input
+        type="text"
+        id="name1"
+        name="name"
+        label="Default"
+        label-position="above"
+        placeholder="Placeholder text"
+        onchange="validarNombre()"
       ></gxg-form-input>
 
       <gxg-form-input
@@ -143,19 +314,53 @@
         icon-position="right"
       >
       </gxg-form-input>
-
-      <h3>Textarea</h3>
-      <gxg-form-textarea
-        id="textarea1"
-        name="textarea1"
-        label="Default"
-        placeholder="Placeholder text"
-        warning
-      >
-      </gxg-form-textarea>
     </form>
 
     <script>
+      // Error for select
+      document.getElementById("select1").addEventListener(
+        "click",
+        function(evt) {
+          console.log(this.shadowRoot.querySelector(".messages-wrapper"));
+          this.shadowRoot.querySelector(
+            ".messages-wrapper"
+          ).innerHTML = `<gxg-form-message message-type="error">
+                This is an error message 1
+              </gxg-form-message>`;
+        },
+        false
+      );
+    </script>
+
+    <script>
+      // Error for textarea
+      document.getElementById("textarea1").addEventListener(
+        "keyup",
+        function(evt) {
+          let inputVal = this.value;
+          if (inputVal.length < 3) {
+            this.setAttribute("error", "error");
+            this.shadowRoot.querySelector(
+              ".messages-wrapper"
+            ).innerHTML = `<gxg-form-message message-type="error">
+                This is an error message 1
+              </gxg-form-message>`;
+          }
+          if (inputVal.length > 6) {
+            this.setAttribute("error", "error");
+            this.shadowRoot.querySelector(
+              ".messages-wrapper"
+            ).innerHTML = `<gxg-form-message message-type="warning">
+                This is a warning message
+              </gxg-form-message>`;
+          }
+        },
+        false
+      );
+    </script>
+
+    <script>
+      // Error for input text
       document.getElementById("name1").addEventListener(
         "keyup",
         function(evt) {
@@ -163,14 +368,18 @@
           if (inputVal.length < 3) {
             console.log("inputVal.length < 3");
             this.setAttribute("error", "error");
-            this.innerHTML = `<gxg-form-message message-type="error">
+            this.shadowRoot.querySelector(
+              ".messages-wrapper"
+            ).innerHTML = `<gxg-form-message message-type="error">
                 This is an error message 1
               </gxg-form-message>`;
           }
           if (inputVal.length > 6) {
             console.log("inputVal.length > 6");
             this.setAttribute("error", "error");
-            this.innerHTML = `<gxg-form-message message-type="warning">
+            this.shadowRoot.querySelector(
+              ".messages-wrapper"
+            ).innerHTML = `<gxg-form-message message-type="warning">
                 This is a warning message
               </gxg-form-message>`;
           }

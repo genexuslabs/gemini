@@ -176,7 +176,7 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
 }
 
 @mixin ui-animation($property) {
-  transition: $property 0.2s ease-in-out;
+  transition: $property $ui-animaton-speed $ui-animation-timing-function;
 }
 
 /*****************************************************
@@ -199,6 +199,10 @@ FORM ELEMENTS
   padding-right: var(--spacing-comp-01);
   color: var(--color-on-secondary);
 }
+@mixin form-element-common-styles-disabled {
+  background-color: var(--color-on-disabled);
+  color: var(--gray-04);
+}
 @mixin form-element-common-styles-error {
   border-color: var(--gray-04);
   background-color: var(--color-error-light);
@@ -206,7 +210,23 @@ FORM ELEMENTS
 }
 
 @mixin form-element-common-styles-wrapper {
-  margin-bottom: var(--spacing-comp-03);
   position: relative;
-  display: inline-block;
+}
+
+@mixin form-element-common-styles-focus {
+  outline-style: solid;
+  outline-color: var(--color-primary-active);
+  outline-width: var(--border-width-md);
+}
+
+//ERROR & WARNING
+@mixin form-element-common-styles-error {
+  border-color: var(--color-error-dark);
+  background-color: var(--color-error-light);
+  margin-bottom: 0;
+}
+@mixin form-element-common-styles-warning {
+  border-color: var(--color-warning-dark);
+  background-color: var(--color-warning-light);
+  margin-bottom: 0;
 }

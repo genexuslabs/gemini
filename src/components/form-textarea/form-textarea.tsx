@@ -30,12 +30,6 @@ export class FormTextarea {
   @Prop() label: string;
 
   /**
-   * The input label position
-   * possible values: top, left
-   */
-  @Prop() labelPosition = "left";
-
-  /**
    * The textarea placeholder
    */
   @Prop() placeholder: string;
@@ -66,13 +60,13 @@ export class FormTextarea {
         <div class="form-element-wrapper">
           <label
             class={{
-              label: true,
-              "label--above": this.labelPosition === "above"
+              label: true
             }}
             htmlFor={this.inputId}
           >
             {this.label}
           </label>
+
           <textarea
             ref={el => (this.textArea = el as HTMLTextAreaElement)}
             class={{
@@ -86,9 +80,9 @@ export class FormTextarea {
             disabled={this.disabled}
             onKeyUp={this.updateTextareaValue.bind(this)}
           ></textarea>
-
           <slot></slot>
         </div>
+        <div class="messages-wrapper"></div>
       </Host>
     );
   }

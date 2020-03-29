@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Host, Prop, h, Element } from "@stencil/core";
 import { IconType } from "../icon/icon";
 
 @Component({
@@ -11,14 +11,19 @@ export class FormInput {
   textInput!: HTMLInputElement;
 
   /**
+   * If input is disabled
+   */
+  @Prop() disabled = false;
+
+  /**
    * If input has errors
    */
   @Prop() error = false;
 
   /**
-   * If input is disabled
+   * If input is full width
    */
-  @Prop() disabled = false;
+  @Prop({ reflect: true }) fullWidth = false;
 
   /**
    * Input icon
@@ -79,6 +84,12 @@ export class FormInput {
    */
   @Prop() warning = false;
 
+  @Element() el: HTMLElement;
+
+  componentDidLoad() {
+    this.value = this.el.getAttribute("value");
+  }
+
   updateInputValue() {
     //set the input value to the gxg-input component, so the user can catch the value
     this.value = this.textInput.value;
@@ -86,9 +97,7 @@ export class FormInput {
 
   inputIcon() {
     if (this.icon) {
-      console.log("this.icon");
       if (this.warning) {
-        console.log("this.warning");
         return (
           <gxg-icon
             slot="icon"
@@ -99,7 +108,6 @@ export class FormInput {
         );
       }
       if (this.error) {
-        console.log("this.error");
         return (
           <gxg-icon
             slot="icon"
@@ -127,7 +135,6 @@ export class FormInput {
           <label
             class={{
               label: true,
-              inline: this.inline,
               "label--above": this.labelPosition === "above"
             }}
             htmlFor={this.inputId}
@@ -137,6 +144,7 @@ export class FormInput {
           <div class="inner-wrapper">
             <input
               ref={el => (this.textInput = el as HTMLInputElement)}
+              value={this.value}
               class={{
                 input: true,
                 "input--error": this.error === true,
@@ -153,6 +161,7 @@ export class FormInput {
             <slot></slot>
           </div>
         </div>
+        <div class="messages-wrapper"></div>
       </Host>
     );
   }
