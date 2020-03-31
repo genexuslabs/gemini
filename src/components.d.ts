@@ -50,7 +50,7 @@ export namespace Components {
      */
     titleAlignment: "left" | "center" | "right";
   }
-  interface GxgFormInput {
+  interface GxgFormInputText {
     /**
      * If input is disabled
      */
@@ -150,7 +150,7 @@ export namespace Components {
     /**
      * The selected option
      */
-    selectedValue: string;
+    value: string;
     /**
      * If select has warnings
      */
@@ -255,12 +255,12 @@ declare global {
     new (): HTMLGxgButtonGroupElement;
   };
 
-  interface HTMLGxgFormInputElement
-    extends Components.GxgFormInput,
+  interface HTMLGxgFormInputTextElement
+    extends Components.GxgFormInputText,
       HTMLStencilElement {}
-  var HTMLGxgFormInputElement: {
-    prototype: HTMLGxgFormInputElement;
-    new (): HTMLGxgFormInputElement;
+  var HTMLGxgFormInputTextElement: {
+    prototype: HTMLGxgFormInputTextElement;
+    new (): HTMLGxgFormInputTextElement;
   };
 
   interface HTMLGxgFormMessageElement
@@ -296,7 +296,7 @@ declare global {
     "gxg-alert": HTMLGxgAlertElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
-    "gxg-form-input": HTMLGxgFormInputElement;
+    "gxg-form-input-text": HTMLGxgFormInputTextElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-select": HTMLGxgFormSelectElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
@@ -343,7 +343,7 @@ declare namespace LocalJSX {
      */
     titleAlignment?: "left" | "center" | "right";
   }
-  interface GxgFormInput {
+  interface GxgFormInputText {
     /**
      * If input is disabled
      */
@@ -443,7 +443,7 @@ declare namespace LocalJSX {
     /**
      * The selected option
      */
-    selectedValue?: string;
+    value?: string;
     /**
      * If select has warnings
      */
@@ -526,7 +526,7 @@ declare namespace LocalJSX {
     "gxg-alert": GxgAlert;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
-    "gxg-form-input": GxgFormInput;
+    "gxg-form-input-text": GxgFormInputText;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-select": GxgFormSelect;
     "gxg-form-textarea": GxgFormTextarea;
@@ -545,8 +545,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &
         JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
-      "gxg-form-input": LocalJSX.GxgFormInput &
-        JSXBase.HTMLAttributes<HTMLGxgFormInputElement>;
+      "gxg-form-input-text": LocalJSX.GxgFormInputText &
+        JSXBase.HTMLAttributes<HTMLGxgFormInputTextElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
       "gxg-form-select": LocalJSX.GxgFormSelect &

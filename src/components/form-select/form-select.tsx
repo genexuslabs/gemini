@@ -56,7 +56,7 @@ export class FormSelect {
   /**
    * The selected option
    */
-  @Prop({ reflect: true }) selectedValue: string;
+  @Prop({ reflect: true }) value: string;
 
   /**
    * If select has warnings
@@ -70,8 +70,7 @@ export class FormSelect {
 
   componentDidLoad() {
     const updateValue = selectedOption => {
-      console.log(selectedOption);
-      this.selectedValue = selectedOption;
+      this.value = selectedOption;
     };
 
     let i, j, a, b, c;
@@ -95,7 +94,7 @@ export class FormSelect {
         }
       }
       a.innerHTML = selectedOption.innerHTML;
-      this.selectedValue = selectedOption.value;
+      this.value = selectedOption.value;
 
       const listOfOptions = this.el.querySelectorAll("option");
 
@@ -182,7 +181,7 @@ export class FormSelect {
   render() {
     return (
       <Host
-        value={this.selectedValue}
+        value={this.value}
         style={{
           width: this.width,
           "--maxVisibleOptions": this.maxVisibleOptions

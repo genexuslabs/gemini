@@ -2,8 +2,8 @@ import { Component, Host, Prop, h, Element } from "@stencil/core";
 import { IconType } from "../icon/icon";
 
 @Component({
-  tag: "gxg-form-input",
-  styleUrl: "form-input.scss",
+  tag: "gxg-form-input-text",
+  styleUrl: "form-input-text.scss",
   shadow: true
 })
 export class FormInput {

@@ -66,8 +66,8 @@
 
 ```mermaid
 graph TD;
-  gxg-form-input --> gxg-icon
-  style gxg-form-input fill:#f9f,stroke:#333,stroke-width:4px
+  gxg-form-input-text --> gxg-icon
+  style gxg-form-input-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

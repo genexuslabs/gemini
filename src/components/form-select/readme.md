@@ -49,7 +49,7 @@
 | `maxVisibleOptions` | `max-visible-options` | The maximum number of visible options (scroll will apear if the total number exceeds this value) | `string`  | `undefined` |
 | `name`              | `name`                | The select name                                                                                  | `string`  | `undefined` |
 | `selectId`          | `select-id`           | The select id                                                                                    | `string`  | `undefined` |
-| `selectedValue`     | `selected-value`      | The selected option                                                                              | `string`  | `undefined` |
+| `value`             | `value`               | The selected option                                                                              | `string`  | `undefined` |
 | `warning`           | `warning`             | If select has warnings                                                                           | `boolean` | `false`     |
 | `width`             | `width`               | The select width                                                                                 | `string`  | `"240px"`   |
 
