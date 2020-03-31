@@ -56,6 +56,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * Wether the input is inline or block
+     */
+    displayBlock: boolean;
+    /**
      * If input has errors
      */
     error: boolean;
@@ -72,10 +76,6 @@ export namespace Components {
      */
     iconSide: string;
     /**
-     * Wether the input is inline or block
-     */
-    inline: boolean;
-    /**
      * The input id
      */
     inputId: string;
@@ -83,10 +83,6 @@ export namespace Components {
      * The input label
      */
     label: string;
-    /**
-     * The input label position possible values: top, left
-     */
-    labelPosition: string;
     /**
      * The input name
      */
@@ -107,6 +103,10 @@ export namespace Components {
      * If input has warning
      */
     warning: boolean;
+    /**
+     * input width
+     */
+    width: string;
   }
   interface GxgFormMessage {
     /**
@@ -136,10 +136,6 @@ export namespace Components {
      */
     label: string;
     /**
-     * The select label position possible values: top, left
-     */
-    labelPosition: string;
-    /**
      * The maximum number of visible options (scroll will apear if the total number exceeds this value)
      */
     maxVisibleOptions: string;
@@ -151,6 +147,10 @@ export namespace Components {
      * The select id
      */
     selectId: string;
+    /**
+     * The selected option
+     */
+    selectedValue: string;
     /**
      * If select has warnings
      */
@@ -166,13 +166,17 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * If textarea display is block
+     */
+    displayBlock: boolean;
+    /**
      * If textarea has errors
      */
     error: boolean;
     /**
-     * The textarea id
+     * If textarea is full width
      */
-    inputId: string;
+    fullWidth: boolean;
     /**
      * The textarea label
      */
@@ -186,6 +190,14 @@ export namespace Components {
      */
     placeholder: string;
     /**
+     * The textarea placeholder
+     */
+    rows: number;
+    /**
+     * The textarea id
+     */
+    textareaId: string;
+    /**
      * The textarea value
      */
     value: string;
@@ -193,6 +205,10 @@ export namespace Components {
      * If textarea has warnings
      */
     warning: boolean;
+    /**
+     * The textarea width
+     */
+    width: string;
   }
   interface GxgIcon {
     /**
@@ -333,6 +349,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * Wether the input is inline or block
+     */
+    displayBlock?: boolean;
+    /**
      * If input has errors
      */
     error?: boolean;
@@ -349,10 +369,6 @@ declare namespace LocalJSX {
      */
     iconSide?: string;
     /**
-     * Wether the input is inline or block
-     */
-    inline?: boolean;
-    /**
      * The input id
      */
     inputId?: string;
@@ -360,10 +376,6 @@ declare namespace LocalJSX {
      * The input label
      */
     label?: string;
-    /**
-     * The input label position possible values: top, left
-     */
-    labelPosition?: string;
     /**
      * The input name
      */
@@ -384,6 +396,10 @@ declare namespace LocalJSX {
      * If input has warning
      */
     warning?: boolean;
+    /**
+     * input width
+     */
+    width?: string;
   }
   interface GxgFormMessage {
     /**
@@ -413,10 +429,6 @@ declare namespace LocalJSX {
      */
     label?: string;
     /**
-     * The select label position possible values: top, left
-     */
-    labelPosition?: string;
-    /**
      * The maximum number of visible options (scroll will apear if the total number exceeds this value)
      */
     maxVisibleOptions?: string;
@@ -428,6 +440,10 @@ declare namespace LocalJSX {
      * The select id
      */
     selectId?: string;
+    /**
+     * The selected option
+     */
+    selectedValue?: string;
     /**
      * If select has warnings
      */
@@ -443,13 +459,17 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * If textarea display is block
+     */
+    displayBlock?: boolean;
+    /**
      * If textarea has errors
      */
     error?: boolean;
     /**
-     * The textarea id
+     * If textarea is full width
      */
-    inputId?: string;
+    fullWidth?: boolean;
     /**
      * The textarea label
      */
@@ -463,6 +483,14 @@ declare namespace LocalJSX {
      */
     placeholder?: string;
     /**
+     * The textarea placeholder
+     */
+    rows?: number;
+    /**
+     * The textarea id
+     */
+    textareaId?: string;
+    /**
      * The textarea value
      */
     value?: string;
@@ -470,6 +498,10 @@ declare namespace LocalJSX {
      * If textarea has warnings
      */
     warning?: boolean;
+    /**
+     * The textarea width
+     */
+    width?: string;
   }
   interface GxgIcon {
     /**

@@ -1,6 +1,18 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
+:host {
+  display: inline-flex;
+  flex-direction: column;
+}
+:host([display-flex]) {
+  display: block;
+}
+:host([full-width]) {
+  display: flex;
+  width: 100% !important;
+}
+
 /*****************************************************
 FORM ELEMENT WRAPPER
 *****************************************************/
@@ -13,7 +25,6 @@ LABEL
 *****************************************************/
 label {
   @include form-element-common-styles-label();
-  @include form-element-common-styles-label--above();
 }
 textarea {
   @include gxg-text();
@@ -24,12 +35,15 @@ TEXTAREA
 *****************************************************/
 textarea {
   display: block;
-  @include form-element-common-styles;
+  width: 100%;
+  box-sizing: border-box;
+  @include form-element-common-styles();
 
   &:focus {
     @include form-element-common-styles-focus();
   }
 }
+
 textarea[disabled] {
   @include form-element-common-styles-disabled();
 }

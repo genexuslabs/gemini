@@ -39,16 +39,20 @@
 
 ## Properties
 
-| Property      | Attribute     | Description              | Type      | Default     |
-| ------------- | ------------- | ------------------------ | --------- | ----------- |
-| `disabled`    | `disabled`    | If textarea is disabled  | `boolean` | `false`     |
-| `error`       | `error`       | If textarea has errors   | `boolean` | `false`     |
-| `inputId`     | `input-id`    | The textarea id          | `string`  | `undefined` |
-| `label`       | `label`       | The textarea label       | `string`  | `undefined` |
-| `name`        | `name`        | The textarea name        | `string`  | `undefined` |
-| `placeholder` | `placeholder` | The textarea placeholder | `string`  | `undefined` |
-| `value`       | `value`       | The textarea value       | `string`  | `undefined` |
-| `warning`     | `warning`     | If textarea has warnings | `boolean` | `false`     |
+| Property       | Attribute       | Description                  | Type      | Default     |
+| -------------- | --------------- | ---------------------------- | --------- | ----------- |
+| `disabled`     | `disabled`      | If textarea is disabled      | `boolean` | `false`     |
+| `displayBlock` | `display-block` | If textarea display is block | `boolean` | `false`     |
+| `error`        | `error`         | If textarea has errors       | `boolean` | `false`     |
+| `fullWidth`    | `full-width`    | If textarea is full width    | `boolean` | `false`     |
+| `label`        | `label`         | The textarea label           | `string`  | `undefined` |
+| `name`         | `name`          | The textarea name            | `string`  | `undefined` |
+| `placeholder`  | `placeholder`   | The textarea placeholder     | `string`  | `undefined` |
+| `rows`         | `rows`          | The textarea placeholder     | `number`  | `3`         |
+| `textareaId`   | `textarea-id`   | The textarea id              | `string`  | `undefined` |
+| `value`        | `value`         | The textarea value           | `string`  | `undefined` |
+| `warning`      | `warning`       | If textarea has warnings     | `boolean` | `false`     |
+| `width`        | `width`         | The textarea width           | `string`  | `"240px"`   |
 
 ---
 

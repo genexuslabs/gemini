@@ -46,10 +46,10 @@
 | `fullWidth`         | `full-width`          | If select is full width                                                                          | `boolean` | `false`     |
 | `inline`            | `inline`              | Wether the select is inline or block                                                             | `boolean` | `false`     |
 | `label`             | `label`               | The select label                                                                                 | `string`  | `undefined` |
-| `labelPosition`     | `label-position`      | The select label position possible values: top, left                                             | `string`  | `"left"`    |
 | `maxVisibleOptions` | `max-visible-options` | The maximum number of visible options (scroll will apear if the total number exceeds this value) | `string`  | `undefined` |
 | `name`              | `name`                | The select name                                                                                  | `string`  | `undefined` |
 | `selectId`          | `select-id`           | The select id                                                                                    | `string`  | `undefined` |
+| `selectedValue`     | `selected-value`      | The selected option                                                                              | `string`  | `undefined` |
 | `warning`           | `warning`             | If select has warnings                                                                           | `boolean` | `false`     |
 | `width`             | `width`               | The select width                                                                                 | `string`  | `"240px"`   |
 

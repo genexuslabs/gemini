@@ -9,8 +9,8 @@
   display: inline-flex;
   flex-direction: column;
 }
-:host([block]) {
-  display: block;
+:host([display-flex]) {
+  display: flex;
 }
 :host([full-width]) {
   display: block;
@@ -32,7 +32,6 @@ LABEL
 *****************************************************/
 label {
   @include form-element-common-styles-label();
-  @include form-element-common-styles-label--above();
 }
 textarea {
   @include gxg-text();

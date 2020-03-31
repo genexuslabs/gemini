@@ -2,13 +2,15 @@
 @import "../../globals/mixins";
 
 :host {
-  display: flex;
-}
-:host([inline]) {
   display: inline-flex;
 }
+:host([display-flex]) {
+  display: flex;
+}
 :host([full-width]) {
+  display: flex;
   flex-direction: column;
+  width: 100% !important;
 }
 :host([full-width]) .form-element-wrapper,
 :host([full-width]) input {
@@ -36,13 +38,11 @@ LABEL
 label {
   @include form-element-common-styles-label();
 }
-.label--above {
-  @include form-element-common-styles-label--above();
-}
 
 input {
   @include gxg-text();
   position: relative;
+  width: 100%;
 }
 /*****************************************************
 TEXT

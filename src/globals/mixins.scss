@@ -186,10 +186,6 @@ FORM ELEMENTS
 @mixin form-element-common-styles-label {
   @include gxg-text();
 }
-@mixin form-element-common-styles-label--above {
-  display: block;
-  margin-bottom: var(--spacing-comp-01);
-}
 @mixin form-element-common-styles {
   border-width: var(--border-width-sm);
   border-color: var(--gray-04);
@@ -197,7 +193,8 @@ FORM ELEMENTS
   border-radius: var(--border-radius-sm);
   padding-left: var(--spacing-comp-01);
   padding-right: var(--spacing-comp-01);
-  color: var(--color-on-secondary);
+  color: var(--color-on-background);
+  background-color: var(--color-on-primary);
 }
 @mixin form-element-common-styles-disabled {
   background-color: var(--color-on-disabled);
@@ -211,6 +208,7 @@ FORM ELEMENTS
 
 @mixin form-element-common-styles-wrapper {
   position: relative;
+  width: 100%;
 }
 
 @mixin form-element-common-styles-focus {

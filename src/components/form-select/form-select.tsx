@@ -39,12 +39,6 @@ export class FormSelect {
   @Prop() label: string;
 
   /**
-   * The select label position
-   * possible values: top, left
-   */
-  @Prop() labelPosition = "left";
-
-  /**
    * The select name
    */
   @Prop() name: string;
@@ -60,6 +54,11 @@ export class FormSelect {
   @Prop() selectId: string;
 
   /**
+   * The selected option
+   */
+  @Prop({ reflect: true }) selectedValue: string;
+
+  /**
    * If select has warnings
    */
   @Prop() warning = false;
@@ -70,6 +69,11 @@ export class FormSelect {
   @Prop() width = "240px";
 
   componentDidLoad() {
+    const updateValue = selectedOption => {
+      console.log(selectedOption);
+      this.selectedValue = selectedOption;
+    };
+
     let i, j, a, b, c;
     /*look for any elements with the class "custom-select":*/
     const x = this.el.shadowRoot.querySelectorAll(".custom-select");
@@ -91,6 +95,7 @@ export class FormSelect {
         }
       }
       a.innerHTML = selectedOption.innerHTML;
+      this.selectedValue = selectedOption.value;
 
       const listOfOptions = this.el.querySelectorAll("option");
 
@@ -104,6 +109,11 @@ export class FormSelect {
         create a new DIV that will act as an option item:*/
         c = document.createElement("DIV");
         c.innerHTML = listOfOptions[j].innerHTML;
+
+        const optionValue = document.createAttribute("value");
+        optionValue.value = listOfOptions[j].value;
+        c.setAttributeNode(optionValue);
+
         c.addEventListener("click", function() {
           /*when an item is clicked, update the original select box,
             and the selected item:*/
@@ -116,6 +126,8 @@ export class FormSelect {
 
           for (i = 0; i < listOfOptions.length; i++) {
             if (listOfOptions[i].innerHTML == this.innerHTML) {
+              const selectedValue = this.getAttribute("value");
+              updateValue(selectedValue);
               s.selectedIndex = i;
               h.innerHTML = this.innerHTML;
               y = this.parentNode.getElementsByClassName("same-as-selected");
@@ -170,6 +182,7 @@ export class FormSelect {
   render() {
     return (
       <Host
+        value={this.selectedValue}
         style={{
           width: this.width,
           "--maxVisibleOptions": this.maxVisibleOptions
@@ -203,5 +216,3 @@ export class FormSelect {
     );
   }
 }
-
-export type labelPosition = "left" | "above";

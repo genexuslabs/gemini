@@ -43,7 +43,7 @@
         name="select1"
         label="Default"
         error
-        width="200px"
+        width="100px"
         max-visible-options="4"
       >
         <option value="0">Select car:</option>
@@ -94,25 +94,25 @@
       </gxg-form-select>
 
       <h3>Select Block</h3>
-      <gxg-form-select id="select1" name="select1" label="Default" block>
+      <gxg-form-select id="select1" name="select1" label="Default" display-flex>
         <option value="0">Select car:</option>
         <option value="1">Audi</option>
         <option value="2">BMW</option>
       </gxg-form-select>
 
-      <gxg-form-select id="select2" name="select2" label="Default" block>
+      <gxg-form-select id="select2" name="select2" label="Default" display-flex>
         <option value="0">Select car:</option>
         <option value="1">Audi</option>
         <option value="2">BMW</option>
       </gxg-form-select>
 
-      <gxg-form-select id="select3" name="select3" label="Default" block>
+      <gxg-form-select id="select3" name="select3" label="Default" display-flex>
         <option value="0">Select car:</option>
         <option value="1">Audi</option>
         <option value="2">BMW</option>
       </gxg-form-select>
 
-      <gxg-form-select id="select4" name="select4" label="Default" block>
+      <gxg-form-select id="select4" name="select4" label="Default" display-flex>
         <option value="0">Select car:</option>
         <option value="1">Audi</option>
         <option value="2">BMW</option>
@@ -137,7 +137,10 @@
         name="textarea1"
         label="Default"
         placeholder="Placeholder text"
+        value="hola"
+        width="100px"
       >
+        some text
       </gxg-form-textarea>
 
       <gxg-form-textarea
@@ -146,6 +149,7 @@
         label="Default"
         placeholder="Placeholder text"
         disabled
+        display-flex
       >
       </gxg-form-textarea>
 
@@ -172,9 +176,8 @@
       <gxg-form-input
         type="text"
         id="name4"
-        name="name"
+        name="name4"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         warning
         full-width
@@ -189,7 +192,6 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         warning
         full-width
@@ -204,7 +206,6 @@
         id="name1"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         onchange="validarNombre()"
         full-width
@@ -215,9 +216,9 @@
         id="name1"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         onchange="validarNombre()"
+        width="100px"
       ></gxg-form-input>
 
       <gxg-form-input
@@ -225,7 +226,6 @@
         id="name2"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         disabled
       ></gxg-form-input>
@@ -235,7 +235,6 @@
         id="name3"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         error
       ></gxg-form-input>
@@ -245,7 +244,6 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         warning
       ></gxg-form-input>
@@ -255,7 +253,6 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         warning
       ></gxg-form-input>
@@ -265,10 +262,9 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         warning
-        inline
+        display-flex
         icon="search"
         icon-position="left"
       >
@@ -279,10 +275,9 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         warning
-        inline
+        display-flex
         icon="search"
         icon-position="right"
       >
@@ -293,10 +288,9 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
         error
-        inline
+        display-flex
         icon="search"
         icon-position="right"
       >
@@ -307,9 +301,8 @@
         id="name4"
         name="name"
         label="Default"
-        label-position="above"
         placeholder="Placeholder text"
-        inline
+        display-flex
         icon="search"
         icon-position="right"
       >

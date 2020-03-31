@@ -45,18 +45,12 @@ export class FormInput {
   /**
    * Wether the input is inline or block
    */
-  @Prop({ reflect: true }) inline = false;
+  @Prop({ reflect: true }) displayBlock = false;
 
   /**
    * The input label
    */
   @Prop() label: string;
-
-  /**
-   * The input label position
-   * possible values: top, left
-   */
-  @Prop() labelPosition = "left";
 
   /**
    * The input name
@@ -83,6 +77,11 @@ export class FormInput {
    * If input has warning
    */
   @Prop() warning = false;
+
+  /**
+   * input width
+   */
+  @Prop() width = "240px";
 
   @Element() el: HTMLElement;
 
@@ -130,12 +129,16 @@ export class FormInput {
 
   render() {
     return (
-      <Host value={this.value}>
+      <Host
+        value={this.value}
+        style={{
+          width: this.width
+        }}
+      >
         <div class="form-element-wrapper">
           <label
             class={{
-              label: true,
-              "label--above": this.labelPosition === "above"
+              label: true
             }}
             htmlFor={this.inputId}
           >
