@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h, Element } from "@stencil/core";
+import { Component, Prop, Element } from "@stencil/core";
 
 @Component({
   tag: "gxg-form-select",
@@ -187,7 +187,7 @@ export class FormSelect {
           "--maxVisibleOptions": this.maxVisibleOptions
         }}
       >
-        <div class="form-element-wrapper">
+        <div class="outer-wrapper">
           <label
             class={{
               label: true

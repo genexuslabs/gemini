@@ -16,14 +16,14 @@
   display: block;
   width: 100% !important;
 }
-:host([full-width]) .form-element-wrapper {
+:host([full-width]) .outer-wrapper {
   width: 100%;
 }
 
 /*****************************************************
 FORM ELEMENT WRAPPER
 *****************************************************/
-.form-element-wrapper {
+.outer-wrapper {
   @include form-element-common-styles-wrapper();
 }
 

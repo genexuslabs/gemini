@@ -1,0 +1,56 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: flex;
+  align-items: center;
+}
+//active
+:host([on]) .toggle__container {
+  background-color: var(--color-primary-active);
+}
+:host([on]) .toggle__container__knob {
+  left: 26px;
+}
+
+:host([disabled]) .toggle__container {
+  background-color: var(--gray-04);
+}
+:host([disabled]) .toggle__container__knob {
+  background-color: var(--gray-02);
+}
+:host(:focus) {
+  outline: none;
+}
+:host(.on-focus) .toggle__container {
+  border-color: var(--color-on-primary);
+  box-shadow: 0px 0px 0px 1px var(--color-primary-enabled);
+}
+.toggle__container {
+  width: var(--spacing-lay-05);
+  height: var(--spacing-lay-03);
+  background-color: var(--gray-03);
+  border-radius: var(--spacing-comp-03);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid transparent;
+  @include ui-animation(background-color);
+}
+.toggle__container__knob {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: var(--color-on-primary);
+  display: block;
+  box-shadow: var(--box-shadow-01);
+  position: absolute;
+  left: 2px;
+  @include ui-animation(left);
+}
+
+.toggle__label {
+  @include gxg-text();
+  margin-left: var(--spacing-comp-01);
+}

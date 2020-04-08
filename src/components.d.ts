@@ -50,6 +50,26 @@ export namespace Components {
      */
     titleAlignment: "left" | "center" | "right";
   }
+  interface GxgFormInputCheckboxes {
+    /**
+     * If checkboxes should display inline
+     */
+    inline: boolean;
+    /**
+     * The checkboxes options
+     */
+    options: object;
+  }
+  interface GxgFormInputRadiobuttons {
+    /**
+     * If radio buttons should display inline
+     */
+    inline: boolean;
+    /**
+     * The radio buttons options
+     */
+    options: object;
+  }
   interface GxgFormInputText {
     /**
      * If input is disabled
@@ -91,10 +111,6 @@ export namespace Components {
      * The input placeholder
      */
     placeholder: string;
-    /**
-     * The kind of input Possible values: checkbox
-     */
-    type: string;
     /**
      * The input value
      */
@@ -228,6 +244,92 @@ export namespace Components {
      */
     type: IconType;
   }
+  interface GxgProgressBar {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The progress-bar label
+     */
+    label: string;
+    /**
+     * The progress-bar width
+     */
+    progress: number;
+    /**
+     * The progress-bar label
+     */
+    value: number;
+    /**
+     * The progress-bar width
+     */
+    width: string;
+  }
+  interface GxgSlider {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The slider label
+     */
+    label: string;
+    /**
+     * The slider max value
+     */
+    max: string;
+    /**
+     * The slider label
+     */
+    min: string;
+    /**
+     * The slider value
+     */
+    value: number;
+    /**
+     * The slider width
+     */
+    width: string;
+  }
+  interface GxgStepper {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+    /**
+     * The toggle vaule
+     */
+    value: number;
+  }
+  interface GxgTemplate {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+  }
+  interface GxgToggle {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+    /**
+     * If the toggle is active or not Possible values: false/true
+     */
+    on: boolean;
+  }
 }
 
 declare global {
@@ -253,6 +355,22 @@ declare global {
   var HTMLGxgButtonGroupElement: {
     prototype: HTMLGxgButtonGroupElement;
     new (): HTMLGxgButtonGroupElement;
+  };
+
+  interface HTMLGxgFormInputCheckboxesElement
+    extends Components.GxgFormInputCheckboxes,
+      HTMLStencilElement {}
+  var HTMLGxgFormInputCheckboxesElement: {
+    prototype: HTMLGxgFormInputCheckboxesElement;
+    new (): HTMLGxgFormInputCheckboxesElement;
+  };
+
+  interface HTMLGxgFormInputRadiobuttonsElement
+    extends Components.GxgFormInputRadiobuttons,
+      HTMLStencilElement {}
+  var HTMLGxgFormInputRadiobuttonsElement: {
+    prototype: HTMLGxgFormInputRadiobuttonsElement;
+    new (): HTMLGxgFormInputRadiobuttonsElement;
   };
 
   interface HTMLGxgFormInputTextElement
@@ -292,15 +410,62 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+
+  interface HTMLGxgProgressBarElement
+    extends Components.GxgProgressBar,
+      HTMLStencilElement {}
+  var HTMLGxgProgressBarElement: {
+    prototype: HTMLGxgProgressBarElement;
+    new (): HTMLGxgProgressBarElement;
+  };
+
+  interface HTMLGxgSliderElement
+    extends Components.GxgSlider,
+      HTMLStencilElement {}
+  var HTMLGxgSliderElement: {
+    prototype: HTMLGxgSliderElement;
+    new (): HTMLGxgSliderElement;
+  };
+
+  interface HTMLGxgStepperElement
+    extends Components.GxgStepper,
+      HTMLStencilElement {}
+  var HTMLGxgStepperElement: {
+    prototype: HTMLGxgStepperElement;
+    new (): HTMLGxgStepperElement;
+  };
+
+  interface HTMLGxgTemplateElement
+    extends Components.GxgTemplate,
+      HTMLStencilElement {}
+  var HTMLGxgTemplateElement: {
+    prototype: HTMLGxgTemplateElement;
+    new (): HTMLGxgTemplateElement;
+  };
+
+  interface HTMLGxgToggleElement
+    extends Components.GxgToggle,
+      HTMLStencilElement {}
+  var HTMLGxgToggleElement: {
+    prototype: HTMLGxgToggleElement;
+    new (): HTMLGxgToggleElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-alert": HTMLGxgAlertElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
+    "gxg-form-input-checkboxes": HTMLGxgFormInputCheckboxesElement;
+    "gxg-form-input-radiobuttons": HTMLGxgFormInputRadiobuttonsElement;
     "gxg-form-input-text": HTMLGxgFormInputTextElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-select": HTMLGxgFormSelectElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-progress-bar": HTMLGxgProgressBarElement;
+    "gxg-slider": HTMLGxgSliderElement;
+    "gxg-stepper": HTMLGxgStepperElement;
+    "gxg-template": HTMLGxgTemplateElement;
+    "gxg-toggle": HTMLGxgToggleElement;
   }
 }
 
@@ -343,6 +508,26 @@ declare namespace LocalJSX {
      */
     titleAlignment?: "left" | "center" | "right";
   }
+  interface GxgFormInputCheckboxes {
+    /**
+     * If checkboxes should display inline
+     */
+    inline?: boolean;
+    /**
+     * The checkboxes options
+     */
+    options?: object;
+  }
+  interface GxgFormInputRadiobuttons {
+    /**
+     * If radio buttons should display inline
+     */
+    inline?: boolean;
+    /**
+     * The radio buttons options
+     */
+    options?: object;
+  }
   interface GxgFormInputText {
     /**
      * If input is disabled
@@ -384,10 +569,6 @@ declare namespace LocalJSX {
      * The input placeholder
      */
     placeholder?: string;
-    /**
-     * The kind of input Possible values: checkbox
-     */
-    type?: string;
     /**
      * The input value
      */
@@ -521,16 +702,109 @@ declare namespace LocalJSX {
      */
     type?: IconType;
   }
+  interface GxgProgressBar {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The progress-bar label
+     */
+    label?: string;
+    /**
+     * The progress-bar width
+     */
+    progress?: number;
+    /**
+     * The progress-bar label
+     */
+    value?: number;
+    /**
+     * The progress-bar width
+     */
+    width?: string;
+  }
+  interface GxgSlider {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The slider label
+     */
+    label?: string;
+    /**
+     * The slider max value
+     */
+    max?: string;
+    /**
+     * The slider label
+     */
+    min?: string;
+    /**
+     * The slider value
+     */
+    value?: number;
+    /**
+     * The slider width
+     */
+    width?: string;
+  }
+  interface GxgStepper {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+    /**
+     * The toggle vaule
+     */
+    value?: number;
+  }
+  interface GxgTemplate {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+  }
+  interface GxgToggle {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+    /**
+     * If the toggle is active or not Possible values: false/true
+     */
+    on?: boolean;
+  }
 
   interface IntrinsicElements {
     "gxg-alert": GxgAlert;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
+    "gxg-form-input-checkboxes": GxgFormInputCheckboxes;
+    "gxg-form-input-radiobuttons": GxgFormInputRadiobuttons;
     "gxg-form-input-text": GxgFormInputText;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-select": GxgFormSelect;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
+    "gxg-progress-bar": GxgProgressBar;
+    "gxg-slider": GxgSlider;
+    "gxg-stepper": GxgStepper;
+    "gxg-template": GxgTemplate;
+    "gxg-toggle": GxgToggle;
   }
 }
 
@@ -545,6 +819,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &
         JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
+      "gxg-form-input-checkboxes": LocalJSX.GxgFormInputCheckboxes &
+        JSXBase.HTMLAttributes<HTMLGxgFormInputCheckboxesElement>;
+      "gxg-form-input-radiobuttons": LocalJSX.GxgFormInputRadiobuttons &
+        JSXBase.HTMLAttributes<HTMLGxgFormInputRadiobuttonsElement>;
       "gxg-form-input-text": LocalJSX.GxgFormInputText &
         JSXBase.HTMLAttributes<HTMLGxgFormInputTextElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
@@ -554,6 +832,16 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-progress-bar": LocalJSX.GxgProgressBar &
+        JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
+      "gxg-slider": LocalJSX.GxgSlider &
+        JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
+      "gxg-stepper": LocalJSX.GxgStepper &
+        JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
+      "gxg-template": LocalJSX.GxgTemplate &
+        JSXBase.HTMLAttributes<HTMLGxgTemplateElement>;
+      "gxg-toggle": LocalJSX.GxgToggle &
+        JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
     }
   }
 }

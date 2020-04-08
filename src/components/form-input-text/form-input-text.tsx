@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h, Element } from "@stencil/core";
+import { Component, Prop, Element } from "@stencil/core";
 import { IconType } from "../icon/icon";
 
 @Component({
@@ -6,7 +6,7 @@ import { IconType } from "../icon/icon";
   styleUrl: "form-input-text.scss",
   shadow: true
 })
-export class FormInput {
+export class FormInputText {
   //A reference to the input
   textInput!: HTMLInputElement;
 
@@ -56,12 +56,6 @@ export class FormInput {
    * The input name
    */
   @Prop() name: string;
-
-  /**
-   * The kind of input
-   * Possible values: checkbox
-   */
-  @Prop() type: string;
 
   /**
    * The input value
@@ -135,7 +129,7 @@ export class FormInput {
           width: this.width
         }}
       >
-        <div class="form-element-wrapper">
+        <div class="outer-wrapper">
           <label
             class={{
               label: true
@@ -146,6 +140,7 @@ export class FormInput {
           </label>
           <div class="inner-wrapper">
             <input
+              type="text"
               ref={el => (this.textInput = el as HTMLInputElement)}
               value={this.value}
               class={{
@@ -153,7 +148,6 @@ export class FormInput {
                 "input--error": this.error === true,
                 "input--warning": this.warning === true
               }}
-              type={this.type}
               id={this.inputId}
               name={this.name}
               placeholder={this.placeholder}
