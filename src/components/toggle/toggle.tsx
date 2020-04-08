@@ -1,4 +1,4 @@
-import { Component, Prop, State } from "@stencil/core";
+import { Component, Prop, State, h, Host } from "@stencil/core";
 
 @Component({
   tag: "gxg-toggle",
