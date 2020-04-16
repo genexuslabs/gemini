@@ -1,0 +1,18 @@
+// :host([is-selected]) {
+//   height: 100%;
+// }
+:host {
+  height: 100%;
+  display: block;
+  .tab {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+}
+.tab {
+  padding: var(--spacing-lay-03);
+}
+:host(.not-selected) {
+  display: none;
+}

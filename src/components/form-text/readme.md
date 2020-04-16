@@ -45,7 +45,7 @@
 | `displayBlock` | `display-block` | Wether the input is inline or block                                       | `boolean`                                                                                                                                                                                                                                                                                                         | `false`     |
 | `error`        | `error`         | If input has errors                                                       | `boolean`                                                                                                                                                                                                                                                                                                         | `false`     |
 | `fullWidth`    | `full-width`    | If input is full width                                                    | `boolean`                                                                                                                                                                                                                                                                                                         | `false`     |
-| `icon`         | `icon`          | Input icon possible values: the same as the values for the icon component | `"none" \| "add" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "down" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "error" \| "level-up" \| "more-info" \| "search" \| "settings" \| "show-more" \| "success" \| "up" \| "warning"` | `undefined` |
+| `icon`         | `icon`          | Input icon possible values: the same as the values for the icon component | `"more-info" \| "error" \| "warning" \| "success" \| "none" \| "add" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "down" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "level-up" \| "search" \| "settings" \| "show-more" \| "up"` | `undefined` |
 | `iconSide`     | `icon-side`     | Input icon side possible values: left, right                              | `string`                                                                                                                                                                                                                                                                                                          | `"left"`    |
 | `inputId`      | `input-id`      | The input id                                                              | `string`                                                                                                                                                                                                                                                                                                          | `undefined` |
 | `label`        | `label`         | The input label                                                           | `string`                                                                                                                                                                                                                                                                                                          | `undefined` |
@@ -65,8 +65,8 @@
 
 ```mermaid
 graph TD;
-  gxg-form-input-text --> gxg-icon
-  style gxg-form-input-text fill:#f9f,stroke:#333,stroke-width:4px
+  gxg-form-text --> gxg-icon
+  style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

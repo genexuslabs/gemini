@@ -1,0 +1,105 @@
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+
+  flex: 1 1 auto !important;
+  align-self: center !important;
+  line-height: 0;
+
+  .tab-item {
+    &--selected {
+      .tab-button {
+      }
+    }
+  }
+  .tab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-family-primary);
+    text-transform: uppercase;
+    color: var(--color-black);
+    letter-spacing: var(--letter-spacing-regular);
+    background: var(--color-white);
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border: 0;
+    width: 100%;
+    min-height: var(--spacing-comp-06);
+    position: relative;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    transition: box-shadow 0.2s ease-in-out;
+    @include ui-animation(box-shadow);
+
+    &:after {
+      content: "";
+      width: 100%;
+      height: var(--spacing-comp-01);
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      background-color: transparent;
+      @include ui-animation(background-color);
+    }
+
+    &:hover {
+      cursor: pointer;
+      &:after {
+        background-color: var(--color-primary-hover);
+      }
+    }
+    &:active {
+      &:after {
+        background-color: var(--color-primary-active);
+      }
+    }
+    &:focus {
+      outline: none;
+      -webkit-box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
+      -moz-box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
+      box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
+    }
+    &[disabled] {
+      color: var(--color-primary-disabled);
+      pointer-events: none;
+    }
+    &--selected {
+      &:after {
+        background-color: var(--color-primary-active);
+      }
+    }
+    &--text-icon gxg-icon {
+      margin-right: var(--spacing-comp-01);
+    }
+  }
+  .tab-button__text {
+    display: inline-block;
+  }
+}
+
+//is button is inside menu
+:host(.menu-button) {
+  width: 100%;
+  margin: 0 var(--spacing-comp-04);
+  @include ui-animation(background-color);
+
+  .tab-button {
+    &:after {
+      display: none;
+    }
+  }
+}
+:host(.menu-button:hover) {
+  background: var(--color-secondary);
+}

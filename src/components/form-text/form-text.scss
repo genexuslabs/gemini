@@ -73,9 +73,6 @@ input[disabled]::-webkit-input-placeholder {
 /*****************************************************
 INPUT TEXT ICON
 *****************************************************/
-::slotted(gxg-icon) {
-  // position: absolute;
-}
 ::slotted(gxg-icon[slot="icon-left"]) {
   left: 0;
 }
@@ -83,8 +80,6 @@ INPUT TEXT ICON
 
 :host([icon-position="left"]) input {
   padding-left: 20px;
-}
-:host([icon-position="left"]) .inner-wrapper {
 }
 :host([icon-position="left"]) input {
   padding-left: 20px;

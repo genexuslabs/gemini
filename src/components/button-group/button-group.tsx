@@ -1,4 +1,4 @@
-import { Element, Component, Host, Prop, h, State } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 
 @Component({
   tag: "gxg-button-group",
@@ -6,25 +6,51 @@ import { Element, Component, Host, Prop, h, State } from "@stencil/core";
   shadow: true
 })
 export class ButtonGroup {
+  @Element() el: HTMLElement;
+
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
+
   /**
-  The main title that will show up above the buttons group
+  The title that will show up above the buttons group
   */
   @Prop() buttonGroupTitle: string;
 
   /**
+  The id of the button that you would like to show active by default
+  */
+  @Prop() defaultSelectedBtnId: string;
+
+  /**
+  The value of the current selected button
+  */
+  @State() selectedButtonValue = "";
+
+  /**
   The main title alignment
   */
-  @Prop() titleAlignment: "left" | "center" | "right" = "left";
-  /**
-  The id of the button that you would like to show active initially
-  */
-  @Prop() SelectedButtonId: string;
+  @Prop() titleAlignment: TitleAlignment = "left";
 
-  @State() SelectedButtonValue = "";
-  @Element()
-  el: HTMLElement;
+  /*********************************
+  METHODS
+  *********************************/
 
-  //Button Methods
+  componentDidLoad() {
+    this.setInitialActiveValue();
+  }
+
+  setActiveButton(event: MouseEvent) {
+    const buttonsHtmlCollection = this.el.children;
+    Array.from(buttonsHtmlCollection).forEach(function(button) {
+      button.removeAttribute("data-active");
+      button.setAttribute("aria-pressed", "false");
+    });
+    (event.target as HTMLElement).setAttribute("data-active", "");
+    (event.target as HTMLElement).setAttribute("aria-pressed", "true");
+    this.selectedButtonValue = (event.target as HTMLButtonElement).value;
+  }
+
   setInitialActiveValue() {
     let buttonValue = "";
     //get id of all buttons into array
@@ -37,42 +63,31 @@ export class ButtonGroup {
       }
     });
 
-    //if SelectedButtonId is equal to any id of the array, set that button as active
+    //if defaultSelectedBtnId is equal to any id of the array, set that button as active
     if (
-      this.SelectedButtonId === undefined ||
-      this.SelectedButtonId.replace(/\s/g, "") === "" ||
-      !buttonsIdsArray.includes(this.SelectedButtonId)
+      this.defaultSelectedBtnId === undefined ||
+      this.defaultSelectedBtnId.replace(/\s/g, "") === "" ||
+      !buttonsIdsArray.includes(this.defaultSelectedBtnId)
     ) {
-      // SelectedButtonId is not part of any button id
+      // defaultSelectedBtnId is not part of any button id
       //By default, set the first button as the active button
       this.el.children[0].setAttribute("data-active", "");
       buttonValue = this.el.children[0].getAttribute("value");
+      this.el.children[0].setAttribute("aria-pressed", "true");
     } else {
-      if (buttonsIdsArray.includes(this.SelectedButtonId)) {
+      if (buttonsIdsArray.includes(this.defaultSelectedBtnId)) {
         Array.from(buttonsHtmlCollection).forEach(button => {
           const b = button as HTMLElement;
-          if (b.id == this.SelectedButtonId) {
+          if (b.id == this.defaultSelectedBtnId) {
             //set the value to the active button value
-            buttonValue = this.SelectedButtonId = b.getAttribute("value");
+            buttonValue = this.defaultSelectedBtnId = b.getAttribute("value");
             b.setAttribute("data-active", "");
+            b.setAttribute("aria-pressed", "true");
           }
         });
       }
     }
-    this.SelectedButtonValue = buttonValue;
-  }
-
-  setActiveButton(event: MouseEvent) {
-    const buttonsHtmlCollection = this.el.children;
-    Array.from(buttonsHtmlCollection).forEach(function(button) {
-      button.removeAttribute("data-active");
-    });
-    (event.target as HTMLElement).setAttribute("data-active", "");
-    this.SelectedButtonValue = (event.target as HTMLButtonElement).value;
-  }
-
-  componentDidLoad() {
-    this.setInitialActiveValue();
+    this.selectedButtonValue = buttonValue;
   }
 
   render() {
@@ -86,10 +101,12 @@ export class ButtonGroup {
     }
     return (
       <Host
+        role="group"
+        aria-label={this.buttonGroupTitle}
         class={{
           "button-group": true
         }}
-        button-value={this.SelectedButtonValue}
+        button-value={this.selectedButtonValue}
         title-alignment={this.titleAlignment}
       >
         {header}
@@ -103,3 +120,5 @@ export class ButtonGroup {
     );
   }
 }
+
+export type TitleAlignment = "left" | "center" | "right";
