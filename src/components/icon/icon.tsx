@@ -184,6 +184,7 @@ export type Color =
   | "warning";
 
 export type IconType =
+  | "none"
   | "arrow-down"
   | "arrow-left"
   | "arrow-right"
