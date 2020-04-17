@@ -6,90 +6,49 @@
  */
 
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertPosition, AlertType } from "./components/alert/alert";
+import { AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
-import { TitleAlignment } from "./components/button-group/button-group";
 import { IconType } from "./components/icon/icon";
-import { Color, IconType as IconType1, Size } from "./components/icon/icon";
+import { IconType as IconType1 } from "./components/icon/icon";
 
 export namespace Components {
   interface GxgAlert {
     /**
-     * Wether the alert is active (visible) or not (not visible).
+     * An attribute that determines wether the alert is active (visible) or not (not visible)
      */
     active: boolean;
     /**
-     * The amount of miliseconds the alert is visible before hidding under the document.
-     */
-    activeTime: number;
-    /**
-     * The alert title (optional)
+     * The title
      */
     alertTitle: string;
     /**
-     * The alert bottom position value
-     */
-    bottom: string;
-    /**
-     * The alert left position value
-     */
-    left: string;
-    /**
-     * The alert position.
-     */
-    position: AlertPosition;
-    /**
-     * The alert right position value
-     */
-    right: string;
-    /**
-     * The type of alert
+     * The type of alert Possible values: more-info, error, warning, success
      */
     type: AlertType;
-    /**
-     * The alert width
-     */
-    width: string;
-  }
-  interface GxgBox {
-    height: string;
-    /**
-     * The card box-shadow value possible values: from 1 to 8
-     */
-    shadow: number;
-    width: string;
   }
   interface GxgButton {
     /**
-     * The state of the button. Whether is disabled or not.
+     * The state of the button. Whether is disabled or not. Possible values: false, true
      */
     disabled: boolean;
     /**
-     * The kind of button
+     * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
      */
     type: ButtonType;
   }
   interface GxgButtonGroup {
     /**
-     * The title that will show up above the buttons group
+     * The id of the button that you would like to show active initially
+     */
+    SelectedButtonId: string;
+    /**
+     * The main title that will show up above the buttons group
      */
     buttonGroupTitle: string;
     /**
-     * The id of the button that you would like to show active by default
-     */
-    defaultSelectedBtnId: string;
-    /**
      * The main title alignment
      */
-    titleAlignment: TitleAlignment;
-  }
-  interface GxgCard {
-    height: string;
-    /**
-     * The card box-shadow value possible values: from 1 to 8
-     */
-    shadow: number;
-    width: string;
+    titleAlignment: "left" | "center" | "right";
   }
   interface GxgFormInputCheckboxes {
     /**
@@ -111,59 +70,7 @@ export namespace Components {
      */
     options: object;
   }
-  interface GxgFormMessage {
-    /**
-     * The kind of message Possible values: error, warning
-     */
-    messageType: string;
-  }
-  interface GxgFormSelect {
-    /**
-     * If select is disabled
-     */
-    disabled: boolean;
-    /**
-     * If select has errors
-     */
-    error: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth: boolean;
-    /**
-     * Wether the select is inline or block
-     */
-    inline: boolean;
-    /**
-     * The select label
-     */
-    label: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions: string;
-    /**
-     * The select name
-     */
-    name: string;
-    /**
-     * The select id
-     */
-    selectId: string;
-    /**
-     * The selected option
-     */
-    value: string;
-    /**
-     * If select has warnings
-     */
-    warning: boolean;
-    /**
-     * The select width
-     */
-    width: string;
-  }
-  interface GxgFormText {
+  interface GxgFormInputText {
     /**
      * If input is disabled
      */
@@ -214,6 +121,58 @@ export namespace Components {
     warning: boolean;
     /**
      * input width
+     */
+    width: string;
+  }
+  interface GxgFormMessage {
+    /**
+     * The kind of message Possible values: error, warning
+     */
+    messageType: string;
+  }
+  interface GxgFormSelect {
+    /**
+     * If select is disabled
+     */
+    disabled: boolean;
+    /**
+     * If select has errors
+     */
+    error: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
+    /**
+     * Wether the select is inline or block
+     */
+    inline: boolean;
+    /**
+     * The select label
+     */
+    label: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    maxVisibleOptions: string;
+    /**
+     * The select name
+     */
+    name: string;
+    /**
+     * The select id
+     */
+    selectId: string;
+    /**
+     * The selected option
+     */
+    value: string;
+    /**
+     * If select has warnings
+     */
+    warning: boolean;
+    /**
+     * The select width
      */
     width: string;
   }
@@ -271,7 +230,7 @@ export namespace Components {
     /**
      * The color of the icon.
      */
-    color: Color;
+    color: "onbackground" | "negative" | "error" | "success" | "warning";
     /**
      * If enabled, the icon will be loaded lazily when it's visible in the viewport.
      */
@@ -279,15 +238,11 @@ export namespace Components {
     /**
      * The size of the icon. Possible values: regular, small.
      */
-    size: Size;
+    size: "regular" | "small" | "tiny";
     /**
-     * The type of icon. Possible values: each of the icons in /assets.
+     * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */
     type: IconType;
-  }
-  interface GxgMenu {
-    items: object;
-    menuTitle: string;
   }
   interface GxgProgressBar {
     /**
@@ -351,20 +306,6 @@ export namespace Components {
      */
     value: number;
   }
-  interface GxgTab {
-    isSelected: boolean;
-    tab: string;
-  }
-  interface GxgTabBar {}
-  interface GxgTabButton {
-    disabled: boolean;
-    icon: IconType;
-    isSelected: boolean;
-    tab: string;
-  }
-  interface GxgTabs {
-    tab: string;
-  }
   interface GxgTemplate {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
@@ -400,12 +341,6 @@ declare global {
     new (): HTMLGxgAlertElement;
   };
 
-  interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {}
-  var HTMLGxgBoxElement: {
-    prototype: HTMLGxgBoxElement;
-    new (): HTMLGxgBoxElement;
-  };
-
   interface HTMLGxgButtonElement
     extends Components.GxgButton,
       HTMLStencilElement {}
@@ -420,12 +355,6 @@ declare global {
   var HTMLGxgButtonGroupElement: {
     prototype: HTMLGxgButtonGroupElement;
     new (): HTMLGxgButtonGroupElement;
-  };
-
-  interface HTMLGxgCardElement extends Components.GxgCard, HTMLStencilElement {}
-  var HTMLGxgCardElement: {
-    prototype: HTMLGxgCardElement;
-    new (): HTMLGxgCardElement;
   };
 
   interface HTMLGxgFormInputCheckboxesElement
@@ -444,6 +373,14 @@ declare global {
     new (): HTMLGxgFormInputRadiobuttonsElement;
   };
 
+  interface HTMLGxgFormInputTextElement
+    extends Components.GxgFormInputText,
+      HTMLStencilElement {}
+  var HTMLGxgFormInputTextElement: {
+    prototype: HTMLGxgFormInputTextElement;
+    new (): HTMLGxgFormInputTextElement;
+  };
+
   interface HTMLGxgFormMessageElement
     extends Components.GxgFormMessage,
       HTMLStencilElement {}
@@ -460,14 +397,6 @@ declare global {
     new (): HTMLGxgFormSelectElement;
   };
 
-  interface HTMLGxgFormTextElement
-    extends Components.GxgFormText,
-      HTMLStencilElement {}
-  var HTMLGxgFormTextElement: {
-    prototype: HTMLGxgFormTextElement;
-    new (): HTMLGxgFormTextElement;
-  };
-
   interface HTMLGxgFormTextareaElement
     extends Components.GxgFormTextarea,
       HTMLStencilElement {}
@@ -480,12 +409,6 @@ declare global {
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
-  };
-
-  interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
-  var HTMLGxgMenuElement: {
-    prototype: HTMLGxgMenuElement;
-    new (): HTMLGxgMenuElement;
   };
 
   interface HTMLGxgProgressBarElement
@@ -512,34 +435,6 @@ declare global {
     new (): HTMLGxgStepperElement;
   };
 
-  interface HTMLGxgTabElement extends Components.GxgTab, HTMLStencilElement {}
-  var HTMLGxgTabElement: {
-    prototype: HTMLGxgTabElement;
-    new (): HTMLGxgTabElement;
-  };
-
-  interface HTMLGxgTabBarElement
-    extends Components.GxgTabBar,
-      HTMLStencilElement {}
-  var HTMLGxgTabBarElement: {
-    prototype: HTMLGxgTabBarElement;
-    new (): HTMLGxgTabBarElement;
-  };
-
-  interface HTMLGxgTabButtonElement
-    extends Components.GxgTabButton,
-      HTMLStencilElement {}
-  var HTMLGxgTabButtonElement: {
-    prototype: HTMLGxgTabButtonElement;
-    new (): HTMLGxgTabButtonElement;
-  };
-
-  interface HTMLGxgTabsElement extends Components.GxgTabs, HTMLStencilElement {}
-  var HTMLGxgTabsElement: {
-    prototype: HTMLGxgTabsElement;
-    new (): HTMLGxgTabsElement;
-  };
-
   interface HTMLGxgTemplateElement
     extends Components.GxgTemplate,
       HTMLStencilElement {}
@@ -557,25 +452,18 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     "gxg-alert": HTMLGxgAlertElement;
-    "gxg-box": HTMLGxgBoxElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
-    "gxg-card": HTMLGxgCardElement;
     "gxg-form-input-checkboxes": HTMLGxgFormInputCheckboxesElement;
     "gxg-form-input-radiobuttons": HTMLGxgFormInputRadiobuttonsElement;
+    "gxg-form-input-text": HTMLGxgFormInputTextElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-select": HTMLGxgFormSelectElement;
-    "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
-    "gxg-menu": HTMLGxgMenuElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-stepper": HTMLGxgStepperElement;
-    "gxg-tab": HTMLGxgTabElement;
-    "gxg-tab-bar": HTMLGxgTabBarElement;
-    "gxg-tab-button": HTMLGxgTabButtonElement;
-    "gxg-tabs": HTMLGxgTabsElement;
     "gxg-template": HTMLGxgTemplateElement;
     "gxg-toggle": HTMLGxgToggleElement;
   }
@@ -584,81 +472,41 @@ declare global {
 declare namespace LocalJSX {
   interface GxgAlert {
     /**
-     * Wether the alert is active (visible) or not (not visible).
+     * An attribute that determines wether the alert is active (visible) or not (not visible)
      */
     active?: boolean;
     /**
-     * The amount of miliseconds the alert is visible before hidding under the document.
-     */
-    activeTime?: number;
-    /**
-     * The alert title (optional)
+     * The title
      */
     alertTitle?: string;
     /**
-     * The alert bottom position value
-     */
-    bottom?: string;
-    /**
-     * The alert left position value
-     */
-    left?: string;
-    /**
-     * The alert position.
-     */
-    position?: AlertPosition;
-    /**
-     * The alert right position value
-     */
-    right?: string;
-    /**
-     * The type of alert
+     * The type of alert Possible values: more-info, error, warning, success
      */
     type?: AlertType;
-    /**
-     * The alert width
-     */
-    width?: string;
-  }
-  interface GxgBox {
-    height?: string;
-    /**
-     * The card box-shadow value possible values: from 1 to 8
-     */
-    shadow?: number;
-    width?: string;
   }
   interface GxgButton {
     /**
-     * The state of the button. Whether is disabled or not.
+     * The state of the button. Whether is disabled or not. Possible values: false, true
      */
     disabled?: boolean;
     /**
-     * The kind of button
+     * The kind of button Possible values: primary-text-only, primary-text-icon, primary-icon-only, secondary-text-only, secondary-icon-only, outlined
      */
     type?: ButtonType;
   }
   interface GxgButtonGroup {
     /**
-     * The title that will show up above the buttons group
+     * The id of the button that you would like to show active initially
+     */
+    SelectedButtonId?: string;
+    /**
+     * The main title that will show up above the buttons group
      */
     buttonGroupTitle?: string;
     /**
-     * The id of the button that you would like to show active by default
-     */
-    defaultSelectedBtnId?: string;
-    /**
      * The main title alignment
      */
-    titleAlignment?: TitleAlignment;
-  }
-  interface GxgCard {
-    height?: string;
-    /**
-     * The card box-shadow value possible values: from 1 to 8
-     */
-    shadow?: number;
-    width?: string;
+    titleAlignment?: "left" | "center" | "right";
   }
   interface GxgFormInputCheckboxes {
     /**
@@ -680,59 +528,7 @@ declare namespace LocalJSX {
      */
     options?: object;
   }
-  interface GxgFormMessage {
-    /**
-     * The kind of message Possible values: error, warning
-     */
-    messageType?: string;
-  }
-  interface GxgFormSelect {
-    /**
-     * If select is disabled
-     */
-    disabled?: boolean;
-    /**
-     * If select has errors
-     */
-    error?: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
-    /**
-     * Wether the select is inline or block
-     */
-    inline?: boolean;
-    /**
-     * The select label
-     */
-    label?: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions?: string;
-    /**
-     * The select name
-     */
-    name?: string;
-    /**
-     * The select id
-     */
-    selectId?: string;
-    /**
-     * The selected option
-     */
-    value?: string;
-    /**
-     * If select has warnings
-     */
-    warning?: boolean;
-    /**
-     * The select width
-     */
-    width?: string;
-  }
-  interface GxgFormText {
+  interface GxgFormInputText {
     /**
      * If input is disabled
      */
@@ -783,6 +579,58 @@ declare namespace LocalJSX {
     warning?: boolean;
     /**
      * input width
+     */
+    width?: string;
+  }
+  interface GxgFormMessage {
+    /**
+     * The kind of message Possible values: error, warning
+     */
+    messageType?: string;
+  }
+  interface GxgFormSelect {
+    /**
+     * If select is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If select has errors
+     */
+    error?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
+    /**
+     * Wether the select is inline or block
+     */
+    inline?: boolean;
+    /**
+     * The select label
+     */
+    label?: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    maxVisibleOptions?: string;
+    /**
+     * The select name
+     */
+    name?: string;
+    /**
+     * The select id
+     */
+    selectId?: string;
+    /**
+     * The selected option
+     */
+    value?: string;
+    /**
+     * If select has warnings
+     */
+    warning?: boolean;
+    /**
+     * The select width
      */
     width?: string;
   }
@@ -840,7 +688,7 @@ declare namespace LocalJSX {
     /**
      * The color of the icon.
      */
-    color?: Color;
+    color?: "onbackground" | "negative" | "error" | "success" | "warning";
     /**
      * If enabled, the icon will be loaded lazily when it's visible in the viewport.
      */
@@ -848,15 +696,11 @@ declare namespace LocalJSX {
     /**
      * The size of the icon. Possible values: regular, small.
      */
-    size?: Size;
+    size?: "regular" | "small" | "tiny";
     /**
-     * The type of icon. Possible values: each of the icons in /assets.
+     * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix. Example: the value for the "gxg-icon-add.svg" file is "add".
      */
     type?: IconType;
-  }
-  interface GxgMenu {
-    items?: object;
-    menuTitle?: string;
   }
   interface GxgProgressBar {
     /**
@@ -920,21 +764,6 @@ declare namespace LocalJSX {
      */
     value?: number;
   }
-  interface GxgTab {
-    isSelected?: boolean;
-    tab?: string;
-  }
-  interface GxgTabBar {}
-  interface GxgTabButton {
-    disabled?: boolean;
-    icon?: IconType;
-    isSelected?: boolean;
-    onTabActivated?: (event: CustomEvent<any>) => void;
-    tab?: string;
-  }
-  interface GxgTabs {
-    tab?: string;
-  }
   interface GxgTemplate {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
@@ -962,25 +791,18 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     "gxg-alert": GxgAlert;
-    "gxg-box": GxgBox;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
-    "gxg-card": GxgCard;
     "gxg-form-input-checkboxes": GxgFormInputCheckboxes;
     "gxg-form-input-radiobuttons": GxgFormInputRadiobuttons;
+    "gxg-form-input-text": GxgFormInputText;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-select": GxgFormSelect;
-    "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
-    "gxg-menu": GxgMenu;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-slider": GxgSlider;
     "gxg-stepper": GxgStepper;
-    "gxg-tab": GxgTab;
-    "gxg-tab-bar": GxgTabBar;
-    "gxg-tab-button": GxgTabButton;
-    "gxg-tabs": GxgTabs;
     "gxg-template": GxgTemplate;
     "gxg-toggle": GxgToggle;
   }
@@ -993,38 +815,29 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       "gxg-alert": LocalJSX.GxgAlert &
         JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
-      "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &
         JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
-      "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
       "gxg-form-input-checkboxes": LocalJSX.GxgFormInputCheckboxes &
         JSXBase.HTMLAttributes<HTMLGxgFormInputCheckboxesElement>;
       "gxg-form-input-radiobuttons": LocalJSX.GxgFormInputRadiobuttons &
         JSXBase.HTMLAttributes<HTMLGxgFormInputRadiobuttonsElement>;
+      "gxg-form-input-text": LocalJSX.GxgFormInputText &
+        JSXBase.HTMLAttributes<HTMLGxgFormInputTextElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
       "gxg-form-select": LocalJSX.GxgFormSelect &
         JSXBase.HTMLAttributes<HTMLGxgFormSelectElement>;
-      "gxg-form-text": LocalJSX.GxgFormText &
-        JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
-      "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-slider": LocalJSX.GxgSlider &
         JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
       "gxg-stepper": LocalJSX.GxgStepper &
         JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
-      "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;
-      "gxg-tab-bar": LocalJSX.GxgTabBar &
-        JSXBase.HTMLAttributes<HTMLGxgTabBarElement>;
-      "gxg-tab-button": LocalJSX.GxgTabButton &
-        JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
-      "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
       "gxg-template": LocalJSX.GxgTemplate &
         JSXBase.HTMLAttributes<HTMLGxgTemplateElement>;
       "gxg-toggle": LocalJSX.GxgToggle &

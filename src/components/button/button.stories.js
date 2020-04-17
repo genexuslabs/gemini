@@ -15,7 +15,7 @@ KNOBS
 /*Icons Knob*/
 const label = "Icon";
 const options = {
-  add: "arrowDown",
+  add: "add",
   chevronDown: "chevronDown",
   chevronLeft: "chevronLeft",
   chevronRight: "chevronRight",

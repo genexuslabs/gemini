@@ -3,50 +3,48 @@
 
 :host {
   display: block;
-  .label {
-    @include form-element-common-styles-label();
+}
+.label {
+  @include form-element-common-styles-label();
+}
+.outer-wrapper {
+  display: flex;
+  align-items: center;
+}
+.button {
+  display: inline-flex;
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--color-primary-active);
+  color: var(--color-on-primary);
+  cursor: pointer;
+  font-weight: var(--font-weight-regular);
+
+  &:focus {
+    outline: none;
   }
-  .outer-wrapper {
-    display: flex;
-    align-items: center;
+
+  &--minus {
+    border-top-left-radius: var(--border-radius-md);
+    border-bottom-left-radius: var(--border-radius-md);
+  }
+  &--plus {
+    border-top-right-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
   }
 
-  .value-container {
-    @include form-element-common-styles-label();
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    display: inline-flex;
-    margin-bottom: 0;
+  &:hover {
+    background-color: var(--color-primary-hover);
   }
-
-  .button {
-    display: inline-flex;
-    width: var(--spacing-comp-05);
-    height: var(--spacing-comp-05);
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: var(--color-primary-active);
-    color: var(--color-on-primary);
-    cursor: pointer;
-    font-weight: var(--font-weight-regular);
-
-    &:focus {
-      outline: none;
-    }
-
-    &--minus {
-      border-top-left-radius: var(--border-radius-md);
-      border-bottom-left-radius: var(--border-radius-md);
-    }
-    &--plus {
-      border-top-right-radius: var(--border-radius-md);
-      border-bottom-right-radius: var(--border-radius-md);
-    }
-
-    &:hover {
-      background-color: var(--color-primary-hover);
-    }
-  }
+}
+.value-container {
+  @include form-element-common-styles-label();
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  display: inline-flex;
+  margin-bottom: 0;
 }

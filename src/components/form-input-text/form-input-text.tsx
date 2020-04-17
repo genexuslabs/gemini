@@ -2,11 +2,11 @@ import { Component, Prop, Element, h, Host } from "@stencil/core";
 import { IconType } from "../icon/icon";
 
 @Component({
-  tag: "gxg-form-text",
-  styleUrl: "form-text.scss",
+  tag: "gxg-form-input-text",
+  styleUrl: "form-input-text.scss",
   shadow: true
 })
-export class FormText {
+export class FormInputText {
   //A reference to the input
   textInput!: HTMLInputElement;
 
@@ -92,16 +92,27 @@ export class FormText {
     if (this.icon) {
       if (this.warning) {
         return (
-          <gxg-icon type={this.icon} size="small" color="warning"></gxg-icon>
+          <gxg-icon
+            slot="icon"
+            type={this.icon}
+            size="small"
+            color="warning"
+          ></gxg-icon>
         );
       }
       if (this.error) {
         return (
-          <gxg-icon type={this.icon} size="small" color="error"></gxg-icon>
+          <gxg-icon
+            slot="icon"
+            type={this.icon}
+            size="small"
+            color="error"
+          ></gxg-icon>
         );
       }
       return (
         <gxg-icon
+          slot="icon"
           type={this.icon}
           size="small"
           style={{ opacity: "0.5" }}
@@ -144,6 +155,7 @@ export class FormText {
               onKeyUp={this.updateInputValue.bind(this)}
             ></input>
             {this.inputIcon()}
+            <slot></slot>
           </div>
         </div>
         <div class="messages-wrapper"></div>
