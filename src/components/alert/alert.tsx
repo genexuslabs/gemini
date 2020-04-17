@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h, Watch } from "@stencil/core";
+import { Component, Element, Host, Prop, h, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-alert",
@@ -6,24 +6,68 @@ import { Component, Host, Prop, h, Watch } from "@stencil/core";
   shadow: true
 })
 export class Alert {
+  @Element() el: HTMLElement;
+
   constructor() {
     this.setAlertInactive = this.setAlertInactive.bind(this);
   }
 
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
+
   /**
-   * The type of alert
-   * Possible values: more-info, error, warning, success
+   * Wether the alert is active (visible) or not (not visible).
    */
-  @Prop() type: AlertType = "more-info";
+  @Prop({ reflect: true }) active = false;
+
   /**
-   * The title
+   * The amount of miliseconds the alert is visible before hidding under the document.
+   */
+  @Prop() activeTime = 3500;
+
+  /**
+   * The alert position.
+   */
+  @Prop() position: AlertPosition = "left";
+
+  /**
+   * The alert title (optional)
    */
   @Prop() alertTitle: string;
+
   /**
-   * An attribute that determines wether the alert is active (visible) or not (not visible)
-   *
+   * The type of alert
    */
-  @Prop({ reflect: true }) active: boolean;
+  @Prop() type: AlertType = "more-info";
+
+  /**
+   * The alert left position value
+   */
+  @Prop() left = "0";
+
+  /**
+   * The alert right position value
+   */
+  @Prop() right = "0";
+
+  /**
+   * The alert bottom position value
+   */
+  @Prop() bottom = "0";
+
+  /**
+   * The alert width
+   */
+  @Prop() width = "350px";
+
+  /*********************************
+  METHODS
+  *********************************/
+
+  componentDidLoad() {
+    this.el.removeAttribute("hidden");
+  }
 
   iconColor(): "onbackground" | "negative" | "error" | "success" | "warning" {
     if (this.type === "more-info") return "negative";
@@ -40,24 +84,39 @@ export class Alert {
     }
   }
 
+  printTitle() {
+    if (this.alertTitle !== undefined) {
+      return <h2 class="alert-message--title">{this.alertTitle}</h2>;
+    }
+  }
+
   setAlertInactive() {
     this.active = false;
+    this.el.removeAttribute("role");
   }
 
   @Watch("active")
   validateName(newValue: boolean) {
     if (newValue === true) {
+      this.el.setAttribute("role", "alert");
       setTimeout(() => {
         this.setAlertInactive();
-      }, 3500);
+      }, this.activeTime);
     }
   }
 
   render() {
     return (
       <Host
-        class={{
-          active: this.active === true
+        hidden
+        style={{
+          width: this.width,
+          left: this.left,
+          right: this.right,
+          transform:
+            this.position === "center"
+              ? "translateY(-" + this.bottom + ") translateX(-50%)"
+              : "translateY(-" + this.bottom + ")"
         }}
       >
         <div
@@ -78,7 +137,7 @@ export class Alert {
               ></gxg-icon>
             </div>
             <div class="alert-message-title-description">
-              <h2 class="alert-message--title">{this.alertTitle}</h2>
+              {this.printTitle()}
               <p class="alert-message--description">
                 <slot></slot>
               </p>
@@ -104,3 +163,5 @@ export class Alert {
 }
 
 export type AlertType = "more-info" | "error" | "warning" | "success";
+
+export type AlertPosition = "left" | "center" | "right";

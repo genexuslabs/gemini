@@ -1,0 +1,22 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: flex;
+  background: var(--color-on-primary);
+  padding: var(--spacing-comp-02);
+  display: flex;
+  overflow: hidden;
+  @include gxg-text();
+}
+:host([gray="1"]) {
+  background: var(--gray-01);
+}
+:host([gray="2"]) {
+  background: var(--gray-02);
+}
+:host([border]) {
+  border-style: var(--border-style-regular);
+  border-width: var(--border-width-sm);
+  border-color: var(--gray-03);
+}

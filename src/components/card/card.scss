@@ -1,0 +1,41 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: flex;
+  background: var(--color-on-primary);
+  box-shadow: var(--box-shadow-01);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-comp-02);
+  display: flex;
+  overflow: hidden;
+  @include gxg-text();
+}
+:host([shadow="1"]) {
+  box-shadow: var(--box-shadow-01);
+}
+:host([shadow="2"]) {
+  box-shadow: var(--box-shadow-02);
+}
+:host([shadow="3"]) {
+  box-shadow: var(--box-shadow-03);
+}
+:host([shadow="4"]) {
+  box-shadow: var(--box-shadow-04);
+}
+:host([shadow="5"]) {
+  box-shadow: var(--box-shadow-06);
+}
+:host([shadow="6"]) {
+  box-shadow: var(--box-shadow-08);
+}
+:host([shadow="7"]) {
+  box-shadow: var(--box-shadow-09);
+}
+:host([shadow="8"]) {
+  box-shadow: var(--box-shadow-12);
+}
+
+:host([gray]) {
+  background: var(--gray-01);
+}

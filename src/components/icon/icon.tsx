@@ -10,11 +10,16 @@ import {
 } from "@stencil/core";
 import { getSvgContent, iconContent } from "./requests";
 
+/*********************************
+CONSTANTS
+*********************************/
+
 const DEFAULT_COLOR = "onbackground";
 
 const COLOR_MAPPINGS = {
   onbackground: "color-on-background",
   negative: "color-on-primary",
+  disabled: "color-primary-disabled",
   error: "color-error-dark",
   warning: "color-warning-dark",
   success: "color-success-dark"
@@ -33,14 +38,14 @@ export class Icon {
 
   @Element() element: HTMLElement;
 
-  @State() private svgContent?: string;
-  @State() private isVisible = false;
-
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
   /**
    * The color of the icon.
    *
    */
-  @Prop() color: "onbackground" | "negative" | "error" | "success" | "warning";
+  @Prop() color: Color;
 
   /**
    * If enabled, the icon will be loaded lazily when it's visible in the viewport.
@@ -50,13 +55,20 @@ export class Icon {
   /**
    * The size of the icon. Possible values: regular, small.
    */
-  @Prop() size: "regular" | "small" | "tiny" = "regular";
+  @Prop({ reflect: true }) size: Size = "regular";
 
   /**
-   * The type of icon. Possible values: each of the icons in /assets. The value is always the name of the svg file without the "gxg-icon-" prefix.
-   * Example: the value for the "gxg-icon-add.svg" file is "add".
+   * The type of icon. Possible values: each of the icons in /assets.
    */
-  @Prop() type: IconType = "none";
+  @Prop({ reflect: true }) type: IconType = "none";
+
+  @State() private isVisible = false;
+
+  @State() private svgContent?: string;
+
+  /*********************************
+  METHODS
+  *********************************/
 
   connectedCallback() {
     // purposely do not return the promise here because loading
@@ -135,10 +147,9 @@ export class Icon {
   render() {
     return (
       <Host
+        aria-label={this.type}
         class={{
-          svgIcon: true,
-          "svgIcon--small": this.size === "small",
-          "svgIcon--tiny": this.size === "tiny"
+          svgIcon: true
         }}
       >
         <div
@@ -164,9 +175,20 @@ export class Icon {
   }
 }
 
+export type Color =
+  | "onbackground"
+  | "negative"
+  | "disabled"
+  | "error"
+  | "success"
+  | "warning";
+
 export type IconType =
   | "none"
-  | "add"
+  | "arrow-down"
+  | "arrow-left"
+  | "arrow-right"
+  | "arrow-up"
   | "chevron-down"
   | "chevron-left"
   | "chevron-right"
@@ -174,19 +196,18 @@ export type IconType =
   | "close"
   | "color-picker"
   | "deleted"
-  | "down"
   | "drag"
   | "duplicate"
   | "edit-wand"
   | "edit"
   | "error"
+  | "level-down"
   | "level-up"
   | "more-info"
   | "search"
   | "settings"
   | "show-more"
   | "success"
-  | "up"
   | "warning";
 
-//Keep updated icon type on "form-input component as well"
+export type Size = "regular" | "small";

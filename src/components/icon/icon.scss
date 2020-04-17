@@ -19,15 +19,12 @@ ICON
 
   .svg-icon-native {
     line-height: 0;
-    flex: var(
-      --svg-icon-native-flex-value
-    ); //We use a css variable "--svg-icon-native-flex-value" defined at "tokens-icons" instead of a fixed value, because, when the icon resides inside a button, we wolud like to redefine its value.
   }
 }
-
-:host(.svgIcon--small) .svg-icon-native {
-  flex: var(--svg-icon-native-flex-value-small);
+:host svg > g {
+  transform: scale(var(--svg-icon-regular-scale));
+  transform-origin: center;
 }
-// :host(.svgIcon__tiny) .svg-icon-native {
-//   flex: 0.5;
-// }
+:host([size="small"]) svg > g {
+  transform: scale(var(--svg-icon-small-scale));
+}

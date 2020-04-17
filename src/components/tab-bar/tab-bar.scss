@@ -1,0 +1,42 @@
+@import "../../globals/mixins";
+
+:host {
+  --tabBarMenuHeight: 0;
+  display: block;
+  text-align: right;
+  position: relative;
+
+  .tab-bar {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex !important;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: var(--font-family-primary);
+
+    .tab-bar__menu {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .tab-bar-menu {
+    border-radius: var(--border-width-md);
+    box-shadow: var(--box-shadow-01);
+    height: var(--tabBarMenuHeight);
+    position: absolute;
+    z-index: 10;
+    background-color: var(--color-on-primary);
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+    flex-direction: column;
+    overflow: hidden;
+    @include ui-animation(height);
+
+    &--collapsed {
+      height: 0;
+    }
+  }
+}

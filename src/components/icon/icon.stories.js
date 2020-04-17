@@ -32,7 +32,10 @@ STORIES
 *************/
 
 const arrayIconsNames = [
-  "add",
+  "arrowDown",
+  "arrowLeft",
+  "arrowRight",
+  "arrowUp",
   "chevronDown",
   "chevronLeft",
   "chevronRight",
@@ -40,19 +43,18 @@ const arrayIconsNames = [
   "close",
   "colorPicker",
   "deleted",
-  "down",
   "drag",
   "duplicate",
-  "edit",
   "editWand",
+  "edit",
   "error",
+  "levelDown",
   "levelUp",
   "moreInfo",
   "search",
   "settings",
   "showMore",
   "success",
-  "up",
   "warning"
 ];
 
