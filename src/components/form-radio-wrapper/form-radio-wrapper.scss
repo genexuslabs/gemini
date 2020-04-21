@@ -1,0 +1,17 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  ::slotted(gxg-form-radio) {
+    margin-bottom: var(--spacing-comp-03);
+    display: flex;
+  }
+}
+
+:host([inline-flex]) {
+  ::slotted(gxg-form-radio) {
+    margin-bottom: 0;
+    margin-right: var(--spacing-comp-03);
+    display: inline-flex;
+  }
+}

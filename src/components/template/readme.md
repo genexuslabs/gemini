@@ -1,4 +1,4 @@
-# todo-list
+# gxg-template
 
 <!-- Auto Generated Below -->
 

@@ -26,329 +26,557 @@
   </head>
   <body>
     <div class="container" style="width: 800px; margin: 0 auto;">
-      <span class="icon-checkbox-checked"></span>
-      <label style="font-size:12px;"
-        >Enable Dark Mode
-        <input
-          style="position: relative; top: 3px;"
-          type="checkbox"
-          name="night"
-          id="toggleDarkTheme"/></label
-      ><br /><br />
-
-      <h3>Menu</h3>
-      <div style="background-color: #eee; padding: 50px;">
-        <gxg-menu
-          items='[ 
-    {"label":"label 01","icon":"error"},{"label":"label 02","icon":""},{"label":"label 03"},{"label":"label 04","icon":"error"}]'
-        ></gxg-menu>
-      </div>
-
-      <h3>Tabs</h3>
-
-      <div style="background-color: #eee; padding: 50px;">
-        <gxg-tabs>
-          <gxg-tab-bar>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="apples"
-              key="apples"
-              isSelected="true"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="bananas"
-              key="bananas"
-              isSelected="false"
-              icon="settings"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              key="cherries"
-              isSelected="false"
-              icon="settings"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="strawberries"
-              key="strawberries"
-              isSelected="false"
-              disabled
-              icon="settings"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="tomatoes"
-              key="tomatoes"
-              isSelected="true"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="potatoes"
-              key="potatoes"
-              isSelected="false"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="garlic"
-              key="garlic"
-              isSelected="false"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="onion"
-              key="onion"
-              isSelected="false"
-            ></gxg-tab-button>
-          </gxg-tab-bar>
-          <gxg-tab tab="apples" key="apples" isSelected="true">
-            Apples information
-          </gxg-tab>
-          <gxg-tab tab="bananas" key="bananas" isSelected="false">
-            Bananas information
-          </gxg-tab>
-          <gxg-tab tab="cherries" key="cherries" isSelected="false">
-            Cherries information
-          </gxg-tab>
-          <gxg-tab tab="tomatoes" key="tomatoes" isSelected="false">
-            Tomatoes information
-          </gxg-tab>
-          <gxg-tab tab="potatoes" key="potatoes" isSelected="false">
-            Potatoes information
-          </gxg-tab>
-          <gxg-tab tab="garlic" key="garlic" isSelected="false">
-            Garlic information
-          </gxg-tab>
-          <gxg-tab tab="onion" key="onion" isSelected="false">
-            Onion information
-          </gxg-tab>
-          <gxg-tab tab="strawberries" key="strawberries" isSelected="false">
-            Strawberries information
-          </gxg-tab>
-        </gxg-tabs>
-      </div>
-
-      <h3>Box</h3>
-      <gxg-box
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        blanditiis temporibus laudantium maxime laboriosam a, animi quo dolorem
-        perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore iusto quos
-        sunt sint?</gxg-box
-      >
-      <gxg-box gray="1"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        blanditiis temporibus laudantium maxime laboriosam a, animi quo dolorem
-        perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore iusto quos
-        sunt sint?</gxg-box
-      >
-      <gxg-box gray="2"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        blanditiis temporibus laudantium maxime laboriosam a, animi quo dolorem
-        perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore iusto quos
-        sunt sint?</gxg-box
-      >
-      <gxg-box border
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        blanditiis temporibus laudantium maxime laboriosam a, animi quo dolorem
-        perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore iusto quos
-        sunt sint?</gxg-box
-      >
-
-      <h3>Card</h3>
-      <gxg-card>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        blanditiis temporibus laudantium maxime laboriosam a, animi quo dolorem
-        perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore iusto quos
-        sunt sint?
-      </gxg-card>
-      <gxg-card gray
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-        blanditiis temporibus laudantium maxime laboriosam a, animi quo dolorem
-        perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore iusto quos
-        sunt sint?</gxg-card
-      >
-
-      <h2>Form</h2>
-
-      <form>
-        <h3>Slider</h3>
-        <gxg-slider value="300" label="Slider" min="0" max="400"></gxg-slider>
-
-        <h3>Progress Bar</h3>
-        <gxg-progress-bar
-          label="Progress Bar"
-          tabindex="1"
-          progress="50"
-        ></gxg-progress-bar>
-
-        <h3>Stepper</h3>
-        <gxg-stepper label="Stepper" tabindex="1"></gxg-stepper>
-
-        <h3>Toggle</h3>
-        <gxg-toggle label="Toggle" tabindex="1"></gxg-toggle>
-
-        <gxg-toggle on tabindex="2"></gxg-toggle>
-
-        <gxg-toggle disabled tabindex="3"></gxg-toggle>
-
+      <form action="">
         <h3>Radio buttons</h3>
+
         <form action="">
-          <gxg-form-input-radiobuttons
-            tabindex="1"
-            options='[  
-          {"label":"red","name":"colors","id":"red","value":"red","disabled":true},
-          {"label":"blue","name":"colors","id":"blue","value":"blue","checked":true},
-          {"label":"green","name":"colors","id":"green","value":"green","checked":true,"disabled":true}]'
-          >
-          </gxg-form-input-radiobuttons>
+          <gxg-form-radio-wrapper>
+            <gxg-form-radio
+              label="red"
+              name="colors"
+              radio-id="red"
+              value="red"
+              checked
+            ></gxg-form-radio>
+            <gxg-form-radio
+              label="blue"
+              name="colors"
+              radio-id="blue"
+              value="blue"
+            ></gxg-form-radio>
+            <gxg-form-radio
+              label="green"
+              name="colors"
+              radio-id="green"
+              value="green"
+            ></gxg-form-radio>
+          </gxg-form-radio-wrapper>
         </form>
 
         <h3>Radio buttons inline</h3>
+
         <form action="">
-          <gxg-form-input-radiobuttons
-            inline
-            options='[
-          {"label":"yellow","name":"colors","id":"yellow","value":"yellow","checked":true}]'
-          >
-          </gxg-form-input-radiobuttons>
+          <gxg-form-radio-wrapper inline-flex>
+            <gxg-form-radio
+              label="red"
+              name="colors"
+              radio-id="red"
+              value="red"
+              checked
+              disabled
+            ></gxg-form-radio>
+            <gxg-form-radio
+              label="blue"
+              name="colors"
+              radio-id="blue"
+              value="blue"
+            ></gxg-form-radio>
+            <gxg-form-radio
+              label="green"
+              name="colors"
+              radio-id="green"
+              value="green"
+            ></gxg-form-radio>
+          </gxg-form-radio-wrapper>
         </form>
+
+        <h3>Radio buttons inline</h3>
+        <form action=""></form>
 
         <h3>Checkboxes</h3>
+
         <form action="">
-          <gxg-form-input-checkboxes
-            options='[ 
-        {"label":"red","name":"colors","id":"red","value":"red","disabled":true},
-        {"label":"blue","name":"colors","id":"blue","value":"blue","checked":true},
-        {"label":"green","name":"colors","id":"green","value":"green","checked":true}]'
-          >
-          </gxg-form-input-checkboxes>
+          <gxg-form-checkbox
+            label="red"
+            name="colors"
+            id="red"
+            value="red"
+          ></gxg-form-checkbox>
+          <gxg-form-checkbox
+            label="blue"
+            name="colors"
+            id="red"
+            value="blue"
+          ></gxg-form-checkbox>
+          <gxg-form-checkbox
+            label="green"
+            name="colors"
+            id="red"
+            value="green"
+          ></gxg-form-checkbox>
+
+          <h3>Checkboxes inline</h3>
+          <gxg-form-checkbox
+            label="red"
+            name="colors"
+            id="red"
+            value="red"
+            inline-flex
+            checked
+          ></gxg-form-checkbox>
+          <gxg-form-checkbox
+            label="blue"
+            name="colors"
+            id="red"
+            value="blue"
+            inline-flex
+            checked
+          ></gxg-form-checkbox>
+          <gxg-form-checkbox
+            label="green"
+            name="colors"
+            id="red"
+            value="green"
+            inline-flex
+          ></gxg-form-checkbox>
         </form>
 
-        <h3>Checkboxes inline</h3>
         <form action="">
-          <gxg-form-input-checkboxes
-            inline
-            options='[ 
-        {"label":"red","name":"colors","id":"red","value":"red","disabled":true},
-        {"label":"blue","name":"colors","id":"blue","value":"blue","checked":true},
-        {"label":"pink","name":"colors","id":"pink","value":"pink","checked":true}]'
+          <h3>Select</h3>
+          <gxg-form-select
+            id="select1"
+            name="select1"
+            label="Default"
+            error
+            width="150px"
+            max-visible-options="4"
           >
-          </gxg-form-input-checkboxes>
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option selected value="3">Citroen</option>
+            <option value="4">Ford</option>
+            <option value="5">Honda</option>
+            <option value="6">Jaguar</option>
+            <option value="7">Land Rover</option>
+            <option value="8">Mercedes</option>
+          </gxg-form-select>
+
+          <gxg-form-select id="select2" name="select2" label="Default" disabled>
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option selected value="3">Citroen</option>
+            <option value="4">Ford</option>
+            <option value="5">Honda</option>
+            <option value="6">Jaguar</option>
+            <option value="7">Land Rover</option>
+            <option value="8">Mercedes</option>
+          </gxg-form-select>
+
+          <gxg-form-select id="select3" name="select3" label="Default" error>
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option selected value="3">Citroen</option>
+            <option value="4">Ford</option>
+            <option value="5">Honda</option>
+            <option value="6">Jaguar</option>
+            <option value="7">Land Rover</option>
+            <option value="8">Mercedes</option>
+          </gxg-form-select>
+
+          <gxg-form-select id="select4" name="select4" label="Default" inline>
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+            <option selected value="3">Citroen</option>
+            <option value="4">Ford</option>
+            <option value="5">Honda</option>
+            <option value="6">Jaguar</option>
+            <option value="7">Land Rover</option>
+            <option value="8">Mercedes</option>
+          </gxg-form-select>
+
+          <h3>Select Block</h3>
+          <gxg-form-select
+            id="select1"
+            name="select1"
+            label="Default"
+            display-flex
+          >
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+          </gxg-form-select>
+
+          <gxg-form-select
+            id="select2"
+            name="select2"
+            label="Default"
+            display-flex
+          >
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+          </gxg-form-select>
+
+          <gxg-form-select
+            id="select3"
+            name="select3"
+            label="Default"
+            display-flex
+          >
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+          </gxg-form-select>
+
+          <gxg-form-select
+            id="select4"
+            name="select4"
+            label="Default"
+            display-flex
+          >
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+          </gxg-form-select>
+
+          <h3>Select Fullwidth</h3>
+          <gxg-form-select
+            id="select1"
+            name="select1"
+            label="Default"
+            full-width
+          >
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+          </gxg-form-select>
+
+          <gxg-form-select
+            id="select2"
+            name="select2"
+            label="Default"
+            full-width
+          >
+            <option value="0">Select car:</option>
+            <option value="1">Audi</option>
+            <option value="2">BMW</option>
+          </gxg-form-select>
+
+          <h3>Input text</h3>
+          <script>
+            function addErrorMessage() {
+              let inputText = document.getElementById("name4");
+              let errorMessage = document.createElement("gxg-form-message");
+              errorMessage.setAttribute("type", "error");
+              errorMessage.setAttribute("slot", "message");
+              errorMessage.textContent = "error message";
+              inputText.appendChild(errorMessage);
+            }
+          </script>
+          <gxg-button onclick="addErrorMessage()">Add error message</gxg-button>
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default 122"
+            placeholder="Placeholder text"
+            warning
+            full-width
+            icon="colorPicker"
+            icon-position="right"
+            value="dsda"
+          >
+          </gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default 2"
+            placeholder="Placeholder text"
+            warning
+            full-width
+            icon="search"
+            icon-position="right"
+            value="dsda"
+          >
+          </gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name1"
+            name="name"
+            label="Default 3"
+            placeholder="Placeholder text"
+            onchange="validarNombre()"
+            full-width
+            value="rsrdsa"
+          ></gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name1"
+            name="name"
+            label="Default 4"
+            placeholder="Placeholder text"
+            onchange="validarNombre()"
+            width="100px"
+          ></gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name2"
+            name="name"
+            label="Default 5"
+            placeholder="Placeholder text"
+            disabled
+          ></gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name3"
+            name="name"
+            label="Default 6"
+            placeholder="Placeholder text"
+            error
+          >
+            <gxg-form-message message-type="error" slot="message">
+              This is an error message 1
+            </gxg-form-message>
+            <gxg-form-message message-type="error" slot="message">
+              This is an error message 2
+            </gxg-form-message>
+          </gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default"
+            placeholder="Placeholder text"
+            warning
+          ></gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default"
+            placeholder="Placeholder text"
+            warning
+          ></gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default"
+            placeholder="Placeholder text"
+            warning
+            display-flex
+            icon="search"
+            icon-position="left"
+          >
+          </gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default"
+            placeholder="Placeholder text"
+            warning
+            display-flex
+            icon="search"
+            icon-position="right"
+          >
+          </gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default"
+            placeholder="Placeholder text"
+            error
+            display-flex
+            icon="search"
+            icon-position="right"
+          >
+          </gxg-form-text>
+
+          <gxg-form-text
+            type="text"
+            id="name4"
+            name="name"
+            label="Default"
+            placeholder="Placeholder text"
+            display-flex
+            icon="search"
+            icon-position="right"
+          >
+          </gxg-form-text>
         </form>
 
-        <h3>Select</h3>
-        <gxg-form-select
-          id="select1"
-          name="select1"
-          label="Default"
-          error
-          width="150px"
-          max-visible-options="4"
+        <span class="icon-checkbox-checked"></span>
+        <label style="font-size:12px;"
+          >Enable Dark Mode
+          <input
+            style="position: relative; top: 3px;"
+            type="checkbox"
+            name="night"
+            id="toggleDarkTheme"/></label
+        ><br /><br />
+
+        <h3>Menu</h3>
+        <div style="background-color: #eee; padding: 50px;">
+          <gxg-menu
+            items='[ 
+    {"label":"label 01","icon":"error"},{"label":"label 02","icon":""},{"label":"label 03"},{"label":"label 04","icon":"error"}]'
+          ></gxg-menu>
+        </div>
+
+        <h3>Tabs</h3>
+
+        <div style="background-color: #eee; padding: 50px;">
+          <gxg-tabs>
+            <gxg-tab-bar>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="apples"
+                key="apples"
+                isSelected="true"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="bananas"
+                key="bananas"
+                isSelected="false"
+                icon="settings"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                key="cherries"
+                isSelected="false"
+                icon="settings"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="strawberries"
+                key="strawberries"
+                isSelected="false"
+                disabled
+                icon="settings"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="tomatoes"
+                key="tomatoes"
+                isSelected="true"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="potatoes"
+                key="potatoes"
+                isSelected="false"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="garlic"
+                key="garlic"
+                isSelected="false"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="onion"
+                key="onion"
+                isSelected="false"
+              ></gxg-tab-button>
+            </gxg-tab-bar>
+            <gxg-tab tab="apples" key="apples" isSelected="true">
+              Apples information
+            </gxg-tab>
+            <gxg-tab tab="bananas" key="bananas" isSelected="false">
+              Bananas information
+            </gxg-tab>
+            <gxg-tab tab="cherries" key="cherries" isSelected="false">
+              Cherries information
+            </gxg-tab>
+            <gxg-tab tab="tomatoes" key="tomatoes" isSelected="false">
+              Tomatoes information
+            </gxg-tab>
+            <gxg-tab tab="potatoes" key="potatoes" isSelected="false">
+              Potatoes information
+            </gxg-tab>
+            <gxg-tab tab="garlic" key="garlic" isSelected="false">
+              Garlic information
+            </gxg-tab>
+            <gxg-tab tab="onion" key="onion" isSelected="false">
+              Onion information
+            </gxg-tab>
+            <gxg-tab tab="strawberries" key="strawberries" isSelected="false">
+              Strawberries information
+            </gxg-tab>
+          </gxg-tabs>
+        </div>
+
+        <h3>Box</h3>
+        <gxg-box
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          blanditiis temporibus laudantium maxime laboriosam a, animi quo
+          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
+          iusto quos sunt sint?</gxg-box
         >
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option selected value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-        </gxg-form-select>
-
-        <gxg-form-select id="select2" name="select2" label="Default" disabled>
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option selected value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-        </gxg-form-select>
-
-        <gxg-form-select id="select3" name="select3" label="Default" error>
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option selected value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-        </gxg-form-select>
-
-        <gxg-form-select id="select4" name="select4" label="Default" inline>
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-          <option selected value="3">Citroen</option>
-          <option value="4">Ford</option>
-          <option value="5">Honda</option>
-          <option value="6">Jaguar</option>
-          <option value="7">Land Rover</option>
-          <option value="8">Mercedes</option>
-        </gxg-form-select>
-
-        <h3>Select Block</h3>
-        <gxg-form-select
-          id="select1"
-          name="select1"
-          label="Default"
-          display-flex
+        <gxg-box gray="1"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          blanditiis temporibus laudantium maxime laboriosam a, animi quo
+          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
+          iusto quos sunt sint?</gxg-box
         >
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-        </gxg-form-select>
-
-        <gxg-form-select
-          id="select2"
-          name="select2"
-          label="Default"
-          display-flex
+        <gxg-box gray="2"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          blanditiis temporibus laudantium maxime laboriosam a, animi quo
+          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
+          iusto quos sunt sint?</gxg-box
         >
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-        </gxg-form-select>
-
-        <gxg-form-select
-          id="select3"
-          name="select3"
-          label="Default"
-          display-flex
+        <gxg-box border
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          blanditiis temporibus laudantium maxime laboriosam a, animi quo
+          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
+          iusto quos sunt sint?</gxg-box
         >
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-        </gxg-form-select>
 
-        <gxg-form-select
-          id="select4"
-          name="select4"
-          label="Default"
-          display-flex
+        <h3>Card</h3>
+        <gxg-card>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          blanditiis temporibus laudantium maxime laboriosam a, animi quo
+          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
+          iusto quos sunt sint?
+        </gxg-card>
+        <gxg-card gray
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          blanditiis temporibus laudantium maxime laboriosam a, animi quo
+          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
+          iusto quos sunt sint?</gxg-card
         >
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-        </gxg-form-select>
 
-        <h3>Select Fullwidth</h3>
-        <gxg-form-select id="select1" name="select1" label="Default" full-width>
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-        </gxg-form-select>
+        <h2>Form</h2>
 
-        <gxg-form-select id="select2" name="select2" label="Default" full-width>
-          <option value="0">Select car:</option>
-          <option value="1">Audi</option>
-          <option value="2">BMW</option>
-        </gxg-form-select>
+        <form>
+          <h3>Slider</h3>
+          <gxg-slider value="300" label="Slider" min="0" max="400"></gxg-slider>
+
+          <h3>Progress Bar</h3>
+          <gxg-progress-bar
+            label="Progress Bar"
+            tabindex="1"
+            progress="50"
+          ></gxg-progress-bar>
+
+          <h3>Stepper</h3>
+          <gxg-stepper label="Stepper" tabindex="1"></gxg-stepper>
+
+          <h3>Toggle</h3>
+          <gxg-toggle label="Toggle" tabindex="1"></gxg-toggle>
+
+          <gxg-toggle on tabindex="2"></gxg-toggle>
+
+          <gxg-toggle disabled tabindex="3"></gxg-toggle>
+        </form>
 
         <h3>Textarea</h3>
         <gxg-form-textarea
@@ -356,10 +584,8 @@
           name="textarea1"
           label="Default"
           placeholder="Placeholder text"
-          value="hola"
-          width="100px"
+          full-width
         >
-          some text
         </gxg-form-textarea>
 
         <gxg-form-textarea
@@ -368,7 +594,6 @@
           label="Default"
           placeholder="Placeholder text"
           disabled
-          display-flex
         >
         </gxg-form-textarea>
 
@@ -389,144 +614,6 @@
           error
         >
         </gxg-form-textarea>
-
-        <h3>Input text</h3>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          warning
-          full-width
-          icon="search"
-          icon-position="left"
-          value="dsda"
-        >
-        </gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          warning
-          full-width
-          icon="search"
-          icon-position="right"
-          value="dsda"
-        >
-        </gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name1"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          onchange="validarNombre()"
-          full-width
-          value="rsrdsa"
-        ></gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name1"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          onchange="validarNombre()"
-          width="100px"
-        ></gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name2"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          disabled
-        ></gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name3"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          error
-        ></gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          warning
-        ></gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          warning
-        ></gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          warning
-          display-flex
-          icon="search"
-          icon-position="left"
-        >
-        </gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          warning
-          display-flex
-          icon="search"
-          icon-position="right"
-        >
-        </gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          error
-          display-flex
-          icon="search"
-          icon-position="right"
-        >
-        </gxg-form-text>
-
-        <gxg-form-text
-          type="text"
-          id="name4"
-          name="name"
-          label="Default"
-          placeholder="Placeholder text"
-          display-flex
-          icon="search"
-          icon-position="right"
-        >
-        </gxg-form-text>
       </form>
 
       <script>

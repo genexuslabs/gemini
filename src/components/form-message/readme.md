@@ -39,9 +39,9 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                         | Type     | Default     |
-| ------------- | -------------- | --------------------------------------------------- | -------- | ----------- |
-| `messageType` | `message-type` | The kind of message Possible values: error, warning | `string` | `undefined` |
+| Property | Attribute | Description                                         | Type                   | Default     |
+| -------- | --------- | --------------------------------------------------- | ---------------------- | ----------- |
+| `type`   | `type`    | The kind of message Possible values: error, warning | `"error" \| "warning"` | `undefined` |
 
 ## Dependencies
 

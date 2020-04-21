@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, Host } from "@stencil/core";
+import { formMessage } from "../../common.js";
 
 @Component({
   tag: "gxg-form-select",
@@ -13,15 +14,19 @@ export class FormSelect {
   select!: HTMLElement;
   @Element() el: HTMLElement;
 
-  /**
-   * If select has errors
-   */
-  @Prop() error = false;
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
 
   /**
    * If select is disabled
    */
   @Prop() disabled = false;
+
+  /**
+   * If select has errors
+   */
+  @Prop() error = false;
 
   /**
    * If select is full width
@@ -39,14 +44,14 @@ export class FormSelect {
   @Prop() label: string;
 
   /**
-   * The select name
-   */
-  @Prop() name: string;
-
-  /**
    * The maximum number of visible options (scroll will apear if the total number exceeds this value)
    */
   @Prop() maxVisibleOptions: string;
+
+  /**
+   * The select name
+   */
+  @Prop() name: string;
 
   /**
    * The select id
@@ -68,6 +73,10 @@ export class FormSelect {
    */
   @Prop() width = "240px";
 
+  /*********************************
+  METHODS
+  *********************************/
+
   componentDidLoad() {
     const updateValue = selectedOption => {
       this.value = selectedOption;
@@ -81,6 +90,8 @@ export class FormSelect {
       /*for each element, create a new DIV that will act as the selected item:*/
       a = document.createElement("DIV");
       a.setAttribute("class", "select-selected");
+      a.setAttribute("tabindex", "0");
+      a.setAttribute("role", "listbox");
       const optionsNodeList = this.el.querySelectorAll("option");
       let selectedOption = optionsNodeList[0];
 
@@ -107,6 +118,7 @@ export class FormSelect {
         /*for each option in the original select element,
         create a new DIV that will act as an option item:*/
         c = document.createElement("DIV");
+        c.setAttribute("role", "option");
         c.innerHTML = listOfOptions[j].innerHTML;
 
         const optionValue = document.createAttribute("value");
@@ -134,6 +146,7 @@ export class FormSelect {
                 y[k].removeAttribute("class");
               }
               this.setAttribute("class", "same-as-selected");
+              this.setAttribute("aria-selected", "true");
               break;
             }
           }
@@ -151,6 +164,7 @@ export class FormSelect {
         this.classList.toggle("select-arrow-active");
       });
     }
+
     function closeAllSelect(elmnt) {
       /*a function that will close all select boxes in the document,
       except the current select box:*/
@@ -210,7 +224,7 @@ export class FormSelect {
             </select>
           </div>
         </div>
-        <div class="messages-wrapper"></div>
+        {formMessage()}
       </Host>
     );
   }

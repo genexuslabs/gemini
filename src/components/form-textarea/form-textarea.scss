@@ -2,54 +2,54 @@
 @import "../../globals/mixins";
 
 :host {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
 }
-:host([display-flex]) {
-  display: block;
-}
-:host([full-width]) {
-  display: flex;
+:host([full-width]) textarea {
   width: 100% !important;
 }
 
 /*****************************************************
 FORM ELEMENT WRAPPER
 *****************************************************/
-.form-element-wrapper {
-  @include form-element-common-styles-wrapper();
+
+:host {
+  .form-element-wrapper {
+    @include form-element-common-styles-wrapper();
+  }
 }
 
 /*****************************************************
 LABEL
 *****************************************************/
-label {
-  @include form-element-common-styles-label();
-}
-textarea {
-  @include gxg-text();
+:host {
+  label {
+    @include form-element-common-styles-label();
+  }
+  textarea {
+    @include gxg-text();
+  }
 }
 
 /*****************************************************
 TEXTAREA
 *****************************************************/
-textarea {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  @include form-element-common-styles();
+:host {
+  textarea {
+    @include form-element-common-styles();
 
-  &:focus {
-    @include form-element-common-styles-focus();
+    &:focus {
+      @include form-element-common-styles-focus();
+    }
   }
-}
 
-textarea[disabled] {
-  @include form-element-common-styles-disabled();
-}
-textarea.textarea--error {
-  @include form-element-common-styles-error();
-}
-textarea.textarea--warning {
-  @include form-element-common-styles-warning();
+  textarea[disabled] {
+    @include form-element-common-styles-disabled();
+  }
+  textarea.textarea--error {
+    @include form-element-common-styles-error();
+  }
+  textarea.textarea--warning {
+    @include form-element-common-styles-warning();
+  }
 }

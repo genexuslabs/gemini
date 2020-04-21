@@ -9,7 +9,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertPosition, AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
+import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
+import { IconPositionType } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 
 export namespace Components {
@@ -91,31 +93,73 @@ export namespace Components {
     shadow: number;
     width: string;
   }
-  interface GxgFormInputCheckboxes {
+  interface GxgFormCheckbox {
     /**
-     * If checkboxes should display inline
+     * Checkbox id
      */
-    inline: boolean;
+    checkboxId: string;
     /**
-     * The checkboxes options
+     * Checkbox checked
      */
-    options: object;
-  }
-  interface GxgFormInputRadiobuttons {
+    checked: boolean;
     /**
-     * If radio buttons should display inline
+     * Checkbox disabled
      */
-    inline: boolean;
+    disabled: boolean;
     /**
-     * The radio buttons options
+     * Checkbox label
      */
-    options: object;
+    label: string;
+    /**
+     * Checkbox name
+     */
+    name: string;
+    /**
+     * Checkbox value
+     */
+    value: string;
   }
   interface GxgFormMessage {
     /**
      * The kind of message Possible values: error, warning
      */
-    messageType: string;
+    type: MessageType;
+  }
+  interface GxgFormRadio {
+    /**
+     * Radio id
+     */
+    RadioId: string;
+    /**
+     * Radio selected
+     */
+    checked: boolean;
+    /**
+     * Radio disabled
+     */
+    disabled: boolean;
+    /**
+     * Radio label
+     */
+    label: string;
+    /**
+     * Radio name
+     */
+    name: string;
+    /**
+     * Radio value
+     */
+    value: string;
+  }
+  interface GxgFormRadioWrapper {
+    /**
+     * Selected Radio id
+     */
+    RadioId: string;
+    /**
+     * Selected Radio value
+     */
+    RadioValue: string;
   }
   interface GxgFormSelect {
     /**
@@ -187,7 +231,7 @@ export namespace Components {
     /**
      * Input icon side possible values: left, right
      */
-    iconSide: string;
+    iconPosition: IconPositionType;
     /**
      * The input id
      */
@@ -219,6 +263,10 @@ export namespace Components {
   }
   interface GxgFormTextarea {
     /**
+     * Number of cols
+     */
+    cols: number;
+    /**
      * If textarea is disabled
      */
     disabled: boolean;
@@ -247,7 +295,7 @@ export namespace Components {
      */
     placeholder: string;
     /**
-     * The textarea placeholder
+     * Number of cols
      */
     rows: number;
     /**
@@ -262,10 +310,6 @@ export namespace Components {
      * If textarea has warnings
      */
     warning: boolean;
-    /**
-     * The textarea width
-     */
-    width: string;
   }
   interface GxgIcon {
     /**
@@ -428,20 +472,12 @@ declare global {
     new (): HTMLGxgCardElement;
   };
 
-  interface HTMLGxgFormInputCheckboxesElement
-    extends Components.GxgFormInputCheckboxes,
+  interface HTMLGxgFormCheckboxElement
+    extends Components.GxgFormCheckbox,
       HTMLStencilElement {}
-  var HTMLGxgFormInputCheckboxesElement: {
-    prototype: HTMLGxgFormInputCheckboxesElement;
-    new (): HTMLGxgFormInputCheckboxesElement;
-  };
-
-  interface HTMLGxgFormInputRadiobuttonsElement
-    extends Components.GxgFormInputRadiobuttons,
-      HTMLStencilElement {}
-  var HTMLGxgFormInputRadiobuttonsElement: {
-    prototype: HTMLGxgFormInputRadiobuttonsElement;
-    new (): HTMLGxgFormInputRadiobuttonsElement;
+  var HTMLGxgFormCheckboxElement: {
+    prototype: HTMLGxgFormCheckboxElement;
+    new (): HTMLGxgFormCheckboxElement;
   };
 
   interface HTMLGxgFormMessageElement
@@ -450,6 +486,22 @@ declare global {
   var HTMLGxgFormMessageElement: {
     prototype: HTMLGxgFormMessageElement;
     new (): HTMLGxgFormMessageElement;
+  };
+
+  interface HTMLGxgFormRadioElement
+    extends Components.GxgFormRadio,
+      HTMLStencilElement {}
+  var HTMLGxgFormRadioElement: {
+    prototype: HTMLGxgFormRadioElement;
+    new (): HTMLGxgFormRadioElement;
+  };
+
+  interface HTMLGxgFormRadioWrapperElement
+    extends Components.GxgFormRadioWrapper,
+      HTMLStencilElement {}
+  var HTMLGxgFormRadioWrapperElement: {
+    prototype: HTMLGxgFormRadioWrapperElement;
+    new (): HTMLGxgFormRadioWrapperElement;
   };
 
   interface HTMLGxgFormSelectElement
@@ -561,9 +613,10 @@ declare global {
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
-    "gxg-form-input-checkboxes": HTMLGxgFormInputCheckboxesElement;
-    "gxg-form-input-radiobuttons": HTMLGxgFormInputRadiobuttonsElement;
+    "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
+    "gxg-form-radio": HTMLGxgFormRadioElement;
+    "gxg-form-radio-wrapper": HTMLGxgFormRadioWrapperElement;
     "gxg-form-select": HTMLGxgFormSelectElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
@@ -660,31 +713,74 @@ declare namespace LocalJSX {
     shadow?: number;
     width?: string;
   }
-  interface GxgFormInputCheckboxes {
+  interface GxgFormCheckbox {
     /**
-     * If checkboxes should display inline
+     * Checkbox id
      */
-    inline?: boolean;
+    checkboxId?: string;
     /**
-     * The checkboxes options
+     * Checkbox checked
      */
-    options?: object;
-  }
-  interface GxgFormInputRadiobuttons {
+    checked?: boolean;
     /**
-     * If radio buttons should display inline
+     * Checkbox disabled
      */
-    inline?: boolean;
+    disabled?: boolean;
     /**
-     * The radio buttons options
+     * Checkbox label
      */
-    options?: object;
+    label?: string;
+    /**
+     * Checkbox name
+     */
+    name?: string;
+    /**
+     * Checkbox value
+     */
+    value?: string;
   }
   interface GxgFormMessage {
     /**
      * The kind of message Possible values: error, warning
      */
-    messageType?: string;
+    type?: MessageType;
+  }
+  interface GxgFormRadio {
+    /**
+     * Radio id
+     */
+    RadioId?: string;
+    /**
+     * Radio selected
+     */
+    checked?: boolean;
+    /**
+     * Radio disabled
+     */
+    disabled?: boolean;
+    /**
+     * Radio label
+     */
+    label?: string;
+    /**
+     * Radio name
+     */
+    name?: string;
+    onRadioClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * Radio value
+     */
+    value?: string;
+  }
+  interface GxgFormRadioWrapper {
+    /**
+     * Selected Radio id
+     */
+    RadioId?: string;
+    /**
+     * Selected Radio value
+     */
+    RadioValue?: string;
   }
   interface GxgFormSelect {
     /**
@@ -756,7 +852,7 @@ declare namespace LocalJSX {
     /**
      * Input icon side possible values: left, right
      */
-    iconSide?: string;
+    iconPosition?: IconPositionType;
     /**
      * The input id
      */
@@ -788,6 +884,10 @@ declare namespace LocalJSX {
   }
   interface GxgFormTextarea {
     /**
+     * Number of cols
+     */
+    cols?: number;
+    /**
      * If textarea is disabled
      */
     disabled?: boolean;
@@ -816,7 +916,7 @@ declare namespace LocalJSX {
      */
     placeholder?: string;
     /**
-     * The textarea placeholder
+     * Number of cols
      */
     rows?: number;
     /**
@@ -831,10 +931,6 @@ declare namespace LocalJSX {
      * If textarea has warnings
      */
     warning?: boolean;
-    /**
-     * The textarea width
-     */
-    width?: string;
   }
   interface GxgIcon {
     /**
@@ -966,9 +1062,10 @@ declare namespace LocalJSX {
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
-    "gxg-form-input-checkboxes": GxgFormInputCheckboxes;
-    "gxg-form-input-radiobuttons": GxgFormInputRadiobuttons;
+    "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
+    "gxg-form-radio": GxgFormRadio;
+    "gxg-form-radio-wrapper": GxgFormRadioWrapper;
     "gxg-form-select": GxgFormSelect;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
@@ -999,12 +1096,14 @@ declare module "@stencil/core" {
       "gxg-button-group": LocalJSX.GxgButtonGroup &
         JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
       "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
-      "gxg-form-input-checkboxes": LocalJSX.GxgFormInputCheckboxes &
-        JSXBase.HTMLAttributes<HTMLGxgFormInputCheckboxesElement>;
-      "gxg-form-input-radiobuttons": LocalJSX.GxgFormInputRadiobuttons &
-        JSXBase.HTMLAttributes<HTMLGxgFormInputRadiobuttonsElement>;
+      "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
+        JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
+      "gxg-form-radio": LocalJSX.GxgFormRadio &
+        JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
+      "gxg-form-radio-wrapper": LocalJSX.GxgFormRadioWrapper &
+        JSXBase.HTMLAttributes<HTMLGxgFormRadioWrapperElement>;
       "gxg-form-select": LocalJSX.GxgFormSelect &
         JSXBase.HTMLAttributes<HTMLGxgFormSelectElement>;
       "gxg-form-text": LocalJSX.GxgFormText &

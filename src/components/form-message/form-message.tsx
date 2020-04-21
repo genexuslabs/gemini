@@ -10,31 +10,17 @@ export class FormMessage {
    * The kind of message
    * Possible values: error, warning
    */
-  @Prop() messageType: string;
-
-  iconType(): "error" | "warning" {
-    if (this.messageType === "error") {
-      return "error";
-    }
-    if (this.messageType === "warning") {
-      return "warning";
-    }
-  }
+  @Prop() type: MessageType;
 
   render() {
     return (
-      <Host
-        class={{
-          message: true,
-          "message--error": this.messageType === "error",
-          "message--warning": this.messageType === "warning"
-        }}
-      >
+      <Host>
         <gxg-icon
+          style={{ "--svg-icon-small-scale": "0.5", "--icon-size": "15px" }}
           slot="icon"
           size="small"
-          type={this.iconType()}
-          color={this.iconType()}
+          type={this.type}
+          color={this.type}
         ></gxg-icon>
         <slot></slot>
       </Host>
@@ -42,4 +28,4 @@ export class FormMessage {
   }
 }
 
-export type messageType = "error" | "warning";
+export type MessageType = "error" | "warning";

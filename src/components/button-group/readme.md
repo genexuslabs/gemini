@@ -19,7 +19,7 @@
         For each button, set an <em>id</em> attribute, <em>value</em> attribute, and <em>content</em>. By default, the first button will active/selected. If you want another button to be active/selected by default, rather than the first one, just set the <em>default-selected-btn-id</em> equal to the button id. That is the purpose of the button id.
     </li>
     <li>
-        When the user clicks on any button, the component <em>button-value</em> property will be updated, matching the value of the clicked button. 
+        When the user clicks on any button, the component <em>value</em> property will be updated, matching the value of the clicked button. 
     </li>
 </ol>
 

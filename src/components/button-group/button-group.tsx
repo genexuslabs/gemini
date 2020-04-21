@@ -25,7 +25,7 @@ export class ButtonGroup {
   /**
   The value of the current selected button
   */
-  @State() selectedButtonValue = "";
+  @State() value = "";
 
   /**
   The main title alignment
@@ -48,7 +48,7 @@ export class ButtonGroup {
     });
     (event.target as HTMLElement).setAttribute("data-active", "");
     (event.target as HTMLElement).setAttribute("aria-pressed", "true");
-    this.selectedButtonValue = (event.target as HTMLButtonElement).value;
+    this.value = (event.target as HTMLButtonElement).value;
   }
 
   setInitialActiveValue() {
@@ -87,7 +87,7 @@ export class ButtonGroup {
         });
       }
     }
-    this.selectedButtonValue = buttonValue;
+    this.value = buttonValue;
   }
 
   render() {
@@ -106,7 +106,7 @@ export class ButtonGroup {
         class={{
           "button-group": true
         }}
-        button-value={this.selectedButtonValue}
+        value={this.value}
         title-alignment={this.titleAlignment}
       >
         {header}

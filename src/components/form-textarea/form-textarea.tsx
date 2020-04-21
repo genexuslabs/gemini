@@ -1,4 +1,5 @@
 import { Component, Host, Prop, h } from "@stencil/core";
+import { formMessage } from "../../common.js";
 
 @Component({
   tag: "gxg-form-textarea",
@@ -9,15 +10,24 @@ export class FormTextarea {
   //A reference to the input
   textArea!: HTMLTextAreaElement;
 
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
+
   /**
-   * If textarea display is block
+   * Number of cols
    */
-  @Prop() displayBlock = false;
+  @Prop() cols = 40;
 
   /**
    * If textarea is disabled
    */
   @Prop() disabled = false;
+
+  /**
+   * If textarea display is block
+   */
+  @Prop() displayBlock = false;
 
   /**
    * If textarea has errors
@@ -50,9 +60,9 @@ export class FormTextarea {
   @Prop() placeholder: string;
 
   /**
-   * The textarea placeholder
+   * Number of cols
    */
-  @Prop() rows = 3;
+  @Prop() rows = 4;
 
   /**
    * The textarea value
@@ -64,23 +74,16 @@ export class FormTextarea {
    */
   @Prop() warning = false;
 
-  /**
-   * The textarea width
-   */
-  @Prop() width = "240px";
-
+  /*********************************
+  METHODS
+  *********************************/
   updateTextareaValue() {
     this.value = this.textArea.value;
   }
 
   render() {
     return (
-      <Host
-        value={this.value}
-        style={{
-          width: this.width
-        }}
-      >
+      <Host role="textbox" aria-label={this.label}>
         <div class="form-element-wrapper">
           <label
             class={{
@@ -92,6 +95,7 @@ export class FormTextarea {
           </label>
 
           <textarea
+            cols={this.cols}
             rows={this.rows}
             ref={el => (this.textArea = el as HTMLTextAreaElement)}
             class={{
@@ -103,12 +107,12 @@ export class FormTextarea {
             name={this.name}
             placeholder={this.placeholder}
             disabled={this.disabled}
-            onKeyUp={this.updateTextareaValue.bind(this)}
-          >
-            {this.value}
-          </textarea>
+            onInput={this.updateTextareaValue.bind(this)}
+            onChange={this.updateTextareaValue.bind(this)}
+            value={this.value}
+          ></textarea>
         </div>
-        <div class="messages-wrapper"></div>
+        {formMessage()}
       </Host>
     );
   }

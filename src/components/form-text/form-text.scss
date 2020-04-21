@@ -2,10 +2,11 @@
 @import "../../globals/mixins";
 
 :host {
-  display: inline-flex;
-}
-:host([display-flex]) {
   display: flex;
+  flex-direction: column;
+}
+:host([inline-flex]) {
+  display: inline-flex;
 }
 :host([full-width]) {
   display: flex;
@@ -20,62 +21,72 @@
 /*****************************************************
 FORM ELEMENT WRAPPER
 *****************************************************/
-.outer-wrapper {
-  @include form-element-common-styles-wrapper();
-}
-.inner-wrapper {
-  display: flex;
-  flex-direction: column;
+:host {
+  .outer-wrapper {
+    @include form-element-common-styles-wrapper();
+  }
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
 
-  gxg-icon {
-    position: absolute;
+    gxg-icon {
+      position: absolute;
+    }
   }
 }
 
 /*****************************************************
 LABEL
 *****************************************************/
-label {
-  @include form-element-common-styles-label();
+:host {
+  label {
+    @include form-element-common-styles-label();
+  }
+
+  input {
+    @include gxg-text();
+    position: relative;
+    width: 100%;
+  }
 }
 
-input {
-  @include gxg-text();
-  position: relative;
-  width: 100%;
-}
 /*****************************************************
 TEXT
 *****************************************************/
-input[type="text"] {
-  @include form-element-common-styles();
-  height: var(--spacing-comp-05);
-  box-sizing: border-box;
+:host {
+  input[type="text"] {
+    @include form-element-common-styles();
+    height: var(--spacing-comp-05);
+    box-sizing: border-box;
 
-  &:focus {
-    //box-shadow: var(--border-width-md) 0 var(border-color);
-    @include form-element-common-styles-focus();
+    &:focus {
+      //box-shadow: var(--border-width-md) 0 var(border-color);
+      @include form-element-common-styles-focus();
+    }
   }
-}
-input[disabled] {
-  @include form-element-common-styles-disabled();
-}
-input[disabled]::-webkit-input-placeholder {
-  color: var(--gray-04);
-}
-.input--error[type="text"] {
-  @include form-element-common-styles-error();
-}
-.input--warning[type="text"] {
-  @include form-element-common-styles-warning();
+  input[disabled] {
+    @include form-element-common-styles-disabled();
+  }
+  input[disabled]::-webkit-input-placeholder {
+    color: var(--gray-04);
+  }
+  .input--error[type="text"] {
+    @include form-element-common-styles-error();
+  }
+  .input--warning[type="text"] {
+    @include form-element-common-styles-warning();
+  }
 }
 
 /*****************************************************
 INPUT TEXT ICON
 *****************************************************/
-::slotted(gxg-icon[slot="icon-left"]) {
-  left: 0;
+:host {
+  ::slotted(gxg-icon[slot="icon-left"]) {
+    left: 0;
+  }
 }
+
 // Input with icon (on the left, or on the right)
 
 :host([icon-position="left"]) input {

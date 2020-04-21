@@ -1,5 +1,6 @@
 import { Component, Prop, Element, h, Host } from "@stencil/core";
 import { IconType } from "../icon/icon";
+import { formMessage } from "../../common.js";
 
 @Component({
   tag: "gxg-form-text",
@@ -10,10 +11,19 @@ export class FormText {
   //A reference to the input
   textInput!: HTMLInputElement;
 
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
+
   /**
    * If input is disabled
    */
   @Prop() disabled = false;
+
+  /**
+   * Wether the input is inline or block
+   */
+  @Prop({ reflect: true }) displayBlock = false;
 
   /**
    * If input has errors
@@ -29,23 +39,18 @@ export class FormText {
    * Input icon
    * possible values: the same as the values for the icon component
    */
-  @Prop() icon: IconType;
+  @Prop() icon: IconType = null;
 
   /**
    * Input icon side
    * possible values: left, right
    */
-  @Prop() iconSide = "left";
+  @Prop({ reflect: true }) iconPosition: IconPositionType = null;
 
   /**
    * The input id
    */
   @Prop() inputId: string;
-
-  /**
-   * Wether the input is inline or block
-   */
-  @Prop({ reflect: true }) displayBlock = false;
 
   /**
    * The input label
@@ -58,14 +63,14 @@ export class FormText {
   @Prop() name: string;
 
   /**
-   * The input value
-   */
-  @Prop({ reflect: true }) value: string;
-
-  /**
    * The input placeholder
    */
   @Prop() placeholder: string;
+
+  /**
+   * The input value
+   */
+  @Prop({ reflect: true }) value: string;
 
   /**
    * If input has warning
@@ -79,17 +84,18 @@ export class FormText {
 
   @Element() el: HTMLElement;
 
-  componentDidLoad() {
-    this.value = this.el.getAttribute("value");
-  }
+  /*********************************
+  METHODS
+  *********************************/
 
-  updateInputValue() {
-    //set the input value to the gxg-input component, so the user can catch the value
-    this.value = this.textInput.value;
+  iconPositionFunc() {
+    if (this.iconPosition !== null && this.icon !== null) {
+      return this.iconPosition;
+    }
   }
 
   inputIcon() {
-    if (this.icon) {
+    if (this.iconPosition !== null && this.icon !== null) {
       if (this.warning) {
         return (
           <gxg-icon type={this.icon} size="small" color="warning"></gxg-icon>
@@ -110,10 +116,17 @@ export class FormText {
     }
   }
 
+  updateInputValue() {
+    //set the input value to the gxg-input component, so the user can catch the value
+    this.value = this.textInput.value;
+  }
+
   render() {
     return (
       <Host
-        value={this.value}
+        role="textbox"
+        aria-label={this.label}
+        icon-position={this.iconPositionFunc()}
         style={{
           width: this.width
         }}
@@ -141,15 +154,16 @@ export class FormText {
               name={this.name}
               placeholder={this.placeholder}
               disabled={this.disabled}
-              onKeyUp={this.updateInputValue.bind(this)}
+              onInput={this.updateInputValue.bind(this)}
+              onChange={this.updateInputValue.bind(this)}
             ></input>
             {this.inputIcon()}
           </div>
         </div>
-        <div class="messages-wrapper"></div>
+        {formMessage()}
       </Host>
     );
   }
 }
 
-export type labelPosition = "left" | "above";
+export type IconPositionType = "left" | "right";

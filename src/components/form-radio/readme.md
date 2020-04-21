@@ -39,10 +39,20 @@
 
 ## Properties
 
-| Property  | Attribute | Description                            | Type      | Default     |
-| --------- | --------- | -------------------------------------- | --------- | ----------- |
-| `inline`  | `inline`  | If radio buttons should display inline | `boolean` | `false`     |
-| `options` | --        | The radio buttons options              | `object`  | `undefined` |
+| Property   | Attribute  | Description    | Type      | Default     |
+| ---------- | ---------- | -------------- | --------- | ----------- |
+| `RadioId`  | `radio-id` | Radio id       | `string`  | `undefined` |
+| `checked`  | `checked`  | Radio selected | `boolean` | `false`     |
+| `disabled` | `disabled` | Radio disabled | `boolean` | `false`     |
+| `label`    | `label`    | Radio label    | `string`  | `undefined` |
+| `name`     | `name`     | Radio name     | `string`  | `undefined` |
+| `value`    | `value`    | Radio value    | `string`  | `undefined` |
+
+## Events
+
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `radioClicked` |             | `CustomEvent<any>` |
 
 ---
 
