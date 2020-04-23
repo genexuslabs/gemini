@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Form-text", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Text", () => {
   //Display
   const labelDisplay = "Display";

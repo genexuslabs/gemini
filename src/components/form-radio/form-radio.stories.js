@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Form-radio", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Radiobutton", () => {
   //Display
   const labelDisplay = "Display";

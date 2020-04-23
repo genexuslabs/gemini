@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Form-select", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Select", () => {
   //Display
   const labelDisplay = "Display";

@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Tabs", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Tabs", () => {
   //Label
   const labelWidth = "Width (shrink to see menu)";

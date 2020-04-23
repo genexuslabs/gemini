@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Form-checkbox", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Checkbox", () => {
   //Display
   const labelDisplay = "Display";
@@ -40,7 +41,6 @@ stories.add("Checkbox", () => {
   disabled=${valueDisabled}
   checked
 ></gxg-form-checkbox>
-
 <gxg-form-checkbox
   label="blue"
   id="blue"
@@ -49,7 +49,6 @@ stories.add("Checkbox", () => {
   ${valueDisplay}
   checked
 ></gxg-form-checkbox>
-
 <gxg-form-checkbox
   label="green"
   id="green"
@@ -57,7 +56,6 @@ stories.add("Checkbox", () => {
   value="green"
   ${valueDisplay}
 ></gxg-form-checkbox>
-
 <gxg-form-checkbox
   label="orange"
   id="orange"
@@ -65,7 +63,6 @@ stories.add("Checkbox", () => {
   value="orange"
   ${valueDisplay}
 ></gxg-form-checkbox>
-
 <gxg-form-checkbox
   label="pink"
   id="pink"

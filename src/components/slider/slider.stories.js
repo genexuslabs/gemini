@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Slider", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Slider", () => {
   //Initial value
   const labelValueInitial = "Initial Value";

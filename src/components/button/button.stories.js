@@ -50,7 +50,6 @@ STORIES
 *************/
 const stories = storiesOf("Button", module);
 stories.addDecorator(withKnobs);
-// storiesOf('Button', module)
 stories
   .add(
     "Primary Text Only",

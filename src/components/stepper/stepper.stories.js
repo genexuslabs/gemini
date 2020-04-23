@@ -11,6 +11,7 @@ import {
 
 const stories = storiesOf("Stepper", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories.add("Stepper", () => {
   //Label
   const labelLabel = "Label";
