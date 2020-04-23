@@ -5,26 +5,26 @@ ICON
 @import "../../globals/mixins";
 
 :host(.svgIcon) {
-  margin-right: 0;
-  width: var(--icon-size);
-  height: var(--icon-size);
+  // margin-right: 0;
+
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  // align-items: center;
+  // justify-content: center;
   svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
     * {
       fill: var(--icon-color, var(--icon-color-default));
     }
   }
-
   .svg-icon-native {
     line-height: 0;
   }
 }
-:host svg > g {
+:host svg > path {
   transform: scale(var(--svg-icon-regular-scale));
   transform-origin: center;
 }
-:host([size="small"]) svg > g {
+:host([size="small"]) svg > path {
   transform: scale(var(--svg-icon-small-scale));
 }
