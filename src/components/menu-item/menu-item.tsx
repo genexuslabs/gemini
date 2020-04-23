@@ -11,6 +11,6 @@ export class MenuItem {
   @Prop() icon: IconType = null;
 
   render() {
-    return <li>{this.label}</li>;
+    return <li class="menu-item">{this.label}</li>;
   }
 }

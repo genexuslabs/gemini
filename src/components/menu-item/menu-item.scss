@@ -37,10 +37,17 @@
   //     display: flex;
   //   }
   // }
-  li {
+  .menu-item {
     display: flex;
     padding: var(--spacing-comp-02) var(--spacing-comp-05)
       var(--spacing-comp-02) var(--spacing-comp-05);
+    background-color: transparent;
     @include gxg-text();
+    @include ui-animation(background);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
   }
 }
