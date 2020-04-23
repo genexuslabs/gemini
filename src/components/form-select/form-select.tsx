@@ -34,9 +34,9 @@ export class FormSelect {
   @Prop({ reflect: true }) fullWidth = false;
 
   /**
-   * Wether the select is inline or block
+   * Inline-flex display
    */
-  @Prop({ reflect: true }) inline = false;
+  @Prop() inlineFlex = false;
 
   /**
    * The select label

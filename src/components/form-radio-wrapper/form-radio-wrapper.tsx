@@ -18,6 +18,11 @@ export class FormRadioWrapper {
   @Prop({ reflect: true }) RadioId: string;
 
   /**
+   * Inline-flex display
+   */
+  @Prop() inlineFlex = false;
+
+  /**
    * Selected Radio value
    */
   @Prop({ reflect: true }) RadioValue: string;

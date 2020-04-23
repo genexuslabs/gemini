@@ -1,21 +1,23 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
-.outer-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-.label {
-  @include form-element-common-styles-label();
-}
-.outer-bar {
-  display: inline-flex;
-  height: var(--spacing-comp-01);
-  background-color: var(--color-secondary);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.inner-bar {
-  @include ui-animation(width);
-  background-color: var(--color-primary-active);
+:host {
+  .outer-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .label {
+    @include form-element-common-styles-label();
+  }
+  .outer-bar {
+    display: inline-flex;
+    height: var(--spacing-comp-01);
+    background-color: var(--color-secondary);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .inner-bar {
+    @include ui-animation(width);
+    background-color: var(--color-primary-active);
+  }
 }

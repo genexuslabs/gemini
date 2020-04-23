@@ -27,6 +27,108 @@
   <body>
     <div class="container" style="width: 800px; margin: 0 auto;">
       <form action="">
+        <h3>Menu</h3>
+        <div style="background-color: #eee; padding: 50px;">
+          <gxg-menu>
+            <gxg-menu-item label="label 01" icon="error"></gxg-menu-item>
+            <gxg-menu-item label="label 02" icon="error"></gxg-menu-item>
+            <gxg-menu-item label="label 03" icon="error"></gxg-menu-item>
+            <gxg-menu-item label="label 04" icon="error"></gxg-menu-item>
+          </gxg-menu>
+        </div>
+
+        <h3>Tabs</h3>
+
+        <div style="background-color: #eee; padding: 50px;">
+          <gxg-tabs>
+            <gxg-tab-bar>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="apples"
+                tab="apples"
+                key="apples"
+                isSelected="true"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="bananas"
+                tab="bananas"
+                key="bananas"
+                isSelected="false"
+                icon="settings"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab="cherries"
+                key="cherries"
+                isSelected="false"
+                icon="settings"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="strawberries"
+                tab="strawberries"
+                key="strawberries"
+                isSelected="false"
+                disabled
+                icon="settings"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="tomatoes"
+                tab="tomatoes"
+                key="tomatoes"
+                isSelected="true"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="potatoes"
+                tab="potatoes"
+                key="potatoes"
+                isSelected="false"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="garlic"
+                tab="garlic"
+                key="garlic"
+                isSelected="false"
+              ></gxg-tab-button>
+              <gxg-tab-button
+                slot="tab-bar"
+                tab-label="onion"
+                tab="onion"
+                key="onion"
+                isSelected="false"
+              ></gxg-tab-button>
+            </gxg-tab-bar>
+            <gxg-tab tab="apples" key="apples" isSelected="true">
+              Apples information
+            </gxg-tab>
+            <gxg-tab tab="bananas" key="bananas" isSelected="false">
+              Bananas information
+            </gxg-tab>
+            <gxg-tab tab="cherries" key="cherries" isSelected="false">
+              Cherries information
+            </gxg-tab>
+            <gxg-tab tab="tomatoes" key="tomatoes" isSelected="false">
+              Tomatoes information
+            </gxg-tab>
+            <gxg-tab tab="potatoes" key="potatoes" isSelected="false">
+              Potatoes information
+            </gxg-tab>
+            <gxg-tab tab="garlic" key="garlic" isSelected="false">
+              Garlic information
+            </gxg-tab>
+            <gxg-tab tab="onion" key="onion" isSelected="false">
+              Onion information
+            </gxg-tab>
+            <gxg-tab tab="strawberries" key="strawberries" isSelected="false">
+              Strawberries information
+            </gxg-tab>
+          </gxg-tabs>
+        </div>
+
         <h3>Radio buttons</h3>
 
         <form action="">
@@ -267,7 +369,9 @@
               inputText.appendChild(errorMessage);
             }
           </script>
-          <gxg-button onclick="addErrorMessage()">Add error message</gxg-button>
+          <gxg-button disabled onclick="addErrorMessage()"
+            >Add error message</gxg-button
+          >
           <gxg-form-text
             type="text"
             id="name4"
@@ -422,98 +526,6 @@
             id="toggleDarkTheme"/></label
         ><br /><br />
 
-        <h3>Menu</h3>
-        <div style="background-color: #eee; padding: 50px;">
-          <gxg-menu
-            items='[ 
-    {"label":"label 01","icon":"error"},{"label":"label 02","icon":""},{"label":"label 03"},{"label":"label 04","icon":"error"}]'
-          ></gxg-menu>
-        </div>
-
-        <h3>Tabs</h3>
-
-        <div style="background-color: #eee; padding: 50px;">
-          <gxg-tabs>
-            <gxg-tab-bar>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="apples"
-                key="apples"
-                isSelected="true"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="bananas"
-                key="bananas"
-                isSelected="false"
-                icon="settings"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                key="cherries"
-                isSelected="false"
-                icon="settings"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="strawberries"
-                key="strawberries"
-                isSelected="false"
-                disabled
-                icon="settings"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="tomatoes"
-                key="tomatoes"
-                isSelected="true"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="potatoes"
-                key="potatoes"
-                isSelected="false"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="garlic"
-                key="garlic"
-                isSelected="false"
-              ></gxg-tab-button>
-              <gxg-tab-button
-                slot="tab-bar"
-                tab="onion"
-                key="onion"
-                isSelected="false"
-              ></gxg-tab-button>
-            </gxg-tab-bar>
-            <gxg-tab tab="apples" key="apples" isSelected="true">
-              Apples information
-            </gxg-tab>
-            <gxg-tab tab="bananas" key="bananas" isSelected="false">
-              Bananas information
-            </gxg-tab>
-            <gxg-tab tab="cherries" key="cherries" isSelected="false">
-              Cherries information
-            </gxg-tab>
-            <gxg-tab tab="tomatoes" key="tomatoes" isSelected="false">
-              Tomatoes information
-            </gxg-tab>
-            <gxg-tab tab="potatoes" key="potatoes" isSelected="false">
-              Potatoes information
-            </gxg-tab>
-            <gxg-tab tab="garlic" key="garlic" isSelected="false">
-              Garlic information
-            </gxg-tab>
-            <gxg-tab tab="onion" key="onion" isSelected="false">
-              Onion information
-            </gxg-tab>
-            <gxg-tab tab="strawberries" key="strawberries" isSelected="false">
-              Strawberries information
-            </gxg-tab>
-          </gxg-tabs>
-        </div>
-
         <h3>Box</h3>
         <gxg-box
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
@@ -558,17 +570,29 @@
 
         <form>
           <h3>Slider</h3>
-          <gxg-slider value="300" label="Slider" min="0" max="400"></gxg-slider>
+          <gxg-slider
+            value="10"
+            label="Slider"
+            min="100"
+            max="400"
+          ></gxg-slider>
 
           <h3>Progress Bar</h3>
           <gxg-progress-bar
             label="Progress Bar"
             tabindex="1"
-            progress="50"
+            value="50"
           ></gxg-progress-bar>
 
           <h3>Stepper</h3>
-          <gxg-stepper label="Stepper" tabindex="1"></gxg-stepper>
+          <gxg-stepper
+            min="-4"
+            max="10"
+            value="-5"
+            label="Stepper"
+            tabindex="1"
+          ></gxg-stepper>
+          <gxg-stepper disabled label="Stepper" tabindex="1"></gxg-stepper>
 
           <h3>Toggle</h3>
           <gxg-toggle label="Toggle" tabindex="1"></gxg-toggle>

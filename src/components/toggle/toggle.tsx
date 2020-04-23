@@ -6,34 +6,36 @@ import { Component, Prop, State, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Toggle {
-  /**
-   * The state of the toggle. Whether is disabled or not.
-   * Possible values: false, true
-   */
-  @Prop({ reflect: true }) disabled = false;
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
 
   /**
-   * If the toggle is active or not
-   * Possible values: false/true
+   * The state of the toggle. Whether is disabled or not.
    */
-  @Prop({ reflect: true }) on = false;
+  @Prop({ reflect: true }) disabled = false;
 
   @State() focus = false;
 
   /**
-   * The toggle label
+   * Inline-flex display
+   */
+  @Prop() inlineFlex = false;
+
+  /**
+   * The label
    */
   @Prop() label = "Label";
 
-  switchToggle() {
-    if (this.disabled !== true) {
-      if (this.on === true) {
-        this.on = false;
-      } else {
-        this.on = true;
-      }
-    }
-  }
+  /**
+   * If the toggle is active or not
+   */
+  @Prop({ reflect: true }) on = false;
+
+  /*********************************
+  METHODS
+  *********************************/
+
   onKeyUp(e) {
     if (e.which == 13) {
       //"enter" key was pressed
@@ -47,6 +49,15 @@ export class Toggle {
     if (e.which == 9) {
       //"tab" key was pressed
       this.focus = false;
+    }
+  }
+  switchToggle() {
+    if (this.disabled !== true) {
+      if (this.on === true) {
+        this.on = false;
+      } else {
+        this.on = true;
+      }
     }
   }
 

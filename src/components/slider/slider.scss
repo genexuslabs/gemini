@@ -1,86 +1,88 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
-.container {
-  display: inline-flex;
-}
-.box-value {
-  margin-top: 40px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 20px;
-  color: var(--color-on-secondary);
-  span:first-child {
-    margin-left: 10px;
-  }
-  #actual-value {
-    @include form-element-common-styles-label();
+:host {
+  .container {
     display: inline-flex;
+  }
+  .box-value {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    color: var(--color-on-secondary);
+    span:first-child {
+      margin-left: 10px;
+    }
+    #actual-value {
+      @include form-element-common-styles-label();
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--spacing-comp-06);
+      height: var(--spacing-comp-05);
+      background-color: var(--color-on-primary);
+      color: var(--color-on-secondary);
+      border-width: var(--border-width-sm);
+      border-color: var(--gray-04);
+      border-style: var(--border-style-regular);
+    }
+  }
+
+  .rs-range {
+    width: 600px;
+    -webkit-appearance: none;
+    &:focus {
+      outline: none;
+    }
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 2px;
+      cursor: pointer;
+      box-shadow: none;
+      background-color: var(--color-secondary);
+      border-radius: 0px;
+      border: 0px solid #010101;
+    }
+    &::-webkit-slider-thumb {
+      height: var(--spacing-comp-03);
+      width: var(--spacing-comp-03);
+      border-radius: 50%;
+      background-color: var(--color-primary-active);
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5px;
+    }
+  }
+  .rs-label {
+    @include form-element-common-styles-label();
+    color: var(--color-on-primary);
+    font-size: var(--font-size-xs);
+
+    position: relative;
+    transform-origin: center center;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--spacing-comp-06);
-    height: var(--spacing-comp-05);
-    background-color: var(--color-on-primary);
-    color: var(--color-on-secondary);
-    border-width: var(--border-width-sm);
-    border-color: var(--gray-04);
-    border-style: var(--border-style-regular);
-  }
-}
+    border-radius: var(--border-radius-md);
+    width: var(--spacing-comp-05);
+    height: var(--spacing-comp-04);
+    margin-top: 20px;
+    margin-left: 0;
+    left: attr(value);
 
-.rs-range {
-  width: 600px;
-  -webkit-appearance: none;
-  &:focus {
-    outline: none;
-  }
-  &::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 2px;
-    cursor: pointer;
-    box-shadow: none;
-    background-color: var(--color-secondary);
-    border-radius: 0px;
-    border: 0px solid #010101;
-  }
-  &::-webkit-slider-thumb {
-    height: var(--spacing-comp-03);
-    width: var(--spacing-comp-03);
-    border-radius: 50%;
     background-color: var(--color-primary-active);
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -5px;
-  }
-}
-.rs-label {
-  @include form-element-common-styles-label();
-  color: var(--color-on-primary);
-  font-size: var(--font-size-xs);
-
-  position: relative;
-  transform-origin: center center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md);
-  width: var(--spacing-comp-05);
-  height: var(--spacing-comp-04);
-  margin-top: 20px;
-  margin-left: 0;
-  left: attr(value);
-
-  background-color: var(--color-primary-active);
-  &::after {
-    content: "";
-    width: 0px;
-    height: 0px;
-    bottom: -5px;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 6px solid var(--color-primary-active);
-    position: absolute;
-    left: 50%;
-    margin-left: -4px;
+    &::after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      bottom: -5px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid var(--color-primary-active);
+      position: absolute;
+      left: 50%;
+      margin-left: -4px;
+    }
   }
 }

@@ -26,7 +26,7 @@ stories.add("Checkbox", () => {
   );
 
   //Status
-  const labelDisabled = "Disabled";
+  const labelDisabled = "Disable red";
   const defaultValueDisabled = false;
 
   const valueDisabled = boolean(labelDisabled, defaultValueDisabled);

@@ -4,11 +4,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                       | Type      | Default   |
-| ---------- | ---------- | --------------------------------------------------------------------------------- | --------- | --------- |
-| `disabled` | `disabled` | The state of the toggle. Whether is disabled or not. Possible values: false, true | `boolean` | `false`   |
-| `label`    | `label`    | The toggle label                                                                  | `string`  | `"Label"` |
-| `on`       | `on`       | If the toggle is active or not Possible values: false/true                        | `boolean` | `false`   |
+| Property     | Attribute     | Description                                          | Type      | Default   |
+| ------------ | ------------- | ---------------------------------------------------- | --------- | --------- |
+| `disabled`   | `disabled`    | The state of the toggle. Whether is disabled or not. | `boolean` | `false`   |
+| `inlineFlex` | `inline-flex` | Inline-flex display                                  | `boolean` | `false`   |
+| `label`      | `label`       | The label                                            | `string`  | `"Label"` |
+| `on`         | `on`          | If the toggle is active or not                       | `boolean` | `false`   |
 
 ---
 

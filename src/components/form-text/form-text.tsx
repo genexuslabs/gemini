@@ -21,11 +21,6 @@ export class FormText {
   @Prop() disabled = false;
 
   /**
-   * Wether the input is inline or block
-   */
-  @Prop({ reflect: true }) displayBlock = false;
-
-  /**
    * If input has errors
    */
   @Prop() error = false;
@@ -40,6 +35,11 @@ export class FormText {
    * possible values: the same as the values for the icon component
    */
   @Prop() icon: IconType = null;
+
+  /**
+   * Inline-flex display
+   */
+  @Prop() inlineFlex = false;
 
   /**
    * Input icon side

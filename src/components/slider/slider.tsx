@@ -14,22 +14,17 @@ export class Slider {
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * The slider label
+   * The label
    */
   @Prop() label = "Label";
 
   /**
-   * The slider label
+   * The max value
    */
-  @Prop() min = "0";
+  @Prop() max = 120;
 
   /**
-   * The slider max value
-   */
-  @Prop() max = "120";
-
-  /**
-   * The slider value
+   * The initial value
    */
   @Prop({ reflect: true }) value = 0;
 
@@ -39,6 +34,11 @@ export class Slider {
   @Prop() width = "200px";
 
   componentDidLoad() {
+    //verify initial value
+    if (this.value > this.max) {
+      this.value = this.max;
+    }
+
     function calculateWidth(width) {
       width = parseInt(width.replace("px", ""));
       return width - 22;
@@ -46,6 +46,7 @@ export class Slider {
     const rangeSlider = this.el.shadowRoot.getElementById("rs-range-line");
     const rangeBullet = this.el.shadowRoot.getElementById("rs-bullet");
     const actualValue = this.el.shadowRoot.getElementById("actual-value");
+    const gxgSlider = this.el;
 
     function showSliderValue() {
       let sliderWidth = this.width;
@@ -61,6 +62,9 @@ export class Slider {
         bulletPosition * calculateWidth(sliderWidth) + "px";
 
       actualValue.innerHTML = this.value;
+
+      rangeSlider.setAttribute("value", this.value + "");
+      gxgSlider.setAttribute("value", this.value);
     }
     const showSliderVal = showSliderValue.bind(this);
     showSliderVal();
@@ -80,7 +84,7 @@ export class Slider {
               id="rs-range-line"
               class="rs-range"
               type="range"
-              min={this.min}
+              min="0"
               max={this.max}
               style={{ width: this.width }}
               slider-width={this.width}
@@ -88,7 +92,7 @@ export class Slider {
           </div>
 
           <div class="box-value">
-            <span id="actual-value">{this.value}</span>
+            <span id="actual-value"></span>
           </div>
         </div>
       </Host>

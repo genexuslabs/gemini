@@ -4,11 +4,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                            | Type     | Default     |
-| -------- | --------- | ------------------------------------------------------ | -------- | ----------- |
-| `height` | `height`  |                                                        | `string` | `undefined` |
-| `shadow` | `shadow`  | The card box-shadow value possible values: from 1 to 8 | `number` | `1`         |
-| `width`  | `width`   |                                                        | `string` | `undefined` |
+| Property | Attribute | Description                                            | Type                                   | Default  |
+| -------- | --------- | ------------------------------------------------------ | -------------------------------------- | -------- |
+| `shadow` | `shadow`  | The card box-shadow value possible values: from 1 to 8 | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8` | `1`      |
+| `width`  | `width`   |                                                        | `string`                               | `"100%"` |
 
 ---
 

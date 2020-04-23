@@ -8,6 +8,7 @@ import { IconType } from "../icon/icon";
 })
 export class TabButton {
   // Indicate that name should be a public property on the component
+  @Prop() tabLabel: string = null;
   @Prop() tab: string = null;
   @Prop() isSelected = false;
   @Prop() disabled = false;
@@ -38,13 +39,14 @@ export class TabButton {
           class={{
             "tab-button": true,
             "tab-button--selected": this.isSelected === true,
-            "tab-button--text-icon": this.tab !== null && this.icon !== null
+            "tab-button--text-icon":
+              this.tabLabel !== null && this.icon !== null
           }}
           onClick={this.tabButtonClicked.bind(this)}
         >
           {this.printIcon()}
           {/* <gxg-icon type={this.icon}></gxg-icon> */}
-          <span class="tab-button__text">{this.tab}</span>
+          <span class="tab-button__text">{this.tabLabel}</span>
         </button>
         <slot></slot>
       </li>

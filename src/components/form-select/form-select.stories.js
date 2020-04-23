@@ -95,14 +95,14 @@ stories.add("Select", () => {
     }
   }
 
-  function valueWidthSizeFunc(valueWidthSize) {
+  function valueWidthSizeFunc() {
     if (valueWidthStyle === "fixed-width") {
-      return valueWidthSize;
+      return "240px";
     } else {
       if (valueDisplay !== "inline-flex") {
         return "600px";
       } else {
-        return valueWidthSize;
+        return "240px";
       }
     }
   }
@@ -110,7 +110,7 @@ stories.add("Select", () => {
   return `<gxg-form-select
   label="Select a car:"
   ${valueDisplay}
-  width=${valueWidthSizeFunc(valueWidthSizeFunc)}
+  width=${valueWidthSizeFunc()}
   ${valueStatusType()}
     ${errorMessage()}
     ${errorMessagesMultiple()}
@@ -131,7 +131,7 @@ stories.add("Select", () => {
 <gxg-form-select
   label="Select a car:"
   ${valueDisplay}
-  width=${valueWidthSizeFunc(valueWidthSizeFunc)}
+  width=${valueWidthSizeFunc()}
   ${valueStatusType()}
     ${errorMessage()}
     ${errorMessagesMultiple()}

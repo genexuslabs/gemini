@@ -2,15 +2,18 @@
 @import "../../globals/mixins";
 
 :host {
-  display: block;
+  display: flex;
+  flex-direction: column;
+
   .label {
     @include form-element-common-styles-label();
   }
   .outer-wrapper {
     display: flex;
     align-items: center;
+    background-color: var(--color-white-rgb);
+    @include ui-animation(background-color);
   }
-
   .value-container {
     @include form-element-common-styles-label();
     align-items: center;
@@ -49,4 +52,16 @@
       background-color: var(--color-primary-hover);
     }
   }
+}
+:host {
+  .button[disabled] {
+    background-color: var(--color-primary-disabled);
+  }
+}
+:host([inline-flex]) {
+  display: inline-flex;
+  margin-right: var(--spacing-comp-05);
+}
+:host([inline-flex]:last-child) {
+  margin-right: 0;
 }

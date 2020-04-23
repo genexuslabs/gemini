@@ -9,6 +9,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AlertPosition, AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
+import { ShadowType } from "./components/card/card";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
@@ -86,11 +87,10 @@ export namespace Components {
     titleAlignment: TitleAlignment;
   }
   interface GxgCard {
-    height: string;
     /**
      * The card box-shadow value possible values: from 1 to 8
      */
-    shadow: number;
+    shadow: ShadowType;
     width: string;
   }
   interface GxgFormCheckbox {
@@ -106,6 +106,10 @@ export namespace Components {
      * Checkbox disabled
      */
     disabled: boolean;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex: boolean;
     /**
      * Checkbox label
      */
@@ -160,6 +164,10 @@ export namespace Components {
      * Selected Radio value
      */
     RadioValue: string;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex: boolean;
   }
   interface GxgFormSelect {
     /**
@@ -175,9 +183,9 @@ export namespace Components {
      */
     fullWidth: boolean;
     /**
-     * Wether the select is inline or block
+     * Inline-flex display
      */
-    inline: boolean;
+    inlineFlex: boolean;
     /**
      * The select label
      */
@@ -213,10 +221,6 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * Wether the input is inline or block
-     */
-    displayBlock: boolean;
-    /**
      * If input has errors
      */
     error: boolean;
@@ -232,6 +236,10 @@ export namespace Components {
      * Input icon side possible values: left, right
      */
     iconPosition: IconPositionType;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex: boolean;
     /**
      * The input id
      */
@@ -333,25 +341,25 @@ export namespace Components {
     items: object;
     menuTitle: string;
   }
+  interface GxgMenuItem {
+    icon: IconType;
+    label: string;
+  }
   interface GxgProgressBar {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled: boolean;
     /**
-     * The progress-bar label
+     * The label
      */
     label: string;
     /**
-     * The progress-bar width
-     */
-    progress: number;
-    /**
-     * The progress-bar label
+     * The value (percentage)
      */
     value: number;
     /**
-     * The progress-bar width
+     * The width
      */
     width: string;
   }
@@ -361,19 +369,15 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * The slider label
+     * The label
      */
     label: string;
     /**
-     * The slider max value
+     * The max value
      */
-    max: string;
+    max: number;
     /**
-     * The slider label
-     */
-    min: string;
-    /**
-     * The slider value
+     * The initial value
      */
     value: number;
     /**
@@ -383,15 +387,27 @@ export namespace Components {
   }
   interface GxgStepper {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled: boolean;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex: boolean;
     /**
      * The toggle label
      */
     label: string;
     /**
-     * The toggle vaule
+     * The max value
+     */
+    max: number;
+    /**
+     * The min value
+     */
+    min: number;
+    /**
+     * The initial vaule
      */
     value: number;
   }
@@ -405,6 +421,7 @@ export namespace Components {
     icon: IconType;
     isSelected: boolean;
     tab: string;
+    tabLabel: string;
   }
   interface GxgTabs {
     tab: string;
@@ -421,15 +438,19 @@ export namespace Components {
   }
   interface GxgToggle {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled: boolean;
     /**
-     * The toggle label
+     * Inline-flex display
+     */
+    inlineFlex: boolean;
+    /**
+     * The label
      */
     label: string;
     /**
-     * If the toggle is active or not Possible values: false/true
+     * If the toggle is active or not
      */
     on: boolean;
   }
@@ -540,6 +561,14 @@ declare global {
     new (): HTMLGxgMenuElement;
   };
 
+  interface HTMLGxgMenuItemElement
+    extends Components.GxgMenuItem,
+      HTMLStencilElement {}
+  var HTMLGxgMenuItemElement: {
+    prototype: HTMLGxgMenuItemElement;
+    new (): HTMLGxgMenuItemElement;
+  };
+
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
       HTMLStencilElement {}
@@ -622,6 +651,7 @@ declare global {
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-menu": HTMLGxgMenuElement;
+    "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-stepper": HTMLGxgStepperElement;
@@ -706,11 +736,10 @@ declare namespace LocalJSX {
     titleAlignment?: TitleAlignment;
   }
   interface GxgCard {
-    height?: string;
     /**
      * The card box-shadow value possible values: from 1 to 8
      */
-    shadow?: number;
+    shadow?: ShadowType;
     width?: string;
   }
   interface GxgFormCheckbox {
@@ -726,6 +755,10 @@ declare namespace LocalJSX {
      * Checkbox disabled
      */
     disabled?: boolean;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex?: boolean;
     /**
      * Checkbox label
      */
@@ -781,6 +814,10 @@ declare namespace LocalJSX {
      * Selected Radio value
      */
     RadioValue?: string;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex?: boolean;
   }
   interface GxgFormSelect {
     /**
@@ -796,9 +833,9 @@ declare namespace LocalJSX {
      */
     fullWidth?: boolean;
     /**
-     * Wether the select is inline or block
+     * Inline-flex display
      */
-    inline?: boolean;
+    inlineFlex?: boolean;
     /**
      * The select label
      */
@@ -834,10 +871,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * Wether the input is inline or block
-     */
-    displayBlock?: boolean;
-    /**
      * If input has errors
      */
     error?: boolean;
@@ -853,6 +886,10 @@ declare namespace LocalJSX {
      * Input icon side possible values: left, right
      */
     iconPosition?: IconPositionType;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex?: boolean;
     /**
      * The input id
      */
@@ -954,25 +991,25 @@ declare namespace LocalJSX {
     items?: object;
     menuTitle?: string;
   }
+  interface GxgMenuItem {
+    icon?: IconType;
+    label?: string;
+  }
   interface GxgProgressBar {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled?: boolean;
     /**
-     * The progress-bar label
+     * The label
      */
     label?: string;
     /**
-     * The progress-bar width
-     */
-    progress?: number;
-    /**
-     * The progress-bar label
+     * The value (percentage)
      */
     value?: number;
     /**
-     * The progress-bar width
+     * The width
      */
     width?: string;
   }
@@ -982,19 +1019,15 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The slider label
+     * The label
      */
     label?: string;
     /**
-     * The slider max value
+     * The max value
      */
-    max?: string;
+    max?: number;
     /**
-     * The slider label
-     */
-    min?: string;
-    /**
-     * The slider value
+     * The initial value
      */
     value?: number;
     /**
@@ -1004,15 +1037,27 @@ declare namespace LocalJSX {
   }
   interface GxgStepper {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled?: boolean;
+    /**
+     * Inline-flex display
+     */
+    inlineFlex?: boolean;
     /**
      * The toggle label
      */
     label?: string;
     /**
-     * The toggle vaule
+     * The max value
+     */
+    max?: number;
+    /**
+     * The min value
+     */
+    min?: number;
+    /**
+     * The initial vaule
      */
     value?: number;
   }
@@ -1027,6 +1072,7 @@ declare namespace LocalJSX {
     isSelected?: boolean;
     onTabActivated?: (event: CustomEvent<any>) => void;
     tab?: string;
+    tabLabel?: string;
   }
   interface GxgTabs {
     tab?: string;
@@ -1043,15 +1089,19 @@ declare namespace LocalJSX {
   }
   interface GxgToggle {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled?: boolean;
     /**
-     * The toggle label
+     * Inline-flex display
+     */
+    inlineFlex?: boolean;
+    /**
+     * The label
      */
     label?: string;
     /**
-     * If the toggle is active or not Possible values: false/true
+     * If the toggle is active or not
      */
     on?: boolean;
   }
@@ -1071,6 +1121,7 @@ declare namespace LocalJSX {
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
     "gxg-menu": GxgMenu;
+    "gxg-menu-item": GxgMenuItem;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-slider": GxgSlider;
     "gxg-stepper": GxgStepper;
@@ -1112,6 +1163,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
+      "gxg-menu-item": LocalJSX.GxgMenuItem &
+        JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-slider": LocalJSX.GxgSlider &

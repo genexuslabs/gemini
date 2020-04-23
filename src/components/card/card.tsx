@@ -10,10 +10,9 @@ export class Card {
    * The card box-shadow value
    * possible values: from 1 to 8
    */
-  @Prop() shadow = 1;
+  @Prop() shadow: ShadowType = 1;
 
-  @Prop() width: string;
-  @Prop() height: string;
+  @Prop() width = "100%";
 
   render() {
     return (
@@ -21,10 +20,12 @@ export class Card {
         class={{
           card: true
         }}
-        style={{ width: this.width, height: this.height }}
+        style={{ width: this.width }}
       >
         <slot></slot>
       </Host>
     );
   }
 }
+
+export type ShadowType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
