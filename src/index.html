@@ -27,13 +27,26 @@
   <body>
     <div class="container" style="width: 800px; margin: 0 auto;">
       <form action="">
+        <h3>Modal</h3>
+        <gxg-modal title="Title" footer-alignment="right">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi,
+          dolorum voluptatibus harum minima aut id architecto adipisci tempore
+          numquam explicabo iure quae, laborum qui at? Qui nemo in facere
+          voluptates.
+
+          <gxg-button slot="footer" type="secondary-text-only"
+            >Label</gxg-button
+          >
+          <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+        </gxg-modal>
+
         <h3>Menu</h3>
         <div style="background-color: #eee; padding: 50px;">
-          <gxg-menu>
-            <gxg-menu-item label="label 01" icon="error"></gxg-menu-item>
-            <gxg-menu-item label="label 02" icon="error"></gxg-menu-item>
-            <gxg-menu-item label="label 03" icon="error"></gxg-menu-item>
-            <gxg-menu-item label="label 04" icon="error"></gxg-menu-item>
+          <gxg-menu title="fruits" width="400px" full-width tabs>
+            <gxg-menu-item label="apple" icon="" active></gxg-menu-item>
+            <gxg-menu-item label="banana" icon="error"></gxg-menu-item>
+            <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>
+            <gxg-menu-item label="kiwi" icon="error"></gxg-menu-item>
           </gxg-menu>
         </div>
 

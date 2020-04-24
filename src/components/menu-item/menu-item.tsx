@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
 import { IconType } from "../icon/icon";
 
 @Component({
@@ -7,10 +7,37 @@ import { IconType } from "../icon/icon";
   shadow: true
 })
 export class MenuItem {
+  //A reference to the input
+  listItem!: HTMLElement;
+
   @Prop() label: string;
   @Prop() icon: IconType = null;
+  @Prop() active = false;
+
+  // Event called 'todoCompleted' that is "composed", "cancellable" and it will bubble up!
+  @Event({ eventName: "menuItemActive" })
+  menuItemActive: EventEmitter;
+
+  includeIcon() {
+    if (this.icon !== null) {
+      return <gxg-icon slot="icon" type={this.icon} size="small"></gxg-icon>;
+    }
+  }
+
+  setActive() {
+    this.menuItemActive.emit(this.label);
+  }
 
   render() {
-    return <li class="menu-item">{this.label}</li>;
+    return (
+      <Host onClick={this.setActive.bind(this)}>
+        <li class="menu-item" ref={el => (this.listItem = el as HTMLElement)}>
+          <div class="menu-item__container">
+            {this.includeIcon()}
+            {this.label}
+          </div>
+        </li>
+      </Host>
+    );
   }
 }

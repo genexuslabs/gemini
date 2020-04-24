@@ -14,6 +14,7 @@ import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
+import { footerAlignmentType } from "./components/modal/modal";
 
 export namespace Components {
   interface GxgAlert {
@@ -338,12 +339,37 @@ export namespace Components {
     type: IconType;
   }
   interface GxgMenu {
-    items: object;
-    menuTitle: string;
+    fullWidth: boolean;
+    tabs: boolean;
+    title: string;
+    width: string;
   }
   interface GxgMenuItem {
+    active: boolean;
     icon: IconType;
     label: string;
+  }
+  interface GxgModal {
+    /**
+     * The footer alignment
+     */
+    footerAlignment: footerAlignmentType;
+    /**
+     * The modal title
+     */
+    modalTitle: string;
+    /**
+     * Wether the modal is visible or not
+     */
+    visible: boolean;
+    /**
+     * The modal width
+     */
+    width: string;
+    /**
+     * z-index
+     */
+    zIndex: string;
   }
   interface GxgProgressBar {
     /**
@@ -569,6 +595,14 @@ declare global {
     new (): HTMLGxgMenuItemElement;
   };
 
+  interface HTMLGxgModalElement
+    extends Components.GxgModal,
+      HTMLStencilElement {}
+  var HTMLGxgModalElement: {
+    prototype: HTMLGxgModalElement;
+    new (): HTMLGxgModalElement;
+  };
+
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
       HTMLStencilElement {}
@@ -652,6 +686,7 @@ declare global {
     "gxg-icon": HTMLGxgIconElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
+    "gxg-modal": HTMLGxgModalElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-stepper": HTMLGxgStepperElement;
@@ -988,12 +1023,38 @@ declare namespace LocalJSX {
     type?: IconType;
   }
   interface GxgMenu {
-    items?: object;
-    menuTitle?: string;
+    fullWidth?: boolean;
+    tabs?: boolean;
+    title?: string;
+    width?: string;
   }
   interface GxgMenuItem {
+    active?: boolean;
     icon?: IconType;
     label?: string;
+    onMenuItemActive?: (event: CustomEvent<any>) => void;
+  }
+  interface GxgModal {
+    /**
+     * The footer alignment
+     */
+    footerAlignment?: footerAlignmentType;
+    /**
+     * The modal title
+     */
+    modalTitle?: string;
+    /**
+     * Wether the modal is visible or not
+     */
+    visible?: boolean;
+    /**
+     * The modal width
+     */
+    width?: string;
+    /**
+     * z-index
+     */
+    zIndex?: string;
   }
   interface GxgProgressBar {
     /**
@@ -1122,6 +1183,7 @@ declare namespace LocalJSX {
     "gxg-icon": GxgIcon;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
+    "gxg-modal": GxgModal;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-slider": GxgSlider;
     "gxg-stepper": GxgStepper;
@@ -1165,6 +1227,8 @@ declare module "@stencil/core" {
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
+      "gxg-modal": LocalJSX.GxgModal &
+        JSXBase.HTMLAttributes<HTMLGxgModalElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-slider": LocalJSX.GxgSlider &

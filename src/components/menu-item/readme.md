@@ -6,8 +6,29 @@
 
 | Property | Attribute | Description | Type                                                                                                                                                                                                                                                                                                                                                                  | Default     |
 | -------- | --------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `icon`   | `icon`    |             | `"more-info" \| "error" \| "warning" \| "success" \| "none" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "level-down" \| "level-up" \| "search" \| "settings" \| "show-more"` | `null`      |
+| `active` | `active`  |             | `boolean`                                                                                                                                                                                                                                                                                                                                                             | `false`     |
+| `icon`   | `icon`    |             | `"none" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "error" \| "level-down" \| "level-up" \| "more-info" \| "search" \| "settings" \| "show-more" \| "success" \| "warning"` | `null`      |
 | `label`  | `label`   |             | `string`                                                                                                                                                                                                                                                                                                                                                              | `undefined` |
+
+## Events
+
+| Event            | Description | Type               |
+| ---------------- | ----------- | ------------------ |
+| `menuItemActive` |             | `CustomEvent<any>` |
+
+## Dependencies
+
+### Depends on
+
+- [gxg-icon](../icon)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-menu-item --> gxg-icon
+  style gxg-menu-item fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ---
 

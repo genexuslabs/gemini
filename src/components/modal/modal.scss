@@ -1,0 +1,55 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  margin-top: 30px;
+  z-index: -1000;
+  @include ui-animation(opacity, margin-top);
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-on-primary);
+    box-shadow: var(--box-shadow-03);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-comp-04);
+    display: flex;
+    overflow: hidden;
+    @include gxg-text();
+  }
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .modal__container {
+    padding: var(--spacing-comp-04) 0;
+  }
+  .modalFooter {
+    display: flex;
+    &--left {
+      justify-content: flex-start;
+    }
+    &--center {
+      justify-content: center;
+    }
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+}
+:host(.visible) {
+  opacity: 1;
+  margin-top: 0;
+  z-index: 10;
+}

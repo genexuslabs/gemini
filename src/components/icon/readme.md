@@ -26,6 +26,8 @@
 - [gxg-alert](../alert)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
+- [gxg-menu-item](../menu-item)
+- [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
 - [gxg-tab-button](../tab-button)
 
@@ -36,6 +38,8 @@ graph TD;
   gxg-alert --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
+  gxg-menu-item --> gxg-icon
+  gxg-modal --> gxg-icon
   gxg-tab-bar --> gxg-icon
   gxg-tab-button --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px

@@ -2,52 +2,43 @@
 @import "../../globals/mixins";
 
 :host {
-  // gxg-icon {
-  //   margin-right: var(--spacing-comp-02);
-  // }
-  // .menu__header {
-  //   border-bottom-style: var(--border-style-regular);
-  //   border-bottom-width: var(--border-width-sm);
-  //   border-bottom-color: var(--gray-04);
-  // }
-  // .menu__header__title {
-  //   color: var(--color-text);
-  //   font-family: var(--font-family-primary);
-  //   font-size: var(--font-size-xs);
-  //   font-weight: var(--font-weight-bold);
-  //   text-transform: uppercase;
-  //   margin-top: 0;
-  //   margin-bottom: 0;
-  //   padding: var(--spacing-comp-02) var(--spacing-comp-05)
-  //     var(--spacing-comp-02);
-  // }
-  // .menuList {
-  //   display: inline-block;
-  //   li {
-  //     display: flex;
-  //     align-items: center;
-  //     flex-direction: row-reverse;
-  //   }
-  //   margin: 0;
-  // }
-  // .menuList {
-  //   list-style-type: none;
-  //   padding-left: 0;
-  //   :slot {
-  //     display: flex;
-  //   }
-  // }
   .menu-item {
-    display: flex;
-    padding: var(--spacing-comp-02) var(--spacing-comp-05)
-      var(--spacing-comp-02) var(--spacing-comp-05);
-    background-color: transparent;
-    @include gxg-text();
-    @include ui-animation(background);
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--color-secondary);
+    &:before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 2px;
+      background-color: transparent;
+      position: absolute;
+      @include ui-animation(background-color);
     }
+
+    position: relative;
+
+    &__container {
+      height: var(--spacing-comp-06);
+      background-color: transparent;
+      @include ui-animation(background);
+      cursor: pointer;
+      padding: 0 var(--spacing-comp-05) 0 var(--spacing-comp-05);
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: var(--color-secondary);
+      }
+    }
+
+    gxg-icon {
+      margin-right: var(--spacing-comp-01);
+    }
+  }
+  :menu-item--tab {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+:host([active]) {
+  .menu-item:before {
+    background-color: var(--color-secondary-active);
   }
 }
