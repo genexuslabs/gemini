@@ -76,7 +76,19 @@ stories
     left="${text("Left position", "15px")}"
     right="${text("Right position", "15px")}"
     bottom="${text("Bottom position", "15px")}"
-    active-time="${text("Active alert time (ms)", "3500")}"
+    active-time="${select(
+      "Active Time",
+      {
+        "04": "04",
+        "05": "05",
+        "06": "06",
+        "07": "07",
+        "08": "08",
+        "09": "09",
+        "10": "10"
+      },
+      "05"
+    )}"
   >
   ${text("Message", "This is an info message")}
   </gxg-alert>
@@ -107,7 +119,19 @@ stories
       left="${text("Left position", "15px")}"
       right="${text("Right position", "15px")}"
       bottom="${text("Bottom position", "15px")}"
-      active-time="${text("Active alert time (ms)", "3500")}"
+      active-time="${select(
+        "Active Time",
+        {
+          "04": "04",
+          "05": "05",
+          "06": "06",
+          "07": "07",
+          "08": "08",
+          "09": "09",
+          "10": "10"
+        },
+        "05"
+      )}"
     >
     ${text("Message", "This is a success message")}
     </gxg-alert>
@@ -138,7 +162,19 @@ stories
       left="${text("Left position", "15px")}"
       right="${text("Right position", "15px")}"
       bottom="${text("Bottom position", "15px")}"
-      active-time="${text("Active alert time (ms)", "3500")}"
+      active-time="${select(
+        "Active Time",
+        {
+          "04": "04",
+          "05": "05",
+          "06": "06",
+          "07": "07",
+          "08": "08",
+          "09": "09",
+          "10": "10"
+        },
+        "05"
+      )}"
     >
     ${text("Message", "This is a warning message")}
     </gxg-alert>
@@ -169,7 +205,19 @@ stories
       left="${text("Left position", "15px")}"
       right="${text("Right position", "15px")}"
       bottom="${text("Bottom position", "15px")}"
-      active-time="${text("Active alert time (ms)", "3500")}"
+      active-time="${select(
+        "Active Time",
+        {
+          "04": "04",
+          "05": "05",
+          "06": "06",
+          "07": "07",
+          "08": "08",
+          "09": "09",
+          "10": "10"
+        },
+        "05"
+      )}"
     >
     ${text("Message", "This is an error message")}
     </gxg-alert>

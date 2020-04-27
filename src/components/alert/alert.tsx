@@ -24,7 +24,7 @@ export class Alert {
   /**
    * The amount of miliseconds the alert is visible before hidding under the document.
    */
-  @Prop() activeTime = 3500;
+  @Prop() activeTime: ActiveTime;
 
   /**
    * The alert position.
@@ -34,7 +34,7 @@ export class Alert {
   /**
    * The alert title (optional)
    */
-  @Prop() alertTitle: string;
+  @Prop() alertTitle = "05";
 
   /**
    * The type of alert
@@ -101,7 +101,7 @@ export class Alert {
       this.el.setAttribute("role", "alert");
       setTimeout(() => {
         this.setAlertInactive();
-      }, this.activeTime);
+      }, parseInt(getComputedStyle(document.documentElement).getPropertyValue("--timing-" + this.activeTime)));
     }
   }
 
@@ -165,3 +165,5 @@ export class Alert {
 export type AlertType = "more-info" | "error" | "warning" | "success";
 
 export type AlertPosition = "left" | "center" | "right";
+
+export type ActiveTime = "04" | "05" | "06" | "07" | "08" | "09" | "10";

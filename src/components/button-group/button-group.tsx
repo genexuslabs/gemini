@@ -23,6 +23,11 @@ export class ButtonGroup {
   @Prop() defaultSelectedBtnId: string;
 
   /**
+  Wether the button group is disabled or not.
+  */
+  @Prop() disabled = false;
+
+  /**
   The value of the current selected button
   */
   @State() value = "";
@@ -38,6 +43,10 @@ export class ButtonGroup {
 
   componentDidLoad() {
     this.setInitialActiveValue();
+
+    if (this.disabled) {
+      this.value = null;
+    }
   }
 
   setActiveButton(event: MouseEvent) {

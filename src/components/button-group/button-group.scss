@@ -60,3 +60,12 @@
     text-align: right;
   }
 }
+:host([disabled]) {
+  pointer-events: none;
+
+  ::slotted(button),
+  ::slotted(button[data-active]) {
+    background-color: var(--color-primary-disabled);
+    color: var(--color-on-disabled);
+  }
+}

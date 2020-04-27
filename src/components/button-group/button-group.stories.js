@@ -22,16 +22,31 @@ const defaultValue = "left";
 /*************
 STORIES
 *************/
+
 const stories = storiesOf("Button Group", module);
 stories.addDecorator(withKnobs);
 stories
-  .add(
-    "Two buttons",
-    () => `
-    <gxg-button-group button-group-title="${text(
+  .add("Two buttons", () => {
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
+    function valueDisabledFunc() {
+      if (valueDisabled) {
+        return "disabled";
+      }
+    }
+
+    return `
+    <gxg-button-group ${valueDisabledFunc()} button-group-title="${text(
       "Main Title",
       "The Title"
-    )}" title-alignment="${select(label, options, defaultValue)}">
+    )}" title-alignment="${select(
+      label,
+      options,
+      defaultValue
+    )}" default-selected-btn-id="${text("Initial Selected Button Id", "id1")}">
         <button id="${text("First Button Id", "id1")}" value="${text(
       "First Button Value",
       "Primero"
@@ -41,24 +56,29 @@ stories
       "Segundo"
     )}">${text("Second Button Label", "Right")}</button>
     </gxg-button-group>
-        `,
-    {
-      notes: {
-        markdown: readme
+`;
+  })
+  .add("Three buttons", () => {
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
+    function valueDisabledFunc() {
+      if (valueDisabled) {
+        return "disabled";
       }
     }
-  )
-  .add(
-    "Three buttons",
-    () => `
-    <gxg-button-group button-group-title="${text(
+
+    return `
+    <gxg-button-group ${valueDisabledFunc()} button-group-title="${text(
       "Main Title",
       "The Title"
     )}" title-alignment="${select(
       label,
       options,
       defaultValue
-    )}" selected-button-id="${text("Initial Selected Button Id", "id1")}">
+    )}" default-selected-btn-id="${text("Initial Selected Button Id", "id1")}">
         <button id="${text("First Button Id", "id1")}" value="${text(
       "First Button Value",
       "Primero"
@@ -72,10 +92,5 @@ stories
       "Tercero"
     )}">${text("Third Button Label", "Right")}</button>
     </gxg-button-group>
-        `,
-    {
-      notes: {
-        markdown: readme
-      }
-    }
-  );
+`;
+  });

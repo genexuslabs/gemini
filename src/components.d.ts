@@ -6,7 +6,7 @@
  */
 
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AlertPosition, AlertType } from "./components/alert/alert";
+import { ActiveTime, AlertPosition, AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import { ShadowType } from "./components/card/card";
@@ -25,7 +25,7 @@ export namespace Components {
     /**
      * The amount of miliseconds the alert is visible before hidding under the document.
      */
-    activeTime: number;
+    activeTime: ActiveTime;
     /**
      * The alert title (optional)
      */
@@ -82,6 +82,10 @@ export namespace Components {
      * The id of the button that you would like to show active by default
      */
     defaultSelectedBtnId: string;
+    /**
+     * Wether the button group is disabled or not.
+     */
+    disabled: boolean;
     /**
      * The main title alignment
      */
@@ -708,7 +712,7 @@ declare namespace LocalJSX {
     /**
      * The amount of miliseconds the alert is visible before hidding under the document.
      */
-    activeTime?: number;
+    activeTime?: ActiveTime;
     /**
      * The alert title (optional)
      */
@@ -765,6 +769,10 @@ declare namespace LocalJSX {
      * The id of the button that you would like to show active by default
      */
     defaultSelectedBtnId?: string;
+    /**
+     * Wether the button group is disabled or not.
+     */
+    disabled?: boolean;
     /**
      * The main title alignment
      */
