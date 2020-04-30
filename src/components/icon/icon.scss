@@ -21,10 +21,10 @@ ICON
     line-height: 0;
   }
 }
-:host svg > path {
+:host svg path {
   transform: scale(var(--svg-icon-regular-scale));
   transform-origin: center;
 }
-:host([size="small"]) svg > path {
+:host([size="small"]) svg path {
   transform: scale(var(--svg-icon-small-scale));
 }
