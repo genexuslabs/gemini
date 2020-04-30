@@ -59,6 +59,10 @@ SELECT
     border-color: var(--gray-04);
     border-style: var(--border-style-regular);
 
+    &:focus {
+      @include form-element-common-styles-focus();
+    }
+
     &[disabled] {
       pointer-events: none;
       @include form-element-common-styles-disabled();
@@ -176,6 +180,6 @@ ERROR & WARNING
     }
   }
   .select--error .select-selected {
-    color: #1c1b1b; //No token color here, because we need the same color for both, light and dark mode
+    //color: #1c1b1b; //No token color here, because we need the same color for both, light and dark mode
   }
 }

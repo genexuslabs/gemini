@@ -1,4 +1,12 @@
-import { Component, Prop, Element, h, Host } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  Element,
+  h,
+  Host,
+  Event,
+  EventEmitter
+} from "@stencil/core";
 import { IconType } from "../icon/icon";
 import { formMessage } from "../../common.js";
 
@@ -8,9 +16,6 @@ import { formMessage } from "../../common.js";
   shadow: true
 })
 export class FormText {
-  //A reference to the input
-  textInput!: HTMLInputElement;
-
   /*********************************
   PROPERTIES & STATE
   *********************************/
@@ -84,6 +89,10 @@ export class FormText {
 
   @Element() el: HTMLElement;
 
+  @Event() input: EventEmitter;
+
+  @Event() change: EventEmitter;
+
   /*********************************
   METHODS
   *********************************/
@@ -116,9 +125,15 @@ export class FormText {
     }
   }
 
-  updateInputValue() {
+  handleInput(e: InputEvent) {
     //set the input value to the gxg-input component, so the user can catch the value
-    this.value = this.textInput.value;
+    const target = e.target as HTMLInputElement;
+    this.value = target.value;
+    this.input.emit();
+  }
+
+  handleChange() {
+    this.change.emit();
   }
 
   render() {
@@ -143,7 +158,6 @@ export class FormText {
           <div class="inner-wrapper">
             <input
               type="text"
-              ref={el => (this.textInput = el as HTMLInputElement)}
               value={this.value}
               class={{
                 input: true,
@@ -154,8 +168,8 @@ export class FormText {
               name={this.name}
               placeholder={this.placeholder}
               disabled={this.disabled}
-              onInput={this.updateInputValue.bind(this)}
-              onChange={this.updateInputValue.bind(this)}
+              onInput={this.handleInput.bind(this)}
+              onChange={this.handleChange.bind(this)}
             ></input>
             {this.inputIcon()}
           </div>

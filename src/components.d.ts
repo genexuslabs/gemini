@@ -945,6 +945,8 @@ declare namespace LocalJSX {
      * The input name
      */
     name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
+    onInput?: (event: CustomEvent<any>) => void;
     /**
      * The input placeholder
      */

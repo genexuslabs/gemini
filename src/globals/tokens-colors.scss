@@ -27,6 +27,16 @@ some colors on the branding are dependent on them)*/
   --gray-08: #eae9e9;
 }
 
+//Shades of gray higer contrast
+//In some cases, some shades of grey, look ok on light mode, but need more contrast on dark mode.
+//For this cases, use the following shades of gray.
+:root {
+  --gray-02-hc: #dbd9d9;
+}
+:root.dark {
+  --gray-02-hc: #6f6d6d;
+}
+
 /*On Colors
 (This are the colors used to color the content of
 the components. The content could be text or icons)*/
@@ -97,6 +107,7 @@ the components. The content could be text or icons)*/
 
 //Alert
 :root {
+  --color-always-black: rgb(0, 0, 0);
   --color-error-dark: #f02031;
   --color-error-light: #ffeaee;
   --color-warning-dark: #ff8000;
@@ -105,6 +116,7 @@ the components. The content could be text or icons)*/
   --color-success-light: #e1f3f1;
 }
 :root.dark {
+  --color-always-black: rgb(0, 0, 0);
   --color-error-dark: #f9464e;
   --color-error-light: #ffeaee;
   --color-warning-dark: #ffab13;

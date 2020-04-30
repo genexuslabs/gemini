@@ -32,6 +32,7 @@ STORIES
 *************/
 
 const arrayIconsNames = [
+  "add",
   "arrowDown",
   "arrowLeft",
   "arrowRight",

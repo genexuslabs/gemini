@@ -72,9 +72,9 @@ export class Modal {
           <footer
             class={{
               modalFooter: true,
-              "modal__footer--left": this.footerAlignment === "left",
-              "modal__footer--center": this.footerAlignment === "center",
-              "modal__footer--right": this.footerAlignment === "right"
+              "modalFooter--left": this.footerAlignment === "left",
+              "modalFooter--center": this.footerAlignment === "center",
+              "modalFooter--right": this.footerAlignment === "right"
             }}
           >
             <slot name="footer"></slot>

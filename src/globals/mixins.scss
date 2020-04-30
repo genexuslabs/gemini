@@ -204,11 +204,6 @@ FORM ELEMENTS
   background-color: var(--color-on-disabled);
   color: var(--gray-04);
 }
-@mixin form-element-common-styles-error {
-  border-color: var(--gray-04);
-  background-color: var(--color-error-light);
-  color: var(--color-error-dark);
-}
 
 @mixin form-element-common-styles-wrapper {
   position: relative;
@@ -226,9 +221,12 @@ FORM ELEMENTS
   border-color: var(--color-error-dark);
   background-color: var(--color-error-light);
   margin-bottom: 0;
+  color: var(--color-always-black);
 }
+
 @mixin form-element-common-styles-warning {
   border-color: var(--color-warning-dark);
   background-color: var(--color-warning-light);
   margin-bottom: 0;
+  color: var(--color-always-black);
 }

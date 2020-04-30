@@ -10,7 +10,6 @@
       width: 2px;
       background-color: transparent;
       position: absolute;
-      @include ui-animation(background-color);
     }
 
     position: relative;
@@ -18,7 +17,7 @@
     &__container {
       height: var(--spacing-comp-06);
       background-color: transparent;
-      @include ui-animation(background);
+      //@include ui-animation(background);
       cursor: pointer;
       padding: 0 var(--spacing-comp-05) 0 var(--spacing-comp-05);
       display: flex;
@@ -31,6 +30,10 @@
 
     gxg-icon {
       margin-right: var(--spacing-comp-01);
+    }
+
+    &:hover {
+      color: var(--color-always-black);
     }
   }
   :menu-item--tab {

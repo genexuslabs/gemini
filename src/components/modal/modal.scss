@@ -46,6 +46,12 @@
     &--right {
       justify-content: flex-end;
     }
+    ::slotted([slot="footer"]) {
+      * {
+        margin-left: var(--spacing-comp-02);
+        margin-right: var(--spacing-comp-02);
+      }
+    }
   }
 }
 :host(.visible) {

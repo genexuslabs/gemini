@@ -15,7 +15,7 @@ stories.addParameters({ notes: readme });
 stories.add("Modal", () => {
   //Title
   const labelTitle = "Title";
-  const defaultValueTitle = "Title";
+  const defaultValueTitle = "The Title";
   const valueTitle = text(labelTitle, defaultValueTitle);
 
   //Content
@@ -46,7 +46,7 @@ stories.add("Modal", () => {
   }
 
   return `
-  <gxg-modal id="modal" width=${valueWidth} modal-title=${valueTitle} footer-alignment=${valueFooter}>
+  <gxg-modal id="modal" modal-title="${valueTitle}" width=${valueWidth} footer-alignment=${valueFooter}>
     ${valueContent}
     <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
     <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>

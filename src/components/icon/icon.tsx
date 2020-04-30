@@ -185,6 +185,7 @@ export type Color =
 
 export type IconType =
   | "none"
+  | "add"
   | "arrow-down"
   | "arrow-left"
   | "arrow-right"
