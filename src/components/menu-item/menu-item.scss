@@ -25,6 +25,10 @@
 
       &:hover {
         background-color: var(--color-secondary);
+
+        gxg-icon {
+          filter: invert(100%);
+        }
       }
     }
 
