@@ -22,7 +22,6 @@
       width: var(--spacing-comp-06);
       height: var(--spacing-comp-05);
       background-color: var(--color-on-primary);
-      color: var(--color-on-secondary);
       border-width: var(--border-width-sm);
       border-color: var(--gray-04);
       border-style: var(--border-style-regular);
@@ -84,5 +83,24 @@
       left: 50%;
       margin-left: -4px;
     }
+  }
+}
+:host([disabled]) {
+  pointer-events: none;
+  .rs-range::-webkit-slider-runnable-track {
+    background-color: var(--color-on-disabled);
+  }
+  .rs-range::-webkit-slider-thumb {
+    background-color: var(--gray-04);
+  }
+  .rs-label {
+    color: var(--gray-04);
+    background-color: var(--color-on-disabled);
+    &::after {
+      border-top-color: var(--color-on-disabled);
+    }
+  }
+  .box-value #actual-value {
+    color: var(--gray-04);
   }
 }

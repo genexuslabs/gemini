@@ -102,6 +102,7 @@ export class Stepper {
             ref={el => (this.minusButton = el as HTMLButtonElement)}
             class="button button--minus"
             onClick={this.minus.bind(this)}
+            tabindex="0"
           >
             -
           </button>
@@ -112,6 +113,7 @@ export class Stepper {
             ref={el => (this.plusButton = el as HTMLButtonElement)}
             class="button button--plus"
             onClick={this.plus.bind(this)}
+            tabindex="0"
           >
             +
           </button>

@@ -48,7 +48,7 @@ stories.add("Menu", () => {
   }
 
   return `
-  <gxg-menu title=${valueTitle} width=${widthFunc()} ${tabsFunc()} >
+  <gxg-menu menu-title=${valueTitle} width=${widthFunc()} ${tabsFunc()} >
     <gxg-menu-item label="apple" icon=""></gxg-menu-item>
     <gxg-menu-item label="banana" icon="warning"></gxg-menu-item>
     <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>

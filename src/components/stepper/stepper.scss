@@ -2,16 +2,16 @@
 @import "../../globals/mixins";
 
 :host {
-  display: flex;
-  flex-direction: column;
+  display: block;
 
   .label {
     @include form-element-common-styles-label();
   }
   .outer-wrapper {
-    display: flex;
-    align-items: center;
+    display: inline-block;
     background-color: var(--color-white-rgb);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
     @include ui-animation(background-color);
   }
   .value-container {
@@ -34,9 +34,11 @@
     color: var(--color-on-primary);
     cursor: pointer;
     font-weight: var(--font-weight-regular);
+    border: 1px solid transparent;
 
     &:focus {
       outline: none;
+      @include form-element-common-styles-focus-type-2();
     }
 
     &--minus {
@@ -47,10 +49,24 @@
       border-top-right-radius: var(--border-radius-md);
       border-bottom-right-radius: var(--border-radius-md);
     }
-
     &:hover {
       background-color: var(--color-primary-hover);
     }
+  }
+}
+:host(:focus) {
+  outline: none;
+  .outer-wrapper {
+    @include form-element-common-styles-focus-type-2();
+  }
+}
+:host([disabled]) {
+  .outer-wrapper,
+  .button {
+    cursor: not-allowed;
+  }
+  .button {
+    background-color: var(--color-primary-disabled);
   }
 }
 :host {

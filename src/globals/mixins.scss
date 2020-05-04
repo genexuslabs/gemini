@@ -210,10 +210,14 @@ FORM ELEMENTS
   width: 100%;
 }
 
-@mixin form-element-common-styles-focus {
+@mixin form-element-common-styles-focus-type-1 {
   outline-style: solid;
   outline-color: var(--color-primary-active);
   outline-width: var(--border-width-md);
+}
+@mixin form-element-common-styles-focus-type-2 {
+  border-color: var(--color-on-primary);
+  box-shadow: 0px 0px 0px 1px var(--color-primary-enabled);
 }
 
 //ERROR & WARNING

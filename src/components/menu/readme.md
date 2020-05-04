@@ -7,8 +7,8 @@
 | Property    | Attribute    | Description | Type      | Default     |
 | ----------- | ------------ | ----------- | --------- | ----------- |
 | `fullWidth` | `full-width` |             | `boolean` | `undefined` |
+| `menuTitle` | `menu-title` |             | `string`  | `undefined` |
 | `tabs`      | `tabs`       |             | `boolean` | `undefined` |
-| `title`     | `title`      |             | `string`  | `undefined` |
 | `width`     | `width`      |             | `string`  | `undefined` |
 
 ---

@@ -74,7 +74,11 @@ export class Slider {
 
   render() {
     return (
-      <Host class={{}}>
+      <Host
+        class={{
+          disabled: this.disabled
+        }}
+      >
         <div class="container">
           <div class="range-slider">
             <span id="rs-bullet" class="rs-label">

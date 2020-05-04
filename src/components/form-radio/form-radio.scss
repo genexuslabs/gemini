@@ -79,7 +79,7 @@
     width: var(--spacing-comp-04);
     background-color: transparent;
     border-radius: 50%;
-    border-color: var(--color-primary-active);
+    border-color: var(--gray-04);
     border-style: var(--border-style-regular);
     border-width: var(--border-width-sm);
     position: relative;
@@ -94,6 +94,7 @@
   /* When the radio button is checked, add a blue background */
   .label input[checked] ~ .radiobtn {
     background-color: transparent;
+    border-color: var(--color-primary-active);
   }
 
   /* Create the indicator (the dot/circle - hidden when not checked) */

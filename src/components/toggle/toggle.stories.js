@@ -72,7 +72,7 @@ stories.add("Toggle", () => {
       </span><span class="bulb pink" id="bulb-pink"></span>
       <span class="bulb purple" id="bulb-purple"></span>
     </div>
-    <gxg-toggle ${valueDisplay} disabled=${valueDisabled} id="toggle-red" style="margin-bottom:20px;" label="Red" onClick="(function(){
+    <gxg-toggle tabindex="0" ${valueDisplay} disabled=${valueDisabled} id="toggle-red" style="margin-bottom:20px;" label="Red" onClick="(function(){
       let toggle = document.getElementById('toggle-red');
       let bulb = document.getElementById('bulb-red');
       if(toggle.hasAttribute('on')){
@@ -83,7 +83,7 @@ stories.add("Toggle", () => {
       return false;
     })();return false;"></gxg-toggle>
 
-    <gxg-toggle ${valueDisplay} id="toggle-pink" style="margin-bottom:20px;" label="Pink" onClick="(function(){
+    <gxg-toggle tabindex="0" ${valueDisplay} id="toggle-pink" style="margin-bottom:20px;" label="Pink" onClick="(function(){
       let toggle = document.getElementById('toggle-pink');
       let bulb = document.getElementById('bulb-pink');
       if(toggle.hasAttribute('on')){
@@ -94,7 +94,7 @@ stories.add("Toggle", () => {
       return false;
     })();return false;"></gxg-toggle>
 
-    <gxg-toggle ${valueDisplay} id="toggle-purple" style="margin-bottom:20px;" label="Purple" onClick="(function(){
+    <gxg-toggle tabindex="0" ${valueDisplay} id="toggle-purple" style="margin-bottom:20px;" label="Purple" onClick="(function(){
       let toggle = document.getElementById('toggle-purple');
       let bulb = document.getElementById('bulb-purple');
       if(toggle.hasAttribute('on')){

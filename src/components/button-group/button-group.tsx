@@ -87,6 +87,7 @@ export class ButtonGroup {
       if (buttonsIdsArray.includes(this.defaultSelectedBtnId)) {
         Array.from(buttonsHtmlCollection).forEach(button => {
           const b = button as HTMLElement;
+          b.setAttribute("tabindex", "0");
           if (b.id == this.defaultSelectedBtnId) {
             //set the value to the active button value
             buttonValue = this.defaultSelectedBtnId = b.getAttribute("value");

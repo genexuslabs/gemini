@@ -23,7 +23,18 @@ stories.add("Slider", () => {
   const defaultValueMax = 400;
   const valueMax = number(labelMax, defaultValueMax);
 
+  //Disabled
+  const labelDisabled = "Disabled";
+  const defaultValueDisabled = false;
+  const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
+  function valueDisabledFunc() {
+    if (valueDisabled) {
+      return "disabled";
+    }
+  }
+
   return `
-  <gxg-slider label="Slider" value=${valueInitial} max=${valueMax}></gxg-slider>
+  <gxg-slider label="Slider" ${valueDisabledFunc()} value=${valueInitial} max=${valueMax}></gxg-slider>
   `;
 });

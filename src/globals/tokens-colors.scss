@@ -129,12 +129,12 @@ the components. The content could be text or icons)*/
 :root {
   --color-black-rgb: 0, 0, 0;
   --color-white-rgb: 255, 255, 255;
-  --color-black: rgb(--color-black-rgb);
-  --color-white: rgb(--color-white-rgb);
+  --color-black: rgb(0, 0, 0);
+  --color-white: rgb(255, 255, 255);
 }
 :root.dark {
-  --color-black: rgb(--color-white);
-  --color-white: rgb(--color-black);
+  --color-black: rgb(255, 255, 255);
+  --color-white: rgb(0, 0, 0);
 }
 
 //Icons

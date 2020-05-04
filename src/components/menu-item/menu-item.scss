@@ -3,6 +3,8 @@
 
 :host {
   .menu-item {
+    color: var(--color-on-background);
+
     &:before {
       content: "";
       display: block;
@@ -27,17 +29,13 @@
         background-color: var(--color-secondary);
 
         gxg-icon {
-          filter: invert(100%);
+          //filter: invert(100%);
         }
       }
     }
 
     gxg-icon {
       margin-right: var(--spacing-comp-01);
-    }
-
-    &:hover {
-      color: var(--color-always-black);
     }
   }
   :menu-item--tab {

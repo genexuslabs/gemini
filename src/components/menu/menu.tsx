@@ -8,7 +8,7 @@ import { Component, Prop, h, Host, Element, Listen } from "@stencil/core";
 export class Menu {
   @Element() el: HTMLElement;
 
-  @Prop() title: string;
+  @Prop() menuTitle: string;
   @Prop() fullWidth: boolean;
   @Prop() tabs: boolean;
   @Prop() width: string;
@@ -28,11 +28,11 @@ export class Menu {
 
   printTitle() {
     console.log("menu title");
-    console.log(this.title);
-    if (this.title !== undefined) {
+    console.log(this.menuTitle);
+    if (this.menuTitle !== undefined) {
       return (
         <header class="menu__header">
-          <h1 class="menu__header__title">{this.title}</h1>
+          <h1 class="menu__header__title">{this.menuTitle}</h1>
         </header>
       );
     }

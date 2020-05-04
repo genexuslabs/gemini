@@ -90,7 +90,10 @@ stories
       "05"
     )}"
   >
-  ${text("Message", "This is an info message")}
+  ${text(
+    "Message",
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+  )}
   </gxg-alert>
         `,
     {
@@ -133,7 +136,10 @@ stories
         "05"
       )}"
     >
-    ${text("Message", "This is a success message")}
+    ${text(
+      "Message",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+    )}
     </gxg-alert>
           `,
     {
@@ -176,7 +182,10 @@ stories
         "05"
       )}"
     >
-    ${text("Message", "This is a warning message")}
+    ${text(
+      "Message",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+    )}
     </gxg-alert>
           `,
     {
@@ -219,7 +228,10 @@ stories
         "05"
       )}"
     >
-    ${text("Message", "This is an error message")}
+    ${text(
+      "Message",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+    )}
     </gxg-alert>
           `,
     {

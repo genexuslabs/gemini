@@ -29,9 +29,8 @@
 :host(:focus) {
   outline: none;
 }
-:host(.on-focus) .toggle__container {
-  border-color: var(--color-on-primary);
-  box-shadow: 0px 0px 0px 1px var(--color-primary-enabled);
+:host(:focus) .toggle__container {
+  @include form-element-common-styles-focus-type-2();
 }
 :host {
   .toggle__container {

@@ -21,7 +21,7 @@
     border-radius: 0;
     background-color: var(--gray-02);
     color: var(--color-primary);
-    border-right: 1px solid var(--gray-03);
+    border-right: 1px solid var(--gray-04);
     padding-left: var(--spacing-comp-03);
     padding-right: var(--spacing-comp-03);
   }
@@ -42,6 +42,7 @@
   }
   ::slotted(button:focus) {
     outline: none;
+    @include form-element-common-styles-focus-type-2();
   }
   ::slotted(button[data-active]) {
     color: var(--color-on-primary);

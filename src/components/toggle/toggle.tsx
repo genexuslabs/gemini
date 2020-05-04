@@ -1,4 +1,4 @@
-import { Component, Prop, State, h, Host } from "@stencil/core";
+import { Component, Prop, h, Host } from "@stencil/core";
 
 @Component({
   tag: "gxg-toggle",
@@ -14,8 +14,6 @@ export class Toggle {
    * The state of the toggle. Whether is disabled or not.
    */
   @Prop({ reflect: true }) disabled = false;
-
-  @State() focus = false;
 
   /**
    * Inline-flex display
@@ -40,17 +38,14 @@ export class Toggle {
     if (e.which == 13) {
       //"enter" key was pressed
       this.switchToggle();
-    } else if (e.which == 9) {
-      //"tab" key was pressed
-      this.focus = true;
     }
   }
-  onKeyDown(e) {
-    if (e.which == 9) {
-      //"tab" key was pressed
-      this.focus = false;
-    }
-  }
+  // onKeyDown(e) {
+  //   if (e.which == 9) {
+  //     //"tab" key was pressed
+  //     this.focus = false;
+  //   }
+  // }
   switchToggle() {
     if (this.disabled !== true) {
       if (this.on === true) {
@@ -65,12 +60,10 @@ export class Toggle {
     return (
       <Host
         class={{
-          toggle: true,
-          "on-focus": this.focus === true
+          toggle: true
         }}
         onClick={this.switchToggle}
         onKeyup={this.onKeyUp.bind(this)}
-        onKeydown={this.onKeyDown.bind(this)}
       >
         <div class="toggle__container">
           <span class="toggle__container__knob"></span>

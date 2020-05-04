@@ -344,8 +344,8 @@ export namespace Components {
   }
   interface GxgMenu {
     fullWidth: boolean;
+    menuTitle: string;
     tabs: boolean;
-    title: string;
     width: string;
   }
   interface GxgMenuItem {
@@ -1034,8 +1034,8 @@ declare namespace LocalJSX {
   }
   interface GxgMenu {
     fullWidth?: boolean;
+    menuTitle?: string;
     tabs?: boolean;
-    title?: string;
     width?: string;
   }
   interface GxgMenuItem {
