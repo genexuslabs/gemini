@@ -75,7 +75,7 @@ export class FormText {
   /**
    * If required
    */
-  @Prop({ reflect: true }) required = false;
+  @Prop() required = false;
 
   /**
    * The input value

@@ -67,7 +67,7 @@ export class FormTextarea {
   /**
    * If required
    */
-  @Prop({ reflect: true }) required = false;
+  @Prop() required = false;
 
   /**
    * The textarea value

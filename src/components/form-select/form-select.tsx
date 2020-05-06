@@ -64,7 +64,7 @@ export class FormSelect {
   /**
    * If required
    */
-  @Prop({ reflect: true }) required = false;
+  @Prop() required = false;
 
   /**
    * The select id
