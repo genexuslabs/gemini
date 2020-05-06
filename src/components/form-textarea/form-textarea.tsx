@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from "@stencil/core";
+import { Component, Host, Prop, h, Event, EventEmitter } from "@stencil/core";
 import { formMessage } from "../../common.js";
 
 @Component({
@@ -47,7 +47,7 @@ export class FormTextarea {
   /**
    * The textarea label
    */
-  @Prop() label: string;
+  @Prop({ reflect: true }) label = "hey";
 
   /**
    * The textarea name
@@ -57,12 +57,17 @@ export class FormTextarea {
   /**
    * The textarea placeholder
    */
-  @Prop() placeholder: string;
+  @Prop() placeholder = "hola";
 
   /**
-   * Number of cols
+   * Number of rows
    */
   @Prop() rows = 4;
+
+  /**
+   * If required
+   */
+  @Prop({ reflect: true }) required = false;
 
   /**
    * The textarea value
@@ -74,11 +79,25 @@ export class FormTextarea {
    */
   @Prop() warning = false;
 
+  @Event() input: EventEmitter;
+
+  @Event() change: EventEmitter;
+
   /*********************************
   METHODS
   *********************************/
   updateTextareaValue() {
     this.value = this.textArea.value;
+  }
+
+  handleInput(e: InputEvent) {
+    const target = e.target as HTMLTextAreaElement;
+    this.value = target.value;
+    this.input.emit(this.value);
+  }
+
+  handleChange() {
+    this.change.emit(this.value);
   }
 
   render() {
@@ -107,8 +126,8 @@ export class FormTextarea {
             name={this.name}
             placeholder={this.placeholder}
             disabled={this.disabled}
-            onInput={this.updateTextareaValue.bind(this)}
-            onChange={this.updateTextareaValue.bind(this)}
+            onInput={this.handleInput.bind(this)}
+            onChange={this.handleChange.bind(this)}
             value={this.value}
           ></textarea>
         </div>

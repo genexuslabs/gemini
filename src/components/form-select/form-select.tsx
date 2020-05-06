@@ -1,4 +1,12 @@
-import { Component, Prop, Element, h, Host } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  Element,
+  h,
+  Host,
+  Event,
+  EventEmitter
+} from "@stencil/core";
 import { formMessage } from "../../common.js";
 
 @Component({
@@ -54,6 +62,11 @@ export class FormSelect {
   @Prop() name: string;
 
   /**
+   * If required
+   */
+  @Prop({ reflect: true }) required = false;
+
+  /**
    * The select id
    */
   @Prop() selectId: string;
@@ -73,9 +86,46 @@ export class FormSelect {
    */
   @Prop() width = "240px";
 
+  @Event() input: EventEmitter;
+
+  @Event() change: EventEmitter;
+
   /*********************************
   METHODS
   *********************************/
+
+  public clickTest(event: MouseEvent, listOfOptions, updateValue): void {
+    let y, i, k;
+    const cElement: HTMLElement = event.srcElement as HTMLElement;
+    const parent: HTMLElement = cElement.parentNode.parentNode as HTMLElement;
+    const s = parent.getElementsByTagName("select")[0];
+    const h = cElement.parentNode.previousSibling as HTMLElement;
+
+    for (i = 0; i < listOfOptions.length; i++) {
+      if (listOfOptions[i].innerHTML == cElement.innerHTML) {
+        const selectedValue = cElement.getAttribute("value");
+        updateValue(selectedValue);
+        s.selectedIndex = i;
+        h.innerHTML = cElement.innerHTML;
+        y = (cElement.parentNode as HTMLElement).getElementsByClassName(
+          "same-as-selected"
+        );
+        for (k = 0; k < y.length; k++) {
+          y[k].removeAttribute("class");
+        }
+        cElement.setAttribute("class", "same-as-selected");
+        cElement.setAttribute("aria-selected", "true");
+
+        this.input.emit({
+          selectedValue: selectedValue,
+          selectedLabel: h.innerHTML
+        });
+
+        break;
+      }
+    }
+    h.click();
+  }
 
   componentDidLoad() {
     const updateValue = selectedOption => {
@@ -83,11 +133,10 @@ export class FormSelect {
     };
 
     let i, j, a, b, c;
-    /*look for any elements with the class "custom-select":*/
+
     const x = this.el.shadowRoot.querySelectorAll(".custom-select");
 
     for (i = 0; i < x.length; i++) {
-      /*for each element, create a new DIV that will act as the selected item:*/
       a = document.createElement("DIV");
       a.setAttribute("class", "select-selected");
       a.setAttribute("tabindex", "0");
@@ -95,7 +144,6 @@ export class FormSelect {
       const optionsNodeList = this.el.querySelectorAll("option");
       let selectedOption = optionsNodeList[0];
 
-      //if disabled prop is true, set as disabled
       if (this.disabled) {
         a.setAttribute("disabled", "disabled");
       }
@@ -110,13 +158,11 @@ export class FormSelect {
       const listOfOptions = this.el.querySelectorAll("option");
 
       x[i].appendChild(a);
-      /*for each element, create a new DIV that will contain the option list:*/
+
       b = document.createElement("DIV");
       b.setAttribute("class", "select-items select-hide");
 
       for (j = 1; j < listOfOptions.length; j++) {
-        /*for each option in the original select element,
-        create a new DIV that will act as an option item:*/
         c = document.createElement("DIV");
         c.setAttribute("role", "option");
         c.innerHTML = listOfOptions[j].innerHTML;
@@ -125,49 +171,22 @@ export class FormSelect {
         optionValue.value = listOfOptions[j].value;
         c.setAttributeNode(optionValue);
 
-        c.addEventListener("click", function() {
-          /*when an item is clicked, update the original select box,
-            and the selected item:*/
-          let y, i, k;
+        c.addEventListener("click", (event: MouseEvent) =>
+          this.clickTest(event, listOfOptions, updateValue)
+        );
 
-          const s = this.parentNode.parentNode.getElementsByTagName(
-            "select"
-          )[0];
-          const h = this.parentNode.previousSibling;
-
-          for (i = 0; i < listOfOptions.length; i++) {
-            if (listOfOptions[i].innerHTML == this.innerHTML) {
-              const selectedValue = this.getAttribute("value");
-              updateValue(selectedValue);
-              s.selectedIndex = i;
-              h.innerHTML = this.innerHTML;
-              y = this.parentNode.getElementsByClassName("same-as-selected");
-              for (k = 0; k < y.length; k++) {
-                y[k].removeAttribute("class");
-              }
-              this.setAttribute("class", "same-as-selected");
-              this.setAttribute("aria-selected", "true");
-              break;
-            }
-          }
-          h.click();
-        });
         b.appendChild(c);
       }
       x[i].appendChild(b);
       a.addEventListener("click", function(e) {
-        /*when the select box is clicked, close any other select boxes,
-          and open/close the current select box:*/
         e.stopPropagation();
-        //closeAllSelect(this);
+
         this.nextSibling.classList.toggle("select-hide");
         this.classList.toggle("select-arrow-active");
       });
     }
 
     function closeAllSelect(elmnt) {
-      /*a function that will close all select boxes in the document,
-      except the current select box:*/
       let i;
       const arrNo = [];
 
@@ -187,15 +206,22 @@ export class FormSelect {
         }
       }
     }
-    /*if the user clicks anywhere outside the select box,
-    then close all select boxes:*/
+
     document.addEventListener("click", closeAllSelect.bind(this));
+  }
+
+  handleInput(e: InputEvent) {
+    const target = e.target as HTMLInputElement;
+    this.value = target.value;
+  }
+
+  handleChange() {
+    this.change.emit(this.value);
   }
 
   render() {
     return (
       <Host
-        value={this.value}
         style={{
           width: this.width,
           "--maxVisibleOptions": this.maxVisibleOptions

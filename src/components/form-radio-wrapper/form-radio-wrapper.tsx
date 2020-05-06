@@ -31,9 +31,8 @@ export class FormRadioWrapper {
   METHODS
   *********************************/
 
-  @Listen("radioClicked")
-  todoCompletedHandler(event: CustomEvent) {
-    console.log("Received the radio clicked event: ", event.detail);
+  @Listen("change")
+  radioClickedHandler(event: CustomEvent) {
     this.RadioId = event.detail["id"];
     this.RadioValue = event.detail["value"];
 

@@ -1,4 +1,12 @@
-import { Component, Element, Host, Prop, h } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  h,
+  Event,
+  EventEmitter
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-form-checkbox",
@@ -50,6 +58,8 @@ export class FormCheckbox {
    */
   @Prop() name: string;
 
+  @Event() change: EventEmitter;
+
   /*********************************
   METHODS
   *********************************/
@@ -61,8 +71,12 @@ export class FormCheckbox {
     }
   }
 
-  change() {
+  changed() {
     this.checked = this.checkboxInput.checked;
+    this.change.emit({
+      "checkbox id": this.checkboxId,
+      "checkbox value": this.checked
+    });
   }
 
   render() {
@@ -83,7 +97,7 @@ export class FormCheckbox {
             name={this.name}
             value={this.value}
             disabled={this.disabled}
-            onChange={this.change.bind(this)}
+            onChange={this.changed.bind(this)}
           ></input>
           <span class="checkmark"></span>
           {this.label}

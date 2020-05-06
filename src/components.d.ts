@@ -204,6 +204,10 @@ export namespace Components {
      */
     name: string;
     /**
+     * If required
+     */
+    required: boolean;
+    /**
      * The select id
      */
     selectId: string;
@@ -262,6 +266,10 @@ export namespace Components {
      */
     placeholder: string;
     /**
+     * If required
+     */
+    required: boolean;
+    /**
      * The input value
      */
     value: string;
@@ -308,7 +316,11 @@ export namespace Components {
      */
     placeholder: string;
     /**
-     * Number of cols
+     * If required
+     */
+    required: boolean;
+    /**
+     * Number of rows
      */
     rows: number;
     /**
@@ -810,6 +822,7 @@ declare namespace LocalJSX {
      * Checkbox name
      */
     name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
     /**
      * Checkbox value
      */
@@ -842,7 +855,7 @@ declare namespace LocalJSX {
      * Radio name
      */
     name?: string;
-    onRadioClicked?: (event: CustomEvent<any>) => void;
+    onChange?: (event: CustomEvent<any>) => void;
     /**
      * Radio value
      */
@@ -891,6 +904,12 @@ declare namespace LocalJSX {
      * The select name
      */
     name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
+    onInput?: (event: CustomEvent<any>) => void;
+    /**
+     * If required
+     */
+    required?: boolean;
     /**
      * The select id
      */
@@ -952,6 +971,10 @@ declare namespace LocalJSX {
      */
     placeholder?: string;
     /**
+     * If required
+     */
+    required?: boolean;
+    /**
      * The input value
      */
     value?: string;
@@ -993,12 +1016,18 @@ declare namespace LocalJSX {
      * The textarea name
      */
     name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
+    onInput?: (event: CustomEvent<any>) => void;
     /**
      * The textarea placeholder
      */
     placeholder?: string;
     /**
-     * Number of cols
+     * If required
+     */
+    required?: boolean;
+    /**
+     * Number of rows
      */
     rows?: number;
     /**

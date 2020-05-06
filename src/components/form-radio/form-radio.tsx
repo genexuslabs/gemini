@@ -14,7 +14,7 @@ import {
   shadow: true
 })
 export class FormRadio {
-  @Event() radioClicked: EventEmitter;
+  @Event() change: EventEmitter;
   @Element() el: HTMLElement;
 
   //A reference to the input
@@ -61,7 +61,7 @@ export class FormRadio {
   componentDidLoad() {
     if (this.checked) {
       this.radioInput.setAttribute("checked", "checked");
-      this.radioClicked.emit({
+      this.change.emit({
         id: this.RadioId,
         value: this.value
       });
@@ -84,7 +84,7 @@ export class FormRadio {
   }
 
   selectRadio() {
-    this.radioClicked.emit({
+    this.change.emit({
       id: this.RadioId,
       value: this.value
     });

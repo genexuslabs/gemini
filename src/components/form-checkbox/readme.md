@@ -14,6 +14,12 @@
 | `name`       | `name`        | Checkbox name       | `string`  | `undefined` |
 | `value`      | `value`       | Checkbox value      | `string`  | `undefined` |
 
+## Events
+
+| Event    | Description | Type               |
+| -------- | ----------- | ------------------ |
+| `change` |             | `CustomEvent<any>` |
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

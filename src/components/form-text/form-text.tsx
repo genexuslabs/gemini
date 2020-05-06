@@ -73,6 +73,11 @@ export class FormText {
   @Prop() placeholder: string;
 
   /**
+   * If required
+   */
+  @Prop({ reflect: true }) required = false;
+
+  /**
    * The input value
    */
   @Prop({ reflect: true }) value: string;
@@ -126,14 +131,13 @@ export class FormText {
   }
 
   handleInput(e: InputEvent) {
-    //set the input value to the gxg-input component, so the user can catch the value
     const target = e.target as HTMLInputElement;
     this.value = target.value;
-    this.input.emit();
+    this.input.emit(this.value);
   }
 
   handleChange() {
-    this.change.emit();
+    this.change.emit(this.value);
   }
 
   render() {

@@ -16,7 +16,6 @@ export class Menu {
   @Listen("menuItemActive")
   menuItemActiveHandler(event: CustomEvent) {
     const children = Array.from(this.el.querySelectorAll("gxg-menu-item"));
-    console.log(children);
 
     children.forEach(element => {
       element.removeAttribute("active");
@@ -27,8 +26,6 @@ export class Menu {
   }
 
   printTitle() {
-    console.log("menu title");
-    console.log(this.menuTitle);
     if (this.menuTitle !== undefined) {
       return (
         <header class="menu__header">

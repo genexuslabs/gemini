@@ -50,9 +50,9 @@
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `radioClicked` |             | `CustomEvent<any>` |
+| Event    | Description | Type               |
+| -------- | ----------- | ------------------ |
+| `change` |             | `CustomEvent<any>` |
 
 ---
 
