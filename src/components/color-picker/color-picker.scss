@@ -1,0 +1,93 @@
+@import "../../../node_modules/@simonwep/pickr/dist/themes/nano.min.css";
+
+:host {
+  width: 230px;
+  display: block;
+}
+.color-picker-main-container {
+  z-index: 10;
+  --cardAnimationDelay: 0;
+  position: relative;
+  animation-name: slideUp;
+  animation-duration: 0.75s;
+  animation-iteration-count: 1;
+  animation-delay: var(--cardAnimationDelay);
+
+  @keyframes slideUp {
+    0% {
+      top: 5px;
+      opacity: 0;
+    }
+    100% {
+      top: 0px;
+      opacity: 100%;
+    }
+  }
+
+  background: var(--color-white);
+  position: relative;
+  margin-top: -1px;
+  transition: max-height 0.5s ease-in-out;
+  padding: var(--spacing-comp-02) var(--card-padding) 0 var(--card-padding);
+
+  &-textbox {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-md);
+    color: var(--color--black);
+    padding-left: var(--spacing-comp-02);
+    padding-right: var(--spacing-comp-02);
+    padding-top: var(--spacing-comp-01);
+    padding-bottom: var(--spacing-comp-01);
+    background: var(--color-background);
+    border-width: var(--border-width-sm);
+    border-style: var(--border-style-regular);
+    border-color: var(--gray-04);
+    letter-spacing: 0.018em;
+    height: var(--spacing-comp-05);
+    border-radius: 0;
+    width: 100%;
+    margin-bottom: var(--spacing-comp-02);
+    box-sizing: border-box;
+  }
+
+  &--visible {
+    max-height: 400px;
+  }
+}
+.pcr-app {
+  background: var(--color-white);
+}
+.pcr-app[data-theme="nano"] .pcr-selection .pcr-color-palette .pcr-palette {
+  border-radius: 0;
+}
+.pickr {
+  display: none;
+}
+.pcr-app {
+  max-width: 100%;
+  width: 100% !important;
+  box-shadow: none;
+}
+
+//Buttons
+.cp-gxg-buttons {
+  padding: var(--spacing-comp-02);
+}
+.color-picker-main-container-textbox {
+  margin: 0 var(--spacing-comp-02);
+  width: calc(100% - 16px);
+  margin-bottom: var(--spacing-comp-02);
+}
+.cp-gxg-buttons.before-color-value {
+  gxg-button {
+    margin-right: var(--spacing-comp-02);
+  }
+}
+.cp-gxg-buttons.after-color-value {
+  text-align: right;
+}
+
+.pcr-color-chooser,
+.pcr-color-opacity {
+  width: 85%;
+}

@@ -25,6 +25,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property               | Attribute                 | Description                                                        | Type                            | Default     |
@@ -34,6 +35,20 @@
 | `disabled`             | `disabled`                | Wether the button group is disabled or not.                        | `boolean`                       | `false`     |
 | `titleAlignment`       | `title-alignment`         | The main title alignment                                           | `"center" \| "left" \| "right"` | `"left"`    |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+## Dependencies
+
+### Used by
+
+ - [gxg-color-picker](../color-picker)
+
+### Graph
+```mermaid
+graph TD;
+  gxg-color-picker --> gxg-button-group
+  style gxg-button-group fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

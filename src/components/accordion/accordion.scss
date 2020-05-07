@@ -1,0 +1,38 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .tab {
+    margin-bottom: var(--spacing-comp-02);
+
+    &__header {
+      background-color: var(--color-secondary);
+      display: flex;
+      height: var(--spacing-comp-05);
+      @include ui-animation(background-color);
+
+      &:hover {
+        background-color: var(--color-secondary-hover);
+        cursor: pointer;
+      }
+      &__title {
+        font-family: var(--font-family-primary);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+        color: var(--color-always-black);
+        width: 100%;
+        text-align: center;
+        line-height: var(--spacing-comp-05);
+      }
+    }
+    &__container {
+      @include gxg-text();
+      padding: var(--spacing-comp-05) var(--spacing-comp-03);
+      background-color: var(--color-background);
+    }
+  }
+}

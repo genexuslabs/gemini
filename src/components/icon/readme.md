@@ -23,6 +23,7 @@
 
 ### Used by
 
+- [gxg-accordion](../accordion)
 - [gxg-alert](../alert)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
@@ -35,6 +36,7 @@
 
 ```mermaid
 graph TD;
+  gxg-accordion --> gxg-icon
   gxg-alert --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
