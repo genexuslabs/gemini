@@ -24,7 +24,7 @@ export class Alert {
   /**
    * The amount of miliseconds the alert is visible before hidding under the document.
    */
-  @Prop() activeTime: ActiveTime;
+  @Prop() activeTime: ActiveTime = "regular";
 
   /**
    * The alert position.
@@ -34,7 +34,7 @@ export class Alert {
   /**
    * The alert title (optional)
    */
-  @Prop() alertTitle = "05";
+  @Prop() alertTitle: string;
 
   /**
    * The type of alert
@@ -97,11 +97,38 @@ export class Alert {
 
   @Watch("active")
   validateName(newValue: boolean) {
+    //timing
+    let timingValue;
+    switch (this.activeTime) {
+      case "xxslow":
+        timingValue = "10";
+        break;
+      case "xslow":
+        timingValue = "09";
+        break;
+      case "slow":
+        timingValue = "08";
+        break;
+      case "regular":
+        timingValue = "07";
+        break;
+      case "fast":
+        timingValue = "06";
+        break;
+      case "xfast":
+        timingValue = "05";
+        break;
+      case "xxfast":
+        timingValue = "04";
+        break;
+      default:
+      // code block
+    }
     if (newValue === true) {
       this.el.setAttribute("role", "alert");
       setTimeout(() => {
         this.setAlertInactive();
-      }, parseInt(getComputedStyle(document.documentElement).getPropertyValue("--timing-" + this.activeTime)));
+      }, parseInt(getComputedStyle(document.documentElement).getPropertyValue("--timing-" + timingValue)));
     }
   }
 
@@ -166,4 +193,11 @@ export type AlertType = "more-info" | "error" | "warning" | "success";
 
 export type AlertPosition = "left" | "center" | "right";
 
-export type ActiveTime = "04" | "05" | "06" | "07" | "08" | "09" | "10";
+export type ActiveTime =
+  | "xxslow"
+  | "xslow"
+  | "slow"
+  | "regular"
+  | "fast"
+  | "xfast"
+  | "xxfast";

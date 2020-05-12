@@ -4,10 +4,14 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                       | Type      | Default   |
-| ---------- | ---------- | --------------------------------------------------------------------------------- | --------- | --------- |
-| `disabled` | `disabled` | The state of the toggle. Whether is disabled or not. Possible values: false, true | `boolean` | `false`   |
-| `label`    | `label`    | The toggle label                                                                  | `string`  | `"Label"` |
+| Property      | Attribute      | Description  | Type      | Default     |
+| ------------- | -------------- | ------------ | --------- | ----------- |
+| `alwaysShow`  | `always-show`  | always show  | `boolean` | `false`     |
+| `defaultDate` | `default-date` | initial date | `string`  | `undefined` |
+| `maxDate`     | `max-date`     | max date     | `string`  | `undefined` |
+| `minDate`     | `min-date`     | min date     | `string`  | `undefined` |
+| `noWeekends`  | `no-weekends`  | no weekends  | `boolean` | `false`     |
+| `width`       | `width`        | input width  | `string`  | `"240px"`   |
 
 ---
 

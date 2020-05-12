@@ -31,6 +31,8 @@
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
 - [gxg-tab-button](../tab-button)
+- [gxg-toolbar](../toolbar)
+- [gxg-toolbar-item](../toolbar-item)
 
 ### Graph
 
@@ -44,6 +46,8 @@ graph TD;
   gxg-modal --> gxg-icon
   gxg-tab-bar --> gxg-icon
   gxg-tab-button --> gxg-icon
+  gxg-toolbar --> gxg-icon
+  gxg-toolbar-item --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

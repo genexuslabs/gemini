@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property   | Attribute   | Description                                                                       | Type      | Default |
@@ -11,6 +10,11 @@
 | `open`     | `open`      | The toggle state                                                                  | `boolean` | `false` |
 | `tabTitle` | `tab-title` | The toggle label                                                                  | `string`  | `"tab"` |
 
+## Events
+
+| Event        | Description | Type               |
+| ------------ | ----------- | ------------------ |
+| `tabClicked` |             | `CustomEvent<any>` |
 
 ## Dependencies
 
@@ -19,12 +23,13 @@
 - [gxg-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-accordion --> gxg-icon
   style gxg-accordion fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

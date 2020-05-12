@@ -1,0 +1,132 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  background-color: red;
+  height: 300px;
+}
+
+/* Size chart:
+Double extra small:   xxsmall
+Extra small:          xsmall
+Small:                small
+Medium:               medium
+Large:                large
+Extra large:          xlarge
+Double extra large:   xxlarge
+*/
+
+//Horizontal orientation
+:host(.horizontal) {
+  display: flex;
+  flex-direction: row;
+}
+
+:host(.horizontal.xxsmall) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-01);
+  }
+}
+:host(.horizontal.xsmall) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-02);
+  }
+}
+:host(.horizontal.small) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-03);
+  }
+}
+:host(.horizontal.medium) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-04);
+  }
+}
+:host(.horizontal.large) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-05);
+  }
+}
+:host(.horizontal.xlarge) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-06);
+  }
+}
+:host(.horizontal.xxlarge) {
+  ::slotted(*) {
+    margin-right: var(--spacing-lay-07);
+  }
+}
+:host(.horizontal) {
+  ::slotted(:last-child) {
+    margin-right: 0 !important;
+  }
+}
+
+//Vertical orientation
+:host(.vertical) {
+  display: flex;
+  flex-direction: column;
+}
+:host(.vertical.xxsmall) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-01);
+  }
+}
+:host(.vertical.xsmall) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-02);
+  }
+}
+:host(.vertical.small) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-03);
+  }
+}
+:host(.vertical.medium) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-04);
+  }
+}
+:host(.vertical.large) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-05);
+  }
+}
+:host(.vertical.xlarge) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-06);
+  }
+}
+:host(.vertical.xxlarge) {
+  ::slotted(*) {
+    margin-bottom: var(--spacing-lay-07);
+  }
+}
+:host(.vertical) {
+  ::slotted(:last-child) {
+    margin-bottom: 0 !important;
+  }
+}
+
+//Content justify
+:host(.flex-end) {
+  justify-content: flex-end;
+}
+:host(.center) {
+  justify-content: center;
+}
+:host(.smallpace-between) {
+  justify-content: space-between;
+  ::slotted(*) {
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+:host(.smallpace-around) {
+  justify-content: space-around;
+  ::slotted(*) {
+    margin-bottom: 0 !important;
+    margin-right: 0 !important;
+  }
+}

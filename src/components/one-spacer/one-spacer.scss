@@ -1,0 +1,47 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+  margin-bottom: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Size chart:
+Double extra small:   xxsmall
+Extra small:          xsmall
+Small:                small
+Medium:               medium
+Large:                large
+Extra large:          xlarge
+Double extra large:   xxlarge
+*/
+
+:host(.xxsmall) {
+  height: var(--spacing-lay-01);
+  width: var(--spacing-lay-01);
+}
+:host(.xsmall) {
+  height: var(--spacing-lay-02);
+  width: var(--spacing-lay-02);
+}
+:host(.small) {
+  height: var(--spacing-lay-03);
+  width: var(--spacing-lay-03);
+}
+:host(.medium) {
+  height: var(--spacing-lay-04);
+  width: var(--spacing-lay-04);
+}
+:host(.large) {
+  height: var(--spacing-lay-05);
+  width: var(--spacing-lay-05);
+}
+:host(.xlarge) {
+  height: var(--spacing-lay-06);
+  width: var(--spacing-lay-06);
+}
+:host(.xxlarge) {
+  height: var(--spacing-lay-07);
+  width: var(--spacing-lay-07);
+}

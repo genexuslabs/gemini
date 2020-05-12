@@ -13,21 +13,19 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property     | Attribute     | Description                                                                       | Type                                                   | Default       |
-| ------------ | ------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------- |
-| `active`     | `active`      | Wether the alert is active (visible) or not (not visible).                        | `boolean`                                              | `false`       |
-| `activeTime` | `active-time` | The amount of miliseconds the alert is visible before hidding under the document. | `"04" \| "05" \| "06" \| "07" \| "08" \| "09" \| "10"` | `undefined`   |
-| `alertTitle` | `alert-title` | The alert title (optional)                                                        | `string`                                               | `"05"`        |
-| `bottom`     | `bottom`      | The alert bottom position value                                                   | `string`                                               | `"0"`         |
-| `left`       | `left`        | The alert left position value                                                     | `string`                                               | `"0"`         |
-| `position`   | `position`    | The alert position.                                                               | `"center" \| "left" \| "right"`                        | `"left"`      |
-| `right`      | `right`       | The alert right position value                                                    | `string`                                               | `"0"`         |
-| `type`       | `type`        | The type of alert                                                                 | `"error" \| "more-info" \| "success" \| "warning"`     | `"more-info"` |
-| `width`      | `width`       | The alert width                                                                   | `string`                                               | `"350px"`     |
-
+| Property     | Attribute     | Description                                                                       | Type                                                                          | Default       |
+| ------------ | ------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------- |
+| `active`     | `active`      | Wether the alert is active (visible) or not (not visible).                        | `boolean`                                                                     | `false`       |
+| `activeTime` | `active-time` | The amount of miliseconds the alert is visible before hidding under the document. | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"`   |
+| `alertTitle` | `alert-title` | The alert title (optional)                                                        | `string`                                                                      | `undefined`   |
+| `bottom`     | `bottom`      | The alert bottom position value                                                   | `string`                                                                      | `"0"`         |
+| `left`       | `left`        | The alert left position value                                                     | `string`                                                                      | `"0"`         |
+| `position`   | `position`    | The alert position.                                                               | `"center" \| "left" \| "right"`                                               | `"left"`      |
+| `right`      | `right`       | The alert right position value                                                    | `string`                                                                      | `"0"`         |
+| `type`       | `type`        | The type of alert                                                                 | `"error" \| "more-info" \| "success" \| "warning"`                            | `"more-info"` |
+| `width`      | `width`       | The alert width                                                                   | `string`                                                                      | `"350px"`     |
 
 ## Dependencies
 
@@ -37,6 +35,7 @@
 - [gxg-button](../button)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-alert --> gxg-icon
@@ -44,6 +43,6 @@ graph TD;
   style gxg-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

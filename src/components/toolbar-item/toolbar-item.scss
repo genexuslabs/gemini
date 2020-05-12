@@ -1,0 +1,42 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  .toolbar-item {
+    position: relative;
+    cursor: pointer;
+    height: var(--spacing-comp-05);
+    gxg-icon {
+      @include ui-animation(transform);
+    }
+    &__label {
+      position: absolute;
+      background-color: var(--color-primary-active);
+      color: var(--color-on-primary);
+      top: -20px;
+      padding: 1px 5px;
+      right: 0;
+      opacity: 0;
+    }
+    &:hover {
+      .toolbar-item__label {
+        height: var(--spacing-comp-04);
+        display: block;
+        opacity: 1;
+      }
+      gxg-icon {
+        transform: scale(0.75, 0.75);
+      }
+    }
+    &--disabled {
+      background-color: var(--color-primary-disabled);
+      cursor: not-allowed;
+      &:hover {
+        gxg-icon {
+          transform: scale(1, 1);
+        }
+      }
+      pointer-events: none;
+    }
+  }
+}

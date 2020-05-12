@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 
 @Component({
   tag: "gxg-accordion",
@@ -22,13 +22,19 @@ export class Accordion {
    */
   @Prop() open = false;
 
-  toggleTab() {
-    if (this.open === false) {
-      this.open = true;
-    } else {
-      this.open = false;
-    }
+  @Event() tabClicked: EventEmitter;
+
+  tabClickedHandler() {
+    this.tabClicked.emit(this.tabTitle);
   }
+
+  // toggleTab() {
+  //   if (this.open === false) {
+  //     this.open = true;
+  //   } else {
+  //     this.open = false;
+  //   }
+  // }
 
   render() {
     return (
@@ -38,7 +44,7 @@ export class Accordion {
           "tab--closed": this.open === false,
           "tab--open": this.open === true
         }}
-        onClick={this.toggleTab.bind(this)}
+        onClick={this.tabClickedHandler.bind(this)}
       >
         <header class="tab__header">
           <div class="tab__header__title">{this.tabTitle}</div>

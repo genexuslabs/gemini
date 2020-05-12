@@ -1,2 +1,78 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+@import "~js-datepicker/src/datepicker";
+//@import "../../../node_modules/js-datepicker/src/datepicker";
+
+:host {
+  display: block;
+}
+#date-picker {
+  width: 100%;
+  @include gxg-text;
+  @include form-element-common-styles();
+  height: var(--spacing-comp-05);
+  box-sizing: border-box;
+
+  &:focus {
+    @include form-element-common-styles-focus-type-1();
+  }
+  padding: 0 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+.qs-datepicker-container {
+  border: none;
+  box-shadow: var(--box-shadow-01);
+  padding: var(--spacing-comp-02) var(--spacing-comp-02) 7px
+    var(--spacing-comp-02);
+  width: 181px;
+}
+.qs-datepicker .qs-controls {
+  background-color: transparent;
+}
+.qs-datepicker .qs-square {
+  border: 1px solid var(--gray-03);
+  border-radius: 0;
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
+  margin: 0.5px;
+}
+.qs-month-year {
+  font-size: var(--font-size-md);
+  font-family: var(--font-family-primary);
+}
+.qs-datepicker .qs-square.qs-day {
+  color: var(--color-text);
+  border: 0;
+  height: var(--spacing-comp-04);
+}
+.qs-datepicker .qs-square.qs-active,
+.qs-datepicker
+  .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active):hover {
+  background-color: rgba(var(--color-primary-hover-rgb), 0.1);
+  border-color: var(--color-primary-active);
+}
+.qs-datepicker .qs-arrow:after {
+  width: 5px;
+  height: 5px;
+  border: 1px solid black;
+  top: 4px;
+}
+.qs-datepicker .qs-arrow:hover {
+  background-color: transparent;
+  &:after {
+    border-color: var(--color-primary-active);
+  }
+}
+.qs-datepicker .qs-arrow.qs-right:after {
+  border-left: 0;
+  border-bottom: 0;
+  transform: rotate(45deg) !important;
+  left: 3px;
+}
+.qs-datepicker .qs-arrow.qs-left:after {
+  border-right: 0;
+  border-bottom: 0;
+  transform: rotate(-45deg) !important;
+  left: 6px;
+}
