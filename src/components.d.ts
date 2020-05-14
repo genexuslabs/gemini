@@ -16,6 +16,7 @@ import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignmentType } from "./components/modal/modal";
+import { SizeType } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -174,10 +175,6 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex: boolean;
-    /**
      * Checkbox label
      */
     label: string;
@@ -250,10 +247,6 @@ export namespace Components {
      */
     fullWidth: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex: boolean;
-    /**
      * The select label
      */
     label: string;
@@ -307,10 +300,6 @@ export namespace Components {
      * Input icon side possible values: left, right
      */
     iconPosition: IconPositionType;
-    /**
-     * Inline-flex display
-     */
-    inlineFlex: boolean;
     /**
      * The input id
      */
@@ -416,20 +405,6 @@ export namespace Components {
      */
     type: IconType;
   }
-  interface GxgLayoutSpacer {
-    /**
-     * Content justify
-     */
-    justifyContent: string;
-    /**
-     * The orientation
-     */
-    orientation: string;
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space: string;
-  }
   interface GxgMenu {
     fullWidth: boolean;
     menuTitle: string;
@@ -462,12 +437,6 @@ export namespace Components {
      * z-index
      */
     zIndex: string;
-  }
-  interface GxgOneSpacer {
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space: string;
   }
   interface GxgProgressBar {
     /**
@@ -586,10 +555,6 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex: boolean;
-    /**
      * The label
      */
     label: string;
@@ -597,6 +562,10 @@ export namespace Components {
      * If the toggle is active or not
      */
     on: boolean;
+    /**
+     * The label
+     */
+    size: SizeType;
   }
   interface GxgToolbar {
     disabled: boolean;
@@ -725,13 +694,6 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
-  interface HTMLGxgLayoutSpacerElement
-    extends Components.GxgLayoutSpacer,
-      HTMLStencilElement {}
-  var HTMLGxgLayoutSpacerElement: {
-    prototype: HTMLGxgLayoutSpacerElement;
-    new (): HTMLGxgLayoutSpacerElement;
-  };
   interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
   var HTMLGxgMenuElement: {
     prototype: HTMLGxgMenuElement;
@@ -750,13 +712,6 @@ declare global {
   var HTMLGxgModalElement: {
     prototype: HTMLGxgModalElement;
     new (): HTMLGxgModalElement;
-  };
-  interface HTMLGxgOneSpacerElement
-    extends Components.GxgOneSpacer,
-      HTMLStencilElement {}
-  var HTMLGxgOneSpacerElement: {
-    prototype: HTMLGxgOneSpacerElement;
-    new (): HTMLGxgOneSpacerElement;
   };
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
@@ -863,11 +818,9 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
-    "gxg-layout-spacer": HTMLGxgLayoutSpacerElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
-    "gxg-one-spacer": HTMLGxgOneSpacerElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
@@ -1045,10 +998,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex?: boolean;
-    /**
      * Checkbox label
      */
     label?: string;
@@ -1123,10 +1072,6 @@ declare namespace LocalJSX {
      */
     fullWidth?: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex?: boolean;
-    /**
      * The select label
      */
     label?: string;
@@ -1182,10 +1127,6 @@ declare namespace LocalJSX {
      * Input icon side possible values: left, right
      */
     iconPosition?: IconPositionType;
-    /**
-     * Inline-flex display
-     */
-    inlineFlex?: boolean;
     /**
      * The input id
      */
@@ -1295,20 +1236,6 @@ declare namespace LocalJSX {
      */
     type?: IconType;
   }
-  interface GxgLayoutSpacer {
-    /**
-     * Content justify
-     */
-    justifyContent?: string;
-    /**
-     * The orientation
-     */
-    orientation?: string;
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space?: string;
-  }
   interface GxgMenu {
     fullWidth?: boolean;
     menuTitle?: string;
@@ -1342,12 +1269,6 @@ declare namespace LocalJSX {
      * z-index
      */
     zIndex?: string;
-  }
-  interface GxgOneSpacer {
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space?: string;
   }
   interface GxgProgressBar {
     /**
@@ -1467,10 +1388,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex?: boolean;
-    /**
      * The label
      */
     label?: string;
@@ -1478,6 +1395,10 @@ declare namespace LocalJSX {
      * If the toggle is active or not
      */
     on?: boolean;
+    /**
+     * The label
+     */
+    size?: SizeType;
   }
   interface GxgToolbar {
     disabled?: boolean;
@@ -1509,11 +1430,9 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
-    "gxg-layout-spacer": GxgLayoutSpacer;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
-    "gxg-one-spacer": GxgOneSpacer;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
@@ -1564,15 +1483,11 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
-      "gxg-layout-spacer": LocalJSX.GxgLayoutSpacer &
-        JSXBase.HTMLAttributes<HTMLGxgLayoutSpacerElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
       "gxg-modal": LocalJSX.GxgModal &
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
-      "gxg-one-spacer": LocalJSX.GxgOneSpacer &
-        JSXBase.HTMLAttributes<HTMLGxgOneSpacerElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-slider": LocalJSX.GxgSlider &

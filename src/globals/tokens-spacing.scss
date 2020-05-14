@@ -17,11 +17,9 @@ TOKENS FOR SPACING LAYOUT
 *********************************/
 /*This is the spacing for the layout/environment in which the components are embedded (outside the component)*/
 :root {
-  --spacing-lay-01: 8px;
-  --spacing-lay-02: 16px;
-  --spacing-lay-03: 24px;
-  --spacing-lay-04: 32px;
-  --spacing-lay-05: 48px;
-  --spacing-lay-06: 72px;
-  --spacing-lay-07: 96px;
+  --spacing-lay-xs: 4px; //xs
+  --spacing-lay-s: 8px; //s
+  --spacing-lay-m: 16px; //m
+  --spacing-lay-l: 32px; //l
+  --spacing-lay-xl: 64px; //xl
 }

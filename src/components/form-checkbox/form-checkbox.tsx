@@ -39,11 +39,6 @@ export class FormCheckbox {
   @Prop() disabled = false;
 
   /**
-   * Inline-flex display
-   */
-  @Prop() inlineFlex = false;
-
-  /**
    * Checkbox label
    */
   @Prop() label: string;

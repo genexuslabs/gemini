@@ -7,11 +7,3 @@
     display: flex;
   }
 }
-
-:host([inline-flex]) {
-  ::slotted(gxg-form-radio) {
-    margin-bottom: 0;
-    margin-right: var(--spacing-comp-03);
-    display: inline-flex;
-  }
-}

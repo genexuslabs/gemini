@@ -13,19 +13,6 @@ const stories = storiesOf("Radio button", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Radiobutton", () => {
-  //Display
-  const labelDisplay = "Display";
-  const optionsDisplay = {
-    flex: "flex",
-    "inline-flex": "inline-flex"
-  };
-  const defaultValueDisplay = "flex";
-  const valueDisplay = radios(
-    labelDisplay,
-    optionsDisplay,
-    defaultValueDisplay
-  );
-
   //Status
   const labelDisabled = "Disable red";
   const defaultValueDisabled = false;
@@ -44,7 +31,7 @@ stories.add("Radiobutton", () => {
     }
   }
 
-  return `<gxg-form-radio-wrapper ${valueDisplay}>
+  return `<gxg-form-radio-wrapper>
 
 
   <gxg-form-radio

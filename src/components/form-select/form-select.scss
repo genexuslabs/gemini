@@ -9,9 +9,6 @@
   display: flex;
   flex-direction: column;
 }
-:host([inline-flex]) {
-  display: inline-flex;
-}
 :host([full-width]) {
   display: block;
   width: 100% !important;

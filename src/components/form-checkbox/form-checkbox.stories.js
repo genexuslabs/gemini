@@ -13,19 +13,6 @@ const stories = storiesOf("Checkbox", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Checkbox", () => {
-  //Display
-  const labelDisplay = "Display";
-  const optionsDisplay = {
-    flex: "flex",
-    "inline-flex": "inline-flex"
-  };
-  const defaultValueDisplay = "flex";
-  const valueDisplay = radios(
-    labelDisplay,
-    optionsDisplay,
-    defaultValueDisplay
-  );
-
   //Status
   const labelDisabled = "Disable red";
   const defaultValueDisabled = false;
@@ -37,7 +24,6 @@ stories.add("Checkbox", () => {
   id="red"
   name="red"
   value="red"
-  ${valueDisplay}
   disabled=${valueDisabled}
   checked
 ></gxg-form-checkbox>
@@ -46,7 +32,6 @@ stories.add("Checkbox", () => {
   id="blue"
   name="blue"
   value="blue"
-  ${valueDisplay}
   checked
 ></gxg-form-checkbox>
 <gxg-form-checkbox
@@ -54,20 +39,17 @@ stories.add("Checkbox", () => {
   id="green"
   name="green"
   value="green"
-  ${valueDisplay}
 ></gxg-form-checkbox>
 <gxg-form-checkbox
   label="orange"
   id="orange"
   name="orange"
   value="orange"
-  ${valueDisplay}
 ></gxg-form-checkbox>
 <gxg-form-checkbox
   label="pink"
   id="pink"
   name="pink"
   value="pink"
-  ${valueDisplay}
 ></gxg-form-checkbox>`;
 });

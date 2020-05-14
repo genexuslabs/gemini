@@ -13,19 +13,6 @@ const stories = storiesOf("Select", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Select", () => {
-  //Display
-  const labelDisplay = "Display";
-  const optionsDisplay = {
-    flex: "flex",
-    "inline-flex": "inline-flex"
-  };
-  const defaultValueDisplay = "flex";
-  const valueDisplay = radios(
-    labelDisplay,
-    optionsDisplay,
-    defaultValueDisplay
-  );
-
   //Max number visible options
   const labelMaxOptions = "Max. number of visible options";
   const defaultMaxOptions = 4;
@@ -110,7 +97,6 @@ stories.add("Select", () => {
 
   return `<gxg-form-select
   label="Select a car:"
-  ${valueDisplay}
   width=${valueWidthSizeFunc()}
   ${valueStatusType()}
     ${errorMessage()}
@@ -131,7 +117,6 @@ stories.add("Select", () => {
 
 <gxg-form-select
   label="Select a car:"
-  ${valueDisplay}
   width=${valueWidthSizeFunc()}
   ${valueStatusType()}
     ${errorMessage()}

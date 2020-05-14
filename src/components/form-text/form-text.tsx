@@ -42,11 +42,6 @@ export class FormText {
   @Prop() icon: IconType = null;
 
   /**
-   * Inline-flex display
-   */
-  @Prop() inlineFlex = false;
-
-  /**
    * Input icon side
    * possible values: left, right
    */

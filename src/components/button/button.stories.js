@@ -156,6 +156,25 @@ stories
     }
   )
   .add(
+    "Tertiary",
+    () => `
+        <gxg-button type="tertiary" disabled=${boolean(
+          labelDisabled,
+          defaultValueDisabled
+        )}><gxg-icon slot="icon" type="${select(
+      label,
+      options,
+      defaultValue
+    )}"></gxg-icon
+            ></gxg-button>
+        `,
+    {
+      notes: {
+        markdown: readme
+      }
+    }
+  )
+  .add(
     "Outlined",
     () => `
         <gxg-button type="outlined" disabled=${boolean(

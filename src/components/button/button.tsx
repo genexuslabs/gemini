@@ -57,7 +57,8 @@ export class Button {
           "button--secondary-text-icon": this.type === "secondary-text-icon",
           "button--secondary-icon-only": this.type === "secondary-icon-only",
           "button--outlined": this.type === "outlined",
-          "button--disabled": this.disabled === true
+          "button--disabled": this.disabled === true,
+          "button--tertiary": this.type === "tertiary"
         }}
       >
         <button
@@ -79,4 +80,5 @@ export type ButtonType =
   | "secondary-text-only"
   | "secondary-text-icon"
   | "secondary-icon-only"
-  | "outlined";
+  | "outlined"
+  | "tertiary";

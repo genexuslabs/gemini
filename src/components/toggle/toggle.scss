@@ -5,10 +5,6 @@
   display: flex;
   align-items: center;
 }
-:host([inline-flex]) {
-  display: inline-flex;
-  margin-right: var(--spacing-comp-03);
-}
 //active
 :host([on]) .toggle__container {
   background-color: var(--color-primary-active);
@@ -34,10 +30,10 @@
 }
 :host {
   .toggle__container {
-    width: var(--spacing-lay-05);
-    height: var(--spacing-lay-03);
+    width: 48px;
+    height: 24px;
     background-color: var(--gray-03);
-    border-radius: var(--spacing-comp-03);
+    border-radius: 24px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -60,5 +56,25 @@
   .toggle__label {
     @include gxg-text();
     margin-left: var(--spacing-comp-01);
+  }
+}
+
+// Small version
+:host([size="small"]) {
+  .toggle__container {
+    width: 24px;
+    height: 12px;
+    border-radius: 12px;
+  }
+  .toggle__container__knob {
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    left: 1px;
+  }
+}
+:host([on][size="small"]) {
+  .toggle__container__knob {
+    left: 13px;
   }
 }

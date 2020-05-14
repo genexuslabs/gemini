@@ -16,14 +16,14 @@ export class Toggle {
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * Inline-flex display
+   * The label
    */
-  @Prop() inlineFlex = false;
+  @Prop() label = "Label";
 
   /**
    * The label
    */
-  @Prop() label = "Label";
+  @Prop({ reflect: true }) size: SizeType = "regular";
 
   /**
    * If the toggle is active or not
@@ -73,3 +73,5 @@ export class Toggle {
     );
   }
 }
+
+export type SizeType = "regular" | "small";

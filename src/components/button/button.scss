@@ -278,3 +278,40 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: var(--color-transparent);
   @include gxg-label--disabled;
 }
+
+/*********************************
+'TERTIARY' BUTTON TYPE
+*********************************/
+:host(.button--tertiary) .button-native {
+  background: transparent;
+  padding-right: 0;
+  padding-left: 0;
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
+
+  ::slotted([slot="icon"]) {
+    margin-right: 0;
+  }
+  &:hover:not([disabled]) {
+    background: transparent;
+    ::slotted([slot="icon"]) {
+      --icon-color: var(--gray-07);
+    }
+  }
+  &:focus:not([disabled]) {
+    background: transparent;
+    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
+  }
+  &:active:not([disabled]) {
+    background: transparent;
+    ::slotted([slot="icon"]) {
+      --icon-color: #{$gxg-label--active-color};
+    }
+  }
+}
+:host(.button--tertiary.button--disabled) .button-native {
+  background: transparent;
+  ::slotted([slot="icon"]) {
+    --icon-color: #{$gxg-label--negative-disabled-color};
+  }
+}

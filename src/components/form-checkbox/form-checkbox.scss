@@ -6,16 +6,10 @@
   display: flex;
 }
 
-:host([inline-flex]) {
-  margin-bottom: 0;
-  margin-right: var(--spacing-comp-03);
-  display: inline-flex;
-}
-
 :host {
   .label {
     display: block;
-    margin-bottom: var(--spacing-lay-02);
+    margin-bottom: var(--spacing-lay-m);
   }
   .label:last-child {
     margin-bottom: 0;

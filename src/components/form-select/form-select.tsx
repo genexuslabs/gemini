@@ -42,11 +42,6 @@ export class FormSelect {
   @Prop({ reflect: true }) fullWidth = false;
 
   /**
-   * Inline-flex display
-   */
-  @Prop() inlineFlex = false;
-
-  /**
    * The select label
    */
   @Prop() label: string;

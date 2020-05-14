@@ -13,21 +13,17 @@ const stories = storiesOf("Toggle", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Toggle", () => {
-  //Display
-  const labelDisplay = "Display";
-  const optionsDisplay = {
-    flex: "flex",
-    "inline-flex": "inline-flex"
+  //Size
+  const labelSize = "Size";
+  const optionsSize = {
+    regular: "regular",
+    small: "small"
   };
-  const defaultValueDisplay = "flex";
-  const valueDisplay = radios(
-    labelDisplay,
-    optionsDisplay,
-    defaultValueDisplay
-  );
+  const defaultValueSize = "regular";
+  const valueSize = radios(labelSize, optionsSize, defaultValueSize);
 
   //Status
-  const labelDisabled = "Disable Red";
+  const labelDisabled = "Disable 'Red' toggle only";
   const defaultValueDisabled = false;
 
   const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
@@ -72,7 +68,7 @@ stories.add("Toggle", () => {
       </span><span class="bulb pink" id="bulb-pink"></span>
       <span class="bulb purple" id="bulb-purple"></span>
     </div>
-    <gxg-toggle tabindex="0" ${valueDisplay} disabled=${valueDisabled} id="toggle-red" style="margin-bottom:20px;" label="Red" onClick="(function(){
+    <gxg-toggle size=${valueSize} tabindex="0" disabled=${valueDisabled} id="toggle-red" style="margin-bottom:20px;" label="Red" onClick="(function(){
       let toggle = document.getElementById('toggle-red');
       let bulb = document.getElementById('bulb-red');
       if(toggle.hasAttribute('on')){
@@ -83,7 +79,7 @@ stories.add("Toggle", () => {
       return false;
     })();return false;"></gxg-toggle>
 
-    <gxg-toggle tabindex="0" ${valueDisplay} id="toggle-pink" style="margin-bottom:20px;" label="Pink" onClick="(function(){
+    <gxg-toggle size=${valueSize} tabindex="0" id="toggle-pink" style="margin-bottom:20px;" label="Pink" onClick="(function(){
       let toggle = document.getElementById('toggle-pink');
       let bulb = document.getElementById('bulb-pink');
       if(toggle.hasAttribute('on')){
@@ -94,7 +90,7 @@ stories.add("Toggle", () => {
       return false;
     })();return false;"></gxg-toggle>
 
-    <gxg-toggle tabindex="0" ${valueDisplay} id="toggle-purple" style="margin-bottom:20px;" label="Purple" onClick="(function(){
+    <gxg-toggle size=${valueSize} tabindex="0" id="toggle-purple" style="margin-bottom:20px;" label="Purple" onClick="(function(){
       let toggle = document.getElementById('toggle-purple');
       let bulb = document.getElementById('bulb-purple');
       if(toggle.hasAttribute('on')){

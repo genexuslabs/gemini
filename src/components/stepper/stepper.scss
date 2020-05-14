@@ -9,7 +9,7 @@
   }
   .outer-wrapper {
     display: inline-block;
-    background-color: var(--color-white-rgb);
+    background-color: var(--gray-01);
     border: 1px solid transparent;
     border-radius: var(--border-radius-md);
     @include ui-animation(background-color);

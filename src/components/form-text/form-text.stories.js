@@ -13,19 +13,6 @@ const stories = storiesOf("Input text", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Text", () => {
-  //Display
-  const labelDisplay = "Display";
-  const optionsDisplay = {
-    flex: "flex",
-    "inline-flex": "inline-flex"
-  };
-  const defaultValueDisplay = "flex";
-  const valueDisplay = radios(
-    labelDisplay,
-    optionsDisplay,
-    defaultValueDisplay
-  );
-
   //Fullwidth
   const labelWidth = "Width";
   const optionsWidth = {
@@ -36,7 +23,7 @@ stories.add("Text", () => {
   const valueWidth = radios(labelWidth, optionsWidth, defaultValueWidth);
 
   function valueWidthFunc() {
-    if (valueWidth !== "fixed-width" && valueDisplay !== "inline-flex") {
+    if (valueWidth !== "fixed-width") {
       return valueWidth;
     }
   }
@@ -137,7 +124,6 @@ stories.add("Text", () => {
     placeholder="John Griffith"
     icon=${valueIconType}
     icon-position=${valueIcon}
-    ${valueDisplay}
     ${valueWidthFunc()}
     ${valueStatusType()}
   >${errorMessage()}
@@ -149,7 +135,6 @@ stories.add("Text", () => {
     placeholder="Chief Executive"
     icon=${valueIconType}
     icon-position=${valueIcon}
-    ${valueDisplay}
     ${valueWidthFunc()}
     ${valueStatusType()}
     ${errorMessage()}
@@ -162,7 +147,6 @@ stories.add("Text", () => {
     placeholder="USA, Washington, D.C."
     icon=${valueIconType}
     icon-position=${valueIcon}
-    ${valueDisplay}
     ${valueWidthFunc()}
     ${valueStatusType()}
   >${errorMessage()}

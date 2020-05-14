@@ -16,15 +16,13 @@ stories.add("Spacer Layout", () => {
   //Space
   const labelSpace = "Space";
   const optionsSpace = {
-    xxsmall: "xxsmall",
-    xsmall: "xsmall",
-    small: "small",
-    medium: "medium",
-    large: "large",
-    xlarge: "xlarge",
-    xxlarge: "xxlarge"
+    xs: "xs",
+    s: "s",
+    m: "m",
+    l: "l",
+    xl: "xl"
   };
-  const defaultValueSpace = "xxsmall";
+  const defaultValueSpace = "xs";
 
   //Display
   const labelOrientation = "Display";

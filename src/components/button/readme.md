@@ -15,10 +15,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                          | Type                                                                                                                                                         | Default               |
-| ---------- | ---------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| `disabled` | `disabled` | The state of the button. Whether is disabled or not. | `boolean`                                                                                                                                                    | `false`               |
-| `type`     | `type`     | The kind of button                                   | `"outlined" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only"` | `"primary-text-only"` |
+| Property   | Attribute  | Description                                          | Type                                                                                                                                                                       | Default               |
+| ---------- | ---------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `disabled` | `disabled` | The state of the button. Whether is disabled or not. | `boolean`                                                                                                                                                                  | `false`               |
+| `type`     | `type`     | The kind of button                                   | `"outlined" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
 
 ## Dependencies
 

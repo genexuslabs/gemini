@@ -4,60 +4,35 @@
 :host {
 }
 
-/* Size chart:
-Double extra small:   xxsmall
-Extra small:          xsmall
-Small:                small
-Medium:               medium
-Large:                large
-Extra large:          xlarge
-Double extra large:   xxlarge
-*/
-
 //Horizontal orientation
 :host(.horizontal) {
   display: flex;
   flex-direction: row;
 }
 
-:host(.horizontal.xxsmall) {
+:host(.horizontal.xs) {
   ::slotted(*) {
-    margin-right: var(--spacing-lay-01);
+    margin-right: var(--spacing-lay-xs);
   }
 }
-:host(.horizontal.xsmall) {
+:host(.horizontal.s) {
   ::slotted(*) {
-    margin-right: var(--spacing-lay-02);
+    margin-right: var(--spacing-lay-s);
   }
 }
-:host(.horizontal.small) {
+:host(.horizontal.m) {
   ::slotted(*) {
-    margin-right: var(--spacing-lay-03);
+    margin-right: var(--spacing-lay-m);
   }
 }
-:host(.horizontal.medium) {
+:host(.horizontal.l) {
   ::slotted(*) {
-    margin-right: var(--spacing-lay-04);
+    margin-right: var(--spacing-lay-l);
   }
 }
-:host(.horizontal.large) {
+:host(.horizontal.xl) {
   ::slotted(*) {
-    margin-right: var(--spacing-lay-05);
-  }
-}
-:host(.horizontal.xlarge) {
-  ::slotted(*) {
-    margin-right: var(--spacing-lay-06);
-  }
-}
-:host(.horizontal.xxlarge) {
-  ::slotted(*) {
-    margin-right: var(--spacing-lay-07);
-  }
-}
-:host(.horizontal) {
-  ::slotted(:last-child) {
-    margin-right: 0 !important;
+    margin-right: var(--spacing-lay-xl);
   }
 }
 
@@ -66,44 +41,29 @@ Double extra large:   xxlarge
   display: flex;
   flex-direction: column;
 }
-:host(.vertical.xxsmall) {
+:host(.vertical.xs) {
   ::slotted(*) {
-    margin-bottom: var(--spacing-lay-01);
+    margin-bottom: var(--spacing-lay-xs);
   }
 }
-:host(.vertical.xsmall) {
+:host(.vertical.s) {
   ::slotted(*) {
-    margin-bottom: var(--spacing-lay-02);
+    margin-bottom: var(--spacing-lay-s);
   }
 }
-:host(.vertical.small) {
+:host(.vertical.m) {
   ::slotted(*) {
-    margin-bottom: var(--spacing-lay-03);
+    margin-bottom: var(--spacing-lay-m);
   }
 }
-:host(.vertical.medium) {
+:host(.vertical.l) {
   ::slotted(*) {
-    margin-bottom: var(--spacing-lay-04);
+    margin-bottom: var(--spacing-lay-l);
   }
 }
-:host(.vertical.large) {
+:host(.vertical.xl) {
   ::slotted(*) {
-    margin-bottom: var(--spacing-lay-05);
-  }
-}
-:host(.vertical.xlarge) {
-  ::slotted(*) {
-    margin-bottom: var(--spacing-lay-06);
-  }
-}
-:host(.vertical.xxlarge) {
-  ::slotted(*) {
-    margin-bottom: var(--spacing-lay-07);
-  }
-}
-:host(.vertical) {
-  ::slotted(:last-child) {
-    margin-bottom: 0 !important;
+    margin-bottom: var(--spacing-lay-xl);
   }
 }
 

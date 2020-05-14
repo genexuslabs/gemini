@@ -9,7 +9,6 @@
 | `disabled`          | `disabled`            | If select is disabled                                                                            | `boolean` | `false`     |
 | `error`             | `error`               | If select has errors                                                                             | `boolean` | `false`     |
 | `fullWidth`         | `full-width`          | If select is full width                                                                          | `boolean` | `false`     |
-| `inlineFlex`        | `inline-flex`         | Inline-flex display                                                                              | `boolean` | `false`     |
 | `label`             | `label`               | The select label                                                                                 | `string`  | `undefined` |
 | `maxVisibleOptions` | `max-visible-options` | The maximum number of visible options (scroll will apear if the total number exceeds this value) | `string`  | `undefined` |
 | `name`              | `name`                | The select name                                                                                  | `string`  | `undefined` |

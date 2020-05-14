@@ -32,13 +32,11 @@ export class SpacerLayout {
           "space-around": this.justifyContent === "space-around",
           horizontal: this.orientation === "horizontal",
           vertical: this.orientation === "vertical",
-          xxsmall: this.space === "xxsmall",
-          xsmall: this.space === "xsmall",
-          small: this.space === "small",
-          medium: this.space === "medium",
-          large: this.space === "large",
-          xlarge: this.space === "xlarge",
-          xxlarge: this.space === "xxlarge"
+          xs: this.space === "xs",
+          s: this.space === "s",
+          m: this.space === "m",
+          l: this.space === "l",
+          xl: this.space === "xl"
         }}
       >
         <slot></slot>
@@ -47,14 +45,7 @@ export class SpacerLayout {
   }
 }
 
-export type space =
-  | "xxsmall"
-  | "xsmall"
-  | "small"
-  | "medium"
-  | "large"
-  | "xlarge"
-  | "xxlarge";
+export type space = "xs" | "s" | "m" | "l" | "xl";
 export type orientation = "horizontal" | "vertical";
 export type justifyContent =
   | "flex-start"
