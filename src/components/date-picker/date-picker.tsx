@@ -40,23 +40,43 @@ export class DatePicker {
   @Prop() width = "240px";
 
   componentDidLoad() {
-    //default/initial date
-    const defaultDate = new Date(this.defaultDate);
+    // console.log("new date");
+    // console.log(new Date(this.defaultDate));
+
+    let defaultDate = new Date();
+
+    if (this.defaultDate !== undefined && this.defaultDate !== "") {
+      //default/initial date
+      const d = new Date(this.defaultDate);
+      if (Object.prototype.toString.call(d) === "[object Date]") {
+        // it is a date
+        if (isNaN(d.getTime())) {
+          // d.valueOf() could also work
+          // date is not valid
+        } else {
+          // date is valid
+          defaultDate = new Date(this.defaultDate);
+        }
+      } else {
+        // not a date
+      }
+    }
+
+    //default date
     const defaultDateYear = defaultDate.getFullYear();
     const defaultDateMonth = defaultDate.getMonth();
-    const defaultDateDay = parseInt(this.defaultDate.split(",")[2]);
+    const defaultDateDay = defaultDate.getDate();
 
     //min date
     const minDate = new Date(this.minDate);
     const minDateYear = minDate.getFullYear();
     const minDateMonth = minDate.getMonth();
-    const minDateDay = parseInt(this.minDate.split(",")[2]);
-
+    const minDateDay = minDate.getDate();
     //max date
     const maxDate = new Date(this.maxDate);
     const maxDateYear = maxDate.getFullYear();
     const maxDateMonth = maxDate.getMonth();
-    const maxDateDay = parseInt(this.maxDate.split(",")[2]);
+    const maxDateDay = maxDate.getDate();
 
     const pickerSelector = this.el.shadowRoot.querySelector("#date-picker");
     const picker = datepicker(pickerSelector, {
@@ -117,8 +137,7 @@ export class DatePicker {
 
       // Settings.
       alwaysShow: this.alwaysShow, // Never hide the calendar.
-      //dateSelected: new Date(defaultDateYear, defaultDateMonth, defaultDateDay), // Today is selected.
-      dateSelected: new Date(defaultDateYear, defaultDateMonth, defaultDateDay), // Today is selected.
+      dateSelected: new Date(defaultDateYear, defaultDateMonth, defaultDateDay),
       maxDate: new Date(maxDateYear, maxDateMonth, maxDateDay), // Jan 1st, 2099.
       minDate: new Date(minDateYear, minDateMonth, minDateDay), // June 1st, 2016.
       startDate: new Date(), // This month.

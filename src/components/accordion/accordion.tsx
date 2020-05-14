@@ -8,9 +8,13 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 export class Accordion {
   /**
    * The state of the toggle. Whether is disabled or not.
-   * Possible values: false, true
    */
   @Prop({ reflect: true }) disabled = false;
+
+  /**
+   * The aesthetical mode
+   */
+  @Prop({ reflect: true }) mode: modeType = "classical";
 
   /**
    * The toggle label
@@ -28,13 +32,52 @@ export class Accordion {
     this.tabClicked.emit(this.tabTitle);
   }
 
-  // toggleTab() {
-  //   if (this.open === false) {
-  //     this.open = true;
-  //   } else {
-  //     this.open = false;
-  //   }
-  // }
+  printIcon() {
+    if (this.open === true) {
+      if (this.mode === "classical") {
+        return <gxg-icon slot="icon" type="chevron-up" size="small"></gxg-icon>;
+      } else {
+        //tab alternate
+        return (
+          <gxg-icon
+            slot="icon"
+            type="chevron-up"
+            size="small"
+            color="negative"
+          ></gxg-icon>
+        );
+      }
+    } else {
+      //tab closed
+      if (this.mode === "classical") {
+        if (this.disabled) {
+          return (
+            <gxg-icon
+              slot="icon"
+              type="chevron-down"
+              size="small"
+              color="negative"
+            ></gxg-icon>
+          );
+        } else {
+          //tab not disabled
+          return (
+            <gxg-icon slot="icon" type="chevron-down" size="small"></gxg-icon>
+          );
+        }
+      } else {
+        //tab alternate
+        return (
+          <gxg-icon
+            slot="icon"
+            type="chevron-down"
+            size="small"
+            color="negative"
+          ></gxg-icon>
+        );
+      }
+    }
+  }
 
   render() {
     return (
@@ -42,17 +85,14 @@ export class Accordion {
         class={{
           tab: true,
           "tab--closed": this.open === false,
-          "tab--open": this.open === true
+          "tab--open": this.open === true,
+          "tab--disabled": this.disabled === true
         }}
         onClick={this.tabClickedHandler.bind(this)}
       >
         <header class="tab__header">
           <div class="tab__header__title">{this.tabTitle}</div>
-          {this.open === true ? (
-            <gxg-icon slot="icon" type="chevron-up" size="small"></gxg-icon>
-          ) : (
-            <gxg-icon slot="icon" type="chevron-down" size="small"></gxg-icon>
-          )}
+          {this.printIcon()}
         </header>
         {this.open === true ? (
           <div class="tab__container">
@@ -65,3 +105,5 @@ export class Accordion {
     );
   }
 }
+
+export type modeType = "classical" | "alternate";

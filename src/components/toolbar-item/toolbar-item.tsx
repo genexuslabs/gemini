@@ -29,7 +29,8 @@ export class ToolbarItem {
         }}
       >
         <div class="toolbar-item__label">
-          {this.title}:{this.subtitle}
+          <div class="toolbar-item__label__title">{this.title}</div>:
+          <div class="toolbar-item__label__subtitle">{this.subtitle}</div>
         </div>
         {this.includeIcon()}
       </div>

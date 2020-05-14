@@ -218,7 +218,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
     margin-right: 0;
   }
   &:hover:not([disabled]) {
-    background: transparent;
+    background: rgba(var(--color-primary-hover-rgb), 0.1);
     ::slotted([slot="icon"]) {
       --icon-color: #{$gxg-label--hover-color};
     }

@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { modeType } from "./components/accordion/accordion";
+import { modeType as modeType1 } from "./components/accordion-container/accordion-container";
 import { ActiveTime, AlertPosition, AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
@@ -17,9 +19,13 @@ import { footerAlignmentType } from "./components/modal/modal";
 export namespace Components {
   interface GxgAccordion {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled: boolean;
+    /**
+     * The aesthetical mode
+     */
+    mode: modeType;
     /**
      * The toggle state
      */
@@ -29,7 +35,20 @@ export namespace Components {
      */
     tabTitle: string;
   }
-  interface GxgAccordionContainer {}
+  interface GxgAccordionContainer {
+    /**
+     * The state of the toggle. Whether is disabled or not.
+     */
+    disabled: boolean;
+    /**
+     * The aesthetical mode
+     */
+    mode: modeType;
+    /**
+     * Wether only one accordion can be open at the same time or not.
+     */
+    singleTabOpen: boolean;
+  }
   interface GxgAlert {
     /**
      * Wether the alert is active (visible) or not (not visible).
@@ -490,6 +509,26 @@ export namespace Components {
      */
     width: string;
   }
+  interface GxgSpacerLayout {
+    /**
+     * Content justify
+     */
+    justifyContent: string;
+    /**
+     * The orientation
+     */
+    orientation: string;
+    /**
+     * The spacing value, taken from the "token-spacing" global values
+     */
+    space: string;
+  }
+  interface GxgSpacerOne {
+    /**
+     * The spacing value, taken from the "token-spacing" global values
+     */
+    space: string;
+  }
   interface GxgStepper {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -733,6 +772,20 @@ declare global {
     prototype: HTMLGxgSliderElement;
     new (): HTMLGxgSliderElement;
   };
+  interface HTMLGxgSpacerLayoutElement
+    extends Components.GxgSpacerLayout,
+      HTMLStencilElement {}
+  var HTMLGxgSpacerLayoutElement: {
+    prototype: HTMLGxgSpacerLayoutElement;
+    new (): HTMLGxgSpacerLayoutElement;
+  };
+  interface HTMLGxgSpacerOneElement
+    extends Components.GxgSpacerOne,
+      HTMLStencilElement {}
+  var HTMLGxgSpacerOneElement: {
+    prototype: HTMLGxgSpacerOneElement;
+    new (): HTMLGxgSpacerOneElement;
+  };
   interface HTMLGxgStepperElement
     extends Components.GxgStepper,
       HTMLStencilElement {}
@@ -817,6 +870,8 @@ declare global {
     "gxg-one-spacer": HTMLGxgOneSpacerElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-slider": HTMLGxgSliderElement;
+    "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
+    "gxg-spacer-one": HTMLGxgSpacerOneElement;
     "gxg-stepper": HTMLGxgStepperElement;
     "gxg-tab": HTMLGxgTabElement;
     "gxg-tab-bar": HTMLGxgTabBarElement;
@@ -831,9 +886,13 @@ declare global {
 declare namespace LocalJSX {
   interface GxgAccordion {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the toggle. Whether is disabled or not.
      */
     disabled?: boolean;
+    /**
+     * The aesthetical mode
+     */
+    mode?: modeType;
     onTabClicked?: (event: CustomEvent<any>) => void;
     /**
      * The toggle state
@@ -844,7 +903,20 @@ declare namespace LocalJSX {
      */
     tabTitle?: string;
   }
-  interface GxgAccordionContainer {}
+  interface GxgAccordionContainer {
+    /**
+     * The state of the toggle. Whether is disabled or not.
+     */
+    disabled?: boolean;
+    /**
+     * The aesthetical mode
+     */
+    mode?: modeType;
+    /**
+     * Wether only one accordion can be open at the same time or not.
+     */
+    singleTabOpen?: boolean;
+  }
   interface GxgAlert {
     /**
      * Wether the alert is active (visible) or not (not visible).
@@ -1317,6 +1389,26 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
+  interface GxgSpacerLayout {
+    /**
+     * Content justify
+     */
+    justifyContent?: string;
+    /**
+     * The orientation
+     */
+    orientation?: string;
+    /**
+     * The spacing value, taken from the "token-spacing" global values
+     */
+    space?: string;
+  }
+  interface GxgSpacerOne {
+    /**
+     * The spacing value, taken from the "token-spacing" global values
+     */
+    space?: string;
+  }
   interface GxgStepper {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1424,6 +1516,8 @@ declare namespace LocalJSX {
     "gxg-one-spacer": GxgOneSpacer;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-slider": GxgSlider;
+    "gxg-spacer-layout": GxgSpacerLayout;
+    "gxg-spacer-one": GxgSpacerOne;
     "gxg-stepper": GxgStepper;
     "gxg-tab": GxgTab;
     "gxg-tab-bar": GxgTabBar;
@@ -1483,6 +1577,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-slider": LocalJSX.GxgSlider &
         JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
+      "gxg-spacer-layout": LocalJSX.GxgSpacerLayout &
+        JSXBase.HTMLAttributes<HTMLGxgSpacerLayoutElement>;
+      "gxg-spacer-one": LocalJSX.GxgSpacerOne &
+        JSXBase.HTMLAttributes<HTMLGxgSpacerOneElement>;
       "gxg-stepper": LocalJSX.GxgStepper &
         JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
       "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;

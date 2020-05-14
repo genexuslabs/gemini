@@ -1,11 +1,11 @@
 import { Component, Prop, h, Host } from "@stencil/core";
 
 @Component({
-  tag: "gxg-layout-spacer",
-  styleUrl: "layout-spacer.scss",
+  tag: "gxg-spacer-layout",
+  styleUrl: "spacer-layout.scss",
   shadow: true
 })
-export class LayoutSpacer {
+export class SpacerLayout {
   /**
    * The spacing value, taken from the "token-spacing" global values
    */

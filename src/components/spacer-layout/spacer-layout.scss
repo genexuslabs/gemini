@@ -2,8 +2,6 @@
 @import "../../globals/mixins";
 
 :host {
-  background-color: red;
-  height: 300px;
 }
 
 /* Size chart:
@@ -116,14 +114,14 @@ Double extra large:   xxlarge
 :host(.center) {
   justify-content: center;
 }
-:host(.smallpace-between) {
+:host(.space-between) {
   justify-content: space-between;
   ::slotted(*) {
     margin-bottom: 0 !important;
     margin-right: 0 !important;
   }
 }
-:host(.smallpace-around) {
+:host(.space-around) {
   justify-content: space-around;
   ::slotted(*) {
     margin-bottom: 0 !important;

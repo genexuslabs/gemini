@@ -11,17 +11,23 @@
     }
     &__label {
       position: absolute;
+      display: flex;
       background-color: var(--color-primary-active);
       color: var(--color-on-primary);
       top: -20px;
       padding: 1px 5px;
       right: 0;
       opacity: 0;
+
+      &__title {
+      }
+      &__subtitle {
+        padding-left: 5px;
+      }
     }
     &:hover {
       .toolbar-item__label {
         height: var(--spacing-comp-04);
-        display: block;
         opacity: 1;
       }
       gxg-icon {

@@ -49,6 +49,7 @@ stories.add("Modal", () => {
   <gxg-modal id="modal" modal-title="${valueTitle}" width=${valueWidth} footer-alignment=${valueFooter}>
     ${valueContent}
     <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+    <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
     <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
   </gxg-modal>
   

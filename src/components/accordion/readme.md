@@ -4,11 +4,12 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                                                                       | Type      | Default |
-| ---------- | ----------- | --------------------------------------------------------------------------------- | --------- | ------- |
-| `disabled` | `disabled`  | The state of the toggle. Whether is disabled or not. Possible values: false, true | `boolean` | `false` |
-| `open`     | `open`      | The toggle state                                                                  | `boolean` | `false` |
-| `tabTitle` | `tab-title` | The toggle label                                                                  | `string`  | `"tab"` |
+| Property   | Attribute   | Description                                          | Type                         | Default       |
+| ---------- | ----------- | ---------------------------------------------------- | ---------------------------- | ------------- |
+| `disabled` | `disabled`  | The state of the toggle. Whether is disabled or not. | `boolean`                    | `false`       |
+| `mode`     | `mode`      | The aesthetical mode                                 | `"alternate" \| "classical"` | `"classical"` |
+| `open`     | `open`      | The toggle state                                     | `boolean`                    | `false`       |
+| `tabTitle` | `tab-title` | The toggle label                                     | `string`                     | `"tab"`       |
 
 ## Events
 
