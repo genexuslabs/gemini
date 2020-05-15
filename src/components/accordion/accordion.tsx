@@ -33,7 +33,7 @@ export class Accordion {
   }
 
   printIcon() {
-    if (this.open === true) {
+    if (this.open === true && !this.disabled) {
       if (this.mode === "classical") {
         return <gxg-icon slot="icon" type="chevron-up" size="small"></gxg-icon>;
       } else {
@@ -84,8 +84,6 @@ export class Accordion {
       <div
         class={{
           tab: true,
-          "tab--closed": this.open === false,
-          "tab--open": this.open === true,
           "tab--disabled": this.disabled === true
         }}
         onClick={this.tabClickedHandler.bind(this)}
@@ -94,7 +92,7 @@ export class Accordion {
           <div class="tab__header__title">{this.tabTitle}</div>
           {this.printIcon()}
         </header>
-        {this.open === true ? (
+        {this.open === true && !this.disabled ? (
           <div class="tab__container">
             <slot></slot>
           </div>

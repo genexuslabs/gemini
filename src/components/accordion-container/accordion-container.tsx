@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  h,
-  Host,
-  Listen,
-  State,
-  Prop
-} from "@stencil/core";
+import { Component, Element, h, Listen, State, Prop } from "@stencil/core";
 
 @Component({
   tag: "gxg-accordion-container",
@@ -74,11 +66,7 @@ export class AccordionContainer {
   }
 
   render() {
-    return (
-      <Host class={{}}>
-        <slot></slot>
-      </Host>
-    );
+    return <slot></slot>;
   }
 }
 
