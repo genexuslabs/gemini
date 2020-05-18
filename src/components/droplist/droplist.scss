@@ -1,0 +1,13 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  .drop-list {
+    display: inline-block;
+    padding-left: 0;
+  }
+  ::slotted(li) {
+    @include gxg-text();
+    list-style-type: none;
+  }
+}

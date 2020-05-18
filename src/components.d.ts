@@ -161,6 +161,26 @@ export namespace Components {
      */
     width: string;
   }
+  interface GxgDroplist {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+  }
+  interface GxgDroplistItem {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+  }
   interface GxgFormCheckbox {
     /**
      * Checkbox id
@@ -640,6 +660,20 @@ declare global {
     prototype: HTMLGxgDatePickerElement;
     new (): HTMLGxgDatePickerElement;
   };
+  interface HTMLGxgDroplistElement
+    extends Components.GxgDroplist,
+      HTMLStencilElement {}
+  var HTMLGxgDroplistElement: {
+    prototype: HTMLGxgDroplistElement;
+    new (): HTMLGxgDroplistElement;
+  };
+  interface HTMLGxgDroplistItemElement
+    extends Components.GxgDroplistItem,
+      HTMLStencilElement {}
+  var HTMLGxgDroplistItemElement: {
+    prototype: HTMLGxgDroplistItemElement;
+    new (): HTMLGxgDroplistItemElement;
+  };
   interface HTMLGxgFormCheckboxElement
     extends Components.GxgFormCheckbox,
       HTMLStencilElement {}
@@ -810,6 +844,8 @@ declare global {
     "gxg-card": HTMLGxgCardElement;
     "gxg-color-picker": HTMLGxgColorPickerElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
+    "gxg-droplist": HTMLGxgDroplistElement;
+    "gxg-droplist-item": HTMLGxgDroplistItemElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
@@ -983,6 +1019,26 @@ declare namespace LocalJSX {
      * input width
      */
     width?: string;
+  }
+  interface GxgDroplist {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+  }
+  interface GxgDroplistItem {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
   }
   interface GxgFormCheckbox {
     /**
@@ -1422,6 +1478,8 @@ declare namespace LocalJSX {
     "gxg-card": GxgCard;
     "gxg-color-picker": GxgColorPicker;
     "gxg-date-picker": GxgDatePicker;
+    "gxg-droplist": GxgDroplist;
+    "gxg-droplist-item": GxgDroplistItem;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-radio": GxgFormRadio;
@@ -1468,6 +1526,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
+      "gxg-droplist": LocalJSX.GxgDroplist &
+        JSXBase.HTMLAttributes<HTMLGxgDroplistElement>;
+      "gxg-droplist-item": LocalJSX.GxgDroplistItem &
+        JSXBase.HTMLAttributes<HTMLGxgDroplistItemElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
         JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
