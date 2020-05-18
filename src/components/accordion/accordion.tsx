@@ -24,7 +24,7 @@ export class Accordion {
   /**
    * The toggle state
    */
-  @Prop() open = false;
+  @Prop({ reflect: true }) status: statusType = "closed";
 
   @Event() tabClicked: EventEmitter;
 
@@ -33,9 +33,16 @@ export class Accordion {
   }
 
   printIcon() {
-    if (this.open === true && !this.disabled) {
+    if (this.status === "open" && !this.disabled) {
       if (this.mode === "classical") {
-        return <gxg-icon slot="icon" type="chevron-up" size="small"></gxg-icon>;
+        return (
+          <gxg-icon
+            slot="icon"
+            type="chevron-up"
+            size="small"
+            color="onbackground"
+          ></gxg-icon>
+        );
       } else {
         //tab alternate
         return (
@@ -62,7 +69,12 @@ export class Accordion {
         } else {
           //tab not disabled
           return (
-            <gxg-icon slot="icon" type="chevron-down" size="small"></gxg-icon>
+            <gxg-icon
+              slot="icon"
+              type="chevron-down"
+              size="small"
+              color="onbackground"
+            ></gxg-icon>
           );
         }
       } else {
@@ -92,7 +104,7 @@ export class Accordion {
           <div class="tab__header__title">{this.tabTitle}</div>
           {this.printIcon()}
         </header>
-        {this.open === true && !this.disabled ? (
+        {this.status === "open" && !this.disabled ? (
           <div class="tab__container">
             <slot></slot>
           </div>
@@ -105,3 +117,4 @@ export class Accordion {
 }
 
 export type modeType = "classical" | "alternate";
+export type statusType = "open" | "closed";

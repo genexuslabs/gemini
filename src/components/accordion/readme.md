@@ -8,7 +8,7 @@
 | ---------- | ----------- | ---------------------------------------------------- | ---------------------------- | ------------- |
 | `disabled` | `disabled`  | The state of the toggle. Whether is disabled or not. | `boolean`                    | `false`       |
 | `mode`     | `mode`      | The aesthetical mode                                 | `"alternate" \| "classical"` | `"classical"` |
-| `open`     | `open`      | The toggle state                                     | `boolean`                    | `false`       |
+| `status`   | `status`    | The toggle state                                     | `"closed" \| "open"`         | `"closed"`    |
 | `tabTitle` | `tab-title` | The toggle label                                     | `string`                     | `"tab"`       |
 
 ## Events

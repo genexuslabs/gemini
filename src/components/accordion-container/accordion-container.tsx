@@ -31,21 +31,41 @@ export class AccordionContainer {
       const title = (accordion as HTMLGxgAccordionElement).tabTitle;
       if (this.singleTabOpen) {
         if (title === event.detail) {
-          if ((accordion as HTMLGxgAccordionElement).hasAttribute("open")) {
-            (accordion as HTMLGxgAccordionElement).removeAttribute("open");
+          if (
+            (accordion as HTMLGxgAccordionElement).getAttribute("status") ===
+            "open"
+          ) {
+            (accordion as HTMLGxgAccordionElement).setAttribute(
+              "status",
+              "closed"
+            );
           } else {
-            (accordion as HTMLGxgAccordionElement).setAttribute("open", "open");
+            (accordion as HTMLGxgAccordionElement).setAttribute(
+              "status",
+              "open"
+            );
           }
         } else {
-          (accordion as HTMLGxgAccordionElement).removeAttribute("open");
+          (accordion as HTMLGxgAccordionElement).setAttribute(
+            "status",
+            "close"
+          );
         }
       } else {
-        console.log("single tab not open");
         if (title === event.detail) {
-          if ((accordion as HTMLGxgAccordionElement).hasAttribute("open")) {
-            (accordion as HTMLGxgAccordionElement).removeAttribute("open");
+          if (
+            (accordion as HTMLGxgAccordionElement).getAttribute("status") ===
+            "open"
+          ) {
+            (accordion as HTMLGxgAccordionElement).setAttribute(
+              "status",
+              "close"
+            );
           } else {
-            (accordion as HTMLGxgAccordionElement).setAttribute("open", "open");
+            (accordion as HTMLGxgAccordionElement).setAttribute(
+              "status",
+              "open"
+            );
           }
         }
       }
@@ -54,6 +74,39 @@ export class AccordionContainer {
 
   componentDidLoad() {
     this.accordions = this.el.querySelectorAll("gxg-accordion");
+
+    if (this.singleTabOpen) {
+      /* If "single-tab-open" is true, and more than one accordion has the "open" property, 
+      show only the first accordion open.*/
+      let numberOfOpenAccordions = 0;
+      this.accordions.forEach(accordion => {
+        if (
+          (accordion as HTMLGxgAccordionElement).getAttribute("status") ===
+          "open"
+        ) {
+          numberOfOpenAccordions++;
+        }
+      });
+      if (numberOfOpenAccordions > 1) {
+        let firstOpenAccordionFounded = false;
+        this.accordions.forEach(accordion => {
+          if (
+            (accordion as HTMLGxgAccordionElement).getAttribute("status") ===
+            "open"
+          ) {
+            if (firstOpenAccordionFounded) {
+              (accordion as HTMLGxgAccordionElement).setAttribute(
+                "status",
+                "closed"
+              );
+            } else {
+              firstOpenAccordionFounded = true;
+            }
+          }
+        });
+      }
+    }
+
     this.accordions.forEach(accordion => {
       (accordion as HTMLGxgAccordionElement).setAttribute("mode", this.mode);
       if (this.disabled) {

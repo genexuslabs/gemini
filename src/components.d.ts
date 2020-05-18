@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { modeType } from "./components/accordion/accordion";
+import { modeType, statusType } from "./components/accordion/accordion";
 import { modeType as modeType1 } from "./components/accordion-container/accordion-container";
 import { ActiveTime, AlertPosition, AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
@@ -30,7 +30,7 @@ export namespace Components {
     /**
      * The toggle state
      */
-    open: boolean;
+    status: statusType;
     /**
      * The toggle label
      */
@@ -850,7 +850,7 @@ declare namespace LocalJSX {
     /**
      * The toggle state
      */
-    open?: boolean;
+    status?: statusType;
     /**
      * The toggle label
      */
