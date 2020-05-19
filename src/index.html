@@ -144,15 +144,12 @@
     <gxg-color-picker></gxg-color-picker>
 
     <h2>Accordion</h2>
-    <gxg-accordion-container mode="alternate" disabled>
+    <gxg-accordion-container>
       <gxg-accordion tab-title="tab-01" status="open"
         >some content on accordion 1.</gxg-accordion
       >
       <gxg-accordion tab-title="tab-02"
         >some content on accordion 2.</gxg-accordion
-      >
-      <gxg-accordion tab-title="tab-03"
-        >some content on accordion 3.</gxg-accordion
       >
     </gxg-accordion-container>
     <br /><br /><br /><br /><br />
@@ -889,7 +886,9 @@
           document.getElementById(alertId).setAttribute("active", "true");
         }
       </script>
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button>
+      <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+        >Show alert more info</gxg-button
+      >
       <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
         >Show alert error</gxg-button
       >

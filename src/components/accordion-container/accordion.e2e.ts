@@ -21,7 +21,7 @@ describe("gxg-accordion-container-01", () => {
 
     await page.setContent(
       `<gxg-accordion-container>
-        <gxg-accordion tab-title="tab-01" open>some content on accordion 1.</gxg-accordion>
+        <gxg-accordion tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion>
         <gxg-accordion tab-title="tab-02">some content on accordion 2.</gxg-accordion>
       </gxg-accordion-container>`
     );
@@ -113,7 +113,7 @@ describe("gxg-accordion-container-02", () => {
 
     await page.setContent(
       `<gxg-accordion-container disabled>
-        <gxg-accordion tab-title="tab-01" open>some content on accordion 1.</gxg-accordion>
+        <gxg-accordion tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion>
         <gxg-accordion tab-title="tab-02">some content on accordion 2.</gxg-accordion>
       </gxg-accordion-container>`
     );
