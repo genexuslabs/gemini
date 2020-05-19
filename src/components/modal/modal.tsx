@@ -33,6 +33,11 @@ export class Modal {
    */
   @Prop() zIndex = "10";
 
+  componentDidLoad() {
+    this.el.style.display = "block";
+    this.el.style.zIndex = "-1";
+  }
+
   closeModal() {
     this.visible = false;
   }
@@ -42,6 +47,7 @@ export class Modal {
     const modal = this.el;
     if (newValue === true) {
       this.el.removeAttribute("hidden");
+      this.el.style.zIndex = this.zIndex;
       setTimeout(function() {
         modal.classList.add("visible");
       }, 250);
@@ -49,13 +55,14 @@ export class Modal {
       modal.classList.remove("visible");
       setTimeout(function() {
         modal.setAttribute("hidden", "hidden");
+        modal.style.zIndex = "-1";
       }, 500);
     }
   }
 
   render() {
     return (
-      <Host hidden style={{ "z-index": this.zIndex }}>
+      <Host hidden style={{ "z-index": this.zIndex, display: "none" }}>
         <div class="modal" style={{ width: this.width }}>
           <header class="modal__header">
             <span class="modal__header__title">{this.modalTitle}</span>

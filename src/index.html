@@ -35,6 +35,32 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
+    <h2>Modal</h2>
+    <gxg-modal
+      style="dislpay:none"
+      id="modal"
+      modal-title="Modal Title"
+      footer-alignment="right"
+      z-index="20"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
+      voluptatibus harum minima aut id architecto adipisci tempore numquam
+      explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
+      <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+      <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+      <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+    </gxg-modal>
+
+    <gxg-button
+      style="margin-top:30px"
+      onClick="(function(){
+      const modal = document.getElementById('modal');
+      modal.setAttribute('visible','true');
+      return false;
+    })();return false;"
+      >Launch Modal</gxg-button
+    >
+
     <h2>Droplist</h2>
     <gxg-droplist>
       <gxg-droplist-item>Item 1</gxg-droplist-item>
