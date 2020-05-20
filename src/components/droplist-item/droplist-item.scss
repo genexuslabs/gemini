@@ -1,0 +1,18 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  .list-item {
+    padding-left: 0;
+    @include gxg-text();
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding-right: var(--spacing-comp-04);
+    cursor: grab;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
+  }
+}
