@@ -405,6 +405,26 @@ export namespace Components {
      */
     type: IconType;
   }
+  interface GxgList {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+  }
+  interface GxgListItem {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+  }
   interface GxgMenu {
     fullWidth: boolean;
     menuTitle: string;
@@ -694,6 +714,18 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+  interface HTMLGxgListElement extends Components.GxgList, HTMLStencilElement {}
+  var HTMLGxgListElement: {
+    prototype: HTMLGxgListElement;
+    new (): HTMLGxgListElement;
+  };
+  interface HTMLGxgListItemElement
+    extends Components.GxgListItem,
+      HTMLStencilElement {}
+  var HTMLGxgListItemElement: {
+    prototype: HTMLGxgListItemElement;
+    new (): HTMLGxgListItemElement;
+  };
   interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
   var HTMLGxgMenuElement: {
     prototype: HTMLGxgMenuElement;
@@ -818,6 +850,8 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-list": HTMLGxgListElement;
+    "gxg-list-item": HTMLGxgListItemElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
@@ -1236,6 +1270,26 @@ declare namespace LocalJSX {
      */
     type?: IconType;
   }
+  interface GxgList {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+  }
+  interface GxgListItem {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+  }
   interface GxgMenu {
     fullWidth?: boolean;
     menuTitle?: string;
@@ -1430,6 +1484,8 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
+    "gxg-list": GxgList;
+    "gxg-list-item": GxgListItem;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
@@ -1483,6 +1539,9 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-list": LocalJSX.GxgList & JSXBase.HTMLAttributes<HTMLGxgListElement>;
+      "gxg-list-item": LocalJSX.GxgListItem &
+        JSXBase.HTMLAttributes<HTMLGxgListItemElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;

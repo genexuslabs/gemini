@@ -144,6 +144,7 @@ describe("gxg-accordion-container-02", () => {
     accordion2Title = await page.find(
       "gxg-accordion[tab-title='tab-02'] >>> .tab__header__title"
     );
+    // expect(accordion2Title).not.toBeNull();
   });
 
   it("has the right classes", async () => {
