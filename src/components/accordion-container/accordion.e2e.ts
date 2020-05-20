@@ -1,18 +1,16 @@
 import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
 
 //ACCORDION CONTAINER WITHOUT ANY ATTRIBUTES
-describe("gxg-accordion-container-01", () => {
+describe("gxg-accordion-container-without-attributes", () => {
   let page: E2EPage;
   //accordion container
   let accordionContainer: E2EElement;
   //accordion 1
   let accordion1: E2EElement;
-  let accordion1Header: E2EElement;
   let accordion1Title: E2EElement;
   let accordion1Icon: E2EElement;
   //accordion 2
   let accordion2: E2EElement;
-  let accordion2Header: E2EElement;
   let accordion2Title: E2EElement;
   let accordion2Icon: E2EElement;
 
@@ -29,9 +27,7 @@ describe("gxg-accordion-container-01", () => {
     accordionContainer = await page.find("gxg-accordion-container");
     //accordion 1
     accordion1 = await page.find("gxg-accordion[tab-title='tab-01']");
-    accordion1Header = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> .tab__header"
-    );
+
     accordion1Icon = await page.find(
       "gxg-accordion[tab-title='tab-01'] >>> gxg-icon"
     );
@@ -41,9 +37,6 @@ describe("gxg-accordion-container-01", () => {
     );
     //accordion 2
     accordion2 = await page.find("gxg-accordion[tab-title='tab-02']");
-    accordion2Header = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> .tab__header"
-    );
     accordion2Icon = await page.find(
       "gxg-accordion[tab-title='tab-02'] >>> gxg-icon"
     );
@@ -53,6 +46,13 @@ describe("gxg-accordion-container-01", () => {
   });
 
   it("has the right classes", async () => {
+    const accordion1Header: E2EElement = await page.find(
+      "gxg-accordion[tab-title='tab-01'] >>> .tab__header"
+    );
+    const accordion2Header: E2EElement = await page.find(
+      "gxg-accordion[tab-title='tab-02'] >>> .tab__header"
+    );
+
     //accordion container
     expect(accordionContainer).toHaveClass("hydrated");
     //accordion1
@@ -93,7 +93,7 @@ describe("gxg-accordion-container-01", () => {
 });
 
 //ACCORDION CONTAINER DISABLED
-describe("gxg-accordion-container-02", () => {
+describe("gxg-accordion-container-disabled", () => {
   let page: E2EPage;
   //accordion container
   let accordionContainer: E2EElement;
@@ -180,7 +180,7 @@ describe("gxg-accordion-container-02", () => {
 });
 
 //ACCORDION CONTAINER SINGLE TAB OPEN
-describe("gxg-accordion-container-03", () => {
+describe("gxg-accordion-container-single-tab-open", () => {
   let page: E2EPage;
 
   //accordion 1
@@ -259,7 +259,7 @@ describe("gxg-accordion-container-03", () => {
 });
 
 //ACCORDION ALTERNATE
-describe("gxg-accordion-container-04", () => {
+describe("gxg-accordion-container-alternate", () => {
   let page: E2EPage;
 
   //accordion 1
@@ -306,7 +306,7 @@ describe("gxg-accordion-container-04", () => {
   it("has 'open' attribute", async () => {
     //accordion1
     expect(accordion1).toEqualAttribute("mode", "alternate");
-    expect(accordion1Icon).toEqualAttribute("type", "chevron-up");
+    expect(accordion1Icon).toEqualAttribute("type", "chevron-down");
     expect(accordion1Icon).toEqualAttribute("size", "small");
     expect(accordion1Icon).toEqualAttribute("color", "negative");
     //accordion2
@@ -323,7 +323,7 @@ describe("gxg-accordion-container-04", () => {
 });
 
 //ACCORDION ALTERNATE DISABLED
-describe("gxg-accordion-container-05", () => {
+describe("gxg-accordion-container-alternate-disabled", () => {
   let page: E2EPage;
 
   //accordion 1
@@ -343,7 +343,7 @@ describe("gxg-accordion-container-05", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-accordion-container mode="alternate">
+      `<gxg-accordion-container mode="alternate" disabled>
         <gxg-accordion tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion>
         <gxg-accordion tab-title="tab-02">some content on accordion 2.</gxg-accordion>
         <gxg-accordion tab-title="tab-03">some content on accordion 3.</gxg-accordion>

@@ -75,6 +75,13 @@ export class AccordionContainer {
   componentDidLoad() {
     this.accordions = this.el.querySelectorAll("gxg-accordion");
 
+    //Disabled
+    if (this.disabled) {
+      this.accordions.forEach(accordion => {
+        (accordion as HTMLGxgAccordionElement).setAttribute("status", "closed");
+      });
+    }
+
     if (this.singleTabOpen) {
       /* If "single-tab-open" is true, and more than one accordion has the "open" property, 
       show only the first accordion open.*/
