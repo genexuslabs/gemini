@@ -161,26 +161,6 @@ export namespace Components {
      */
     width: string;
   }
-  interface GxgDroplist {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled: boolean;
-    /**
-     * The toggle label
-     */
-    label: string;
-  }
-  interface GxgDroplistItem {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled: boolean;
-    /**
-     * The toggle label
-     */
-    label: string;
-  }
   interface GxgFormCheckbox {
     /**
      * Checkbox id
@@ -212,6 +192,10 @@ export namespace Components {
      * The kind of message Possible values: error, warning
      */
     type: MessageType;
+  }
+  interface GxgFormOption {
+    selected: boolean;
+    value: string;
   }
   interface GxgFormRadio {
     /**
@@ -254,6 +238,52 @@ export namespace Components {
     inlineFlex: boolean;
   }
   interface GxgFormSelect {
+    /**
+     * If select is disabled
+     */
+    disabled: boolean;
+    /**
+     * If select has errors
+     */
+    error: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
+    /**
+     * The select label
+     */
+    label: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    maxVisibleOptions: string;
+    /**
+     * The select name
+     */
+    name: string;
+    /**
+     * If required
+     */
+    required: boolean;
+    /**
+     * The select id
+     */
+    selectId: string;
+    /**
+     * The selected option
+     */
+    value: string;
+    /**
+     * If select has warnings
+     */
+    warning: boolean;
+    /**
+     * The select width
+     */
+    width: string;
+  }
+  interface GxgFormSelectNew {
     /**
      * If select is disabled
      */
@@ -660,20 +690,6 @@ declare global {
     prototype: HTMLGxgDatePickerElement;
     new (): HTMLGxgDatePickerElement;
   };
-  interface HTMLGxgDroplistElement
-    extends Components.GxgDroplist,
-      HTMLStencilElement {}
-  var HTMLGxgDroplistElement: {
-    prototype: HTMLGxgDroplistElement;
-    new (): HTMLGxgDroplistElement;
-  };
-  interface HTMLGxgDroplistItemElement
-    extends Components.GxgDroplistItem,
-      HTMLStencilElement {}
-  var HTMLGxgDroplistItemElement: {
-    prototype: HTMLGxgDroplistItemElement;
-    new (): HTMLGxgDroplistItemElement;
-  };
   interface HTMLGxgFormCheckboxElement
     extends Components.GxgFormCheckbox,
       HTMLStencilElement {}
@@ -687,6 +703,13 @@ declare global {
   var HTMLGxgFormMessageElement: {
     prototype: HTMLGxgFormMessageElement;
     new (): HTMLGxgFormMessageElement;
+  };
+  interface HTMLGxgFormOptionElement
+    extends Components.GxgFormOption,
+      HTMLStencilElement {}
+  var HTMLGxgFormOptionElement: {
+    prototype: HTMLGxgFormOptionElement;
+    new (): HTMLGxgFormOptionElement;
   };
   interface HTMLGxgFormRadioElement
     extends Components.GxgFormRadio,
@@ -708,6 +731,13 @@ declare global {
   var HTMLGxgFormSelectElement: {
     prototype: HTMLGxgFormSelectElement;
     new (): HTMLGxgFormSelectElement;
+  };
+  interface HTMLGxgFormSelectNewElement
+    extends Components.GxgFormSelectNew,
+      HTMLStencilElement {}
+  var HTMLGxgFormSelectNewElement: {
+    prototype: HTMLGxgFormSelectNewElement;
+    new (): HTMLGxgFormSelectNewElement;
   };
   interface HTMLGxgFormTextElement
     extends Components.GxgFormText,
@@ -844,13 +874,13 @@ declare global {
     "gxg-card": HTMLGxgCardElement;
     "gxg-color-picker": HTMLGxgColorPickerElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
-    "gxg-droplist": HTMLGxgDroplistElement;
-    "gxg-droplist-item": HTMLGxgDroplistItemElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
+    "gxg-form-option": HTMLGxgFormOptionElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
     "gxg-form-radio-wrapper": HTMLGxgFormRadioWrapperElement;
     "gxg-form-select": HTMLGxgFormSelectElement;
+    "gxg-form-select-new": HTMLGxgFormSelectNewElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
@@ -1020,26 +1050,6 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
-  interface GxgDroplist {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled?: boolean;
-    /**
-     * The toggle label
-     */
-    label?: string;
-  }
-  interface GxgDroplistItem {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled?: boolean;
-    /**
-     * The toggle label
-     */
-    label?: string;
-  }
   interface GxgFormCheckbox {
     /**
      * Checkbox id
@@ -1072,6 +1082,10 @@ declare namespace LocalJSX {
      * The kind of message Possible values: error, warning
      */
     type?: MessageType;
+  }
+  interface GxgFormOption {
+    selected?: boolean;
+    value?: string;
   }
   interface GxgFormRadio {
     /**
@@ -1115,6 +1129,54 @@ declare namespace LocalJSX {
     inlineFlex?: boolean;
   }
   interface GxgFormSelect {
+    /**
+     * If select is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If select has errors
+     */
+    error?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
+    /**
+     * The select label
+     */
+    label?: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    maxVisibleOptions?: string;
+    /**
+     * The select name
+     */
+    name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
+    onInput?: (event: CustomEvent<any>) => void;
+    /**
+     * If required
+     */
+    required?: boolean;
+    /**
+     * The select id
+     */
+    selectId?: string;
+    /**
+     * The selected option
+     */
+    value?: string;
+    /**
+     * If select has warnings
+     */
+    warning?: boolean;
+    /**
+     * The select width
+     */
+    width?: string;
+  }
+  interface GxgFormSelectNew {
     /**
      * If select is disabled
      */
@@ -1478,13 +1540,13 @@ declare namespace LocalJSX {
     "gxg-card": GxgCard;
     "gxg-color-picker": GxgColorPicker;
     "gxg-date-picker": GxgDatePicker;
-    "gxg-droplist": GxgDroplist;
-    "gxg-droplist-item": GxgDroplistItem;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
+    "gxg-form-option": GxgFormOption;
     "gxg-form-radio": GxgFormRadio;
     "gxg-form-radio-wrapper": GxgFormRadioWrapper;
     "gxg-form-select": GxgFormSelect;
+    "gxg-form-select-new": GxgFormSelectNew;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
@@ -1526,20 +1588,20 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
-      "gxg-droplist": LocalJSX.GxgDroplist &
-        JSXBase.HTMLAttributes<HTMLGxgDroplistElement>;
-      "gxg-droplist-item": LocalJSX.GxgDroplistItem &
-        JSXBase.HTMLAttributes<HTMLGxgDroplistItemElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
         JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
+      "gxg-form-option": LocalJSX.GxgFormOption &
+        JSXBase.HTMLAttributes<HTMLGxgFormOptionElement>;
       "gxg-form-radio": LocalJSX.GxgFormRadio &
         JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
       "gxg-form-radio-wrapper": LocalJSX.GxgFormRadioWrapper &
         JSXBase.HTMLAttributes<HTMLGxgFormRadioWrapperElement>;
       "gxg-form-select": LocalJSX.GxgFormSelect &
         JSXBase.HTMLAttributes<HTMLGxgFormSelectElement>;
+      "gxg-form-select-new": LocalJSX.GxgFormSelectNew &
+        JSXBase.HTMLAttributes<HTMLGxgFormSelectNewElement>;
       "gxg-form-text": LocalJSX.GxgFormText &
         JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &

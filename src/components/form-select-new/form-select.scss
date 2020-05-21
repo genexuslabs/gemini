@@ -1,0 +1,182 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  --maxVisibleOptions: 3; //This value can be set from the user as a property
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+:host([full-width]) {
+  display: block;
+  width: 100% !important;
+}
+:host([full-width]) .outer-wrapper {
+  width: 100%;
+}
+
+/*****************************************************
+FORM ELEMENT WRAPPER
+*****************************************************/
+:host {
+  .outer-wrapper {
+    @include form-element-common-styles-wrapper();
+  }
+}
+
+/*****************************************************
+LABEL
+*****************************************************/
+:host {
+  label {
+    @include form-element-common-styles-label();
+  }
+  textarea {
+    @include gxg-text();
+  }
+}
+
+/*****************************************************
+SELECT
+*****************************************************/
+/*the container must be positioned relative:*/
+:host {
+  .custom-select {
+    position: relative;
+    font-family: var(--font-family-primary);
+  }
+  .custom-select select {
+    display: none; /*hide original SELECT element:*/
+  }
+  .select-selected {
+    background-color: var(--color-on-primary);
+    border-width: var(--border-width-sm);
+    border-color: var(--gray-04);
+    border-style: var(--border-style-regular);
+
+    &:focus {
+      @include form-element-common-styles-focus-type-1();
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      @include form-element-common-styles-disabled();
+    }
+  }
+  /*style the arrow inside the select element:*/
+  .select-selected:after,
+  .select-selected:before {
+    position: absolute;
+    content: "";
+    right: 6px;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-color: var(--gray-05) transparent transparent transparent;
+  }
+  .select-selected:after {
+    top: 15px;
+  }
+  .select-selected:before {
+    top: 3px;
+    transform: rotate(180deg);
+  }
+
+  .select-selected:hover:after,
+  .select-selected:hover:before {
+    border-color: var(--gray-04) transparent transparent transparent;
+  }
+
+  /*style the items (options), including the selected item:*/
+  .select-items div,
+  .select-selected {
+    color: var(--color-on-background);
+    padding: var(--spacing-comp-01);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    line-height: 1.4em;
+  }
+  .select-items div {
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    border: 1px solid transparent;
+    //@include ui-animation(background-color);
+  }
+  /*style items (options):*/
+  .select-items {
+    color: var(--color-on-background);
+    position: absolute;
+    background-color: var(--color-on-primary);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-width: var(--border-width-sm);
+    border-color: var(--gray-04);
+    border-style: var(--border-style-regular);
+    border-top: 0;
+    overflow-y: scroll;
+    border-bottom-right-radius: var(--border-radius-md);
+    border-bottom-left-radius: var(--border-radius-md);
+    max-height: calc(
+      var(--maxVisibleOptions) * 25px
+    ); //25px is the actual height of an option
+  }
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+    display: none;
+  }
+  .select-items div:hover {
+    background-color: var(--color-secondary-hover);
+    color: var(--color-on-primary);
+  }
+  .select-items div.same-as-selected {
+    background-color: var(--color-secondary-active);
+    color: var(--color-on-primary);
+  }
+}
+
+/*****************************************************
+SCROLLBAR
+*****************************************************/
+:host {
+  // Scroll bar
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: var(--gray-02);
+    border-radius: 10px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-05);
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-04);
+    cursor: pointer;
+  }
+}
+
+/*****************************************************
+ERROR & WARNING
+*****************************************************/
+:host {
+  .select--error {
+    .select-selected {
+      @include form-element-common-styles-error();
+    }
+  }
+  .select--warning {
+    .select-selected {
+      @include form-element-common-styles-warning();
+    }
+  }
+  .select--error .select-selected {
+    //color: #1c1b1b; //No token color here, because we need the same color for both, light and dark mode
+  }
+}
