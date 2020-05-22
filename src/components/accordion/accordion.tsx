@@ -88,9 +88,8 @@ export class Accordion {
           "tab--open": this.open === true,
           "tab--disabled": this.disabled === true
         }}
-        onClick={this.tabClickedHandler.bind(this)}
       >
-        <header class="tab__header">
+        <header class="tab__header" onClick={this.tabClickedHandler.bind(this)}>
           <div class="tab__header__title">{this.tabTitle}</div>
           {this.printIcon()}
         </header>

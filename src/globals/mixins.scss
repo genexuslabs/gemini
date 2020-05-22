@@ -187,7 +187,6 @@ FORM ELEMENTS
 
 @mixin form-element-common-styles-label {
   @include gxg-text();
-  margin-bottom: var(--spacing-comp-01);
   display: flex;
 }
 @mixin form-element-common-styles {

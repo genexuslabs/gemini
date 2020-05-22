@@ -7,7 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { modeType } from "./components/accordion/accordion";
 import { modeType as modeType1 } from "./components/accordion-container/accordion-container";
-import { ActiveTime, AlertPosition, AlertType } from "./components/alert/alert";
+import {
+  ActiveTime,
+  AlertPosition,
+  AlertType,
+  Spacing
+} from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import { ShadowType } from "./components/card/card";
@@ -66,11 +71,15 @@ export namespace Components {
     /**
      * The alert bottom position value
      */
-    bottom: string;
+    bottom: Spacing;
+    /**
+     * Whether the alert is full width or not
+     */
+    fullWidth: boolean;
     /**
      * The alert left position value
      */
-    left: string;
+    left: Spacing;
     /**
      * The alert position.
      */
@@ -78,7 +87,7 @@ export namespace Components {
     /**
      * The alert right position value
      */
-    right: string;
+    right: Spacing;
     /**
      * The type of alert
      */
@@ -145,6 +154,10 @@ export namespace Components {
      */
     defaultDate: string;
     /**
+     * label
+     */
+    label: string;
+    /**
      * max date
      */
     maxDate: string;
@@ -193,10 +206,6 @@ export namespace Components {
      */
     type: MessageType;
   }
-  interface GxgFormOption {
-    selected: boolean;
-    value: string;
-  }
   interface GxgFormRadio {
     /**
      * Radio id
@@ -236,98 +245,6 @@ export namespace Components {
      * Inline-flex display
      */
     inlineFlex: boolean;
-  }
-  interface GxgFormSelect {
-    /**
-     * If select is disabled
-     */
-    disabled: boolean;
-    /**
-     * If select has errors
-     */
-    error: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth: boolean;
-    /**
-     * The select label
-     */
-    label: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions: string;
-    /**
-     * The select name
-     */
-    name: string;
-    /**
-     * If required
-     */
-    required: boolean;
-    /**
-     * The select id
-     */
-    selectId: string;
-    /**
-     * The selected option
-     */
-    value: string;
-    /**
-     * If select has warnings
-     */
-    warning: boolean;
-    /**
-     * The select width
-     */
-    width: string;
-  }
-  interface GxgFormSelectNew {
-    /**
-     * If select is disabled
-     */
-    disabled: boolean;
-    /**
-     * If select has errors
-     */
-    error: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth: boolean;
-    /**
-     * The select label
-     */
-    label: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions: string;
-    /**
-     * The select name
-     */
-    name: string;
-    /**
-     * If required
-     */
-    required: boolean;
-    /**
-     * The select id
-     */
-    selectId: string;
-    /**
-     * The selected option
-     */
-    value: string;
-    /**
-     * If select has warnings
-     */
-    warning: boolean;
-    /**
-     * The select width
-     */
-    width: string;
   }
   interface GxgFormText {
     /**
@@ -488,6 +405,10 @@ export namespace Components {
      */
     zIndex: string;
   }
+  interface GxgOption {
+    selected: boolean;
+    value: string;
+  }
   interface GxgProgressBar {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -503,6 +424,52 @@ export namespace Components {
     value: number;
     /**
      * The width
+     */
+    width: string;
+  }
+  interface GxgSelect {
+    /**
+     * If select is disabled
+     */
+    disabled: boolean;
+    /**
+     * If select has errors
+     */
+    error: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
+    /**
+     * The select label
+     */
+    label: string;
+    /**
+     * The select name
+     */
+    name: string;
+    /**
+     * If required
+     */
+    required: boolean;
+    /**
+     * The select id
+     */
+    selectId: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    size: string;
+    /**
+     * The selected option
+     */
+    value: string;
+    /**
+     * If select has warnings
+     */
+    warning: boolean;
+    /**
+     * The select width
      */
     width: string;
   }
@@ -704,13 +671,6 @@ declare global {
     prototype: HTMLGxgFormMessageElement;
     new (): HTMLGxgFormMessageElement;
   };
-  interface HTMLGxgFormOptionElement
-    extends Components.GxgFormOption,
-      HTMLStencilElement {}
-  var HTMLGxgFormOptionElement: {
-    prototype: HTMLGxgFormOptionElement;
-    new (): HTMLGxgFormOptionElement;
-  };
   interface HTMLGxgFormRadioElement
     extends Components.GxgFormRadio,
       HTMLStencilElement {}
@@ -724,20 +684,6 @@ declare global {
   var HTMLGxgFormRadioWrapperElement: {
     prototype: HTMLGxgFormRadioWrapperElement;
     new (): HTMLGxgFormRadioWrapperElement;
-  };
-  interface HTMLGxgFormSelectElement
-    extends Components.GxgFormSelect,
-      HTMLStencilElement {}
-  var HTMLGxgFormSelectElement: {
-    prototype: HTMLGxgFormSelectElement;
-    new (): HTMLGxgFormSelectElement;
-  };
-  interface HTMLGxgFormSelectNewElement
-    extends Components.GxgFormSelectNew,
-      HTMLStencilElement {}
-  var HTMLGxgFormSelectNewElement: {
-    prototype: HTMLGxgFormSelectNewElement;
-    new (): HTMLGxgFormSelectNewElement;
   };
   interface HTMLGxgFormTextElement
     extends Components.GxgFormText,
@@ -777,12 +723,26 @@ declare global {
     prototype: HTMLGxgModalElement;
     new (): HTMLGxgModalElement;
   };
+  interface HTMLGxgOptionElement
+    extends Components.GxgOption,
+      HTMLStencilElement {}
+  var HTMLGxgOptionElement: {
+    prototype: HTMLGxgOptionElement;
+    new (): HTMLGxgOptionElement;
+  };
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
       HTMLStencilElement {}
   var HTMLGxgProgressBarElement: {
     prototype: HTMLGxgProgressBarElement;
     new (): HTMLGxgProgressBarElement;
+  };
+  interface HTMLGxgSelectElement
+    extends Components.GxgSelect,
+      HTMLStencilElement {}
+  var HTMLGxgSelectElement: {
+    prototype: HTMLGxgSelectElement;
+    new (): HTMLGxgSelectElement;
   };
   interface HTMLGxgSliderElement
     extends Components.GxgSlider,
@@ -876,18 +836,17 @@ declare global {
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
-    "gxg-form-option": HTMLGxgFormOptionElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
     "gxg-form-radio-wrapper": HTMLGxgFormRadioWrapperElement;
-    "gxg-form-select": HTMLGxgFormSelectElement;
-    "gxg-form-select-new": HTMLGxgFormSelectNewElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
+    "gxg-option": HTMLGxgOptionElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
+    "gxg-select": HTMLGxgSelectElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
     "gxg-spacer-one": HTMLGxgSpacerOneElement;
@@ -952,11 +911,15 @@ declare namespace LocalJSX {
     /**
      * The alert bottom position value
      */
-    bottom?: string;
+    bottom?: Spacing;
+    /**
+     * Whether the alert is full width or not
+     */
+    fullWidth?: boolean;
     /**
      * The alert left position value
      */
-    left?: string;
+    left?: Spacing;
     /**
      * The alert position.
      */
@@ -964,7 +927,7 @@ declare namespace LocalJSX {
     /**
      * The alert right position value
      */
-    right?: string;
+    right?: Spacing;
     /**
      * The type of alert
      */
@@ -1034,6 +997,10 @@ declare namespace LocalJSX {
      */
     defaultDate?: string;
     /**
+     * label
+     */
+    label?: string;
+    /**
      * max date
      */
     maxDate?: string;
@@ -1083,10 +1050,6 @@ declare namespace LocalJSX {
      */
     type?: MessageType;
   }
-  interface GxgFormOption {
-    selected?: boolean;
-    value?: string;
-  }
   interface GxgFormRadio {
     /**
      * Radio id
@@ -1109,6 +1072,7 @@ declare namespace LocalJSX {
      */
     name?: string;
     onChange?: (event: CustomEvent<any>) => void;
+    onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
      * Radio value
      */
@@ -1127,102 +1091,6 @@ declare namespace LocalJSX {
      * Inline-flex display
      */
     inlineFlex?: boolean;
-  }
-  interface GxgFormSelect {
-    /**
-     * If select is disabled
-     */
-    disabled?: boolean;
-    /**
-     * If select has errors
-     */
-    error?: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
-    /**
-     * The select label
-     */
-    label?: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions?: string;
-    /**
-     * The select name
-     */
-    name?: string;
-    onChange?: (event: CustomEvent<any>) => void;
-    onInput?: (event: CustomEvent<any>) => void;
-    /**
-     * If required
-     */
-    required?: boolean;
-    /**
-     * The select id
-     */
-    selectId?: string;
-    /**
-     * The selected option
-     */
-    value?: string;
-    /**
-     * If select has warnings
-     */
-    warning?: boolean;
-    /**
-     * The select width
-     */
-    width?: string;
-  }
-  interface GxgFormSelectNew {
-    /**
-     * If select is disabled
-     */
-    disabled?: boolean;
-    /**
-     * If select has errors
-     */
-    error?: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
-    /**
-     * The select label
-     */
-    label?: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions?: string;
-    /**
-     * The select name
-     */
-    name?: string;
-    onChange?: (event: CustomEvent<any>) => void;
-    onInput?: (event: CustomEvent<any>) => void;
-    /**
-     * If required
-     */
-    required?: boolean;
-    /**
-     * The select id
-     */
-    selectId?: string;
-    /**
-     * The selected option
-     */
-    value?: string;
-    /**
-     * If select has warnings
-     */
-    warning?: boolean;
-    /**
-     * The select width
-     */
-    width?: string;
   }
   interface GxgFormText {
     /**
@@ -1388,6 +1256,10 @@ declare namespace LocalJSX {
      */
     zIndex?: string;
   }
+  interface GxgOption {
+    selected?: boolean;
+    value?: string;
+  }
   interface GxgProgressBar {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1403,6 +1275,54 @@ declare namespace LocalJSX {
     value?: number;
     /**
      * The width
+     */
+    width?: string;
+  }
+  interface GxgSelect {
+    /**
+     * If select is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If select has errors
+     */
+    error?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
+    /**
+     * The select label
+     */
+    label?: string;
+    /**
+     * The select name
+     */
+    name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
+    onInput?: (event: CustomEvent<any>) => void;
+    /**
+     * If required
+     */
+    required?: boolean;
+    /**
+     * The select id
+     */
+    selectId?: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    size?: string;
+    /**
+     * The selected option
+     */
+    value?: string;
+    /**
+     * If select has warnings
+     */
+    warning?: boolean;
+    /**
+     * The select width
      */
     width?: string;
   }
@@ -1542,18 +1462,17 @@ declare namespace LocalJSX {
     "gxg-date-picker": GxgDatePicker;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
-    "gxg-form-option": GxgFormOption;
     "gxg-form-radio": GxgFormRadio;
     "gxg-form-radio-wrapper": GxgFormRadioWrapper;
-    "gxg-form-select": GxgFormSelect;
-    "gxg-form-select-new": GxgFormSelectNew;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
+    "gxg-option": GxgOption;
     "gxg-progress-bar": GxgProgressBar;
+    "gxg-select": GxgSelect;
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
     "gxg-spacer-one": GxgSpacerOne;
@@ -1592,16 +1511,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
-      "gxg-form-option": LocalJSX.GxgFormOption &
-        JSXBase.HTMLAttributes<HTMLGxgFormOptionElement>;
       "gxg-form-radio": LocalJSX.GxgFormRadio &
         JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
       "gxg-form-radio-wrapper": LocalJSX.GxgFormRadioWrapper &
         JSXBase.HTMLAttributes<HTMLGxgFormRadioWrapperElement>;
-      "gxg-form-select": LocalJSX.GxgFormSelect &
-        JSXBase.HTMLAttributes<HTMLGxgFormSelectElement>;
-      "gxg-form-select-new": LocalJSX.GxgFormSelectNew &
-        JSXBase.HTMLAttributes<HTMLGxgFormSelectNewElement>;
       "gxg-form-text": LocalJSX.GxgFormText &
         JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
@@ -1612,8 +1525,12 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
       "gxg-modal": LocalJSX.GxgModal &
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
+      "gxg-option": LocalJSX.GxgOption &
+        JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
+      "gxg-select": LocalJSX.GxgSelect &
+        JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
       "gxg-slider": LocalJSX.GxgSlider &
         JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
       "gxg-spacer-layout": LocalJSX.GxgSpacerLayout &

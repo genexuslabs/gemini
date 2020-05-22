@@ -14,6 +14,11 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Date Picker", () => {
   //Min. date
+  const labelLabel = "Label";
+  const defaultValueLabel = "Datepicker label";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
+  //Min. date
   const labelMinDate = "Min. date";
   const defaultValueMinDate = "2019, 12, 20";
   const valueMinDate = text(labelMinDate, defaultValueMinDate);
@@ -44,6 +49,7 @@ stories.add("Date Picker", () => {
   }
 
   return `<gxg-date-picker
+  label="${valueLabel}"
   min-date="2018, 12, 20"
   max-date="2021, 1, 20"
   ${noWeekendsFunc()}

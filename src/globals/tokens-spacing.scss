@@ -16,6 +16,11 @@ TOKENS FOR SPACING COMPONENTS
 TOKENS FOR SPACING LAYOUT
 *********************************/
 /*This is the spacing for the layout/environment in which the components are embedded (outside the component)*/
+/*
+Note: this set of spacing values (xs, s, etc...) have been added as a spacing type to the alert component,
+and maybe to other components as well. If you are going to add a new spacing value (for example xxs, or xxl)
+you will need to also add that new value to all the components that are making use of this spacing values.
+*/
 :root {
   --spacing-lay-xs: 4px; //xs
   --spacing-lay-s: 8px; //s

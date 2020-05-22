@@ -11,8 +11,8 @@ import {
 import { formMessage } from "../../common.js";
 
 @Component({
-  tag: "gxg-form-select-new",
-  styleUrl: "form-select.scss",
+  tag: "gxg-select",
+  styleUrl: "select.scss",
   shadow: true
 })
 export class FormSelectNew {
@@ -50,7 +50,7 @@ export class FormSelectNew {
   /**
    * The maximum number of visible options (scroll will apear if the total number exceeds this value)
    */
-  @Prop() maxVisibleOptions: string;
+  @Prop() size: string;
 
   /**
    * The select name
@@ -132,12 +132,60 @@ export class FormSelectNew {
 
     const x = this.el.shadowRoot.querySelectorAll(".custom-select");
 
+    //set the selected option as "active"
+    this.el.shadowRoot.querySelector(".select-items");
+
     for (i = 0; i < x.length; i++) {
       a = document.createElement("DIV");
       a.setAttribute("class", "select-selected");
       a.setAttribute("tabindex", "0");
       a.setAttribute("role", "listbox");
-      const optionsNodeList = this.el.querySelectorAll("gxg-form-option");
+      a.addEventListener("keydown", event => {
+        event.preventDefault();
+        const select = this.el.shadowRoot.querySelector(".select-items");
+        let selected = select.querySelector(".same-as-selected");
+
+        if (event.keyCode === 13) {
+          //enter key was pressed
+          select.classList.toggle("select-hide");
+        } else if (event.keyCode === 38) {
+          //key up pressed
+          if (selected !== null) {
+            if (selected.previousElementSibling !== null) {
+              selected.classList.remove("same-as-selected");
+              selected.previousElementSibling.classList.add("same-as-selected");
+            }
+          } else {
+            //do nothing
+          }
+        } else if (event.keyCode === 40) {
+          //key down pressed
+          if (selected !== null) {
+            if (selected.nextElementSibling !== null) {
+              selected.classList.remove("same-as-selected");
+              selected.nextElementSibling.classList.add("same-as-selected");
+            }
+          } else {
+            selected = select.querySelector("div[role='option']:first-child");
+            selected.classList.add("same-as-selected");
+          }
+        } else if (event.keyCode === 27) {
+          //escape key was pressed
+          select.classList.add("select-hide");
+        }
+
+        if (selected !== null) {
+          const newSelectedOption = this.el.shadowRoot.querySelector(
+            ".select-items .same-as-selected"
+          );
+          this.el.shadowRoot.querySelector(".select-selected").textContent =
+            newSelectedOption.textContent;
+          if (select.classList.contains("select-hide")) {
+            this.change.emit(newSelectedOption.getAttribute("value"));
+          }
+        }
+      });
+      const optionsNodeList = this.el.querySelectorAll("gxg-option");
       let selectedOption = optionsNodeList[0];
 
       if (this.disabled) {
@@ -151,7 +199,7 @@ export class FormSelectNew {
       a.innerHTML = selectedOption.innerHTML;
       this.value = selectedOption.value;
 
-      const listOfOptions = this.el.querySelectorAll("gxg-form-option");
+      const listOfOptions = this.el.querySelectorAll("gxg-option");
 
       x[i].appendChild(a);
 
@@ -180,6 +228,12 @@ export class FormSelectNew {
         this.nextSibling.classList.toggle("select-hide");
         this.classList.toggle("select-arrow-active");
       });
+
+      this.el.shadowRoot
+        .querySelector(
+          ".select-items div[role='option'][value='" + this.value + "']"
+        )
+        .classList.add("same-as-selected");
     }
 
     function closeAllSelect(elmnt) {
@@ -208,7 +262,6 @@ export class FormSelectNew {
 
   @Watch("value")
   valueHandler(newValue: boolean) {
-    console.log(newValue);
     this.change.emit(newValue);
   }
 
@@ -217,7 +270,7 @@ export class FormSelectNew {
       <Host
         style={{
           width: this.width,
-          "--maxVisibleOptions": this.maxVisibleOptions
+          "--size": this.size
         }}
       >
         <div class="outer-wrapper">

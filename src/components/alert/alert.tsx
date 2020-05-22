@@ -42,19 +42,24 @@ export class Alert {
   @Prop() type: AlertType = "more-info";
 
   /**
+   * Whether the alert is full width or not
+   */
+  @Prop() fullWidth = false;
+
+  /**
    * The alert left position value
    */
-  @Prop() left = "0";
+  @Prop() left: Spacing = "xs";
 
   /**
    * The alert right position value
    */
-  @Prop() right = "0";
+  @Prop() right: Spacing = "xs";
 
   /**
    * The alert bottom position value
    */
-  @Prop() bottom = "0";
+  @Prop() bottom: Spacing = "xs";
 
   /**
    * The alert width
@@ -132,18 +137,37 @@ export class Alert {
     }
   }
 
+  defineWidth() {
+    if (this.fullWidth) {
+      return "calc(100% - 40px)";
+    } else {
+      return this.width;
+    }
+  }
+
   render() {
+    const bodyComputedStyles = getComputedStyle(document.body);
+    const leftSpacingValue = bodyComputedStyles
+      .getPropertyValue("--spacing-lay-" + this.left)
+      .replace(/\s/g, "");
+    const rightSpacingValue = bodyComputedStyles
+      .getPropertyValue("--spacing-lay-" + this.right)
+      .replace(/\s/g, "");
+    const bottomSpacingValue = bodyComputedStyles
+      .getPropertyValue("--spacing-lay-" + this.bottom)
+      .replace(/\s/g, "");
+
     return (
       <Host
         hidden
         style={{
-          width: this.width,
-          left: this.left,
-          right: this.right,
+          width: this.defineWidth(),
+          left: leftSpacingValue,
+          right: rightSpacingValue,
           transform:
             this.position === "center"
-              ? "translateY(-" + this.bottom + ") translateX(-50%)"
-              : "translateY(-" + this.bottom + ")"
+              ? "translateY(-" + bottomSpacingValue + ") translateX(-50%)"
+              : "translateY(-" + bottomSpacingValue + ")"
         }}
       >
         <div
@@ -201,3 +225,5 @@ export type ActiveTime =
   | "fast"
   | "xfast"
   | "xxfast";
+
+export type Spacing = "xs" | "s" | "m" | "l" | "xl";

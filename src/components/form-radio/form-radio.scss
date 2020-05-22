@@ -1,21 +1,16 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
-:host([inline]) .outer-wrapper {
-  display: flex;
-}
-:host([inline]) .outer-wrapper .label {
-  margin-right: var(--spacing-comp-04);
-  margin-bottom: 0;
-}
-
 :host {
+  input:focus + .radiobtn {
+    border-color: red;
+  }
+
   /* Custom labels: the container */
   .label {
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: var(--spacing-comp-04);
     cursor: pointer;
     @include form-element-common-styles-label();
   }
@@ -84,6 +79,7 @@
     border-width: var(--border-width-sm);
     position: relative;
     margin-right: var(--spacing-comp-02);
+    flex-shrink: 0;
   }
 
   /* On mouse-over, add a grey background color */

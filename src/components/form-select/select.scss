@@ -2,7 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
-  --maxVisibleOptions: 3; //This value can be set from the user as a property
+  --size: 3; //This value can be set from the user as a property
 }
 
 :host {
@@ -120,7 +120,7 @@ SELECT
     border-bottom-right-radius: var(--border-radius-md);
     border-bottom-left-radius: var(--border-radius-md);
     max-height: calc(
-      var(--maxVisibleOptions) * 25px
+      var(--size) * 25px
     ); //25px is the actual height of an option
   }
   /*hide the items when the select box is closed:*/

@@ -74,6 +74,21 @@ export class FormCheckbox {
     });
   }
 
+  handlerOnKeyUp(event) {
+    if (event.keyCode == 13) {
+      //Enter key was pressed
+      if (!this.checked) {
+        this.el.setAttribute("checked", "true");
+      } else {
+        this.el.removeAttribute("checked");
+      }
+      this.change.emit({
+        "checkbox id": this.checkboxId,
+        "checkbox value": this.checked
+      });
+    }
+  }
+
   render() {
     return (
       <Host
@@ -93,6 +108,8 @@ export class FormCheckbox {
             value={this.value}
             disabled={this.disabled}
             onChange={this.changed.bind(this)}
+            onKeyUp={this.handlerOnKeyUp.bind(this)}
+            tabindex="0"
           ></input>
           <span class="checkmark"></span>
           {this.label}

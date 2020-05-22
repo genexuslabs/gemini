@@ -104,15 +104,15 @@ stories.add("Select", () => {
     ${warningMessage()}
   max-visible-options=${valueMaxOptions}
 >
-  <option value="0">Select car:</option>
-  <option value="1">Audi</option>
-  <option value="2">BMW</option>
-  <option selected value="3">Citroen</option>
-  <option value="4">Ford</option>
-  <option value="5">Honda</option>
-  <option value="6">Jaguar</option>
-  <option value="7">Land Rover</option>
-  <option value="8">Mercedes</option>
+  <gxg-option value="0">Select car:</gxg-option>
+  <gxg-option value="1">Audi</gxg-option>
+  <gxg-option value="2">BMW</gxg-option>
+  <gxg-option selected value="3">Citroen</gxg-option>
+  <gxg-option value="4">Ford</gxg-option>
+  <gxg-option value="5">Honda</gxg-option>
+  <gxg-option value="6">Jaguar</gxg-option>
+  <gxg-option value="7">Land Rover</gxg-option>
+  <gxg-option value="8">Mercedes</gxg-option>
 </gxg-form-select>
 
 <gxg-form-select
@@ -124,14 +124,14 @@ stories.add("Select", () => {
     ${warningMessage()}
   max-visible-options=${valueMaxOptions}
 >
-  <option value="0">Select car:</option>
-  <option value="1">Audi</option>
-  <option value="2">BMW</option>
-  <option selected value="3">Citroen</option>
-  <option value="4">Ford</option>
-  <option value="5">Honda</option>
-  <option value="6">Jaguar</option>
-  <option value="7">Land Rover</option>
-  <option value="8">Mercedes</option>
+  <gxg-option value="0">Select car:</gxg-option>
+  <gxg-option value="1">Audi</gxg-option>
+  <gxg-option value="2">BMW</gxg-option>
+  <gxg-option selected value="3">Citroen</gxg-option>
+  <gxg-option value="4">Ford</gxg-option>
+  <gxg-option value="5">Honda</gxg-option>
+  <gxg-option value="6">Jaguar</gxg-option>
+  <gxg-option value="7">Land Rover</gxg-option>
+  <gxg-option value="8">Mercedes</gxg-option>
 </gxg-form-select>`;
 });

@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   h,
+  Host,
   Watch
 } from "@stencil/core";
 
@@ -15,6 +16,7 @@ import {
 })
 export class FormRadio {
   @Event() change: EventEmitter;
+  @Event() keyPressed: EventEmitter;
   @Element() el: HTMLElement;
 
   //A reference to the input
@@ -90,21 +92,35 @@ export class FormRadio {
     });
   }
 
+  handlerOnKeyUp(event) {
+    if (event.keyCode == 37 || event.keyCode == 38) {
+      //arrow-left, or arrow-up key was pressed. focus should be positioned on the previous radiobtn.
+      this.keyPressed.emit({ direction: "previous" });
+    }
+    if (event.keyCode == 39 || event.keyCode == 40) {
+      //arrow-right, or arrow-down key was pressed. focus should be positioned on the next radiobtn.
+    }
+  }
+
   render() {
     return (
-      <label class="label">
-        <input
-          ref={el => (this.radioInput = el as HTMLInputElement)}
-          type="radio"
-          name={this.name}
-          id={this.RadioId}
-          value={this.value}
-          onClick={this.selectRadio.bind(this)}
-          disabled={this.disabled}
-        ></input>
-        <span class="radiobtn"></span>
-        {this.label}
-      </label>
+      <Host>
+        <label class="label">
+          <input
+            ref={el => (this.radioInput = el as HTMLInputElement)}
+            type="radio"
+            name={this.name}
+            id={this.RadioId}
+            value={this.value}
+            onClick={this.selectRadio.bind(this)}
+            disabled={this.disabled}
+            tabindex="0"
+            onKeyUp={this.handlerOnKeyUp.bind(this)}
+          ></input>
+          <span class="radiobtn"></span>
+          {this.label}
+        </label>
+      </Host>
     );
   }
 }

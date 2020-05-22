@@ -73,9 +73,39 @@ stories
       { left: "left", center: "center", right: "right" },
       "center"
     )}"
-    left="${text("Left position", "15px")}"
-    right="${text("Right position", "15px")}"
-    bottom="${text("Bottom position", "15px")}"
+    left="${select(
+      "Left spacing",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
+    bottom="${select(
+      "Bottom spacing",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
+    right="${select(
+      "Right spacing",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
     active-time="${select(
       "Active Time",
       {
@@ -119,9 +149,39 @@ stories
         { left: "left", center: "center", right: "right" },
         "center"
       )}"
-      left="${text("Left position", "15px")}"
-      right="${text("Right position", "15px")}"
-      bottom="${text("Bottom position", "15px")}"
+      left="${select(
+        "Left spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
+      bottom="${select(
+        "Bottom spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
+      right="${select(
+        "Right spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
       active-time="${select(
         "Active Time",
         {
@@ -165,9 +225,39 @@ stories
         { left: "left", center: "center", right: "right" },
         "center"
       )}"
-      left="${text("Left position", "15px")}"
-      right="${text("Right position", "15px")}"
-      bottom="${text("Bottom position", "15px")}"
+      left="${select(
+        "Left spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
+        bottom="${select(
+          "Bottom spacing",
+          {
+            xs: "xs",
+            s: "s",
+            m: "m",
+            l: "l",
+            xl: "xl"
+          },
+          "xs"
+        )}"
+        right="${select(
+          "Right spacing",
+          {
+            xs: "xs",
+            s: "s",
+            m: "m",
+            l: "l",
+            xl: "xl"
+          },
+          "xs"
+        )}"
       active-time="${select(
         "Active Time",
         {
@@ -211,9 +301,39 @@ stories
         { left: "left", center: "center", right: "right" },
         "center"
       )}"
-      left="${text("Left position", "15px")}"
-      right="${text("Right position", "15px")}"
-      bottom="${text("Bottom position", "15px")}"
+      left="${select(
+        "Left spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
+      bottom="${select(
+        "Bottom spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
+      right="${select(
+        "Right spacing",
+        {
+          xs: "xs",
+          s: "s",
+          m: "m",
+          l: "l",
+          xl: "xl"
+        },
+        "xs"
+      )}"
       active-time="${select(
         "Active Time",
         {
