@@ -15,7 +15,7 @@ import {
 } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { ShadowDiffusenessType } from "./components/card/card";
+import { boxShadowType } from "./components/card/card";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
@@ -156,6 +156,7 @@ export namespace Components {
     titleAlignment: TitleAlignment;
   }
   interface GxgCard {
+    boxShadow: boxShadowType;
     /**
      * This property makes the component full-width
      */
@@ -164,7 +165,6 @@ export namespace Components {
      * The component height
      */
     height: string;
-    shadowDiffuseness: ShadowDiffusenessType;
     /**
      * The component width
      */
@@ -1042,6 +1042,7 @@ declare namespace LocalJSX {
     titleAlignment?: TitleAlignment;
   }
   interface GxgCard {
+    boxShadow?: boxShadowType;
     /**
      * This property makes the component full-width
      */
@@ -1050,7 +1051,6 @@ declare namespace LocalJSX {
      * The component height
      */
     height?: string;
-    shadowDiffuseness?: ShadowDiffusenessType;
     /**
      * The component width
      */

@@ -4,12 +4,12 @@
 
 ## Properties
 
-| Property            | Attribute            | Description                                  | Type                                                            | Default   |
-| ------------------- | -------------------- | -------------------------------------------- | --------------------------------------------------------------- | --------- |
-| `fullWidth`         | `full-width`         | This property makes the component full-width | `boolean`                                                       | `false`   |
-| `height`            | `height`             | The component height                         | `string`                                                        | `"auto"`  |
-| `shadowDiffuseness` | `shadow-diffuseness` |                                              | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxs" \| "xxxl"` | `"xxs"`   |
-| `width`             | `width`              | The component width                          | `string`                                                        | `"200px"` |
+| Property    | Attribute    | Description                                  | Type                                                            | Default   |
+| ----------- | ------------ | -------------------------------------------- | --------------------------------------------------------------- | --------- |
+| `boxShadow` | `box-shadow` |                                              | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxs" \| "xxxl"` | `"xxs"`   |
+| `fullWidth` | `full-width` | This property makes the component full-width | `boolean`                                                       | `false`   |
+| `height`    | `height`     | The component height                         | `string`                                                        | `"auto"`  |
+| `width`     | `width`      | The component width                          | `string`                                                        | `"200px"` |
 
 ---
 
