@@ -27,6 +27,46 @@
   <body>
     <p tabindex="0">dsffads</p>
 
+    <form action="/action_page.php">
+      <input
+        required
+        type="checkbox"
+        id="vehicle1"
+        name="vehicle1"
+        value="Bike"
+      />
+      <label for="vehicle1"> I have a bike</label><br />
+      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+      <label for="vehicle2"> I have a car</label><br />
+      <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+      <label for="vehicle3"> I have a boat</label><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <form action="/action_page.php">
+      <gxg-form-checkbox
+        label="hufds afiuhds iauf sduiahfid uh"
+        name="colors"
+        id="red"
+        value="rded"
+        disabled
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="bluecheese"
+        name="colors"
+        id="red"
+        value="blue"
+        required
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="green"
+        name="colors"
+        id="red"
+        value="green"
+      ></gxg-form-checkbox>
+      <input type="submit" />
+    </form>
+
     <form action="">
       <label for="">
         1
@@ -55,7 +95,7 @@
     <hr />
 
     <form action="">
-      <gxg-form-radio-wrapper id="radio-wrapper-1">
+      <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
         <gxg-form-radio
           label="red"
           name="colors"
@@ -75,7 +115,7 @@
           radio-id="green"
           value="green"
         ></gxg-form-radio>
-      </gxg-form-radio-wrapper>
+      </gxg-form-radio-group>
     </form>
 
     <h2>Accordion</h2>
@@ -261,8 +301,8 @@
       default-selected-btn-id="id2"
       button-group-title="The title"
       title-alignment="left"
-      tabindex="0"
       full-width
+      focusable
     >
       <button id="id1" value="primero">Left</button>
       <button id="id2" value="segundo">Middle</button>
@@ -407,7 +447,7 @@
         <h3>Radio buttons inline</h3>
 
         <form action="">
-          <gxg-form-radio-wrapper inline-flex>
+          <gxg-form-radio-group inline-flex>
             <gxg-form-radio
               label="red"
               name="colors"
@@ -428,7 +468,7 @@
               radio-id="green"
               value="green"
             ></gxg-form-radio>
-          </gxg-form-radio-wrapper>
+          </gxg-form-radio-group>
 
           <form action="">
             <gxg-form-checkbox
@@ -439,10 +479,11 @@
               disabled
             ></gxg-form-checkbox>
             <gxg-form-checkbox
-              label="blue"
+              label="bluecheese"
               name="colors"
               id="red"
               value="blue"
+              required
             ></gxg-form-checkbox>
             <gxg-form-checkbox
               label="green"

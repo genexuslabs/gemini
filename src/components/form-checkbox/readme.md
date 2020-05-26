@@ -11,6 +11,7 @@
 | `disabled`   | `disabled`    | Checkbox disabled | `boolean` | `false`     |
 | `label`      | `label`       | Checkbox label    | `string`  | `undefined` |
 | `name`       | `name`        | Checkbox name     | `string`  | `undefined` |
+| `required`   | `required`    | Required          | `boolean` | `false`     |
 | `value`      | `value`       | Checkbox value    | `string`  | `undefined` |
 
 ## Events

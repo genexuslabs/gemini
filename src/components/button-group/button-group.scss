@@ -4,6 +4,7 @@
 :host(.button-group) {
   display: inline-block;
   line-height: 0;
+  outline: none;
 
   .button-group-header-title {
     @include gxg-text;
@@ -42,10 +43,12 @@
   }
   ::slotted(button:focus) {
     outline: none;
+    box-shadow: var(--box-shadow-values) var(--color-primary-active);
   }
   ::slotted(button[data-active]) {
     color: var(--color-on-primary);
     background-color: var(--color-primary-active);
+    border-right-color: var(--color-primary-active);
   }
 }
 :host([title-alignment="center"]) {

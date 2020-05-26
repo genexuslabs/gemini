@@ -143,6 +143,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * This property makes the inner buttons focusable
+     */
+    focusable: boolean;
+    /**
      * This property makes the component full-width
      */
     fullWidth: boolean;
@@ -226,6 +230,10 @@ export namespace Components {
      */
     name: string;
     /**
+     * Required
+     */
+    required: boolean;
+    /**
      * Checkbox value
      */
     value: string;
@@ -262,7 +270,7 @@ export namespace Components {
      */
     value: string;
   }
-  interface GxgFormRadioWrapper {
+  interface GxgFormRadioGroup {
     /**
      * Selected Radio id
      */
@@ -275,6 +283,10 @@ export namespace Components {
      * Inline-flex display
      */
     inlineFlex: boolean;
+    /**
+     * The label for the Radio Group
+     */
+    label: string;
   }
   interface GxgFormText {
     /**
@@ -712,12 +724,12 @@ declare global {
     prototype: HTMLGxgFormRadioElement;
     new (): HTMLGxgFormRadioElement;
   };
-  interface HTMLGxgFormRadioWrapperElement
-    extends Components.GxgFormRadioWrapper,
+  interface HTMLGxgFormRadioGroupElement
+    extends Components.GxgFormRadioGroup,
       HTMLStencilElement {}
-  var HTMLGxgFormRadioWrapperElement: {
-    prototype: HTMLGxgFormRadioWrapperElement;
-    new (): HTMLGxgFormRadioWrapperElement;
+  var HTMLGxgFormRadioGroupElement: {
+    prototype: HTMLGxgFormRadioGroupElement;
+    new (): HTMLGxgFormRadioGroupElement;
   };
   interface HTMLGxgFormTextElement
     extends Components.GxgFormText,
@@ -871,7 +883,7 @@ declare global {
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
-    "gxg-form-radio-wrapper": HTMLGxgFormRadioWrapperElement;
+    "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
@@ -1017,6 +1029,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * This property makes the inner buttons focusable
+     */
+    focusable?: boolean;
+    /**
      * This property makes the component full-width
      */
     fullWidth?: boolean;
@@ -1104,6 +1120,10 @@ declare namespace LocalJSX {
     name?: string;
     onChange?: (event: CustomEvent<any>) => void;
     /**
+     * Required
+     */
+    required?: boolean;
+    /**
      * Checkbox value
      */
     value?: string;
@@ -1142,7 +1162,7 @@ declare namespace LocalJSX {
      */
     value?: string;
   }
-  interface GxgFormRadioWrapper {
+  interface GxgFormRadioGroup {
     /**
      * Selected Radio id
      */
@@ -1155,6 +1175,10 @@ declare namespace LocalJSX {
      * Inline-flex display
      */
     inlineFlex?: boolean;
+    /**
+     * The label for the Radio Group
+     */
+    label?: string;
   }
   interface GxgFormText {
     /**
@@ -1531,7 +1555,7 @@ declare namespace LocalJSX {
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-radio": GxgFormRadio;
-    "gxg-form-radio-wrapper": GxgFormRadioWrapper;
+    "gxg-form-radio-group": GxgFormRadioGroup;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
@@ -1581,8 +1605,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
       "gxg-form-radio": LocalJSX.GxgFormRadio &
         JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
-      "gxg-form-radio-wrapper": LocalJSX.GxgFormRadioWrapper &
-        JSXBase.HTMLAttributes<HTMLGxgFormRadioWrapperElement>;
+      "gxg-form-radio-group": LocalJSX.GxgFormRadioGroup &
+        JSXBase.HTMLAttributes<HTMLGxgFormRadioGroupElement>;
       "gxg-form-text": LocalJSX.GxgFormText &
         JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &

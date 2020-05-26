@@ -43,8 +43,8 @@ stories
     margin-bottom: 15px;
   }
   </style>
-  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} shadow-diffuseness="${select(
-      "Shadow Diffuseness",
+  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} box-shadow="${select(
+      "Box Shadow",
       {
         xxs: "1",
         xs: "2",
@@ -60,8 +60,8 @@ stories
     <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.
     – Bernard M. Baruch</q>
   </gxg-card>
-  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} shadow-diffuseness="${select(
-      "Shadow Diffuseness",
+  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} box-shadow="${select(
+      "Box Shadow",
       {
         xxs: "xxs",
         xs: "xs",
@@ -77,8 +77,8 @@ stories
     <q>You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.
     – Dr. Seuss</q>
   </gxg-card>
-  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} shadow-diffuseness="${select(
-      "Shadow Diffuseness",
+  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} box-shadow="${select(
+      "Box Shadow",
       {
         xxs: "xxs",
         xs: "xs",

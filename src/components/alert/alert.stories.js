@@ -40,7 +40,6 @@ const labelDisabled = "Disabled";
 const defaultValueDisabled = false;
 
 function mostrarAlertMoreInfo(alertId) {
-  console.log("hola");
   document.getElementById(alertId).setAttribute("active", "true");
 }
 

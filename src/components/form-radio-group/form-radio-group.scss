@@ -6,4 +6,8 @@
     margin-bottom: var(--spacing-comp-03);
     display: flex;
   }
+
+  .label {
+    @include form-element-common-styles-label-group();
+  }
 }

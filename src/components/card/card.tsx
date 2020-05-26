@@ -15,7 +15,7 @@ export class Card {
    */
   @Prop() fullWidth = false;
 
-  @Prop() shadowDiffuseness: ShadowDiffusenessType = "xxs";
+  @Prop() boxShadow: boxShadowType = "xxs";
 
   /**
    * The component height
@@ -53,7 +53,7 @@ export class Card {
   }
 }
 
-export type ShadowDiffusenessType =
+export type boxShadowType =
   | "xxs"
   | "xs"
   | "s"

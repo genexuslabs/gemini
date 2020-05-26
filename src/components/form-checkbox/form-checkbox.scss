@@ -47,6 +47,9 @@
     cursor: pointer;
     @include form-element-common-styles-label();
   }
+  .label__required {
+    @include form-element-common-styles-label-required();
+  }
 
   /* Hide the browser's default checkbox */
   .label input {

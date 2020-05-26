@@ -53,6 +53,11 @@ export class FormCheckbox {
    */
   @Prop() name: string;
 
+  /**
+   * Required
+   */
+  @Prop() required = false;
+
   @Event() change: EventEmitter;
 
   /*********************************
@@ -89,6 +94,12 @@ export class FormCheckbox {
     }
   }
 
+  labelRequired() {
+    if (this.required) {
+      return <span class="label__required">*</span>;
+    }
+  }
+
   render() {
     return (
       <Host
@@ -110,9 +121,11 @@ export class FormCheckbox {
             onChange={this.changed.bind(this)}
             onKeyUp={this.handlerOnKeyUp.bind(this)}
             tabindex="0"
+            required
           ></input>
           <span class="checkmark"></span>
           {this.label}
+          {this.labelRequired()}
         </label>
       </Host>
     );

@@ -1,11 +1,11 @@
 import { Component, Prop, h, Listen, Element, Host } from "@stencil/core";
 
 @Component({
-  tag: "gxg-form-radio-wrapper",
-  styleUrl: "form-radio-wrapper.scss",
+  tag: "gxg-form-radio-group",
+  styleUrl: "form-radio-group.scss",
   shadow: true
 })
-export class FormRadioWrapper {
+export class FormRadioGroup {
   @Element() el: HTMLElement;
 
   /*********************************
@@ -21,6 +21,11 @@ export class FormRadioWrapper {
    * Inline-flex display
    */
   @Prop() inlineFlex = false;
+
+  /**
+   * The label for the Radio Group
+   */
+  @Prop() label: string;
 
   /**
    * Selected Radio value
@@ -47,9 +52,16 @@ export class FormRadioWrapper {
     }, "myThisArg");
   }
 
+  labelFunc() {
+    if (this.label) {
+      return <span class="label">{this.label}</span>;
+    }
+  }
+
   render() {
     return (
       <Host>
+        {this.labelFunc()}
         <slot></slot>
       </Host>
     );
