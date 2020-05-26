@@ -14,7 +14,6 @@
 | `required`  | `required`   | If required                                                                                      | `boolean` | `false`     |
 | `selectId`  | `select-id`  | The select id                                                                                    | `string`  | `undefined` |
 | `size`      | `size`       | The maximum number of visible options (scroll will apear if the total number exceeds this value) | `string`  | `undefined` |
-| `value`     | `value`      | The selected option                                                                              | `string`  | `undefined` |
 | `warning`   | `warning`    | If select has warnings                                                                           | `boolean` | `false`     |
 | `width`     | `width`      | The select width                                                                                 | `string`  | `"240px"`   |
 

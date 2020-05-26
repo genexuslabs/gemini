@@ -6,13 +6,38 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Card {
-  /**
-   * The card box-shadow value
-   * possible values: from 1 to 8
-   */
-  @Prop() shadow: ShadowType = 1;
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
 
-  @Prop() width = "100%";
+  /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  @Prop() shadowDiffuseness: ShadowDiffusenessType = "xxs";
+
+  /**
+   * The component height
+   */
+  @Prop() height = "auto";
+
+  /**
+   * The component width
+   */
+  @Prop() width = "200px";
+
+  /*********************************
+  METHODS
+  *********************************/
+
+  widthFunc() {
+    if (this.fullWidth) {
+      return "100%";
+    } else {
+      return this.width;
+    }
+  }
 
   render() {
     return (
@@ -20,7 +45,7 @@ export class Card {
         class={{
           card: true
         }}
-        style={{ width: this.width }}
+        style={{ width: this.widthFunc(), height: this.height }}
       >
         <slot></slot>
       </Host>
@@ -28,4 +53,12 @@ export class Card {
   }
 }
 
-export type ShadowType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+export type ShadowDiffusenessType =
+  | "xxs"
+  | "xs"
+  | "s"
+  | "m"
+  | "l"
+  | "xl"
+  | "xxl"
+  | "xxxl";

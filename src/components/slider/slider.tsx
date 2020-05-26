@@ -14,6 +14,11 @@ export class Slider {
   @Prop({ reflect: true }) disabled = false;
 
   /**
+   * If select is full width
+   */
+  @Prop({ reflect: true }) fullWidth = false;
+
+  /**
    * The label
    */
   @Prop() label = "Label";
@@ -34,19 +39,37 @@ export class Slider {
   @Prop() width = "200px";
 
   componentDidLoad() {
-    //verify initial value
-    if (this.value > this.max) {
-      this.value = this.max;
-    }
+    const rangeSlider = this.el.shadowRoot.getElementById("rs-range-line");
+    const rangeBullet = this.el.shadowRoot.getElementById("rs-bullet");
+    const actualValue = this.el.shadowRoot.getElementById("actual-value");
+    const gxgSlider = this.el;
 
     function calculateWidth(width) {
       width = parseInt(width.replace("px", ""));
       return width - 22;
     }
-    const rangeSlider = this.el.shadowRoot.getElementById("rs-range-line");
-    const rangeBullet = this.el.shadowRoot.getElementById("rs-bullet");
-    const actualValue = this.el.shadowRoot.getElementById("actual-value");
-    const gxgSlider = this.el;
+
+    //Resize Observer
+    const myObserver = new ResizeObserver(entries => {
+      entries.forEach(() => {
+        this.width =
+          this.el.shadowRoot.querySelector(".range-slider").clientWidth + "";
+        console.log("observer...");
+
+        const sliderWidth = this.width;
+        const bulletPosition =
+          this.value / parseInt(rangeSlider.getAttribute("max"));
+        rangeBullet.style.left =
+          bulletPosition * calculateWidth(sliderWidth) + "px";
+      });
+    });
+
+    myObserver.observe(this.el.shadowRoot.querySelector(".range-slider"));
+
+    //verify initial value
+    if (this.value > this.max) {
+      this.value = this.max;
+    }
 
     function showSliderValue() {
       let sliderWidth = this.width;

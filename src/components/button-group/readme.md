@@ -25,7 +25,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property               | Attribute                 | Description                                                        | Type                            | Default     |
@@ -33,22 +32,23 @@
 | `buttonGroupTitle`     | `button-group-title`      | The title that will show up above the buttons group                | `string`                        | `undefined` |
 | `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to show active by default | `string`                        | `undefined` |
 | `disabled`             | `disabled`                | Wether the button group is disabled or not.                        | `boolean`                       | `false`     |
+| `fullWidth`            | `full-width`              | This property makes the component full-width                       | `boolean`                       | `false`     |
 | `titleAlignment`       | `title-alignment`         | The main title alignment                                           | `"center" \| "left" \| "right"` | `"left"`    |
-
 
 ## Dependencies
 
 ### Used by
 
- - [gxg-color-picker](../color-picker)
+- [gxg-color-picker](../color-picker)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-color-picker --> gxg-button-group
   style gxg-button-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

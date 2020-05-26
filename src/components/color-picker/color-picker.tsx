@@ -19,6 +19,12 @@ export class ColorPicker {
   private pickr: Pickr;
 
   @Prop({ mutable: true }) cardTitle = "";
+
+  /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
   @Prop({ mutable: true, reflect: true }) value = "white";
   @State() colorRepresentation: "HEXA" | "RGBA" = "HEXA";
   @State() colorInputValue = "";
@@ -155,7 +161,13 @@ export class ColorPicker {
 
   render() {
     return (
-      <div class="color-picker-main-container" id="color-picker-main-container">
+      <div
+        class={{
+          "color-picker-main-container": true,
+          "full-width": this.fullWidth === true
+        }}
+        id="color-picker-main-container"
+      >
         <div class="color-picker"></div>
         <div class="cp-gxg-buttons before-color-value" slot="editable">
           <gxg-button-group selected-button-id={this.setActiveButton()}>

@@ -18,6 +18,11 @@ export class Button {
   @Prop() disabled = false;
 
   /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  /**
    * The kind of button
    */
   @Prop() type: ButtonType = "primary-text-only";
@@ -44,6 +49,13 @@ export class Button {
     }
   }
 
+  iconFunc() {
+    if (this.el.querySelector("gxg-icon") === null) {
+      return <gxg-icon class="ghost-icon" type="empty"></gxg-icon>;
+      //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
+    }
+  }
+
   render() {
     return (
       <Host
@@ -58,15 +70,19 @@ export class Button {
           "button--secondary-icon-only": this.type === "secondary-icon-only",
           "button--outlined": this.type === "outlined",
           "button--disabled": this.disabled === true,
-          "button--tertiary": this.type === "tertiary"
+          "button--tertiary": this.type === "tertiary",
+          "button--fullwidth": this.fullWidth === true
         }}
       >
         <button
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
         >
+          {this.iconFunc()}
           <slot name="icon" />
-          <slot />
+          <span class="text">
+            <slot />
+          </span>
         </button>
       </Host>
     );

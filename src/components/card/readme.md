@@ -4,10 +4,12 @@
 
 ## Properties
 
-| Property | Attribute | Description                                            | Type                                   | Default  |
-| -------- | --------- | ------------------------------------------------------ | -------------------------------------- | -------- |
-| `shadow` | `shadow`  | The card box-shadow value possible values: from 1 to 8 | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7 \| 8` | `1`      |
-| `width`  | `width`   |                                                        | `string`                               | `"100%"` |
+| Property            | Attribute            | Description                                  | Type                                                            | Default   |
+| ------------------- | -------------------- | -------------------------------------------- | --------------------------------------------------------------- | --------- |
+| `fullWidth`         | `full-width`         | This property makes the component full-width | `boolean`                                                       | `false`   |
+| `height`            | `height`             | The component height                         | `string`                                                        | `"auto"`  |
+| `shadowDiffuseness` | `shadow-diffuseness` |                                              | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxs" \| "xxxl"` | `"xxs"`   |
+| `width`             | `width`              | The component width                          | `string`                                                        | `"200px"` |
 
 ---
 

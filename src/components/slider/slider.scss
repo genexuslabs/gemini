@@ -104,3 +104,14 @@
     color: var(--gray-04);
   }
 }
+//full width
+:host([full-width]) {
+  display: block;
+  .container,
+  .range-slider {
+    width: 100%;
+  }
+  .rs-range {
+    width: 100% !important;
+  }
+}

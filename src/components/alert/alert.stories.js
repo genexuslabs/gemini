@@ -1,12 +1,6 @@
 import { storiesOf } from "@storybook/html";
 import readme from "./readme.md";
-import {
-  withKnobs,
-  text,
-  boolean,
-  number,
-  select
-} from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 
 /*************
 KNOBS
@@ -73,9 +67,10 @@ stories
       { left: "left", center: "center", right: "right" },
       "center"
     )}"
-    left="${select(
-      "Left spacing",
+    left-right="${select(
+      "Left/Right spacing",
       {
+        "0": "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -87,6 +82,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
+        "0": "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -95,17 +91,8 @@ stories
       },
       "xs"
     )}"
-    right="${select(
-      "Right spacing",
-      {
-        xs: "xs",
-        s: "s",
-        m: "m",
-        l: "l",
-        xl: "xl"
-      },
-      "xs"
-    )}"
+    width=${text("Width (default: 350px)", "350px")}
+    full-width=${boolean("Full Width", false)}
     active-time="${select(
       "Active Time",
       {
@@ -149,9 +136,10 @@ stories
         { left: "left", center: "center", right: "right" },
         "center"
       )}"
-      left="${select(
-        "Left spacing",
+      left-right="${select(
+        "Left/Right spacing",
         {
+          "0": "0",
           xs: "xs",
           s: "s",
           m: "m",
@@ -163,6 +151,7 @@ stories
       bottom="${select(
         "Bottom spacing",
         {
+          "0": "0",
           xs: "xs",
           s: "s",
           m: "m",
@@ -171,17 +160,8 @@ stories
         },
         "xs"
       )}"
-      right="${select(
-        "Right spacing",
-        {
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
+      width=${text("Width (default: 350px)", "350px")}
+      full-width=${boolean("Full Width", false)}
       active-time="${select(
         "Active Time",
         {
@@ -225,9 +205,10 @@ stories
         { left: "left", center: "center", right: "right" },
         "center"
       )}"
-      left="${select(
-        "Left spacing",
+      left-right="${select(
+        "Left/Right",
         {
+          "0": "0",
           xs: "xs",
           s: "s",
           m: "m",
@@ -239,6 +220,7 @@ stories
         bottom="${select(
           "Bottom spacing",
           {
+            "0": "0",
             xs: "xs",
             s: "s",
             m: "m",
@@ -247,17 +229,8 @@ stories
           },
           "xs"
         )}"
-        right="${select(
-          "Right spacing",
-          {
-            xs: "xs",
-            s: "s",
-            m: "m",
-            l: "l",
-            xl: "xl"
-          },
-          "xs"
-        )}"
+        width=${text("Width (default: 350px)", "350px")}
+        full-width=${boolean("Full Width", false)}
       active-time="${select(
         "Active Time",
         {
@@ -270,8 +243,7 @@ stories
           "10": "10"
         },
         "05"
-      )}"
-    >
+      )}">
     ${text(
       "Message",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
@@ -301,9 +273,10 @@ stories
         { left: "left", center: "center", right: "right" },
         "center"
       )}"
-      left="${select(
-        "Left spacing",
+      left-right="${select(
+        "Left/Right spacing",
         {
+          "0": "0",
           xs: "xs",
           s: "s",
           m: "m",
@@ -315,6 +288,7 @@ stories
       bottom="${select(
         "Bottom spacing",
         {
+          "0": "0",
           xs: "xs",
           s: "s",
           m: "m",
@@ -323,17 +297,8 @@ stories
         },
         "xs"
       )}"
-      right="${select(
-        "Right spacing",
-        {
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
+      width=${text("Width (default: 350px)", "350px")}
+      full-width=${boolean("Full Width", false)}
       active-time="${select(
         "Active Time",
         {

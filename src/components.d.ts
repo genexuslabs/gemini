@@ -15,7 +15,7 @@ import {
 } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { ShadowType } from "./components/card/card";
+import { ShadowDiffusenessType } from "./components/card/card";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
@@ -73,13 +73,17 @@ export namespace Components {
      */
     bottom: Spacing;
     /**
-     * Whether the alert is full width or not
+     * This property makes the component full-width
      */
     fullWidth: boolean;
     /**
      * The alert left position value
      */
     left: Spacing;
+    /**
+     * The alert right position value
+     */
+    leftRight: Spacing;
     /**
      * The alert position.
      */
@@ -98,11 +102,17 @@ export namespace Components {
     width: string;
   }
   interface GxgBox {
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
+     * The component height
+     */
     height: string;
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * The component width
      */
-    shadow: number;
     width: string;
   }
   interface GxgButton {
@@ -110,6 +120,10 @@ export namespace Components {
      * The state of the button. Whether is disabled or not.
      */
     disabled: boolean;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
     /**
      * The kind of button
      */
@@ -129,19 +143,35 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
      * The main title alignment
      */
     titleAlignment: TitleAlignment;
   }
   interface GxgCard {
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * This property makes the component full-width
      */
-    shadow: ShadowType;
+    fullWidth: boolean;
+    /**
+     * The component height
+     */
+    height: string;
+    shadowDiffuseness: ShadowDiffusenessType;
+    /**
+     * The component width
+     */
     width: string;
   }
   interface GxgColorPicker {
     cardTitle: string;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
     value: string;
   }
   interface GxgDatePicker {
@@ -415,6 +445,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * If select is full width
+     */
+    fullWidth: boolean;
+    /**
      * The label
      */
     label: string;
@@ -461,10 +495,6 @@ export namespace Components {
      */
     size: string;
     /**
-     * The selected option
-     */
-    value: string;
-    /**
      * If select has warnings
      */
     warning: boolean;
@@ -478,6 +508,10 @@ export namespace Components {
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
      */
     disabled: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
     /**
      * The label
      */
@@ -913,13 +947,17 @@ declare namespace LocalJSX {
      */
     bottom?: Spacing;
     /**
-     * Whether the alert is full width or not
+     * This property makes the component full-width
      */
     fullWidth?: boolean;
     /**
      * The alert left position value
      */
     left?: Spacing;
+    /**
+     * The alert right position value
+     */
+    leftRight?: Spacing;
     /**
      * The alert position.
      */
@@ -938,11 +976,17 @@ declare namespace LocalJSX {
     width?: string;
   }
   interface GxgBox {
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
+     * The component height
+     */
     height?: string;
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * The component width
      */
-    shadow?: number;
     width?: string;
   }
   interface GxgButton {
@@ -950,6 +994,10 @@ declare namespace LocalJSX {
      * The state of the button. Whether is disabled or not.
      */
     disabled?: boolean;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
     /**
      * The kind of button
      */
@@ -969,19 +1017,35 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
      * The main title alignment
      */
     titleAlignment?: TitleAlignment;
   }
   interface GxgCard {
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * This property makes the component full-width
      */
-    shadow?: ShadowType;
+    fullWidth?: boolean;
+    /**
+     * The component height
+     */
+    height?: string;
+    shadowDiffuseness?: ShadowDiffusenessType;
+    /**
+     * The component width
+     */
     width?: string;
   }
   interface GxgColorPicker {
     cardTitle?: string;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
     onChange?: (event: CustomEvent<any>) => void;
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
@@ -1266,6 +1330,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
+    /**
      * The label
      */
     label?: string;
@@ -1314,10 +1382,6 @@ declare namespace LocalJSX {
      */
     size?: string;
     /**
-     * The selected option
-     */
-    value?: string;
-    /**
      * If select has warnings
      */
     warning?: boolean;
@@ -1331,6 +1395,10 @@ declare namespace LocalJSX {
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
      */
     disabled?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
     /**
      * The label
      */

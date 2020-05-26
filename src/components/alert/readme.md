@@ -20,11 +20,12 @@
 | `active`     | `active`      | Wether the alert is active (visible) or not (not visible).                        | `boolean`                                                                     | `false`       |
 | `activeTime` | `active-time` | The amount of miliseconds the alert is visible before hidding under the document. | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"`   |
 | `alertTitle` | `alert-title` | The alert title (optional)                                                        | `string`                                                                      | `undefined`   |
-| `bottom`     | `bottom`      | The alert bottom position value                                                   | `"l" \| "m" \| "s" \| "xl" \| "xs"`                                           | `"xs"`        |
-| `fullWidth`  | `full-width`  | Whether the alert is full width or not                                            | `boolean`                                                                     | `false`       |
-| `left`       | `left`        | The alert left position value                                                     | `"l" \| "m" \| "s" \| "xl" \| "xs"`                                           | `"xs"`        |
+| `bottom`     | `bottom`      | The alert bottom position value                                                   | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
+| `fullWidth`  | `full-width`  | This property makes the component full-width                                      | `boolean`                                                                     | `false`       |
+| `left`       | `left`        | The alert left position value                                                     | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
+| `leftRight`  | `left-right`  | The alert right position value                                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `position`   | `position`    | The alert position.                                                               | `"center" \| "left" \| "right"`                                               | `"left"`      |
-| `right`      | `right`       | The alert right position value                                                    | `"l" \| "m" \| "s" \| "xl" \| "xs"`                                           | `"xs"`        |
+| `right`      | `right`       | The alert right position value                                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `type`       | `type`        | The type of alert                                                                 | `"error" \| "more-info" \| "success" \| "warning"`                            | `"more-info"` |
 | `width`      | `width`       | The alert width                                                                   | `string`                                                                      | `"350px"`     |
 
@@ -41,6 +42,7 @@
 graph TD;
   gxg-alert --> gxg-icon
   gxg-alert --> gxg-button
+  gxg-button --> gxg-icon
   style gxg-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

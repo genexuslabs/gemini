@@ -17,7 +17,7 @@ stories.add("Text", () => {
   const labelWidth = "Width";
   const optionsWidth = {
     "fixed width": "fixed-width",
-    "full width (Display must be 'default')": "width=600px"
+    "full width (Display must be 'default')": "width=700px"
   };
   const defaultValueWidth = "fixed-width";
   const valueWidth = radios(labelWidth, optionsWidth, defaultValueWidth);

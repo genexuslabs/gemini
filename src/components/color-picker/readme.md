@@ -4,10 +4,11 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type     | Default   |
-| ----------- | ------------ | ----------- | -------- | --------- |
-| `cardTitle` | `card-title` |             | `string` | `""`      |
-| `value`     | `value`      |             | `string` | `"white"` |
+| Property    | Attribute    | Description                                  | Type      | Default   |
+| ----------- | ------------ | -------------------------------------------- | --------- | --------- |
+| `cardTitle` | `card-title` |                                              | `string`  | `""`      |
+| `fullWidth` | `full-width` | This property makes the component full-width | `boolean` | `false`   |
+| `value`     | `value`      |                                              | `string`  | `"white"` |
 
 ## Events
 

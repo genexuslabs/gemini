@@ -35,7 +35,7 @@ stories.add("Menu", () => {
 
   function widthFunc() {
     if (valueFullWidth) {
-      return "600px";
+      return "700px";
     } else {
       return valueWidth;
     }

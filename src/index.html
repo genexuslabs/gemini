@@ -78,6 +78,7 @@
       </gxg-form-radio-wrapper>
     </form>
 
+    <h2>Accordion</h2>
     <gxg-accordion-container single-tab-open mode="classical">
       <gxg-accordion tab-title="tab-01" disabled>
         <gxg-button type="primary-text-only">Button</gxg-button>
@@ -101,7 +102,7 @@
 
     <h3>Select</h3>
     <form action="">
-      <gxg-select label="Select a car:" width="400px" size="5">
+      <gxg-select label="Select a car:" width="400px" size="5" full-width>
         <gxg-option value="0">Select car:</gxg-option>
         <gxg-option value="1">Audi</gxg-option>
         <gxg-option value="2">BMW</gxg-option>
@@ -156,13 +157,14 @@
     </gxg-modal>
 
     <gxg-button
+      full-width
       style="margin-top:30px"
       onClick="(function(){
       const modal = document.getElementById('modal');
       modal.setAttribute('visible','true');
       return false;
     })();return false;"
-      >Launch Modal</gxg-button
+      >Launch Modal btn</gxg-button
     >
 
     <h2>Droplist</h2>
@@ -174,6 +176,27 @@
       <gxg-droplist-item>Item 5</gxg-droplist-item>
     </gxg-droplist>
 
+    <div>
+      <gxg-button full-width type="primary-text-only">Salt</gxg-button
+      ><gxg-button type="primary-text-icon"
+        >Primary Text Icon<gxg-icon
+          slot="icon"
+          type="duplicate"
+        ></gxg-icon></gxg-button
+      ><gxg-button type="primary-icon-only"
+        ><gxg-icon slot="icon" type="duplicate"></gxg-icon></gxg-button
+      ><gxg-button type="secondary-text-only">Salt</gxg-button
+      ><gxg-button type="secondary-text-icon"
+        >Primary Text Icon<gxg-icon
+          slot="icon"
+          type="duplicate"
+        ></gxg-icon></gxg-button
+      ><gxg-button type="outlined">Salt</gxg-button
+      ><gxg-button type="tertiary"
+        ><gxg-icon slot="icon" type="duplicate"></gxg-icon
+      ></gxg-button>
+    </div>
+
     <h2>Spacer</h2>
     <gxg-layout-spacer
       space="small"
@@ -183,6 +206,12 @@
       <gxg-button type="primary-text-only">Salt</gxg-button>
       <gxg-button type="primary-text-only">Pepper</gxg-button>
       <gxg-button type="primary-text-only">Cucumber</gxg-button>
+      <gxg-button type="primary-text-icon"
+        >Primary Text Icon<gxg-icon slot="icon" type="duplicate"></gxg-icon
+      ></gxg-button>
+      <gxg-button full-width type="primary-icon-only"
+        ><gxg-icon slot="icon" type="duplicate" full-width></gxg-icon
+      ></gxg-button>
       <gxg-button type="primary-text-only">Garlic</gxg-button>
       <gxg-button type="primary-text-only">Curry</gxg-button>
     </gxg-layout-spacer>
@@ -227,14 +256,13 @@
     <h2>Color Picker</h2>
     <gxg-color-picker></gxg-color-picker>
 
-    <h2>Accordion</h2>
-
     <h2>Button Group</h2>
     <gxg-button-group
       default-selected-btn-id="id2"
       button-group-title="The title"
       title-alignment="left"
       tabindex="0"
+      full-width
     >
       <button id="id1" value="primero">Left</button>
       <button id="id2" value="segundo">Middle</button>
@@ -785,13 +813,13 @@
         </form>
 
         <h3>Box</h3>
-        <gxg-box
+        <gxg-box full-width
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
           blanditiis temporibus laudantium maxime laboriosam a, animi quo
           dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
           iusto quos sunt sint?</gxg-box
         >
-        <gxg-box gray="1"
+        <gxg-box gray="1" width="300px"
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
           blanditiis temporibus laudantium maxime laboriosam a, animi quo
           dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
@@ -811,7 +839,7 @@
         >
 
         <h3>Card</h3>
-        <gxg-card>
+        <gxg-card height="100px">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
           blanditiis temporibus laudantium maxime laboriosam a, animi quo
           dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
@@ -829,11 +857,11 @@
         <form>
           <h3>Slider</h3>
           <gxg-slider
-            disabled
             value="10"
             label="Slider"
             min="100"
             max="400"
+            width="500px"
           ></gxg-slider>
 
           <h3>Progress Bar</h3>
@@ -841,6 +869,7 @@
             label="Progress Bar"
             tabindex="1"
             value="50"
+            width="400px"
           ></gxg-progress-bar>
         </form>
 
@@ -974,10 +1003,11 @@
         <gxg-alert
           id="alert-more-info"
           type="more-info"
-          position="right"
+          position="center"
           alert-title="more info title"
           active-time="xxslow"
-          full-width
+          width="600px"
+          left-right="xs"
         >
           The message for the more-info alert box The message for the more-info
           alert box The message for the more-info alert box The message for the

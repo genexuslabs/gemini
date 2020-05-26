@@ -117,12 +117,12 @@ stories.add("Toolbar", () => {
           Third Icon was clicked!
         </gxg-alert>
 
-  <gxg-toolbar title=${valueTitle} subtitle=${valueSubtitle} position=${valueArrowPosition}>
+  <gxg-toolbar title="${valueTitle}" subtitle="${valueSubtitle}" position=${valueArrowPosition}>
       <gxg-toolbar-item
         slot
         icon="settings"
-        title=${valueFirstIconTitle}
-        subtitle=${valueFirstIconSubtitle}
+        title="${valueFirstIconTitle}"
+        subtitle="${valueFirstIconSubtitle}"
         onClick="(function(){
           document.getElementById('alert-first-icon').setAttribute('active', 'true');
           return false;

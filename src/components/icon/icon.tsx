@@ -201,6 +201,7 @@ export type IconType =
   | "duplicate"
   | "edit-wand"
   | "edit"
+  | "empty"
   | "error"
   | "level-down"
   | "level-up"

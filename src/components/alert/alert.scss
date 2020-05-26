@@ -80,3 +80,7 @@ POSITION
 :host(:not([active])[position="center"]) {
   transform: translateY(100%) translateX(-50%) !important;
 }
+//Full width
+:host([full-width]) {
+  // width: 100% !important;
+}

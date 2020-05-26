@@ -20,9 +20,11 @@ export class Tabs {
   }
 
   updateActiveChildren(activeTab: string, tagName: string) {
-    const children = Array.from(this.element.querySelectorAll(
-      tagName
-    ) as NodeListOf<HTMLGxgTabButtonElement | HTMLGxgTabElement>);
+    const children = Array.from(
+      this.element.querySelectorAll(tagName) as NodeListOf<
+        HTMLGxgTabButtonElement | HTMLGxgTabElement
+      >
+    );
     for (const child of children) {
       child.isSelected = activeTab === child.tab;
     }

@@ -21,3 +21,11 @@
     background-color: var(--color-primary-active);
   }
 }
+//Full width
+:host([full-width]) {
+  display: block;
+  width: 100%;
+  .outer-bar {
+    width: 100%;
+  }
+}

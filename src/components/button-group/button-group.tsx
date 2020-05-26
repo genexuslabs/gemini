@@ -28,6 +28,11 @@ export class ButtonGroup {
   @Prop() disabled = false;
 
   /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  /**
   The value of the current selected button
   */
   @State() value = "";

@@ -2,16 +2,14 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property | Attribute | Description                                            | Type     | Default     |
-| -------- | --------- | ------------------------------------------------------ | -------- | ----------- |
-| `height` | `height`  |                                                        | `string` | `undefined` |
-| `shadow` | `shadow`  | The card box-shadow value possible values: from 1 to 8 | `number` | `1`         |
-| `width`  | `width`   |                                                        | `string` | `undefined` |
+| Property    | Attribute    | Description                                  | Type      | Default   |
+| ----------- | ------------ | -------------------------------------------- | --------- | --------- |
+| `fullWidth` | `full-width` | This property makes the component full-width | `boolean` | `false`   |
+| `height`    | `height`     | The component height                         | `string`  | `"auto"`  |
+| `width`     | `width`      | The component width                          | `string`  | `"200px"` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

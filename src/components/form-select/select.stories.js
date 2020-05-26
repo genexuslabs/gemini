@@ -27,7 +27,7 @@ stories.add("Select", () => {
   const labelWidthStyle = "Width Style";
   const optionsWidthStyle = {
     "fixed width": "fixed-width",
-    "full width (Display must be 'default')": "style=width:600px"
+    "full width": "style=width:700px"
   };
   const defaultValueWidthStyle = "fixed-width";
   const valueWidthStyle = radios(
@@ -87,15 +87,11 @@ stories.add("Select", () => {
     if (valueWidthStyle === "fixed-width") {
       return "240px";
     } else {
-      if (valueDisplay !== "inline-flex") {
-        return "600px";
-      } else {
-        return "240px";
-      }
+      return "700px";
     }
   }
 
-  return `<gxg-form-select
+  return `<gxg-select
   label="Select a car:"
   width=${valueWidthSizeFunc()}
   ${valueStatusType()}
@@ -113,9 +109,9 @@ stories.add("Select", () => {
   <gxg-option value="6">Jaguar</gxg-option>
   <gxg-option value="7">Land Rover</gxg-option>
   <gxg-option value="8">Mercedes</gxg-option>
-</gxg-form-select>
+</gxg-select>
 
-<gxg-form-select
+<gxg-select
   label="Select a car:"
   width=${valueWidthSizeFunc()}
   ${valueStatusType()}
@@ -133,5 +129,5 @@ stories.add("Select", () => {
   <gxg-option value="6">Jaguar</gxg-option>
   <gxg-option value="7">Land Rover</gxg-option>
   <gxg-option value="8">Mercedes</gxg-option>
-</gxg-form-select>`;
+</gxg-select>`;
 });

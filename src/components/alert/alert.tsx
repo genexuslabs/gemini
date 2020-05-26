@@ -8,10 +8,6 @@ import { Component, Element, Host, Prop, h, Watch } from "@stencil/core";
 export class Alert {
   @Element() el: HTMLElement;
 
-  constructor() {
-    this.setAlertInactive = this.setAlertInactive.bind(this);
-  }
-
   /*********************************
   PROPERTIES & STATE
   *********************************/
@@ -42,7 +38,7 @@ export class Alert {
   @Prop() type: AlertType = "more-info";
 
   /**
-   * Whether the alert is full width or not
+   * This property makes the component full-width
    */
   @Prop() fullWidth = false;
 
@@ -55,6 +51,11 @@ export class Alert {
    * The alert right position value
    */
   @Prop() right: Spacing = "xs";
+
+  /**
+   * The alert right position value
+   */
+  @Prop() leftRight: Spacing = "xs";
 
   /**
    * The alert bottom position value
@@ -132,14 +133,21 @@ export class Alert {
     if (newValue === true) {
       this.el.setAttribute("role", "alert");
       setTimeout(() => {
-        this.setAlertInactive();
+        this.setAlertInactive.bind(this);
       }, parseInt(getComputedStyle(document.documentElement).getPropertyValue("--timing-" + timingValue)));
     }
   }
 
-  defineWidth() {
+  widthFunc() {
     if (this.fullWidth) {
-      return "calc(100% - 40px)";
+      const lateralSpacingComputedValue = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--spacing-lay-" + this.leftRight);
+      //remove "px" to multiply, since we want the spacing value from left, and from right.
+      const lateralSpacingComputedValueInt =
+        parseInt(lateralSpacingComputedValue.replace("px", ""), 10) * 2;
+
+      return "calc(100% - " + lateralSpacingComputedValueInt + "px)";
     } else {
       return this.width;
     }
@@ -147,11 +155,8 @@ export class Alert {
 
   render() {
     const bodyComputedStyles = getComputedStyle(document.body);
-    const leftSpacingValue = bodyComputedStyles
-      .getPropertyValue("--spacing-lay-" + this.left)
-      .replace(/\s/g, "");
-    const rightSpacingValue = bodyComputedStyles
-      .getPropertyValue("--spacing-lay-" + this.right)
+    const lateralSpacingValue = bodyComputedStyles
+      .getPropertyValue("--spacing-lay-" + this.leftRight)
       .replace(/\s/g, "");
     const bottomSpacingValue = bodyComputedStyles
       .getPropertyValue("--spacing-lay-" + this.bottom)
@@ -161,9 +166,9 @@ export class Alert {
       <Host
         hidden
         style={{
-          width: this.defineWidth(),
-          left: leftSpacingValue,
-          right: rightSpacingValue,
+          width: this.widthFunc(),
+          left: lateralSpacingValue,
+          right: lateralSpacingValue,
           transform:
             this.position === "center"
               ? "translateY(-" + bottomSpacingValue + ") translateX(-50%)"
@@ -197,7 +202,7 @@ export class Alert {
           <div class="alert-message-close">
             <gxg-button
               type="secondary-icon-only"
-              onClick={this.setAlertInactive}
+              onClick={this.setAlertInactive.bind(this)}
             >
               <gxg-icon
                 slot="icon"
@@ -226,4 +231,4 @@ export type ActiveTime =
   | "xfast"
   | "xxfast";
 
-export type Spacing = "xs" | "s" | "m" | "l" | "xl";
+export type Spacing = "0" | "xs" | "s" | "m" | "l" | "xl";

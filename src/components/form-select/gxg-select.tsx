@@ -6,6 +6,7 @@ import {
   EventEmitter,
   h,
   Host,
+  State,
   Watch
 } from "@stencil/core";
 import { formMessage } from "../../common.js";
@@ -68,9 +69,9 @@ export class FormSelectNew {
   @Prop() selectId: string;
 
   /**
-   * The selected option
+   * An variable to hold the value of the selected option (for internal use)
    */
-  @Prop() value: string;
+  @State() value: string;
 
   /**
    * If select has warnings

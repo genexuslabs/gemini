@@ -315,3 +315,11 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
     --icon-color: #{$gxg-label--negative-disabled-color};
   }
 }
+
+//Full width button
+:host(.button--fullwidth) {
+  width: 100%;
+}
+:host(.button--fullwidth) .button-native {
+  width: 100%;
+}

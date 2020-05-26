@@ -23,18 +23,51 @@ stories.add("Progress Bar", () => {
   const defaultValueValue = 50;
   const valueValue = number(labelValue, defaultValueValue);
 
+  //Width
+  const labelWidth = "Width";
+  const defaultValueWidth = "300px";
+  const valueWidth = text(labelWidth, defaultValueWidth);
+
+  //Fullwidth
+  const labelWidthStyle = "Width Style";
+  const optionsWidthStyle = {
+    "fixed width": "fixed-width",
+    "full width": "full-width"
+  };
+  const defaultValueWidthStyle = "fixed-width";
+  const valueWidthStyle = radios(
+    labelWidthStyle,
+    optionsWidthStyle,
+    defaultValueWidthStyle
+  );
+
   function animateProgressBar() {
     const progresBar = document.getElementById("progress-bar");
     const initialValue = progresBar.getAttribute("value");
     console.log(initialValue);
   }
 
+  function valueWidthSizeFunc() {
+    if (valueWidthStyle === "full-width") {
+      return "full-width";
+    }
+  }
+
   return `
-  <div style="display: flex; align-items: center; flex-direction: column;">
+  <style>
+  #root {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  </style>
   <gxg-progress-bar
+  ${valueWidthStyle}
   id="progress-bar"
   label=${valueLabel}
   value=${valueValue}
+  width=${valueWidth}
 ></gxg-progress-bar>
 <gxg-button style="margin-top:30px" onClick="(function(){
   const progressBar = document.getElementById('progress-bar');
@@ -46,6 +79,5 @@ stories.add("Progress Bar", () => {
   
   return false;
 })();return false;">Animate</gxg-button>
-</div>
   `;
 });
