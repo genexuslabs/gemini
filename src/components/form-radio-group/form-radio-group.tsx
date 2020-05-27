@@ -38,6 +38,9 @@ export class FormRadioGroup {
 
   @Listen("keyPressed")
   keyPressedHandler(event: CustomEvent) {
+    if (event.detail === "tab") {
+      //tab key was pressed, set
+    }
     const currentActiveRadio = this.el.querySelector("gxg-form-radio[checked]");
     currentActiveRadio.shadowRoot
       .querySelector("input")

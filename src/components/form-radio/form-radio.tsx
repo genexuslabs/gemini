@@ -95,7 +95,13 @@ export class FormRadio {
 
   handlerOnKeyUp(event) {
     event.preventDefault();
-    if (event.keyCode == 37 || event.keyCode == 38) {
+    if (event.keyCode == 9) {
+      //tab key was pressed
+      this.keyPressed.emit("tab");
+    }
+    if (event.shiftKey && event.keyCode == 9) {
+      //shift was down when tab was pressed
+    } else if (event.keyCode == 37 || event.keyCode == 38) {
       //arrow-left, or arrow-up key was pressed. focus should be positioned on the previous radiobtn.
       this.keyPressed.emit({ direction: "previous" });
     }
