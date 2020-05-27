@@ -43,7 +43,19 @@ stories
     margin-bottom: 15px;
   }
   </style>
-  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} box-shadow="${select(
+  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} padding="${select(
+      "Padding",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+        xxl: "xxl",
+        xxxl: "xxxl"
+      },
+      "s"
+    )}" box-shadow="${select(
       "Box Shadow",
       {
         xxs: "1",
@@ -60,7 +72,19 @@ stories
     <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.
     – Bernard M. Baruch</q>
   </gxg-card>
-  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} box-shadow="${select(
+  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} padding="${select(
+      "Padding",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+        xxl: "xxl",
+        xxxl: "xxxl"
+      },
+      "s"
+    )}" box-shadow="${select(
       "Box Shadow",
       {
         xxs: "xxs",
@@ -77,7 +101,19 @@ stories
     <q>You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.
     – Dr. Seuss</q>
   </gxg-card>
-  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} box-shadow="${select(
+  <gxg-card width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} padding="${select(
+      "Padding",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+        xxl: "xxl",
+        xxxl: "xxxl"
+      },
+      "s"
+    )}" box-shadow="${select(
       "Box Shadow",
       {
         xxs: "xxs",
@@ -139,15 +175,51 @@ stories
     margin-bottom: 15px;
   }
   </style>
-  <gxg-box gray=${valueColor} width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} ${valueBorderFunc()}>
+  <gxg-box gray=${valueColor} width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} ${valueBorderFunc()} padding="${select(
+      "Padding",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+        xxl: "xxl",
+        xxxl: "xxxl"
+      },
+      "s"
+    )}">
     <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.
     – Bernard M. Baruch</q>
   </gxg-box>
-  <gxg-box gray=${valueColor} width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} ${valueBorderFunc()}>
+  <gxg-box gray=${valueColor} width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} ${valueBorderFunc()} padding="${select(
+      "Padding",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+        xxl: "xxl",
+        xxxl: "xxxl"
+      },
+      "s"
+    )}">
     <q>You know you’re in love when you can’t fall asleep because reality is finally better than your dreams.
     – Dr. Seuss</q>
   </gxg-box>
-  <gxg-box gray=${valueColor} width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} ${valueBorderFunc()}>
+  <gxg-box gray=${valueColor} width=${valueWidth} full-width=${valueFullWidth} height=${valueHeight} ${valueBorderFunc()} padding="${select(
+      "Padding",
+      {
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+        xxl: "xxl",
+        xxxl: "xxxl"
+      },
+      "s"
+    )}">
     <q>Don’t walk behind me; I may not lead. Don’t walk in front of me; I may not follow. Just walk beside me and be my friend.
     – Albert Camus</q>
   </gxg-box>

@@ -22,6 +22,9 @@ export class Card {
    */
   @Prop() height = "auto";
 
+  /*The card padding (internal spacing)*/
+  @Prop() padding: paddingType = "xs";
+
   /**
    * The component width
    */
@@ -62,3 +65,5 @@ export type boxShadowType =
   | "xl"
   | "xxl"
   | "xxxl";
+
+export type paddingType = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

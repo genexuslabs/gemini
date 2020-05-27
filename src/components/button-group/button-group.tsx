@@ -52,7 +52,9 @@ export class ButtonGroup {
   *********************************/
 
   componentDidLoad() {
-    this.setInitialActiveValue();
+    if (!this.disabled) {
+      this.setInitialActiveValue();
+    }
 
     if (this.disabled) {
       this.value = null;

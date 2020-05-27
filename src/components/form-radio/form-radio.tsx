@@ -82,6 +82,7 @@ export class FormRadio {
     }
     if (newValue === true) {
       this.radioInput.setAttribute("checked", "checked");
+      this.selectRadio();
     }
   }
 
@@ -93,12 +94,14 @@ export class FormRadio {
   }
 
   handlerOnKeyUp(event) {
+    event.preventDefault();
     if (event.keyCode == 37 || event.keyCode == 38) {
       //arrow-left, or arrow-up key was pressed. focus should be positioned on the previous radiobtn.
       this.keyPressed.emit({ direction: "previous" });
     }
     if (event.keyCode == 39 || event.keyCode == 40) {
-      //arrow-right, or arrow-down key was pressed. focus should be positioned on the next radiobtn.
+      //arrow-right, or arrow-down key was pressed. focus should be positioned on the next radiobtn
+      this.keyPressed.emit({ direction: "next" });
     }
   }
 
@@ -114,8 +117,7 @@ export class FormRadio {
             value={this.value}
             onClick={this.selectRadio.bind(this)}
             disabled={this.disabled}
-            tabindex="0"
-            onKeyUp={this.handlerOnKeyUp.bind(this)}
+            onKeyDown={this.handlerOnKeyUp.bind(this)}
           ></input>
           <span class="radiobtn"></span>
           {this.label}

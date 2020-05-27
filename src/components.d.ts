@@ -13,9 +13,13 @@ import {
   AlertType,
   Spacing
 } from "./components/alert/alert";
+import { paddingType } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadowType } from "./components/card/card";
+import {
+  boxShadowType,
+  paddingType as paddingType1
+} from "./components/card/card";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
@@ -110,6 +114,7 @@ export namespace Components {
      * The component height
      */
     height: string;
+    padding: paddingType;
     /**
      * The component width
      */
@@ -165,6 +170,7 @@ export namespace Components {
      * The component height
      */
     height: string;
+    padding: paddingType;
     /**
      * The component width
      */
@@ -996,6 +1002,7 @@ declare namespace LocalJSX {
      * The component height
      */
     height?: string;
+    padding?: paddingType;
     /**
      * The component width
      */
@@ -1051,6 +1058,7 @@ declare namespace LocalJSX {
      * The component height
      */
     height?: string;
+    padding?: paddingType;
     /**
      * The component width
      */

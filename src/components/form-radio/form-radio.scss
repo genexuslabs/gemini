@@ -3,7 +3,7 @@
 
 :host {
   input:focus + .radiobtn {
-    border-color: red;
+    box-shadow: 0px 0px 0px 1px var(--color-primary-active);
   }
 
   /* Custom labels: the container */
@@ -80,6 +80,7 @@
     position: relative;
     margin-right: var(--spacing-comp-02);
     flex-shrink: 0;
+    box-shadow: 0px 0px 0px 1px transparent;
   }
 
   /* On mouse-over, add a grey background color */
