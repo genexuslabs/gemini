@@ -94,19 +94,22 @@ export class FormRadio {
   }
 
   handlerOnKeyUp(event) {
-    event.preventDefault();
     if (event.keyCode == 9) {
       //tab key was pressed
-      this.keyPressed.emit("tab");
-    }
-    if (event.shiftKey && event.keyCode == 9) {
-      //shift was down when tab was pressed
+      if (event.shiftKey) {
+        //shift key was also pressed
+        this.keyPressed.emit({ direction: "previous-tab" });
+      } else {
+        this.keyPressed.emit({ direction: "next-tab" });
+      }
     } else if (event.keyCode == 37 || event.keyCode == 38) {
       //arrow-left, or arrow-up key was pressed. focus should be positioned on the previous radiobtn.
+      event.preventDefault();
       this.keyPressed.emit({ direction: "previous" });
     }
     if (event.keyCode == 39 || event.keyCode == 40) {
       //arrow-right, or arrow-down key was pressed. focus should be positioned on the next radiobtn
+      event.preventDefault();
       this.keyPressed.emit({ direction: "next" });
     }
   }
