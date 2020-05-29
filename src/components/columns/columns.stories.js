@@ -208,7 +208,7 @@ stories.add("Columns", () => {
   <gxg-column width="fluid">
     Fluid
   </gxg-column>
-</gxg-columns></gxg-stack><div style="text-align:center"><p class="note">Note: <em>gxg-column</em> component does not has inherent background-color or border color styles.<br>The ones applied on this example are only for the purpose of better understanding the columns system.</p><gxg-button onClick="(function(){
+</gxg-columns></gxg-stack><div style="text-align:center"><p class="note">Note: <em>gxg-column</em> component does not has any inherent background-color or border color styles.<br>The ones applied on this example are only for the purpose of better understanding the columns system.</p><gxg-button onClick="(function(){
   var win = window.open('https://codepen.io/brsastregx/pen/BaoXBpX?editors=1000', '_blank');
   win.focus();
   return false;
