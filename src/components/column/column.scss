@@ -3,6 +3,8 @@
 
 :host {
   display: flex;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 :host([width="fluid"]) {

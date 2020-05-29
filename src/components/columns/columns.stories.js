@@ -27,6 +27,8 @@ stories.add("Columns", () => {
       color: #6f6d6d;
       border: 1px solid #b7b5b5;
       border-radius: 2px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 11px;
     }
   </style>
   <gxg-stack space="${select(
@@ -199,10 +201,13 @@ stories.add("Columns", () => {
   <gxg-column width="fluid">
     Fluid
   </gxg-column>
-</gxg-columns></gxg-stack><div style="text-align:center"><gxg-button type="primary-text-icon"
+</gxg-columns></gxg-stack><div style="text-align:center"><gxg-button onClick="(function(){
+  var win = window.open('https://codepen.io/brsastregx/pen/BaoXBpX?editors=1000', '_blank');
+  win.focus();
+  return false;
+})();return false;" type="primary-text-icon"
 >Open in Playground<gxg-icon
   slot="icon"
   type="edit"
-></gxg-icon></gxg-button
-></div>`;
+></gxg-icon></gxg-button>`;
 });
