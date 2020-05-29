@@ -20,11 +20,14 @@ import {
   boxShadowType,
   paddingType as paddingType1
 } from "./components/card/card";
+import { WidthType } from "./components/column/column";
+import { SpaceType } from "./components/columns/columns";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignmentType } from "./components/modal/modal";
+import { SpaceType as SpaceType1 } from "./components/stack/stack";
 import { SizeType } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
@@ -183,6 +186,19 @@ export namespace Components {
      */
     fullWidth: boolean;
     value: string;
+  }
+  interface GxgColumn {
+    width: WidthType;
+  }
+  interface GxgColumns {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The spacing between columns
+     */
+    space: SpaceType;
   }
   interface GxgDatePicker {
     /**
@@ -567,6 +583,16 @@ export namespace Components {
      */
     space: string;
   }
+  interface GxgStack {
+    /**
+     * The toggle label
+     */
+    label: string;
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    space: SpaceType;
+  }
   interface GxgStepper {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -702,6 +728,20 @@ declare global {
     prototype: HTMLGxgColorPickerElement;
     new (): HTMLGxgColorPickerElement;
   };
+  interface HTMLGxgColumnElement
+    extends Components.GxgColumn,
+      HTMLStencilElement {}
+  var HTMLGxgColumnElement: {
+    prototype: HTMLGxgColumnElement;
+    new (): HTMLGxgColumnElement;
+  };
+  interface HTMLGxgColumnsElement
+    extends Components.GxgColumns,
+      HTMLStencilElement {}
+  var HTMLGxgColumnsElement: {
+    prototype: HTMLGxgColumnsElement;
+    new (): HTMLGxgColumnsElement;
+  };
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
       HTMLStencilElement {}
@@ -817,6 +857,13 @@ declare global {
     prototype: HTMLGxgSpacerOneElement;
     new (): HTMLGxgSpacerOneElement;
   };
+  interface HTMLGxgStackElement
+    extends Components.GxgStack,
+      HTMLStencilElement {}
+  var HTMLGxgStackElement: {
+    prototype: HTMLGxgStackElement;
+    new (): HTMLGxgStackElement;
+  };
   interface HTMLGxgStepperElement
     extends Components.GxgStepper,
       HTMLStencilElement {}
@@ -885,6 +932,8 @@ declare global {
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
     "gxg-color-picker": HTMLGxgColorPickerElement;
+    "gxg-column": HTMLGxgColumnElement;
+    "gxg-columns": HTMLGxgColumnsElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
@@ -902,6 +951,7 @@ declare global {
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
     "gxg-spacer-one": HTMLGxgSpacerOneElement;
+    "gxg-stack": HTMLGxgStackElement;
     "gxg-stepper": HTMLGxgStepperElement;
     "gxg-tab": HTMLGxgTabElement;
     "gxg-tab-bar": HTMLGxgTabBarElement;
@@ -1074,6 +1124,19 @@ declare namespace LocalJSX {
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
+  }
+  interface GxgColumn {
+    width?: WidthType;
+  }
+  interface GxgColumns {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The spacing between columns
+     */
+    space?: SpaceType;
   }
   interface GxgDatePicker {
     /**
@@ -1468,6 +1531,16 @@ declare namespace LocalJSX {
      */
     space?: string;
   }
+  interface GxgStack {
+    /**
+     * The toggle label
+     */
+    label?: string;
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    space?: SpaceType;
+  }
   interface GxgStepper {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1559,6 +1632,8 @@ declare namespace LocalJSX {
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
     "gxg-color-picker": GxgColorPicker;
+    "gxg-column": GxgColumn;
+    "gxg-columns": GxgColumns;
     "gxg-date-picker": GxgDatePicker;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
@@ -1576,6 +1651,7 @@ declare namespace LocalJSX {
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
     "gxg-spacer-one": GxgSpacerOne;
+    "gxg-stack": GxgStack;
     "gxg-stepper": GxgStepper;
     "gxg-tab": GxgTab;
     "gxg-tab-bar": GxgTabBar;
@@ -1605,6 +1681,10 @@ declare module "@stencil/core" {
       "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
       "gxg-color-picker": LocalJSX.GxgColorPicker &
         JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
+      "gxg-column": LocalJSX.GxgColumn &
+        JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
+      "gxg-columns": LocalJSX.GxgColumns &
+        JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
@@ -1637,6 +1717,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgSpacerLayoutElement>;
       "gxg-spacer-one": LocalJSX.GxgSpacerOne &
         JSXBase.HTMLAttributes<HTMLGxgSpacerOneElement>;
+      "gxg-stack": LocalJSX.GxgStack &
+        JSXBase.HTMLAttributes<HTMLGxgStackElement>;
       "gxg-stepper": LocalJSX.GxgStepper &
         JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
       "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;

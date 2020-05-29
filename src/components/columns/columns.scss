@@ -1,0 +1,27 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+
+  .columns-container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+//Spacing between columns
+$sizes: xs, s, m;
+
+@each $size in $sizes {
+  :host([space="#{$size}"]) {
+    ::slotted(gxg-column) {
+      margin-left: var(--spacing-lay-#{$size});
+    }
+    .columns-container {
+      margin-left: calc(var(--spacing-lay-#{$size}) * -1);
+    }
+  }
+}

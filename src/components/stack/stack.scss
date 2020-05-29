@@ -1,0 +1,18 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+//Spacing between stack direct childs
+$sizes: xs, s, m, l, xl;
+
+@each $size in $sizes {
+  :host([space="#{$size}"]) {
+    ::slotted(*) {
+      margin-bottom: var(--spacing-lay-#{$size});
+    }
+  }
+}
+:host([space="*"]) {
+  ::slotted(*:last-child) {
+    margin-bottom: 0;
+  }
+}
