@@ -27,8 +27,15 @@ stories.add("Columns", () => {
       color: #6f6d6d;
       border: 1px solid #b7b5b5;
       border-radius: 2px;
+    }
+    gxg-column, .note {
       font-family: "Open Sans", sans-serif;
       font-size: 11px;
+    }
+    .note {
+      color: #aaa;
+      line-height: 1.6em;
+      margin:15px 0 15px 0;
     }
   </style>
   <gxg-stack space="${select(
@@ -201,7 +208,7 @@ stories.add("Columns", () => {
   <gxg-column width="fluid">
     Fluid
   </gxg-column>
-</gxg-columns></gxg-stack><div style="text-align:center"><gxg-button onClick="(function(){
+</gxg-columns></gxg-stack><div style="text-align:center"><p class="note">Note: <em>gxg-column</em> component does not has inherent background-color or border color styles.<br>The ones applied on this example are only for the purpose of better understanding the columns system.</p><gxg-button onClick="(function(){
   var win = window.open('https://codepen.io/brsastregx/pen/BaoXBpX?editors=1000', '_blank');
   win.focus();
   return false;
