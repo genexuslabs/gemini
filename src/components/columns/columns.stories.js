@@ -11,9 +11,9 @@ import {
 
 const stories = storiesOf("Columns", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
 stories.add("Columns", () => {
   return `
+  
   <style>
     #root {
       width: 700px;
@@ -216,5 +216,6 @@ stories.add("Columns", () => {
 >Open in Playground<gxg-icon
   slot="icon"
   type="edit"
-></gxg-icon></gxg-button>`;
+></gxg-icon></gxg-button>
+  `;
 });
