@@ -7,15 +7,21 @@ import { Component, Prop, h, Host } from "@stencil/core";
 })
 export class Columns {
   /**
-   * The state of the toggle. Whether is disabled or not.
-   * Possible values: false, true
+   * The vertical alignment
    */
-  @Prop({ reflect: true }) disabled = false;
+  @Prop({ reflect: true }) alignY: AlignYType = "top";
+
+  /**
+   * The collapse breakpoint
+   */
+  @Prop({ reflect: true }) collapseBellow: CollapseBellowType = "tablet";
+
+  collapseBelow;
 
   /**
    * The spacing between columns
    */
-  @Prop() space: SpaceType = "xs";
+  @Prop() space: SpaceType = "none";
 
   render() {
     return (
@@ -28,4 +34,6 @@ export class Columns {
   }
 }
 
-export type SpaceType = "xs" | "s" | "m";
+export type SpaceType = "xs" | "s" | "m" | "none";
+export type AlignYType = "top" | "center" | "bottom";
+export type CollapseBellowType = "desktop" | "laptop" | "tablet";

@@ -1,0 +1,57 @@
+/***************************
+BREAKPOINTS
+***************************/
+
+//Mobile devices
+$screen-xs-max: 480px;
+
+//iPads, Tablets
+$screen-sm-max: 768px;
+
+//Small screens, laptops
+$screen-md-max: 1024px;
+
+//Desktops, large screens
+$screen-lg-max: 1200px;
+
+//Extra large screens, TV
+$screen-xl-min: 1201px;
+
+/***************************
+MIXINS
+***************************/
+
+//Extra large screens, TV
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+//Desktops, large screens
+@mixin lg {
+  @media (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+//Small screens, laptops
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+//iPads, Tablets
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+//Mobile devices
+@mixin xs {
+  @media (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}

@@ -4,10 +4,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                       | Type                 | Default |
-| ---------- | ---------- | --------------------------------------------------------------------------------- | -------------------- | ------- |
-| `disabled` | `disabled` | The state of the toggle. Whether is disabled or not. Possible values: false, true | `boolean`            | `false` |
-| `space`    | `space`    | The spacing between columns                                                       | `"m" \| "s" \| "xs"` | `"xs"`  |
+| Property         | Attribute         | Description                 | Type                                | Default    |
+| ---------------- | ----------------- | --------------------------- | ----------------------------------- | ---------- |
+| `alignY`         | `align-y`         | The vertical alignment      | `"bottom" \| "center" \| "top"`     | `"top"`    |
+| `collapseBellow` | `collapse-bellow` | The collapse breakpoint     | `"desktop" \| "laptop" \| "tablet"` | `"tablet"` |
+| `space`          | `space`           | The spacing between columns | `"m" \| "none" \| "s" \| "xs"`      | `"none"`   |
 
 ---
 

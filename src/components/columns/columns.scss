@@ -1,5 +1,6 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+@import "../../globals/breakpoints";
 
 :host {
   display: block;
@@ -7,6 +8,24 @@
   .columns-container {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+//Columns vertical alignment
+:host([align-y="top"]) {
+  .columns-container {
+    align-items: flex-start;
+  }
+}
+:host([align-y="center"]) {
+  .columns-container {
+    align-items: center;
+  }
+}
+:host([align-y="bottom"]) {
+  .columns-container {
+    align-items: flex-end;
   }
 }
 
@@ -20,6 +39,58 @@ $sizes: xs, s, m;
     }
     .columns-container {
       margin-left: calc(var(--spacing-lay-#{$size}) * -1);
+    }
+  }
+}
+//none space
+:host([space="none"]) {
+  ::slotted(gxg-column) {
+    margin-left: 0;
+  }
+  .columns-container {
+    margin-left: 0;
+  }
+}
+
+/******************************
+RESPONSIVE
+******************************/
+//Collapse below desktop
+:host([collapse-bellow="desktop"]) {
+  .columns-container {
+    @include lg {
+      display: block;
+      margin-left: 0;
+      ::slotted(gxg-column) {
+        box-sizing: border-box;
+        margin-left: 0;
+      }
+    }
+  }
+}
+//Collapse below laptop
+:host([collapse-bellow="laptop"]) {
+  .columns-container {
+    @include md {
+      display: block;
+      margin-left: 0;
+      ::slotted(gxg-column) {
+        box-sizing: border-box;
+        margin-left: 0;
+      }
+    }
+  }
+}
+//Collapse below tablet
+:host([collapse-bellow="tablet"]) {
+  .columns-container {
+    @include sm {
+      display: block;
+      margin-left: 0;
+      ::slotted(gxg-column) {
+        box-sizing: border-box;
+        margin-left: 0;
+      }
     }
   }
 }

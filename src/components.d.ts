@@ -21,7 +21,11 @@ import {
   paddingType as paddingType1
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
-import { SpaceType } from "./components/columns/columns";
+import {
+  AlignYType,
+  CollapseBellowType,
+  SpaceType
+} from "./components/columns/columns";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
@@ -192,9 +196,13 @@ export namespace Components {
   }
   interface GxgColumns {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The vertical alignment
      */
-    disabled: boolean;
+    alignY: AlignYType;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow: CollapseBellowType;
     /**
      * The spacing between columns
      */
@@ -1130,9 +1138,13 @@ declare namespace LocalJSX {
   }
   interface GxgColumns {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The vertical alignment
      */
-    disabled?: boolean;
+    alignY?: AlignYType;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow?: CollapseBellowType;
     /**
      * The spacing between columns
      */

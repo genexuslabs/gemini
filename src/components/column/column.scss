@@ -2,6 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
+  background: yellow;
   display: flex;
   font-size: inherit;
   font-family: inherit;
