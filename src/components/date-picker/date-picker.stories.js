@@ -38,6 +38,11 @@ stories.add("Date Picker", () => {
   const defaultValuenoWeekends = false;
   const noWeekendsValue = boolean(noWeekendsLabel, defaultValuenoWeekends);
 
+  //Fullwidth
+  const fullWidthLabel = "Full Width";
+  const defaultValueFullWidth = false;
+  const fullWidthValue = boolean(fullWidthLabel, defaultValueFullWidth);
+
   function noWeekendsFunc() {
     if (noWeekendsValue) {
       return "no-weekends";
@@ -48,10 +53,25 @@ stories.add("Date Picker", () => {
     return "2020, 1, 20";
   }
 
-  return `<gxg-date-picker
+  function fullWidth() {
+    if (fullWidthValue) {
+      return "full-width";
+    }
+  }
+
+  return `
+  <style>
+  #root {
+    width:700px;
+  }
+  #root gxg-date-picker {
+    margin:0 auto;
+  }
+  </style>
+  <gxg-date-picker
   label="${valueLabel}"
   min-date="2018, 12, 20"
   max-date="2021, 1, 20"
-  ${noWeekendsFunc()}
+  ${fullWidth()}
 ></gxg-date-picker>`;
 });

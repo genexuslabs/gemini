@@ -92,14 +92,3 @@
 .pcr-color-opacity {
   width: 85%;
 }
-
-//full width
-:host([full-width]) {
-  width: 100%;
-  .pcr-selection {
-    grid-template-columns: 1fr 10fr;
-  }
-  .pcr-app {
-    max-width: 100%;
-  }
-}

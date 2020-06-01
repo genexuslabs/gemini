@@ -20,11 +20,6 @@ export class ColorPicker {
 
   @Prop({ mutable: true }) cardTitle = "";
 
-  /**
-   * This property makes the component full-width
-   */
-  @Prop() fullWidth = false;
-
   @Prop({ mutable: true, reflect: true }) value = "white";
   @State() colorRepresentation: "HEXA" | "RGBA" = "HEXA";
   @State() colorInputValue = "";
@@ -163,8 +158,7 @@ export class ColorPicker {
     return (
       <div
         class={{
-          "color-picker-main-container": true,
-          "full-width": this.fullWidth === true
+          "color-picker-main-container": true
         }}
         id="color-picker-main-container"
       >

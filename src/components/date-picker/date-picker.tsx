@@ -20,6 +20,11 @@ export class DatePicker {
   @Prop() defaultDate: string;
 
   /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  /**
    * label
    */
   @Prop() label: string;
@@ -165,12 +170,20 @@ export class DatePicker {
     }
   }
 
+  widthFunc() {
+    if (this.fullWidth) {
+      return "100%";
+    } else {
+      return this.width;
+    }
+  }
+
   render() {
     return (
       <Host
         class={{}}
         style={{
-          width: this.width
+          width: this.widthFunc()
         }}
       >
         {this.printLabel()}

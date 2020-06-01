@@ -185,10 +185,6 @@ export namespace Components {
   }
   interface GxgColorPicker {
     cardTitle: string;
-    /**
-     * This property makes the component full-width
-     */
-    fullWidth: boolean;
     value: string;
   }
   interface GxgColumn {
@@ -217,6 +213,10 @@ export namespace Components {
      * initial date
      */
     defaultDate: string;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
     /**
      * label
      */
@@ -1124,10 +1124,6 @@ declare namespace LocalJSX {
   }
   interface GxgColorPicker {
     cardTitle?: string;
-    /**
-     * This property makes the component full-width
-     */
-    fullWidth?: boolean;
     onChange?: (event: CustomEvent<any>) => void;
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
@@ -1159,6 +1155,10 @@ declare namespace LocalJSX {
      * initial date
      */
     defaultDate?: string;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
     /**
      * label
      */

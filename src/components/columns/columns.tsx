@@ -14,7 +14,7 @@ export class Columns {
   /**
    * The collapse breakpoint
    */
-  @Prop({ reflect: true }) collapseBellow: CollapseBellowType = "tablet";
+  @Prop({ reflect: true }) collapseBellow: CollapseBellowType;
 
   collapseBelow;
 
@@ -36,4 +36,4 @@ export class Columns {
 
 export type SpaceType = "xs" | "s" | "m" | "none";
 export type AlignYType = "top" | "center" | "bottom";
-export type CollapseBellowType = "desktop" | "laptop" | "tablet";
+export type CollapseBellowType = "lg";

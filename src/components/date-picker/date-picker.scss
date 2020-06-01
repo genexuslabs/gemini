@@ -9,6 +9,8 @@
     @include form-element-common-styles-label();
   }
 }
+:host([full-width]) {
+}
 #date-picker {
   width: 100%;
   @include gxg-text;

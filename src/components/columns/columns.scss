@@ -55,36 +55,10 @@ $sizes: xs, s, m;
 /******************************
 RESPONSIVE
 ******************************/
-//Collapse below desktop
-:host([collapse-bellow="desktop"]) {
-  .columns-container {
-    @include lg {
-      display: block;
-      margin-left: 0;
-      ::slotted(gxg-column) {
-        box-sizing: border-box;
-        margin-left: 0;
-      }
-    }
-  }
-}
-//Collapse below laptop
-:host([collapse-bellow="laptop"]) {
+//Collapse below lg
+:host([collapse-bellow="lg"]) {
   .columns-container {
     @include md {
-      display: block;
-      margin-left: 0;
-      ::slotted(gxg-column) {
-        box-sizing: border-box;
-        margin-left: 0;
-      }
-    }
-  }
-}
-//Collapse below tablet
-:host([collapse-bellow="tablet"]) {
-  .columns-container {
-    @include sm {
       display: block;
       margin-left: 0;
       ::slotted(gxg-column) {

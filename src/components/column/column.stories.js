@@ -352,11 +352,10 @@ gxg-column, .note {
 <gxg-columns space="s" collapse-bellow="${select(
       "Collapse Bellow:",
       {
-        "desktop (max: 1200px)": "desktop",
-        "laptop (max: 1024px)": "laptop",
-        "tablet (max: 768px)": "tablet"
+        "none (default)": "none",
+        lg: "lg"
       },
-      "laptop"
+      "none"
     )}">
 <gxg-column width="1/4">
     1/4
