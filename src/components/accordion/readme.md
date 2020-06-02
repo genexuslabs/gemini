@@ -4,32 +4,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                                          | Type                         | Default       |
-| ---------- | ----------- | ---------------------------------------------------- | ---------------------------- | ------------- |
-| `disabled` | `disabled`  | The state of the toggle. Whether is disabled or not. | `boolean`                    | `false`       |
-| `mode`     | `mode`      | The aesthetical mode                                 | `"alternate" \| "classical"` | `"classical"` |
-| `status`   | `status`    | The toggle state                                     | `"closed" \| "open"`         | `"closed"`    |
-| `tabTitle` | `tab-title` | The toggle label                                     | `string`                     | `"tab"`       |
-
-## Events
-
-| Event        | Description | Type               |
-| ------------ | ----------- | ------------------ |
-| `tabClicked` |             | `CustomEvent<any>` |
-
-## Dependencies
-
-### Depends on
-
-- [gxg-icon](../icon)
-
-### Graph
-
-```mermaid
-graph TD;
-  gxg-accordion --> gxg-icon
-  style gxg-accordion fill:#f9f,stroke:#333,stroke-width:4px
-```
+| Property         | Attribute          | Description                                                    | Type                         | Default       |
+| ---------------- | ------------------ | -------------------------------------------------------------- | ---------------------------- | ------------- |
+| `disabled`       | `disabled`         | The state of the toggle. Whether is disabled or not.           | `boolean`                    | `false`       |
+| `mode`           | `mode`             | The aesthetical mode                                           | `"alternate" \| "classical"` | `"classical"` |
+| `singleItemOpen` | `single-item-open` | Wether only one accordion can be open at the same time or not. | `boolean`                    | `false`       |
 
 ---
 
