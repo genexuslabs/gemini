@@ -323,7 +323,7 @@ describe("gxg-accordion-container-alternate", () => {
 });
 
 //ACCORDION ALTERNATE DISABLED
-describe("gxg-accordion-container-alternate-disabled", () => {
+describe("gxg-accordion-container alternate disabled", () => {
   let page: E2EPage;
 
   //accordion 1
