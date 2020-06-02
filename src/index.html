@@ -1087,7 +1087,7 @@
           document.getElementById(alertId).setAttribute("active", "true");
         }
       </script>
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+      <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
         >Show alert more info</gxg-button
       >
       <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
@@ -1101,19 +1101,29 @@
       > -->
       <div>
         <gxg-alert
+          id="alert-error"
+          type="error"
+          position="center"
+          left="15px"
+          right="15px"
+          bottom="15px"
+          alert-title="error title"
+          active-time="xxslow"
+          >This is the content of the error alert</gxg-alert
+        >
+        <!-- <gxg-alert
           id="alert-more-info"
           type="more-info"
           position="center"
+          left="15px"
+          right="15px"
+          bottom="15px"
           alert-title="more info title"
           active-time="xxslow"
-          width="600px"
-          left-right="xs"
         >
-          The message for the more-info alert box The message for the more-info
-          alert box The message for the more-info alert box The message for the
-          more-info alert box
-        </gxg-alert>
-        <br />
+          This is the content of the more-info alert</gxg-alert
+        > -->
+
         <!-- <gxg-alert
           alert-title="error title"
           type="error"
@@ -1123,14 +1133,7 @@
           The message for the error alert box
         </gxg-alert>
         <br />
-        <gxg-alert
-          alert-title="warning title"
-          type="warning"
-          id="alert-warning"
-          position="center"
-        >
-          The message for the warning alert box
-        </gxg-alert>
+
         <br />
         <gxg-alert
           alert-title="success title"
