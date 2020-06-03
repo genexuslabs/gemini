@@ -52,14 +52,18 @@ describe("gxg-columns-space-general", () => {
     expect((await gxgColumn1.getComputedStyle()).fontFamily).toBe("arial");
     //column2 : content width
     expect((await gxgColumn2.getComputedStyle()).display).toBe("flex");
-    expect((await gxgColumn2.getComputedStyle()).width).toBe("56.0391px");
+    expect((await gxgColumn2.getComputedStyle()).width.substring(0, 2)).toBe(
+      "56"
+    );
     expect((await gxgColumn2.getComputedStyle()).minWidth).toBe("0px");
     expect((await gxgColumn2.getComputedStyle()).flexShrink).toBe("0");
     expect((await gxgColumn2.getComputedStyle()).fontSize).toBe("16px");
     expect((await gxgColumn2.getComputedStyle()).fontFamily).toBe("arial");
     //column3 : flex width
     expect((await gxgColumn3.getComputedStyle()).display).toBe("flex");
-    expect((await gxgColumn3.getComputedStyle()).width).toBe("252px");
+    expect((await gxgColumn3.getComputedStyle()).width.substring(0, 3)).toBe(
+      "183"
+    );
     expect((await gxgColumn3.getComputedStyle()).fontSize).toBe("16px");
     expect((await gxgColumn3.getComputedStyle()).fontFamily).toBe("arial");
   });
@@ -206,8 +210,12 @@ describe("gxg-columns-check-column-widths", () => {
     expect((await gxgColumn4.getComputedStyle()).width).toBe("252px");
     expect((await gxgColumn5.getComputedStyle()).width).toBe("336px");
     expect((await gxgColumn6.getComputedStyle()).width).toBe("201.594px");
-    expect((await gxgColumn7.getComputedStyle()).width).toBe("302.398px");
-    expect((await gxgColumn8.getComputedStyle()).width).toBe("403.195px");
+    expect((await gxgColumn7.getComputedStyle()).width.substring(0, 3)).toBe(
+      "302"
+    );
+    expect((await gxgColumn8.getComputedStyle()).width.substring(0, 3)).toBe(
+      "403"
+    );
   });
 });
 
@@ -216,7 +224,7 @@ describe("gxg-columns-check-column-width-content-fluid", () => {
     page = await newE2EPage();
 
     await page.setContent(`
-                <div style="width:500px;">
+                <div style="width:500px; font-size:16px;">
                     <gxg-columns space="xs">
                         <gxg-column width="content/2">Content</gxg-column>
                         <gxg-column width="fluid">Fluid</gxg-column>
