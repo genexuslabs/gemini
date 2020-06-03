@@ -43,16 +43,6 @@ export class Alert {
   @Prop() fullWidth = false;
 
   /**
-   * The alert left position value
-   */
-  @Prop() left: Spacing = "xs";
-
-  /**
-   * The alert right position value
-   */
-  @Prop() right: Spacing = "xs";
-
-  /**
    * The alert right position value
    */
   @Prop() leftRight: Spacing = "xs";
@@ -133,7 +123,7 @@ export class Alert {
     if (newValue === true) {
       this.el.setAttribute("role", "alert");
       setTimeout(() => {
-        this.setAlertInactive.bind(this);
+        this.setAlertInactive();
       }, parseInt(getComputedStyle(document.documentElement).getPropertyValue("--timing-" + timingValue)));
     }
   }
@@ -154,13 +144,26 @@ export class Alert {
   }
 
   render() {
-    const bodyComputedStyles = getComputedStyle(document.body);
-    const lateralSpacingValue = bodyComputedStyles
-      .getPropertyValue("--spacing-lay-" + this.leftRight)
-      .replace(/\s/g, "");
-    const bottomSpacingValue = bodyComputedStyles
-      .getPropertyValue("--spacing-lay-" + this.bottom)
-      .replace(/\s/g, "");
+    let lateralSpacingValue;
+    if (this.leftRight === "0") {
+      console.log("es left right");
+      lateralSpacingValue = "0";
+    } else {
+      const bodyComputedStyles = getComputedStyle(document.body);
+      lateralSpacingValue = bodyComputedStyles
+        .getPropertyValue("--spacing-lay-" + this.leftRight)
+        .replace(/\s/g, "");
+    }
+
+    let bottomSpacingValue;
+    if (this.bottom === "0") {
+      bottomSpacingValue = "0";
+    } else {
+      const bodyComputedStyles = getComputedStyle(document.body);
+      bottomSpacingValue = bodyComputedStyles
+        .getPropertyValue("--spacing-lay-" + this.bottom)
+        .replace(/\s/g, "");
+    }
 
     return (
       <Host

@@ -82,10 +82,6 @@ export namespace Components {
      */
     fullWidth: boolean;
     /**
-     * The alert left position value
-     */
-    left: Spacing;
-    /**
      * The alert right position value
      */
     leftRight: Spacing;
@@ -93,10 +89,6 @@ export namespace Components {
      * The alert position.
      */
     position: AlertPosition;
-    /**
-     * The alert right position value
-     */
-    right: Spacing;
     /**
      * The type of alert
      */
@@ -988,10 +980,6 @@ declare namespace LocalJSX {
      */
     fullWidth?: boolean;
     /**
-     * The alert left position value
-     */
-    left?: Spacing;
-    /**
      * The alert right position value
      */
     leftRight?: Spacing;
@@ -999,10 +987,6 @@ declare namespace LocalJSX {
      * The alert position.
      */
     position?: AlertPosition;
-    /**
-     * The alert right position value
-     */
-    right?: Spacing;
     /**
      * The type of alert
      */

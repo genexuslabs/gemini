@@ -1,4 +1,5 @@
 import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
+import { Alert } from "./alert";
 
 let page: E2EPage;
 let alert: E2EElement;
@@ -19,9 +20,6 @@ describe("gxg-alert-more-info", () => {
       id="alert-more-info"
       type="more-info"
       position="center"
-      left="15px"
-      right="15px"
-      bottom="15px"
       alert-title="more info title"
       active-time="xxslow"
     >This is the content of the more-info alert</gxg-alert>
@@ -93,9 +91,6 @@ describe("gxg-alert-error", () => {
       id="alert-error"
       type="error"
       position="center"
-      left="15px"
-      right="15px"
-      bottom="15px"
       alert-title="error title"
       active-time="xxslow"
     >This is the content of the error alert</gxg-alert>
@@ -147,9 +142,6 @@ describe("gxg-alert-success", () => {
           id="alert-success"
           type="success"
           position="center"
-          left="15px"
-          right="15px"
-          bottom="15px"
           alert-title="success title"
           active-time="xxslow"
           >This is the content of the success alert</gxg-alert>`
@@ -200,9 +192,6 @@ describe("gxg-alert-warning", () => {
           id="alert-warning"
           type="warning"
           position="center"
-          left="15px"
-          right="15px"
-          bottom="15px"
           alert-title="warning title"
           active-time="xxslow"
           >This is the content of the warning alert</gxg-alert>`
@@ -240,5 +229,204 @@ describe("gxg-alert-warning", () => {
     await page.waitForChanges();
     expect(title.textContent).toBe("warning title");
     expect(alert.textContent).toBe("This is the content of the warning alert");
+  });
+});
+
+describe("gxg-alert position left", () => {
+  beforeEach(async () => {
+    page = await newE2EPage();
+
+    await page.setContent(
+      `<gxg-alert
+          id="alert-warning"
+          type="warning"
+          position="left"
+          left-right="s"
+          bottom="s"
+          alert-title="warning title"
+          active-time="xxslow"
+          >This is the content of the warning alert</gxg-alert>`
+    );
+
+    alert = await page.find("gxg-alert");
+  });
+
+  it("has the right styles", async () => {
+    expect((await alert.getComputedStyle()).left).toBe("8px");
+  });
+});
+
+describe("gxg-alert position right", () => {
+  beforeEach(async () => {
+    page = await newE2EPage();
+
+    await page.setContent(
+      `<gxg-alert
+          id="alert-warning"
+          type="warning"
+          position="right"
+          left-right="s"
+          bottom="s"
+          alert-title="warning title"
+          active-time="xxslow"
+          >This is the content of the warning alert</gxg-alert>`
+    );
+
+    alert = await page.find("gxg-alert");
+  });
+
+  it("has the right styles", async () => {
+    expect((await alert.getComputedStyle()).right).toBe("8px");
+    expect((await alert.getComputedStyle()).left).toBe("442px"); //testing page width is 800px
+  });
+});
+
+describe("gxg-alert spacings left-right", () => {
+  let alert2: E2EElement;
+  let alert3: E2EElement;
+  let alert4: E2EElement;
+  let alert5: E2EElement;
+  let alert6: E2EElement;
+
+  beforeEach(async () => {
+    page = await newE2EPage();
+    await page.setContent(
+      `
+      <gxg-alert id="alert-01" type="warning" left-right="0">Content</gxg-alert>
+      <gxg-alert id="alert-02" type="warning" left-right="xs">Content</gxg-alert>
+      <gxg-alert id="alert-03" type="warning" left-right="s">Content</gxg-alert>
+      <gxg-alert id="alert-04" type="warning" left-right="m">Content</gxg-alert>
+      <gxg-alert id="alert-05" type="warning" left-right="l">Content</gxg-alert>
+      <gxg-alert id="alert-06" type="warning" left-right="xl">Content</gxg-alert>
+      `
+    );
+
+    alert = await page.find("gxg-alert#alert-01");
+    alert2 = await page.find("gxg-alert#alert-02");
+    alert3 = await page.find("gxg-alert#alert-03");
+    alert4 = await page.find("gxg-alert#alert-04");
+    alert5 = await page.find("gxg-alert#alert-05");
+    alert6 = await page.find("gxg-alert#alert-06");
+  });
+
+  //0
+  it("has the right spacing value", async () => {
+    expect((await alert.getComputedStyle()).left).toBe("0px");
+    expect((await alert.getComputedStyle()).right).toBe("0px");
+  });
+
+  //xs
+  it("has the right spacing value", async () => {
+    expect((await alert2.getComputedStyle()).left).toBe("4px");
+    expect((await alert2.getComputedStyle()).right).toBe("4px");
+  });
+
+  //s
+  it("has the right spacing value", async () => {
+    expect((await alert3.getComputedStyle()).left).toBe("8px");
+    expect((await alert3.getComputedStyle()).right).toBe("8px");
+  });
+
+  //m
+  it("has the right spacing value", async () => {
+    expect((await alert4.getComputedStyle()).left).toBe("16px");
+    expect((await alert4.getComputedStyle()).right).toBe("16px");
+  });
+
+  //l
+  it("has the right spacing value", async () => {
+    expect((await alert5.getComputedStyle()).left).toBe("32px");
+    expect((await alert5.getComputedStyle()).right).toBe("32px");
+  });
+
+  //xl
+  it("has the right spacing value", async () => {
+    expect((await alert6.getComputedStyle()).left).toBe("64px");
+    expect((await alert6.getComputedStyle()).right).toBe("64px");
+  });
+});
+
+describe("gxg-alert spacings bottom", () => {
+  let alert2: E2EElement;
+  let alert3: E2EElement;
+  let alert4: E2EElement;
+  let alert5: E2EElement;
+  let alert6: E2EElement;
+
+  beforeEach(async () => {
+    page = await newE2EPage();
+
+    await page.setContent(
+      `
+      <gxg-alert id="alert-01" type="warning" bottom="0">Content</gxg-alert>
+      <gxg-alert id="alert-02" type="warning" bottom="xs">Content</gxg-alert>
+      <gxg-alert id="alert-03" type="warning" bottom="s">Content</gxg-alert>
+      <gxg-alert id="alert-04" type="warning" bottom="m">Content</gxg-alert>
+      <gxg-alert id="alert-05" type="warning" bottom="l">Content</gxg-alert>
+      <gxg-alert id="alert-06" type="warning" bottom="xl">Content</gxg-alert>
+      `
+    );
+
+    alert = await page.find("gxg-alert#alert-01");
+    alert2 = await page.find("gxg-alert#alert-02");
+    alert3 = await page.find("gxg-alert#alert-03");
+    alert4 = await page.find("gxg-alert#alert-04");
+    alert5 = await page.find("gxg-alert#alert-05");
+    alert6 = await page.find("gxg-alert#alert-06");
+  });
+
+  //0
+  it("has the right spacing value", async () => {
+    expect((await alert.getComputedStyle()).bottom).toBe("0px");
+  });
+
+  //xs
+  it("has the right spacing value", async () => {
+    alert2.setProperty("active", true);
+    await page.waitForChanges();
+    await page.waitForChanges();
+    expect((await alert2.getComputedStyle()).transform).toBe(
+      "matrix(1, 0, 0, 1, 0, -4)"
+    );
+  });
+
+  //s
+  it("has the right spacing value", async () => {
+    alert3.setProperty("active", true);
+    await page.waitForChanges();
+    await page.waitForChanges();
+    expect((await alert3.getComputedStyle()).transform).toBe(
+      "matrix(1, 0, 0, 1, 0, -8)"
+    );
+  });
+
+  //m
+  it("has the right spacing value", async () => {
+    alert4.setProperty("active", true);
+    await page.waitForChanges();
+    await page.waitForChanges();
+    expect((await alert4.getComputedStyle()).transform).toBe(
+      "matrix(1, 0, 0, 1, 0, -16)"
+    );
+  });
+
+  //l
+  it("has the right spacing value", async () => {
+    alert5.setProperty("active", true);
+    await page.waitForChanges();
+    await page.waitForChanges();
+    expect((await alert5.getComputedStyle()).transform).toBe(
+      "matrix(1, 0, 0, 1, 0, -32)"
+    );
+  });
+
+  //xl
+  it("has the right spacing value", async () => {
+    alert6.setProperty("active", true);
+    await page.waitForChanges();
+    await page.waitForChanges();
+    expect((await alert6.getComputedStyle()).transform).toBe(
+      "matrix(1, 0, 0, 1, 0, -64)"
+    );
   });
 });

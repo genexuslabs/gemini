@@ -95,17 +95,16 @@ stories
     active-time="${select(
       "Active Time",
       {
-        "04": "04",
-        "05": "05",
-        "06": "06",
-        "07": "07",
-        "08": "08",
-        "09": "09",
-        "10": "10"
+        xxslow: "xxslow",
+        xslow: "xslow",
+        slow: "slow",
+        regular: "regular",
+        fast: "fast",
+        xfast: "xfast",
+        xxfast: "xxfast"
       },
-      "05"
-    )}"
-  >
+      "xfast"
+    )}">
   ${text(
     "Message",
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
@@ -164,17 +163,16 @@ stories
       active-time="${select(
         "Active Time",
         {
-          "04": "04",
-          "05": "05",
-          "06": "06",
-          "07": "07",
-          "08": "08",
-          "09": "09",
-          "10": "10"
+          xxslow: "xxslow",
+          xslow: "xslow",
+          slow: "slow",
+          regular: "regular",
+          fast: "fast",
+          xfast: "xfast",
+          xxfast: "xxfast"
         },
-        "05"
-      )}"
-    >
+        "xfast"
+      )}">
     ${text(
       "Message",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
@@ -233,15 +231,15 @@ stories
       active-time="${select(
         "Active Time",
         {
-          "04": "04",
-          "05": "05",
-          "06": "06",
-          "07": "07",
-          "08": "08",
-          "09": "09",
-          "10": "10"
+          xxslow: "xxslow",
+          xslow: "xslow",
+          slow: "slow",
+          regular: "regular",
+          fast: "fast",
+          xfast: "xfast",
+          xxfast: "xxfast"
         },
-        "05"
+        "xfast"
       )}">
     ${text(
       "Message",
@@ -301,17 +299,16 @@ stories
       active-time="${select(
         "Active Time",
         {
-          "04": "04",
-          "05": "05",
-          "06": "06",
-          "07": "07",
-          "08": "08",
-          "09": "09",
-          "10": "10"
+          xxslow: "xxslow",
+          xslow: "xslow",
+          slow: "slow",
+          regular: "regular",
+          fast: "fast",
+          xfast: "xfast",
+          xxfast: "xxfast"
         },
-        "05"
-      )}"
-    >
+        "xfast"
+      )}">
     ${text(
       "Message",
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."

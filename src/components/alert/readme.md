@@ -22,10 +22,8 @@
 | `alertTitle` | `alert-title` | The alert title (optional)                                                        | `string`                                                                      | `undefined`   |
 | `bottom`     | `bottom`      | The alert bottom position value                                                   | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `fullWidth`  | `full-width`  | This property makes the component full-width                                      | `boolean`                                                                     | `false`       |
-| `left`       | `left`        | The alert left position value                                                     | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `leftRight`  | `left-right`  | The alert right position value                                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `position`   | `position`    | The alert position.                                                               | `"center" \| "left" \| "right"`                                               | `"left"`      |
-| `right`      | `right`       | The alert right position value                                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `type`       | `type`        | The type of alert                                                                 | `"error" \| "more-info" \| "success" \| "warning"`                            | `"more-info"` |
 | `width`      | `width`       | The alert width                                                                   | `string`                                                                      | `"350px"`     |
 
