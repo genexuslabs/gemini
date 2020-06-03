@@ -10,7 +10,6 @@ import {
   modeType as modeType1,
   statusType
 } from "./components/accordion-item/accordion-item";
-import { ActiveTime, AlertPosition, AlertType } from "./components/alert/alert";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import { ShadowType } from "./components/card/card";
@@ -56,44 +55,6 @@ export namespace Components {
      * The toggle label
      */
     tabTitle: string;
-  }
-  interface GxgAlert {
-    /**
-     * Wether the alert is active (visible) or not (not visible).
-     */
-    active: boolean;
-    /**
-     * The amount of miliseconds the alert is visible before hidding under the document.
-     */
-    activeTime: ActiveTime;
-    /**
-     * The alert title (optional)
-     */
-    alertTitle: string;
-    /**
-     * The alert bottom position value
-     */
-    bottom: string;
-    /**
-     * The alert left position value
-     */
-    left: string;
-    /**
-     * The alert position.
-     */
-    position: AlertPosition;
-    /**
-     * The alert right position value
-     */
-    right: string;
-    /**
-     * The type of alert
-     */
-    type: AlertType;
-    /**
-     * The alert width
-     */
-    width: string;
   }
   interface GxgBox {
     height: string;
@@ -602,13 +563,6 @@ declare global {
     prototype: HTMLGxgAccordionItemElement;
     new (): HTMLGxgAccordionItemElement;
   };
-  interface HTMLGxgAlertElement
-    extends Components.GxgAlert,
-      HTMLStencilElement {}
-  var HTMLGxgAlertElement: {
-    prototype: HTMLGxgAlertElement;
-    new (): HTMLGxgAlertElement;
-  };
   interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {}
   var HTMLGxgBoxElement: {
     prototype: HTMLGxgBoxElement;
@@ -810,7 +764,6 @@ declare global {
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
-    "gxg-alert": HTMLGxgAlertElement;
     "gxg-box": HTMLGxgBoxElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
@@ -880,44 +833,6 @@ declare namespace LocalJSX {
      * The toggle label
      */
     tabTitle?: string;
-  }
-  interface GxgAlert {
-    /**
-     * Wether the alert is active (visible) or not (not visible).
-     */
-    active?: boolean;
-    /**
-     * The amount of miliseconds the alert is visible before hidding under the document.
-     */
-    activeTime?: ActiveTime;
-    /**
-     * The alert title (optional)
-     */
-    alertTitle?: string;
-    /**
-     * The alert bottom position value
-     */
-    bottom?: string;
-    /**
-     * The alert left position value
-     */
-    left?: string;
-    /**
-     * The alert position.
-     */
-    position?: AlertPosition;
-    /**
-     * The alert right position value
-     */
-    right?: string;
-    /**
-     * The type of alert
-     */
-    type?: AlertType;
-    /**
-     * The alert width
-     */
-    width?: string;
   }
   interface GxgBox {
     height?: string;
@@ -1426,7 +1341,6 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
-    "gxg-alert": GxgAlert;
     "gxg-box": GxgBox;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
@@ -1467,8 +1381,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-item": LocalJSX.GxgAccordionItem &
         JSXBase.HTMLAttributes<HTMLGxgAccordionItemElement>;
-      "gxg-alert": LocalJSX.GxgAlert &
-        JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
       "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;

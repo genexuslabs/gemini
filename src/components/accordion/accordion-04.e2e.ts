@@ -1,20 +1,17 @@
 import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
-import {
-  page,
-  accordionContainer,
-  accordion1,
-  accordion1Item,
-  accordion1Title,
-  accordion1Icon,
-  accordion2,
-  accordion2Item,
-  accordion2Title,
-  accordion2Icon,
-  accordion3,
-  accordion3Item,
-  accordion3Title,
-  accordion3Icon
-} from "./accordion-e2e-common";
+let page: E2EPage;
+//accordion 1
+let accordion1: E2EElement;
+let accordion1Item: E2EElement;
+let accordion1Icon: E2EElement;
+//accordion 2
+let accordion2: E2EElement;
+let accordion2Item: E2EElement;
+let accordion2Icon: E2EElement;
+//accordion 3
+let accordion3: E2EElement;
+let accordion3Item: E2EElement;
+let accordion3Icon: E2EElement;
 
 //ACCORDION ALTERNATE DISABLED
 describe("gxg-accordion container alternate disabled", () => {

@@ -1,20 +1,17 @@
 import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
-import {
-  page,
-  accordionContainer,
-  accordion1,
-  accordion1Item,
-  accordion1Title,
-  accordion1Icon,
-  accordion2,
-  accordion2Item,
-  accordion2Title,
-  accordion2Icon,
-  accordion3,
-  accordion3Item,
-  accordion3Title,
-  accordion3Icon
-} from "./accordion-e2e-common";
+let page: E2EPage;
+//accordion container
+let accordionContainer: E2EElement;
+//accordion 1
+let accordion1: E2EElement;
+let accordion1Item: E2EElement;
+let accordion1Title: E2EElement;
+let accordion1Icon: E2EElement;
+//accordion 2
+let accordion2: E2EElement;
+let accordion2Item: E2EElement;
+let accordion2Title: E2EElement;
+let accordion2Icon: E2EElement;
 
 //ACCORDION CONTAINER DISABLED
 describe("gxg-accordion disabled", () => {
@@ -22,37 +19,37 @@ describe("gxg-accordion disabled", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-accordion-container disabled>
-          <gxg-accordion tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion>
-          <gxg-accordion tab-title="tab-02">some content on accordion 2.</gxg-accordion>
-        </gxg-accordion-container>`
+      `<gxg-accordion disabled>
+          <gxg-accordion-item tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion-item>
+          <gxg-accordion-item tab-title="tab-02">some content on accordion 2.</gxg-accordion-item>
+        </gxg-accordion>`
     );
 
     //accordion container
-    accordionContainer = await page.find("gxg-accordion-container");
+    accordionContainer = await page.find("gxg-accordion");
 
     //accordion 1
-    accordion1 = await page.find("gxg-accordion[tab-title='tab-01']");
+    accordion1 = await page.find("gxg-accordion-item[tab-title='tab-01']");
     accordion1Item = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> .tab"
+      "gxg-accordion-item[tab-title='tab-01'] >>> .tab"
     );
     accordion1Icon = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> gxg-icon"
+      "gxg-accordion-item[tab-title='tab-01'] >>> gxg-icon"
     );
     accordion1Title = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> .tab__header__title"
+      "gxg-accordion-item[tab-title='tab-01'] >>> .tab__header__title"
     );
 
     //accordion 2
-    accordion2 = await page.find("gxg-accordion[tab-title='tab-02']");
+    accordion2 = await page.find("gxg-accordion-item[tab-title='tab-02']");
     accordion2Item = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> .tab"
+      "gxg-accordion-item[tab-title='tab-02'] >>> .tab"
     );
     accordion2Icon = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> gxg-icon"
+      "gxg-accordion-item[tab-title='tab-02'] >>> gxg-icon"
     );
     accordion2Title = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> .tab__header__title"
+      "gxg-accordion-item[tab-title='tab-02'] >>> .tab__header__title"
     );
     // expect(accordion2Title).not.toBeNull();
   });
