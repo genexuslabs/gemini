@@ -44,6 +44,10 @@ export namespace Components {
      */
     itemId: string;
     /**
+     * The toggle label
+     */
+    itemTitle: string;
+    /**
      * The aesthetical mode
      */
     mode: modeType;
@@ -51,10 +55,6 @@ export namespace Components {
      * The toggle state
      */
     status: statusType;
-    /**
-     * The toggle label
-     */
-    tabTitle: string;
   }
   interface GxgBox {
     height: string;
@@ -821,6 +821,10 @@ declare namespace LocalJSX {
      */
     itemId: string;
     /**
+     * The toggle label
+     */
+    itemTitle?: string;
+    /**
      * The aesthetical mode
      */
     mode?: modeType;
@@ -829,10 +833,6 @@ declare namespace LocalJSX {
      * The toggle state
      */
     status?: statusType;
-    /**
-     * The toggle label
-     */
-    tabTitle?: string;
   }
   interface GxgBox {
     height?: string;

@@ -25,7 +25,7 @@ export class AccordionItem {
   /**
    * The toggle label
    */
-  @Prop() tabTitle = "tab";
+  @Prop() itemTitle: string;
 
   /**
    * The toggle state
@@ -88,7 +88,7 @@ export class AccordionItem {
         onClick={this.tabClickedHandler.bind(this)}
       >
         <header class="tab__header">
-          <div class="tab__header__title">{this.tabTitle}</div>
+          <div class="tab__header__title">{this.itemTitle}</div>
           {this.printIcon()}
         </header>
         {this.status === "open" && !this.disabled ? (
