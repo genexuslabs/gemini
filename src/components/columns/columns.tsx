@@ -9,23 +9,21 @@ export class Columns {
   /**
    * The vertical alignment
    */
-  @Prop({ reflect: true }) alignY: AlignYType = "top";
+  @Prop({ reflect: true }) alignY: AlignY = "top";
 
   /**
    * The collapse breakpoint
    */
-  @Prop({ reflect: true }) collapseBellow: CollapseBellowType;
-
-  collapseBelow;
+  @Prop({ reflect: true }) collapseBellow: CollapseBellow;
 
   /**
    * The spacing between columns
    */
-  @Prop() space: SpaceType = "none";
+  @Prop() space: Space = "none";
 
   render() {
     return (
-      <Host class={"columns"}>
+      <Host class="columns">
         <div class="columns-container">
           <slot></slot>
         </div>
@@ -34,6 +32,6 @@ export class Columns {
   }
 }
 
-export type SpaceType = "xs" | "s" | "m" | "none";
-export type AlignYType = "top" | "center" | "bottom";
-export type CollapseBellowType = "lg";
+export type Space = "xs" | "s" | "m" | "none";
+export type AlignY = "top" | "center" | "bottom";
+export type CollapseBellow = "lg";

@@ -21,17 +21,13 @@ import {
   paddingType as paddingType1
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
-import {
-  AlignYType,
-  CollapseBellowType,
-  SpaceType
-} from "./components/columns/columns";
+import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignmentType } from "./components/modal/modal";
-import { SpaceType as SpaceType1 } from "./components/stack/stack";
+import { SpaceType } from "./components/stack/stack";
 import { SizeType } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
@@ -194,15 +190,15 @@ export namespace Components {
     /**
      * The vertical alignment
      */
-    alignY: AlignYType;
+    alignY: AlignY;
     /**
      * The collapse breakpoint
      */
-    collapseBellow: CollapseBellowType;
+    collapseBellow: CollapseBellow;
     /**
      * The spacing between columns
      */
-    space: SpaceType;
+    space: Space;
   }
   interface GxgDatePicker {
     /**
@@ -1136,15 +1132,15 @@ declare namespace LocalJSX {
     /**
      * The vertical alignment
      */
-    alignY?: AlignYType;
+    alignY?: AlignY;
     /**
      * The collapse breakpoint
      */
-    collapseBellow?: CollapseBellowType;
+    collapseBellow?: CollapseBellow;
     /**
      * The spacing between columns
      */
-    space?: SpaceType;
+    space?: Space;
   }
   interface GxgDatePicker {
     /**

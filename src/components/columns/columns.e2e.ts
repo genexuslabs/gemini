@@ -7,7 +7,7 @@ let gxgColumn1: E2EElement;
 let gxgColumn2: E2EElement;
 let gxgColumn3: E2EElement;
 
-describe("gxg-columns-space-general", () => {
+describe("gxg-columns space general", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -30,7 +30,6 @@ describe("gxg-columns-space-general", () => {
   it("renders", async () => {
     expect(gxgColumns).toHaveClass("columns");
     expect(gxgColumn1).toHaveClass("column");
-    // expect(gxgColumn2).toHaveClass("column");
     expect(gxgColumn3).toHaveClass("column");
   });
 
@@ -45,20 +44,22 @@ describe("gxg-columns-space-general", () => {
     await page.waitForChanges();
     expect((await gxgColumns.getComputedStyle()).display).toBe("block");
     //column1 : percentual width
-    expect((await gxgColumn1.getComputedStyle()).display).toBe("flex");
-    expect((await gxgColumn1.getComputedStyle()).width).toBe("252px");
-    expect((await gxgColumn1.getComputedStyle()).minWidth).toBe("0px");
-    expect((await gxgColumn1.getComputedStyle()).fontSize).toBe("16px");
-    expect((await gxgColumn1.getComputedStyle()).fontFamily).toBe("arial");
+    const gxgColumn1ComputedStyle = await gxgColumn1.getComputedStyle();
+    expect(gxgColumn1ComputedStyle.display).toBe("flex");
+    expect(gxgColumn1ComputedStyle.width).toBe("252px");
+    expect(gxgColumn1ComputedStyle.minWidth).toBe("0px");
+    expect(gxgColumn1ComputedStyle.fontSize).toBe("16px");
+    expect(gxgColumn1ComputedStyle.fontFamily).toBe("arial");
     //column2 : content width
     expect((await gxgColumn2.getComputedStyle()).display).toBe("flex");
     expect((await gxgColumn2.getComputedStyle()).width.substring(0, 2)).toBe(
       "56"
     );
-    expect((await gxgColumn2.getComputedStyle()).minWidth).toBe("0px");
-    expect((await gxgColumn2.getComputedStyle()).flexShrink).toBe("0");
-    expect((await gxgColumn2.getComputedStyle()).fontSize).toBe("16px");
-    expect((await gxgColumn2.getComputedStyle()).fontFamily).toBe("arial");
+    const gxgColumn2ComputedStyle = await gxgColumn2.getComputedStyle();
+    expect(gxgColumn2ComputedStyle.minWidth).toBe("0px");
+    expect(gxgColumn2ComputedStyle.flexShrink).toBe("0");
+    expect(gxgColumn2ComputedStyle.fontSize).toBe("16px");
+    expect(gxgColumn2ComputedStyle.fontFamily).toBe("arial");
     //column3 : flex width
     expect((await gxgColumn3.getComputedStyle()).display).toBe("flex");
     expect((await gxgColumn3.getComputedStyle()).width.substring(0, 3)).toBe(
@@ -69,7 +70,7 @@ describe("gxg-columns-space-general", () => {
   });
 });
 
-describe("gxg-columns-space-xs", () => {
+describe("gxg-columns space xs", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -98,7 +99,7 @@ describe("gxg-columns-space-xs", () => {
   });
 });
 
-describe("gxg-columns-space-s", () => {
+describe("gxg-columns space s", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -127,7 +128,7 @@ describe("gxg-columns-space-s", () => {
   });
 });
 
-describe("gxg-columns-space-m", () => {
+describe("gxg-columns space m", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -156,7 +157,7 @@ describe("gxg-columns-space-m", () => {
   });
 });
 
-describe("gxg-columns-check-column-widths", () => {
+describe("gxg-columns check column widths", () => {
   let gxgColumn4: E2EElement;
   let gxgColumn5: E2EElement;
   let gxgColumn6: E2EElement;
@@ -191,7 +192,6 @@ describe("gxg-columns-check-column-widths", () => {
   });
 
   it("has the right flex basis", async () => {
-    await page.waitForChanges();
     expect((await gxgColumn1.getComputedStyle()).flex).toBe("0 0 50%");
     expect((await gxgColumn2.getComputedStyle()).flex).toBe("0 0 33.3333%");
     expect((await gxgColumn3.getComputedStyle()).flex).toBe("0 0 25%");
@@ -209,7 +209,9 @@ describe("gxg-columns-check-column-widths", () => {
     expect((await gxgColumn3.getComputedStyle()).width).toBe("126px");
     expect((await gxgColumn4.getComputedStyle()).width).toBe("252px");
     expect((await gxgColumn5.getComputedStyle()).width).toBe("336px");
-    expect((await gxgColumn6.getComputedStyle()).width).toBe("201.594px");
+    expect((await gxgColumn6.getComputedStyle()).width.substring(0, 3)).toBe(
+      "201"
+    );
     expect((await gxgColumn7.getComputedStyle()).width.substring(0, 3)).toBe(
       "302"
     );
@@ -219,14 +221,14 @@ describe("gxg-columns-check-column-widths", () => {
   });
 });
 
-describe("gxg-columns-check-column-width-content-fluid", () => {
+describe("gxg-columns check column width content fluid", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
     await page.setContent(`
                 <div style="width:500px; font-size:16px;">
                     <gxg-columns space="xs">
-                        <gxg-column width="content/2">Content</gxg-column>
+                        <gxg-column width="content">Content</gxg-column>
                         <gxg-column width="fluid">Fluid</gxg-column>
                     </gxg-columns>
                 </div>
@@ -237,7 +239,9 @@ describe("gxg-columns-check-column-width-content-fluid", () => {
 
   it("has the right width", async () => {
     await page.waitForChanges();
-    expect((await gxgColumn1.getComputedStyle()).width).toBe("56.0391px");
-    expect((await gxgColumn2.getComputedStyle()).width).toBe("439.961px");
+    expect((await gxgColumn1.getComputedStyle()).width.substr(0, 2)).toBe("56");
+    expect((await gxgColumn2.getComputedStyle()).width.substr(0, 3)).toBe(
+      "439"
+    );
   });
 });
