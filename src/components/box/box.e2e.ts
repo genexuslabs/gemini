@@ -3,7 +3,7 @@ import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
 let page: E2EPage;
 let box: E2EElement;
 
-describe("gxg-box-fullwidth", () => {
+describe("gxg-box fullwidth", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -36,10 +36,11 @@ describe("gxg-box-fullwidth", () => {
   });
 });
 
-describe("gxg-box-light-gray", () => {
+describe("gxg-box gray", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
+    //light gray
     await page.setContent(
       `<gxg-box gray="1" width="300px"
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
@@ -55,30 +56,16 @@ describe("gxg-box-light-gray", () => {
     await page.waitForChanges();
     expect(box.getAttribute("gray")).toBe("1");
   });
-});
-
-describe("gxg-box-dark-gray", () => {
-  beforeEach(async () => {
-    page = await newE2EPage();
-
-    await page.setContent(
-      `<gxg-box gray="2" width="300px"
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
-      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
-      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
-      sint?</gxg-box
-    >`
-    );
-    box = await page.find("gxg-box");
-  });
 
   it("has the right attribute", async () => {
+    //dark gray
+    box.setAttribute("gray", "2");
     await page.waitForChanges();
     expect(box.getAttribute("gray")).toBe("2");
   });
 });
 
-describe("gxg-box-border", () => {
+describe("gxg-box border", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -98,7 +85,7 @@ describe("gxg-box-border", () => {
   });
 });
 
-describe("gxg-box-width", () => {
+describe("gxg-box width", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
@@ -117,44 +104,50 @@ describe("gxg-box-width", () => {
   });
 });
 
-describe("gxg-box-padding", () => {
-  let box2: E2EElement;
-  let box3: E2EElement;
-  let box4: E2EElement;
-  let box5: E2EElement;
-  let box6: E2EElement;
-  let box7: E2EElement;
-
+describe("gxg-box padding", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
     await page.setContent(
       `
-      <gxg-box id="id01" border space padding="xs">Lorem ipsum</gxg-box>
-      <gxg-box id="id02" border space padding="s">Lorem ipsum</gxg-box>
-      <gxg-box id="id03" border space padding="m">Lorem ipsum</gxg-box>
-      <gxg-box id="id04" border space padding="l">Lorem ipsum</gxg-box>
-      <gxg-box id="id05" border space padding="xl">Lorem ipsum</gxg-box>
-      <gxg-box id="id06" border space padding="xxl">Lorem ipsum</gxg-box>
-      <gxg-box id="id07" border space padding="xxxl">Lorem ipsum</gxg-box>
+      <gxg-box border space padding="xs">Lorem ipsum</gxg-box>
       `
     );
-    box = await page.find("gxg-box#id01");
-    box2 = await page.find("gxg-box#id02");
-    box3 = await page.find("gxg-box#id03");
-    box4 = await page.find("gxg-box#id04");
-    box5 = await page.find("gxg-box#id05");
-    box6 = await page.find("gxg-box#id06");
-    box7 = await page.find("gxg-box#id07");
+    box = await page.find("gxg-box");
   });
 
   it("has the right padding", async () => {
+    //padding xs
     expect((await box.getComputedStyle()).padding).toBe("4px");
-    expect((await box2.getComputedStyle()).padding).toBe("8px");
-    expect((await box3.getComputedStyle()).padding).toBe("12px");
-    expect((await box4.getComputedStyle()).padding).toBe("16px");
-    expect((await box5.getComputedStyle()).padding).toBe("24px");
-    expect((await box6.getComputedStyle()).padding).toBe("32px");
-    expect((await box7.getComputedStyle()).padding).toBe("40px");
+
+    //padding s
+    box.setAttribute("padding", "s");
+    await page.waitForChanges();
+    expect((await box.getComputedStyle()).padding).toBe("8px");
+
+    //padding m
+    box.setAttribute("padding", "m");
+    await page.waitForChanges();
+    expect((await box.getComputedStyle()).padding).toBe("12px");
+
+    //padding l
+    box.setAttribute("padding", "l");
+    await page.waitForChanges();
+    expect((await box.getComputedStyle()).padding).toBe("16px");
+
+    //padding xl
+    box.setAttribute("padding", "xl");
+    await page.waitForChanges();
+    expect((await box.getComputedStyle()).padding).toBe("24px");
+
+    //padding xl
+    box.setAttribute("padding", "xxl");
+    await page.waitForChanges();
+    expect((await box.getComputedStyle()).padding).toBe("32px");
+
+    //padding xl
+    box.setAttribute("padding", "xxxl");
+    await page.waitForChanges();
+    expect((await box.getComputedStyle()).padding).toBe("40px");
   });
 });
