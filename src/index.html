@@ -1140,6 +1140,61 @@
         );
       </script>
 
+
+      <h2>Alert</h2>
+      <script>
+        function mostrarAlertMoreInfo(alertId) {
+          document.getElementById(alertId).setAttribute("active", "true");
+        }
+      </script>
+      <gxg-button onclick="mostrarAlertMoreInfo('alert-02')"
+        >Show alert more info</gxg-button
+      >
+      <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
+        >Show alert error</gxg-button
+      >
+      <gxg-button onclick="mostrarAlertMoreInfo('alert-warning')"
+        >Show alert warning</gxg-button
+      >
+      <gxg-button onclick="mostrarAlertMoreInfo('alert-success')"
+        >Show alert success</gxg-button
+      > -->
+      <div>
+        <gxg-alert id="alert-02" type="warning" bottom="xs">Content</gxg-alert>
+        <!-- <gxg-alert
+          id="alert-more-info"
+          type="more-info"
+          position="center"
+          left="15px"
+          right="15px"
+          bottom="15px"
+          alert-title="more info title"
+          active-time="xxslow"
+        >
+          This is the content of the more-info alert</gxg-alert
+        > -->
+
+        <!-- <gxg-alert
+          alert-title="error title"
+          type="error"
+          id="alert-error"
+          position="left"
+        >
+          The message for the error alert box
+        </gxg-alert>
+        <br />
+
+        <br />
+        <gxg-alert
+          alert-title="success title"
+          type="success"
+          id="alert-success"
+          position="right"
+        >
+          The message for the success alert box
+        </gxg-alert> -->
+      </div>
+
       <h2>Tabs</h2>
 
       <h2>Typography</h2>

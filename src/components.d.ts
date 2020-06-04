@@ -906,6 +906,44 @@ declare namespace LocalJSX {
      */
     singleTabOpen?: boolean;
   }
+  interface GxgAlert {
+    /**
+     * Wether the alert is active (visible) or not (not visible).
+     */
+    active?: boolean;
+    /**
+     * The amount of miliseconds the alert is visible before hidding under the document.
+     */
+    activeTime?: ActiveTime;
+    /**
+     * The alert title (optional)
+     */
+    alertTitle?: string;
+    /**
+     * The alert bottom position value
+     */
+    bottom?: Spacing;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
+     * The alert right position value
+     */
+    leftRight?: Spacing;
+    /**
+     * The alert position.
+     */
+    position?: AlertPosition;
+    /**
+     * The type of alert
+     */
+    type?: AlertType;
+    /**
+     * The alert width
+     */
+    width?: string;
+  }
   interface GxgBox {
     /**
      * This property makes the component full-width
