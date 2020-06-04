@@ -25,7 +25,6 @@
 
 ### Used by
 
-- [gxg-alert](../alert)
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
 
@@ -38,7 +37,6 @@
 ```mermaid
 graph TD;
   gxg-button --> gxg-icon
-  gxg-alert --> gxg-button
   gxg-modal --> gxg-button
   gxg-tab-bar --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
