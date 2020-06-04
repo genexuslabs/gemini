@@ -25,6 +25,127 @@
     </style>
   </head>
   <body>
+    <h3>Box</h3>
+    <div style="width:200px">
+      <gxg-box full-width
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit.</gxg-box
+      >
+    </div>
+    <gxg-box gray="1" width="300px"
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
+      sint?</gxg-box
+    >
+    <gxg-box gray="2"
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
+      sint?</gxg-box
+    >
+    <gxg-box border
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
+      sint?</gxg-box
+    >
+
+    <h3>Card examples</h3>
+    <gxg-card padding="xs" height="100px" box-shadow="l">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt sint?
+    </gxg-card>
+    <gxg-card gray
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
+      sint?</gxg-card
+    >
+
+    <h2>Accordion</h2>
+    <gxg-accordion single-tab-open mode="classical">
+      <gxg-accordion-item tab-title="tab-01" disabled>
+        <gxg-button type="primary-text-only">Button</gxg-button>
+        “You know you're in love when you can't fall asleep because reality is
+        finally better than your dreams.” ― Dr. Seuss
+      </gxg-accordion-item>
+      <gxg-accordion-item open tab-title="tab-02">
+        <gxg-button type="primary-text-only">Button</gxg-button>
+        “If you want to know what a man's like, take a good look at how he
+        treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
+        the Goblet of Fire</gxg-accordion-item
+      >
+      <gxg-accordion-item tab-title="tab-03">
+        “I've learned that people will forget what you said, people will forget
+        what you did, but people will never forget how you made them feel.” ―
+        Maya Angelou</gxg-accordion-item
+      >
+    </gxg-accordion>
+
+    <hr />
+
+    <h2>Alert</h2>
+    <script>
+      function mostrarAlertMoreInfo(alertId) {
+        document.getElementById(alertId).setAttribute("active", "true");
+      }
+    </script>
+    <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+      >Show alert more info</gxg-button
+    >
+    <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
+      >Show alert error</gxg-button
+    >
+    <gxg-button onclick="mostrarAlertMoreInfo('alert-warning')"
+      >Show alert warning</gxg-button
+    >
+    <gxg-button onclick="mostrarAlertMoreInfo('alert-success')"
+      >Show alert success</gxg-button
+    >
+    <div>
+      <gxg-alert
+        id="alert-more-info"
+        type="more-info"
+        position="center"
+        alert-title="more info title"
+        active-time="xxslow"
+        width="600px"
+        left-right="xs"
+      >
+        The message for the more-info alert box
+      </gxg-alert>
+      <br />
+      <gxg-alert
+        alert-title="error title"
+        type="error"
+        id="alert-error"
+        position="left"
+      >
+        The message for the error alert box
+      </gxg-alert>
+      <br />
+      <gxg-alert
+        alert-title="warning title"
+        type="warning"
+        id="alert-warning"
+        position="center"
+      >
+        The message for the warning alert box
+      </gxg-alert>
+      <br />
+      <gxg-alert
+        alert-title="success title"
+        type="success"
+        id="alert-success"
+        position="right"
+      >
+        The message for the success alert box
+      </gxg-alert>
+    </div>
+
+    <hr />
+
     <gxg-form-text
       type="text"
       id="name4"
@@ -176,28 +297,6 @@
         ></gxg-form-radio>
       </gxg-form-radio-group>
     </form>
-
-    <h2>Accordion</h2>
-    <gxg-accordion-container single-tab-open mode="classical">
-      <gxg-accordion tab-title="tab-01" disabled>
-        <gxg-button type="primary-text-only">Button</gxg-button>
-
-        “You know you're in love when you can't fall asleep because reality is
-        finally better than your dreams.” ― Dr. Seuss
-      </gxg-accordion>
-      <gxg-accordion open tab-title="tab-02">
-        <gxg-button type="primary-text-only">Button</gxg-button>
-
-        “If you want to know what a man's like, take a good look at how he
-        treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
-        the Goblet of Fire</gxg-accordion
-      >
-      <gxg-accordion tab-title="tab-03"
-        >“I've learned that people will forget what you said, people will forget
-        what you did, but people will never forget how you made them feel.” ―
-        Maya Angelou</gxg-accordion
-      >
-    </gxg-accordion-container>
 
     <h3>Select</h3>
     <form action="">
@@ -912,46 +1011,6 @@
           </gxg-form-text>
         </form>
 
-        <h3>Box</h3>
-        <gxg-box full-width
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-        <gxg-box gray="1" width="300px"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-        <gxg-box gray="2"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-        <gxg-box border
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-
-        <h3>Card examples</h3>
-        <gxg-card padding="xs" height="100px" box-shadow="l">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?
-        </gxg-card>
-        <gxg-card gray
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-card
-        >
-
         <h2>Form</h2>
 
         <form>
@@ -1080,67 +1139,6 @@
           false
         );
       </script>
-
-      <h2>Alert</h2>
-      <script>
-        function mostrarAlertMoreInfo(alertId) {
-          document.getElementById(alertId).setAttribute("active", "true");
-        }
-      </script>
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
-        >Show alert more info</gxg-button
-      >
-      <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
-        >Show alert error</gxg-button
-      >
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-warning')"
-        >Show alert warning</gxg-button
-      >
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-success')"
-        >Show alert success</gxg-button
-      > -->
-      <div>
-        <gxg-alert
-          id="alert-more-info"
-          type="more-info"
-          position="center"
-          alert-title="more info title"
-          active-time="xxslow"
-          width="600px"
-          left-right="xs"
-        >
-          The message for the more-info alert box The message for the more-info
-          alert box The message for the more-info alert box The message for the
-          more-info alert box
-        </gxg-alert>
-        <br />
-        <!-- <gxg-alert
-          alert-title="error title"
-          type="error"
-          id="alert-error"
-          position="left"
-        >
-          The message for the error alert box
-        </gxg-alert>
-        <br />
-        <gxg-alert
-          alert-title="warning title"
-          type="warning"
-          id="alert-warning"
-          position="center"
-        >
-          The message for the warning alert box
-        </gxg-alert>
-        <br />
-        <gxg-alert
-          alert-title="success title"
-          type="success"
-          id="alert-success"
-          position="right"
-        >
-          The message for the success alert box
-        </gxg-alert> -->
-      </div>
 
       <h2>Tabs</h2>
 
