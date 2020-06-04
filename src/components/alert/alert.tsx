@@ -18,7 +18,7 @@ export class Alert {
   @Prop({ reflect: true }) active = false;
 
   /**
-   * The amount of miliseconds the alert is visible before hidding under the document.
+   * The number of miliseconds the alert is visible before hidding under the document.
    */
   @Prop() activeTime: ActiveTime = "regular";
 
@@ -118,7 +118,7 @@ export class Alert {
         timingValue = "04";
         break;
       default:
-      // code block
+        timingValue = "04";
     }
     if (newValue === true) {
       this.el.setAttribute("role", "alert");
@@ -128,7 +128,7 @@ export class Alert {
     }
   }
 
-  widthFunc() {
+  defineWidth() {
     if (this.fullWidth) {
       const lateralSpacingComputedValue = getComputedStyle(
         document.documentElement
@@ -146,7 +146,6 @@ export class Alert {
   render() {
     let lateralSpacingValue;
     if (this.leftRight === "0") {
-      console.log("es left right");
       lateralSpacingValue = "0";
     } else {
       const bodyComputedStyles = getComputedStyle(document.body);
@@ -169,7 +168,7 @@ export class Alert {
       <Host
         hidden
         style={{
-          width: this.widthFunc(),
+          width: this.defineWidth(),
           left: lateralSpacingValue,
           right: lateralSpacingValue,
           transform:
