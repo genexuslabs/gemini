@@ -20,36 +20,36 @@ describe("gxg-accordion single tab open", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-accordion-container single-tab-open>
-          <gxg-accordion tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion>
-          <gxg-accordion tab-title="tab-02" status="open">some content on accordion 2.</gxg-accordion>
-          <gxg-accordion tab-title="tab-03" status="open">some content on accordion 3.</gxg-accordion>
-        </gxg-accordion-container>`
+      `<gxg-accordion single-item-open>
+          <gxg-accordion-item item-title="tab-01" status="open">some content on accordion 1.</gxg-accordion-item>
+          <gxg-accordion-item item-title="tab-02" status="open">some content on accordion 2.</gxg-accordion-item>
+          <gxg-accordion-item item-title="tab-03" status="open">some content on accordion 3.</gxg-accordion-item>
+        </gxg-accordion>`
     );
 
     //accordion 1
-    accordion1 = await page.find("gxg-accordion[tab-title='tab-01']");
+    accordion1 = await page.find("gxg-accordion-item[item-title='tab-01']");
     accordion1Item = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-01'] >>> .tab"
     );
     accordion1Icon = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> gxg-icon"
+      "gxg-accordion-item[item-title='tab-01'] >>> gxg-icon"
     );
     //accordion 2
-    accordion2 = await page.find("gxg-accordion[tab-title='tab-02']");
+    accordion2 = await page.find("gxg-accordion-item[item-title='tab-02']");
     accordion2Item = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-02'] >>> .tab"
     );
     accordion2Icon = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> gxg-icon"
+      "gxg-accordion-item[item-title='tab-02'] >>> gxg-icon"
     );
     //accordion 3
-    accordion3 = await page.find("gxg-accordion[tab-title='tab-03']");
+    accordion3 = await page.find("gxg-accordion-item[item-title='tab-03']");
     accordion3Item = await page.find(
-      "gxg-accordion[tab-title='tab-03'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-03'] >>> .tab"
     );
     accordion3Icon = await page.find(
-      "gxg-accordion[tab-title='tab-03'] >>> gxg-icon"
+      "gxg-accordion-item[item-title='tab-03'] >>> gxg-icon"
     );
   });
   it("has 'open' attribute", async () => {

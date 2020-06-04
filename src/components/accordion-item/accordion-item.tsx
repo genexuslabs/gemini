@@ -20,7 +20,7 @@ export class AccordionItem {
   /**
    * The toggle id
    */
-  @Prop() tabId!: string;
+  @Prop() itemId!: string;
 
   /**
    * The toggle label
@@ -35,7 +35,7 @@ export class AccordionItem {
   @Event() accordionItemClicked: EventEmitter;
 
   tabClickedHandler() {
-    this.accordionItemClicked.emit(this.tabId);
+    this.accordionItemClicked.emit(this.itemId);
   }
 
   printIcon() {
@@ -67,13 +67,15 @@ export class AccordionItem {
         iColor = "negative";
       }
     }
-    const gxgIcon = document.createElement("gxg-icon");
-    gxgIcon.slot = "icon";
-    gxgIcon.type = iType;
-    gxgIcon.size = "small";
-    gxgIcon.color = iColor;
+    return (
+      <gxg-icon slot="icon" size="small" type={iType} color={iColor}></gxg-icon>
+    );
+  }
 
-    return gxgIcon;
+  componentDidLoad() {
+    if (!this.itemId) {
+      console.warn("gxg-accordion-item 'itemId' property is mandatory.");
+    }
   }
 
   render() {

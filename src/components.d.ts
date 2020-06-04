@@ -40,6 +40,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The toggle id
+     */
+    itemId: string;
+    /**
      * The aesthetical mode
      */
     mode: modeType;
@@ -47,10 +51,6 @@ export namespace Components {
      * The toggle state
      */
     status: statusType;
-    /**
-     * The toggle id
-     */
-    tabId: string;
     /**
      * The toggle label
      */
@@ -817,6 +817,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * The toggle id
+     */
+    itemId: string;
+    /**
      * The aesthetical mode
      */
     mode?: modeType;
@@ -825,10 +829,6 @@ declare namespace LocalJSX {
      * The toggle state
      */
     status?: statusType;
-    /**
-     * The toggle id
-     */
-    tabId: string;
     /**
      * The toggle label
      */

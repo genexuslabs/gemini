@@ -16,27 +16,27 @@ describe("gxg-accordion container alternate", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-accordion-container mode="alternate" disabled>
-          <gxg-accordion tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion>
-          <gxg-accordion tab-title="tab-02">some content on accordion 2.</gxg-accordion>
-          <gxg-accordion tab-title="tab-03">some content on accordion 3.</gxg-accordion>
-        </gxg-accordion-container>`
+      `<gxg-accordion mode="alternate" disabled>
+          <gxg-accordion-item tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion-item>
+          <gxg-accordion-item tab-title="tab-02">some content on accordion 2.</gxg-accordion-item>
+          <gxg-accordion-item tab-title="tab-03">some content on accordion 3.</gxg-accordion-item>
+        </gxg-accordion>`
     );
 
     //accordion 1
-    accordion1 = await page.find("gxg-accordion[tab-title='tab-01']");
+    accordion1 = await page.find("gxg-accordion-item[tab-title='tab-01']");
     accordion1Icon = await page.find(
-      "gxg-accordion[tab-title='tab-01'] >>> gxg-icon"
+      "gxg-accordion-item[tab-title='tab-01'] >>> gxg-icon"
     );
     //accordion 2
-    accordion2 = await page.find("gxg-accordion[tab-title='tab-02']");
+    accordion2 = await page.find("gxg-accordion-item[tab-title='tab-02']");
     accordion2Icon = await page.find(
-      "gxg-accordion[tab-title='tab-02'] >>> gxg-icon"
+      "gxg-accordion-item[tab-title='tab-02'] >>> gxg-icon"
     );
     //accordion 3
-    accordion3 = await page.find("gxg-accordion[tab-title='tab-03']");
+    accordion3 = await page.find("gxg-accordion-item[tab-title='tab-03']");
     accordion3Icon = await page.find(
-      "gxg-accordion[tab-title='tab-03'] >>> gxg-icon"
+      "gxg-accordion-item[tab-title='tab-03'] >>> gxg-icon"
     );
   });
   it("has 'open' attribute", async () => {

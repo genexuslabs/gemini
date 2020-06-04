@@ -20,36 +20,36 @@ describe("gxg-accordion disabled", () => {
 
     await page.setContent(
       `<gxg-accordion disabled>
-          <gxg-accordion-item tab-title="tab-01" status="open">some content on accordion 1.</gxg-accordion-item>
-          <gxg-accordion-item tab-title="tab-02">some content on accordion 2.</gxg-accordion-item>
-        </gxg-accordion>`
+        <gxg-accordion-item item-title="tab-01" item-id="tab-01" status="open">some content on accordion 1.</gxg-accordion-item>
+        <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    </gxg-accordion>`
     );
 
     //accordion container
     accordionContainer = await page.find("gxg-accordion");
 
     //accordion 1
-    accordion1 = await page.find("gxg-accordion-item[tab-title='tab-01']");
+    accordion1 = await page.find("gxg-accordion-item[item-title='tab-01']");
     accordion1Item = await page.find(
-      "gxg-accordion-item[tab-title='tab-01'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-01'] >>> .tab"
     );
     accordion1Icon = await page.find(
-      "gxg-accordion-item[tab-title='tab-01'] >>> gxg-icon"
+      "gxg-accordion-item[item-title='tab-01'] >>> gxg-icon"
     );
     accordion1Title = await page.find(
-      "gxg-accordion-item[tab-title='tab-01'] >>> .tab__header__title"
+      "gxg-accordion-item[item-title='tab-01'] >>> .tab__header__title"
     );
 
     //accordion 2
-    accordion2 = await page.find("gxg-accordion-item[tab-title='tab-02']");
+    accordion2 = await page.find("gxg-accordion-item[item-title='tab-02']");
     accordion2Item = await page.find(
-      "gxg-accordion-item[tab-title='tab-02'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-02'] >>> .tab"
     );
     accordion2Icon = await page.find(
-      "gxg-accordion-item[tab-title='tab-02'] >>> gxg-icon"
+      "gxg-accordion-item[item-title='tab-02'] >>> gxg-icon"
     );
     accordion2Title = await page.find(
-      "gxg-accordion-item[tab-title='tab-02'] >>> .tab__header__title"
+      "gxg-accordion-item[item-title='tab-02'] >>> .tab__header__title"
     );
     // expect(accordion2Title).not.toBeNull();
   });
