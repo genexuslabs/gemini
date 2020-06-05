@@ -64,9 +64,13 @@ describe("gxg-columns space general", () => {
     expect(gxgColumn1ComputedStyle.fontFamily).toBe("arial");
     //column2 : content width
     expect((await gxgColumn2.getComputedStyle()).display).toBe("flex");
-    expect((await gxgColumn2.getComputedStyle()).width.substring(0, 2)).toBe(
-      "56"
-    );
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn2.getComputedStyle()).width.substring(0, 2),
+        56
+      )
+    ).toBe(true);
+
     const gxgColumn2ComputedStyle = await gxgColumn2.getComputedStyle();
     expect(gxgColumn2ComputedStyle.minWidth).toBe("0px");
     expect(gxgColumn2ComputedStyle.flexShrink).toBe("0");
@@ -74,9 +78,12 @@ describe("gxg-columns space general", () => {
     expect(gxgColumn2ComputedStyle.fontFamily).toBe("arial");
     //column3 : flex width
     expect((await gxgColumn3.getComputedStyle()).display).toBe("flex");
-    expect((await gxgColumn3.getComputedStyle()).width.substring(0, 3)).toBe(
-      "183"
-    );
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn3.getComputedStyle()).width.substring(0, 2),
+        183
+      )
+    ).toBe(true);
     expect((await gxgColumn3.getComputedStyle()).fontSize).toBe("16px");
     expect((await gxgColumn3.getComputedStyle()).fontFamily).toBe("arial");
   });
