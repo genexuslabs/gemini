@@ -18,7 +18,7 @@ export class Alert {
   @Prop({ reflect: true }) active = false;
 
   /**
-   * The amount of miliseconds the alert is visible before hidding under the document.
+   * The number of miliseconds the alert is visible before hidding under the document.
    */
   @Prop() activeTime: ActiveTime = "regular";
 
@@ -41,16 +41,6 @@ export class Alert {
    * This property makes the component full-width
    */
   @Prop() fullWidth = false;
-
-  /**
-   * The alert left position value
-   */
-  @Prop() left: Spacing = "xs";
-
-  /**
-   * The alert right position value
-   */
-  @Prop() right: Spacing = "xs";
 
   /**
    * The alert right position value
@@ -128,17 +118,17 @@ export class Alert {
         timingValue = "04";
         break;
       default:
-      // code block
+        timingValue = "04";
     }
     if (newValue === true) {
       this.el.setAttribute("role", "alert");
       setTimeout(() => {
-        this.setAlertInactive.bind(this);
+        this.setAlertInactive();
       }, parseInt(getComputedStyle(document.documentElement).getPropertyValue("--timing-" + timingValue)));
     }
   }
 
-  widthFunc() {
+  defineWidth() {
     if (this.fullWidth) {
       const lateralSpacingComputedValue = getComputedStyle(
         document.documentElement
@@ -154,19 +144,31 @@ export class Alert {
   }
 
   render() {
-    const bodyComputedStyles = getComputedStyle(document.body);
-    const lateralSpacingValue = bodyComputedStyles
-      .getPropertyValue("--spacing-lay-" + this.leftRight)
-      .replace(/\s/g, "");
-    const bottomSpacingValue = bodyComputedStyles
-      .getPropertyValue("--spacing-lay-" + this.bottom)
-      .replace(/\s/g, "");
+    let lateralSpacingValue;
+    if (this.leftRight === "0") {
+      lateralSpacingValue = "0";
+    } else {
+      const bodyComputedStyles = getComputedStyle(document.body);
+      lateralSpacingValue = bodyComputedStyles
+        .getPropertyValue("--spacing-lay-" + this.leftRight)
+        .replace(/\s/g, "");
+    }
+
+    let bottomSpacingValue;
+    if (this.bottom === "0") {
+      bottomSpacingValue = "0";
+    } else {
+      const bodyComputedStyles = getComputedStyle(document.body);
+      bottomSpacingValue = bodyComputedStyles
+        .getPropertyValue("--spacing-lay-" + this.bottom)
+        .replace(/\s/g, "");
+    }
 
     return (
       <Host
         hidden
         style={{
-          width: this.widthFunc(),
+          width: this.defineWidth(),
           left: lateralSpacingValue,
           right: lateralSpacingValue,
           transform:

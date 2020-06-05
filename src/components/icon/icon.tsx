@@ -149,11 +149,19 @@ export class Icon {
       <Host
         aria-label={this.type}
         class={{
-          svgIcon: true
+          svgIcon: true,
+          "color-onbackground": this.color === "onbackground",
+          "color-negative": this.color === "negative",
+          "color-disabled": this.color === "disabled",
+          "color-error": this.color === "error",
+          "color-success": this.color === "success",
+          "color-warning": this.color === "warning"
         }}
       >
         <div
-          class="svg-icon-native"
+          class={{
+            "svg-icon-native": true
+          }}
           style={{
             "--icon-color": this.mapColorToCssVar(COLOR_MAPPINGS[this.color]),
             "--icon-color-default": this.mapColorToCssVar(
