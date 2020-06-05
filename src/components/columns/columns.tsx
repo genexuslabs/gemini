@@ -19,7 +19,7 @@ export class Columns {
   /**
    * The spacing between columns
    */
-  @Prop() space: Space = "none";
+  @Prop({ reflect: true }) space: Space = "none";
 
   render() {
     return (

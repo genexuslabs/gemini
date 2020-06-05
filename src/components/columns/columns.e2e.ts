@@ -7,6 +7,18 @@ let gxgColumn1: E2EElement;
 let gxgColumn2: E2EElement;
 let gxgColumn3: E2EElement;
 
+function validateExpectedWidth(receivedWidth: string, expectedWidth: number) {
+  const receivedWidthInt = parseInt(receivedWidth, 10);
+  if (
+    receivedWidthInt >= expectedWidth - 1 &&
+    receivedWidthInt <= expectedWidth + 1
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 describe("gxg-columns space general", () => {
   beforeEach(async () => {
     page = await newE2EPage();
@@ -68,27 +80,13 @@ describe("gxg-columns space general", () => {
     expect((await gxgColumn3.getComputedStyle()).fontSize).toBe("16px");
     expect((await gxgColumn3.getComputedStyle()).fontFamily).toBe("arial");
   });
-});
 
-describe("gxg-columns space xs", () => {
-  beforeEach(async () => {
-    page = await newE2EPage();
-
-    await page.setContent(`
-          <gxg-columns space="xs">
-              <gxg-column width="1/2">1/2</gxg-column>
-              <gxg-column width="content">Content</gxg-column>
-              <gxg-column width="fluid">Fluid</gxg-column>
-          </gxg-columns>
-      `);
-    gxgColumnsContainer = await page.find("gxg-columns >>> .columns-container");
-    gxgColumn1 = await page.find("gxg-columns gxg-column:first-child");
-    gxgColumn2 = await page.find("gxg-columns gxg-column:nth-child(2)");
-    gxgColumn3 = await page.find("gxg-columns gxg-column:nth-child(3)");
-  });
+  //TEST SPACING BETWEEN COLUMNS
 
   it("has the right spacing", async () => {
     await page.waitForChanges();
+
+    //xs
     expect((await gxgColumn1.getComputedStyle()).paddingLeft).toBe("4px");
     expect((await gxgColumn2.getComputedStyle()).paddingLeft).toBe("4px");
     expect((await gxgColumn3.getComputedStyle()).paddingLeft).toBe("4px");
@@ -96,28 +94,11 @@ describe("gxg-columns space xs", () => {
     expect((await gxgColumnsContainer.getComputedStyle()).marginLeft).toBe(
       "-4px"
     );
-  });
-});
 
-describe("gxg-columns space s", () => {
-  beforeEach(async () => {
-    page = await newE2EPage();
-
-    await page.setContent(`
-            <gxg-columns space="s">
-                <gxg-column width="1/2">1/2</gxg-column>
-                <gxg-column width="content">Content</gxg-column>
-                <gxg-column width="fluid">Fluid</gxg-column>
-            </gxg-columns>
-        `);
-    gxgColumnsContainer = await page.find("gxg-columns >>> .columns-container");
-    gxgColumn1 = await page.find("gxg-columns gxg-column:first-child");
-    gxgColumn2 = await page.find("gxg-columns gxg-column:nth-child(2)");
-    gxgColumn3 = await page.find("gxg-columns gxg-column:nth-child(3)");
-  });
-
-  it("has the right spacing", async () => {
+    //s
+    gxgColumns.setProperty("space", "s");
     await page.waitForChanges();
+
     expect((await gxgColumn1.getComputedStyle()).paddingLeft).toBe("8px");
     expect((await gxgColumn2.getComputedStyle()).paddingLeft).toBe("8px");
     expect((await gxgColumn3.getComputedStyle()).paddingLeft).toBe("8px");
@@ -125,27 +106,9 @@ describe("gxg-columns space s", () => {
     expect((await gxgColumnsContainer.getComputedStyle()).marginLeft).toBe(
       "-8px"
     );
-  });
-});
 
-describe("gxg-columns space m", () => {
-  beforeEach(async () => {
-    page = await newE2EPage();
-
-    await page.setContent(`
-              <gxg-columns space="m">
-                  <gxg-column width="1/2">1/2</gxg-column>
-                  <gxg-column width="content">Content</gxg-column>
-                  <gxg-column width="fluid">Fluid</gxg-column>
-              </gxg-columns>
-          `);
-    gxgColumnsContainer = await page.find("gxg-columns >>> .columns-container");
-    gxgColumn1 = await page.find("gxg-columns gxg-column:first-child");
-    gxgColumn2 = await page.find("gxg-columns gxg-column:nth-child(2)");
-    gxgColumn3 = await page.find("gxg-columns gxg-column:nth-child(3)");
-  });
-
-  it("has the right spacing", async () => {
+    //m
+    gxgColumns.setProperty("space", "m");
     await page.waitForChanges();
     expect((await gxgColumn1.getComputedStyle()).paddingLeft).toBe("16px");
     expect((await gxgColumn2.getComputedStyle()).paddingLeft).toBe("16px");
@@ -204,22 +167,70 @@ describe("gxg-columns check column widths", () => {
 
   it("has the right width", async () => {
     await page.waitForChanges();
-    expect((await gxgColumn1.getComputedStyle()).width).toBe("252px");
-    expect((await gxgColumn2.getComputedStyle()).width).toBe("168px");
-    expect((await gxgColumn3.getComputedStyle()).width).toBe("126px");
-    expect((await gxgColumn4.getComputedStyle()).width.substring(0, 3)).toBe(
-      "100"
-    );
-    expect((await gxgColumn5.getComputedStyle()).width).toBe("336px");
-    expect((await gxgColumn6.getComputedStyle()).width.substring(0, 3)).toBe(
-      "201"
-    );
-    expect((await gxgColumn7.getComputedStyle()).width.substring(0, 3)).toBe(
-      "302"
-    );
-    expect((await gxgColumn8.getComputedStyle()).width.substring(0, 3)).toBe(
-      "403"
-    );
+
+    //col 1
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn1.getComputedStyle()).width.substring(0, 3),
+        252
+      )
+    ).toBe(true);
+
+    //col 2
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn2.getComputedStyle()).width.substring(0, 3),
+        168
+      )
+    ).toBe(true);
+
+    //col 3
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn3.getComputedStyle()).width.substring(0, 3),
+        126
+      )
+    ).toBe(true);
+
+    //col 4
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn4.getComputedStyle()).width.substring(0, 3),
+        100
+      )
+    ).toBe(true);
+
+    //col 5
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn5.getComputedStyle()).width.substring(0, 3),
+        336
+      )
+    ).toBe(true);
+
+    //col 6
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn6.getComputedStyle()).width.substring(0, 3),
+        201
+      )
+    ).toBe(true);
+
+    //col 7
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn7.getComputedStyle()).width.substring(0, 3),
+        302
+      )
+    ).toBe(true);
+
+    //col 8
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn8.getComputedStyle()).width.substring(0, 3),
+        403
+      )
+    ).toBe(true);
   });
 });
 
@@ -241,9 +252,12 @@ describe("gxg-columns check column width content fluid", () => {
 
   it("has the right width", async () => {
     await page.waitForChanges();
-    // expect((await gxgColumn1.getComputedStyle()).width.substr(0, 2)).toBe("56");
-    expect((await gxgColumn2.getComputedStyle()).width.substr(0, 3)).toBe(
-      "441"
-    );
+    //col 6
+    expect(
+      validateExpectedWidth(
+        (await gxgColumn2.getComputedStyle()).width.substring(0, 3),
+        441
+      )
+    ).toBe(true);
   });
 });
