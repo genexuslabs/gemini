@@ -35,7 +35,7 @@ $sizes: xs, s, m;
 @each $size in $sizes {
   :host([space="#{$size}"]) {
     ::slotted(gxg-column) {
-      margin-left: var(--spacing-lay-#{$size});
+      padding-left: var(--spacing-lay-#{$size});
     }
     .columns-container {
       margin-left: calc(var(--spacing-lay-#{$size}) * -1);
@@ -45,7 +45,7 @@ $sizes: xs, s, m;
 //none space
 :host([space="none"]) {
   ::slotted(gxg-column) {
-    margin-left: 0;
+    padding-left: 0;
   }
   .columns-container {
     margin-left: 0;
