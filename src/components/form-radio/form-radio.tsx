@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   h,
+  Host,
   Watch
 } from "@stencil/core";
 
@@ -15,6 +16,7 @@ import {
 })
 export class FormRadio {
   @Event() change: EventEmitter;
+  @Event() keyPressed: EventEmitter;
   @Element() el: HTMLElement;
 
   //A reference to the input
@@ -80,6 +82,7 @@ export class FormRadio {
     }
     if (newValue === true) {
       this.radioInput.setAttribute("checked", "checked");
+      this.selectRadio();
     }
   }
 
@@ -90,21 +93,45 @@ export class FormRadio {
     });
   }
 
+  handlerOnKeyUp(event) {
+    if (event.keyCode == 9) {
+      //tab key was pressed
+      if (event.shiftKey) {
+        //shift key was also pressed
+        this.keyPressed.emit({ direction: "previous-tab" });
+      } else {
+        this.keyPressed.emit({ direction: "next-tab" });
+      }
+    } else if (event.keyCode == 37 || event.keyCode == 38) {
+      //arrow-left, or arrow-up key was pressed. focus should be positioned on the previous radiobtn.
+      event.preventDefault();
+      this.keyPressed.emit({ direction: "previous" });
+    }
+    if (event.keyCode == 39 || event.keyCode == 40) {
+      //arrow-right, or arrow-down key was pressed. focus should be positioned on the next radiobtn
+      event.preventDefault();
+      this.keyPressed.emit({ direction: "next" });
+    }
+  }
+
   render() {
     return (
-      <label class="label">
-        <input
-          ref={el => (this.radioInput = el as HTMLInputElement)}
-          type="radio"
-          name={this.name}
-          id={this.RadioId}
-          value={this.value}
-          onClick={this.selectRadio.bind(this)}
-          disabled={this.disabled}
-        ></input>
-        <span class="radiobtn"></span>
-        {this.label}
-      </label>
+      <Host>
+        <label class="label">
+          <input
+            ref={el => (this.radioInput = el as HTMLInputElement)}
+            type="radio"
+            name={this.name}
+            id={this.RadioId}
+            value={this.value}
+            onClick={this.selectRadio.bind(this)}
+            disabled={this.disabled}
+            onKeyDown={this.handlerOnKeyUp.bind(this)}
+          ></input>
+          <span class="radiobtn"></span>
+          {this.label}
+        </label>
+      </Host>
     );
   }
 }

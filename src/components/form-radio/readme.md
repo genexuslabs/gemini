@@ -50,9 +50,10 @@
 
 ## Events
 
-| Event    | Description | Type               |
-| -------- | ----------- | ------------------ |
-| `change` |             | `CustomEvent<any>` |
+| Event        | Description | Type               |
+| ------------ | ----------- | ------------------ |
+| `change`     |             | `CustomEvent<any>` |
+| `keyPressed` |             | `CustomEvent<any>` |
 
 ---
 

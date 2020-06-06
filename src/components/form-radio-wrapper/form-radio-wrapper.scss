@@ -1,9 +1,0 @@
-@import "../../globals/normalize.scss";
-@import "../../globals/mixins";
-
-:host {
-  ::slotted(gxg-form-radio) {
-    margin-bottom: var(--spacing-comp-03);
-    display: flex;
-  }
-}

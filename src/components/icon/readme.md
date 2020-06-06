@@ -12,18 +12,20 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                   | Type                                                                                                                                                                                                                                                                                                                                                                           | Default     |
-| -------- | --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `color`  | `color`   | The color of the icon.                                                        | `"disabled" \| "error" \| "negative" \| "onbackground" \| "success" \| "warning"`                                                                                                                                                                                                                                                                                              | `undefined` |
-| `lazy`   | `lazy`    | If enabled, the icon will be loaded lazily when it's visible in the viewport. | `boolean`                                                                                                                                                                                                                                                                                                                                                                      | `false`     |
-| `size`   | `size`    | The size of the icon. Possible values: regular, small.                        | `"regular" \| "small"`                                                                                                                                                                                                                                                                                                                                                         | `"regular"` |
-| `type`   | `type`    | The type of icon. Possible values: each of the icons in /assets.              | `"error" \| "success" \| "warning" \| "none" \| "add" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "level-down" \| "level-up" \| "more-info" \| "search" \| "settings" \| "show-more"` | `"none"`    |
+| Property | Attribute | Description                                                                   | Type                                                                                                                                                                                                                                                                                                                                                                                      | Default     |
+| -------- | --------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `color`  | `color`   | The color of the icon.                                                        | `"disabled" \| "error" \| "negative" \| "onbackground" \| "success" \| "warning"`                                                                                                                                                                                                                                                                                                         | `undefined` |
+| `lazy`   | `lazy`    | If enabled, the icon will be loaded lazily when it's visible in the viewport. | `boolean`                                                                                                                                                                                                                                                                                                                                                                                 | `false`     |
+| `size`   | `size`    | The size of the icon. Possible values: regular, small.                        | `"regular" \| "small"`                                                                                                                                                                                                                                                                                                                                                                    | `"regular"` |
+| `type`   | `type`    | The type of icon. Possible values: each of the icons in /assets.              | `"error" \| "success" \| "warning" \| "none" \| "add" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "empty" \| "level-down" \| "level-up" \| "more-info" \| "search" \| "settings" \| "show-more"` | `"none"`    |
 
 ## Dependencies
 
 ### Used by
 
 - [gxg-accordion-item](../accordion-item)
+- [gxg-alert](../alert)
+- [gxg-button](../button)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
 - [gxg-menu-item](../menu-item)
@@ -38,6 +40,8 @@
 ```mermaid
 graph TD;
   gxg-accordion-item --> gxg-icon
+  gxg-alert --> gxg-icon
+  gxg-button --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
   gxg-menu-item --> gxg-icon

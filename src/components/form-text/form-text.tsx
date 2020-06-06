@@ -19,7 +19,6 @@ export class FormText {
   /*********************************
   PROPERTIES & STATE
   *********************************/
-
   /**
    * If input is disabled
    */
@@ -70,7 +69,7 @@ export class FormText {
   /**
    * If required
    */
-  @Prop() required = false;
+  @Prop({ reflect: true }) required = false;
 
   /**
    * The input value
@@ -169,6 +168,7 @@ export class FormText {
               disabled={this.disabled}
               onInput={this.handleInput.bind(this)}
               onChange={this.handleChange.bind(this)}
+              required={this.required}
             ></input>
             {this.inputIcon()}
           </div>

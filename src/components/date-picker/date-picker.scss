@@ -5,6 +5,11 @@
 
 :host {
   display: block;
+  label {
+    @include form-element-common-styles-label();
+  }
+}
+:host([full-width]) {
 }
 #date-picker {
   width: 100%;

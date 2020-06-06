@@ -6,34 +6,57 @@
   background: var(--color-on-primary);
   box-shadow: var(--box-shadow-01);
   border-radius: var(--border-radius-md);
-  padding: var(--spacing-comp-02);
   display: flex;
   overflow: hidden;
   @include gxg-text();
 }
-:host([shadow="1"]) {
+//Box shadow
+:host([box-shadow="xxs"]) {
   box-shadow: var(--box-shadow-01);
 }
-:host([shadow="2"]) {
+:host([box-shadow="xs"]) {
   box-shadow: var(--box-shadow-02);
 }
-:host([shadow="3"]) {
+:host([box-shadow="s"]) {
   box-shadow: var(--box-shadow-03);
 }
-:host([shadow="4"]) {
+:host([box-shadow="m"]) {
   box-shadow: var(--box-shadow-04);
 }
-:host([shadow="5"]) {
+:host([box-shadow="l"]) {
   box-shadow: var(--box-shadow-06);
 }
-:host([shadow="6"]) {
+:host([box-shadow="xl"]) {
   box-shadow: var(--box-shadow-08);
 }
-:host([shadow="7"]) {
+:host([box-shadow="xxl"]) {
   box-shadow: var(--box-shadow-09);
 }
-:host([shadow="8"]) {
+:host([box-shadow="xxxl"]) {
   box-shadow: var(--box-shadow-12);
+}
+
+//Padding
+:host([padding="xs"]) {
+  padding: var(--spacing-comp-01);
+}
+:host([padding="s"]) {
+  padding: var(--spacing-comp-02);
+}
+:host([padding="m"]) {
+  padding: var(--spacing-comp-03);
+}
+:host([padding="l"]) {
+  padding: var(--spacing-comp-04);
+}
+:host([padding="xl"]) {
+  padding: var(--spacing-comp-05);
+}
+:host([padding="xxl"]) {
+  padding: var(--spacing-comp-06);
+}
+:host([padding="xxxl"]) {
+  padding: var(--spacing-comp-07);
 }
 
 :host([gray]) {

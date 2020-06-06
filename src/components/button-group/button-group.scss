@@ -4,6 +4,7 @@
 :host(.button-group) {
   display: inline-block;
   line-height: 0;
+  outline: none;
 
   .button-group-header-title {
     @include gxg-text;
@@ -21,7 +22,7 @@
     border-radius: 0;
     background-color: var(--gray-02);
     color: var(--color-primary);
-    border-right: 1px solid var(--color-on-disabled);
+    border-right: 1px solid var(--gray-03);
     padding-left: var(--spacing-comp-03);
     padding-right: var(--spacing-comp-03);
   }
@@ -42,10 +43,12 @@
   }
   ::slotted(button:focus) {
     outline: none;
+    box-shadow: var(--box-shadow-values) var(--color-primary-active);
   }
   ::slotted(button[data-active]) {
     color: var(--color-on-primary);
     background-color: var(--color-primary-active);
+    border-right-color: var(--color-primary-active);
   }
 }
 :host([title-alignment="center"]) {
@@ -67,5 +70,25 @@
   ::slotted(button[data-active]) {
     background-color: var(--color-primary-disabled);
     color: var(--color-on-disabled);
+  }
+  ::slotted(button) {
+    border-right-color: var(--color-on-disabled);
+  }
+}
+
+//full width
+:host([full-width]) {
+  display: block;
+  width: 100%;
+
+  .button-group-container {
+    display: flex;
+  }
+}
+:host([full-width]) {
+  .button-group-container {
+    ::slotted(*) {
+      flex: 1 1 auto !important;
+    }
   }
 }

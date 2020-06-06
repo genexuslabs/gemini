@@ -10,14 +10,27 @@ import {
   modeType as modeType1,
   statusType
 } from "./components/accordion-item/accordion-item";
+import {
+  ActiveTime,
+  AlertPosition,
+  AlertType,
+  Spacing
+} from "./components/alert/alert";
+import { paddingType } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { ShadowType } from "./components/card/card";
+import {
+  boxShadowType,
+  paddingType as paddingType1
+} from "./components/card/card";
+import { WidthType } from "./components/column/column";
+import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignmentType } from "./components/modal/modal";
+import { SpaceType } from "./components/stack/stack";
 import { SizeType } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
@@ -56,12 +69,57 @@ export namespace Components {
      */
     status: statusType;
   }
-  interface GxgBox {
-    height: string;
+  interface GxgAlert {
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * Wether the alert is active (visible) or not (not visible).
      */
-    shadow: number;
+    active: boolean;
+    /**
+     * The number of miliseconds the alert is visible before hidding under the document.
+     */
+    activeTime: ActiveTime;
+    /**
+     * The alert title (optional)
+     */
+    alertTitle: string;
+    /**
+     * The alert bottom position value
+     */
+    bottom: Spacing;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
+     * The alert right position value
+     */
+    leftRight: Spacing;
+    /**
+     * The alert position.
+     */
+    position: AlertPosition;
+    /**
+     * The type of alert
+     */
+    type: AlertType;
+    /**
+     * The alert width
+     */
+    width: string;
+  }
+  interface GxgBox {
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
+     * The component height
+     */
+    height: string;
+    padding: paddingType;
+    /**
+     * The component width
+     */
     width: string;
   }
   interface GxgButton {
@@ -69,6 +127,10 @@ export namespace Components {
      * The state of the button. Whether is disabled or not.
      */
     disabled: boolean;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
     /**
      * The kind of button
      */
@@ -88,20 +150,54 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * This property makes the inner buttons focusable
+     */
+    focusable: boolean;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
      * The main title alignment
      */
     titleAlignment: TitleAlignment;
   }
   interface GxgCard {
+    boxShadow: boxShadowType;
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * This property makes the component full-width
      */
-    shadow: ShadowType;
+    fullWidth: boolean;
+    /**
+     * The component height
+     */
+    height: string;
+    padding: paddingType;
+    /**
+     * The component width
+     */
     width: string;
   }
   interface GxgColorPicker {
     cardTitle: string;
     value: string;
+  }
+  interface GxgColumn {
+    width: WidthType;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space: Space;
   }
   interface GxgDatePicker {
     /**
@@ -112,6 +208,14 @@ export namespace Components {
      * initial date
      */
     defaultDate: string;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
+     * label
+     */
+    label: string;
     /**
      * max date
      */
@@ -151,6 +255,10 @@ export namespace Components {
      */
     name: string;
     /**
+     * Required
+     */
+    required: boolean;
+    /**
      * Checkbox value
      */
     value: string;
@@ -187,7 +295,7 @@ export namespace Components {
      */
     value: string;
   }
-  interface GxgFormRadioWrapper {
+  interface GxgFormRadioGroup {
     /**
      * Selected Radio id
      */
@@ -200,52 +308,10 @@ export namespace Components {
      * Inline-flex display
      */
     inlineFlex: boolean;
-  }
-  interface GxgFormSelect {
     /**
-     * If select is disabled
-     */
-    disabled: boolean;
-    /**
-     * If select has errors
-     */
-    error: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth: boolean;
-    /**
-     * The select label
+     * The label for the Radio Group
      */
     label: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions: string;
-    /**
-     * The select name
-     */
-    name: string;
-    /**
-     * If required
-     */
-    required: boolean;
-    /**
-     * The select id
-     */
-    selectId: string;
-    /**
-     * The selected option
-     */
-    value: string;
-    /**
-     * If select has warnings
-     */
-    warning: boolean;
-    /**
-     * The select width
-     */
-    width: string;
   }
   interface GxgFormText {
     /**
@@ -406,11 +472,19 @@ export namespace Components {
      */
     zIndex: string;
   }
+  interface GxgOption {
+    selected: boolean;
+    value: string;
+  }
   interface GxgProgressBar {
     /**
      * The state of the toggle. Whether is disabled or not.
      */
     disabled: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
     /**
      * The label
      */
@@ -424,11 +498,57 @@ export namespace Components {
      */
     width: string;
   }
+  interface GxgSelect {
+    /**
+     * If select is disabled
+     */
+    disabled: boolean;
+    /**
+     * If select has errors
+     */
+    error: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
+    /**
+     * The select label
+     */
+    label: string;
+    /**
+     * The select name
+     */
+    name: string;
+    /**
+     * If required
+     */
+    required: boolean;
+    /**
+     * The select id
+     */
+    selectId: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    size: string;
+    /**
+     * If select has warnings
+     */
+    warning: boolean;
+    /**
+     * The select width
+     */
+    width: string;
+  }
   interface GxgSlider {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
      */
     disabled: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth: boolean;
     /**
      * The label
      */
@@ -465,6 +585,16 @@ export namespace Components {
      * The spacing value, taken from the "token-spacing" global values
      */
     space: string;
+  }
+  interface GxgStack {
+    /**
+     * The toggle label
+     */
+    label: string;
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    space: SpaceType;
   }
   interface GxgStepper {
     /**
@@ -563,6 +693,13 @@ declare global {
     prototype: HTMLGxgAccordionItemElement;
     new (): HTMLGxgAccordionItemElement;
   };
+  interface HTMLGxgAlertElement
+    extends Components.GxgAlert,
+      HTMLStencilElement {}
+  var HTMLGxgAlertElement: {
+    prototype: HTMLGxgAlertElement;
+    new (): HTMLGxgAlertElement;
+  };
   interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {}
   var HTMLGxgBoxElement: {
     prototype: HTMLGxgBoxElement;
@@ -594,6 +731,20 @@ declare global {
     prototype: HTMLGxgColorPickerElement;
     new (): HTMLGxgColorPickerElement;
   };
+  interface HTMLGxgColumnElement
+    extends Components.GxgColumn,
+      HTMLStencilElement {}
+  var HTMLGxgColumnElement: {
+    prototype: HTMLGxgColumnElement;
+    new (): HTMLGxgColumnElement;
+  };
+  interface HTMLGxgColumnsElement
+    extends Components.GxgColumns,
+      HTMLStencilElement {}
+  var HTMLGxgColumnsElement: {
+    prototype: HTMLGxgColumnsElement;
+    new (): HTMLGxgColumnsElement;
+  };
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
       HTMLStencilElement {}
@@ -622,19 +773,12 @@ declare global {
     prototype: HTMLGxgFormRadioElement;
     new (): HTMLGxgFormRadioElement;
   };
-  interface HTMLGxgFormRadioWrapperElement
-    extends Components.GxgFormRadioWrapper,
+  interface HTMLGxgFormRadioGroupElement
+    extends Components.GxgFormRadioGroup,
       HTMLStencilElement {}
-  var HTMLGxgFormRadioWrapperElement: {
-    prototype: HTMLGxgFormRadioWrapperElement;
-    new (): HTMLGxgFormRadioWrapperElement;
-  };
-  interface HTMLGxgFormSelectElement
-    extends Components.GxgFormSelect,
-      HTMLStencilElement {}
-  var HTMLGxgFormSelectElement: {
-    prototype: HTMLGxgFormSelectElement;
-    new (): HTMLGxgFormSelectElement;
+  var HTMLGxgFormRadioGroupElement: {
+    prototype: HTMLGxgFormRadioGroupElement;
+    new (): HTMLGxgFormRadioGroupElement;
   };
   interface HTMLGxgFormTextElement
     extends Components.GxgFormText,
@@ -674,12 +818,26 @@ declare global {
     prototype: HTMLGxgModalElement;
     new (): HTMLGxgModalElement;
   };
+  interface HTMLGxgOptionElement
+    extends Components.GxgOption,
+      HTMLStencilElement {}
+  var HTMLGxgOptionElement: {
+    prototype: HTMLGxgOptionElement;
+    new (): HTMLGxgOptionElement;
+  };
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
       HTMLStencilElement {}
   var HTMLGxgProgressBarElement: {
     prototype: HTMLGxgProgressBarElement;
     new (): HTMLGxgProgressBarElement;
+  };
+  interface HTMLGxgSelectElement
+    extends Components.GxgSelect,
+      HTMLStencilElement {}
+  var HTMLGxgSelectElement: {
+    prototype: HTMLGxgSelectElement;
+    new (): HTMLGxgSelectElement;
   };
   interface HTMLGxgSliderElement
     extends Components.GxgSlider,
@@ -701,6 +859,13 @@ declare global {
   var HTMLGxgSpacerOneElement: {
     prototype: HTMLGxgSpacerOneElement;
     new (): HTMLGxgSpacerOneElement;
+  };
+  interface HTMLGxgStackElement
+    extends Components.GxgStack,
+      HTMLStencilElement {}
+  var HTMLGxgStackElement: {
+    prototype: HTMLGxgStackElement;
+    new (): HTMLGxgStackElement;
   };
   interface HTMLGxgStepperElement
     extends Components.GxgStepper,
@@ -764,27 +929,32 @@ declare global {
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
+    "gxg-alert": HTMLGxgAlertElement;
     "gxg-box": HTMLGxgBoxElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
     "gxg-color-picker": HTMLGxgColorPickerElement;
+    "gxg-column": HTMLGxgColumnElement;
+    "gxg-columns": HTMLGxgColumnsElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
-    "gxg-form-radio-wrapper": HTMLGxgFormRadioWrapperElement;
-    "gxg-form-select": HTMLGxgFormSelectElement;
+    "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
+    "gxg-option": HTMLGxgOptionElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
+    "gxg-select": HTMLGxgSelectElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
     "gxg-spacer-one": HTMLGxgSpacerOneElement;
+    "gxg-stack": HTMLGxgStackElement;
     "gxg-stepper": HTMLGxgStepperElement;
     "gxg-tab": HTMLGxgTabElement;
     "gxg-tab-bar": HTMLGxgTabBarElement;
@@ -834,12 +1004,57 @@ declare namespace LocalJSX {
      */
     status?: statusType;
   }
-  interface GxgBox {
-    height?: string;
+  interface GxgAlert {
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * Wether the alert is active (visible) or not (not visible).
      */
-    shadow?: number;
+    active?: boolean;
+    /**
+     * The number of miliseconds the alert is visible before hidding under the document.
+     */
+    activeTime?: ActiveTime;
+    /**
+     * The alert title (optional)
+     */
+    alertTitle?: string;
+    /**
+     * The alert bottom position value
+     */
+    bottom?: Spacing;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
+     * The alert right position value
+     */
+    leftRight?: Spacing;
+    /**
+     * The alert position.
+     */
+    position?: AlertPosition;
+    /**
+     * The type of alert
+     */
+    type?: AlertType;
+    /**
+     * The alert width
+     */
+    width?: string;
+  }
+  interface GxgBox {
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
+     * The component height
+     */
+    height?: string;
+    padding?: paddingType;
+    /**
+     * The component width
+     */
     width?: string;
   }
   interface GxgButton {
@@ -847,6 +1062,10 @@ declare namespace LocalJSX {
      * The state of the button. Whether is disabled or not.
      */
     disabled?: boolean;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
     /**
      * The kind of button
      */
@@ -866,15 +1085,32 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * This property makes the inner buttons focusable
+     */
+    focusable?: boolean;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
      * The main title alignment
      */
     titleAlignment?: TitleAlignment;
   }
   interface GxgCard {
+    boxShadow?: boxShadowType;
     /**
-     * The card box-shadow value possible values: from 1 to 8
+     * This property makes the component full-width
      */
-    shadow?: ShadowType;
+    fullWidth?: boolean;
+    /**
+     * The component height
+     */
+    height?: string;
+    padding?: paddingType;
+    /**
+     * The component width
+     */
     width?: string;
   }
   interface GxgColorPicker {
@@ -883,6 +1119,23 @@ declare namespace LocalJSX {
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
+  }
+  interface GxgColumn {
+    width?: WidthType;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY?: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow?: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space?: Space;
   }
   interface GxgDatePicker {
     /**
@@ -893,6 +1146,14 @@ declare namespace LocalJSX {
      * initial date
      */
     defaultDate?: string;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth?: boolean;
+    /**
+     * label
+     */
+    label?: string;
     /**
      * max date
      */
@@ -933,6 +1194,10 @@ declare namespace LocalJSX {
     name?: string;
     onChange?: (event: CustomEvent<any>) => void;
     /**
+     * Required
+     */
+    required?: boolean;
+    /**
      * Checkbox value
      */
     value?: string;
@@ -965,12 +1230,13 @@ declare namespace LocalJSX {
      */
     name?: string;
     onChange?: (event: CustomEvent<any>) => void;
+    onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
      * Radio value
      */
     value?: string;
   }
-  interface GxgFormRadioWrapper {
+  interface GxgFormRadioGroup {
     /**
      * Selected Radio id
      */
@@ -983,54 +1249,10 @@ declare namespace LocalJSX {
      * Inline-flex display
      */
     inlineFlex?: boolean;
-  }
-  interface GxgFormSelect {
     /**
-     * If select is disabled
-     */
-    disabled?: boolean;
-    /**
-     * If select has errors
-     */
-    error?: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
-    /**
-     * The select label
+     * The label for the Radio Group
      */
     label?: string;
-    /**
-     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
-     */
-    maxVisibleOptions?: string;
-    /**
-     * The select name
-     */
-    name?: string;
-    onChange?: (event: CustomEvent<any>) => void;
-    onInput?: (event: CustomEvent<any>) => void;
-    /**
-     * If required
-     */
-    required?: boolean;
-    /**
-     * The select id
-     */
-    selectId?: string;
-    /**
-     * The selected option
-     */
-    value?: string;
-    /**
-     * If select has warnings
-     */
-    warning?: boolean;
-    /**
-     * The select width
-     */
-    width?: string;
   }
   interface GxgFormText {
     /**
@@ -1196,11 +1418,19 @@ declare namespace LocalJSX {
      */
     zIndex?: string;
   }
+  interface GxgOption {
+    selected?: boolean;
+    value?: string;
+  }
   interface GxgProgressBar {
     /**
      * The state of the toggle. Whether is disabled or not.
      */
     disabled?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
     /**
      * The label
      */
@@ -1214,11 +1444,59 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
+  interface GxgSelect {
+    /**
+     * If select is disabled
+     */
+    disabled?: boolean;
+    /**
+     * If select has errors
+     */
+    error?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
+    /**
+     * The select label
+     */
+    label?: string;
+    /**
+     * The select name
+     */
+    name?: string;
+    onChange?: (event: CustomEvent<any>) => void;
+    onInput?: (event: CustomEvent<any>) => void;
+    /**
+     * If required
+     */
+    required?: boolean;
+    /**
+     * The select id
+     */
+    selectId?: string;
+    /**
+     * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+     */
+    size?: string;
+    /**
+     * If select has warnings
+     */
+    warning?: boolean;
+    /**
+     * The select width
+     */
+    width?: string;
+  }
   interface GxgSlider {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
      */
     disabled?: boolean;
+    /**
+     * If select is full width
+     */
+    fullWidth?: boolean;
     /**
      * The label
      */
@@ -1255,6 +1533,16 @@ declare namespace LocalJSX {
      * The spacing value, taken from the "token-spacing" global values
      */
     space?: string;
+  }
+  interface GxgStack {
+    /**
+     * The toggle label
+     */
+    label?: string;
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    space?: SpaceType;
   }
   interface GxgStepper {
     /**
@@ -1341,27 +1629,32 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
+    "gxg-alert": GxgAlert;
     "gxg-box": GxgBox;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
     "gxg-color-picker": GxgColorPicker;
+    "gxg-column": GxgColumn;
+    "gxg-columns": GxgColumns;
     "gxg-date-picker": GxgDatePicker;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-radio": GxgFormRadio;
-    "gxg-form-radio-wrapper": GxgFormRadioWrapper;
-    "gxg-form-select": GxgFormSelect;
+    "gxg-form-radio-group": GxgFormRadioGroup;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
+    "gxg-option": GxgOption;
     "gxg-progress-bar": GxgProgressBar;
+    "gxg-select": GxgSelect;
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
     "gxg-spacer-one": GxgSpacerOne;
+    "gxg-stack": GxgStack;
     "gxg-stepper": GxgStepper;
     "gxg-tab": GxgTab;
     "gxg-tab-bar": GxgTabBar;
@@ -1381,6 +1674,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-item": LocalJSX.GxgAccordionItem &
         JSXBase.HTMLAttributes<HTMLGxgAccordionItemElement>;
+      "gxg-alert": LocalJSX.GxgAlert &
+        JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
       "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
@@ -1389,6 +1684,10 @@ declare module "@stencil/core" {
       "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
       "gxg-color-picker": LocalJSX.GxgColorPicker &
         JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
+      "gxg-column": LocalJSX.GxgColumn &
+        JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
+      "gxg-columns": LocalJSX.GxgColumns &
+        JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
@@ -1397,10 +1696,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
       "gxg-form-radio": LocalJSX.GxgFormRadio &
         JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
-      "gxg-form-radio-wrapper": LocalJSX.GxgFormRadioWrapper &
-        JSXBase.HTMLAttributes<HTMLGxgFormRadioWrapperElement>;
-      "gxg-form-select": LocalJSX.GxgFormSelect &
-        JSXBase.HTMLAttributes<HTMLGxgFormSelectElement>;
+      "gxg-form-radio-group": LocalJSX.GxgFormRadioGroup &
+        JSXBase.HTMLAttributes<HTMLGxgFormRadioGroupElement>;
       "gxg-form-text": LocalJSX.GxgFormText &
         JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
@@ -1411,14 +1708,20 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
       "gxg-modal": LocalJSX.GxgModal &
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
+      "gxg-option": LocalJSX.GxgOption &
+        JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
+      "gxg-select": LocalJSX.GxgSelect &
+        JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
       "gxg-slider": LocalJSX.GxgSlider &
         JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
       "gxg-spacer-layout": LocalJSX.GxgSpacerLayout &
         JSXBase.HTMLAttributes<HTMLGxgSpacerLayoutElement>;
       "gxg-spacer-one": LocalJSX.GxgSpacerOne &
         JSXBase.HTMLAttributes<HTMLGxgSpacerOneElement>;
+      "gxg-stack": LocalJSX.GxgStack &
+        JSXBase.HTMLAttributes<HTMLGxgStackElement>;
       "gxg-stepper": LocalJSX.GxgStepper &
         JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
       "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;

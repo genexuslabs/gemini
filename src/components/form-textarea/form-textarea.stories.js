@@ -27,7 +27,7 @@ stories.add("Textarea", () => {
   const labelWidth = "Width";
   const optionsWidth = {
     "fixed width": "fixed-width",
-    "full width": "style=width:600px"
+    "full width": "style=width:700px"
   };
   const defaultValueWidth = "fixed-width";
   const valueWidth = radios(labelWidth, optionsWidth, defaultValueWidth);

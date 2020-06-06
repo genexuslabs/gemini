@@ -27,6 +27,11 @@ const stories = storiesOf("Button Group", module);
 stories.addDecorator(withKnobs);
 stories
   .add("Two buttons", () => {
+    /*Full Width*/
+    const labelFullWidth = "Full Width";
+    const defaultValueFullWidth = false;
+    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
+
     //Disabled
     const labelDisabled = "Disabled";
     const defaultValueDisabled = false;
@@ -38,8 +43,20 @@ stories
       }
     }
 
+    function valueFullWidthFunc() {
+      if (valueFullWidth) {
+        return "full-width";
+      }
+    }
+
     return `
-    <gxg-button-group ${valueDisabledFunc()} button-group-title="${text(
+    <style>
+      #root {
+        width: 700px;
+        text-align: center;
+      }
+    </style>
+    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} button-group-title="${text(
       "Main Title",
       "The Title"
     )}" title-alignment="${select(
@@ -59,6 +76,11 @@ stories
 `;
   })
   .add("Three buttons", () => {
+    /*Full Width*/
+    const labelFullWidth = "Full Width";
+    const defaultValueFullWidth = false;
+    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
+
     //Disabled
     const labelDisabled = "Disabled";
     const defaultValueDisabled = false;
@@ -70,11 +92,23 @@ stories
       }
     }
 
+    function valueFullWidthFunc() {
+      if (valueFullWidth) {
+        return "full-width";
+      }
+    }
+
     return `
+    <style>
+      #root {
+        width: 700px;
+        text-align: center;
+      }
+    </style>
     <gxg-button-group ${valueDisabledFunc()} button-group-title="${text(
       "Main Title",
       "The Title"
-    )}" title-alignment="${select(
+    )}" ${valueFullWidthFunc()} title-alignment="${select(
       label,
       options,
       defaultValue

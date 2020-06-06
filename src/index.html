@@ -25,15 +25,310 @@
     </style>
   </head>
   <body>
+
     <h2>Accordion</h2>
-    <gxg-accordion disabled>
-      <gxg-accordion-item item-title="tab-01" item-id="tab-01" status="open"
-        >some content on accordion 1.</gxg-accordion-item
-      >
-      <gxg-accordion-item item-title="tab-02" item-id="tab-02"
-        >some content on accordion 2.</gxg-accordion-item
-      >
+    <gxg-accordion single-tab-open mode="classical">
+      <gxg-accordion-item item-title="item 1" item-id="tab 1">“I've learned that people will forget what you said, people will forget
+        what you did, but people will never forget how you made them feel.” ―
+        Maya Angelou</gxg-accordion-item>
+      <gxg-accordion-item item-title="tab 2" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
+      treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
+      the Goblet of Fire</gxg-accordion-item> 
+      <gxg-accordion-item item-title="tab 3" item-id="tab 3">“I've learned that people will forget what you said, people will forget
+      what you did, but people will never forget how you made them feel.” ―
+      Maya Angelou</gxg-accordion-item>
     </gxg-accordion>
+
+    <div style="width:500px; font-size:16px; font-family:arial">
+      <gxg-columns space="xs">
+        <gxg-column width="1/2">1/2</gxg-column>
+        <gxg-column width="content">Content</gxg-column>
+        <gxg-column width="fluid">Fluid</gxg-column>
+      </gxg-columns>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br />
+
+    <div style="width:500px; font-size:16px;">
+      <gxg-columns space="xs">
+        <gxg-column width="content">Content</gxg-column>
+        <gxg-column width="fluid">Fluid</gxg-column>
+      </gxg-columns>
+    </div>
+
+    <div class="main-container">
+      <gxg-stack space="s">
+        <gxg-columns space="s">
+          <gxg-column width="content">
+            Content
+          </gxg-column>
+          <gxg-column width="fluid">
+            Content
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="1/2">
+            1/2
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="1/3">
+            1/3
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="2/3">
+            2/3
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="1/4">
+            1/4
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="3/4">
+            3/4
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="1/5">
+            1/5
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="2/5">
+            2/5
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="3/5">
+            3/5
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="s">
+          <gxg-column width="4/5">
+            4/5
+          </gxg-column>
+          <gxg-column width="fluid">
+            Fluid
+          </gxg-column>
+        </gxg-columns>
+      </gxg-stack>
+    </div>
+
+    <div style="width:500px; font-size:16px;">
+      <gxg-columns space="xs">
+        <gxg-column width="content/2">Content</gxg-column>
+        <gxg-column width="fluid">Fluid</gxg-column>
+      </gxg-columns>
+    </div>
+
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default"
+      placeholder="Placeholder text"
+      display-flex
+      icon="search"
+      icon-position="right"
+      required
+    >
+    </gxg-form-text>
+    <br /><br /><br /><br /><br />
+    <div style="width:900px; background:#ccc">
+      <gxg-stack space="l">
+        <gxg-columns space="m">
+          <gxg-column width="content">
+            Content
+          </gxg-column>
+          <gxg-column width="fluid">
+            Content
+          </gxg-column>
+        </gxg-columns>
+        <gxg-columns space="m" align-y="bottom">
+          <gxg-column width="1/2">
+            1/2
+          </gxg-column>
+          <gxg-column width="fluid">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam,
+            dignissimos ipsam cum facilis animi rem perspiciatis voluptate eaque
+            a id nesciunt commodi delectus eum nulla quisquam autem quia
+            necessitatibus quos.
+          </gxg-column>
+        </gxg-columns>
+      </gxg-stack>
+    </div>
+
+    <form action="/action_page.php">
+      <gxg-form-text
+        label="Location"
+        placeholder="USA, Washington, D.C."
+        required
+      ></gxg-form-text>
+      <input type="submit" value="Submit" />
+    </form>
+
+    <div style="background:#ccc;">
+      <gxg-spacer-layout
+        space="s"
+        orientation="vertical"
+        justify-content="flex-start"
+      >
+        <gxg-spacer-layout
+          space="s"
+          orientation="horizontal"
+          justify-content="flex-end"
+        >
+          <gxg-button type="primary-text-only">Salt</gxg-button>
+          <gxg-button type="primary-text-only">Pepper</gxg-button>
+          <gxg-button type="primary-text-only"
+            >Cucumber</gxg-button
+          ></gxg-spacer-layout
+        >
+      </gxg-spacer-layout>
+    </div>
+
+    <gxg-spacer-layout
+      space="small"
+      orientation="horizontal"
+      justify-content="flex-end"
+    >
+      <gxg-button type="primary-text-only">Salt</gxg-button
+      ><gxg-button type="primary-text-only">Salt</gxg-button>
+    </gxg-spacer-layout>
+
+    <p tabindex="0">dsffads</p>
+
+    <form action="/action_page.php">
+      <gxg-form-checkbox
+        label="hufds afiuhds iauf sduiahfid uh"
+        name="colors"
+        id="red"
+        value="rded"
+        disabled
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="bluecheese"
+        name="colors"
+        id="red"
+        value="blue"
+        required
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="green"
+        name="colors"
+        id="red"
+        value="green"
+      ></gxg-form-checkbox>
+      <input type="submit" />
+    </form>
+
+    <form action="">
+      <label for="">
+        1
+        <input type="radio" value="1" name="numbers" />
+      </label>
+      <label for="">
+        2
+        <input type="radio" value="2" name="numbers" />
+      </label>
+      <label for="">
+        3
+        <input type="radio" value="3" name="numbers" />
+      </label>
+      <label for="">
+        4
+        <input type="radio" value="4" name="numbers" />
+      </label>
+      <label for="">
+        5
+        <input type="radio" value="5" name="numbers" />
+      </label>
+    </form>
+
+    <p tabindex="0">dsffads</p>
+
+    <hr />
+
+    <form action="">
+      <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
+        <gxg-form-radio
+          label="red"
+          name="colors"
+          radio-id="red"
+          value="red"
+          checked
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="blue"
+          name="colors"
+          radio-id="blue"
+          value="blue"
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="green"
+          name="colors"
+          radio-id="green"
+          value="green"
+        ></gxg-form-radio>
+      </gxg-form-radio-group>
+    </form>
+
+    <h3>Select</h3>
+    <form action="">
+      <gxg-select label="Select a car:" width="400px" size="5" full-width>
+        <gxg-option value="0">Select car:</gxg-option>
+        <gxg-option value="1">Audi</gxg-option>
+        <gxg-option value="2">BMW</gxg-option>
+        <gxg-option selected value="3">Citroen</gxg-option>
+        <gxg-option value="4">Ford</gxg-option>
+        <gxg-option value="5">Honda</gxg-option>
+        <gxg-option value="6">Jaguar</gxg-option>
+        <gxg-option value="7">Land Rover</gxg-option>
+        <gxg-option value="8">Mercedes</gxg-option>
+      </gxg-select>
+    </form>
+    <hr />
+    <form action="">
+      <gxg-form-select
+        id="select1"
+        name="select1"
+        label="Default"
+        error
+        width="150px"
+        max-visible-options="4"
+      >
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+      </gxg-form-select>
+    </form>
 
     <span class="icon-checkbox-checked"></span>
     <label style="font-size:12px;"
@@ -78,6 +373,34 @@
       }
     </script> -->
 
+    <h2>Modal</h2>
+    <gxg-modal
+      style="dislpay:none"
+      id="modal"
+      modal-title="Modal Title"
+      footer-alignment="right"
+      z-index="20"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
+      voluptatibus harum minima aut id architecto adipisci tempore numquam
+      explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
+      <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+      <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+      <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+    </gxg-modal>
+
+    <gxg-button
+      full-width
+      style="margin-top:30px"
+      onClick="(function(){
+      const modal = document.getElementById('modal');
+      modal.setAttribute('visible','true');
+      return false;
+    })();return false;"
+      >Launch Modal btn</gxg-button
+    >
+
+    <h2>Droplist</h2>
     <gxg-droplist>
       <gxg-droplist-item>Item 1</gxg-droplist-item>
       <gxg-droplist-item>Item 2</gxg-droplist-item>
@@ -99,6 +422,29 @@
       <gxg-drop-list-item>Item 3</gxg-drop-list-item>
       <gxg-drop-list-item>Item 4</gxg-drop-list-item>
     </gxg-drop-list> -->
+      <gxg-droplist-item>Item 5</gxg-droplist-item>
+    </gxg-droplist>
+
+    <div>
+      <gxg-button full-width type="primary-text-only">Salt</gxg-button
+      ><gxg-button type="primary-text-icon"
+        >Primary Text Icon<gxg-icon
+          slot="icon"
+          type="duplicate"
+        ></gxg-icon></gxg-button
+      ><gxg-button type="primary-icon-only"
+        ><gxg-icon slot="icon" type="duplicate"></gxg-icon></gxg-button
+      ><gxg-button type="secondary-text-only">Salt</gxg-button
+      ><gxg-button type="secondary-text-icon"
+        >Primary Text Icon<gxg-icon
+          slot="icon"
+          type="duplicate"
+        ></gxg-icon></gxg-button
+      ><gxg-button type="outlined">Salt</gxg-button
+      ><gxg-button type="tertiary"
+        ><gxg-icon slot="icon" type="duplicate"></gxg-icon
+      ></gxg-button>
+    </div>
 
     <h2>Spacer</h2>
     <gxg-layout-spacer
@@ -109,6 +455,12 @@
       <gxg-button type="primary-text-only">Salt</gxg-button>
       <gxg-button type="primary-text-only">Pepper</gxg-button>
       <gxg-button type="primary-text-only">Cucumber</gxg-button>
+      <gxg-button type="primary-text-icon"
+        >Primary Text Icon<gxg-icon slot="icon" type="duplicate"></gxg-icon
+      ></gxg-button>
+      <gxg-button full-width type="primary-icon-only"
+        ><gxg-icon slot="icon" type="duplicate" full-width></gxg-icon
+      ></gxg-button>
       <gxg-button type="primary-text-only">Garlic</gxg-button>
       <gxg-button type="primary-text-only">Curry</gxg-button>
     </gxg-layout-spacer>
@@ -185,7 +537,8 @@
       default-selected-btn-id="id2"
       button-group-title="The title"
       title-alignment="left"
-      tabindex="0"
+      full-width
+      focusable
     >
       <button id="id1" value="primero">Left</button>
       <button id="id2" value="segundo">Middle</button>
@@ -327,34 +680,10 @@
 
         <h3>Radio buttons</h3>
 
-        <form action="">
-          <gxg-form-radio-wrapper id="radio-wrapper-1">
-            <gxg-form-radio
-              label="red"
-              name="colors"
-              radio-id="red"
-              value="red"
-              checked
-            ></gxg-form-radio>
-            <gxg-form-radio
-              label="blue"
-              name="colors"
-              radio-id="blue"
-              value="blue"
-            ></gxg-form-radio>
-            <gxg-form-radio
-              label="green"
-              name="colors"
-              radio-id="green"
-              value="green"
-            ></gxg-form-radio>
-          </gxg-form-radio-wrapper>
-        </form>
-
         <h3>Radio buttons inline</h3>
 
         <form action="">
-          <gxg-form-radio-wrapper inline-flex>
+          <gxg-form-radio-group inline-flex>
             <gxg-form-radio
               label="red"
               name="colors"
@@ -375,7 +704,54 @@
               radio-id="green"
               value="green"
             ></gxg-form-radio>
-          </gxg-form-radio-wrapper>
+          </gxg-form-radio-group>
+
+          <form action="">
+            <gxg-form-checkbox
+              label="hufds afiuhds iauf sduiahfid uh"
+              name="colors"
+              id="red"
+              value="rded"
+              disabled
+            ></gxg-form-checkbox>
+            <gxg-form-checkbox
+              label="bluecheese"
+              name="colors"
+              id="red"
+              value="blue"
+              required
+            ></gxg-form-checkbox>
+            <gxg-form-checkbox
+              label="green"
+              name="colors"
+              id="red"
+              value="green"
+            ></gxg-form-checkbox>
+
+            <gxg-form-checkbox
+              label="red"
+              name="colors"
+              id="chkred"
+              value="red"
+              inline-flex
+              checked
+            ></gxg-form-checkbox>
+            <gxg-form-checkbox
+              label="blue"
+              name="colors"
+              id="red"
+              value="blue"
+              inline-flex
+              checked
+            ></gxg-form-checkbox>
+            <gxg-form-checkbox
+              label="green"
+              name="colors"
+              id="red"
+              value="green"
+              inline-flex
+            ></gxg-form-checkbox>
+          </form>
         </form>
 
         <h3>Radio buttons inline</h3>
@@ -385,10 +761,10 @@
 
         <form action="">
           <gxg-form-checkbox
-            label="red"
+            label="hufds afiuhds iauf sduiahfid uh"
             name="colors"
             id="red"
-            value="red"
+            value="rded"
             disabled
           ></gxg-form-checkbox>
           <gxg-form-checkbox
@@ -713,56 +1089,16 @@
           </gxg-form-text>
         </form>
 
-        <h3>Box</h3>
-        <gxg-box
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-        <gxg-box gray="1"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-        <gxg-box gray="2"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-        <gxg-box border
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-box
-        >
-
-        <h3>Card</h3>
-        <gxg-card>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?
-        </gxg-card>
-        <gxg-card gray
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          blanditiis temporibus laudantium maxime laboriosam a, animi quo
-          dolorem perspiciatis? Ad fugiat nobis cum? Consectetur earum tempore
-          iusto quos sunt sint?</gxg-card
-        >
-
         <h2>Form</h2>
 
         <form>
           <h3>Slider</h3>
           <gxg-slider
-            disabled
             value="10"
             label="Slider"
             min="100"
             max="400"
+            width="500px"
           ></gxg-slider>
 
           <h3>Progress Bar</h3>
@@ -770,6 +1106,7 @@
             label="Progress Bar"
             tabindex="1"
             value="50"
+            width="400px"
           ></gxg-progress-bar>
         </form>
 
@@ -881,16 +1218,17 @@
         );
       </script>
 
+
       <h2>Alert</h2>
       <script>
         function mostrarAlertMoreInfo(alertId) {
           document.getElementById(alertId).setAttribute("active", "true");
         }
       </script>
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+      <gxg-button onclick="mostrarAlertMoreInfo('alert-02')"
         >Show alert more info</gxg-button
       >
-      <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
+      <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-error')"
         >Show alert error</gxg-button
       >
       <gxg-button onclick="mostrarAlertMoreInfo('alert-warning')"
@@ -898,9 +1236,10 @@
       >
       <gxg-button onclick="mostrarAlertMoreInfo('alert-success')"
         >Show alert success</gxg-button
-      >
+      > -->
       <div>
-        <gxg-alert
+        <gxg-alert id="alert-02" type="warning" bottom="xs">Content</gxg-alert>
+        <!-- <gxg-alert
           id="alert-more-info"
           type="more-info"
           position="center"
@@ -910,11 +1249,19 @@
           alert-title="more info title"
           active-time="xxslow"
         >
+<<<<<<< HEAD
           This is the content of the more-info alert
         </gxg-alert>
         <br />
         <gxg-alert
           id="alert-error"
+=======
+          This is the content of the more-info alert</gxg-alert
+        > -->
+
+        <!-- <gxg-alert
+          alert-title="error title"
+>>>>>>> master
           type="error"
           alert-title="error title"
           id="alert-error"
@@ -923,14 +1270,7 @@
           The message for the error alert box
         </gxg-alert>
         <br />
-        <gxg-alert
-          alert-title="warning title"
-          type="warning"
-          id="alert-warning"
-          position="center"
-        >
-          The message for the warning alert box
-        </gxg-alert>
+
         <br />
         <gxg-alert
           alert-title="success title"
@@ -939,7 +1279,7 @@
           position="right"
         >
           The message for the success alert box
-        </gxg-alert>
+        </gxg-alert> -->
       </div>
 
       <h2>Tabs</h2>

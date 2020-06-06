@@ -25,6 +25,7 @@
 graph TD;
   gxg-modal --> gxg-button
   gxg-modal --> gxg-icon
+  gxg-button --> gxg-icon
   style gxg-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

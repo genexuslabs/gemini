@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "gxg-progress-bar",
@@ -10,6 +10,11 @@ export class ProgressBar {
    * The state of the toggle. Whether is disabled or not.
    */
   @Prop({ reflect: true }) disabled = false;
+
+  /**
+   * If select is full width
+   */
+  @Prop({ reflect: true }) fullWidth = false;
 
   /**
    * The label
@@ -26,16 +31,22 @@ export class ProgressBar {
    */
   @Prop() width = "200px";
 
+  widthFunc() {
+    if (this.fullWidth) {
+      return "100%";
+    } else {
+      return this.width;
+    }
+  }
+
   render() {
     return (
-      <Host class={{}}>
-        <div class="outer-wrapper">
-          <label class="label">{this.label}</label>
-          <span class="outer-bar" style={{ width: this.width }}>
-            <span class="inner-bar" style={{ width: this.value + "%" }}></span>
-          </span>
-        </div>
-      </Host>
+      <div class="outer-wrapper">
+        <label class="label">{this.label}</label>
+        <span class="outer-bar" style={{ width: this.widthFunc() }}>
+          <span class="inner-bar" style={{ width: this.value + "%" }}></span>
+        </span>
+      </div>
     );
   }
 }

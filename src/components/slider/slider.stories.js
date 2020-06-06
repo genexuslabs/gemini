@@ -23,6 +23,24 @@ stories.add("Slider", () => {
   const defaultValueMax = 400;
   const valueMax = number(labelMax, defaultValueMax);
 
+  //Width
+  const labelWidth = "Width";
+  const defaultValueWidth = "300px";
+  const valueWidth = text(labelWidth, defaultValueWidth);
+
+  //Fullwidth
+  const labelWidthStyle = "Width Style";
+  const optionsWidthStyle = {
+    "fixed width": "fixed-width",
+    "full width": "full-width"
+  };
+  const defaultValueWidthStyle = "fixed-width";
+  const valueWidthStyle = radios(
+    labelWidthStyle,
+    optionsWidthStyle,
+    defaultValueWidthStyle
+  );
+
   //Disabled
   const labelDisabled = "Disabled";
   const defaultValueDisabled = false;
@@ -35,6 +53,12 @@ stories.add("Slider", () => {
   }
 
   return `
-  <gxg-slider label="Slider" ${valueDisabledFunc()} value=${valueInitial} max=${valueMax}></gxg-slider>
+  <style>
+    #root{
+      width:700px;
+      text-align:center
+    }
+  </style>
+  <gxg-slider label="Slider" ${valueDisabledFunc()} value=${valueInitial} max=${valueMax} width=${valueWidth} ${valueWidthStyle}></gxg-slider>
   `;
 });

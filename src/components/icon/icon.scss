@@ -28,3 +28,7 @@ ICON
 :host([size="small"]) svg path {
   transform: scale(var(--svg-icon-small-scale));
 }
+//empty icon (for aligning the buttons that has no icons, with the buttons that have icons)
+:host([type="empty"]) {
+  width: 0;
+}

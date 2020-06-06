@@ -2,6 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
+  display: inline;
 }
 
 //Horizontal orientation
@@ -35,6 +36,11 @@
     margin-right: var(--spacing-lay-xl);
   }
 }
+:host(.horizontal) {
+  ::slotted(*:last-child) {
+    margin-right: 0;
+  }
+}
 
 //Vertical orientation
 :host(.vertical) {
@@ -64,6 +70,11 @@
 :host(.vertical.xl) {
   ::slotted(*) {
     margin-bottom: var(--spacing-lay-xl);
+  }
+}
+:host(.vertical) {
+  ::slotted(*:last-child) {
+    margin-bottom: 0;
   }
 }
 

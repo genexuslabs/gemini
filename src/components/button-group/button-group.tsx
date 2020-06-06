@@ -28,6 +28,16 @@ export class ButtonGroup {
   @Prop() disabled = false;
 
   /**
+   * This property makes the inner buttons focusable
+   */
+  @Prop() focusable = false;
+
+  /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  /**
   The value of the current selected button
   */
   @State() value = "";
@@ -42,10 +52,19 @@ export class ButtonGroup {
   *********************************/
 
   componentDidLoad() {
-    this.setInitialActiveValue();
+    if (!this.disabled) {
+      this.setInitialActiveValue();
+    }
 
     if (this.disabled) {
       this.value = null;
+    }
+
+    if (this.focusable) {
+      const buttonsHtmlCollection = this.el.children;
+      Array.from(buttonsHtmlCollection).forEach(function(button) {
+        button.setAttribute("tabindex", "0");
+      });
     }
   }
 
@@ -87,7 +106,7 @@ export class ButtonGroup {
       if (buttonsIdsArray.includes(this.defaultSelectedBtnId)) {
         Array.from(buttonsHtmlCollection).forEach(button => {
           const b = button as HTMLElement;
-          b.setAttribute("tabindex", "0");
+
           if (b.id == this.defaultSelectedBtnId) {
             //set the value to the active button value
             buttonValue = this.defaultSelectedBtnId = b.getAttribute("value");
@@ -98,6 +117,28 @@ export class ButtonGroup {
       }
     }
     this.value = buttonValue;
+  }
+
+  focusableFunc() {
+    if (this.focusable) {
+      return "0";
+    } else {
+      return "-1";
+    }
+  }
+
+  detectFocus(event) {
+    if (this.el === document.activeElement) {
+      const buttonsHtmlCollection = this.el.children;
+      const n = buttonsHtmlCollection.length;
+      if (event.keyCode === 9 && event.shiftKey) {
+        //set focus to the last button
+        (buttonsHtmlCollection.item(n) as HTMLElement).focus();
+      } else if (event.keyCode === 9) {
+        //set focus to the first button
+        (buttonsHtmlCollection.item(0) as HTMLElement).focus();
+      }
+    }
   }
 
   render() {
@@ -111,6 +152,7 @@ export class ButtonGroup {
     }
     return (
       <Host
+        tabindex={this.focusableFunc()}
         role="group"
         aria-label={this.buttonGroupTitle}
         class={{
@@ -118,6 +160,7 @@ export class ButtonGroup {
         }}
         value={this.value}
         title-alignment={this.titleAlignment}
+        onKeyUp={this.detectFocus.bind(this)}
       >
         {header}
         <div

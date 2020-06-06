@@ -15,22 +15,30 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                          | Type                                                                                                                                                                       | Default               |
-| ---------- | ---------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `disabled` | `disabled` | The state of the button. Whether is disabled or not. | `boolean`                                                                                                                                                                  | `false`               |
-| `type`     | `type`     | The kind of button                                   | `"outlined" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
+| Property    | Attribute    | Description                                          | Type                                                                                                                                                                       | Default               |
+| ----------- | ------------ | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `disabled`  | `disabled`   | The state of the button. Whether is disabled or not. | `boolean`                                                                                                                                                                  | `false`               |
+| `fullWidth` | `full-width` | This property makes the component full-width         | `boolean`                                                                                                                                                                  | `false`               |
+| `type`      | `type`       | The kind of button                                   | `"outlined" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
 
 ## Dependencies
 
 ### Used by
 
+- [gxg-alert](../alert)
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
+
+### Depends on
+
+- [gxg-icon](../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-button --> gxg-icon
+  gxg-alert --> gxg-button
   gxg-modal --> gxg-button
   gxg-tab-bar --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px

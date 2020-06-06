@@ -6,14 +6,38 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Box {
-  /**
-   * The card box-shadow value
-   * possible values: from 1 to 8
-   */
-  @Prop() shadow = 1;
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
 
-  @Prop() width: string;
-  @Prop() height: string;
+  /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  /**
+   * The component height
+   */
+  @Prop() height = "auto";
+
+  /*The card padding (internal spacing)*/
+  @Prop() padding: paddingType = "xs";
+
+  /**
+   * The component width
+   */
+  @Prop() width = "200px";
+
+  /*********************************
+  METHODS
+  *********************************/
+  widthFunc() {
+    if (this.fullWidth) {
+      return "100%";
+    } else {
+      return this.width;
+    }
+  }
 
   render() {
     return (
@@ -21,10 +45,12 @@ export class Box {
         class={{
           card: true
         }}
-        style={{ width: this.width, height: this.height }}
+        style={{ width: this.widthFunc(), height: this.height }}
       >
         <slot></slot>
       </Host>
     );
   }
 }
+
+export type paddingType = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

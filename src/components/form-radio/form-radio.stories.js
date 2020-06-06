@@ -16,8 +16,15 @@ stories.add("Radiobutton", () => {
   //Status
   const labelDisabled = "Disable red";
   const defaultValueDisabled = false;
-
   const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
+  //Radio Group Label
+  const labelRadioGroupLabel = "Radio Group Label";
+  const defaultValueRadioGroupLabel = "The Radio Group Label";
+  const valueRadioGroupLabel = text(
+    labelRadioGroupLabel,
+    defaultValueRadioGroupLabel
+  );
 
   function checkedFirst() {
     if (valueDisabled === false) {
@@ -31,8 +38,7 @@ stories.add("Radiobutton", () => {
     }
   }
 
-  return `<gxg-form-radio-wrapper>
-
+  return `<gxg-form-radio-group label="${valueRadioGroupLabel}">
 
   <gxg-form-radio
     label="red"
@@ -73,5 +79,5 @@ stories.add("Radiobutton", () => {
 ></gxg-form-radio>
 
 
-</gxg-form-radio-wrapper>`;
+</gxg-form-radio-group>`;
 });

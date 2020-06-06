@@ -39,6 +39,7 @@
     cursor: pointer;
     position: relative;
     border: 1px solid transparent;
+    flex-shrink: 0;
     @include ui-animation(background-color);
   }
   .toggle__container__knob {

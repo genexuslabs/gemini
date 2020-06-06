@@ -20,6 +20,16 @@ export class DatePicker {
   @Prop() defaultDate: string;
 
   /**
+   * This property makes the component full-width
+   */
+  @Prop() fullWidth = false;
+
+  /**
+   * label
+   */
+  @Prop() label: string;
+
+  /**
    * no weekends
    */
   @Prop() noWeekends = false;
@@ -40,9 +50,6 @@ export class DatePicker {
   @Prop() width = "240px";
 
   componentDidLoad() {
-    // console.log("new date");
-    // console.log(new Date(this.defaultDate));
-
     let defaultDate = new Date();
 
     if (this.defaultDate !== undefined && this.defaultDate !== "") {
@@ -157,14 +164,29 @@ export class DatePicker {
     picker.calendarContainer.style.setProperty("font-size", "9px");
   }
 
+  printLabel() {
+    if (this.label) {
+      return <label class="label">{this.label}</label>;
+    }
+  }
+
+  widthFunc() {
+    if (this.fullWidth) {
+      return "100%";
+    } else {
+      return this.width;
+    }
+  }
+
   render() {
     return (
       <Host
         class={{}}
         style={{
-          width: this.width
+          width: this.widthFunc()
         }}
       >
+        {this.printLabel()}
         <input type="text" id="date-picker"></input>
       </Host>
     );

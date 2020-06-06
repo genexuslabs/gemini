@@ -1,0 +1,79 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+
+  @include ui-animation(transform);
+
+  .alert-message {
+    background-color: var(--gray-08);
+    color: var(--color-on-primary);
+    border-width: 0;
+    border-top-width: var(--border-width-lg);
+    border-style: solid;
+    border-color: var(--gray-07);
+    padding: var(--spacing-comp-03);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-family: var(--font-family-primary);
+
+    /*TYPES OF ALERTS*/
+    &--more-info {
+    }
+    &--error {
+      border-color: var(--color-error-dark);
+      background-color: var(--color-error-light);
+      color: var(--color-on-secondary);
+    }
+    &--warning {
+      border-color: var(--color-warning-dark);
+      background-color: var(--color-warning-light);
+      color: var(--color-on-secondary);
+    }
+    &--success {
+      border-color: var(--color-success-dark);
+      background-color: var(--color-success-light);
+      color: var(--color-on-secondary);
+    }
+  }
+  .alert-message--title {
+    margin: 0 0 var(--spacing-comp-02) 0;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+  }
+  .alert-message--icon {
+    margin-right: var(--spacing-comp-02);
+    display: flex;
+  }
+  .alert-message--container {
+    display: flex;
+    align-items: top;
+  }
+  .alert-message--description {
+    font-size: var(--font-size-md);
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5em;
+  }
+}
+
+/*********************************
+POSITION
+*********************************/
+:host([position="right"]) {
+  left: auto !important;
+}
+:host(:not([active])) {
+  transform: translateY(100%) !important;
+}
+:host([position="center"]) {
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+:host(:not([active])[position="center"]) {
+  transform: translateY(100%) translateX(-50%) !important;
+}

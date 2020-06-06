@@ -3,6 +3,7 @@ import addons from "@storybook/addons";
 import { addDecorator } from "@storybook/html";
 
 const channel = addons.getChannel();
+
 let darkModeOn = false;
 function setDark(isDark) {
   const darkBodyClass = "dark";
