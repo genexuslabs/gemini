@@ -26,7 +26,7 @@ export class Accordion {
   @Element() el: HTMLElement;
 
   @Listen("accordionItemClicked")
-  tabClickedHandler(event: CustomEvent) {
+  itemClickedHandler(event: CustomEvent) {
     this.accordions.forEach(accordion => {
       const id = (accordion as HTMLGxgAccordionItemElement).itemId;
       if (this.singleItemOpen) {
@@ -73,8 +73,16 @@ export class Accordion {
       }
     });
   }
+  @Listen("accordionItemLoaded")
+  itemLoadedHandler() {
+    this.setupAccordions();
+  }
 
   componentDidLoad() {
+    this.setupAccordions();
+  }
+
+  setupAccordions() {
     this.accordions = this.el.querySelectorAll("gxg-accordion-item");
 
     //Disabled
@@ -85,7 +93,7 @@ export class Accordion {
     }
 
     if (this.singleItemOpen) {
-      /* If "single-tab-open" is true, and more than one accordion has the "open" property, 
+      /* If "single-item-open" is true, and more than one accordion has the "open" property, 
       show only the first accordion open.*/
       let numberOfOpenAccordions = 0;
       this.accordions.forEach(accordion => {

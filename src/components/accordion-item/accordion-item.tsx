@@ -33,6 +33,7 @@ export class AccordionItem {
   @Prop() status: status = "closed";
 
   @Event() accordionItemClicked: EventEmitter;
+  @Event() accordionItemLoaded: EventEmitter;
 
   tabClickedHandler() {
     this.accordionItemClicked.emit(this.itemId);
@@ -76,6 +77,7 @@ export class AccordionItem {
     if (!this.itemId) {
       console.warn("gxg-accordion-item 'itemId' property is mandatory.");
     }
+    this.accordionItemLoaded.emit(this.itemId);
   }
 
   render() {
@@ -85,9 +87,8 @@ export class AccordionItem {
           tab: true,
           "tab--disabled": this.disabled === true
         }}
-        onClick={this.tabClickedHandler.bind(this)}
       >
-        <header class="tab__header">
+        <header class="tab__header" onClick={this.tabClickedHandler.bind(this)}>
           <div class="tab__header__title">{this.itemTitle}</div>
           {this.printIcon()}
         </header>
