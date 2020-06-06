@@ -18,7 +18,7 @@
 | Property     | Attribute     | Description                                                                       | Type                                                                          | Default       |
 | ------------ | ------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------- |
 | `active`     | `active`      | Wether the alert is active (visible) or not (not visible).                        | `boolean`                                                                     | `false`       |
-| `activeTime` | `active-time` | The amount of miliseconds the alert is visible before hidding under the document. | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"`   |
+| `activeTime` | `active-time` | The number of miliseconds the alert is visible before hidding under the document. | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"`   |
 | `alertTitle` | `alert-title` | The alert title (optional)                                                        | `string`                                                                      | `undefined`   |
 | `bottom`     | `bottom`      | The alert bottom position value                                                   | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
 | `fullWidth`  | `full-width`  | This property makes the component full-width                                      | `boolean`                                                                     | `false`       |
