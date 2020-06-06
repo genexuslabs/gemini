@@ -20,6 +20,8 @@ import {
   boxShadowType,
   paddingType as paddingType1
 } from "./components/card/card";
+import { WidthType } from "./components/column/column";
+import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { MessageType } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPositionType } from "./components/form-text/form-text";
@@ -172,6 +174,23 @@ export namespace Components {
   interface GxgColorPicker {
     cardTitle: string;
     value: string;
+  }
+  interface GxgColumn {
+    width: WidthType;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space: Space;
   }
   interface GxgDatePicker {
     /**
@@ -1073,6 +1092,23 @@ declare namespace LocalJSX {
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
+  }
+  interface GxgColumn {
+    width?: WidthType;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY?: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow?: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space?: Space;
   }
   interface GxgDatePicker {
     /**
