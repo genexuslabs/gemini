@@ -45,7 +45,7 @@ export class Icon {
    * The color of the icon.
    *
    */
-  @Prop() color: Color;
+  @Prop({ reflect: true }) color: Color;
 
   /**
    * If enabled, the icon will be loaded lazily when it's visible in the viewport.

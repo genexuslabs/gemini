@@ -3,8 +3,6 @@
 
 :host {
   display: flex;
-  background-color: #ccc;
-  border: 1px solid black;
 }
 
 :host([width="fluid"]) {

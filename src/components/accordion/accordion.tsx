@@ -1,4 +1,4 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import { Component, Element, h, Listen, State, Prop } from "@stencil/core";
 
 @Component({
   tag: "gxg-accordion",
@@ -9,99 +9,131 @@ export class Accordion {
   /**
    * The state of the toggle. Whether is disabled or not.
    */
-  @Prop({ reflect: true }) disabled = false;
+  @Prop() disabled = false;
+
+  /**
+   * Wether only one accordion can be open at the same time or not.
+   */
+  @Prop() singleItemOpen = false;
 
   /**
    * The aesthetical mode
    */
-  @Prop({ reflect: true }) mode: modeType = "classical";
+  @Prop() mode: modeType = "classical";
 
-  /**
-   * The toggle label
-   */
-  @Prop() tabTitle = "tab";
+  @State() accordions: NodeList;
 
-  /**
-   * The toggle state
-   */
-  @Prop() open = false;
+  @Element() el: HTMLElement;
 
-  @Event() tabClicked: EventEmitter;
-
-  tabClickedHandler() {
-    this.tabClicked.emit(this.tabTitle);
-  }
-
-  printIcon() {
-    if (this.open === true) {
-      if (this.mode === "classical") {
-        return <gxg-icon slot="icon" type="chevron-up" size="small"></gxg-icon>;
-      } else {
-        //tab alternate
-        return (
-          <gxg-icon
-            slot="icon"
-            type="chevron-up"
-            size="small"
-            color="negative"
-          ></gxg-icon>
-        );
-      }
-    } else {
-      //tab closed
-      if (this.mode === "classical") {
-        if (this.disabled) {
-          return (
-            <gxg-icon
-              slot="icon"
-              type="chevron-down"
-              size="small"
-              color="negative"
-            ></gxg-icon>
-          );
+  @Listen("accordionItemClicked")
+  tabClickedHandler(event: CustomEvent) {
+    this.accordions.forEach(accordion => {
+      const id = (accordion as HTMLGxgAccordionItemElement).itemId;
+      if (this.singleItemOpen) {
+        if (id === event.detail) {
+          if (
+            (accordion as HTMLGxgAccordionItemElement).getAttribute(
+              "status"
+            ) === "open"
+          ) {
+            (accordion as HTMLGxgAccordionItemElement).setAttribute(
+              "status",
+              "closed"
+            );
+          } else {
+            (accordion as HTMLGxgAccordionItemElement).setAttribute(
+              "status",
+              "open"
+            );
+          }
         } else {
-          //tab not disabled
-          return (
-            <gxg-icon slot="icon" type="chevron-down" size="small"></gxg-icon>
+          (accordion as HTMLGxgAccordionItemElement).setAttribute(
+            "status",
+            "close"
           );
         }
       } else {
-        //tab alternate
-        return (
-          <gxg-icon
-            slot="icon"
-            type="chevron-down"
-            size="small"
-            color="negative"
-          ></gxg-icon>
-        );
+        if (id === event.detail) {
+          if (
+            (accordion as HTMLGxgAccordionItemElement).getAttribute(
+              "status"
+            ) === "open"
+          ) {
+            (accordion as HTMLGxgAccordionItemElement).setAttribute(
+              "status",
+              "close"
+            );
+          } else {
+            (accordion as HTMLGxgAccordionItemElement).setAttribute(
+              "status",
+              "open"
+            );
+          }
+        }
+      }
+    });
+  }
+
+  componentDidLoad() {
+    this.accordions = this.el.querySelectorAll("gxg-accordion-item");
+
+    //Disabled
+    if (this.disabled) {
+      this.accordions.forEach(accordion => {
+        (accordion as HTMLGxgAccordionItemElement).status = "closed";
+      });
+    }
+
+    if (this.singleItemOpen) {
+      console.log("number of open accordions is more than 1");
+      /* If "single-tab-open" is true, and more than one accordion has the "open" property, 
+      show only the first accordion open.*/
+      let numberOfOpenAccordions = 0;
+      this.accordions.forEach(accordion => {
+        if (
+          (accordion as HTMLGxgAccordionItemElement).getAttribute("status") ===
+          "open"
+        ) {
+          numberOfOpenAccordions++;
+        }
+      });
+      if (numberOfOpenAccordions > 1) {
+        let firstOpenAccordionFound = false;
+        this.accordions.forEach(accordion => {
+          if (
+            (accordion as HTMLGxgAccordionItemElement).getAttribute(
+              "status"
+            ) === "open"
+          ) {
+            if (firstOpenAccordionFound) {
+              (accordion as HTMLGxgAccordionItemElement).setAttribute(
+                "status",
+                "closed"
+              );
+            } else {
+              firstOpenAccordionFound = true;
+            }
+          }
+        });
       }
     }
+
+    this.accordions.forEach(accordion => {
+      (accordion as HTMLGxgAccordionItemElement).setAttribute(
+        "mode",
+        this.mode
+      );
+      if (this.disabled) {
+        (accordion as HTMLGxgAccordionItemElement).setAttribute(
+          "disabled",
+          "disabled"
+        );
+      }
+    });
   }
 
   render() {
-    return (
-      <div
-        class={{
-          tab: true,
-          "tab--closed": this.open === false,
-          "tab--open": this.open === true,
-          "tab--disabled": this.disabled === true
-        }}
-      >
-        <header class="tab__header" onClick={this.tabClickedHandler.bind(this)}>
-          <div class="tab__header__title">{this.tabTitle}</div>
-          {this.printIcon()}
-        </header>
-        {this.open === true ? (
-          <div class="tab__container">
-            <slot></slot>
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
-    );
+    return <slot></slot>;
   }
 }
 

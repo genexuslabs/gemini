@@ -6,7 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { modeType } from "./components/accordion/accordion";
-import { modeType as modeType1 } from "./components/accordion-container/accordion-container";
+import {
+  modeType as modeType1,
+  statusType
+} from "./components/accordion-item/accordion-item";
 import {
   ActiveTime,
   AlertPosition,
@@ -40,27 +43,31 @@ export namespace Components {
      */
     mode: modeType;
     /**
-     * The toggle state
+     * Wether only one accordion can be open at the same time or not.
      */
-    open: boolean;
-    /**
-     * The toggle label
-     */
-    tabTitle: string;
+    singleItemOpen: boolean;
   }
-  interface GxgAccordionContainer {
+  interface GxgAccordionItem {
     /**
      * The state of the toggle. Whether is disabled or not.
      */
     disabled: boolean;
     /**
+     * The toggle id
+     */
+    itemId: string;
+    /**
+     * The toggle label
+     */
+    itemTitle: string;
+    /**
      * The aesthetical mode
      */
     mode: modeType;
     /**
-     * Wether only one accordion can be open at the same time or not.
+     * The toggle state
      */
-    singleTabOpen: boolean;
+    status: statusType;
   }
   interface GxgAlert {
     /**
@@ -679,12 +686,12 @@ declare global {
     prototype: HTMLGxgAccordionElement;
     new (): HTMLGxgAccordionElement;
   };
-  interface HTMLGxgAccordionContainerElement
-    extends Components.GxgAccordionContainer,
+  interface HTMLGxgAccordionItemElement
+    extends Components.GxgAccordionItem,
       HTMLStencilElement {}
-  var HTMLGxgAccordionContainerElement: {
-    prototype: HTMLGxgAccordionContainerElement;
-    new (): HTMLGxgAccordionContainerElement;
+  var HTMLGxgAccordionItemElement: {
+    prototype: HTMLGxgAccordionItemElement;
+    new (): HTMLGxgAccordionItemElement;
   };
   interface HTMLGxgAlertElement
     extends Components.GxgAlert,
@@ -723,6 +730,20 @@ declare global {
   var HTMLGxgColorPickerElement: {
     prototype: HTMLGxgColorPickerElement;
     new (): HTMLGxgColorPickerElement;
+  };
+  interface HTMLGxgColumnElement
+    extends Components.GxgColumn,
+      HTMLStencilElement {}
+  var HTMLGxgColumnElement: {
+    prototype: HTMLGxgColumnElement;
+    new (): HTMLGxgColumnElement;
+  };
+  interface HTMLGxgColumnsElement
+    extends Components.GxgColumns,
+      HTMLStencilElement {}
+  var HTMLGxgColumnsElement: {
+    prototype: HTMLGxgColumnsElement;
+    new (): HTMLGxgColumnsElement;
   };
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
@@ -907,13 +928,15 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
-    "gxg-accordion-container": HTMLGxgAccordionContainerElement;
+    "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
     "gxg-box": HTMLGxgBoxElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
     "gxg-color-picker": HTMLGxgColorPickerElement;
+    "gxg-column": HTMLGxgColumnElement;
+    "gxg-columns": HTMLGxgColumnsElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
@@ -953,29 +976,33 @@ declare namespace LocalJSX {
      * The aesthetical mode
      */
     mode?: modeType;
-    onTabClicked?: (event: CustomEvent<any>) => void;
     /**
-     * The toggle state
+     * Wether only one accordion can be open at the same time or not.
      */
-    open?: boolean;
-    /**
-     * The toggle label
-     */
-    tabTitle?: string;
+    singleItemOpen?: boolean;
   }
-  interface GxgAccordionContainer {
+  interface GxgAccordionItem {
     /**
      * The state of the toggle. Whether is disabled or not.
      */
     disabled?: boolean;
     /**
+     * The toggle id
+     */
+    itemId: string;
+    /**
+     * The toggle label
+     */
+    itemTitle?: string;
+    /**
      * The aesthetical mode
      */
     mode?: modeType;
+    onAccordionItemClicked?: (event: CustomEvent<any>) => void;
     /**
-     * Wether only one accordion can be open at the same time or not.
+     * The toggle state
      */
-    singleTabOpen?: boolean;
+    status?: statusType;
   }
   interface GxgAlert {
     /**
@@ -1601,13 +1628,15 @@ declare namespace LocalJSX {
   }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
-    "gxg-accordion-container": GxgAccordionContainer;
+    "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
     "gxg-box": GxgBox;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
     "gxg-color-picker": GxgColorPicker;
+    "gxg-column": GxgColumn;
+    "gxg-columns": GxgColumns;
     "gxg-date-picker": GxgDatePicker;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
@@ -1643,8 +1672,8 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       "gxg-accordion": LocalJSX.GxgAccordion &
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
-      "gxg-accordion-container": LocalJSX.GxgAccordionContainer &
-        JSXBase.HTMLAttributes<HTMLGxgAccordionContainerElement>;
+      "gxg-accordion-item": LocalJSX.GxgAccordionItem &
+        JSXBase.HTMLAttributes<HTMLGxgAccordionItemElement>;
       "gxg-alert": LocalJSX.GxgAlert &
         JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
       "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
@@ -1655,6 +1684,10 @@ declare module "@stencil/core" {
       "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
       "gxg-color-picker": LocalJSX.GxgColorPicker &
         JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
+      "gxg-column": LocalJSX.GxgColumn &
+        JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
+      "gxg-columns": LocalJSX.GxgColumns &
+        JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
