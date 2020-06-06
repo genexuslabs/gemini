@@ -7,6 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { modeType } from "./components/accordion/accordion";
 import { modeType as modeType1 } from "./components/accordion-container/accordion-container";
+import {
+  ActiveTime,
+  AlertPosition,
+  AlertType,
+  Spacing
+} from "./components/alert/alert";
 import { paddingType } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
@@ -53,6 +59,44 @@ export namespace Components {
      * Wether only one accordion can be open at the same time or not.
      */
     singleTabOpen: boolean;
+  }
+  interface GxgAlert {
+    /**
+     * Wether the alert is active (visible) or not (not visible).
+     */
+    active: boolean;
+    /**
+     * The number of miliseconds the alert is visible before hidding under the document.
+     */
+    activeTime: ActiveTime;
+    /**
+     * The alert title (optional)
+     */
+    alertTitle: string;
+    /**
+     * The alert bottom position value
+     */
+    bottom: Spacing;
+    /**
+     * This property makes the component full-width
+     */
+    fullWidth: boolean;
+    /**
+     * The alert right position value
+     */
+    leftRight: Spacing;
+    /**
+     * The alert position.
+     */
+    position: AlertPosition;
+    /**
+     * The type of alert
+     */
+    type: AlertType;
+    /**
+     * The alert width
+     */
+    width: string;
   }
   interface GxgBox {
     /**
@@ -623,6 +667,13 @@ declare global {
     prototype: HTMLGxgAccordionContainerElement;
     new (): HTMLGxgAccordionContainerElement;
   };
+  interface HTMLGxgAlertElement
+    extends Components.GxgAlert,
+      HTMLStencilElement {}
+  var HTMLGxgAlertElement: {
+    prototype: HTMLGxgAlertElement;
+    new (): HTMLGxgAlertElement;
+  };
   interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {}
   var HTMLGxgBoxElement: {
     prototype: HTMLGxgBoxElement;
@@ -838,6 +889,7 @@ declare global {
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-container": HTMLGxgAccordionContainerElement;
+    "gxg-alert": HTMLGxgAlertElement;
     "gxg-box": HTMLGxgBoxElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
@@ -912,7 +964,7 @@ declare namespace LocalJSX {
      */
     active?: boolean;
     /**
-     * The amount of miliseconds the alert is visible before hidding under the document.
+     * The number of miliseconds the alert is visible before hidding under the document.
      */
     activeTime?: ActiveTime;
     /**
@@ -1514,6 +1566,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-container": GxgAccordionContainer;
+    "gxg-alert": GxgAlert;
     "gxg-box": GxgBox;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
@@ -1556,6 +1609,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-container": LocalJSX.GxgAccordionContainer &
         JSXBase.HTMLAttributes<HTMLGxgAccordionContainerElement>;
+      "gxg-alert": LocalJSX.GxgAlert &
+        JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
       "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
