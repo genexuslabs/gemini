@@ -21,7 +21,7 @@ export class Modal {
   /**
    * The footer alignment
    */
-  @Prop() footerAlignment: footerAlignmentType = "left";
+  @Prop() footerAlignment: footerAlignment = "left";
 
   /**
    * Wether the modal is visible or not
@@ -92,4 +92,4 @@ export class Modal {
   }
 }
 
-export type footerAlignmentType = "left" | "center" | "right";
+export type footerAlignment = "left" | "center" | "right";

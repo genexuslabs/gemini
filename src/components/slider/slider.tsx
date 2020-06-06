@@ -54,7 +54,6 @@ export class Slider {
       entries.forEach(() => {
         this.width =
           this.el.shadowRoot.querySelector(".range-slider").clientWidth + "";
-        console.log("observer...");
 
         const sliderWidth = this.width;
         const bulletPosition =

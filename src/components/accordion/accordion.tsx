@@ -19,7 +19,7 @@ export class Accordion {
   /**
    * The aesthetical mode
    */
-  @Prop() mode: modeType = "classical";
+  @Prop() mode: mode = "classical";
 
   @State() accordions: NodeList;
 
@@ -85,7 +85,6 @@ export class Accordion {
     }
 
     if (this.singleItemOpen) {
-      console.log("number of open accordions is more than 1");
       /* If "single-tab-open" is true, and more than one accordion has the "open" property, 
       show only the first accordion open.*/
       let numberOfOpenAccordions = 0;
@@ -137,4 +136,4 @@ export class Accordion {
   }
 }
 
-export type modeType = "classical" | "alternate";
+export type mode = "classical" | "alternate";

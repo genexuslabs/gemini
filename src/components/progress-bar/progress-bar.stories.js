@@ -44,7 +44,6 @@ stories.add("Progress Bar", () => {
   function animateProgressBar() {
     const progresBar = document.getElementById("progress-bar");
     const initialValue = progresBar.getAttribute("value");
-    console.log(initialValue);
   }
 
   function valueWidthSizeFunc() {
@@ -72,7 +71,6 @@ stories.add("Progress Bar", () => {
 <gxg-button style="margin-top:30px" onClick="(function(){
   const progressBar = document.getElementById('progress-bar');
   let initialProgress = progressBar.getAttribute('value');
-  console.log(progressBar);
   for (let index = initialProgress; index <= 100; index++) {
     progressBar.setAttribute('value',index);
   };

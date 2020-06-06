@@ -10,7 +10,7 @@ export class Stack {
    * The state of the toggle. Whether is disabled or not.
    * Possible values: false, true
    */
-  @Prop({ reflect: true }) space: SpaceType = "xs";
+  @Prop({ reflect: true }) space: Space = "xs";
 
   /**
    * The toggle label
@@ -22,4 +22,4 @@ export class Stack {
   }
 }
 
-export type SpaceType = "xs" | "s" | "m" | "l" | "xl";
+export type Space = "xs" | "s" | "m" | "l" | "xl";

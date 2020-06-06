@@ -44,7 +44,7 @@ export class FormText {
    * Input icon side
    * possible values: left, right
    */
-  @Prop({ reflect: true }) iconPosition: IconPositionType = null;
+  @Prop({ reflect: true }) iconPosition: IconPosition = null;
 
   /**
    * The input id
@@ -179,4 +179,4 @@ export class FormText {
   }
 }
 
-export type IconPositionType = "left" | "right";
+export type IconPosition = "left" | "right";

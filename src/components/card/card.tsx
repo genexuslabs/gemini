@@ -15,7 +15,7 @@ export class Card {
    */
   @Prop() fullWidth = false;
 
-  @Prop() boxShadow: boxShadowType = "xxs";
+  @Prop() boxShadow: boxShadow = "xxs";
 
   /**
    * The component height
@@ -23,7 +23,7 @@ export class Card {
   @Prop() height = "auto";
 
   /*The card padding (internal spacing)*/
-  @Prop() padding: paddingType = "xs";
+  @Prop() padding: padding = "xs";
 
   /**
    * The component width
@@ -56,14 +56,6 @@ export class Card {
   }
 }
 
-export type boxShadowType =
-  | "xxs"
-  | "xs"
-  | "s"
-  | "m"
-  | "l"
-  | "xl"
-  | "xxl"
-  | "xxxl";
+export type boxShadow = "xxs" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
-export type paddingType = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

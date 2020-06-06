@@ -23,7 +23,7 @@ export class Toggle {
   /**
    * The label
    */
-  @Prop({ reflect: true }) size: SizeType = "regular";
+  @Prop({ reflect: true }) size: Size = "regular";
 
   /**
    * If the toggle is active or not
@@ -74,4 +74,4 @@ export class Toggle {
   }
 }
 
-export type SizeType = "regular" | "small";
+export type Size = "regular" | "small";

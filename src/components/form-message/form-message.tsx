@@ -10,7 +10,7 @@ export class FormMessage {
    * The kind of message
    * Possible values: error, warning
    */
-  @Prop() type: MessageType;
+  @Prop() type: Message;
 
   render() {
     return (
@@ -28,4 +28,4 @@ export class FormMessage {
   }
 }
 
-export type MessageType = "error" | "warning";
+export type Message = "error" | "warning";

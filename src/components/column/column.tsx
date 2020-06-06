@@ -7,7 +7,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
 })
 export class Column {
   /*The column´s width*/
-  @Prop({ reflect: true }) width: WidthType = "fluid";
+  @Prop({ reflect: true }) width: Width = "fluid";
 
   render() {
     return (
@@ -18,7 +18,7 @@ export class Column {
   }
 }
 
-export type WidthType =
+export type Width =
   | "1/2"
   | "1/3"
   | "1/4"

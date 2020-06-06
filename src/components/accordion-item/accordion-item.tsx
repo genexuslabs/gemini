@@ -15,7 +15,7 @@ export class AccordionItem {
   /**
    * The aesthetical mode
    */
-  @Prop({ reflect: true }) mode: modeType = "classical";
+  @Prop({ reflect: true }) mode: mode = "classical";
 
   /**
    * The toggle id
@@ -30,7 +30,7 @@ export class AccordionItem {
   /**
    * The toggle state
    */
-  @Prop() status: statusType = "closed";
+  @Prop() status: status = "closed";
 
   @Event() accordionItemClicked: EventEmitter;
 
@@ -103,5 +103,5 @@ export class AccordionItem {
   }
 }
 
-export type modeType = "classical" | "alternate";
-export type statusType = "open" | "closed";
+export type mode = "classical" | "alternate";
+export type status = "open" | "closed";

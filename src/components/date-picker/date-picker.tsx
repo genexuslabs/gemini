@@ -90,17 +90,15 @@ export class DatePicker {
       // Event callbacks.
       onSelect: instance => {
         // Show which date was selected.
-        console.log(instance.dateSelected);
       },
       onShow: instance => {
-        console.log("Calendar showing." + instance);
+        //on Show
       },
       onHide: instance => {
-        console.log("Calendar hidden." + instance);
+        //on instance
       },
       onMonthChange: instance => {
         // Show the month of the selected date.
-        console.log(instance.currentMonthName);
       },
 
       // Customizations.

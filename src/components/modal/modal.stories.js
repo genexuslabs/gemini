@@ -42,7 +42,6 @@ stories.add("Modal", () => {
   function animateProgressBar() {
     const progresBar = document.getElementById("progress-bar");
     const initialValue = progresBar.getAttribute("value");
-    console.log(initialValue);
   }
 
   return `
