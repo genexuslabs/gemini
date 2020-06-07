@@ -2,43 +2,69 @@ import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
 
 describe("gxg-button-group", () => {
   let page: E2EPage;
-  let element: E2EElement;
+  let buttonGroup: E2EElement;
+  let buttonGroupTitle: E2EElement;
+  let button1: E2EElement;
+  let button2: E2EElement;
+  let button3: E2EElement;
 
   beforeEach(async () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-button type="primary-text-only">Primary Text Only</gxg-button>`
+      `
+      <div style="width:500px;"><gxg-button-group
+      default-selected-btn-id="id2"
+      button-group-title="The title"
+      title-alignment="left"
+    >
+      <button id="id1" value="primero">Left</button>
+      <button id="id2" value="segundo">Middle</button>
+      <button id="id3" value="tercero">Right</button>
+    </gxg-button-group></div>`
     );
-    element = await page.find("gxg-button");
+    buttonGroup = await page.find("gxg-button-group");
+    buttonGroupTitle = await page.find(
+      "gxg-button-group >>> .button-group-header-title"
+    );
+    button1 = await page.find("gxg-button-group button#id1");
+    button2 = await page.find("gxg-button-group button#id2");
+    button3 = await page.find("gxg-button-group button#id3");
   });
 
   it("renders", async () => {
-    expect(element).toHaveClass("hydrated");
+    expect(buttonGroup).toHaveClass("hydrated");
+    expect(buttonGroup).toHaveClass("button-group");
   });
 
   it("displays text", async () => {
     await page.waitForChanges();
-    expect(element.textContent).toBe("Primary Text Only");
+    expect(button1.textContent).toBe("Left");
+    expect(button2.textContent).toBe("Middle");
+    expect(button3.textContent).toBe("Right");
+    expect(buttonGroupTitle.textContent).toBe("The title");
   });
 
-  it("has the right classes", async () => {
+  it("has data-active attribute", async () => {
     await page.waitForChanges();
-    expect(element.classList.contains("button--primary-text-only")).toBe(true);
+    expect(button2).toHaveAttribute("data-active");
   });
 
-  it("has role attribute", async () => {
+  it("is disabled", async () => {
+    //Disabled
+    buttonGroup.setProperty("disabled", true);
     await page.waitForChanges();
-    expect(element.getAttribute("role")).toBe("button");
+    expect(buttonGroup).toHaveAttribute("disabled");
   });
 
-  it("fires click event", async () => {
+  it("has aria label", async () => {
     await page.waitForChanges();
+    expect(buttonGroup).toEqualAttribute("aria-label", "The title");
+  });
 
-    const clickEventSpy = await element.spyOnEvent("click");
-    element.triggerEvent("click");
+  it("Is full-width", async () => {
+    buttonGroup.setProperty("fullWidth", true);
     await page.waitForChanges();
-    // Kent C. Dodds
-    expect(clickEventSpy).toHaveReceivedEvent();
+    expect((await buttonGroup.getComputedStyle()).width).toBe("500px");
   });
 });
