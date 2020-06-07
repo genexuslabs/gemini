@@ -88,18 +88,18 @@ export class DatePicker {
     const pickerSelector = this.el.shadowRoot.querySelector("#date-picker");
     const picker = datepicker(pickerSelector, {
       // Event callbacks.
-      onSelect: instance => {
-        // Show which date was selected.
-      },
-      onShow: instance => {
-        //on Show
-      },
-      onHide: instance => {
-        //on instance
-      },
-      onMonthChange: instance => {
-        // Show the month of the selected date.
-      },
+      // onSelect: instance => {
+
+      // },
+      // onShow: instance => {
+
+      // },
+      // onHide: instance => {
+
+      // },
+      // onMonthChange: instance => {
+
+      // },
 
       // Customizations.
       formatter: (input, date) => {
