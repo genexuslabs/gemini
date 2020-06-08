@@ -7,12 +7,11 @@ let gxgColumn1: E2EElement;
 let gxgColumn2: E2EElement;
 let gxgColumn3: E2EElement;
 
-function validateColumnExpectedWidth(
+async function expectValidColumnWidth(
   gxgActualColumn: E2EElement,
   expectedWidth: number
 ) {
-  let receivedWidth = gxgActualColumn.getComputedStyle();
-  receivedWidth = receivedWidth.substring(0, expectedWidth.toString.length);
+  const receivedWidth = (await gxgActualColumn.getComputedStyle()).width;
   const receivedWidthInt = parseInt(receivedWidth, 10);
   if (
     receivedWidthInt >= expectedWidth - 1 &&
