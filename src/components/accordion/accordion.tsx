@@ -37,12 +37,12 @@ export class Accordion {
             accordion.status = "open";
           }
         } else {
-          accordion.status = "close";
+          accordion.status = "closed";
         }
       } else {
         if (id === event.detail) {
           if (accordion.status === "open") {
-            accordion.status = "close";
+            accordion.status = "closed";
           } else {
             accordion.status = "open";
           }
