@@ -26,6 +26,29 @@
   </head>
   <body>
 
+    <h2>Modal</h2>
+    <gxg-modal
+      id="modal"
+      modal-title="Modal Title"
+      footer-alignment="right"
+      z-index="20"
+    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+      <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+      <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+    </gxg-modal>
+
+    <gxg-button
+    full-width
+    style="margin-top:30px"
+    onClick="(function(){
+    const modal = document.getElementById('modal');
+    modal.setAttribute('visible','true');
+    return false;
+  })();return false;"
+    >Launch Modal btn</gxg-button
+  >
+
     <h2>Accordion</h2>
     <gxg-accordion single-tab-open mode="classical">
       <gxg-accordion-item item-title="item 1" item-id="tab 1">“I've learned that people will forget what you said, people will forget
@@ -373,32 +396,7 @@
       }
     </script> -->
 
-    <h2>Modal</h2>
-    <gxg-modal
-      style="dislpay:none"
-      id="modal"
-      modal-title="Modal Title"
-      footer-alignment="right"
-      z-index="20"
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
-      voluptatibus harum minima aut id architecto adipisci tempore numquam
-      explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
-      <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
-      <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
-      <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
-    </gxg-modal>
-
-    <gxg-button
-      full-width
-      style="margin-top:30px"
-      onClick="(function(){
-      const modal = document.getElementById('modal');
-      modal.setAttribute('visible','true');
-      return false;
-    })();return false;"
-      >Launch Modal btn</gxg-button
-    >
+  
 
     <h2>Droplist</h2>
     <gxg-droplist>
