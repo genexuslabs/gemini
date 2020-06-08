@@ -16,13 +16,9 @@ import {
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { paddingType } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import {
-  boxShadowType,
-  paddingType as paddingType1
-} from "./components/card/card";
+import { boxShadowType, paddingType } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { MessageType } from "./components/form-message/form-message";
@@ -104,21 +100,6 @@ export namespace Components {
     type: AlertType;
     /**
      * The alert width
-     */
-    width: string;
-  }
-  interface GxgBox {
-    /**
-     * This property makes the component full-width
-     */
-    fullWidth: boolean;
-    /**
-     * The component height
-     */
-    height: string;
-    padding: paddingType;
-    /**
-     * The component width
      */
     width: string;
   }
@@ -700,11 +681,6 @@ declare global {
     prototype: HTMLGxgAlertElement;
     new (): HTMLGxgAlertElement;
   };
-  interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {}
-  var HTMLGxgBoxElement: {
-    prototype: HTMLGxgBoxElement;
-    new (): HTMLGxgBoxElement;
-  };
   interface HTMLGxgButtonElement
     extends Components.GxgButton,
       HTMLStencilElement {}
@@ -930,7 +906,6 @@ declare global {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
-    "gxg-box": HTMLGxgBoxElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
@@ -1039,21 +1014,6 @@ declare namespace LocalJSX {
     type?: AlertType;
     /**
      * The alert width
-     */
-    width?: string;
-  }
-  interface GxgBox {
-    /**
-     * This property makes the component full-width
-     */
-    fullWidth?: boolean;
-    /**
-     * The component height
-     */
-    height?: string;
-    padding?: paddingType;
-    /**
-     * The component width
      */
     width?: string;
   }
@@ -1630,7 +1590,6 @@ declare namespace LocalJSX {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
-    "gxg-box": GxgBox;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
@@ -1676,7 +1635,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgAccordionItemElement>;
       "gxg-alert": LocalJSX.GxgAlert &
         JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
-      "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &

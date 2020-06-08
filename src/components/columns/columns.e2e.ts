@@ -11,16 +11,11 @@ async function expectValidColumnWidth(
   gxgActualColumn: E2EElement,
   expectedWidth: number
 ) {
-  const receivedWidth = (await gxgActualColumn.getComputedStyle()).width;
+  let receivedWidth = (await gxgActualColumn.getComputedStyle()).width;
+  receivedWidth = receivedWidth.substring(0, expectedWidth);
   const receivedWidthInt = parseInt(receivedWidth, 10);
-  if (
-    receivedWidthInt >= expectedWidth - 1 &&
-    receivedWidthInt <= expectedWidth + 1
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  expect(receivedWidthInt).toBeGreaterThan(expectedWidth - 3);
+  expect(receivedWidthInt).toBeLessThan(expectedWidth + 3);
 }
 
 describe("gxg-columns space general", () => {
@@ -68,7 +63,7 @@ describe("gxg-columns space general", () => {
     expect(gxgColumn1ComputedStyle.fontFamily).toBe("arial");
     //column2 : content width
     expect((await gxgColumn2.getComputedStyle()).display).toBe("flex");
-    expect(validateColumnExpectedWidth(gxgColumn2, 56)).toBe(true);
+    expectValidColumnWidth(gxgColumn2, 56);
 
     const gxgColumn2ComputedStyle = await gxgColumn2.getComputedStyle();
     expect(gxgColumn2ComputedStyle.minWidth).toBe("0px");
@@ -77,7 +72,7 @@ describe("gxg-columns space general", () => {
     expect(gxgColumn2ComputedStyle.fontFamily).toBe("arial");
     //column3 : flex width
     expect((await gxgColumn3.getComputedStyle()).display).toBe("flex");
-    expect(validateColumnExpectedWidth(gxgColumn3, 183)).toBe(true);
+    expectValidColumnWidth(gxgColumn3, 188);
     expect((await gxgColumn3.getComputedStyle()).fontSize).toBe("16px");
     expect((await gxgColumn3.getComputedStyle()).fontFamily).toBe("arial");
   });
@@ -170,21 +165,21 @@ describe("gxg-columns check column widths", () => {
     await page.waitForChanges();
 
     //col 1
-    expect(validateColumnExpectedWidth(gxgColumn1, 252)).toBe(true);
+    expectValidColumnWidth(gxgColumn1, 252);
     //col 2
-    expect(validateColumnExpectedWidth(gxgColumn2, 168)).toBe(true);
+    expectValidColumnWidth(gxgColumn2, 168);
     //col 3
-    expect(validateColumnExpectedWidth(gxgColumn3, 126)).toBe(true);
+    expectValidColumnWidth(gxgColumn3, 126);
     //col 4
-    expect(validateColumnExpectedWidth(gxgColumn4, 100)).toBe(true);
+    expectValidColumnWidth(gxgColumn4, 100);
     //col 5
-    expect(validateColumnExpectedWidth(gxgColumn5, 336)).toBe(true);
+    expectValidColumnWidth(gxgColumn5, 336);
     //col 6
-    expect(validateColumnExpectedWidth(gxgColumn6, 201)).toBe(true);
+    expectValidColumnWidth(gxgColumn6, 201);
     //col 7
-    expect(validateColumnExpectedWidth(gxgColumn7, 302)).toBe(true);
+    expectValidColumnWidth(gxgColumn7, 302);
     //col 8
-    expect(validateColumnExpectedWidth(gxgColumn8, 403)).toBe(true);
+    expectValidColumnWidth(gxgColumn8, 403);
   });
 });
 
@@ -207,6 +202,6 @@ describe("gxg-columns check column width content fluid", () => {
   it("has the right width", async () => {
     await page.waitForChanges();
     //col 6
-    expect(validateColumnExpectedWidth(gxgColumn2, 435)).toBe(true);
+    expectValidColumnWidth(gxgColumn2, 444);
   });
 });
