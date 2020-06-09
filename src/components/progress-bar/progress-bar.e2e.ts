@@ -12,11 +12,10 @@ describe("gxg-progress-bar", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-progress-bar
+      `<div style="width:600px;"><gxg-progress-bar
       label="Progress Bar"
       value="50"
-      width="400px"
-    ></gxg-progress-bar>`
+    ></gxg-progress-bar></div>`
     );
     progressBar = await page.find("gxg-progress-bar");
     outerWrapper = await page.find("gxg-progress-bar >>> .outer-wrapper");
@@ -42,9 +41,17 @@ describe("gxg-progress-bar", () => {
     expect(innerBar).toHaveClass("inner-bar");
   });
 
-  it("has the right progress", async () => {
+  it("has the right width and progress", async () => {
     await page.waitForChanges();
-    expect((await outerBar.getComputedStyle()).width).toBe("400px");
-    expect((await innerBar.getComputedStyle()).width).toBe("200px");
+    expect((await outerBar.getComputedStyle()).width).toBe("200px");
+    expect((await innerBar.getComputedStyle()).width).toBe("100px");
+  });
+
+  it("is fullwidth", async () => {
+    await page.waitForChanges();
+    progressBar.setProperty("fullWidth", true);
+    await page.waitForChanges();
+    expect((await outerBar.getComputedStyle()).width).toBe("600px");
+    expect((await innerBar.getComputedStyle()).width).toBe("300px");
   });
 });
