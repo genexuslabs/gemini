@@ -40,8 +40,8 @@ stories.add("Spacer Layout", () => {
   //Justify Content
   const labelJustify = "Justity Content";
   const optionsJustify = {
-    "flex-start": "flex-start",
-    "flex-end": "flex-end",
+    begin: "begin",
+    end: "end",
     center: "center",
     "space-between": "space-between",
     "space-around": "space-around"
