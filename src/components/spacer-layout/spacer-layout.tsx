@@ -25,8 +25,8 @@ export class SpacerLayout {
     return (
       <Host
         class={{
-          "flex-start": this.justifyContent === "flex-start",
-          "flex-end": this.justifyContent === "flex-end",
+          "flex-start": this.justifyContent === "start",
+          "flex-end": this.justifyContent === "end",
           center: this.justifyContent === "center",
           "space-between": this.justifyContent === "space-between",
           "space-around": this.justifyContent === "space-around",
@@ -48,8 +48,8 @@ export class SpacerLayout {
 export type space = "xs" | "s" | "m" | "l" | "xl";
 export type orientation = "horizontal" | "vertical";
 export type justifyContent =
-  | "flex-start"
-  | "flex-end"
+  | "start"
+  | "end"
   | "center"
   | "space-between"
   | "space-around";
