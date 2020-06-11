@@ -13,9 +13,9 @@ export class Card {
   /**
    * This property makes the component full-width
    */
-  @Prop() fullWidth = false;
+  @Prop({ reflect: true }) fullWidth = false;
 
-  @Prop() boxShadow: boxShadow = "xxs";
+  @Prop({ reflect: true }) boxShadow: boxShadow = "xxs";
 
   /**
    * The component height
@@ -23,7 +23,7 @@ export class Card {
   @Prop() height = "auto";
 
   /*The card padding (internal spacing)*/
-  @Prop() padding: padding = "xs";
+  @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * The component width

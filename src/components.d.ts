@@ -27,7 +27,6 @@ import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
-import { Space } from "./components/stack/stack";
 import { Size as Size1 } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
