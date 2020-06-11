@@ -177,6 +177,9 @@ export namespace Components {
     cardTitle: string;
     value: string;
   }
+
+
+
   interface GxgColumn {
     width: Width;
   }
@@ -194,6 +197,7 @@ export namespace Components {
      */
     space: Space;
   }
+
   interface GxgDatePicker {
     /**
      * always show
@@ -1118,6 +1122,7 @@ declare namespace LocalJSX {
      */
     space?: Space;
   }
+
   interface GxgDatePicker {
     /**
      * always show
