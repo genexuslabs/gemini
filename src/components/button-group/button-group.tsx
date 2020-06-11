@@ -25,7 +25,7 @@ export class ButtonGroup {
   /**
   Wether the button group is disabled or not.
   */
-  @Prop() disabled = false;
+  @Prop({ reflect: true }) disabled = false;
 
   /**
    * This property makes the inner buttons focusable
@@ -35,7 +35,7 @@ export class ButtonGroup {
   /**
    * This property makes the component full-width
    */
-  @Prop() fullWidth = false;
+  @Prop({ reflect: true }) fullWidth = false;
 
   /**
   The value of the current selected button

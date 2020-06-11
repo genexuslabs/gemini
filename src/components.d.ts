@@ -20,6 +20,8 @@ import { padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import { boxShadow, padding as padding1 } from "./components/card/card";
+import { Width } from "./components/column/column";
+import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Message } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
@@ -177,6 +179,25 @@ export namespace Components {
     cardTitle: string;
     value: string;
   }
+
+  interface GxgColumn {
+    width: Width;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space: Space;
+  }
+
   interface GxgDatePicker {
     /**
      * always show
@@ -1083,6 +1104,24 @@ declare namespace LocalJSX {
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
   }
+  interface GxgColumn {
+    width?: Width;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY?: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow?: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space?: Space;
+  }
+
   interface GxgDatePicker {
     /**
      * always show
