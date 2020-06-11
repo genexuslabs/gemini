@@ -1,4 +1,13 @@
-import { Component, Element, Prop, h, Host } from "@stencil/core";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  Element,
+  Prop,
+  h,
+  Host,
+  Watch
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-stepper",
@@ -44,6 +53,8 @@ export class Stepper {
    * The min value
    */
   @Prop({ reflect: true }) min = 0;
+
+  @Event() input: EventEmitter;
 
   /*********************************
   METHODS
@@ -91,6 +102,11 @@ export class Stepper {
     if (this.value === this.max) {
       this.plusButton.setAttribute("disabled", "disabled");
     }
+  }
+
+  @Watch("value")
+  watchHandler(newValue) {
+    this.input.emit(newValue);
   }
 
   render() {
