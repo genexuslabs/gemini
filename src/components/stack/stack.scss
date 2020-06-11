@@ -11,8 +11,8 @@ $sizes: xs, s, m, l, xl;
     }
   }
 }
-:host([space="*"]) {
+:host([space]) {
   ::slotted(*:last-child) {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 }
