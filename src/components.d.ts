@@ -177,6 +177,29 @@ export namespace Components {
     cardTitle: string;
     value: string;
   }
+
+
+
+  interface GxgColumn {
+    width: Width;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space: Space;
+  }
+
+
+
   interface GxgDatePicker {
     /**
      * always show
@@ -961,6 +984,7 @@ declare namespace LocalJSX {
      */
     mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
+    onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
     /**
      * The toggle state
      */
@@ -1082,6 +1106,26 @@ declare namespace LocalJSX {
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
   }
+
+  interface GxgColumn {
+    width?: Width;
+  }
+  interface GxgColumns {
+    /**
+     * The vertical alignment
+     */
+    alignY?: AlignY;
+    /**
+     * The collapse breakpoint
+     */
+    collapseBellow?: CollapseBellow;
+    /**
+     * The spacing between columns
+     */
+    space?: Space;
+  }
+
+
   interface GxgDatePicker {
     /**
      * always show
@@ -1510,6 +1554,7 @@ declare namespace LocalJSX {
      * The min value
      */
     min?: number;
+    onInput?: (event: CustomEvent<any>) => void;
     /**
      * The initial vaule
      */
