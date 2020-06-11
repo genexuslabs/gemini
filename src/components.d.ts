@@ -20,13 +20,12 @@ import { padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import { boxShadow, padding as padding1 } from "./components/card/card";
-import { Width } from "./components/column/column";
-import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Message } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
+import { Space } from "./components/stack/stack";
 import { Size as Size1 } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
@@ -196,6 +195,7 @@ export namespace Components {
      */
     space: Space;
   }
+
 
   interface GxgDatePicker {
     /**
@@ -1103,6 +1103,7 @@ declare namespace LocalJSX {
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
   }
+
   interface GxgColumn {
     width?: Width;
   }
