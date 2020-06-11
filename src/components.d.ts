@@ -179,6 +179,7 @@ export namespace Components {
   }
 
 
+
   interface GxgColumn {
     width: Width;
   }
@@ -196,6 +197,7 @@ export namespace Components {
      */
     space: Space;
   }
+
 
 
   interface GxgDatePicker {
@@ -1122,6 +1124,7 @@ declare namespace LocalJSX {
      */
     space?: Space;
   }
+
 
   interface GxgDatePicker {
     /**
