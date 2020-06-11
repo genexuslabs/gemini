@@ -21,53 +21,30 @@ export class Accordion {
    */
   @Prop() mode: mode = "classical";
 
-  @State() accordions: NodeList;
+  @State() accordions: HTMLGxgAccordionItemElement[];
 
   @Element() el: HTMLElement;
 
   @Listen("accordionItemClicked")
   itemClickedHandler(event: CustomEvent) {
     this.accordions.forEach(accordion => {
-      const id = (accordion as HTMLGxgAccordionItemElement).itemId;
+      const id = accordion.itemId;
       if (this.singleItemOpen) {
         if (id === event.detail) {
-          if (
-            (accordion as HTMLGxgAccordionItemElement).getAttribute(
-              "status"
-            ) === "open"
-          ) {
-            (accordion as HTMLGxgAccordionItemElement).setAttribute(
-              "status",
-              "closed"
-            );
+          if (accordion.status === "open") {
+            accordion.status = "closed";
           } else {
-            (accordion as HTMLGxgAccordionItemElement).setAttribute(
-              "status",
-              "open"
-            );
+            accordion.status = "open";
           }
         } else {
-          (accordion as HTMLGxgAccordionItemElement).setAttribute(
-            "status",
-            "close"
-          );
+          accordion.status = "closed";
         }
       } else {
         if (id === event.detail) {
-          if (
-            (accordion as HTMLGxgAccordionItemElement).getAttribute(
-              "status"
-            ) === "open"
-          ) {
-            (accordion as HTMLGxgAccordionItemElement).setAttribute(
-              "status",
-              "close"
-            );
+          if (accordion.status === "open") {
+            accordion.status = "closed";
           } else {
-            (accordion as HTMLGxgAccordionItemElement).setAttribute(
-              "status",
-              "open"
-            );
+            accordion.status = "open";
           }
         }
       }
@@ -83,7 +60,11 @@ export class Accordion {
   }
 
   setupAccordions() {
-    this.accordions = this.el.querySelectorAll("gxg-accordion-item");
+    this.accordions = Array.from(
+      this.el.querySelectorAll<HTMLGxgAccordionItemElement>(
+        "gxg-accordion-item"
+      )
+    );
 
     //Disabled
     if (this.disabled) {
