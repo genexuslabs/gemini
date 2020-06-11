@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { modeType } from "./components/accordion/accordion";
+import { mode } from "./components/accordion/accordion";
 import {
-  modeType as modeType1,
-  statusType
+  mode as mode1,
+  status
 } from "./components/accordion-item/accordion-item";
 import {
   ActiveTime,
@@ -16,22 +16,17 @@ import {
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { paddingType } from "./components/box/box";
+import { padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import {
-  boxShadowType,
-  paddingType as paddingType1
-} from "./components/card/card";
-import { WidthType } from "./components/column/column";
-import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
-import { MessageType } from "./components/form-message/form-message";
+import { boxShadow, padding as padding1 } from "./components/card/card";
+import { Message } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
-import { IconPositionType } from "./components/form-text/form-text";
+import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
-import { footerAlignmentType } from "./components/modal/modal";
-import { SpaceType } from "./components/stack/stack";
-import { SizeType } from "./components/toggle/toggle";
+import { footerAlignment } from "./components/modal/modal";
+import { Space } from "./components/stack/stack";
+import { Size as Size1 } from "./components/toggle/toggle";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -41,7 +36,7 @@ export namespace Components {
     /**
      * The aesthetical mode
      */
-    mode: modeType;
+    mode: mode;
     /**
      * Wether only one accordion can be open at the same time or not.
      */
@@ -63,11 +58,11 @@ export namespace Components {
     /**
      * The aesthetical mode
      */
-    mode: modeType;
+    mode: mode;
     /**
      * The toggle state
      */
-    status: statusType;
+    status: status;
   }
   interface GxgAlert {
     /**
@@ -116,7 +111,7 @@ export namespace Components {
      * The component height
      */
     height: string;
-    padding: paddingType;
+    padding: padding;
     /**
      * The component width
      */
@@ -163,7 +158,7 @@ export namespace Components {
     titleAlignment: TitleAlignment;
   }
   interface GxgCard {
-    boxShadow: boxShadowType;
+    boxShadow: boxShadow;
     /**
      * This property makes the component full-width
      */
@@ -172,7 +167,7 @@ export namespace Components {
      * The component height
      */
     height: string;
-    padding: paddingType;
+    padding: padding;
     /**
      * The component width
      */
@@ -181,23 +176,6 @@ export namespace Components {
   interface GxgColorPicker {
     cardTitle: string;
     value: string;
-  }
-  interface GxgColumn {
-    width: WidthType;
-  }
-  interface GxgColumns {
-    /**
-     * The vertical alignment
-     */
-    alignY: AlignY;
-    /**
-     * The collapse breakpoint
-     */
-    collapseBellow: CollapseBellow;
-    /**
-     * The spacing between columns
-     */
-    space: Space;
   }
   interface GxgDatePicker {
     /**
@@ -267,7 +245,7 @@ export namespace Components {
     /**
      * The kind of message Possible values: error, warning
      */
-    type: MessageType;
+    type: Message;
   }
   interface GxgFormRadio {
     /**
@@ -333,7 +311,7 @@ export namespace Components {
     /**
      * Input icon side possible values: left, right
      */
-    iconPosition: IconPositionType;
+    iconPosition: IconPosition;
     /**
      * The input id
      */
@@ -454,7 +432,7 @@ export namespace Components {
     /**
      * The footer alignment
      */
-    footerAlignment: footerAlignmentType;
+    footerAlignment: footerAlignment;
     /**
      * The modal title
      */
@@ -594,7 +572,7 @@ export namespace Components {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
      */
-    space: SpaceType;
+    space: Space;
   }
   interface GxgStepper {
     /**
@@ -663,7 +641,7 @@ export namespace Components {
     /**
      * The label
      */
-    size: SizeType;
+    size: Size;
   }
   interface GxgToolbar {
     disabled: boolean;
@@ -730,20 +708,6 @@ declare global {
   var HTMLGxgColorPickerElement: {
     prototype: HTMLGxgColorPickerElement;
     new (): HTMLGxgColorPickerElement;
-  };
-  interface HTMLGxgColumnElement
-    extends Components.GxgColumn,
-      HTMLStencilElement {}
-  var HTMLGxgColumnElement: {
-    prototype: HTMLGxgColumnElement;
-    new (): HTMLGxgColumnElement;
-  };
-  interface HTMLGxgColumnsElement
-    extends Components.GxgColumns,
-      HTMLStencilElement {}
-  var HTMLGxgColumnsElement: {
-    prototype: HTMLGxgColumnsElement;
-    new (): HTMLGxgColumnsElement;
   };
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
@@ -935,8 +899,6 @@ declare global {
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
     "gxg-color-picker": HTMLGxgColorPickerElement;
-    "gxg-column": HTMLGxgColumnElement;
-    "gxg-columns": HTMLGxgColumnsElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
@@ -975,7 +937,7 @@ declare namespace LocalJSX {
     /**
      * The aesthetical mode
      */
-    mode?: modeType;
+    mode?: mode;
     /**
      * Wether only one accordion can be open at the same time or not.
      */
@@ -997,12 +959,12 @@ declare namespace LocalJSX {
     /**
      * The aesthetical mode
      */
-    mode?: modeType;
+    mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
     /**
      * The toggle state
      */
-    status?: statusType;
+    status?: status;
   }
   interface GxgAlert {
     /**
@@ -1051,7 +1013,7 @@ declare namespace LocalJSX {
      * The component height
      */
     height?: string;
-    padding?: paddingType;
+    padding?: padding;
     /**
      * The component width
      */
@@ -1098,7 +1060,7 @@ declare namespace LocalJSX {
     titleAlignment?: TitleAlignment;
   }
   interface GxgCard {
-    boxShadow?: boxShadowType;
+    boxShadow?: boxShadow;
     /**
      * This property makes the component full-width
      */
@@ -1107,7 +1069,7 @@ declare namespace LocalJSX {
      * The component height
      */
     height?: string;
-    padding?: paddingType;
+    padding?: padding;
     /**
      * The component width
      */
@@ -1119,23 +1081,6 @@ declare namespace LocalJSX {
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
     value?: string;
-  }
-  interface GxgColumn {
-    width?: WidthType;
-  }
-  interface GxgColumns {
-    /**
-     * The vertical alignment
-     */
-    alignY?: AlignY;
-    /**
-     * The collapse breakpoint
-     */
-    collapseBellow?: CollapseBellow;
-    /**
-     * The spacing between columns
-     */
-    space?: Space;
   }
   interface GxgDatePicker {
     /**
@@ -1206,7 +1151,7 @@ declare namespace LocalJSX {
     /**
      * The kind of message Possible values: error, warning
      */
-    type?: MessageType;
+    type?: Message;
   }
   interface GxgFormRadio {
     /**
@@ -1274,7 +1219,7 @@ declare namespace LocalJSX {
     /**
      * Input icon side possible values: left, right
      */
-    iconPosition?: IconPositionType;
+    iconPosition?: IconPosition;
     /**
      * The input id
      */
@@ -1400,7 +1345,7 @@ declare namespace LocalJSX {
     /**
      * The footer alignment
      */
-    footerAlignment?: footerAlignmentType;
+    footerAlignment?: footerAlignment;
     /**
      * The modal title
      */
@@ -1542,7 +1487,7 @@ declare namespace LocalJSX {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
      */
-    space?: SpaceType;
+    space?: Space;
   }
   interface GxgStepper {
     /**
@@ -1565,6 +1510,7 @@ declare namespace LocalJSX {
      * The min value
      */
     min?: number;
+    onInput?: (event: CustomEvent<any>) => void;
     /**
      * The initial vaule
      */
@@ -1612,7 +1558,7 @@ declare namespace LocalJSX {
     /**
      * The label
      */
-    size?: SizeType;
+    size?: Size;
   }
   interface GxgToolbar {
     disabled?: boolean;
@@ -1635,8 +1581,6 @@ declare namespace LocalJSX {
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
     "gxg-color-picker": GxgColorPicker;
-    "gxg-column": GxgColumn;
-    "gxg-columns": GxgColumns;
     "gxg-date-picker": GxgDatePicker;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
@@ -1684,10 +1628,6 @@ declare module "@stencil/core" {
       "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
       "gxg-color-picker": LocalJSX.GxgColorPicker &
         JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
-      "gxg-column": LocalJSX.GxgColumn &
-        JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
-      "gxg-columns": LocalJSX.GxgColumns &
-        JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
