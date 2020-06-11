@@ -178,6 +178,7 @@ export namespace Components {
     value: string;
   }
 
+
   interface GxgColumn {
     width: Width;
   }
