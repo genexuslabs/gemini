@@ -13,6 +13,12 @@
 | `min`        | `min`         | The min value                                        | `number`  | `0`       |
 | `value`      | `value`       | The initial vaule                                    | `number`  | `0`       |
 
+## Events
+
+| Event   | Description | Type               |
+| ------- | ----------- | ------------------ |
+| `input` |             | `CustomEvent<any>` |
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

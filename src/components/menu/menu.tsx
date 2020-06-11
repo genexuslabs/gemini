@@ -9,8 +9,8 @@ export class Menu {
   @Element() el: HTMLElement;
 
   @Prop() menuTitle: string;
-  @Prop() fullWidth: boolean;
-  @Prop() tabs: boolean;
+  @Prop({ reflect: true }) fullWidth: boolean;
+  @Prop({ reflect: true }) tabs: boolean;
   @Prop() width: string;
 
   @Listen("menuItemActive")

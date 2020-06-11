@@ -12,7 +12,7 @@ export class MenuItem {
 
   @Prop() label: string;
   @Prop() icon: IconType = null;
-  @Prop() active = false;
+  @Prop({ reflect: true }) active = false;
 
   // Event called 'todoCompleted' that is "composed", "cancellable" and it will bubble up!
   @Event({ eventName: "menuItemActive" })

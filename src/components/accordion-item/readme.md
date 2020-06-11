@@ -17,6 +17,7 @@
 | Event                  | Description | Type               |
 | ---------------------- | ----------- | ------------------ |
 | `accordionItemClicked` |             | `CustomEvent<any>` |
+| `accordionItemLoaded`  |             | `CustomEvent<any>` |
 
 ## Dependencies
 
