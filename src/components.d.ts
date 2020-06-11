@@ -1125,7 +1125,6 @@ declare namespace LocalJSX {
     space?: Space;
   }
 
-
   interface GxgDatePicker {
     /**
      * always show
