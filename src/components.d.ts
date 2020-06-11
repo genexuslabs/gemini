@@ -961,6 +961,7 @@ declare namespace LocalJSX {
      */
     mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
+    onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
     /**
      * The toggle state
      */
