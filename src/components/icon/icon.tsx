@@ -22,7 +22,8 @@ const COLOR_MAPPINGS = {
   disabled: "color-primary-disabled",
   error: "color-error-dark",
   warning: "color-warning-dark",
-  success: "color-success-dark"
+  success: "color-success-dark",
+  alwaysblack: "color-always-black"
 };
 
 const CAMEL_CASE_TO_HYPHENED_REGEX = /(.)([A-Z])/g;
@@ -155,7 +156,8 @@ export class Icon {
           "color-disabled": this.color === "disabled",
           "color-error": this.color === "error",
           "color-success": this.color === "success",
-          "color-warning": this.color === "warning"
+          "color-warning": this.color === "warning",
+          "color-always-black": this.color === "alwaysblack"
         }}
       >
         <div
@@ -189,7 +191,8 @@ export type Color =
   | "disabled"
   | "error"
   | "success"
-  | "warning";
+  | "warning"
+  | "alwaysblack";
 
 export type IconType =
   | "none"

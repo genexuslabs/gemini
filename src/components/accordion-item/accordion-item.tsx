@@ -45,7 +45,7 @@ export class AccordionItem {
     if (this.status === "open" && !this.disabled) {
       if (this.mode === "classical") {
         iType = "chevron-up";
-        iColor = "onbackground";
+        iColor = "alwaysblack";
       } else {
         //item alternate
         iType = "chevron-up";
@@ -60,7 +60,7 @@ export class AccordionItem {
         } else {
           //item not disabled
           iType = "chevron-down";
-          iColor = "onbackground";
+          iColor = "alwaysblack";
         }
       } else {
         //item alternate

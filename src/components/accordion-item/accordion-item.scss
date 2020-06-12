@@ -9,7 +9,7 @@
     margin-bottom: var(--spacing-comp-02);
 
     &__header {
-      background-color: var(--color-secondary);
+      background-color: var(--color-secondary-enabled);
       display: flex;
       height: var(--spacing-comp-05);
       @include ui-animation(background-color);
@@ -75,6 +75,7 @@
         font-weight: var(--font-weight-regular);
         font-size: var(--font-size-xs);
         text-align: left;
+        color: var(--color-on-background);
       }
 
       &:hover {
