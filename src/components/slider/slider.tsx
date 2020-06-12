@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, Host } from "@stencil/core";
+import { Component, Prop, Element, h, Host, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-slider",
@@ -26,7 +26,7 @@ export class Slider {
   /**
    * The max value
    */
-  @Prop() max = 120;
+  @Prop() max = 100;
 
   /**
    * The initial value
@@ -38,60 +38,48 @@ export class Slider {
    */
   @Prop() width = "200px";
 
-  componentDidLoad() {
-    const rangeSlider = this.el.shadowRoot.getElementById("rs-range-line");
-    const rangeBullet = this.el.shadowRoot.getElementById("rs-bullet");
-    const actualValue = this.el.shadowRoot.getElementById("actual-value");
-    const gxgSlider = this.el;
+  @Watch("value")
+  watchHandler() {
+    this.updateLabel();
+  }
 
-    function calculateWidth(width) {
-      width = parseInt(width.replace("px", ""));
-      return width - 22;
-    }
+  componentDidLoad() {
+    this.updateLabel();
 
     //Resize Observer
     const myObserver = new ResizeObserver(entries => {
       entries.forEach(() => {
-        this.width =
-          this.el.shadowRoot.querySelector(".range-slider").clientWidth + "";
-
-        const sliderWidth = this.width;
-        const bulletPosition =
-          this.value / parseInt(rangeSlider.getAttribute("max"));
-        rangeBullet.style.left =
-          bulletPosition * calculateWidth(sliderWidth) + "px";
+        this.updateLabel();
       });
     });
 
     myObserver.observe(this.el.shadowRoot.querySelector(".range-slider"));
+  }
 
-    //verify initial value
-    if (this.value > this.max) {
-      this.value = this.max;
-    }
+  updateLabel() {
+    const rangeLabel = this.el.shadowRoot.querySelector(".rs-label");
+    const labelPosition = this.value / this.max;
+    (rangeLabel as HTMLElement).style.left =
+      labelPosition * this.calculateWidth() + "px";
+    rangeLabel.innerHTML = this.value.toString();
+    this.updateBoxValue();
+  }
+  updateBoxValue() {
+    (this.el.shadowRoot.getElementById(
+      "actual-value"
+    ) as HTMLElement).innerHTML = this.value.toString();
+  }
 
-    function showSliderValue() {
-      let sliderWidth = this.width;
-      if (sliderWidth === 0) {
-        sliderWidth = this.getAttribute("slider-width");
-      }
+  calculateWidth() {
+    return this.el.shadowRoot.querySelector(".range-slider").clientWidth - 22;
+  }
 
-      rangeSlider.addEventListener("input", showSliderValue, false);
-      rangeBullet.innerHTML = this.value;
-      const bulletPosition =
-        this.value / parseInt(rangeSlider.getAttribute("max"));
-      rangeBullet.style.left =
-        bulletPosition * calculateWidth(sliderWidth) + "px";
-
-      actualValue.innerHTML = this.value;
-
-      rangeSlider.setAttribute("value", this.value + "");
-      gxgSlider.setAttribute("value", this.value);
-    }
-    const showSliderVal = showSliderValue.bind(this);
-    showSliderVal();
-    rangeSlider.setAttribute("value", this.value + "");
-    rangeSlider.setAttribute("width", this.width);
+  rangeSliderChanged() {
+    this.value = parseInt(
+      (this.el.shadowRoot.getElementById("rs-range-line") as HTMLInputElement)
+        .value
+    );
+    this.updateLabel();
   }
 
   render() {
@@ -103,10 +91,9 @@ export class Slider {
       >
         <div class="container">
           <div class="range-slider">
-            <span id="rs-bullet" class="rs-label">
-              0
-            </span>
+            <span class="rs-label">0</span>
             <input
+              onInput={this.rangeSliderChanged.bind(this)}
               id="rs-range-line"
               class="rs-range"
               type="range"
@@ -114,6 +101,7 @@ export class Slider {
               max={this.max}
               style={{ width: this.width }}
               slider-width={this.width}
+              value={this.value}
             />
           </div>
 
