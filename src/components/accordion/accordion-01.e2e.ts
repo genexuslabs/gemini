@@ -31,25 +31,25 @@ describe("gxg-accordion disabled", () => {
     //accordion 1
     accordion1 = await page.find("gxg-accordion-item[item-title='tab-01']");
     accordion1Item = await page.find(
-      "gxg-accordion-item[item-title='tab-01'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-01'] >>> .item"
     );
     accordion1Icon = await page.find(
       "gxg-accordion-item[item-title='tab-01'] >>> gxg-icon"
     );
     accordion1Title = await page.find(
-      "gxg-accordion-item[item-title='tab-01'] >>> .tab__header__title"
+      "gxg-accordion-item[item-title='tab-01'] >>> .item__header__title"
     );
 
     //accordion 2
     accordion2 = await page.find("gxg-accordion-item[item-title='tab-02']");
     accordion2Item = await page.find(
-      "gxg-accordion-item[item-title='tab-02'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-02'] >>> .item"
     );
     accordion2Icon = await page.find(
       "gxg-accordion-item[item-title='tab-02'] >>> gxg-icon"
     );
     accordion2Title = await page.find(
-      "gxg-accordion-item[item-title='tab-02'] >>> .tab__header__title"
+      "gxg-accordion-item[item-title='tab-02'] >>> .item__header__title"
     );
     // expect(accordion2Title).not.toBeNull();
   });
@@ -58,11 +58,11 @@ describe("gxg-accordion disabled", () => {
     //accordion container
     expect(accordionContainer).toHaveClass("hydrated");
     //accordion1
-    expect(accordion1Item).toHaveClasses(["tab", "tab--disabled"]);
-    expect(accordion1Title).toHaveClass("tab__header__title");
+    expect(accordion1Item).toHaveClasses(["item", "item--disabled"]);
+    expect(accordion1Title).toHaveClass("item__header__title");
     //accordion2
-    expect(accordion2Item).toHaveClasses(["tab", "tab--disabled"]);
-    expect(accordion2Title).toHaveClass("tab__header__title");
+    expect(accordion2Item).toHaveClasses(["item", "item--disabled"]);
+    expect(accordion2Title).toHaveClass("item__header__title");
   });
 
   it("has the right attributes", async () => {

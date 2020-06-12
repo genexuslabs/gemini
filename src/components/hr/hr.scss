@@ -1,0 +1,13 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  hr {
+    border-top: none;
+  }
+}
+:host([style="solid"]) {
+  hr {
+    border-style: solid;
+  }
+}

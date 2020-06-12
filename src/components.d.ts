@@ -418,6 +418,16 @@ export namespace Components {
      */
     warning: boolean;
   }
+  interface GxgHr {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The hr style
+     */
+    type: string;
+  }
   interface GxgIcon {
     /**
      * The color of the icon.
@@ -791,6 +801,11 @@ declare global {
     prototype: HTMLGxgFormTextareaElement;
     new (): HTMLGxgFormTextareaElement;
   };
+  interface HTMLGxgHrElement extends Components.GxgHr, HTMLStencilElement {}
+  var HTMLGxgHrElement: {
+    prototype: HTMLGxgHrElement;
+    new (): HTMLGxgHrElement;
+  };
   interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
@@ -941,6 +956,7 @@ declare global {
     "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
+    "gxg-hr": HTMLGxgHrElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
@@ -1364,6 +1380,16 @@ declare namespace LocalJSX {
      */
     warning?: boolean;
   }
+  interface GxgHr {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The hr style
+     */
+    type?: string;
+  }
   interface GxgIcon {
     /**
      * The color of the icon.
@@ -1643,6 +1669,7 @@ declare namespace LocalJSX {
     "gxg-form-radio-group": GxgFormRadioGroup;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
+    "gxg-hr": GxgHr;
     "gxg-icon": GxgIcon;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
@@ -1701,6 +1728,7 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
+      "gxg-hr": LocalJSX.GxgHr & JSXBase.HTMLAttributes<HTMLGxgHrElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &

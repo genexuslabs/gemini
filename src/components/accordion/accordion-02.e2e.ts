@@ -30,7 +30,7 @@ describe("gxg-accordion single tab open", () => {
     //accordion 1
     accordion1 = await page.find("gxg-accordion-item[item-title='tab-01']");
     accordion1Item = await page.find(
-      "gxg-accordion-item[item-title='tab-01'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-01'] >>> .item"
     );
     accordion1Icon = await page.find(
       "gxg-accordion-item[item-title='tab-01'] >>> gxg-icon"
@@ -38,7 +38,7 @@ describe("gxg-accordion single tab open", () => {
     //accordion 2
     accordion2 = await page.find("gxg-accordion-item[item-title='tab-02']");
     accordion2Item = await page.find(
-      "gxg-accordion-item[item-title='tab-02'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-02'] >>> .item"
     );
     accordion2Icon = await page.find(
       "gxg-accordion-item[item-title='tab-02'] >>> gxg-icon"
@@ -46,7 +46,7 @@ describe("gxg-accordion single tab open", () => {
     //accordion 3
     accordion3 = await page.find("gxg-accordion-item[item-title='tab-03']");
     accordion3Item = await page.find(
-      "gxg-accordion-item[item-title='tab-03'] >>> .tab"
+      "gxg-accordion-item[item-title='tab-03'] >>> .item"
     );
     accordion3Icon = await page.find(
       "gxg-accordion-item[item-title='tab-03'] >>> gxg-icon"

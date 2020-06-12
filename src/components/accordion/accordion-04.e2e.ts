@@ -29,7 +29,7 @@ describe("gxg-accordion container alternate disabled", () => {
     //accordion 1
     accordion1 = await page.find("gxg-accordion-item[tab-title='tab-01']");
     accordion1Item = await page.find(
-      "gxg-accordion-item[tab-title='tab-01'] >>> .tab"
+      "gxg-accordion-item[tab-title='tab-01'] >>> .item"
     );
     accordion1Icon = await page.find(
       "gxg-accordion-item[tab-title='tab-01'] >>> gxg-icon"
@@ -37,7 +37,7 @@ describe("gxg-accordion container alternate disabled", () => {
     //accordion 2
     accordion2 = await page.find("gxg-accordion-item[tab-title='tab-02']");
     accordion2Item = await page.find(
-      "gxg-accordion-item[tab-title='tab-02'] >>> .tab"
+      "gxg-accordion-item[tab-title='tab-02'] >>> .item"
     );
     accordion2Icon = await page.find(
       "gxg-accordion-item[tab-title='tab-02'] >>> gxg-icon"
@@ -45,7 +45,7 @@ describe("gxg-accordion container alternate disabled", () => {
     //accordion 3
     accordion3 = await page.find("gxg-accordion-item[tab-title='tab-03']");
     accordion3Item = await page.find(
-      "gxg-accordion-item[tab-title='tab-03'] >>> .tab"
+      "gxg-accordion-item[tab-title='tab-03'] >>> .item"
     );
     accordion3Icon = await page.find(
       "gxg-accordion-item[tab-title='tab-03'] >>> gxg-icon"
@@ -71,10 +71,10 @@ describe("gxg-accordion container alternate disabled", () => {
 
   it("has the right classes", async () => {
     //accordion1
-    expect(accordion1Item).toHaveClass("tab--disabled");
+    expect(accordion1Item).toHaveClass("item--disabled");
     //accordion2
-    expect(accordion2Item).toHaveClass("tab--disabled");
+    expect(accordion2Item).toHaveClass("item--disabled");
     //accordion3
-    expect(accordion3Item).toHaveClass("tab--disabled");
+    expect(accordion3Item).toHaveClass("item--disabled");
   });
 });
