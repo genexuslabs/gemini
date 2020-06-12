@@ -57,6 +57,7 @@
   .item {
     background-color: var(--gray-01);
     border: var(--border-width-sm) var(--border-style-regular) var(--gray-03);
+    @include ui-animation(border-color);
     &__header {
       background: transparent;
       flex-direction: row-reverse;
@@ -77,12 +78,6 @@
         text-align: left;
         color: var(--color-on-background);
       }
-
-      &:hover {
-        gxg-icon {
-          background-color: var(--color-primary-hover);
-        }
-      }
     }
     &__container {
       background: transparent;
@@ -94,6 +89,12 @@
       gxg-icon {
         background: var(--color-primary-active);
       }
+    }
+    &:hover {
+      gxg-icon {
+        background-color: var(--color-primary-hover);
+      }
+      border-color: var(--color-primary-hover);
     }
   }
 }
