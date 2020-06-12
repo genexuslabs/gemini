@@ -31,9 +31,11 @@
   padding: var(--spacing-comp-02) var(--spacing-comp-02) 7px
     var(--spacing-comp-02);
   width: 181px;
+  background: var(--color-background);
 }
 .qs-datepicker .qs-controls {
   background-color: transparent;
+  color: var(--color-on-background);
 }
 .qs-datepicker .qs-square {
   border: 1px solid var(--gray-03);
@@ -41,6 +43,7 @@
   width: var(--spacing-comp-05);
   height: var(--spacing-comp-05);
   margin: 0.5px;
+  color: var(--color-on-background);
 }
 .qs-month-year {
   font-size: var(--font-size-md);
@@ -68,6 +71,10 @@
   &:after {
     border-color: var(--color-primary-active);
   }
+}
+.qs-datepicker .qs-arrow.qs-right:after,
+.qs-datepicker .qs-arrow.qs-left:after {
+  border-color: var(--color-on-background);
 }
 .qs-datepicker .qs-arrow.qs-right:after {
   border-left: 0;
