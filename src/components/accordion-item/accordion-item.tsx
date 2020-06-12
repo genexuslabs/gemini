@@ -35,7 +35,7 @@ export class AccordionItem {
   @Event() accordionItemClicked: EventEmitter;
   @Event() accordionItemLoaded: EventEmitter;
 
-  tabClickedHandler() {
+  itemClickedHandler() {
     this.accordionItemClicked.emit(this.itemId);
   }
 
@@ -47,23 +47,23 @@ export class AccordionItem {
         iType = "chevron-up";
         iColor = "onbackground";
       } else {
-        //tab alternate
+        //item alternate
         iType = "chevron-up";
         iColor = "negative";
       }
     } else {
-      //tab closed
+      //item closed
       if (this.mode === "classical") {
         if (this.disabled) {
           iType = "chevron-down";
           iColor = "negative";
         } else {
-          //tab not disabled
+          //item not disabled
           iType = "chevron-down";
           iColor = "onbackground";
         }
       } else {
-        //tab alternate
+        //item alternate
         iType = "chevron-down";
         iColor = "negative";
       }
@@ -84,16 +84,19 @@ export class AccordionItem {
     return (
       <div
         class={{
-          tab: true,
-          "tab--disabled": this.disabled === true
+          item: true,
+          "item--disabled": this.disabled === true
         }}
       >
-        <header class="tab__header" onClick={this.tabClickedHandler.bind(this)}>
-          <div class="tab__header__title">{this.itemTitle}</div>
+        <header
+          class="item__header"
+          onClick={this.itemClickedHandler.bind(this)}
+        >
+          <div class="item__header__title">{this.itemTitle}</div>
           {this.printIcon()}
         </header>
         {this.status === "open" && !this.disabled ? (
-          <div class="tab__container">
+          <div class="item__container">
             <slot></slot>
           </div>
         ) : (

@@ -5,7 +5,7 @@
   &:last-child {
     margin-bottom: 0;
   }
-  .tab {
+  .item {
     margin-bottom: var(--spacing-comp-02);
 
     &__header {
@@ -40,10 +40,10 @@
 }
 //Classical version disabled
 :host([mode="classical"]) {
-  .tab--disabled {
+  .item--disabled {
     cursor: not-allowed;
     pointer-events: none;
-    .tab__header {
+    .item__header {
       background-color: var(--color-primary-disabled);
       &__title {
         color: var(--color-on-disabled);
@@ -56,7 +56,7 @@
 
 //Alternate aesthetic version
 :host([mode="alternate"]) {
-  .tab {
+  .item {
     background-color: var(--gray-01);
     border: var(--border-width-sm) var(--border-style-regular) var(--gray-03);
     &__header {
@@ -101,7 +101,7 @@
 
 //Alternate aesthetic version disabled
 :host([mode="alternate"]) {
-  .tab--disabled {
+  .item--disabled {
     cursor: not-allowed;
     pointer-events: none;
     gxg-icon {
