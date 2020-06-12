@@ -60,16 +60,16 @@ describe("gxg-accordion single tab open", () => {
     //accordion1
     expect(accordion1Icon).toEqualAttribute("type", "chevron-up");
     expect(accordion1Icon).toEqualAttribute("size", "small");
-    expect(accordion1Icon).toEqualAttribute("color", "onbackground");
+    expect(accordion1Icon).toEqualAttribute("color", "alwaysblack");
 
     //accordion2
     expect(accordion2Icon).toEqualAttribute("type", "chevron-down");
     expect(accordion2Icon).toEqualAttribute("size", "small");
-    expect(accordion2Icon).toEqualAttribute("color", "onbackground");
+    expect(accordion2Icon).toEqualAttribute("color", "alwaysblack");
 
     //accordion3
     expect(accordion3Icon).toEqualAttribute("type", "chevron-down");
     expect(accordion3Icon).toEqualAttribute("size", "small");
-    expect(accordion3Icon).toEqualAttribute("color", "onbackground");
+    expect(accordion3Icon).toEqualAttribute("color", "alwaysblack");
   });
 });

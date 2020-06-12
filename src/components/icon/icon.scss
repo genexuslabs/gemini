@@ -4,7 +4,7 @@ ICON
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
-:host(.svgIcon) {
+:host {
   // margin-right: 0;
 
   display: inline-flex;

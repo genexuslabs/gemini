@@ -3,11 +3,19 @@
 
 :host {
   hr {
-    border-top: none;
+    border-top: 0;
+    border-color: var(--gray-02-hc);
+    margin-top: var(--spacing-lay-s);
+    margin-bottom: var(--spacing-lay-s);
   }
 }
-:host([style="solid"]) {
+:host([type="solid"]) {
   hr {
     border-style: solid;
+  }
+}
+:host([type="dashed"]) {
+  hr {
+    border-style: dashed;
   }
 }
