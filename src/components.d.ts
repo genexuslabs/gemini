@@ -420,10 +420,6 @@ export namespace Components {
   }
   interface GxgHr {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled: boolean;
-    /**
      * The hr style
      */
     type: string;
@@ -1381,10 +1377,6 @@ declare namespace LocalJSX {
     warning?: boolean;
   }
   interface GxgHr {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled?: boolean;
     /**
      * The hr style
      */

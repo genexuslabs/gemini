@@ -23,7 +23,6 @@
     text-transform: uppercase;
     color: var(--color-black);
     letter-spacing: var(--letter-spacing-regular);
-    background: var(--color-white);
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -40,6 +39,7 @@
     -moz-box-shadow: none;
     box-shadow: none;
     transition: box-shadow 0.2s ease-in-out;
+    background: transparent;
     @include ui-animation(box-shadow);
 
     &:after {
