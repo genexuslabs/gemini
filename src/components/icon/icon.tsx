@@ -149,6 +149,9 @@ export class Icon {
     return (
       <Host aria-label={this.type}>
         <div
+          class={{
+            "svg-icon-native": true
+          }}
           style={{
             "--icon-color": this.mapColorToCssVar(COLOR_MAPPINGS[this.color]),
             "--icon-color-default": this.mapColorToCssVar(

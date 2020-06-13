@@ -17,32 +17,9 @@ describe("gxg-icon", () => {
     expect(icon).toHaveClass("hydrated");
   });
 
-  it("has the right classes", async () => {
-    await page.waitForChanges();
-    expect(icon.classList.contains("svgIcon")).toBe(true);
-  });
-
   it("has aria label", async () => {
     await page.waitForChanges();
     expect(icon.getAttribute("aria-label")).toBe("duplicate");
-  });
-
-  //Check colors
-  it("has the right colors", async () => {
-    //warning
-    icon.setProperty("color", "warning");
-    await page.waitForChanges();
-    expect(icon.classList.contains("color-warning")).toBe(true);
-
-    //success
-    icon.setProperty("color", "success");
-    await page.waitForChanges();
-    expect(icon.classList.contains("color-success")).toBe(true);
-
-    //error
-    icon.setProperty("color", "error");
-    await page.waitForChanges();
-    expect(icon.classList.contains("color-error")).toBe(true);
   });
 
   //Check size

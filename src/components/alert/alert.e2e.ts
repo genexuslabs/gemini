@@ -43,13 +43,11 @@ describe("gxg-alert-more-info", () => {
   it("has the right attributes", async () => {
     //more info icon
     expect(moreInfoIcon).toEqualAttribute("aria-label", "more-info");
-    expect(moreInfoIcon).toHaveClass("color-negative");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "more-info");
 
     //more info icon
     expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(moreInfoIcon).toHaveClass("color-negative");
     expect(closeIcon).toEqualAttribute("size", "regular");
     expect(closeIcon).toEqualAttribute("type", "close");
   });
@@ -114,13 +112,11 @@ describe("gxg-alert-error", () => {
   it("has the right attributes", async () => {
     //more info icon
     expect(moreInfoIcon).toEqualAttribute("aria-label", "error");
-    expect(moreInfoIcon).toHaveClass("color-error");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "error");
 
     //more info icon
     expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toHaveClass("color-onbackground");
     expect(closeIcon).toEqualAttribute("size", "regular");
     expect(closeIcon).toEqualAttribute("type", "close");
   });
@@ -164,13 +160,11 @@ describe("gxg-alert-success", () => {
   it("has the right attributes", async () => {
     //more info icon
     expect(moreInfoIcon).toEqualAttribute("aria-label", "success");
-    expect(moreInfoIcon).toHaveClass("color-success");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "success");
 
     //more info icon
     expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toHaveClass("color-onbackground");
     expect(closeIcon).toEqualAttribute("size", "regular");
     expect(closeIcon).toEqualAttribute("type", "close");
   });
@@ -214,13 +208,11 @@ describe("gxg-alert-warning", () => {
   it("has the right attributes", async () => {
     //more info icon
     expect(moreInfoIcon).toEqualAttribute("aria-label", "warning");
-    expect(moreInfoIcon).toHaveClass("color-warning");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "warning");
 
     //more info icon
     expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toHaveClass("color-onbackground");
     expect(closeIcon).toEqualAttribute("size", "regular");
     expect(closeIcon).toEqualAttribute("type", "close");
   });
