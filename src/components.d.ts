@@ -418,12 +418,6 @@ export namespace Components {
      */
     warning: boolean;
   }
-  interface GxgHr {
-    /**
-     * The hr style
-     */
-    type: string;
-  }
   interface GxgIcon {
     /**
      * The color of the icon.
@@ -542,6 +536,12 @@ export namespace Components {
      * The select width
      */
     width: string;
+  }
+  interface GxgSeparator {
+    /**
+     * The hr style
+     */
+    type: string;
   }
   interface GxgSlider {
     /**
@@ -797,11 +797,6 @@ declare global {
     prototype: HTMLGxgFormTextareaElement;
     new (): HTMLGxgFormTextareaElement;
   };
-  interface HTMLGxgHrElement extends Components.GxgHr, HTMLStencilElement {}
-  var HTMLGxgHrElement: {
-    prototype: HTMLGxgHrElement;
-    new (): HTMLGxgHrElement;
-  };
   interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
@@ -846,6 +841,13 @@ declare global {
   var HTMLGxgSelectElement: {
     prototype: HTMLGxgSelectElement;
     new (): HTMLGxgSelectElement;
+  };
+  interface HTMLGxgSeparatorElement
+    extends Components.GxgSeparator,
+      HTMLStencilElement {}
+  var HTMLGxgSeparatorElement: {
+    prototype: HTMLGxgSeparatorElement;
+    new (): HTMLGxgSeparatorElement;
   };
   interface HTMLGxgSliderElement
     extends Components.GxgSlider,
@@ -952,7 +954,6 @@ declare global {
     "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
-    "gxg-hr": HTMLGxgHrElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
@@ -960,6 +961,7 @@ declare global {
     "gxg-option": HTMLGxgOptionElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-select": HTMLGxgSelectElement;
+    "gxg-separator": HTMLGxgSeparatorElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
     "gxg-spacer-one": HTMLGxgSpacerOneElement;
@@ -1376,12 +1378,6 @@ declare namespace LocalJSX {
      */
     warning?: boolean;
   }
-  interface GxgHr {
-    /**
-     * The hr style
-     */
-    type?: string;
-  }
   interface GxgIcon {
     /**
      * The color of the icon.
@@ -1503,6 +1499,12 @@ declare namespace LocalJSX {
      * The select width
      */
     width?: string;
+  }
+  interface GxgSeparator {
+    /**
+     * The hr style
+     */
+    type?: string;
   }
   interface GxgSlider {
     /**
@@ -1661,7 +1663,6 @@ declare namespace LocalJSX {
     "gxg-form-radio-group": GxgFormRadioGroup;
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
-    "gxg-hr": GxgHr;
     "gxg-icon": GxgIcon;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
@@ -1669,6 +1670,7 @@ declare namespace LocalJSX {
     "gxg-option": GxgOption;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-select": GxgSelect;
+    "gxg-separator": GxgSeparator;
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
     "gxg-spacer-one": GxgSpacerOne;
@@ -1720,7 +1722,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
-      "gxg-hr": LocalJSX.GxgHr & JSXBase.HTMLAttributes<HTMLGxgHrElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
@@ -1733,6 +1734,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-select": LocalJSX.GxgSelect &
         JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
+      "gxg-separator": LocalJSX.GxgSeparator &
+        JSXBase.HTMLAttributes<HTMLGxgSeparatorElement>;
       "gxg-slider": LocalJSX.GxgSlider &
         JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
       "gxg-spacer-layout": LocalJSX.GxgSpacerLayout &
