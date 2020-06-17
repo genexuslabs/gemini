@@ -50,7 +50,7 @@ TYPOGRAPHY
 @mixin gxg-text {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   letter-spacing: var(--letter-spacing-xs);
   color: var(--color-on-background);
   text-align: left;

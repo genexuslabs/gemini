@@ -1,4 +1,12 @@
-import { Component, Element, h, Listen, State, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  State,
+  Prop
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-accordion",
@@ -12,6 +20,11 @@ export class Accordion {
   @Prop() disabled = false;
 
   /**
+   * Whether the accordion is fullwidth or not
+   */
+  @Prop() fullWidth = false;
+
+  /**
    * Wether only one accordion can be open at the same time or not.
    */
   @Prop() singleItemOpen = false;
@@ -20,6 +33,16 @@ export class Accordion {
    * The aesthetical mode
    */
   @Prop() mode: mode = "classical";
+
+  /**
+   * The padding for the alternative version
+   */
+  @Prop() padding: padding = "xs";
+
+  /**
+   * The accordion width
+   */
+  @Prop() width = "360px";
 
   @State() accordions: HTMLGxgAccordionItemElement[];
 
@@ -111,6 +134,10 @@ export class Accordion {
         "mode",
         this.mode
       );
+      (accordion as HTMLGxgAccordionItemElement).setAttribute(
+        "padding",
+        this.padding
+      );
       if (this.disabled) {
         (accordion as HTMLGxgAccordionItemElement).setAttribute(
           "disabled",
@@ -121,8 +148,17 @@ export class Accordion {
   }
 
   render() {
-    return <slot></slot>;
+    return (
+      <Host
+        style={{
+          width: this.width
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
   }
 }
 
-export type mode = "classical" | "alternate";
+export type mode = "classical" | "slim" | "boxed";
+export type padding = "xs" | "s" | "m" | "l";

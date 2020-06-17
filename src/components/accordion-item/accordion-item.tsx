@@ -1,5 +1,7 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { IconType, Color } from "../icon/icon";
+import { IconType, Color, Size } from "../icon/icon";
+import { mode } from "../accordion/accordion";
+import { padding } from "../accordion/accordion";
 
 @Component({
   tag: "gxg-accordion-item",
@@ -28,9 +30,14 @@ export class AccordionItem {
   @Prop() itemTitle: string;
 
   /**
+   * The toggle padding (only for "boxed" mode)
+   */
+  @Prop({ reflect: true }) padding: padding = "xs";
+
+  /**
    * The toggle state
    */
-  @Prop() status: status = "closed";
+  @Prop({ reflect: true }) status: status = "closed";
 
   @Event() accordionItemClicked: EventEmitter;
   @Event() accordionItemLoaded: EventEmitter;
@@ -42,8 +49,9 @@ export class AccordionItem {
   printIcon() {
     let iType: IconType;
     let iColor: Color;
+    let iSize: Size;
     if (this.status === "open" && !this.disabled) {
-      if (this.mode === "classical") {
+      if (this.mode === "classical" || this.mode === "boxed") {
         iType = "chevron-up";
         iColor = "alwaysblack";
       } else {
@@ -53,7 +61,7 @@ export class AccordionItem {
       }
     } else {
       //item closed
-      if (this.mode === "classical") {
+      if (this.mode === "classical" || this.mode === "boxed") {
         if (this.disabled) {
           iType = "chevron-down";
           iColor = "negative";
@@ -68,8 +76,13 @@ export class AccordionItem {
         iColor = "negative";
       }
     }
+    if (this.mode === "boxed") {
+      iSize = "regular";
+    } else {
+      iSize = "small";
+    }
     return (
-      <gxg-icon slot="icon" size="small" type={iType} color={iColor}></gxg-icon>
+      <gxg-icon slot="icon" size={iSize} type={iType} color={iColor}></gxg-icon>
     );
   }
 
@@ -107,5 +120,4 @@ export class AccordionItem {
   }
 }
 
-export type mode = "classical" | "alternate";
 export type status = "open" | "closed";

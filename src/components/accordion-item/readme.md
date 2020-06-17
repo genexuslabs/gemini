@@ -4,13 +4,14 @@
 
 ## Properties
 
-| Property              | Attribute    | Description                                          | Type                         | Default       |
-| --------------------- | ------------ | ---------------------------------------------------- | ---------------------------- | ------------- |
-| `disabled`            | `disabled`   | The state of the toggle. Whether is disabled or not. | `boolean`                    | `false`       |
-| `itemId` _(required)_ | `item-id`    | The toggle id                                        | `string`                     | `undefined`   |
-| `itemTitle`           | `item-title` | The toggle label                                     | `string`                     | `undefined`   |
-| `mode`                | `mode`       | The aesthetical mode                                 | `"alternate" \| "classical"` | `"classical"` |
-| `status`              | `status`     | The toggle state                                     | `"closed" \| "open"`         | `"closed"`    |
+| Property              | Attribute    | Description                                          | Type                               | Default       |
+| --------------------- | ------------ | ---------------------------------------------------- | ---------------------------------- | ------------- |
+| `disabled`            | `disabled`   | The state of the toggle. Whether is disabled or not. | `boolean`                          | `false`       |
+| `itemId` _(required)_ | `item-id`    | The toggle id                                        | `string`                           | `undefined`   |
+| `itemTitle`           | `item-title` | The toggle label                                     | `string`                           | `undefined`   |
+| `mode`                | `mode`       | The aesthetical mode                                 | `"boxed" \| "classical" \| "slim"` | `"classical"` |
+| `padding`             | `padding`    | The toggle padding (only for "boxed" mode)           | `"l" \| "m" \| "s" \| "xs"`        | `"xs"`        |
+| `status`              | `status`     | The toggle state                                     | `"closed" \| "open"`               | `"closed"`    |
 
 ## Events
 

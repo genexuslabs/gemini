@@ -5,21 +5,22 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { mode } from "./components/accordion/accordion";
+import { mode, padding } from "./components/accordion/accordion";
 import {
   mode as mode1,
-  status
-} from "./components/accordion-item/accordion-item";
+  padding as padding1
+} from "./components/accordion/accordion";
+import { status } from "./components/accordion-item/accordion-item";
 import {
   ActiveTime,
   AlertPosition,
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { padding } from "./components/box/box";
+import { padding as padding2 } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadow, padding as padding1 } from "./components/card/card";
+import { boxShadow, padding as padding3 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Message } from "./components/form-message/form-message";
@@ -36,13 +37,25 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * Whether the accordion is fullwidth or not
+     */
+    fullWidth: boolean;
+    /**
      * The aesthetical mode
      */
     mode: mode;
     /**
+     * The padding for the alternative version
+     */
+    padding: padding;
+    /**
      * Wether only one accordion can be open at the same time or not.
      */
     singleItemOpen: boolean;
+    /**
+     * The accordion width
+     */
+    width: string;
   }
   interface GxgAccordionItem {
     /**
@@ -61,6 +74,10 @@ export namespace Components {
      * The aesthetical mode
      */
     mode: mode;
+    /**
+     * The toggle padding (only for "boxed" mode)
+     */
+    padding: padding;
     /**
      * The toggle state
      */
@@ -984,13 +1001,25 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * Whether the accordion is fullwidth or not
+     */
+    fullWidth?: boolean;
+    /**
      * The aesthetical mode
      */
     mode?: mode;
     /**
+     * The padding for the alternative version
+     */
+    padding?: padding;
+    /**
      * Wether only one accordion can be open at the same time or not.
      */
     singleItemOpen?: boolean;
+    /**
+     * The accordion width
+     */
+    width?: string;
   }
   interface GxgAccordionItem {
     /**
@@ -1011,6 +1040,10 @@ declare namespace LocalJSX {
     mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
     onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
+    /**
+     * The toggle padding (only for "boxed" mode)
+     */
+    padding?: padding;
     /**
      * The toggle state
      */
