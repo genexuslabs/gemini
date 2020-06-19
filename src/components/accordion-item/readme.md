@@ -10,8 +10,7 @@
 | `itemId` _(required)_ | `item-id`    | The toggle id                                        | `string`                           | `undefined`   |
 | `itemTitle`           | `item-title` | The toggle label                                     | `string`                           | `undefined`   |
 | `mode`                | `mode`       | The aesthetical mode                                 | `"boxed" \| "classical" \| "slim"` | `"classical"` |
-| `padding`             | `padding`    | The toggle padding (only for "boxed" mode)           | `"l" \| "m" \| "s" \| "xs"`        | `"xs"`        |
-| `status`              | `status`     | The toggle state                                     | `"closed" \| "open"`               | `"closed"`    |
+| `open`                | `open`       | The toggle state                                     | `boolean`                          | `false`       |
 
 ## Events
 

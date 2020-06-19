@@ -16,7 +16,7 @@ stories
   .add("Classical", () => {
     //Title
     const labelTitle = "Title";
-    const defaultValueTitle = "item 1";
+    const defaultValueTitle = "Dr. Seuss";
     const valueTitle = text(labelTitle, defaultValueTitle);
 
     //Content
@@ -45,12 +45,6 @@ stories
       defaultValueInitialState
     );
 
-    function initialState() {
-      if (valueInitialState === true) {
-        return "open";
-      }
-    }
-
     //Single Item Open
     const labelSingleItemOpen =
       "Single Item Open (only one accordion at a time can be open at the same time)";
@@ -69,19 +63,9 @@ stories
       }
     }
 
-    //Mode
-    const labelMode = "Mode";
-    const optionsMode = {
-      "Classical (default)": "classical",
-      Slim: "slim",
-      Boxed: "boxed"
-    };
-    const defaultValueMode = "classical";
-    const valueMode = radios(labelMode, optionsMode, defaultValueMode);
-
     //One item disabled
     const labelSingleItemDisabled =
-      "Single Item Disabled (only the first accordion for this example)";
+      "Item Disabled (only the first accordion for this example)";
     const defaultValueSingleItemDisabled = false;
 
     const valueSingleItemDisabled = boolean(
@@ -102,6 +86,12 @@ stories
       }
     }
 
+    function itemOpen() {
+      if (valueInitialState) {
+        return "open";
+      }
+    }
+
     function singleDisabled() {
       if (valueSingleItemDisabled) {
         return "disabled";
@@ -109,12 +99,12 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion mode="${valueMode}" ${fullWidth()} ${allDisabled()} ${singleItemOpen()}>
-    <gxg-accordion-item  status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
-    <gxg-accordion-item item-title="item 2" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
+  <gxg-accordion ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="classical">
+    <gxg-accordion-item item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()} ${itemOpen()}>${valueContent}</gxg-accordion-item>
+    <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
-    <gxg-accordion-item item-title="item 3" item-id="tab 3">“I've learned that people will forget what you said, people will forget
+    <gxg-accordion-item item-title="Maya Angelou" item-id="tab 3">“I've learned that people will forget what you said, people will forget
     what you did, but people will never forget how you made them feel.” ―
     Maya Angelou</gxg-accordion-item>
   </gxg-accordion>`;
@@ -122,7 +112,7 @@ stories
   .add("Slim", () => {
     //Title
     const labelTitle = "Title";
-    const defaultValueTitle = "item 1";
+    const defaultValueTitle = "Dr. Seuss";
     const valueTitle = text(labelTitle, defaultValueTitle);
 
     //Content
@@ -175,19 +165,9 @@ stories
       }
     }
 
-    //Mode
-    const labelMode = "Mode";
-    const optionsMode = {
-      "Classical (default)": "classical",
-      Slim: "slim",
-      Boxed: "boxed"
-    };
-    const defaultValueMode = "slim";
-    const valueMode = radios(labelMode, optionsMode, defaultValueMode);
-
     //One item disabled
     const labelSingleItemDisabled =
-      "Single Item Disabled (only the first accordion for this example)";
+      "Item Disabled (only the first accordion for this example)";
     const defaultValueSingleItemDisabled = false;
 
     const valueSingleItemDisabled = boolean(
@@ -215,12 +195,12 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion mode="${valueMode}" ${fullWidth()} ${allDisabled()} ${singleItemOpen()}>
-    <gxg-accordion-item  status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
-    <gxg-accordion-item item-title="item 2" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
+  <gxg-accordion ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="slim">
+    <gxg-accordion-item  ${initialState()} item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
+    <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
-    <gxg-accordion-item item-title="item 3" item-id="tab 3">“I've learned that people will forget what you said, people will forget
+    <gxg-accordion-item item-title="Maya Angelou" item-id="tab 3">“I've learned that people will forget what you said, people will forget
     what you did, but people will never forget how you made them feel.” ―
     Maya Angelou</gxg-accordion-item>
   </gxg-accordion>`;
@@ -228,7 +208,7 @@ stories
   .add("Boxed", () => {
     //Title
     const labelTitle = "Title";
-    const defaultValueTitle = "item 1";
+    const defaultValueTitle = "Dr. Seuss";
     const valueTitle = text(labelTitle, defaultValueTitle);
 
     //Content
@@ -281,19 +261,9 @@ stories
       }
     }
 
-    //Mode
-    const labelMode = "Mode";
-    const optionsMode = {
-      "Classical (default)": "classical",
-      Slim: "slim",
-      Boxed: "boxed"
-    };
-    const defaultValueMode = "boxed";
-    const valueMode = radios(labelMode, optionsMode, defaultValueMode);
-
     //One item disabled
     const labelSingleItemDisabled =
-      "Single Item Disabled (only the first accordion for this example)";
+      "Item Disabled (only the first accordion for this example)";
     const defaultValueSingleItemDisabled = false;
 
     const valueSingleItemDisabled = boolean(
@@ -321,21 +291,12 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-    <gxg-accordion padding="${select(
-      "Padding (only available for 'Boxed' type)",
-      {
-        xs: "xs",
-        s: "s",
-        m: "m",
-        l: "l"
-      },
-      "xs"
-    )}" mode="${valueMode}" ${fullWidth()} ${allDisabled()} ${singleItemOpen()}>
-      <gxg-accordion-item  status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
-      <gxg-accordion-item item-title="item 2" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
+    <gxg-accordion ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="boxed">
+      <gxg-accordion-item ${initialState()} item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
+      <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
       treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
       the Goblet of Fire</gxg-accordion-item> 
-      <gxg-accordion-item item-title="item 3" item-id="tab 3">“I've learned that people will forget what you said, people will forget
+      <gxg-accordion-item item-title="Maya Angelou" item-id="tab 3">“I've learned that people will forget what you said, people will forget
       what you did, but people will never forget how you made them feel.” ―
       Maya Angelou</gxg-accordion-item>
     </gxg-accordion>`;

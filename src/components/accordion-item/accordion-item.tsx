@@ -1,7 +1,13 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Event,
+  Element,
+  EventEmitter
+} from "@stencil/core";
 import { IconType, Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
-import { padding } from "../accordion/accordion";
 
 @Component({
   tag: "gxg-accordion-item",
@@ -9,6 +15,7 @@ import { padding } from "../accordion/accordion";
   shadow: true
 })
 export class AccordionItem {
+  @Element() el: HTMLElement;
   /**
    * The state of the toggle. Whether is disabled or not.
    */
@@ -30,14 +37,9 @@ export class AccordionItem {
   @Prop() itemTitle: string;
 
   /**
-   * The toggle padding (only for "boxed" mode)
-   */
-  @Prop({ reflect: true }) padding: padding = "xs";
-
-  /**
    * The toggle state
    */
-  @Prop({ reflect: true }) status: status = "closed";
+  @Prop() open = false;
 
   @Event() accordionItemClicked: EventEmitter;
   @Event() accordionItemLoaded: EventEmitter;
@@ -47,50 +49,66 @@ export class AccordionItem {
   }
 
   printIcon() {
-    let iType: IconType;
+    const iType: IconType = "chevron-right";
     let iColor: Color;
     let iSize: Size;
-    if (this.status === "open" && !this.disabled) {
-      if (this.mode === "classical" || this.mode === "boxed") {
-        iType = "chevron-up";
-        iColor = "alwaysblack";
-      } else {
-        //item alternate
-        iType = "chevron-up";
-        iColor = "negative";
-      }
+    //icon color
+    if (this.mode === "slim" || (this.disabled && this.mode == "classical")) {
+      iColor = "negative";
+    } else if (this.mode === "boxed" && this.disabled) {
+      iColor = "disabled";
     } else {
-      //item closed
-      if (this.mode === "classical" || this.mode === "boxed") {
-        if (this.disabled) {
-          iType = "chevron-down";
-          iColor = "negative";
-        } else {
-          //item not disabled
-          iType = "chevron-down";
-          iColor = "alwaysblack";
-        }
-      } else {
-        //item alternate
-        iType = "chevron-down";
-        iColor = "negative";
-      }
+      iColor = "onbackground";
     }
+    //icon size
     if (this.mode === "boxed") {
       iSize = "regular";
     } else {
       iSize = "small";
     }
+
     return (
-      <gxg-icon slot="icon" size={iSize} type={iType} color={iColor}></gxg-icon>
+      <span class="icon-wrapper">
+        <gxg-icon
+          slot="icon"
+          size={iSize}
+          type={iType}
+          color={iColor}
+        ></gxg-icon>
+      </span>
     );
   }
 
   componentDidLoad() {
+    //Resize Observer
+    const myObserver = new ResizeObserver(entries => {
+      entries.forEach(() => {
+        this.setMaxHeight();
+      });
+    });
+    myObserver.observe(this.el);
+
     if (!this.itemId) {
       console.warn("gxg-accordion-item 'itemId' property is mandatory.");
     }
     this.accordionItemLoaded.emit(this.itemId);
+
+    //Set max height
+    this.setMaxHeight();
+  }
+
+  setMaxHeight() {
+    //Set max-height to ".item__outer-container"
+    let outerContainerMaxHeight = "0px";
+    outerContainerMaxHeight =
+      (this.el.shadowRoot.querySelector(
+        ".item__inner-container"
+      ) as HTMLElement).offsetHeight + "px";
+
+    this.el.style.setProperty(
+      "--outerContainerMaxHeight",
+      outerContainerMaxHeight
+    );
   }
 
   render() {
@@ -98,7 +116,8 @@ export class AccordionItem {
       <div
         class={{
           item: true,
-          "item--disabled": this.disabled === true
+          "item--disabled": this.disabled === true,
+          "item--open": this.open === true && this.disabled === false
         }}
       >
         <header
@@ -108,16 +127,12 @@ export class AccordionItem {
           <div class="item__header__title">{this.itemTitle}</div>
           {this.printIcon()}
         </header>
-        {this.status === "open" && !this.disabled ? (
-          <div class="item__container">
+        <div class="item__outer-container">
+          <div class="item__inner-container">
             <slot></slot>
           </div>
-        ) : (
-          ""
-        )}
+        </div>
       </div>
     );
   }
 }
-
-export type status = "open" | "closed";

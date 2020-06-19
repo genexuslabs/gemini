@@ -6,21 +6,17 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { mode, padding } from "./components/accordion/accordion";
-import {
-  mode as mode1,
-  padding as padding1
-} from "./components/accordion/accordion";
-import { status } from "./components/accordion-item/accordion-item";
+import { mode as mode1 } from "./components/accordion/accordion";
 import {
   ActiveTime,
   AlertPosition,
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { padding as padding2 } from "./components/box/box";
+import { padding as padding1 } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadow, padding as padding3 } from "./components/card/card";
+import { boxShadow, padding as padding2 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Message } from "./components/form-message/form-message";
@@ -75,13 +71,9 @@ export namespace Components {
      */
     mode: mode;
     /**
-     * The toggle padding (only for "boxed" mode)
-     */
-    padding: padding;
-    /**
      * The toggle state
      */
-    status: status;
+    open: boolean;
   }
   interface GxgAlert {
     /**
@@ -1041,13 +1033,9 @@ declare namespace LocalJSX {
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
     onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
     /**
-     * The toggle padding (only for "boxed" mode)
-     */
-    padding?: padding;
-    /**
      * The toggle state
      */
-    status?: status;
+    open?: boolean;
   }
   interface GxgAlert {
     /**

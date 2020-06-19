@@ -54,20 +54,20 @@ export class Accordion {
       const id = accordion.itemId;
       if (this.singleItemOpen) {
         if (id === event.detail) {
-          if (accordion.status === "open") {
-            accordion.status = "closed";
+          if (accordion.open === true) {
+            accordion.open = false;
           } else {
-            accordion.status = "open";
+            accordion.open = true;
           }
         } else {
-          accordion.status = "closed";
+          accordion.open = false;
         }
       } else {
         if (id === event.detail) {
-          if (accordion.status === "open") {
-            accordion.status = "closed";
+          if (accordion.open === true) {
+            accordion.open = false;
           } else {
-            accordion.status = "open";
+            accordion.open = true;
           }
         }
       }
@@ -89,37 +89,41 @@ export class Accordion {
       )
     );
 
+    //mode
+    if (this.mode === "slim") {
+      this.accordions.forEach(accordion => {
+        (accordion as HTMLGxgAccordionItemElement).mode = "slim";
+      });
+    }
+    if (this.mode === "boxed") {
+      this.accordions.forEach(accordion => {
+        (accordion as HTMLGxgAccordionItemElement).mode = "boxed";
+      });
+    }
     //Disabled
     if (this.disabled) {
       this.accordions.forEach(accordion => {
-        (accordion as HTMLGxgAccordionItemElement).status = "closed";
+        (accordion as HTMLGxgAccordionItemElement).disabled = true;
+        (accordion as HTMLGxgAccordionItemElement).open = false;
       });
     }
 
     if (this.singleItemOpen) {
-      /* If "single-item-open" is true, and more than one accordion has the "open" property, 
+      /* If "single-item-open" is true, and more than one accordion has the "open" property,
       show only the first accordion open.*/
       let numberOfOpenAccordions = 0;
       this.accordions.forEach(accordion => {
-        if (
-          (accordion as HTMLGxgAccordionItemElement).getAttribute("status") ===
-          "open"
-        ) {
+        if ((accordion as HTMLGxgAccordionItemElement).hasAttribute("open")) {
           numberOfOpenAccordions++;
         }
       });
       if (numberOfOpenAccordions > 1) {
         let firstOpenAccordionFound = false;
         this.accordions.forEach(accordion => {
-          if (
-            (accordion as HTMLGxgAccordionItemElement).getAttribute(
-              "status"
-            ) === "open"
-          ) {
+          if ((accordion as HTMLGxgAccordionItemElement).hasAttribute("open")) {
             if (firstOpenAccordionFound) {
-              (accordion as HTMLGxgAccordionItemElement).setAttribute(
-                "status",
-                "closed"
+              (accordion as HTMLGxgAccordionItemElement).removeAttribute(
+                "open"
               );
             } else {
               firstOpenAccordionFound = true;
@@ -128,30 +132,13 @@ export class Accordion {
         });
       }
     }
-
-    this.accordions.forEach(accordion => {
-      (accordion as HTMLGxgAccordionItemElement).setAttribute(
-        "mode",
-        this.mode
-      );
-      (accordion as HTMLGxgAccordionItemElement).setAttribute(
-        "padding",
-        this.padding
-      );
-      if (this.disabled) {
-        (accordion as HTMLGxgAccordionItemElement).setAttribute(
-          "disabled",
-          "disabled"
-        );
-      }
-    });
   }
 
   render() {
     return (
       <Host
         style={{
-          width: this.width
+          maxWidth: this.width
         }}
       >
         <slot></slot>
