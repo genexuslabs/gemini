@@ -9,6 +9,7 @@
     margin-bottom: var(--spacing-lay-s);
   }
 }
+//style
 :host([type="solid"]) {
   hr {
     border-style: solid;
@@ -17,5 +18,36 @@
 :host([type="dashed"]) {
   hr {
     border-style: dashed;
+  }
+}
+//margin
+:host([margin="xs"]) {
+  hr {
+    margin-top: var(--spacing-lay-xs);
+    margin-bottom: var(--spacing-lay-xs);
+  }
+}
+:host([margin="s"]) {
+  hr {
+    margin-top: var(--spacing-lay-s);
+    margin-bottom: var(--spacing-lay-s);
+  }
+}
+:host([margin="m"]) {
+  hr {
+    margin-top: var(--spacing-lay-m);
+    margin-bottom: var(--spacing-lay-m);
+  }
+}
+:host([margin="l"]) {
+  hr {
+    margin-top: var(--spacing-lay-l);
+    margin-bottom: var(--spacing-lay-l);
+  }
+}
+:host([margin="xl"]) {
+  hr {
+    margin-top: var(--spacing-lay-xl);
+    margin-bottom: var(--spacing-lay-xl);
   }
 }

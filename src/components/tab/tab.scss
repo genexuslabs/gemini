@@ -4,18 +4,24 @@
 //   height: 100%;
 // }
 :host {
+  --outerContainerMaxHeight: "0px";
   height: 100%;
   display: block;
-  .tab {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
+
+  .outer-container {
+    max-height: 0;
+    overflow: hidden;
+    @include ui-animation(max-height);
+  }
+  .inner-container {
     @include gxg-text();
+    padding: var(--spacing-comp-03) var(--spacing-comp-03);
   }
 }
-.tab {
-  padding: var(--spacing-lay-m);
-  font-family: var(--font-family-primary);
+:host([is-selected]) {
+  .outer-container {
+    max-height: var(--outerContainerMaxHeight);
+  }
 }
 :host(.not-selected) {
   display: none;

@@ -53,7 +53,7 @@ TEXT
 :host {
   input[type="text"] {
     @include form-element-common-styles();
-    height: var(--spacing-comp-05);
+    height: 20px;
     box-sizing: border-box;
 
     &:focus {

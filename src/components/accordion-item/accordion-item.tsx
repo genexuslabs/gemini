@@ -61,10 +61,10 @@ export class AccordionItem {
       iColor = "onbackground";
     }
     //icon size
-    if (this.mode === "boxed") {
-      iSize = "regular";
-    } else {
+    if (this.mode === "slim") {
       iSize = "small";
+    } else {
+      iSize = "regular";
     }
 
     return (

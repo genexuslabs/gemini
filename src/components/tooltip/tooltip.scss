@@ -1,0 +1,68 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  .tooltip {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    text-decoration: none;
+    
+    .tooltiptext {
+      @include gxg-text();
+      visibility: hidden;
+      width: 150px;
+      background-color: var(--gray-08);
+      padding: var(--spacing-comp-02) var(--spacing-comp-03);
+      border-radius: var(--border-width-md);
+      color: var(--color-on-primary);
+      opacity: 0;
+      @include ui-animation(opacity);
+      position: absolute;
+      z-index: 1;
+    }
+
+    &:hover {
+      .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+//position
+:host([position="top"]) {
+  .tooltip {
+    .tooltiptext {
+      bottom: 20px;
+      left: 50%;
+      margin-left: -87px;
+    }
+  }
+}
+:host([position="right"]) {
+  .tooltip {
+    .tooltiptext {
+      top: -5px;
+      left: 105%;
+    }
+  }
+}
+:host([position="bottom"]) {
+  .tooltip {
+    .tooltiptext {
+      top: 20px;
+      left: 50%;
+      margin-left: -87px;
+    }
+  }
+}
+:host([position="left"]) {
+  .tooltip {
+    .tooltiptext {
+      top: -5px;
+      right: 105%;
+    }
+  }
+}

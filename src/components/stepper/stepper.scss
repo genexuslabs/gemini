@@ -23,12 +23,14 @@
     display: inline-flex;
     margin-bottom: 0;
     background-color: transparent;
+    position: relative;
+    top: -2px;
   }
 
   .button {
     display: inline-flex;
     width: var(--spacing-comp-05);
-    height: var(--spacing-comp-05);
+    height: 20px;
     align-items: center;
     justify-content: center;
     border: none;

@@ -53,67 +53,6 @@ gxg-column, .note {
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
-        xs: "xs",
-        s: "s",
-        m: "m"
-      },
-      "s"
-    )}">
-<gxg-column width="content">
-<div class="inner-container">
-Content
-</div>
-</gxg-column>
-<gxg-column width="fluid">
-<div class="inner-container">
-Fluid
-</div>
-</gxg-column>
-</gxg-columns>
-<gxg-columns space="${select(
-      "Column Space",
-      {
-        xs: "xs",
-        s: "s",
-        m: "m"
-      },
-      "s"
-    )}">
-<gxg-column width="1/2">
-<div class="inner-container">
-1/2
-</div>
-</gxg-column>
-<gxg-column width="fluid">
-<div class="inner-container">
-Fluid
-</div>
-</gxg-column>
-</gxg-columns>
-<gxg-columns space="${select(
-      "Column Space",
-      {
-        xs: "xs",
-        s: "s",
-        m: "m"
-      },
-      "s"
-    )}">
-<gxg-column width="1/3">
-<div class="inner-container">
-1/3
-</div>
-</gxg-column>
-<gxg-column width="fluid">
-<div class="inner-container">
-Fluid
-</div>
-</gxg-column>
-</gxg-columns>
-<gxg-columns space="${select(
-      "Column Space",
-      {
         xs: "xs",
         s: "s",
         m: "m"

@@ -6,7 +6,7 @@
     display: inline-flex;
   }
   .box-value {
-    margin-top: 40px;
+    margin-top: 38px;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
@@ -20,7 +20,7 @@
       align-items: center;
       justify-content: center;
       width: var(--spacing-comp-06);
-      height: var(--spacing-comp-05);
+      height: 20px;
       background-color: var(--color-on-primary);
       border-width: var(--border-width-sm);
       border-color: var(--gray-04);

@@ -4,9 +4,10 @@
 
 ## Properties
 
-| Property | Attribute | Description  | Type     | Default   |
-| -------- | --------- | ------------ | -------- | --------- |
-| `type`   | `type`    | The hr style | `string` | `"solid"` |
+| Property | Attribute | Description                  | Type                                | Default   |
+| -------- | --------- | ---------------------------- | ----------------------------------- | --------- |
+| `margin` | `margin`  | The hr top and bottom margin | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`    |
+| `type`   | `type`    | The hr style                 | `string`                            | `"solid"` |
 
 ---
 

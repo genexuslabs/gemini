@@ -10,7 +10,7 @@
   background-color: var(--color-primary-active);
 }
 :host([on]) .toggle__container__knob {
-  left: 26px;
+  left: 29px;
 }
 
 :host([disabled]) {
@@ -31,9 +31,9 @@
 :host {
   .toggle__container {
     width: 48px;
-    height: 24px;
+    height: 20px;
     background-color: var(--gray-03);
-    border-radius: 24px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -43,8 +43,8 @@
     @include ui-animation(background-color);
   }
   .toggle__container__knob {
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     border-radius: 50%;
     background-color: var(--color-on-primary);
     display: block;

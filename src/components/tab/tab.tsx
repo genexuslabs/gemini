@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Element, Prop, h, Host } from "@stencil/core";
 
 @Component({
   tag: "gxg-tab",
@@ -6,24 +6,47 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Tab {
+  @Element() el: HTMLElement;
+
   // Indicate that name should be a public property on the component
   @Prop() tab: string;
-  @Prop() isSelected = false;
+  @Prop({ reflect: true }) isSelected = false;
+
+  componentDidLoad() {
+    //Resize Observer
+    const myObserver = new ResizeObserver(entries => {
+      entries.forEach(() => {
+        this.setMaxHeight();
+      });
+    });
+    myObserver.observe(this.el);
+
+    //Set max height
+    this.setMaxHeight();
+  }
+
+  setMaxHeight() {
+    //Set max-height to ".item__outer-container"
+    let outerContainerMaxHeight = "0px";
+    outerContainerMaxHeight =
+      (this.el.shadowRoot.querySelector(".inner-container") as HTMLElement)
+        .offsetHeight + "px";
+
+    this.el.style.setProperty(
+      "--outerContainerMaxHeight",
+      outerContainerMaxHeight
+    );
+  }
 
   render() {
-    return this.isSelected ? (
-      <Host class="selected">
-        <section
-          class={{
-            tab: true,
-            "tab--selected": this.isSelected === true
-          }}
-        >
-          <slot></slot>
-        </section>
+    return (
+      <Host class={{ open: this.isSelected }}>
+        <div class="outer-container">
+          <div class="inner-container">
+            <slot></slot>
+          </div>
+        </div>
       </Host>
-    ) : (
-      <Host class="not-selected"></Host>
     );
   }
 }

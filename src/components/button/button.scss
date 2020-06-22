@@ -89,7 +89,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
   padding-right: 0;
   padding-left: 0;
   width: var(--spacing-comp-05);
-  height: var(--spacing-comp-05);
+  height: 20px;
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
@@ -211,7 +211,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-right: 0;
   padding-left: 0;
   width: var(--spacing-comp-05);
-  height: var(--spacing-comp-05);
 
   ::slotted([slot="icon"]) {
     --icon-color: #{$gxg-label-color};
@@ -287,7 +286,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-right: 0;
   padding-left: 0;
   width: var(--spacing-comp-05);
-  height: var(--spacing-comp-05);
+  height: 20px;
 
   ::slotted([slot="icon"]) {
     margin-right: 0;

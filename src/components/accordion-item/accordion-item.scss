@@ -12,7 +12,14 @@
     &__header {
       display: flex;
       height: var(--spacing-comp-05);
+
       @include ui-animation(background-color);
+
+      .icon-wrapper {
+        display: flex;
+        align-items: center;
+        padding-right: 2px;
+      }
 
       &:hover {
         cursor: pointer;

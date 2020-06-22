@@ -77,10 +77,10 @@ SELECT
     border-color: var(--gray-05) transparent transparent transparent;
   }
   .select-selected:after {
-    top: 15px;
+    top: 12px;
   }
   .select-selected:before {
-    top: 3px;
+    top: 0;
     transform: rotate(180deg);
   }
 
@@ -96,7 +96,7 @@ SELECT
     padding: var(--spacing-comp-01);
     cursor: pointer;
     font-size: var(--font-size-md);
-    line-height: 1.4em;
+    line-height: 0.95em;
   }
   .select-items div {
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -120,7 +120,7 @@ SELECT
     border-bottom-right-radius: var(--border-radius-md);
     border-bottom-left-radius: var(--border-radius-md);
     max-height: calc(
-      var(--size) * 25px
+      var(--size) * 20px
     ); //25px is the actual height of an option
   }
   /*hide the items when the select box is closed:*/

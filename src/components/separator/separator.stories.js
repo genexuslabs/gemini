@@ -9,11 +9,10 @@ import {
   radios
 } from "@storybook/addon-knobs";
 
-const stories = storiesOf("Hr", module);
+const stories = storiesOf("Separator", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
-stories.add("Hr", () => {
-  //Fullwidth
+stories.add("Separator", () => {
   const labelType = "Type";
   const optionsType = {
     solid: "solid",
@@ -21,6 +20,17 @@ stories.add("Hr", () => {
   };
   const defaultValueType = "solid";
   const valueType = radios(labelType, optionsType, defaultValueType);
+
+  /*Top/Bottom margin*/
+  const labelMargin = "Top/Bottom margin";
+  const optionsMargin = {
+    xs: "xs",
+    s: "s",
+    m: "m",
+    l: "l",
+    xl: "xl"
+  };
+  const defaultValueMargin = "xs";
 
   return `
   <style>
@@ -34,6 +44,10 @@ stories.add("Hr", () => {
   }
   </style>
   <q>The Way Get Started Is To Quit Talking And Begin Doing. – Walt Disney</q>
-    <gxg-hr type="${valueType}"></gxg-hr>
+    <gxg-separator type="${valueType}" margin="${select(
+    labelMargin,
+    optionsMargin,
+    defaultValueMargin
+  )}"></gxg-separator>
     <q>Don’t Let Yesterday Take Up Too Much Of Today. – Will Rogers</q>`;
 });

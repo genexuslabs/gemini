@@ -24,8 +24,10 @@ import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
+import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
 import { Size as Size1 } from "./components/toggle/toggle";
+import { position } from "./components/tooltip/tooltip";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -548,6 +550,10 @@ export namespace Components {
   }
   interface GxgSeparator {
     /**
+     * The hr top and bottom margin
+     */
+    margin: margin;
+    /**
      * The hr style
      */
     type: string;
@@ -688,6 +694,16 @@ export namespace Components {
     icon: IconType;
     subtitle: string;
     title: string;
+  }
+  interface GxgTooltip {
+    /**
+     * The toggle label
+     */
+    label: string;
+    /**
+     * the tooltip position
+     */
+    position: position;
   }
 }
 declare global {
@@ -945,6 +961,13 @@ declare global {
     prototype: HTMLGxgToolbarItemElement;
     new (): HTMLGxgToolbarItemElement;
   };
+  interface HTMLGxgTooltipElement
+    extends Components.GxgTooltip,
+      HTMLStencilElement {}
+  var HTMLGxgTooltipElement: {
+    prototype: HTMLGxgTooltipElement;
+    new (): HTMLGxgTooltipElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -984,6 +1007,7 @@ declare global {
     "gxg-toggle": HTMLGxgToggleElement;
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
+    "gxg-tooltip": HTMLGxgTooltipElement;
   }
 }
 declare namespace LocalJSX {
@@ -1523,6 +1547,10 @@ declare namespace LocalJSX {
   }
   interface GxgSeparator {
     /**
+     * The hr top and bottom margin
+     */
+    margin?: margin;
+    /**
      * The hr style
      */
     type?: string;
@@ -1666,6 +1694,16 @@ declare namespace LocalJSX {
     subtitle?: string;
     title?: string;
   }
+  interface GxgTooltip {
+    /**
+     * The toggle label
+     */
+    label?: string;
+    /**
+     * the tooltip position
+     */
+    position?: position;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -1705,6 +1743,7 @@ declare namespace LocalJSX {
     "gxg-toggle": GxgToggle;
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
+    "gxg-tooltip": GxgTooltip;
   }
 }
 export { LocalJSX as JSX };
@@ -1781,6 +1820,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarElement>;
       "gxg-toolbar-item": LocalJSX.GxgToolbarItem &
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
+      "gxg-tooltip": LocalJSX.GxgTooltip &
+        JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
     }
   }
 }
