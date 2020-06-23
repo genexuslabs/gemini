@@ -32,7 +32,28 @@ describe("gxg-hr", () => {
 
   it("has top and bottom margin", async () => {
     await page.waitForChanges();
+    //xs
+    expect((await hrInner.getComputedStyle()).marginTop).toBe("4px");
+    expect((await hrInner.getComputedStyle()).marginBottom).toBe("4px");
+    //s
+    separator.setAttribute("margin", "s");
+    await page.waitForChanges();
     expect((await hrInner.getComputedStyle()).marginTop).toBe("8px");
     expect((await hrInner.getComputedStyle()).marginBottom).toBe("8px");
+    //m
+    separator.setAttribute("margin", "m");
+    await page.waitForChanges();
+    expect((await hrInner.getComputedStyle()).marginTop).toBe("16px");
+    expect((await hrInner.getComputedStyle()).marginBottom).toBe("16px");
+    //l
+    separator.setAttribute("margin", "l");
+    await page.waitForChanges();
+    expect((await hrInner.getComputedStyle()).marginTop).toBe("32px");
+    expect((await hrInner.getComputedStyle()).marginBottom).toBe("32px");
+    //xl
+    separator.setAttribute("margin", "xl");
+    await page.waitForChanges();
+    expect((await hrInner.getComputedStyle()).marginTop).toBe("64px");
+    expect((await hrInner.getComputedStyle()).marginBottom).toBe("64px");
   });
 });
