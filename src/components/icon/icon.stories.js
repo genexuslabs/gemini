@@ -33,28 +33,30 @@ STORIES
 
 const arrayIconsNames = [
   "add",
-  "arrowDown",
-  "arrowLeft",
-  "arrowRight",
-  "arrowUp",
-  "chevronDown",
-  "chevronLeft",
-  "chevronRight",
-  "chevronUp",
+  "add-circle",
+  "arrow-down",
+  "arrow-left",
+  "arrow-right",
+  "arrow-up",
+  "chevron-down",
+  "chevron-left",
+  "chevron-right",
+  "chevron-up",
   "close",
-  "colorPicker",
+  "color-picker",
   "deleted",
   "drag",
   "duplicate",
-  "editWand",
+  "edit-wand",
   "edit",
   "error",
-  "levelDown",
-  "levelUp",
-  "moreInfo",
+  "level-down",
+  "level-up",
+  "more-info",
   "search",
   "settings",
-  "showMore",
+  "show-more-horizontal",
+  "show-more-vertical",
   "success",
   "warning"
 ];
@@ -62,7 +64,7 @@ const arrayIconsNames = [
 function iconsSet(size) {
   return arrayIconsNames
     .map(iconType => {
-      return `<style>gxg-icon:hover {opacity:0.25}</style><gxg-tooltip no-border width-auto message="${iconType}"><gxg-icon size="${size}" type="${iconType}" color="${select(
+      return `<style>gxg-icon:hover {opacity:0.25} gxg-icon{margin-right: 8px;}</style><gxg-tooltip no-border width-auto message="${iconType}"><gxg-icon size="${size}" type="${iconType}" color="${select(
         label,
         options,
         defaultValue

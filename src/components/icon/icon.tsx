@@ -185,6 +185,7 @@ export type Color =
 export type IconType =
   | "none"
   | "add"
+  | "add-circle"
   | "arrow-down"
   | "arrow-left"
   | "arrow-right"
@@ -205,9 +206,11 @@ export type IconType =
   | "level-down"
   | "level-up"
   | "more-info"
+  | "reset"
   | "search"
   | "settings"
-  | "show-more"
+  | "show-more-horizontal"
+  | "show-more-vertical"
   | "success"
   | "warning";
 

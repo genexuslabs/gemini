@@ -64,7 +64,7 @@ export class AccordionItem {
     } else if (this.mode === "boxed" && this.disabled) {
       iColor = "disabled";
     } else {
-      iColor = "onbackground";
+      iColor = "alwaysblack";
     }
     //icon size
     if (this.mode === "slim") {

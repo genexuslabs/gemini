@@ -35,7 +35,7 @@
 :host([position="top"]) {
   .tooltip {
     .tooltiptext {
-      bottom: 20px;
+      bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -52,7 +52,7 @@
 :host([position="bottom"]) {
   .tooltip {
     .tooltiptext {
-      top: 20px;
+      top: 25px;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -71,6 +71,7 @@
   .tooltip {
     .tooltiptext {
       width: auto;
+      white-space: nowrap;
     }
   }
 }
