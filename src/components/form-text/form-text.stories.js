@@ -84,6 +84,11 @@ stories.add("Text", () => {
   const defaultValueStatus = "enabled";
   const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
 
+  //Read Only
+  const labelReadOnly = "Read only (visible on hover)";
+  const defaultValueReadOnly = false;
+  const valueReadOnly = boolean(labelReadOnly, defaultValueReadOnly);
+
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {
       return "error";
@@ -119,11 +124,18 @@ stories.add("Text", () => {
     }
   }
 
-  return `<gxg-form-text
+  function readOnly() {
+    if (valueReadOnly) {
+      return `read-only`;
+    }
+  }
+
+  return `<style>gxg-form-text{margin-bottom: var(--spacing-lay-xs)}</style><gxg-form-text
     label="Name"
     placeholder="John Griffith"
     icon=${valueIconType}
     icon-position=${valueIcon}
+    ${readOnly()}
     ${valueWidthFunc()}
     ${valueStatusType()}
   >${errorMessage()}
@@ -135,6 +147,7 @@ stories.add("Text", () => {
     placeholder="Chief Executive"
     icon=${valueIconType}
     icon-position=${valueIcon}
+    ${readOnly()}
     ${valueWidthFunc()}
     ${valueStatusType()}
     ${errorMessage()}
@@ -147,6 +160,7 @@ stories.add("Text", () => {
     placeholder="USA, Washington, D.C."
     icon=${valueIconType}
     icon-position=${valueIcon}
+    ${readOnly()}
     ${valueWidthFunc()}
     ${valueStatusType()}
   >${errorMessage()}

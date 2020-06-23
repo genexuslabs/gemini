@@ -31,13 +31,15 @@ FORM ELEMENT WRAPPER
     }
   }
 }
-
 /*****************************************************
 LABEL
 *****************************************************/
 :host {
   label {
     @include form-element-common-styles-label();
+    .required {
+      padding-left: 2px;
+    }
   }
 
   input {
@@ -55,10 +57,13 @@ TEXT
     @include form-element-common-styles();
     height: 20px;
     box-sizing: border-box;
+    @include ui-animation(border-color, background);
 
     &:focus {
       //box-shadow: var(--border-width-md) 0 var(border-color);
       @include form-element-common-styles-focus-type-1();
+    }
+    &:hover {
     }
   }
   input[disabled] {
@@ -74,13 +79,24 @@ TEXT
     @include form-element-common-styles-warning();
   }
 }
-
+//read only
+:host([read-only]) {
+  input[type="text"]:not(:hover) {
+    border-color: transparent;
+    background: transparent;
+  }
+}
 /*****************************************************
 INPUT TEXT ICON
 *****************************************************/
-:host {
-  ::slotted(gxg-icon[slot="icon-left"]) {
+:host([icon-position="left"]) {
+  gxg-icon {
     left: 0;
+  }
+}
+:host([icon-position="right"]) {
+  gxg-icon {
+    right: 0;
   }
 }
 

@@ -77,6 +77,11 @@ export class FormText {
   @Prop({ reflect: true }) value: string;
 
   /**
+   * If this property is true, the border, the icon, and the background will be invisible.
+   */
+  @Prop({ reflect: true }) readOnly: false;
+
+  /**
    * If input has warning
    */
   @Prop() warning = false;
@@ -134,6 +139,12 @@ export class FormText {
     this.change.emit(this.value);
   }
 
+  requiredLabel() {
+    if (this.required) {
+      return <span class="required">*</span>;
+    }
+  }
+
   render() {
     return (
       <Host
@@ -152,6 +163,7 @@ export class FormText {
             htmlFor={this.inputId}
           >
             {this.label}
+            {this.requiredLabel()}
           </label>
           <div class="inner-wrapper">
             <input

@@ -8,6 +8,7 @@ import {
 } from "@stencil/core";
 import { IconType, Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
+import { padding } from "../accordion/accordion";
 
 @Component({
   tag: "gxg-accordion-item",
@@ -35,6 +36,11 @@ export class AccordionItem {
    * The toggle label
    */
   @Prop() itemTitle: string;
+
+  /**
+   * The padding
+   */
+  @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * The toggle state

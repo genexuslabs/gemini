@@ -13,13 +13,12 @@
       display: flex;
       height: var(--spacing-comp-05);
 
-      @include ui-animation(background-color);
-
       .icon-wrapper {
         display: flex;
         align-items: center;
-        padding-right: 2px;
       }
+
+      @include ui-animation(background-color);
 
       &:hover {
         cursor: pointer;
@@ -70,6 +69,9 @@
     background-color: var(--color-secondary-enabled);
     &:hover {
       background-color: var(--color-secondary-hover);
+    }
+    .icon-wrapper {
+      padding-right: 2px;
     }
   }
   .item--disabled {
@@ -126,6 +128,25 @@
       }
       border-color: var(--color-primary-hover);
     }
+  }
+}
+//padding
+:host([mode="slim"][padding="xxs"]) {
+  .item {
+    padding: var(--spacing-comp-02);
+    padding-bottom: 0;
+  }
+}
+:host([mode="slim"][padding="xs"]) {
+  .item {
+    padding: var(--spacing-comp-03);
+    padding-bottom: 0;
+  }
+}
+:host([mode="slim"][padding="s"]) {
+  .item {
+    padding: var(--spacing-comp-04);
+    padding-bottom: 0;
   }
 }
 

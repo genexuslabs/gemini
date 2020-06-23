@@ -1,0 +1,16 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  @include gxg-text();
+  display: flex;
+  align-items: center;
+  background-color: var(--color-background);
+  padding: var(--spacing-comp-03) var(--spacing-comp-02);
+  border-top: 2px solid var(--color-primary-active);
+  margin-bottom: var(--spacing-lay-s);
+
+  .content-container {
+    padding-left: var(--spacing-comp-03);
+  }
+}

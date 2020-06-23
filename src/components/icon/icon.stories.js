@@ -62,11 +62,11 @@ const arrayIconsNames = [
 function iconsSet(size) {
   return arrayIconsNames
     .map(iconType => {
-      return ` <gxg-icon size="${size}" type="${iconType}" color="${select(
+      return `<style>gxg-icon:hover {opacity:0.25}</style><gxg-tooltip no-border width-auto message="${iconType}"><gxg-icon size="${size}" type="${iconType}" color="${select(
         label,
         options,
         defaultValue
-      )}"></gxg-icon>`;
+      )}"></gxg-icon></gxg-tooltip>`;
     })
     .join("");
 }

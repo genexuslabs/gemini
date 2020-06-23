@@ -1,0 +1,22 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  ::slotted(*) {
+    will-change: transform;
+    cursor: move;
+    transition: all 200ms;
+    user-select: none;
+    position: relative;
+    cursor: move;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  ::slotted(.over) {
+    transform: scale(1.02, 1.02);
+    box-shadow: var(--box-shadow-03);
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+}

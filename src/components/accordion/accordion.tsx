@@ -32,10 +32,10 @@ export class Accordion {
   /**
    * The aesthetical mode
    */
-  @Prop() mode: mode = "classical";
+  @Prop() mode: mode;
 
   /**
-   * The padding for the alternative version
+   * The padding (only for the "slim" accordion mode)
    */
   @Prop() padding: padding = "xs";
 
@@ -93,6 +93,7 @@ export class Accordion {
     if (this.mode === "slim") {
       this.accordions.forEach(accordion => {
         (accordion as HTMLGxgAccordionItemElement).mode = "slim";
+        (accordion as HTMLGxgAccordionItemElement).padding = this.padding;
       });
     }
     if (this.mode === "boxed") {
@@ -148,4 +149,4 @@ export class Accordion {
 }
 
 export type mode = "classical" | "slim" | "boxed";
-export type padding = "xs" | "s" | "m" | "l";
+export type padding = "xxs" | "xs" | "s";

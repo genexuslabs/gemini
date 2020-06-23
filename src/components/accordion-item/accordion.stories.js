@@ -195,7 +195,16 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="slim">
+  <gxg-accordion padding="${select(
+    "Padding",
+    {
+      "0": "0",
+      xxs: "xxs",
+      xs: "xs",
+      s: "s"
+    },
+    "0"
+  )}" ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="slim">
     <gxg-accordion-item  ${initialState()} item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
     <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and

@@ -49,10 +49,7 @@ stories
         xs: "xs",
         s: "s",
         m: "m",
-        l: "l",
-        xl: "xl",
-        xxl: "xxl",
-        xxxl: "xxxl"
+        l: "l"
       },
       "s"
     )}" box-shadow="${select(
@@ -62,10 +59,7 @@ stories
         xs: "2",
         s: "3",
         m: "4",
-        l: "5",
-        xl: "6",
-        xxl: "7",
-        xxxl: "8"
+        l: "5"
       },
       "xs"
     )}" ${valueColor}>

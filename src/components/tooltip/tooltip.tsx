@@ -14,15 +14,23 @@ export class Tooltip {
   /**
    * The toggle label
    */
-  @Prop() label = "Label";
+  @Prop() message = "Label";
+
+  /**
+   * The toggle width
+   */
+  @Prop({ reflect: true }) widthAuto: boolean;
+
+  /**
+   * This presence of this property removes the border under the text
+   */
+  @Prop({ reflect: true }) noBorder = false;
 
   render() {
     return (
       <span class="tooltip">
-        {this.label}
-        <span class="tooltiptext">
-          <slot></slot>
-        </span>
+        <slot></slot>
+        <span class="tooltiptext">{this.message}</span>
       </span>
     );
   }

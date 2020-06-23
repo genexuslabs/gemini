@@ -34,6 +34,7 @@
     "@storybook/addon-notes": "^5.2.5",
     "@storybook/addon-viewport": "^5.3.19",
     "@storybook/html": "^5.2.5",
+    "@storybook/theming": "^5.3.19",
     "@types/jest": "24.9.1",
     "@types/puppeteer": "1.19.0",
     "@typescript-eslint/eslint-plugin": "^2.32.0",

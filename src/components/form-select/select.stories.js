@@ -91,7 +91,9 @@ stories.add("Select", () => {
     }
   }
 
-  return `<gxg-select
+  return `<style>gxg-select{margin-bottom: var(--spacing-lay-xs)}</style>
+  
+  <gxg-select
   label="Select a car:"
   width=${valueWidthSizeFunc()}
   ${valueStatusType()}

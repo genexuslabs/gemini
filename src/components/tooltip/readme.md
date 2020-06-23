@@ -4,10 +4,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description          | Type                                     | Default   |
-| ---------- | ---------- | -------------------- | ---------------------------------------- | --------- |
-| `label`    | `label`    | The toggle label     | `string`                                 | `"Label"` |
-| `position` | `position` | the tooltip position | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
+| Property    | Attribute    | Description                                                      | Type                                     | Default     |
+| ----------- | ------------ | ---------------------------------------------------------------- | ---------------------------------------- | ----------- |
+| `message`   | `message`    | The toggle label                                                 | `string`                                 | `"Label"`   |
+| `noBorder`  | `no-border`  | This presence of this property removes the border under the text | `boolean`                                | `false`     |
+| `position`  | `position`   | the tooltip position                                             | `"bottom" \| "left" \| "right" \| "top"` | `"top"`     |
+| `widthAuto` | `width-auto` | The toggle width                                                 | `boolean`                                | `undefined` |
 
 ---
 

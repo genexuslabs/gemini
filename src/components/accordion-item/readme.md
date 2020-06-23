@@ -11,6 +11,7 @@
 | `itemTitle`           | `item-title` | The toggle label                                     | `string`                           | `undefined`   |
 | `mode`                | `mode`       | The aesthetical mode                                 | `"boxed" \| "classical" \| "slim"` | `"classical"` |
 | `open`                | `open`       | The toggle state                                     | `boolean`                          | `false`       |
+| `padding`             | `padding`    | The padding                                          | `"s" \| "xs" \| "xxs"`             | `"xs"`        |
 
 ## Events
 

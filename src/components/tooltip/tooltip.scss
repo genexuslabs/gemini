@@ -8,7 +8,7 @@
     display: inline-block;
     border-bottom: 1px dotted black;
     text-decoration: none;
-    
+
     .tooltiptext {
       @include gxg-text();
       visibility: hidden;
@@ -37,7 +37,7 @@
     .tooltiptext {
       bottom: 20px;
       left: 50%;
-      margin-left: -87px;
+      transform: translateX(-50%);
     }
   }
 }
@@ -54,7 +54,7 @@
     .tooltiptext {
       top: 20px;
       left: 50%;
-      margin-left: -87px;
+      transform: translateX(-50%);
     }
   }
 }
@@ -64,5 +64,19 @@
       top: -5px;
       right: 105%;
     }
+  }
+}
+//auto width
+:host([width-auto]) {
+  .tooltip {
+    .tooltiptext {
+      width: auto;
+    }
+  }
+}
+//no text decoration
+:host([no-border]) {
+  .tooltip {
+    border-bottom: none;
   }
 }

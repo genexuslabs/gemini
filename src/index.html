@@ -24,13 +24,47 @@
       }
       body {
         background-color: var(--color-background);
+        background-color: #ccc;
       }
     </style>
   </head>
+<br><br><br>
 
-  <gxg-droplist>
+<gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
 
-  </gxg-droplist>
+<gxg-form-text
+type="text"
+id="name4"
+name="name"
+label="Default"
+placeholder="Placeholder text"
+display-flex
+icon="search"
+icon-position="right"
+required
+>
+</gxg-form-text>
+
+ijadsas idjsaio djiosa jdoias<gxg-tooltip no-text-decoration width-auto message="Paleolithic age" position="top">In the palo</gxg-tooltip>
+
+  <div style="width: 500px;">
+    <gxg-accordion mode="slim" padding="xs">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">some content on accordion 1.</gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+  </gxg-accordion>
+
+    <br><br><br><br>
+
+    <div style="width:500px;">
+    <gxg-drag-container>
+        <gxg-drag-box max-width="300px" class="draggable">Container 01</gxg-drag-box>
+        <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
+        <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
+        <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
+        <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
+    </gxg-drag-container>
+  </div>
+  
 
   <body>
     <br><br><br><br><br><br><br>
@@ -38,17 +72,12 @@
     <div>
     <p>ssfsahdas hd ashd uiashd shdia Lorem ips lorem <gxg-tooltip position="top" label="this is the label">hola</gxg-tooltip> um dolor sit amet consectetur adipisicing elit. Sed necessitatibus praesentium earum deleniti laudantium officiis dolore perspiciatis rem natus voluptates. Excepturi, voluptatem. Fugit reiciendis adipisci voluptates temporibus cum sequi distinctio?</p>
   </div>
-  
+
 
     <p>hola</p>
     <gxg-separator margin="m"></gxg-separator>
     <p>hola</p>
-
-    <div style="width: 500px;">
-      <gxg-accordion modes="slim">
-        <gxg-accordion-item item-title="tab-01" item-id="tab-01">some content on accordion 1.</gxg-accordion-item>
-        <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-    </gxg-accordion>
+  
   </div>
     
     <!-- <gxg-accordion mode="slim" disabled>
@@ -89,6 +118,8 @@
       ></gxg-toolbar-item>
 
     </gxg-toolbar>
+
+    
 
     <h3>Toggle</h3>
         <gxg-toggle label="Toggle" tabindex="0" size="small"></gxg-toggle>
@@ -1032,18 +1063,7 @@
             warning
           ></gxg-form-text>
 
-          <gxg-form-text
-            type="text"
-            id="name4"
-            name="name"
-            label="Default"
-            placeholder="Placeholder text"
-            warning
-            display-flex
-            icon="search"
-            icon-position="left"
-          >
-          </gxg-form-text>
+
 
           <gxg-form-text
             type="text"
@@ -1079,7 +1099,7 @@
             placeholder="Placeholder text"
             display-flex
             icon="search"
-            icon-position="right"
+            icon-position="left"
           >
           </gxg-form-text>
         </form>

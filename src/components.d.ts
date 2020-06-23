@@ -6,17 +6,20 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { mode, padding } from "./components/accordion/accordion";
-import { mode as mode1 } from "./components/accordion/accordion";
+import {
+  mode as mode1,
+  padding as padding1
+} from "./components/accordion/accordion";
 import {
   ActiveTime,
   AlertPosition,
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { padding as padding1 } from "./components/box/box";
+import { padding as padding2 } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadow, padding as padding2 } from "./components/card/card";
+import { boxShadow, padding as padding3 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Message } from "./components/form-message/form-message";
@@ -43,7 +46,7 @@ export namespace Components {
      */
     mode: mode;
     /**
-     * The padding for the alternative version
+     * The padding (only for the "slim" accordion mode)
      */
     padding: padding;
     /**
@@ -76,6 +79,10 @@ export namespace Components {
      * The toggle state
      */
     open: boolean;
+    /**
+     * The padding
+     */
+    padding: padding;
   }
   interface GxgAlert {
     /**
@@ -241,6 +248,13 @@ export namespace Components {
      */
     width: string;
   }
+  interface GxgDragBox {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    maxWidth: string;
+  }
+  interface GxgDragContainer {}
   interface GxgFormCheckbox {
     /**
      * Checkbox id
@@ -358,6 +372,10 @@ export namespace Components {
      * The input placeholder
      */
     placeholder: string;
+    /**
+     * If this property is true, the border, the icon, and the background will be invisible.
+     */
+    readOnly: false;
     /**
      * If required
      */
@@ -699,11 +717,19 @@ export namespace Components {
     /**
      * The toggle label
      */
-    label: string;
+    message: string;
+    /**
+     * This presence of this property removes the border under the text
+     */
+    noBorder: boolean;
     /**
      * the tooltip position
      */
     position: position;
+    /**
+     * The toggle width
+     */
+    widthAuto: boolean;
   }
 }
 declare global {
@@ -779,6 +805,20 @@ declare global {
   var HTMLGxgDatePickerElement: {
     prototype: HTMLGxgDatePickerElement;
     new (): HTMLGxgDatePickerElement;
+  };
+  interface HTMLGxgDragBoxElement
+    extends Components.GxgDragBox,
+      HTMLStencilElement {}
+  var HTMLGxgDragBoxElement: {
+    prototype: HTMLGxgDragBoxElement;
+    new (): HTMLGxgDragBoxElement;
+  };
+  interface HTMLGxgDragContainerElement
+    extends Components.GxgDragContainer,
+      HTMLStencilElement {}
+  var HTMLGxgDragContainerElement: {
+    prototype: HTMLGxgDragContainerElement;
+    new (): HTMLGxgDragContainerElement;
   };
   interface HTMLGxgFormCheckboxElement
     extends Components.GxgFormCheckbox,
@@ -980,6 +1020,8 @@ declare global {
     "gxg-column": HTMLGxgColumnElement;
     "gxg-columns": HTMLGxgColumnsElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
+    "gxg-drag-box": HTMLGxgDragBoxElement;
+    "gxg-drag-container": HTMLGxgDragContainerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
@@ -1025,7 +1067,7 @@ declare namespace LocalJSX {
      */
     mode?: mode;
     /**
-     * The padding for the alternative version
+     * The padding (only for the "slim" accordion mode)
      */
     padding?: padding;
     /**
@@ -1060,6 +1102,10 @@ declare namespace LocalJSX {
      * The toggle state
      */
     open?: boolean;
+    /**
+     * The padding
+     */
+    padding?: padding;
   }
   interface GxgAlert {
     /**
@@ -1228,6 +1274,13 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
+  interface GxgDragBox {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    maxWidth?: string;
+  }
+  interface GxgDragContainer {}
   interface GxgFormCheckbox {
     /**
      * Checkbox id
@@ -1350,6 +1403,10 @@ declare namespace LocalJSX {
      * The input placeholder
      */
     placeholder?: string;
+    /**
+     * If this property is true, the border, the icon, and the background will be invisible.
+     */
+    readOnly?: false;
     /**
      * If required
      */
@@ -1698,11 +1755,19 @@ declare namespace LocalJSX {
     /**
      * The toggle label
      */
-    label?: string;
+    message?: string;
+    /**
+     * This presence of this property removes the border under the text
+     */
+    noBorder?: boolean;
     /**
      * the tooltip position
      */
     position?: position;
+    /**
+     * The toggle width
+     */
+    widthAuto?: boolean;
   }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
@@ -1716,6 +1781,8 @@ declare namespace LocalJSX {
     "gxg-column": GxgColumn;
     "gxg-columns": GxgColumns;
     "gxg-date-picker": GxgDatePicker;
+    "gxg-drag-box": GxgDragBox;
+    "gxg-drag-container": GxgDragContainer;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-radio": GxgFormRadio;
@@ -1770,6 +1837,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
+      "gxg-drag-box": LocalJSX.GxgDragBox &
+        JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
+      "gxg-drag-container": LocalJSX.GxgDragContainer &
+        JSXBase.HTMLAttributes<HTMLGxgDragContainerElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
         JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &

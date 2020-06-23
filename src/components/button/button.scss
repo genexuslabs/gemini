@@ -126,12 +126,12 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 
   //Enabled
   background: transparent;
-  padding-right: var(--spacing-comp-04);
-  padding-left: var(--spacing-comp-04);
+  padding-left: var(--spacing-comp-01);
+  padding-right: var(--spacing-comp-01);
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
-    background: rgba(var(--color-primary-hover-rgb), 0.1);
+    background: transparent;
   }
   &:focus:not([disabled]) {
     @include gxg-label--focus;
@@ -159,7 +159,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   //Enabled
   background: transparent;
-  padding-right: var(--spacing-comp-05);
   padding-left: 0;
 
   //Redefine icon color for this button type
@@ -253,8 +252,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   //Enabled
   background: var(--color-white);
-  padding-left: var(--spacing-comp-05);
-  padding-right: var(--spacing-comp-05);
+  padding-left: var(--spacing-comp-03);
+  padding-right: var(--spacing-comp-03);
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;

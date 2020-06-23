@@ -6,6 +6,10 @@
     position: relative;
     cursor: pointer;
     height: var(--spacing-comp-05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--spacing-comp-05);
     gxg-icon {
       @include ui-animation(transform);
     }

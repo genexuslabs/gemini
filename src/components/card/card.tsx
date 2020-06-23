@@ -56,6 +56,6 @@ export class Card {
   }
 }
 
-export type boxShadow = "xxs" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type boxShadow = "xxs" | "xs" | "s" | "m" | "l";
 
-export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type padding = "xs" | "s" | "m" | "l";

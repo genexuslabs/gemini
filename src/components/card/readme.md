@@ -4,13 +4,13 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                  | Type                                                            | Default   |
-| ----------- | ------------ | -------------------------------------------- | --------------------------------------------------------------- | --------- |
-| `boxShadow` | `box-shadow` |                                              | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxs" \| "xxxl"` | `"xxs"`   |
-| `fullWidth` | `full-width` | This property makes the component full-width | `boolean`                                                       | `false`   |
-| `height`    | `height`     | The component height                         | `string`                                                        | `"auto"`  |
-| `padding`   | `padding`    |                                              | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"`          | `"xs"`    |
-| `width`     | `width`      | The component width                          | `string`                                                        | `"200px"` |
+| Property    | Attribute    | Description                                  | Type                                 | Default   |
+| ----------- | ------------ | -------------------------------------------- | ------------------------------------ | --------- |
+| `boxShadow` | `box-shadow` |                                              | `"l" \| "m" \| "s" \| "xs" \| "xxs"` | `"xxs"`   |
+| `fullWidth` | `full-width` | This property makes the component full-width | `boolean`                            | `false`   |
+| `height`    | `height`     | The component height                         | `string`                             | `"auto"`  |
+| `padding`   | `padding`    |                                              | `"l" \| "m" \| "s" \| "xs"`          | `"xs"`    |
+| `width`     | `width`      | The component width                          | `string`                             | `"200px"` |
 
 ---
 
