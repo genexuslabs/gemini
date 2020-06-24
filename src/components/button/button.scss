@@ -65,7 +65,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
   //Redefine icon color for this button type
   ::slotted([slot="icon"]) {
     padding-left: var(--spacing-comp-01);
-    padding-right: var(--spacing-comp-04);
+    padding-right: var(--spacing-comp-01);
     --icon-color: #{$gxg-label--negative-color};
   }
 }
