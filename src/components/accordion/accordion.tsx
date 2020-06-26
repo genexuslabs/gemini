@@ -50,6 +50,7 @@ export class Accordion {
 
   @Listen("accordionItemClicked")
   itemClickedHandler(event: CustomEvent) {
+    event.stopPropagation();
     this.accordions.forEach(accordion => {
       const id = accordion.itemId;
       if (this.singleItemOpen) {

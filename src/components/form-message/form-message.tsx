@@ -16,7 +16,7 @@ export class FormMessage {
     return (
       <Host>
         <gxg-icon
-          style={{ "--svg-icon-small-scale": "0.5", "--icon-size": "15px" }}
+          style={{ "--icon-size": "15px" }}
           slot="icon"
           size="small"
           type={this.type}

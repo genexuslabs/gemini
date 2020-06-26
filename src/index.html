@@ -30,7 +30,26 @@
   </head>
 <br><br><br>
 
+<gxg-tooltip message="In the Paleolithic period (roughly 2.5 million years ago to 10,000 B.C.), early humans lived in caves or simple huts or tepees and were hunters and gatherers. They used basic stone and bone tools, as well as crude stone axes, for hunting birds and wild animals." position="top">Paleolithic age</gxg-tooltip>
 
+<gxg-toolbar title="Title" subtitle="Subtitle" position="left">
+  <gxg-toolbar-item
+    slot
+    icon="settings"
+    title="title"
+    subtitle="subtitle"
+    onClick="toolbarFunc01()"
+    id="toolbar-item-01"
+  ></gxg-toolbar-item>
+  <gxg-toolbar-item
+    slot
+    icon="settings"
+    title="title"
+    subtitle="subtitle"
+    disabled
+    id="toolbar-item-02"
+  ></gxg-toolbar-item>
+</gxg-toolbar>
 
 <gxg-separator></gxg-separator>
 
@@ -50,19 +69,41 @@ required
 </gxg-form-text>
 <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
 
-ijadsas idjsaio djiosa jdoias<gxg-tooltip no-text-decoration width-auto message="Paleolithic-age" position="top">In the palo</gxg-tooltip>
+ijadsas idjsaio djiosa jdoias
 
-  <div style="width: 500px;">
-    <gxg-accordion mode="classical" padding="xs">
-      <gxg-accordion-item item-title="tab-01" item-id="tab-01">some content on accordion 1.</gxg-accordion-item>
+<gxg-tree-container>
+  <gxg-tree-item>
+    Item 01
+  </gxg-tree-item>
+  <gxg-tree-item>
+    Item 02
+  </gxg-tree-item>
+  <gxg-tree-item>
+    Item 03
+  </gxg-tree-item>
+  <gxg-tree-item>
+    Item 04
+  </gxg-tree-item>
+  <gxg-tree-item>
+    Item 05
+  </gxg-tree-item>
+</gxg-tree-container>
+
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="tab-01" item-id="tab-03">some content on accordion 1.</gxg-accordion-item>
+          <gxg-accordion-item item-title="tab-02" item-id="tab-04">some content on accordion 2.</gxg-accordion-item>
+      </gxg-accordion>
+      </gxg-accordion-item>
       <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
   </gxg-accordion>
 
     <br><br><br><br>
 
-    <div style="width:500px;">
+    <div style="width:500px; background:yellow">
     <gxg-drag-container>
-        <gxg-drag-box max-width="300px" class="draggable">Container 01</gxg-drag-box>
+        <gxg-drag-box class="draggable">Container 01</gxg-drag-box>
         <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
         <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
         <gxg-drag-box class="draggable">Container 04</gxg-drag-box>

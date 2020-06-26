@@ -47,7 +47,12 @@ export class AccordionItem {
    */
   @Prop() open = false;
 
-  @Event() accordionItemClicked: EventEmitter;
+  @Event({
+    composed: true,
+    cancelable: true,
+    bubbles: true
+  })
+  accordionItemClicked: EventEmitter;
   @Event() accordionItemLoaded: EventEmitter;
 
   itemClickedHandler() {
@@ -105,8 +110,8 @@ export class AccordionItem {
 
   setMaxHeight() {
     //Set max-height to ".item__outer-container"
-    let outerContainerMaxHeight = "0px";
-    outerContainerMaxHeight =
+
+    const outerContainerMaxHeight =
       (this.el.shadowRoot.querySelector(
         ".item__inner-container"
       ) as HTMLElement).offsetHeight + "px";
