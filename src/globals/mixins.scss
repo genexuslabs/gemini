@@ -1,6 +1,9 @@
-$ui-animaton-speed: 0.2s;
+:root {
+  --ui-animaton-speed: 0.2s;
+}
+$ui-animaton-speed: var(--ui-animaton-speed);
 $ui-animaton-speed-fast: 0.1s;
-$ui-animation-timing-function: ease-in-out;
+$ui-animation-timing-function: ease;
 
 /*****************************************************
 TYPOGRAPHY

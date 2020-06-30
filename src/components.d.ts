@@ -5,21 +5,19 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { mode, padding } from "./components/accordion/accordion";
-import {
-  mode as mode1,
-  padding as padding1
-} from "./components/accordion/accordion";
+import { mode } from "./components/accordion/accordion";
+import { mode as mode1 } from "./components/accordion/accordion";
+import { status } from "./components/accordion-item/accordion-item";
 import {
   ActiveTime,
   AlertPosition,
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { padding as padding2 } from "./components/box/box";
+import { padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadow, padding as padding3 } from "./components/card/card";
+import { boxShadow, padding as padding1 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Message } from "./components/form-message/form-message";
@@ -38,25 +36,17 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * Whether the accordion is fullwidth or not
+     * The accordion width
      */
-    fullWidth: boolean;
+    maxWidth: string;
     /**
      * The aesthetical mode
      */
     mode: mode;
     /**
-     * The padding (only for the "slim" accordion mode)
-     */
-    padding: padding;
-    /**
      * Wether only one accordion can be open at the same time or not.
      */
     singleItemOpen: boolean;
-    /**
-     * The accordion width
-     */
-    width: string;
   }
   interface GxgAccordionItem {
     /**
@@ -78,11 +68,7 @@ export namespace Components {
     /**
      * The toggle state
      */
-    open: boolean;
-    /**
-     * The padding
-     */
-    padding: padding;
+    status: status;
   }
   interface GxgAlert {
     /**
@@ -731,7 +717,7 @@ export namespace Components {
      */
     widthAuto: boolean;
   }
-  interface GxgTree {}
+  interface GxgTreeContainer {}
   interface GxgTreeItem {}
 }
 declare global {
@@ -1010,10 +996,12 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
-  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {}
-  var HTMLGxgTreeElement: {
-    prototype: HTMLGxgTreeElement;
-    new (): HTMLGxgTreeElement;
+  interface HTMLGxgTreeContainerElement
+    extends Components.GxgTreeContainer,
+      HTMLStencilElement {}
+  var HTMLGxgTreeContainerElement: {
+    prototype: HTMLGxgTreeContainerElement;
+    new (): HTMLGxgTreeContainerElement;
   };
   interface HTMLGxgTreeItemElement
     extends Components.GxgTreeItem,
@@ -1064,7 +1052,7 @@ declare global {
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
-    "gxg-tree": HTMLGxgTreeElement;
+    "gxg-tree-container": HTMLGxgTreeContainerElement;
     "gxg-tree-item": HTMLGxgTreeItemElement;
   }
 }
@@ -1075,25 +1063,17 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * Whether the accordion is fullwidth or not
+     * The accordion width
      */
-    fullWidth?: boolean;
+    maxWidth?: string;
     /**
      * The aesthetical mode
      */
     mode?: mode;
     /**
-     * The padding (only for the "slim" accordion mode)
-     */
-    padding?: padding;
-    /**
      * Wether only one accordion can be open at the same time or not.
      */
     singleItemOpen?: boolean;
-    /**
-     * The accordion width
-     */
-    width?: string;
   }
   interface GxgAccordionItem {
     /**
@@ -1117,11 +1097,7 @@ declare namespace LocalJSX {
     /**
      * The toggle state
      */
-    open?: boolean;
-    /**
-     * The padding
-     */
-    padding?: padding;
+    status?: status;
   }
   interface GxgAlert {
     /**
@@ -1785,7 +1761,7 @@ declare namespace LocalJSX {
      */
     widthAuto?: boolean;
   }
-  interface GxgTree {}
+  interface GxgTreeContainer {}
   interface GxgTreeItem {}
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
@@ -1829,7 +1805,7 @@ declare namespace LocalJSX {
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
-    "gxg-tree": GxgTree;
+    "gxg-tree-container": GxgTreeContainer;
     "gxg-tree-item": GxgTreeItem;
   }
 }
@@ -1913,7 +1889,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
-      "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
+      "gxg-tree-container": LocalJSX.GxgTreeContainer &
+        JSXBase.HTMLAttributes<HTMLGxgTreeContainerElement>;
       "gxg-tree-item": LocalJSX.GxgTreeItem &
         JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
     }

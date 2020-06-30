@@ -1,2 +1,39 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+
+:host {
+  margin-bottom: var(--spacing-lay-s);
+  --treeContainerMaxHeight: "0px";
+  display: block;
+  li {
+    list-style-type: none;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    margin-bottom: 0;
+    position: relative;
+
+    &.has-childs {
+      cursor: pointer;
+      &:hover {
+      }
+    }
+  }
+  ::slotted(gxg-tree-container) {
+    margin-left: var(--spacing-lay-l);
+    @include ui-animation(max-height);
+    max-height: var(--treeContainerMaxHeight);
+    overflow: hidden;
+  }
+  gxg-icon {
+    position: absolute;
+    top: -3px;
+    left: -6px;
+  }
+  .slotted-container {
+    padding-left: 14px;
+  }
+}
+:host(:last-child) {
+  margin-bottom: 0;
+}

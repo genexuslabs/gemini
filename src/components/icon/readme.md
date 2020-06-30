@@ -17,7 +17,7 @@
 | `color`  | `color`   | The color of the icon.                                                        | `"alwaysblack" \| "disabled" \| "error" \| "negative" \| "onbackground" \| "success" \| "warning"`                                                                                                                                                                                                                                                                                                                                                      | `undefined` |
 | `lazy`   | `lazy`    | If enabled, the icon will be loaded lazily when it's visible in the viewport. | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                               | `false`     |
 | `size`   | `size`    | The size of the icon. Possible values: regular, small.                        | `"regular" \| "small"`                                                                                                                                                                                                                                                                                                                                                                                                                                  | `"regular"` |
-| `type`   | `type`    | The type of icon. Possible values: each of the icons in /assets.              | `"more-info" \| "error" \| "warning" \| "success" \| "none" \| "add" \| "add-circle" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "empty" \| "level-down" \| "level-up" \| "reset" \| "search" \| "settings" \| "show-more-horizontal" \| "show-more-vertical"` | `"none"`    |
+| `type`   | `type`    | The type of icon. Possible values: each of the icons in /assets.              | `"error" \| "success" \| "warning" \| "none" \| "add" \| "add-circle" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit-wand" \| "edit" \| "empty" \| "level-down" \| "level-up" \| "more-info" \| "reset" \| "search" \| "settings" \| "show-more-horizontal" \| "show-more-vertical"` | `"none"`    |
 
 ## Dependencies
 
@@ -35,6 +35,7 @@
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
+- [gxg-tree-item](../tree-item)
 
 ### Graph
 
@@ -52,6 +53,7 @@ graph TD;
   gxg-tab-button --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
+  gxg-tree-item --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

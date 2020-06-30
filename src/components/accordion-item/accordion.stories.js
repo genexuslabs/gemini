@@ -309,4 +309,66 @@ stories
       what you did, but people will never forget how you made them feel.” ―
       Maya Angelou</gxg-accordion-item>
     </gxg-accordion>`;
+  })
+  .add("Classcial nested", () => {
+    return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item item-title="fruits" item-id="fruits">
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="apple" item-id="apple">
+            An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="banana" item-id="banana">
+            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="mango" item-id="mango">
+            A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
+          </gxg-accordion-item>
+      </gxg-accordion>
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="vegetables" item-id="vegetables">
+        <gxg-accordion mode="slim">
+        <gxg-accordion-item item-title="lettuce" item-id="lettuce">
+          Lettuce (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds.
+        </gxg-accordion-item>
+        <gxg-accordion-item item-title="carrot" item-id="carrot">
+          The carrot (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist. 
+        </gxg-accordion-item>
+        <gxg-accordion-item item-title="onion" item-id="onion">
+          The onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.
+        </gxg-accordion-item>
+        </gxg-accordion>
+      </gxg-accordion-item>
+  </gxg-accordion>`;
+  })
+  .add("Boxed nested", () => {
+    return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
+    <gxg-accordion mode="boxed">
+      <gxg-accordion-item item-title="fruits" item-id="fruits">
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="apple" item-id="apple">
+            An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="banana" item-id="banana">
+            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="mango" item-id="mango">
+            A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
+          </gxg-accordion-item>
+      </gxg-accordion>
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="vegetables" item-id="vegetables">
+        <gxg-accordion mode="slim">
+        <gxg-accordion-item item-title="lettuce" item-id="lettuce">
+          Lettuce (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds.
+        </gxg-accordion-item>
+        <gxg-accordion-item item-title="carrot" item-id="carrot">
+          The carrot (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist. 
+        </gxg-accordion-item>
+        <gxg-accordion-item item-title="onion" item-id="onion">
+          The onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.
+        </gxg-accordion-item>
+        </gxg-accordion>
+      </gxg-accordion-item>
+  </gxg-accordion>`;
   });

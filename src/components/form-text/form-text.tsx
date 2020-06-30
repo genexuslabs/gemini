@@ -136,7 +136,13 @@ export class FormText {
   }
 
   handleChange() {
+    console.log(this.el.shadowRoot.querySelector("input").validity.valid);
     this.change.emit(this.value);
+    if (!this.el.shadowRoot.querySelector("input").validity.valid) {
+      this.el.append(
+        '<gxg-form-message type="error" slot="message">This is an error message 1</gxg-form-message>'
+      );
+    }
   }
 
   requiredLabel() {

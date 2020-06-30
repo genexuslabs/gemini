@@ -20,11 +20,6 @@ export class Accordion {
   @Prop() disabled = false;
 
   /**
-   * Whether the accordion is fullwidth or not
-   */
-  @Prop() fullWidth = false;
-
-  /**
    * Wether only one accordion can be open at the same time or not.
    */
   @Prop() singleItemOpen = false;
@@ -32,17 +27,12 @@ export class Accordion {
   /**
    * The aesthetical mode
    */
-  @Prop() mode: mode;
-
-  /**
-   * The padding (only for the "slim" accordion mode)
-   */
-  @Prop() padding: padding = "xs";
+  @Prop() mode: mode = "classical";
 
   /**
    * The accordion width
    */
-  @Prop() width = "360px";
+  @Prop() maxWidth = "360px";
 
   @State() accordions: HTMLGxgAccordionItemElement[];
 
@@ -50,25 +40,24 @@ export class Accordion {
 
   @Listen("accordionItemClicked")
   itemClickedHandler(event: CustomEvent) {
-    event.stopPropagation();
     this.accordions.forEach(accordion => {
       const id = accordion.itemId;
       if (this.singleItemOpen) {
         if (id === event.detail) {
-          if (accordion.open === true) {
-            accordion.open = false;
+          if (accordion.status === "open") {
+            accordion.status = "closed";
           } else {
-            accordion.open = true;
+            accordion.status = "open";
           }
         } else {
-          accordion.open = false;
+          accordion.status = "closed";
         }
       } else {
         if (id === event.detail) {
-          if (accordion.open === true) {
-            accordion.open = false;
+          if (accordion.status === "open") {
+            accordion.status = "closed";
           } else {
-            accordion.open = true;
+            accordion.status = "open";
           }
         }
       }
@@ -86,46 +75,41 @@ export class Accordion {
   setupAccordions() {
     this.accordions = Array.from(
       this.el.querySelectorAll<HTMLGxgAccordionItemElement>(
-        "gxg-accordion-item"
+        ":scope > gxg-accordion-item"
       )
     );
 
-    //mode
-    if (this.mode === "slim") {
-      this.accordions.forEach(accordion => {
-        (accordion as HTMLGxgAccordionItemElement).mode = "slim";
-        (accordion as HTMLGxgAccordionItemElement).padding = this.padding;
-      });
-    }
-    if (this.mode === "boxed") {
-      this.accordions.forEach(accordion => {
-        (accordion as HTMLGxgAccordionItemElement).mode = "boxed";
-      });
-    }
     //Disabled
     if (this.disabled) {
       this.accordions.forEach(accordion => {
-        (accordion as HTMLGxgAccordionItemElement).disabled = true;
-        (accordion as HTMLGxgAccordionItemElement).open = false;
+        (accordion as HTMLGxgAccordionItemElement).status = "closed";
       });
     }
 
     if (this.singleItemOpen) {
-      /* If "single-item-open" is true, and more than one accordion has the "open" property,
+      /* If "single-item-open" is true, and more than one accordion has the "open" property, 
       show only the first accordion open.*/
       let numberOfOpenAccordions = 0;
       this.accordions.forEach(accordion => {
-        if ((accordion as HTMLGxgAccordionItemElement).hasAttribute("open")) {
+        if (
+          (accordion as HTMLGxgAccordionItemElement).getAttribute("status") ===
+          "open"
+        ) {
           numberOfOpenAccordions++;
         }
       });
       if (numberOfOpenAccordions > 1) {
         let firstOpenAccordionFound = false;
         this.accordions.forEach(accordion => {
-          if ((accordion as HTMLGxgAccordionItemElement).hasAttribute("open")) {
+          if (
+            (accordion as HTMLGxgAccordionItemElement).getAttribute(
+              "status"
+            ) === "open"
+          ) {
             if (firstOpenAccordionFound) {
-              (accordion as HTMLGxgAccordionItemElement).removeAttribute(
-                "open"
+              (accordion as HTMLGxgAccordionItemElement).setAttribute(
+                "status",
+                "closed"
               );
             } else {
               firstOpenAccordionFound = true;
@@ -134,13 +118,26 @@ export class Accordion {
         });
       }
     }
+
+    this.accordions.forEach(accordion => {
+      (accordion as HTMLGxgAccordionItemElement).setAttribute(
+        "mode",
+        this.mode
+      );
+      if (this.disabled) {
+        (accordion as HTMLGxgAccordionItemElement).setAttribute(
+          "disabled",
+          "disabled"
+        );
+      }
+    });
   }
 
   render() {
     return (
       <Host
         style={{
-          maxWidth: this.width
+          "max-width": this.maxWidth
         }}
       >
         <slot></slot>
@@ -150,4 +147,3 @@ export class Accordion {
 }
 
 export type mode = "classical" | "slim" | "boxed";
-export type padding = "xxs" | "xs" | "s";

@@ -3,9 +3,12 @@
 
 :host {
   display: block;
-  width: 100% !important;
 
-  ::slotted(*:last-child) {
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  :last-child {
     margin-bottom: 0;
   }
 }
