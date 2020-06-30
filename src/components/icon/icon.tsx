@@ -205,6 +205,8 @@ export type IconType =
   | "error"
   | "level-down"
   | "level-up"
+  | "minus"
+  | "minus-circle"
   | "more-info"
   | "reset"
   | "search"

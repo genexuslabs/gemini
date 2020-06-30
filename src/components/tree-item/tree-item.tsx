@@ -25,26 +25,27 @@ export class TreeItem {
         "--treeContainerMaxHeight",
         this.treeContainerMaxHeight
       );
+
+      //set animation duration
+      const animationDuration = this.numberOfChildItems * 0.03 + "s";
+      this.el.style.setProperty("--animation-duration", animationDuration);
     }
     this.el.style.setProperty("--treeContainerMaxHeight", "0");
   }
 
   insertIcon() {
     if (!this.hasChilds) {
-      return <gxg-icon size="small" slot="icon" type="chevron-left"></gxg-icon>;
+      return <gxg-icon size="small" slot="icon" type="minus-circle"></gxg-icon>;
     } else if (this.open) {
-      return <gxg-icon size="small" slot="icon" type="chevron-left"></gxg-icon>;
+      return <gxg-icon size="small" slot="icon" type="add-circle"></gxg-icon>;
     } else {
-      return (
-        <gxg-icon size="small" slot="icon" type="chevron-right"></gxg-icon>
-      );
+      return <gxg-icon size="small" slot="icon" type="add-circle"></gxg-icon>;
     }
   }
 
   handleClick(e: MouseEvent) {
     e.preventDefault();
-    console.log(e.currentTarget);
-    console.log(this.el.shadowRoot.querySelector(":scope > li"));
+    e.stopPropagation();
     if (e.currentTarget === this.el.shadowRoot.querySelector(":scope > li")) {
       this.open = !this.open;
     }
@@ -66,7 +67,8 @@ export class TreeItem {
           }}
           onClick={this.handleClick.bind(this)}
         >
-          {this.insertIcon()}
+          <span class="li__icon"></span>
+          {/* {this.insertIcon()} */}
           <span class="slotted-container">
             <slot></slot>
           </span>

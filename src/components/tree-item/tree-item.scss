@@ -2,6 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
+  --animation-duration: "0s";
   margin-bottom: var(--spacing-lay-s);
   --treeContainerMaxHeight: "0px";
   display: block;
@@ -15,20 +16,65 @@
 
     &.has-childs {
       cursor: pointer;
+      .li__icon {
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 6px;
+          height: 1px;
+          background-color: var(--color-on-primary);
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%) rotate(90deg);
+          @include ui-animation(transform);
+        }
+      }
       &:hover {
+        .li__icon {
+          background-color: var(--color-primary-hover);
+        }
+      }
+    }
+    &:not(.closed) {
+      .li__icon {
+        &:after {
+          transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        }
+      }
+    }
+    .li__icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: var(--color-primary-enabled);
+      border-radius: 50%;
+      top: 2px;
+      position: absolute;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 1px;
+        background-color: var(--color-on-primary);
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
       }
     }
   }
-  ::slotted(gxg-tree-container) {
-    margin-left: var(--spacing-lay-l);
-    @include ui-animation(max-height);
+  ::slotted(gxg-tree) {
+    margin-left: 13px;
+    transition: max-height var(--animation-duration) ease;
     max-height: var(--treeContainerMaxHeight);
     overflow: hidden;
   }
   gxg-icon {
     position: absolute;
     top: -3px;
-    left: -6px;
+    left: -5px;
   }
   .slotted-container {
     padding-left: 14px;

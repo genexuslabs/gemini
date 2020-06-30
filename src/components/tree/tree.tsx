@@ -1,8 +1,8 @@
 import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: "gxg-tree-container",
-  styleUrl: "tree-container.scss",
+  tag: "gxg-tree",
+  styleUrl: "tree.scss",
   shadow: true
 })
 export class TreeContainer {

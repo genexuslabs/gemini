@@ -52,6 +52,8 @@ const arrayIconsNames = [
   "error",
   "level-down",
   "level-up",
+  "minus",
+  "minus-circle",
   "more-info",
   "search",
   "settings",
