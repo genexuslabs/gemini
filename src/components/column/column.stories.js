@@ -29,15 +29,11 @@ gxg-column .inner-container {
   width: 100%;
   text-align: center;
 }
-gxg-column, .note {
+gxg-column {
   font-family: "Open Sans", sans-serif;
   font-size: 11px;
 }
-.note {
-  color: #aaa;
-  line-height: 1.6em;
-  margin:15px 0 15px 0;
-}
+
 </style>
 <gxg-stack space="${select(
       "Stack Space",
@@ -189,7 +185,7 @@ Fluid
 Fluid
 </div>
 </gxg-column>
-</gxg-columns></gxg-stack><div style="text-align:center"><p style="margin-bottom:5px;" class="note">Note: <em>gxg-column</em> component does not has any inherent background-color or border-color styles.<br>The ones applied on this example are only for the purpose of helping understanding how the columns system works.</p><a style="display:inline-block; margin-bottom:20px;" class="gxg-link" href="https://codepen.io/brsastregx/pen/BaoXBpX?editors=1000" target="_blank">Open in Playground</a>`,
+</gxg-columns></gxg-stack><div style="text-align:center"><p style="margin-bottom:5px;">Note: <em>gxg-column</em> component does not has any inherent background-color or border-color styles.<br>The ones applied on this example are only for the purpose of helping understanding how the columns system works.</p><a style="display:inline-block; margin-bottom:20px;" class="gxg-link" href="https://codepen.io/brsastregx/pen/BaoXBpX?editors=1000" target="_blank">Open in Playground</a>`,
     {
       notes: {
         markdown: readme

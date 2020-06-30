@@ -19,6 +19,7 @@ stories.add("Drag-boxes", () => {
       width:200px;
       text-align:center
     }
+    
   </style>
   <gxg-drag-container>
   <gxg-drag-box class="draggable">Container 01</gxg-drag-box>
@@ -26,5 +27,6 @@ stories.add("Drag-boxes", () => {
   <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
   <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
   <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
+  <p>Drag me!</p>
 </gxg-drag-container>`;
 });

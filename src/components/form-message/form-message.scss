@@ -9,4 +9,18 @@
   font-size: var(--font-size-xs);
   margin-bottom: 0;
   margin-left: -4px;
+  animation-name: errorMessage;
+  animation-duration: 0.5s;
+  position: relative;
+}
+
+@keyframes errorMessage {
+  from {
+    top: -5px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }

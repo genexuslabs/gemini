@@ -45,6 +45,10 @@
 
 ## Dependencies
 
+### Used by
+
+- [gxg-form-text](../form-text)
+
 ### Depends on
 
 - [gxg-icon](../icon)
@@ -54,6 +58,7 @@
 ```mermaid
 graph TD;
   gxg-form-message --> gxg-icon
+  gxg-form-text --> gxg-form-message
   style gxg-form-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -367,6 +367,10 @@ export namespace Components {
      */
     required: boolean;
     /**
+     * Optional required message
+     */
+    requiredMessage: string;
+    /**
      * The input value
      */
     value: string;
@@ -1401,6 +1405,10 @@ declare namespace LocalJSX {
      * If required
      */
     required?: boolean;
+    /**
+     * Optional required message
+     */
+    requiredMessage?: string;
     /**
      * The input value
      */

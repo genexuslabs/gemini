@@ -72,6 +72,11 @@ export class FormText {
   @Prop({ reflect: true }) required = false;
 
   /**
+   * Optional required message
+   */
+  @Prop() requiredMessage: string;
+
+  /**
    * The input value
    */
   @Prop({ reflect: true }) value: string;
@@ -133,15 +138,46 @@ export class FormText {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(this.value);
+
+    if (this.el.shadowRoot.querySelector("input").validity.valid) {
+      this.el.removeAttribute("error");
+      const errorMessage = this.el.shadowRoot.querySelector(
+        ".messages-wrapper gxg-form-message"
+      );
+      if (errorMessage !== null) {
+        errorMessage.remove();
+      }
+    }
   }
 
   handleChange() {
-    console.log(this.el.shadowRoot.querySelector("input").validity.valid);
     this.change.emit(this.value);
+    //If validity is false, show message
     if (!this.el.shadowRoot.querySelector("input").validity.valid) {
-      this.el.append(
-        '<gxg-form-message type="error" slot="message">This is an error message 1</gxg-form-message>'
+      this.el.setAttribute("error", "error");
+      //optional message if provided:
+      let message;
+      if (this.requiredMessage == undefined) {
+        message = this.el.shadowRoot.querySelector("input").validationMessage;
+      } else {
+        message = this.requiredMessage;
+      }
+      const errorMessage = document.createElement("gxg-form-message");
+      errorMessage.setAttribute("type", "error");
+      errorMessage.setAttribute("slot", "message");
+      errorMessage.textContent = message;
+      const messagesWrapper = this.el.shadowRoot.querySelector(
+        ".messages-wrapper"
       );
+      messagesWrapper.appendChild(errorMessage);
+    } else {
+      this.el.removeAttribute("error");
+      const errorMessage = this.el.shadowRoot.querySelector(
+        ".messages-wrapper gxg-form-message"
+      );
+      if (errorMessage !== null) {
+        errorMessage.remove();
+      }
     }
   }
 
