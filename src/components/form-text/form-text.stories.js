@@ -89,6 +89,11 @@ stories.add("Text", () => {
   const defaultValueReadOnly = false;
   const valueReadOnly = boolean(labelReadOnly, defaultValueReadOnly);
 
+  //Required
+  const requiredLabel = "Required";
+  const requiredDefaultValue = false;
+  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
+
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {
       return "error";
@@ -130,6 +135,12 @@ stories.add("Text", () => {
     }
   }
 
+  function requiredValueFunc() {
+    if (requiredValue) {
+      return "required";
+    }
+  }
+
   return `<style>gxg-form-text{margin-bottom: var(--spacing-lay-xs)}</style><gxg-form-text
     label="Name"
     placeholder="John Griffith"
@@ -138,7 +149,9 @@ stories.add("Text", () => {
     ${readOnly()}
     ${valueWidthFunc()}
     ${valueStatusType()}
+    ${requiredValueFunc()}  
   >${errorMessage()}
+   
   ${errorMessagesMultiple()}
   ${warningMessage()}</gxg-form-text>
 
@@ -153,6 +166,7 @@ stories.add("Text", () => {
     ${errorMessage()}
   ${errorMessagesMultiple()}
   ${warningMessage()}
+  ${requiredValueFunc()}
   ></gxg-form-text>
 
   <gxg-form-text
@@ -163,6 +177,7 @@ stories.add("Text", () => {
     ${readOnly()}
     ${valueWidthFunc()}
     ${valueStatusType()}
+    ${requiredValueFunc()}
   >${errorMessage()}
   ${errorMessagesMultiple()}
   ${warningMessage()}</gxg-form-text>`;

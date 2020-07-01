@@ -8,14 +8,21 @@ import {
   EventEmitter
 } from "@stencil/core";
 import { IconType } from "../icon/icon";
-import { formMessage } from "../../common.js";
+import {
+  requiredLabel,
+  formMessage,
+  formHandleChange,
+  FormComponent
+} from "../../common";
 
 @Component({
   tag: "gxg-form-text",
   styleUrl: "form-text.scss",
   shadow: true
 })
-export class FormText {
+export class FormText implements FormComponent {
+  isRequiredError = false;
+
   /*********************************
   PROPERTIES & STATE
   *********************************/
@@ -27,7 +34,7 @@ export class FormText {
   /**
    * If input has errors
    */
-  @Prop() error = false;
+  @Prop({ mutable: true }) error = false;
 
   /**
    * If input is full width
@@ -74,7 +81,7 @@ export class FormText {
   /**
    * Optional required message
    */
-  @Prop() requiredMessage: string;
+  @Prop({ mutable: true }) requiredMessage: string;
 
   /**
    * The input value
@@ -134,57 +141,17 @@ export class FormText {
     }
   }
 
-  handleInput(e: InputEvent) {
+  handleInput(e) {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(this.value);
 
-    if (this.el.shadowRoot.querySelector("input").validity.valid) {
-      this.el.removeAttribute("error");
-      const errorMessage = this.el.shadowRoot.querySelector(
-        ".messages-wrapper gxg-form-message"
-      );
-      if (errorMessage !== null) {
-        errorMessage.remove();
-      }
-    }
+    formHandleChange(this, e.target);
   }
 
-  handleChange() {
+  handleChange(e) {
+    formHandleChange(this, e.target);
     this.change.emit(this.value);
-    //If validity is false, show message
-    if (!this.el.shadowRoot.querySelector("input").validity.valid) {
-      this.el.setAttribute("error", "error");
-      //optional message if provided:
-      let message;
-      if (this.requiredMessage == undefined) {
-        message = this.el.shadowRoot.querySelector("input").validationMessage;
-      } else {
-        message = this.requiredMessage;
-      }
-      const errorMessage = document.createElement("gxg-form-message");
-      errorMessage.setAttribute("type", "error");
-      errorMessage.setAttribute("slot", "message");
-      errorMessage.textContent = message;
-      const messagesWrapper = this.el.shadowRoot.querySelector(
-        ".messages-wrapper"
-      );
-      messagesWrapper.appendChild(errorMessage);
-    } else {
-      this.el.removeAttribute("error");
-      const errorMessage = this.el.shadowRoot.querySelector(
-        ".messages-wrapper gxg-form-message"
-      );
-      if (errorMessage !== null) {
-        errorMessage.remove();
-      }
-    }
-  }
-
-  requiredLabel() {
-    if (this.required) {
-      return <span class="required">*</span>;
-    }
   }
 
   render() {
@@ -205,7 +172,7 @@ export class FormText {
             htmlFor={this.inputId}
           >
             {this.label}
-            {this.requiredLabel()}
+            {requiredLabel(this)}
           </label>
           <div class="inner-wrapper">
             <input
@@ -227,7 +194,13 @@ export class FormText {
             {this.inputIcon()}
           </div>
         </div>
-        {formMessage()}
+        {formMessage(
+          this.isRequiredError ? (
+            <gxg-form-message type="error" key="required-error">
+              {this.requiredMessage}
+            </gxg-form-message>
+          ) : null
+        )}
       </Host>
     );
   }

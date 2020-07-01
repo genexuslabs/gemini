@@ -23,6 +23,17 @@ stories.add("Tree", () => {
         </gxg-tree-item>
         <gxg-tree-item>
           banana
+          <gxg-tree>
+<gxg-tree-item>
+cavendish banana
+</gxg-tree-item>
+<gxg-tree-item>
+pisang raja
+</gxg-tree-item>
+<gxg-tree-item>
+red banana
+</gxg-tree-item>
+</gxg-tree>
         </gxg-tree-item>
         <gxg-tree-item>
           strawberry

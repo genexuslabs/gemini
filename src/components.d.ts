@@ -421,6 +421,10 @@ export namespace Components {
      */
     required: boolean;
     /**
+     * Optional required message
+     */
+    requiredMessage: string;
+    /**
      * Number of rows
      */
     rows: number;
@@ -1461,6 +1465,10 @@ declare namespace LocalJSX {
      * If required
      */
     required?: boolean;
+    /**
+     * Optional required message
+     */
+    requiredMessage?: string;
     /**
      * Number of rows
      */

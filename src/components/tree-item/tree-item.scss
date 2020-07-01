@@ -3,7 +3,7 @@
 
 :host {
   --animation-duration: "0s";
-  margin-bottom: var(--spacing-lay-s);
+  margin: 6px 0;
   --treeContainerMaxHeight: "0px";
   display: block;
   li {
@@ -13,7 +13,23 @@
     color: var(--color-text);
     margin-bottom: 0;
     position: relative;
-
+    line-height: 1.2em;
+    &:not(.has-childs) {
+      &:before {
+        content: "";
+        width: 2px;
+        height: 2px;
+        background-color: var(--color-text);
+        display: block;
+        position: absolute;
+        top: 50%;
+        margin-top: -1px;
+        border-radius: 50%;
+      }
+      .slotted-container {
+        padding-left: 8px;
+      }
+    }
     &.has-childs {
       cursor: pointer;
       .li__icon {

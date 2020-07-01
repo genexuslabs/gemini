@@ -1,12 +1,19 @@
 import { Component, Host, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { formMessage } from "../../common.js";
+import {
+  requiredLabel,
+  formMessage,
+  formHandleChange,
+  FormComponent
+} from "../../common";
 
 @Component({
   tag: "gxg-form-textarea",
   styleUrl: "form-textarea.scss",
   shadow: true
 })
-export class FormTextarea {
+export class FormTextarea implements FormComponent {
+  isRequiredError = false;
+
   //A reference to the input
   textArea!: HTMLTextAreaElement;
 
@@ -32,12 +39,17 @@ export class FormTextarea {
   /**
    * If textarea has errors
    */
-  @Prop() error = false;
+  @Prop({ mutable: true }) error = false;
 
   /**
    * If textarea is full width
    */
   @Prop({ reflect: true }) fullWidth = false;
+
+  /**
+   * Optional required message
+   */
+  @Prop({ mutable: true }) requiredMessage: string;
 
   /**
    * The textarea id
@@ -90,48 +102,58 @@ export class FormTextarea {
     this.value = this.textArea.value;
   }
 
-  handleInput(e: InputEvent) {
+  handleInput(e) {
+    formHandleChange(this, e.target);
+
     const target = e.target as HTMLTextAreaElement;
     this.value = target.value;
     this.input.emit(this.value);
   }
 
-  handleChange() {
+  handleChange(e) {
+    formHandleChange(this, e.target);
     this.change.emit(this.value);
   }
 
   render() {
     return (
       <Host role="textbox" aria-label={this.label}>
-        <div class="form-element-wrapper">
-          <label
-            class={{
-              label: true
-            }}
-            htmlFor={this.textareaId}
-          >
-            {this.label}
-          </label>
+        <label
+          class={{
+            label: true
+          }}
+          htmlFor={this.textareaId}
+        >
+          {this.label}
+          {requiredLabel(this)}
+        </label>
 
-          <textarea
-            cols={this.cols}
-            rows={this.rows}
-            ref={el => (this.textArea = el as HTMLTextAreaElement)}
-            class={{
-              textarea: true,
-              "textarea--error": this.error === true,
-              "textarea--warning": this.warning === true
-            }}
-            id={this.textareaId}
-            name={this.name}
-            placeholder={this.placeholder}
-            disabled={this.disabled}
-            onInput={this.handleInput.bind(this)}
-            onChange={this.handleChange.bind(this)}
-            value={this.value}
-          ></textarea>
-        </div>
-        {formMessage()}
+        <textarea
+          cols={this.cols}
+          rows={this.rows}
+          ref={el => (this.textArea = el as HTMLTextAreaElement)}
+          class={{
+            textarea: true,
+            "textarea--error": this.error === true,
+            "textarea--warning": this.warning === true
+          }}
+          id={this.textareaId}
+          name={this.name}
+          placeholder={this.placeholder}
+          disabled={this.disabled}
+          onInput={this.handleInput.bind(this)}
+          onChange={this.handleChange.bind(this)}
+          value={this.value}
+          required={this.required}
+        ></textarea>
+
+        {formMessage(
+          this.isRequiredError ? (
+            <gxg-form-message type="error" key="required-error">
+              {this.requiredMessage}
+            </gxg-form-message>
+          ) : null
+        )}
       </Host>
     );
   }

@@ -44,6 +44,11 @@ stories.add("Textarea", () => {
   const defaultValueStatus = "enabled";
   const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
 
+  //Required
+  const requiredLabel = "Required";
+  const requiredDefaultValue = false;
+  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
+
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {
       return "error";
@@ -57,6 +62,12 @@ stories.add("Textarea", () => {
       return `<div><gxg-form-message type="error" slot="message">
     This is an error message
   </gxg-form-message></div>`;
+    }
+  }
+
+  function requiredValueFunc() {
+    if (requiredValue) {
+      return "required";
     }
   }
 
@@ -79,9 +90,12 @@ stories.add("Textarea", () => {
     }
   }
 
-  return `<gxg-form-textarea
+  return `<gxg-form-textarea ${requiredValueFunc()} required-message="${text(
+    "Required message (optional)",
+    "This field is mandatory"
+  )}"
     label="Describe your experience"
-    placeholder="I have experience as a..."
+    placeholder="I have experience as a.."
     cols=${valueCols}
     rows=${valueRows}
     ${valueWidth}
