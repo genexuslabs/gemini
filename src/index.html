@@ -29,6 +29,20 @@
     </style>
   </head>
 
+  <label style="font-size:12px;"
+      >Enable Dark Mode
+      <input
+        style="position: relative; top: 3px;"
+        type="checkbox"
+        name="night"
+        id="toggleDarkTheme"/></label
+    ><br /><br />
+
+
+  <h1 class="gxg-title-01">
+    Title
+  </h1>
+
   <gxg-form-textarea
           id="textarea1"
           name="textarea1"
@@ -224,6 +238,42 @@
   </gxg-accordion-item>
 </gxg-accordion>
   
-   
+<script>
+  /*
+  The following script set automatically Gemini as Dark theme if the user
+  Windows system is using Dark theme as well. Also, a checkbox lets the user
+  deactivate/activate the Dark mode, independently of the Windows theme configuration.
+*/
+
+  // Query for the toggle that is used to change between themes
+  const toggle = document.querySelector("#toggleDarkTheme");
+
+  // Listen for the toggle check/uncheck to toggle the dark class on the <body>
+  toggle.addEventListener("change", ev => {
+    // for(var i = 0; i < gxgComponents.length; i++) {
+    //gxgComponents[i].classList.toggle('dark-mode')
+    document.getElementsByTagName("html")[0].classList.toggle("dark");
+    // }
+  });
+
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+  // Listen for changes to the prefers-color-scheme media query
+  prefersDark.addListener(e => checkToggle(e.matches));
+
+  (function() {
+    // your page initialization code here
+    // the DOM will be available here
+    checkToggle(prefersDark.matches);
+  })();
+
+  // Called by the media query to check/uncheck the toggle
+  function checkToggle(shouldCheck) {
+    if (
+      (shouldCheck && !toggle.checked) ||
+      (!shouldCheck && toggle.checked)
+    )
+      toggle.click();
+  }
+</script>
   </body>
 </html>

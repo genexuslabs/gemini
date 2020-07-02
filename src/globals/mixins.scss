@@ -18,8 +18,14 @@ TYPOGRAPHY
   text-align: left;
   line-height: 1.455em;
 }
+.gxg-title-01 {
+  @include gxg-title-01;
+}
 @mixin gxg-title-01--negative {
   color: var(--color-on-primary);
+}
+.gxg-title-01-negative {
+  @include gxg-title-01--negative;
 }
 /*Title 02*/
 @mixin gxg-title-02 {
@@ -32,8 +38,14 @@ TYPOGRAPHY
   text-transform: uppercase;
   line-height: 1.556em;
 }
+.gxg-title-02 {
+  @include gxg-title-02;
+}
 @mixin gxg-title-02--negative {
   color: var(--color-on-primary);
+}
+.gxg-title-02-negative {
+  @include gxg-title-02--negative;
 }
 /*Title 03*/
 @mixin gxg-title-03 {
@@ -46,8 +58,14 @@ TYPOGRAPHY
   text-transform: uppercase;
   line-height: 1.556em;
 }
+.gxg-title-03 {
+  @include gxg-title-03;
+}
 @mixin gxg-title-03--negative {
   color: var(--color-on-primary);
+}
+.gxg-title-03-negative {
+  @include gxg-title-03--negative;
 }
 /*Text*/
 @mixin gxg-text {
@@ -59,11 +77,20 @@ TYPOGRAPHY
   text-align: left;
   line-height: 1.455em;
 }
+.gxg-text {
+  @include gxg-text;
+}
 @mixin gxg-text--negative {
   color: var(--color-on-primary);
 }
+.gxg-text-negative {
+  @include gxg-text--negative;
+}
 @mixin gxg-text--gray {
   color: var(--gray-04);
+}
+.gxg-text-gray {
+  @include gxg-text--gray;
 }
 /*Link*/
 @mixin gxg-link {
@@ -76,11 +103,20 @@ TYPOGRAPHY
   text-decoration: underline;
   line-height: 1.455em;
 }
+.gxg-link {
+  @include gxg-link;
+}
 @mixin gxg-link--hover {
   color: var(--color-primary-hover);
 }
+.gxg-link-hover {
+  @include gxg-link--hover;
+}
 @mixin gxg-link--active {
   color: var(--color-primary-active);
+}
+.gxg-link-active {
+  @include gxg-link--active;
 }
 /*Quote*/
 @mixin gxg-quote {
@@ -93,8 +129,14 @@ TYPOGRAPHY
   text-align: left;
   line-height: 1.455em;
 }
+.gxg-quote {
+  @include gxg-link--active;
+}
 @mixin gxg-quote--negative {
   color: var(--color-on-primary);
+}
+.gxg-quote-negative {
+  @include gxg-quote--negative;
 }
 /*Tab*/
 @mixin gxg-tab {
@@ -107,12 +149,21 @@ TYPOGRAPHY
   text-transform: uppercase;
   line-height: 1.778em;
 }
+.gxg-tab {
+  @include gxg-tab;
+}
 @mixin gxg-tab--active {
   font-weight: var(--font-weight-bold);
+}
+.gxg-tab-active {
+  @include gxg-tab--active;
 }
 @mixin gxg-tab--disabled {
   color: var(--color-primary-disabled);
   pointer-events: none;
+}
+.gxg-tab-disabled {
+  @include gxg-tab--disabled;
 }
 /*Label*/
 $gxg-label-color: var(--color-primary-enabled);
@@ -129,6 +180,10 @@ $gxg-label-color: var(--color-primary-enabled);
   text-align: center;
   line-height: 1.455em;
 }
+.gxg-label {
+  @include gxg-label;
+}
+/*
 $gxg-label--hover-color: var(--color-primary-hover);
 @mixin gxg-label--hover {
   color: $gxg-label--hover-color;
