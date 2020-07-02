@@ -24,7 +24,7 @@ TYPOGRAPHY
 @mixin gxg-title-01--negative {
   color: var(--color-on-primary);
 }
-.gxg-title-01-negative {
+.gxg-title-01--negative {
   @include gxg-title-01--negative;
 }
 /*Title 02*/
@@ -44,7 +44,7 @@ TYPOGRAPHY
 @mixin gxg-title-02--negative {
   color: var(--color-on-primary);
 }
-.gxg-title-02-negative {
+.gxg-title-02--negative {
   @include gxg-title-02--negative;
 }
 /*Title 03*/
@@ -64,7 +64,7 @@ TYPOGRAPHY
 @mixin gxg-title-03--negative {
   color: var(--color-on-primary);
 }
-.gxg-title-03-negative {
+.gxg-title-03--negative {
   @include gxg-title-03--negative;
 }
 /*Text*/
@@ -83,13 +83,13 @@ TYPOGRAPHY
 @mixin gxg-text--negative {
   color: var(--color-on-primary);
 }
-.gxg-text-negative {
+.gxg-text--negative {
   @include gxg-text--negative;
 }
 @mixin gxg-text--gray {
   color: var(--gray-04);
 }
-.gxg-text-gray {
+.gxg-text--gray {
   @include gxg-text--gray;
 }
 /*Link*/
@@ -103,21 +103,22 @@ TYPOGRAPHY
   text-decoration: underline;
   line-height: 1.455em;
 }
-.gxg-link {
-  @include gxg-link;
-}
 @mixin gxg-link--hover {
   color: var(--color-primary-hover);
-}
-.gxg-link-hover {
-  @include gxg-link--hover;
 }
 @mixin gxg-link--active {
   color: var(--color-primary-active);
 }
-.gxg-link-active {
-  @include gxg-link--active;
+.gxg-link {
+  @include gxg-link;
+  &:hover {
+    @include gxg-link--hover;
+  }
+  &:active {
+    @include gxg-link--active;
+  }
 }
+
 /*Quote*/
 @mixin gxg-quote {
   font-family: var(--font-family-primary);
@@ -130,15 +131,18 @@ TYPOGRAPHY
   line-height: 1.455em;
 }
 .gxg-quote {
-  @include gxg-link--active;
+  @include gxg-quote;
 }
 @mixin gxg-quote--negative {
   color: var(--color-on-primary);
 }
-.gxg-quote-negative {
+.gxg-quote--negative {
   @include gxg-quote--negative;
 }
 /*Tab*/
+@mixin gxg-tab--active {
+  font-weight: var(--font-weight-bold);
+}
 @mixin gxg-tab {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-semibold);
@@ -148,22 +152,19 @@ TYPOGRAPHY
   text-align: center;
   text-transform: uppercase;
   line-height: 1.778em;
-}
-.gxg-tab {
-  @include gxg-tab;
-}
-@mixin gxg-tab--active {
-  font-weight: var(--font-weight-bold);
-}
-.gxg-tab-active {
-  @include gxg-tab--active;
+  &:active {
+    @include gxg-tab--active;
+  }
 }
 @mixin gxg-tab--disabled {
   color: var(--color-primary-disabled);
   pointer-events: none;
 }
-.gxg-tab-disabled {
+.gxg-tab--disabled {
   @include gxg-tab--disabled;
+  &[disabled] {
+    @include gxg-tab--disabled;
+  }
 }
 /*Label*/
 $gxg-label-color: var(--color-primary-enabled);
@@ -180,10 +181,6 @@ $gxg-label-color: var(--color-primary-enabled);
   text-align: center;
   line-height: 1.455em;
 }
-.gxg-label {
-  @include gxg-label;
-}
-/*
 $gxg-label--hover-color: var(--color-primary-hover);
 @mixin gxg-label--hover {
   color: $gxg-label--hover-color;
@@ -200,6 +197,21 @@ $gxg-label--disabled-color: var(--color-primary-disabled);
 @mixin gxg-label--disabled {
   color: $gxg-label--disabled-color;
 }
+.gxg-label {
+  @include gxg-label;
+  &:hover {
+    @include gxg-label--hover;
+  }
+  &:focud {
+    @include gxg-label--focus;
+  }
+  &:active {
+    @include gxg-label--active;
+  }
+  &[disabled] {
+    @include gxg-label--disabled;
+  }
+}
 $gxg-label--negative-color: var(--color-on-primary);
 @mixin gxg-label--negative {
   color: $gxg-label--negative-color;
@@ -207,6 +219,12 @@ $gxg-label--negative-color: var(--color-on-primary);
 $gxg-label--negative-disabled-color: var(--color-on-disabled);
 @mixin gxg-label--negative-disabled {
   color: $gxg-label--negative-disabled-color;
+}
+.gxg-label--negative {
+  @include gxg-label--negative;
+  &[disabled] {
+    @include gxg-label--negative-disabled;
+  }
 }
 
 /*****************************************************
@@ -233,7 +251,9 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
     color $ui-animaton-speed $ui-animation-timing-function,
     box-shadow $ui-animaton-speed $ui-animation-timing-function;
 }
-
+.gxg-button-styles {
+  @include gxg-label;
+}
 @mixin ui-animation($properties...) {
   transition-property: $properties;
   transition-duration: $ui-animaton-speed;
