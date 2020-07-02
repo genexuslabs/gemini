@@ -26,7 +26,7 @@ function formMessage(children?: JSX.Element) {
 }
 
 function formHandleChange(
-  component: IFormComponent,
+  component: FormComponent,
   formElement: HTMLInputElement | HTMLTextAreaElement
 ) {
   const hasError = !formElement.validity.valid;
@@ -39,4 +39,4 @@ function formHandleChange(
   }
 }
 
-export { requiredLabel, formHandleChange, formMessage, IFormComponent };
+export { requiredLabel, formHandleChange, formMessage, FormComponent };
