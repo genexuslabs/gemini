@@ -9,11 +9,6 @@ export class Column {
   /*The column´s width*/
   @Prop({ reflect: true }) width: WidthType = "fluid";
 
-  /**
-   * Disable default flex display in order to make the gxg-spacer-layout "justify-content" property keep working properly
-   */
-  @Prop({ reflect: true }) noFlex = false;
-
   render() {
     return (
       <Host class="column">
@@ -24,7 +19,6 @@ export class Column {
 }
 
 export type WidthType =
-  | "1"
   | "1/2"
   | "1/3"
   | "1/4"

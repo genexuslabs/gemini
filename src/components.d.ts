@@ -183,10 +183,6 @@ export namespace Components {
     value: string;
   }
   interface GxgColumn {
-    /**
-     * Disable default flex display in order to make the gxg-spacer-layout "justify-content" property keep working properly
-     */
-    noFlex: boolean;
     width: WidthType;
   }
   interface GxgColumns {
@@ -1212,10 +1208,6 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgColumn {
-    /**
-     * Disable default flex display in order to make the gxg-spacer-layout "justify-content" property keep working properly
-     */
-    noFlex?: boolean;
     width?: WidthType;
   }
   interface GxgColumns {
