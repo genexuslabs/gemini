@@ -39,11 +39,6 @@ export class FormSelectNew {
   @Prop() error = false;
 
   /**
-   * If select is full width
-   */
-  @Prop({ reflect: true }) fullWidth = false;
-
-  /**
    * The select label
    */
   @Prop() label: string;
@@ -81,7 +76,7 @@ export class FormSelectNew {
   /**
    * The select width
    */
-  @Prop() width = "240px";
+  @Prop() maxWidth = "100%";
 
   @Event() input: EventEmitter;
 
@@ -270,7 +265,7 @@ export class FormSelectNew {
     return (
       <Host
         style={{
-          width: this.width,
+          maxWidth: this.maxWidth,
           "--size": this.size
         }}
       >

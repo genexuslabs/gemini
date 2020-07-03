@@ -22,11 +22,6 @@ export class FormTextarea implements FormComponent {
   *********************************/
 
   /**
-   * Number of cols
-   */
-  @Prop() cols = 40;
-
-  /**
    * If textarea is disabled
    */
   @Prop() disabled = false;
@@ -42,11 +37,6 @@ export class FormTextarea implements FormComponent {
   @Prop({ mutable: true }) error = false;
 
   /**
-   * If textarea is full width
-   */
-  @Prop({ reflect: true }) fullWidth = false;
-
-  /**
    * Optional required message
    */
   @Prop({ mutable: true }) requiredMessage: string;
@@ -60,6 +50,11 @@ export class FormTextarea implements FormComponent {
    * The textarea label
    */
   @Prop({ reflect: true }) label = "hey";
+
+  /**
+   * The max-width
+   */
+  @Prop() maxWidth = "100%";
 
   /**
    * The textarea name
@@ -117,7 +112,11 @@ export class FormTextarea implements FormComponent {
 
   render() {
     return (
-      <Host role="textbox" aria-label={this.label}>
+      <Host
+        role="textbox"
+        aria-label={this.label}
+        style={{ maxWidth: this.maxWidth }}
+      >
         <label
           class={{
             label: true
@@ -129,7 +128,6 @@ export class FormTextarea implements FormComponent {
         </label>
 
         <textarea
-          cols={this.cols}
           rows={this.rows}
           ref={el => (this.textArea = el as HTMLTextAreaElement)}
           class={{

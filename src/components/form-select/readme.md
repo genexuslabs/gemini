@@ -4,18 +4,17 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                      | Type      | Default     |
-| ----------- | ------------ | ------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `disabled`  | `disabled`   | If select is disabled                                                                            | `boolean` | `false`     |
-| `error`     | `error`      | If select has errors                                                                             | `boolean` | `false`     |
-| `fullWidth` | `full-width` | If select is full width                                                                          | `boolean` | `false`     |
-| `label`     | `label`      | The select label                                                                                 | `string`  | `undefined` |
-| `name`      | `name`       | The select name                                                                                  | `string`  | `undefined` |
-| `required`  | `required`   | If required                                                                                      | `boolean` | `false`     |
-| `selectId`  | `select-id`  | The select id                                                                                    | `string`  | `undefined` |
-| `size`      | `size`       | The maximum number of visible options (scroll will apear if the total number exceeds this value) | `string`  | `undefined` |
-| `warning`   | `warning`    | If select has warnings                                                                           | `boolean` | `false`     |
-| `width`     | `width`      | The select width                                                                                 | `string`  | `"240px"`   |
+| Property   | Attribute   | Description                                                                                      | Type      | Default     |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `disabled` | `disabled`  | If select is disabled                                                                            | `boolean` | `false`     |
+| `error`    | `error`     | If select has errors                                                                             | `boolean` | `false`     |
+| `label`    | `label`     | The select label                                                                                 | `string`  | `undefined` |
+| `maxWidth` | `max-width` | The select width                                                                                 | `string`  | `"100%"`    |
+| `name`     | `name`      | The select name                                                                                  | `string`  | `undefined` |
+| `required` | `required`  | If required                                                                                      | `boolean` | `false`     |
+| `selectId` | `select-id` | The select id                                                                                    | `string`  | `undefined` |
+| `size`     | `size`      | The maximum number of visible options (scroll will apear if the total number exceeds this value) | `string`  | `undefined` |
+| `warning`  | `warning`   | If select has warnings                                                                           | `boolean` | `false`     |
 
 ## Events
 

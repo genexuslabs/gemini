@@ -51,12 +51,6 @@ export class TreeItem {
     }
   }
 
-  printIcon() {
-    if (this.hasChilds) {
-      return <span class="li__icon"></span>;
-    }
-  }
-
   render() {
     return (
       <Host
@@ -71,9 +65,12 @@ export class TreeItem {
             closed: !this.open,
             "has-childs": this.hasChilds
           }}
-          onClick={this.handleClick.bind(this)}
         >
-          {this.printIcon()}
+          {this.hasChilds ? (
+            <span class="li__icon" onClick={this.handleClick.bind(this)}></span>
+          ) : (
+            ""
+          )}
           <span class="slotted-container">
             <slot></slot>
           </span>

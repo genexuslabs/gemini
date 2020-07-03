@@ -4,13 +4,12 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                  | Type                                 | Default   |
-| ----------- | ------------ | -------------------------------------------- | ------------------------------------ | --------- |
-| `boxShadow` | `box-shadow` |                                              | `"l" \| "m" \| "s" \| "xs" \| "xxs"` | `"xxs"`   |
-| `fullWidth` | `full-width` | This property makes the component full-width | `boolean`                            | `false`   |
-| `height`    | `height`     | The component height                         | `string`                             | `"auto"`  |
-| `padding`   | `padding`    |                                              | `"l" \| "m" \| "s" \| "xs"`          | `"xs"`    |
-| `width`     | `width`      | The component width                          | `string`                             | `"200px"` |
+| Property    | Attribute    | Description                                                                              | Type                                 | Default  |
+| ----------- | ------------ | ---------------------------------------------------------------------------------------- | ------------------------------------ | -------- |
+| `boxShadow` | `box-shadow` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"l" \| "m" \| "s" \| "xs" \| "xxs"` | `"xxs"`  |
+| `height`    | `height`     | The component height                                                                     | `string`                             | `"auto"` |
+| `maxWidth`  | `max-width`  | The component width                                                                      | `string`                             | `"100%"` |
+| `padding`   | `padding`    |                                                                                          | `"l" \| "m" \| "s" \| "xs"`          | `"xs"`   |
 
 ---
 

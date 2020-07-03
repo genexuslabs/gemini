@@ -15,6 +15,13 @@ export class Tabs {
 
   @Listen("tabActivated")
   tabActivatedHandler(event) {
+    //first, get the active tab, and set it´s outer-container overflow to hidden
+    const activeTab = this.element.querySelector("gxg-tab[is-selected]");
+    if (activeTab !== null) {
+      const outerContainer = ((activeTab.shadowRoot.querySelector(
+        ".outer-container"
+      ) as HTMLElement).style.overflow = "hidden");
+    }
     this.updateActiveChildren(event.target.tab, "gxg-tab-button");
     this.updateActiveChildren(event.target.tab, "gxg-tab");
   }
@@ -27,6 +34,23 @@ export class Tabs {
     );
     for (const child of children) {
       child.isSelected = activeTab === child.tab;
+
+      const outerContainer = child.shadowRoot.querySelector(
+        ".outer-container"
+      ) as HTMLElement;
+
+      if (activeTab === child.tab) {
+        if (child.tagName === "GXG-TAB") {
+          const outerContainer = child.shadowRoot.querySelector(
+            ".outer-container"
+          ) as HTMLElement;
+
+          console.log(outerContainer);
+          setTimeout(function() {
+            outerContainer.style.overflow = "visible";
+          }, 100);
+        }
+      }
     }
   }
 

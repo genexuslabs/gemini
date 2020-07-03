@@ -37,11 +37,6 @@ export class FormText implements FormComponent {
   @Prop({ mutable: true }) error = false;
 
   /**
-   * If input is full width
-   */
-  @Prop({ reflect: true }) fullWidth = false;
-
-  /**
    * Input icon
    * possible values: the same as the values for the icon component
    */
@@ -101,7 +96,7 @@ export class FormText implements FormComponent {
   /**
    * input width
    */
-  @Prop() width = "240px";
+  @Prop() maxWidth = "100%";
 
   @Element() el: HTMLElement;
 
@@ -161,7 +156,7 @@ export class FormText implements FormComponent {
         aria-label={this.label}
         icon-position={this.iconPositionFunc()}
         style={{
-          width: this.width
+          maxWidth: this.maxWidth
         }}
       >
         <div class="outer-wrapper">

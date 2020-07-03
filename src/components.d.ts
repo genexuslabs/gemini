@@ -164,26 +164,29 @@ export namespace Components {
     titleAlignment: TitleAlignment;
   }
   interface GxgCard {
-    boxShadow: boxShadow;
     /**
-     * This property makes the component full-width
+     * ******************************* PROPERTIES & STATE *******************************
      */
-    fullWidth: boolean;
+    boxShadow: boxShadow;
     /**
      * The component height
      */
     height: string;
-    padding: padding;
     /**
      * The component width
      */
-    width: string;
+    maxWidth: string;
+    padding: padding;
   }
   interface GxgColorPicker {
     cardTitle: string;
     value: string;
   }
   interface GxgColumn {
+    /**
+     * Disable default flex display in order to make the gxg-spacer-layout "justify-content" property keep working properly
+     */
+    noFlex: boolean;
     width: WidthType;
   }
   interface GxgColumns {
@@ -331,10 +334,6 @@ export namespace Components {
      */
     error: boolean;
     /**
-     * If input is full width
-     */
-    fullWidth: boolean;
-    /**
      * Input icon possible values: the same as the values for the icon component
      */
     icon: IconType;
@@ -350,6 +349,10 @@ export namespace Components {
      * The input label
      */
     label: string;
+    /**
+     * input width
+     */
+    maxWidth: string;
     /**
      * The input name
      */
@@ -378,16 +381,8 @@ export namespace Components {
      * If input has warning
      */
     warning: boolean;
-    /**
-     * input width
-     */
-    width: string;
   }
   interface GxgFormTextarea {
-    /**
-     * Number of cols
-     */
-    cols: number;
     /**
      * If textarea is disabled
      */
@@ -401,13 +396,13 @@ export namespace Components {
      */
     error: boolean;
     /**
-     * If textarea is full width
-     */
-    fullWidth: boolean;
-    /**
      * The textarea label
      */
     label: string;
+    /**
+     * The max-width
+     */
+    maxWidth: string;
     /**
      * The textarea name
      */
@@ -528,13 +523,13 @@ export namespace Components {
      */
     error: boolean;
     /**
-     * If select is full width
-     */
-    fullWidth: boolean;
-    /**
      * The select label
      */
     label: string;
+    /**
+     * The select width
+     */
+    maxWidth: string;
     /**
      * The select name
      */
@@ -555,10 +550,6 @@ export namespace Components {
      * If select has warnings
      */
     warning: boolean;
-    /**
-     * The select width
-     */
-    width: string;
   }
   interface GxgSeparator {
     /**
@@ -1199,20 +1190,19 @@ declare namespace LocalJSX {
     titleAlignment?: TitleAlignment;
   }
   interface GxgCard {
-    boxShadow?: boxShadow;
     /**
-     * This property makes the component full-width
+     * ******************************* PROPERTIES & STATE *******************************
      */
-    fullWidth?: boolean;
+    boxShadow?: boxShadow;
     /**
      * The component height
      */
     height?: string;
-    padding?: padding;
     /**
      * The component width
      */
-    width?: string;
+    maxWidth?: string;
+    padding?: padding;
   }
   interface GxgColorPicker {
     cardTitle?: string;
@@ -1222,6 +1212,10 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgColumn {
+    /**
+     * Disable default flex display in order to make the gxg-spacer-layout "justify-content" property keep working properly
+     */
+    noFlex?: boolean;
     width?: WidthType;
   }
   interface GxgColumns {
@@ -1372,10 +1366,6 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
-     * If input is full width
-     */
-    fullWidth?: boolean;
-    /**
      * Input icon possible values: the same as the values for the icon component
      */
     icon?: IconType;
@@ -1391,6 +1381,10 @@ declare namespace LocalJSX {
      * The input label
      */
     label?: string;
+    /**
+     * input width
+     */
+    maxWidth?: string;
     /**
      * The input name
      */
@@ -1421,16 +1415,8 @@ declare namespace LocalJSX {
      * If input has warning
      */
     warning?: boolean;
-    /**
-     * input width
-     */
-    width?: string;
   }
   interface GxgFormTextarea {
-    /**
-     * Number of cols
-     */
-    cols?: number;
     /**
      * If textarea is disabled
      */
@@ -1444,13 +1430,13 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
-     * If textarea is full width
-     */
-    fullWidth?: boolean;
-    /**
      * The textarea label
      */
     label?: string;
+    /**
+     * The max-width
+     */
+    maxWidth?: string;
     /**
      * The textarea name
      */
@@ -1574,13 +1560,13 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
-    /**
      * The select label
      */
     label?: string;
+    /**
+     * The select width
+     */
+    maxWidth?: string;
     /**
      * The select name
      */
@@ -1603,10 +1589,6 @@ declare namespace LocalJSX {
      * If select has warnings
      */
     warning?: boolean;
-    /**
-     * The select width
-     */
-    width?: string;
   }
   interface GxgSeparator {
     /**

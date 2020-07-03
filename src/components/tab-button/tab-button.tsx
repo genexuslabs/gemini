@@ -31,6 +31,14 @@ export class TabButton {
       return <gxg-icon type={this.icon}></gxg-icon>;
     }
   }
+
+  componentDidLoad() {
+    //Set the active tab for this tab-button if this is selected by default
+    if (this.isSelected) {
+      this.tabActivated.emit();
+    }
+  }
+
   render() {
     return (
       <li class="tab-item">

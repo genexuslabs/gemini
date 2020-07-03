@@ -2,11 +2,10 @@
 @import "../../globals/mixins";
 
 :host {
-  display: flex;
+  display: block;
   background: var(--color-on-primary);
   box-shadow: var(--box-shadow-01);
   border-radius: var(--border-radius-md);
-  display: flex;
   overflow: hidden;
   @include gxg-text();
 }

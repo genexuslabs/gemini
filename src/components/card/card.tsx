@@ -10,11 +10,6 @@ export class Card {
   PROPERTIES & STATE
   *********************************/
 
-  /**
-   * This property makes the component full-width
-   */
-  @Prop({ reflect: true }) fullWidth = false;
-
   @Prop({ reflect: true }) boxShadow: boxShadow = "xxs";
 
   /**
@@ -28,19 +23,11 @@ export class Card {
   /**
    * The component width
    */
-  @Prop() width = "200px";
+  @Prop() maxWidth = "100%";
 
   /*********************************
   METHODS
   *********************************/
-
-  widthFunc() {
-    if (this.fullWidth) {
-      return "100%";
-    } else {
-      return this.width;
-    }
-  }
 
   render() {
     return (
@@ -48,7 +35,7 @@ export class Card {
         class={{
           card: true
         }}
-        style={{ width: this.widthFunc(), height: this.height }}
+        style={{ maxWidth: this.maxWidth, height: this.height }}
       >
         <slot></slot>
       </Host>

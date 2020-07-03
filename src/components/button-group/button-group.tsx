@@ -146,7 +146,9 @@ export class ButtonGroup {
     if (this.buttonGroupTitle !== "") {
       header = (
         <header class="button-group-header">
-          <h1 class="button-group-header-title">{this.buttonGroupTitle}</h1>
+          <label class="button-group-header-title">
+            {this.buttonGroupTitle}
+          </label>
         </header>
       );
     }

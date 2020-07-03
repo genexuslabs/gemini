@@ -13,268 +13,115 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      html {
-        background: var(--color-background);
-        transition: background 0.2s ease-in-out;
-        font-family: arial;
-        color: var(--color-text);
-      }
-      p {
-        margin-bottom: 10px;
-      }
-      body {
-        background-color: var(--color-background);
-        
-      }
+      
     </style>
   </head>
 
-  <label style="font-size:12px;"
-      >Enable Dark Mode
-      <input
-        style="position: relative; top: 3px;"
-        type="checkbox"
-        name="night"
-        id="toggleDarkTheme"/></label
-    ><br /><br />
-
-    <a href="#" class="gxg-link">Some link</a>  
-
-  <h1 class="gxg-title-01">
-    Title
-  </h1>
-
-  <gxg-form-textarea
-          id="textarea1"
-          name="textarea1"
-          label="Default"
-          full-width
-          required
-        >
-        </gxg-form-textarea>
-
-  <gxg-drag-container>
-    <gxg-drag-box class="draggable">Container 01</gxg-drag-box>
-    <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
-    <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
-    <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
-    <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
-</gxg-drag-container>
-  <br>
-  
-<gxg-form-text
-    label="Name"
-    placeholder="John Griffith"
-    icon-position=${valueIcon}
-    required
-    required-message = "este campo es obligatorio."
-  >
-</gxg-form-text>
-
-
-<br>
-
-<gxg-form-text
-            type="text"
-            id="name3"
-            name="name"
-            label="Default 6"
-            placeholder="Placeholder text"
-            error
-          >
-            <gxg-form-message type="error" slot="message">
-              This is an error message 1
-            </gxg-form-message>
-          </gxg-form-text>
-
-          <br>
-
-
+  <gxg-tree>
+    <gxg-tree-item>
+      Fruits
+      <gxg-tree>
+        <gxg-tree-item>
+          apple
+        </gxg-tree-item>
+        <gxg-tree-item>
+          banana
           <gxg-tree>
-            <gxg-tree-item>
-              Fruits
-              <gxg-tree>
-                <gxg-tree-item>
-                  apple
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  banana
-                  <gxg-tree>
-                    <gxg-tree-item>
-                      big banana
-                    </gxg-tree-item>
-                    <gxg-tree-item>
-                      medium banana
-                    </gxg-tree-item>
-                    <gxg-tree-item>
-                      big banana
-                    </gxg-tree-item>
-                    </gxg-tree>
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  strawberry
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  waterlemon
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  grapes
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  mango
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-            <gxg-tree-item>
-              Vegetables
-              <gxg-tree>
-                <gxg-tree-item>
-                  potatoes
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  sweat potatoes
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  lettuce
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  onion
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  pumpkin
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  eggplant
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-            <gxg-tree-item>
-              Seasonings
-              <gxg-tree>
-                <gxg-tree-item>
-                  salt
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  pepper
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  comino
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  parsley
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  basil
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-            <gxg-tree-item>
-              Desserts
-              <gxg-tree>
-                <gxg-tree-item>
-                  lemmon cake
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  icecream
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  snkicker rolls
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  tiramisu
-                </gxg-tree-item>
-                <gxg-tree-item>
-                  amaretto tart
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-          </gxg-tree>
+<gxg-tree-item>
+cavendish banana
+</gxg-tree-item>
+<gxg-tree-item>
+pisang raja
+</gxg-tree-item>
+<gxg-tree-item>
+red banana
+</gxg-tree-item>
+</gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item>
+          strawberry
+        </gxg-tree-item>
+        <gxg-tree-item>
+          waterlemon
+        </gxg-tree-item>
+        <gxg-tree-item>
+          grapes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          mango
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Vegetables
+      <gxg-tree>
+        <gxg-tree-item>
+          potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          sweat potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          lettuce
+        </gxg-tree-item>
+        <gxg-tree-item>
+          onion
+        </gxg-tree-item>
+        <gxg-tree-item>
+          pumpkin
+        </gxg-tree-item>
+        <gxg-tree-item>
+          eggplant
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Seasonings
+      <gxg-tree>
+        <gxg-tree-item>
+          salt
+        </gxg-tree-item>
+        <gxg-tree-item>
+          pepper
+        </gxg-tree-item>
+        <gxg-tree-item>
+          comino
+        </gxg-tree-item>
+        <gxg-tree-item>
+          parsley
+        </gxg-tree-item>
+        <gxg-tree-item>
+          basil
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Desserts
+      <gxg-tree>
+        <gxg-tree-item>
+          lemmon cake
+        </gxg-tree-item>
+        <gxg-tree-item>
+          icecream
+        </gxg-tree-item>
+        <gxg-tree-item>
+          snkicker rolls
+        </gxg-tree-item>
+        <gxg-tree-item>
+          tiramisu
+        </gxg-tree-item>
+        <gxg-tree-item>
+          amaretto tart
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+  </gxg-tree>
 
-<br><br>
+  <gxg-columns space="xs">
+    
+    <gxg-column width="1"><div style="background:#CCC" height:10px>hola</div></gxg-column>
+    
+  </gxg-columns>
 
-    <gxg-accordion mode="classical">
-      <gxg-accordion-item item-title="fruits" item-id="fruits">
-        <gxg-accordion mode="slim">
-          <gxg-accordion-item item-title="apple" item-id="apple">
-            An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
-          </gxg-accordion-item>
-          <gxg-accordion-item item-title="banana" item-id="banana">
-            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
-          </gxg-accordion-item>
-          <gxg-accordion-item item-title="mango" item-id="mango">
-            A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
-          </gxg-accordion-item>
-      </gxg-accordion>
-      </gxg-accordion-item>
-      <gxg-accordion-item item-title="vegetables" item-id="vegetables">
-        <gxg-accordion mode="slim">
-        <gxg-accordion-item item-title="lettuce" item-id="lettuce">
-          Lettuce (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds.
-        </gxg-accordion-item>
-        <gxg-accordion-item item-title="carrot" item-id="carrot">
-          The carrot (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist. 
-        </gxg-accordion-item>
-        <gxg-accordion-item item-title="onion" item-id="onion">
-          The onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.
-        </gxg-accordion-item>
-        </gxg-accordion>
-      </gxg-accordion-item>
-  </gxg-accordion>
-
-  <gxg-accordion mode="slim">
-    <gxg-accordion-item item-title="tab-01" item-id="tab-01">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam nihil blanditiis reprehenderit quam atque nam veritatis aut consequuntur aperiam omnis perspiciatis hic iusto totam odit, laudantium quia ut ratione vero.
-    </gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-</gxg-accordion>
-
-
-
-<gxg-accordion mode="boxed">
-  <gxg-accordion-item item-title="tab-03" item-id="tab-03">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero earum asperiores, eveniet blanditiis facilis iure libero deserunt omnis natus, eius quidem perferendis ut amet quas veritatis est ex reprehenderit totam.
-  </gxg-accordion-item>
-  <gxg-accordion-item item-title="tab-03" item-id="tab-03">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero earum asperiores, eveniet blanditiis facilis iure libero deserunt omnis natus, eius quidem perferendis ut amet quas veritatis est ex reprehenderit totam.
-  </gxg-accordion-item>
-</gxg-accordion>
-  
-<script>
-  /*
-  The following script set automatically Gemini as Dark theme if the user
-  Windows system is using Dark theme as well. Also, a checkbox lets the user
-  deactivate/activate the Dark mode, independently of the Windows theme configuration.
-*/
-
-  // Query for the toggle that is used to change between themes
-  const toggle = document.querySelector("#toggleDarkTheme");
-
-  // Listen for the toggle check/uncheck to toggle the dark class on the <body>
-  toggle.addEventListener("change", ev => {
-    // for(var i = 0; i < gxgComponents.length; i++) {
-    //gxgComponents[i].classList.toggle('dark-mode')
-    document.getElementsByTagName("html")[0].classList.toggle("dark");
-    // }
-  });
-
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-  // Listen for changes to the prefers-color-scheme media query
-  prefersDark.addListener(e => checkToggle(e.matches));
-
-  (function() {
-    // your page initialization code here
-    // the DOM will be available here
-    checkToggle(prefersDark.matches);
-  })();
-
-  // Called by the media query to check/uncheck the toggle
-  function checkToggle(shouldCheck) {
-    if (
-      (shouldCheck && !toggle.checked) ||
-      (!shouldCheck && toggle.checked)
-    )
-      toggle.click();
-  }
-</script>
   </body>
 </html>

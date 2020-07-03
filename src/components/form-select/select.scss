@@ -3,17 +3,7 @@
 
 :host {
   --size: 3; //This value can be set from the user as a property
-}
-
-:host {
-  display: flex;
-  flex-direction: column;
-}
-:host([full-width]) {
   display: block;
-  width: 100% !important;
-}
-:host([full-width]) .outer-wrapper {
   width: 100%;
 }
 
@@ -95,7 +85,7 @@ SELECT
     color: var(--color-on-background);
     padding: var(--spacing-comp-01);
     cursor: pointer;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
     line-height: 0.95em;
   }
   .select-items div {

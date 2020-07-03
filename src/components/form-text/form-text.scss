@@ -4,14 +4,6 @@
 :host {
   display: flex;
   flex-direction: column;
-}
-:host([full-width]) {
-  display: flex;
-  flex-direction: column;
-  width: 100% !important;
-}
-:host([full-width]) .outer-wrapper,
-:host([full-width]) input {
   width: 100%;
 }
 

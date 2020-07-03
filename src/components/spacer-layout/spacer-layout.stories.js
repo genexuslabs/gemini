@@ -51,7 +51,7 @@ stories.add("Spacer Layout", () => {
   return `
   <style>
   gxg-spacer-layout {
-    background: var(--gray-02);
+    background: var(--gray-01);
     width: 900px;
     height: 300px;
   }

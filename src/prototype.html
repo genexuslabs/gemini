@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+      .section {
+        max-width: 70%;
+        margin: 0 auto;
+        margin-top: 150px;
+      }
+      #contact {
+
+      }
+      body {
+        margin: 0;
+      }
+      h1 {
+        font-size: 32px !important;
+        letter-spacing: -0.03em !important;
+        margin-bottom: 0.25em;
+        font-family: 'Merriweather', serif !important;
+      }
+      h2 {
+        font-size: 16px !important;
+        font-weight: 400;
+        margin-bottom: 2em;
+      }
+      :root {
+        --color-primary-active: #fa7a33;
+        --color-primary-hover: #ffb489;
+        --color-primary-enabled: #fa7a33;
+        --color-primary:#fa7a33;
+      }
+      /*CONTACT*/
+      #contact {
+        background-image: url(https://www.omadahealth.com/hubfs/1775981/2018/lifestyle-3.png);
+        background-size: 60%;
+        background-position: 0 0%;
+        background-repeat: no-repeat;
+        padding: 50px 170px;
+
+      }
+      .gxg-title-03 {
+        font-size: 14px;
+        margin: 0;
+        margin-bottom: 0.25em;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
+  <!--
+    accordion
+    alert
+      button group
+      button
+      container card
+    container box
+    color picker
+      columns
+    date picker
+    drag
+    checkbox
+    radio button
+      select
+      input text
+      text area
+    icons
+    menu 
+    modal
+    proggres bar
+    separator
+    slider
+      spacer leyout
+      spacer one
+    stepper
+      tabs
+    toggle
+    toolbar
+    tooltip
+    tree
+  -->
+  
+
+  <section id="contact" class="section">
+    <h1 class="gxg-title-01 gxg-title-01--negative">Let´s Connect</h1>
+    <h2 class="gxg-title-02 gxg-title-02--negative">What can we help you with?</h2>
+
+      <gxg-columns space="m">
+        <gxg-column>
+      <gxg-tabs>
+        <gxg-tab-bar>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="Sales Inquiry"
+            tab="sales-inquiry"
+            key="sales-inquiry"
+            is-selected="true"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="User Support"
+            tab="user-support"
+            key="user-support"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="Something Else"
+            tab="something-else"
+            key="something-else"
+          ></gxg-tab-button>
+        </gxg-tab-bar>
+        <gxg-tab tab="sales-inquiry" id="sales-inquiry" key="sales-inquiry">
+          <div id="wrapper" style="padding:25px 100px;">
+            <gxg-stack space="s">
+              <gxg-columns space="s">
+                <gxg-column width="1/2">
+                    <gxg-form-text id="siFirstName" placeholder="Jane" label="First Name" required></gxg-form-text>
+                </gxg-column>
+                <gxg-column width="1/2">
+                  <gxg-form-text id="siSurname" placeholder="Doe" label="Surname" required></gxg-form-text>
+               </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                    <gxg-form-text id="siVpHrBenefits" placeholder="VP of HR Benefits" label="Title" required></gxg-form-text>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                    <gxg-form-text id="exampleCompany" placeholder="Example Company" label="Company" required></gxg-form-text>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                  <gxg-button-group
+                    default-selected-btn-id="id2"
+                    button-group-title="Type"
+                    title-alignment="left"
+                    tabindex="1"
+                    full-width>
+                      <button id="id1" value="employer">Employer</button>
+                      <button id="id2" value="consultant">Consultant</button>
+                      <button id="id3" value="Health Plan">Health Plan</button>
+                  </gxg-button-group>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+              <gxg-select label="Topic" size="5">
+                <gxg-option value="0">I´m interested in...</gxg-option>
+                <gxg-option value="1">Enrolling in Omada through my employer</gxg-option>
+                <gxg-option value="2">Enrolling in Omada for myself</gxg-option>
+                <gxg-option value="3">Getting in touch with support</gxg-option>
+                <gxg-option value="4">A career with Omada</gxg-option>
+              </gxg-select>
+            </gxg-column>
+          </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                  <gxg-form-text id="siEmail" placeholder="jane.doe@example.com" label="Email" required></gxg-form-text>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                  <gxg-column>
+                    <gxg-form-text id="siPhone" placeholder="(123) 456-7890" label="Phone" required></gxg-form-text> 
+                  </gxg-column>
+                </gxg-columns>
+              <gxg-column>
+                <gxg-form-textarea
+                id="message"
+                label="Message"
+                placeholder="Hi! I would love to arrange a product demo for our team."
+                id="sIMessage"
+              >
+              </gxg-form-textarea>
+            </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column no-flex>
+                  <gxg-spacer-layout space="s" no-flex justify-content="end">
+                    <gxg-button type="secondary-text-only" onclick="siClearForm()">Reset form</gxg-button>
+                  <gxg-button onclick="siTriggerForm()">Get in Touch!</gxg-button>
+                
+                </gxg-spacer-layout>
+              </gxg-column>
+                </gxg-columns>
+            </gxg-stack>
+          </div>
+        </gxg-tab>
+        <gxg-tab tab="user-support" key="user-support" isSelected="false">
+          <div id="wrapper" style="padding:25px 100px;">
+            <gxg-stack space="s">
+              <gxg-columns space="s">
+                <gxg-column width="1/2">
+                    <gxg-form-text placeholder="Jane" label="First Name" required></gxg-form-text>
+                </gxg-column>
+                <gxg-column width="1/2">
+                  <gxg-form-text placeholder="Doe" label="Surname" required></gxg-form-text>
+               </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                    <gxg-form-text placeholder="jane.doe@example.com" label="Email" required></gxg-form-text>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                  <gxg-select label="Topic" size="5">
+                    <gxg-option value="0">I´m interested in...</gxg-option>
+                    <gxg-option value="1">Enrolling in Omada through my employer</gxg-option>
+                    <gxg-option value="2">Enrolling in Omada for myself</gxg-option>
+                    <gxg-option value="3">Getting in touch with support</gxg-option>
+                    <gxg-option value="4">A career with Omada</gxg-option>
+                  </gxg-select>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                  <gxg-form-text placeholder="(123) 456-7890" label="Phone" required></gxg-form-text> 
+                </gxg-column>
+                  </gxg-columns>
+                  <gxg-columns space="s">
+                    <gxg-column>
+                <gxg-form-textarea
+                id="message"
+                label="Message"
+                placeholder="Hi! I would like to..."
+              >
+              </gxg-form-textarea>
+            </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column no-flex>
+                  <gxg-spacer-layout space="s" no-flex justify-content="end">
+                    <gxg-button type="secondary-text-only" onclick="resetContactForm">Reset form</gxg-button>
+                  <gxg-button onclick="usTriggerForm()">Get in Touch!</gxg-button>
+                
+                </gxg-spacer-layout>
+              </gxg-column>
+                </gxg-columns>
+            </gxg-stack>
+          </div>
+        </gxg-tab>
+        <gxg-tab tab="something-else" key="something-else" isSelected="false">
+          <div id="wrapper" style="padding:25px 100px;">
+            <gxg-stack space="s">
+              <gxg-columns space="s">
+                <gxg-column width="1/2">
+                    <gxg-form-text placeholder="Jane" label="First Name" required></gxg-form-text>
+                </gxg-column>
+                <gxg-column width="1/2">
+                  <gxg-form-text placeholder="Doe" label="Surname" required></gxg-form-text>
+               </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                    <gxg-form-text placeholder="jane.doe@example.com" label="Email" required></gxg-form-text>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                    <gxg-form-text placeholder="(123) 456-7890" label="Phone" required></gxg-form-text>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column>
+                  <gxg-select label="Interest" size="5">
+                    <gxg-option value="0">I´m interested in...</gxg-option>
+                    <gxg-option value="1">Enrolling in Omada through my employer</gxg-option>
+                    <gxg-option value="2">Enrolling in Omada for myself</gxg-option>
+                    <gxg-option value="3">Getting in touch with support</gxg-option>
+                    <gxg-option value="4">A career with Omada</gxg-option>
+                  </gxg-select>
+                </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+              <gxg-column>
+                <gxg-form-textarea
+                id="message"
+                label="Message"
+                placeholder="Hi! I would like to..."
+              >
+              </gxg-form-textarea>
+            </gxg-column>
+              </gxg-columns>
+              <gxg-columns space="s">
+                <gxg-column no-flex>
+                  <gxg-spacer-layout space="s" no-flex justify-content="end">
+                    <gxg-button type="secondary-text-only" onclick="resetContactForm">Reset form</gxg-button>
+                  <gxg-button onclick="seTriggerForm()">Get in Touch!</gxg-button>
+                </gxg-spacer-layout>
+              </gxg-column>
+                </gxg-columns>
+            </gxg-stack>
+          </div>
+        </gxg-tab>
+      </gxg-tabs>
+    </gxg-column>
+  <gxg-column no-flex>
+    <h3 class="gxg-title-03">HEADQUARTERS</h3>
+    <address class="gxg-text">
+      500 Sansome St. #200
+      San Francisco,<br>  CA 94111
+    </address>
+    <gxg-spacer-one space="xs"></gxg-spacer-one>
+    <gxg-spacer-one space="xs"></gxg-spacer-one>
+    <gxg-spacer-one space="xs"></gxg-spacer-one>
+    <h3 class="gxg-title-03">PHONE</h3>
+    <a href="tel:+888.987.8337" class="gxg-link">888.987.8337</a>
+    
+</gxg-column>
+    </gxg-columns>
+    </section>
+
+
+
+    <script>
+        function siTriggerForm(){
+          let siInputElements = document.querySelectorAll("#sales-inquiry gxg-form-text");
+          siInputElements.forEach(input => {
+            var event = new Event('change');
+            input.shadowRoot.querySelector("input").dispatchEvent(event);
+          });
+        }
+      function siClearForm(){
+        let siInputElements = document.querySelectorAll("#sales-inquiry gxg-form-text");
+        siInputElements.forEach(input => {
+          input.shadowRoot.querySelector("input").value = "";
+        });
+      }
+      function usTriggerForm(){
+        let siInputElements = document.querySelectorAll("#sales-inquiry gxg-form-text");
+        siInputElements.forEach(input => {
+          var event = new Event('change');
+          input.shadowRoot.querySelector("input").dispatchEvent(event);
+        });
+      }
+      function seTriggerForm(){
+        let siInputElements = document.querySelectorAll("#sales-inquiry gxg-form-text");
+        siInputElements.forEach(input => {
+          var event = new Event('change');
+          input.shadowRoot.querySelector("input").dispatchEvent(event);
+        });
+      }
+      function clearForm(){
+
+      }
+      /*CONTACT*/
+      /*Sales inquiry*/
+      var siFirstName = document.getElementById('just_an_example');
+      
+      var event = new Event('change');
+      element.dispatchEvent(event);
+      
+    </script>
+  </body>
+</html>
