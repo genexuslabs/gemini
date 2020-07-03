@@ -10,7 +10,7 @@ export class ToolbarItem {
   @Prop() disabled = false;
   @Prop() icon: IconType = null;
   @Prop() subtitle: string;
-  @Prop() toolbarTitle: string;
+  @Prop() toolbarItemTitle: string;
 
   includeIcon() {
     if (this.icon !== null) {
@@ -29,7 +29,7 @@ export class ToolbarItem {
         }}
       >
         <div class="toolbar-item__label">
-          <div class="toolbar-item__label__title">{this.toolbarTitle}</div>:
+          <div class="toolbar-item__label__title">{this.toolbarItemTitle}</div>:
           <div class="toolbar-item__label__subtitle">{this.subtitle}</div>
         </div>
         {this.includeIcon()}

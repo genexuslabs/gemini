@@ -4,12 +4,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `disabled` | `disabled` |             | `boolean` | `false`     |
-| `position` | `position` |             | `string`  | `"bottom"`  |
-| `subtitle` | `subtitle` |             | `string`  | `undefined` |
-| `title`    | `title`    |             | `string`  | `undefined` |
+| Property       | Attribute       | Description | Type      | Default     |
+| -------------- | --------------- | ----------- | --------- | ----------- |
+| `disabled`     | `disabled`      |             | `boolean` | `false`     |
+| `position`     | `position`      |             | `string`  | `"bottom"`  |
+| `subtitle`     | `subtitle`      |             | `string`  | `undefined` |
+| `toolbarTitle` | `toolbar-title` |             | `string`  | `undefined` |
 
 ## Dependencies
 

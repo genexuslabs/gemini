@@ -9,7 +9,7 @@ export class Toolbar {
   @Prop() position = "bottom";
   @Prop({ reflect: true }) disabled = false;
   @Prop() subtitle: string;
-  @Prop() title: string;
+  @Prop() toolbarTitle: string;
 
   render() {
     return (
@@ -30,7 +30,7 @@ export class Toolbar {
               size="small"
             ></gxg-icon>
             <div class="left-container__title">
-              <strong>{this.title}:</strong>
+              <strong>{this.toolbarTitle}:</strong>
             </div>
             <div class="left-container__subtitle">{this.subtitle}</div>
           </div>

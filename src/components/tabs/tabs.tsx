@@ -35,13 +35,13 @@ export class Tabs {
     for (const child of children) {
       child.isSelected = activeTab === child.tab;
 
-      const outerContainer = child.shadowRoot.querySelector(
+      let outerContainer = child.shadowRoot.querySelector(
         ".outer-container"
       ) as HTMLElement;
 
       if (activeTab === child.tab) {
         if (child.tagName === "GXG-TAB") {
-          const outerContainer = child.shadowRoot.querySelector(
+          outerContainer = child.shadowRoot.querySelector(
             ".outer-container"
           ) as HTMLElement;
 

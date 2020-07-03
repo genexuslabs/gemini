@@ -21,11 +21,11 @@ describe("gxg-toolbar", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-toolbar title="Title" subtitle="Subtitle" position="left">
+      `<gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="left">
       <gxg-toolbar-item
         slot
         icon="settings"
-        title="title"
+        toolbar-item-title="title"
         subtitle="subtitle"
         onClick="toolbarFunc01()"
         id="toolbar-item-01"
@@ -33,7 +33,7 @@ describe("gxg-toolbar", () => {
       <gxg-toolbar-item
         slot
         icon="settings"
-        title="title"
+        toolbar-item-title="title"
         subtitle="subtitle"
         disabled
         id="toolbar-item-02"

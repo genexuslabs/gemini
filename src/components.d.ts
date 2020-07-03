@@ -686,13 +686,13 @@ export namespace Components {
     disabled: boolean;
     position: string;
     subtitle: string;
-    title: string;
+    toolbarTitle: string;
   }
   interface GxgToolbarItem {
     disabled: boolean;
     icon: IconType;
     subtitle: string;
-    title: string;
+    toolbarItemTitle: string;
   }
   interface GxgTooltip {
     /**
@@ -1723,13 +1723,13 @@ declare namespace LocalJSX {
     disabled?: boolean;
     position?: string;
     subtitle?: string;
-    title?: string;
+    toolbarTitle?: string;
   }
   interface GxgToolbarItem {
     disabled?: boolean;
     icon?: IconType;
     subtitle?: string;
-    title?: string;
+    toolbarItemTitle?: string;
   }
   interface GxgTooltip {
     /**
