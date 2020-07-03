@@ -112,6 +112,6 @@ describe("gxg-card", () => {
   it("is full width", async () => {
     card.setProperty("fullWidth", true);
     await page.waitForChanges();
-    expect((await card.getComputedStyle()).width).toBe("500px");
+    expect((await card.getComputedStyle()).width).toBe("492px");
   });
 });

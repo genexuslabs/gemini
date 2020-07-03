@@ -71,7 +71,7 @@ describe("gxg-columns space general", () => {
     expect(gxgColumn2ComputedStyle.fontSize).toBe("16px");
     expect(gxgColumn2ComputedStyle.fontFamily).toBe("arial");
     //column3 : flex width
-    expect((await gxgColumn3.getComputedStyle()).display).toBe("flex");
+    expect((await gxgColumn3.getComputedStyle()).display).toBe("block");
     expectValidColumnWidth(gxgColumn3, 188);
     expect((await gxgColumn3.getComputedStyle()).fontSize).toBe("16px");
     expect((await gxgColumn3.getComputedStyle()).fontFamily).toBe("arial");
