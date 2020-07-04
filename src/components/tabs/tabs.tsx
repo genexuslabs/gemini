@@ -18,9 +18,10 @@ export class Tabs {
     //first, get the active tab, and set it´s outer-container overflow to hidden
     const activeTab = this.element.querySelector("gxg-tab[is-selected]");
     if (activeTab !== null) {
-      const outerContainer = ((activeTab.shadowRoot.querySelector(
+      const outerContainer = activeTab.shadowRoot.querySelector(
         ".outer-container"
-      ) as HTMLElement).style.overflow = "hidden");
+      ) as HTMLElement;
+      outerContainer.style.overflow = "hidden";
     }
     this.updateActiveChildren(event.target.tab, "gxg-tab-button");
     this.updateActiveChildren(event.target.tab, "gxg-tab");
