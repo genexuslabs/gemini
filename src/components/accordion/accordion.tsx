@@ -15,7 +15,7 @@ import {
 })
 export class Accordion {
   /**
-   * The state of the toggle. Whether is disabled or not.
+   * The state of the accordion. Whether is disabled or not.
    */
   @Prop() disabled = false;
 

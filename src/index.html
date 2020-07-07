@@ -15,6 +15,137 @@
     <style></style>
   </head>
   <body>
+    <!-- <gxg-tree>
+      <gxg-tree-item>
+        Item 01
+        <gxg-tree>
+          <gxg-tree-item>
+            Item 01
+          </gxg-tree-item>
+          <gxg-tree-item>
+            Item 02
+          </gxg-tree-item>
+          <gxg-tree-item>
+            Item 03
+          </gxg-tree-item>
+          <gxg-tree-item>
+            Item 04
+          </gxg-tree-item>
+          <gxg-tree-item>
+            Item 05
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 02
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 03
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 04
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 05
+      </gxg-tree-item>
+    </gxg-tree> -->
+
+    <gxg-tree>
+      <gxg-tree-item>
+        Fruits
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            apple
+          </gxg-tree-item>
+          <gxg-tree-item>
+            banana
+            <gxg-tree slot="tree">
+              <gxg-tree-item>
+                cavendish banana
+              </gxg-tree-item>
+              <gxg-tree-item>
+                pisang raja
+              </gxg-tree-item>
+              <gxg-tree-item>
+                red banana
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Vegetables
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            sweat potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            lettuce
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Seasonings
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            salt
+          </gxg-tree-item>
+          <gxg-tree-item>
+            pepper
+          </gxg-tree-item>
+          <gxg-tree-item>
+            comino
+          </gxg-tree-item>
+          <gxg-tree-item>
+            parsley
+          </gxg-tree-item>
+          <gxg-tree-item>
+            basil
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+    </gxg-tree>
+
+    <br /><br /><br />
+    <div style="width: 500px;">
+      <gxg-accordion>
+        <gxg-accordion-item item-title="tab-01" item-id="tab-01" status="open"
+          >some content on accordion 1.</gxg-accordion-item
+        >
+        <gxg-accordion-item item-title="tab-02" item-id="tab-02"
+          >some content on accordion 2.</gxg-accordion-item
+        >
+      </gxg-accordion>
+    </div>
+
+    <br /><br />
+
+    <div style="width: 500px;">
+      <gxg-accordion mode="boxed">
+        <gxg-accordion-item item-title="tab-01" item-id="tab-01" open
+          >some content on accordion 1.</gxg-accordion-item
+        >
+        <gxg-accordion-item item-title="tab-02" item-id="tab-02"
+          >some content on accordion 2.</gxg-accordion-item
+        >
+      </gxg-accordion>
+    </div>
+
+    <br /><br /><br />
+    <gxg-select label="Select a car:" width="400px" size="5" full-width>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select>
     <br /><br /><br /><br /><br />
     <gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="left">
       <gxg-toolbar-item
@@ -41,106 +172,6 @@
         matter, and those who matter don't mind.</gxg-card
       >
     </div>
-
-    <gxg-tree>
-      <gxg-tree-item>
-        Fruits
-        <gxg-tree>
-          <gxg-tree-item>
-            apple
-          </gxg-tree-item>
-          <gxg-tree-item>
-            banana
-            <gxg-tree>
-              <gxg-tree-item>
-                cavendish banana
-              </gxg-tree-item>
-              <gxg-tree-item>
-                pisang raja
-              </gxg-tree-item>
-              <gxg-tree-item>
-                red banana
-              </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-          <gxg-tree-item>
-            strawberry
-          </gxg-tree-item>
-          <gxg-tree-item>
-            waterlemon
-          </gxg-tree-item>
-          <gxg-tree-item>
-            grapes
-          </gxg-tree-item>
-          <gxg-tree-item>
-            mango
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Vegetables
-        <gxg-tree>
-          <gxg-tree-item>
-            potatoes
-          </gxg-tree-item>
-          <gxg-tree-item>
-            sweat potatoes
-          </gxg-tree-item>
-          <gxg-tree-item>
-            lettuce
-          </gxg-tree-item>
-          <gxg-tree-item>
-            onion
-          </gxg-tree-item>
-          <gxg-tree-item>
-            pumpkin
-          </gxg-tree-item>
-          <gxg-tree-item>
-            eggplant
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Seasonings
-        <gxg-tree>
-          <gxg-tree-item>
-            salt
-          </gxg-tree-item>
-          <gxg-tree-item>
-            pepper
-          </gxg-tree-item>
-          <gxg-tree-item>
-            comino
-          </gxg-tree-item>
-          <gxg-tree-item>
-            parsley
-          </gxg-tree-item>
-          <gxg-tree-item>
-            basil
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Desserts
-        <gxg-tree>
-          <gxg-tree-item>
-            lemmon cake
-          </gxg-tree-item>
-          <gxg-tree-item>
-            icecream
-          </gxg-tree-item>
-          <gxg-tree-item>
-            snkicker rolls
-          </gxg-tree-item>
-          <gxg-tree-item>
-            tiramisu
-          </gxg-tree-item>
-          <gxg-tree-item>
-            amaretto tart
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-    </gxg-tree>
 
     <gxg-columns space="xs">
       <gxg-column width="fluid">

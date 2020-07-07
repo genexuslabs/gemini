@@ -14,103 +14,80 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Tree", () => {
   return `
-  <gxg-tree>
-    <gxg-tree-item>
-      Fruits
-      <gxg-tree>
-        <gxg-tree-item>
-          apple
-        </gxg-tree-item>
-        <gxg-tree-item>
-          banana
-          <gxg-tree>
-<gxg-tree-item>
-cavendish banana
-</gxg-tree-item>
-<gxg-tree-item>
-pisang raja
-</gxg-tree-item>
-<gxg-tree-item>
-red banana
-</gxg-tree-item>
-</gxg-tree>
-        </gxg-tree-item>
-        <gxg-tree-item>
-          strawberry
-        </gxg-tree-item>
-        <gxg-tree-item>
-          waterlemon
-        </gxg-tree-item>
-        <gxg-tree-item>
-          grapes
-        </gxg-tree-item>
-        <gxg-tree-item>
-          mango
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-    <gxg-tree-item>
-      Vegetables
-      <gxg-tree>
-        <gxg-tree-item>
-          potatoes
-        </gxg-tree-item>
-        <gxg-tree-item>
-          sweat potatoes
-        </gxg-tree-item>
-        <gxg-tree-item>
-          lettuce
-        </gxg-tree-item>
-        <gxg-tree-item>
-          onion
-        </gxg-tree-item>
-        <gxg-tree-item>
-          pumpkin
-        </gxg-tree-item>
-        <gxg-tree-item>
-          eggplant
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-    <gxg-tree-item>
-      Seasonings
-      <gxg-tree>
-        <gxg-tree-item>
-          salt
-        </gxg-tree-item>
-        <gxg-tree-item>
-          pepper
-        </gxg-tree-item>
-        <gxg-tree-item>
-          comino
-        </gxg-tree-item>
-        <gxg-tree-item>
-          parsley
-        </gxg-tree-item>
-        <gxg-tree-item>
-          basil
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-    <gxg-tree-item>
-      Desserts
-      <gxg-tree>
-        <gxg-tree-item>
-          lemmon cake
-        </gxg-tree-item>
-        <gxg-tree-item>
-          icecream
-        </gxg-tree-item>
-        <gxg-tree-item>
-          snkicker rolls
-        </gxg-tree-item>
-        <gxg-tree-item>
-          tiramisu
-        </gxg-tree-item>
-        <gxg-tree-item>
-          amaretto tart
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-  </gxg-tree>`;
+  <gxg-tree id="main-tree" onClick="(function(){
+    let itemClickedHandler = function(e){
+      console.log(e);
+    }
+    this.removeEventListener('itemClicked', itemClickedHandler);
+    this.addEventListener('itemClicked', itemClickedHandler);
+    return false;
+})();">>
+      <gxg-tree-item>
+        Fruits
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            apple
+          </gxg-tree-item>
+          <gxg-tree-item>
+            banana
+            <gxg-tree slot="tree">
+              <gxg-tree-item>
+                cavendish banana
+              </gxg-tree-item>
+              <gxg-tree-item>
+                pisang raja
+              </gxg-tree-item>
+              <gxg-tree-item>
+                red banana
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Vegetables
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            sweat potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            lettuce
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Seasonings
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            salt
+          </gxg-tree-item>
+          <gxg-tree-item>
+            pepper
+          </gxg-tree-item>
+          <gxg-tree-item>
+            comino
+          </gxg-tree-item>
+          <gxg-tree-item>
+            parsley
+          </gxg-tree-item>
+          <gxg-tree-item>
+            basil
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+    </gxg-tree>
+   `;
 });
+
+// (function() {
+//   // your page initialization code here
+//   // the DOM will be available here
+//   let mainTree = document.getElementById("main-tree");
+//   mainTree.addEventListener("itemClicked", function(e) {
+//     alert("hola");
+//     //console.log(e.target);
+//   });
+// })();

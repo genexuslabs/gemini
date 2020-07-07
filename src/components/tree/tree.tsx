@@ -1,4 +1,4 @@
-import { Component, h } from "@stencil/core";
+import { Component, Element, h } from "@stencil/core";
 
 @Component({
   tag: "gxg-tree",
@@ -6,6 +6,8 @@ import { Component, h } from "@stencil/core";
   shadow: true
 })
 export class TreeContainer {
+  @Element() el: HTMLElement;
+
   render() {
     return (
       <ul>

@@ -1,4 +1,14 @@
-import { Component, h, Host, Element, State } from "@stencil/core";
+import {
+  Component,
+  h,
+  Host,
+  Element,
+  Event,
+  EventEmitter,
+  State,
+  Prop
+} from "@stencil/core";
+import { IconType } from "../icon/icon";
 
 @Component({
   tag: "gxg-tree-item",
@@ -7,73 +17,98 @@ import { Component, h, Host, Element, State } from "@stencil/core";
 })
 export class TreeItem {
   @Element() el: HTMLElement;
-  @State() hasChilds = false;
+  @State() hasChildren = false;
+  @Prop({ reflect: true }) disabled = false;
+  @Prop() icon: IconType = "file";
   @State() open = false;
   @State() numberOfChildItems: number;
   @State() treeContainerMaxHeight: string;
+  @Event() itemClicked: EventEmitter;
 
   componentDidLoad() {
-    const slottedTreeContainer = this.el.shadowRoot
-      .querySelector("slot")
-      .assignedNodes()[1];
+    const slottedTree = this.el.querySelector("gxg-tree");
 
-    if (slottedTreeContainer !== undefined) {
-      this.hasChilds = true;
-      this.numberOfChildItems = slottedTreeContainer.childNodes.length - 1;
-      this.treeContainerMaxHeight = 17.5 * this.numberOfChildItems + "px";
-      this.el.style.setProperty(
-        "--treeContainerMaxHeight",
-        this.treeContainerMaxHeight
-      );
+    if (slottedTree !== null) {
+      if (slottedTree.nodeName === "GXG-TREE") {
+        this.hasChildren = true;
+        this.numberOfChildItems = slottedTree.childNodes.length - 1;
+        this.treeContainerMaxHeight = (28 * this.numberOfChildItems) / 2 + "px";
+        this.el.style.setProperty(
+          "--treeContainerMaxHeight",
+          this.treeContainerMaxHeight
+        );
 
-      //set animation duration
-      const animationDuration = this.numberOfChildItems * 0.03 + "s";
-      this.el.style.setProperty("--animation-duration", animationDuration);
+        //set animation duration
+        const animationDuration = this.numberOfChildItems * 0.03 + "s";
+        this.el.style.setProperty("--animation-duration", animationDuration);
+      }
     }
     this.el.style.setProperty("--treeContainerMaxHeight", "0");
   }
 
-  insertIcon() {
-    if (!this.hasChilds) {
-      return <gxg-icon size="small" slot="icon" type="minus-circle"></gxg-icon>;
-    } else if (this.open) {
-      return <gxg-icon size="small" slot="icon" type="add-circle"></gxg-icon>;
-    } else {
-      return <gxg-icon size="small" slot="icon" type="add-circle"></gxg-icon>;
-    }
-  }
-
-  handleClick(e: MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.currentTarget === this.el.shadowRoot.querySelector(":scope > li")) {
-      this.open = !this.open;
-    }
+  getClickHandler(onClick, onDblClick, delay) {
+    let timeoutID = null;
+    delay = delay || 250;
+    return function(event) {
+      if (!timeoutID) {
+        timeoutID = setTimeout(function() {
+          onClick(event);
+          timeoutID = null;
+        }, delay);
+      } else {
+        timeoutID = clearTimeout(timeoutID);
+        onDblClick(event);
+      }
+    };
   }
 
   render() {
     return (
       <Host
-        style={{
-          "--treeContainerMaxHeight": this.open
-            ? this.treeContainerMaxHeight
-            : "0"
+        tabindex="0"
+        // style={{
+        //   "--treeContainerMaxHeight": this.open
+        //     ? this.treeContainerMaxHeight
+        //     : "0"
+        // }}
+        class={{
+          disabled: this.disabled
         }}
       >
         <li
           class={{
-            closed: !this.open,
-            "has-childs": this.hasChilds
+            closed: !this.open
           }}
         >
-          {this.hasChilds ? (
-            <span class="li__icon" onClick={this.handleClick.bind(this)}></span>
-          ) : (
-            ""
-          )}
-          <span class="slotted-container">
+          <div
+            class="wrapper"
+            onClick={this.getClickHandler(
+              function() {
+                //single clicked
+                this.el.focus();
+                this.itemClicked.emit(this);
+              }.bind(this),
+              function() {
+                this.el.focus();
+                //double clicked
+                this.open = !this.open;
+              }.bind(this),
+              250
+            )}
+          >
+            {(this.hasChildren && this.open) || !this.hasChildren ? (
+              <gxg-icon
+                size="small"
+                type="minus"
+                class="fold-unfold"
+              ></gxg-icon>
+            ) : (
+              <gxg-icon size="small" type="add" class="fold-unfold"></gxg-icon>
+            )}
+            <gxg-icon size="small" type={this.icon}></gxg-icon>
             <slot></slot>
-          </span>
+          </div>
+          {this.open ? <slot name="tree"></slot> : null}
         </li>
       </Host>
     );

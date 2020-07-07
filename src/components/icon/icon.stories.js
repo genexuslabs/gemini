@@ -50,6 +50,8 @@ const arrayIconsNames = [
   "edit-wand",
   "edit",
   "error",
+  "file",
+  "folder",
   "level-down",
   "level-up",
   "minus",

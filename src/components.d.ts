@@ -32,7 +32,7 @@ import { position } from "./components/tooltip/tooltip";
 export namespace Components {
   interface GxgAccordion {
     /**
-     * The state of the toggle. Whether is disabled or not.
+     * The state of the accordion. Whether is disabled or not.
      */
     disabled: boolean;
     /**
@@ -713,7 +713,10 @@ export namespace Components {
     widthAuto: boolean;
   }
   interface GxgTree {}
-  interface GxgTreeItem {}
+  interface GxgTreeItem {
+    disabled: boolean;
+    icon: IconType;
+  }
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -1052,7 +1055,7 @@ declare global {
 declare namespace LocalJSX {
   interface GxgAccordion {
     /**
-     * The state of the toggle. Whether is disabled or not.
+     * The state of the accordion. Whether is disabled or not.
      */
     disabled?: boolean;
     /**
@@ -1750,7 +1753,11 @@ declare namespace LocalJSX {
     widthAuto?: boolean;
   }
   interface GxgTree {}
-  interface GxgTreeItem {}
+  interface GxgTreeItem {
+    disabled?: boolean;
+    icon?: IconType;
+    onItemClicked?: (event: CustomEvent<any>) => void;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;

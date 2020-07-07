@@ -53,9 +53,10 @@ stories
     "More info",
     () => ` 
     <gxg-button onClick="(function(){
+      alert('hola');
         document.getElementById('alert-more-info').setAttribute('active', 'true');
         return false;
-    })();return false;">Show alert</gxg-button>
+    })();">Show alert</gxg-button>
     <gxg-alert
     id="alert-more-info"
     alert-title="${text("Title", "more info title")}"

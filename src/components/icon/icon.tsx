@@ -203,6 +203,8 @@ export type IconType =
   | "edit"
   | "empty"
   | "error"
+  | "file"
+  | "folder"
   | "level-down"
   | "level-up"
   | "minus"
