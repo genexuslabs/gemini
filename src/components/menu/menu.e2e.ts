@@ -76,7 +76,7 @@ describe("gxg-menu", () => {
 
   it("is not full width / it is full width", async () => {
     await page.waitForChanges();
-    expect((await menu.getComputedStyle()).width.substring(0, 3)).toBe("108");
+    expect((await menu.getComputedStyle()).width.substring(0, 3)).toBe("109");
   });
 
   it("has styles for tabs", async () => {
