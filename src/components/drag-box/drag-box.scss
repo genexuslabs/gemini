@@ -3,6 +3,7 @@
 
 :host {
   @include gxg-text();
+  box-shadow: var(--box-shadow-01);
   display: flex;
   align-items: center;
   background-color: var(--color-background);

@@ -9,7 +9,7 @@ describe("gxg-card", () => {
 
     await page.setContent(
       `<div style="width:500px">
-      <gxg-card width="260px" padding="xs" box-shadow="xxs">Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.</gxg-card></div>`
+      <gxg-card padding="xs" box-shadow="xxs">Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.</gxg-card></div>`
     );
     card = await page.find("gxg-card");
   });

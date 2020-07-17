@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Host } from "@stencil/core";
 
 @Component({
   tag: "gxg-progress-bar",
@@ -29,24 +29,18 @@ export class ProgressBar {
   /**
    * The width
    */
-  @Prop() width = "200px";
-
-  widthFunc() {
-    if (this.fullWidth) {
-      return "100%";
-    } else {
-      return this.width;
-    }
-  }
+  @Prop() maxWidth = "100%";
 
   render() {
     return (
-      <div class="outer-wrapper">
-        <label class="label">{this.label}</label>
-        <span class="outer-bar" style={{ width: this.widthFunc() }}>
-          <span class="inner-bar" style={{ width: this.value + "%" }}></span>
-        </span>
-      </div>
+      <Host style={{ maxWidth: this.maxWidth }}>
+        <div class="outer-wrapper">
+          <label class="label">{this.label}</label>
+          <span class="outer-bar">
+            <span class="inner-bar" style={{ width: this.value + "%" }}></span>
+          </span>
+        </div>
+      </Host>
     );
   }
 }

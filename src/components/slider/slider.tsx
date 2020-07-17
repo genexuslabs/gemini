@@ -36,7 +36,7 @@ export class Slider {
   /**
    * The slider width
    */
-  @Prop() width = "200px";
+  @Prop() maxWidth = "100%";
 
   @Watch("value")
   watchHandler() {
@@ -88,6 +88,7 @@ export class Slider {
         class={{
           disabled: this.disabled
         }}
+        style={{ maxWidth: this.maxWidth }}
       >
         <div class="container">
           <div class="range-slider">
@@ -99,8 +100,6 @@ export class Slider {
               type="range"
               min="0"
               max={this.max}
-              style={{ width: this.width }}
-              slider-width={this.width}
               value={this.value}
             />
           </div>

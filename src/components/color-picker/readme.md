@@ -4,10 +4,10 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type     | Default   |
-| ----------- | ------------ | ----------- | -------- | --------- |
-| `cardTitle` | `card-title` |             | `string` | `""`      |
-| `value`     | `value`      |             | `string` | `"white"` |
+| Property | Attribute | Description                                                     | Type     | Default   |
+| -------- | --------- | --------------------------------------------------------------- | -------- | --------- |
+| `label`  | `label`   | The label of the color picker (optional)                        | `string` | `""`      |
+| `value`  | `value`   | The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5) | `string` | `"white"` |
 
 ## Events
 

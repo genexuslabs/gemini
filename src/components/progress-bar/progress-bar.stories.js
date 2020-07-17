@@ -13,43 +13,24 @@ const stories = storiesOf("Progress-bar", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Progress Bar", () => {
-  //Label
-  const labelLabel = "Label";
-  const defaultValueLabel = "Progress-Bar";
-  const valueLabel = text(labelLabel, defaultValueLabel);
-
   //Initial value
   const labelValue = "Initial Value (%)";
   const defaultValueValue = 50;
   const valueValue = number(labelValue, defaultValueValue);
 
-  //Width
-  const labelWidth = "Width";
-  const defaultValueWidth = "300px";
-  const valueWidth = text(labelWidth, defaultValueWidth);
+  //Label
+  const labelLabel = "Label";
+  const defaultValueLabel = "Progress-Bar";
+  const valueLabel = text(labelLabel, defaultValueLabel);
 
-  //Fullwidth
-  const labelWidthStyle = "Width Style";
-  const optionsWidthStyle = {
-    "fixed width": "fixed-width",
-    "full width": "full-width"
-  };
-  const defaultValueWidthStyle = "fixed-width";
-  const valueWidthStyle = radios(
-    labelWidthStyle,
-    optionsWidthStyle,
-    defaultValueWidthStyle
-  );
+  //Width
+  const labelMaxWidth = "Max Width";
+  const defaultValueMaxWidth = "100%";
+  const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
   function animateProgressBar() {
     const progresBar = document.getElementById("progress-bar");
     const initialValue = progresBar.getAttribute("value");
-  }
-
-  function valueWidthSizeFunc() {
-    if (valueWidthStyle === "full-width") {
-      return "full-width";
-    }
   }
 
   return `
@@ -62,11 +43,10 @@ stories.add("Progress Bar", () => {
   }
   </style>
   <gxg-progress-bar
-  ${valueWidthStyle}
   id="progress-bar"
-  label=${valueLabel}
   value=${valueValue}
-  width=${valueWidth}
+  label=${valueLabel}
+  max-width=${valueMaxWidth}
 ></gxg-progress-bar>
 <gxg-button style="margin-top:30px" onClick="(function(){
   const progressBar = document.getElementById('progress-bar');

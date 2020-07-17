@@ -1,15 +1,16 @@
-# todo-list
+# gxg-box
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property    | Attribute    | Description                                  | Type                                                   | Default   |
-| ----------- | ------------ | -------------------------------------------- | ------------------------------------------------------ | --------- |
-| `fullWidth` | `full-width` | This property makes the component full-width | `boolean`                                              | `false`   |
-| `height`    | `height`     | The component height                         | `string`                                               | `"auto"`  |
-| `padding`   | `padding`    |                                              | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`    |
-| `width`     | `width`      | The component width                          | `string`                                               | `"200px"` |
+| Property     | Attribute    | Description                                          | Type                                                   | Default   |
+| ------------ | ------------ | ---------------------------------------------------- | ------------------------------------------------------ | --------- |
+| `background` | `background` | The background color                                 | `string`                                               | `"white"` |
+| `border`     | `border`     | The presence of this property gives the box a border | `boolean`                                              | `false`   |
+| `maxWidth`   | `max-width`  | The component width                                  | `string`                                               | `"100%"`  |
+| `minHeight`  | `min-height` | The component width                                  | `string`                                               | `"auto"`  |
+| `padding`    | `padding`    |                                                      | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`    |
 
 ---
 

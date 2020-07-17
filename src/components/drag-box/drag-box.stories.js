@@ -22,11 +22,11 @@ stories.add("Drag-boxes", () => {
     
   </style>
   <gxg-drag-container>
-  <gxg-drag-box class="draggable">Container 01</gxg-drag-box>
-  <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
-  <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
-  <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
-  <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
+  <gxg-drag-box>Container 01</gxg-drag-box>
+  <gxg-drag-box>Container 02</gxg-drag-box>
+  <gxg-drag-box>Container 03</gxg-drag-box>
+  <gxg-drag-box>Container 04</gxg-drag-box>
+  <gxg-drag-box>Container 05</gxg-drag-box>
   <p>Drag me!</p>
 </gxg-drag-container>`;
 });

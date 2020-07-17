@@ -2,6 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
+  display: block;
   ::slotted(*) {
     will-change: transform;
     cursor: move;

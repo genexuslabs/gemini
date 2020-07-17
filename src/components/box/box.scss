@@ -8,10 +8,13 @@
   overflow: hidden;
   @include gxg-text();
 }
-:host([gray="1"]) {
+:host([background="white"]) {
+  background: var(--color-background);
+}
+:host([background="light-gray"]) {
   background: var(--gray-01);
 }
-:host([gray="2"]) {
+:host([background="dark-gray"]) {
   background: var(--gray-02);
 }
 :host([border]) {

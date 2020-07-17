@@ -22,22 +22,17 @@ export class FormTextarea implements FormComponent {
   *********************************/
 
   /**
-   * If textarea is disabled
+   * The presence of this attribute makes the textarea disabled
    */
   @Prop() disabled = false;
 
   /**
-   * If textarea display is block
-   */
-  @Prop() displayBlock = false;
-
-  /**
-   * If textarea has errors
+   * The presence of this attribute gives the component error styles
    */
   @Prop({ mutable: true }) error = false;
 
   /**
-   * Optional required message
+   * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
    */
   @Prop({ mutable: true }) requiredMessage: string;
 
@@ -67,12 +62,7 @@ export class FormTextarea implements FormComponent {
   @Prop() placeholder = "hola";
 
   /**
-   * Number of rows
-   */
-  @Prop() rows = 4;
-
-  /**
-   * If required
+   * The presence of this attribute makes the textarea required
    */
   @Prop() required = false;
 
@@ -82,7 +72,12 @@ export class FormTextarea implements FormComponent {
   @Prop({ reflect: true }) value: string;
 
   /**
-   * If textarea has warnings
+   * The number of rows
+   */
+  @Prop() rows = 4;
+
+  /**
+   * The presence of this attribute gives the component warning styles
    */
   @Prop() warning = false;
 
@@ -128,7 +123,6 @@ export class FormTextarea implements FormComponent {
         </label>
 
         <textarea
-          rows={this.rows}
           ref={el => (this.textArea = el as HTMLTextAreaElement)}
           class={{
             textarea: true,
@@ -142,6 +136,7 @@ export class FormTextarea implements FormComponent {
           onInput={this.handleInput.bind(this)}
           onChange={this.handleChange.bind(this)}
           value={this.value}
+          rows={this.rows}
           required={this.required}
         ></textarea>
 

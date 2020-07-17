@@ -8,10 +8,15 @@ import { Component, Prop, h, Host, Element, Listen } from "@stencil/core";
 export class Menu {
   @Element() el: HTMLElement;
 
+  /**
+   * The menu title
+   */
   @Prop() menuTitle: string;
-  @Prop({ reflect: true }) fullWidth: boolean;
+
+  /**
+   * Provide this attribute if you are using this menu on the tabs component
+   */
   @Prop({ reflect: true }) tabs: boolean;
-  @Prop() width: string;
 
   @Listen("menuItemActive")
   menuItemActiveHandler(event: CustomEvent) {
@@ -26,7 +31,10 @@ export class Menu {
   }
 
   printTitle() {
-    if (this.menuTitle !== undefined) {
+    if (
+      this.menuTitle !== "undefined" &&
+      this.menuTitle.replace(/\s/g, "") !== ""
+    ) {
       return (
         <header class="menu__header">
           <h1 class="menu__header__title">{this.menuTitle}</h1>
@@ -37,7 +45,7 @@ export class Menu {
 
   render() {
     return (
-      <Host style={{ width: this.width }}>
+      <Host>
         {this.printTitle()}
         <ul class="menuList">
           <slot></slot>

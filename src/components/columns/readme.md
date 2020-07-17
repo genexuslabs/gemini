@@ -1,4 +1,4 @@
-# gxg-template
+# gxg-columns
 
 <!-- Auto Generated Below -->
 

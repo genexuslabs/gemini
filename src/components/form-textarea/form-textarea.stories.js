@@ -13,24 +13,20 @@ const stories = storiesOf("Textarea", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Textarea", () => {
-  //Cols
-  const labelCols = "Cols";
-  const defaultValueCols = 40;
-  const valueCols = number(labelCols, defaultValueCols);
+  //Max Width
+  const labelMaxWidth = "Max. Width";
+  const defaultMaxWidth = "100%";
+  const valueMaxWidth = text(labelMaxWidth, defaultMaxWidth);
+
+  //Required
+  const requiredLabel = "Required";
+  const requiredDefaultValue = false;
+  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
 
   //Rows
   const labelRows = "Rows";
   const defaultValueRows = 4;
   const valueRows = number(labelRows, defaultValueRows);
-
-  //Fullwidth
-  const labelWidth = "Width";
-  const optionsWidth = {
-    "fixed width": "fixed-width",
-    "full width": "style=width:700px"
-  };
-  const defaultValueWidth = "fixed-width";
-  const valueWidth = radios(labelWidth, optionsWidth, defaultValueWidth);
 
   //Status
   const labelStatus = "Status";
@@ -43,11 +39,6 @@ stories.add("Textarea", () => {
   };
   const defaultValueStatus = "enabled";
   const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
-
-  //Required
-  const requiredLabel = "Required";
-  const requiredDefaultValue = false;
-  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
 
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {
@@ -90,16 +81,11 @@ stories.add("Textarea", () => {
     }
   }
 
-  return `<gxg-form-textarea ${requiredValueFunc()} required-message="${text(
-    "Required message (optional)",
-    "This field is mandatory"
-  )}"
+  return `<style>#root{width:700px; display:flex; flex-direction:column;align-items:center}</style>
+    <gxg-form-textarea max-width=${valueMaxWidth} ${requiredValueFunc()}
     label="Describe your experience"
     placeholder="I have experience as a.."
-    cols=${valueCols}
     rows=${valueRows}
-    ${valueWidth}
-    ${valueWidth !== "fixed-width" ? "full-width" : ""}
     ${valueStatusType()}
     ${errorMessage()}
     ${errorMessagesMultiple()}

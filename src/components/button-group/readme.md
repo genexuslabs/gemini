@@ -29,12 +29,11 @@
 
 | Property               | Attribute                 | Description                                                        | Type                            | Default     |
 | ---------------------- | ------------------------- | ------------------------------------------------------------------ | ------------------------------- | ----------- |
-| `buttonGroupTitle`     | `button-group-title`      | The title that will show up above the buttons group                | `string`                        | `undefined` |
+| `buttonGroupTitle`     | `button-group-title`      | The button-group title                                             | `string`                        | `undefined` |
 | `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to show active by default | `string`                        | `undefined` |
 | `disabled`             | `disabled`                | Wether the button group is disabled or not.                        | `boolean`                       | `false`     |
-| `focusable`            | `focusable`               | This property makes the inner buttons focusable                    | `boolean`                       | `false`     |
-| `fullWidth`            | `full-width`              | This property makes the component full-width                       | `boolean`                       | `false`     |
-| `titleAlignment`       | `title-alignment`         | The main title alignment                                           | `"center" \| "left" \| "right"` | `"left"`    |
+| `fullWidth`            | `full-width`              | The presence of this attribute makes the component full-width      | `boolean`                       | `false`     |
+| `titleAlignment`       | `title-alignment`         | The button group title alignment                                   | `"center" \| "left" \| "right"` | `"left"`    |
 
 ## Dependencies
 

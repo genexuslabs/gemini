@@ -88,7 +88,6 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
   color: var(--color-white);
   padding-right: 0;
   padding-left: 0;
-  width: var(--spacing-comp-05);
   height: 20px;
 
   &:hover:not([disabled]) {
@@ -209,7 +208,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-right: 0;
   padding-left: 0;
-  width: var(--spacing-comp-05);
 
   ::slotted([slot="icon"]) {
     --icon-color: #{$gxg-label-color};

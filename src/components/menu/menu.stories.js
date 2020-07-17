@@ -13,33 +13,15 @@ const stories = storiesOf("Menu", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Menu", () => {
-  //Title
-  const labelValueTitle = "Title (optional)";
-  const defaultValueTitle = "Fruits";
-  const valueTitle = text(labelValueTitle, defaultValueTitle);
-
-  //Width
-  const labelValueWidth = "Width";
-  const defaultValueWidth = "300px";
-  const valueWidth = text(labelValueWidth, defaultValueWidth);
-
-  //Fullwidth
-  const labelFullWidth = "Full Width";
-  const defaultValueFullWidth = false;
-  const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
-
   //Tabs
   const labelTabs = "Menu for Tabs";
   const defaultValueTabs = false;
   const valueTabs = boolean(labelTabs, defaultValueTabs);
 
-  function widthFunc() {
-    if (valueFullWidth) {
-      return "700px";
-    } else {
-      return valueWidth;
-    }
-  }
+  //Title
+  const labelValueTitle = "Title (optional)";
+  const defaultValueTitle = "Fruits";
+  const valueTitle = text(labelValueTitle, defaultValueTitle);
 
   function tabsFunc() {
     if (valueTabs) {
@@ -48,7 +30,7 @@ stories.add("Menu", () => {
   }
 
   return `
-  <gxg-menu menu-title=${valueTitle} width=${widthFunc()} ${tabsFunc()} >
+  <gxg-menu ${tabsFunc()} menu-title=${valueTitle}>
     <gxg-menu-item label="apple" icon=""></gxg-menu-item>
     <gxg-menu-item label="banana" icon="warning"></gxg-menu-item>
     <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>

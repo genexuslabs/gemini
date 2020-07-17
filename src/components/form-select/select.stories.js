@@ -13,28 +13,15 @@ const stories = storiesOf("Select", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Select", () => {
+  //Max Width
+  const labelMaxWidthSize = "Max. Width";
+  const defaultMaxWidthSize = "100%";
+  const valueMaxWidthSize = text(labelMaxWidthSize, defaultMaxWidthSize);
+
   //Max number visible options
   const labelMaxOptions = "Max. number of visible options";
   const defaultMaxOptions = 4;
   const valueMaxOptions = number(labelMaxOptions, defaultMaxOptions);
-
-  //Width value
-  const labelWidthSize = "Width Size (default: 240px )";
-  const defaultWidthSize = "240px";
-  const valueWidthSize = text(labelWidthSize, defaultWidthSize);
-
-  //Fullwidth
-  const labelWidthStyle = "Width Style";
-  const optionsWidthStyle = {
-    "fixed width": "fixed-width",
-    "full width": "style=width:700px"
-  };
-  const defaultValueWidthStyle = "fixed-width";
-  const valueWidthStyle = radios(
-    labelWidthStyle,
-    optionsWidthStyle,
-    defaultValueWidthStyle
-  );
 
   //Status
   const labelStatus = "Status";
@@ -83,44 +70,27 @@ stories.add("Select", () => {
     }
   }
 
-  function valueWidthSizeFunc() {
-    if (valueWidthStyle === "fixed-width") {
-      return "240px";
-    } else {
-      return "700px";
-    }
+  return `<style>
+  gxg-select{margin-bottom: var(--spacing-lay-xs)}
+  #root {
+    width: 700px;
+    display:flex;
+    flex-direction: column;
+    align-items: center
   }
-
-  return `<style>gxg-select{margin-bottom: var(--spacing-lay-xs)}</style>
+  gxg-select {
+    width: 100%;
+  }
+  </style>
   
   <gxg-select
   label="Select a car:"
-  width=${valueWidthSizeFunc()}
+  max-width=${valueMaxWidthSize}
   ${valueStatusType()}
     ${errorMessage()}
     ${errorMessagesMultiple()}
     ${warningMessage()}
-  max-visible-options=${valueMaxOptions}
->
-  <gxg-option value="0">Select car:</gxg-option>
-  <gxg-option value="1">Audi</gxg-option>
-  <gxg-option value="2">BMW</gxg-option>
-  <gxg-option selected value="3">Citroen</gxg-option>
-  <gxg-option value="4">Ford</gxg-option>
-  <gxg-option value="5">Honda</gxg-option>
-  <gxg-option value="6">Jaguar</gxg-option>
-  <gxg-option value="7">Land Rover</gxg-option>
-  <gxg-option value="8">Mercedes</gxg-option>
-</gxg-select>
-
-<gxg-select
-  label="Select a car:"
-  width=${valueWidthSizeFunc()}
-  ${valueStatusType()}
-    ${errorMessage()}
-    ${errorMessagesMultiple()}
-    ${warningMessage()}
-  max-visible-options=${valueMaxOptions}
+  size=${valueMaxOptions}
 >
   <gxg-option value="0">Select car:</gxg-option>
   <gxg-option value="1">Audi</gxg-option>

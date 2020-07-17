@@ -13,17 +13,17 @@ export class Alert {
   *********************************/
 
   /**
-   * Wether the alert is active (visible) or not (not visible).
+   * Wether the alert is active (visible) or hidden
    */
   @Prop({ reflect: true }) active = false;
 
   /**
-   * The number of miliseconds the alert is visible before hidding under the document.
+   * The number of miliseconds the alert is visible before hidding under the document
    */
   @Prop() activeTime: ActiveTime = "regular";
 
   /**
-   * The alert position.
+   * The alert position on the X axis
    */
   @Prop() position: AlertPosition = "left";
 
@@ -33,22 +33,22 @@ export class Alert {
   @Prop() alertTitle: string;
 
   /**
-   * The type of alert
+   * The alert flavor
    */
   @Prop() type: AlertType = "more-info";
 
   /**
-   * This property makes the component full-width
+   * The presence of this attribute makes the component full-width
    */
   @Prop() fullWidth = false;
 
   /**
-   * The alert right position value
+   * The spacing between the alert, and the left or right side of the document
    */
   @Prop() leftRight: Spacing = "xs";
 
   /**
-   * The alert bottom position value
+   * The spacing between the alert and the bottom side of the document
    */
   @Prop() bottom: Spacing = "xs";
 

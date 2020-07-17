@@ -13,9 +13,14 @@ export class ButtonGroup {
   *********************************/
 
   /**
-  The title that will show up above the buttons group
+  The button-group title
   */
   @Prop() buttonGroupTitle: string;
+
+  /**
+  The button group title alignment
+  */
+  @Prop({ reflect: true }) titleAlignment: TitleAlignment = "left";
 
   /**
   The id of the button that you would like to show active by default
@@ -28,12 +33,7 @@ export class ButtonGroup {
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * This property makes the inner buttons focusable
-   */
-  @Prop() focusable = false;
-
-  /**
-   * This property makes the component full-width
+   * The presence of this attribute makes the component full-width
    */
   @Prop({ reflect: true }) fullWidth = false;
 
@@ -41,11 +41,6 @@ export class ButtonGroup {
   The value of the current selected button
   */
   @State() value = "";
-
-  /**
-  The main title alignment
-  */
-  @Prop() titleAlignment: TitleAlignment = "left";
 
   /*********************************
   METHODS
@@ -58,13 +53,6 @@ export class ButtonGroup {
 
     if (this.disabled) {
       this.value = null;
-    }
-
-    if (this.focusable) {
-      const buttonsHtmlCollection = this.el.children;
-      Array.from(buttonsHtmlCollection).forEach(function(button) {
-        button.setAttribute("tabindex", "0");
-      });
     }
   }
 
@@ -86,6 +74,7 @@ export class ButtonGroup {
     const buttonsIdsArray = [];
     Array.from(buttonsHtmlCollection).forEach(button => {
       const b = button as HTMLElement;
+      b.setAttribute("tabindex", "0");
       if (b.getAttribute("id") !== "") {
         buttonsIdsArray.push(b.getAttribute("id"));
       }
@@ -119,14 +108,6 @@ export class ButtonGroup {
     this.value = buttonValue;
   }
 
-  focusableFunc() {
-    if (this.focusable) {
-      return "0";
-    } else {
-      return "-1";
-    }
-  }
-
   detectFocus(event) {
     if (this.el === document.activeElement) {
       const buttonsHtmlCollection = this.el.children;
@@ -154,7 +135,7 @@ export class ButtonGroup {
     }
     return (
       <Host
-        tabindex={this.focusableFunc()}
+        tabindex="0"
         role="group"
         aria-label={this.buttonGroupTitle}
         class={{

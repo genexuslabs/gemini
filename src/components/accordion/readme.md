@@ -4,12 +4,12 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                                                    | Type                               | Default       |
-| ---------------- | ------------------ | -------------------------------------------------------------- | ---------------------------------- | ------------- |
-| `disabled`       | `disabled`         | The state of the accordion. Whether is disabled or not.        | `boolean`                          | `false`       |
-| `maxWidth`       | `max-width`        | The accordion width                                            | `string`                           | `"360px"`     |
-| `mode`           | `mode`             | The aesthetical mode                                           | `"boxed" \| "classical" \| "slim"` | `"classical"` |
-| `singleItemOpen` | `single-item-open` | Wether only one accordion can be open at the same time or not. | `boolean`                          | `false`       |
+| Property         | Attribute          | Description                                                                                 | Type                               | Default       |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------- | ------------- |
+| `disabled`       | `disabled`         | If this attribute is present, all of the accordion-items will be disabled and not focusable | `boolean`                          | `false`       |
+| `maxWidth`       | `max-width`        | The accordion max-width                                                                     | `string`                           | `"100%"`      |
+| `mode`           | `mode`             | The accordion flavor                                                                        | `"boxed" \| "classical" \| "slim"` | `"classical"` |
+| `singleItemOpen` | `single-item-open` | If this attribute is present, only one accordion-item can be open at the same time          | `boolean`                          | `false`       |
 
 ---
 

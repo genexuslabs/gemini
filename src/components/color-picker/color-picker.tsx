@@ -4,6 +4,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Host,
   Prop,
   State
 } from "@stencil/core";
@@ -18,8 +19,14 @@ export class ColorPicker {
   @Element() element: HTMLElement;
   private pickr: Pickr;
 
-  @Prop({ mutable: true }) cardTitle = "";
+  /**
+  The label of the color picker (optional)
+  */
+  @Prop({ mutable: true }) label = "";
 
+  /**
+  The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
+  */
   @Prop({ mutable: true, reflect: true }) value = "white";
   @State() colorRepresentation: "HEXA" | "RGBA" = "HEXA";
   @State() colorInputValue = "";
@@ -122,7 +129,7 @@ export class ColorPicker {
   }
   handleTitleValueChange(ev: InputEvent) {
     const element = ev.target as HTMLInputElement;
-    this.cardTitle = element.value;
+    this.label = element.value;
   }
   handleColorValueChange(ev: InputEvent) {
     this.colorChangedFromInput = true;
@@ -148,40 +155,43 @@ export class ColorPicker {
 
   setActiveButton() {
     if (this.value.includes("rgb")) {
-      return "RGBA";
-    } else if (this.value.includes("#")) {
-      return "HEXA";
+      return "rgba";
+    } else {
+      return "hexa";
     }
   }
 
   render() {
     return (
-      <div
-        class={{
-          "color-picker-main-container": true
-        }}
-        id="color-picker-main-container"
-      >
-        <div class="color-picker"></div>
-        <div class="cp-gxg-buttons before-color-value" slot="editable">
-          <gxg-button-group selected-button-id={this.setActiveButton()}>
-            <button id="RGBA" onClick={this.handleRgbaButtonClick.bind(this)}>
-              RGBA
-            </button>
-            <button id="HEXA" onClick={this.handleHexaButtonClick.bind(this)}>
-              HEXA
-            </button>
-          </gxg-button-group>
+      <Host>
+        <h1 class="label">{this.label}</h1>
+        <div
+          class={{
+            "color-picker-main-container": true
+          }}
+          id="color-picker-main-container"
+        >
+          <div class="color-picker"></div>
+          <div class="cp-gxg-buttons before-color-value" slot="editable">
+            <gxg-button-group default-selected-btn-id={this.setActiveButton()}>
+              <button id="rgba" onClick={this.handleRgbaButtonClick.bind(this)}>
+                RGBA
+              </button>
+              <button id="hexa" onClick={this.handleHexaButtonClick.bind(this)}>
+                HEXA
+              </button>
+            </gxg-button-group>
+          </div>
+          <input
+            type="text"
+            name="cp-color-value"
+            id="cp-color-value"
+            value={this.colorValue()}
+            class="color-picker-main-container-textbox"
+            onInput={this.handleColorValueChange.bind(this)}
+          />
         </div>
-        <input
-          type="text"
-          name="cp-color-value"
-          id="cp-color-value"
-          value={this.colorValue()}
-          class="color-picker-main-container-textbox"
-          onInput={this.handleColorValueChange.bind(this)}
-        />
-      </div>
+      </Host>
     );
   }
 }

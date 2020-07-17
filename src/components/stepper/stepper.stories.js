@@ -13,31 +13,30 @@ const stories = storiesOf("Stepper", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Stepper", () => {
-  //Label
-  const labelLabel = "Label";
-  const defaultValueLabel = "Stepper";
-  const valueLabel = text(labelLabel, defaultValueLabel);
+  //Disabled
+  const labelDisabled = "Disabled";
+  const defaultValueDisabled = false;
+  const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
   //Initial value
   const labelValue = "Initial Value";
   const defaultValueValue = 0;
   const valueValue = number(labelValue, defaultValueValue);
 
+  //Label
+  const labelLabel = "Label";
+  const defaultValueLabel = "Stepper";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
+  //Max value
+  const labelMaxValue = "Max. Value";
+  const defaultMaxValue = 10;
+  const valueMaxValue = number(labelMaxValue, defaultMaxValue);
+
   //Min value
   const labelMinValue = "Min. Value";
   const defaultMinValue = 0;
   const valueMinValue = number(labelMinValue, defaultMinValue);
 
-  //Initial value
-  const labelMaxValue = "Max. Value";
-  const defaultMaxValue = 10;
-  const valueMaxValue = number(labelMaxValue, defaultMaxValue);
-
-  //Status
-  const labelDisabled = "Disabled";
-  const defaultValueDisabled = false;
-
-  const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
-
-  return `<gxg-stepper label=${valueLabel} value=${valueValue} min=${valueMinValue} max=${valueMaxValue} disabled=${valueDisabled}></gxg-stepper>`;
+  return `<gxg-stepper disabled=${valueDisabled} value=${valueValue} label=${valueLabel} max=${valueMaxValue} min=${valueMinValue}></gxg-stepper>`;
 });

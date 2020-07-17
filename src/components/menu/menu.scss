@@ -2,6 +2,11 @@
 @import "../../globals/mixins";
 
 :host {
+  display: block;
+  background: var(--color-background);
+  border-radius: var(--border-width-md);
+  box-shadow: var(--box-shadow-01);
+
   .menu__header {
     border-bottom-style: var(--border-style-regular);
     border-bottom-width: var(--border-width-sm);
@@ -18,10 +23,6 @@
     padding: var(--spacing-comp-03) var(--spacing-comp-05)
       var(--spacing-comp-03) var(--spacing-comp-05);
   }
-  display: inline-block;
-  background: var(--color-background);
-  border-radius: var(--border-width-md);
-  box-shadow: var(--box-shadow-01);
 
   .menuList {
     list-style-type: none;

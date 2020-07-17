@@ -1,4 +1,12 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Element,
+  Event,
+  EventEmitter
+} from "@stencil/core";
 import { IconType, Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
 
@@ -8,28 +16,30 @@ import { mode } from "../accordion/accordion";
   shadow: true
 })
 export class AccordionItem {
+  @Element() el: HTMLElement;
+
   /**
-   * The state of the toggle. Whether is disabled or not.
+   * If this attribute is present the accordion-item will be disabled and not focusable
    */
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * The aesthetical mode
+   * The accordion flavor
    */
   @Prop({ reflect: true }) mode: mode = "classical";
 
   /**
-   * The toggle id
+   * The accordion id
    */
   @Prop() itemId!: string;
 
   /**
-   * The toggle label
+   * The accordion title
    */
   @Prop() itemTitle: string;
 
   /**
-   * The toggle state
+   * Set the status to "open" if you want the accordion-item open by default
    */
   @Prop({ reflect: true }) status: status = "closed";
 
@@ -94,29 +104,45 @@ export class AccordionItem {
     this.accordionItemLoaded.emit(this.itemId);
   }
 
+  handlerOnKeyDown(event) {
+    if (event.keyCode == 13 && document.activeElement === this.el) {
+      //enter key was pressed
+      if (this.status === "closed") {
+        this.status = "open";
+      } else {
+        this.status = "closed";
+      }
+    }
+  }
+
   render() {
     return (
-      <div
-        class={{
-          item: true,
-          "item--disabled": this.disabled === true
-        }}
+      <Host
+        onKeyDown={this.handlerOnKeyDown.bind(this)}
+        tabindex={!this.disabled ? 0 : -1}
       >
-        <header
-          class="item__header"
-          onClick={this.itemClickedHandler.bind(this)}
+        <div
+          class={{
+            item: true,
+            "item--disabled": this.disabled === true
+          }}
         >
-          <div class="item__header__title">{this.itemTitle}</div>
-          {this.printIcon()}
-        </header>
-        {this.status === "open" && !this.disabled ? (
-          <div class="item__container">
-            <slot></slot>
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
+          <header
+            class="item__header"
+            onClick={this.itemClickedHandler.bind(this)}
+          >
+            <div class="item__header__title">{this.itemTitle}</div>
+            {this.printIcon()}
+          </header>
+          {this.status === "open" && !this.disabled ? (
+            <div class="item__container">
+              <slot></slot>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+      </Host>
     );
   }
 }

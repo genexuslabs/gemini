@@ -13,12 +13,12 @@ export class Button {
   *********************************/
 
   /**
-   * The state of the button. Whether is disabled or not.
+   * The state of the button, whether it is disabled or not.
    */
   @Prop() disabled = false;
 
   /**
-   * This property makes the component full-width
+   * The presence of this attribute makes the component full-width
    */
   @Prop() fullWidth = false;
 

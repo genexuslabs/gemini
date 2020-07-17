@@ -13,22 +13,17 @@ export class FormRadioGroup {
   *********************************/
 
   /**
-   * Selected Radio id
-   */
-  @Prop({ reflect: true }) RadioId: string;
-
-  /**
-   * Inline-flex display
-   */
-  @Prop() inlineFlex = false;
-
-  /**
-   * The label for the Radio Group
+   * The radio group label
    */
   @Prop() label: string;
 
   /**
-   * Selected Radio value
+   * The selected radio id
+   */
+  @Prop({ reflect: true }) RadioId: string;
+
+  /**
+   * The selected radio value
    */
   @Prop({ reflect: true }) RadioValue: string;
 

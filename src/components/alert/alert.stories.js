@@ -53,31 +53,25 @@ stories
     "More info",
     () => ` 
     <gxg-button onClick="(function(){
-      alert('hola');
         document.getElementById('alert-more-info').setAttribute('active', 'true');
         return false;
     })();">Show alert</gxg-button>
     <gxg-alert
     id="alert-more-info"
-    alert-title="${text("Title", "more info title")}"
     type="more-info"
     active="false"
-    position="${select(
-      "position",
-      { left: "left", center: "center", right: "right" },
-      "center"
-    )}"
-    left-right="${select(
-      "Left/Right spacing",
+    active-time="${select(
+      "Active Time",
       {
-        "0": "0",
-        xs: "xs",
-        s: "s",
-        m: "m",
-        l: "l",
-        xl: "xl"
+        xxslow: "xxslow",
+        xslow: "xslow",
+        slow: "slow",
+        regular: "regular",
+        fast: "fast",
+        xfast: "xfast",
+        xxfast: "xxfast"
       },
-      "xs"
+      "xfast"
     )}"
     bottom="${select(
       "Bottom spacing",
@@ -91,25 +85,27 @@ stories
       },
       "xs"
     )}"
-    width=${text("Width (default: 350px)", "350px")}
     full-width=${boolean("Full Width", false)}
-    active-time="${select(
-      "Active Time",
+    left-right="${select(
+      "Left/Right spacing",
       {
-        xxslow: "xxslow",
-        xslow: "xslow",
-        slow: "slow",
-        regular: "regular",
-        fast: "fast",
-        xfast: "xfast",
-        xxfast: "xxfast"
+        "0": "0",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
-      "xfast"
-    )}">
-  ${text(
-    "Message",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-  )}
+      "xs"
+    )}"
+    position="${select(
+      "Position",
+      { left: "left", center: "center", right: "right" },
+      "center"
+    )}"
+    alert-title="${text("Title", "Conversation deleted")}"
+    width=${text("Width (default: 350px)", "350px")}>
+  ${text("Message", "The conversation has been sent to trash")}
   </gxg-alert>
         `,
     {
@@ -121,63 +117,60 @@ stories
   .add(
     "Success",
     () => ` 
-      <gxg-button onClick="(function(){
-          document.getElementById('alert-success').setAttribute('active', 'true');
-          return false;
-      })();return false;">Show alert</gxg-button>
-      <gxg-alert
-      id="alert-success"
-      alert-title="${text("Title", "success title")}"
-      type="success"
-      active="false"
-      position="${select(
-        "position",
-        { left: "left", center: "center", right: "right" },
-        "center"
-      )}"
-      left-right="${select(
-        "Left/Right spacing",
-        {
-          "0": "0",
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
-      bottom="${select(
-        "Bottom spacing",
-        {
-          "0": "0",
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
-      width=${text("Width (default: 350px)", "350px")}
-      full-width=${boolean("Full Width", false)}
-      active-time="${select(
-        "Active Time",
-        {
-          xxslow: "xxslow",
-          xslow: "xslow",
-          slow: "slow",
-          regular: "regular",
-          fast: "fast",
-          xfast: "xfast",
-          xxfast: "xxfast"
-        },
-        "xfast"
-      )}">
-    ${text(
-      "Message",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-    )}
+    <gxg-button onClick="(function(){
+      document.getElementById('alert-success').setAttribute('active', 'true');
+      return false;
+  })();">Show alert</gxg-button>
+  <gxg-alert
+  id="alert-success"
+  type="success"
+  active="false"
+  active-time="${select(
+    "Active Time",
+    {
+      xxslow: "xxslow",
+      xslow: "xslow",
+      slow: "slow",
+      regular: "regular",
+      fast: "fast",
+      xfast: "xfast",
+      xxfast: "xxfast"
+    },
+    "xfast"
+  )}"
+  bottom="${select(
+    "Bottom spacing",
+    {
+      "0": "0",
+      xs: "xs",
+      s: "s",
+      m: "m",
+      l: "l",
+      xl: "xl"
+    },
+    "xs"
+  )}"
+  full-width=${boolean("Full Width", false)}
+  left-right="${select(
+    "Left/Right spacing",
+    {
+      "0": "0",
+      xs: "xs",
+      s: "s",
+      m: "m",
+      l: "l",
+      xl: "xl"
+    },
+    "xs"
+  )}"
+  position="${select(
+    "Position",
+    { left: "left", center: "center", right: "right" },
+    "center"
+  )}"
+  alert-title="${text("Title", "EMAIL SENT")}"
+  width=${text("Width (default: 350px)", "350px")}>
+    ${text("Message", "The email has been successfully sent to the recipient")}
     </gxg-alert>
           `,
     {
@@ -193,59 +186,57 @@ stories
           document.getElementById('alert-warning').setAttribute('active', 'true');
           return false;
       })();return false;">Show alert</gxg-button>
-      <gxg-alert
-      id="alert-warning"
-      alert-title="${text("Title", "warning title")}"
-      type="warning"
-      active="false"
-      position="${select(
-        "position",
-        { left: "left", center: "center", right: "right" },
-        "center"
-      )}"
-      left-right="${select(
-        "Left/Right",
-        {
-          "0": "0",
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
-        bottom="${select(
-          "Bottom spacing",
-          {
-            "0": "0",
-            xs: "xs",
-            s: "s",
-            m: "m",
-            l: "l",
-            xl: "xl"
-          },
-          "xs"
-        )}"
-        width=${text("Width (default: 350px)", "350px")}
-        full-width=${boolean("Full Width", false)}
-      active-time="${select(
-        "Active Time",
-        {
-          xxslow: "xxslow",
-          xslow: "xslow",
-          slow: "slow",
-          regular: "regular",
-          fast: "fast",
-          xfast: "xfast",
-          xxfast: "xxfast"
-        },
-        "xfast"
-      )}">
-    ${text(
-      "Message",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-    )}
+
+    <gxg-alert
+    id="alert-warning"
+    type="warning"
+    active="false"
+    active-time="${select(
+      "Active Time",
+      {
+        xxslow: "xxslow",
+        xslow: "xslow",
+        slow: "slow",
+        regular: "regular",
+        fast: "fast",
+        xfast: "xfast",
+        xxfast: "xxfast"
+      },
+      "xfast"
+    )}"
+    bottom="${select(
+      "Bottom spacing",
+      {
+        "0": "0",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
+    full-width=${boolean("Full Width", false)}
+    left-right="${select(
+      "Left/Right spacing",
+      {
+        "0": "0",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
+    position="${select(
+      "Position",
+      { left: "left", center: "center", right: "right" },
+      "center"
+    )}"
+    alert-title="${text("Title", "WARNING!")}"
+    width=${text("Width (default: 350px)", "350px")}>
+    ${text("Message", "You are about to delete all the conversations")}
     </gxg-alert>
           `,
     {
@@ -258,62 +249,59 @@ stories
     "Error",
     () => ` 
       <gxg-button onClick="(function(){
-          document.getElementById('alert-error').setAttribute('active', 'true');
-          return false;
-      })();return false;">Show alert</gxg-button>
-      <gxg-alert
-      id="alert-error"
-      alert-title="${text("Title", "error title")}"
-      type="error"
-      active="false"
-      position="${select(
-        "position",
-        { left: "left", center: "center", right: "right" },
-        "center"
-      )}"
-      left-right="${select(
-        "Left/Right spacing",
-        {
-          "0": "0",
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
-      bottom="${select(
-        "Bottom spacing",
-        {
-          "0": "0",
-          xs: "xs",
-          s: "s",
-          m: "m",
-          l: "l",
-          xl: "xl"
-        },
-        "xs"
-      )}"
-      width=${text("Width (default: 350px)", "350px")}
-      full-width=${boolean("Full Width", false)}
-      active-time="${select(
-        "Active Time",
-        {
-          xxslow: "xxslow",
-          xslow: "xslow",
-          slow: "slow",
-          regular: "regular",
-          fast: "fast",
-          xfast: "xfast",
-          xxfast: "xxfast"
-        },
-        "xfast"
-      )}">
-    ${text(
-      "Message",
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-    )}
+        document.getElementById('alert-error').setAttribute('active', 'true');
+        return false;
+    })();">Show alert</gxg-button>
+    <gxg-alert
+    id="alert-error"
+    type="error"
+    active="false"
+    active-time="${select(
+      "Active Time",
+      {
+        xxslow: "xxslow",
+        xslow: "xslow",
+        slow: "slow",
+        regular: "regular",
+        fast: "fast",
+        xfast: "xfast",
+        xxfast: "xxfast"
+      },
+      "xfast"
+    )}"
+    bottom="${select(
+      "Bottom spacing",
+      {
+        "0": "0",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
+    full-width=${boolean("Full Width", false)}
+    left-right="${select(
+      "Left/Right spacing",
+      {
+        "0": "0",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl"
+      },
+      "xs"
+    )}"
+    position="${select(
+      "Position",
+      { left: "left", center: "center", right: "right" },
+      "center"
+    )}"
+    alert-title="${text("Title", "FATAL ERROR")}"
+    width=${text("Width (default: 350px)", "350px")}>
+    ${text("Message", "The nuclear plant is about to explode in five minutes")}
     </gxg-alert>
           `,
     {

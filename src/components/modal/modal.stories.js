@@ -13,11 +13,6 @@ const stories = storiesOf("Modal", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Modal", () => {
-  //Title
-  const labelTitle = "Title";
-  const defaultValueTitle = "The Title";
-  const valueTitle = text(labelTitle, defaultValueTitle);
-
   //Content
   const labelValueContent = "Content";
   const defaultValueContent =
@@ -34,6 +29,11 @@ stories.add("Modal", () => {
   const defaultValueFooter = "right";
   const valueFooter = radios(labelFooter, optionsFooter, defaultValueFooter);
 
+  //Title
+  const labelTitle = "Title";
+  const defaultValueTitle = "Modal Title";
+  const valueTitle = text(labelTitle, defaultValueTitle);
+
   //Width
   const labelWidth = "Width";
   const defaultValueWidth = "304px";
@@ -45,11 +45,11 @@ stories.add("Modal", () => {
   }
 
   return `
-  <gxg-modal id="modal" modal-title="${valueTitle}" width=${valueWidth} footer-alignment=${valueFooter}>
+  <gxg-modal id="modal" footer-alignment=${valueFooter} modal-title="${valueTitle}" width=${valueWidth}>
     ${valueContent}
-    <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+    <gxg-button slot="footer" type="secondary-text-only">Button</gxg-button>
     <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
-    <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+    <gxg-button slot="footer" type="primary-text-only">Other Button</gxg-button>
   </gxg-modal>
   
   <div style="display: flex; align-items: center; flex-direction: column;">

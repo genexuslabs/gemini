@@ -13,14 +13,6 @@ const stories = storiesOf("Separator", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Separator", () => {
-  const labelType = "Type";
-  const optionsType = {
-    solid: "solid",
-    dashed: "dashed"
-  };
-  const defaultValueType = "solid";
-  const valueType = radios(labelType, optionsType, defaultValueType);
-
   /*Top/Bottom margin*/
   const labelMargin = "Top/Bottom margin";
   const optionsMargin = {
@@ -31,6 +23,15 @@ stories.add("Separator", () => {
     xl: "xl"
   };
   const defaultValueMargin = "xs";
+
+  //Type
+  const labelType = "Type";
+  const optionsType = {
+    solid: "solid",
+    dashed: "dashed"
+  };
+  const defaultValueType = "solid";
+  const valueType = radios(labelType, optionsType, defaultValueType);
 
   return `
   <style>
@@ -44,10 +45,10 @@ stories.add("Separator", () => {
   }
   </style>
   <q>The Way Get Started Is To Quit Talking And Begin Doing. – Walt Disney</q>
-    <gxg-separator type="${valueType}" margin="${select(
-    labelMargin,
-    optionsMargin,
-    defaultValueMargin
-  )}"></gxg-separator>
+    <gxg-separator margin="${select(
+      labelMargin,
+      optionsMargin,
+      defaultValueMargin
+    )}" type="${valueType}"></gxg-separator>
     <q>Don’t Let Yesterday Take Up Too Much Of Today. – Will Rogers</q>`;
 });

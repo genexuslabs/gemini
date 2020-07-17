@@ -27,24 +27,23 @@ export class FormText implements FormComponent {
   PROPERTIES & STATE
   *********************************/
   /**
-   * If input is disabled
+   * The presence of this attribute makes the input disabled
    */
   @Prop() disabled = false;
 
   /**
-   * If input has errors
+   * The presence of this attribute gives the component error styles
    */
   @Prop({ mutable: true }) error = false;
 
   /**
-   * Input icon
+   * The input icon (optional)
    * possible values: the same as the values for the icon component
    */
   @Prop() icon: IconType = null;
 
   /**
-   * Input icon side
-   * possible values: left, right
+   * The input icon side. Possible values: left, right
    */
   @Prop({ reflect: true }) iconPosition: IconPosition = null;
 
@@ -69,12 +68,13 @@ export class FormText implements FormComponent {
   @Prop() placeholder: string;
 
   /**
-   * If required
+   * The presence of this attribute makes this input required
    */
   @Prop({ reflect: true }) required = false;
 
   /**
-   * Optional required message
+   * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+   *
    */
   @Prop({ mutable: true }) requiredMessage: string;
 
@@ -84,12 +84,12 @@ export class FormText implements FormComponent {
   @Prop({ reflect: true }) value: string;
 
   /**
-   * If this property is true, the border, the icon, and the background will be invisible.
+   * If this property is true, the border will only be visible on hover
    */
   @Prop({ reflect: true }) readOnly: false;
 
   /**
-   * If input has warning
+   * The presence of this attribute gives the component warning styles
    */
   @Prop() warning = false;
 

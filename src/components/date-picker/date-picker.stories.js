@@ -13,49 +13,50 @@ const stories = storiesOf("Date Picker", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Date Picker", () => {
-  //Min. date
-  const labelLabel = "Label";
-  const defaultValueLabel = "Datepicker label";
-  const valueLabel = text(labelLabel, defaultValueLabel);
-
-  //Min. date
-  const labelMinDate = "Min. date";
-  const defaultValueMinDate = "2019, 12, 20";
-  const valueMinDate = text(labelMinDate, defaultValueMinDate);
-
-  //Max. date
-  const labelMaxDate = "Max. date";
-  const defaultValueMaxDate = "2023, 12, 20";
-  const valueMaxDate = text(labelMaxDate, defaultValueMaxDate);
+  //Always show
+  const alwaysShowLabel = "Always show";
+  const defaultValuealwaysShow = false;
+  const alwaysShowValue = boolean(alwaysShowLabel, defaultValuealwaysShow);
 
   //Default date
   const labelDefaultDate = "Default date";
   const defaultValueDefault = "2020, 12, 20";
   const valueDefaultDate = text(labelDefaultDate, defaultValueDefault);
 
+  //Label
+  const labelLabel = "Label";
+  const defaultValueLabel = "Set your birthday:";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
+  //MaxWidth
+  const labelMaxWidth = "Label";
+  const defaultValueMaxWidth = "100%";
+  const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
+
+  //Max. date
+  const labelMaxDate = "Max. date (yyyy,mm,dd)";
+  const defaultValueMaxDate = "2023, 12, 20";
+  const valueMaxDate = text(labelMaxDate, defaultValueMaxDate);
+
+  //Min. date
+  const labelMinDate = "Min. date (yyyy,mm,dd)";
+  const defaultValueMinDate = "2019, 12, 20";
+  const valueMinDate = text(labelMinDate, defaultValueMinDate);
+
   //No weekends
   const noWeekendsLabel = "No weekends available";
   const defaultValuenoWeekends = false;
   const noWeekendsValue = boolean(noWeekendsLabel, defaultValuenoWeekends);
 
-  //Fullwidth
-  const fullWidthLabel = "Full Width";
-  const defaultValueFullWidth = false;
-  const fullWidthValue = boolean(fullWidthLabel, defaultValueFullWidth);
+  function alwaysShowFunc() {
+    if (alwaysShowValue) {
+      return "always-show";
+    }
+  }
 
   function noWeekendsFunc() {
     if (noWeekendsValue) {
       return "no-weekends";
-    }
-  }
-
-  function test() {
-    return "2020, 1, 20";
-  }
-
-  function fullWidth() {
-    if (fullWidthValue) {
-      return "full-width";
     }
   }
 
@@ -69,9 +70,12 @@ stories.add("Date Picker", () => {
   }
   </style>
   <gxg-date-picker
+  ${alwaysShowFunc()}
+  default-date="${valueDefaultDate}"
   label="${valueLabel}"
-  min-date="2018, 12, 20"
-  max-date="2021, 1, 20"
-  ${fullWidth()}
+  max-width=${valueMaxWidth}
+  max-date="${valueMaxDate}"
+  min-date="${valueMinDate}"
+  ${noWeekendsFunc()}
 ></gxg-date-picker>`;
 });

@@ -2,8 +2,11 @@
 @import "../../globals/mixins";
 
 :host {
+  width: 100%;
+  display: block;
   .container {
     display: inline-flex;
+    width: 100%;
   }
   .box-value {
     margin-top: 38px;
@@ -27,9 +30,11 @@
       border-style: var(--border-style-regular);
     }
   }
-
+  .range-slider {
+    width: 100%;
+  }
   .rs-range {
-    width: 600px;
+    width: 100%;
     -webkit-appearance: none;
     &:focus {
       outline: none;
@@ -102,16 +107,5 @@
   }
   .box-value #actual-value {
     color: var(--gray-04);
-  }
-}
-//full width
-:host([full-width]) {
-  display: block;
-  .container,
-  .range-slider {
-    width: 100%;
-  }
-  .rs-range {
-    width: 100% !important;
   }
 }

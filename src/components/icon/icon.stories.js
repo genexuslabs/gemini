@@ -16,7 +16,7 @@ KNOBS
 const label = "Color";
 const options = {
   onbackground: "onbackground",
-  negative: "negative",
+  "negative (white)": "negative",
   error: "error",
   warning: "warning",
   success: "success"

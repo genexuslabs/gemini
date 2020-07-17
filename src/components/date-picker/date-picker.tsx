@@ -10,7 +10,7 @@ export class DatePicker {
   @Element() el: HTMLElement;
 
   /**
-   * always show
+   * The presence of this attribute makes the date-picker always visible
    */
   @Prop() alwaysShow = false;
 
@@ -20,34 +20,29 @@ export class DatePicker {
   @Prop() defaultDate: string;
 
   /**
-   * This property makes the component full-width
-   */
-  @Prop() fullWidth = false;
-
-  /**
    * label
    */
   @Prop() label: string;
 
   /**
-   * no weekends
+   * no weekends available
    */
   @Prop() noWeekends = false;
 
   /**
-   * min date
+   * The min. date
    */
   @Prop() minDate: string;
 
   /**
-   * max date
+   * The max. date
    */
   @Prop() maxDate: string;
 
   /**
-   * input width
+   * The max width
    */
-  @Prop() width = "240px";
+  @Prop() maxWidth = "100%";
 
   componentDidLoad() {
     let defaultDate = new Date();
@@ -168,20 +163,12 @@ export class DatePicker {
     }
   }
 
-  widthFunc() {
-    if (this.fullWidth) {
-      return "100%";
-    } else {
-      return this.width;
-    }
-  }
-
   render() {
     return (
       <Host
         class={{}}
         style={{
-          width: this.widthFunc()
+          maxWidth: this.maxWidth
         }}
       >
         {this.printLabel()}

@@ -23,6 +23,9 @@ LABEL
 :host {
   label {
     @include form-element-common-styles-label();
+    .required {
+      padding-left: 2px;
+    }
   }
   textarea {
     @include gxg-text();

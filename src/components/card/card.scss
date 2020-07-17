@@ -9,6 +9,7 @@
   overflow: hidden;
   @include gxg-text();
 }
+
 //Box shadow
 :host([box-shadow="xxs"]) {
   box-shadow: var(--box-shadow-01);
@@ -58,6 +59,9 @@
   padding: var(--spacing-comp-07);
 }
 
-:host([gray]) {
+:host([background="white"]) {
+  background: var(--color-background);
+}
+:host([background="gray"]) {
   background: var(--gray-01);
 }

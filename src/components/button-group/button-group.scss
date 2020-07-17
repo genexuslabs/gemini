@@ -54,13 +54,13 @@
 :host([title-alignment="center"]) {
   /*Title alignment*/
   .button-group-header-title {
-    text-align: center;
+    justify-content: center;
   }
 }
 :host([title-alignment="right"]) {
   /*Title alignment*/
   .button-group-header-title {
-    text-align: right;
+    justify-content: flex-end;
   }
 }
 :host([disabled]) {

@@ -24,39 +24,34 @@ export class FormCheckbox {
   *********************************/
 
   /**
-   * Checkbox id
+   * The checkbox id
    */
   @Prop() checkboxId: string;
 
   /**
-   * Checkbox checked
+   * The presence of this attribute makes the checkbox checked by default
    */
   @Prop({ reflect: true }) checked = false;
 
   /**
-   * Checkbox disabled
+   * The presence of this attribute makes disables the checkbox
    */
   @Prop() disabled = false;
 
   /**
-   * Checkbox label
+   * The checkbox label
    */
   @Prop() label: string;
 
   /**
-   * Checkbox value
+   * The checkbox value
    */
   @Prop() value: string;
 
   /**
-   * Checkbox name
+   * The checkbox name
    */
   @Prop() name: string;
-
-  /**
-   * Required
-   */
-  @Prop() required = false;
 
   @Event() change: EventEmitter;
 
@@ -94,12 +89,6 @@ export class FormCheckbox {
     }
   }
 
-  labelRequired() {
-    if (this.required) {
-      return <span class="label__required">*</span>;
-    }
-  }
-
   render() {
     return (
       <Host
@@ -121,11 +110,9 @@ export class FormCheckbox {
             onChange={this.changed.bind(this)}
             onKeyUp={this.handlerOnKeyUp.bind(this)}
             tabindex="0"
-            required
           ></input>
           <span class="checkmark"></span>
           {this.label}
-          {this.labelRequired()}
         </label>
       </Host>
     );

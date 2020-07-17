@@ -1,15 +1,14 @@
-# gxg-template
+# gxg-form-radio-group
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property     | Attribute     | Description                   | Type      | Default     |
-| ------------ | ------------- | ----------------------------- | --------- | ----------- |
-| `RadioId`    | `radio-id`    | Selected Radio id             | `string`  | `undefined` |
-| `RadioValue` | `radio-value` | Selected Radio value          | `string`  | `undefined` |
-| `inlineFlex` | `inline-flex` | Inline-flex display           | `boolean` | `false`     |
-| `label`      | `label`       | The label for the Radio Group | `string`  | `undefined` |
+| Property     | Attribute     | Description              | Type     | Default     |
+| ------------ | ------------- | ------------------------ | -------- | ----------- |
+| `RadioId`    | `radio-id`    | The selected radio id    | `string` | `undefined` |
+| `RadioValue` | `radio-value` | The selected radio value | `string` | `undefined` |
+| `label`      | `label`       | The radio group label    | `string` | `undefined` |
 
 ---
 

@@ -30,10 +30,10 @@ stories.add("Spacer One", () => {
     background: #eee;
     width: 900px;
     height: 300px;
+    line-height:0;
   }
   </style>
-  <div id="container">
-  <gxg-button type="primary-text-only">Salt</gxg-button>
+  <div id="container"><gxg-button type="primary-text-only">Salt</gxg-button>
     <gxg-spacer-one space=${select(
       labelSpace,
       optionsSpace,

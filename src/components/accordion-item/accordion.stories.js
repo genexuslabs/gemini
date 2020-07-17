@@ -14,10 +14,11 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories
   .add("Classical", () => {
-    //Title
-    const labelTitle = "Title";
-    const defaultValueTitle = "Dr. Seuss";
-    const valueTitle = text(labelTitle, defaultValueTitle);
+    //All items disabled
+    const labelAllDisabled =
+      "All items disabled (by setting 'disabled' on the accordion-container component)";
+    const defaultValueAllDisabled = false;
+    const valueAllDisabled = boolean(labelAllDisabled, defaultValueAllDisabled);
 
     //Content
     const labelValueContent = "First accordion content";
@@ -25,16 +26,14 @@ stories
       "“You know you're in love when you can't fall asleep because reality is finally better than your dreams.”― Dr. Seuss";
     const valueContent = text(labelValueContent, defaultValueContent);
 
-    //Full width
-    const labelFullWidth = "Full Width";
-    const defaultValueFullWidth = false;
-
-    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
-    function fullWidth() {
-      if (valueFullWidth === true) {
-        return "full-width";
-      }
-    }
+    //One item disabled
+    const labelSingleItemDisabled =
+      "Item Disabled (only the first accordion for this example)";
+    const defaultValueSingleItemDisabled = false;
+    const valueSingleItemDisabled = boolean(
+      labelSingleItemDisabled,
+      defaultValueSingleItemDisabled
+    );
 
     //Initial State
     const labelInitialState =
@@ -45,15 +44,24 @@ stories
       defaultValueInitialState
     );
 
+    //Max Width
+    const labelMaxWidth = "Max Width (default: 100%)";
+    const defaultValueMaxWidth = "100%";
+    const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
+
     //Single Item Open
     const labelSingleItemOpen =
       "Single Item Open (only one accordion at a time can be open at the same time)";
     const defaultValueSingleItemOpen = false;
-
     const valueSingleItemOpen = boolean(
       labelSingleItemOpen,
       defaultValueSingleItemOpen
     );
+
+    //Title
+    const labelTitle = "Title";
+    const defaultValueTitle = "Dr. Seuss";
+    const valueTitle = text(labelTitle, defaultValueTitle);
 
     function singleItemOpen() {
       if (valueSingleItemOpen) {
@@ -62,23 +70,6 @@ stories
         return "";
       }
     }
-
-    //One item disabled
-    const labelSingleItemDisabled =
-      "Item Disabled (only the first accordion for this example)";
-    const defaultValueSingleItemDisabled = false;
-
-    const valueSingleItemDisabled = boolean(
-      labelSingleItemDisabled,
-      defaultValueSingleItemDisabled
-    );
-
-    //All items disabled
-    const labelAllDisabled =
-      "All items disabled (by setting 'disabled' on the accordion-container component)";
-    const defaultValueAllDisabled = false;
-
-    const valueAllDisabled = boolean(labelAllDisabled, defaultValueAllDisabled);
 
     function allDisabled() {
       if (valueAllDisabled) {
@@ -99,8 +90,8 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="classical">
-    <gxg-accordion-item item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()} ${itemOpen()}>${valueContent}</gxg-accordion-item>
+  <gxg-accordion ${allDisabled()} ${singleItemOpen()} mode="classical" max-width="${valueMaxWidth}">
+    <gxg-accordion-item item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()} status="${itemOpen()}">${valueContent}</gxg-accordion-item>
     <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
@@ -110,10 +101,11 @@ stories
   </gxg-accordion>`;
   })
   .add("Slim", () => {
-    //Title
-    const labelTitle = "Title";
-    const defaultValueTitle = "Dr. Seuss";
-    const valueTitle = text(labelTitle, defaultValueTitle);
+    //All items disabled
+    const labelAllDisabled =
+      "All items disabled (by setting 'disabled' on the accordion-container component)";
+    const defaultValueAllDisabled = false;
+    const valueAllDisabled = boolean(labelAllDisabled, defaultValueAllDisabled);
 
     //Content
     const labelValueContent = "First accordion content";
@@ -121,41 +113,48 @@ stories
       "“You know you're in love when you can't fall asleep because reality is finally better than your dreams.”― Dr. Seuss";
     const valueContent = text(labelValueContent, defaultValueContent);
 
-    //Full width
-    const labelFullWidth = "Full Width";
-    const defaultValueFullWidth = false;
-
-    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
-    function fullWidth() {
-      if (valueFullWidth === true) {
-        return "full-width";
-      }
-    }
+    //One item disabled
+    const labelSingleItemDisabled =
+      "Item Disabled (only the first accordion for this example)";
+    const defaultValueSingleItemDisabled = false;
+    const valueSingleItemDisabled = boolean(
+      labelSingleItemDisabled,
+      defaultValueSingleItemDisabled
+    );
 
     //Initial State
     const labelInitialState =
-      "Item opened by default (only for the first accordion in this example)";
+      "Item open by default (only for the first accordion in this example)";
     const defaultValueInitialState = false;
     const valueInitialState = boolean(
       labelInitialState,
       defaultValueInitialState
     );
 
-    function initialState() {
-      if (valueInitialState === true) {
-        return "open";
-      }
-    }
+    //Max Width
+    const labelMaxWidth = "Max Width (default: 100%)";
+    const defaultValueMaxWidth = "100%";
+    const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
     //Single Item Open
     const labelSingleItemOpen =
       "Single Item Open (only one accordion at a time can be open at the same time)";
     const defaultValueSingleItemOpen = false;
-
     const valueSingleItemOpen = boolean(
       labelSingleItemOpen,
       defaultValueSingleItemOpen
     );
+
+    //Title
+    const labelTitle = "Title";
+    const defaultValueTitle = "Dr. Seuss";
+    const valueTitle = text(labelTitle, defaultValueTitle);
+
+    function initialState() {
+      if (valueInitialState === true) {
+        return "open";
+      }
+    }
 
     function singleItemOpen() {
       if (valueSingleItemOpen) {
@@ -164,23 +163,6 @@ stories
         return "";
       }
     }
-
-    //One item disabled
-    const labelSingleItemDisabled =
-      "Item Disabled (only the first accordion for this example)";
-    const defaultValueSingleItemDisabled = false;
-
-    const valueSingleItemDisabled = boolean(
-      labelSingleItemDisabled,
-      defaultValueSingleItemDisabled
-    );
-
-    //All items disabled
-    const labelAllDisabled =
-      "All items disabled (by setting 'disabled' on the accordion-container component)";
-    const defaultValueAllDisabled = false;
-
-    const valueAllDisabled = boolean(labelAllDisabled, defaultValueAllDisabled);
 
     function allDisabled() {
       if (valueAllDisabled) {
@@ -195,17 +177,8 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion padding="${select(
-    "Padding",
-    {
-      "0": "0",
-      xxs: "xxs",
-      xs: "xs",
-      s: "s"
-    },
-    "0"
-  )}" ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="slim">
-    <gxg-accordion-item  ${initialState()} item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
+  <gxg-accordion ${allDisabled()} ${singleItemOpen()} mode="slim" max-width="${valueMaxWidth}">
+    <gxg-accordion-item  status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
     <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
@@ -215,10 +188,11 @@ stories
   </gxg-accordion>`;
   })
   .add("Boxed", () => {
-    //Title
-    const labelTitle = "Title";
-    const defaultValueTitle = "Dr. Seuss";
-    const valueTitle = text(labelTitle, defaultValueTitle);
+    //All items disabled
+    const labelAllDisabled =
+      "All items disabled (by setting 'disabled' on the accordion-container component)";
+    const defaultValueAllDisabled = false;
+    const valueAllDisabled = boolean(labelAllDisabled, defaultValueAllDisabled);
 
     //Content
     const labelValueContent = "First accordion content";
@@ -226,16 +200,14 @@ stories
       "“You know you're in love when you can't fall asleep because reality is finally better than your dreams.”― Dr. Seuss";
     const valueContent = text(labelValueContent, defaultValueContent);
 
-    //Full width
-    const labelFullWidth = "Full Width";
-    const defaultValueFullWidth = false;
-
-    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
-    function fullWidth() {
-      if (valueFullWidth === true) {
-        return "full-width";
-      }
-    }
+    //One item disabled
+    const labelSingleItemDisabled =
+      "Item Disabled (only the first accordion for this example)";
+    const defaultValueSingleItemDisabled = false;
+    const valueSingleItemDisabled = boolean(
+      labelSingleItemDisabled,
+      defaultValueSingleItemDisabled
+    );
 
     //Initial State
     const labelInitialState =
@@ -246,11 +218,10 @@ stories
       defaultValueInitialState
     );
 
-    function initialState() {
-      if (valueInitialState === true) {
-        return "open";
-      }
-    }
+    //Max Width
+    const labelMaxWidth = "Max Width (default: 100%)";
+    const defaultValueMaxWidth = "100%";
+    const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
     //Single Item Open
     const labelSingleItemOpen =
@@ -262,6 +233,17 @@ stories
       defaultValueSingleItemOpen
     );
 
+    //Title
+    const labelTitle = "Title";
+    const defaultValueTitle = "Dr. Seuss";
+    const valueTitle = text(labelTitle, defaultValueTitle);
+
+    function initialState() {
+      if (valueInitialState === true) {
+        return "open";
+      }
+    }
+
     function singleItemOpen() {
       if (valueSingleItemOpen) {
         return "single-item-open";
@@ -269,23 +251,6 @@ stories
         return "";
       }
     }
-
-    //One item disabled
-    const labelSingleItemDisabled =
-      "Item Disabled (only the first accordion for this example)";
-    const defaultValueSingleItemDisabled = false;
-
-    const valueSingleItemDisabled = boolean(
-      labelSingleItemDisabled,
-      defaultValueSingleItemDisabled
-    );
-
-    //All items disabled
-    const labelAllDisabled =
-      "All items disabled (by setting 'disabled' on the accordion-container component)";
-    const defaultValueAllDisabled = false;
-
-    const valueAllDisabled = boolean(labelAllDisabled, defaultValueAllDisabled);
 
     function allDisabled() {
       if (valueAllDisabled) {
@@ -300,8 +265,8 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-    <gxg-accordion ${fullWidth()} ${allDisabled()} ${singleItemOpen()} mode="boxed">
-      <gxg-accordion-item ${initialState()} item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
+    <gxg-accordion ${allDisabled()} ${singleItemOpen()} mode="boxed" max-width="${valueMaxWidth}">
+      <gxg-accordion-item status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
       <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
       treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
       the Goblet of Fire</gxg-accordion-item> 

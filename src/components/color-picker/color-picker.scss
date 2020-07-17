@@ -1,11 +1,15 @@
 @import "../../../node_modules/@simonwep/pickr/dist/themes/nano.min.css";
+@import "../../globals/mixins";
 
 :host {
   width: 230px;
   display: block;
-  box-shadow: var(--box-shadow-01);
+}
+.label {
+  @include form-element-common-styles-label();
 }
 .color-picker-main-container {
+  box-shadow: var(--box-shadow-01);
   z-index: 10;
   --cardAnimationDelay: 0;
   position: relative;

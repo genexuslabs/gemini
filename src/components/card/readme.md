@@ -4,12 +4,13 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                              | Type                                 | Default  |
-| ----------- | ------------ | ---------------------------------------------------------------------------------------- | ------------------------------------ | -------- |
-| `boxShadow` | `box-shadow` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"l" \| "m" \| "s" \| "xs" \| "xxs"` | `"xxs"`  |
-| `height`    | `height`     | The component height                                                                     | `string`                             | `"auto"` |
-| `maxWidth`  | `max-width`  | The component width                                                                      | `string`                             | `"100%"` |
-| `padding`   | `padding`    |                                                                                          | `"l" \| "m" \| "s" \| "xs"`          | `"xs"`   |
+| Property     | Attribute    | Description                                                                              | Type                                                   | Default   |
+| ------------ | ------------ | ---------------------------------------------------------------------------------------- | ------------------------------------------------------ | --------- |
+| `background` | `background` | The background color                                                                     | `string`                                               | `"white"` |
+| `boxShadow`  | `box-shadow` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"l" \| "m" \| "s" \| "xs" \| "xxs"`                   | `"xxs"`   |
+| `maxWidth`   | `max-width`  | The component width                                                                      | `string`                                               | `"100%"`  |
+| `minHeight`  | `min-height` | The component width                                                                      | `string`                                               | `"auto"`  |
+| `padding`    | `padding`    |                                                                                          | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`    |
 
 ---
 

@@ -27,32 +27,32 @@ export class FormRadio {
   *********************************/
 
   /**
-   * Radio id
+   * The radio id
    */
   @Prop() RadioId: string;
 
   /**
-   * Radio selected
+   * The presence of this attribute makes this radio selected by default
    */
   @Prop({ reflect: true }) checked = false;
 
   /**
-   * Radio disabled
+   * The presence of this attribute disables this radio
    */
   @Prop() disabled = false;
 
   /**
-   * Radio label
+   * The radio label
    */
   @Prop() label: string;
 
   /**
-   * Radio name
+   * The radio name (should be the same for every radio of the same radio-group)
    */
   @Prop() name: string;
 
   /**
-   * Radio value
+   * The radio value
    */
   @Prop() value: string;
 
@@ -93,7 +93,7 @@ export class FormRadio {
     });
   }
 
-  handlerOnKeyUp(event) {
+  handlerOnKeyDown(event) {
     if (event.keyCode == 9) {
       //tab key was pressed
       if (event.shiftKey) {
@@ -126,7 +126,7 @@ export class FormRadio {
             value={this.value}
             onClick={this.selectRadio.bind(this)}
             disabled={this.disabled}
-            onKeyDown={this.handlerOnKeyUp.bind(this)}
+            onKeyDown={this.handlerOnKeyDown.bind(this)}
           ></input>
           <span class="radiobtn"></span>
           {this.label}

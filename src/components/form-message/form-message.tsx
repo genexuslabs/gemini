@@ -7,8 +7,7 @@ import { Component, Host, Prop, h } from "@stencil/core";
 })
 export class FormMessage {
   /**
-   * The kind of message
-   * Possible values: error, warning
+   * The type of message
    */
   @Prop() type: Message;
 

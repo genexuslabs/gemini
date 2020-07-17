@@ -15,24 +15,24 @@ import {
 })
 export class Accordion {
   /**
-   * The state of the accordion. Whether is disabled or not.
+   * If this attribute is present, all of the accordion-items will be disabled and not focusable
    */
   @Prop() disabled = false;
 
   /**
-   * Wether only one accordion can be open at the same time or not.
+   * If this attribute is present, only one accordion-item can be open at the same time
    */
   @Prop() singleItemOpen = false;
 
   /**
-   * The aesthetical mode
+   * The accordion flavor
    */
   @Prop() mode: mode = "classical";
 
   /**
-   * The accordion width
+   * The accordion max-width
    */
-  @Prop() maxWidth = "360px";
+  @Prop() maxWidth = "100%";
 
   @State() accordions: HTMLGxgAccordionItemElement[];
 

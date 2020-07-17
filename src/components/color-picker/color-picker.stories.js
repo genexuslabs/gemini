@@ -13,5 +13,9 @@ const stories = storiesOf("Color Picker", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Color Picker", () => {
-  return `<gxg-color-picker></gxg-color-picker>`;
+  return `<gxg-color-picker label='${text(
+    "Label (optional)",
+    "Pick a color:"
+  )}' value=${text("Value (color)", "red")}
+  )}'></gxg-color-picker>`;
 });

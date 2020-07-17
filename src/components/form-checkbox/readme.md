@@ -4,15 +4,14 @@
 
 ## Properties
 
-| Property     | Attribute     | Description       | Type      | Default     |
-| ------------ | ------------- | ----------------- | --------- | ----------- |
-| `checkboxId` | `checkbox-id` | Checkbox id       | `string`  | `undefined` |
-| `checked`    | `checked`     | Checkbox checked  | `boolean` | `false`     |
-| `disabled`   | `disabled`    | Checkbox disabled | `boolean` | `false`     |
-| `label`      | `label`       | Checkbox label    | `string`  | `undefined` |
-| `name`       | `name`        | Checkbox name     | `string`  | `undefined` |
-| `required`   | `required`    | Required          | `boolean` | `false`     |
-| `value`      | `value`       | Checkbox value    | `string`  | `undefined` |
+| Property     | Attribute     | Description                                                          | Type      | Default     |
+| ------------ | ------------- | -------------------------------------------------------------------- | --------- | ----------- |
+| `checkboxId` | `checkbox-id` | The checkbox id                                                      | `string`  | `undefined` |
+| `checked`    | `checked`     | The presence of this attribute makes the checkbox checked by default | `boolean` | `false`     |
+| `disabled`   | `disabled`    | The presence of this attribute makes disables the checkbox           | `boolean` | `false`     |
+| `label`      | `label`       | The checkbox label                                                   | `string`  | `undefined` |
+| `name`       | `name`        | The checkbox name                                                    | `string`  | `undefined` |
+| `value`      | `value`       | The checkbox value                                                   | `string`  | `undefined` |
 
 ## Events
 

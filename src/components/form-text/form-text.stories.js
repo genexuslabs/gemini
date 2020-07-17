@@ -13,21 +13,6 @@ const stories = storiesOf("Input text", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Text", () => {
-  //Fullwidth
-  const labelWidth = "Width";
-  const optionsWidth = {
-    "fixed width": "fixed-width",
-    "full width (Display must be 'default')": "width=700px"
-  };
-  const defaultValueWidth = "fixed-width";
-  const valueWidth = radios(labelWidth, optionsWidth, defaultValueWidth);
-
-  function valueWidthFunc() {
-    if (valueWidth !== "fixed-width") {
-      return valueWidth;
-    }
-  }
-
   //Icon Type
   const labelIconType = "Icon";
   const optionsIconType = [
@@ -72,6 +57,21 @@ stories.add("Text", () => {
   const defaultValueIcon = "left";
   const valueIcon = radios(labelIcon, optionsIcon, defaultValueIcon);
 
+  //Max Width
+  const labelMaxWidth = "Max. Width";
+  const defaultValueMaxWidth = "100%";
+  const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
+
+  //Read Only
+  const labelReadOnly = "Read only (border visible on hover only)";
+  const defaultValueReadOnly = false;
+  const valueReadOnly = boolean(labelReadOnly, defaultValueReadOnly);
+
+  //Required
+  const requiredLabel = "Required";
+  const requiredDefaultValue = false;
+  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
+
   //Status
   const labelStatus = "Status";
   const optionsStatus = {
@@ -83,16 +83,6 @@ stories.add("Text", () => {
   };
   const defaultValueStatus = "enabled";
   const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
-
-  //Read Only
-  const labelReadOnly = "Read only (visible on hover)";
-  const defaultValueReadOnly = false;
-  const valueReadOnly = boolean(labelReadOnly, defaultValueReadOnly);
-
-  //Required
-  const requiredLabel = "Required";
-  const requiredDefaultValue = false;
-  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
 
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {
@@ -141,44 +131,20 @@ stories.add("Text", () => {
     }
   }
 
-  return `<style>gxg-form-text{margin-bottom: var(--spacing-lay-xs)}</style><gxg-form-text
-    label="Name"
-    placeholder="John Griffith"
-    icon=${valueIconType}
-    icon-position=${valueIcon}
-    ${readOnly()}
-    ${valueWidthFunc()}
-    ${valueStatusType()}
-    ${requiredValueFunc()}  
-  >${errorMessage()}
-   
-  ${errorMessagesMultiple()}
-  ${warningMessage()}</gxg-form-text>
+  return `<style>#root{width:700px;display:flex;flex-direction:column;align-items:center}gxg-form-text{margin-bottom: var(--spacing-lay-xs)}</style>
 
   <gxg-form-text
-    label="Position"
-    placeholder="Chief Executive"
-    icon=${valueIconType}
-    icon-position=${valueIcon}
-    ${readOnly()}
-    ${valueWidthFunc()}
-    ${valueStatusType()}
-    ${errorMessage()}
-  ${errorMessagesMultiple()}
-  ${warningMessage()}
+  label="Position"
+  placeholder="Chief Executive"
+  icon=${valueIconType}
+  icon-position=${valueIcon}
+  max-width=${valueMaxWidth}
+  ${readOnly()}
   ${requiredValueFunc()}
-  ></gxg-form-text>
-
-  <gxg-form-text
-    label="Location"
-    placeholder="USA, Washington, D.C."
-    icon=${valueIconType}
-    icon-position=${valueIcon}
-    ${readOnly()}
-    ${valueWidthFunc()}
-    ${valueStatusType()}
-    ${requiredValueFunc()}
-  >${errorMessage()}
-  ${errorMessagesMultiple()}
-  ${warningMessage()}</gxg-form-text>`;
+  ${valueStatusType()}
+  ${errorMessage()}
+${errorMessagesMultiple()}
+${warningMessage()}
+></gxg-form-text>
+`;
 });

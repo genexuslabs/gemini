@@ -1,12 +1,22 @@
-# gxg-template
+<h2>Notes</h2>
+<ul>
+   <li>To make the boxes draggable, wrap any number of <code>gxg-drag-box</code>'s inside an <code>gxg-drag-container</code> component</li>
+</ul>
 
-<!-- Auto Generated Below -->
+# gxg-drag-container
 
 ## Properties
 
-| Property   | Attribute   | Description                                                                       | Type     | Default     |
-| ---------- | ----------- | --------------------------------------------------------------------------------- | -------- | ----------- |
-| `maxWidth` | `max-width` | The state of the toggle. Whether is disabled or not. Possible values: false, true | `string` | `undefined` |
+| Property    | Attribute    | Description                                                   | Type      | Default   |
+| ----------- | ------------ | ------------------------------------------------------------- | --------- | --------- |
+| `fullWidth` | `full-width` | The presence of this attribute makes the component full-width | `boolean` | `false`   |
+| `maxWidth`  | `max-width`  | The max-width of the box container                            | `string`  | `"200px"` |
+
+# gxg-drag-box
+
+(no properties)
+
+<!-- Auto Generated Below -->
 
 ## Dependencies
 

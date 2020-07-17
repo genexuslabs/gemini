@@ -13,6 +13,11 @@ const stories = storiesOf("Slider", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Slider", () => {
+  //Disabled
+  const labelDisabled = "Disabled";
+  const defaultValueDisabled = false;
+  const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
   //Initial value
   const labelValueInitial = "Initial Value";
   const defaultValueInitial = 300;
@@ -23,28 +28,10 @@ stories.add("Slider", () => {
   const defaultValueMax = 400;
   const valueMax = number(labelMax, defaultValueMax);
 
-  //Width
-  const labelWidth = "Width";
-  const defaultValueWidth = "300px";
-  const valueWidth = text(labelWidth, defaultValueWidth);
-
-  //Fullwidth
-  const labelWidthStyle = "Width Style";
-  const optionsWidthStyle = {
-    "fixed width": "fixed-width",
-    "full width": "full-width"
-  };
-  const defaultValueWidthStyle = "fixed-width";
-  const valueWidthStyle = radios(
-    labelWidthStyle,
-    optionsWidthStyle,
-    defaultValueWidthStyle
-  );
-
-  //Disabled
-  const labelDisabled = "Disabled";
-  const defaultValueDisabled = false;
-  const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+  //Max Width
+  const labelWidth = "Max. Width";
+  const defaultValueMaxWidth = "100%";
+  const valueMaxWidth = text(labelWidth, defaultValueMaxWidth);
 
   function valueDisabledFunc() {
     if (valueDisabled) {
@@ -56,9 +43,11 @@ stories.add("Slider", () => {
   <style>
     #root{
       width:700px;
-      text-align:center
-    }
+      text-align:center;
+      display:flex;
+      justify-content: center;
+    }s
   </style>
-  <gxg-slider label="Slider" ${valueDisabledFunc()} value=${valueInitial} max=${valueMax} width=${valueWidth} ${valueWidthStyle}></gxg-slider>
+  <gxg-slider label="Slider" ${valueDisabledFunc()} value=${valueInitial} max=${valueMax} max-width=${valueMaxWidth}></gxg-slider>
   `;
 });

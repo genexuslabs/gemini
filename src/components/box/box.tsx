@@ -11,33 +11,31 @@ export class Box {
   *********************************/
 
   /**
-   * This property makes the component full-width
+   * The background color
    */
-  @Prop() fullWidth = false;
+  @Prop({ reflect: true }) background = "white";
 
   /**
-   * The component height
+   * The presence of this property gives the box a border
    */
-  @Prop() height = "auto";
+  @Prop({ reflect: true }) border = false;
 
-  /*The card padding (internal spacing)*/
+  /*The box padding (internal spacing)*/
   @Prop() padding: padding = "xs";
 
   /**
    * The component width
    */
-  @Prop() width = "200px";
+  @Prop() minHeight = "auto";
+
+  /**
+   * The component width
+   */
+  @Prop() maxWidth = "100%";
 
   /*********************************
   METHODS
   *********************************/
-  widthFunc() {
-    if (this.fullWidth) {
-      return "100%";
-    } else {
-      return this.width;
-    }
-  }
 
   render() {
     return (
@@ -45,7 +43,7 @@ export class Box {
         class={{
           card: true
         }}
-        style={{ width: this.widthFunc(), height: this.height }}
+        style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
         <slot></slot>
       </Host>
@@ -54,3 +52,5 @@ export class Box {
 }
 
 export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+
+export type background = "white" | "light-gray" | "dark-gray";

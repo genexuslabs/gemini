@@ -13,9 +13,9 @@ export class Card {
   @Prop({ reflect: true }) boxShadow: boxShadow = "xxs";
 
   /**
-   * The component height
+   * The background color
    */
-  @Prop() height = "auto";
+  @Prop({ reflect: true }) background = "white";
 
   /*The card padding (internal spacing)*/
   @Prop({ reflect: true }) padding: padding = "xs";
@@ -23,11 +23,12 @@ export class Card {
   /**
    * The component width
    */
-  @Prop() maxWidth = "100%";
+  @Prop() minHeight = "auto";
 
-  /*********************************
-  METHODS
-  *********************************/
+  /**
+   * The component width
+   */
+  @Prop() maxWidth = "100%";
 
   render() {
     return (
@@ -35,7 +36,7 @@ export class Card {
         class={{
           card: true
         }}
-        style={{ maxWidth: this.maxWidth, height: this.height }}
+        style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
         <slot></slot>
       </Host>
@@ -45,4 +46,6 @@ export class Card {
 
 export type boxShadow = "xxs" | "xs" | "s" | "m" | "l";
 
-export type padding = "xs" | "s" | "m" | "l";
+export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+
+export type background = "white" | "gray";

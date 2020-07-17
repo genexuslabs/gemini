@@ -15,6 +15,166 @@
     <style></style>
   </head>
   <body>
+    <gxg-slider
+      value="10"
+      label="Slider"
+      min="100"
+      max="400"
+      max-width="200px"
+    ></gxg-slider>
+
+    <gxg-color-picker label="Pick a color" value="red"></gxg-color-picker>
+
+    <gxg-menu menu-title="d" max-width="200px" full-width>
+      <gxg-menu-item label="apple" icon=""></gxg-menu-item>
+      <gxg-menu-item label="banana" icon="warning"></gxg-menu-item>
+      <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>
+      <gxg-menu-item label="kiwi" icon="search"></gxg-menu-item>
+    </gxg-menu>
+
+    <br /><br /><br />
+
+    <gxg-form-textarea
+      id="textarea1"
+      name="textarea1"
+      label="Default"
+      full-width
+      rows="10"
+      required
+    >
+    </gxg-form-textarea>
+
+    <br /><br /><br />
+
+    <gxg-form-text
+      required
+      type="text"
+      id="name4"
+      name="name"
+      label="Default"
+      placeholder="Placeholder text"
+      display-flex
+      icon="search"
+      icon-position="left"
+      full-width
+    >
+    </gxg-form-text>
+    <br /><br /><br /><br />
+    <gxg-form-textarea
+      id="textarea1"
+      name="textarea1"
+      label="Default"
+      full-width
+    >
+    </gxg-form-textarea>
+
+    <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
+      <gxg-form-radio
+        label="red"
+        name="colors"
+        radio-id="red"
+        value="red"
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="blue"
+        name="colors"
+        radio-id="blue"
+        value="blue"
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="green"
+        name="colors"
+        radio-id="green"
+        value="green"
+      ></gxg-form-radio>
+    </gxg-form-radio-group>
+
+    <div style="width:500px">
+      <gxg-card padding="xs" box-shadow="xxs"
+        >Be who you are and say what you feel, because those who mind don't
+        matter, and those who matter don't mind.</gxg-card
+      >
+    </div>
+
+    <gxg-select id="select1" label="Select a car:" size="10" error>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select>
+
+    <script>
+      function addErrorMessage() {
+        let inputText = document.getElementById("select1");
+        let errorMessage = document.createElement("gxg-form-message");
+        errorMessage.setAttribute("type", "error");
+        errorMessage.setAttribute("slot", "message");
+        errorMessage.textContent = "error message";
+        inputText.appendChild(errorMessage);
+      }
+    </script>
+    <gxg-button disabled onclick="addErrorMessage()"
+      >Add error message</gxg-button
+    >
+
+    <br /><br /><br />
+    <gxg-drag-container max-width="300px">
+      <gxg-drag-box>Container 0132</gxg-drag-box>
+      <gxg-drag-box>Container 02</gxg-drag-box>
+      <gxg-drag-box>Container 03</gxg-drag-box>
+      <gxg-drag-box>Container 04</gxg-drag-box>
+      <gxg-drag-box>Container 05</gxg-drag-box>
+    </gxg-drag-container>
+
+    <gxg-color-picker
+      label="Select a color:"
+      value="#0000FF"
+    ></gxg-color-picker>
+
+    <br /><br /><br />
+
+    <gxg-card min-height="150px" background="gray">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nostrum
+      neque, blanditiis ullam tempore rem numquam inventore mollitia perferendis
+      possimus aut laudantium recusandae earum exercitationem commodi impedit.
+      Reiciendis, non rem.
+    </gxg-card>
+
+    <gxg-button-group
+      default-selected-btn-id="id5"
+      button-group-title="The title"
+      title-alignment="right"
+      tabindex="0"
+    >
+      <button id="id3" value="primero">Left</button>
+      <button id="id4" value="segundo">Middle</button>
+      <button id="id5" value="tercero">Right</button>
+    </gxg-button-group>
+
+    <br /><br /><br />
+
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="tab-01" item-id="tab-03"
+            >some content on accordion 1.</gxg-accordion-item
+          >
+          <gxg-accordion-item item-title="tab-02" item-id="tab-04"
+            >some content on accordion 2.</gxg-accordion-item
+          >
+        </gxg-accordion>
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-02" item-id="tab-02"
+        >some content on accordion 2.</gxg-accordion-item
+      >
+    </gxg-accordion>
+
+    <br /><br /><br />
     <!-- <gxg-tree>
       <gxg-tree-item>
         Item 01
@@ -49,6 +209,43 @@
         Item 05
       </gxg-tree-item>
     </gxg-tree> -->
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default"
+      placeholder="Placeholder text"
+      display-flex
+      icon="search"
+      icon-position="right"
+      required
+    >
+    </gxg-form-text>
+
+    <gxg-select label="Select a car:" width="400px" size="5" full-width>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default"
+      placeholder="Placeholder text"
+      display-flex
+      icon="search"
+      icon-position="right"
+      required
+    >
+    </gxg-form-text>
 
     <gxg-tree>
       <gxg-tree-item>
@@ -135,17 +332,7 @@
     </div>
 
     <br /><br /><br />
-    <gxg-select label="Select a car:" width="400px" size="5" full-width>
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
+
     <br /><br /><br /><br /><br />
     <gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="left">
       <gxg-toolbar-item

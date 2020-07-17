@@ -29,12 +29,12 @@ export class FormSelectNew {
   *********************************/
 
   /**
-   * If select is disabled
+   * The presence of this attribute disables the component
    */
   @Prop() disabled = false;
 
   /**
-   * If select has errors
+   * The presence of this attribute stylizes the component with error attributes
    */
   @Prop() error = false;
 
@@ -44,7 +44,7 @@ export class FormSelectNew {
   @Prop() label: string;
 
   /**
-   * The maximum number of visible options (scroll will apear if the total number exceeds this value)
+   * The maximum number of visible options
    */
   @Prop() size: string;
 
@@ -52,11 +52,6 @@ export class FormSelectNew {
    * The select name
    */
   @Prop() name: string;
-
-  /**
-   * If required
-   */
-  @Prop() required = false;
 
   /**
    * The select id
@@ -69,12 +64,12 @@ export class FormSelectNew {
   @State() value: string;
 
   /**
-   * If select has warnings
+   * The presence of this attribute stylizes the component with warning attributes
    */
   @Prop() warning = false;
 
   /**
-   * The select width
+   * The select max-width (default is 240px)
    */
   @Prop() maxWidth = "100%";
 
@@ -137,7 +132,7 @@ export class FormSelectNew {
       a.setAttribute("tabindex", "0");
       a.setAttribute("role", "listbox");
       a.addEventListener("keydown", event => {
-        event.preventDefault();
+        //event.preventDefault();
         const select = this.el.shadowRoot.querySelector(".select-items");
         let selected = select.querySelector(".same-as-selected");
 
@@ -261,6 +256,19 @@ export class FormSelectNew {
     this.change.emit(newValue);
   }
 
+  handlerOnKeyDown(event) {
+    if (event.keyCode == 9) {
+      //tab key was pressed
+      console.log("tab was pressed");
+      if (event.shiftKey) {
+        //shift key was also pressed
+        console.log("tab and shift was pressed");
+        console.log(this.el.previousSibling.previousSibling);
+        (this.el.previousSibling.previousSibling as HTMLElement).focus();
+      }
+    }
+  }
+
   render() {
     return (
       <Host
@@ -268,6 +276,7 @@ export class FormSelectNew {
           maxWidth: this.maxWidth,
           "--size": this.size
         }}
+        onKeyDown={this.handlerOnKeyDown.bind(this)}
       >
         <div class="outer-wrapper">
           <label
