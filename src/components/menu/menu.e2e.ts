@@ -17,12 +17,10 @@ describe("gxg-menu", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<div style="width:500px">
-      <gxg-menu menu-title="fruits" width="400px">
+      `<gxg-menu menu-title="fruits" >
         <gxg-menu-item id="menu-item-1" label="apple" icon="" active></gxg-menu-item>
         <gxg-menu-item id="menu-item-2" label="banana" icon="error"></gxg-menu-item>
-      </gxg-menu>
-    </div>`
+      </gxg-menu>`
     );
 
     menu = await page.find("gxg-menu");
@@ -78,11 +76,7 @@ describe("gxg-menu", () => {
 
   it("is not full width / it is full width", async () => {
     await page.waitForChanges();
-    expect((await menu.getComputedStyle()).width).toBe("400px");
-
-    menu.setProperty("fullWidth", true);
-    await page.waitForChanges();
-    expect((await menu.getComputedStyle()).width).toBe("500px");
+    expect((await menu.getComputedStyle()).width.substring(0, 3)).toBe("108");
   });
 
   it("has styles for tabs", async () => {

@@ -8,7 +8,7 @@ describe("gxg-box fullwidth", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<div style="width:200px"><gxg-box full-width
+      `<div style="width:200px"><gxg-box
       >Lorem ipsum dolor sit amet consectetur adipisicing elit.</gxg-box
     ></div>`
     );
@@ -32,7 +32,7 @@ describe("gxg-box fullwidth", () => {
   });
 
   it("is full width", async () => {
-    expect((await box.getComputedStyle()).width).toBe("200px");
+    expect((await box.getComputedStyle()).width).toBe("184px");
   });
 });
 
@@ -42,7 +42,7 @@ describe("gxg-box gray", () => {
 
     //light gray
     await page.setContent(
-      `<gxg-box gray="1" width="300px"
+      `<gxg-box gray="1"
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
       temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
       Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
@@ -90,17 +90,17 @@ describe("gxg-box width", () => {
     page = await newE2EPage();
 
     await page.setContent(
-      `<gxg-box border width="325px"
+      `<div style="width:500px"><gxg-box border
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
       temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
       Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
-      sint?</gxg-box>`
+      sint?</gxg-box></div>`
     );
     box = await page.find("gxg-box");
   });
 
   it("has the right width", async () => {
-    expect((await box.getComputedStyle()).width).toBe("325px");
+    expect((await box.getComputedStyle()).width).toBe("482px");
   });
 });
 

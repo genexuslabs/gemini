@@ -43,8 +43,8 @@ describe("gxg-progress-bar", () => {
 
   it("has the right width and progress", async () => {
     await page.waitForChanges();
-    expect((await outerBar.getComputedStyle()).width).toBe("200px");
-    expect((await innerBar.getComputedStyle()).width).toBe("100px");
+    expect((await outerBar.getComputedStyle()).width).toBe("600px");
+    expect((await innerBar.getComputedStyle()).width).toBe("300px");
   });
 
   it("is fullwidth", async () => {

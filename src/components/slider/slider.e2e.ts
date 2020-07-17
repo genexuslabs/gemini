@@ -47,17 +47,10 @@ describe("gxg-slider", () => {
     await page.waitForChanges();
     expect(rsLabel.textContent).toBe("25");
     expect(boxValue.textContent).toBe("25");
-    expect((await rsLabel.getComputedStyle()).left).toBe("22.25px");
+    expect((await rsLabel.getComputedStyle()).left).toBe("54.25px");
 
     //Update value and check label
     slider.setProperty("value", 75);
-    await page.waitForChanges();
-    expect(rsLabel.textContent).toBe("75");
-    expect(boxValue.textContent).toBe("75");
-    expect((await rsLabel.getComputedStyle()).left).toBe("66.75px");
-
-    //fullWidth
-    slider.setProperty("fullWidth", true);
     await page.waitForChanges();
     expect(rsLabel.textContent).toBe("75");
     expect(boxValue.textContent).toBe("75");
