@@ -9,7 +9,7 @@ import {
   State,
   Watch
 } from "@stencil/core";
-import { formMessage } from "../../common.js";
+import { requiredLabel, formMessage } from "../../common.js";
 
 @Component({
   tag: "gxg-select",
@@ -279,14 +279,19 @@ export class FormSelectNew {
         onKeyDown={this.handlerOnKeyDown.bind(this)}
       >
         <div class="outer-wrapper">
-          <label
-            class={{
-              label: true
-            }}
-            htmlFor={this.selectId}
-          >
-            {this.label}
-          </label>
+          {this.label !== undefined ? (
+            <label
+              class={{
+                label: true
+              }}
+              htmlFor={this.selectId}
+            >
+              {this.label}
+              {requiredLabel(this)}
+            </label>
+          ) : (
+            ""
+          )}
           <div
             class={{
               "custom-select": true,

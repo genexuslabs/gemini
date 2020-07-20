@@ -112,15 +112,19 @@ export class FormTextarea implements FormComponent {
         aria-label={this.label}
         style={{ maxWidth: this.maxWidth }}
       >
-        <label
-          class={{
-            label: true
-          }}
-          htmlFor={this.textareaId}
-        >
-          {this.label}
-          {requiredLabel(this)}
-        </label>
+        {this.label !== undefined ? (
+          <label
+            class={{
+              label: true
+            }}
+            htmlFor={this.textareaId}
+          >
+            {this.label}
+            {requiredLabel(this)}
+          </label>
+        ) : (
+          ""
+        )}
 
         <textarea
           ref={el => (this.textArea = el as HTMLTextAreaElement)}

@@ -160,15 +160,19 @@ export class FormText implements FormComponent {
         }}
       >
         <div class="outer-wrapper">
-          <label
-            class={{
-              label: true
-            }}
-            htmlFor={this.inputId}
-          >
-            {this.label}
-            {requiredLabel(this)}
-          </label>
+          {this.label !== undefined ? (
+            <label
+              class={{
+                label: true
+              }}
+              htmlFor={this.inputId}
+            >
+              {this.label}
+              {requiredLabel(this)}
+            </label>
+          ) : (
+            ""
+          )}
           <div class="inner-wrapper">
             <input
               type="text"
