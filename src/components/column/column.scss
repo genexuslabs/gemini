@@ -3,6 +3,7 @@
 
 :host {
   display: flex;
+  font-family: var(--font-family-primary);
 }
 :host([no-flex]) {
   display: block;
@@ -29,6 +30,9 @@
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
+}
+:host .inner-container {
+  width: 100%;
 }
 
 //halfs
@@ -64,4 +68,41 @@
 }
 :host([width="4/5"]) {
   flex: 0 0 80%;
+}
+
+//Padding
+:host([padding="xs"]) {
+  .inner-container {
+    padding: var(--spacing-comp-01);
+  }
+}
+:host([padding="s"]) {
+  .inner-container {
+    padding: var(--spacing-comp-02);
+  }
+}
+:host([padding="m"]) {
+  .inner-container {
+    padding: var(--spacing-comp-03);
+  }
+}
+:host([padding="l"]) {
+  .inner-container {
+    padding: var(--spacing-comp-04);
+  }
+}
+:host([padding="xl"]) {
+  .inner-container {
+    padding: var(--spacing-comp-05);
+  }
+}
+:host([padding="xxl"]) {
+  .inner-container {
+    padding: var(--spacing-comp-06);
+  }
+}
+:host([padding="xxxl"]) {
+  .inner-container {
+    padding: var(--spacing-comp-07);
+  }
 }

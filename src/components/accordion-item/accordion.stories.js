@@ -49,6 +49,19 @@ stories
     const defaultValueMaxWidth = "100%";
     const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
+    //Padding
+    const labelPadding = "Padding";
+    const optionsPadding = {
+      xs: "xs",
+      s: "s",
+      m: "m",
+      l: "l",
+      xl: "xl",
+      xxl: "xxl",
+      xxxl: "xxxl"
+    };
+    const defaultValuePadding = "s";
+
     //Single Item Open
     const labelSingleItemOpen =
       "Single Item Open (only one accordion at a time can be open at the same time)";
@@ -90,8 +103,12 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion ${allDisabled()} ${singleItemOpen()} mode="classical" max-width="${valueMaxWidth}">
-    <gxg-accordion-item item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()} status="${itemOpen()}">${valueContent}</gxg-accordion-item>
+  <gxg-accordion ${allDisabled()} padding="${select(
+      labelPadding,
+      optionsPadding,
+      defaultValuePadding
+    )}" ${singleItemOpen()} mode="classical"  max-width="${valueMaxWidth}">
+    <gxg-accordion-item item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()} status="${itemOpen()}"> ${valueContent}</gxg-accordion-item>
     <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
@@ -136,6 +153,19 @@ stories
     const defaultValueMaxWidth = "100%";
     const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
+    //Padding
+    const labelPadding = "Padding";
+    const optionsPadding = {
+      xs: "xs",
+      s: "s",
+      m: "m",
+      l: "l",
+      xl: "xl",
+      xxl: "xxl",
+      xxxl: "xxxl"
+    };
+    const defaultValuePadding = "s";
+
     //Single Item Open
     const labelSingleItemOpen =
       "Single Item Open (only one accordion at a time can be open at the same time)";
@@ -177,7 +207,11 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-  <gxg-accordion ${allDisabled()} ${singleItemOpen()} mode="slim" max-width="${valueMaxWidth}">
+  <gxg-accordion ${allDisabled()} padding="${select(
+      labelPadding,
+      optionsPadding,
+      defaultValuePadding
+    )}" ${singleItemOpen()} mode="slim" max-width="${valueMaxWidth}">
     <gxg-accordion-item  status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
     <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
@@ -223,6 +257,19 @@ stories
     const defaultValueMaxWidth = "100%";
     const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
+    //Padding
+    const labelPadding = "Padding";
+    const optionsPadding = {
+      xs: "xs",
+      s: "s",
+      m: "m",
+      l: "l",
+      xl: "xl",
+      xxl: "xxl",
+      xxxl: "xxxl"
+    };
+    const defaultValuePadding = "s";
+
     //Single Item Open
     const labelSingleItemOpen =
       "Single Item Open (only one accordion at a time can be open at the same time)";
@@ -265,7 +312,11 @@ stories
     }
 
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
-    <gxg-accordion ${allDisabled()} ${singleItemOpen()} mode="boxed" max-width="${valueMaxWidth}">
+    <gxg-accordion ${allDisabled()} padding="${select(
+      labelPadding,
+      optionsPadding,
+      defaultValuePadding
+    )}" ${singleItemOpen()} mode="boxed" max-width="${valueMaxWidth}">
       <gxg-accordion-item status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
       <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
       treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and

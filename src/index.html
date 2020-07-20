@@ -15,394 +15,420 @@
     <style></style>
   </head>
   <body>
-
-    <div style="width:600px;"><gxg-progress-bar
-      label="Progress Bar"
-      value="50"
-    ></gxg-progress-bar></div>
-
-    <div style="width:500px;">
-      <gxg-slider
-      value="25"
-      label="Slider"
-      max="200"
-    ></gxg-slider>
-  </div>
-
-    <div style="width:500px">
-    <gxg-box border
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
-      temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
-      Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
-      sint?</gxg-box>
-    </div>
-
-    <div style="width:500px">
-      <gxg-menu menu-title="fruits">
-        <gxg-menu-item
-          id="menu-item-1"
-          label="apple"
-          icon=""
-          active
-        ></gxg-menu-item>
-        <gxg-menu-itemo
-          id="menu-item-2"
-          label="banana"
-          icon="error"
-        ></gxg-menu-item>
-      </gxg-menu>
-    </div>
-
-    <gxg-slider
-      value="10"
-      label="Slider"
-      min="100"
-      max="400"
-      max-width="200px"
-    ></gxg-slider>
-
-    <gxg-color-picker label="Pick a color" value="red"></gxg-color-picker>
-
-    <gxg-menu menu-title="d" max-width="200px" full-width>
-      <gxg-menu-item label="apple" icon=""></gxg-menu-item>
-      <gxg-menu-item label="banana" icon="warning"></gxg-menu-item>
-      <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>
-      <gxg-menu-item label="kiwi" icon="search"></gxg-menu-item>
-    </gxg-menu>
-
-    <br /><br /><br />
-
-    <gxg-form-textarea
-      id="textarea1"
-      name="textarea1"
-      label="Default"
-      full-width
-      rows="10"
-      required
-    >
-    </gxg-form-textarea>
-
-    <br /><br /><br />
-
-    <gxg-form-text
-      required
-      type="text"
-      id="name4"
-      name="name"
-      label="Default"
-      placeholder="Placeholder text"
-      display-flex
-      icon="search"
-      icon-position="left"
-      full-width
-    >
-    </gxg-form-text>
-    <br /><br /><br /><br />
-    <gxg-form-textarea
-      id="textarea1"
-      name="textarea1"
-      label="Default"
-      full-width
-    >
-    </gxg-form-textarea>
-
-    <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
-      <gxg-form-radio
-        label="red"
-        name="colors"
-        radio-id="red"
-        value="red"
-      ></gxg-form-radio>
-      <gxg-form-radio
-        label="blue"
-        name="colors"
-        radio-id="blue"
-        value="blue"
-      ></gxg-form-radio>
-      <gxg-form-radio
-        label="green"
-        name="colors"
-        radio-id="green"
-        value="green"
-      ></gxg-form-radio>
-    </gxg-form-radio-group>
-
-    <div style="width:500px">
-      <gxg-card padding="xs" box-shadow="xxs"
-        >Be who you are and say what you feel, because those who mind don't
-        matter, and those who matter don't mind.</gxg-card
-      >
-    </div>
-
-    <gxg-select id="select1" label="Select a car:" size="10" error>
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
-
-    <script>
-      function addErrorMessage() {
-        let inputText = document.getElementById("select1");
-        let errorMessage = document.createElement("gxg-form-message");
-        errorMessage.setAttribute("type", "error");
-        errorMessage.setAttribute("slot", "message");
-        errorMessage.textContent = "error message";
-        inputText.appendChild(errorMessage);
-      }
-    </script>
-    <gxg-button disabled onclick="addErrorMessage()"
-      >Add error message</gxg-button
-    >
-
-    <br /><br /><br />
-    <gxg-drag-container max-width="300px">
-      <gxg-drag-box>Container 0132</gxg-drag-box>
-      <gxg-drag-box>Container 02</gxg-drag-box>
-      <gxg-drag-box>Container 03</gxg-drag-box>
-      <gxg-drag-box>Container 04</gxg-drag-box>
-      <gxg-drag-box>Container 05</gxg-drag-box>
-    </gxg-drag-container>
-
-    <gxg-color-picker
-      label="Select a color:"
-      value="#0000FF"
-    ></gxg-color-picker>
-
-    <br /><br /><br />
-
-    <gxg-card min-height="150px" background="gray">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est nostrum
-      neque, blanditiis ullam tempore rem numquam inventore mollitia perferendis
-      possimus aut laudantium recusandae earum exercitationem commodi impedit.
-      Reiciendis, non rem.
-    </gxg-card>
-
-    <gxg-button-group
-      default-selected-btn-id="id5"
-      button-group-title="The title"
-      title-alignment="right"
-      tabindex="0"
-    >
-      <button id="id3" value="primero">Left</button>
-      <button id="id4" value="segundo">Middle</button>
-      <button id="id5" value="tercero">Right</button>
-    </gxg-button-group>
-
-    <br /><br /><br />
-
-    <gxg-accordion mode="classical">
-      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
-        <gxg-accordion mode="slim">
-          <gxg-accordion-item item-title="tab-01" item-id="tab-03"
-            >some content on accordion 1.</gxg-accordion-item
+    <gxg-columns space="s">
+      <gxg-column width="1/3">
+        <!-- no logro hacer que el contenido de la columna ocupe todo el acho, parece ser el gxg-spacer-layout el problema -->
+        <gxg-spacer-layout
+          space="xs"
+          orientation="vertical"
+          justify-content="flex-start"
+        >
+          <gxg-spacer-layout
+            space="xs"
+            orientation="horizontal"
+            justify-content="flex-start"
           >
-          <gxg-accordion-item item-title="tab-02" item-id="tab-04"
-            >some content on accordion 2.</gxg-accordion-item
+            <gxg-button type="outlined">Variables</gxg-button>
+            <gxg-button type="outlined">Entities</gxg-button>
+            <gxg-button type="outlined">Settings</gxg-button>
+          </gxg-spacer-layout>
+
+          <gxg-form-text
+            placeholder="Search"
+            icon="search"
+            icon-position="left"
+            fullWidth
           >
-        </gxg-accordion>
-      </gxg-accordion-item>
-      <gxg-accordion-item item-title="tab-02" item-id="tab-02"
-        >some content on accordion 2.</gxg-accordion-item
-      >
-    </gxg-accordion>
+          </gxg-form-text>
 
-    <br /><br /><br />
-    <!-- <gxg-tree>
-      <gxg-tree-item>
-        Item 01
-        <gxg-tree>
-          <gxg-tree-item>
-            Item 01
-          </gxg-tree-item>
-          <gxg-tree-item>
-            Item 02
-          </gxg-tree-item>
-          <gxg-tree-item>
-            Item 03
-          </gxg-tree-item>
-          <gxg-tree-item>
-            Item 04
-          </gxg-tree-item>
-          <gxg-tree-item>
-            Item 05
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Item 02
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Item 03
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Item 04
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Item 05
-      </gxg-tree-item>
-    </gxg-tree> -->
-    <gxg-form-text
-      type="text"
-      id="name4"
-      name="name"
-      label="Default"
-      placeholder="Placeholder text"
-      display-flex
-      icon="search"
-      icon-position="right"
-      required
-    >
-    </gxg-form-text>
+          <gxg-spacer-one space="s"></gxg-spacer-one>
 
-    <gxg-select label="Select a car:" width="400px" size="5" full-width>
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
+          <gxg-drag-container fullWidth="true">
+            <gxg-drag-box>
+              <gxg-spacer-layout
+                space="xxs"
+                orientation="vertical"
+                justify-content="flex-start"
+              >
+                <!-- No se bien como poner textos, con div queda mejor -->
+                <div class="gxg-title-01">Add Costumer</div>
+                <div class="gxg-quote">Quiero darme de alta</div>
+              </gxg-spacer-layout></gxg-drag-box
+            >
+            <gxg-drag-box>
+              <gxg-spacer-layout
+                space="xxs"
+                orientation="vertical"
+                justify-content="flex-start"
+              >
+                <!-- No se bien como poner textos, con h y p quedan espacios raros. -->
+                <div class="gxg-title-01">Search Costumer</div>
+                <div class="gxg-quote">Quiero encontrar un cliente</div>
+              </gxg-spacer-layout></gxg-drag-box
+            >
+          </gxg-drag-container>
 
-    <gxg-form-text
-      type="text"
-      id="name4"
-      name="name"
-      label="Default"
-      placeholder="Placeholder text"
-      display-flex
-      icon="search"
-      icon-position="right"
-      required
-    >
-    </gxg-form-text>
+          <gxg-button type="secondary-text-icon">
+            <gxg-icon slot="icon" type="error"></gxg-icon>Add new flow
+          </gxg-button>
+        </gxg-spacer-layout>
+      </gxg-column>
 
-    <gxg-tree>
-      <gxg-tree-item>
-        Fruits
-        <gxg-tree slot="tree">
-          <gxg-tree-item>
-            apple
-          </gxg-tree-item>
-          <gxg-tree-item>
-            banana
-            <gxg-tree slot="tree">
-              <gxg-tree-item>
-                cavendish banana
-              </gxg-tree-item>
-              <gxg-tree-item>
-                pisang raja
-              </gxg-tree-item>
-              <gxg-tree-item>
-                red banana
-              </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Vegetables
-        <gxg-tree slot="tree">
-          <gxg-tree-item>
-            potatoes
-          </gxg-tree-item>
-          <gxg-tree-item>
-            sweat potatoes
-          </gxg-tree-item>
-          <gxg-tree-item>
-            lettuce
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item>
-        Seasonings
-        <gxg-tree slot="tree">
-          <gxg-tree-item>
-            salt
-          </gxg-tree-item>
-          <gxg-tree-item>
-            pepper
-          </gxg-tree-item>
-          <gxg-tree-item>
-            comino
-          </gxg-tree-item>
-          <gxg-tree-item>
-            parsley
-          </gxg-tree-item>
-          <gxg-tree-item>
-            basil
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-    </gxg-tree>
-
-    <br /><br /><br />
-    <div style="width: 500px;">
-      <gxg-accordion>
-        <gxg-accordion-item item-title="tab-01" item-id="tab-01" status="open"
-          >some content on accordion 1.</gxg-accordion-item
-        >
-        <gxg-accordion-item item-title="tab-02" item-id="tab-02"
-          >some content on accordion 2.</gxg-accordion-item
-        >
-      </gxg-accordion>
-    </div>
-
-    <br /><br />
-
-    <div style="width: 500px;">
-      <gxg-accordion mode="boxed">
-        <gxg-accordion-item item-title="tab-01" item-id="tab-01" open
-          >some content on accordion 1.</gxg-accordion-item
-        >
-        <gxg-accordion-item item-title="tab-02" item-id="tab-02"
-          >some content on accordion 2.</gxg-accordion-item
-        >
-      </gxg-accordion>
-    </div>
-
-    <br /><br /><br />
-
-    <br /><br /><br /><br /><br />
-    <gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="left">
-      <gxg-toolbar-item
-        slot
-        icon="settings"
-        toolbar-item-title="title"
-        subtitle="subtitle"
-        onClick="toolbarFunc01()"
-        id="toolbar-item-01"
-      ></gxg-toolbar-item>
-      <gxg-toolbar-item
-        slot
-        icon="settings"
-        toolbar-item-title="title"
-        subtitle="subtitle"
-        disabled
-        id="toolbar-item-02"
-      ></gxg-toolbar-item>
-    </gxg-toolbar>
-
-    <div style="width:500px">
-      <gxg-card width="260px" padding="xs" box-shadow="xxs"
-        >Be who you are and say what you feel, because those who mind don't
-        matter, and those who matter don't mind.</gxg-card
-      >
-    </div>
-
-    <gxg-columns space="xs">
       <gxg-column width="fluid">
-        <div class="inner-container">
-          fluid
-        </div>
+        <gxg-box border="true" padding="s">
+          <gxg-spacer-layout
+            space="xs"
+            orientation="vertical"
+            justify-content="flex-start"
+          >
+            <gxg-spacer-layout
+              space="s"
+              align-y="center"
+              orientation="horizontal"
+              justify-content="space-between"
+            >
+              <div class="gxg-title-01">Add Costumer</div>
+
+              <!-- dos botones juntos, uno secondary-text-only y otro secondary-icon-only quedan
+                    raros alineados en horizontal y no parecen del mismo color-->
+              <gxg-spacer-layout
+                space="s"
+                orientation="horizontal"
+                justify-content="space-between"
+              >
+                <gxg-button type="secondary-text-only"
+                  >Conversational object</gxg-button
+                >
+
+                <gxg-button type="secondary-icon-only">
+                  <gxg-icon slot="icon" type="deleted"></gxg-icon>
+                </gxg-button>
+              </gxg-spacer-layout>
+            </gxg-spacer-layout>
+
+            <div class="gxg-title-02">Trigger messages (2)</div>
+            <!-- se sale el icono para afuera del campo -->
+            <gxg-form-text
+              value="Quiero darme de alta"
+              icon="close"
+              icon-position="right"
+              read-only
+            >
+            </gxg-form-text>
+
+            <gxg-form-text
+              value="Cómo me doy de alta?"
+              icon="close"
+              icon-position="right"
+              read-only
+            >
+            </gxg-form-text>
+
+            <gxg-button type="secondary-text-icon">
+              <gxg-icon slot="icon" type="error"></gxg-icon>Add trigger message
+            </gxg-button>
+
+            <!-- no se ve el separador -->
+            <gxg-separator type="dashed"></gxg-separator>
+
+            <div class="gxg-text">User inputs (2)</div>
+
+            <gxg-accordion mode="boxed" full-width padding="0">
+              <gxg-accordion-item
+                status="open"
+                item-title="Customer name"
+                item-id="tab 11"
+              >
+                <gxg-form-text
+                  value="Cuál es tu nombre?"
+                  icon="close"
+                  icon-position="right"
+                  read-only
+                >
+                </gxg-form-text>
+              </gxg-accordion-item>
+            </gxg-accordion>
+
+            <gxg-accordion mode="boxed" full-width padding="0">
+              <gxg-accordion-item
+                status="open"
+                item-title="Customer country"
+                item-id="tab 12"
+              >
+                <gxg-spacer-layout
+                  space="s"
+                  orientation="vertical"
+                  justify-content="flex-start"
+                >
+                  <div class="gxg-text">Datatype: char (250)</div>
+                  <gxg-toggle
+                    size="small"
+                    tabindex="0"
+                    label="Advanced mode ON"
+                    on="true"
+                  ></gxg-toggle>
+                </gxg-spacer-layout>
+
+                <gxg-spacer-one space="m"></gxg-spacer-one>
+
+                <gxg-accordion mode="slim" full-width padding="0">
+                  <!-- no tengo control del padding del accordion -->
+                  <gxg-accordion-item
+                    status="open"
+                    item-title="Condition to be required"
+                    item-id="tab 1"
+                  >
+                    <gxg-form-text
+                      value="if..."
+                      icon="close"
+                      icon-position="right"
+                      read-only
+                    >
+                    </gxg-form-text>
+                  </gxg-accordion-item>
+
+                  <gxg-accordion-item
+                    status="open"
+                    item-title="Ask messages"
+                    item-id="tab 2"
+                  >
+                    <gxg-spacer-layout
+                      space="xs"
+                      orientation="vertical"
+                      justify-content="flex-start"
+                    >
+                      <gxg-form-text
+                        value="Cuál es tu pais?"
+                        icon="close"
+                        icon-position="right"
+                        read-only
+                      >
+                      </gxg-form-text>
+
+                      <gxg-button type="secondary-text-only">
+                        Add trigger message
+                      </gxg-button>
+                    </gxg-spacer-layout>
+                  </gxg-accordion-item>
+
+                  <gxg-accordion-item
+                    status="open"
+                    item-title="Validate user input"
+                    item-id="tab 3"
+                  >
+                    <gxg-spacer-layout
+                      space="xs"
+                      orientation="vertical"
+                      justify-content="flex-start"
+                    >
+                      <gxg-button type="secondary-text-only">
+                        Select an input validation proc
+                      </gxg-button>
+                    </gxg-spacer-layout>
+                  </gxg-accordion-item>
+
+                  <gxg-accordion-item
+                    status="open"
+                    item-title="Redirection"
+                    item-id="tab 4"
+                  >
+                    <gxg-spacer-layout
+                      space="xs"
+                      orientation="vertical"
+                      justify-content="flex-start"
+                    >
+                      <gxg-form-text
+                        label="Condition"
+                        value="&Country=Uruguay"
+                        icon="close"
+                        icon-position="right"
+                        read-only
+                      >
+                      </gxg-form-text>
+
+                      <!-- cuando vengo navegando con Tab, se me romple el flujo en el combo -->
+                      <!-- el box enmascara el combo desplegado -->
+                      <gxg-select label="Redirect to" read-only>
+                        <gxg-option value="0">Flujo 1</gxg-option>
+                        <gxg-option value="1">Flujo 2</gxg-option>
+                        <gxg-option value="2">Flujo 3</gxg-option>
+                      </gxg-select>
+
+                      <gxg-button type="secondary-text-only">
+                        Add a redirection
+                      </gxg-button>
+                    </gxg-spacer-layout>
+                  </gxg-accordion-item>
+                </gxg-accordion>
+              </gxg-accordion-item>
+            </gxg-accordion>
+
+            <gxg-button type="secondary-text-icon">
+              <gxg-icon slot="icon" type="error"></gxg-icon>Add user input
+              request
+            </gxg-button>
+
+            <gxg-separator type="dashed"></gxg-separator>
+
+            <h2 class="gxg-text">Responses (1)</h2>
+
+            <gxg-accordion mode="boxed" full-width padding="0">
+              <gxg-accordion-item
+                status="open"
+                item-title="Error"
+                item-id="tab 1"
+              >
+                <gxg-spacer-layout
+                  space="xs"
+                  orientation="vertical"
+                  justify-content="flex-start"
+                >
+                  <div class="gxg-text">Response messages (1)</div>
+
+                  <gxg-form-text
+                    value="Algo salió mal"
+                    icon="close"
+                    icon-position="right"
+                    read-only
+                  >
+                  </gxg-form-text>
+
+                  <gxg-button type="secondary-text-only">
+                    Add a response
+                  </gxg-button>
+
+                  <gxg-form-text
+                    label="Condition"
+                    value="if..."
+                    icon="close"
+                    icon-position="right"
+                    read-only
+                  >
+                  </gxg-form-text>
+
+                  <gxg-separator type="dashed"></gxg-separator>
+
+                  <gxg-select label="Response style">
+                    <gxg-option value="0">Text message only</gxg-option>
+                    <gxg-option value="1"
+                      >Text message & redirection</gxg-option
+                    >
+                    <gxg-option selected value="2"
+                      >Tet message & component</gxg-option
+                    >
+                  </gxg-select>
+
+                  <gxg-select label="Show response as (Mobile only)">
+                    <gxg-option value="0">Call component</gxg-option>
+                  </gxg-select>
+
+                  <gxg-form-tex
+                    label="Generated Mobile Component"
+                    value="ShowCustomerCard_Mobile"
+                    icon="close"
+                    icon-position="right"
+                    read-only
+                  >
+                  </gxg-form-tex>
+
+                  <gxg-form-text
+                    label="Generated Web Component"
+                    value="ShowCustomerCard_Web"
+                    icon="close"
+                    icon-position="right"
+                    read-only
+                  >
+                  </gxg-form-text>
+
+                  <gxg-spacer-layout
+                    space="s"
+                    orientation="horizontal"
+                    justify-content="space-between"
+                  >
+                    <p class="gxg-text">Response parameters (4)</p>
+                    <p class="gxg-link">Select all</p>
+                  </gxg-spacer-layout>
+
+                  <gxg-spacer-layout
+                    space="s"
+                    orientation="horizontal"
+                    justify-content="space-between"
+                  >
+                    <div class="gxg-text">CustomerNumber</div>
+                    <gxg-toggle
+                      size="small"
+                      tabindex="0"
+                      label=""
+                      on="true"
+                    ></gxg-toggle>
+                  </gxg-spacer-layout>
+                  <gxg-separator type="solid"></gxg-separator>
+
+                  <gxg-spacer-layout
+                    space="s"
+                    orientation="horizontal"
+                    justify-content="space-between"
+                  >
+                    <div class="gxg-text">CustomerName</div>
+                    <gxg-toggle
+                      size="small"
+                      tabindex="0"
+                      label=""
+                      on="true"
+                    ></gxg-toggle>
+                  </gxg-spacer-layout>
+                  <gxg-separator type="solid"></gxg-separator>
+
+                  <gxg-spacer-layout
+                    space="s"
+                    orientation="horizontal"
+                    justify-content="space-between"
+                  >
+                    <div class="gxg-text">CustomerAddress</div>
+                    <gxg-toggle
+                      size="small"
+                      tabindex="0"
+                      label=""
+                      on="true"
+                    ></gxg-toggle>
+                  </gxg-spacer-layout>
+                  <gxg-separator type="solid"></gxg-separator>
+
+                  <gxg-spacer-layout
+                    space="s"
+                    orientation="horizontal"
+                    justify-content="space-between"
+                  >
+                    <div class="gxg-text">CustomerCountry</div>
+                    <gxg-toggle
+                      size="small"
+                      tabindex="0"
+                      label=""
+                      on="true"
+                    ></gxg-toggle>
+                  </gxg-spacer-layout>
+                  <gxg-separator type="solid"></gxg-separator>
+
+                  <!-- flex-end parece no estar funcionando -->
+                  <gxg-spacer-layout
+                    space="s"
+                    orientation="horizontal"
+                    justify-content="flex-end"
+                  >
+                    <gxg-button type="secondary-text-icon">
+                      <gxg-icon slot="icon" type="error"></gxg-icon>Reset all
+                      parameters
+                    </gxg-button>
+                  </gxg-spacer-layout>
+                </gxg-spacer-layout>
+              </gxg-accordion-item>
+            </gxg-accordion>
+
+            <gxg-button type="secondary-text-icon">
+              <gxg-icon slot="icon" type="error"></gxg-icon>Add another response
+            </gxg-button>
+          </gxg-spacer-layout>
+        </gxg-box>
       </gxg-column>
     </gxg-columns>
   </body>

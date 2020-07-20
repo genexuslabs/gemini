@@ -5,21 +5,26 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { padding } from "./components/accordion-item/accordion-item";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
-import { status } from "./components/accordion-item/accordion-item";
+import {
+  padding as padding1,
+  status
+} from "./components/accordion-item/accordion-item";
 import {
   ActiveTime,
   AlertPosition,
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { padding } from "./components/box/box";
+import { padding as padding2 } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadow, padding as padding1 } from "./components/card/card";
-import { WidthType } from "./components/column/column";
+import { boxShadow, padding as padding3 } from "./components/card/card";
+import { padding as padding4, WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
+import { padding as padding5 } from "./components/column/column";
 import { Message } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
@@ -43,6 +48,7 @@ export namespace Components {
      * The accordion flavor
      */
     mode: mode;
+    padding: padding;
     /**
      * If this attribute is present, only one accordion-item can be open at the same time
      */
@@ -65,6 +71,7 @@ export namespace Components {
      * The accordion flavor
      */
     mode: mode;
+    padding: padding;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
@@ -193,6 +200,7 @@ export namespace Components {
     value: string;
   }
   interface GxgColumn {
+    padding: padding;
     /**
      * The column width value
      */
@@ -207,6 +215,7 @@ export namespace Components {
      * The collapse breakpoint
      */
     collapseBellow: CollapseBellow;
+    padding: padding;
     /**
      * The spacing between columns
      */
@@ -484,7 +493,7 @@ export namespace Components {
      */
     width: string;
     /**
-     * z-index
+     * The z-index value of the modal
      */
     zIndex: string;
   }
@@ -494,23 +503,19 @@ export namespace Components {
   }
   interface GxgProgressBar {
     /**
-     * The state of the toggle. Whether is disabled or not.
+     * The state of the Progress-bar, whether is disabled or not.
      */
     disabled: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth: boolean;
     /**
      * The label
      */
     label: string;
     /**
-     * The width
+     * The max. width
      */
     maxWidth: string;
     /**
-     * The value (percentage)
+     * The progress value (percentage)
      */
     value: number;
   }
@@ -560,23 +565,19 @@ export namespace Components {
   }
   interface GxgSlider {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the slider. Whether is disabled or not.
      */
     disabled: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth: boolean;
     /**
      * The label
      */
     label: string;
     /**
-     * The max value
+     * The max. value
      */
     max: number;
     /**
-     * The slider width
+     * The slider max. width
      */
     maxWidth: string;
     /**
@@ -616,23 +617,19 @@ export namespace Components {
   }
   interface GxgStepper {
     /**
-     * The state of the toggle. Whether is disabled or not.
+     * The state of the stepper, whether is disabled or not.
      */
     disabled: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex: boolean;
-    /**
-     * The toggle label
+     * The label
      */
     label: string;
     /**
-     * The max value
+     * The max. value
      */
     max: number;
     /**
-     * The min value
+     * The min. value
      */
     min: number;
     /**
@@ -697,9 +694,9 @@ export namespace Components {
   }
   interface GxgTooltip {
     /**
-     * The toggle label
+     * The label
      */
-    message: string;
+    label: string;
     /**
      * This presence of this property removes the border under the text
      */
@@ -1067,6 +1064,7 @@ declare namespace LocalJSX {
      * The accordion flavor
      */
     mode?: mode;
+    padding?: padding;
     /**
      * If this attribute is present, only one accordion-item can be open at the same time
      */
@@ -1091,6 +1089,7 @@ declare namespace LocalJSX {
     mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
     onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
+    padding?: padding;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
@@ -1222,6 +1221,7 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgColumn {
+    padding?: padding;
     /**
      * The column width value
      */
@@ -1236,6 +1236,7 @@ declare namespace LocalJSX {
      * The collapse breakpoint
      */
     collapseBellow?: CollapseBellow;
+    padding?: padding;
     /**
      * The spacing between columns
      */
@@ -1521,7 +1522,7 @@ declare namespace LocalJSX {
      */
     width?: string;
     /**
-     * z-index
+     * The z-index value of the modal
      */
     zIndex?: string;
   }
@@ -1531,23 +1532,19 @@ declare namespace LocalJSX {
   }
   interface GxgProgressBar {
     /**
-     * The state of the toggle. Whether is disabled or not.
+     * The state of the Progress-bar, whether is disabled or not.
      */
     disabled?: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
     /**
      * The label
      */
     label?: string;
     /**
-     * The width
+     * The max. width
      */
     maxWidth?: string;
     /**
-     * The value (percentage)
+     * The progress value (percentage)
      */
     value?: number;
   }
@@ -1599,23 +1596,19 @@ declare namespace LocalJSX {
   }
   interface GxgSlider {
     /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The state of the slider. Whether is disabled or not.
      */
     disabled?: boolean;
-    /**
-     * If select is full width
-     */
-    fullWidth?: boolean;
     /**
      * The label
      */
     label?: string;
     /**
-     * The max value
+     * The max. value
      */
     max?: number;
     /**
-     * The slider width
+     * The slider max. width
      */
     maxWidth?: string;
     /**
@@ -1655,23 +1648,19 @@ declare namespace LocalJSX {
   }
   interface GxgStepper {
     /**
-     * The state of the toggle. Whether is disabled or not.
+     * The state of the stepper, whether is disabled or not.
      */
     disabled?: boolean;
     /**
-     * Inline-flex display
-     */
-    inlineFlex?: boolean;
-    /**
-     * The toggle label
+     * The label
      */
     label?: string;
     /**
-     * The max value
+     * The max. value
      */
     max?: number;
     /**
-     * The min value
+     * The min. value
      */
     min?: number;
     onInput?: (event: CustomEvent<any>) => void;
@@ -1738,9 +1727,9 @@ declare namespace LocalJSX {
   }
   interface GxgTooltip {
     /**
-     * The toggle label
+     * The label
      */
-    message?: string;
+    label?: string;
     /**
      * This presence of this property removes the border under the text
      */

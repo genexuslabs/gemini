@@ -7,14 +7,9 @@ import { Component, Prop, h, Host } from "@stencil/core";
 })
 export class ProgressBar {
   /**
-   * The state of the toggle. Whether is disabled or not.
+   * The state of the Progress-bar, whether is disabled or not.
    */
   @Prop({ reflect: true }) disabled = false;
-
-  /**
-   * If select is full width
-   */
-  @Prop({ reflect: true }) fullWidth = false;
 
   /**
    * The label
@@ -22,12 +17,12 @@ export class ProgressBar {
   @Prop() label = "Label";
 
   /**
-   * The value (percentage)
+   * The progress value (percentage)
    */
   @Prop({ reflect: true }) value = 0;
 
   /**
-   * The width
+   * The max. width
    */
   @Prop() maxWidth = "100%";
 

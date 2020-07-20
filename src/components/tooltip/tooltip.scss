@@ -11,16 +11,28 @@
 
     .tooltiptext {
       @include gxg-text();
+      font-size: var(--font-size-xs);
       visibility: hidden;
-      width: 150px;
+      opacity: 0;
+      width: 100px;
       background-color: var(--gray-08);
-      padding: var(--spacing-comp-02) var(--spacing-comp-03);
+      padding: var(--spacing-comp-01) var(--spacing-comp-02);
       border-radius: var(--border-width-md);
       color: var(--color-on-primary);
-      opacity: 0;
       @include ui-animation(opacity);
       position: absolute;
       z-index: 1;
+
+      &:after {
+        //triangle
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 5px solid var(--gray-08);
+        position: absolute;
+      }
     }
 
     &:hover {
@@ -35,17 +47,28 @@
 :host([position="top"]) {
   .tooltip {
     .tooltiptext {
-      bottom: 25px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
+
+      &:after {
+        left: 50%;
+        transform: translateX(-50%) rotate(180deg);
+        bottom: -4px;
+      }
     }
   }
 }
 :host([position="right"]) {
   .tooltip {
     .tooltiptext {
-      top: -5px;
-      left: 105%;
+      top: 0;
+      left: 111%;
+      &:after {
+        left: -7px;
+        transform: rotate(-90deg);
+        top: 8px;
+      }
     }
   }
 }
@@ -55,14 +78,22 @@
       top: 25px;
       left: 50%;
       transform: translateX(-50%);
+      &:after {
+        top: -4px;
+      }
     }
   }
 }
 :host([position="left"]) {
   .tooltip {
     .tooltiptext {
-      top: -5px;
+      top: 0;
       right: 105%;
+      &:after {
+        right: -7px;
+        transform: rotate(90deg);
+        top: 8px;
+      }
     }
   }
 }

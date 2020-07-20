@@ -81,10 +81,3 @@
     box-shadow: 0px 0px 0px 1px var(--color-primary-disabled);
   }
 }
-:host([inline-flex]) {
-  display: inline-flex;
-  margin-right: var(--spacing-comp-05);
-}
-:host([inline-flex]:last-child) {
-  margin-right: 0;
-}

@@ -1,11 +1,13 @@
-import { Component, Prop, h, Host } from "@stencil/core";
-
+import { Component, Element, Prop, h, Host } from "@stencil/core";
+import { padding } from "../column/column";
 @Component({
   tag: "gxg-columns",
   styleUrl: "columns.scss",
   shadow: true
 })
 export class Columns {
+  @Element() el: HTMLElement;
+
   /**
    * The vertical alignment
    */
@@ -16,10 +18,20 @@ export class Columns {
    */
   @Prop({ reflect: true }) collapseBellow: CollapseBellow;
 
+  /*The padding to be applied to the child column components*/
+  @Prop({ reflect: true }) padding: padding = "xs";
+
   /**
    * The spacing between columns
    */
   @Prop({ reflect: true }) space: Space = "none";
+
+  componentDidLoad() {
+    const columns = this.el.querySelectorAll("gxg-column");
+    columns.forEach(column => {
+      column.setAttribute("padding", this.padding);
+    });
+  }
 
   render() {
     return (

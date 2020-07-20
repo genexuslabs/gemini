@@ -6,6 +6,9 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Column {
+  /*The column padding (internal spacing)*/
+  @Prop({ reflect: true }) padding: padding = "xs";
+
   /**
    * The column width value
    */
@@ -14,7 +17,9 @@ export class Column {
   render() {
     return (
       <Host class="column">
-        <slot></slot>
+        <div part="inner-container" class="inner-container">
+          <slot></slot>
+        </div>
       </Host>
     );
   }
@@ -32,3 +37,5 @@ export type WidthType =
   | "4/5"
   | "fluid"
   | "content";
+
+export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

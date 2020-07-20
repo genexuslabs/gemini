@@ -29,7 +29,7 @@ export class Modal {
   @Prop() visible = false;
 
   /**
-   * z-index
+   * The z-index value of the modal
    */
   @Prop() zIndex = "10";
 

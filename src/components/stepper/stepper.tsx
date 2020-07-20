@@ -25,17 +25,12 @@ export class Stepper {
   minusButton!: HTMLButtonElement;
 
   /**
-   * The state of the toggle. Whether is disabled or not.
+   * The state of the stepper, whether is disabled or not.
    */
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * Inline-flex display
-   */
-  @Prop() inlineFlex = false;
-
-  /**
-   * The toggle label
+   * The label
    */
   @Prop() label = "Label";
 
@@ -45,12 +40,12 @@ export class Stepper {
   @Prop({ reflect: true }) value = 0;
 
   /**
-   * The max value
+   * The max. value
    */
   @Prop({ reflect: true }) max = 10000;
 
   /**
-   * The min value
+   * The min. value
    */
   @Prop({ reflect: true }) min = 0;
 

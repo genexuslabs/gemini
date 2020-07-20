@@ -2,6 +2,7 @@
 <ul>
    <li>To make the accordion work, wrap any number of <code>gxg-accordion-item</code>'s inside an <code>gxg-accordion</code> component</li>
    <li>The accordion expects each <code>gxg-accordion-item</code> to have a unique id identifier to work properly</li>  
+   <li>You can set padding to an accordion individualy by setting the value to an <code>gxg-accordion-item</code>, or to all of the accordions by setting the padding on the <code>gxg-accordion</code></li>
 </ul>
 
 # gxg-accordion
@@ -22,13 +23,14 @@
 
 ## Properties
 
-| Property              | Attribute    | Description                                                                        | Type                               | Default       |
-| --------------------- | ------------ | ---------------------------------------------------------------------------------- | ---------------------------------- | ------------- |
-| `disabled`            | `disabled`   | If this attribute is present the accordion-item will be disabled and not focusable | `boolean`                          | `false`       |
-| `itemId` _(required)_ | `item-id`    | The accordion id                                                                   | `string`                           | `undefined`   |
-| `itemTitle`           | `item-title` | The accordion title                                                                | `string`                           | `undefined`   |
-| `mode`                | `mode`       | The accordion flavor                                                               | `"boxed" \| "classical" \| "slim"` | `"classical"` |
-| `status`              | `status`     | Set the status to "open" if you want the accordion-item open by default            | `"closed" \| "open"`               | `"closed"`    |
+| Property              | Attribute    | Description                                                                        | Type                                                   | Default       |
+| --------------------- | ------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------- |
+| `disabled`            | `disabled`   | If this attribute is present the accordion-item will be disabled and not focusable | `boolean`                                              | `false`       |
+| `itemId` _(required)_ | `item-id`    | The accordion id                                                                   | `string`                                               | `undefined`   |
+| `itemTitle`           | `item-title` | The accordion title                                                                | `string`                                               | `undefined`   |
+| `mode`                | `mode`       | The accordion flavor                                                               | `"boxed" \| "classical" \| "slim"`                     | `"classical"` |
+| `padding`             | `padding`    |                                                                                    | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`         |
+| `status`              | `status`     | Set the status to "open" if you want the accordion-item open by default            | `"closed" \| "open"`                                   | `"closed"`    |
 
 ## Events
 

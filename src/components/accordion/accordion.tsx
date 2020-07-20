@@ -8,6 +8,8 @@ import {
   Prop
 } from "@stencil/core";
 
+import { padding } from "../accordion-item/accordion-item";
+
 @Component({
   tag: "gxg-accordion",
   styleUrl: "accordion.scss",
@@ -18,6 +20,9 @@ export class Accordion {
    * If this attribute is present, all of the accordion-items will be disabled and not focusable
    */
   @Prop() disabled = false;
+
+  /*The accoridion padding (internal spacing)*/
+  @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * If this attribute is present, only one accordion-item can be open at the same time
@@ -130,6 +135,11 @@ export class Accordion {
           "disabled"
         );
       }
+    });
+
+    //Set padding to accordion items
+    this.accordions.forEach(accordion => {
+      accordion.setAttribute("padding", this.padding);
     });
   }
 

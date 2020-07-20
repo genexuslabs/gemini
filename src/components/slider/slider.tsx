@@ -7,16 +7,11 @@ import { Component, Prop, Element, h, Host, Watch } from "@stencil/core";
 })
 export class Slider {
   @Element() el: HTMLElement;
-  /**
-   * The state of the toggle. Whether is disabled or not.
-   * Possible values: false, true
-   */
-  @Prop({ reflect: true }) disabled = false;
 
   /**
-   * If select is full width
+   * The state of the slider. Whether is disabled or not.
    */
-  @Prop({ reflect: true }) fullWidth = false;
+  @Prop({ reflect: true }) disabled = false;
 
   /**
    * The label
@@ -24,7 +19,7 @@ export class Slider {
   @Prop() label = "Label";
 
   /**
-   * The max value
+   * The max. value
    */
   @Prop() max = 100;
 
@@ -34,7 +29,7 @@ export class Slider {
   @Prop({ reflect: true }) value = 0;
 
   /**
-   * The slider width
+   * The slider max. width
    */
   @Prop() maxWidth = "100%";
 

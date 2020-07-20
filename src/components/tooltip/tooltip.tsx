@@ -12,9 +12,9 @@ export class Tooltip {
   @Prop({ reflect: true }) position: position = "top";
 
   /**
-   * The toggle label
+   * The label
    */
-  @Prop() message = "Label";
+  @Prop() label: string;
 
   /**
    * The toggle width
@@ -30,7 +30,7 @@ export class Tooltip {
     return (
       <span class="tooltip">
         <slot></slot>
-        <span class="tooltiptext">{this.message}</span>
+        <span class="tooltiptext">{this.label}</span>
       </span>
     );
   }

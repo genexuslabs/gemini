@@ -12,7 +12,7 @@ export class DragContainer {
   /**
    * The max-width of the box container
    */
-  @Prop() maxWidth = "200px";
+  @Prop() maxWidth = "100%";
 
   /**
    * The presence of this attribute makes the component full-width

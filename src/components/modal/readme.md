@@ -10,7 +10,7 @@
 | `modalTitle`      | `modal-title`      | The modal title                    | `string`                        | `undefined` |
 | `visible`         | `visible`          | Wether the modal is visible or not | `boolean`                       | `false`     |
 | `width`           | `width`            | The modal width                    | `string`                        | `"304px"`   |
-| `zIndex`          | `z-index`          | z-index                            | `string`                        | `"10"`      |
+| `zIndex`          | `z-index`          | The z-index value of the modal     | `string`                        | `"10"`      |
 
 ## Dependencies
 

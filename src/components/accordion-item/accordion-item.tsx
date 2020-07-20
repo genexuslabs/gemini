@@ -38,6 +38,9 @@ export class AccordionItem {
    */
   @Prop() itemTitle: string;
 
+  /*The accoridion padding (internal spacing)*/
+  @Prop({ reflect: true }) padding: padding = "s";
+
   /**
    * Set the status to "open" if you want the accordion-item open by default
    */
@@ -148,3 +151,5 @@ export class AccordionItem {
 }
 
 export type status = "open" | "closed";
+
+export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
