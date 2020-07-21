@@ -74,11 +74,6 @@ describe("gxg-menu", () => {
     expect(menuItem2).toHaveAttribute("active");
   });
 
-  it("is not full width / it is full width", async () => {
-    await page.waitForChanges();
-    expect((await menu.getComputedStyle()).width.substring(0, 3)).toBe("108");
-  });
-
   it("has styles for tabs", async () => {
     menu.setProperty("tabs", true);
     await page.waitForChanges();
