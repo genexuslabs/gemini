@@ -14,7 +14,7 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Select", () => {
   //Borderless
-  const labelBordeless = "Borderless (border visible on hover only)";
+  const labelBordeless = "Borderless (border visible on focus only)";
   const defaultValueBordeless = false;
   const valueBorderless = boolean(labelBordeless, defaultValueBordeless);
 

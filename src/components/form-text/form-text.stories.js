@@ -63,7 +63,7 @@ stories.add("Text", () => {
   const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
   //Borderless
-  const labelBordeless = "Borderless (border visible on hover only)";
+  const labelBordeless = "Borderless (border visible on focus only)";
   const defaultValueBordeless = false;
   const valueBorderless = boolean(labelBordeless, defaultValueBordeless);
 
