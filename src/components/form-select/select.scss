@@ -129,8 +129,9 @@ SELECT
 
 //borderless
 :host([borderless]) {
-  .select-selected:not(:hover) {
+  .select-selected:not(:focus) {
     border-color: transparent;
+    background-color: transparent;
   }
 }
 

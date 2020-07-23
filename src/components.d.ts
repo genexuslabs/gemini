@@ -342,7 +342,7 @@ export namespace Components {
   }
   interface GxgFormText {
     /**
-     * Is this attribute is present, the border will only be visible on hover
+     * Is this attribute is present, the border and the background will only be visible on focus
      */
     borderless: false;
     /**
@@ -527,7 +527,7 @@ export namespace Components {
   }
   interface GxgSelect {
     /**
-     * Is this attribute is present, the border will only be visible on hover
+     * Is this attribute is present, the border and the background will only be visible on focus
      */
     borderless: false;
     /**
@@ -1413,7 +1413,7 @@ declare namespace LocalJSX {
   }
   interface GxgFormText {
     /**
-     * Is this attribute is present, the border will only be visible on hover
+     * Is this attribute is present, the border and the background will only be visible on focus
      */
     borderless?: false;
     /**
@@ -1603,7 +1603,7 @@ declare namespace LocalJSX {
   }
   interface GxgSelect {
     /**
-     * Is this attribute is present, the border will only be visible on hover
+     * Is this attribute is present, the border and the background will only be visible on focus
      */
     borderless?: false;
     /**

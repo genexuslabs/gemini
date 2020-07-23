@@ -73,8 +73,9 @@ TEXT
 }
 //borderless
 :host([borderless]) {
-  input[type="text"]:not(:hover) {
+  input[type="text"]:not(:focus) {
     border-color: transparent;
+    background-color: transparent;
   }
 }
 /*****************************************************

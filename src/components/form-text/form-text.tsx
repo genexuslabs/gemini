@@ -28,7 +28,7 @@ export class FormText implements FormComponent {
   *********************************/
 
   /**
-   * Is this attribute is present, the border will only be visible on hover
+   * Is this attribute is present, the border and the background will only be visible on focus
    */
   @Prop({ reflect: true }) borderless: false;
 
