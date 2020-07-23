@@ -18,6 +18,7 @@
 | `label`      | `label`      | The select label                                                                          | `string`  | `undefined` |
 | `maxWidth`   | `max-width`  | The select max. width                                                                     | `string`  | `"100%"`    |
 | `name`       | `name`       | The select name                                                                           | `string`  | `undefined` |
+| `required`   | `required`   | The presence of this attribute makes this input required                                  | `boolean` | `false`     |
 | `selectId`   | `select-id`  | The select id                                                                             | `string`  | `undefined` |
 | `size`       | `size`       | The maximum number of visible options                                                     | `string`  | `undefined` |
 | `warning`    | `warning`    | The presence of this attribute stylizes the component with warning attributes             | `boolean` | `false`     |

@@ -22,35 +22,11 @@
       p {
         margin-bottom: 10px;
       }
-      body {
-        background-color: red;
-      }
     </style>
   </head>
   <body>
-    <gxg-drag-container padding="xl">
-      <gxg-drag-box padding="xl">Container 01</gxg-drag-box>
-      <gxg-drag-box>Container 02</gxg-drag-box>
-      <gxg-drag-box>Container 03</gxg-drag-box>
-      <gxg-drag-box>Container 04</gxg-drag-box>
-      <gxg-drag-box>Container 05</gxg-drag-box>
-    </gxg-drag-container>
-
-    <gxg-form-text
-      borderless
-      type="text"
-      id="name4"
-      name="name"
-      label="Default 122"
-      placeholder="Placeholder text"
-      icon="colorPicker"
-      icon-position="right"
-      value="dsda"
-    >
-    </gxg-form-text>
-
     <gxg-select
-      borderless
+      required
       label="Select a car:"
       width="400px"
       size="5"
@@ -66,5 +42,27 @@
       <gxg-option value="7">Land Rover</gxg-option>
       <gxg-option value="8">Mercedes</gxg-option>
     </gxg-select>
+
+    <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
+      <gxg-form-radio
+        label="red"
+        name="colors"
+        radio-id="red"
+        value="red"
+        checked
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="blue"
+        name="colors"
+        radio-id="blue"
+        value="blue"
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="green"
+        name="colors"
+        radio-id="green"
+        value="green"
+      ></gxg-form-radio>
+    </gxg-form-radio-group>
   </body>
 </html>

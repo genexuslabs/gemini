@@ -48,6 +48,11 @@ export class FormSelectNew {
   @Prop() label: string;
 
   /**
+   * The presence of this attribute makes this input required
+   */
+  @Prop({ reflect: true }) required = false;
+
+  /**
    * The maximum number of visible options
    */
   @Prop() size: string;

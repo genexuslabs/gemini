@@ -551,6 +551,10 @@ export namespace Components {
      */
     name: string;
     /**
+     * The presence of this attribute makes this input required
+     */
+    required: boolean;
+    /**
      * The select id
      */
     selectId: string;
@@ -1628,6 +1632,10 @@ declare namespace LocalJSX {
     name?: string;
     onChange?: (event: CustomEvent<any>) => void;
     onInput?: (event: CustomEvent<any>) => void;
+    /**
+     * The presence of this attribute makes this input required
+     */
+    required?: boolean;
     /**
      * The select id
      */
