@@ -17,9 +17,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                    | Type                                                   | Default     |
-| --------- | --------- | ------------------------------ | ------------------------------------------------------ | ----------- |
-| `padding` | `padding` | The padding (internal spacing) | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
+| Property  | Attribute | Description                                                               | Type                                                   | Default     |
+| --------- | --------- | ------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `border`  | `border`  | The presence of this attibute gives the box a blue border on the top side | `boolean`                                              | `false`     |
+| `padding` | `padding` | The padding (internal spacing)                                            | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
 
 ## Dependencies
 

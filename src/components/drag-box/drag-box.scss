@@ -14,9 +14,6 @@
     padding: 0 0 0 var(--spacing-comp-03);
   }
 }
-:host(.over) {
-  border-top-color: var(--color-primary-active);
-}
 
 //Padding
 :host([padding="xs"]) {
@@ -53,4 +50,9 @@
   .content-container {
     padding: var(--spacing-comp-07);
   }
+}
+
+//Border
+:host([border]) {
+  border-top-color: var(--color-primary-active);
 }

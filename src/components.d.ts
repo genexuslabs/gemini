@@ -261,6 +261,10 @@ export namespace Components {
   }
   interface GxgDragBox {
     /**
+     * The presence of this attibute gives the box a blue border on the top side
+     */
+    border: boolean;
+    /**
      * The padding (internal spacing)
      */
     padding: Padding;
@@ -1332,6 +1336,10 @@ declare namespace LocalJSX {
     noWeekends?: boolean;
   }
   interface GxgDragBox {
+    /**
+     * The presence of this attibute gives the box a blue border on the top side
+     */
+    border?: boolean;
     /**
      * The padding (internal spacing)
      */

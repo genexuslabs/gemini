@@ -13,6 +13,17 @@ const stories = storiesOf("Drag", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Drag-boxes", () => {
+  //Border
+  const labelBlueBorder = "Blue Border";
+  const defaultValueBlueBorder = false;
+  const valueBlueBorder = boolean(labelBlueBorder, defaultValueBlueBorder);
+
+  function blueBorder() {
+    if (valueBlueBorder) {
+      return "border";
+    }
+  }
+
   return `
   <style>
     #root{
@@ -22,7 +33,7 @@ stories.add("Drag-boxes", () => {
     
   </style>
   <gxg-drag-container>
-  <gxg-drag-box  padding="${select(
+  <gxg-drag-box ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -35,7 +46,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 01</gxg-drag-box>
-  <gxg-drag-box  padding="${select(
+  <gxg-drag-box ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -48,7 +59,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 02</gxg-drag-box>
-  <gxg-drag-box  padding="${select(
+  <gxg-drag-box ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -61,7 +72,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 03</gxg-drag-box>
-  <gxg-drag-box  padding="${select(
+  <gxg-drag-box ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -74,7 +85,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 04</gxg-drag-box>
-  <gxg-drag-box  padding="${select(
+  <gxg-drag-box ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",

@@ -11,6 +11,11 @@ export class DragBox {
    */
   @Prop({ reflect: true }) padding: Padding;
 
+  /**
+   * The presence of this attibute gives the box a blue border on the top side
+   */
+  @Prop({ reflect: true }) border = false;
+
   render() {
     return (
       <Host>
