@@ -1,4 +1,12 @@
-import { Component, Prop, h, Listen, Element, Host } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Listen,
+  Element,
+  Host,
+  State
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-form-radio-group",
@@ -25,7 +33,7 @@ export class FormRadioGroup {
   /**
    * The selected radio value
    */
-  @Prop({ reflect: true }) RadioValue: string;
+  @State() RadioValue: string;
 
   /*********************************
   METHODS

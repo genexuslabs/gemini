@@ -26,6 +26,12 @@ export class FormText implements FormComponent {
   /*********************************
   PROPERTIES & STATE
   *********************************/
+
+  /**
+   * Is this attribute is present, the border will only be visible on hover
+   */
+  @Prop({ reflect: true }) borderless: false;
+
   /**
    * The presence of this attribute makes the input disabled
    */
@@ -43,7 +49,7 @@ export class FormText implements FormComponent {
   @Prop() icon: IconType = null;
 
   /**
-   * The input icon side. Possible values: left, right
+   * The input icon side
    */
   @Prop({ reflect: true }) iconPosition: IconPosition = null;
 
@@ -84,17 +90,12 @@ export class FormText implements FormComponent {
   @Prop({ reflect: true }) value: string;
 
   /**
-   * If this property is true, the border will only be visible on hover
-   */
-  @Prop({ reflect: true }) readOnly: false;
-
-  /**
    * The presence of this attribute gives the component warning styles
    */
   @Prop() warning = false;
 
   /**
-   * input width
+   * The input max. width
    */
   @Prop() maxWidth = "100%";
 

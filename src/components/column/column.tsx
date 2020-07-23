@@ -6,7 +6,9 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Column {
-  /*The column padding (internal spacing)*/
+  /**
+   * The column padding (internal spacing)
+   */
   @Prop({ reflect: true }) padding: padding = "xs";
 
   /**

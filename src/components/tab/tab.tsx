@@ -8,8 +8,14 @@ import { Component, Element, Prop, h, Host } from "@stencil/core";
 export class Tab {
   @Element() el: HTMLElement;
 
-  // Indicate that name should be a public property on the component
+  /**
+   * The tab id. Should match the "tab" value of the correlative "gxg-tab"
+   */
   @Prop() tab: string;
+
+  /**
+   *
+   */
   @Prop({ reflect: true }) isSelected = false;
 
   componentDidLoad() {

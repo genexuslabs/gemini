@@ -20,7 +20,7 @@ stories.add("Radiobutton", () => {
 
   //Radio Group Label
   const labelRadioGroupLabel = "Radio Group Label";
-  const defaultValueRadioGroupLabel = "The Radio Group Label";
+  const defaultValueRadioGroupLabel = "My favorite colors:";
   const valueRadioGroupLabel = text(
     labelRadioGroupLabel,
     defaultValueRadioGroupLabel

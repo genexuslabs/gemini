@@ -2,24 +2,25 @@
 
 <h2>Notes</h2>
 <ul>
-   <li>pass any number of options by using the <code>gxg-form-option</code> component</li>
-   <li>Set the <code>value</code> attribute for each <code>gxg-form-option</code>, and provive the <code>selected</code> attribute for the option you want to be selected by default</li>
+   <li>Pass any number of options by using the <code>gxg-form-option</code> element</li>
+   <li>Set the <code>value</code> attribute for each <code>gxg-form-option</code>, and provide the <code>selected</code> attribute for the option you want to be selected by default</li>
 </ul>
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property   | Attribute   | Description                                                                   | Type      | Default     |
-| ---------- | ----------- | ----------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled`  | The presence of this attribute disables the component                         | `boolean` | `false`     |
-| `error`    | `error`     | The presence of this attribute stylizes the component with error attributes   | `boolean` | `false`     |
-| `label`    | `label`     | The select label                                                              | `string`  | `undefined` |
-| `maxWidth` | `max-width` | The select max-width (default is 240px)                                       | `string`  | `"100%"`    |
-| `name`     | `name`      | The select name                                                               | `string`  | `undefined` |
-| `selectId` | `select-id` | The select id                                                                 | `string`  | `undefined` |
-| `size`     | `size`      | The maximum number of visible options                                         | `string`  | `undefined` |
-| `warning`  | `warning`   | The presence of this attribute stylizes the component with warning attributes | `boolean` | `false`     |
+| Property     | Attribute    | Description                                                                   | Type      | Default     |
+| ------------ | ------------ | ----------------------------------------------------------------------------- | --------- | ----------- |
+| `borderless` | `borderless` | Is this attribute is present, the border will only be visible on hover        | `boolean` | `undefined` |
+| `disabled`   | `disabled`   | The presence of this attribute disables the component                         | `boolean` | `false`     |
+| `error`      | `error`      | The presence of this attribute stylizes the component with error attributes   | `boolean` | `false`     |
+| `label`      | `label`      | The select label                                                              | `string`  | `undefined` |
+| `maxWidth`   | `max-width`  | The select max. width                                                         | `string`  | `"100%"`    |
+| `name`       | `name`       | The select name                                                               | `string`  | `undefined` |
+| `selectId`   | `select-id`  | The select id                                                                 | `string`  | `undefined` |
+| `size`       | `size`       | The maximum number of visible options                                         | `string`  | `undefined` |
+| `warning`    | `warning`    | The presence of this attribute stylizes the component with warning attributes | `boolean` | `false`     |
 
 ## Events
 

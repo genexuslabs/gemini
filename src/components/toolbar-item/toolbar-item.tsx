@@ -7,9 +7,24 @@ import { IconType } from "../icon/icon";
   shadow: true
 })
 export class ToolbarItem {
+  /**
+   * The state of the toolbar-item, whether it is disabled or not
+   */
   @Prop() disabled = false;
+
+  /**
+   * The toolbar-item icon
+   */
   @Prop() icon: IconType = null;
+
+  /**
+   * The toolbar-item subtitle
+   */
   @Prop() subtitle: string;
+
+  /**
+   * The toolbar-item title
+   */
   @Prop() toolbarItemTitle: string;
 
   includeIcon() {

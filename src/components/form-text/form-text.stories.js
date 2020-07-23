@@ -62,10 +62,10 @@ stories.add("Text", () => {
   const defaultValueMaxWidth = "100%";
   const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
-  //Read Only
-  const labelReadOnly = "Read only (border visible on hover only)";
-  const defaultValueReadOnly = false;
-  const valueReadOnly = boolean(labelReadOnly, defaultValueReadOnly);
+  //Borderless
+  const labelBordeless = "Borderless (border visible on hover only)";
+  const defaultValueBordeless = false;
+  const valueBorderless = boolean(labelBordeless, defaultValueBordeless);
 
   //Required
   const requiredLabel = "Required";
@@ -119,9 +119,9 @@ stories.add("Text", () => {
     }
   }
 
-  function readOnly() {
-    if (valueReadOnly) {
-      return `read-only`;
+  function borderless() {
+    if (valueBorderless) {
+      return `borderless`;
     }
   }
 
@@ -139,7 +139,7 @@ stories.add("Text", () => {
   icon=${valueIconType}
   icon-position=${valueIcon}
   max-width=${valueMaxWidth}
-  ${readOnly()}
+  ${borderless()}
   ${requiredValueFunc()}
   ${valueStatusType()}
   ${errorMessage()}

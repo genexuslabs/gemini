@@ -1,4 +1,4 @@
-# gxg-template
+# gxg-modal
 
 <!-- Auto Generated Below -->
 

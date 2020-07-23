@@ -6,10 +6,9 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Card {
-  /*********************************
-  PROPERTIES & STATE
-  *********************************/
-
+  /**
+   * The card box-shadow
+   */
   @Prop({ reflect: true }) boxShadow: boxShadow = "xxs";
 
   /**
@@ -17,16 +16,18 @@ export class Card {
    */
   @Prop({ reflect: true }) background = "white";
 
-  /*The card padding (internal spacing)*/
+  /**
+   * The card padding (internal spacing)
+   */
   @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
-   * The component width
+   * The component min. height
    */
   @Prop() minHeight = "auto";
 
   /**
-   * The component width
+   * The component max. width
    */
   @Prop() maxWidth = "100%";
 

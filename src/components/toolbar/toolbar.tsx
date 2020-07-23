@@ -6,9 +6,24 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Toolbar {
+  /**
+   * The toggle arrow position
+   */
   @Prop() position = "bottom";
+
+  /**
+   * The state of the toggle, wether is disabled or not
+   */
   @Prop({ reflect: true }) disabled = false;
+
+  /**
+   * The toolbar title
+   */
   @Prop() subtitle: string;
+
+  /**
+   * The toolbar subtitle
+   */
   @Prop() toolbarTitle: string;
 
   render() {

@@ -17,7 +17,7 @@ import { padding } from "../accordion-item/accordion-item";
 })
 export class Accordion {
   /**
-   * If this attribute is present, all of the accordion-items will be disabled and not focusable
+   * The presence of this attribute makes all of the accordion-items disabled and not focusable
    */
   @Prop() disabled = false;
 

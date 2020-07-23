@@ -4,11 +4,10 @@
 
 ## Properties
 
-| Property     | Attribute     | Description              | Type     | Default     |
-| ------------ | ------------- | ------------------------ | -------- | ----------- |
-| `RadioId`    | `radio-id`    | The selected radio id    | `string` | `undefined` |
-| `RadioValue` | `radio-value` | The selected radio value | `string` | `undefined` |
-| `label`      | `label`       | The radio group label    | `string` | `undefined` |
+| Property  | Attribute  | Description           | Type     | Default     |
+| --------- | ---------- | --------------------- | -------- | ----------- |
+| `RadioId` | `radio-id` | The selected radio id | `string` | `undefined` |
+| `label`   | `label`    | The radio group label | `string` | `undefined` |
 
 ---
 

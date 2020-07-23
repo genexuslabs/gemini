@@ -7,11 +7,50 @@
   display: flex;
   align-items: center;
   background-color: var(--color-background);
-  padding: var(--spacing-comp-03) var(--spacing-comp-02);
-  border-top: 2px solid var(--color-primary-active);
+  border-top: 2px solid transparent; //var(--color-primary-active);
   margin-bottom: var(--spacing-lay-s);
 
   .content-container {
-    padding-left: var(--spacing-comp-03);
+    padding: 0 0 0 var(--spacing-comp-03);
+  }
+}
+:host(.over) {
+  border-top-color: var(--color-primary-active);
+}
+
+//Padding
+:host([padding="xs"]) {
+  .content-container {
+    padding: var(--spacing-comp-01);
+  }
+}
+:host([padding="s"]) {
+  .content-container {
+    padding: var(--spacing-comp-02);
+  }
+}
+:host([padding="m"]) {
+  .content-container {
+    padding: var(--spacing-comp-03);
+  }
+}
+:host([padding="l"]) {
+  .content-container {
+    padding: var(--spacing-comp-04);
+  }
+}
+:host([padding="xl"]) {
+  .content-container {
+    padding: var(--spacing-comp-05);
+  }
+}
+:host([padding="xxl"]) {
+  .content-container {
+    padding: var(--spacing-comp-06);
+  }
+}
+:host([padding="xxxl"]) {
+  .content-container {
+    padding: var(--spacing-comp-07);
   }
 }

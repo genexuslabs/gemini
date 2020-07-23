@@ -6,7 +6,7 @@
 
 | Property    | Attribute    | Description                                                   | Type                                                                                                                                                                       | Default               |
 | ----------- | ------------ | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `disabled`  | `disabled`   | The state of the button, whether it is disabled or not.       | `boolean`                                                                                                                                                                  | `false`               |
+| `disabled`  | `disabled`   | The state of the button, whether it is disabled or not        | `boolean`                                                                                                                                                                  | `false`               |
 | `fullWidth` | `full-width` | The presence of this attribute makes the component full-width | `boolean`                                                                                                                                                                  | `false`               |
 | `type`      | `type`       | The kind of button                                            | `"outlined" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
 

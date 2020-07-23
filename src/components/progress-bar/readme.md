@@ -1,15 +1,15 @@
-# todo-list
+# gxg-progress-bar
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property   | Attribute   | Description                                                | Type      | Default   |
-| ---------- | ----------- | ---------------------------------------------------------- | --------- | --------- |
-| `disabled` | `disabled`  | The state of the Progress-bar, whether is disabled or not. | `boolean` | `false`   |
-| `label`    | `label`     | The label                                                  | `string`  | `"Label"` |
-| `maxWidth` | `max-width` | The max. width                                             | `string`  | `"100%"`  |
-| `value`    | `value`     | The progress value (percentage)                            | `number`  | `0`       |
+| Property   | Attribute   | Description                                                   | Type      | Default   |
+| ---------- | ----------- | ------------------------------------------------------------- | --------- | --------- |
+| `disabled` | `disabled`  | The state of the progress-bar, whether it is disabled or not. | `boolean` | `false`   |
+| `label`    | `label`     | The progress-bar label                                        | `string`  | `"Label"` |
+| `maxWidth` | `max-width` | The max. width                                                | `string`  | `"100%"`  |
+| `value`    | `value`     | The progress value (percentage)                               | `number`  | `0`       |
 
 ---
 

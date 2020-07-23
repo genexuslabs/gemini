@@ -59,7 +59,7 @@ export class FormTextarea implements FormComponent {
   /**
    * The textarea placeholder
    */
-  @Prop() placeholder = "hola";
+  @Prop() placeholder: string;
 
   /**
    * The presence of this attribute makes the textarea required

@@ -81,13 +81,3 @@ stories.add("Tree", () => {
     </gxg-tree>
    `;
 });
-
-// (function() {
-//   // your page initialization code here
-//   // the DOM will be available here
-//   let mainTree = document.getElementById("main-tree");
-//   mainTree.addEventListener("itemClicked", function(e) {
-//     alert("hola");
-//     //console.log(e.target);
-//   });
-// })();

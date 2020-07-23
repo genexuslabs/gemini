@@ -1,10 +1,10 @@
+# gxg-form-radio-group
+
 <h2>Notes</h2>
 <ul>
     <li>Wrap all the <code>gxg-form-radio</code> inputs with a <code>gxg-form-radio-group</code></li>
     <li>You can optionally set a title to the radio group, by providing a value to the <code>label</code> attribute</li>
 </ul>
-
-# gxg-form-radio-group
 
 ## Properties
 

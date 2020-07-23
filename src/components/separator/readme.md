@@ -1,4 +1,4 @@
-# gxg-template
+# gxg-separator
 
 <!-- Auto Generated Below -->
 

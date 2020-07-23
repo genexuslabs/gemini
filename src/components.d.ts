@@ -25,6 +25,8 @@ import { boxShadow, padding as padding3 } from "./components/card/card";
 import { padding as padding4, WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { padding as padding5 } from "./components/column/column";
+import { Padding } from "./components/drag-box/drag-box";
+import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
 import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
@@ -37,7 +39,7 @@ import { position } from "./components/tooltip/tooltip";
 export namespace Components {
   interface GxgAccordion {
     /**
-     * If this attribute is present, all of the accordion-items will be disabled and not focusable
+     * The presence of this attribute makes all of the accordion-items disabled and not focusable
      */
     disabled: boolean;
     /**
@@ -56,7 +58,7 @@ export namespace Components {
   }
   interface GxgAccordionItem {
     /**
-     * If this attribute is present the accordion-item will be disabled and not focusable
+     * The presence of this attribute makes the accordion-item disabled and not focusable
      */
     disabled: boolean;
     /**
@@ -68,7 +70,7 @@ export namespace Components {
      */
     itemTitle: string;
     /**
-     * The accordion flavor
+     * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
     mode: mode;
     padding: padding;
@@ -83,7 +85,7 @@ export namespace Components {
      */
     active: boolean;
     /**
-     * The number of miliseconds the alert is visible before hidding under the document
+     * The amount of time the alert is visible before hidding under the document
      */
     activeTime: ActiveTime;
     /**
@@ -125,18 +127,18 @@ export namespace Components {
      */
     border: boolean;
     /**
-     * The component width
+     * The component max. width
      */
     maxWidth: string;
     /**
-     * The component width
+     * The component min. height
      */
     minHeight: string;
     padding: padding;
   }
   interface GxgButton {
     /**
-     * The state of the button, whether it is disabled or not.
+     * The state of the button, whether it is disabled or not
      */
     disabled: boolean;
     /**
@@ -154,11 +156,11 @@ export namespace Components {
      */
     buttonGroupTitle: string;
     /**
-     * The id of the button that you would like to show active by default
+     * The id of the button that you would like to be active by default
      */
     defaultSelectedBtnId: string;
     /**
-     * Wether the button group is disabled or not.
+     * Wether the button group is disabled or not
      */
     disabled: boolean;
     /**
@@ -176,17 +178,20 @@ export namespace Components {
      */
     background: string;
     /**
-     * ******************************* PROPERTIES & STATE *******************************
+     * The card box-shadow
      */
     boxShadow: boxShadow;
     /**
-     * The component width
+     * The component max. width
      */
     maxWidth: string;
     /**
-     * The component width
+     * The component min. height
      */
     minHeight: string;
+    /**
+     * The card padding (internal spacing)
+     */
     padding: padding;
   }
   interface GxgColorPicker {
@@ -200,6 +205,9 @@ export namespace Components {
     value: string;
   }
   interface GxgColumn {
+    /**
+     * The column padding (internal spacing)
+     */
     padding: padding;
     /**
      * The column width value
@@ -231,7 +239,7 @@ export namespace Components {
      */
     defaultDate: string;
     /**
-     * label
+     * The datepicker label
      */
     label: string;
     /**
@@ -239,7 +247,7 @@ export namespace Components {
      */
     maxDate: string;
     /**
-     * The max width
+     * The max. width
      */
     maxWidth: string;
     /**
@@ -251,16 +259,18 @@ export namespace Components {
      */
     noWeekends: boolean;
   }
-  interface GxgDragBox {}
-  interface GxgDragContainer {
+  interface GxgDragBox {
     /**
-     * The presence of this attribute makes the component full-width
+     * The padding (internal spacing)
      */
-    fullWidth: boolean;
+    padding: Padding;
+  }
+  interface GxgDragContainer {
     /**
      * The max-width of the box container
      */
     maxWidth: string;
+    padding: Padding;
   }
   interface GxgFormCheckbox {
     /**
@@ -272,7 +282,7 @@ export namespace Components {
      */
     checked: boolean;
     /**
-     * The presence of this attribute makes disables the checkbox
+     * The presence of this attribute disables the checkbox
      */
     disabled: boolean;
     /**
@@ -326,15 +336,15 @@ export namespace Components {
      */
     RadioId: string;
     /**
-     * The selected radio value
-     */
-    RadioValue: string;
-    /**
      * The radio group label
      */
     label: string;
   }
   interface GxgFormText {
+    /**
+     * Is this attribute is present, the border will only be visible on hover
+     */
+    borderless: false;
     /**
      * The presence of this attribute makes the input disabled
      */
@@ -348,7 +358,7 @@ export namespace Components {
      */
     icon: IconType;
     /**
-     * The input icon side. Possible values: left, right
+     * The input icon side
      */
     iconPosition: IconPosition;
     /**
@@ -360,7 +370,7 @@ export namespace Components {
      */
     label: string;
     /**
-     * input width
+     * The input max. width
      */
     maxWidth: string;
     /**
@@ -371,10 +381,6 @@ export namespace Components {
      * The input placeholder
      */
     placeholder: string;
-    /**
-     * If this property is true, the border will only be visible on hover
-     */
-    readOnly: false;
     /**
      * The presence of this attribute makes this input required
      */
@@ -503,11 +509,11 @@ export namespace Components {
   }
   interface GxgProgressBar {
     /**
-     * The state of the Progress-bar, whether is disabled or not.
+     * The state of the progress-bar, whether it is disabled or not.
      */
     disabled: boolean;
     /**
-     * The label
+     * The progress-bar label
      */
     label: string;
     /**
@@ -521,6 +527,10 @@ export namespace Components {
   }
   interface GxgSelect {
     /**
+     * Is this attribute is present, the border will only be visible on hover
+     */
+    borderless: false;
+    /**
      * The presence of this attribute disables the component
      */
     disabled: boolean;
@@ -533,7 +543,7 @@ export namespace Components {
      */
     label: string;
     /**
-     * The select max-width (default is 240px)
+     * The select max. width
      */
     maxWidth: string;
     /**
@@ -607,11 +617,7 @@ export namespace Components {
   }
   interface GxgStack {
     /**
-     * The toggle label
-     */
-    label: string;
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The spacing value
      */
     space: Space;
   }
@@ -639,19 +645,35 @@ export namespace Components {
   }
   interface GxgTab {
     isSelected: boolean;
+    /**
+     * The tab id. Should match the "tab" value of the correlative "gxg-tab"
+     */
     tab: string;
   }
   interface GxgTabBar {}
   interface GxgTabButton {
+    /**
+     * Provide this attribute to make this button disabled
+     */
     disabled: boolean;
+    /**
+     * (Optional) provide an icon to this button
+     */
     icon: IconType;
+    /**
+     * Provide this attribute to make this button selected by default
+     */
     isSelected: boolean;
+    /**
+     * The tab id. Should match the "tab" value of the correlative "gxg-tab" element
+     */
     tab: string;
+    /**
+     * The button label
+     */
     tabLabel: string;
   }
-  interface GxgTabs {
-    tab: string;
-  }
+  interface GxgTabs {}
   interface GxgTemplate {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
@@ -681,15 +703,39 @@ export namespace Components {
     size: Size;
   }
   interface GxgToolbar {
+    /**
+     * The state of the toggle, wether is disabled or not
+     */
     disabled: boolean;
+    /**
+     * The toggle arrow position
+     */
     position: string;
+    /**
+     * The toolbar title
+     */
     subtitle: string;
+    /**
+     * The toolbar subtitle
+     */
     toolbarTitle: string;
   }
   interface GxgToolbarItem {
+    /**
+     * The state of the toolbar-item, whether it is disabled or not
+     */
     disabled: boolean;
+    /**
+     * The toolbar-item icon
+     */
     icon: IconType;
+    /**
+     * The toolbar-item subtitle
+     */
     subtitle: string;
+    /**
+     * The toolbar-item title
+     */
     toolbarItemTitle: string;
   }
   interface GxgTooltip {
@@ -712,6 +758,9 @@ export namespace Components {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    /**
+     * The state of the tree-item, wether it is disabled or not
+     */
     disabled: boolean;
     icon: IconType;
   }
@@ -1053,7 +1102,7 @@ declare global {
 declare namespace LocalJSX {
   interface GxgAccordion {
     /**
-     * If this attribute is present, all of the accordion-items will be disabled and not focusable
+     * The presence of this attribute makes all of the accordion-items disabled and not focusable
      */
     disabled?: boolean;
     /**
@@ -1072,7 +1121,7 @@ declare namespace LocalJSX {
   }
   interface GxgAccordionItem {
     /**
-     * If this attribute is present the accordion-item will be disabled and not focusable
+     * The presence of this attribute makes the accordion-item disabled and not focusable
      */
     disabled?: boolean;
     /**
@@ -1084,7 +1133,7 @@ declare namespace LocalJSX {
      */
     itemTitle?: string;
     /**
-     * The accordion flavor
+     * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
     mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
@@ -1101,7 +1150,7 @@ declare namespace LocalJSX {
      */
     active?: boolean;
     /**
-     * The number of miliseconds the alert is visible before hidding under the document
+     * The amount of time the alert is visible before hidding under the document
      */
     activeTime?: ActiveTime;
     /**
@@ -1143,18 +1192,18 @@ declare namespace LocalJSX {
      */
     border?: boolean;
     /**
-     * The component width
+     * The component max. width
      */
     maxWidth?: string;
     /**
-     * The component width
+     * The component min. height
      */
     minHeight?: string;
     padding?: padding;
   }
   interface GxgButton {
     /**
-     * The state of the button, whether it is disabled or not.
+     * The state of the button, whether it is disabled or not
      */
     disabled?: boolean;
     /**
@@ -1172,11 +1221,11 @@ declare namespace LocalJSX {
      */
     buttonGroupTitle?: string;
     /**
-     * The id of the button that you would like to show active by default
+     * The id of the button that you would like to be active by default
      */
     defaultSelectedBtnId?: string;
     /**
-     * Wether the button group is disabled or not.
+     * Wether the button group is disabled or not
      */
     disabled?: boolean;
     /**
@@ -1194,17 +1243,20 @@ declare namespace LocalJSX {
      */
     background?: string;
     /**
-     * ******************************* PROPERTIES & STATE *******************************
+     * The card box-shadow
      */
     boxShadow?: boxShadow;
     /**
-     * The component width
+     * The component max. width
      */
     maxWidth?: string;
     /**
-     * The component width
+     * The component min. height
      */
     minHeight?: string;
+    /**
+     * The card padding (internal spacing)
+     */
     padding?: padding;
   }
   interface GxgColorPicker {
@@ -1221,6 +1273,9 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgColumn {
+    /**
+     * The column padding (internal spacing)
+     */
     padding?: padding;
     /**
      * The column width value
@@ -1252,7 +1307,7 @@ declare namespace LocalJSX {
      */
     defaultDate?: string;
     /**
-     * label
+     * The datepicker label
      */
     label?: string;
     /**
@@ -1260,7 +1315,7 @@ declare namespace LocalJSX {
      */
     maxDate?: string;
     /**
-     * The max width
+     * The max. width
      */
     maxWidth?: string;
     /**
@@ -1272,16 +1327,18 @@ declare namespace LocalJSX {
      */
     noWeekends?: boolean;
   }
-  interface GxgDragBox {}
-  interface GxgDragContainer {
+  interface GxgDragBox {
     /**
-     * The presence of this attribute makes the component full-width
+     * The padding (internal spacing)
      */
-    fullWidth?: boolean;
+    padding?: Padding;
+  }
+  interface GxgDragContainer {
     /**
      * The max-width of the box container
      */
     maxWidth?: string;
+    padding?: Padding;
   }
   interface GxgFormCheckbox {
     /**
@@ -1293,7 +1350,7 @@ declare namespace LocalJSX {
      */
     checked?: boolean;
     /**
-     * The presence of this attribute makes disables the checkbox
+     * The presence of this attribute disables the checkbox
      */
     disabled?: boolean;
     /**
@@ -1350,15 +1407,15 @@ declare namespace LocalJSX {
      */
     RadioId?: string;
     /**
-     * The selected radio value
-     */
-    RadioValue?: string;
-    /**
      * The radio group label
      */
     label?: string;
   }
   interface GxgFormText {
+    /**
+     * Is this attribute is present, the border will only be visible on hover
+     */
+    borderless?: false;
     /**
      * The presence of this attribute makes the input disabled
      */
@@ -1372,7 +1429,7 @@ declare namespace LocalJSX {
      */
     icon?: IconType;
     /**
-     * The input icon side. Possible values: left, right
+     * The input icon side
      */
     iconPosition?: IconPosition;
     /**
@@ -1384,7 +1441,7 @@ declare namespace LocalJSX {
      */
     label?: string;
     /**
-     * input width
+     * The input max. width
      */
     maxWidth?: string;
     /**
@@ -1397,10 +1454,6 @@ declare namespace LocalJSX {
      * The input placeholder
      */
     placeholder?: string;
-    /**
-     * If this property is true, the border will only be visible on hover
-     */
-    readOnly?: false;
     /**
      * The presence of this attribute makes this input required
      */
@@ -1532,11 +1585,11 @@ declare namespace LocalJSX {
   }
   interface GxgProgressBar {
     /**
-     * The state of the Progress-bar, whether is disabled or not.
+     * The state of the progress-bar, whether it is disabled or not.
      */
     disabled?: boolean;
     /**
-     * The label
+     * The progress-bar label
      */
     label?: string;
     /**
@@ -1550,6 +1603,10 @@ declare namespace LocalJSX {
   }
   interface GxgSelect {
     /**
+     * Is this attribute is present, the border will only be visible on hover
+     */
+    borderless?: false;
+    /**
      * The presence of this attribute disables the component
      */
     disabled?: boolean;
@@ -1562,7 +1619,7 @@ declare namespace LocalJSX {
      */
     label?: string;
     /**
-     * The select max-width (default is 240px)
+     * The select max. width
      */
     maxWidth?: string;
     /**
@@ -1638,11 +1695,7 @@ declare namespace LocalJSX {
   }
   interface GxgStack {
     /**
-     * The toggle label
-     */
-    label?: string;
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     * The spacing value
      */
     space?: Space;
   }
@@ -1671,20 +1724,36 @@ declare namespace LocalJSX {
   }
   interface GxgTab {
     isSelected?: boolean;
+    /**
+     * The tab id. Should match the "tab" value of the correlative "gxg-tab"
+     */
     tab?: string;
   }
   interface GxgTabBar {}
   interface GxgTabButton {
+    /**
+     * Provide this attribute to make this button disabled
+     */
     disabled?: boolean;
+    /**
+     * (Optional) provide an icon to this button
+     */
     icon?: IconType;
+    /**
+     * Provide this attribute to make this button selected by default
+     */
     isSelected?: boolean;
     onTabActivated?: (event: CustomEvent<any>) => void;
+    /**
+     * The tab id. Should match the "tab" value of the correlative "gxg-tab" element
+     */
     tab?: string;
+    /**
+     * The button label
+     */
     tabLabel?: string;
   }
-  interface GxgTabs {
-    tab?: string;
-  }
+  interface GxgTabs {}
   interface GxgTemplate {
     /**
      * The state of the toggle. Whether is disabled or not. Possible values: false, true
@@ -1714,15 +1783,39 @@ declare namespace LocalJSX {
     size?: Size;
   }
   interface GxgToolbar {
+    /**
+     * The state of the toggle, wether is disabled or not
+     */
     disabled?: boolean;
+    /**
+     * The toggle arrow position
+     */
     position?: string;
+    /**
+     * The toolbar title
+     */
     subtitle?: string;
+    /**
+     * The toolbar subtitle
+     */
     toolbarTitle?: string;
   }
   interface GxgToolbarItem {
+    /**
+     * The state of the toolbar-item, whether it is disabled or not
+     */
     disabled?: boolean;
+    /**
+     * The toolbar-item icon
+     */
     icon?: IconType;
+    /**
+     * The toolbar-item subtitle
+     */
     subtitle?: string;
+    /**
+     * The toolbar-item title
+     */
     toolbarItemTitle?: string;
   }
   interface GxgTooltip {
@@ -1745,6 +1838,9 @@ declare namespace LocalJSX {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    /**
+     * The state of the tree-item, wether it is disabled or not
+     */
     disabled?: boolean;
     icon?: IconType;
     onItemClicked?: (event: CustomEvent<any>) => void;

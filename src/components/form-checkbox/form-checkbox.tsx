@@ -34,7 +34,7 @@ export class FormCheckbox {
   @Prop({ reflect: true }) checked = false;
 
   /**
-   * The presence of this attribute makes disables the checkbox
+   * The presence of this attribute disables the checkbox
    */
   @Prop() disabled = false;
 

@@ -27,6 +27,10 @@ export class FormSelectNew {
   /*********************************
   PROPERTIES & STATE
   *********************************/
+  /**
+   * Is this attribute is present, the border will only be visible on hover
+   */
+  @Prop({ reflect: true }) borderless: false;
 
   /**
    * The presence of this attribute disables the component
@@ -69,7 +73,7 @@ export class FormSelectNew {
   @Prop() warning = false;
 
   /**
-   * The select max-width (default is 240px)
+   * The select max. width
    */
   @Prop() maxWidth = "100%";
 

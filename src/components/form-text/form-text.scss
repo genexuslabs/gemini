@@ -71,11 +71,10 @@ TEXT
     @include form-element-common-styles-warning();
   }
 }
-//read only
-:host([read-only]) {
+//borderless
+:host([borderless]) {
   input[type="text"]:not(:hover) {
     border-color: transparent;
-    background: transparent;
   }
 }
 /*****************************************************

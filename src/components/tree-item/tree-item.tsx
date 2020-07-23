@@ -18,6 +18,10 @@ import { IconType } from "../icon/icon";
 export class TreeItem {
   @Element() el: HTMLElement;
   @State() hasChildren = false;
+
+  /**
+   * The state of the tree-item, wether it is disabled or not
+   */
   @Prop({ reflect: true }) disabled = false;
   @Prop() icon: IconType = "file";
   @State() open = false;

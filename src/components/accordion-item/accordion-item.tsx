@@ -19,12 +19,12 @@ export class AccordionItem {
   @Element() el: HTMLElement;
 
   /**
-   * If this attribute is present the accordion-item will be disabled and not focusable
+   * The presence of this attribute makes the accordion-item disabled and not focusable
    */
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * The accordion flavor
+   * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
    */
   @Prop({ reflect: true }) mode: mode = "classical";
 
@@ -38,7 +38,7 @@ export class AccordionItem {
    */
   @Prop() itemTitle: string;
 
-  /*The accoridion padding (internal spacing)*/
+  /*The accordion padding (internal spacing)*/
   @Prop({ reflect: true }) padding: padding = "s";
 
   /**

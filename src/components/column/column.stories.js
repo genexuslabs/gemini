@@ -14,7 +14,7 @@ stories
 #root {
   width: 700px;
 }
-gxg-column {
+gxg-column {        
   align-items: center;
   justify-content: center;
   display:flex;
@@ -249,7 +249,7 @@ gxg-column, .note {
   padding-bottom: 50px !important;
 }
 </style>
-<gxg-stack space="s">
+<gxg-stack space="s"> 
 
 <gxg-columns space="s" align-y="${select(
       "Align Y:",

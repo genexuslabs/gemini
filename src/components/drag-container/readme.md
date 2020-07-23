@@ -4,10 +4,10 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                   | Type      | Default  |
-| ----------- | ------------ | ------------------------------------------------------------- | --------- | -------- |
-| `fullWidth` | `full-width` | The presence of this attribute makes the component full-width | `boolean` | `false`  |
-| `maxWidth`  | `max-width`  | The max-width of the box container                            | `string`  | `"100%"` |
+| Property   | Attribute   | Description                        | Type                                                   | Default     |
+| ---------- | ----------- | ---------------------------------- | ------------------------------------------------------ | ----------- |
+| `maxWidth` | `max-width` | The max-width of the box container | `string`                                               | `"100%"`    |
+| `padding`  | `padding`   |                                    | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
 
 ---
 

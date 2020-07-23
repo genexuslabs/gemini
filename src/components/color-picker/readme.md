@@ -1,4 +1,4 @@
-# dt-color-picker
+# gxg-color-picker
 
 <!-- Auto Generated Below -->
 

@@ -1,4 +1,4 @@
-# gxg-template
+# gxg-spacer-layout
 
 <h2>Notes</h2>
 <ul>

@@ -7,11 +7,29 @@ import { IconType } from "../icon/icon";
   shadow: true
 })
 export class TabButton {
-  // Indicate that name should be a public property on the component
+  /**
+   * The button label
+   */
   @Prop() tabLabel: string = null;
+
+  /**
+   * The tab id. Should match the "tab" value of the correlative "gxg-tab" element
+   */
   @Prop() tab: string = null;
+
+  /**
+   * Provide this attribute to make this button selected by default
+   */
   @Prop() isSelected = false;
+
+  /**
+   * Provide this attribute to make this button disabled
+   */
   @Prop() disabled = false;
+
+  /**
+   * (Optional) provide an icon to this button
+   */
   @Prop() icon: IconType = null;
 
   //Events

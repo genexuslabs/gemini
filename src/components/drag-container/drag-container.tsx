@@ -1,4 +1,5 @@
 import { Component, Prop, Element, h, Host } from "@stencil/core";
+import { Padding } from "../drag-box/drag-box";
 import { makeDraggable } from "../../utils/makeDraggable";
 
 @Component({
@@ -14,10 +15,7 @@ export class DragContainer {
    */
   @Prop() maxWidth = "100%";
 
-  /**
-   * The presence of this attribute makes the component full-width
-   */
-  @Prop() fullWidth = false;
+  @Prop() padding: Padding;
 
   private dndCleanup: Function;
 
@@ -25,9 +23,13 @@ export class DragContainer {
     const dragabbleItems = this.el.querySelectorAll("gxg-drag-box");
     this.dndCleanup = makeDraggable(dragabbleItems);
 
-    if (this.fullWidth) {
-      this.maxWidth = "100%";
-    }
+    //Set padding to each of the drag-boxes
+    const dragBoxes = this.el.querySelectorAll("gxg-drag-box");
+    dragBoxes.forEach(dragBox => {
+      if (dragBox.padding === undefined) {
+        dragBox.setAttribute("padding", this.padding);
+      }
+    });
   }
 
   disconnectedCallback() {

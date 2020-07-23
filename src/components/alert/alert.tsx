@@ -18,7 +18,7 @@ export class Alert {
   @Prop({ reflect: true }) active = false;
 
   /**
-   * The number of miliseconds the alert is visible before hidding under the document
+   * The amount of time the alert is visible before hidding under the document
    */
   @Prop() activeTime: ActiveTime = "regular";
 

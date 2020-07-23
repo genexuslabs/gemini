@@ -7,12 +7,12 @@ import { Component, Prop, h, Host } from "@stencil/core";
 })
 export class ProgressBar {
   /**
-   * The state of the Progress-bar, whether is disabled or not.
+   * The state of the progress-bar, whether it is disabled or not.
    */
   @Prop({ reflect: true }) disabled = false;
 
   /**
-   * The label
+   * The progress-bar label
    */
   @Prop() label = "Label";
 

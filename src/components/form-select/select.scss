@@ -127,6 +127,13 @@ SELECT
   }
 }
 
+//borderless
+:host([borderless]) {
+  .select-selected:not(:hover) {
+    border-color: transparent;
+  }
+}
+
 /*****************************************************
 SCROLLBAR
 *****************************************************/

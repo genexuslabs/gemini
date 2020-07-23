@@ -1,4 +1,4 @@
-import { Component, h, Host } from "@stencil/core";
+import { Component, h, Host, Prop } from "@stencil/core";
 
 @Component({
   tag: "gxg-drag-box",
@@ -6,6 +6,11 @@ import { Component, h, Host } from "@stencil/core";
   shadow: true
 })
 export class DragBox {
+  /**
+   * The padding (internal spacing)
+   */
+  @Prop({ reflect: true }) padding: Padding;
+
   render() {
     return (
       <Host>
@@ -19,3 +24,5 @@ export class DragBox {
     );
   }
 }
+
+export type Padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

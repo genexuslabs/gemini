@@ -24,12 +24,12 @@ export class Box {
   @Prop() padding: padding = "xs";
 
   /**
-   * The component width
+   * The component min. height
    */
   @Prop() minHeight = "auto";
 
   /**
-   * The component width
+   * The component max. width
    */
   @Prop() maxWidth = "100%";
 

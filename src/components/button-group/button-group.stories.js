@@ -14,6 +14,7 @@ STORIES
 
 const stories = storiesOf("Button Group", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ notes: readme });
 stories
   .add("Two buttons", () => {
     //Disabled

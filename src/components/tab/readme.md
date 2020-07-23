@@ -1,13 +1,13 @@
-# dt-tab
+# gxg-tab
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property     | Attribute     | Description | Type      | Default     |
-| ------------ | ------------- | ----------- | --------- | ----------- |
-| `isSelected` | `is-selected` |             | `boolean` | `false`     |
-| `tab`        | `tab`         |             | `string`  | `undefined` |
+| Property     | Attribute     | Description                                                           | Type      | Default     |
+| ------------ | ------------- | --------------------------------------------------------------------- | --------- | ----------- |
+| `isSelected` | `is-selected` |                                                                       | `boolean` | `false`     |
+| `tab`        | `tab`         | The tab id. Should match the "tab" value of the correlative "gxg-tab" | `string`  | `undefined` |
 
 ---
 

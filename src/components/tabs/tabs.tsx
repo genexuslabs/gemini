@@ -1,4 +1,4 @@
-import { Component, Element, Listen, Prop, h, State } from "@stencil/core";
+import { Component, Element, Listen, h, State } from "@stencil/core";
 
 @Component({
   tag: "gxg-tabs",
@@ -7,9 +7,6 @@ import { Component, Element, Listen, Prop, h, State } from "@stencil/core";
 })
 export class Tabs {
   @Element() element: HTMLGxgTabsElement;
-
-  // Indicate that name should be a public property on the component
-  @Prop() tab: string;
 
   @State() activeTab = "";
 

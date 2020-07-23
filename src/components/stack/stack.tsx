@@ -7,15 +7,9 @@ import { Component, Prop, h } from "@stencil/core";
 })
 export class Stack {
   /**
-   * The state of the toggle. Whether is disabled or not.
-   * Possible values: false, true
+   * The spacing value
    */
   @Prop({ reflect: true }) space: Space = "xs";
-
-  /**
-   * The toggle label
-   */
-  @Prop() label = "Label";
 
   render() {
     return <slot></slot>;

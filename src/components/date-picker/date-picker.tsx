@@ -20,7 +20,7 @@ export class DatePicker {
   @Prop() defaultDate: string;
 
   /**
-   * label
+   * The datepicker label
    */
   @Prop() label: string;
 
@@ -40,7 +40,7 @@ export class DatePicker {
   @Prop() maxDate: string;
 
   /**
-   * The max width
+   * The max. width
    */
   @Prop() maxWidth = "100%";
 

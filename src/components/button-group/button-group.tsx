@@ -23,12 +23,12 @@ export class ButtonGroup {
   @Prop({ reflect: true }) titleAlignment: TitleAlignment = "left";
 
   /**
-  The id of the button that you would like to show active by default
+  The id of the button that you would like to be active by default
   */
   @Prop() defaultSelectedBtnId: string;
 
   /**
-  Wether the button group is disabled or not.
+  Wether the button group is disabled or not
   */
   @Prop({ reflect: true }) disabled = false;
 
