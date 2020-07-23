@@ -13,11 +13,6 @@ const stories = storiesOf("Select", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Select", () => {
-  //Borderless
-  const labelBordeless = "Borderless (border visible on focus only)";
-  const defaultValueBordeless = false;
-  const valueBorderless = boolean(labelBordeless, defaultValueBordeless);
-
   //Max Width
   const labelMaxWidthSize = "Max. Width";
   const defaultMaxWidthSize = "100%";
@@ -27,6 +22,11 @@ stories.add("Select", () => {
   const labelMaxOptions = "Max. number of visible options";
   const defaultMaxOptions = 4;
   const valueMaxOptions = number(labelMaxOptions, defaultMaxOptions);
+
+  //Minimal
+  const labelMinimal = "Minimal (border an background visible on focus only)";
+  const defaultValueMinimal = false;
+  const valueMinimal = boolean(labelMinimal, defaultValueMinimal);
 
   //Status
   const labelStatus = "Status";
@@ -40,9 +40,9 @@ stories.add("Select", () => {
   const defaultValueStatus = "enabled";
   const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
 
-  function borderless() {
-    if (valueBorderless) {
-      return `borderless`;
+  function minimal() {
+    if (valueMinimal) {
+      return `minimal`;
     }
   }
 
@@ -97,7 +97,7 @@ stories.add("Select", () => {
   <gxg-select
   label="Select a car:"
   max-width=${valueMaxWidthSize}
-  ${borderless()}
+  ${minimal()}
   ${valueStatusType()}
     ${errorMessage()}
     ${errorMessagesMultiple()}

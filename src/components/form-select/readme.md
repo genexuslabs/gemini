@@ -10,18 +10,18 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                               | Type      | Default     |
-| ------------ | ------------ | ----------------------------------------------------------------------------------------- | --------- | ----------- |
-| `borderless` | `borderless` | Is this attribute is present, the border and the background will only be visible on focus | `boolean` | `undefined` |
-| `disabled`   | `disabled`   | The presence of this attribute disables the component                                     | `boolean` | `false`     |
-| `error`      | `error`      | The presence of this attribute stylizes the component with error attributes               | `boolean` | `false`     |
-| `label`      | `label`      | The select label                                                                          | `string`  | `undefined` |
-| `maxWidth`   | `max-width`  | The select max. width                                                                     | `string`  | `"100%"`    |
-| `name`       | `name`       | The select name                                                                           | `string`  | `undefined` |
-| `required`   | `required`   | The presence of this attribute makes this input required                                  | `boolean` | `false`     |
-| `selectId`   | `select-id`  | The select id                                                                             | `string`  | `undefined` |
-| `size`       | `size`       | The maximum number of visible options                                                     | `string`  | `undefined` |
-| `warning`    | `warning`    | The presence of this attribute stylizes the component with warning attributes             | `boolean` | `false`     |
+| Property   | Attribute   | Description                                                                                                           | Type      | Default     |
+| ---------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled` | `disabled`  | The presence of this attribute disables the component                                                                 | `boolean` | `false`     |
+| `error`    | `error`     | The presence of this attribute stylizes the component with error attributes                                           | `boolean` | `false`     |
+| `label`    | `label`     | The select label                                                                                                      | `string`  | `undefined` |
+| `maxWidth` | `max-width` | The select max. width                                                                                                 | `string`  | `"100%"`    |
+| `minimal`  | `minimal`   | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus | `boolean` | `true`      |
+| `name`     | `name`      | The select name                                                                                                       | `string`  | `undefined` |
+| `required` | `required`  | The presence of this attribute makes this input required                                                              | `boolean` | `false`     |
+| `selectId` | `select-id` | The select id                                                                                                         | `string`  | `undefined` |
+| `size`     | `size`      | The maximum number of visible options                                                                                 | `string`  | `undefined` |
+| `warning`  | `warning`   | The presence of this attribute stylizes the component with warning attributes                                         | `boolean` | `false`     |
 
 ## Events
 

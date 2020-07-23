@@ -128,7 +128,7 @@ SELECT
 }
 
 //borderless
-:host([borderless]) {
+:host([minimal]) {
   .select-selected:not(:focus) {
     border-color: transparent;
     background-color: transparent;

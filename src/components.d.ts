@@ -346,10 +346,6 @@ export namespace Components {
   }
   interface GxgFormText {
     /**
-     * Is this attribute is present, the border and the background will only be visible on focus
-     */
-    borderless: false;
-    /**
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
@@ -377,6 +373,10 @@ export namespace Components {
      * The input max. width
      */
     maxWidth: string;
+    /**
+     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+     */
+    minimal: boolean;
     /**
      * The input name
      */
@@ -531,10 +531,6 @@ export namespace Components {
   }
   interface GxgSelect {
     /**
-     * Is this attribute is present, the border and the background will only be visible on focus
-     */
-    borderless: false;
-    /**
      * The presence of this attribute disables the component
      */
     disabled: boolean;
@@ -550,6 +546,10 @@ export namespace Components {
      * The select max. width
      */
     maxWidth: string;
+    /**
+     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+     */
+    minimal: boolean;
     /**
      * The select name
      */
@@ -1425,10 +1425,6 @@ declare namespace LocalJSX {
   }
   interface GxgFormText {
     /**
-     * Is this attribute is present, the border and the background will only be visible on focus
-     */
-    borderless?: false;
-    /**
      * The presence of this attribute makes the input disabled
      */
     disabled?: boolean;
@@ -1456,6 +1452,10 @@ declare namespace LocalJSX {
      * The input max. width
      */
     maxWidth?: string;
+    /**
+     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+     */
+    minimal?: boolean;
     /**
      * The input name
      */
@@ -1615,10 +1615,6 @@ declare namespace LocalJSX {
   }
   interface GxgSelect {
     /**
-     * Is this attribute is present, the border and the background will only be visible on focus
-     */
-    borderless?: false;
-    /**
      * The presence of this attribute disables the component
      */
     disabled?: boolean;
@@ -1634,6 +1630,10 @@ declare namespace LocalJSX {
      * The select max. width
      */
     maxWidth?: string;
+    /**
+     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+     */
+    minimal?: boolean;
     /**
      * The select name
      */

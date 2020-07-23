@@ -62,10 +62,10 @@ stories.add("Text", () => {
   const defaultValueMaxWidth = "100%";
   const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
 
-  //Borderless
-  const labelBordeless = "Borderless (border visible on focus only)";
-  const defaultValueBordeless = false;
-  const valueBorderless = boolean(labelBordeless, defaultValueBordeless);
+  //Minimal
+  const labelMinimal = "Minimal (border an background visible on focus only)";
+  const defaultValueMinimal = false;
+  const valueMinimal = boolean(labelMinimal, defaultValueMinimal);
 
   //Required
   const requiredLabel = "Required";
@@ -119,9 +119,9 @@ stories.add("Text", () => {
     }
   }
 
-  function borderless() {
-    if (valueBorderless) {
-      return `borderless`;
+  function minimal() {
+    if (valueMinimal) {
+      return `minimal`;
     }
   }
 
@@ -139,7 +139,7 @@ stories.add("Text", () => {
   icon=${valueIconType}
   icon-position=${valueIcon}
   max-width=${valueMaxWidth}
-  ${borderless()}
+  ${minimal()}
   ${requiredValueFunc()}
   ${valueStatusType()}
   ${errorMessage()}

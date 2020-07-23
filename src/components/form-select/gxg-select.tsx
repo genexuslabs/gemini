@@ -27,10 +27,6 @@ export class FormSelectNew {
   /*********************************
   PROPERTIES & STATE
   *********************************/
-  /**
-   * Is this attribute is present, the border and the background will only be visible on focus
-   */
-  @Prop({ reflect: true }) borderless: false;
 
   /**
    * The presence of this attribute disables the component
@@ -46,6 +42,11 @@ export class FormSelectNew {
    * The select label
    */
   @Prop() label: string;
+
+  /**
+   * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+   */
+  @Prop() minimal = true;
 
   /**
    * The presence of this attribute makes this input required

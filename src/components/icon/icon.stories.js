@@ -68,7 +68,7 @@ const arrayIconsNames = [
 function iconsSet(size) {
   return arrayIconsNames
     .map(iconType => {
-      return `<style>gxg-icon:hover {opacity:0.25} gxg-icon{margin-right: 8px;}</style><gxg-tooltip no-border width-auto message="${iconType}"><gxg-icon size="${size}" type="${iconType}" color="${select(
+      return `<style>gxg-icon:hover {opacity:0.25} gxg-icon{margin-right: 8px;}</style><gxg-tooltip no-border width-auto label="${iconType}"><gxg-icon size="${size}" type="${iconType}" color="${select(
         label,
         options,
         defaultValue

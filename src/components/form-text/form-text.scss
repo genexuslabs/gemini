@@ -72,7 +72,7 @@ TEXT
   }
 }
 //borderless
-:host([borderless]) {
+:host([minimal]) {
   input[type="text"]:not(:focus) {
     border-color: transparent;
     background-color: transparent;

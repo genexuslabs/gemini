@@ -28,11 +28,6 @@ export class FormText implements FormComponent {
   *********************************/
 
   /**
-   * Is this attribute is present, the border and the background will only be visible on focus
-   */
-  @Prop({ reflect: true }) borderless: false;
-
-  /**
    * The presence of this attribute makes the input disabled
    */
   @Prop() disabled = false;
@@ -62,6 +57,11 @@ export class FormText implements FormComponent {
    * The input label
    */
   @Prop() label: string;
+
+  /**
+   * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+   */
+  @Prop() minimal = true;
 
   /**
    * The input name
