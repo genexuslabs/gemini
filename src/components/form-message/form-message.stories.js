@@ -9,7 +9,7 @@ import {
   radios
 } from "@storybook/addon-knobs";
 
-const stories = storiesOf("Form message", module);
+const stories = storiesOf("Controls/Form message", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories

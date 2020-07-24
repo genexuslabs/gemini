@@ -46,7 +46,7 @@ function mostrarAlertMoreInfo(alertId) {
 /*************
 STORIES
 *************/
-const stories = storiesOf("Alert", module);
+const stories = storiesOf("Interaction/Alert", module);
 stories.addDecorator(withKnobs);
 stories
   .add(

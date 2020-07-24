@@ -12,7 +12,7 @@ import {
 STORIES
 *************/
 
-const stories = storiesOf("Button Group", module);
+const stories = storiesOf("Controls/Button Group", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories

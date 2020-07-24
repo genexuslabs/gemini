@@ -9,7 +9,7 @@ import {
   radios
 } from "@storybook/addon-knobs";
 
-const stories = storiesOf("Accordion", module);
+const stories = storiesOf("Other/Accordion", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories

@@ -13,7 +13,7 @@ KNOBS
 *************/
 
 /*Icons Knob*/
-const label = "Color";
+const label = "Icons/Color";
 const options = {
   onbackground: "onbackground",
   "negative (white)": "negative",
@@ -76,7 +76,7 @@ function iconsSet(size) {
     })
     .join("");
 }
-const stories = storiesOf("Icons", module);
+const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
 stories

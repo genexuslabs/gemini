@@ -5,7 +5,7 @@ import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 /*************
 STORIES
 *************/
-const stories = storiesOf("Columns", module);
+const stories = storiesOf("Layout/Columns", module);
 stories.addDecorator(withKnobs);
 stories
   .add(

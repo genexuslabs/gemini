@@ -53,7 +53,7 @@ const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
 /*************
 STORIES
 *************/
-const stories = storiesOf("Button", module);
+const stories = storiesOf("Controls/Button", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories
