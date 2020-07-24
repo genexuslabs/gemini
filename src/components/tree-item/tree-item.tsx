@@ -23,10 +23,17 @@ export class TreeItem {
    * The state of the tree-item, wether it is disabled or not
    */
   @Prop({ reflect: true }) disabled = false;
+  /**
+   * The tree item icon
+   */
   @Prop() icon: IconType = "file";
   @State() open = false;
   @State() numberOfChildItems: number;
   @State() treeContainerMaxHeight: string;
+
+  /**
+   * (This event is for internal use)
+   */
   @Event() itemClicked: EventEmitter;
 
   componentDidLoad() {

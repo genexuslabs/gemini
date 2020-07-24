@@ -59,16 +59,6 @@ export class FormSelectNew {
   @Prop() size: string;
 
   /**
-   * The select name
-   */
-  @Prop() name: string;
-
-  /**
-   * The select id
-   */
-  @Prop() selectId: string;
-
-  /**
    * An variable to hold the value of the selected option (for internal use)
    */
   @State() value: string;
@@ -83,8 +73,9 @@ export class FormSelectNew {
    */
   @Prop() maxWidth = "100%";
 
-  @Event() input: EventEmitter;
-
+  /**
+   * Returns the value of the selected option
+   */
   @Event() change: EventEmitter;
 
   /*********************************
@@ -112,11 +103,6 @@ export class FormSelectNew {
         }
         cElement.setAttribute("class", "same-as-selected");
         cElement.setAttribute("aria-selected", "true");
-
-        this.input.emit({
-          selectedValue: selectedValue,
-          selectedLabel: h.innerHTML
-        });
 
         break;
       }
@@ -294,7 +280,6 @@ export class FormSelectNew {
               class={{
                 label: true
               }}
-              htmlFor={this.selectId}
             >
               {this.label}
               {requiredLabel(this)}

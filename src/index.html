@@ -25,38 +25,63 @@
     </style>
   </head>
   <body>
-    <gxg-form-text
-      minimal
-      type="text"
-      id="name4"
-      name="name"
-      label="Default 122"
-      placeholder="Placeholder text"
-      full-width
-      icon="colorPicker"
-      icon-position="right"
-      value="dsda"
-    >
-    </gxg-form-text>
-
-    <gxg-select minimal label="Select a car:" width="400px" size="5">
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
-
-    <gxg-drag-container>
-      <gxg-drag-box border class="draggable">Container 01</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
-    </gxg-drag-container>
+    <gxg-tree slot="tree">
+      <gxg-tree-item>
+        Fruits
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            apple
+          </gxg-tree-item>
+          <gxg-tree-item>
+            banana
+            <gxg-tree slot="tree">
+              <gxg-tree-item>
+                cavendish banana
+              </gxg-tree-item>
+              <gxg-tree-item>
+                pisang raja
+              </gxg-tree-item>
+              <gxg-tree-item>
+                red banana
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Vegetables
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            sweat potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            lettuce
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Seasonings
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            salt
+          </gxg-tree-item>
+          <gxg-tree-item>
+            pepper
+          </gxg-tree-item>
+          <gxg-tree-item>
+            comino
+          </gxg-tree-item>
+          <gxg-tree-item>
+            parsley
+          </gxg-tree-item>
+          <gxg-tree-item>
+            basil
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+    </gxg-tree>
   </body>
 </html>

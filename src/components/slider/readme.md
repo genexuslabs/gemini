@@ -6,7 +6,7 @@
 
 | Property   | Attribute   | Description                                          | Type      | Default   |
 | ---------- | ----------- | ---------------------------------------------------- | --------- | --------- |
-| `disabled` | `disabled`  | The state of the slider. Whether is disabled or not. | `boolean` | `false`   |
+| `disabled` | `disabled`  | The state of the slider, whether is disabled or not. | `boolean` | `false`   |
 | `label`    | `label`     | The label                                            | `string`  | `"Label"` |
 | `max`      | `max`       | The max. value                                       | `number`  | `100`     |
 | `maxWidth` | `max-width` | The slider max. width                                | `string`  | `"100%"`  |

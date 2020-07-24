@@ -37,24 +37,14 @@ export class FormTextarea implements FormComponent {
   @Prop({ mutable: true }) requiredMessage: string;
 
   /**
-   * The textarea id
-   */
-  @Prop() textareaId: string;
-
-  /**
    * The textarea label
    */
-  @Prop({ reflect: true }) label = "hey";
+  @Prop({ reflect: true }) label: string;
 
   /**
    * The max-width
    */
   @Prop() maxWidth = "100%";
-
-  /**
-   * The textarea name
-   */
-  @Prop() name: string;
 
   /**
    * The textarea placeholder
@@ -81,8 +71,14 @@ export class FormTextarea implements FormComponent {
    */
   @Prop() warning = false;
 
+  /**
+   * Returns the textarea value
+   */
   @Event() input: EventEmitter;
 
+  /**
+   * Returns the textarea value
+   */
   @Event() change: EventEmitter;
 
   /*********************************
@@ -117,7 +113,6 @@ export class FormTextarea implements FormComponent {
             class={{
               label: true
             }}
-            htmlFor={this.textareaId}
           >
             {this.label}
             {requiredLabel(this)}
@@ -133,8 +128,6 @@ export class FormTextarea implements FormComponent {
             "textarea--error": this.error === true,
             "textarea--warning": this.warning === true
           }}
-          id={this.textareaId}
-          name={this.name}
           placeholder={this.placeholder}
           disabled={this.disabled}
           onInput={this.handleInput.bind(this)}

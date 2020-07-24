@@ -1,12 +1,4 @@
-import {
-  Component,
-  Prop,
-  h,
-  Listen,
-  Element,
-  Host,
-  State
-} from "@stencil/core";
+import { Component, Prop, h, Listen, Element, Host } from "@stencil/core";
 
 @Component({
   tag: "gxg-form-radio-group",
@@ -24,16 +16,6 @@ export class FormRadioGroup {
    * The radio group label
    */
   @Prop() label: string;
-
-  /**
-   * The selected radio id
-   */
-  @Prop({ reflect: true }) RadioId: string;
-
-  /**
-   * The selected radio value
-   */
-  @State() RadioValue: string;
 
   /*********************************
   METHODS
@@ -75,11 +57,8 @@ export class FormRadioGroup {
     }
   }
 
-  @Listen("change")
+  @Listen("changeInternal")
   radioClickedHandler(event: CustomEvent) {
-    this.RadioId = event.detail["id"];
-    this.RadioValue = event.detail["value"];
-
     const radioButtonsNodeList = this.el.querySelectorAll("gxg-form-radio");
 
     radioButtonsNodeList.forEach(function(currentRadio) {

@@ -6,8 +6,13 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class Option {
+  /**
+   * The value
+   */
   @Prop() value: string;
-
+  /**
+   * The presence of this attribute makes the option selected by default
+   */
   @Prop() selected: boolean;
 
   render() {

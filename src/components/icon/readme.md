@@ -1,13 +1,5 @@
 # gxg-icon
 
-<h2>Using an icon</h2>
-<ol>
-    <li>Include the gx-icon component: <code>&lt;gxg-icon&gt;&lt;/gxg-icon&gt;</code></li>
-    <li>set the <em>type</em> property to define the icon type. Click <a href="/story/icons--small-size-icons">here</a> to see the list of avaiable icons</li>
-    <li>Icons come in two sizes: <a href="/story/icons--regular-size-icons">regular</a> or <a href="/story/icons--small-size-icons">small</a>. Set the <em>size</em> property equal to "small" if you intend to use the small version. By default, "regular" size will be selected.</li>
-    <li>Icons come in five different colors: onbackground (black), negative (white), error (red), warning (orange), and green (success). By default, "onbackground" will be selected. Choose "negative" if you are using the icon over a dark background. To set the icon color, set the <em>color</em> property equal to any of the mentioned possible values.</li>
-</ol>
-
 <!-- Auto Generated Below -->
 
 ## Properties

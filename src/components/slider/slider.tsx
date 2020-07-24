@@ -9,7 +9,7 @@ export class Slider {
   @Element() el: HTMLElement;
 
   /**
-   * The state of the slider. Whether is disabled or not.
+   * The state of the slider, whether is disabled or not.
    */
   @Prop({ reflect: true }) disabled = false;
 

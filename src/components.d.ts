@@ -314,11 +314,11 @@ export namespace Components {
      */
     RadioId: string;
     /**
-     * The presence of this attribute makes this radio selected by default
+     * The presence of this attribute makes the radio selected by default
      */
     checked: boolean;
     /**
-     * The presence of this attribute disables this radio
+     * The presence of this attribute disables the radio
      */
     disabled: boolean;
     /**
@@ -336,10 +336,6 @@ export namespace Components {
   }
   interface GxgFormRadioGroup {
     /**
-     * The selected radio id
-     */
-    RadioId: string;
-    /**
      * The radio group label
      */
     label: string;
@@ -354,17 +350,13 @@ export namespace Components {
      */
     error: boolean;
     /**
-     * The input icon (optional) possible values: the same as the values for the icon component
+     * The input icon (optional)
      */
     icon: IconType;
     /**
      * The input icon side
      */
     iconPosition: IconPosition;
-    /**
-     * The input id
-     */
-    inputId: string;
     /**
      * The input label
      */
@@ -377,10 +369,6 @@ export namespace Components {
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
     minimal: boolean;
-    /**
-     * The input name
-     */
-    name: string;
     /**
      * The input placeholder
      */
@@ -420,10 +408,6 @@ export namespace Components {
      */
     maxWidth: string;
     /**
-     * The textarea name
-     */
-    name: string;
-    /**
      * The textarea placeholder
      */
     placeholder: string;
@@ -439,10 +423,6 @@ export namespace Components {
      * The number of rows
      */
     rows: number;
-    /**
-     * The textarea id
-     */
-    textareaId: string;
     /**
      * The textarea value
      */
@@ -508,7 +488,13 @@ export namespace Components {
     zIndex: string;
   }
   interface GxgOption {
+    /**
+     * The presence of this attribute makes the option selected by default
+     */
     selected: boolean;
+    /**
+     * The value
+     */
     value: string;
   }
   interface GxgProgressBar {
@@ -551,17 +537,9 @@ export namespace Components {
      */
     minimal: boolean;
     /**
-     * The select name
-     */
-    name: string;
-    /**
      * The presence of this attribute makes this input required
      */
     required: boolean;
-    /**
-     * The select id
-     */
-    selectId: string;
     /**
      * The maximum number of visible options
      */
@@ -583,7 +561,7 @@ export namespace Components {
   }
   interface GxgSlider {
     /**
-     * The state of the slider. Whether is disabled or not.
+     * The state of the slider, whether is disabled or not.
      */
     disabled: boolean;
     /**
@@ -770,6 +748,9 @@ export namespace Components {
      * The state of the tree-item, wether it is disabled or not
      */
     disabled: boolean;
+    /**
+     * The tree item icon
+     */
     icon: IconType;
   }
 }
@@ -1391,11 +1372,11 @@ declare namespace LocalJSX {
      */
     RadioId?: string;
     /**
-     * The presence of this attribute makes this radio selected by default
+     * The presence of this attribute makes the radio selected by default
      */
     checked?: boolean;
     /**
-     * The presence of this attribute disables this radio
+     * The presence of this attribute disables the radio
      */
     disabled?: boolean;
     /**
@@ -1406,7 +1387,17 @@ declare namespace LocalJSX {
      * The radio name (should be the same for every radio of the same radio-group)
      */
     name?: string;
+    /**
+     * Returns an object with the radio value, and radio id
+     */
     onChange?: (event: CustomEvent<any>) => void;
+    /**
+     * (This event is for internal use)
+     */
+    onChangeInternal?: (event: CustomEvent<any>) => void;
+    /**
+     * (This event is for internal use)
+     */
     onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
      * The radio value
@@ -1414,10 +1405,6 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgFormRadioGroup {
-    /**
-     * The selected radio id
-     */
-    RadioId?: string;
     /**
      * The radio group label
      */
@@ -1433,17 +1420,13 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
-     * The input icon (optional) possible values: the same as the values for the icon component
+     * The input icon (optional)
      */
     icon?: IconType;
     /**
      * The input icon side
      */
     iconPosition?: IconPosition;
-    /**
-     * The input id
-     */
-    inputId?: string;
     /**
      * The input label
      */
@@ -1457,10 +1440,12 @@ declare namespace LocalJSX {
      */
     minimal?: boolean;
     /**
-     * The input name
+     * Returns the input value
      */
-    name?: string;
     onChange?: (event: CustomEvent<any>) => void;
+    /**
+     * Returns the input value
+     */
     onInput?: (event: CustomEvent<any>) => void;
     /**
      * The input placeholder
@@ -1501,10 +1486,12 @@ declare namespace LocalJSX {
      */
     maxWidth?: string;
     /**
-     * The textarea name
+     * Returns the textarea value
      */
-    name?: string;
     onChange?: (event: CustomEvent<any>) => void;
+    /**
+     * Returns the textarea value
+     */
     onInput?: (event: CustomEvent<any>) => void;
     /**
      * The textarea placeholder
@@ -1522,10 +1509,6 @@ declare namespace LocalJSX {
      * The number of rows
      */
     rows?: number;
-    /**
-     * The textarea id
-     */
-    textareaId?: string;
     /**
      * The textarea value
      */
@@ -1592,7 +1575,13 @@ declare namespace LocalJSX {
     zIndex?: string;
   }
   interface GxgOption {
+    /**
+     * The presence of this attribute makes the option selected by default
+     */
     selected?: boolean;
+    /**
+     * The value
+     */
     value?: string;
   }
   interface GxgProgressBar {
@@ -1635,19 +1624,13 @@ declare namespace LocalJSX {
      */
     minimal?: boolean;
     /**
-     * The select name
+     * Returns the value of the selected option
      */
-    name?: string;
     onChange?: (event: CustomEvent<any>) => void;
-    onInput?: (event: CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this input required
      */
     required?: boolean;
-    /**
-     * The select id
-     */
-    selectId?: string;
     /**
      * The maximum number of visible options
      */
@@ -1669,7 +1652,7 @@ declare namespace LocalJSX {
   }
   interface GxgSlider {
     /**
-     * The state of the slider. Whether is disabled or not.
+     * The state of the slider, whether is disabled or not.
      */
     disabled?: boolean;
     /**
@@ -1858,7 +1841,13 @@ declare namespace LocalJSX {
      * The state of the tree-item, wether it is disabled or not
      */
     disabled?: boolean;
+    /**
+     * The tree item icon
+     */
     icon?: IconType;
+    /**
+     * (This event is for internal use)
+     */
     onItemClicked?: (event: CustomEvent<any>) => void;
   }
   interface IntrinsicElements {

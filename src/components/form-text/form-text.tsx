@@ -39,7 +39,6 @@ export class FormText implements FormComponent {
 
   /**
    * The input icon (optional)
-   * possible values: the same as the values for the icon component
    */
   @Prop() icon: IconType = null;
 
@@ -47,11 +46,6 @@ export class FormText implements FormComponent {
    * The input icon side
    */
   @Prop({ reflect: true }) iconPosition: IconPosition = null;
-
-  /**
-   * The input id
-   */
-  @Prop() inputId: string;
 
   /**
    * The input label
@@ -62,11 +56,6 @@ export class FormText implements FormComponent {
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
   @Prop() minimal = true;
-
-  /**
-   * The input name
-   */
-  @Prop() name: string;
 
   /**
    * The input placeholder
@@ -101,8 +90,14 @@ export class FormText implements FormComponent {
 
   @Element() el: HTMLElement;
 
+  /**
+   * Returns the input value
+   */
   @Event() input: EventEmitter;
 
+  /**
+   * Returns the input value
+   */
   @Event() change: EventEmitter;
 
   /*********************************
@@ -139,9 +134,7 @@ export class FormText implements FormComponent {
 
   handleInput(e) {
     const target = e.target as HTMLInputElement;
-    this.value = target.value;
-    this.input.emit(this.value);
-
+    this.input.emit(target.value);
     formHandleChange(this, e.target);
   }
 
@@ -166,7 +159,6 @@ export class FormText implements FormComponent {
               class={{
                 label: true
               }}
-              htmlFor={this.inputId}
             >
               {this.label}
               {requiredLabel(this)}
@@ -183,8 +175,6 @@ export class FormText implements FormComponent {
                 "input--error": this.error === true,
                 "input--warning": this.warning === true
               }}
-              id={this.inputId}
-              name={this.name}
               placeholder={this.placeholder}
               disabled={this.disabled}
               onInput={this.handleInput.bind(this)}

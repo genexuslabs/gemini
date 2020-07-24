@@ -15,7 +15,17 @@ import {
   shadow: true
 })
 export class FormRadio {
+  /**
+   * Returns an object with the radio value, and radio id
+   */
   @Event() change: EventEmitter;
+  /**
+   * (This event is for internal use)
+   */
+  @Event() changeInternal: EventEmitter;
+  /**
+   * (This event is for internal use)
+   */
   @Event() keyPressed: EventEmitter;
   @Element() el: HTMLElement;
 
@@ -32,12 +42,12 @@ export class FormRadio {
   @Prop() RadioId: string;
 
   /**
-   * The presence of this attribute makes this radio selected by default
+   * The presence of this attribute makes the radio selected by default
    */
   @Prop({ reflect: true }) checked = false;
 
   /**
-   * The presence of this attribute disables this radio
+   * The presence of this attribute disables the radio
    */
   @Prop() disabled = false;
 
@@ -63,10 +73,6 @@ export class FormRadio {
   componentDidLoad() {
     if (this.checked) {
       this.radioInput.setAttribute("checked", "checked");
-      this.change.emit({
-        id: this.RadioId,
-        value: this.value
-      });
     }
 
     if (this.disabled && this.checked) {
@@ -82,12 +88,15 @@ export class FormRadio {
     }
     if (newValue === true) {
       this.radioInput.setAttribute("checked", "checked");
-      this.selectRadio();
+      this.change.emit({
+        id: this.RadioId,
+        value: this.value
+      });
     }
   }
 
   selectRadio() {
-    this.change.emit({
+    this.changeInternal.emit({
       id: this.RadioId,
       value: this.value
     });
