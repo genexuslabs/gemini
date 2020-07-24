@@ -33,11 +33,6 @@ export class AccordionItem {
    */
   @Prop() itemId!: string;
 
-  /**
-   * The accordion title
-   */
-  @Prop() itemTitle: string;
-
   /*The accordion padding (internal spacing)*/
   @Prop({ reflect: true }) padding: padding = "s";
 
@@ -134,7 +129,9 @@ export class AccordionItem {
             class="item__header"
             onClick={this.itemClickedHandler.bind(this)}
           >
-            <div class="item__header__title">{this.itemTitle}</div>
+            <div class="item__header__title">
+              <slot name="title" />
+            </div>
             {this.printIcon()}
           </header>
           {this.status === "open" && !this.disabled ? (

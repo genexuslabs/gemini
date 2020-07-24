@@ -14,6 +14,9 @@
       height: var(--spacing-comp-05);
       @include ui-animation(background-color);
 
+      &__title {
+        width: 100%;
+      }
       .icon-wrapper {
         display: flex;
         align-items: center;
@@ -23,22 +26,23 @@
         background-color: var(--color-secondary-hover);
         cursor: pointer;
       }
-      &__title {
-        font-family: var(--font-family-primary);
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-bold);
-        text-transform: uppercase;
-        color: var(--color-always-black);
-        width: 100%;
-        text-align: center;
-        line-height: var(--spacing-comp-05);
-      }
     }
     &__container {
       @include gxg-text();
       padding: var(--spacing-comp-03);
       background-color: var(--color-background);
     }
+  }
+  ::slotted([slot="title"]) {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    color: var(--color-always-black);
+    width: 100%;
+    text-align: center;
+    line-height: var(--spacing-comp-05);
+    margin: 0;
   }
 }
 //Padding
@@ -156,6 +160,12 @@
       background: var(--color-primary-disabled);
     }
   }
+  ::slotted([slot="title"]) {
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-xs);
+    text-align: left;
+    color: var(--color-on-background);
+  }
 }
 
 //Boxws aesthetic version
@@ -173,13 +183,6 @@
         margin-left: var(--spacing-comp-02);
         @include ui-animation(background);
       }
-
-      &__title {
-        font-weight: var(--font-weight-bold);
-        font-size: var(--font-size-sm);
-        text-align: left;
-        color: var(--color-on-background);
-      }
     }
     &__container {
       background: transparent;
@@ -193,6 +196,12 @@
       }
       border-color: var(--color-primary-hover);
     }
+  }
+  ::slotted([slot="title"]) {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    text-align: left;
+    color: var(--color-on-background);
   }
 }
 //Boxed aesthetic version disabled
