@@ -148,6 +148,10 @@ export class FormText implements FormComponent {
     this.change.emit(this.value);
   }
 
+  clearButtonFunc() {
+    this.el.shadowRoot.querySelector("input").value = "";
+  }
+
   render() {
     return (
       <Host
@@ -171,7 +175,12 @@ export class FormText implements FormComponent {
           ) : (
             ""
           )}
-          <div class="inner-wrapper">
+          <div
+            class={{
+              "inner-wrapper": true,
+              "clear-button": this.clearButton === true
+            }}
+          >
             <input
               type="text"
               value={this.value}
@@ -193,6 +202,7 @@ export class FormText implements FormComponent {
                 type="close"
                 size="small"
                 color="onbackground"
+                onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
           </div>

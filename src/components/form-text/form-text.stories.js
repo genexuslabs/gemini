@@ -13,6 +13,11 @@ const stories = storiesOf("Controls/Input text", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Text", () => {
+  //Clear button
+  const labelClearButton = "Clear button";
+  const defaultValueClearButton = false;
+  const valueClearButton = boolean(labelClearButton, defaultValueClearButton);
+
   //Icon Type
   const labelIconType = "Icon";
   const optionsIconType = [
@@ -131,11 +136,18 @@ stories.add("Text", () => {
     }
   }
 
+  function clearButtonFunc() {
+    if (valueClearButton) {
+      return "clear-button";
+    }
+  }
+
   return `<style>#root{width:700px;display:flex;flex-direction:column;align-items:center}gxg-form-text{margin-bottom: var(--spacing-lay-xs)}</style>
 
   <gxg-form-text
   label="Position"
   placeholder="Chief Executive"
+  ${clearButtonFunc()}
   icon=${valueIconType}
   icon-position=${valueIcon}
   max-width=${valueMaxWidth}

@@ -91,6 +91,13 @@ INPUT TEXT ICON
     right: 0;
   }
 }
+:host([icon-position="right"]) {
+  .clear-button {
+    gxg-icon:not(.clear-button) {
+      right: 16px;
+    }
+  }
+}
 
 // Input with icon (on the left, or on the right)
 
@@ -105,4 +112,20 @@ INPUT TEXT ICON
 }
 :host([icon-position="right"]) .inner-wrapper {
   flex-direction: row-reverse;
+}
+
+/*****************************************************
+CLEAR BUTTON
+*****************************************************/
+:host {
+  gxg-icon.clear-button {
+    right: 0 !important;
+    left: auto;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
