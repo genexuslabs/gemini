@@ -66,6 +66,10 @@ export namespace Components {
      */
     itemId: string;
     /**
+     * The accordion title
+     */
+    itemTitle: string;
+    /**
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
     mode: mode;
@@ -656,6 +660,16 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {}
+  interface GxgTemplate {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled: boolean;
+    /**
+     * The toggle label
+     */
+    label: string;
+  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -981,6 +995,13 @@ declare global {
     prototype: HTMLGxgTabsElement;
     new (): HTMLGxgTabsElement;
   };
+  interface HTMLGxgTemplateElement
+    extends Components.GxgTemplate,
+      HTMLStencilElement {}
+  var HTMLGxgTemplateElement: {
+    prototype: HTMLGxgTemplateElement;
+    new (): HTMLGxgTemplateElement;
+  };
   interface HTMLGxgToggleElement
     extends Components.GxgToggle,
       HTMLStencilElement {}
@@ -1058,6 +1079,7 @@ declare global {
     "gxg-tab-bar": HTMLGxgTabBarElement;
     "gxg-tab-button": HTMLGxgTabButtonElement;
     "gxg-tabs": HTMLGxgTabsElement;
+    "gxg-template": HTMLGxgTemplateElement;
     "gxg-toggle": HTMLGxgToggleElement;
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
@@ -1095,6 +1117,10 @@ declare namespace LocalJSX {
      * The accordion id
      */
     itemId: string;
+    /**
+     * The accordion title
+     */
+    itemTitle?: string;
     /**
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
@@ -1727,6 +1753,16 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {}
+  interface GxgTemplate {
+    /**
+     * The state of the toggle. Whether is disabled or not. Possible values: false, true
+     */
+    disabled?: boolean;
+    /**
+     * The toggle label
+     */
+    label?: string;
+  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1851,6 +1887,7 @@ declare namespace LocalJSX {
     "gxg-tab-bar": GxgTabBar;
     "gxg-tab-button": GxgTabButton;
     "gxg-tabs": GxgTabs;
+    "gxg-template": GxgTemplate;
     "gxg-toggle": GxgToggle;
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
@@ -1929,6 +1966,8 @@ declare module "@stencil/core" {
       "gxg-tab-button": LocalJSX.GxgTabButton &
         JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
       "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
+      "gxg-template": LocalJSX.GxgTemplate &
+        JSXBase.HTMLAttributes<HTMLGxgTemplateElement>;
       "gxg-toggle": LocalJSX.GxgToggle &
         JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
       "gxg-toolbar": LocalJSX.GxgToolbar &

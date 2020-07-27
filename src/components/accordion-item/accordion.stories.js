@@ -108,11 +108,11 @@ stories
       optionsPadding,
       defaultValuePadding
     )}" ${singleItemOpen()} mode="classical"  max-width="${valueMaxWidth}">
-    <gxg-accordion-item item-id="tab 1" ${singleDisabled()} status="${itemOpen()}"><h2 slot="title">${valueTitle}</h2> ${valueContent}</gxg-accordion-item>
-    <gxg-accordion-item item-id="tab 2"><h2 slot="title">J.K. Rowling</h2> “If you want to know what a man's like, take a good look at how he
+    <gxg-accordion-item item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()} status="${itemOpen()}"> ${valueContent}</gxg-accordion-item>
+    <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
-    <gxg-accordion-item item-id="tab 3"><h2 slot="title">Maya Angelou</h2>“I've learned that people will forget what you said, people will forget
+    <gxg-accordion-item item-title="Maya Angelou" item-id="tab 3">“I've learned that people will forget what you said, people will forget
     what you did, but people will never forget how you made them feel.” ―
     Maya Angelou</gxg-accordion-item>
   </gxg-accordion>`;
@@ -212,11 +212,11 @@ stories
       optionsPadding,
       defaultValuePadding
     )}" ${singleItemOpen()} mode="slim" max-width="${valueMaxWidth}">
-    <gxg-accordion-item  status="${initialState()}" item-id="tab 1" ${singleDisabled()}><h2 slot="title">${valueTitle}</h2>${valueContent}</gxg-accordion-item>
-    <gxg-accordion-item item-id="tab 2"><h2 slot="title">J.K. Rowling</h2>“If you want to know what a man's like, take a good look at how he
+    <gxg-accordion-item  status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
+    <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
     treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
     the Goblet of Fire</gxg-accordion-item> 
-    <gxg-accordion-item item-id="tab 3"><h2 slot="title">Maya Angelou</h2>“I've learned that people will forget what you said, people will forget
+    <gxg-accordion-item item-title="Maya Angelou" item-id="tab 3">“I've learned that people will forget what you said, people will forget
     what you did, but people will never forget how you made them feel.” ―
     Maya Angelou</gxg-accordion-item>
   </gxg-accordion>`;
@@ -317,11 +317,11 @@ stories
       optionsPadding,
       defaultValuePadding
     )}" ${singleItemOpen()} mode="boxed" max-width="${valueMaxWidth}">
-      <gxg-accordion-item status="${initialState()}" item-id="tab 1" ${singleDisabled()}><h2 slot="title">${valueTitle}</h2>${valueContent}</gxg-accordion-item>
-      <gxg-accordion-item item-id="tab 2"><h2 slot="title">J.K. Rowling</h2>“If you want to know what a man's like, take a good look at how he
+      <gxg-accordion-item status="${initialState()}" item-title="${valueTitle}" item-id="tab 1" ${singleDisabled()}>${valueContent}</gxg-accordion-item>
+      <gxg-accordion-item item-title="J.K. Rowling" item-id="tab 2">“If you want to know what a man's like, take a good look at how he
       treats his inferiors, not his equals.” ― J.K. Rowling, Harry Potter and
       the Goblet of Fire</gxg-accordion-item> 
-      <gxg-accordion-item item-id="tab 3"><h2 slot="title">Maya Angelou</h2>“I've learned that people will forget what you said, people will forget
+      <gxg-accordion-item item-title="Maya Angelou" item-id="tab 3">“I've learned that people will forget what you said, people will forget
       what you did, but people will never forget how you made them feel.” ―
       Maya Angelou</gxg-accordion-item>
     </gxg-accordion>`;
@@ -329,36 +329,28 @@ stories
   .add("Classcial nested", () => {
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
     <gxg-accordion mode="classical">
-      <gxg-accordion-item item-id="fruits">
-      <h2 slot="title">fruits</h2>
+      <gxg-accordion-item item-title="fruits" item-id="fruits">
         <gxg-accordion mode="slim">
-          <gxg-accordion-item item-id="apple">
-          <h2 slot="title">apple</h2>
+          <gxg-accordion-item item-title="apple" item-id="apple">
             An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
           </gxg-accordion-item>
-          <gxg-accordion-item item-id="banana">
-          <h2 slot="title">banana</h2>
+          <gxg-accordion-item item-title="banana" item-id="banana">
             A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
           </gxg-accordion-item>
-          <gxg-accordion-item item-id="mango">
-          <h2 slot="title">mango</h2>
+          <gxg-accordion-item item-title="mango" item-id="mango">
             A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
           </gxg-accordion-item>
       </gxg-accordion>
       </gxg-accordion-item>
-      <gxg-accordion-item item-id="vegetables">
-      <h2 slot="title">vegetables</h2>
+      <gxg-accordion-item item-title="vegetables" item-id="vegetables">
         <gxg-accordion mode="slim">
-        <gxg-accordion-item item-id="lettuce">
-      <h2 slot="title">lettuce</h2>
+        <gxg-accordion-item item-title="lettuce" item-id="lettuce">
           Lettuce (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds.
         </gxg-accordion-item>
-        <gxg-accordion-item item-id="carrot">
-          <h2 slot="title">carrot</h2>
+        <gxg-accordion-item item-title="carrot" item-id="carrot">
           The carrot (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist. 
         </gxg-accordion-item>
-        <gxg-accordion-item item-id="onion">
-        <h2 slot="title">onion</h2>
+        <gxg-accordion-item item-title="onion" item-id="onion">
           The onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.
         </gxg-accordion-item>
         </gxg-accordion>
@@ -368,36 +360,28 @@ stories
   .add("Boxed nested", () => {
     return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
     <gxg-accordion mode="boxed">
-      <gxg-accordion-item item-id="fruits">
-      <h2 slot="title">fruits</h2>
+      <gxg-accordion-item item-title="fruits" item-id="fruits">
         <gxg-accordion mode="slim">
-          <gxg-accordion-item item-id="apple">
-            <h2 slot="title">apple</h2>
+          <gxg-accordion-item item-title="apple" item-id="apple">
             An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
           </gxg-accordion-item>
-          <gxg-accordion-item item-id="banana">
-            <h2 slot="title">banana</h2>
+          <gxg-accordion-item item-title="banana" item-id="banana">
             A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
           </gxg-accordion-item>
-          <gxg-accordion-item item-id="mango">
-            <h2 slot="title">mango</h2>
+          <gxg-accordion-item item-title="mango" item-id="mango">
             A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
           </gxg-accordion-item>
       </gxg-accordion>
       </gxg-accordion-item>
-      <gxg-accordion-item item-id="vegetables">
-        <h2 slot="title">vegetables</h2>
+      <gxg-accordion-item item-title="vegetables" item-id="vegetables">
         <gxg-accordion mode="slim">
-        <gxg-accordion-item item-id="lettuce">
-          <h2 slot="title">lettuce</h2>
+        <gxg-accordion-item item-title="lettuce" item-id="lettuce">
           Lettuce (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds.
         </gxg-accordion-item>
         <gxg-accordion-item item-title="carrot" item-id="carrot">
-          <h2 slot="title">carrot</h2>
           The carrot (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist. 
         </gxg-accordion-item>
-        <gxg-accordion-item item-id="onion">
-          <h2 slot="title">onion</h2>
+        <gxg-accordion-item item-title="onion" item-id="onion">
           The onion also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium.
         </gxg-accordion-item>
         </gxg-accordion>

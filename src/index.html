@@ -25,23 +25,63 @@
     </style>
   </head>
   <body>
-    <gxg-accordion mode="boxed">
-      <gxg-accordion-item item-id="tab-01">
-        <h2 slot="title">Tab 01</h1>
-        <gxg-accordion mode="slim">
-          <gxg-accordion-item item-id="tab-03"
-            >
-            <h2 slot="title">Tab 01</h1>
-            some content on accordion 1.</gxg-accordion-item
-          >
-          <gxg-accordion-item item-title="tab-02" item-id="tab-04"
-            >some content on accordion 2.</gxg-accordion-item
-          >
-        </gxg-accordion>
-      </gxg-accordion-item>
-      <gxg-accordion-item item-title="tab-02" item-id="tab-02"
-        >some content on accordion 2.</gxg-accordion-item
-      >
-    </gxg-accordion>
+    <gxg-tree slot="tree">
+      <gxg-tree-item>
+        Fruits
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            apple
+          </gxg-tree-item>
+          <gxg-tree-item>
+            banana
+            <gxg-tree slot="tree">
+              <gxg-tree-item>
+                cavendish banana
+              </gxg-tree-item>
+              <gxg-tree-item>
+                pisang raja
+              </gxg-tree-item>
+              <gxg-tree-item>
+                red banana
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Vegetables
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            sweat potatoes
+          </gxg-tree-item>
+          <gxg-tree-item>
+            lettuce
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Seasonings
+        <gxg-tree slot="tree">
+          <gxg-tree-item>
+            salt
+          </gxg-tree-item>
+          <gxg-tree-item>
+            pepper
+          </gxg-tree-item>
+          <gxg-tree-item>
+            comino
+          </gxg-tree-item>
+          <gxg-tree-item>
+            parsley
+          </gxg-tree-item>
+          <gxg-tree-item>
+            basil
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+    </gxg-tree>
   </body>
 </html>
