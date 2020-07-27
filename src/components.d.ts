@@ -342,6 +342,10 @@ export namespace Components {
   }
   interface GxgFormText {
     /**
+     * The presence of this attribute displays a clear (cross) button-icon on the right side
+     */
+    clearButton: boolean;
+    /**
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
@@ -660,16 +664,6 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {}
-  interface GxgTemplate {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled: boolean;
-    /**
-     * The toggle label
-     */
-    label: string;
-  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -995,13 +989,6 @@ declare global {
     prototype: HTMLGxgTabsElement;
     new (): HTMLGxgTabsElement;
   };
-  interface HTMLGxgTemplateElement
-    extends Components.GxgTemplate,
-      HTMLStencilElement {}
-  var HTMLGxgTemplateElement: {
-    prototype: HTMLGxgTemplateElement;
-    new (): HTMLGxgTemplateElement;
-  };
   interface HTMLGxgToggleElement
     extends Components.GxgToggle,
       HTMLStencilElement {}
@@ -1079,7 +1066,6 @@ declare global {
     "gxg-tab-bar": HTMLGxgTabBarElement;
     "gxg-tab-button": HTMLGxgTabButtonElement;
     "gxg-tabs": HTMLGxgTabsElement;
-    "gxg-template": HTMLGxgTemplateElement;
     "gxg-toggle": HTMLGxgToggleElement;
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
@@ -1331,6 +1317,8 @@ declare namespace LocalJSX {
      * The max-width of the box container
      */
     maxWidth?: string;
+    onItemDragStart?: (event: CustomEvent<any>) => void;
+    onItemDrop?: (event: CustomEvent<any>) => void;
     padding?: Padding;
   }
   interface GxgFormCheckbox {
@@ -1411,6 +1399,10 @@ declare namespace LocalJSX {
     label?: string;
   }
   interface GxgFormText {
+    /**
+     * The presence of this attribute displays a clear (cross) button-icon on the right side
+     */
+    clearButton?: boolean;
     /**
      * The presence of this attribute makes the input disabled
      */
@@ -1753,16 +1745,6 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {}
-  interface GxgTemplate {
-    /**
-     * The state of the toggle. Whether is disabled or not. Possible values: false, true
-     */
-    disabled?: boolean;
-    /**
-     * The toggle label
-     */
-    label?: string;
-  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1887,7 +1869,6 @@ declare namespace LocalJSX {
     "gxg-tab-bar": GxgTabBar;
     "gxg-tab-button": GxgTabButton;
     "gxg-tabs": GxgTabs;
-    "gxg-template": GxgTemplate;
     "gxg-toggle": GxgToggle;
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
@@ -1966,8 +1947,6 @@ declare module "@stencil/core" {
       "gxg-tab-button": LocalJSX.GxgTabButton &
         JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
       "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
-      "gxg-template": LocalJSX.GxgTemplate &
-        JSXBase.HTMLAttributes<HTMLGxgTemplateElement>;
       "gxg-toggle": LocalJSX.GxgToggle &
         JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
       "gxg-toolbar": LocalJSX.GxgToolbar &

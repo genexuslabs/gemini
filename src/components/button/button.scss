@@ -282,7 +282,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-right: 0;
   padding-left: 0;
-  width: var(--spacing-comp-05);
   height: 20px;
 
   ::slotted([slot="icon"]) {

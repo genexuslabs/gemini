@@ -1,13 +1,21 @@
-import { Component, Prop, Element, h, Host } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  Element,
+  h,
+  Host,
+  Event,
+  EventEmitter
+} from "@stencil/core";
 import { Padding } from "../drag-box/drag-box";
-import { makeDraggable } from "../../utils/makeDraggable";
+import { makeDraggable, DraggableComponent } from "../../utils/makeDraggable";
 
 @Component({
   tag: "gxg-drag-container",
   styleUrl: "drag-container.scss",
   shadow: true
 })
-export class DragContainer {
+export class DragContainer implements DraggableComponent {
   @Element() el: HTMLElement;
 
   /**
@@ -17,11 +25,17 @@ export class DragContainer {
 
   @Prop() padding: Padding;
 
+  @Event() itemDragStart: EventEmitter;
+  @Event() itemDrop: EventEmitter;
+
   private dndCleanup: Function;
 
+  getDraggableElements() {
+    return this.el.querySelectorAll("gxg-drag-box");
+  }
+
   componentDidLoad() {
-    const dragabbleItems = this.el.querySelectorAll("gxg-drag-box");
-    this.dndCleanup = makeDraggable(dragabbleItems);
+    this.dndCleanup = makeDraggable(this);
 
     //Set padding to each of the drag-boxes
     const dragBoxes = this.el.querySelectorAll("gxg-drag-box");

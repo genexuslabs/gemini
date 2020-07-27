@@ -1,4 +1,7 @@
-export function makeDraggable(draggableItems: NodeListOf<Element>): Function {
+import { EventEmitter } from "@stencil/core";
+
+export function makeDraggable(component: DraggableComponent): Function {
+  const draggableItems = component.getDraggableElements();
   const items = Array.from(draggableItems);
 
   items.forEach(listItem => {
@@ -8,6 +11,10 @@ export function makeDraggable(draggableItems: NodeListOf<Element>): Function {
   let dragSrcEl;
 
   function dragStart(e) {
+    const itemDragStartEvent = component.itemDragStart.emit();
+    if (itemDragStartEvent.defaultPrevented) {
+      return;
+    }
     this.style.opacity = "0.3";
     dragSrcEl = this;
     e.dataTransfer.effectAllowed = "move";
@@ -30,6 +37,10 @@ export function makeDraggable(draggableItems: NodeListOf<Element>): Function {
   }
 
   function dragDrop(e) {
+    const itemDropEvent = component.itemDrop.emit();
+    if (itemDropEvent.defaultPrevented) {
+      return;
+    }
     if (dragSrcEl != this) {
       dragSrcEl.innerHTML = this.innerHTML;
       this.innerHTML = e.dataTransfer.getData("text/html");
@@ -65,4 +76,10 @@ export function makeDraggable(draggableItems: NodeListOf<Element>): Function {
   return function cleanup() {
     items.forEach(item => removeEventsDragAndDrop(item));
   };
+}
+
+export interface DraggableComponent {
+  itemDrop: EventEmitter;
+  itemDragStart: EventEmitter;
+  getDraggableElements(): NodeListOf<Element>;
 }
