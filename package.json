@@ -1,6 +1,6 @@
 {
   "name": "@genexus/gemini",
-  "version": "0.1.91",
+  "version": "0.1.92",
   "description": "Gemini design system",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
