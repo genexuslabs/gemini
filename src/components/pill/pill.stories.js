@@ -24,43 +24,10 @@ stories
     /*Pill Icon*/
     const labelIcon = "Icon";
     const optionsIcon = {
-      add: "add",
-      addCircle: "addCircle",
-      arrowDown: "arrowDown",
-      arrowLeft: "arrowLeft",
-      arrowRight: "arrowRight",
-      arrowUp: "arrowUp",
-      chevronDown: "chevronDown",
-      chevronLeft: "chevronLeft",
-      chevronRight: "chevronRight",
-      chevronUp: "chevronUp",
-      circle: "circle",
-      close: "close",
-      colorPicker: "colorPicker",
-      deleted: "deleted",
-      drag: "drag",
-      duplicate: "duplicate",
-      edit: "edit",
-      editWand: "editWand",
-      error: "error",
-      file: "file",
-      folder: "folder",
-      levelDown: "levelDown",
-      levelUp: "levelUp",
-      minus: "minus",
-      minusCircle: "minusCircle",
-      moreInfo: "moreInfo",
-      pillFilled: "pillFilled",
-      pillOutlined: "pillOutlined",
-      reset: "reset",
-      search: "search",
-      settings: "settings",
-      showMoreHorizontal: "showMoreHorizontal",
-      showMoreVertical: "showMoreVertical",
-      success: "success",
-      warning: "warning"
+      "pill-filled": "pill-filled",
+      "pill-outlined": "pill-outlined"
     };
-    const defaultValueIcon = optionsIcon.pillFilled;
+    const defaultValueIcon = optionsIcon["pill-filled"];
 
     //Pill Label
     const labelPillLabel = "Label";
@@ -69,7 +36,7 @@ stories
 
     //Remove Button
     const labelRemoveButton = "Remove Button";
-    const defaultValueRemoveButton = false;
+    const defaultValueRemoveButton = true;
     const valueRemoveButton = boolean(
       labelRemoveButton,
       defaultValueRemoveButton
