@@ -1,0 +1,59 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  border-color: var(--gray-04);
+  border-width: var(--border-width-sm);
+  border-style: var(--border-style-regular);
+  border-radius: 11px;
+  padding-right: 7px;
+  padding-left: 2px;
+  opacity: 1;
+  margin-bottom: var(--spacing-lay-s);
+  @include ui-animation(opacity);
+
+  .title {
+    @include gxg-text;
+    font-style: italic;
+  }
+  .clear-button {
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+:host([remove-button]:hover) {
+  border-color: var(--gray-06);
+}
+:host([remove-button]) {
+  padding-right: 2px;
+  .title {
+    font-style: normal;
+  }
+}
+:host(.hide) {
+  opacity: 0;
+}
+:host(:focus) {
+  outline: none;
+  border-color: var(--gray-06);
+  box-shadow: 0px 0px 0px 1px var(--gray-06);
+}
+:host([disabled]) {
+  border-color: var(--gray-03);
+  .title {
+    color: var(--gray-03);
+  }
+  gxg-icon {
+    opacity: 0.3;
+  }
+  pointer-events: none;
+}
+:host([disabled]:focus) {
+  box-shadow: none;
+}

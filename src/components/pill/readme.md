@@ -1,0 +1,30 @@
+# gxg-pill
+
+<!-- Auto Generated Below -->
+
+## Properties
+
+| Property       | Attribute       | Description                                                                           | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `disabled`     | `disabled`      | The presence of this attribute disables the pill                                      | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `false`     |
+| `icon`         | `icon`          | The icon                                                                              | `"error" \| "success" \| "warning" \| "none" \| "add" \| "add-circle" \| "arrow-down" \| "arrow-left" \| "arrow-right" \| "arrow-up" \| "chevron-down" \| "chevron-left" \| "chevron-right" \| "chevron-up" \| "circle" \| "close" \| "color-picker" \| "deleted" \| "drag" \| "duplicate" \| "edit" \| "edit-wand" \| "empty" \| "file" \| "folder" \| "level-down" \| "level-up" \| "minus" \| "minus-circle" \| "more-info" \| "reset" \| "search" \| "settings" \| "show-more-horizontal" \| "show-more-vertical"` | `"circle"`  |
+| `label`        | `label`         | The label                                                                             | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `undefined` |
+| `removeButton` | `remove-button` | The presence of this attribute ads a close button that when clicked, removes the pill | `boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `false`     |
+
+## Dependencies
+
+### Depends on
+
+- [gxg-icon](../icon)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-pill --> gxg-icon
+  style gxg-pill fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+---
+
+_Built with [StencilJS](https://stenciljs.com/)_
