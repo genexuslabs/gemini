@@ -501,6 +501,24 @@ export namespace Components {
      */
     value: string;
   }
+  interface GxgPill {
+    /**
+     * The presence of this attribute disables the pillgit a
+     */
+    disabled: boolean;
+    /**
+     * The icon
+     */
+    icon: IconType;
+    /**
+     * The label
+     */
+    label: string;
+    /**
+     * The presence of this attribute ads a close button that when clicked, removes the pill
+     */
+    removeButton: boolean;
+  }
   interface GxgProgressBar {
     /**
      * The state of the progress-bar, whether it is disabled or not.
@@ -909,6 +927,11 @@ declare global {
     prototype: HTMLGxgOptionElement;
     new (): HTMLGxgOptionElement;
   };
+  interface HTMLGxgPillElement extends Components.GxgPill, HTMLStencilElement {}
+  var HTMLGxgPillElement: {
+    prototype: HTMLGxgPillElement;
+    new (): HTMLGxgPillElement;
+  };
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
       HTMLStencilElement {}
@@ -1054,6 +1077,7 @@ declare global {
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
     "gxg-option": HTMLGxgOptionElement;
+    "gxg-pill": HTMLGxgPillElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-select": HTMLGxgSelectElement;
     "gxg-separator": HTMLGxgSeparatorElement;
@@ -1576,6 +1600,24 @@ declare namespace LocalJSX {
      */
     value?: string;
   }
+  interface GxgPill {
+    /**
+     * The presence of this attribute disables the pillgit a
+     */
+    disabled?: boolean;
+    /**
+     * The icon
+     */
+    icon?: IconType;
+    /**
+     * The label
+     */
+    label?: string;
+    /**
+     * The presence of this attribute ads a close button that when clicked, removes the pill
+     */
+    removeButton?: boolean;
+  }
   interface GxgProgressBar {
     /**
      * The state of the progress-bar, whether it is disabled or not.
@@ -1857,6 +1899,7 @@ declare namespace LocalJSX {
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
     "gxg-option": GxgOption;
+    "gxg-pill": GxgPill;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-select": GxgSelect;
     "gxg-separator": GxgSeparator;
@@ -1925,6 +1968,7 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
       "gxg-option": LocalJSX.GxgOption &
         JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
+      "gxg-pill": LocalJSX.GxgPill & JSXBase.HTMLAttributes<HTMLGxgPillElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-select": LocalJSX.GxgSelect &

@@ -28,31 +28,39 @@ stories
       addCircle: "addCircle",
       arrowDown: "arrowDown",
       arrowLeft: "arrowLeft",
-      circle: "circle",
+      arrowRight: "arrowRight",
+      arrowUp: "arrowUp",
       chevronDown: "chevronDown",
       chevronLeft: "chevronLeft",
       chevronRight: "chevronRight",
       chevronUp: "chevronUp",
-      chevronDown: "chevronDown",
-      chevronClose: "chevronClose",
-      chevronColorPicker: "chevronColorPicker",
+      circle: "circle",
+      close: "close",
+      colorPicker: "colorPicker",
       deleted: "deleted",
-      down: "down",
       drag: "drag",
       duplicate: "duplicate",
       edit: "edit",
       editWand: "editWand",
       error: "error",
+      file: "file",
+      folder: "folder",
+      levelDown: "levelDown",
       levelUp: "levelUp",
+      minus: "minus",
+      minusCircle: "minusCircle",
       moreInfo: "moreInfo",
+      pillFilled: "pillFilled",
+      pillOutlined: "pillOutlined",
+      reset: "reset",
       search: "search",
       settings: "settings",
-      showMore: "showMore",
+      showMoreHorizontal: "showMoreHorizontal",
+      showMoreVertical: "showMoreVertical",
       success: "success",
-      up: "up",
       warning: "warning"
     };
-    const defaultValueIcon = optionsIcon.circle;
+    const defaultValueIcon = optionsIcon.pillFilled;
 
     //Pill Label
     const labelPillLabel = "Label";
@@ -95,18 +103,15 @@ stories
       </style> 
       <p>Remove the seasonings you don't want in your food:</p>
       <div class="container">
-        <gxg-pill tabindex="0" label="Salt" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Pepper" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Garlic" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Basil" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Rosemary" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Comino" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Turmeric" icon="circle" remove-button></gxg-pill>
-        <gxg-pill tabindex="0" label="Chili Pepper" icon="circle" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Salt" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Pepper" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Garlic" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Basil" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Rosemary" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Comino" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Turmeric" remove-button></gxg-pill>
+        <gxg-pill tabindex="0" label="Chili Pepper" remove-button></gxg-pill>
       </div>
-      <script>
-        alert("hola");
-      </script>
       `,
     {
       notes: {
