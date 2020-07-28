@@ -10,14 +10,14 @@ export class Pill {
   @Element() el: HTMLElement;
 
   /**
-   * The presence of this attribute disables the pill
+   * The presence of this attribute disables the pillgit a
    */
   @Prop() disabled = false;
 
   /**
    * The icon
    */
-  @Prop() icon: IconType = "circle";
+  @Prop() icon: IconType = "pill-filled";
 
   /**
    * The presence of this attribute ads a close button that when clicked, removes the pill
