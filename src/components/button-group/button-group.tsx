@@ -38,6 +38,11 @@ export class ButtonGroup {
   @Prop({ reflect: true }) fullWidth = false;
 
   /**
+   * The presence of this attribute makes the button group outlined
+   */
+  @Prop({ reflect: true }) outlined = false;
+
+  /**
   The value of the current selected button
   */
   @State() value = "";

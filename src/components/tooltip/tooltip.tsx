@@ -17,11 +17,6 @@ export class Tooltip {
   @Prop() label: string;
 
   /**
-   * The toggle width
-   */
-  @Prop({ reflect: true }) widthAuto: boolean;
-
-  /**
    * This presence of this property removes the border under the text
    */
   @Prop({ reflect: true }) noBorder = false;
@@ -30,7 +25,9 @@ export class Tooltip {
     return (
       <span class="tooltip">
         <slot></slot>
-        <span class="tooltiptext">{this.label}</span>
+        <div class="tooltiptext">
+          <span class="tooltiptext__content">{this.label}</span>
+        </div>
       </span>
     );
   }

@@ -59,6 +59,11 @@ stories
       defaultValueInitialSelectedButtonId
     );
 
+    /*Outlined*/
+    const labelOutlined = "Outlined";
+    const defaultValueOutlined = false;
+    const valueOutlined = boolean(labelOutlined, defaultValueOutlined);
+
     //Second button id
     const labelSecondButtonId = "Second Button Id";
     const defaultValueSecondButtonId = "pepper";
@@ -109,6 +114,12 @@ stories
       }
     }
 
+    function valueOutlinedFunc() {
+      if (valueOutlined) {
+        return "outlined";
+      }
+    }
+
     return `
     <style>
       #root {
@@ -116,7 +127,7 @@ stories
         text-align: center;
       }
     </style>
-    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} button-group-title="${valueMainTitle}" title-alignment="${select(
+    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} ${valueOutlinedFunc()} button-group-title="${valueMainTitle}" title-alignment="${select(
       labelTitleAlignment,
       optionsTitleAlignment,
       defaultValueTitleAlignment
@@ -175,6 +186,11 @@ stories
       labelInitialSelectedButtonId,
       defaultValueInitialSelectedButtonId
     );
+
+    /*Outlined*/
+    const labelOutlined = "Outlined";
+    const defaultValueOutlined = false;
+    const valueOutlined = boolean(labelOutlined, defaultValueOutlined);
 
     //Second button id
     const labelSecondButtonId = "Second Button Id";
@@ -262,6 +278,12 @@ stories
       }
     }
 
+    function valueOutlinedFunc() {
+      if (valueOutlined) {
+        return "outlined";
+      }
+    }
+
     return `
     <style>
       #root {
@@ -269,7 +291,7 @@ stories
         text-align: center;
       }
     </style>
-    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} button-group-title="${valueMainTitle}" title-alignment="${select(
+    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} ${valueOutlinedFunc()} button-group-title="${valueMainTitle}" title-alignment="${select(
       labelTitleAlignment,
       optionsTitleAlignment,
       defaultValueTitleAlignment

@@ -33,7 +33,6 @@
   ::slotted(button:last-child) {
     border-top-right-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
-    border-right: none;
   }
 
   ::slotted(button:hover) {
@@ -51,6 +50,32 @@
     border-right-color: var(--color-primary-active);
   }
 }
+/*OUTLINED*/
+:host(.button-group:not([outlined])) {
+  ::slotted(button:last-child) {
+    border-right: none;
+  }
+}
+:host([outlined]) ::slotted(button) {
+  background: transparent;
+  border-width: var(--border-width-sm);
+  border-style: var(--border-style-regular);
+  border-color: var(--color-primary-active);
+}
+:host([outlined]) ::slotted(button:not(:last-child)) {
+  border-right: 0;
+}
+:host(.button-group:not([outlined])) {
+  ::slotted(button:last-child) {
+    border-right: none;
+  }
+}
+:host([outlined][disabled]) ::slotted(button) {
+  border-color: var(--color-primary-disabled);
+  color: var(--color-primary-disabled);
+  background-color: transparent;
+}
+/*CENTER*/
 :host([title-alignment="center"]) {
   /*Title alignment*/
   .button-group-header-title {

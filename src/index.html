@@ -25,40 +25,29 @@
     </style>
   </head>
   <body>
-    <gxg-pill tabindex="0" label="Salt" remove-button></gxg-pill>
-
-    <gxg-form-text
-      clear-button
-      type="text"
-      id="name4"
-      name="name"
-      label="Default"
-      placeholder="Placeholder text"
-      display-flex
-      icon="search"
-      icon-position="right"
-      required
-      value="bernard"
+    <gxg-button-group
+      disabled
+      outlined
+      default-selected-btn-id="id2"
+      button-group-title="The title"
+      title-alignment="left"
+      tabindex="0"
     >
-    </gxg-form-text>
-    <!--   
-    <gxg-drag-container>
-      <gxg-drag-box class="draggable">Container 01</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
-      <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
-    </gxg-drag-container>
-    <script>
-      const dragBox = document.querySelector("gxg-drag-container");
-      dragBox.addEventListener("itemDrop", e => {
-        console.log("Drop!!", e);
-        e.preventDefault();
-      });
-      dragBox.addEventListener("itemDragStart", e => {
-        console.log("DragStart!!", e);
-        e.preventDefault();
-      });
-    </script> -->
+      <button id="id1" value="primero">Left</button>
+      <button id="id2" value="segundo">Middle</button>
+      <button id="id3" value="tercero">Right</button>
+    </gxg-button-group>
+
+    <gxg-button-group
+      disabled
+      default-selected-btn-id="id2"
+      button-group-title="The title"
+      title-alignment="left"
+      tabindex="0"
+    >
+      <button id="id1" value="primero">Left</button>
+      <button id="id2" value="segundo">Middle</button>
+      <button id="id3" value="tercero">Right</button>
+    </gxg-button-group>
   </body>
 </html>

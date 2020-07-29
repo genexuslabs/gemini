@@ -14,14 +14,21 @@
       font-size: var(--font-size-xs);
       visibility: hidden;
       opacity: 0;
-      width: 100px;
-      background-color: var(--gray-08);
-      padding: var(--spacing-comp-01) var(--spacing-comp-02);
-      border-radius: var(--border-width-md);
-      color: var(--color-on-primary);
       @include ui-animation(opacity);
       position: absolute;
       z-index: 1;
+      width: 250px;
+      text-align: center;
+
+      &__content {
+        width: fit-content;
+        background-color: var(--gray-08);
+        padding: var(--spacing-comp-01) var(--spacing-comp-02);
+        border-radius: var(--border-width-md);
+        color: var(--color-on-primary);
+        display: inline-block;
+        text-align: left;
+      }
 
       &:after {
         //triangle
@@ -64,6 +71,7 @@
     .tooltiptext {
       top: 0;
       left: 111%;
+      text-align: left;
       &:after {
         left: -7px;
         transform: rotate(-90deg);
@@ -79,6 +87,8 @@
       left: 50%;
       transform: translateX(-50%);
       &:after {
+        left: 50%;
+        transform: translateX(-50%);
         top: -4px;
       }
     }
@@ -87,6 +97,7 @@
 :host([position="left"]) {
   .tooltip {
     .tooltiptext {
+      text-align: right;
       top: 0;
       right: 105%;
       &:after {

@@ -168,6 +168,10 @@ export namespace Components {
      */
     fullWidth: boolean;
     /**
+     * The presence of this attribute makes the button group outlined
+     */
+    outlined: boolean;
+    /**
      * The button group title alignment
      */
     titleAlignment: TitleAlignment;
@@ -749,10 +753,6 @@ export namespace Components {
      * the tooltip position
      */
     position: position;
-    /**
-     * The toggle width
-     */
-    widthAuto: boolean;
   }
   interface GxgTree {}
   interface GxgTreeItem {
@@ -1231,6 +1231,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the component full-width
      */
     fullWidth?: boolean;
+    /**
+     * The presence of this attribute makes the button group outlined
+     */
+    outlined?: boolean;
     /**
      * The button group title alignment
      */
@@ -1854,10 +1858,6 @@ declare namespace LocalJSX {
      * the tooltip position
      */
     position?: position;
-    /**
-     * The toggle width
-     */
-    widthAuto?: boolean;
   }
   interface GxgTree {}
   interface GxgTreeItem {
