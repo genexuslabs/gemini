@@ -52,6 +52,7 @@ export class ButtonGroup {
   *********************************/
 
   componentDidLoad() {
+    console.log(this.buttonGroupTitle);
     if (!this.disabled) {
       this.setInitialActiveValue();
     }
@@ -129,7 +130,7 @@ export class ButtonGroup {
 
   render() {
     let header = null;
-    if (this.buttonGroupTitle !== "") {
+    if (this.buttonGroupTitle !== undefined) {
       header = (
         <header class="button-group-header">
           <label class="button-group-header-title">
