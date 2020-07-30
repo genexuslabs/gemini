@@ -19,6 +19,7 @@ import {
   Spacing
 } from "./components/alert/alert";
 import { padding as padding2 } from "./components/box/box";
+import { IconType } from "./components/icon/icon";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import { boxShadow, padding as padding3 } from "./components/card/card";
@@ -28,7 +29,6 @@ import { padding as padding5 } from "./components/column/column";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
-import { IconType } from "./components/icon/icon";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
@@ -145,6 +145,10 @@ export namespace Components {
      * The presence of this attribute makes the component full-width
      */
     fullWidth: boolean;
+    /**
+     * The button icon
+     */
+    icon: IconType;
     /**
      * The kind of button
      */
@@ -1137,6 +1141,7 @@ declare namespace LocalJSX {
     mode?: mode;
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
     onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
+    onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
     padding?: padding;
     /**
      * Set the status to "open" if you want the accordion-item open by default
@@ -1209,6 +1214,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the component full-width
      */
     fullWidth?: boolean;
+    /**
+     * The button icon
+     */
+    icon?: IconType;
     /**
      * The kind of button
      */

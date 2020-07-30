@@ -15,12 +15,22 @@ KNOBS
 /*Icons Knob*/
 const label = "Icons/Color";
 const options = {
-  onbackground: "onbackground",
-  "negative (white)": "negative",
+  alwaysblack: "alwaysblack",
+  disabled: "disabled",
   error: "error",
-  warning: "warning",
-  success: "success"
+  "negative (white)": "negative",
+  onbackground: "onbackground",
+  primary: "primary",
+  success: "success",
+  warning: "warning"
 };
+
+// always: "onbackground",
+// "negative (white)": "negative",
+// error: "error",
+// warning: "warning",
+// success: "success"
+
 const defaultValue = options.default;
 
 /*Disabled Knob*/

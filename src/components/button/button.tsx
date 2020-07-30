@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { IconType, Color } from "../icon/icon";
 
 @Component({
   tag: "gxg-button",
@@ -21,6 +22,11 @@ export class Button {
    * The presence of this attribute makes the component full-width
    */
   @Prop() fullWidth = false;
+
+  /**
+   * The button icon
+   */
+  @Prop() icon: IconType;
 
   /**
    * The kind of button
@@ -56,6 +62,18 @@ export class Button {
     }
   }
 
+  iconColor() {
+    let iColor: Color;
+    if (this.type.includes("primary")) {
+      iColor = "negative";
+    } else if (this.type.includes("secondary")) {
+      iColor = "primary";
+    } else {
+      iColor = "onbackground";
+    }
+    return iColor;
+  }
+
   render() {
     return (
       <Host
@@ -79,7 +97,7 @@ export class Button {
           disabled={this.disabled === true}
         >
           {this.iconFunc()}
-          <slot name="icon" />
+          <gxg-icon type={this.icon} color={this.iconColor()}></gxg-icon>
           <span class="text">
             <slot />
           </span>

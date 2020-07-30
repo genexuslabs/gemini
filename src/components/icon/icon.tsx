@@ -17,13 +17,14 @@ CONSTANTS
 const DEFAULT_COLOR = "onbackground";
 
 const COLOR_MAPPINGS = {
-  onbackground: "color-on-background",
-  negative: "color-on-primary",
+  alwaysblack: "color-always-black",
   disabled: "color-primary-disabled",
   error: "color-error-dark",
-  warning: "color-warning-dark",
+  negative: "color-on-primary",
+  onbackground: "color-on-background",
+  primary: "color-primary-active",
   success: "color-success-dark",
-  alwaysblack: "color-always-black"
+  warning: "color-warning-dark"
 };
 
 const CAMEL_CASE_TO_HYPHENED_REGEX = /(.)([A-Z])/g;
@@ -174,6 +175,7 @@ export class Icon {
 }
 
 export type Color =
+  | "primary"
   | "onbackground"
   | "negative"
   | "disabled"

@@ -7,31 +7,39 @@
   &:last-child {
     margin-bottom: 0;
   }
+
   .item {
     &__header {
       background-color: var(--color-secondary-enabled);
       display: flex;
-      height: var(--spacing-comp-05);
+      //height: var(--spacing-comp-05);
       @include ui-animation(background-color);
-
-      .icon-wrapper {
-        display: flex;
-        align-items: center;
-      }
 
       &:hover {
         background-color: var(--color-secondary-hover);
         cursor: pointer;
       }
-      &__title {
-        font-family: var(--font-family-primary);
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-bold);
-        text-transform: uppercase;
-        color: var(--color-always-black);
-        width: 100%;
-        text-align: center;
-        line-height: var(--spacing-comp-05);
+      &__title-subtitle {
+        &__title {
+          display: inline;
+          font-family: var(--font-family-primary);
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-bold);
+          text-transform: uppercase;
+          color: var(--color-always-black);
+          width: 100%;
+          line-height: var(--spacing-comp-05);
+        }
+        &__subtitle {
+          @include gxg-text();
+        }
+      }
+      &__meta-icon-wrapper {
+        display: flex;
+        align-items: center;
+        &__icon {
+          display: flex;
+        }
       }
     }
     &__container {
@@ -44,45 +52,61 @@
 //Padding
 :host([padding="xs"]) {
   .item__container {
-    padding: var(--spacing-comp-01);
+    padding: var(--spacing-comp-01) !important;
   }
 }
 :host([padding="s"]) {
   .item__container {
-    padding: var(--spacing-comp-02);
+    padding: var(--spacing-comp-02) !important;
   }
 }
 :host([padding="m"]) {
   .item__container {
-    padding: var(--spacing-comp-03);
+    padding: var(--spacing-comp-03) !important;
   }
 }
 :host([padding="l"]) {
   .item__container {
-    padding: var(--spacing-comp-04);
+    padding: var(--spacing-comp-04) !important;
   }
 }
 :host([padding="xl"]) {
   .item__container {
-    padding: var(--spacing-comp-05);
+    padding: var(--spacing-comp-05) !important;
   }
 }
 :host([padding="xxl"]) {
   .item__container {
-    padding: var(--spacing-comp-06);
+    padding: var(--spacing-comp-06) !important;
   }
 }
 :host([padding="xxxl"]) {
   .item__container {
-    padding: var(--spacing-comp-07);
+    padding: var(--spacing-comp-07) !important;
   }
 }
 
 //Classical version disabled
 :host([mode="classical"]) {
+  ::slotted([slot="subtitle"]) {
+    margin-bottom: var(--spacing-comp-01);
+  }
   .item {
     &__header {
-      padding: 0 var(--spacing-comp-01);
+      padding: 0 var(--spacing-comp-01) 0 var(--spacing-comp-03);
+
+      &__title-subtitle {
+        width: 60%;
+      }
+      &__meta-icon-wrapper {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+    &__container {
+      padding: var(--spacing-comp-02) var(--spacing-comp-03);
     }
   }
   .item--disabled {
@@ -90,16 +114,14 @@
     pointer-events: none;
     .item__header {
       background-color: var(--color-primary-disabled);
-
       .icon-wrapper {
         padding-right: 2px;
       }
-
-      &__title {
-        color: var(--color-on-disabled);
+      &__title-subtitle {
+        &__title {
+          color: var(--color-on-disabled);
+        }
       }
-    }
-    gxg-icon {
     }
   }
 }
@@ -114,10 +136,6 @@
       flex-direction: row-reverse;
       padding-left: 0;
 
-      .icon-wrapper {
-        // margin-left: -5px;
-      }
-
       gxg-icon {
         transform: scale(0.65, 0.65);
         background: var(--color-primary-enabled);
@@ -125,12 +143,14 @@
         margin-right: var(--spacing-comp-01);
         @include ui-animation(background);
       }
-
-      &__title {
-        font-weight: var(--font-weight-regular);
-        font-size: var(--font-size-xs);
-        text-align: left;
-        color: var(--color-on-background);
+      &__title-subtitle {
+        width: 100%;
+        &__title {
+          font-weight: var(--font-weight-regular);
+          font-size: var(--font-size-xs);
+          text-align: left;
+          color: var(--color-on-background);
+        }
       }
     }
     &__container {
@@ -158,50 +178,56 @@
   }
 }
 
-//Boxws aesthetic version
+//Boxed aesthetic version
 :host([mode="boxed"]) {
+  ::slotted([slot="meta"]) {
+    @include gxg-text();
+  }
   .item {
     background-color: var(--gray-01);
     @include ui-animation(border-color);
     &__header {
       background: transparent;
-      padding: var(--spacing-comp-03) var(--spacing-comp-02)
-        var(--spacing-comp-03) var(--spacing-comp-03);
+      padding: var(--spacing-comp-02) var(--spacing-comp-02)
+        var(--spacing-comp-02) var(--spacing-comp-03);
 
       gxg-icon {
-        border-radius: 50%;
         margin-left: var(--spacing-comp-02);
         @include ui-animation(background);
       }
-
-      &__title {
-        font-weight: var(--font-weight-bold);
-        font-size: var(--font-size-sm);
-        text-align: left;
-        color: var(--color-on-background);
+      &__title-subtitle {
+        width: 60%;
+        &__title {
+          font-weight: var(--font-weight-bold);
+          font-size: var(--font-size-sm);
+          text-align: left;
+          color: var(--color-on-background);
+        }
+      }
+      &__meta-icon-wrapper {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
       }
     }
     &__container {
       background: transparent;
-    }
-    &--open {
-      gxg-icon {
-      }
+      padding: var(--spacing-comp-02) var(--spacing-comp-02)
+        var(--spacing-comp-03) var(--spacing-comp-03);
     }
     &:hover {
       gxg-icon {
       }
       border-color: var(--color-primary-hover);
     }
-  }
-}
-//Boxed aesthetic version disabled
-:host([mode="boxed"]) {
-  .item--disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-    gxg-icon {
-      background: var(--color-primary-disabled);
+
+    &--disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      gxg-icon {
+        background: var(--color-primary-disabled);
+      }
     }
   }
 }

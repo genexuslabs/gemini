@@ -48,9 +48,13 @@ export class AccordionItem {
 
   @Event() accordionItemClicked: EventEmitter;
   @Event() accordionItemLoaded: EventEmitter;
+  @Event() accordionTitleClicked: EventEmitter;
 
   itemClickedHandler() {
     this.accordionItemClicked.emit(this.itemId);
+  }
+  titleClickedHandler() {
+    this.accordionTitleClicked.emit("title clicked");
   }
 
   printIcon() {
@@ -89,14 +93,7 @@ export class AccordionItem {
       iSize = "small";
     }
     return (
-      <span class="icon-wrapper">
-        <gxg-icon
-          slot="icon"
-          size={iSize}
-          type={iType}
-          color={iColor}
-        ></gxg-icon>
-      </span>
+      <gxg-icon slot="icon" size={iSize} type={iType} color={iColor}></gxg-icon>
     );
   }
 
@@ -134,8 +131,29 @@ export class AccordionItem {
             class="item__header"
             onClick={this.itemClickedHandler.bind(this)}
           >
-            <div class="item__header__title">{this.itemTitle}</div>
-            {this.printIcon()}
+            <div class="item__header__title-subtitle">
+              <div
+                class="item__header__title-subtitle__title"
+                onClick={this.titleClickedHandler.bind(this)}
+              >
+                {this.itemTitle}
+              </div>
+              {this.mode === "classical" || this.mode === "boxed" ? (
+                <div class="item__header__title-subtitle__subtitle">
+                  <slot name="subtitle"></slot>
+                </div>
+              ) : null}
+            </div>
+            <div class="item__header__meta-icon-wrapper">
+              {this.mode === "boxed" ? (
+                <div class="item__header__meta-icon-wrapper__meta">
+                  <slot name="meta"></slot>
+                </div>
+              ) : null}
+              <div class="item__header__meta-icon-wrapper__icon">
+                {this.printIcon()}
+              </div>
+            </div>
           </header>
           {this.status === "open" && !this.disabled ? (
             <div class="item__container">
