@@ -21,6 +21,7 @@
 | --------- | --------- | ---------------------------------------------------- | ------------------------------------------------------ | ----------- |
 | `active`  | `active`  | The presence of this attribute makes this box active | `boolean`                                              | `false`     |
 | `padding` | `padding` | The padding (internal spacing)                       | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
+| `title`   | `title`   | The title                                            | `string`                                               | `undefined` |
 
 ## Dependencies
 

@@ -25,20 +25,37 @@
     </style>
   </head>
   <body>
-    <gxg-accordion mode="classical" single-item-open>
-      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
-        <gxg-accordion mode="slim">
-          <gxg-accordion-item item-title="tab-01" item-id="tab-03"
-            >some content on accordion 1.</gxg-accordion-item
-          >
-          <gxg-accordion-item item-title="tab-02" item-id="tab-04"
-            >some content on accordion 2.</gxg-accordion-item
-          >
-        </gxg-accordion>
-      </gxg-accordion-item>
-      <gxg-accordion-item item-title="tab-02" item-id="tab-02"
-        >some content on accordion 2.</gxg-accordion-item
+    <gxg-drag-container>
+      <gxg-drag-box class="draggable" title="container 01"
+        >This is the container content This is the container content This is the
+        container content This is the container contentThis is the container
+        contentThis is the container contentThis is the container
+        content</gxg-drag-box
       >
-    </gxg-accordion>
+      <gxg-drag-box class="draggable" title="container 02"
+        >This is the container content</gxg-drag-box
+      >
+      <gxg-drag-box class="draggable" title="container 03"
+        >This is the container content</gxg-drag-box
+      >
+      <gxg-drag-box class="draggable" title="container 04"
+        >This is the container content</gxg-drag-box
+      >
+      <gxg-drag-box class="draggable" title="container 05"
+        >This is the container content</gxg-drag-box
+      >
+    </gxg-drag-container>
+
+    <gxg-select label="Select a car:" width="400px" size="5" full-width>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select>
   </body>
 </html>

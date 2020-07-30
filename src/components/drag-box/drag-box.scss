@@ -10,49 +10,73 @@
   border-top: 2px solid transparent; //var(--color-primary-active);
   margin-bottom: var(--spacing-lay-s);
   padding: 0 var(--spacing-comp-01);
+  cursor: pointer;
 
-  .content-container {
+  .container-content {
     width: 100%;
-    padding: 0 var(--spacing-comp-03);
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+
+    &__title {
+      display: block;
+      font-weight: var(--font-weight-bold);
+    }
   }
   .drag-icon-container {
-    padding-top: var(--spacing-comp-01);
+    gxg-icon {
+      opacity: 0;
+    }
+  }
+  .delete-icon-container {
+    gxg-icon {
+      opacity: 0;
+    }
   }
 }
-
+:host(:hover) {
+  .drag-icon-container {
+    gxg-icon {
+      opacity: 1;
+    }
+  }
+  .delete-icon-container {
+    gxg-icon {
+      opacity: 1;
+    }
+  }
+}
 //Padding
 :host([padding="xs"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-01);
   }
 }
 :host([padding="s"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-02);
   }
 }
 :host([padding="m"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-03);
   }
 }
 :host([padding="l"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-04);
   }
 }
 :host([padding="xl"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-05);
   }
 }
 :host([padding="xxl"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-06);
   }
 }
 :host([padding="xxxl"]) {
-  .content-container {
+  .container-content {
     padding: var(--spacing-comp-07);
   }
 }

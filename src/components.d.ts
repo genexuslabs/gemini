@@ -276,6 +276,10 @@ export namespace Components {
      * The padding (internal spacing)
      */
     padding: Padding;
+    /**
+     * The title
+     */
+    title: string;
   }
   interface GxgDragContainer {
     /**
@@ -574,6 +578,10 @@ export namespace Components {
      * The maximum number of visible options
      */
     size: string;
+    /**
+     * An variable to hold the value of the selected option (for internal use)
+     */
+    value: string;
     /**
      * The presence of this attribute stylizes the component with warning attributes
      */
@@ -1357,6 +1365,10 @@ declare namespace LocalJSX {
      * The padding (internal spacing)
      */
     padding?: Padding;
+    /**
+     * The title
+     */
+    title?: string;
   }
   interface GxgDragContainer {
     /**
@@ -1694,6 +1706,10 @@ declare namespace LocalJSX {
      * The maximum number of visible options
      */
     size?: string;
+    /**
+     * An variable to hold the value of the selected option (for internal use)
+     */
+    value?: string;
     /**
      * The presence of this attribute stylizes the component with warning attributes
      */

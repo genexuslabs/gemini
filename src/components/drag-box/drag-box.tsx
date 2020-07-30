@@ -16,6 +16,11 @@ export class DragBox {
    */
   @Prop({ reflect: true }) padding: Padding;
 
+  /**
+   * The title
+   */
+  @Prop() title: string;
+
   clickedHandler() {
     this.active = true;
   }
@@ -26,7 +31,10 @@ export class DragBox {
         <div class="drag-icon-container">
           <gxg-icon size="regular" type="drag"></gxg-icon>
         </div>
-        <div class="content-container">
+        <div class="container-content">
+          {this.title !== undefined ? (
+            <span class="container-content__title">{this.title}</span>
+          ) : null}
           <slot></slot>
         </div>
         <div class="delete-icon-container">
