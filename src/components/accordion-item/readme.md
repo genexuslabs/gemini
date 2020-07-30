@@ -36,11 +36,11 @@
 
 ## Events
 
-| Event                   | Description | Type               |
-| ----------------------- | ----------- | ------------------ |
-| `accordionItemClicked`  |             | `CustomEvent<any>` |
-| `accordionItemLoaded`   |             | `CustomEvent<any>` |
-| `accordionTitleClicked` |             | `CustomEvent<any>` |
+| Event                   | Description                                                  | Type               |
+| ----------------------- | ------------------------------------------------------------ | ------------------ |
+| `accordionItemClicked`  | This event is for internal use                               | `CustomEvent<any>` |
+| `accordionItemLoaded`   | This event is for internal use                               | `CustomEvent<any>` |
+| `accordionTitleClicked` | Subscribe to this event to know when the "title" was clicked | `CustomEvent<any>` |
 
 ## Dependencies
 

@@ -1139,8 +1139,17 @@ declare namespace LocalJSX {
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
     mode?: mode;
+    /**
+     * This event is for internal use
+     */
     onAccordionItemClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * This event is for internal use
+     */
     onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
+    /**
+     * Subscribe to this event to know when the "title" was clicked
+     */
     onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
     padding?: padding;
     /**

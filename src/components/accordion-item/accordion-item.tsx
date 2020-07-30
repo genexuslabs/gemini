@@ -46,8 +46,17 @@ export class AccordionItem {
    */
   @Prop({ reflect: true }) status: status = "closed";
 
+  /**
+   * This event is for internal use
+   */
   @Event() accordionItemClicked: EventEmitter;
+  /**
+   * This event is for internal use
+   */
   @Event() accordionItemLoaded: EventEmitter;
+  /**
+   * Subscribe to this event to know when the "title" was clicked
+   */
   @Event() accordionTitleClicked: EventEmitter;
 
   itemClickedHandler() {
