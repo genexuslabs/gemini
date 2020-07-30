@@ -51,8 +51,7 @@ export class ButtonGroup {
   METHODS
   *********************************/
 
-  componentDidLoad() {
-    console.log(this.buttonGroupTitle);
+  componentWillLoad() {
     if (!this.disabled) {
       this.setInitialActiveValue();
     }

@@ -22,15 +22,27 @@ export function makeDraggable(component: DraggableComponent): Function {
   }
 
   function dragEnter() {
+    const itemDragEnterEvent = component.itemDragEnter.emit(this);
+    if (itemDragEnterEvent.defaultPrevented) {
+      return;
+    }
     this.classList.add("over");
   }
 
   function dragLeave(e) {
+    const itemDragLeaveEvent = component.itemDragLeave.emit(this);
+    if (itemDragLeaveEvent.defaultPrevented) {
+      return;
+    }
     e.stopPropagation();
     this.classList.remove("over");
   }
 
   function dragOver(e) {
+    const itemDragOverEvent = component.itemDragOver.emit(this);
+    if (itemDragOverEvent.defaultPrevented) {
+      return;
+    }
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
     return false;
@@ -80,6 +92,9 @@ export function makeDraggable(component: DraggableComponent): Function {
 
 export interface DraggableComponent {
   itemDrop: EventEmitter;
+  itemDragEnter: EventEmitter;
+  itemDragLeave: EventEmitter;
   itemDragStart: EventEmitter;
+  itemDragOver: EventEmitter;
   getDraggableElements(): NodeListOf<Element>;
 }

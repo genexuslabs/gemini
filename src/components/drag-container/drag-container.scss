@@ -20,4 +20,13 @@
   :last-child {
     margin-bottom: 0;
   }
+
+  .placeholder {
+    display: none;
+    height: 50px;
+    background-color: #ccc;
+    &.visible {
+      display: block;
+    }
+  }
 }

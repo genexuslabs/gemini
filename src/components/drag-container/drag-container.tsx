@@ -5,7 +5,8 @@ import {
   h,
   Host,
   Event,
-  EventEmitter
+  EventEmitter,
+  Listen
 } from "@stencil/core";
 import { Padding } from "../drag-box/drag-box";
 import { makeDraggable, DraggableComponent } from "../../utils/makeDraggable";
@@ -27,6 +28,16 @@ export class DragContainer implements DraggableComponent {
 
   @Event() itemDragStart: EventEmitter;
   @Event() itemDrop: EventEmitter;
+  @Event() itemDragOver: EventEmitter;
+  @Event() itemDragLeave: EventEmitter;
+  @Event() itemDragEnter: EventEmitter;
+
+  @Listen("itemDragEnter")
+  handleItemDragEnter(e) {
+    const placeholder = this.el.shadowRoot.querySelector(".placeholder");
+    e.detail.parentElement.insertBefore(placeholder, e.detail);
+    placeholder.classList.add("visible");
+  }
 
   private dndCleanup: Function;
 
@@ -54,6 +65,7 @@ export class DragContainer implements DraggableComponent {
     return (
       <Host style={{ maxWidth: this.maxWidth }}>
         <slot></slot>
+        <div class="placeholder"></div>
       </Host>
     );
   }

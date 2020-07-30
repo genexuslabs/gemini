@@ -66,19 +66,6 @@ stories.add("Spacer Layout", () => {
   <gxg-button type="primary-text-only">Salt</gxg-button>
   <gxg-button type="primary-text-only">Pepper</gxg-button>
   <gxg-button type="primary-text-only">Cucumber</gxg-button>
-  <gxg-form-text
-      required
-      type="text"
-      id="name4"
-      name="name"
-      label="Default"
-      placeholder="Placeholder text"
-      display-flex
-      icon="search"
-      icon-position="left"
-      full-width
-    >
-    </gxg-form-text>
 </gxg-spacer-layout>
   `;
 });

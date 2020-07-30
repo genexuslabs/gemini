@@ -269,9 +269,9 @@ export namespace Components {
   }
   interface GxgDragBox {
     /**
-     * The presence of this attibute gives the box a blue border on the top side
+     * The presence of this attribute makes this box active
      */
-    border: boolean;
+    active: boolean;
     /**
      * The padding (internal spacing)
      */
@@ -1350,9 +1350,9 @@ declare namespace LocalJSX {
   }
   interface GxgDragBox {
     /**
-     * The presence of this attibute gives the box a blue border on the top side
+     * The presence of this attribute makes this box active
      */
-    border?: boolean;
+    active?: boolean;
     /**
      * The padding (internal spacing)
      */
@@ -1363,6 +1363,9 @@ declare namespace LocalJSX {
      * The max-width of the box container
      */
     maxWidth?: string;
+    onItemDragEnter?: (event: CustomEvent<any>) => void;
+    onItemDragLeave?: (event: CustomEvent<any>) => void;
+    onItemDragOver?: (event: CustomEvent<any>) => void;
     onItemDragStart?: (event: CustomEvent<any>) => void;
     onItemDrop?: (event: CustomEvent<any>) => void;
     padding?: Padding;

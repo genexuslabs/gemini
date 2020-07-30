@@ -7,23 +7,30 @@ import { Component, h, Host, Prop } from "@stencil/core";
 })
 export class DragBox {
   /**
+   * The presence of this attribute makes this box active
+   */
+  @Prop({ reflect: true }) active = false;
+
+  /**
    * The padding (internal spacing)
    */
   @Prop({ reflect: true }) padding: Padding;
 
-  /**
-   * The presence of this attibute gives the box a blue border on the top side
-   */
-  @Prop({ reflect: true }) border = false;
+  clickedHandler() {
+    this.active = true;
+  }
 
   render() {
     return (
-      <Host>
-        <div class="icon-container">
+      <Host onClick={this.clickedHandler.bind(this)}>
+        <div class="drag-icon-container">
           <gxg-icon size="regular" type="drag"></gxg-icon>
         </div>
         <div class="content-container">
           <slot></slot>
+        </div>
+        <div class="delete-icon-container">
+          <gxg-icon size="regular" type="deleted"></gxg-icon>
         </div>
       </Host>
     );

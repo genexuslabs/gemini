@@ -9,11 +9,13 @@
   background-color: var(--color-background);
   border-top: 2px solid transparent; //var(--color-primary-active);
   margin-bottom: var(--spacing-lay-s);
+  padding: 0 var(--spacing-comp-01);
 
   .content-container {
-    padding: 0 0 0 var(--spacing-comp-03);
+    width: 100%;
+    padding: 0 var(--spacing-comp-03);
   }
-  .icon-container {
+  .drag-icon-container {
     padding-top: var(--spacing-comp-01);
   }
 }
@@ -56,6 +58,6 @@
 }
 
 //Border
-:host([border]) {
+:host([active]) {
   border-top-color: var(--color-primary-active);
 }

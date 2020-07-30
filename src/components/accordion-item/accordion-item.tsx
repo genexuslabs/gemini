@@ -106,7 +106,7 @@ export class AccordionItem {
     );
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     if (!this.itemId) {
       console.warn("gxg-accordion-item 'itemId' property is mandatory.");
     }

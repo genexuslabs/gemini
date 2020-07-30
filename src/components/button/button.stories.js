@@ -98,14 +98,14 @@ stories
 
     return `
     <style>#root { width:700px; text-align: center; }</style>
-    <gxg-button type="primary-text-icon" full-width=${boolean(
-      labelFullWidth,
-      valueFullWidth
-    )} disabled=${valueDisabled}><gxg-icon slot="icon" type="${select(
+    <gxg-button icon="${select(
       labelIcon,
       optionsIcon,
       defaultValueIcon
-    )}"></gxg-icon>
+    )}" type="primary-text-icon" full-width=${boolean(
+      labelFullWidth,
+      valueFullWidth
+    )} disabled=${valueDisabled}>
     ${valueButtonLabel}
     </gxg-button>`;
   })
@@ -113,18 +113,14 @@ stories
     "Primary Icon Only",
     () => `
       <style>#root { width:700px; text-align: center; }</style>  
-      <gxg-button type="primary-icon-only" disabled=${boolean(
-        labelDisabled,
-        valueDisabled
-      )} full-width=${boolean(
-      labelFullWidth,
-      valueFullWidth
-    )}><gxg-icon slot="icon" type="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}"></gxg-icon
-            ></gxg-button>
+      <gxg-button icon="${select(
+        labelIcon,
+        optionsIcon,
+        defaultValueIcon
+      )}" type="primary-icon-only" disabled=${boolean(
+      labelDisabled,
+      valueDisabled
+    )} full-width=${boolean(labelFullWidth, valueFullWidth)}></gxg-button>
         `,
     {
       notes: {
@@ -171,14 +167,14 @@ stories
 
     return `
     <style>#root { width:700px; text-align: center; }</style>
-    <gxg-button type="secondary-text-icon" full-width=${boolean(
-      labelFullWidth,
-      valueFullWidth
-    )} disabled=${valueDisabled}><gxg-icon slot="icon" type="${select(
+    <gxg-button icon="${select(
       labelIcon,
       optionsIcon,
       defaultValueIcon
-    )}"></gxg-icon>
+    )}" type="secondary-text-icon" full-width=${boolean(
+      labelFullWidth,
+      valueFullWidth
+    )} disabled=${valueDisabled}>
     ${valueButtonLabel}
     </gxg-button>`;
   })
@@ -186,18 +182,14 @@ stories
     "Secondary Icon Only",
     () => `
       <style>#root { width:700px; text-align: center; }</style>  
-      <gxg-button type="secondary-icon-only" disabled=${boolean(
-        labelDisabled,
-        valueDisabled
-      )} full-width=${boolean(
-      labelFullWidth,
-      valueFullWidth
-    )}><gxg-icon slot="icon" type="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}"></gxg-icon
-            ></gxg-button>
+      <gxg-button icon="${select(
+        labelIcon,
+        optionsIcon,
+        defaultValueIcon
+      )}" type="secondary-icon-only" disabled=${boolean(
+      labelDisabled,
+      valueDisabled
+    )} full-width=${boolean(labelFullWidth, valueFullWidth)}></gxg-button>
         `,
     {
       notes: {
@@ -209,18 +201,14 @@ stories
     "Tertiary",
     () => `
       <style>#root { width:700px; text-align: center; }</style>  
-      <gxg-button type="tertiary" disabled=${boolean(
-        labelDisabled,
-        valueDisabled
-      )} full-width=${boolean(
-      labelFullWidth,
-      valueFullWidth
-    )}><gxg-icon slot="icon" type="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}"></gxg-icon
-            ></gxg-button>
+      <gxg-button icon="${select(
+        labelIcon,
+        optionsIcon,
+        defaultValueIcon
+      )}" type="tertiary" disabled=${boolean(
+      labelDisabled,
+      valueDisabled
+    )} full-width=${boolean(labelFullWidth, valueFullWidth)}></gxg-button>
         `,
     {
       notes: {

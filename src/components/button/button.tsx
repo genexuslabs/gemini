@@ -55,10 +55,21 @@ export class Button {
     }
   }
 
-  iconFunc() {
-    if (this.el.querySelector("gxg-icon") === null) {
+  ghostIcon() {
+    if (
+      this.type === "primary-text-only" ||
+      this.type === "secondary-text-only"
+    ) {
       return <gxg-icon class="ghost-icon" type="empty"></gxg-icon>;
       //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
+    }
+  }
+  regularIcon() {
+    if (
+      this.type !== "primary-text-only" &&
+      this.type !== "secondary-text-only"
+    ) {
+      return <gxg-icon type={this.icon} color={this.iconColor()}></gxg-icon>;
     }
   }
 
@@ -96,8 +107,9 @@ export class Button {
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
         >
-          {this.iconFunc()}
-          <gxg-icon type={this.icon} color={this.iconColor()}></gxg-icon>
+          {this.ghostIcon()}
+          {this.regularIcon()}
+
           <span class="text">
             <slot />
           </span>

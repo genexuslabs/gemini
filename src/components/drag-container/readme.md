@@ -13,6 +13,9 @@
 
 | Event           | Description | Type               |
 | --------------- | ----------- | ------------------ |
+| `itemDragEnter` |             | `CustomEvent<any>` |
+| `itemDragLeave` |             | `CustomEvent<any>` |
+| `itemDragOver`  |             | `CustomEvent<any>` |
 | `itemDragStart` |             | `CustomEvent<any>` |
 | `itemDrop`      |             | `CustomEvent<any>` |
 
