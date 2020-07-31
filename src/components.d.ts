@@ -579,7 +579,7 @@ export namespace Components {
      */
     size: string;
     /**
-     * An variable to hold the value of the selected option (for internal use)
+     * This holds the value of the selected option
      */
     value: string;
     /**
@@ -1361,6 +1361,7 @@ declare namespace LocalJSX {
      * The presence of this attribute makes this box active
      */
     active?: boolean;
+    onClicked?: (event: CustomEvent<any>) => void;
     /**
      * The padding (internal spacing)
      */
@@ -1707,7 +1708,7 @@ declare namespace LocalJSX {
      */
     size?: string;
     /**
-     * An variable to hold the value of the selected option (for internal use)
+     * This holds the value of the selected option
      */
     value?: string;
     /**

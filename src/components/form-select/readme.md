@@ -20,7 +20,7 @@
 | `minimal`  | `minimal`   | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus | `boolean` | `true`      |
 | `required` | `required`  | The presence of this attribute makes this input required                                                              | `boolean` | `false`     |
 | `size`     | `size`      | The maximum number of visible options                                                                                 | `string`  | `undefined` |
-| `value`    | `value`     | An variable to hold the value of the selected option (for internal use)                                               | `string`  | `undefined` |
+| `value`    | `value`     | This holds the value of the selected option                                                                           | `string`  | `undefined` |
 | `warning`  | `warning`   | The presence of this attribute stylizes the component with warning attributes                                         | `boolean` | `false`     |
 
 ## Events

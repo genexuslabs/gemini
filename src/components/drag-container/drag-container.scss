@@ -5,16 +5,16 @@
   display: block;
   ::slotted(*) {
     will-change: transform;
-    cursor: move;
+    cursor: grab;
     transition: all 200ms;
     user-select: none;
     position: relative;
-    cursor: move;
     width: 100%;
     box-sizing: border-box;
   }
   ::slotted(.over) {
     transform: scale(1.02, 1.02);
+    cursor: pointer;
     box-shadow: var(--box-shadow-03);
   }
   :last-child {

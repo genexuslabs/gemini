@@ -3,34 +3,51 @@
 
 :host {
   @include gxg-text();
-  box-shadow: var(--box-shadow-01);
+  border-width: var(--border-width-sm);
+  border-style: var(--border-style-regular);
+  border-color: var(--gray-03);
   display: flex;
   align-items: center;
   background-color: var(--color-background);
-  border-top: 2px solid transparent; //var(--color-primary-active);
   margin-bottom: var(--spacing-lay-s);
   padding: 0 var(--spacing-comp-01);
   cursor: pointer;
+  opacity: 1;
+  @include ui-animation(opacity);
 
+  &:before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: calc(100% + 2px);
+    background-color: transparent;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+  }
+
+  ::slotted(.container-content__title) {
+    display: block;
+    font-weight: var(--font-weight-bold);
+  }
   .container-content {
     width: 100%;
-    padding: var(--spacing-comp-01) var(--spacing-comp-02);
-
-    &__title {
-      display: block;
-      font-weight: var(--font-weight-bold);
-    }
+    padding: var(--spacing-comp-01);
   }
   .drag-icon-container {
+    display: flex;
     gxg-icon {
       opacity: 0;
     }
   }
-  .delete-icon-container {
-    gxg-icon {
+  .delete-button-container {
+    gxg-button {
       opacity: 0;
     }
   }
+}
+:host(.hide) {
+  opacity: 0;
 }
 :host(:hover) {
   .drag-icon-container {
@@ -38,8 +55,8 @@
       opacity: 1;
     }
   }
-  .delete-icon-container {
-    gxg-icon {
+  .delete-button-container {
+    gxg-button {
       opacity: 1;
     }
   }
@@ -83,5 +100,7 @@
 
 //Border
 :host([active]) {
-  border-top-color: var(--color-primary-active);
+  &:before {
+    background-color: var(--color-primary-active);
+  }
 }

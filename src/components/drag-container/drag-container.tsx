@@ -32,11 +32,23 @@ export class DragContainer implements DraggableComponent {
   @Event() itemDragLeave: EventEmitter;
   @Event() itemDragEnter: EventEmitter;
 
+  @Listen("clicked")
+  clickedHandler(event) {
+    const boxes = this.el.querySelectorAll("*");
+    boxes.forEach(item => {
+      if (event.detail === item.getAttribute("id")) {
+        item.setAttribute("active", "active");
+      } else {
+        item.removeAttribute("active");
+      }
+    });
+  }
+
   @Listen("itemDragEnter")
-  handleItemDragEnter(e) {
-    const placeholder = this.el.shadowRoot.querySelector(".placeholder");
-    e.detail.parentElement.insertBefore(placeholder, e.detail);
-    placeholder.classList.add("visible");
+  handleItemDragEnter() {
+    // const placeholder = this.el.shadowRoot.querySelector(".placeholder");
+    // e.detail.parentElement.insertBefore(placeholder, e.detail);
+    // placeholder.classList.add("visible");
   }
 
   private dndCleanup: Function;

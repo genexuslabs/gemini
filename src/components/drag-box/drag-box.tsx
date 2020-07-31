@@ -1,4 +1,12 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-drag-box",
@@ -21,13 +29,30 @@ export class DragBox {
    */
   @Prop() title: string;
 
+  @Element() el: HTMLElement;
+  @Event() clicked: EventEmitter;
+
   clickedHandler() {
-    this.active = true;
+    this.clicked.emit(this.el.getAttribute("id"));
+  }
+
+  deleteHandler(event) {
+    event.stopPropagation();
+    this.el.classList.add("hide");
+    setTimeout(() => {
+      this.el.remove();
+    }, 250);
+  }
+
+  componentDidLoad() {
+    const title = this.el.shadowRoot.querySelector(".container-content__title");
+    this.el.prepend(title);
   }
 
   render() {
     return (
       <Host onClick={this.clickedHandler.bind(this)}>
+        <span class="border"></span>
         <div class="drag-icon-container">
           <gxg-icon size="regular" type="drag"></gxg-icon>
         </div>
@@ -37,8 +62,12 @@ export class DragBox {
           ) : null}
           <slot></slot>
         </div>
-        <div class="delete-icon-container">
-          <gxg-icon size="regular" type="deleted"></gxg-icon>
+        <div class="delete-button-container">
+          <gxg-button
+            onClick={this.deleteHandler.bind(this)}
+            type="secondary-icon-only"
+            icon="deleted"
+          ></gxg-button>
         </div>
       </Host>
     );
