@@ -6,7 +6,7 @@
 
 A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
 
-[Here](https://share.goabstract.com/5d9855b3-43b6-4815-9c65-360e405a25c8) you can find an overview of palette, typography, styles, and components: 
+[Here](https://share.goabstract.com/5d9855b3-43b6-4815-9c65-360e405a25c8) you can find an overview of palette, typography, styles, and components.
 
 You can try the design system components [here](https://gx-gemini.netlify.com/).
 
