@@ -41,6 +41,7 @@
     }
   }
   .delete-button-container {
+    display: flex;
     gxg-button {
       opacity: 0;
     }
