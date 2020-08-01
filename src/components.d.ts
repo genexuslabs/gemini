@@ -34,6 +34,8 @@ import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
+import { TargetType, TextType } from "./components/text/text";
+import { TitleType } from "./components/title/title";
 import { Size as Size1 } from "./components/toggle/toggle";
 import { position } from "./components/tooltip/tooltip";
 export namespace Components {
@@ -698,6 +700,26 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {}
+  interface GxgText {
+    /**
+     * The href (for "link" or "link-gray" types
+     */
+    href: string;
+    /**
+     * The target (for "link" or "link-gray" types
+     */
+    target: TargetType;
+    /**
+     * Title type
+     */
+    type: TextType;
+  }
+  interface GxgTitle {
+    /**
+     * Title type
+     */
+    type: TitleType;
+  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1024,6 +1046,18 @@ declare global {
     prototype: HTMLGxgTabsElement;
     new (): HTMLGxgTabsElement;
   };
+  interface HTMLGxgTextElement extends Components.GxgText, HTMLStencilElement {}
+  var HTMLGxgTextElement: {
+    prototype: HTMLGxgTextElement;
+    new (): HTMLGxgTextElement;
+  };
+  interface HTMLGxgTitleElement
+    extends Components.GxgTitle,
+      HTMLStencilElement {}
+  var HTMLGxgTitleElement: {
+    prototype: HTMLGxgTitleElement;
+    new (): HTMLGxgTitleElement;
+  };
   interface HTMLGxgToggleElement
     extends Components.GxgToggle,
       HTMLStencilElement {}
@@ -1102,6 +1136,8 @@ declare global {
     "gxg-tab-bar": HTMLGxgTabBarElement;
     "gxg-tab-button": HTMLGxgTabButtonElement;
     "gxg-tabs": HTMLGxgTabsElement;
+    "gxg-text": HTMLGxgTextElement;
+    "gxg-title": HTMLGxgTitleElement;
     "gxg-toggle": HTMLGxgToggleElement;
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
@@ -1829,6 +1865,26 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {}
+  interface GxgText {
+    /**
+     * The href (for "link" or "link-gray" types
+     */
+    href?: string;
+    /**
+     * The target (for "link" or "link-gray" types
+     */
+    target?: TargetType;
+    /**
+     * Title type
+     */
+    type?: TextType;
+  }
+  interface GxgTitle {
+    /**
+     * Title type
+     */
+    type?: TitleType;
+  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -1950,6 +2006,8 @@ declare namespace LocalJSX {
     "gxg-tab-bar": GxgTabBar;
     "gxg-tab-button": GxgTabButton;
     "gxg-tabs": GxgTabs;
+    "gxg-text": GxgText;
+    "gxg-title": GxgTitle;
     "gxg-toggle": GxgToggle;
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
@@ -2029,6 +2087,9 @@ declare module "@stencil/core" {
       "gxg-tab-button": LocalJSX.GxgTabButton &
         JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
       "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
+      "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
+      "gxg-title": LocalJSX.GxgTitle &
+        JSXBase.HTMLAttributes<HTMLGxgTitleElement>;
       "gxg-toggle": LocalJSX.GxgToggle &
         JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
       "gxg-toolbar": LocalJSX.GxgToolbar &

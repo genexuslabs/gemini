@@ -1,0 +1,10 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host([type="link"]),
+:host([type="link-gray"]),
+:host([type="alert-error"]),
+:host([type="alert-warning"]),
+:host([type="alert-success"]) {
+  display: inline-block;
+}

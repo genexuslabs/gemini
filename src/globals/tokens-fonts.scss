@@ -57,9 +57,24 @@ TITLES STYLES
     @include gxg-title-03--negative;
   }
 }
+/*Title 04*/
+.gxg-title-04 {
+  @include gxg-title-04;
+  &--negative {
+    @include gxg-title-04--negative;
+  }
+}
+/*Title 05*/
+.gxg-title-05 {
+  @include gxg-title-05;
+  &--negative {
+    @include gxg-title-05--negative;
+  }
+}
 /*Text*/
 .gxg-text {
   @include gxg-text;
+  cursor: pointer;
   &--negative {
     @include gxg-text--negative;
   }

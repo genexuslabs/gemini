@@ -8,7 +8,8 @@ $ui-animation-timing-function: ease;
 /*****************************************************
 TYPOGRAPHY
 *****************************************************/
-/*Title 01*/
+
+/*Title 01 (Positive)*/
 @mixin gxg-title-01 {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
@@ -21,17 +22,20 @@ TYPOGRAPHY
 .gxg-title-01 {
   @include gxg-title-01;
 }
+/*Title 01 (Negative)*/
 @mixin gxg-title-01--negative {
+  @include gxg-title-01;
   color: var(--color-on-primary);
 }
 .gxg-title-01--negative {
   @include gxg-title-01--negative;
 }
-/*Title 02*/
+
+/*Title 02 (Positive)*/
 @mixin gxg-title-02 {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   letter-spacing: var(--letter-spacing-sm);
   color: var(--color-on-background);
   text-align: left;
@@ -42,6 +46,7 @@ TYPOGRAPHY
   @include gxg-title-02;
 }
 @mixin gxg-title-02--negative {
+  @include gxg-title-02;
   color: var(--color-on-primary);
 }
 .gxg-title-02--negative {
@@ -62,11 +67,54 @@ TYPOGRAPHY
   @include gxg-title-03;
 }
 @mixin gxg-title-03--negative {
+  @include gxg-title-03;
   color: var(--color-on-primary);
 }
 .gxg-title-03--negative {
   @include gxg-title-03--negative;
 }
+/*Title 04*/
+@mixin gxg-title-04 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-md);
+  color: var(--color-on-background);
+  text-align: left;
+  line-height: 1.455em;
+}
+.gxg-title-04 {
+  @include gxg-title-04;
+}
+@mixin gxg-title-04--negative {
+  @include gxg-title-04;
+  color: var(--color-on-primary);
+}
+.gxg-title-04--negative {
+  @include gxg-title-04--negative;
+}
+/*Title 05*/
+@mixin gxg-title-05 {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-sm);
+  color: var(--color-on-background);
+  text-align: left;
+  line-height: 1.556em;
+  text-transform: uppercase;
+}
+.gxg-title-05 {
+  @include gxg-title-05;
+}
+@mixin gxg-title-05--negative {
+  @include gxg-title-05;
+  color: var(--color-on-primary);
+}
+.gxg-title-05--negative {
+  @include gxg-title-05--negative;
+}
+
 /*Text*/
 @mixin gxg-text {
   font-family: var(--font-family-primary);
@@ -81,33 +129,56 @@ TYPOGRAPHY
   @include gxg-text;
 }
 @mixin gxg-text--negative {
+  @include gxg-text;
   color: var(--color-on-primary);
 }
 .gxg-text--negative {
   @include gxg-text--negative;
 }
 @mixin gxg-text--gray {
+  @include gxg-text;
   color: var(--gray-04);
 }
 .gxg-text--gray {
   @include gxg-text--gray;
 }
+
+/*Quote*/
+@mixin gxg-quote {
+  @include gxg-text;
+  font-style: italic;
+}
+.gxg-quote {
+  @include gxg-quote;
+}
+@mixin gxg-quote--negative {
+  color: var(--color-on-primary);
+}
+.gxg-quote--negative {
+  @include gxg-quote--negative;
+}
+
 /*Link*/
 @mixin gxg-link {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-md);
-  letter-spacing: var(--letter-spacing-xs);
+  @include gxg-text;
   color: var(--color-primary);
-  text-align: left;
   text-decoration: underline;
-  line-height: 1.455em;
+  cursor: pointer;
+  display: inline-block;
 }
 @mixin gxg-link--hover {
   color: var(--color-primary-hover);
 }
 @mixin gxg-link--active {
   color: var(--color-primary-active);
+}
+@mixin gxg-link-gray {
+  @include gxg-link;
+  color: var(--gray-04);
+}
+@mixin gxg-link-gray--hover {
+  @include gxg-link-gray;
+  color: var(--gray-06);
 }
 .gxg-link {
   @include gxg-link;
@@ -118,26 +189,34 @@ TYPOGRAPHY
     @include gxg-link--active;
   }
 }
+.gxg-link-gray {
+  @include gxg-link-gray;
+  &:hover {
+    @include gxg-link-gray--hover;
+  }
+}
 
-/*Quote*/
-@mixin gxg-quote {
-  font-family: var(--font-family-primary);
-  font-style: italic;
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-md);
-  letter-spacing: var(--letter-spacing-xs);
-  color: var(--color-on-background);
-  text-align: left;
-  line-height: 1.455em;
+/*Alerts*/
+@mixin gxg-alert-error {
+  @include gxg-text;
+  color: var(--color-error-dark);
 }
-.gxg-quote {
-  @include gxg-quote;
+.gxg-alert-error {
+  @include gxg-alert-error;
 }
-@mixin gxg-quote--negative {
-  color: var(--color-on-primary);
+@mixin gxg-alert-warning {
+  @include gxg-text;
+  color: var(--color-warning-dark);
 }
-.gxg-quote--negative {
-  @include gxg-quote--negative;
+.gxg-alert-warning {
+  @include gxg-alert-warning;
+}
+@mixin gxg-alert-success {
+  @include gxg-text;
+  color: var(--color-success-dark);
+}
+.gxg-alert-success {
+  @include gxg-alert-success;
 }
 /*Tab*/
 @mixin gxg-tab--active {
