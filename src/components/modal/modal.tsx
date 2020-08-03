@@ -67,11 +67,10 @@ export class Modal {
           <header class="modal__header">
             <span class="modal__header__title">{this.modalTitle}</span>
             <gxg-button
+              icon="close"
               type="secondary-icon-only"
               onClick={this.closeModal.bind(this)}
-            >
-              <gxg-icon slot="icon" type="close"></gxg-icon>
-            </gxg-button>
+            ></gxg-button>
           </header>
           <div class="modal__container">
             <slot></slot>

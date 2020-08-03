@@ -25,6 +25,35 @@
     </style>
   </head>
   <body>
+
+    <gxg-tree-container>
+      <gxg-tree-item>
+        Item 01
+        
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 02
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 03
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 04
+      </gxg-tree-item>
+      <gxg-tree-item>
+        Item 05
+      </gxg-tree-item>
+    </gxg-tree-container>
+
+    <gxg-button icon="close" type="secondary-icon-only"></gxg-button>
+
+    <gxg-button
+    type="secondary-icon-only"
+    onClick={this.closeModal.bind(this)}
+  >
+    <gxg-icon slot="icon" type="duplicate"></gxg-icon>
+  </gxg-button>
+
     <gxg-title type="01">Titulo 01</gxg-title>
     <gxg-title type="02">Titulo 02</gxg-title>
     <gxg-title type="03">Titulo 03</gxg-title>
