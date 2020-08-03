@@ -33,7 +33,7 @@ stories.add("Drag-boxes", () => {
     
   </style>
   <gxg-drag-container>
-  <gxg-drag-box ${blueBorder()} padding="${select(
+  <gxg-drag-box id="01" title="Title container 01" ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -46,7 +46,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 01</gxg-drag-box>
-  <gxg-drag-box ${blueBorder()} padding="${select(
+  <gxg-drag-box id="02" title="Title container 02" ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -59,7 +59,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 02</gxg-drag-box>
-  <gxg-drag-box ${blueBorder()} padding="${select(
+  <gxg-drag-box id="03" title="Title container 03" ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -72,7 +72,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 03</gxg-drag-box>
-  <gxg-drag-box ${blueBorder()} padding="${select(
+  <gxg-drag-box id="04" title="Title container 04" ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
@@ -85,7 +85,7 @@ stories.add("Drag-boxes", () => {
     },
     "s"
   )}">Container 04</gxg-drag-box>
-  <gxg-drag-box ${blueBorder()} padding="${select(
+  <gxg-drag-box id="05" title="Title container 05" ${blueBorder()} padding="${select(
     "Padding",
     {
       xs: "xs",
