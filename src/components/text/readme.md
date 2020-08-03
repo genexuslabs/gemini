@@ -1,4 +1,4 @@
-# gxg-pill
+# gxg-text
 
 <!-- Auto Generated Below -->
 
