@@ -24,6 +24,23 @@ stories.add("Drag-boxes", () => {
     }
   }
 
+  //Deletable
+  const labelDeletable = "Deletable";
+  const defaultValueDeletable = false;
+  const valueDeletable = boolean(labelDeletable, defaultValueDeletable);
+
+  function blueBorder() {
+    if (valueBlueBorder) {
+      return "border";
+    }
+  }
+
+  function deletableFunc() {
+    if (valueDeletable) {
+      return "deletable";
+    }
+  }
+
   return `
   <style>
     #root{
@@ -32,7 +49,7 @@ stories.add("Drag-boxes", () => {
     }
     
   </style>
-  <gxg-drag-container>
+  <gxg-drag-container ${deletableFunc()}>
   <gxg-drag-box id="01" title="Title container 01" ${blueBorder()} padding="${select(
     "Padding",
     {
