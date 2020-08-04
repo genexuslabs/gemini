@@ -20,6 +20,11 @@ export class DragContainer implements DraggableComponent {
   @Element() el: HTMLElement;
 
   /**
+   * The presence of this attribute adds a "delete" button to each child, that you can press to delete the item
+   */
+  @Prop() deletable = false;
+
+  /**
    * The max-width of the box container
    */
   @Prop() maxWidth = "100%";
@@ -67,6 +72,14 @@ export class DragContainer implements DraggableComponent {
         dragBox.setAttribute("padding", this.padding);
       }
     });
+
+    //Deletable button for each of the child items
+    if (this.deletable) {
+      const items = this.el.querySelectorAll("*");
+      items.forEach(item => {
+        item.setAttribute("deletable", "deletable");
+      });
+    }
   }
 
   disconnectedCallback() {

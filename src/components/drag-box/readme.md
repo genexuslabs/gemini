@@ -3,13 +3,16 @@
 <h2>Notes</h2>
 <ul>
    <li>To make the boxes draggable, wrap any number of <code>gxg-drag-box</code>'s inside an <code>gxg-drag-container</code></li>
+   <li>Add the "deletable" atribute on the <code>drag-container</code> to add a "delete" button to all of the draggable items</li>
 </ul>
 
 ## Properties
 
-| Property   | Attribute   | Description                        | Type     | Default  |
-| ---------- | ----------- | ---------------------------------- | -------- | -------- |
-| `maxWidth` | `max-width` | The max-width of the box container | `string` | `"100%"` |
+| Property    | Attribute   | Description                                                                                                | Type                                                   | Default     |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `deletable` | `deletable` | The presence of this attribute adds a "delete" button to each child, that you can press to delete the item | `boolean`                                              | `false`     |
+| `maxWidth`  | `max-width` | The max-width of the box container                                                                         | `string`                                               | `"100%"`    |
+| `padding`   | `padding`   |                                                                                                            | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
 
 # gxg-drag-box
 
@@ -17,11 +20,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                          | Type                                                   | Default     |
-| --------- | --------- | ---------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| `active`  | `active`  | The presence of this attribute makes this box active | `boolean`                                              | `false`     |
-| `padding` | `padding` | The padding (internal spacing)                       | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
-| `title`   | `title`   | The title                                            | `string`                                               | `undefined` |
+| Property    | Attribute   | Description                                                                                | Type                                                   | Default     |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ | ----------- |
+| `active`    | `active`    | The presence of this attribute makes this box active                                       | `boolean`                                              | `false`     |
+| `deletable` | `deletable` | The presence of this attribute adds a "delete" button that you can press to delete the box | `boolean`                                              | `false`     |
+| `padding`   | `padding`   | The padding (internal spacing)                                                             | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
+| `title`     | `title`     | The title                                                                                  | `string`                                               | `undefined` |
 
 ## Events
 

@@ -275,6 +275,10 @@ export namespace Components {
      */
     active: boolean;
     /**
+     * The presence of this attribute adds a "delete" button that you can press to delete the box
+     */
+    deletable: boolean;
+    /**
      * The padding (internal spacing)
      */
     padding: Padding;
@@ -284,6 +288,10 @@ export namespace Components {
     title: string;
   }
   interface GxgDragContainer {
+    /**
+     * The presence of this attribute adds a "delete" button to each child, that you can press to delete the item
+     */
+    deletable: boolean;
     /**
      * The max-width of the box container
      */
@@ -1397,6 +1405,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes this box active
      */
     active?: boolean;
+    /**
+     * The presence of this attribute adds a "delete" button that you can press to delete the box
+     */
+    deletable?: boolean;
     onClicked?: (event: CustomEvent<any>) => void;
     /**
      * The padding (internal spacing)
@@ -1408,6 +1420,10 @@ declare namespace LocalJSX {
     title?: string;
   }
   interface GxgDragContainer {
+    /**
+     * The presence of this attribute adds a "delete" button to each child, that you can press to delete the item
+     */
+    deletable?: boolean;
     /**
      * The max-width of the box container
      */

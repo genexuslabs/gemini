@@ -20,6 +20,11 @@ export class DragBox {
   @Prop({ reflect: true }) active = false;
 
   /**
+   * The presence of this attribute adds a "delete" button that you can press to delete the box
+   */
+  @Prop() deletable = false;
+
+  /**
    * The padding (internal spacing)
    */
   @Prop({ reflect: true }) padding: Padding;
@@ -45,8 +50,12 @@ export class DragBox {
   }
 
   componentDidLoad() {
-    const title = this.el.shadowRoot.querySelector(".container-content__title");
-    this.el.prepend(title);
+    if (this.title !== undefined) {
+      const title = this.el.shadowRoot.querySelector(
+        ".container-content__title"
+      );
+      this.el.prepend(title);
+    }
   }
 
   render() {
@@ -63,11 +72,13 @@ export class DragBox {
           <slot></slot>
         </div>
         <div class="delete-button-container">
-          <gxg-button
-            onClick={this.deleteHandler.bind(this)}
-            type="secondary-icon-only"
-            icon="deleted"
-          ></gxg-button>
+          {this.deletable ? (
+            <gxg-button
+              onClick={this.deleteHandler.bind(this)}
+              type="secondary-icon-only"
+              icon="deleted"
+            ></gxg-button>
+          ) : null}
         </div>
       </Host>
     );
