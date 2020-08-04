@@ -15,11 +15,12 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                     | Type     | Default        |
-| ---------------- | ----------------- | --------------------------------------------------------------- | -------- | -------------- |
-| `justifyContent` | `justify-content` | Content justify                                                 | `string` | `"flex-start"` |
-| `orientation`    | `orientation`     | The orientation                                                 | `string` | `"horizontal"` |
-| `space`          | `space`           | The spacing value, taken from the "token-spacing" global values | `string` | `undefined`    |
+| Property         | Attribute         | Description                                                     | Type      | Default        |
+| ---------------- | ----------------- | --------------------------------------------------------------- | --------- | -------------- |
+| `fullHeight`     | `full-height`     | Add this attribute to make the spacer-layout full height        | `boolean` | `false`        |
+| `justifyContent` | `justify-content` | Content justify                                                 | `string`  | `"flex-start"` |
+| `orientation`    | `orientation`     | The orientation                                                 | `string`  | `"horizontal"` |
+| `space`          | `space`           | The spacing value, taken from the "token-spacing" global values | `string`  | `undefined`    |
 
 ---
 

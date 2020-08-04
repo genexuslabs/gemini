@@ -41,6 +41,11 @@
   }
 }
 
+//Full height
+:host([full-height]) {
+  height: 100%;
+}
+
 //Vertical orientation
 :host(.vertical) {
   display: flex;

@@ -631,6 +631,10 @@ export namespace Components {
   }
   interface GxgSpacerLayout {
     /**
+     * Add this attribute to make the spacer-layout full height
+     */
+    fullHeight: boolean;
+    /**
      * Content justify
      */
     justifyContent: string;
@@ -1801,6 +1805,10 @@ declare namespace LocalJSX {
     value?: number;
   }
   interface GxgSpacerLayout {
+    /**
+     * Add this attribute to make the spacer-layout full height
+     */
+    fullHeight?: boolean;
     /**
      * Content justify
      */

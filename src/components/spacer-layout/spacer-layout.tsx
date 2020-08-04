@@ -7,6 +7,11 @@ import { Component, Prop, h, Host } from "@stencil/core";
 })
 export class SpacerLayout {
   /**
+   * Add this attribute to make the spacer-layout full height
+   */
+  @Prop() fullHeight = false;
+
+  /**
    * The spacing value, taken from the "token-spacing" global values
    */
   @Prop() space: string;

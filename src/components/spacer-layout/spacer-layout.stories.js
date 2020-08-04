@@ -13,6 +13,11 @@ const stories = storiesOf("Layout/Spacer Layout", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Spacer Layout", () => {
+  //Full Height
+  const labelFullHeight = "Full Height";
+  const defaultValueFullHeight = true;
+  const valueFullHeight = boolean(labelFullHeight, defaultValueFullHeight);
+
   //Space
   const labelSpace = "Space";
   const optionsSpace = {
@@ -48,6 +53,12 @@ stories.add("Spacer Layout", () => {
   };
   const defaultValueJustify = "flex-start";
 
+  function fullHeightFunc() {
+    if (valueFullHeight) {
+      return "full-height";
+    }
+  }
+
   return `
   <style>
   #root {
@@ -59,6 +70,7 @@ stories.add("Spacer Layout", () => {
   }
   </style>
   <gxg-spacer-layout
+  ${fullHeightFunc()}
   space=${select(labelSpace, optionsSpace, defaultValueSpace)}
   orientation=${valueOrientation}
   justify-content=${select(labelJustify, optionsJustify, defaultValueJustify)}
