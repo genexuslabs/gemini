@@ -42,35 +42,62 @@ STORIES
 *************/
 
 const arrayIconsNames = [
-  { name: "add", description: "this is some description for add" },
-  {
-    name: "add-circle",
-    description: "this is some description for add circle"
-  },
-  { name: "arrow-down", description: "this is some description for arrow-down" }
+  "add",
+  "add-circle",
+  "arrow-down",
+  "arrow-left",
+  "arrow-right",
+  "arrow-up",
+  "chevron-down",
+  "chevron-left",
+  "chevron-right",
+  "chevron-up",
+  "close",
+  "color-picker",
+  "deleted",
+  "drag",
+  "duplicate",
+  "edit-wand",
+  "edit",
+  "error",
+  "file",
+  "folder",
+  "level-down",
+  "level-up",
+  "minus",
+  "minus-circle",
+  "more-info",
+  "search",
+  "settings",
+  "show-more-horizontal",
+  "show-more-vertical",
+  "success",
+  "warning"
 ];
 
 function iconsSet(size) {
   return arrayIconsNames
     .map((iconType, index) => {
       return `
-      <tr>
-        <td>${iconType.name}</td>
-        <td>
-          <gxg-icon size="${size}" type="${iconType}" color="${select(
+      <gxg-icon index=${index} size="${size}" type="${iconType}" color="${select(
         label,
         options,
         defaultValue
-      )}"></gxg-icon></tr></td>
-      <td>${iconType.description}</td>`;
+      )}"></gxg-icon>`;
     })
     .join("");
 }
 const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
-stories.add("category one", () => iconsSet("regular"), {
-  notes: {
-    markdown: readme
-  }
-});
+stories
+  .add("regular size icons", () => iconsSet("regular"), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add("small size icons", () => iconsSet("small"), {
+    notes: {
+      markdown: readme
+    }
+  });
