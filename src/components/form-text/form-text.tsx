@@ -105,6 +105,11 @@ export class FormText implements FormComponent {
    */
   @Event() change: EventEmitter;
 
+  /**
+   * The clear button was clicked
+   */
+  @Event() clearButtonClicked: EventEmitter;
+
   /*********************************
   METHODS
   *********************************/
@@ -152,6 +157,7 @@ export class FormText implements FormComponent {
   clearButtonFunc() {
     const value = (this.el.shadowRoot.querySelector("input").value = "");
     this.change.emit(value);
+    this.clearButtonClicked.emit("clear button was clicked");
   }
 
   render() {

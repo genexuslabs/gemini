@@ -22,10 +22,11 @@
 
 ## Events
 
-| Event    | Description             | Type               |
-| -------- | ----------------------- | ------------------ |
-| `change` | Returns the input value | `CustomEvent<any>` |
-| `input`  | Returns the input value | `CustomEvent<any>` |
+| Event                | Description                  | Type               |
+| -------------------- | ---------------------------- | ------------------ |
+| `change`             | Returns the input value      | `CustomEvent<any>` |
+| `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
+| `input`              | Returns the input value      | `CustomEvent<any>` |
 
 ## Dependencies
 

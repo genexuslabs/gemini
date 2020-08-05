@@ -1554,6 +1554,10 @@ declare namespace LocalJSX {
      */
     onChange?: (event: CustomEvent<any>) => void;
     /**
+     * The clear button was clicked
+     */
+    onClearButtonClicked?: (event: CustomEvent<any>) => void;
+    /**
      * Returns the input value
      */
     onInput?: (event: CustomEvent<any>) => void;
