@@ -33,6 +33,7 @@
     "@stencil/sass": "^1.1.0",
     "@storybook/addon-notes": "^5.2.5",
     "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
     "@storybook/html": "^5.2.5",
     "@storybook/theming": "^5.3.19",
     "@types/jest": "24.9.1",

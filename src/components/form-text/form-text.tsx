@@ -144,8 +144,9 @@ export class FormText implements FormComponent {
   }
 
   handleChange(e) {
+    const target = e.target as HTMLInputElement;
+    this.change.emit(target.value);
     formHandleChange(this, e.target);
-    this.change.emit(this.value);
   }
 
   clearButtonFunc() {
