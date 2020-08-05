@@ -149,8 +149,9 @@ export class FormText implements FormComponent {
     formHandleChange(this, e.target);
   }
 
-  clearButtonFunc() {
-    this.el.shadowRoot.querySelector("input").value = "";
+  clearButtonFunc(e) {
+    const value = (this.el.shadowRoot.querySelector("input").value = "");
+    this.change.emit(value);
   }
 
   render() {
