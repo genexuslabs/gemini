@@ -72,37 +72,37 @@
 //Padding
 :host([padding="xs"]) {
   .inner-container {
-    padding: var(--spacing-comp-01);
+    padding: 0 var(--spacing-comp-01);
   }
 }
 :host([padding="s"]) {
   .inner-container {
-    padding: var(--spacing-comp-02);
+    padding: 0 var(--spacing-comp-02);
   }
 }
 :host([padding="m"]) {
   .inner-container {
-    padding: var(--spacing-comp-03);
+    padding: 0 var(--spacing-comp-03);
   }
 }
 :host([padding="l"]) {
   .inner-container {
-    padding: var(--spacing-comp-04);
+    padding: 0 var(--spacing-comp-04);
   }
 }
 :host([padding="xl"]) {
   .inner-container {
-    padding: var(--spacing-comp-05);
+    padding: 0 var(--spacing-comp-05);
   }
 }
 :host([padding="xxl"]) {
   .inner-container {
-    padding: var(--spacing-comp-06);
+    padding: 0 var(--spacing-comp-06);
   }
 }
 :host([padding="xxxl"]) {
   .inner-container {
-    padding: var(--spacing-comp-07);
+    padding: 0 var(--spacing-comp-07);
   }
 }
 
