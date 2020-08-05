@@ -105,3 +105,14 @@
     padding: var(--spacing-comp-07);
   }
 }
+
+:host(:first-child) {
+  .inner-container {
+    padding-left: 0;
+  }
+}
+:host(:last-child) {
+  .inner-container {
+    padding-right: 0;
+  }
+}
