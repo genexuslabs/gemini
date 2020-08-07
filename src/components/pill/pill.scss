@@ -12,6 +12,7 @@
   padding-left: 2px;
   opacity: 1;
   margin-bottom: var(--spacing-lay-s);
+  height: var(--spacing-lay-m);
   @include ui-animation(opacity);
 
   .title {

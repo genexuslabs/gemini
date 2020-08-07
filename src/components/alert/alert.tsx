@@ -35,7 +35,7 @@ export class Alert {
   /**
    * The alert flavor
    */
-  @Prop() type: AlertType = "more-info";
+  @Prop() type: AlertType = "notice";
 
   /**
    * The presence of this attribute makes the component full-width
@@ -66,14 +66,14 @@ export class Alert {
   }
 
   iconColor(): "onbackground" | "negative" | "error" | "success" | "warning" {
-    if (this.type === "more-info") return "negative";
+    if (this.type === "notice") return "negative";
     if (this.type === "error") return "error";
     if (this.type === "warning") return "warning";
     if (this.type === "success") return "success";
   }
 
   closeIconColor(): "onbackground" | "negative" {
-    if (this.type === "more-info") {
+    if (this.type === "notice") {
       return "negative";
     } else {
       return "onbackground";
@@ -145,7 +145,7 @@ export class Alert {
 
   render() {
     let lateralSpacingValue;
-    if (this.leftRight === "no-spacing") {
+    if (this.leftRight === "no-space") {
       lateralSpacingValue = "0";
     } else {
       const bodyComputedStyles = getComputedStyle(document.body);
@@ -155,7 +155,7 @@ export class Alert {
     }
 
     let bottomSpacingValue;
-    if (this.bottom === "no-spacing") {
+    if (this.bottom === "no-space") {
       bottomSpacingValue = "0";
     } else {
       const bodyComputedStyles = getComputedStyle(document.body);
@@ -180,7 +180,7 @@ export class Alert {
         <div
           class={{
             "alert-message": true,
-            "alert-message--more-info": this.type === "more-info",
+            "alert-message--notice": this.type === "notice",
             "alert-message--error": this.type === "error",
             "alert-message--warning": this.type === "warning",
             "alert-message--success": this.type === "success"
@@ -188,11 +188,11 @@ export class Alert {
         >
           <div class="alert-message--container">
             <div class="alert-message--icon">
-              <gxg-icon
+              {/* <gxg-icon
                 color={this.iconColor()}
                 slot="icon"
                 type={this.type}
-              ></gxg-icon>
+              ></gxg-icon> */}
             </div>
             <div class="alert-message-title-description">
               {this.printTitle()}
@@ -220,7 +220,7 @@ export class Alert {
   }
 }
 
-export type AlertType = "more-info" | "error" | "warning" | "success";
+export type AlertType = "notice" | "error" | "warning" | "success";
 
 export type AlertPosition = "left" | "center" | "right";
 
@@ -233,4 +233,4 @@ export type ActiveTime =
   | "xfast"
   | "xxfast";
 
-export type Spacing = "no-spacing" | "xs" | "s" | "m" | "l" | "xl";
+export type Spacing = "no-space" | "xs" | "s" | "m" | "l" | "xl";

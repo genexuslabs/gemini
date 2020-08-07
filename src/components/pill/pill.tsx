@@ -17,17 +17,12 @@ export class Pill {
   /**
    * The icon
    */
-  @Prop() icon: IconType = "pill-filled";
+  @Prop() icon: PillIconType = "pill-filled";
 
   /**
    * The presence of this attribute ads a close button that when clicked, removes the pill
    */
   @Prop({ reflect: true }) type: PillType = "static";
-
-  /**
-   * The label
-   */
-  @Prop() label: string;
 
   removeButtonFunc() {
     this.el.classList.add("hide");
@@ -67,3 +62,4 @@ export class Pill {
 }
 
 export type PillType = "static" | "button" | "button-with-action";
+export type PillIconType = "pill-filled" | "pill-outlined";

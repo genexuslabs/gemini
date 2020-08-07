@@ -50,15 +50,15 @@ const stories = storiesOf("Interaction/Alert", module);
 stories.addDecorator(withKnobs);
 stories
   .add(
-    "More info",
+    "Notice",
     () => ` 
     <gxg-button onClick="(function(){
-        document.getElementById('alert-more-info').setAttribute('active', 'true');
+        document.getElementById('alert-notice').setAttribute('active', 'true');
         return false;
     })();">Show alert</gxg-button>
     <gxg-alert
-    id="alert-more-info"
-    type="more-info"
+    id="alert-notice"
+    type="notice"
     active="false"
     active-time="${select(
       "Active Time",

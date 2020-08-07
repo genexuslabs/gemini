@@ -36,7 +36,7 @@ import { Message } from "./components/form-message/form-message";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
-import { PillType } from "./components/pill/pill";
+import { PillIconType, PillType } from "./components/pill/pill";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
 import { TargetType, TextType } from "./components/text/text";
@@ -536,11 +536,7 @@ export namespace Components {
     /**
      * The icon
      */
-    icon: IconType;
-    /**
-     * The label
-     */
-    label: string;
+    icon: PillIconType;
     /**
      * The presence of this attribute ads a close button that when clicked, removes the pill
      */
@@ -1711,11 +1707,7 @@ declare namespace LocalJSX {
     /**
      * The icon
      */
-    icon?: IconType;
-    /**
-     * The label
-     */
-    label?: string;
+    icon?: PillIconType;
     /**
      * The presence of this attribute ads a close button that when clicked, removes the pill
      */

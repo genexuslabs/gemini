@@ -10,19 +10,19 @@ let moreInfoIcon: E2EElement;
 let closeIcon: E2EElement;
 
 //ALERT MORE INFO
-describe("gxg-alert-more-info", () => {
+describe("gxg-alert-notice", () => {
   beforeEach(async () => {
     page = await newE2EPage();
 
     await page.setContent(
       `
       <gxg-alert
-      id="alert-more-info"
-      type="more-info"
+      id="alert-notice"
+      type="notice"
       position="center"
       alert-title="more info title"
       active-time="xxslow"
-    >This is the content of the more-info alert</gxg-alert>
+    >This is the content of the notice alert</gxg-alert>
     `
     );
 
@@ -30,21 +30,21 @@ describe("gxg-alert-more-info", () => {
     alertMessage = await page.find("gxg-alert >>> .alert-message");
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
-    moreInfoIcon = await page.find("gxg-alert >>> gxg-icon[type='more-info']");
+    moreInfoIcon = await page.find("gxg-alert >>> gxg-icon[type='notice']");
     closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
   });
 
   it("has the right classes", async () => {
-    expect(alertMessage).toHaveClass("alert-message--more-info");
+    expect(alertMessage).toHaveClass("alert-message--notice");
     expect(title).toHaveClass("alert-message--title");
     expect(message).toHaveClass("alert-message--description");
   });
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "more-info");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "notice");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "more-info");
+    expect(moreInfoIcon).toEqualAttribute("type", "notice");
 
     //more info icon
     expect(closeIcon).toEqualAttribute("aria-label", "close");
@@ -55,9 +55,7 @@ describe("gxg-alert-more-info", () => {
   it("displays text", async () => {
     await page.waitForChanges();
     expect(title.textContent).toBe("more info title");
-    expect(alert.textContent).toBe(
-      "This is the content of the more-info alert"
-    );
+    expect(alert.textContent).toBe("This is the content of the notice alert");
   });
 
   it("has the right inline styles", async () => {
@@ -66,9 +64,7 @@ describe("gxg-alert-more-info", () => {
     //   "matrix(1, 0, 0, 1, -175, 62)"
     // );
     //Can´t do the preceding test, since the last value is different each time I run the test.
-    expect(alert.textContent).toBe(
-      "This is the content of the more-info alert"
-    );
+    expect(alert.textContent).toBe("This is the content of the notice alert");
   });
 
   it("shows the alertbox", async () => {
@@ -284,7 +280,7 @@ describe("gxg-alert spacings left-right", () => {
     page = await newE2EPage();
     await page.setContent(
       `
-      <gxg-alert id="alert-01" type="warning" left-right="no-spacing">Content</gxg-alert>
+      <gxg-alert id="alert-01" type="warning" left-right="no-space">Content</gxg-alert>
       <gxg-alert id="alert-02" type="warning" left-right="xs">Content</gxg-alert>
       <gxg-alert id="alert-03" type="warning" left-right="s">Content</gxg-alert>
       <gxg-alert id="alert-04" type="warning" left-right="m">Content</gxg-alert>
