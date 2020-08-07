@@ -4,9 +4,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                   | Default |
-| -------- | --------- | ----------- | -------------------------------------- | ------- |
-| `type`   | `type`    | Title type  | `"01" \| "02" \| "03" \| "04" \| "05"` | `"01"`  |
+| Property | Attribute | Description | Type                                                                 | Default      |
+| -------- | --------- | ----------- | -------------------------------------------------------------------- | ------------ |
+| `type`   | `type`    | Title type  | `"title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"title-01"` |
 
 ---
 

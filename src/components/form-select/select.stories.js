@@ -38,7 +38,7 @@ stories.add("Select", () => {
     disabled: "disabled"
   };
   const defaultValueStatus = "enabled";
-  const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
+  const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);
 
   function minimal() {
     if (valueMinimal) {

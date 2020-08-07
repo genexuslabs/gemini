@@ -2,14 +2,13 @@
 @import "../../globals/mixins";
 
 :host {
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  border-color: var(--gray-04);
+  border-color: var(--gray-02);
   border-width: var(--border-width-sm);
   border-style: var(--border-style-regular);
   border-radius: 11px;
-  padding-right: 7px;
+  padding-right: 11px;
   padding-left: 2px;
   opacity: 1;
   margin-bottom: var(--spacing-lay-s);
@@ -17,24 +16,45 @@
 
   .title {
     @include gxg-text;
-    font-style: italic;
   }
+}
+//Static
+:host([type="static"]) {
+  background-color: var(--gray-01);
+  border-color: var(--gray-01);
+  font-style: italic;
+}
+//Button
+:host([type="button"]) {
+  padding-right: 18px;
+}
+//Button / Button with action
+:host([type="button"]:hover),
+:host([type="button-with-action"]:hover) {
+  border-color: var(--gray-06);
+  cursor: pointer;
+}
+:host([type="button"]:focus),
+:host([type="button-with-action"]:focus) {
+  border-color: var(--gray-06);
+  box-shadow: 0px 0px 0px 1px var(--gray-06);
+}
+:host([type="button"]:active),
+:host([type="button-with-action"]:active) {
+  border-color: var(--gray-08);
+}
+//Button with action
+:host([type="button-with-action"]) {
+  padding-right: 2px;
+
   .clear-button {
     cursor: pointer;
     opacity: 0.5;
+    margin-left: 8px;
 
     &:hover {
       opacity: 0.75;
     }
-  }
-}
-:host([remove-button]:hover) {
-  border-color: var(--gray-06);
-}
-:host([remove-button]) {
-  padding-right: 2px;
-  .title {
-    font-style: normal;
   }
 }
 :host(.hide) {
@@ -42,8 +62,7 @@
 }
 :host(:focus) {
   outline: none;
-  border-color: var(--gray-06);
-  box-shadow: 0px 0px 0px 1px var(--gray-06);
+  //border-color: var(--gray-06);
 }
 :host([disabled]) {
   border-color: var(--gray-03);

@@ -15,16 +15,16 @@ stories.addParameters({ notes: readme });
 stories.add("Titles", () => {
   return `
     <style>#root {width: 600px; text-align:center} gxg-title{display:inline-block}</style>
-    <gxg-title type=${radios(
+    <gxg-title type=${select(
       "Type",
       {
-        "01": "01",
-        "02": "02",
-        "03": "03",
-        "04": "04",
-        "05": "05"
+        "title-01": "title-01",
+        "title-02": "title-02",
+        "title-03": "title-03",
+        "title-04": "title-04",
+        "title-05": "title-05"
       },
-      "01"
+      "title-01"
     )}>This is a title</gxg-title>
 `;
 });

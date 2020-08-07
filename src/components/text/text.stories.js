@@ -16,28 +16,28 @@ stories
   .add("Text", () => {
     return `
     <style>#root {width: 600px;  }</style>
-    <gxg-text type=${radios(
+    <gxg-text type=${select(
       "Type",
       {
-        regular: "regular",
-        gray: "gray",
-        quote: "quote"
+        "text-regular": "text-regular",
+        "text-gray": "text-gray",
+        "text-quote": "text-quote"
       },
-      "regular"
+      "text-regular"
     )}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</gxg-text>
 `;
   })
   .add("Link", () => {
     return `
     <style>#root {width: 600px; text-align: center} </style>
-    <gxg-text href="${text("href", "http://www.google.com")}" type=${radios(
+    <gxg-text href="${text("href", "http://www.google.com")}" type=${select(
       "Type",
       {
-        link: "link",
-        "link-gray": "link-gray"
+        "text-link": "text-link",
+        "text-link-gray": "text-link-gray"
       },
       "link"
-    )} target=${radios(
+    )} target=${select(
       "Target",
       {
         _self: "_self",
@@ -50,14 +50,14 @@ stories
   .add("Alerts", () => {
     return `
   <style>#root {width: 600px; text-align: center} </style>
-  <gxg-text type=${radios(
+  <gxg-text type=${select(
     "Type",
     {
-      "alert-error": "alert-error",
-      "alert-warning": "alert-warning",
-      "alert-success": "alert-success"
+      "text-alert-error": "text-alert-error",
+      "text-alert-warning": "text-alert-warning",
+      "text-alert-success": "text-alert-success"
     },
-    "alert-error"
+    "text-alert-error"
   )}>An alert message</gxg-text>
 `;
   });

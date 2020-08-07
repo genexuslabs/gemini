@@ -31,7 +31,7 @@ stories.add("Separator", () => {
     dashed: "dashed"
   };
   const defaultValueType = "solid";
-  const valueType = radios(labelType, optionsType, defaultValueType);
+  const valueType = select(labelType, optionsType, defaultValueType);
 
   return `
   <style>

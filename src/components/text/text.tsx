@@ -19,41 +19,41 @@ export class Text {
   /**
    * Title type
    */
-  @Prop() type: TextType = "regular";
+  @Prop() type: TextType = "text-regular";
 
   textType() {
     let text;
     switch (this.type) {
-      case "regular":
+      case "text-regular":
         text = <p class="gxg-text">{<slot></slot>}</p>;
         break;
-      case "gray":
+      case "text-gray":
         text = <p class="gxg-text--gray">{<slot></slot>}</p>;
         break;
-      case "quote":
+      case "text-quote":
         text = <q class="gxg-quote">{<slot></slot>}</q>;
         break;
-      case "link":
+      case "text-link":
         text = (
           <a href={this.href} target={this.target} class="gxg-link">
             {<slot></slot>}
           </a>
         );
         break;
-      case "link-gray":
+      case "text-link-gray":
         text = (
           <a href={this.href} target={this.target} class="gxg-link-gray">
             {<slot></slot>}
           </a>
         );
         break;
-      case "alert-error":
+      case "text-alert-error":
         text = <p class="gxg-alert-error">{<slot></slot>}</p>;
         break;
-      case "alert-warning":
+      case "text-alert-warning":
         text = <p class="gxg-alert-warning">{<slot></slot>}</p>;
         break;
-      case "alert-success":
+      case "text-alert-success":
         text = <p class="gxg-alert-success">{<slot></slot>}</p>;
         break;
       default:
@@ -68,13 +68,13 @@ export class Text {
 }
 
 export type TextType =
-  | "regular"
-  | "gray"
-  | "quote"
-  | "link"
-  | "link-gray"
-  | "alert-error"
-  | "alert-warning"
-  | "alert-success";
+  | "text-regular"
+  | "text-gray"
+  | "text-quote"
+  | "text-link"
+  | "text-link-gray"
+  | "text-alert-error"
+  | "text-alert-warning"
+  | "text-alert-success";
 
 export type TargetType = "_self" | "_blank";

@@ -22,7 +22,7 @@ stories.add("Tooltip", () => {
     left: "left"
   };
   const defaultValuePosition = "top";
-  const valuePosition = radios(
+  const valuePosition = select(
     labelPosition,
     optionsPosition,
     defaultValuePosition

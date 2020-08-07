@@ -76,7 +76,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
-        "0": "0",
+        "no-spacing": "no-spacing",
         xs: "xs",
         s: "s",
         m: "m",
@@ -89,7 +89,7 @@ stories
     left-right="${select(
       "Left/Right spacing",
       {
-        "0": "0",
+        "no-spacing": "no-spacing",
         xs: "xs",
         s: "s",
         m: "m",
@@ -141,7 +141,7 @@ stories
   bottom="${select(
     "Bottom spacing",
     {
-      "0": "0",
+      "no-spacing": "no-spacing",
       xs: "xs",
       s: "s",
       m: "m",
@@ -154,7 +154,7 @@ stories
   left-right="${select(
     "Left/Right spacing",
     {
-      "0": "0",
+      "no-spacing": "no-spacing",
       xs: "xs",
       s: "s",
       m: "m",
@@ -207,7 +207,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
-        "0": "0",
+        "no-spacing": "no-spacing",
         xs: "xs",
         s: "s",
         m: "m",
@@ -220,7 +220,7 @@ stories
     left-right="${select(
       "Left/Right spacing",
       {
-        "0": "0",
+        "no-spacing": "no-spacing",
         xs: "xs",
         s: "s",
         m: "m",
@@ -272,7 +272,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
-        "0": "0",
+        "no-spacing": "no-spacing",
         xs: "xs",
         s: "s",
         m: "m",
@@ -285,7 +285,7 @@ stories
     left-right="${select(
       "Left/Right spacing",
       {
-        "0": "0",
+        "no-spacing": "no-spacing",
         xs: "xs",
         s: "s",
         m: "m",

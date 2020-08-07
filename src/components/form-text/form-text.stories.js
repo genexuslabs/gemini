@@ -60,7 +60,7 @@ stories.add("Text", () => {
     right: "right"
   };
   const defaultValueIcon = "left";
-  const valueIcon = radios(labelIcon, optionsIcon, defaultValueIcon);
+  const valueIcon = select(labelIcon, optionsIcon, defaultValueIcon);
 
   //Max Width
   const labelMaxWidth = "Max. Width";
@@ -87,7 +87,7 @@ stories.add("Text", () => {
     disabled: "disabled"
   };
   const defaultValueStatus = "enabled";
-  const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
+  const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);
 
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {

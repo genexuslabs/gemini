@@ -27,7 +27,7 @@ stories.add("Modal", () => {
     right: "right"
   };
   const defaultValueFooter = "right";
-  const valueFooter = radios(labelFooter, optionsFooter, defaultValueFooter);
+  const valueFooter = select(labelFooter, optionsFooter, defaultValueFooter);
 
   //Title
   const labelTitle = "Title";

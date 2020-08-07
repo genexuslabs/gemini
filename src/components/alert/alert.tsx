@@ -145,7 +145,7 @@ export class Alert {
 
   render() {
     let lateralSpacingValue;
-    if (this.leftRight === "0") {
+    if (this.leftRight === "no-spacing") {
       lateralSpacingValue = "0";
     } else {
       const bodyComputedStyles = getComputedStyle(document.body);
@@ -155,7 +155,7 @@ export class Alert {
     }
 
     let bottomSpacingValue;
-    if (this.bottom === "0") {
+    if (this.bottom === "no-spacing") {
       bottomSpacingValue = "0";
     } else {
       const bodyComputedStyles = getComputedStyle(document.body);
@@ -233,4 +233,4 @@ export type ActiveTime =
   | "xfast"
   | "xxfast";
 
-export type Spacing = "0" | "xs" | "s" | "m" | "l" | "xl";
+export type Spacing = "no-spacing" | "xs" | "s" | "m" | "l" | "xl";

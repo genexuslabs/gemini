@@ -36,7 +36,7 @@ stories.add("Spacer Layout", () => {
     vertical: "vertical"
   };
   const defaultValueOrientation = "horizontal";
-  const valueOrientation = radios(
+  const valueOrientation = select(
     labelOrientation,
     optionsOrientation,
     defaultValueOrientation

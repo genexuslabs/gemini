@@ -79,7 +79,7 @@ stories.add("Toolbar", () => {
     bottom: "bottom"
   };
   const defaultValueStatus = "left";
-  const valueArrowPosition = radios(
+  const valueArrowPosition = select(
     labelArrowPosition,
     optionsArrowPosition,
     defaultValueStatus

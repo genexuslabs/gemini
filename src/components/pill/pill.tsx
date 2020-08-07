@@ -22,7 +22,7 @@ export class Pill {
   /**
    * The presence of this attribute ads a close button that when clicked, removes the pill
    */
-  @Prop() removeButton = false;
+  @Prop({ reflect: true }) type: PillType = "static";
 
   /**
    * The label
@@ -38,7 +38,7 @@ export class Pill {
 
   render() {
     return (
-      <Host>
+      <Host tabindex="0">
         {this.disabled ? (
           <gxg-icon
             type={this.icon}
@@ -49,8 +49,10 @@ export class Pill {
           <gxg-icon type={this.icon} size="small" color="success"></gxg-icon>
         )}
 
-        <span class="title">{this.label}</span>
-        {this.removeButton ? (
+        <span class="title">
+          <slot></slot>
+        </span>
+        {this.type === "button-with-action" ? (
           <gxg-icon
             class="clear-button"
             type="close"
@@ -63,3 +65,5 @@ export class Pill {
     );
   }
 }
+
+export type PillType = "static" | "button" | "button-with-action";

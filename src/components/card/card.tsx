@@ -9,12 +9,12 @@ export class Card {
   /**
    * The card box-shadow
    */
-  @Prop({ reflect: true }) boxShadow: boxShadow = "xxs";
+  @Prop({ reflect: true }) elevation: elevation = "01";
 
   /**
    * The background color
    */
-  @Prop({ reflect: true }) background = "white";
+  @Prop({ reflect: true }) background: background = "surface";
 
   /**
    * The card padding (internal spacing)
@@ -45,8 +45,8 @@ export class Card {
   }
 }
 
-export type boxShadow = "xxs" | "xs" | "s" | "m" | "l";
+export type elevation = "01" | "03";
 
 export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
-export type background = "white" | "gray";
+export type background = "surface" | "gray-01";

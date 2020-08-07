@@ -16,16 +16,23 @@ stories
   .add("Box", () => {
     return `
     <gxg-box 
-    background=${radios(
+    background=${select(
       "Background",
       {
-        "white (default)": "white",
-        "light gray": "light-gray",
-        "dark gray": "dark-gray"
+        "surface (default)": "surface",
+        "gray-01": "gray-01",
+        "gray-02": "gray-02"
       },
       "white"
     )}
-      border=${boolean("Border", false)}
+      border="${select(
+        "Border",
+        {
+          "no-border": "no-border",
+          "gray-03": "gray-03"
+        },
+        "no-border"
+      )}"
       max-width="${text("Max Width", "100%")}"
       min-height=${text("Min Height (default: auto)", "auto")}
       padding="${select(
@@ -49,24 +56,19 @@ stories
   .add("Card", () => {
     return `
   <gxg-card 
-  background=${radios(
+  background=${select(
     "Background",
     {
-      "white (default)": "white",
-      gray: "gray"
+      "surface (default)": "surface",
+      "gray-01": "gray-01"
     },
     "xs"
   )}
-  box-shadow=${select(
-    "Box Shadow",
+  elevation=${select(
+    "Elevation",
     {
-      xxs: "xxs",
-      xs: "xs",
-      s: "s",
-      m: "m",
-      l: "l",
-      xl: "xl",
-      xxl: "xxl"
+      "01": "01",
+      "03": "03"
     },
     "xs"
   )} 

@@ -18,11 +18,15 @@ import {
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { padding as padding2 } from "./components/box/box";
+import { background, border, padding as padding2 } from "./components/box/box";
 import { IconType } from "./components/icon/icon";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
-import { boxShadow, padding as padding3 } from "./components/card/card";
+import {
+  background as background1,
+  elevation,
+  padding as padding3
+} from "./components/card/card";
 import { padding as padding4, WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { padding as padding5 } from "./components/column/column";
@@ -32,6 +36,7 @@ import { Message } from "./components/form-message/form-message";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { footerAlignment } from "./components/modal/modal";
+import { PillType } from "./components/pill/pill";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
 import { TargetType, TextType } from "./components/text/text";
@@ -123,11 +128,11 @@ export namespace Components {
     /**
      * The background color
      */
-    background: string;
+    background: background;
     /**
-     * The presence of this property gives the box a border
+     * The border type
      */
-    border: boolean;
+    border: border;
     /**
      * The component max. width
      */
@@ -186,11 +191,11 @@ export namespace Components {
     /**
      * The background color
      */
-    background: string;
+    background: background;
     /**
      * The card box-shadow
      */
-    boxShadow: boxShadow;
+    elevation: elevation;
     /**
      * The component max. width
      */
@@ -539,7 +544,7 @@ export namespace Components {
     /**
      * The presence of this attribute ads a close button that when clicked, removes the pill
      */
-    removeButton: boolean;
+    type: PillType;
   }
   interface GxgProgressBar {
     /**
@@ -1255,11 +1260,11 @@ declare namespace LocalJSX {
     /**
      * The background color
      */
-    background?: string;
+    background?: background;
     /**
-     * The presence of this property gives the box a border
+     * The border type
      */
-    border?: boolean;
+    border?: border;
     /**
      * The component max. width
      */
@@ -1318,11 +1323,11 @@ declare namespace LocalJSX {
     /**
      * The background color
      */
-    background?: string;
+    background?: background;
     /**
      * The card box-shadow
      */
-    boxShadow?: boxShadow;
+    elevation?: elevation;
     /**
      * The component max. width
      */
@@ -1714,7 +1719,7 @@ declare namespace LocalJSX {
     /**
      * The presence of this attribute ads a close button that when clicked, removes the pill
      */
-    removeButton?: boolean;
+    type?: PillType;
   }
   interface GxgProgressBar {
     /**

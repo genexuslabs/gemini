@@ -20,7 +20,7 @@ stories.add("Toggle", () => {
     small: "small"
   };
   const defaultValueSize = "regular";
-  const valueSize = radios(labelSize, optionsSize, defaultValueSize);
+  const valueSize = select(labelSize, optionsSize, defaultValueSize);
 
   //Status
   const labelDisabled = "Disable 'Red' toggle only";

@@ -8,16 +8,16 @@
   overflow: hidden;
   @include gxg-text();
 }
-:host([background="white"]) {
+:host([background="surface"]) {
   background: var(--color-background);
 }
-:host([background="light-gray"]) {
+:host([background="gray-01"]) {
   background: var(--gray-01);
 }
-:host([background="dark-gray"]) {
+:host([background="gray-02"]) {
   background: var(--gray-02);
 }
-:host([border]) {
+:host([border="gray-03"]) {
   border-style: var(--border-style-regular);
   border-width: var(--border-width-sm);
   border-color: var(--gray-03);

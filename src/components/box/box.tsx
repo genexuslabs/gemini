@@ -13,12 +13,12 @@ export class Box {
   /**
    * The background color
    */
-  @Prop({ reflect: true }) background = "white";
+  @Prop({ reflect: true }) background: background = "surface";
 
   /**
-   * The presence of this property gives the box a border
+   * The border type
    */
-  @Prop({ reflect: true }) border = false;
+  @Prop({ reflect: true }) border: border = "no-border";
 
   /*The box padding (internal spacing)*/
   @Prop() padding: padding = "xs";
@@ -53,4 +53,6 @@ export class Box {
 
 export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
-export type background = "white" | "light-gray" | "dark-gray";
+export type background = "surface" | "gray-01" | "gray-02";
+
+export type border = "no-border" | "gray-03";

@@ -9,9 +9,9 @@
 | `active`     | `active`      | Wether the alert is active (visible) or hidden                            | `boolean`                                                                     | `false`       |
 | `activeTime` | `active-time` | The amount of time the alert is visible before hidding under the document | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"`   |
 | `alertTitle` | `alert-title` | The alert title (optional)                                                | `string`                                                                      | `undefined`   |
-| `bottom`     | `bottom`      | The spacing between the alert and the bottom side of the document         | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
+| `bottom`     | `bottom`      | The spacing between the alert and the bottom side of the document         | `"l" \| "m" \| "no-spacing" \| "s" \| "xl" \| "xs"`                           | `"xs"`        |
 | `fullWidth`  | `full-width`  | The presence of this attribute makes the component full-width             | `boolean`                                                                     | `false`       |
-| `leftRight`  | `left-right`  | The spacing between the alert, and the left or right side of the document | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"`                                    | `"xs"`        |
+| `leftRight`  | `left-right`  | The spacing between the alert, and the left or right side of the document | `"l" \| "m" \| "no-spacing" \| "s" \| "xl" \| "xs"`                           | `"xs"`        |
 | `position`   | `position`    | The alert position on the X axis                                          | `"center" \| "left" \| "right"`                                               | `"left"`      |
 | `type`       | `type`        | The alert flavor                                                          | `"error" \| "more-info" \| "success" \| "warning"`                            | `"more-info"` |
 | `width`      | `width`       | The alert width                                                           | `string`                                                                      | `"350px"`     |

@@ -15,7 +15,7 @@ const stories = storiesOf("Other/Pill", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories
-  .add("Pill", () => {
+  .add("Pill Static", () => {
     //Disabled
     const labelDisabled = "Disabled";
     const defaultValueDisabled = false;

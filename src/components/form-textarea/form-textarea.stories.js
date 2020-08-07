@@ -38,7 +38,7 @@ stories.add("Textarea", () => {
     disabled: "disabled"
   };
   const defaultValueStatus = "enabled";
-  const valueStatus = radios(labelStatus, optionsStatus, defaultValueStatus);
+  const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);
 
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {

@@ -11,29 +11,11 @@
 }
 
 //Box shadow
-:host([box-shadow="xxs"]) {
+:host([elevation="01"]) {
   box-shadow: var(--box-shadow-01);
 }
-:host([box-shadow="xs"]) {
-  box-shadow: var(--box-shadow-02);
-}
-:host([box-shadow="s"]) {
+:host([elevation="03"]) {
   box-shadow: var(--box-shadow-03);
-}
-:host([box-shadow="m"]) {
-  box-shadow: var(--box-shadow-04);
-}
-:host([box-shadow="l"]) {
-  box-shadow: var(--box-shadow-06);
-}
-:host([box-shadow="xl"]) {
-  box-shadow: var(--box-shadow-08);
-}
-:host([box-shadow="xxl"]) {
-  box-shadow: var(--box-shadow-09);
-}
-:host([box-shadow="xxxl"]) {
-  box-shadow: var(--box-shadow-12);
 }
 
 //Padding
@@ -59,9 +41,9 @@
   padding: var(--spacing-comp-07);
 }
 
-:host([background="white"]) {
+:host([background="surface"]) {
   background: var(--color-background);
 }
-:host([background="gray"]) {
+:host([background="gray-01"]) {
   background: var(--gray-01);
 }
