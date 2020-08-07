@@ -100,7 +100,7 @@ describe("gxg-box width", () => {
   });
 
   it("has the right width", async () => {
-    expect((await box.getComputedStyle()).width).toBe("482px");
+    expect((await box.getComputedStyle()).width).toBe("484px");
   });
 });
 

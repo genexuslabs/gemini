@@ -284,7 +284,7 @@ describe("gxg-alert spacings left-right", () => {
     page = await newE2EPage();
     await page.setContent(
       `
-      <gxg-alert id="alert-01" type="warning" left-right="0">Content</gxg-alert>
+      <gxg-alert id="alert-01" type="warning" left-right="no-spacing">Content</gxg-alert>
       <gxg-alert id="alert-02" type="warning" left-right="xs">Content</gxg-alert>
       <gxg-alert id="alert-03" type="warning" left-right="s">Content</gxg-alert>
       <gxg-alert id="alert-04" type="warning" left-right="m">Content</gxg-alert>
