@@ -20,15 +20,15 @@
 
 ### Depends on
 
-- [gxg-button](../button)
 - [gxg-icon](../icon)
+- [gxg-button](../button)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-alert --> gxg-button
   gxg-alert --> gxg-icon
+  gxg-alert --> gxg-button
   gxg-button --> gxg-icon
   style gxg-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```

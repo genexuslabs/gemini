@@ -212,7 +212,7 @@ export type IconType =
   | "level-up"
   | "minus"
   | "minus-circle"
-  | "more-info"
+  | "notice"
   | "pill-filled"
   | "pill-outlined"
   | "reset"

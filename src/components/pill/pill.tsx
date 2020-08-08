@@ -1,5 +1,4 @@
 import { Component, Element, Prop, h, Host } from "@stencil/core";
-import { IconType } from "../icon/icon";
 
 @Component({
   tag: "gxg-pill",

@@ -39,6 +39,9 @@
       background-color: var(--color-success-light);
       color: var(--color-on-secondary);
     }
+    &__close {
+      display: flex;
+    }
   }
   .alert-message--title {
     margin: 0 0 var(--spacing-comp-02) 0;

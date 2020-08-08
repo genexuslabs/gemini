@@ -25,7 +25,7 @@ const options = {
   editWand: "editWand",
   error: "error",
   levelUp: "levelUp",
-  moreInfo: "moreInfo",
+  notice: "notice",
   search: "search",
   settings: "settings",
   showMore: "showMore",
@@ -39,7 +39,7 @@ const defaultValue = options.add;
 const labelDisabled = "Disabled";
 const defaultValueDisabled = false;
 
-function mostrarAlertMoreInfo(alertId) {
+function mostrarAlertNotice(alertId) {
   document.getElementById(alertId).setAttribute("active", "true");
 }
 
@@ -76,7 +76,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
-        "no-spacing": "no-spacing",
+        "no-space": "no-space",
         xs: "xs",
         s: "s",
         m: "m",
@@ -89,7 +89,7 @@ stories
     left-right="${select(
       "Left/Right spacing",
       {
-        "no-spacing": "no-spacing",
+        "no-space": "no-space",
         xs: "xs",
         s: "s",
         m: "m",
@@ -141,7 +141,7 @@ stories
   bottom="${select(
     "Bottom spacing",
     {
-      "no-spacing": "no-spacing",
+      "no-space": "no-space",
       xs: "xs",
       s: "s",
       m: "m",
@@ -154,7 +154,7 @@ stories
   left-right="${select(
     "Left/Right spacing",
     {
-      "no-spacing": "no-spacing",
+      "no-space": "no-space",
       xs: "xs",
       s: "s",
       m: "m",
@@ -207,7 +207,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
-        "no-spacing": "no-spacing",
+        "no-space": "no-space",
         xs: "xs",
         s: "s",
         m: "m",
@@ -220,7 +220,7 @@ stories
     left-right="${select(
       "Left/Right spacing",
       {
-        "no-spacing": "no-spacing",
+        "no-space": "no-space",
         xs: "xs",
         s: "s",
         m: "m",
@@ -272,7 +272,7 @@ stories
     bottom="${select(
       "Bottom spacing",
       {
-        "no-spacing": "no-spacing",
+        "no-space": "no-space",
         xs: "xs",
         s: "s",
         m: "m",
@@ -285,7 +285,7 @@ stories
     left-right="${select(
       "Left/Right spacing",
       {
-        "no-spacing": "no-spacing",
+        "no-space": "no-space",
         xs: "xs",
         s: "s",
         m: "m",

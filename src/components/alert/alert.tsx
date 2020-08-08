@@ -188,11 +188,11 @@ export class Alert {
         >
           <div class="alert-message--container">
             <div class="alert-message--icon">
-              {/* <gxg-icon
+              <gxg-icon
                 color={this.iconColor()}
                 slot="icon"
                 type={this.type}
-              ></gxg-icon> */}
+              ></gxg-icon>
             </div>
             <div class="alert-message-title-description">
               {this.printTitle()}
@@ -203,16 +203,10 @@ export class Alert {
           </div>
           <div class="alert-message-close">
             <gxg-button
-              type="secondary-icon-only"
+              type="tertiary"
+              icon="close"
               onClick={this.setAlertInactive.bind(this)}
-            >
-              <gxg-icon
-                slot="icon"
-                color={this.closeIconColor()}
-                type="close"
-                style={{ "--color-on-background": "#000" }}
-              ></gxg-icon>
-            </gxg-button>
+            ></gxg-button>
           </div>
         </div>
       </Host>

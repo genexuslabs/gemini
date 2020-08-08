@@ -71,28 +71,26 @@ export class AccordionItem {
     let iColor: Color;
     let iSize: Size;
     if (this.status === "open" && !this.disabled) {
-      if (this.mode === "classical" || this.mode === "boxed") {
-        iType = "chevron-up";
+      iType = "chevron-up";
+      if (this.mode === "classical") {
         iColor = "alwaysblack";
+      } else if (this.mode === "boxed") {
+        iColor = "onbackground";
       } else {
-        //item alternate
-        iType = "chevron-up";
         iColor = "negative";
       }
     } else {
       //item closed
+      iType = "chevron-down";
       if (this.mode === "classical" || this.mode === "boxed") {
         if (this.disabled) {
-          iType = "chevron-down";
           iColor = "negative";
         } else {
           //item not disabled
-          iType = "chevron-down";
           iColor = "alwaysblack";
         }
       } else {
         //item alternate
-        iType = "chevron-down";
         iColor = "negative";
       }
     }

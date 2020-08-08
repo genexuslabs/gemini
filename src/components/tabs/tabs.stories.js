@@ -12,13 +12,14 @@ import {
 const stories = storiesOf("Navigation/Tabs", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
-stories.add("Tabs", () => {
-  //Label
-  const labelWidth = "Width (shrink to see menu)";
-  const defaultValueWidth = "800px";
-  const valueWidth = text(labelWidth, defaultValueWidth);
+stories
+  .add("Tabs", () => {
+    //Label
+    const labelWidth = "Width (shrink to see menu)";
+    const defaultValueWidth = "800px";
+    const valueWidth = text(labelWidth, defaultValueWidth);
 
-  return `<div style="width:${valueWidth}"><gxg-tabs>
+    return `<div style="width:${valueWidth}"><gxg-tabs>
   <gxg-tab-bar>
               <gxg-tab-button
                 slot="tab-bar"
@@ -105,4 +106,29 @@ stories.add("Tabs", () => {
   The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.
   </gxg-tab>
 </gxg-tabs></div>`;
-});
+  })
+  .add("Menu", () => {
+    //Tabs
+    const labelTabs = "Menu for Tabs";
+    const defaultValueTabs = false;
+    const valueTabs = boolean(labelTabs, defaultValueTabs);
+
+    //Title
+    const labelValueTitle = "Title (optional)";
+    const defaultValueTitle = "Fruits";
+    const valueTitle = text(labelValueTitle, defaultValueTitle);
+
+    function tabsFunc() {
+      if (valueTabs) {
+        return "tabs";
+      }
+    }
+
+    return `
+  <gxg-menu ${tabsFunc()} menu-title=${valueTitle}>
+    <gxg-menu-item label="apple" icon=""></gxg-menu-item>
+    <gxg-menu-item label="banana" icon="warning"></gxg-menu-item>
+    <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>
+    <gxg-menu-item label="kiwi" icon="search"></gxg-menu-item>
+  </gxg-menu>`;
+  });

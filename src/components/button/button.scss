@@ -8,10 +8,6 @@
 :host {
   display: inline-block;
   line-height: 0;
-
-  ::slotted([slot="icon"]) {
-    pointer-events: none;
-  } //this prevents the icon from disabling .button-native focus
 }
 
 :host(.button) .button-native {
@@ -39,11 +35,6 @@
   background: var(--color-primary-disabled);
   @include gxg-label--disabled;
   cursor: not-allowed;
-
-  //if button has icon:
-  ::slotted([slot="icon"]) {
-    opacity: var(--icon-hover-opacity);
-  }
 }
 
 /*********************************
@@ -51,6 +42,8 @@ PRIMARY 'TEXT ONLY' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-only) .button-native {
   @include gxg-label--negative;
+  padding-left: var(--spacing-comp-05);
+  padding-right: var(--spacing-comp-05);
 }
 :host(.button--primary-text-only.button--disabled) .button-native {
   @include gxg-label--negative-disabled;
@@ -61,29 +54,20 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-icon) .button-native {
   @include gxg-label--negative;
-  padding-left: 0;
-  //Redefine icon color for this button type
-  ::slotted([slot="icon"]) {
-    padding-left: var(--spacing-comp-01);
-    padding-right: var(--spacing-comp-01);
-    --icon-color: #{$gxg-label--negative-color};
+  padding-left: var(--spacing-comp-02);
+  padding-right: var(--spacing-comp-03);
+  gxg-icon {
+    padding-right: var(--spacing-comp-02);
   }
 }
 :host(.button--primary-text-icon.button--disabled) .button-native {
   @include gxg-label--negative-disabled;
-  //Redefine icon color for this button type
-  ::slotted([slot="icon"]) {
-    --icon-color: #{$gxg-label--negative-disabled-color};
-  }
 }
 
 /*********************************
 'PRIMARY ICON ONLY' BUTTON TYPE
 *********************************/
 :host(.button--primary-icon-only) .button-native {
-  //Redefine icon color for this button type
-  //--button-icon-color: var(--color-on-primary);
-
   background: var(--color-primary-enabled);
   color: var(--color-white);
   padding-right: 0;
@@ -102,18 +86,8 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
     background: var(--color-primary-active);
     color: var(--color-white);
   }
-
-  ::slotted([slot="icon"]) {
-    margin-right: 0;
-    --icon-color: #{$gxg-label--negative-color};
-  }
   &:focus {
     outline: none;
-  }
-}
-:host(.button--primary-icon-only.button--disabled) .button-native {
-  ::slotted([slot="icon"]) {
-    --icon-color: #{$gxg-label--negative-disabled-color};
   }
 }
 
@@ -125,8 +99,8 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 
   //Enabled
   background: transparent;
-  padding-left: var(--spacing-comp-01);
-  padding-right: var(--spacing-comp-01);
+  padding-left: var(--spacing-comp-05);
+  padding-right: var(--spacing-comp-05);
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
@@ -160,43 +134,31 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-left: 0;
 
-  //Redefine icon color for this button type
-  ::slotted([slot="icon"]) {
-    --icon-color: #{$gxg-label-color};
+  padding-left: 0;
+  padding-right: var(--spacing-comp-03);
+  gxg-icon {
+    padding-right: var(--spacing-comp-02);
   }
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
     background: rgba(var(--color-primary-hover-rgb), 0.1);
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--hover-color};
-    }
   }
   &:focus:not([disabled]) {
     @include gxg-label--focus;
     background: transparent;
     box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--focus-color};
-    }
   }
   &:active:not([disabled]) {
     @include gxg-label--active;
     box-shadow: none;
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--active-color};
-    }
-  }
-  ::slotted([slot="icon"]) {
-    padding-right: var(--spacing-comp-01);
   }
 }
 :host(.button--secondary-text-icon.button--disabled) .button-native {
   //Redefine icon color for this button type
-  ::slotted([slot="icon"]) {
+  gxg-icon {
     --icon-color: #{$gxg-label--disabled-color};
   }
-
   background: transparent;
   @include gxg-label--disabled;
 }
@@ -209,35 +171,19 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-right: 0;
   padding-left: 0;
 
-  ::slotted([slot="icon"]) {
-    --icon-color: #{$gxg-label-color};
-    margin-right: 0;
-  }
   &:hover:not([disabled]) {
     background: rgba(var(--color-primary-hover-rgb), 0.1);
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--hover-color};
-    }
   }
   &:focus:not([disabled]) {
     background: transparent;
     box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--focus-color};
-    }
   }
   &:active:not([disabled]) {
     background: transparent;
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--active-color};
-    }
   }
 }
 :host(.button--secondary-icon-only.button--disabled) .button-native {
   background: transparent;
-  ::slotted([slot="icon"]) {
-    --icon-color: #{$gxg-label--disabled-color};
-  }
 }
 
 /*********************************
@@ -250,8 +196,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   //Enabled
   background: var(--color-white);
-  padding-left: var(--spacing-comp-03);
-  padding-right: var(--spacing-comp-03);
+  padding-left: var(--spacing-comp-05);
+  padding-right: var(--spacing-comp-05);
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
@@ -284,14 +230,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-left: 0;
   height: 20px;
 
-  ::slotted([slot="icon"]) {
-    margin-right: 0;
-  }
   &:hover:not([disabled]) {
     background: transparent;
-    ::slotted([slot="icon"]) {
-      --icon-color: var(--gray-07);
-    }
   }
   &:focus:not([disabled]) {
     background: transparent;
@@ -299,16 +239,10 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   }
   &:active:not([disabled]) {
     background: transparent;
-    ::slotted([slot="icon"]) {
-      --icon-color: #{$gxg-label--active-color};
-    }
   }
 }
 :host(.button--tertiary.button--disabled) .button-native {
   background: transparent;
-  ::slotted([slot="icon"]) {
-    --icon-color: #{$gxg-label--negative-disabled-color};
-  }
 }
 
 //Full width button

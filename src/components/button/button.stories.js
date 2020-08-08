@@ -234,7 +234,7 @@ stories
 
     return `
     <style>#root { width:700px; text-align: center; }</style>
-    <gxg-button type="tertiary" full-width=${boolean(
+    <gxg-button type="outlined" full-width=${boolean(
       labelFullWidth,
       valueFullWidth
     )} disabled=${valueDisabled}>${valueButtonLabel}</gxg-button>`;

@@ -58,7 +58,8 @@ export class Button {
   ghostIcon() {
     if (
       this.type === "primary-text-only" ||
-      this.type === "secondary-text-only"
+      this.type === "secondary-text-only" ||
+      this.type === "outlined"
     ) {
       return <gxg-icon class="ghost-icon" type="empty"></gxg-icon>;
       //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
@@ -78,7 +79,11 @@ export class Button {
     if (this.type.includes("primary")) {
       iColor = "negative";
     } else if (this.type.includes("secondary")) {
-      iColor = "primary";
+      if (this.disabled) {
+        iColor = "disabled";
+      } else {
+        iColor = "primary";
+      }
     } else {
       iColor = "onbackground";
     }
@@ -110,9 +115,11 @@ export class Button {
           {this.ghostIcon()}
           {this.regularIcon()}
 
-          <span class="text">
-            <slot />
-          </span>
+          {this.type.includes("text") || this.type === "outlined" ? (
+            <span class="text">
+              <slot />
+            </span>
+          ) : null}
         </button>
       </Host>
     );
