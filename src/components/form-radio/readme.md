@@ -26,6 +26,7 @@
 | `disabled` | `disabled` | The presence of this attribute disables the radio                           | `boolean` | `false`     |
 | `label`    | `label`    | The radio label                                                             | `string`  | `undefined` |
 | `name`     | `name`     | The radio name (should be the same for every radio of the same radio-group) | `string`  | `undefined` |
+| `required` | `required` | Make the radio-button required                                              | `boolean` | `false`     |
 | `value`    | `value`    | The radio value                                                             | `string`  | `undefined` |
 
 ## Events

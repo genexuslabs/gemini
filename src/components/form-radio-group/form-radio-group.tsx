@@ -1,11 +1,18 @@
 import { Component, Prop, h, Listen, Element, Host } from "@stencil/core";
-
+import {
+  requiredLabel,
+  formMessage,
+  formHandleChange,
+  FormComponent
+} from "../../common";
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",
   shadow: true
 })
 export class FormRadioGroup {
+  isRequiredError = false;
+
   @Element() el: HTMLElement;
 
   /*********************************
@@ -16,6 +23,17 @@ export class FormRadioGroup {
    * The radio group label
    */
   @Prop() label: string;
+
+  /**
+   * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+   *
+   */
+  @Prop({ mutable: true }) requiredMessage: string;
+
+  /**
+   * Make the radio-buttons required
+   */
+  @Prop() required = false;
 
   /*********************************
   METHODS
@@ -77,9 +95,19 @@ export class FormRadioGroup {
     }, "myThisArg");
   }
 
+  componentDidLoad() {
+    const firstRadioButton = this.el.querySelector("gxg-option:first-child");
+    firstRadioButton.setAttribute("required", "required");
+  }
+
   labelFunc() {
     if (this.label) {
-      return <span class="label">{this.label}</span>;
+      return (
+        <span class="label">
+          {this.label}
+          {requiredLabel(this)}
+        </span>
+      );
     }
   }
 
@@ -88,6 +116,13 @@ export class FormRadioGroup {
       <Host>
         {this.labelFunc()}
         <slot></slot>
+        {formMessage(
+          this.isRequiredError ? (
+            <gxg-form-message type="error" key="required-error">
+              {this.requiredMessage}
+            </gxg-form-message>
+          ) : null
+        )}
       </Host>
     );
   }

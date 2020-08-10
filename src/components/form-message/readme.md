@@ -17,6 +17,7 @@
 
 ### Used by
 
+- [gxg-form-radio-group](../form-radio-group)
 - [gxg-form-text](../form-text)
 - [gxg-form-textarea](../form-textarea)
 
@@ -29,6 +30,7 @@
 ```mermaid
 graph TD;
   gxg-form-message --> gxg-icon
+  gxg-form-radio-group --> gxg-form-message
   gxg-form-text --> gxg-form-message
   gxg-form-textarea --> gxg-form-message
   style gxg-form-message fill:#f9f,stroke:#333,stroke-width:4px

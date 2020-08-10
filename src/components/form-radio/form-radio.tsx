@@ -16,6 +16,10 @@ import {
 })
 export class FormRadio {
   /**
+   * Make the radio-button required
+   */
+  @Prop() required = false;
+  /**
    * Returns an object with the radio value, and radio id
    */
   @Event() change: EventEmitter;
@@ -136,6 +140,7 @@ export class FormRadio {
             onClick={this.selectRadio.bind(this)}
             disabled={this.disabled}
             onKeyDown={this.handlerOnKeyDown.bind(this)}
+            required={this.required}
           ></input>
           <span class="radiobtn"></span>
           {this.label}

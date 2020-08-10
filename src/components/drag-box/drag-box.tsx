@@ -37,12 +37,18 @@ export class DragBox {
   @Element() el: HTMLElement;
   @Event() clicked: EventEmitter;
 
+  /**
+   * This event fires when a box has been deleted
+   */
+  @Event() deleted: EventEmitter;
+
   clickedHandler() {
     this.clicked.emit(this.el.getAttribute("id"));
   }
 
   deleteHandler(event) {
     event.stopPropagation();
+    this.deleted.emit("box was deleted");
     this.el.classList.add("hide");
     setTimeout(() => {
       this.el.remove();

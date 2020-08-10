@@ -358,6 +358,10 @@ export namespace Components {
      */
     name: string;
     /**
+     * Make the radio-button required
+     */
+    required: boolean;
+    /**
      * The radio value
      */
     value: string;
@@ -367,6 +371,14 @@ export namespace Components {
      * The radio group label
      */
     label: string;
+    /**
+     * Make the radio-buttons required
+     */
+    required: boolean;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    requiredMessage: string;
   }
   interface GxgFormText {
     /**
@@ -1446,6 +1458,10 @@ declare namespace LocalJSX {
     deletable?: boolean;
     onClicked?: (event: CustomEvent<any>) => void;
     /**
+     * This event fires when a box has been deleted
+     */
+    onDeleted?: (event: CustomEvent<any>) => void;
+    /**
      * The padding (internal spacing)
      */
     padding?: Padding;
@@ -1537,6 +1553,10 @@ declare namespace LocalJSX {
      */
     onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
+     * Make the radio-button required
+     */
+    required?: boolean;
+    /**
      * The radio value
      */
     value?: string;
@@ -1546,6 +1566,14 @@ declare namespace LocalJSX {
      * The radio group label
      */
     label?: string;
+    /**
+     * Make the radio-buttons required
+     */
+    required?: boolean;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    requiredMessage?: string;
   }
   interface GxgFormText {
     /**

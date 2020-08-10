@@ -42,12 +42,44 @@ STORIES
 *************/
 
 const arrayIconsNames = [
-  { name: "add", description: "this is some description for add" },
+  { name: "add", description: "Some description" },
   {
     name: "add-circle",
-    description: "this is some description for add circle"
+    description: "Some description"
   },
-  { name: "arrow-down", description: "this is some description for arrow-down" }
+  { name: "arrow-down", description: "Some description" },
+  { name: "arrow-left", description: "Some description" },
+  { name: "arrow-right", description: "Some description" },
+  { name: "arrow-up", description: "Some description" },
+  { name: "chevron-down", description: "Some description" },
+  { name: "chevron-left", description: "Some description" },
+  { name: "chevron-right", description: "Some description" },
+  { name: "chevron-up", description: "Some description" },
+  { name: "circle", description: "Some description" },
+  { name: "close", description: "Some description" },
+  { name: "color-picker", description: "Some description" },
+  { name: "deleted", description: "Some description" },
+  { name: "drag", description: "Some description" },
+  { name: "duplicate", description: "Some description" },
+  { name: "edit", description: "Some description" },
+  { name: "edit-wand", description: "Some description" },
+  { name: "error", description: "Some description" },
+  { name: "file", description: "Some description" },
+  { name: "folder", description: "Some description" },
+  { name: "level-down", description: "Some description" },
+  { name: "level-up", description: "Some description" },
+  { name: "minus", description: "Some description" },
+  { name: "minus-circle", description: "Some description" },
+  { name: "notice", description: "Some description" },
+  { name: "pill-filled", description: "Some description" },
+  { name: "pill-outlined", description: "Some description" },
+  { name: "reset", description: "Some description" },
+  { name: "search", description: "Some description" },
+  { name: "settings", description: "Some description" },
+  { name: "show-more-horizontal", description: "Some description" },
+  { name: "show-more-vertical", description: "Some description" },
+  { name: "success", description: "Some description" },
+  { name: "warning", description: "Some description" }
 ];
 
 function iconsSet(size) {
@@ -55,6 +87,10 @@ function iconsSet(size) {
     .map((iconType, index) => {
       return `
       <style>
+      #root {
+        padding-top:770px;
+        margin-bottom:100px;  
+      }
         .container{
           border: 1px solid var(--gray-02);
           font-family: "Open Sans";
@@ -96,7 +132,7 @@ function iconsSet(size) {
 const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
-stories.add("category one", () => iconsSet("regular"), {
+stories.add("icons", () => iconsSet("regular"), {
   notes: {
     markdown: readme
   }

@@ -166,9 +166,6 @@ export class FormSelectNew {
           );
           this.el.shadowRoot.querySelector(".select-selected").textContent =
             newSelectedOption.textContent;
-          if (select.classList.contains("select-hide")) {
-            this.change.emit(newSelectedOption.getAttribute("value"));
-          }
         }
       });
       const optionsNodeList = this.el.querySelectorAll("gxg-option");

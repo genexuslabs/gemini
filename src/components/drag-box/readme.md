@@ -29,9 +29,10 @@
 
 ## Events
 
-| Event     | Description | Type               |
-| --------- | ----------- | ------------------ |
-| `clicked` |             | `CustomEvent<any>` |
+| Event     | Description                                  | Type               |
+| --------- | -------------------------------------------- | ------------------ |
+| `clicked` |                                              | `CustomEvent<any>` |
+| `deleted` | This event fires when a box has been deleted | `CustomEvent<any>` |
 
 ## Dependencies
 
