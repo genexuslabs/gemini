@@ -22,6 +22,7 @@
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
 - [gxg-menu-item](../menu-item)
+- [gxg-more-info](../more-info)
 - [gxg-pill](../pill)
 - [gxg-tab-bar](../tab-bar)
 - [gxg-tab-button](../tab-button)
@@ -40,6 +41,7 @@ graph TD;
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
   gxg-menu-item --> gxg-icon
+  gxg-more-info --> gxg-icon
   gxg-pill --> gxg-icon
   gxg-tab-bar --> gxg-icon
   gxg-tab-button --> gxg-icon

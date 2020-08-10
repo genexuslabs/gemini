@@ -35,14 +35,15 @@ import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
-import { footerAlignment } from "./components/modal/modal";
+import { padding as padding6 } from "./components/modal/modal";
+import { position } from "./components/more-info/more-info";
 import { PillIconType, PillType } from "./components/pill/pill";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { Size as Size1 } from "./components/toggle/toggle";
-import { position } from "./components/tooltip/tooltip";
+import { position as position1 } from "./components/tooltip/tooltip";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -498,13 +499,10 @@ export namespace Components {
   }
   interface GxgModal {
     /**
-     * The footer alignment
-     */
-    footerAlignment: footerAlignment;
-    /**
      * The modal title
      */
     modalTitle: string;
+    padding: padding;
     /**
      * Wether the modal is visible or not
      */
@@ -517,6 +515,16 @@ export namespace Components {
      * The z-index value of the modal
      */
     zIndex: string;
+  }
+  interface GxgMoreInfo {
+    /**
+     * The label
+     */
+    label: string;
+    /**
+     * the tooltip position
+     */
+    position: position;
   }
   interface GxgOption {
     /**
@@ -559,6 +567,12 @@ export namespace Components {
      * The progress value (percentage)
      */
     value: number;
+  }
+  interface GxgScroll {
+    /**
+     * Max height
+     */
+    maxHeight: string;
   }
   interface GxgSelect {
     /**
@@ -967,6 +981,13 @@ declare global {
     prototype: HTMLGxgModalElement;
     new (): HTMLGxgModalElement;
   };
+  interface HTMLGxgMoreInfoElement
+    extends Components.GxgMoreInfo,
+      HTMLStencilElement {}
+  var HTMLGxgMoreInfoElement: {
+    prototype: HTMLGxgMoreInfoElement;
+    new (): HTMLGxgMoreInfoElement;
+  };
   interface HTMLGxgOptionElement
     extends Components.GxgOption,
       HTMLStencilElement {}
@@ -985,6 +1006,13 @@ declare global {
   var HTMLGxgProgressBarElement: {
     prototype: HTMLGxgProgressBarElement;
     new (): HTMLGxgProgressBarElement;
+  };
+  interface HTMLGxgScrollElement
+    extends Components.GxgScroll,
+      HTMLStencilElement {}
+  var HTMLGxgScrollElement: {
+    prototype: HTMLGxgScrollElement;
+    new (): HTMLGxgScrollElement;
   };
   interface HTMLGxgSelectElement
     extends Components.GxgSelect,
@@ -1135,9 +1163,11 @@ declare global {
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
+    "gxg-more-info": HTMLGxgMoreInfoElement;
     "gxg-option": HTMLGxgOptionElement;
     "gxg-pill": HTMLGxgPillElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
+    "gxg-scroll": HTMLGxgScrollElement;
     "gxg-select": HTMLGxgSelectElement;
     "gxg-separator": HTMLGxgSeparatorElement;
     "gxg-slider": HTMLGxgSliderElement;
@@ -1669,13 +1699,10 @@ declare namespace LocalJSX {
   }
   interface GxgModal {
     /**
-     * The footer alignment
-     */
-    footerAlignment?: footerAlignment;
-    /**
      * The modal title
      */
     modalTitle?: string;
+    padding?: padding;
     /**
      * Wether the modal is visible or not
      */
@@ -1688,6 +1715,16 @@ declare namespace LocalJSX {
      * The z-index value of the modal
      */
     zIndex?: string;
+  }
+  interface GxgMoreInfo {
+    /**
+     * The label
+     */
+    label?: string;
+    /**
+     * the tooltip position
+     */
+    position?: position;
   }
   interface GxgOption {
     /**
@@ -1730,6 +1767,12 @@ declare namespace LocalJSX {
      * The progress value (percentage)
      */
     value?: number;
+  }
+  interface GxgScroll {
+    /**
+     * Max height
+     */
+    maxHeight?: string;
   }
   interface GxgSelect {
     /**
@@ -2017,9 +2060,11 @@ declare namespace LocalJSX {
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
+    "gxg-more-info": GxgMoreInfo;
     "gxg-option": GxgOption;
     "gxg-pill": GxgPill;
     "gxg-progress-bar": GxgProgressBar;
+    "gxg-scroll": GxgScroll;
     "gxg-select": GxgSelect;
     "gxg-separator": GxgSeparator;
     "gxg-slider": GxgSlider;
@@ -2087,11 +2132,15 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
       "gxg-modal": LocalJSX.GxgModal &
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
+      "gxg-more-info": LocalJSX.GxgMoreInfo &
+        JSXBase.HTMLAttributes<HTMLGxgMoreInfoElement>;
       "gxg-option": LocalJSX.GxgOption &
         JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
       "gxg-pill": LocalJSX.GxgPill & JSXBase.HTMLAttributes<HTMLGxgPillElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
+      "gxg-scroll": LocalJSX.GxgScroll &
+        JSXBase.HTMLAttributes<HTMLGxgScrollElement>;
       "gxg-select": LocalJSX.GxgSelect &
         JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
       "gxg-separator": LocalJSX.GxgSeparator &

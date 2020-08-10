@@ -8,6 +8,9 @@ import { Component, Element, Prop, h, Host, Watch } from "@stencil/core";
 export class Modal {
   @Element() el: HTMLElement;
 
+  /*The accordion padding (internal spacing)*/
+  @Prop({ reflect: true }) padding: padding = "s";
+
   /**
    * The modal title
    */
@@ -17,11 +20,6 @@ export class Modal {
    * The modal width
    */
   @Prop() width = "304px";
-
-  /**
-   * The footer alignment
-   */
-  @Prop() footerAlignment: footerAlignment = "left";
 
   /**
    * Wether the modal is visible or not
@@ -77,10 +75,7 @@ export class Modal {
           </div>
           <footer
             class={{
-              modalFooter: true,
-              "modalFooter--left": this.footerAlignment === "left",
-              "modalFooter--center": this.footerAlignment === "center",
-              "modalFooter--right": this.footerAlignment === "right"
+              modalFooter: true
             }}
           >
             <slot name="footer"></slot>
@@ -91,4 +86,4 @@ export class Modal {
   }
 }
 
-export type footerAlignment = "left" | "center" | "right";
+export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

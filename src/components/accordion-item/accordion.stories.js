@@ -60,7 +60,7 @@ stories
       xxl: "xxl",
       xxxl: "xxxl"
     };
-    const defaultValuePadding = "s";
+    const defaultValuePadding = "xs";
 
     //Single Item Open
     const labelSingleItemOpen =

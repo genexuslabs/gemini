@@ -17,7 +17,6 @@
     background: var(--color-on-primary);
     box-shadow: var(--box-shadow-03);
     border-radius: var(--border-radius-md);
-    padding: var(--spacing-comp-04);
     display: flex;
     overflow: hidden;
     @include gxg-text();
@@ -36,15 +35,8 @@
   }
   .modalFooter {
     display: flex;
-    &--left {
-      justify-content: flex-start;
-    }
-    &--center {
-      justify-content: center;
-    }
-    &--right {
-      justify-content: flex-end;
-    }
+    justify-content: flex-end;
+
     ::slotted([slot="footer"]) {
       * {
         margin-left: var(--spacing-comp-02);
@@ -56,4 +48,41 @@
 :host(.visible) {
   opacity: 1;
   margin-top: 0;
+}
+
+//Padding
+:host([padding="xs"]) {
+  .modal {
+    padding: var(--spacing-comp-01);
+  }
+}
+:host([padding="s"]) {
+  .modal {
+    padding: var(--spacing-comp-02);
+  }
+}
+:host([padding="m"]) {
+  .modal {
+    padding: var(--spacing-comp-03);
+  }
+}
+:host([padding="l"]) {
+  .modal {
+    padding: var(--spacing-comp-04);
+  }
+}
+:host([padding="xl"]) {
+  .modal {
+    padding: var(--spacing-comp-05);
+  }
+}
+:host([padding="xxl"]) {
+  .modal {
+    padding: var(--spacing-comp-06);
+  }
+}
+:host([padding="xxxl"]) {
+  .modal {
+    padding: var(--spacing-comp-07);
+  }
 }

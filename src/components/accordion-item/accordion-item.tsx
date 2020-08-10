@@ -82,13 +82,15 @@ export class AccordionItem {
     } else {
       //item closed
       iType = "chevron-down";
-      if (this.mode === "classical" || this.mode === "boxed") {
+      if (this.mode === "classical") {
         if (this.disabled) {
           iColor = "negative";
         } else {
           //item not disabled
           iColor = "alwaysblack";
         }
+      } else if (this.mode === "boxed") {
+        iColor = "onbackground";
       } else {
         //item alternate
         iColor = "negative";

@@ -19,15 +19,18 @@ stories.add("Modal", () => {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum voluptatibus harum minima aut id architecto adipisci tempore numquam explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.";
   const valueContent = text(labelValueContent, defaultValueContent);
 
-  //Footer alignment
-  const labelFooter = "Footer alignment";
-  const optionsFooter = {
-    Left: "left",
-    center: "center",
-    right: "right"
+  //Padding
+  const labelPadding = "Padding";
+  const optionsPadding = {
+    xs: "xs",
+    s: "s",
+    m: "m",
+    l: "l",
+    xl: "xl",
+    xxl: "xxl",
+    xxxl: "xxxl"
   };
-  const defaultValueFooter = "right";
-  const valueFooter = select(labelFooter, optionsFooter, defaultValueFooter);
+  const defaultValuePadding = "m";
 
   //Title
   const labelTitle = "Title";
@@ -39,16 +42,15 @@ stories.add("Modal", () => {
   const defaultValueWidth = "304px";
   const valueWidth = text(labelWidth, defaultValueWidth);
 
-  function animateProgressBar() {
-    const progresBar = document.getElementById("progress-bar");
-    const initialValue = progresBar.getAttribute("value");
-  }
-
   return `
-  <gxg-modal id="modal" footer-alignment=${valueFooter} modal-title="${valueTitle}" width=${valueWidth}>
+  <gxg-modal id="modal" padding="${select(
+    labelPadding,
+    optionsPadding,
+    defaultValuePadding
+  )}" modal-title="${valueTitle}" width=${valueWidth}>
     ${valueContent}
     <gxg-button slot="footer" type="secondary-text-only">Button</gxg-button>
-    <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+    <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>
     <gxg-button slot="footer" type="primary-text-only">Other Button</gxg-button>
   </gxg-modal>
   

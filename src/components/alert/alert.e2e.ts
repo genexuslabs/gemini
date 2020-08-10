@@ -45,11 +45,6 @@ describe("gxg-alert-notice", () => {
     expect(moreInfoIcon).toEqualAttribute("aria-label", "notice");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "notice");
-
-    //more info icon
-    expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toEqualAttribute("size", "regular");
-    expect(closeIcon).toEqualAttribute("type", "close");
   });
 
   it("displays text", async () => {
@@ -110,11 +105,6 @@ describe("gxg-alert-error", () => {
     expect(moreInfoIcon).toEqualAttribute("aria-label", "error");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "error");
-
-    //more info icon
-    expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toEqualAttribute("size", "regular");
-    expect(closeIcon).toEqualAttribute("type", "close");
   });
 
   it("displays text", async () => {
@@ -158,11 +148,6 @@ describe("gxg-alert-success", () => {
     expect(moreInfoIcon).toEqualAttribute("aria-label", "success");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "success");
-
-    //more info icon
-    expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toEqualAttribute("size", "regular");
-    expect(closeIcon).toEqualAttribute("type", "close");
   });
 
   it("displays text", async () => {
@@ -206,11 +191,6 @@ describe("gxg-alert-warning", () => {
     expect(moreInfoIcon).toEqualAttribute("aria-label", "warning");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
     expect(moreInfoIcon).toEqualAttribute("type", "warning");
-
-    //more info icon
-    expect(closeIcon).toEqualAttribute("aria-label", "close");
-    expect(closeIcon).toEqualAttribute("size", "regular");
-    expect(closeIcon).toEqualAttribute("type", "close");
   });
 
   it("displays text", async () => {
