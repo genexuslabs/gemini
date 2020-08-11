@@ -247,6 +247,15 @@ export class FormSelectNew {
     if (oldValue !== undefined) {
       this.change.emit(newValue);
     }
+
+    if (oldValue !== undefined) {
+      //update visible value innerHTML
+      const selectedGxgOption = this.el.querySelector(
+        "gxg-option[value='" + newValue + "']"
+      );
+      this.el.shadowRoot.querySelector(".select-selected").innerHTML =
+        selectedGxgOption.innerHTML;
+    }
   }
 
   handlerOnKeyDown(event) {
