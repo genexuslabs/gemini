@@ -239,23 +239,21 @@ export class FormSelectNew {
         }
       }
     }
-
     document.addEventListener("click", closeAllSelect.bind(this));
   }
 
   @Watch("value")
-  valueHandler(newValue: boolean) {
-    this.change.emit(newValue);
+  valueHandler(newValue, oldValue) {
+    if (oldValue !== undefined) {
+      this.change.emit(newValue);
+    }
   }
 
   handlerOnKeyDown(event) {
     if (event.keyCode == 9) {
       //tab key was pressed
-      console.log("tab was pressed");
       if (event.shiftKey) {
         //shift key was also pressed
-        console.log("tab and shift was pressed");
-        console.log(this.el.previousSibling.previousSibling);
         (this.el.previousSibling.previousSibling as HTMLElement).focus();
       }
     }
