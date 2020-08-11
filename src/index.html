@@ -25,6 +25,26 @@
     </style>
   </head>
   <body>
+    <gxg-columns space="xs" align-y="bottom">
+      <gxg-column width="2/3"
+        ><gxg-form-text
+          type="text"
+          id="name4"
+          name="name"
+          label="Default"
+          placeholder="Placeholder text"
+          display-flex
+          icon="search"
+          icon-position="right"
+          required
+        >
+        </gxg-form-text
+      ></gxg-column>
+      <gxg-column width="1/3"
+        ><gxg-button type="secondary-text-only">Select</gxg-button></gxg-column
+      >
+    </gxg-columns>
+
     <!-- <gxg-accordion mode="classical">
       <gxg-accordion-item item-title="tab-01" item-id="tab-01">
         <div slot="subtitle">Subtitle</div>
@@ -48,7 +68,7 @@
     >
     </gxg-form-text> -->
 
-    <gxg-select
+    <!-- <gxg-select
       id="select"
       label="Select a car:"
       width="400px"
@@ -64,7 +84,7 @@
       <gxg-option value="6">Jaguar</gxg-option>
       <gxg-option value="7">Land Rover</gxg-option>
       <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
+    </gxg-select> -->
 
     <!-- <gxg-form-radio-group
       required
