@@ -12,7 +12,7 @@
     &__header {
       background-color: var(--color-secondary-enabled);
       display: flex;
-      //height: var(--spacing-comp-05);
+      height: auto;
       @include ui-animation(background-color);
 
       &:hover {
@@ -20,8 +20,7 @@
         cursor: pointer;
       }
       &__title-subtitle {
-        display: flex;
-        align-items: center;
+        display: block;
         &__title {
           display: inline;
           font-family: var(--font-family-primary);
@@ -30,7 +29,6 @@
           text-transform: uppercase;
           color: var(--color-always-black);
           width: 100%;
-          line-height: var(--spacing-comp-05);
         }
         &__subtitle {
           @include gxg-text();
@@ -123,7 +121,7 @@
   .item {
     &__header {
       padding: 0 var(--spacing-comp-01) 0 var(--spacing-comp-03);
-      height: 16px;
+      height: auto;
 
       &__title-subtitle {
         width: 60%;
