@@ -27,44 +27,150 @@
 
   <body>
 
+    
+    
     <gxg-modal
-    style="dislpay:none"
-    id="modal"
-    modal-title="Modal Title"
-    footer-alignment="right"
-    z-index="20"
-  >
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
-    voluptatibus harum minima aut id architecto adipisci tempore numquam
-    explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
-    <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
-    <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
-    <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
-    <gxg-select label="Select a car:" width="400px" size="5" full-width>
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
-  </gxg-modal>
+      id="modal"
+      modal-title="Modal Title"
+      z-index="20"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
+      voluptatibus harum minima aut id architecto adipisci tempore numquam
+      explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
+      <gxg-button slot="footer" type="primary-text-only">Button</gxg-button>
+    </gxg-modal>
 
-  <gxg-button
-    full-width
-    style="margin-top:30px"
-    onClick="(function(){
-    const modal = document.getElementById('modal');
-    modal.setAttribute('visible','true');
-    return false;
-  })();return false;"
-    >Launch Modal btn</gxg-button
-  >
+    <gxg-button
+      full-width
+      style="margin-top:30px"
+      onClick="(function(){
+      const modal = document.getElementById('modal');
+      modal.setAttribute('visible','true');
+      return false;
+    })();return false;"
+      >Launch Modal btn</gxg-button
+    >
 
-    <span class="icon-checkbox-checked"></span>
+    <!-- <gxg-modal id="changeFontForm" visible="false" modal-title="Change item font" padding="s" style="z-index: 10; display: block;" class="hydrated visible">
+
+      <gxg-select id="family" label="Family" class="hydrated" style="max-width: 100%;">
+
+                      <gxg-option value="" role="option" class="hydrated"></gxg-option>
+
+                      <gxg-option value="Arial" role="option" class="hydrated">Arial</gxg-option>
+
+                      <gxg-option value="Arial Black" role="option" class="hydrated">Arial Black</gxg-option>
+
+                      <gxg-option value="Bookman" role="option" class="hydrated">Bookman</gxg-option>
+
+                      <gxg-option value="Candara" role="option" class="hydrated">Candara</gxg-option>
+
+                      <gxg-option value="Comic Sans MS" role="option" class="hydrated">Comic Sans MS</gxg-option>
+
+                      <gxg-option value="Courier" role="option" class="hydrated">Courier</gxg-option>
+
+                      <gxg-option value="Courier new" role="option" class="hydrated">Courier new</gxg-option>
+
+                      <gxg-option value="Garamond" role="option" class="hydrated">Garamond</gxg-option>
+
+                      <gxg-option value="Georgia" role="option" class="hydrated">Georgia</gxg-option>
+
+                      <gxg-option value="Impact" role="option" class="hydrated">Impact</gxg-option>
+
+                      <gxg-option value="Palatino" role="option" class="hydrated">Palatino</gxg-option>
+
+                      <gxg-option value="Roboto-Bold" role="option" class="hydrated">Roboto-Bold</gxg-option>
+
+                      <gxg-option value="Roboto-Medium" role="option" class="hydrated">Roboto-Medium</gxg-option>
+
+                      <gxg-option value="Roboto-Regular" role="option" class="hydrated">Roboto-Regular</gxg-option>
+
+                      <gxg-option value="RobotoSlab-Bold_ttf" role="option" class="hydrated">RobotoSlab-Bold_ttf</gxg-option>
+
+                      <gxg-option value="RobotoSlab-Light_ttf" role="option" class="hydrated">RobotoSlab-Light_ttf</gxg-option>
+
+                      <gxg-option value="RobotoSlab-Regular_ttf" role="option" class="hydrated">RobotoSlab-Regular_ttf</gxg-option>
+
+                      <gxg-option value="RobotoSlab-Thin_ttf" role="option" class="hydrated">RobotoSlab-Thin_ttf</gxg-option>
+
+                      <gxg-option value="Times" role="option" class="hydrated">Times</gxg-option>
+
+                      <gxg-option value="Times New Roman" role="option" class="hydrated">Times New Roman</gxg-option>
+
+                      <gxg-option value="Verdana" role="option" class="hydrated">Verdana</gxg-option>
+
+      </gxg-select>
+
+      <gxg-spacer-one space="s" class="s hydrated"></gxg-spacer-one>
+
+
+
+      <gxg-form-text id="size" label="Size" role="textbox" aria-label="Size" class="hydrated" style="max-width: 100%;"></gxg-form-text>
+
+      <gxg-spacer-one space="s" class="s hydrated"></gxg-spacer-one>
+
+
+
+      <gxg-select id="style" label="Style" class="hydrated" style="max-width: 100%;">
+
+                      <gxg-option value="" role="option" class="hydrated"> </gxg-option>
+
+                      <gxg-option value="normal" role="option" class="hydrated">normal</gxg-option>
+
+                      <gxg-option value="italic" role="option" class="hydrated">italic</gxg-option>
+
+                      <gxg-option value="oblique" role="option" class="hydrated">oblique</gxg-option>
+
+      </gxg-select>
+
+      <gxg-spacer-one space="s" class="s hydrated"></gxg-spacer-one>
+
+
+
+      <gxg-select size="5" id="weight" label="Weight" class="hydrated" style="max-width: 100%;">
+
+                      <gxg-option value="" role="option" class="hydrated"></gxg-option>
+
+                      <gxg-option value="normal" role="option" class="hydrated">normal</gxg-option>
+
+                      <gxg-option value="bold" role="option" class="hydrated">bold</gxg-option>
+
+                      <gxg-option value="bold" role="option" class="hydrated">bold</gxg-option>
+
+                      <gxg-option value="bold" role="option" class="hydrated">bold</gxg-option>
+
+                      <gxg-option value="bold" role="option" class="hydrated">bold</gxg-option>
+
+                      <gxg-option value="bold" role="option" class="hydrated">bold</gxg-option>
+
+      </gxg-select>
+
+      <gxg-spacer-one space="s" class="s hydrated"></gxg-spacer-one>
+
+
+
+      <gxg-columns style="float:right;" space="xs" padding="none" class="columns hydrated" align-y="top">
+
+                      <gxg-column width="content" class="column hydrated" padding="none">
+
+                      <gxg-button type="secondary-text-only" onclick="document.getElementById('changeFontForm').visible=false;" role="button" class="button button--secondary-text-only hydrated">Cancel</gxg-button>
+
+                      </gxg-column>
+
+                      <gxg-column width="content" class="column hydrated" padding="none">
+
+                      <gxg-button type="primary-text-only" onclick="document.getElementById('changeFontForm').visible=false;" role="button" class="button button--primary-text-only hydrated">Ok</gxg-button>
+
+                      </gxg-column>
+
+      </gxg-columns>
+
+
+
+</gxg-modal> -->
+
+
+    <!-- <span class="icon-checkbox-checked"></span>
     <label style="font-size:12px;"
       >Enable Dark Mode
       <input
@@ -153,5 +259,5 @@
           toggle.click();
       }
     </script>
-  </body>
+  </body> -->
 </html>

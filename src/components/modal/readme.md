@@ -1,5 +1,10 @@
 # gxg-modal
 
+<h2>Notes</h2>
+<ul>
+   <li>To insert any html tag into the modal footer, use a <code>slot</code> attribute and assign the "footer" value to it. ie.: <code>&lt;button slot="footer"&gt;Save&lt;/button&gt;</code> This will ensure that the button is placed on the modal footer.</li>
+</ul>
+
 <!-- Auto Generated Below -->
 
 ## Properties

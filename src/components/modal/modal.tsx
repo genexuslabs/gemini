@@ -81,6 +81,7 @@ export class Modal {
             <slot name="footer"></slot>
           </footer>
         </div>
+        <div class="layer"></div>
       </Host>
     );
   }
