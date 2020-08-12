@@ -18,7 +18,6 @@
     box-shadow: var(--box-shadow-03);
     border-radius: var(--border-radius-md);
     display: flex;
-    overflow: hidden;
     @include gxg-text();
   }
   .modal__header {
