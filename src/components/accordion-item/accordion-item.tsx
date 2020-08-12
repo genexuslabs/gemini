@@ -126,10 +126,7 @@ export class AccordionItem {
 
   render() {
     return (
-      <Host
-        onKeyDown={this.handlerOnKeyDown.bind(this)}
-        tabindex={!this.disabled ? 0 : -1}
-      >
+      <Host onKeyDown={this.handlerOnKeyDown.bind(this)}>
         <div
           class={{
             item: true,
@@ -139,6 +136,9 @@ export class AccordionItem {
           <header
             class="item__header"
             onClick={this.itemClickedHandler.bind(this)}
+            role="button"
+            aria-expanded="false"
+            tabindex={!this.disabled ? 0 : -1}
           >
             <div class="item__header__title-subtitle">
               <div
@@ -165,7 +165,11 @@ export class AccordionItem {
             </div>
           </header>
           {this.status === "open" && !this.disabled ? (
-            <div class="item__container">
+            <div
+              class="item__container"
+              role="region"
+              aria-labeledby={this.itemId}
+            >
               <slot></slot>
             </div>
           ) : (

@@ -132,8 +132,14 @@ function iconsSet(size) {
 const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
-stories.add("icons", () => iconsSet("regular"), {
-  notes: {
-    markdown: readme
-  }
-});
+stories
+  .add("general", () => iconsGeneral("regular"), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add("objects", () => iconsObjects("regular"), {
+    notes: {
+      markdown: readme
+    }
+  });
