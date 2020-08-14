@@ -31,7 +31,7 @@
 | `itemId` _(required)_ | `item-id`    | The accordion id                                                                                                     | `string`                                               | `undefined`   |
 | `itemTitle`           | `item-title` | The accordion title                                                                                                  | `string`                                               | `undefined`   |
 | `mode`                | `mode`       | The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion) | `"boxed" \| "classical" \| "slim"`                     | `"classical"` |
-| `padding`             | `padding`    |                                                                                                                      | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`         |
+| `padding`             | `padding`    |                                                                                                                      | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`        |
 | `status`              | `status`     | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                                   | `"closed"`    |
 
 ## Events

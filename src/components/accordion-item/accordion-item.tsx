@@ -39,7 +39,7 @@ export class AccordionItem {
   @Prop() itemTitle: string;
 
   /*The accordion padding (internal spacing)*/
-  @Prop({ reflect: true }) padding: padding = "s";
+  @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * Set the status to "open" if you want the accordion-item open by default
@@ -84,13 +84,17 @@ export class AccordionItem {
       iType = "chevron-down";
       if (this.mode === "classical") {
         if (this.disabled) {
-          iColor = "negative";
+          iColor = "alwaysblack";
         } else {
           //item not disabled
           iColor = "alwaysblack";
         }
       } else if (this.mode === "boxed") {
-        iColor = "onbackground";
+        if (this.disabled) {
+          iColor = "disabled";
+        } else {
+          iColor = "onbackground";
+        }
       } else {
         //item alternate
         iColor = "negative";
@@ -126,50 +130,47 @@ export class AccordionItem {
 
   render() {
     return (
-      <Host onKeyDown={this.handlerOnKeyDown.bind(this)}>
+      <Host>
         <div
           class={{
             item: true,
             "item--disabled": this.disabled === true
           }}
         >
-          <header
-            class="item__header"
-            onClick={this.itemClickedHandler.bind(this)}
-            role="button"
-            aria-expanded="false"
-            tabindex={!this.disabled ? 0 : -1}
-          >
-            <div class="item__header__title-subtitle">
-              <div
-                class="item__header__title-subtitle__title"
-                onClick={this.titleClickedHandler.bind(this)}
-              >
-                {this.itemTitle}
-              </div>
-              {this.mode === "classical" || this.mode === "boxed" ? (
-                <div class="item__header__title-subtitle__subtitle">
-                  <slot name="subtitle"></slot>
+          <header class="item__header">
+            <button
+              class="item__header__button"
+              onClick={this.itemClickedHandler.bind(this)}
+              tabindex={!this.disabled ? 0 : -1}
+              onKeyDown={this.handlerOnKeyDown}
+            >
+              <div class="item__header__button__title-subtitle">
+                <div
+                  class="item__header__button__title-subtitle__title"
+                  onClick={this.titleClickedHandler.bind(this)}
+                >
+                  {this.itemTitle}
                 </div>
-              ) : null}
-            </div>
-            <div class="item__header__meta-icon-wrapper">
-              {this.mode === "boxed" ? (
-                <div class="item__header__meta-icon-wrapper__meta">
-                  <slot name="meta"></slot>
-                </div>
-              ) : null}
-              <div class="item__header__meta-icon-wrapper__icon">
-                {this.printIcon()}
+                {this.mode === "classical" || this.mode === "boxed" ? (
+                  <div class="item__header__button__title-subtitle__subtitle">
+                    <slot name="subtitle"></slot>
+                  </div>
+                ) : null}
               </div>
-            </div>
+              <div class="item__header__button__meta-icon-wrapper">
+                {this.mode === "boxed" ? (
+                  <div class="item__header__button__meta-icon-wrapper__meta">
+                    <slot name="meta"></slot>
+                  </div>
+                ) : null}
+                <div class="item__header__button__meta-icon-wrapper__icon">
+                  {this.printIcon()}
+                </div>
+              </div>
+            </button>
           </header>
           {this.status === "open" && !this.disabled ? (
-            <div
-              class="item__container"
-              role="region"
-              aria-labeledby={this.itemId}
-            >
+            <div class="item__container">
               <slot></slot>
             </div>
           ) : (

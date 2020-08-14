@@ -185,6 +185,7 @@ export type Color =
   | "alwaysblack";
 
 export type IconType =
+  | "data-provider"
   | "none"
   | "add"
   | "add-circle"
