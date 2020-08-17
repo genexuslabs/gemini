@@ -140,6 +140,16 @@ the components. The content could be text or icons)*/
 //Icons
 :root {
   --button-icon-color: var(--color-on-background);
+
+  //Icons colors
+  --icons01: #0266a0;
+  --icons02: #605cab;
+  --icons03: #00746b;
+  --icons04: #00a99d;
+  --icons05: #39b54a;
+  --icons06: #ed145b;
+  --icons07: #f26522;
+  --icons08: #f7941d;
 }
 :root.dark {
   --button-icon-color: var(--color-on-background);

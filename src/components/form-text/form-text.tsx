@@ -144,12 +144,14 @@ export class FormText implements FormComponent {
 
   handleInput(e) {
     const target = e.target as HTMLInputElement;
+    this.value = target.value;
     this.input.emit(target.value);
     formHandleChange(this, e.target);
   }
 
   handleChange(e) {
     const target = e.target as HTMLInputElement;
+    this.value = target.value;
     this.change.emit(target.value);
     formHandleChange(this, e.target);
   }

@@ -22,19 +22,25 @@ stories.add("Scroll", () => {
     </style>
     <gxg-scroll max-height="126px">
     <gxg-text>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-    illum ratione repellendus labore ab voluptates fugiat ipsum aliquid
-    quibusdam? Eos ipsam facilis libero. Quasi, consectetur. Quae facilis
-    rem sequi esse. Lorem ipsum dolor sit amet consectetur adipisicing
-    elit. Laboriosam non nesciunt recusandae libero possimus consequatur
-    commodi tempore esse natus et, quam ipsa officiis tenetur! Nam nostrum
-    magnam nihil quam maxime! Lorem ipsum, dolor sit amet consectetur
-    adipisicing elit. Molestiae nemo ratione aut nihil, repellendus
-    doloremque libero aliquid temporibus autem accusamus tempore pariatur
-    quod odit deserunt cumque tenetur aperiam necessitatibus omnis? Lorem
-    ipsum dolor sit amet consectetur adipisicing elit. Natus dolores ea
-    ducimus aspernatur accusamus. Architecto beatae expedita aliquam
-    debitis commodi provident aspernatur ipsum repellat assumenda,
-    obcaecati quae repudiandae totam dicta?
+    Crabbed Age and Youth<br>
+    Cannot live together:<br>
+    Youth is full of pleasance,<br>
+    Age is full of care;<br>
+    Youth like summer morn,<br>
+    Age like winter weather;<br>
+    Youth like summer brave,<br>
+    Age like winter bare:<br>
+    Youth is full of sports,<br>
+    Age's breath is short,<br>
+    Youth is nimble, Age is lame:<br>
+    Youth is hot and bold,<br>
+    Age is weak and cold,<br>
+    Youth is wild, and Age is tame:-<br>
+    Age, I do abhor thee;<br>
+    Youth, I do adore thee;<br>
+    O! my Love, my Love is young!<br>
+    Age, I do defy thee-<br>
+    O sweet shepherd, hie thee,<br>
+    For methinks thou stay'st too long. 
     </gxg-text></gxg-scroll>`;
 });

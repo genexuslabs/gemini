@@ -5,7 +5,8 @@ import {
   text,
   boolean,
   number,
-  select
+  select,
+  color
 } from "@storybook/addon-knobs";
 
 /*************
@@ -15,6 +16,7 @@ KNOBS
 /*Icons Knob*/
 const label = "Icons/Color";
 const options = {
+  auto: "auto",
   alwaysblack: "alwaysblack",
   disabled: "disabled",
   error: "error",
@@ -22,14 +24,9 @@ const options = {
   onbackground: "onbackground",
   primary: "primary",
   success: "success",
-  warning: "warning"
+  warning: "warning",
+  default: "auto"
 };
-
-// always: "onbackground",
-// "negative (white)": "negative",
-// error: "error",
-// warning: "warning",
-// success: "success"
 
 const defaultValue = options.default;
 
@@ -41,7 +38,7 @@ const defaultValueDisabled = false;
 STORIES
 *************/
 
-const arrayIconsNames = [
+const generalIcons = [
   { name: "add", description: "Some description" },
   {
     name: "add-circle",
@@ -82,64 +79,182 @@ const arrayIconsNames = [
   { name: "warning", description: "Some description" }
 ];
 
-function iconsSet(size) {
-  return arrayIconsNames
-    .map((iconType, index) => {
-      return `
-      <style>
-      #root {
-        padding-top:770px;
-        margin-bottom:100px;  
-      }
-        .container{
-          border: 1px solid var(--gray-02);
-          font-family: "Open Sans";
-          font-size: 10px;
-          border-bottom:none;
-          padding:5px;
-          display: flex;
-          align-items: center;
-        }
-        gxg-icon {
-          border-right: 1px solid var(--gray-02);
-          padding-right: 5px; 
-          margin-right: 8px; 
-        }
-        .icon-name {
-          border-right: 1px solid var(--gray-02);
-          padding-right:8px;
-          margin-right:8px;
-          color: var(--gray-06);
-        }
-        .description {
-          color: var(--gray-04);
-        }
-        .container:last-child{
-          border-bottom: 1px solid var(--gray-02);
-        }
-      </style>
+const objectsIcons = [
+  { name: "objects/atribute", description: "Some description" },
+  { name: "objects/bg-color", description: "Some description" },
+  { name: "objects/business-process-diagram", description: "Some description" },
+  { name: "objects/category", description: "Some description" },
+  { name: "objects/dashboard", description: "Some description" },
+  { name: "objects/data-provider", description: "Some description" },
+  { name: "objects/data-selector", description: "Some description" },
+  { name: "objects/data-view", description: "Some description" },
+  { name: "objects/datastore", description: "Some description" },
+  { name: "objects/datastore-category", description: "Some description" },
+  { name: "objects/dataview-index", description: "Some description" },
+  { name: "objects/diagram", description: "Some description" },
+  { name: "objects/document", description: "Some description" },
+  { name: "objects/domain", description: "Some description" },
+  { name: "objects/external-object", description: "Some description" },
+  { name: "objects/file", description: "Some description" },
+  { name: "objects/folder", description: "Some description" },
+  { name: "objects/generator", description: "Some description" },
+  { name: "objects/generator-category", description: "Some description" },
+  { name: "objects/image", description: "Some description" },
+  { name: "objects/lenguage", description: "Some description" },
+  { name: "objects/masterpage", description: "Some description" },
+  { name: "objects/menu", description: "Some description" },
+  { name: "objects/menubar", description: "Some description" },
+  { name: "objects/module", description: "Some description" },
+  { name: "objects/object", description: "Some description" },
+  { name: "objects/orphant-document", description: "Some description" },
+  { name: "objects/panel-for-sd", description: "Some description" },
+  { name: "objects/procedure", description: "Some description" },
+  { name: "objects/query", description: "Some description" },
+  { name: "objects/report", description: "Some description" },
+  { name: "objects/structured-data-type", description: "Some description" },
+  { name: "objects/subtype-group", description: "Some description" },
+  { name: "objects/table", description: "Some description" },
+  { name: "objects/themes", description: "Some description" },
+  { name: "objects/themes-for-sd", description: "Some description" },
+  { name: "objects/to-be-defined", description: "Some description" },
+  { name: "objects/transaction", description: "Some description" },
+  { name: "objects/web-component", description: "Some description" },
+  { name: "objects/webpanel", description: "Some description" },
+  { name: "objects/work-panel", description: "Some description" },
+  { name: "objects/work-with-web", description: "Some description" },
+  { name: "objects/workwith-for-sd", description: "Some description" }
+];
+
+function returnTableOfIcons(size, iconsArray) {
+  const newArray = iconsArray.map((iconType, index) => {
+    return `
       <div class="container">
       <span><gxg-icon size="${size}" type="${iconType.name}" color="${select(
-        label,
-        options,
-        defaultValue
-      )}"></gxg-icon></span>
+      label,
+      options,
+      defaultValue
+    )}"></gxg-icon></span>
         <span class="icon-name">${iconType.name}</span>
       <span class="description">${iconType.description}</span></div>`;
-    })
-    .join("");
+  });
+
+  return (
+    `<style>
+  #root {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  body {
+    align-items: baseline !important;
+  }
+    .container {
+      border: 1px solid var(--gray-02);
+      font-family: "Open Sans";
+      font-size: var(--font-size-sm);
+      border-bottom:none;
+      padding:5px;
+      display: flex;
+      align-items: center;
+      width:450px;
+    }
+    gxg-icon {
+      border-right: 1px solid var(--gray-02);
+      padding-right: 5px; 
+      margin-right: 8px; 
+    }
+    .icon-name {
+      border-right: 1px solid var(--gray-02);
+      padding-right:8px;
+      margin-right:8px;
+      color: var(--gray-06);
+    }
+    .description {
+      color: var(--gray-04);
+      font-size: var(--font-size-xs);
+    }
+    .container:last-child{
+      border-bottom: 1px solid var(--gray-02);
+    }
+  </style>` + newArray.join("")
+  );
 }
 const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
 stories
-  .add("general", () => iconsGeneral("regular"), {
+  .add("general", () => returnTableOfIcons("regular", generalIcons), {
     notes: {
       markdown: readme
     }
   })
-  .add("objects", () => iconsObjects("regular"), {
-    notes: {
-      markdown: readme
+  .add(
+    "objects",
+    () => {
+      //Icons01
+      const icons01Label = "--icons01";
+      const icons01Value = "#0266a0";
+      const groupId = "iconColors";
+      const valueIcons01 = color(icons01Label, icons01Value, groupId);
+
+      //Icons02
+      const icons02Label = "--icons02";
+      const icons02Value = "#605cab";
+      const valueIcons02 = color(icons02Label, icons02Value, groupId);
+
+      //Icons03
+      const icons03Label = "--icons03";
+      const icons03Value = "#00746b";
+      const valueIcons03 = color(icons03Label, icons03Value, groupId);
+
+      //Icons04
+      const icons04Label = "--icons04";
+      const icons04Value = "#00a99d";
+      const valueIcons04 = color(icons04Label, icons04Value, groupId);
+
+      //Icons05
+      const icons05Label = "--icons05";
+      const icons05Value = "#39b54a";
+      const valueIcons05 = color(icons05Label, icons05Value, groupId);
+
+      //Icons06
+      const icons06Label = "--icons06";
+      const icons06Value = "#ed145b";
+      const valueIcons06 = color(icons06Label, icons06Value, groupId);
+
+      //Icons07
+      const icons07Label = "--icons01";
+      const icons07Value = "#f26522";
+      const valueIcons07 = color(icons07Label, icons07Value, groupId);
+
+      //Icons08
+      const icons08Label = "--icons08";
+      const icons08Value = "#f7941d";
+      const valueIcons08 = color(icons08Label, icons08Value, groupId);
+
+      return (
+        returnTableOfIcons("regular", objectsIcons) +
+        "<style>body {--icons01:" +
+        valueIcons01 +
+        ";--icons02:" +
+        valueIcons02 +
+        ";--icons03:" +
+        valueIcons03 +
+        ";--icons04:" +
+        valueIcons04 +
+        ";--icons05:" +
+        valueIcons05 +
+        ";--icons06:" +
+        valueIcons06 +
+        ";--icons07:" +
+        valueIcons07 +
+        ";--icons08:" +
+        valueIcons08 +
+        ";}</style>"
+      );
+    },
+    {
+      notes: {
+        markdown: readme
+      }
     }
-  });
+  );

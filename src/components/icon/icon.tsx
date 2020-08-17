@@ -182,7 +182,8 @@ export type Color =
   | "error"
   | "success"
   | "warning"
-  | "alwaysblack";
+  | "alwaysblack"
+  | "auto";
 
 export type IconType =
   | "data-provider"
