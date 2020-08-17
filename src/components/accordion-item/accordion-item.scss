@@ -38,11 +38,11 @@
             font-weight: var(--font-weight-bold);
             text-transform: uppercase;
             width: 100%;
-            text-align: left;
+            text-align: start;
           }
           &__subtitle {
             @include gxg-text();
-            text-align: left;
+            text-align: start;
           }
         }
         &__meta-icon-wrapper {
@@ -56,6 +56,7 @@
     }
     &__container {
       @include gxg-text();
+      text-align: start;
       background-color: var(--color-background);
     }
     ::slotted([slot="subtitle"]) {
@@ -190,7 +191,6 @@
           &__title {
             font-weight: var(--font-weight-regular);
             font-size: var(--font-size-xs);
-            text-align: left;
             color: var(--color-on-background);
           }
         }
@@ -198,7 +198,8 @@
     }
     &__container {
       background: transparent;
-      margin-left: var(--spacing-comp-05);
+      //margin-left: var(--spacing-comp-05);
+      margin-inline-start: var(--spacing-comp-05);
     }
     &--open {
       gxg-icon {
@@ -237,7 +238,6 @@
             font-weight: var(--font-weight-bold);
             font-size: var(--font-size-sm);
             letter-spacing: 0.027em;
-            text-align: left;
             color: var(--color-on-background);
           }
         }

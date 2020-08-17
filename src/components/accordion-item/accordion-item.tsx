@@ -128,6 +128,22 @@ export class AccordionItem {
     }
   }
 
+  ariaExpanded() {
+    if (this.status === "closed") {
+      return "false";
+    } else {
+      return "true";
+    }
+  }
+
+  ariaDisabled() {
+    if (this.disabled) {
+      return "true";
+    } else {
+      return "false";
+    }
+  }
+
   render() {
     return (
       <Host>
@@ -140,9 +156,13 @@ export class AccordionItem {
           <header class="item__header">
             <button
               class="item__header__button"
+              id={"accordion-" + this.itemId}
               onClick={this.itemClickedHandler.bind(this)}
               tabindex={!this.disabled ? 0 : -1}
               onKeyDown={this.handlerOnKeyDown}
+              aria-expanded={this.ariaExpanded()}
+              aria-controls={this.itemId}
+              aria-disabled={this.ariaDisabled()}
             >
               <div class="item__header__button__title-subtitle">
                 <div
@@ -170,7 +190,12 @@ export class AccordionItem {
             </button>
           </header>
           {this.status === "open" && !this.disabled ? (
-            <div class="item__container">
+            <div
+              class="item__container"
+              id={this.itemId}
+              role="region"
+              aria-labelledby={"accordion-" + this.itemId}
+            >
               <slot></slot>
             </div>
           ) : (

@@ -232,7 +232,6 @@ stories
       const valueIcons08 = color(icons08Label, icons08Value, groupId);
 
       return (
-        returnTableOfIcons("regular", objectsIcons) +
         "<style>body {--icons01:" +
         valueIcons01 +
         ";--icons02:" +
@@ -249,7 +248,8 @@ stories
         valueIcons07 +
         ";--icons08:" +
         valueIcons08 +
-        ";}</style>"
+        ";}</style>" +
+        returnTableOfIcons("regular", objectsIcons)
       );
     },
     {
