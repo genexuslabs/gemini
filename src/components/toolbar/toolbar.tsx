@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Prop, h, Host, State } from "@stencil/core";
 
 @Component({
   tag: "gxg-toolbar",
@@ -26,15 +26,28 @@ export class Toolbar {
    */
   @Prop() toolbarTitle: string;
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
+  componentDidLoad() {
+    const dir = document.getElementsByTagName("html")[0].getAttribute("dir");
+    if (dir === "rtl") {
+      this.rtl = true;
+    }
+  }
+
   render() {
     return (
       <Host class={{}}>
         <div
           class={{
             toolbar: true,
+            "toolbar--start": this.position === "start",
             "toolbar--top": this.position === "top",
-            "toolbar--left": this.position === "left",
-            "toolbar--bottom": this.position === "bottom"
+            "toolbar--bottom": this.position === "bottom",
+            "toolbar--rtl": this.rtl
           }}
         >
           <div class="left-container">
@@ -58,4 +71,4 @@ export class Toolbar {
   }
 }
 
-export type position = "top" | "left" | "bottom";
+export type position = "start" | "top" | "bottom";

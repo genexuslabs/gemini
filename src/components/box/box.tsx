@@ -40,12 +40,15 @@ export class Box {
   render() {
     return (
       <Host
+        role="article"
         class={{
           card: true
         }}
         style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
-        <slot></slot>
+        <div class="gxg-scroll" style={{ maxHeight: "80px" }}>
+          <slot></slot>
+        </div>
       </Host>
     );
   }

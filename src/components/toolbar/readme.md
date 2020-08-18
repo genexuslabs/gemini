@@ -15,7 +15,8 @@
 <ol>
   <li>Insert a <code>gxg-toolbar</code> element</li>
    <li>Inside the <code>gxg-toolbar</code> insert as many <code>gxg-toolbar-item</code>'s as desired</li>
-   <li>For each <code>gxg-toolbar-item</code> item provide the following attributes/values: <code>icon</code>, <code>title</code>, <code>subtitle</code></li>
+   <li>For each <code>gxg-toolbar-item</code> item provide the following attributes/values: <code>icon</code>, <code>toolbar-item-title</code>, <code>subtitle</code></li>
+   <li>Provide a <code>toolbar-title</code> and a <code>subtitle</code> to the <code>gxg-toolbar</code> as well.</li>
 </ol>
 
 <!-- Auto Generated Below -->

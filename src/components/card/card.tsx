@@ -34,6 +34,7 @@ export class Card {
   render() {
     return (
       <Host
+        role="article"
         class={{
           card: true
         }}

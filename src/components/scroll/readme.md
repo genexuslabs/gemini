@@ -1,5 +1,7 @@
 # gxg-scroll
 
+Wrap the content inside a <code>gxg-scroll</code> and set a <code>max-height</code> value to it.
+
 <!-- Auto Generated Below -->
 
 ## Properties

@@ -222,7 +222,7 @@ stories
       const valueIcons06 = color(icons06Label, icons06Value, groupId);
 
       //Icons07
-      const icons07Label = "--icons01";
+      const icons07Label = "--icons07";
       const icons07Value = "#f26522";
       const valueIcons07 = color(icons07Label, icons07Value, groupId);
 

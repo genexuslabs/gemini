@@ -8,8 +8,8 @@
   border-width: var(--border-width-sm);
   border-style: var(--border-style-regular);
   border-radius: 11px;
-  padding-right: 11px;
-  padding-left: 2px;
+  padding-inline-end: 11px;
+  padding-inline-start: 2px;
   opacity: 1;
   margin-bottom: var(--spacing-lay-s);
   height: var(--spacing-lay-m);
@@ -27,7 +27,7 @@
 }
 //Button
 :host([type="button"]) {
-  padding-right: 18px;
+  padding-inline-end: 18px;
 }
 //Button / Button with action
 :host([type="button"]:hover),
@@ -46,12 +46,12 @@
 }
 //Button with action
 :host([type="button-with-action"]) {
-  padding-right: 2px;
+  padding-inline-end: 2px;
 
   .clear-button {
     cursor: pointer;
     opacity: 0.5;
-    margin-left: 8px;
+    margin-inline-start: 8px;
 
     &:hover {
       opacity: 0.75;

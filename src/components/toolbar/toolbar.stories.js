@@ -74,7 +74,7 @@ stories.add("Toolbar", () => {
   //Arrow position
   const labelArrowPosition = "Arrow position";
   const optionsArrowPosition = {
-    left: "left",
+    start: "start",
     top: "top",
     bottom: "bottom"
   };

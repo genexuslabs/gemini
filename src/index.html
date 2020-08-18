@@ -22,9 +22,7 @@
       p {
         margin-bottom: 10px;
       }
-
     </style>
-
   </head>
 
   <body>
@@ -38,7 +36,8 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
-    <gxg-accordion mode="classical" padding="m">
+    <!-- ACCORDION -->
+    <!-- <gxg-accordion mode="classical" padding="m">
       <gxg-accordion-item item-title="tab-01" item-id="tab-01">
         <p slot="subtitle">Some subtitle</p>
             some content on accordion 1.
@@ -131,19 +130,95 @@
               <gxg-accordion-item item-title="tab-02" item-id="tab-04">
                 some content on accordion 2.
               </gxg-accordion-item>
-            </gxg-accordion>
-    
-            <script>
-                      const toggle = document.querySelector("#toggleDarkTheme");
+            </gxg-accordion> -->
+    <!-- /ACCORDION -->
 
-// Listen for the toggle check/uncheck to toggle the dark class on the <body>
-toggle.addEventListener("change", ev => {
-  // for(var i = 0; i < gxgComponents.length; i++) {
-  //gxgComponents[i].classList.toggle('dark-mode')
-  document.getElementsByTagName("html")[0].classList.toggle("dark");
-  // }
-});
-            </script>
+    <!-- CONTAINERS -->
+    <gxg-box background="gray-01" style="width: 300px; height: 70px;">
+      Be who you are and say what you feel, because those who mind don’t matter,
+      and those who matter don’t mind. Be who you are and say what you feel,
+      because those who mind don’t matter, and those who matter don’t mind. Be
+      who you are and say what you feel, because those who mind don’t matter,
+      and those who matter don’t mind. Be who you are and say what you feel,
+      because those who mind don’t matter, and those who matter don’t mind. Be
+      who you are and say what you feel, because those who mind don’t matter,
+      and those who matter don’t mind. Be who you are and say what you feel,
+      because those who mind don’t matter, and those who matter don’t mind. Be
+      who you are and say what you feel, because those who mind don’t matter,
+      and those who matter don’t mind.
+    </gxg-box>
+    <gxg-card background="gray-01">
+      Be who you are and say what you feel, because those who mind don’t matter,
+      and those who matter don’t mind.
+    </gxg-card>
+    <!-- /CONTAINERS -->
+
+    <!-- PILL -->
+    <!-- <gxg-pill type="static" tabindex="0"> Some pill </gxg-pill>
+    <gxg-pill type="button" tabindex="0"> Some pill </gxg-pill>
+    <gxg-pill type="button-with-action" tabindex="0"> Some pill </gxg-pill> -->
+    <!-- /PILL -->
+
+    <!-- SCROLL -->
+    <gxg-scroll max-height="126px">
+      <gxg-text>
+        Crabbed Age and Youth<br />
+        Cannot live together:<br />
+        Youth is full of pleasance,<br />
+        Age is full of care;<br />
+        Youth like summer morn,<br />
+        Age like winter weather;<br />
+        Youth like summer brave,<br />
+        Age like winter bare:<br />
+        Youth is full of sports,<br />
+        Age's breath is short,<br />
+        Youth is nimble, Age is lame:<br />
+        Youth is hot and bold,<br />
+        Age is weak and cold,<br />
+        Youth is wild, and Age is tame:-<br />
+        Age, I do abhor thee;<br />
+        Youth, I do adore thee;<br />
+        O! my Love, my Love is young!<br />
+        Age, I do defy thee-<br />
+        O sweet shepherd, hie thee,<br />
+        For methinks thou stay'st too long.
+      </gxg-text></gxg-scroll
+    >
+    <!-- /SCROLL -->
+
+    <!-- TOOLBAR -->
+    <gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="start">
+      <gxg-toolbar-item
+        slot
+        icon="settings"
+        toolbar-item-title="title"
+        subtitle="subtitle"
+        onClick="toolbarFunc01()"
+        id="toolbar-item-01"
+      ></gxg-toolbar-item>
+      <gxg-toolbar-item
+        slot
+        icon="settings"
+        toolbar-item-title="title"
+        subtitle="subtitle"
+        disabled
+        id="toolbar-item-02"
+      ></gxg-toolbar-item>
+    </gxg-toolbar>
+    <!-- /TOOLBAR -->
+
+    <!-- -->
+
+    <script>
+      const toggle = document.querySelector("#toggleDarkTheme");
+
+      // Listen for the toggle check/uncheck to toggle the dark class on the <body>
+      toggle.addEventListener("change", ev => {
+        // for(var i = 0; i < gxgComponents.length; i++) {
+        //gxgComponents[i].classList.toggle('dark-mode')
+        document.getElementsByTagName("html")[0].classList.toggle("dark");
+        // }
+      });
+    </script>
   </body>
-  
 </html>

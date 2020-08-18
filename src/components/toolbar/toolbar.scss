@@ -21,16 +21,16 @@
       border-top: 10px solid var(--color-primary-active);
       position: absolute;
     }
+    &--start {
+      &:before {
+        left: 0;
+        transform: rotate(0deg) translateX(-100%) scaleX(-1);
+      }
+    }
     &--top {
       &:before {
         top: 0;
         transform: rotate(180deg) translateY(100%) scaleX(-1);
-      }
-    }
-    &--left {
-      &:before {
-        left: 0;
-        transform: rotate(0deg) translateX(-100%) scaleX(-1);
       }
     }
     &--bottom {
@@ -39,11 +39,31 @@
         transform: translateY(100%);
       }
     }
+    &--rtl {
+      &.toolbar--start {
+        &:before {
+          bottom: 0;
+          transform: translateY(100%);
+        }
+      }
+      &.toolbar--top {
+        &:before {
+          bottom: 0;
+          transform: translateY(100%);
+        }
+      }
+      &.toolbar--bottom {
+        &:before {
+          bottom: 0;
+          transform: translateY(100%);
+        }
+      }
+    }
   }
   .left-container {
     display: flex;
     align-items: center;
-    margin-right: 60px;
+    margin-inline-end: 60px;
 
     &__subtitle {
       padding-left: 5px;
