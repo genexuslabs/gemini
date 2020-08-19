@@ -46,9 +46,7 @@ export class Box {
         }}
         style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
-        <div class="scroll-container" style={{ maxHeight: "80px" }}>
-          <slot></slot>
-        </div>
+        <slot></slot>
       </Host>
     );
   }

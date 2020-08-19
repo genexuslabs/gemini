@@ -53,24 +53,6 @@ stories.add("Toolbar", () => {
     defaultValueFirstIconSubtitle
   );
 
-  //Single Tab Open
-  const labelSingleTabOpen =
-    "Single Tab Opened (only one accordion at a time can be open at the same time)";
-  const defaultValueSingleTabOpen = false;
-
-  const valueSingleTabOpen = boolean(
-    labelSingleTabOpen,
-    defaultValueSingleTabOpen
-  );
-
-  function singleTabOpen() {
-    if (valueSingleTabOpen) {
-      return "single-tab-open";
-    } else {
-      return "";
-    }
-  }
-
   //Arrow position
   const labelArrowPosition = "Arrow position";
   const optionsArrowPosition = {
@@ -78,7 +60,7 @@ stories.add("Toolbar", () => {
     top: "top",
     bottom: "bottom"
   };
-  const defaultValueStatus = "left";
+  const defaultValueStatus = "start";
   const valueArrowPosition = select(
     labelArrowPosition,
     optionsArrowPosition,
