@@ -157,4 +157,4 @@ export class Accordion {
   }
 }
 
-export type mode = "classical" | "slim" | "boxed";
+export type mode = "classical" | "slim" | "boxed" | "minimal";

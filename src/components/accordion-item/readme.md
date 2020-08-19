@@ -25,14 +25,15 @@
 
 ## Properties
 
-| Property              | Attribute    | Description                                                                                                          | Type                                                   | Default       |
-| --------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------- |
-| `disabled`            | `disabled`   | The presence of this attribute makes the accordion-item disabled and not focusable                                   | `boolean`                                              | `false`       |
-| `itemId` _(required)_ | `item-id`    | The accordion id                                                                                                     | `string`                                               | `undefined`   |
-| `itemTitle`           | `item-title` | The accordion title                                                                                                  | `string`                                               | `undefined`   |
-| `mode`                | `mode`       | The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion) | `"boxed" \| "classical" \| "slim"`                     | `"classical"` |
-| `padding`             | `padding`    |                                                                                                                      | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`        |
-| `status`              | `status`     | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                                   | `"closed"`    |
+| Property              | Attribute        | Description                                                                                                          | Type                                                   | Default       |
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------- |
+| `disabled`            | `disabled`       | The presence of this attribute makes the accordion-item disabled and not focusable                                   | `boolean`                                              | `false`       |
+| `editableTitle`       | `editable-title` | The presence of this attribute makes the accordion title editable                                                    | `boolean`                                              | `false`       |
+| `itemId` _(required)_ | `item-id`        | The accordion id                                                                                                     | `string`                                               | `undefined`   |
+| `itemTitle`           | `item-title`     | The accordion title                                                                                                  | `string`                                               | `undefined`   |
+| `mode`                | `mode`           | The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion) | `"boxed" \| "classical" \| "minimal" \| "slim"`        | `"classical"` |
+| `padding`             | `padding`        |                                                                                                                      | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`        |
+| `status`              | `status`         | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                                   | `"closed"`    |
 
 ## Events
 
@@ -47,12 +48,17 @@
 ### Depends on
 
 - [gxg-icon](../icon)
+- [gxg-form-text](../form-text)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-accordion-item --> gxg-icon
+  gxg-accordion-item --> gxg-form-text
+  gxg-form-text --> gxg-icon
+  gxg-form-text --> gxg-form-message
+  gxg-form-message --> gxg-icon
   style gxg-accordion-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

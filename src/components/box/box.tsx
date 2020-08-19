@@ -46,7 +46,7 @@ export class Box {
         }}
         style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
-        <div class="gxg-scroll" style={{ maxHeight: "80px" }}>
+        <div class="scroll-container" style={{ maxHeight: "80px" }}>
           <slot></slot>
         </div>
       </Host>

@@ -70,6 +70,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute makes the accordion title editable
+     */
+    editableTitle: boolean;
+    /**
      * The accordion id
      */
     itemId: string;
@@ -1226,6 +1230,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the accordion-item disabled and not focusable
      */
     disabled?: boolean;
+    /**
+     * The presence of this attribute makes the accordion title editable
+     */
+    editableTitle?: boolean;
     /**
      * The accordion id
      */

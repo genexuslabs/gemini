@@ -31,7 +31,8 @@
           align-items: baseline;
           justify-content: center;
           width: 60%;
-          &__title {
+          &__title,
+          gxg-form-text::part(input) {
             display: inline;
             font-family: var(--font-family-primary);
             font-size: var(--font-size-sm);
@@ -159,6 +160,11 @@
     }
   }
 }
+:host([mode="classical"][editable-title]) {
+  .item__header__button__title-subtitle__subtitle {
+    margin-inline-start: 5px;
+  }
+}
 
 //Slim aesthetic version
 :host([mode="slim"]) {
@@ -183,12 +189,13 @@
           transform: scale(0.65, 0.65);
           background: var(--color-primary-enabled);
           border-radius: 50%;
-          margin-right: var(--spacing-comp-01);
+          margin-inline-end: var(--spacing-comp-01);
           @include ui-animation(background);
         }
         &__title-subtitle {
           width: 100%;
-          &__title {
+          &__title,
+          gxg-form-text::part(input) {
             font-weight: var(--font-weight-regular);
             font-size: var(--font-size-xs);
             color: var(--color-on-background);
@@ -266,6 +273,67 @@
     }
   }
 }
+:host([mode="boxed"][editable-title]) {
+  .item__header__button__title-subtitle__subtitle {
+    margin-inline-start: 5px;
+  }
+}
+
+//Minimal aesthetic version
+:host([mode="minimal"]) {
+  margin-bottom: var(--spacing-lay-xs);
+  .item {
+    &__header {
+      &__button {
+        background: transparent;
+        flex-direction: row-reverse;
+        &:hover {
+          gxg-icon {
+          }
+        }
+        &:active {
+          gxg-icon {
+          }
+        }
+        gxg-icon {
+          margin-inline-end: var(--spacing-comp-01);
+        }
+        &__title-subtitle {
+          width: 100%;
+          &__title,
+          gxg-form-text::part(input) {
+            font-weight: var(--font-weight-regular);
+            font-size: var(--font-size-xs);
+            color: var(--color-on-background);
+          }
+        }
+      }
+    }
+    &__container {
+      background: transparent;
+      //margin-left: var(--spacing-comp-05);
+      margin-inline-start: var(--spacing-comp-05);
+    }
+    &--open {
+      gxg-icon {
+      }
+    }
+  }
+  .item--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    gxg-icon {
+    }
+  }
+  gxg-form-text::part(input) {
+  }
+}
+:host([mode="minimal"][editable-title]) {
+  gxg-icon {
+    margin-inline-end: 0;
+  }
+}
+
 :host {
   outline: none;
   .item {

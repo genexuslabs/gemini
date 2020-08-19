@@ -428,6 +428,7 @@ FORM ELEMENTS
     background: var(--gray-04);
     cursor: pointer;
   }
-  display: block;
-  overflow-y: auto;
+  .scroll-container {
+    overflow-y: auto;
+  }
 }

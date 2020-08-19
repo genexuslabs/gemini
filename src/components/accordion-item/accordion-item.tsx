@@ -24,6 +24,11 @@ export class AccordionItem {
   @Prop({ reflect: true }) disabled = false;
 
   /**
+   * The presence of this attribute makes the accordion title editable
+   */
+  @Prop() editableTitle = false;
+
+  /**
    * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
    */
   @Prop({ reflect: true }) mode: mode = "classical";
@@ -74,7 +79,7 @@ export class AccordionItem {
       iType = "chevron-up";
       if (this.mode === "classical") {
         iColor = "alwaysblack";
-      } else if (this.mode === "boxed") {
+      } else if (this.mode === "boxed" || this.mode === "minimal") {
         iColor = "onbackground";
       } else {
         iColor = "negative";
@@ -89,7 +94,7 @@ export class AccordionItem {
           //item not disabled
           iColor = "alwaysblack";
         }
-      } else if (this.mode === "boxed") {
+      } else if (this.mode === "boxed" || this.mode === "minimal") {
         if (this.disabled) {
           iColor = "disabled";
         } else {
@@ -144,6 +149,10 @@ export class AccordionItem {
     }
   }
 
+  gxgFormTextClickedHandler(e) {
+    e.stopPropagation();
+  }
+
   render() {
     return (
       <Host>
@@ -169,7 +178,15 @@ export class AccordionItem {
                   class="item__header__button__title-subtitle__title"
                   onClick={this.titleClickedHandler.bind(this)}
                 >
-                  {this.itemTitle}
+                  {this.editableTitle ? (
+                    <gxg-form-text
+                      minimal
+                      value={this.itemTitle}
+                      onClick={this.gxgFormTextClickedHandler.bind(this)}
+                    ></gxg-form-text>
+                  ) : (
+                    this.itemTitle
+                  )}
                 </div>
                 {this.mode === "classical" || this.mode === "boxed" ? (
                   <div class="item__header__button__title-subtitle__subtitle">

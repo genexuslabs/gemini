@@ -60,7 +60,7 @@ export class FormText implements FormComponent {
   /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
-  @Prop() minimal = true;
+  @Prop({ reflect: true }) minimal = true;
 
   /**
    * The input placeholder
@@ -192,6 +192,7 @@ export class FormText implements FormComponent {
             }}
           >
             <input
+              part="input"
               type="text"
               value={this.value}
               class={{

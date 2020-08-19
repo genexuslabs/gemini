@@ -36,9 +36,26 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
+
+    <gxg-form-text
+    minimal
+    value="hola"
+  ></gxg-form-text>
+
     <!-- ACCORDION -->
-    <!-- <gxg-accordion mode="classical" padding="m">
-      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+
+    <gxg-accordion mode="minimal">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01" editable-title>
+        <p slot="subtitle">Some subtitle</p>
+            some content on accordion 1.
+          </gxg-accordion-item>
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="tab-02" item-id="tab-04"
+            >some content on accordion 2.</gxg-accordion-item>
+        </gxg-accordion>
+
+    <gxg-accordion mode="classical" padding="m">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01" editable-title>
         <p slot="subtitle">Some subtitle</p>
             some content on accordion 1.
           </gxg-accordion-item>
@@ -58,7 +75,7 @@
             </gxg-accordion>
     
             <gxg-accordion mode="slim" padding="m">
-              <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+              <gxg-accordion-item item-title="tab-01" item-id="tab-01" editable-title>
                 some content on accordion 1.
               </gxg-accordion-item>
               <gxg-accordion-item item-title="tab-02" item-id="tab-04">
@@ -77,7 +94,7 @@
         
     
         <gxg-accordion mode="boxed">
-          <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+          <gxg-accordion-item item-title="tab-01" item-id="tab-01" editable-title>
             <p slot="subtitle">Some subtitle</p>
             <p slot="meta">Some meta</p>
             <gxg-accordion mode="slim">
@@ -130,7 +147,7 @@
               <gxg-accordion-item item-title="tab-02" item-id="tab-04">
                 some content on accordion 2.
               </gxg-accordion-item>
-            </gxg-accordion> -->
+            </gxg-accordion>
     <!-- /ACCORDION -->
 
     <!-- CONTAINERS -->
@@ -160,7 +177,7 @@
     <!-- /PILL -->
 
     <!-- SCROLL -->
-    <gxg-scroll max-height="126px">
+    <!-- <gxg-scroll max-height="126px">
       <gxg-text>
         Crabbed Age and Youth<br />
         Cannot live together:<br />
@@ -182,7 +199,7 @@
         Age, I do defy thee-<br />
         O sweet shepherd, hie thee,<br />
         For methinks thou stay'st too long.
-      </gxg-text></gxg-scroll
+      </gxg-text></gxg-scroll -->
     >
     <!-- /SCROLL -->
 

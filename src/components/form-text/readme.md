@@ -28,7 +28,17 @@
 | `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
 | `input`              | Returns the input value      | `CustomEvent<any>` |
 
+## Shadow Parts
+
+| Part      | Description |
+| --------- | ----------- |
+| `"input"` |             |
+
 ## Dependencies
+
+### Used by
+
+- [gxg-accordion-item](../accordion-item)
 
 ### Depends on
 
@@ -42,6 +52,7 @@ graph TD;
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-form-message
   gxg-form-message --> gxg-icon
+  gxg-accordion-item --> gxg-form-text
   style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
