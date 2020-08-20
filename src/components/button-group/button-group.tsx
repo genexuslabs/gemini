@@ -47,6 +47,18 @@ export class ButtonGroup {
   */
   @State() value = "";
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
+  componentDidLoad() {
+    const dir = document.getElementsByTagName("html")[0].getAttribute("dir");
+    if (dir === "rtl") {
+      this.rtl = true;
+    }
+  }
+
   /*********************************
   METHODS
   *********************************/
@@ -144,7 +156,8 @@ export class ButtonGroup {
         role="group"
         aria-label={this.buttonGroupTitle}
         class={{
-          "button-group": true
+          "button-group": true,
+          "button-group--rtl": this.rtl
         }}
         value={this.value}
         title-alignment={this.titleAlignment}

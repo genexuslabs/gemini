@@ -89,12 +89,20 @@ export class FormCheckbox {
     }
   }
 
+  ariaChecked() {
+    if (this.checked) {
+      return "true";
+    } else {
+      return "false";
+    }
+  }
+
   render() {
     return (
       <Host
         role="checkbox"
         value={this.value}
-        aria-checked={this.checked + ""}
+        aria-checked={this.ariaChecked}
         aria-label={this.label}
       >
         <label class="label">
@@ -111,7 +119,7 @@ export class FormCheckbox {
             onKeyUp={this.handlerOnKeyUp.bind(this)}
             tabindex="0"
           ></input>
-          <span class="checkmark"></span>
+          <span class="checkmark" role="checkbox"></span>
           {this.label}
         </label>
       </Host>

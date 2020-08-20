@@ -14,6 +14,11 @@ export class Button {
   *********************************/
 
   /**
+   * The prescence of this attribute makes the icon always black
+   */
+  @Prop() alwaysBlack = false;
+
+  /**
    * The state of the button, whether it is disabled or not
    */
   @Prop() disabled = false;
@@ -84,8 +89,12 @@ export class Button {
       } else {
         iColor = "primary";
       }
-    } else {
-      iColor = "onbackground";
+    } else if (this.type.includes("tertiary")) {
+      if (this.alwaysBlack) {
+        iColor = "alwaysblack";
+      } else {
+        iColor = "onbackground";
+      }
     }
     return iColor;
   }

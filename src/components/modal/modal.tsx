@@ -58,9 +58,22 @@ export class Modal {
     }
   }
 
+  modalHidden() {
+    if (this.visible) {
+      return "false";
+    } else {
+      return "true";
+    }
+  }
+
   render() {
     return (
-      <Host hidden style={{ "z-index": this.zIndex, display: "none" }}>
+      <Host
+        role="dialog"
+        aria-hidden={this.modalHidden()}
+        hidden
+        style={{ "z-index": this.zIndex, display: "none" }}
+      >
         <div class="modal" style={{ width: this.width }}>
           <header class="modal__header">
             <span class="modal__header__title">{this.modalTitle}</span>

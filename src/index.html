@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="rtl" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -198,7 +198,7 @@
     <!-- /SCROLL -->
 
     <!-- TOOLBAR -->
-    <gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="start">
+    <!-- <gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="start">
       <gxg-toolbar-item
         slot
         icon="settings"
@@ -215,10 +215,196 @@
         disabled
         id="toolbar-item-02"
       ></gxg-toolbar-item>
-    </gxg-toolbar>
+    </gxg-toolbar> -->
     <!-- /TOOLBAR -->
 
-    <!-- -->
+    <!-- ALERT -->
+    <!-- <gxg-alert
+      alert-title="success title"
+      type="success"
+      id="alert-success"
+      position="right"
+    >
+      The message for the success alert box
+    </gxg-alert>
+    <script>
+      function mostrarAlertMoreInfo(alertId) {
+        document.getElementById(alertId).setAttribute("active", "true");
+      }
+    </script>
+    <gxg-button onclick="mostrarAlertMoreInfo('alert-success')"
+      >Show alert more info</gxg-button
+    > -->
+    <!-- /ALERT -->
+
+    <!-- DRAG -->
+    <!-- <gxg-drag-container>
+      <gxg-drag-box class="draggable"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+        dolores quod. Sed et corporis sunt quia obcaecati saepe veniam aperiam
+        ut illo eum veritatis, non dolore sapiente voluptatum voluptate
+        numquam!</gxg-drag-box
+      >
+      <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
+      <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
+      <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
+      <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
+    </gxg-drag-container> -->
+    <!-- /DRAG-->
+
+    <!-- MODAL -->
+    <!-- <gxg-modal
+      style="dislpay:none"
+      id="modal"
+      modal-title="Modal Title"
+      footer-alignment="right"
+      z-index="20"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
+      voluptatibus harum minima aut id architecto adipisci tempore numquam
+      explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
+      <gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+      <gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+      <gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+    </gxg-modal>
+
+    <gxg-button
+      full-width
+      style="margin-top:30px"
+      onClick="(function(){
+    const modal = document.getElementById('modal');
+    modal.setAttribute('visible','true');
+    return false;
+  })();return false;"
+      >Launch Modal btn</gxg-button
+    > -->
+    <!-- /MODAL -->
+
+    <!-- PROGRESS BAR -->
+    <!-- <gxg-progress-bar
+      label="Progress Bar"
+      tabindex="1"
+      value="50"
+      width="400px"
+    ></gxg-progress-bar> -->
+    <!-- /PROGRESS BAR -->
+
+    <!-- BUTTON GROUP -->
+    <!-- <gxg-button-group
+      default-selected-btn-id="id2"
+      button-group-title="The title"
+      title-alignment="left"
+      tabindex="0"
+    >
+      <button id="id1" value="primero">Left</button>
+      <button id="id2" value="segundo">Middle</button>
+      <button id="id3" value="tercero">Right</button>
+    </gxg-button-group>
+
+    <gxg-button-group
+      default-selected-btn-id="id2"
+      button-group-title="The title"
+      title-alignment="left"
+      tabindex="0"
+    >
+      <button id="id1" value="primero">Left</button>
+      <button id="id2" value="segundo">Middle</button>
+    </gxg-button-group> -->
+    <!-- /BUTTON GROUP -->
+
+    <!-- DATE PICKER -->
+    <!-- <gxg-date-picker
+      min-date="2018, 12, 20"
+      max-date="2021, 1, 20"
+      default-date="2020, 12, 20"
+      no-weekends
+    ></gxg-date-picker> -->
+    <!-- /DATE PICKER -->
+
+    <!-- <form action="">
+      <gxg-form-checkbox
+        label="hufds afiuhds iauf sduiahfid uh"
+        name="colors"
+        id="red"
+        value="rded"
+        disabled
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="bluecheese"
+        name="colors"
+        id="red"
+        value="blue"
+        required
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="green"
+        name="colors"
+        id="red"
+        value="green"
+      ></gxg-form-checkbox>
+
+      <gxg-form-checkbox
+        label="red"
+        name="colors"
+        id="chkred"
+        value="red"
+        inline-flex
+        checked
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="blue"
+        name="colors"
+        id="red"
+        value="blue"
+        inline-flex
+        checked
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        label="green"
+        name="colors"
+        id="red"
+        value="green"
+        inline-flex
+      ></gxg-form-checkbox>
+    </form>
+
+    <form action="">
+      <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
+        <gxg-form-radio
+          label="red"
+          name="colors"
+          radio-id="red"
+          value="red"
+          checked
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="blue"
+          name="colors"
+          radio-id="blue"
+          value="blue"
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="green"
+          name="colors"
+          radio-id="green"
+          value="green"
+        ></gxg-form-radio>
+      </gxg-form-radio-group>
+    </form> -->
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      warning
+      full-width
+      icon="colorPicker"
+      icon-position="right"
+      value="dsda"
+    >
+    </gxg-form-text>
 
     <script>
       const toggle = document.querySelector("#toggleDarkTheme");

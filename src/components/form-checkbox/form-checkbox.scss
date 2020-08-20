@@ -34,7 +34,7 @@
   display: flex;
 }
 :host([inline]) .label {
-  margin-right: var(--spacing-comp-04);
+  margin-inline-end: var(--spacing-comp-04);
   margin-bottom: 0;
 }
 
@@ -72,7 +72,7 @@
   .checkmark {
     display: inline-block;
     position: relative;
-    margin-right: var(--spacing-comp-02);
+    margin-inline-end: var(--spacing-comp-02);
     height: var(--spacing-comp-04);
     width: var(--spacing-comp-04);
     background-color: transparent;

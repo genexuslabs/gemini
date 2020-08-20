@@ -60,7 +60,7 @@ export class FormText implements FormComponent {
   /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
-  @Prop({ reflect: true }) minimal = true;
+  @Prop({ reflect: true }) minimal = false;
 
   /**
    * The input placeholder

@@ -28,7 +28,7 @@ export class ProgressBar {
 
   render() {
     return (
-      <Host style={{ maxWidth: this.maxWidth }}>
+      <Host style={{ maxWidth: this.maxWidth }} role="progressbar">
         <div class="outer-wrapper">
           <label class="label">{this.label}</label>
           <span class="outer-bar">

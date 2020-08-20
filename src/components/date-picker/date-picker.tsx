@@ -1,4 +1,4 @@
-import { Component, Prop, h, Element, Host } from "@stencil/core";
+import { Component, Prop, h, Element, Host, State } from "@stencil/core";
 import datepicker from "js-datepicker";
 
 @Component({
@@ -44,7 +44,19 @@ export class DatePicker {
    */
   @Prop() maxWidth = "100%";
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
   componentDidLoad() {
+    //Reading Direction
+    const dir = document.getElementsByTagName("html")[0].getAttribute("dir");
+    if (dir === "rtl") {
+      this.rtl = true;
+    }
+
+    //Datepicker Options
     let defaultDate = new Date();
 
     if (this.defaultDate !== undefined && this.defaultDate !== "") {
@@ -166,7 +178,9 @@ export class DatePicker {
   render() {
     return (
       <Host
-        class={{}}
+        class={{
+          "datepicker--rtl": this.rtl
+        }}
         style={{
           maxWidth: this.maxWidth
         }}

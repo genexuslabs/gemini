@@ -88,3 +88,8 @@
   transform: rotate(-45deg) !important;
   left: 6px;
 }
+:host(.datepicker--rtl) {
+  .qs-datepicker-container {
+    right: 0;
+  }
+}

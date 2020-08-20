@@ -87,6 +87,7 @@ export class Alert {
   }
 
   setAlertInactive() {
+    console.log("close");
     this.active = false;
     this.el.removeAttribute("role");
   }
@@ -143,6 +144,14 @@ export class Alert {
     }
   }
 
+  alertHidden() {
+    if (this.active) {
+      return "false";
+    } else {
+      return "true";
+    }
+  }
+
   render() {
     let lateralSpacingValue;
     if (this.leftRight === "no-space") {
@@ -166,6 +175,8 @@ export class Alert {
 
     return (
       <Host
+        role="alert"
+        aria-hidden={this.alertHidden()}
         hidden
         style={{
           width: this.defineWidth(),
@@ -205,6 +216,7 @@ export class Alert {
             <gxg-button
               type="tertiary"
               icon="close"
+              always-black
               onClick={this.setAlertInactive.bind(this)}
             ></gxg-button>
           </div>

@@ -150,6 +150,10 @@ export namespace Components {
   }
   interface GxgButton {
     /**
+     * The prescence of this attribute makes the icon always black
+     */
+    alwaysBlack: boolean;
+    /**
      * The state of the button, whether it is disabled or not
      */
     disabled: boolean;
@@ -1322,6 +1326,10 @@ declare namespace LocalJSX {
     padding?: padding;
   }
   interface GxgButton {
+    /**
+     * The prescence of this attribute makes the icon always black
+     */
+    alwaysBlack?: boolean;
     /**
      * The state of the button, whether it is disabled or not
      */

@@ -59,7 +59,6 @@ stories
     <gxg-alert
     id="alert-notice"
     type="notice"
-    active="false"
     active-time="${select(
       "Active Time",
       {
@@ -124,7 +123,6 @@ stories
   <gxg-alert
   id="alert-success"
   type="success"
-  active="false"
   active-time="${select(
     "Active Time",
     {
@@ -190,7 +188,6 @@ stories
     <gxg-alert
     id="alert-warning"
     type="warning"
-    active="false"
     active-time="${select(
       "Active Time",
       {
@@ -255,7 +252,6 @@ stories
     <gxg-alert
     id="alert-error"
     type="error"
-    active="false"
     active-time="${select(
       "Active Time",
       {
