@@ -56,9 +56,19 @@ export class Toggle {
     }
   }
 
+  state() {
+    if (this.on) {
+      return "true";
+    } else {
+      return "false";
+    }
+  }
+
   render() {
     return (
       <Host
+        role="switch"
+        aria-checked={this.state()}
         class={{
           toggle: true
         }}

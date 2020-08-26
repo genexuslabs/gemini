@@ -1,4 +1,4 @@
-import { Component, Prop, h } from "@stencil/core";
+import { Component, Prop, h, Host } from "@stencil/core";
 
 @Component({
   tag: "gxg-tooltip",
@@ -23,12 +23,14 @@ export class Tooltip {
 
   render() {
     return (
-      <span class="tooltip">
-        <slot></slot>
-        <div class="tooltiptext">
-          <span class="tooltiptext__content">{this.label}</span>
-        </div>
-      </span>
+      <Host role="tooltip">
+        <span class="tooltip">
+          <slot></slot>
+          <div class="tooltiptext">
+            <span class="tooltiptext__content">{this.label}</span>
+          </div>
+        </span>
+      </Host>
     );
   }
 }

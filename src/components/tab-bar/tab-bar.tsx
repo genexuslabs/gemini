@@ -19,6 +19,11 @@ export class TabBar {
   @State() appendedButtons = 0;
   @State() tabBarMenuHeight = "100px";
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
   toggleMenu(event) {
     event.stopPropagation();
 
@@ -42,8 +47,8 @@ export class TabBar {
       return buttonPadding;
     };
 
-    if (calculateButtonPadding() < 20) {
-      while (calculateButtonPadding() < 20) {
+    if (calculateButtonPadding() < 40) {
+      while (calculateButtonPadding() < 40) {
         //if button "padding" is lower than 10px, then, the buttons are too short.
         //it is time to cut off the LAST button, and put it into the menu!
         const tabButtons = this.el.querySelectorAll("[slot=tab-bar]");
@@ -70,6 +75,17 @@ export class TabBar {
     this.tabBarMenuHeight = this.appendedButtons * buttonHeight + "px";
   }
   componentDidLoad() {
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
+    //Resize
     window.addEventListener("resize", () => {
       this.appendTabItemsToMenu();
     });
@@ -98,10 +114,9 @@ export class TabBar {
         <div class="tab-bar__menu">
           <gxg-button
             onClick={this.toggleMenu.bind(this)}
-            type="secondary-icon-only"
-          >
-            <gxg-icon slot="icon" type="show-more-vertical"></gxg-icon>
-          </gxg-button>
+            type="tertiary"
+            icon="show-more-vertical"
+          ></gxg-button>
         </div>
       );
     }
@@ -137,7 +152,11 @@ export class TabBar {
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          rtl: this.rtl
+        }}
+      >
         <ul class="tab-bar">
           <slot name="tab-bar"></slot>
           {this.renderTabBarMenu()}

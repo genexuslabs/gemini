@@ -53,8 +53,14 @@ export class ButtonGroup {
   @State() rtl = false;
 
   componentDidLoad() {
-    const dir = document.getElementsByTagName("html")[0].getAttribute("dir");
-    if (dir === "rtl") {
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
       this.rtl = true;
     }
   }
@@ -157,7 +163,7 @@ export class ButtonGroup {
         aria-label={this.buttonGroupTitle}
         class={{
           "button-group": true,
-          "button-group--rtl": this.rtl
+          rtl: this.rtl
         }}
         value={this.value}
         title-alignment={this.titleAlignment}

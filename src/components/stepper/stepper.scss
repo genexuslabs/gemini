@@ -60,6 +60,23 @@
     }
   }
 }
+//Redaing direction
+:host(.rtl) {
+  .button {
+    &--minus {
+      border-top-right-radius: var(--border-radius-md);
+      border-bottom-right-radius: var(--border-radius-md);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &--plus {
+      border-top-left-radius: var(--border-radius-md);
+      border-bottom-left-radius: var(--border-radius-md);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
 :host(:focus) {
   outline: none;
   .outer-wrapper {

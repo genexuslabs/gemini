@@ -6,7 +6,8 @@ import {
   EventEmitter,
   h,
   Host,
-  Watch
+  Watch,
+  State
 } from "@stencil/core";
 import { requiredLabel, formMessage } from "../../common.js";
 
@@ -77,6 +78,11 @@ export class FormSelectNew {
    */
   @Event() change: EventEmitter;
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
   /*********************************
   METHODS
   *********************************/
@@ -110,6 +116,17 @@ export class FormSelectNew {
   }
 
   componentDidLoad() {
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
+
     const updateValue = selectedOption => {
       this.value = selectedOption;
     };
@@ -274,6 +291,9 @@ export class FormSelectNew {
         style={{
           maxWidth: this.maxWidth,
           "--size": this.size
+        }}
+        class={{
+          rtl: this.rtl
         }}
         onKeyDown={this.handlerOnKeyDown.bind(this)}
       >

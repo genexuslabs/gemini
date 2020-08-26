@@ -6,7 +6,8 @@ import {
   Prop,
   h,
   Host,
-  Watch
+  Watch,
+  State
 } from "@stencil/core";
 
 @Component({
@@ -51,11 +52,27 @@ export class Stepper {
 
   @Event() input: EventEmitter;
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
   /*********************************
   METHODS
   *********************************/
 
   componentDidLoad() {
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
+
     //disabled
     if (this.disabled) {
       this.plusButton.setAttribute("disabled", "disabled");
@@ -106,7 +123,11 @@ export class Stepper {
 
   render() {
     return (
-      <Host class={{}}>
+      <Host
+        class={{
+          rtl: this.rtl
+        }}
+      >
         <label class="label">{this.label}</label>
         <div class="outer-wrapper">
           <button

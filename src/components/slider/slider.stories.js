@@ -23,6 +23,11 @@ stories.add("Slider", () => {
   const defaultValueInitial = 300;
   const valueInitial = number(labelValueInitial, defaultValueInitial);
 
+  //Label
+  const labelLabel = "Label";
+  const defaultValueLabel = "Label";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
   //Max value
   const labelMax = "Max. Value";
   const defaultValueMax = 400;
@@ -46,8 +51,8 @@ stories.add("Slider", () => {
       text-align:center;
       display:flex;
       justify-content: center;
-    }s
+    }
   </style>
-  <gxg-slider label="Slider" ${valueDisabledFunc()} value=${valueInitial} max=${valueMax} max-width=${valueMaxWidth}></gxg-slider>
+  <gxg-slider label="Slider" ${valueDisabledFunc()} label=${valueLabel} value=${valueInitial} max=${valueMax} max-width=${valueMaxWidth}></gxg-slider>
   `;
 });

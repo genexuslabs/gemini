@@ -27,15 +27,14 @@ import {
   elevation,
   padding as padding3
 } from "./components/card/card";
-import { padding as padding4, WidthType } from "./components/column/column";
+import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
-import { padding as padding5 } from "./components/column/column";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
 import { IconPosition } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
-import { padding as padding6 } from "./components/modal/modal";
+import { padding as padding4 } from "./components/modal/modal";
 import { position } from "./components/more-info/more-info";
 import { PillIconType, PillType } from "./components/pill/pill";
 import { margin } from "./components/separator/separator";
@@ -166,6 +165,10 @@ export namespace Components {
      */
     icon: IconType;
     /**
+     * The prescence of this attribute turns the icon white
+     */
+    negative: boolean;
+    /**
      * The kind of button
      */
     type: ButtonType;
@@ -230,10 +233,6 @@ export namespace Components {
   }
   interface GxgColumn {
     /**
-     * The column padding (internal spacing)
-     */
-    padding: padding;
-    /**
      * The column width value
      */
     width: WidthType;
@@ -247,7 +246,6 @@ export namespace Components {
      * The collapse breakpoint
      */
     collapseBellow: CollapseBellow;
-    padding: padding;
     /**
      * The spacing between columns
      */
@@ -1343,6 +1341,10 @@ declare namespace LocalJSX {
      */
     icon?: IconType;
     /**
+     * The prescence of this attribute turns the icon white
+     */
+    negative?: boolean;
+    /**
      * The kind of button
      */
     type?: ButtonType;
@@ -1410,10 +1412,6 @@ declare namespace LocalJSX {
   }
   interface GxgColumn {
     /**
-     * The column padding (internal spacing)
-     */
-    padding?: padding;
-    /**
      * The column width value
      */
     width?: WidthType;
@@ -1427,7 +1425,6 @@ declare namespace LocalJSX {
      * The collapse breakpoint
      */
     collapseBellow?: CollapseBellow;
-    padding?: padding;
     /**
      * The spacing between columns
      */

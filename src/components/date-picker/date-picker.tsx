@@ -51,8 +51,13 @@ export class DatePicker {
 
   componentDidLoad() {
     //Reading Direction
-    const dir = document.getElementsByTagName("html")[0].getAttribute("dir");
-    if (dir === "rtl") {
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
       this.rtl = true;
     }
 
@@ -179,7 +184,7 @@ export class DatePicker {
     return (
       <Host
         class={{
-          "datepicker--rtl": this.rtl
+          rtl: this.rtl
         }}
         style={{
           maxWidth: this.maxWidth

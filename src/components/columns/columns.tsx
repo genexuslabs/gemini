@@ -1,5 +1,5 @@
 import { Component, Element, Prop, h, Host } from "@stencil/core";
-import { padding } from "../column/column";
+// import { padding } from "../column/column";
 @Component({
   tag: "gxg-columns",
   styleUrl: "columns.scss",
@@ -18,8 +18,8 @@ export class Columns {
    */
   @Prop({ reflect: true }) collapseBellow: CollapseBellow;
 
-  /*The padding to be applied to the child column components*/
-  @Prop({ reflect: true }) padding: padding = "xs";
+  // /*The padding to be applied to the child column components*/
+  // @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * The spacing between columns
@@ -27,10 +27,10 @@ export class Columns {
   @Prop({ reflect: true }) space: Space = "none";
 
   componentDidLoad() {
-    const columns = this.el.querySelectorAll("gxg-column");
-    columns.forEach(column => {
-      column.setAttribute("padding", this.padding);
-    });
+    // const columns = this.el.querySelectorAll("gxg-column");
+    // columns.forEach(column => {
+    //   column.setAttribute("padding", this.padding);
+    // });
   }
 
   render() {
@@ -44,6 +44,6 @@ export class Columns {
   }
 }
 
-export type Space = "xs" | "s" | "m" | "none";
+export type Space = "xs" | "s" | "m" | "l" | "xl" | "none";
 export type AlignY = "top" | "center" | "bottom";
 export type CollapseBellow = "lg";

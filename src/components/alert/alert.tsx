@@ -152,6 +152,13 @@ export class Alert {
     }
   }
 
+  buttonIconColor() {
+    // if (this.type === "notice") {
+    //   return "always-black";
+    // }
+    console.log("icon color");
+  }
+
   render() {
     let lateralSpacingValue;
     if (this.leftRight === "no-space") {
@@ -213,12 +220,21 @@ export class Alert {
             </div>
           </div>
           <div class="alert-message-close">
-            <gxg-button
-              type="tertiary"
-              icon="close"
-              always-black
-              onClick={this.setAlertInactive.bind(this)}
-            ></gxg-button>
+            {this.type === "notice" ? (
+              <gxg-button
+                type="tertiary"
+                icon="close"
+                onClick={this.setAlertInactive.bind(this)}
+                negative
+              ></gxg-button>
+            ) : (
+              <gxg-button
+                type="tertiary"
+                icon="close"
+                onClick={this.setAlertInactive.bind(this)}
+                always-black
+              ></gxg-button>
+            )}
           </div>
         </div>
       </Host>

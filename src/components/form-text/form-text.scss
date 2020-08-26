@@ -81,17 +81,17 @@ TEXT
 /*****************************************************
 INPUT TEXT ICON
 *****************************************************/
-:host([icon-position="left"]) {
+:host([icon-position="start"]) {
   gxg-icon {
     left: 0;
   }
 }
-:host([icon-position="right"]) {
+:host([icon-position="end"]) {
   gxg-icon {
     right: 0;
   }
 }
-:host([icon-position="right"]) {
+:host([icon-position="end"]) {
   .clear-button {
     gxg-icon:not(.clear-button) {
       right: 16px;
@@ -101,16 +101,16 @@ INPUT TEXT ICON
 
 // Input with icon (on the left, or on the right)
 
-:host([icon-position="left"]) input {
+:host([icon-position="start"]) input {
   padding-left: 20px;
 }
-:host([icon-position="left"]) input {
+:host([icon-position="start"]) input {
   padding-left: 20px;
 }
-:host([icon-position="right"]) input {
+:host([icon-position="end"]) input {
   padding-right: 20px;
 }
-:host([icon-position="right"]) .inner-wrapper {
+:host([icon-position="end"]) .inner-wrapper {
   flex-direction: row-reverse;
 }
 

@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, Host, Watch } from "@stencil/core";
+import { Component, Prop, Element, h, Host, State, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-slider",
@@ -33,12 +33,28 @@ export class Slider {
    */
   @Prop() maxWidth = "100%";
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
   @Watch("value")
   watchHandler() {
     this.updateLabel();
   }
 
   componentDidLoad() {
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
+
     this.updateLabel();
 
     //Resize Observer
@@ -54,8 +70,14 @@ export class Slider {
   updateLabel() {
     const rangeLabel = this.el.shadowRoot.querySelector(".rs-label");
     const labelPosition = this.value / this.max;
-    (rangeLabel as HTMLElement).style.left =
-      labelPosition * this.calculateWidth() + "px";
+
+    if (this.rtl) {
+      (rangeLabel as HTMLElement).style.right =
+        labelPosition * this.calculateWidth() + "px";
+    } else {
+      (rangeLabel as HTMLElement).style.left =
+        labelPosition * this.calculateWidth() + "px";
+    }
     rangeLabel.innerHTML = this.value.toString();
     this.updateBoxValue();
   }
@@ -96,10 +118,15 @@ export class Slider {
               min="0"
               max={this.max}
               value={this.value}
+              step="1"
+              aria-valuemin="0"
+              aria-valuemax={this.max}
+              aria-valuenow={this.value}
             />
           </div>
 
           <div class="box-value">
+            <label class="label">{this.label}</label>
             <span id="actual-value"></span>
           </div>
         </div>

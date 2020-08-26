@@ -24,7 +24,6 @@
 - [gxg-menu-item](../menu-item)
 - [gxg-more-info](../more-info)
 - [gxg-pill](../pill)
-- [gxg-tab-bar](../tab-bar)
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
@@ -43,7 +42,6 @@ graph TD;
   gxg-menu-item --> gxg-icon
   gxg-more-info --> gxg-icon
   gxg-pill --> gxg-icon
-  gxg-tab-bar --> gxg-icon
   gxg-tab-button --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon

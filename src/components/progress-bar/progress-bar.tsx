@@ -28,7 +28,13 @@ export class ProgressBar {
 
   render() {
     return (
-      <Host style={{ maxWidth: this.maxWidth }} role="progressbar">
+      <Host
+        style={{ maxWidth: this.maxWidth }}
+        role="progressbar"
+        aria-valuenow={this.value}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
         <div class="outer-wrapper">
           <label class="label">{this.label}</label>
           <span class="outer-bar">

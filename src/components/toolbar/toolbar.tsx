@@ -32,8 +32,14 @@ export class Toolbar {
   @State() rtl = false;
 
   componentDidLoad() {
-    const dir = document.getElementsByTagName("html")[0].getAttribute("dir");
-    if (dir === "rtl") {
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
       this.rtl = true;
     }
   }
@@ -47,7 +53,7 @@ export class Toolbar {
             "toolbar--start": this.position === "start",
             "toolbar--top": this.position === "top",
             "toolbar--bottom": this.position === "bottom",
-            "toolbar--rtl": this.rtl
+            rtl: this.rtl
           }}
         >
           <div class="left-container">

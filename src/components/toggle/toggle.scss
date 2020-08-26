@@ -56,7 +56,7 @@
 
   .toggle__label {
     @include gxg-text();
-    margin-left: var(--spacing-comp-01);
+    margin-inline-start: var(--spacing-comp-01);
   }
 }
 

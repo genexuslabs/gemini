@@ -221,7 +221,7 @@
     <!-- ALERT -->
     <!-- <gxg-alert
       alert-title="success title"
-      type="success"
+      type="notice"
       id="alert-success"
       position="right"
     >
@@ -321,6 +321,7 @@
     ></gxg-date-picker> -->
     <!-- /DATE PICKER -->
 
+    <!-- CHECKBOXES -->
     <!-- <form action="">
       <gxg-form-checkbox
         label="hufds afiuhds iauf sduiahfid uh"
@@ -342,7 +343,6 @@
         id="red"
         value="green"
       ></gxg-form-checkbox>
-
       <gxg-form-checkbox
         label="red"
         name="colors"
@@ -366,9 +366,11 @@
         value="green"
         inline-flex
       ></gxg-form-checkbox>
-    </form>
+    </form> -->
+    <!-- /CHECKBOXES -->
 
-    <form action="">
+    <!-- RADIOBUTTONS -->
+    <!-- <form action="">
       <gxg-form-radio-group id="radio-wrapper-1" label="this is the heading">
         <gxg-form-radio
           label="red"
@@ -391,6 +393,36 @@
         ></gxg-form-radio>
       </gxg-form-radio-group>
     </form> -->
+    <!-- /RADIOBUTTONS -->
+
+    <!-- SELECT -->
+    <!-- <gxg-select id="select3" name="select3" label="Default" error>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select> -->
+    <!-- /SELECT -->
+
+    <!-- FORM TEXT -->
+    <!-- <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      warning
+      full-width
+      icon="colorPicker"
+      icon-position="end"
+      value="dsda"
+    >
+    </gxg-form-text>
 
     <gxg-form-text
       type="text"
@@ -401,10 +433,135 @@
       warning
       full-width
       icon="colorPicker"
-      icon-position="right"
+      icon-position="start"
       value="dsda"
     >
-    </gxg-form-text>
+    </gxg-form-text> -->
+    <!-- /FORM TEXT -->
+
+    <!-- TEXTAREA -->
+    <!-- <gxg-form-textarea
+      id="textarea1"
+      name="textarea1"
+      label="Default"
+      full-width
+    >
+    </gxg-form-textarea> -->
+    <!--/TEXTAREA-->
+
+    <!-- SLIDER -->
+    <!-- <div style="width:500px;">
+      <gxg-slider
+      value="25"
+      label="Slider"
+      max="200"
+    ></gxg-slider> -->
+    <!-- /SLIDER -->
+
+    <!-- STEPPER -->
+    <!-- <gxg-stepper
+      min="-4"
+      max="10"
+      value="-5"
+      label="Stepper"
+      tabindex="0"
+    ></gxg-stepper> -->
+    <!-- /STEPPER -->
+
+    <!-- TOGGLE -->
+    <!-- <gxg-toggle label="Toggle" tabindex="0" size="small"></gxg-toggle>
+    <gxg-toggle on tabindex="0"></gxg-toggle>
+    <gxg-toggle disabled tabindex="0"></gxg-toggle> -->
+    <!-- /TOGGLE -->
+
+    <!-- COLUMNS -->
+    <!-- <gxg-columns space="xl">
+      <gxg-column width="1/2"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente id
+        odit accusamus at pariatur quaerat recusandae eligendi incidunt neque
+        illum. Incidunt, provident adipisci fuga veniam aspernatur autem aperiam
+        exercitationem ea.</gxg-column
+      >
+      <gxg-column width="content">Hola</gxg-column>
+      <gxg-column width="fluid">Hola</gxg-column>
+    </gxg-columns> -->
+    <!-- /COLUMNS -->
+
+    <!-- SPACER LAYOUT -->
+    <!-- <gxg-spacer-layout
+      space="s"
+      orientation="vertical"
+      justify-content="flex-start"
+    >
+      <gxg-spacer-layout
+        space="s"
+        orientation="horizontal"
+        justify-content="flex-end"
+      >
+        <gxg-button type="primary-text-only">Salt</gxg-button>
+        <gxg-button type="primary-text-only">Pepper</gxg-button>
+        <gxg-button type="primary-text-only"
+          >Cucumber</gxg-button
+        ></gxg-spacer-layout
+      >
+    </gxg-spacer-layout> -->
+    <!-- /SPACER LAYOUT -->
+
+    <!-- SPACER ONE -->
+    <!-- <gxg-button type="primary-text-only">Salt</gxg-button>
+    <gxg-spacer-one space="m"></gxg-spacer-one>
+    <gxg-button type="primary-text-only">Pepper</gxg-button> -->
+    <!-- /SPACER ONE -->
+
+    <!-- TABS -->
+    <gxg-tabs>
+      <gxg-tab-bar>
+        <gxg-tab-button
+          slot="tab-bar"
+          tab-label="apples"
+          tab="apples"
+          key="apples"
+          isSelected="true"
+        ></gxg-tab-button>
+        <gxg-tab-button
+          slot="tab-bar"
+          tab-label="bananas"
+          tab="bananas"
+          key="bananas"
+          isSelected="false"
+          icon="settings"
+        ></gxg-tab-button>
+        <gxg-tab-button
+          slot="tab-bar"
+          tab="cherries"
+          key="cherries"
+          isSelected="false"
+          icon="settings"
+        ></gxg-tab-button>
+        <gxg-tab-button
+          slot="tab-bar"
+          tab-label="strawberries"
+          tab="strawberries"
+          key="strawberries"
+          isSelected="false"
+          disabled
+          icon="settings"
+        ></gxg-tab-button>
+      </gxg-tab-bar>
+      <gxg-tab tab="apples" key="apples" isSelected="true">
+        Apples information Lorem ipsum dolor, sit amet consectetur adipisicing
+        elit. Sequi minima nostrum ad quod aspernatur enim voluptatibus omnis
+        esse, rerum ipsam unde reiciendis amet voluptatum, aliquid sint
+        quibusdam, minus labore est?
+      </gxg-tab>
+      <gxg-tab tab="bananas" key="bananas" isSelected="false">
+        Bananas information
+      </gxg-tab>
+      <gxg-tab tab="cherries" key="cherries" isSelected="false">
+        Cherries information
+      </gxg-tab>
+    </gxg-tabs>
+    <!-- /TABS -->
 
     <script>
       const toggle = document.querySelector("#toggleDarkTheme");

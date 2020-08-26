@@ -30,25 +30,25 @@
 }
 
 //Spacing between columns
-$sizes: xs, s, m;
+$sizes: xs, s, m, l, xl;
 
 @each $size in $sizes {
   :host([space="#{$size}"]) {
     ::slotted(gxg-column) {
-      padding-left: var(--spacing-lay-#{$size});
+      padding-inline-start: var(--spacing-lay-#{$size});
     }
     .columns-container {
-      margin-left: calc(var(--spacing-lay-#{$size}) * -1);
+      margin-inline-start: calc(var(--spacing-lay-#{$size}) * -1);
     }
   }
 }
 //none space
 :host([space="none"]) {
   ::slotted(gxg-column) {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
   .columns-container {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 
@@ -60,10 +60,10 @@ RESPONSIVE
   .columns-container {
     @include md {
       display: block;
-      margin-left: 0;
+      margin-inline-start: 0;
       ::slotted(gxg-column) {
         box-sizing: border-box;
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     }
   }

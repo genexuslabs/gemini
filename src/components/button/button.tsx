@@ -34,6 +34,11 @@ export class Button {
   @Prop() icon: IconType;
 
   /**
+   * The prescence of this attribute turns the icon white
+   */
+  @Prop() negative = false;
+
+  /**
    * The kind of button
    */
   @Prop() type: ButtonType = "primary-text-only";
@@ -92,6 +97,8 @@ export class Button {
     } else if (this.type.includes("tertiary")) {
       if (this.alwaysBlack) {
         iColor = "alwaysblack";
+      } else if (this.negative) {
+        iColor = "negative";
       } else {
         iColor = "onbackground";
       }

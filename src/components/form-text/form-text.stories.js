@@ -56,10 +56,10 @@ stories.add("Text", () => {
   //Icon Position
   const labelIcon = "Icon position";
   const optionsIcon = {
-    left: "left",
-    right: "right"
+    start: "start",
+    end: "end"
   };
-  const defaultValueIcon = "left";
+  const defaultValueIcon = "start";
   const valueIcon = select(labelIcon, optionsIcon, defaultValueIcon);
 
   //Max Width

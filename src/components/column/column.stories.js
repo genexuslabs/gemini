@@ -53,7 +53,9 @@ gxg-column {
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">
@@ -73,7 +75,9 @@ Fluid
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">
@@ -93,7 +97,9 @@ Fluid
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">
@@ -113,7 +119,9 @@ Fluid
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">
@@ -133,7 +141,9 @@ Fluid
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">
@@ -153,7 +163,9 @@ Fluid
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">
@@ -173,7 +185,9 @@ Fluid
       {
         xs: "xs",
         s: "s",
-        m: "m"
+        m: "m",
+        l: "l",
+        xl: "xl"
       },
       "s"
     )}">

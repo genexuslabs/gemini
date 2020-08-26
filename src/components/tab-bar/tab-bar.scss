@@ -41,3 +41,9 @@
     }
   }
 }
+:host(.rtl) {
+  .tab-bar-menu {
+    left: 0;
+    right: auto;
+  }
+}

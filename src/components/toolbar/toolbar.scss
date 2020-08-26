@@ -39,26 +39,6 @@
         transform: translateY(100%);
       }
     }
-    &--rtl {
-      &.toolbar--start {
-        &:before {
-          right: 0;
-          top: 0;
-          transform: rotate(0deg) translateX(100%);
-        }
-      }
-      &.toolbar--top {
-        &:before {
-          transform: rotate(180deg) translateY(100%);
-        }
-      }
-      &.toolbar--bottom {
-        &:before {
-          bottom: 0;
-          transform: translateY(100%) scaleX(-1);
-        }
-      }
-    }
   }
   .left-container {
     display: flex;
@@ -71,5 +51,26 @@
   }
   .right-container {
     display: flex;
+  }
+}
+//Reading direction
+:host(.rtl) {
+  .toolbar--start {
+    &:before {
+      right: 0;
+      top: 0;
+      transform: rotate(0deg) translateX(100%);
+    }
+  }
+  .toolbar--top {
+    &:before {
+      transform: rotate(180deg) translateY(100%);
+    }
+  }
+  .toolbar--bottom {
+    &:before {
+      bottom: 0;
+      transform: translateY(100%) scaleX(-1);
+    }
   }
 }

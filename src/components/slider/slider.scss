@@ -9,14 +9,12 @@
     width: 100%;
   }
   .box-value {
-    margin-top: 38px;
+    margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     font-size: 20px;
     color: var(--color-on-secondary);
-    span:first-child {
-      margin-left: 10px;
-    }
+    margin-inline-start: 10px;
     #actual-value {
       @include form-element-common-styles-label();
       display: inline-flex;
@@ -29,6 +27,9 @@
       border-color: var(--gray-04);
       border-style: var(--border-style-regular);
     }
+  }
+  .label {
+    @include gxg-text();
   }
   .range-slider {
     width: 100%;

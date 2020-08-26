@@ -230,4 +230,4 @@ export class FormText implements FormComponent {
   }
 }
 
-export type IconPosition = "left" | "right";
+export type IconPosition = "start" | "end";

@@ -4,12 +4,11 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                 | Type                                                   | Default     |
-| ---------------- | ----------------- | --------------------------- | ------------------------------------------------------ | ----------- |
-| `alignY`         | `align-y`         | The vertical alignment      | `"bottom" \| "center" \| "top"`                        | `"top"`     |
-| `collapseBellow` | `collapse-bellow` | The collapse breakpoint     | `"lg"`                                                 | `undefined` |
-| `padding`        | `padding`         |                             | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`      |
-| `space`          | `space`           | The spacing between columns | `"m" \| "none" \| "s" \| "xs"`                         | `"none"`    |
+| Property         | Attribute         | Description                 | Type                                          | Default     |
+| ---------------- | ----------------- | --------------------------- | --------------------------------------------- | ----------- |
+| `alignY`         | `align-y`         | The vertical alignment      | `"bottom" \| "center" \| "top"`               | `"top"`     |
+| `collapseBellow` | `collapse-bellow` | The collapse breakpoint     | `"lg"`                                        | `undefined` |
+| `space`          | `space`           | The spacing between columns | `"l" \| "m" \| "none" \| "s" \| "xl" \| "xs"` | `"none"`    |
 
 ---
 

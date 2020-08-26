@@ -71,11 +71,11 @@
 
 :host(:first-child) {
   .inner-container {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 }
 :host(:last-child) {
   .inner-container {
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 }
