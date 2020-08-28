@@ -32,7 +32,7 @@ import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
-import { IconPosition } from "./components/form-text/form-text";
+import { IconPosition, Style } from "./components/form-text/form-text";
 import { Color, IconType as IconType1, Size } from "./components/icon/icon";
 import { padding as padding4 } from "./components/modal/modal";
 import { position } from "./components/more-info/more-info";
@@ -431,6 +431,10 @@ export namespace Components {
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     requiredMessage: string;
+    /**
+     * The text style
+     */
+    textStyle: Style;
     /**
      * The input value
      */
@@ -1260,6 +1264,10 @@ declare namespace LocalJSX {
      * Subscribe to this event to know when the "title" was clicked
      */
     onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * This event emmits the title value when it has changed
+     */
+    onTitleChanged?: (event: CustomEvent<any>) => void;
     padding?: padding;
     /**
      * Set the status to "open" if you want the accordion-item open by default
@@ -1469,9 +1477,12 @@ declare namespace LocalJSX {
      * The presence of this attribute adds a "delete" button that you can press to delete the box
      */
     deletable?: boolean;
+    /**
+     * This event is for internal use
+     */
     onClicked?: (event: CustomEvent<any>) => void;
     /**
-     * This event fires when a box has been deleted
+     * This event fires when the "delete" button is pressed
      */
     onDeleted?: (event: CustomEvent<any>) => void;
     /**
@@ -1645,6 +1656,10 @@ declare namespace LocalJSX {
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     requiredMessage?: string;
+    /**
+     * The text style
+     */
+    textStyle?: Style;
     /**
      * The input value
      */

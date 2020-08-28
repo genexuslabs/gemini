@@ -31,13 +31,12 @@
           align-items: baseline;
           justify-content: center;
           width: 60%;
-          &__title,
-          gxg-form-text::part(input) {
+          &__title {
             display: inline;
-            font-family: var(--font-family-primary);
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-bold);
-            text-transform: uppercase;
+            // font-family: var(--font-family-primary);
+            // font-size: var(--font-size-sm);
+            // font-weight: var(--font-weight-bold);
+            // text-transform: uppercase;
             width: 100%;
             text-align: start;
           }
@@ -69,6 +68,15 @@
   }
 }
 //Padding
+:host([padding="0"]) {
+  .item__container {
+    padding: 0;
+    padding-top: var(--spacing-comp-01);
+  }
+  .item__header__button {
+    padding: var(--spacing-comp-01);
+  }
+}
 :host([padding="xs"]) {
   .item__container,
   .item__header__button {
@@ -127,6 +135,10 @@
         &__title-subtitle {
           color: var(--color-on-background);
           &__title {
+            @include gxg-title-05;
+            letter-spacing: 0.06em;
+          }
+          gxg-form-text::part(input) {
             letter-spacing: 0.06em;
           }
           &__subtitle {
@@ -194,11 +206,8 @@
         }
         &__title-subtitle {
           width: 100%;
-          &__title,
-          gxg-form-text::part(input) {
-            font-weight: var(--font-weight-regular);
-            font-size: var(--font-size-xs);
-            color: var(--color-on-background);
+          &__title {
+            @include gxg-title-03;
           }
         }
       }
@@ -242,10 +251,7 @@
         }
         &__title-subtitle {
           &__title {
-            font-weight: var(--font-weight-bold);
-            font-size: var(--font-size-sm);
-            letter-spacing: 0.027em;
-            color: var(--color-on-background);
+            @include gxg-title-02;
           }
         }
         &__meta-icon-wrapper {
@@ -300,11 +306,8 @@
         }
         &__title-subtitle {
           width: 100%;
-          &__title,
-          gxg-form-text::part(input) {
-            font-weight: var(--font-weight-regular);
-            font-size: var(--font-size-xs);
-            color: var(--color-on-background);
+          &__title {
+            @include gxg-title-03;
           }
         }
       }

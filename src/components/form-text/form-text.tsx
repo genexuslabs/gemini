@@ -93,6 +93,11 @@ export class FormText implements FormComponent {
    */
   @Prop() maxWidth = "100%";
 
+  /**
+   * The text style
+   */
+  @Prop({ reflect: true }) textStyle: Style = "regular";
+
   @Element() el: HTMLElement;
 
   /**
@@ -231,3 +236,11 @@ export class FormText implements FormComponent {
 }
 
 export type IconPosition = "start" | "end";
+export type Style =
+  | "regular"
+  | "quote"
+  | "title-01"
+  | "title-02"
+  | "title-03"
+  | "title-04"
+  | "title-05";

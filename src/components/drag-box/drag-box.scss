@@ -47,9 +47,6 @@
     }
   }
 }
-:host(.hide) {
-  opacity: 0;
-}
 :host(:hover) {
   .drag-icon-container {
     gxg-icon {
@@ -63,6 +60,11 @@
   }
 }
 //Padding
+:host([padding="0"]) {
+  .container-content {
+    padding: 0;
+  }
+}
 :host([padding="xs"]) {
   .container-content {
     padding: var(--spacing-comp-01);

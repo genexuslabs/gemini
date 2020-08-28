@@ -19,6 +19,9 @@
 }
 
 //Padding
+:host([padding="0"]) {
+  padding: 0;
+}
 :host([padding="xs"]) {
   padding: var(--spacing-comp-01);
 }

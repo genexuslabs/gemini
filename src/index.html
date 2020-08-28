@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="en">
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -36,9 +36,16 @@
         id="toggleDarkTheme"/></label
     ><br /><br />
 
+    <gxg-paragraph max-height="50px">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora
+      repellendus veritatis assumenda cupiditate inventore quos sunt neque,
+      quidem dolorum excepturi qui cumque fugit, eveniet consectetur dicta ipsa,
+      rerum delectus porro?
+    </gxg-paragraph>
+
     <!-- ACCORDION -->
 
-    <!-- <gxg-accordion mode="minimal">
+    <gxg-accordion mode="minimal">
       <gxg-accordion-item item-title="tab-01" item-id="tab-01" editable-title>
         <p slot="subtitle">Some subtitle</p>
             some content on accordion 1.
@@ -48,7 +55,7 @@
             >some content on accordion 2.</gxg-accordion-item>
         </gxg-accordion>
 
-    <gxg-accordion mode="classical" padding="m">
+    <gxg-accordion mode="classical" padding="0">
       <gxg-accordion-item item-title="tab-01" item-id="tab-01" editable-title>
         <p slot="subtitle">Some subtitle</p>
             some content on accordion 1.
@@ -141,7 +148,7 @@
               <gxg-accordion-item item-title="tab-02" item-id="tab-04">
                 some content on accordion 2.
               </gxg-accordion-item>
-            </gxg-accordion> -->
+            </gxg-accordion>
     <!-- /ACCORDION -->
 
     <!-- CONTAINERS -->
@@ -172,28 +179,27 @@
 
     <!-- SCROLL -->
     <!-- <gxg-scroll max-height="126px">
-      <gxg-text>
-        Crabbed Age and Youth<br />
-        Cannot live together:<br />
-        Youth is full of pleasance,<br />
-        Age is full of care;<br />
-        Youth like summer morn,<br />
-        Age like winter weather;<br />
-        Youth like summer brave,<br />
-        Age like winter bare:<br />
-        Youth is full of sports,<br />
-        Age's breath is short,<br />
-        Youth is nimble, Age is lame:<br />
-        Youth is hot and bold,<br />
-        Age is weak and cold,<br />
-        Youth is wild, and Age is tame:-<br />
-        Age, I do abhor thee;<br />
-        Youth, I do adore thee;<br />
-        O! my Love, my Love is young!<br />
-        Age, I do defy thee-<br />
-        O sweet shepherd, hie thee,<br />
-        For methinks thou stay'st too long.
-      </gxg-text></gxg-scroll> -->
+      Crabbed Age and Youth<br />
+      Cannot live together:<br />
+      Youth is full of pleasance,<br />
+      Age is full of care;<br />
+      Youth like summer morn,<br />
+      Age like winter weather;<br />
+      Youth like summer brave,<br />
+      Age like winter bare:<br />
+      Youth is full of sports,<br />
+      Age's breath is short,<br />
+      Youth is nimble, Age is lame:<br />
+      Youth is hot and bold,<br />
+      Age is weak and cold,<br />
+      Youth is wild, and Age is tame:-<br />
+      Age, I do abhor thee;<br />
+      Youth, I do adore thee;<br />
+      O! my Love, my Love is young!<br />
+      Age, I do defy thee-<br />
+      O sweet shepherd, hie thee,<br />
+      For methinks thou stay'st too long.
+    </gxg-scroll> -->
 
     <!-- /SCROLL -->
 
@@ -238,7 +244,7 @@
     <!-- /ALERT -->
 
     <!-- DRAG -->
-    <!-- <gxg-drag-container>
+    <!-- <gxg-drag-container deletable>
       <gxg-drag-box class="draggable"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
         dolores quod. Sed et corporis sunt quia obcaecati saepe veniam aperiam
@@ -410,17 +416,17 @@
     <!-- /SELECT -->
 
     <!-- FORM TEXT -->
-    <!-- <gxg-form-text
+    <gxg-form-text
       type="text"
       id="name4"
       name="name"
       label="Default 122"
       placeholder="Placeholder text"
-      warning
       full-width
       icon="colorPicker"
       icon-position="end"
       value="dsda"
+      text-style="regular"
     >
     </gxg-form-text>
 
@@ -430,13 +436,84 @@
       name="name"
       label="Default 122"
       placeholder="Placeholder text"
-      warning
       full-width
       icon="colorPicker"
-      icon-position="start"
+      icon-position="end"
       value="dsda"
+      text-style="quote"
     >
-    </gxg-form-text> -->
+    </gxg-form-text>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      full-width
+      icon="colorPicker"
+      icon-position="end"
+      value="dsda"
+      text-style="title-01"
+    >
+    </gxg-form-text>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      full-width
+      icon="colorPicker"
+      icon-position="end"
+      value="dsda"
+      text-style="title-02"
+    >
+    </gxg-form-text>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      full-width
+      icon="colorPicker"
+      icon-position="end"
+      value="dsda"
+      text-style="title-03"
+    >
+    </gxg-form-text>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      full-width
+      icon="colorPicker"
+      icon-position="end"
+      value="dsda"
+      text-style="title-04"
+    >
+    </gxg-form-text>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      full-width
+      icon="colorPicker"
+      icon-position="end"
+      value="dsda"
+      text-style="title-05"
+    >
+    </gxg-form-text>
+
     <!-- /FORM TEXT -->
 
     <!-- TEXTAREA -->
@@ -514,7 +591,7 @@
     <!-- /SPACER ONE -->
 
     <!-- TABS -->
-    <gxg-tabs>
+    <!-- <gxg-tabs>
       <gxg-tab-bar>
         <gxg-tab-button
           slot="tab-bar"
@@ -560,7 +637,7 @@
       <gxg-tab tab="cherries" key="cherries" isSelected="false">
         Cherries information
       </gxg-tab>
-    </gxg-tabs>
+    </gxg-tabs> -->
     <!-- /TABS -->
 
     <script>

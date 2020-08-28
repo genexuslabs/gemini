@@ -5,7 +5,8 @@ import {
   Host,
   Element,
   Event,
-  EventEmitter
+  EventEmitter,
+  Listen
 } from "@stencil/core";
 import { IconType, Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
@@ -63,6 +64,10 @@ export class AccordionItem {
    * Subscribe to this event to know when the "title" was clicked
    */
   @Event() accordionTitleClicked: EventEmitter;
+  /**
+   * This event emmits the title value when it has changed
+   */
+  @Event() titleChanged: EventEmitter;
 
   itemClickedHandler() {
     this.accordionItemClicked.emit(this.itemId);
@@ -153,6 +158,24 @@ export class AccordionItem {
     e.stopPropagation();
   }
 
+  textStyle() {
+    console.log("this.mode");
+    console.log(this.mode);
+    if (this.mode === "classical") {
+      return "title-05";
+    } else if (this.mode === "slim" || this.mode === "minimal") {
+      return "title-03";
+    } else if (this.mode === "boxed") {
+      return "title-02";
+    }
+  }
+
+  @Listen("change")
+  todoCompletedHandler(event) {
+    this.itemTitle = event.detail;
+    this.titleChanged.emit(this.itemTitle);
+  }
+
   render() {
     return (
       <Host>
@@ -183,6 +206,7 @@ export class AccordionItem {
                       minimal
                       value={this.itemTitle}
                       onClick={this.gxgFormTextClickedHandler.bind(this)}
+                      text-style={this.textStyle()}
                     ></gxg-form-text>
                   ) : (
                     this.itemTitle
@@ -226,4 +250,4 @@ export class AccordionItem {
 
 export type status = "open" | "closed";
 
-export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

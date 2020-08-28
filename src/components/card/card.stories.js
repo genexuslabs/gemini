@@ -38,6 +38,7 @@ stories
       padding="${select(
         "Padding",
         {
+          0: "0",
           xs: "xs",
           s: "s",
           m: "m",
@@ -77,6 +78,7 @@ stories
     padding="${select(
       "Padding",
       {
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",

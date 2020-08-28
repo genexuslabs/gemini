@@ -53,6 +53,7 @@ stories.add("Drag-boxes", () => {
   <gxg-drag-box id="01" title="Title container 01" ${blueBorder()} padding="${select(
     "Padding",
     {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -66,6 +67,7 @@ stories.add("Drag-boxes", () => {
   <gxg-drag-box id="02" title="Title container 02" ${blueBorder()} padding="${select(
     "Padding",
     {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -79,6 +81,7 @@ stories.add("Drag-boxes", () => {
   <gxg-drag-box id="03" title="Title container 03" ${blueBorder()} padding="${select(
     "Padding",
     {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -92,6 +95,7 @@ stories.add("Drag-boxes", () => {
   <gxg-drag-box id="04" title="Title container 04" ${blueBorder()} padding="${select(
     "Padding",
     {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -105,6 +109,7 @@ stories.add("Drag-boxes", () => {
   <gxg-drag-box id="05" title="Title container 05" ${blueBorder()} padding="${select(
     "Padding",
     {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",

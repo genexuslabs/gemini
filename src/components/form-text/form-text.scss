@@ -35,7 +35,6 @@ LABEL
   }
 
   input {
-    @include gxg-text();
     position: relative;
     width: 100%;
   }
@@ -127,5 +126,44 @@ CLEAR BUTTON
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+/*****************************************************
+STYLE
+*****************************************************/
+:host([text-style="regular"]) {
+  input {
+    @include gxg-text();
+  }
+}
+:host([text-style="quote"]) {
+  input {
+    @include gxg-quote();
+  }
+}
+:host([text-style="title-01"]) {
+  input {
+    @include gxg-title-01();
+  }
+}
+:host([text-style="title-02"]) {
+  input {
+    @include gxg-title-02();
+  }
+}
+:host([text-style="title-03"]) {
+  input {
+    @include gxg-title-03();
+  }
+}
+:host([text-style="title-04"]) {
+  input {
+    @include gxg-title-04();
+  }
+}
+:host([text-style="title-05"]) {
+  input {
+    @include gxg-title-05();
   }
 }

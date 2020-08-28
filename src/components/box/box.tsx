@@ -52,7 +52,7 @@ export class Box {
   }
 }
 
-export type padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
 export type background = "surface" | "gray-01" | "gray-02";
 

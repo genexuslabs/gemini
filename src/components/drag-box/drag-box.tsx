@@ -35,10 +35,14 @@ export class DragBox {
   @Prop() title: string;
 
   @Element() el: HTMLElement;
+
+  /**
+   * This event is for internal use
+   */
   @Event() clicked: EventEmitter;
 
   /**
-   * This event fires when a box has been deleted
+   * This event fires when the "delete" button is pressed
    */
   @Event() deleted: EventEmitter;
 
@@ -49,10 +53,6 @@ export class DragBox {
   deleteHandler(event) {
     event.stopPropagation();
     this.deleted.emit("box was deleted");
-    this.el.classList.add("hide");
-    setTimeout(() => {
-      this.el.remove();
-    }, 250);
   }
 
   componentDidLoad() {
@@ -91,4 +91,4 @@ export class DragBox {
   }
 }
 
-export type Padding = "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type Padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";

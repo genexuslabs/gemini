@@ -60,6 +60,7 @@ stories
     //Padding
     const labelPadding = "Padding";
     const optionsPadding = {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -178,6 +179,7 @@ stories
     //Padding
     const labelPadding = "Padding";
     const optionsPadding = {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -296,6 +298,7 @@ stories
     //Padding
     const labelPadding = "Padding";
     const optionsPadding = {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",
@@ -414,6 +417,7 @@ stories
     //Padding
     const labelPadding = "Padding";
     const optionsPadding = {
+      0: "0",
       xs: "xs",
       s: "s",
       m: "m",

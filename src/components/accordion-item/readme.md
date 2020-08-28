@@ -25,15 +25,15 @@
 
 ## Properties
 
-| Property              | Attribute        | Description                                                                                                          | Type                                                   | Default       |
-| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------- |
-| `disabled`            | `disabled`       | The presence of this attribute makes the accordion-item disabled and not focusable                                   | `boolean`                                              | `false`       |
-| `editableTitle`       | `editable-title` | The presence of this attribute makes the accordion title editable                                                    | `boolean`                                              | `false`       |
-| `itemId` _(required)_ | `item-id`        | The accordion id                                                                                                     | `string`                                               | `undefined`   |
-| `itemTitle`           | `item-title`     | The accordion title                                                                                                  | `string`                                               | `undefined`   |
-| `mode`                | `mode`           | The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion) | `"boxed" \| "classical" \| "minimal" \| "slim"`        | `"classical"` |
-| `padding`             | `padding`        |                                                                                                                      | `"l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`        |
-| `status`              | `status`         | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                                   | `"closed"`    |
+| Property              | Attribute        | Description                                                                                                          | Type                                                          | Default       |
+| --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------- |
+| `disabled`            | `disabled`       | The presence of this attribute makes the accordion-item disabled and not focusable                                   | `boolean`                                                     | `false`       |
+| `editableTitle`       | `editable-title` | The presence of this attribute makes the accordion title editable                                                    | `boolean`                                                     | `false`       |
+| `itemId` _(required)_ | `item-id`        | The accordion id                                                                                                     | `string`                                                      | `undefined`   |
+| `itemTitle`           | `item-title`     | The accordion title                                                                                                  | `string`                                                      | `undefined`   |
+| `mode`                | `mode`           | The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion) | `"boxed" \| "classical" \| "minimal" \| "slim"`               | `"classical"` |
+| `padding`             | `padding`        |                                                                                                                      | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`        |
+| `status`              | `status`         | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                                          | `"closed"`    |
 
 ## Events
 
@@ -42,6 +42,7 @@
 | `accordionItemClicked`  | This event is for internal use                               | `CustomEvent<any>` |
 | `accordionItemLoaded`   | This event is for internal use                               | `CustomEvent<any>` |
 | `accordionTitleClicked` | Subscribe to this event to know when the "title" was clicked | `CustomEvent<any>` |
+| `titleChanged`          | This event emmits the title value when it has changed        | `CustomEvent<any>` |
 
 ## Dependencies
 

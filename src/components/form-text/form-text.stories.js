@@ -89,6 +89,24 @@ stories.add("Text", () => {
   const defaultValueStatus = "enabled";
   const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);
 
+  //Text Style
+  const labelTextStyle = "Text Style";
+  const optionsTextStyle = {
+    regular: "regular",
+    quote: "quote",
+    "title-01": "title-01",
+    "title-02": "title-02",
+    "title-03": "title-03",
+    "title-04": "title-04",
+    "title-05": "title-05"
+  };
+  const defaultValueTextStyle = "regular";
+  const valueTextStyle = select(
+    labelTextStyle,
+    optionsTextStyle,
+    defaultValueTextStyle
+  );
+
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {
       return "error";
@@ -151,6 +169,7 @@ stories.add("Text", () => {
   icon=${valueIconType}
   icon-position=${valueIcon}
   max-width=${valueMaxWidth}
+  text-style=${valueTextStyle}
   ${minimal()}
   ${requiredValueFunc()}
   ${valueStatusType()}
