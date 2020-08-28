@@ -37,6 +37,7 @@ LABEL
   input {
     position: relative;
     width: 100%;
+    @include ui-animation(padding-left);
   }
 }
 
@@ -48,7 +49,7 @@ TEXT
     @include form-element-common-styles();
     height: 20px;
     box-sizing: border-box;
-    @include ui-animation(border-color, background);
+    @include ui-animation(border-color, background, padding-left);
 
     &:focus {
       //box-shadow: var(--border-width-md) 0 var(border-color);
@@ -75,6 +76,18 @@ TEXT
   input[type="text"]:not(:focus) {
     border-color: transparent;
     background-color: transparent;
+  }
+  input[type="text"] {
+    padding-left: 0;
+  }
+  input:hover {
+    border-color: var(--gray-02) !important;
+    background-color: var(--color-background);
+    padding-left: var(--spacing-comp-01);
+  }
+  input[type="text"]:focus {
+    border-color: transparent;
+    padding-left: var(--spacing-comp-01);
   }
 }
 /*****************************************************
