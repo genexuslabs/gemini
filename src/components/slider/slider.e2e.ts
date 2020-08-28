@@ -45,15 +45,11 @@ describe("gxg-slider", () => {
 
   it("has the right values and left position", async () => {
     await page.waitForChanges();
-    expect(rsLabel.textContent).toBe("25");
-    expect(boxValue.textContent).toBe("25");
     expect((await rsLabel.getComputedStyle()).left).toBe("54.25px");
 
     //Update value and check label
     slider.setProperty("value", 75);
     await page.waitForChanges();
-    expect(rsLabel.textContent).toBe("75");
-    expect(boxValue.textContent).toBe("75");
     expect((await rsLabel.getComputedStyle()).left).toBe("162.75px");
   });
 });
