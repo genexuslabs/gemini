@@ -54,7 +54,7 @@ npm run build
 
 ### Right to left reading direction
 
-- Gemini also works with "right to left" readin direction languages. Just set the <code>dir</code> value to <code>rtl</code> on the <code>html</code> tag.
+- Gemini also works with "right to left" reading direction languages. Just set the <code>dir</code> attribute value to <code>rtl</code> on the <code>html</code> tag.
 
 ## Using this design system with Stencil
 
