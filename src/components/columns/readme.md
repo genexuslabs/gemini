@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                 | Type                                          | Default     |
-| ---------------- | ----------------- | --------------------------- | --------------------------------------------- | ----------- |
-| `alignY`         | `align-y`         | The vertical alignment      | `"bottom" \| "center" \| "top"`               | `"top"`     |
-| `collapseBellow` | `collapse-bellow` | The collapse breakpoint     | `"lg"`                                        | `undefined` |
-| `space`          | `space`           | The spacing between columns | `"l" \| "m" \| "none" \| "s" \| "xl" \| "xs"` | `"none"`    |
+| Property         | Attribute         | Description                 | Type                                       | Default     |
+| ---------------- | ----------------- | --------------------------- | ------------------------------------------ | ----------- |
+| `alignY`         | `align-y`         | The vertical alignment      | `"bottom" \| "center" \| "top"`            | `"top"`     |
+| `collapseBellow` | `collapse-bellow` | The collapse breakpoint     | `"lg"`                                     | `undefined` |
+| `space`          | `space`           | The spacing between columns | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs"` | `"0"`       |
 
 ---
 

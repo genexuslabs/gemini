@@ -1265,7 +1265,7 @@ declare namespace LocalJSX {
      */
     onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
     /**
-     * This event emmits the title value when it has changed
+     * If "editable-title" attribute is present, this event emmits the title value when it has changed
      */
     onTitleChanged?: (event: CustomEvent<any>) => void;
     padding?: padding;

@@ -43,7 +43,7 @@ $sizes: xs, s, m, l, xl;
   }
 }
 //none space
-:host([space="none"]) {
+:host([space="0"]) {
   ::slotted(gxg-column) {
     padding-inline-start: 0;
   }

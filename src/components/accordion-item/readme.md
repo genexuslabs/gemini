@@ -37,12 +37,12 @@
 
 ## Events
 
-| Event                   | Description                                                  | Type               |
-| ----------------------- | ------------------------------------------------------------ | ------------------ |
-| `accordionItemClicked`  | This event is for internal use                               | `CustomEvent<any>` |
-| `accordionItemLoaded`   | This event is for internal use                               | `CustomEvent<any>` |
-| `accordionTitleClicked` | Subscribe to this event to know when the "title" was clicked | `CustomEvent<any>` |
-| `titleChanged`          | This event emmits the title value when it has changed        | `CustomEvent<any>` |
+| Event                   | Description                                                                                     | Type               |
+| ----------------------- | ----------------------------------------------------------------------------------------------- | ------------------ |
+| `accordionItemClicked`  | This event is for internal use                                                                  | `CustomEvent<any>` |
+| `accordionItemLoaded`   | This event is for internal use                                                                  | `CustomEvent<any>` |
+| `accordionTitleClicked` | Subscribe to this event to know when the "title" was clicked                                    | `CustomEvent<any>` |
+| `titleChanged`          | If "editable-title" attribute is present, this event emmits the title value when it has changed | `CustomEvent<any>` |
 
 ## Dependencies
 

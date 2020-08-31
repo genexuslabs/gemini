@@ -77,16 +77,22 @@ TEXT
     border-color: transparent;
     background-color: transparent;
   }
+  input:hover {
+    border-color: var(--gray-02) !important;
+    background-color: var(--color-background);
+  }
+  input[type="text"]:focus {
+    border-color: transparent;
+  }
+}
+:host([minimal]:not([icon-position="start"])) {
   input[type="text"] {
     padding-left: 0;
   }
   input:hover {
-    border-color: var(--gray-02) !important;
-    background-color: var(--color-background);
     padding-left: var(--spacing-comp-01);
   }
   input[type="text"]:focus {
-    border-color: transparent;
     padding-left: var(--spacing-comp-01);
   }
 }

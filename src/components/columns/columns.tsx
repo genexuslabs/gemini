@@ -24,7 +24,7 @@ export class Columns {
   /**
    * The spacing between columns
    */
-  @Prop({ reflect: true }) space: Space = "none";
+  @Prop({ reflect: true }) space: Space = "0";
 
   componentDidLoad() {
     // const columns = this.el.querySelectorAll("gxg-column");
@@ -44,6 +44,6 @@ export class Columns {
   }
 }
 
-export type Space = "xs" | "s" | "m" | "l" | "xl" | "none";
+export type Space = "0" | "xs" | "s" | "m" | "l" | "xl";
 export type AlignY = "top" | "center" | "bottom";
 export type CollapseBellow = "lg";

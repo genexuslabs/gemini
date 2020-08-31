@@ -64,7 +64,7 @@ SELECT
   .select-selected:before {
     position: absolute;
     content: "";
-    inset-inline-end: 6px;
+    right: 6px;
     //right: 6px;
     width: 0;
     height: 0;

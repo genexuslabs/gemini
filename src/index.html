@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="rtl" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -237,7 +237,7 @@
     <!-- /ALERT -->
 
     <!-- DRAG -->
-    <!-- <gxg-drag-container deletable>
+    <gxg-drag-container deletable>
       <gxg-drag-box class="draggable"
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
         dolores quod. Sed et corporis sunt quia obcaecati saepe veniam aperiam
@@ -248,7 +248,7 @@
       <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
       <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
       <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
-    </gxg-drag-container> -->
+    </gxg-drag-container>
     <!-- /DRAG-->
 
     <!-- MODAL -->
@@ -395,7 +395,7 @@
     <!-- /RADIOBUTTONS -->
 
     <!-- SELECT -->
-    <!-- <gxg-select id="select3" name="select3" label="Default" error>
+    <gxg-select id="select3" name="select3" label="Default" error>
       <gxg-option value="0">Select car:</gxg-option>
       <gxg-option value="1">Audi</gxg-option>
       <gxg-option value="2">BMW</gxg-option>
@@ -405,11 +405,11 @@
       <gxg-option value="6">Jaguar</gxg-option>
       <gxg-option value="7">Land Rover</gxg-option>
       <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select> -->
+    </gxg-select>
     <!-- /SELECT -->
 
     <!-- FORM TEXT -->
-    <gxg-form-text
+    <!-- <gxg-form-text
       type="text"
       id="name4"
       name="name"
@@ -418,6 +418,21 @@
       full-width
       icon="colorPicker"
       icon-position="end"
+      value="dsda"
+      text-style="regular"
+      minimal
+    >
+    </gxg-form-text>
+
+    <gxg-form-text
+      type="text"
+      id="name4"
+      name="name"
+      label="Default 122"
+      placeholder="Placeholder text"
+      full-width
+      icon="colorPicker"
+      icon-position="start"
       value="dsda"
       text-style="regular"
       minimal
@@ -506,7 +521,7 @@
       value="dsda"
       text-style="title-05"
     >
-    </gxg-form-text>
+    </gxg-form-text> -->
 
     <!-- /FORM TEXT -->
 
@@ -634,9 +649,13 @@
     </gxg-tabs> -->
     <!-- /TABS -->
 
-    <!-- BUTTON -->
-    <gxg-button type="outlined">Button</gxg-button>
-    <!-- /BUTTON -->
+    <!-- GXG-TITLE -->
+    <gxg-title type="title-01">This is a title 01</gxg-title>
+    <gxg-title type="title-02">This is a title 02</gxg-title>
+    <gxg-title type="title-03">This is a title 03</gxg-title>
+    <gxg-title type="title-04">This is a title 04</gxg-title>
+    <gxg-title type="title-05">This is a title 05</gxg-title>
+    <!-- /GXG-TITLE -->
 
     <script>
       const toggle = document.querySelector("#toggleDarkTheme");

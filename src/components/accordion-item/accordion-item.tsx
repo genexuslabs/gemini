@@ -65,7 +65,7 @@ export class AccordionItem {
    */
   @Event() accordionTitleClicked: EventEmitter;
   /**
-   * This event emmits the title value when it has changed
+   * If "editable-title" attribute is present, this event emmits the title value when it has changed
    */
   @Event() titleChanged: EventEmitter;
 
@@ -159,8 +159,6 @@ export class AccordionItem {
   }
 
   textStyle() {
-    console.log("this.mode");
-    console.log(this.mode);
     if (this.mode === "classical") {
       return "title-05";
     } else if (this.mode === "slim" || this.mode === "minimal") {

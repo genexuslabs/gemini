@@ -51,7 +51,7 @@ gxg-column {
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -74,7 +74,7 @@ Fluid
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -97,7 +97,7 @@ Fluid
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -120,7 +120,7 @@ Fluid
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -143,7 +143,7 @@ Fluid
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -166,7 +166,7 @@ Fluid
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
@@ -189,7 +189,7 @@ Fluid
 <gxg-columns space="${select(
       "Column Space",
       {
-        none: "none",
+        0: "0",
         xs: "xs",
         s: "s",
         m: "m",
