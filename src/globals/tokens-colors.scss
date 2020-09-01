@@ -43,13 +43,13 @@ the components. The content could be text or icons)*/
   --color-on-secondary: #000;
   --color-on-background: #000;
   --color-on-alert: #000;
-  --color-on-disabled: #A4A5A6;
+  --color-on-disabled: #a4a5a6;
 }
 :root.dark {
   --color-on-primary: #1d1e22;
-  --color-on-secondary: #ffffff;
-  --color-on-background: #ffffff;
-  --color-on-alert: #ffffff;
+  --color-on-secondary: #fff;
+  --color-on-background: #fff;
+  --color-on-alert: #fff;
   --color-on-disabled: #616164;
 }
 

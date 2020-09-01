@@ -64,10 +64,7 @@ stories
       xs: "xs",
       s: "s",
       m: "m",
-      l: "l",
-      xl: "xl",
-      xxl: "xxl",
-      xxxl: "xxxl"
+      l: "l"
     };
     const defaultValuePadding = "xs";
 
@@ -183,10 +180,7 @@ stories
       xs: "xs",
       s: "s",
       m: "m",
-      l: "l",
-      xl: "xl",
-      xxl: "xxl",
-      xxxl: "xxxl"
+      l: "l"
     };
     const defaultValuePadding = "s";
 
@@ -302,10 +296,7 @@ stories
       xs: "xs",
       s: "s",
       m: "m",
-      l: "l",
-      xl: "xl",
-      xxl: "xxl",
-      xxxl: "xxxl"
+      l: "l"
     };
     const defaultValuePadding = "xs";
 
@@ -421,10 +412,7 @@ stories
       xs: "xs",
       s: "s",
       m: "m",
-      l: "l",
-      xl: "xl",
-      xxl: "xxl",
-      xxxl: "xxxl"
+      l: "l"
     };
     const defaultValuePadding = "s";
 

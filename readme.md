@@ -48,6 +48,14 @@ npm run build
 - Put a link tag similar to this `<link href="node_modules/@genexus/gemini/dist/gemini/gemini.css" rel="stylesheet" />` in the head of your index.html
 - Then you can start using the layout editor in your template, JSX, html etc.
 
+### Dark Theme
+
+- Simply add the <code>dark</code> class to the <code>html</code> tag.
+
+### Right to left reading direction
+
+- Gemini also works with "right to left" reading direction languages. Just set the <code>dir</code> attribute value to <code>rtl</code> on the <code>html</code> tag.
+
 ## Using this design system with Stencil
 
 ### Install Gemini
