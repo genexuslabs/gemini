@@ -248,4 +248,4 @@ export class AccordionItem {
 
 export type status = "open" | "closed";
 
-export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type padding = "0" | "xs" | "s" | "m" | "l";
