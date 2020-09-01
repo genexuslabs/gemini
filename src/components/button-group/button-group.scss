@@ -20,9 +20,9 @@
 
     /*button styles overrides*/
     border-radius: 0;
-    background-color: var(--gray-02);
+    background-color: var(--gray-01);
     color: var(--color-primary);
-    border-right: 1px solid var(--gray-03);
+    border-right: 1px solid var(--gray-02);
     padding-left: var(--spacing-comp-03);
     padding-right: var(--spacing-comp-03);
   }
@@ -65,7 +65,7 @@
     border-bottom-left-radius: 0;
   }
   ::slotted(button) {
-    border-left: 1px solid var(--gray-03);
+    border-left: 1px solid var(--gray-02);
     border-right: 0;
   }
   ::slotted(button:last-child) {

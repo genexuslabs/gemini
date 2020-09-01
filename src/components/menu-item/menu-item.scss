@@ -26,7 +26,7 @@
       align-items: center;
 
       &:hover {
-        background-color: var(--color-secondary);
+        background-color: var(--gray-02);
 
         gxg-icon {
           //filter: invert(100%);
@@ -44,6 +44,6 @@
 }
 :host([active]) {
   .menu-item:before {
-    background-color: var(--color-secondary-active);
+    background-color: var(--gray-03);
   }
 }

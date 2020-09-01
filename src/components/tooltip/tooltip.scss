@@ -22,7 +22,7 @@
 
       &__content {
         width: fit-content;
-        background-color: var(--gray-08);
+        background-color: var(--gray-07);
         padding: var(--spacing-comp-01) var(--spacing-comp-02);
         border-radius: var(--border-width-md);
         color: var(--color-on-primary);
@@ -37,7 +37,7 @@
         height: 0;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
-        border-bottom: 5px solid var(--gray-08);
+        border-bottom: 5px solid var(--gray-07);
         position: absolute;
       }
     }

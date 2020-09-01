@@ -9,12 +9,12 @@
   @include ui-animation(transform);
 
   .alert-message {
-    background-color: var(--gray-08);
+    background-color: var(--gray-07);
     color: var(--color-on-primary);
     border-width: 0;
     border-top-width: var(--border-width-lg);
     border-style: solid;
-    border-color: var(--gray-07);
+    border-color: var(--gray-06);
     padding: var(--spacing-comp-03);
     display: flex;
     align-items: flex-start;

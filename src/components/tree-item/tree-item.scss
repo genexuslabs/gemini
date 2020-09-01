@@ -17,7 +17,7 @@
     padding-right: var(--spacing-lay-m);
     @include ui-animation(background-color);
     &:hover {
-      background-color: var(--color-secondary-hover);
+      background-color: var(--gray-01);
     }
   }
 
@@ -62,7 +62,7 @@
 :host(:focus) {
   outline: none;
   .wrapper {
-    background-color: var(--color-secondary-active);
+    background-color: var(--gray-02);
   }
 }
 :host(.disabled) {
