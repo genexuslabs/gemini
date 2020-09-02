@@ -48,6 +48,8 @@ const generalIcons = [
   { name: "arrow-left", description: "Some description" },
   { name: "arrow-right", description: "Some description" },
   { name: "arrow-up", description: "Some description" },
+  { name: "category-group", description: "Some description" },
+  { name: "category-ungroup", description: "Some description" },
   { name: "chevron-down", description: "Some description" },
   { name: "chevron-left", description: "Some description" },
   { name: "chevron-right", description: "Some description" },
