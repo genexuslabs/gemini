@@ -38,8 +38,8 @@ const defaultValueDisabled = false;
 STORIES
 *************/
 
-const generalIcons = await import("./catalog-general.json");
-const objectsIcons = await import("./catalog-objects.json");
+import generalIcons from "./catalog-general.json";
+import objectsIcons from "./catalog-objects.json";
 
 function returnTableOfIcons(size, iconsArray) {
   const newArray = iconsArray.map((iconType, index) => {
