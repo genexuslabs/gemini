@@ -1,10 +1,12 @@
 [
+  { "name": "objects/api", "description": "Some description" },
   { "name": "objects/atribute", "description": "Some description" },
   { "name": "objects/bg-color", "description": "Some description" },
   {
     "name": "objects/business-process-diagram",
     "description": "Some description"
   },
+  { "name": "objects/conversational-flows", "description": "Some description" },
   { "name": "objects/category", "description": "Some description" },
   { "name": "objects/dashboard", "description": "Some description" },
   { "name": "objects/data-provider", "description": "Some description" },
@@ -13,6 +15,7 @@
   { "name": "objects/datastore", "description": "Some description" },
   { "name": "objects/datastore-category", "description": "Some description" },
   { "name": "objects/dataview-index", "description": "Some description" },
+  { "name": "objects/deployment-unit", "description": "Some description" },
   { "name": "objects/diagram", "description": "Some description" },
   { "name": "objects/document", "description": "Some description" },
   { "name": "objects/domain", "description": "Some description" },
@@ -28,6 +31,7 @@
   { "name": "objects/menubar", "description": "Some description" },
   { "name": "objects/module", "description": "Some description" },
   { "name": "objects/object", "description": "Some description" },
+  { "name": "objects/offline-database", "description": "Some description" },
   { "name": "objects/orphant-document", "description": "Some description" },
   { "name": "objects/panel-for-sd", "description": "Some description" },
   { "name": "objects/procedure", "description": "Some description" },
@@ -40,6 +44,7 @@
   { "name": "objects/themes-for-sd", "description": "Some description" },
   { "name": "objects/to-be-defined", "description": "Some description" },
   { "name": "objects/transaction", "description": "Some description" },
+  { "name": "objects/url-rewrite", "description": "Some description" },
   { "name": "objects/web-component", "description": "Some description" },
   { "name": "objects/webpanel", "description": "Some description" },
   { "name": "objects/work-panel", "description": "Some description" },
