@@ -1,5 +1,4 @@
 import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
-import { IconType } from "../icon/icon";
 
 @Component({
   tag: "gxg-tab-button",
@@ -30,7 +29,7 @@ export class TabButton {
   /**
    * (Optional) provide an icon to this button
    */
-  @Prop() icon: IconType = null;
+  @Prop() icon: string = null;
 
   //Events
   @Event()

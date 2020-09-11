@@ -12,7 +12,9 @@
     &__header {
       &__button {
         background: transparent;
-        border: none;
+        border-width: var(--border-width-md);
+        border-style: solid;
+        border-color: transparent;
         display: flex;
         align-items: center;
         width: 100%;
@@ -341,7 +343,7 @@
   outline: none;
   .item {
     &__header__button:focus {
-      @include form-element-common-styles-focus-type-1();
+      border-color: var(--color-primary-active);
     }
   }
 }

@@ -38,8 +38,19 @@ const defaultValueDisabled = false;
 STORIES
 *************/
 
-import generalIcons from "./catalog-general.json";
-import objectsIcons from "./catalog-objects.json";
+import controls from "./catalog-controls.json";
+import editingStructures from "./catalog-editing-structures.json";
+import tools from "./catalog-gemini-tools.json";
+import general from "./catalog-general.json";
+import gxServerIntegration from "./catalog-gxserver-integration.json";
+import menusAndCommands from "./catalog-menus-&-commands.json";
+import navigation from "./catalog-navigation.json";
+import objectParts from "./catalog-object-parts.json";
+import objects from "./catalog-objects.json";
+import other from "./catalog-other.json";
+import patterns from "./catalog-patterns.json";
+import patternsDefaultAssociated from "./catalog-patterns-default-associated.json";
+import windowsTools from "./catalog-windows-tools.json";
 
 function returnTableOfIcons(size, iconsArray) {
   const newArray = iconsArray.map((iconType, index) => {
@@ -98,13 +109,60 @@ const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
 // storiesOf('Button', module)
 stories
-  .add("general", () => returnTableOfIcons("regular", generalIcons), {
+  .add("Controls", () => returnTableOfIcons("regular", controls), {
     notes: {
       markdown: readme
     }
   })
   .add(
-    "objects",
+    "Editing structures",
+    () => returnTableOfIcons("regular", editingStructures),
+    {
+      notes: {
+        markdown: readme
+      }
+    }
+  )
+  .add("Tools", () => returnTableOfIcons("regular", tools), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add("General", () => returnTableOfIcons("regular", general), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add(
+    "Gx server integration",
+    () => returnTableOfIcons("regular", gxServerIntegration),
+    {
+      notes: {
+        markdown: readme
+      }
+    }
+  )
+  .add(
+    "Menus & commands",
+    () => returnTableOfIcons("regular", menusAndCommands),
+    {
+      notes: {
+        markdown: readme
+      }
+    }
+  )
+  .add("Navigation", () => returnTableOfIcons("regular", navigation), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add("Object parts", () => returnTableOfIcons("regular", objectParts), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add(
+    "Objects",
     () => {
       //Icons01
       const icons01Label = "--icons01";
@@ -165,7 +223,7 @@ stories
         ";--icons08:" +
         valueIcons08 +
         ";}</style>" +
-        returnTableOfIcons("regular", objectsIcons)
+        returnTableOfIcons("regular", objects)
       );
     },
     {
@@ -173,4 +231,28 @@ stories
         markdown: readme
       }
     }
-  );
+  )
+  .add("Other", () => returnTableOfIcons("regular", other), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add("Patterns", () => returnTableOfIcons("regular", patterns), {
+    notes: {
+      markdown: readme
+    }
+  })
+  .add(
+    "Patterns default associated",
+    () => returnTableOfIcons("regular", patternsDefaultAssociated),
+    {
+      notes: {
+        markdown: readme
+      }
+    }
+  )
+  .add("Windows tools", () => returnTableOfIcons("regular", windowsTools), {
+    notes: {
+      markdown: readme
+    }
+  });

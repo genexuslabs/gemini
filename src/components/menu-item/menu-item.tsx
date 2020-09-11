@@ -1,5 +1,4 @@
 import { Component, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
-import { IconType } from "../icon/icon";
 
 @Component({
   tag: "gxg-menu-item",
@@ -11,7 +10,7 @@ export class MenuItem {
   listItem!: HTMLElement;
 
   @Prop() label: string;
-  @Prop() icon: IconType = null;
+  @Prop() icon: string = null;
   @Prop({ reflect: true }) active = false;
 
   // Event called 'todoCompleted' that is "composed", "cancellable" and it will bubble up!

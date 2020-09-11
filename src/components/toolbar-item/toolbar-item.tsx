@@ -1,5 +1,4 @@
 import { Component, Prop, h } from "@stencil/core";
-import { IconType } from "../icon/icon";
 
 @Component({
   tag: "gxg-toolbar-item",
@@ -15,7 +14,7 @@ export class ToolbarItem {
   /**
    * The toolbar-item icon
    */
-  @Prop() icon: IconType = null;
+  @Prop() icon: string = null;
 
   /**
    * The toolbar-item subtitle

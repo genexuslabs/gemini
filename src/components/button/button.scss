@@ -15,6 +15,8 @@
     --svg-icon-small-scale
   ); // Force Icon size inside button to always be small size.
 
+  position: relative;
+
   @include gxg-button-styles;
   /*button styles are included on a mixin, because they are used on both, gxg-button, and gxg-button-group elements*/
 
@@ -251,4 +253,38 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 }
 :host(.button--fullwidth) .button-native {
   width: 100%;
+}
+
+/********************************************************************
+ICON TOOLTIP (ONLY FOR PRIMARY-ICON-ONLY & SECONDARY-ICON-ONLY TYPES)
+*********************************************************************/
+:host {
+  .icon-tooltip {
+    position: absolute;
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: var(--gray-04);
+    color: var(--color-on-background);
+    background-color: var(--gray-01);
+    font-size: 8px;
+    font-weight: var(--font-weight-regular);
+    font-family: var(--font-family-primary);
+    padding: 1px 5px;
+    width: max-content;
+    left: 0;
+    top: 20px;
+    display: none;
+    opacity: 0;
+    @include ui-animation(opacity);
+  }
+}
+:host(.display-tooltip) {
+  .icon-tooltip {
+    display: block;
+  }
+}
+:host(.show-tooltip) {
+  .icon-tooltip {
+    opacity: 1;
+  }
 }

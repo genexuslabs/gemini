@@ -19,7 +19,6 @@ import {
   Spacing
 } from "./components/alert/alert";
 import { background, border, padding as padding2 } from "./components/box/box";
-import { IconType } from "./components/icon/icon";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import {
@@ -33,7 +32,7 @@ import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
 import { IconPosition, Style } from "./components/form-text/form-text";
-import { Color, IconType as IconType1, Size } from "./components/icon/icon";
+import { Color, Size } from "./components/icon/icon";
 import { padding as padding4 } from "./components/modal/modal";
 import { position } from "./components/more-info/more-info";
 import { PillIconType, PillType } from "./components/pill/pill";
@@ -163,7 +162,7 @@ export namespace Components {
     /**
      * The button icon
      */
-    icon: IconType;
+    icon: any;
     /**
      * The prescence of this attribute turns the icon white
      */
@@ -402,7 +401,7 @@ export namespace Components {
     /**
      * The input icon (optional)
      */
-    icon: IconType;
+    icon: any;
     /**
      * The input icon side
      */
@@ -500,9 +499,9 @@ export namespace Components {
      */
     size: Size;
     /**
-     * The type of icon. Possible values: each of the icons in /assets.
+     * The type of icon.
      */
-    type: IconType;
+    type: any;
   }
   interface GxgMenu {
     /**
@@ -516,7 +515,7 @@ export namespace Components {
   }
   interface GxgMenuItem {
     active: boolean;
-    icon: IconType;
+    icon: String;
     label: string;
   }
   interface GxgModal {
@@ -734,7 +733,7 @@ export namespace Components {
     /**
      * (Optional) provide an icon to this button
      */
-    icon: IconType;
+    icon: String;
     /**
      * Provide this attribute to make this button selected by default
      */
@@ -813,7 +812,7 @@ export namespace Components {
     /**
      * The toolbar-item icon
      */
-    icon: IconType;
+    icon: String;
     /**
      * The toolbar-item subtitle
      */
@@ -846,7 +845,7 @@ export namespace Components {
     /**
      * The tree item icon
      */
-    icon: IconType;
+    icon: String;
   }
 }
 declare global {
@@ -1347,7 +1346,7 @@ declare namespace LocalJSX {
     /**
      * The button icon
      */
-    icon?: IconType;
+    icon?: any;
     /**
      * The prescence of this attribute turns the icon white
      */
@@ -1615,7 +1614,7 @@ declare namespace LocalJSX {
     /**
      * The input icon (optional)
      */
-    icon?: IconType;
+    icon?: any;
     /**
      * The input icon side
      */
@@ -1733,9 +1732,9 @@ declare namespace LocalJSX {
      */
     size?: Size;
     /**
-     * The type of icon. Possible values: each of the icons in /assets.
+     * The type of icon.
      */
-    type?: IconType;
+    type?: any;
   }
   interface GxgMenu {
     /**
@@ -1749,7 +1748,7 @@ declare namespace LocalJSX {
   }
   interface GxgMenuItem {
     active?: boolean;
-    icon?: IconType;
+    icon?: String;
     label?: string;
     onMenuItemActive?: (event: CustomEvent<any>) => void;
   }
@@ -1973,7 +1972,7 @@ declare namespace LocalJSX {
     /**
      * (Optional) provide an icon to this button
      */
-    icon?: IconType;
+    icon?: String;
     /**
      * Provide this attribute to make this button selected by default
      */
@@ -2053,7 +2052,7 @@ declare namespace LocalJSX {
     /**
      * The toolbar-item icon
      */
-    icon?: IconType;
+    icon?: String;
     /**
      * The toolbar-item subtitle
      */
@@ -2086,7 +2085,7 @@ declare namespace LocalJSX {
     /**
      * The tree item icon
      */
-    icon?: IconType;
+    icon?: String;
     /**
      * (This event is for internal use)
      */

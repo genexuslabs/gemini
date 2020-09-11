@@ -8,7 +8,6 @@ import {
   State,
   Prop
 } from "@stencil/core";
-import { IconType } from "../icon/icon";
 
 @Component({
   tag: "gxg-tree-item",
@@ -26,7 +25,7 @@ export class TreeItem {
   /**
    * The tree item icon
    */
-  @Prop() icon: IconType = "file";
+  @Prop() icon = "file";
   @State() open = false;
   @State() numberOfChildItems: number;
   @State() treeContainerMaxHeight: string;

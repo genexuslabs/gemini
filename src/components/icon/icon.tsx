@@ -60,9 +60,9 @@ export class Icon {
   @Prop({ reflect: true }) size: Size = "regular";
 
   /**
-   * The type of icon. Possible values: each of the icons in /assets.
+   * The type of icon.
    */
-  @Prop({ reflect: true }) type: IconType = "none";
+  @Prop({ reflect: true }) type;
 
   @State() private isVisible = false;
 
@@ -184,45 +184,5 @@ export type Color =
   | "warning"
   | "alwaysblack"
   | "auto";
-
-export type IconType =
-  | "data-provider"
-  | "none"
-  | "add"
-  | "add-circle"
-  | "arrow-down"
-  | "arrow-left"
-  | "arrow-right"
-  | "arrow-up"
-  | "chevron-down"
-  | "chevron-left"
-  | "chevron-right"
-  | "chevron-up"
-  | "circle"
-  | "close"
-  | "color-picker"
-  | "deleted"
-  | "drag"
-  | "duplicate"
-  | "edit"
-  | "edit-wand"
-  | "error"
-  | "empty"
-  | "file"
-  | "folder"
-  | "level-down"
-  | "level-up"
-  | "minus"
-  | "minus-circle"
-  | "notice"
-  | "pill-filled"
-  | "pill-outlined"
-  | "reset"
-  | "search"
-  | "settings"
-  | "show-more-horizontal"
-  | "show-more-vertical"
-  | "success"
-  | "warning";
 
 export type Size = "regular" | "small";

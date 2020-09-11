@@ -8,7 +8,7 @@ import {
   EventEmitter,
   Listen
 } from "@stencil/core";
-import { IconType, Color, Size } from "../icon/icon";
+import { Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
 
 @Component({
@@ -77,7 +77,7 @@ export class AccordionItem {
   }
 
   printIcon() {
-    let iType: IconType;
+    let iType;
     let iColor: Color;
     let iSize: Size;
     if (this.status === "open" && !this.disabled) {

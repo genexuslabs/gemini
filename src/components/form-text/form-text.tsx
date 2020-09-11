@@ -7,7 +7,6 @@ import {
   Event,
   EventEmitter
 } from "@stencil/core";
-import { IconType } from "../icon/icon";
 import {
   requiredLabel,
   formMessage,
@@ -45,7 +44,7 @@ export class FormText implements FormComponent {
   /**
    * The input icon (optional)
    */
-  @Prop() icon: IconType = null;
+  @Prop() icon = null;
 
   /**
    * The input icon side

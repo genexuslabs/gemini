@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
-import { IconType, Color } from "../icon/icon";
+import { Color } from "../icon/icon";
 
 @Component({
   tag: "gxg-button",
@@ -31,7 +31,7 @@ export class Button {
   /**
    * The button icon
    */
-  @Prop() icon: IconType;
+  @Prop() icon;
 
   /**
    * The prescence of this attribute turns the icon white
@@ -84,6 +84,31 @@ export class Button {
     }
   }
 
+  // We finally decided to use the default browser tooltip that shows when title attribute is provided.
+  // iconTooltip() {
+  //   if (
+  //     this.type !== "primary-text-only" &&
+  //     this.type !== "secondary-text-only"
+  //   ) {
+  //     return <p class="icon-tooltip">Some tooltip</p>;
+  //   }
+  // }
+  // onMouseEnterHandler() {
+  //   //display tooltip (primary-icon-only or secondary-icon-only type only)
+  //   const button = this.el;
+  //   button.classList.add("display-tooltip");
+  //   setTimeout(function() {
+  //     button.classList.add("show-tooltip");
+  //   }, 1000);
+  // }
+  // onMouseLeaveHandler() {
+  //   const button = this.el;
+  //   button.classList.remove("show-tooltip");
+  //   setTimeout(function() {
+  //     button.classList.remove("display-tooltip");
+  //   }, 100);
+  // }
+
   iconColor() {
     let iColor: Color;
     if (this.type.includes("primary")) {
@@ -123,6 +148,8 @@ export class Button {
           "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true
         }}
+        // onmouseenter={this.onMouseEnterHandler.bind(this)}
+        // onmouseleave={this.onMouseLeaveHandler.bind(this)}
       >
         <button
           class="button-native gxg-text-general"
@@ -130,7 +157,7 @@ export class Button {
         >
           {this.ghostIcon()}
           {this.regularIcon()}
-
+          {/* {this.iconTooltip()} */}
           {this.type.includes("text") || this.type === "outlined" ? (
             <span class="text">
               <slot />
