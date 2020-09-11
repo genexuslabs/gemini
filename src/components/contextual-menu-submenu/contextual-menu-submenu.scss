@@ -1,0 +1,29 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  position: absolute;
+  display: inline-block;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: var(--gray-04);
+  border-radius: 2px;
+  background-color: var(--gray-01);
+  &::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 3px;
+    position: absolute;
+    left: -4px;
+  }
+
+  transform: translateX(105%);
+  top: 0;
+  right: 0;
+
+  .contextual-menu-submenu {
+    margin: 0;
+    padding: 2px 0;
+  }
+}

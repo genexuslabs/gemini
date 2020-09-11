@@ -7,7 +7,7 @@
 | Property | Attribute | Description | Type      | Default     |
 | -------- | --------- | ----------- | --------- | ----------- |
 | `active` | `active`  |             | `boolean` | `false`     |
-| `icon`   | --        |             | `String`  | `null`      |
+| `icon`   | `icon`    |             | `string`  | `null`      |
 | `label`  | `label`   |             | `string`  | `undefined` |
 
 ## Events

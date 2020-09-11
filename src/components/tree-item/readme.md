@@ -18,7 +18,7 @@
 | Property   | Attribute  | Description                                              | Type      | Default  |
 | ---------- | ---------- | -------------------------------------------------------- | --------- | -------- |
 | `disabled` | `disabled` | The state of the tree-item, wether it is disabled or not | `boolean` | `false`  |
-| `icon`     | --         | The tree item icon                                       | `String`  | `"file"` |
+| `icon`     | `icon`     | The tree item icon                                       | `string`  | `"file"` |
 
 ## Events
 

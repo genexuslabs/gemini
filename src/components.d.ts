@@ -250,6 +250,23 @@ export namespace Components {
      */
     space: Space;
   }
+  interface GxgContextualMenu {
+    /**
+     * Visible status
+     */
+    visible: boolean;
+  }
+  interface GxgContextualMenuItem {
+    /**
+     * Optional icon
+     */
+    icon: string;
+    /**
+     * Provide this attribute if you are using this menu on the tabs component
+     */
+    visible: boolean;
+  }
+  interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
     /**
      * The presence of this attribute makes the date-picker always visible
@@ -515,7 +532,7 @@ export namespace Components {
   }
   interface GxgMenuItem {
     active: boolean;
-    icon: String;
+    icon: string;
     label: string;
   }
   interface GxgModal {
@@ -733,7 +750,7 @@ export namespace Components {
     /**
      * (Optional) provide an icon to this button
      */
-    icon: String;
+    icon: string;
     /**
      * Provide this attribute to make this button selected by default
      */
@@ -812,7 +829,7 @@ export namespace Components {
     /**
      * The toolbar-item icon
      */
-    icon: String;
+    icon: string;
     /**
      * The toolbar-item subtitle
      */
@@ -845,7 +862,7 @@ export namespace Components {
     /**
      * The tree item icon
      */
-    icon: String;
+    icon: string;
   }
 }
 declare global {
@@ -914,6 +931,27 @@ declare global {
   var HTMLGxgColumnsElement: {
     prototype: HTMLGxgColumnsElement;
     new (): HTMLGxgColumnsElement;
+  };
+  interface HTMLGxgContextualMenuElement
+    extends Components.GxgContextualMenu,
+      HTMLStencilElement {}
+  var HTMLGxgContextualMenuElement: {
+    prototype: HTMLGxgContextualMenuElement;
+    new (): HTMLGxgContextualMenuElement;
+  };
+  interface HTMLGxgContextualMenuItemElement
+    extends Components.GxgContextualMenuItem,
+      HTMLStencilElement {}
+  var HTMLGxgContextualMenuItemElement: {
+    prototype: HTMLGxgContextualMenuItemElement;
+    new (): HTMLGxgContextualMenuItemElement;
+  };
+  interface HTMLGxgContextualMenuSubmenuElement
+    extends Components.GxgContextualMenuSubmenu,
+      HTMLStencilElement {}
+  var HTMLGxgContextualMenuSubmenuElement: {
+    prototype: HTMLGxgContextualMenuSubmenuElement;
+    new (): HTMLGxgContextualMenuSubmenuElement;
   };
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
@@ -1171,6 +1209,9 @@ declare global {
     "gxg-color-picker": HTMLGxgColorPickerElement;
     "gxg-column": HTMLGxgColumnElement;
     "gxg-columns": HTMLGxgColumnsElement;
+    "gxg-contextual-menu": HTMLGxgContextualMenuElement;
+    "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
+    "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
@@ -1437,6 +1478,23 @@ declare namespace LocalJSX {
      */
     space?: Space;
   }
+  interface GxgContextualMenu {
+    /**
+     * Visible status
+     */
+    visible?: boolean;
+  }
+  interface GxgContextualMenuItem {
+    /**
+     * Optional icon
+     */
+    icon?: string;
+    /**
+     * Provide this attribute if you are using this menu on the tabs component
+     */
+    visible?: boolean;
+  }
+  interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
     /**
      * The presence of this attribute makes the date-picker always visible
@@ -1748,7 +1806,7 @@ declare namespace LocalJSX {
   }
   interface GxgMenuItem {
     active?: boolean;
-    icon?: String;
+    icon?: string;
     label?: string;
     onMenuItemActive?: (event: CustomEvent<any>) => void;
   }
@@ -1972,7 +2030,7 @@ declare namespace LocalJSX {
     /**
      * (Optional) provide an icon to this button
      */
-    icon?: String;
+    icon?: string;
     /**
      * Provide this attribute to make this button selected by default
      */
@@ -2052,7 +2110,7 @@ declare namespace LocalJSX {
     /**
      * The toolbar-item icon
      */
-    icon?: String;
+    icon?: string;
     /**
      * The toolbar-item subtitle
      */
@@ -2085,7 +2143,7 @@ declare namespace LocalJSX {
     /**
      * The tree item icon
      */
-    icon?: String;
+    icon?: string;
     /**
      * (This event is for internal use)
      */
@@ -2102,6 +2160,9 @@ declare namespace LocalJSX {
     "gxg-color-picker": GxgColorPicker;
     "gxg-column": GxgColumn;
     "gxg-columns": GxgColumns;
+    "gxg-contextual-menu": GxgContextualMenu;
+    "gxg-contextual-menu-item": GxgContextualMenuItem;
+    "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
     "gxg-date-picker": GxgDatePicker;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
@@ -2163,6 +2224,12 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
       "gxg-columns": LocalJSX.GxgColumns &
         JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
+      "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
+        JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
+      "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &
+        JSXBase.HTMLAttributes<HTMLGxgContextualMenuItemElement>;
+      "gxg-contextual-menu-submenu": LocalJSX.GxgContextualMenuSubmenu &
+        JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-drag-box": LocalJSX.GxgDragBox &

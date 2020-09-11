@@ -88,7 +88,8 @@
       button.addEventListener("contextmenu", e => {
         e.preventDefault();
         let contextualMenu = document.querySelector("gxg-contextual-menu");
-        contextualMenu.removeAttribute("hidden");
+        contextualMenu.removeAttribute("visible");
+        contextualMenu.setAttribute("visible", "");
       });
 
       //DARK MODE

@@ -1,0 +1,28 @@
+# gxg-menu
+
+<!-- Auto Generated Below -->
+
+## Properties
+
+| Property  | Attribute | Description                                                             | Type      | Default |
+| --------- | --------- | ----------------------------------------------------------------------- | --------- | ------- |
+| `icon`    | `icon`    | Optional icon                                                           | `string`  | `null`  |
+| `visible` | `visible` | Provide this attribute if you are using this menu on the tabs component | `boolean` | `true`  |
+
+## Dependencies
+
+### Depends on
+
+- [gxg-icon](../icon)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-contextual-menu-item --> gxg-icon
+  style gxg-contextual-menu-item fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+---
+
+_Built with [StencilJS](https://stenciljs.com/)_

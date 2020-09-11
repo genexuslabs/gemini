@@ -1,0 +1,33 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  .contextual-menu-item {
+    position: relative;
+    list-style-type: none;
+    font-size: var(--font-size-xxs);
+    padding: 1px var(--spacing-comp-05) 1px var(--spacing-comp-01);
+    height: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    ::slotted(gxg-contextual-menu-submenu) {
+      display: none;
+    }
+    &:hover {
+      background-color: var(--gray-02);
+      ::slotted(gxg-contextual-menu-submenu) {
+        display: block;
+      }
+    }
+    gxg-icon[type="general/arrow-right"] {
+      position: absolute;
+      right: 0;
+    }
+
+    &--no-icon {
+      padding-left: 9px;
+    }
+  }
+}
