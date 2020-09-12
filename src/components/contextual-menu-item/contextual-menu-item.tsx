@@ -9,11 +9,6 @@ export class ContextualMenuItem {
   @Element() el: HTMLElement;
 
   /**
-   * Provide this attribute if you are using this menu on the tabs component
-   */
-  @Prop({ reflect: true }) visible = true;
-
-  /**
    * Optional icon
    */
   @Prop() icon: string = null;

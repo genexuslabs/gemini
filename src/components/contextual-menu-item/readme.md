@@ -1,13 +1,12 @@
-# gxg-menu
+# gxg-contextual-menu-item
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property  | Attribute | Description                                                             | Type      | Default |
-| --------- | --------- | ----------------------------------------------------------------------- | --------- | ------- |
-| `icon`    | `icon`    | Optional icon                                                           | `string`  | `null`  |
-| `visible` | `visible` | Provide this attribute if you are using this menu on the tabs component | `boolean` | `true`  |
+| Property | Attribute | Description   | Type     | Default |
+| -------- | --------- | ------------- | -------- | ------- |
+| `icon`   | `icon`    | Optional icon | `string` | `null`  |
 
 ## Dependencies
 

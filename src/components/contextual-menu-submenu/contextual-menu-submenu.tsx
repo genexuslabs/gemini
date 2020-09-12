@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Element } from "@stencil/core";
+import { Component, h, Host, Element } from "@stencil/core";
 
 @Component({
   tag: "gxg-contextual-menu-submenu",

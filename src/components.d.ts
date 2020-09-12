@@ -252,7 +252,7 @@ export namespace Components {
   }
   interface GxgContextualMenu {
     /**
-     * Visible status
+     * The presence of this attribute makes the menu visible
      */
     visible: boolean;
   }
@@ -261,10 +261,6 @@ export namespace Components {
      * Optional icon
      */
     icon: string;
-    /**
-     * Provide this attribute if you are using this menu on the tabs component
-     */
-    visible: boolean;
   }
   interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
@@ -1480,7 +1476,7 @@ declare namespace LocalJSX {
   }
   interface GxgContextualMenu {
     /**
-     * Visible status
+     * The presence of this attribute makes the menu visible
      */
     visible?: boolean;
   }
@@ -1489,10 +1485,6 @@ declare namespace LocalJSX {
      * Optional icon
      */
     icon?: string;
-    /**
-     * Provide this attribute if you are using this menu on the tabs component
-     */
-    visible?: boolean;
   }
   interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {

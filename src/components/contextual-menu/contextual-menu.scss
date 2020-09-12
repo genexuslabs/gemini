@@ -2,11 +2,12 @@
 @import "../../globals/mixins";
 
 :host {
-  //display: none;
+  display: none;
   position: fixed;
+  z-index: 999999999;
   .contextual-menu-list {
     display: inline-block;
-    border-width: 0.5px;
+    border-width: 1px;
     border-style: solid;
     border-color: var(--gray-04);
     border-radius: 2px;

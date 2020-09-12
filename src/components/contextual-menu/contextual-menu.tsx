@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Element, Watch } from "@stencil/core";
+import { Component, Prop, h, Host, Element, Watch, State } from "@stencil/core";
 
 @Component({
   tag: "gxg-contextual-menu",
@@ -11,7 +11,7 @@ export class ContextualMenu {
   }
 
   /**
-   * Visible status
+   * The presence of this attribute makes the menu visible
    */
   @Prop({ reflect: true }) visible = false;
 
@@ -24,6 +24,8 @@ export class ContextualMenu {
     width: 0,
     height: 0
   };
+
+  @State() firstRightClick = true;
 
   @Element() el: HTMLElement;
 
@@ -65,7 +67,7 @@ export class ContextualMenu {
   }
 
   detectClickOutsideMenu(event) {
-    console.log("detect click outside");
+    console.log(event);
     const contextualMenu = this.el.shadowRoot.querySelector(
       ".contextual-menu-list"
     ) as HTMLElement;
@@ -75,7 +77,6 @@ export class ContextualMenu {
 
     //Contextual menu coordinates
     const contextualMenuArea = contextualMenu.getBoundingClientRect();
-
     if (
       x > contextualMenuArea.left &&
       x < contextualMenuArea.right &&
@@ -85,8 +86,13 @@ export class ContextualMenu {
       //Click happened inside the menu
     } else {
       //Click happened outside the menu
-      console.log("clicked outside");
-      this.visible = false;
+      if (!this.firstRightClick) {
+        //this.visible = false;
+        this.el.removeAttribute("visible");
+        this.firstRightClick = true;
+      } else {
+        this.firstRightClick = false;
+      }
     }
   }
 
@@ -97,6 +103,7 @@ export class ContextualMenu {
 
   componentDidLoad() {
     document.addEventListener("click", this.detectClickOutsideMenu);
+    document.addEventListener("contextmenu", this.detectClickOutsideMenu);
     document.addEventListener(
       "mousemove",
       this.saveMouseCoordinates.bind(this)
@@ -105,6 +112,7 @@ export class ContextualMenu {
 
   componentDidUnload() {
     document.removeEventListener("click", this.detectClickOutsideMenu);
+    document.removeEventListener("mousemove", this.detectClickOutsideMenu);
   }
 
   render() {
