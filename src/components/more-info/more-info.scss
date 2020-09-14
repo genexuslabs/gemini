@@ -10,7 +10,7 @@
 
     &__text {
       @include gxg-text();
-      font-size: var(--font-size-xs);
+      font-size: var(--font-size-xxs);
       visibility: hidden;
       opacity: 0;
       @include ui-animation(opacity);
@@ -21,23 +21,14 @@
 
       &__content {
         width: fit-content;
-        background-color: var(--gray-08);
-        padding: var(--spacing-comp-01) var(--spacing-comp-02);
-        border-radius: var(--border-width-md);
-        color: var(--color-on-primary);
+        background-color: var(--gray-01);
+        padding: 1.5px 5px;
+        border-color: var(--gray-04);
+        border-style: solid;
+        border-width: 0.5px;
+        color: var(--color-on-background);
         display: inline-block;
         text-align: left;
-      }
-
-      &:after {
-        //triangle
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-bottom: 5px solid var(--gray-08);
-        position: absolute;
       }
     }
 
@@ -56,26 +47,16 @@
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-
-      &:after {
-        left: 50%;
-        transform: translateX(-50%) rotate(180deg);
-        bottom: -4px;
-      }
     }
   }
 }
 :host([position="right"]) {
   .more-info {
     &__text {
-      top: 0;
+      top: 10px;
       left: 120%;
       text-align: left;
-      &:after {
-        left: -7px;
-        transform: rotate(-90deg);
-        top: 8px;
-      }
+      transform: translateY(-50%);
     }
   }
 }
@@ -85,11 +66,6 @@
       top: 25px;
       left: 50%;
       transform: translateX(-50%);
-      &:after {
-        left: 50%;
-        transform: translateX(-50%);
-        top: -4px;
-      }
     }
   }
 }
@@ -97,13 +73,9 @@
   .more-info {
     &__text {
       text-align: right;
-      top: 0;
+      top: 10px;
       right: 120%;
-      &:after {
-        right: -7px;
-        transform: rotate(90deg);
-        top: 8px;
-      }
+      transform: translateY(-50%);
     }
   }
 }

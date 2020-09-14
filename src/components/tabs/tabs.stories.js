@@ -34,14 +34,14 @@ stories
                 tab="bananas"
                 key="bananas"
                 isSelected="false"
-                icon="settings"
+                icon="general/settings"
               ></gxg-tab-button>
               <gxg-tab-button
                 slot="tab-bar"
                 tab="cherries"
                 key="cherries"
                 isSelected="false"
-                icon="settings"
+                icon="general/settings"
               ></gxg-tab-button>
               <gxg-tab-button
                 slot="tab-bar"
@@ -50,7 +50,7 @@ stories
                 key="strawberries"
                 isSelected="false"
                 disabled
-                icon="settings"
+                icon="general/settings"
               ></gxg-tab-button>
               <gxg-tab-button
                 slot="tab-bar"
@@ -126,9 +126,9 @@ stories
 
     return `
   <gxg-menu ${tabsFunc()} menu-title=${valueTitle}>
-    <gxg-menu-item label="apple" icon=""></gxg-menu-item>
-    <gxg-menu-item label="banana" icon="warning"></gxg-menu-item>
-    <gxg-menu-item label="grapes" icon="error"></gxg-menu-item>
-    <gxg-menu-item label="kiwi" icon="search"></gxg-menu-item>
+    <gxg-menu-item label="apple"></gxg-menu-item>
+    <gxg-menu-item label="banana" icon="general/warning"></gxg-menu-item>
+    <gxg-menu-item label="grapes" icon="general/error"></gxg-menu-item>
+    <gxg-menu-item label="kiwi" icon="general/search"></gxg-menu-item>
   </gxg-menu>`;
   });

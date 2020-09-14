@@ -69,7 +69,7 @@ export class DragBox {
       <Host onClick={this.clickedHandler.bind(this)}>
         <span class="border"></span>
         <div class="drag-icon-container">
-          <gxg-icon size="regular" type="drag"></gxg-icon>
+          <gxg-icon size="regular" type="general/drag"></gxg-icon>
         </div>
         <div class="container-content">
           {this.title !== undefined ? (
@@ -80,9 +80,9 @@ export class DragBox {
         <div class="delete-button-container">
           {this.deletable ? (
             <gxg-button
+              icon="general/delete"
               onClick={this.deleteHandler.bind(this)}
               type="secondary-icon-only"
-              icon="deleted"
             ></gxg-button>
           ) : null}
         </div>

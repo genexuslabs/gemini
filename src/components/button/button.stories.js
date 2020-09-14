@@ -15,29 +15,29 @@ KNOBS
 /*Icons Knob*/
 const labelIcon = "Icon";
 const optionsIcon = {
-  add: "arrowDown",
-  chevronDown: "chevronDown",
-  chevronLeft: "chevronLeft",
-  chevronRight: "chevronRight",
-  chevronUp: "chevronUp",
-  chevronDown: "chevronDown",
-  chevronClose: "chevronClose",
-  chevronColorPicker: "chevronColorPicker",
-  deleted: "deleted",
-  down: "down",
-  drag: "drag",
-  duplicate: "duplicate",
-  edit: "edit",
-  editWand: "editWand",
-  error: "error",
-  levelUp: "levelUp",
-  moreInfo: "moreInfo",
-  search: "search",
-  settings: "settings",
-  showMore: "showMore",
-  success: "success",
-  up: "up",
-  warning: "warning"
+  add: "navigation/arrow-down",
+  chevronDown: "general/chevronDown",
+  chevronLeft: "general/chevronLeft",
+  chevronRight: "general/chevronRight",
+  chevronUp: "general/chevronUp",
+  chevronDown: "general/chevronDown",
+  chevronClose: "general/chevronClose",
+  chevronColorPicker: "general/chevronColorPicker",
+  deleted: "general/deleted",
+  down: "general/down",
+  drag: "general/drag",
+  duplicate: "general/duplicate",
+  edit: "general/edit",
+  editWand: "general/editWand",
+  error: "general/error",
+  levelUp: "general/levelUp",
+  moreInfo: "general/moreInfo",
+  search: "general/search",
+  settings: "general/settings",
+  showMore: "general/showMore",
+  success: "general/success",
+  up: "general/up",
+  warning: "general/warning"
 };
 const defaultValueIcon = optionsIcon.add;
 
@@ -86,6 +86,11 @@ stories
     const defaultValueButtonLabel = "Button";
     const valueButtonLabel = text(labelButtonLabel, defaultValueButtonLabel);
 
+    //Button Icon
+    const labelButtonIcon = "Button Icon";
+    const defaultValueButtonIcon = "navigation/arrow-down";
+    const valueButtonIcon = text(labelButtonIcon, defaultValueButtonIcon);
+
     //Disabled
     const labelDisabled = "Disabled";
     const defaultValueDisabled = false;
@@ -98,36 +103,26 @@ stories
 
     return `
     <style>#root { width:700px; text-align: center; }</style>
-    <gxg-button icon="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}" type="primary-text-icon" full-width=${boolean(
+    <gxg-button icon="${valueButtonIcon}" type="primary-text-icon" full-width=${boolean(
       labelFullWidth,
       valueFullWidth
     )} disabled=${valueDisabled}>
     ${valueButtonLabel}
     </gxg-button>`;
   })
-  .add(
-    "Primary Icon Only",
-    () => `
+  .add("Primary Icon Only", () => {
+    //Button Icon
+    const labelButtonIcon = "Button Icon";
+    const defaultValueButtonIcon = "navigation/arrow-down";
+    const valueButtonIcon = text(labelButtonIcon, defaultValueButtonIcon);
+    return `
       <style>#root { width:700px; text-align: center; }</style>  
-      <gxg-button icon="${select(
-        labelIcon,
-        optionsIcon,
-        defaultValueIcon
-      )}" type="primary-icon-only" disabled=${boolean(
+      <gxg-button icon="${valueButtonIcon}" type="primary-icon-only" disabled=${boolean(
       labelDisabled,
       valueDisabled
     )} full-width=${boolean(labelFullWidth, valueFullWidth)}></gxg-button>
-        `,
-    {
-      notes: {
-        markdown: readme
-      }
-    }
-  )
+        `;
+  })
   .add("Secondary Text Only", () => {
     //Button Label
     const labelButtonLabel = "Button Label";
@@ -155,6 +150,11 @@ stories
     const defaultValueButtonLabel = "Button";
     const valueButtonLabel = text(labelButtonLabel, defaultValueButtonLabel);
 
+    //Button Icon
+    const labelButtonIcon = "Button Icon";
+    const defaultValueButtonIcon = "navigation/arrow-down";
+    const valueButtonIcon = text(labelButtonIcon, defaultValueButtonIcon);
+
     //Disabled
     const labelDisabled = "Disabled";
     const defaultValueDisabled = false;
@@ -167,55 +167,39 @@ stories
 
     return `
     <style>#root { width:700px; text-align: center; }</style>
-    <gxg-button icon="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}" type="secondary-text-icon" full-width=${boolean(
+    <gxg-button icon="${valueButtonIcon}" type="secondary-text-icon" full-width=${boolean(
       labelFullWidth,
       valueFullWidth
     )} disabled=${valueDisabled}>
     ${valueButtonLabel}
     </gxg-button>`;
   })
-  .add(
-    "Secondary Icon Only",
-    () => `
+  .add("Secondary Icon Only", () => {
+    //Button Icon
+    const labelButtonIcon = "Button Icon";
+    const defaultValueButtonIcon = "navigation/arrow-down";
+    const valueButtonIcon = text(labelButtonIcon, defaultValueButtonIcon);
+    return `
       <style>#root { width:700px; text-align: center; }</style>  
-      <gxg-button icon="${select(
-        labelIcon,
-        optionsIcon,
-        defaultValueIcon
-      )}" type="secondary-icon-only" disabled=${boolean(
+      <gxg-button icon="${valueButtonIcon}" type="secondary-icon-only" disabled=${boolean(
       labelDisabled,
       valueDisabled
     )} full-width=${boolean(labelFullWidth, valueFullWidth)}></gxg-button>
-        `,
-    {
-      notes: {
-        markdown: readme
-      }
-    }
-  )
-  .add(
-    "Tertiary",
-    () => `
+        `;
+  })
+  .add("Tertiary", () => {
+    //Button Icon
+    const labelButtonIcon = "Button Icon";
+    const defaultValueButtonIcon = "navigation/arrow-down";
+    const valueButtonIcon = text(labelButtonIcon, defaultValueButtonIcon);
+    return `
       <style>#root { width:700px; text-align: center; }</style>  
-      <gxg-button icon="${select(
-        labelIcon,
-        optionsIcon,
-        defaultValueIcon
-      )}" type="tertiary" disabled=${boolean(
+      <gxg-button icon="${valueButtonIcon}" type="tertiary" disabled=${boolean(
       labelDisabled,
       valueDisabled
     )} full-width=${boolean(labelFullWidth, valueFullWidth)}></gxg-button>
-        `,
-    {
-      notes: {
-        markdown: readme
-      }
-    }
-  )
+        `;
+  })
   .add("Outlined", () => {
     //Button Label
     const labelButtonLabel = "Button Label";

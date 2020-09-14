@@ -38,5 +38,11 @@ stories.add("Stepper", () => {
   const defaultMinValue = 0;
   const valueMinValue = number(labelMinValue, defaultMinValue);
 
-  return `<gxg-stepper disabled=${valueDisabled} value=${valueValue} label=${valueLabel} max=${valueMaxValue} min=${valueMinValue}></gxg-stepper>`;
+  function disabled() {
+    if (valueDisabled) {
+      return "disabled";
+    }
+  }
+
+  return `<gxg-stepper ${disabled()} value=${valueValue} label=${valueLabel} max=${valueMaxValue} min=${valueMinValue}></gxg-stepper>`;
 });

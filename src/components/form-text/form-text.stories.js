@@ -18,49 +18,23 @@ stories.add("Text", () => {
   const defaultValueClearButton = false;
   const valueClearButton = boolean(labelClearButton, defaultValueClearButton);
 
-  //Icon Type
-  const labelIconType = "Icon";
-  const optionsIconType = [
-    "arrowDown",
-    "arrowLeft",
-    "arrowRight",
-    "arrowUp",
-    "chevronDown",
-    "chevronLeft",
-    "chevronRight",
-    "chevronUp",
-    "close",
-    "colorPicker",
-    "deleted",
-    "drag",
-    "duplicate",
-    "editWand",
-    "edit",
-    "error",
-    "levelDown",
-    "levelUp",
-    "moreInfo",
-    "search",
-    "settings",
-    "showMore",
-    "success",
-    "warning"
-  ];
-  const defaultValueIconType = "search";
-  const valueIconType = select(
-    labelIconType,
-    optionsIconType,
-    defaultValueIconType
-  );
+  //Icon
+  const labelIcon = "Button Icon";
+  const defaultValueIcon = "general/edit";
+  const valueIcon = text(labelIcon, defaultValueIcon);
 
   //Icon Position
-  const labelIcon = "Icon position";
-  const optionsIcon = {
+  const labelIconPosition = "Icon position";
+  const optionsIconPosition = {
     start: "start",
     end: "end"
   };
-  const defaultValueIcon = "start";
-  const valueIcon = select(labelIcon, optionsIcon, defaultValueIcon);
+  const defaultValueIconPosition = "start";
+  const valueIconPosition = select(
+    labelIconPosition,
+    optionsIconPosition,
+    defaultValueIconPosition
+  );
 
   //Max Width
   const labelMaxWidth = "Max. Width";
@@ -166,8 +140,8 @@ stories.add("Text", () => {
   label="Position"
   placeholder="Chief Executive"
   ${clearButtonFunc()}
-  icon=${valueIconType}
-  icon-position=${valueIcon}
+  icon=${valueIcon}
+  icon-position=${valueIconPosition}
   max-width=${valueMaxWidth}
   text-style=${valueTextStyle}
   ${minimal()}

@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                           | Type                                           | Default         |
-| ---------- | ---------- | ------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------- |
-| `disabled` | `disabled` | The presence of this attribute disables the pillgit a                                 | `boolean`                                      | `false`         |
-| `icon`     | `icon`     | The icon                                                                              | `"pill-filled" \| "pill-outlined"`             | `"pill-filled"` |
-| `type`     | `type`     | The presence of this attribute ads a close button that when clicked, removes the pill | `"button" \| "button-with-action" \| "static"` | `"static"`      |
+| Property   | Attribute  | Description                                                                           | Type                                               | Default                 |
+| ---------- | ---------- | ------------------------------------------------------------------------------------- | -------------------------------------------------- | ----------------------- |
+| `disabled` | `disabled` | The presence of this attribute disables the pillgit a                                 | `boolean`                                          | `false`                 |
+| `icon`     | `icon`     | The icon                                                                              | `"general/pill-filled" \| "general/pill-outlined"` | `"general/pill-filled"` |
+| `type`     | `type`     | The presence of this attribute ads a close button that when clicked, removes the pill | `"button" \| "button-with-action" \| "static"`     | `"static"`              |
 
 ## Dependencies
 

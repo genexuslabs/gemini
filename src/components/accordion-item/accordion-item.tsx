@@ -80,7 +80,7 @@ export class AccordionItem {
     let iColor: Color;
     let iSize: Size;
     if (this.status === "open" && !this.disabled) {
-      iType = "chevron-up";
+      iType = "navigation/chevron-up";
       if (this.mode === "classical") {
         iColor = "alwaysblack";
       } else if (this.mode === "boxed" || this.mode === "minimal") {
@@ -90,7 +90,7 @@ export class AccordionItem {
       }
     } else {
       //item closed
-      iType = "chevron-down";
+      iType = "navigation/chevron-down";
       if (this.mode === "classical") {
         if (this.disabled) {
           iColor = "alwaysblack";
