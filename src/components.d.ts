@@ -515,7 +515,7 @@ export namespace Components {
   }
   interface GxgMenuItem {
     active: boolean;
-    icon: String;
+    icon: string;
     label: string;
   }
   interface GxgModal {
@@ -733,7 +733,7 @@ export namespace Components {
     /**
      * (Optional) provide an icon to this button
      */
-    icon: String;
+    icon: string;
     /**
      * Provide this attribute to make this button selected by default
      */
@@ -812,7 +812,7 @@ export namespace Components {
     /**
      * The toolbar-item icon
      */
-    icon: String;
+    icon: string;
     /**
      * The toolbar-item subtitle
      */
@@ -845,7 +845,7 @@ export namespace Components {
     /**
      * The tree item icon
      */
-    icon: String;
+    icon: string;
   }
 }
 declare global {
@@ -1748,7 +1748,7 @@ declare namespace LocalJSX {
   }
   interface GxgMenuItem {
     active?: boolean;
-    icon?: String;
+    icon?: string;
     label?: string;
     onMenuItemActive?: (event: CustomEvent<any>) => void;
   }
@@ -1972,7 +1972,7 @@ declare namespace LocalJSX {
     /**
      * (Optional) provide an icon to this button
      */
-    icon?: String;
+    icon?: string;
     /**
      * Provide this attribute to make this button selected by default
      */
@@ -2052,7 +2052,7 @@ declare namespace LocalJSX {
     /**
      * The toolbar-item icon
      */
-    icon?: String;
+    icon?: string;
     /**
      * The toolbar-item subtitle
      */
@@ -2085,7 +2085,7 @@ declare namespace LocalJSX {
     /**
      * The tree item icon
      */
-    icon?: String;
+    icon?: string;
     /**
      * (This event is for internal use)
      */

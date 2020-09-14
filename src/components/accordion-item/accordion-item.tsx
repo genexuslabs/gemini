@@ -168,10 +168,11 @@ export class AccordionItem {
     }
   }
 
-  @Listen("change")
-  todoCompletedHandler(event) {
-    this.itemTitle = event.detail;
-    this.titleChanged.emit(this.itemTitle);
+  changedTitleHandler(event) {
+    if (this.editableTitle) {
+      this.itemTitle = event.detail;
+      this.titleChanged.emit(this.itemTitle);
+    }
   }
 
   render() {
@@ -201,6 +202,7 @@ export class AccordionItem {
                 >
                   {this.editableTitle ? (
                     <gxg-form-text
+                      onChange={event => this.changedTitleHandler(event)}
                       minimal
                       value={this.itemTitle}
                       onClick={this.gxgFormTextClickedHandler.bind(this)}
