@@ -28,6 +28,7 @@ export class ContextualMenuItem {
     if (contextualMenuSubmenu !== null) {
       return (
         <gxg-icon
+          class="show-more"
           size="small"
           type="general/arrow-right"
           color="onbackground"

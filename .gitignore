@@ -97,3 +97,5 @@ storybook-static/
 
 # Documentacion
 documentation/
+
+.DS_Store

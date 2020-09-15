@@ -22,13 +22,13 @@
         display: block;
       }
     }
-    gxg-icon[type="general/arrow-right"] {
+    .show-more {
       position: absolute;
       right: 0;
     }
 
     &--no-icon {
-      padding-left: 9px;
+      padding-left: var(--spacing-comp-02);
     }
   }
 }

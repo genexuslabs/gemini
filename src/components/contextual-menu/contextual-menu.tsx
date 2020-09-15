@@ -15,17 +15,16 @@ export class ContextualMenu {
    */
   @Prop({ reflect: true }) visible = false;
 
-  private mouseCoordinates = {
-    x: 0,
-    y: 0
-  };
+  @State() widthOverflow: boolean;
+  @State() heightOverflow: boolean;
+  @State() firstRightClick = true;
+  @State() topPosition: number;
+  @State() leftPosition: number;
 
   private contextualMenuSizes = {
     width: 0,
     height: 0
   };
-
-  @State() firstRightClick = true;
 
   @Element() el: HTMLElement;
 
@@ -37,37 +36,20 @@ export class ContextualMenu {
       const contextualMenuHeight = (this.contextualMenuSizes.height = this.el.offsetHeight);
 
       //Get available height and width from the mouse pointer to the right and bottom side of the document body, respectively.
-      const availableWidth = window.innerWidth - this.mouseCoordinates.x;
-      const availableHeight = window.innerHeight - this.mouseCoordinates.y;
+      const availableWidth = window.innerWidth - this.leftPosition;
+      const availableHeight = window.innerHeight - this.topPosition;
 
-      const widthOverflow = availableWidth < contextualMenuWidth ? true : false;
-      const heightOverflow =
+      this.widthOverflow = availableWidth < contextualMenuWidth ? true : false;
+      this.heightOverflow =
         availableHeight < contextualMenuHeight ? true : false;
-
-      //Set contextualMenu position
-      this.el.setAttribute(
-        "style",
-        "left:" +
-          this.mouseCoordinates.x +
-          "px; top:" +
-          this.mouseCoordinates.y +
-          "px;"
-      );
-      if (widthOverflow) {
-        this.el.classList.add("width-overflow");
-      } else {
-        this.el.classList.remove("width-overflow");
-      }
-      if (heightOverflow) {
-        this.el.classList.add("height-overflow");
-      } else {
-        this.el.classList.remove("height-overflow");
-      }
     }
   }
 
   detectClickOutsideMenu(event) {
-    console.log(event);
+    //Get mouse coordinates
+    this.topPosition = event.clientY;
+    this.leftPosition = event.clientX;
+
     const contextualMenu = this.el.shadowRoot.querySelector(
       ".contextual-menu-list"
     ) as HTMLElement;
@@ -87,37 +69,42 @@ export class ContextualMenu {
     } else {
       //Click happened outside the menu
       if (!this.firstRightClick) {
-        //this.visible = false;
-        this.el.removeAttribute("visible");
+        this.visible = false;
         this.firstRightClick = true;
-      } else {
+      } else if (this.visible) {
         this.firstRightClick = false;
       }
     }
   }
 
   saveMouseCoordinates(e) {
-    this.mouseCoordinates.x = e.clientX;
-    this.mouseCoordinates.y = e.clientY;
+    this.topPosition = e.clientX;
+    this.leftPosition = e.clientY;
   }
 
   componentDidLoad() {
     document.addEventListener("click", this.detectClickOutsideMenu);
     document.addEventListener("contextmenu", this.detectClickOutsideMenu);
-    document.addEventListener(
-      "mousemove",
-      this.saveMouseCoordinates.bind(this)
-    );
   }
 
   componentDidUnload() {
     document.removeEventListener("click", this.detectClickOutsideMenu);
-    document.removeEventListener("mousemove", this.detectClickOutsideMenu);
+    document.removeEventListener("contextmenu", this.detectClickOutsideMenu);
   }
 
   render() {
     return (
-      <Host>
+      <Host
+        visible={this.visible}
+        class={{
+          "width-overflow": this.widthOverflow,
+          "height-overflow": this.heightOverflow
+        }}
+        style={{
+          top: `${this.topPosition}px`,
+          left: `${this.leftPosition}px`
+        }}
+      >
         <ul class="contextual-menu-list">
           <slot></slot>
         </ul>
