@@ -1,0 +1,30 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: none;
+  position: fixed;
+  z-index: 999999999;
+  .contextual-menu-list {
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--gray-04);
+    border-radius: 2px;
+    background-color: var(--gray-01);
+    margin: 0;
+    padding: 2px 0;
+  }
+}
+:host([visible]) {
+  display: block;
+}
+:host(.width-overflow) {
+  transform: translateX(-100%);
+}
+:host(.height-overflow) {
+  transform: translateY(-100%);
+}
+:host(.width-overflow.height-overflow) {
+  transform: translateX(-100%) translateY(-100%);
+}

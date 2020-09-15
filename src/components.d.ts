@@ -250,6 +250,19 @@ export namespace Components {
      */
     space: Space;
   }
+  interface GxgContextualMenu {
+    /**
+     * The presence of this attribute makes the menu visible
+     */
+    visible: boolean;
+  }
+  interface GxgContextualMenuItem {
+    /**
+     * Optional icon
+     */
+    icon: string;
+  }
+  interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
     /**
      * The presence of this attribute makes the date-picker always visible
@@ -915,6 +928,27 @@ declare global {
     prototype: HTMLGxgColumnsElement;
     new (): HTMLGxgColumnsElement;
   };
+  interface HTMLGxgContextualMenuElement
+    extends Components.GxgContextualMenu,
+      HTMLStencilElement {}
+  var HTMLGxgContextualMenuElement: {
+    prototype: HTMLGxgContextualMenuElement;
+    new (): HTMLGxgContextualMenuElement;
+  };
+  interface HTMLGxgContextualMenuItemElement
+    extends Components.GxgContextualMenuItem,
+      HTMLStencilElement {}
+  var HTMLGxgContextualMenuItemElement: {
+    prototype: HTMLGxgContextualMenuItemElement;
+    new (): HTMLGxgContextualMenuItemElement;
+  };
+  interface HTMLGxgContextualMenuSubmenuElement
+    extends Components.GxgContextualMenuSubmenu,
+      HTMLStencilElement {}
+  var HTMLGxgContextualMenuSubmenuElement: {
+    prototype: HTMLGxgContextualMenuSubmenuElement;
+    new (): HTMLGxgContextualMenuSubmenuElement;
+  };
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
       HTMLStencilElement {}
@@ -1171,6 +1205,9 @@ declare global {
     "gxg-color-picker": HTMLGxgColorPickerElement;
     "gxg-column": HTMLGxgColumnElement;
     "gxg-columns": HTMLGxgColumnsElement;
+    "gxg-contextual-menu": HTMLGxgContextualMenuElement;
+    "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
+    "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
@@ -1437,6 +1474,19 @@ declare namespace LocalJSX {
      */
     space?: Space;
   }
+  interface GxgContextualMenu {
+    /**
+     * The presence of this attribute makes the menu visible
+     */
+    visible?: boolean;
+  }
+  interface GxgContextualMenuItem {
+    /**
+     * Optional icon
+     */
+    icon?: string;
+  }
+  interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
     /**
      * The presence of this attribute makes the date-picker always visible
@@ -2102,6 +2152,9 @@ declare namespace LocalJSX {
     "gxg-color-picker": GxgColorPicker;
     "gxg-column": GxgColumn;
     "gxg-columns": GxgColumns;
+    "gxg-contextual-menu": GxgContextualMenu;
+    "gxg-contextual-menu-item": GxgContextualMenuItem;
+    "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
     "gxg-date-picker": GxgDatePicker;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
@@ -2163,6 +2216,12 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
       "gxg-columns": LocalJSX.GxgColumns &
         JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
+      "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
+        JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
+      "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &
+        JSXBase.HTMLAttributes<HTMLGxgContextualMenuItemElement>;
+      "gxg-contextual-menu-submenu": LocalJSX.GxgContextualMenuSubmenu &
+        JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-drag-box": LocalJSX.GxgDragBox &
