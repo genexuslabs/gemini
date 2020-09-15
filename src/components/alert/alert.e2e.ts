@@ -30,8 +30,10 @@ describe("gxg-alert-notice", () => {
     alertMessage = await page.find("gxg-alert >>> .alert-message");
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
-    moreInfoIcon = await page.find("gxg-alert >>> gxg-icon[type='notice']");
-    closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
+    moreInfoIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='general/notice']"
+    );
+    closeIcon = await page.find("gxg-alert >>> gxg-icon[type='general/close']");
   });
 
   it("has the right classes", async () => {
@@ -42,9 +44,9 @@ describe("gxg-alert-notice", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "notice");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "general/notice");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "notice");
+    expect(moreInfoIcon).toEqualAttribute("type", "general/notice");
   });
 
   it("displays text", async () => {
@@ -90,7 +92,9 @@ describe("gxg-alert-error", () => {
     alertMessage = await page.find("gxg-alert >>> .alert-message");
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
-    moreInfoIcon = await page.find("gxg-alert >>> gxg-icon[type='error']");
+    moreInfoIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='general/error']"
+    );
     closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
   });
 
@@ -102,9 +106,9 @@ describe("gxg-alert-error", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "error");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "general/error");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "error");
+    expect(moreInfoIcon).toEqualAttribute("type", "general/error");
   });
 
   it("displays text", async () => {
@@ -133,7 +137,9 @@ describe("gxg-alert-success", () => {
     alertMessage = await page.find("gxg-alert >>> .alert-message");
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
-    moreInfoIcon = await page.find("gxg-alert >>> gxg-icon[type='success']");
+    moreInfoIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='general/success']"
+    );
     closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
   });
 
@@ -145,9 +151,9 @@ describe("gxg-alert-success", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "success");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "general/success");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "success");
+    expect(moreInfoIcon).toEqualAttribute("type", "general/success");
   });
 
   it("displays text", async () => {
@@ -176,7 +182,9 @@ describe("gxg-alert-warning", () => {
     alertMessage = await page.find("gxg-alert >>> .alert-message");
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
-    moreInfoIcon = await page.find("gxg-alert >>> gxg-icon[type='warning']");
+    moreInfoIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='general/warning']"
+    );
     closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
   });
 
@@ -188,9 +196,9 @@ describe("gxg-alert-warning", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "warning");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "general/warning");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "warning");
+    expect(moreInfoIcon).toEqualAttribute("type", "general/warning");
   });
 
   it("displays text", async () => {
