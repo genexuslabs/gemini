@@ -11,6 +11,22 @@ export class FormMessage {
    */
   @Prop() type: Message;
 
+  iconColor() {
+    if (this.type === "error") {
+      return "error";
+    } else if (this.type === "warning") {
+      return "warning";
+    }
+  }
+
+  iconType() {
+    if (this.type === "error") {
+      return "general/error";
+    } else if (this.type === "warning") {
+      return "general/warning";
+    }
+  }
+
   render() {
     return (
       <Host>
@@ -18,8 +34,8 @@ export class FormMessage {
           style={{ "--icon-size": "15px" }}
           slot="icon"
           size="small"
-          type={this.type}
-          color={this.type}
+          type={this.iconType()}
+          color={this.iconColor()}
         ></gxg-icon>
         <slot></slot>
       </Host>

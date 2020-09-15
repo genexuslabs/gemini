@@ -59,7 +59,7 @@ export class Toolbar {
           <div class="left-container">
             <gxg-icon
               slot="icon"
-              type="drag"
+              type="general/drag"
               color="negative"
               size="small"
             ></gxg-icon>

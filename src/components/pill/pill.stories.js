@@ -19,10 +19,10 @@ stories
     /*Pill Icon*/
     const labelIcon = "Icon";
     const optionsIcon = {
-      "pill-filled": "pill-filled",
-      "pill-outlined": "pill-outlined"
+      "general/pill-filled": "general/pill-filled",
+      "general/pill-outlined": "general/pill-outlined"
     };
-    const defaultValueIcon = optionsIcon["pill-filled"];
+    const defaultValueIcon = optionsIcon["general/pill-filled"];
 
     //Pill Label
     const labelPillSlot = "Slot";
@@ -44,10 +44,10 @@ stories
     /*Pill Icon*/
     const labelIcon = "Icon";
     const optionsIcon = {
-      "pill-filled": "pill-filled",
-      "pill-outlined": "pill-outlined"
+      "general/pill-filled": "general/pill-filled",
+      "general/pill-outlined": "general/pill-outlined"
     };
-    const defaultValueIcon = optionsIcon["pill-filled"];
+    const defaultValueIcon = optionsIcon["general/pill-filled"];
 
     //Pill Label
     const labelPillSlot = "Slot";
@@ -75,10 +75,10 @@ stories
     /*Pill Icon*/
     const labelIcon = "Icon";
     const optionsIcon = {
-      "pill-filled": "pill-filled",
-      "pill-outlined": "pill-outlined"
+      "general/pill-filled": "general/pill-filled",
+      "general/pill-outlined": "general/pill-outlined"
     };
-    const defaultValueIcon = optionsIcon["pill-filled"];
+    const defaultValueIcon = optionsIcon["general/pill-filled"];
 
     //Pill Label
     const labelPillSlot = "Slot";

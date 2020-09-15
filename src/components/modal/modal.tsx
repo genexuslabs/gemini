@@ -78,7 +78,7 @@ export class Modal {
           <header class="modal__header">
             <span class="modal__header__title">{this.modalTitle}</span>
             <gxg-button
-              icon="close"
+              icon="general/close"
               type="secondary-icon-only"
               onClick={this.closeModal.bind(this)}
             ></gxg-button>

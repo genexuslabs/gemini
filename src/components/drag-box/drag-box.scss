@@ -10,7 +10,7 @@
   align-items: center;
   background-color: var(--color-background);
   margin-bottom: var(--spacing-lay-s);
-  padding: 0 var(--spacing-comp-01);
+  padding: 0 var(--spacing-comp-02) 0 var(--spacing-comp-01);
   cursor: pointer;
   opacity: 1;
   @include ui-animation(opacity);

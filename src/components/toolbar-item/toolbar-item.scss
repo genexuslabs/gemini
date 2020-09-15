@@ -14,6 +14,8 @@
       @include ui-animation(transform);
     }
     &__label {
+      display: flex;
+      align-items: center;
       position: absolute;
       display: flex;
       background-color: var(--color-primary-active);

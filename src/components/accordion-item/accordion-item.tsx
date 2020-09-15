@@ -5,8 +5,7 @@ import {
   Host,
   Element,
   Event,
-  EventEmitter,
-  Listen
+  EventEmitter
 } from "@stencil/core";
 import { Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
@@ -81,7 +80,7 @@ export class AccordionItem {
     let iColor: Color;
     let iSize: Size;
     if (this.status === "open" && !this.disabled) {
-      iType = "chevron-up";
+      iType = "navigation/chevron-up";
       if (this.mode === "classical") {
         iColor = "alwaysblack";
       } else if (this.mode === "boxed" || this.mode === "minimal") {
@@ -91,7 +90,7 @@ export class AccordionItem {
       }
     } else {
       //item closed
-      iType = "chevron-down";
+      iType = "navigation/chevron-down";
       if (this.mode === "classical") {
         if (this.disabled) {
           iColor = "alwaysblack";
@@ -168,10 +167,11 @@ export class AccordionItem {
     }
   }
 
-  @Listen("change")
-  todoCompletedHandler(event) {
-    this.itemTitle = event.detail;
-    this.titleChanged.emit(this.itemTitle);
+  changedTitleHandler(event) {
+    if (this.editableTitle) {
+      this.itemTitle = event.detail;
+      this.titleChanged.emit(this.itemTitle);
+    }
   }
 
   render() {
@@ -201,6 +201,7 @@ export class AccordionItem {
                 >
                   {this.editableTitle ? (
                     <gxg-form-text
+                      onChange={event => this.changedTitleHandler(event)}
                       minimal
                       value={this.itemTitle}
                       onClick={this.gxgFormTextClickedHandler.bind(this)}

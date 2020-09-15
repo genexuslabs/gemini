@@ -102,7 +102,7 @@ stories.add("Toolbar", () => {
   <gxg-toolbar toolbar-title="${valueTitle}" subtitle="${valueSubtitle}" position=${valueArrowPosition}>
       <gxg-toolbar-item
         slot
-        icon="settings"
+        icon="general/settings"
         toolbar-item-title="${valueFirstIconTitle}"
         subtitle="${valueFirstIconSubtitle}"
         onClick="(function(){
@@ -113,14 +113,14 @@ stories.add("Toolbar", () => {
       ></gxg-toolbar-item>
       <gxg-toolbar-item
         slot
-        icon="settings"
-        toolbar-item-title="title"
+        icon="general/settings"
+        toolbar-item-title="Title"
         subtitle="subtitle"
       ></gxg-toolbar-item>
       <gxg-toolbar-item
         slot
-        icon="settings"
-        toolbar-item-title="title"
+        icon="general/settings"
+        toolbar-item-title="Title"
         subtitle="subtitle"
       ></gxg-toolbar-item>
     </gxg-toolbar>

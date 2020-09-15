@@ -16,7 +16,7 @@ export class Pill {
   /**
    * The icon
    */
-  @Prop() icon: PillIconType = "pill-filled";
+  @Prop() icon: PillIconType = "general/pill-filled";
 
   /**
    * The presence of this attribute ads a close button that when clicked, removes the pill
@@ -49,7 +49,7 @@ export class Pill {
         {this.type === "button-with-action" ? (
           <gxg-icon
             class="clear-button"
-            type="close"
+            type="general/close"
             size="small"
             color="onbackground"
             onClick={this.removeButtonFunc.bind(this)}
@@ -61,4 +61,4 @@ export class Pill {
 }
 
 export type PillType = "static" | "button" | "button-with-action";
-export type PillIconType = "pill-filled" | "pill-outlined";
+export type PillIconType = "general/pill-filled" | "general/pill-outlined";

@@ -1,1 +1,20 @@
-[{ "name": "", "description": "" }]
+[
+  { "name": "menus/build-all", "description": "Some description" },
+  { "name": "menus/build", "description": "Some description" },
+  { "name": "menus/cancel-build", "description": "Some description" },
+  { "name": "menus/copy", "description": "Some description" },
+  { "name": "menus/create-database-tables", "description": "Some description" },
+  { "name": "cmenus/cut", "description": "Some description" },
+  { "name": "menus/delete", "description": "Some description" },
+  { "name": "menus/find", "description": "Some description" },
+  { "name": "menus/new-object", "description": "Some description" },
+  { "name": "menus/open-object", "description": "Some description" },
+  { "name": "menus/paste", "description": "Some description" },
+  { "name": "menus/properties", "description": "Some description" },
+  { "name": "menus/redo", "description": "Some description" },
+  { "name": "menus/run", "description": "Some description" },
+  { "name": "menus/save-all", "description": "Some description" },
+  { "name": "menus/save", "description": "Some description" },
+  { "name": "menus/undo-close-object", "description": "Some description" },
+  { "name": "menus/undo", "description": "Some description" }
+]

@@ -1,1 +1,12 @@
-[{ "name": "", "description": "" }]
+[
+  { "name": "navigation/arrow-down", "description": "Some description" },
+  { "name": "navigation/arrow-left", "description": "Some description" },
+  { "name": "navigation/arrow-right", "description": "Some description" },
+  { "name": "navigation/arrow-up", "description": "Some description" },
+  { "name": "navigation/chevron-down", "description": "Some description" },
+  { "name": "navigation/chevron-left", "description": "Some description" },
+  { "name": "navigation/chevron-right", "description": "Some description" },
+  { "name": "navigation/chevron-up", "description": "Some description" },
+  { "name": "navigation/level-down", "description": "Some description" },
+  { "name": "navigation/level-up", "description": "Some description" }
+]
