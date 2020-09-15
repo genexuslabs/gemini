@@ -1,10 +1,11 @@
 // yourTheme.js
 
 import { create } from "@storybook/theming/create";
+import logo from "../www/assets/Gemini.svg";
 
 export default create({
   base: "light",
   brandTitle: "Gemini Desgin System",
   brandUrl: "https://github.com/genexuslabs/gemini",
-  brandImage: "./assets/Gemini.svg"
+  brandImage: logo
 });
