@@ -30,7 +30,7 @@ export class ContextualMenuItem {
         <gxg-icon
           class="show-more"
           size="small"
-          type="general/arrow-right"
+          type="navigation/arrow-right"
           color="onbackground"
         ></gxg-icon>
       );
