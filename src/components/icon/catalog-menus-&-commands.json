@@ -4,7 +4,7 @@
   { "name": "menus/cancel-build", "description": "Some description" },
   { "name": "menus/copy", "description": "Some description" },
   { "name": "menus/create-database-tables", "description": "Some description" },
-  { "name": "cmenus/cut", "description": "Some description" },
+  { "name": "menus/cut", "description": "Some description" },
   { "name": "menus/delete", "description": "Some description" },
   { "name": "menus/find", "description": "Some description" },
   { "name": "menus/new-object", "description": "Some description" },
