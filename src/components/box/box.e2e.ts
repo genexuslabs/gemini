@@ -32,7 +32,7 @@ describe("gxg-box fullwidth", () => {
   });
 
   it("is full width", async () => {
-    expect((await box.getComputedStyle()).width).toBe("184px");
+    expect((await box.getComputedStyle()).width).toBe("192px");
   });
 });
 
@@ -100,7 +100,7 @@ describe("gxg-box width", () => {
   });
 
   it("has the right width", async () => {
-    expect((await box.getComputedStyle()).width).toBe("484px");
+    expect((await box.getComputedStyle()).width).toBe("492px");
   });
 });
 
