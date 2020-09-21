@@ -37,6 +37,7 @@
   { "name": "objects/procedure", "description": "Some description" },
   { "name": "objects/query", "description": "Some description" },
   { "name": "objects/report", "description": "Some description" },
+  { "name": "objects/stencil", "description": "Some description" },
   { "name": "objects/structured-data-type", "description": "Some description" },
   { "name": "objects/subtype-group", "description": "Some description" },
   { "name": "objects/table", "description": "Some description" },
