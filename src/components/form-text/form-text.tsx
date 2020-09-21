@@ -160,19 +160,21 @@ export class FormText implements FormComponent {
     this.input.emit(target.value);
     formHandleChange(this, e.target);
 
-    //Update ghost span content, and then get and apply the width from the ghost span
-    const ghostSpan = document.querySelector(".ghost-span");
-    ghostSpan.innerHTML = this.value;
+    if (this.minimal) {
+      //Update ghost span content, and then get and apply the width from the ghost span
+      const ghostSpan = document.querySelector(".ghost-span");
+      ghostSpan.innerHTML = this.value;
 
-    //Then get the ghost span width
-    const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 2;
+      //Then get the ghost span width
+      const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 2;
 
-    const input = this.el.shadowRoot.querySelector(
-      ".input"
-    ) as HTMLInputElement;
+      const input = this.el.shadowRoot.querySelector(
+        ".input"
+      ) as HTMLInputElement;
 
-    //Finally set that width to the input!
-    input.style.width = ghostSpanWidth + "px";
+      //Finally set that width to the input!
+      input.style.width = ghostSpanWidth + "px";
+    }
   }
 
   handleChange(e) {
@@ -238,6 +240,12 @@ export class FormText implements FormComponent {
       const ghostSpan = document.createElement("span");
       ghostSpan.classList.add("ghost-span");
 
+      //Set ghostSpan outside of the visible area
+      ghostSpan.style.position = "fixed";
+      ghostSpan.style.left = "-1000px";
+      ghostSpan.style.top = "-1000px";
+      ghostSpan.style.zIndex = "-1000";
+      ghostSpan.style.opacity = "0";
       //Set input styles that affect the width to the ghost span
       ghostSpan.style.fontSize = inputComputedStyles.fontSize;
       ghostSpan.style.fontFamily = inputComputedStyles.fontFamily;
