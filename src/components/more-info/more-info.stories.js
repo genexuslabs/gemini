@@ -13,11 +13,6 @@ const stories = storiesOf("Interaction/More info", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("More info", () => {
-  //Label
-  const labelValueLabel = "Content";
-  const defaultValueLabel = "More info text";
-  const valueLabel = text(labelValueLabel, defaultValueLabel);
-
   //Position
   const labelPosition = "Position";
   const optionsPosition = {
@@ -33,8 +28,38 @@ stories.add("More info", () => {
     defaultValuePosition
   );
 
-  return `<gxg-more-info
+  //Label
+  const labelValueLabel = "Content";
+  const defaultValueLabel =
+    "In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery.";
+  const valueLabel = text(labelValueLabel, defaultValueLabel);
+
+  //More info label
+  const labelMoreInfoLabel = "More info label";
+  const defaultValueMoreInfoLabel = "More info";
+  const valueMoreInfoLabel = text(
+    labelMoreInfoLabel,
+    defaultValueMoreInfoLabel
+  );
+
+  //More info url
+  const labelMoreInfoUrl = "Url (Optional)";
+  const defaultValueMoreInfoUrl =
+    "https://en.wikipedia.org/wiki/Middle_Ages#:~:text=In%20the%20history%20of%20Europe,and%20the%20Age%20of%20Discovery.";
+  const valueMoreInfoUrl = text(labelMoreInfoUrl, defaultValueMoreInfoUrl);
+
+  //Target
+  const labelTarget = "Target";
+  const optionsTarget = {
+    _blank: "_blank",
+    _self: "_self"
+  };
+  const defaultValueTarget = "_blank";
+  const valueTarget = radios(labelTarget, optionsTarget, defaultValueTarget);
+
+  return `<gxg-more-info url="${valueMoreInfoUrl}" more-info-label="${valueMoreInfoLabel}"
   position="${valuePosition}"
       label="${valueLabel}"
+      target="${valueTarget}"
     ></gxg-more-info>`;
 });

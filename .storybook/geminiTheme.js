@@ -1,7 +1,7 @@
 // yourTheme.js
 
 import { create } from "@storybook/theming/create";
-import logo from "../www/assets/Gemini.svg";
+import logo from "../src/assets/Gemini.svg";
 
 export default create({
   base: "light",

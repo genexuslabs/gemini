@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  margin-bottom: var(--spacing-lay-s);
+  margin-bottom: var(--spacing-lay-xs);
   &:last-child {
     margin-bottom: 0;
   }
@@ -16,7 +16,7 @@
         border-style: solid;
         border-color: transparent;
         display: flex;
-        align-items: center;
+        align-items: start;
         width: 100%;
         &:focus {
           outline: none;
@@ -35,10 +35,6 @@
           width: 60%;
           &__title {
             display: inline;
-            // font-family: var(--font-family-primary);
-            // font-size: var(--font-size-sm);
-            // font-weight: var(--font-weight-bold);
-            // text-transform: uppercase;
             width: 100%;
             text-align: start;
           }

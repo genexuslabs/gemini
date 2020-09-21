@@ -10,7 +10,6 @@
   align-items: center;
   background-color: var(--color-background);
   margin-bottom: var(--spacing-lay-s);
-  padding: 0 var(--spacing-comp-02) 0 var(--spacing-comp-01);
   cursor: pointer;
   opacity: 1;
   @include ui-animation(opacity);
@@ -18,7 +17,7 @@
   &:before {
     content: "";
     display: block;
-    height: 2px;
+    height: 4px;
     width: calc(100% + 2px);
     background-color: transparent;
     position: absolute;
@@ -32,29 +31,39 @@
   }
   .container-content {
     width: 100%;
-    padding: var(--spacing-comp-02);
   }
   .drag-icon-container {
     display: flex;
+    align-self: start;
+    padding-top: 2px;
+    padding-right: var(--spacing-comp-02);
     gxg-icon {
       opacity: 0;
     }
   }
   .delete-button-container {
     display: flex;
-    gxg-button {
+    align-self: flex-start;
+    padding-top: 2px;
+    gxg-button::part(native-button) {
       opacity: 0;
+      &:focus {
+        opacity: 1;
+      }
     }
   }
 }
 :host(:hover) {
+  &:before {
+    background-color: var(--gray-03);
+  }
   .drag-icon-container {
     gxg-icon {
       opacity: 1;
     }
   }
   .delete-button-container {
-    gxg-button {
+    gxg-button::part(native-button) {
       opacity: 1;
     }
   }
@@ -64,46 +73,55 @@
   .container-content {
     padding: 0;
   }
+  .delete-button-container {
+    padding-top: 0;
+  }
 }
 :host([padding="xs"]) {
-  .container-content {
-    padding: var(--spacing-comp-01);
-  }
+  padding: var(--spacing-comp-01);
 }
 :host([padding="s"]) {
-  .container-content {
-    padding: var(--spacing-comp-02);
-  }
+  padding: var(--spacing-comp-02);
 }
 :host([padding="m"]) {
-  .container-content {
-    padding: var(--spacing-comp-03);
-  }
+  padding: var(--spacing-comp-03);
 }
 :host([padding="l"]) {
-  .container-content {
-    padding: var(--spacing-comp-04);
-  }
+  padding: var(--spacing-comp-04);
 }
 :host([padding="xl"]) {
-  .container-content {
-    padding: var(--spacing-comp-05);
-  }
+  padding: var(--spacing-comp-05);
 }
 :host([padding="xxl"]) {
-  .container-content {
-    padding: var(--spacing-comp-06);
-  }
+  padding: var(--spacing-comp-06);
 }
 :host([padding="xxxl"]) {
-  .container-content {
-    padding: var(--spacing-comp-07);
-  }
+  padding: var(--spacing-comp-07);
 }
 
 //Border
-:host([active]) {
+:host([active]),
+:host(:focus) {
   &:before {
     background-color: var(--color-primary-active);
   }
+  .delete-button-container {
+    .delete-button-container {
+      gxg-button::part(native-button) {
+        opacity: 1;
+      }
+    }
+  }
+  .delete-button-container {
+    gxg-button::part(native-button) {
+      opacity: 1;
+    }
+  }
+}
+:host(:focus) {
+  &:before {
+  }
+  outline: none;
+  box-shadow: inset 0px 0px 0px 1px var(--color-primary-active);
+  border-color: var(--color-primary-active);
 }

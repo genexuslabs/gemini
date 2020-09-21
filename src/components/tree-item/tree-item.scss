@@ -51,6 +51,10 @@
   }
   gxg-icon.fold-unfold {
     margin-right: -4px;
+
+    &.no-icon {
+      margin-right: 3px;
+    }
   }
   .slotted-container {
     padding-left: 14px;

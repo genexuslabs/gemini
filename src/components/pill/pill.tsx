@@ -46,7 +46,8 @@ export class Pill {
         <span class="title">
           <slot></slot>
         </span>
-        {this.type === "button-with-action" ? (
+        {this.type === "button-with-action" ||
+        this.type === "static-with-action" ? (
           <gxg-icon
             class="clear-button"
             type="general/close"
@@ -60,5 +61,9 @@ export class Pill {
   }
 }
 
-export type PillType = "static" | "button" | "button-with-action";
+export type PillType =
+  | "static"
+  | "static-with-action"
+  | "button"
+  | "button-with-action";
 export type PillIconType = "general/pill-filled" | "general/pill-outlined";

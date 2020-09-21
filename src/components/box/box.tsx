@@ -21,7 +21,7 @@ export class Box {
   @Prop({ reflect: true }) border: border = "no-border";
 
   /*The box padding (internal spacing)*/
-  @Prop() padding: padding = "xs";
+  @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * The component min. height

@@ -27,7 +27,7 @@ export class DragBox {
   /**
    * The padding (internal spacing)
    */
-  @Prop({ reflect: true }) padding: Padding;
+  @Prop({ reflect: true }) padding: Padding = "s";
 
   /**
    * The title
@@ -66,7 +66,7 @@ export class DragBox {
 
   render() {
     return (
-      <Host onClick={this.clickedHandler.bind(this)}>
+      <Host tabindex="0" onClick={this.clickedHandler.bind(this)}>
         <span class="border"></span>
         <div class="drag-icon-container">
           <gxg-icon size="regular" type="general/drag"></gxg-icon>
@@ -80,6 +80,7 @@ export class DragBox {
         <div class="delete-button-container">
           {this.deletable ? (
             <gxg-button
+              button-styles-editable
               icon="general/delete"
               onClick={this.deleteHandler.bind(this)}
               type="secondary-icon-only"

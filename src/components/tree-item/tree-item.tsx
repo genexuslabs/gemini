@@ -25,7 +25,7 @@ export class TreeItem {
   /**
    * The tree item icon
    */
-  @Prop() icon = "general/file";
+  @Prop() icon = null;
   @State() open = false;
   @State() numberOfChildItems: number;
   @State() treeContainerMaxHeight: string;
@@ -76,11 +76,6 @@ export class TreeItem {
     return (
       <Host
         tabindex="0"
-        // style={{
-        //   "--treeContainerMaxHeight": this.open
-        //     ? this.treeContainerMaxHeight
-        //     : "0"
-        // }}
         class={{
           disabled: this.disabled
         }}
@@ -110,13 +105,19 @@ export class TreeItem {
               <gxg-icon
                 size="small"
                 type="general/minus"
-                class="fold-unfold"
+                class={{
+                  "fold-unfold": true,
+                  "no-icon": this.icon === null
+                }}
               ></gxg-icon>
             ) : (
               <gxg-icon
                 size="small"
                 type="general/add"
-                class="fold-unfold"
+                class={{
+                  "fold-unfold": true,
+                  "no-icon": this.icon === null
+                }}
               ></gxg-icon>
             )}
             <gxg-icon size="small" type={this.icon}></gxg-icon>
