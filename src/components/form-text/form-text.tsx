@@ -166,7 +166,7 @@ export class FormText implements FormComponent {
       ghostSpan.innerHTML = this.value;
 
       //Then get the ghost span width
-      const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 2;
+      const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 5;
 
       const input = this.el.shadowRoot.querySelector(
         ".input"
@@ -249,6 +249,7 @@ export class FormText implements FormComponent {
       //Set input styles that affect the width to the ghost span
       ghostSpan.style.fontSize = inputComputedStyles.fontSize;
       ghostSpan.style.fontFamily = inputComputedStyles.fontFamily;
+      ghostSpan.style.textTransform = inputComputedStyles.textTransform;
       ghostSpan.style.display = "inline-block";
       ghostSpan.style.paddingLeft = inputComputedStyles.paddingRight;
       ghostSpan.style.paddingRight = inputComputedStyles.paddingRight;
@@ -261,7 +262,7 @@ export class FormText implements FormComponent {
       document.body.appendChild(ghostSpan);
 
       //Then get the ghost span width
-      const ghostSpanWidth = ghostSpan.offsetWidth + 2;
+      const ghostSpanWidth = ghostSpan.offsetWidth + 5;
       //Finally set that width to the input!
       input.style.width = ghostSpanWidth + "px";
     }

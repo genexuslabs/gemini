@@ -199,7 +199,7 @@ export class AccordionItem {
                   class="item__header__button__title-subtitle__title"
                   onClick={this.titleClickedHandler.bind(this)}
                 >
-                  {this.editableTitle ? (
+                  {this.editableTitle && this.status === "open" ? (
                     <gxg-form-text
                       onChange={event => this.changedTitleHandler(event)}
                       minimal
