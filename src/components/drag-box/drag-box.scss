@@ -100,8 +100,7 @@
 }
 
 //Border
-:host([active]),
-:host(:focus) {
+:host([active]) {
   &:before {
     background-color: var(--color-primary-active);
   }

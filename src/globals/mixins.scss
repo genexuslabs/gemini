@@ -95,8 +95,8 @@ TYPOGRAPHY
 }
 /*Title 05*/
 @mixin gxg-title-05 {
-  text-transform: uppercase;
   font-family: var(--font-family-primary);
+  text-transform: uppercase;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
   letter-spacing: var(--letter-spacing-sm);

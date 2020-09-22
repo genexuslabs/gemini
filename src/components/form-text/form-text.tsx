@@ -207,7 +207,6 @@ export class FormText implements FormComponent {
         ) {
           //Mouse pointer is inside the input text
           this.cursorInside = true;
-          console.log("cursor is inside the input text");
         }
       }.bind(this),
       500
@@ -218,12 +217,12 @@ export class FormText implements FormComponent {
   }
 
   mouseMoveHandler(e) {
-    console.log(e);
     this.mouseCoordinates["x"] = e.clientX;
     this.mouseCoordinates["y"] = e.clientY;
   }
 
   componentDidLoad() {
+    console.log("form text loaded");
     if (this.minimal) {
       document.addEventListener("mousemove", this.mouseMoveHandler.bind(this));
 
@@ -260,6 +259,9 @@ export class FormText implements FormComponent {
 
       //Append ghost span to the body
       document.body.appendChild(ghostSpan);
+
+      console.log("inputComputedStyles.textTransforms");
+      console.log(inputComputedStyles.textTransform);
 
       //Then get the ghost span width
       const ghostSpanWidth = ghostSpan.offsetWidth + 5;
