@@ -1,0 +1,38 @@
+[
+  { "name": "gemini-tools/add", "description": "Some description" },
+  { "name": "gemini-tools/add-circle", "description": "Some description" },
+  { "name": "gemini-tools/category-group", "description": "Some description" },
+  {
+    "name": "gemini-tools/category-ungroup",
+    "description": "Some description"
+  },
+  { "name": "gemini-tools/circle", "description": "Some description" },
+  { "name": "gemini-tools/close", "description": "Some description" },
+  { "name": "gemini-tools/color-picker", "description": "Some description" },
+  { "name": "gemini-tools/delete", "description": "Some description" },
+  { "name": "gemini-tools/drag", "description": "Some description" },
+  { "name": "gemini-tools/duplicate", "description": "Some description" },
+  { "name": "gemini-tools/edit", "description": "Some description" },
+  { "name": "gemini-tools/edit-wand", "description": "Some description" },
+  { "name": "gemini-tools/error", "description": "Some description" },
+  { "name": "gemini-tools/file", "description": "Some description" },
+  { "name": "gemini-tools/folder", "description": "Some description" },
+  { "name": "gemini-tools/minus", "description": "Some description" },
+  { "name": "gemini-tools/minus-circle", "description": "Some description" },
+  { "name": "gemini-tools/notice", "description": "Some description" },
+  { "name": "gemini-tools/pill-filled", "description": "Some description" },
+  { "name": "gemini-tools/pill-outlined", "description": "Some description" },
+  { "name": "gemini-tools/reset", "description": "Some description" },
+  { "name": "gemini-tools/search", "description": "Some description" },
+  { "name": "gemini-tools/settings", "description": "Some description" },
+  {
+    "name": "gemini-tools/show-more-horizontal",
+    "description": "Some description"
+  },
+  {
+    "name": "gemini-tools/show-more-vertical",
+    "description": "Some description"
+  },
+  { "name": "gemini-tools/success", "description": "Some description" },
+  { "name": "gemini-tools/warning", "description": "Some description" }
+]
