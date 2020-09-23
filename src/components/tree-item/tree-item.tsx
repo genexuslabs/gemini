@@ -104,7 +104,7 @@ export class TreeItem {
             {(this.hasChildren && this.open) || !this.hasChildren ? (
               <gxg-icon
                 size="small"
-                type="general/minus"
+                type="tools/minus"
                 class={{
                   "fold-unfold": true,
                   "no-icon": this.icon === null
@@ -113,7 +113,7 @@ export class TreeItem {
             ) : (
               <gxg-icon
                 size="small"
-                type="general/add"
+                type="tools/add"
                 class={{
                   "fold-unfold": true,
                   "no-icon": this.icon === null

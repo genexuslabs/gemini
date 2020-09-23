@@ -21,9 +21,9 @@ export class FormMessage {
 
   iconType() {
     if (this.type === "error") {
-      return "general/error";
+      return "tools/error";
     } else if (this.type === "warning") {
-      return "general/warning";
+      return "tools/warning";
     }
   }
 

@@ -24,7 +24,7 @@ describe("gxg-toolbar", () => {
       `<gxg-toolbar toolbar-title="Title" subtitle="Subtitle" position="left">
       <gxg-toolbar-item
         slot
-        icon="general/settings"
+        icon="tools/settings"
         toolbar-item-title="title"
         subtitle="subtitle"
         onClick="toolbarFunc01()"
@@ -32,7 +32,7 @@ describe("gxg-toolbar", () => {
       ></gxg-toolbar-item>
       <gxg-toolbar-item
         slot
-        icon="general/settings"
+        icon="tools/settings"
         toolbar-item-title="title"
         subtitle="subtitle"
         disabled
@@ -112,6 +112,6 @@ describe("gxg-toolbar", () => {
     await page.waitForChanges();
     expect(toolbarIcon.getAttribute("color")).toBe("negative");
     expect(toolbarIcon.getAttribute("size")).toBe("small");
-    expect(toolbarIcon.getAttribute("type")).toBe("general/drag");
+    expect(toolbarIcon.getAttribute("type")).toBe("tools/drag");
   });
 });

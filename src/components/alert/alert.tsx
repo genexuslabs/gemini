@@ -209,7 +209,7 @@ export class Alert {
               <gxg-icon
                 color={this.iconColor()}
                 slot="icon"
-                type={"general/" + this.type}
+                type={"tools/" + this.type}
               ></gxg-icon>
             </div>
             <div class="alert-message-title-description">
@@ -223,14 +223,14 @@ export class Alert {
             {this.type === "notice" ? (
               <gxg-button
                 type="tertiary"
-                icon="general/close"
+                icon="tools/close"
                 onClick={this.setAlertInactive.bind(this)}
                 negative
               ></gxg-button>
             ) : (
               <gxg-button
                 type="tertiary"
-                icon="general/close"
+                icon="tools/close"
                 onClick={this.setAlertInactive.bind(this)}
                 always-black
               ></gxg-button>

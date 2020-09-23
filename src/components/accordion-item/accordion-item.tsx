@@ -5,7 +5,8 @@ import {
   Host,
   Element,
   Event,
-  EventEmitter
+  EventEmitter,
+  State
 } from "@stencil/core";
 import { Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";

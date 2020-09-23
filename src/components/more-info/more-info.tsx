@@ -34,7 +34,7 @@ export class MoreInfo {
   render() {
     return (
       <span class="more-info">
-        <gxg-icon color="primary" type="general/notice"></gxg-icon>
+        <gxg-icon color="primary" type="tools/notice"></gxg-icon>
         <div class="more-info__text">
           <span class="more-info__text__content">
             {this.label}
