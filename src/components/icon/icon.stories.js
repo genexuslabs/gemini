@@ -161,77 +161,11 @@ stories
       markdown: readme
     }
   })
-  .add(
-    "Objects",
-    () => {
-      //Icons01
-      const icons01Label = "--icons01";
-      const icons01Value = "#0266a0";
-      const groupId = "iconColors";
-      const valueIcons01 = color(icons01Label, icons01Value, groupId);
-
-      //Icons02
-      const icons02Label = "--icons02";
-      const icons02Value = "#605cab";
-      const valueIcons02 = color(icons02Label, icons02Value, groupId);
-
-      //Icons03
-      const icons03Label = "--icons03";
-      const icons03Value = "#00746b";
-      const valueIcons03 = color(icons03Label, icons03Value, groupId);
-
-      //Icons04
-      const icons04Label = "--icons04";
-      const icons04Value = "#00a99d";
-      const valueIcons04 = color(icons04Label, icons04Value, groupId);
-
-      //Icons05
-      const icons05Label = "--icons05";
-      const icons05Value = "#39b54a";
-      const valueIcons05 = color(icons05Label, icons05Value, groupId);
-
-      //Icons06
-      const icons06Label = "--icons06";
-      const icons06Value = "#ed145b";
-      const valueIcons06 = color(icons06Label, icons06Value, groupId);
-
-      //Icons07
-      const icons07Label = "--icons07";
-      const icons07Value = "#f26522";
-      const valueIcons07 = color(icons07Label, icons07Value, groupId);
-
-      //Icons08
-      const icons08Label = "--icons08";
-      const icons08Value = "#f7941d";
-      const valueIcons08 = color(icons08Label, icons08Value, groupId);
-
-      return (
-        "<style>body {--icons01:" +
-        valueIcons01 +
-        ";--icons02:" +
-        valueIcons02 +
-        ";--icons03:" +
-        valueIcons03 +
-        ";--icons04:" +
-        valueIcons04 +
-        ";--icons05:" +
-        valueIcons05 +
-        ";--icons06:" +
-        valueIcons06 +
-        ";--icons07:" +
-        valueIcons07 +
-        ";--icons08:" +
-        valueIcons08 +
-        ";}</style>" +
-        returnTableOfIcons("regular", objects)
-      );
-    },
-    {
-      notes: {
-        markdown: readme
-      }
+  .add("Objects", () => returnTableOfIcons("regular", objects), {
+    notes: {
+      markdown: readme
     }
-  )
+  })
   .add("Other", () => returnTableOfIcons("regular", other), {
     notes: {
       markdown: readme

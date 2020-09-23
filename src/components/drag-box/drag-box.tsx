@@ -91,7 +91,7 @@ export class DragBox {
         onClick={this.clickedHandler.bind(this)}
         onKeyDown={this.handlerOnKeyDown.bind(this)}
       >
-        <div class="cover"></div>
+        {this.active ? null : <div class="cover"></div>}
         <span class="border"></span>
         <div class="drag-icon-container">
           <gxg-icon size="regular" type="gemini-tools/drag"></gxg-icon>
