@@ -152,13 +152,6 @@ export class Alert {
     }
   }
 
-  buttonIconColor() {
-    // if (this.type === "notice") {
-    //   return "always-black";
-    // }
-    console.log("icon color");
-  }
-
   render() {
     let lateralSpacingValue;
     if (this.leftRight === "no-space") {

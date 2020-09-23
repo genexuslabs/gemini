@@ -181,11 +181,36 @@
 <gxg-toggle on tabindex="0"></gxg-toggle>
 <gxg-toggle disabled tabindex="0"></gxg-toggle>
 
+<gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+          >Show alert more info</gxg-button
+        >
+
 <div style="width:500px"><gxg-box border
   >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
   temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
   Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
   sint?</gxg-box></div>
+
+  <gxg-alert
+          id="alert-more-info"
+          type="more-info"
+          position="center"
+          left="15px"
+          right="15px"
+          bottom="15px"
+          alert-title="more info title"
+          active-time="xxslow"
+        >
+  </gxg-alert>
+       
+        <script>
+          function mostrarAlertMoreInfo(alertId) {
+            document.getElementById(alertId).setAttribute("active", "true");
+          }
+        </script>
+        <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+          >Show alert more info</gxg-button
+        >
 
     <script>
       // CONTEXT MENU

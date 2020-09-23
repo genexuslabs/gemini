@@ -95,9 +95,11 @@ describe("gxg-alert-error", () => {
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
     moreInfoIcon = await page.find(
-      "gxg-alert >>> gxg-icon[type='tools/error']"
+      "gxg-alert >>> gxg-icon[type='gemini-tools/error']"
     );
-    closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
+    closeIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='gemini-tools/close']"
+    );
   });
 
   it("has the right classes", async () => {
@@ -140,9 +142,11 @@ describe("gxg-alert-success", () => {
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
     moreInfoIcon = await page.find(
-      "gxg-alert >>> gxg-icon[type='tools/success']"
+      "gxg-alert >>> gxg-icon[type='gemini-tools/success']"
     );
-    closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
+    closeIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='gemini-tools/close']"
+    );
   });
 
   it("has the right classes", async () => {
@@ -185,9 +189,11 @@ describe("gxg-alert-warning", () => {
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
     moreInfoIcon = await page.find(
-      "gxg-alert >>> gxg-icon[type='tools/warning']"
+      "gxg-alert >>> gxg-icon[type='gemini-tools/warning']"
     );
-    closeIcon = await page.find("gxg-alert >>> gxg-icon[type='close']");
+    closeIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='gemini-tools/close']"
+    );
   });
 
   it("has the right classes", async () => {
