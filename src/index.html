@@ -89,6 +89,96 @@
       active-time="xxslow"
     >This is the content of the notice alert</gxg-alert>
 
+    <gxg-tree slot="tree">
+    <gxg-tree-item icon="general/file">
+      Fruits
+      <gxg-tree slot="tree">
+        <gxg-tree-item icon="general/file">
+          apple
+        </gxg-tree-item>
+        <gxg-tree-item>
+          banana
+          <gxg-tree slot="tree">
+            <gxg-tree-item>
+              cavendish banana
+            </gxg-tree-item>
+            <gxg-tree-item>
+              pisang raja
+            </gxg-tree-item>
+            <gxg-tree-item>
+              red banana
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Vegetables
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          sweat potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          lettuce
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Seasonings
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          salt
+        </gxg-tree-item>
+        <gxg-tree-item>
+          pepper
+        </gxg-tree-item>
+        <gxg-tree-item>
+          comino
+        </gxg-tree-item>
+        <gxg-tree-item>
+          parsley
+        </gxg-tree-item>
+        <gxg-tree-item>
+          basil
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+  </gxg-tree>
+
+  <gxg-drag-container>
+    <gxg-drag-box id="01" deletable class="draggable" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, tenetur quis. Maiores explicabo eos, nesciunt ipsum doloremque amet debitis veritatis nam provident quisquam itaque, hic libero dolores accusamus possimus magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nulla neque quia reiciendis quos, quidem eos ducimus maiores iste iusto laborum obcaecati voluptas necessitatibus! Ex nam earum nobis excepturi! Dicta?</gxg-drag-box>
+    <gxg-drag-box id="02" deletable class="draggable">Container 02</gxg-drag-box>
+    <gxg-drag-box id="03" deletable class="draggable">Container 03</gxg-drag-box>
+    <gxg-drag-box id="04" deletable class="draggable">Container 04</gxg-drag-box>
+    <gxg-drag-box id="05" deletable class="draggable">Container 05</gxg-drag-box>
+</gxg-drag-container>
+
+  <gxg-accordion mode="slim">
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      <gxg-accordion mode="slim">
+        <gxg-accordion-item item-title="tab-01" item-id="tab-03">some content on accordion 1.</gxg-accordion-item>
+        <gxg-accordion-item item-title="tab-02" item-id="tab-04">some content on accordion 2.</gxg-accordion-item>
+    </gxg-accordion>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+</gxg-accordion>
+
+
+<gxg-more-info position="top" label="In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery." url="www.google.com"></gxg-more-info>
+
+<gxg-toggle label="Toggle" tabindex="0" size="small"></gxg-toggle>
+<gxg-toggle on tabindex="0"></gxg-toggle>
+<gxg-toggle disabled tabindex="0"></gxg-toggle>
+
+<div style="width:500px"><gxg-box border
+  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+  temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+  Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
+  sint?</gxg-box></div>
+
     <script>
       // CONTEXT MENU
       let button = document.getElementById("button");

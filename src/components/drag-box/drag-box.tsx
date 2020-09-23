@@ -27,7 +27,7 @@ export class DragBox {
   /**
    * The padding (internal spacing)
    */
-  @Prop({ reflect: true }) padding: Padding;
+  @Prop({ reflect: true }) padding: Padding = "s";
 
   /**
    * The title
@@ -55,6 +55,26 @@ export class DragBox {
     this.deleted.emit("box was deleted");
   }
 
+  handlerOnKeyDown(event) {
+    if (event.keyCode == 13) {
+      //enter key was pressed
+      this.active = true;
+      this.clicked.emit(this.el.getAttribute("id"));
+    } else if (event.keyCode === 9 && event.shiftKey) {
+      //tab and shift keys were pressed
+      const previousElement = this.el.previousElementSibling as HTMLElement;
+      event.preventDefault();
+      previousElement.focus();
+    } else if (event.keyCode == 9) {
+      //only tab key was pressed
+      if (!this.active) {
+        const nextElement = this.el.nextElementSibling as HTMLElement;
+        event.preventDefault();
+        nextElement.focus();
+      }
+    }
+  }
+
   componentDidLoad() {
     if (this.title !== undefined) {
       const title = this.el.shadowRoot.querySelector(
@@ -66,7 +86,11 @@ export class DragBox {
 
   render() {
     return (
-      <Host onClick={this.clickedHandler.bind(this)}>
+      <Host
+        tabindex="0"
+        onClick={this.clickedHandler.bind(this)}
+        onKeyDown={this.handlerOnKeyDown.bind(this)}
+      >
         <span class="border"></span>
         <div class="drag-icon-container">
           <gxg-icon size="regular" type="general/drag"></gxg-icon>
@@ -80,6 +104,7 @@ export class DragBox {
         <div class="delete-button-container">
           {this.deletable ? (
             <gxg-button
+              button-styles-editable
               icon="general/delete"
               onClick={this.deleteHandler.bind(this)}
               type="secondary-icon-only"

@@ -29,7 +29,7 @@
 | ----------- | ----------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ----------- |
 | `active`    | `active`    | The presence of this attribute makes this box active                                       | `boolean`                                                     | `false`     |
 | `deletable` | `deletable` | The presence of this attribute adds a "delete" button that you can press to delete the box | `boolean`                                                     | `false`     |
-| `padding`   | `padding`   | The padding (internal spacing)                                                             | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
+| `padding`   | `padding`   | The padding (internal spacing)                                                             | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`       |
 | `title`     | `title`     | The title                                                                                  | `string`                                                      | `undefined` |
 
 ## Events

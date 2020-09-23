@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  margin-bottom: var(--spacing-lay-s);
+  margin-bottom: var(--spacing-lay-xs);
   &:last-child {
     margin-bottom: 0;
   }
@@ -17,6 +17,7 @@
         border-color: transparent;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
         &:focus {
           outline: none;
@@ -32,13 +33,11 @@
           flex-direction: column;
           align-items: baseline;
           justify-content: center;
-          width: 60%;
+          width: auto;
+          max-width: calc(100% - 25px);
+          overflow: hidden;
           &__title {
             display: inline;
-            // font-family: var(--font-family-primary);
-            // font-size: var(--font-size-sm);
-            // font-weight: var(--font-weight-bold);
-            // text-transform: uppercase;
             width: 100%;
             text-align: start;
           }
@@ -147,7 +146,7 @@
           }
         }
         &__meta-icon-wrapper {
-          width: 40%;
+          width: auto;
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -189,6 +188,7 @@
       &__button {
         background: transparent;
         flex-direction: row-reverse;
+        padding-left: 0;
         &:hover {
           gxg-icon {
             background-color: var(--color-primary-hover);
@@ -266,6 +266,7 @@
     }
     &__container {
       background: transparent;
+      padding-top: 0;
     }
     &:hover {
       gxg-icon {

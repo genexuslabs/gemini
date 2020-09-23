@@ -13,6 +13,11 @@ const stories = storiesOf("Navigation/Tree", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Tree", () => {
+  //Button Icon
+  const labelButtonIcon = "Button Icon";
+  const defaultValueButtonIcon = "navigation/arrow-down";
+  const valueButtonIcon = text(labelButtonIcon, defaultValueButtonIcon);
+
   return `
   <gxg-tree id="main-tree" onClick="(function(){
     let itemClickedHandler = function(e){

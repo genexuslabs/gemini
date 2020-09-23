@@ -34,7 +34,7 @@ import { Message } from "./components/form-message/form-message";
 import { IconPosition, Style } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import { padding as padding4 } from "./components/modal/modal";
-import { position } from "./components/more-info/more-info";
+import { position, target } from "./components/more-info/more-info";
 import { PillIconType, PillType } from "./components/pill/pill";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
@@ -151,6 +151,10 @@ export namespace Components {
      * The prescence of this attribute makes the icon always black
      */
     alwaysBlack: boolean;
+    /**
+     * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
+     */
+    buttonStylesEditable: boolean;
     /**
      * The state of the button, whether it is disabled or not
      */
@@ -556,9 +560,21 @@ export namespace Components {
      */
     label: string;
     /**
+     * (Optional) The "more-info" label. This property goes along with "url" attribute
+     */
+    moreInfoLabel: string;
+    /**
      * the tooltip position
      */
     position: position;
+    /**
+     * The url target
+     */
+    target: target;
+    /**
+     * (Optional) The "more-info" url.
+     */
+    url: string;
   }
   interface GxgOption {
     /**
@@ -858,7 +874,7 @@ export namespace Components {
     /**
      * The tree item icon
      */
-    icon: string;
+    icon: any;
   }
 }
 declare global {
@@ -1373,6 +1389,10 @@ declare namespace LocalJSX {
      */
     alwaysBlack?: boolean;
     /**
+     * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
+     */
+    buttonStylesEditable?: boolean;
+    /**
      * The state of the button, whether it is disabled or not
      */
     disabled?: boolean;
@@ -1827,9 +1847,21 @@ declare namespace LocalJSX {
      */
     label?: string;
     /**
+     * (Optional) The "more-info" label. This property goes along with "url" attribute
+     */
+    moreInfoLabel?: string;
+    /**
      * the tooltip position
      */
     position?: position;
+    /**
+     * The url target
+     */
+    target?: target;
+    /**
+     * (Optional) The "more-info" url.
+     */
+    url?: string;
   }
   interface GxgOption {
     /**
@@ -2135,7 +2167,7 @@ declare namespace LocalJSX {
     /**
      * The tree item icon
      */
-    icon?: string;
+    icon?: any;
     /**
      * (This event is for internal use)
      */

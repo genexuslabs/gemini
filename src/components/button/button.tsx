@@ -43,6 +43,11 @@ export class Button {
    */
   @Prop() type: ButtonType = "primary-text-only";
 
+  /**
+   * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
+   */
+  @Prop() buttonStylesEditable = false;
+
   /*********************************
   METHODS
   *********************************/
@@ -62,6 +67,12 @@ export class Button {
           .getAttribute("type");
         this.el.setAttribute("aria-label", iconAriaLabel);
       }
+    }
+    //Set a part attribute to the button if buttonStylesEditable is true
+    if (this.buttonStylesEditable) {
+      this.el.shadowRoot
+        .querySelector("button")
+        .setAttribute("part", "native-button");
     }
   }
 
@@ -83,31 +94,6 @@ export class Button {
       return <gxg-icon type={this.icon} color={this.iconColor()}></gxg-icon>;
     }
   }
-
-  // We finally decided to use the default browser tooltip that shows when title attribute is provided.
-  // iconTooltip() {
-  //   if (
-  //     this.type !== "primary-text-only" &&
-  //     this.type !== "secondary-text-only"
-  //   ) {
-  //     return <p class="icon-tooltip">Some tooltip</p>;
-  //   }
-  // }
-  // onMouseEnterHandler() {
-  //   //display tooltip (primary-icon-only or secondary-icon-only type only)
-  //   const button = this.el;
-  //   button.classList.add("display-tooltip");
-  //   setTimeout(function() {
-  //     button.classList.add("show-tooltip");
-  //   }, 1000);
-  // }
-  // onMouseLeaveHandler() {
-  //   const button = this.el;
-  //   button.classList.remove("show-tooltip");
-  //   setTimeout(function() {
-  //     button.classList.remove("display-tooltip");
-  //   }, 100);
-  // }
 
   iconColor() {
     let iColor: Color;

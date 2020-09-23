@@ -15,10 +15,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                              | Type      | Default          |
-| ---------- | ---------- | -------------------------------------------------------- | --------- | ---------------- |
-| `disabled` | `disabled` | The state of the tree-item, wether it is disabled or not | `boolean` | `false`          |
-| `icon`     | `icon`     | The tree item icon                                       | `string`  | `"general/file"` |
+| Property   | Attribute  | Description                                              | Type      | Default |
+| ---------- | ---------- | -------------------------------------------------------- | --------- | ------- |
+| `disabled` | `disabled` | The state of the tree-item, wether it is disabled or not | `boolean` | `false` |
+| `icon`     | `icon`     | The tree item icon                                       | `any`     | `null`  |
 
 ## Events
 

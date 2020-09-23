@@ -5,7 +5,8 @@ import {
   h,
   Host,
   Event,
-  EventEmitter
+  EventEmitter,
+  State
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -114,6 +115,13 @@ export class FormText implements FormComponent {
    */
   @Event() clearButtonClicked: EventEmitter;
 
+  @State() cursorInside = false;
+  @State() inputSize = "auto";
+  @State() mouseCoordinates: object = {
+    x: null,
+    y: null
+  };
+
   /*********************************
   METHODS
   *********************************/
@@ -151,6 +159,22 @@ export class FormText implements FormComponent {
     this.value = target.value;
     this.input.emit(target.value);
     formHandleChange(this, e.target);
+
+    if (this.minimal) {
+      //Update ghost span content, and then get and apply the width from the ghost span
+      const ghostSpan = document.querySelector(".ghost-span");
+      ghostSpan.innerHTML = this.value;
+
+      //Then get the ghost span width
+      const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 5;
+
+      const input = this.el.shadowRoot.querySelector(
+        ".input"
+      ) as HTMLInputElement;
+
+      //Finally set that width to the input!
+      input.style.width = ghostSpanWidth + "px";
+    }
   }
 
   handleChange(e) {
@@ -164,6 +188,92 @@ export class FormText implements FormComponent {
     const value = (this.el.shadowRoot.querySelector("input").value = "");
     this.change.emit(value);
     this.clearButtonClicked.emit("clear button was clicked");
+  }
+
+  mouseEnterHandler() {
+    setTimeout(
+      function() {
+        const inputText = this.el.shadowRoot.querySelector(
+          ".input"
+        ) as HTMLInputElement;
+
+        //Contextual menu coordinates
+        const inputTextArea = inputText.getBoundingClientRect();
+        if (
+          this.mouseCoordinates.x > inputTextArea.left &&
+          this.mouseCoordinates.x < inputTextArea.right &&
+          this.mouseCoordinates.y > inputTextArea.top &&
+          this.mouseCoordinates.y < inputTextArea.bottom
+        ) {
+          //Mouse pointer is inside the input text
+          this.cursorInside = true;
+        }
+      }.bind(this),
+      500
+    );
+  }
+  mouseOutHandler() {
+    this.cursorInside = false;
+  }
+
+  mouseMoveHandler(e) {
+    this.mouseCoordinates["x"] = e.clientX;
+    this.mouseCoordinates["y"] = e.clientY;
+  }
+
+  componentDidLoad() {
+    console.log("form text loaded");
+    if (this.minimal) {
+      document.addEventListener("mousemove", this.mouseMoveHandler.bind(this));
+
+      /**************
+      GHOST SPAN
+      Ghost span for the "minimal" type input, in order to make the input width fit the content
+      **************/
+
+      const input = this.el.shadowRoot.querySelector(
+        ".input"
+      ) as HTMLInputElement;
+      const inputComputedStyles = window.getComputedStyle(input);
+
+      const ghostSpan = document.createElement("span");
+      ghostSpan.classList.add("ghost-span");
+
+      //Set ghostSpan outside of the visible area
+      ghostSpan.style.position = "fixed";
+      ghostSpan.style.left = "-1000px";
+      ghostSpan.style.top = "-1000px";
+      ghostSpan.style.zIndex = "-1000";
+      ghostSpan.style.opacity = "0";
+      //Set input styles that affect the width to the ghost span
+      ghostSpan.style.fontSize = inputComputedStyles.fontSize;
+      ghostSpan.style.fontFamily = inputComputedStyles.fontFamily;
+      ghostSpan.style.textTransform = inputComputedStyles.textTransform;
+      ghostSpan.style.display = "inline-block";
+      ghostSpan.style.paddingLeft = inputComputedStyles.paddingRight;
+      ghostSpan.style.paddingRight = inputComputedStyles.paddingRight;
+      ghostSpan.style.letterSpacing = inputComputedStyles.letterSpacing;
+      ghostSpan.style.fontWeight = inputComputedStyles.fontWeight;
+      const ghostSpanText = document.createTextNode(input.value);
+      ghostSpan.appendChild(ghostSpanText);
+
+      //Append ghost span to the body
+      document.body.appendChild(ghostSpan);
+
+      console.log("inputComputedStyles.textTransforms");
+      console.log(inputComputedStyles.textTransform);
+
+      //Then get the ghost span width
+      const ghostSpanWidth = ghostSpan.offsetWidth + 5;
+      //Finally set that width to the input!
+      input.style.width = ghostSpanWidth + "px";
+    }
+  }
+
+  componentDidUnload() {
+    if (this.minimal) {
+      document.removeEventListener("mousemove", this.mouseMoveHandler);
+    }
   }
 
   render() {
@@ -202,19 +312,22 @@ export class FormText implements FormComponent {
               class={{
                 input: true,
                 "input--error": this.error === true,
-                "input--warning": this.warning === true
+                "input--warning": this.warning === true,
+                "cursor-inside": this.cursorInside
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
               onInput={this.handleInput.bind(this)}
               onChange={this.handleChange.bind(this)}
               required={this.required}
+              onMouseEnter={this.mouseEnterHandler.bind(this)}
+              onMouseOut={this.mouseOutHandler.bind(this)}
             ></input>
             {this.inputIcon()}
             {this.clearButton ? (
               <gxg-icon
                 class="clear-button"
-                type="close"
+                type="general/close"
                 size="small"
                 color="onbackground"
                 onClick={this.clearButtonFunc.bind(this)}

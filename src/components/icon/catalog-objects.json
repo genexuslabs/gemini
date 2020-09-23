@@ -37,6 +37,7 @@
   { "name": "objects/procedure", "description": "Some description" },
   { "name": "objects/query", "description": "Some description" },
   { "name": "objects/report", "description": "Some description" },
+  { "name": "objects/stencil", "description": "Some description" },
   { "name": "objects/structured-data-type", "description": "Some description" },
   { "name": "objects/subtype-group", "description": "Some description" },
   { "name": "objects/table", "description": "Some description" },
@@ -48,6 +49,5 @@
   { "name": "objects/web-component", "description": "Some description" },
   { "name": "objects/webpanel", "description": "Some description" },
   { "name": "objects/work-panel", "description": "Some description" },
-  { "name": "objects/work-with-web", "description": "Some description" },
   { "name": "objects/workwith-for-sd", "description": "Some description" }
 ]
