@@ -31,9 +31,11 @@ describe("gxg-alert-notice", () => {
     title = await page.find("gxg-alert >>> .alert-message--title");
     message = await page.find("gxg-alert >>> .alert-message--description");
     moreInfoIcon = await page.find(
-      "gxg-alert >>> gxg-icon[type='tools/notice']"
+      "gxg-alert >>> gxg-icon[type='gemini-tools/notice']"
     );
-    closeIcon = await page.find("gxg-alert >>> gxg-icon[type='tools/close']");
+    closeIcon = await page.find(
+      "gxg-alert >>> gxg-icon[type='gemini-tools/close']"
+    );
   });
 
   it("has the right classes", async () => {
@@ -44,9 +46,9 @@ describe("gxg-alert-notice", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "tools/notice");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "gemini-tools/notice");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "tools/notice");
+    expect(moreInfoIcon).toEqualAttribute("type", "gemini-tools/notice");
   });
 
   it("displays text", async () => {
@@ -106,9 +108,9 @@ describe("gxg-alert-error", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "tools/error");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "gemini-tools/error");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "tools/error");
+    expect(moreInfoIcon).toEqualAttribute("type", "gemini-tools/error");
   });
 
   it("displays text", async () => {
@@ -151,9 +153,9 @@ describe("gxg-alert-success", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "tools/success");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "gemini-tools/success");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "tools/success");
+    expect(moreInfoIcon).toEqualAttribute("type", "gemini-tools/success");
   });
 
   it("displays text", async () => {
@@ -196,9 +198,9 @@ describe("gxg-alert-warning", () => {
 
   it("has the right attributes", async () => {
     //more info icon
-    expect(moreInfoIcon).toEqualAttribute("aria-label", "tools/warning");
+    expect(moreInfoIcon).toEqualAttribute("aria-label", "gemini-tools/warning");
     expect(moreInfoIcon).toEqualAttribute("size", "regular");
-    expect(moreInfoIcon).toEqualAttribute("type", "tools/warning");
+    expect(moreInfoIcon).toEqualAttribute("type", "gemini-tools/warning");
   });
 
   it("displays text", async () => {

@@ -21,9 +21,9 @@ export class FormMessage {
 
   iconType() {
     if (this.type === "error") {
-      return "tools/error";
+      return "gemini-tools/error";
     } else if (this.type === "warning") {
-      return "tools/warning";
+      return "gemini-tools/warning";
     }
   }
 

@@ -94,7 +94,7 @@ export class DragBox {
         <div class="cover"></div>
         <span class="border"></span>
         <div class="drag-icon-container">
-          <gxg-icon size="regular" type="tools/drag"></gxg-icon>
+          <gxg-icon size="regular" type="gemini-tools/drag"></gxg-icon>
         </div>
         <div class="container-content">
           {this.title !== undefined ? (
@@ -106,7 +106,7 @@ export class DragBox {
           {this.deletable ? (
             <gxg-button
               button-styles-editable
-              icon="tools/delete"
+              icon="gemini-tools/delete"
               onClick={this.deleteHandler.bind(this)}
               type="secondary-icon-only"
             ></gxg-button>

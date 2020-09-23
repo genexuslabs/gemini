@@ -327,7 +327,7 @@ export class FormText implements FormComponent {
             {this.clearButton ? (
               <gxg-icon
                 class="clear-button"
-                type="tools/close"
+                type="gemini-tools/close"
                 size="small"
                 color="onbackground"
                 onClick={this.clearButtonFunc.bind(this)}

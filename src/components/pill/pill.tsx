@@ -16,7 +16,7 @@ export class Pill {
   /**
    * The icon
    */
-  @Prop() icon: PillIconType = "tools/pill-filled";
+  @Prop() icon: PillIconType = "gemini-tools/pill-filled";
 
   /**
    * The presence of this attribute ads a close button that when clicked, removes the pill
@@ -50,7 +50,7 @@ export class Pill {
         this.type === "static-with-action" ? (
           <gxg-icon
             class="clear-button"
-            type="tools/close"
+            type="gemini-tools/close"
             size="small"
             color="onbackground"
             onClick={this.removeButtonFunc.bind(this)}
@@ -66,4 +66,6 @@ export type PillType =
   | "static-with-action"
   | "button"
   | "button-with-action";
-export type PillIconType = "tools/pill-filled" | "tools/pill-outlined";
+export type PillIconType =
+  | "gemini-tools/pill-filled"
+  | "gemini-tools/pill-outlined";
