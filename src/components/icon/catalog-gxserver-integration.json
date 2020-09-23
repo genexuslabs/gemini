@@ -1,1 +1,20 @@
-[{ "name": "", "description": "" }]
+[
+  { "name": "gx-server/new", "description": "Some description" },
+  {
+    "name": "gx-server/changes-commit-pending",
+    "description": "Some description"
+  },
+  { "name": "gx-server/conflict", "description": "Some description" },
+  {
+    "name": "gx-server/lock-without-changes",
+    "description": "Some description"
+  },
+  {
+    "name": "gx-server/lock-by-user-reserve",
+    "description": "Some description"
+  },
+  {
+    "name": "gx-server/lock-by-user-changes",
+    "description": "Some description"
+  }
+]

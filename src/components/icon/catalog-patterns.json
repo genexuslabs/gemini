@@ -1,1 +1,4 @@
-[{ "name": "", "description": "" }]
+[
+  { "name": "objects/work-with-web", "description": "Some description" },
+  { "name": "objects/workwith-for-sd", "description": "Some description" }
+]
