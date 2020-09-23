@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11.5 3h-6A1.5 1.5 0 004 4.5v12A1.5 1.5 0 005.5 18h9a1.5 1.5 0 001.5-1.5v-9L11.5 3m3 13.5h-9v-12h5.25v3.75h3.75v8.25z" fill-rule="evenodd"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Tools/file</title>
+    <g id="Tools/file" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M11,4 L6.2,4 C5.5372583,4 5,4.5372583 5,5.2 L5,14.8 C5,15.4627417 5.5372583,16 6.2,16 L13.4,16 C14.0627417,16 14.6,15.4627417 14.6,14.8 L14.6,7.6 L11,4 M13.4,14.8 L6.2,14.8 L6.2,5.2 L10.4,5.2 L10.4,8.2 L13.4,8.2 L13.4,14.8 Z" id="Shape" fill="#000000"></path>
+    </g>
+</svg>
