@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M17.5 9.5V11h-15V9.5h15z" fill="#000" fill-rule="evenodd"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Tools/minus</title>
+    <g id="Tools/minus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16,9 L16,10.2 L4,10.2 L4,9 L16,9 Z" id="Combined-Shape" fill="#000000"></path>
+    </g>
+</svg>

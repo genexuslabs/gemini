@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 2.5a7.5 7.5 0 110 15 7.5 7.5 0 010-15zm.713 2.5H9.266v4.315H5v1.39h4.266V15h1.447v-4.294H15V9.315h-4.287V5z" fill="#000" fill-rule="evenodd"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Tools/add-circle</title>
+    <g id="Tools/add-circle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M10,4 C13.3137085,4 16,6.6862915 16,10 C16,13.3137085 13.3137085,16 10,16 C6.6862915,16 4,13.3137085 4,10 C4,6.6862915 6.6862915,4 10,4 Z M10.5702393,6 L9.41311134,6 L9.41311134,9.4516129 L6,9.4516129 L6,10.5645161 L9.41311134,10.5645161 L9.41311134,14 L10.5702393,14 L10.5702393,10.5645161 L14,10.5645161 L14,9.4516129 L10.5702393,9.4516129 L10.5702393,6 Z" id="Shape" fill="#000000"></path>
+    </g>
+</svg>
