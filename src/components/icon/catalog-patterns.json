@@ -1,4 +1,4 @@
 [
-  { "name": "objects/work-with-web", "description": "Some description" },
-  { "name": "objects/workwith-for-sd", "description": "Some description" }
+  { "name": "patterns/work-with-web", "description": "Some description" },
+  { "name": "patterns/workwith-for-sd", "description": "Some description" }
 ]
