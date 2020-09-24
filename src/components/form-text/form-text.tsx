@@ -6,7 +6,8 @@ import {
   Host,
   Event,
   EventEmitter,
-  State
+  State,
+  Watch
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -122,6 +123,15 @@ export class FormText implements FormComponent {
     y: null
   };
 
+  @Watch("value")
+  watchHandler(newValue, oldValue) {
+    if (newValue !== oldValue) {
+      if (this.minimal) {
+        this.updateGhostSpan();
+      }
+    }
+  }
+
   /*********************************
   METHODS
   *********************************/
@@ -159,22 +169,6 @@ export class FormText implements FormComponent {
     this.value = target.value;
     this.input.emit(target.value);
     formHandleChange(this, e.target);
-
-    if (this.minimal) {
-      //Update ghost span content, and then get and apply the width from the ghost span
-      const ghostSpan = document.querySelector(".ghost-span");
-      ghostSpan.innerHTML = this.value;
-
-      //Then get the ghost span width
-      const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 5;
-
-      const input = this.el.shadowRoot.querySelector(
-        ".input"
-      ) as HTMLInputElement;
-
-      //Finally set that width to the input!
-      input.style.width = ghostSpanWidth + "px";
-    }
   }
 
   handleChange(e) {
@@ -188,6 +182,24 @@ export class FormText implements FormComponent {
     const value = (this.el.shadowRoot.querySelector("input").value = "");
     this.change.emit(value);
     this.clearButtonClicked.emit("clear button was clicked");
+  }
+
+  updateGhostSpan() {
+    if (this.minimal) {
+      //Update ghost span content, and then get and apply the width from the ghost span
+      const ghostSpan = this.el.shadowRoot.querySelector(".ghost-span");
+      ghostSpan.innerHTML = this.value;
+
+      //Then get the ghost span width
+      const ghostSpanWidth = (ghostSpan as HTMLElement).offsetWidth + 5;
+
+      const input = this.el.shadowRoot.querySelector(
+        ".input"
+      ) as HTMLInputElement;
+
+      //Finally set that width to the input!
+      input.style.width = ghostSpanWidth + "px";
+    }
   }
 
   mouseEnterHandler() {
@@ -236,8 +248,9 @@ export class FormText implements FormComponent {
       ) as HTMLInputElement;
       const inputComputedStyles = window.getComputedStyle(input);
 
-      const ghostSpan = document.createElement("span");
-      ghostSpan.classList.add("ghost-span");
+      const ghostSpan = this.el.shadowRoot.querySelector(
+        ".ghost-span"
+      ) as HTMLElement;
 
       //Set ghostSpan outside of the visible area
       ghostSpan.style.position = "fixed";
@@ -254,14 +267,6 @@ export class FormText implements FormComponent {
       ghostSpan.style.paddingRight = inputComputedStyles.paddingRight;
       ghostSpan.style.letterSpacing = inputComputedStyles.letterSpacing;
       ghostSpan.style.fontWeight = inputComputedStyles.fontWeight;
-      const ghostSpanText = document.createTextNode(input.value);
-      ghostSpan.appendChild(ghostSpanText);
-
-      //Append ghost span to the body
-      document.body.appendChild(ghostSpan);
-
-      console.log("inputComputedStyles.textTransforms");
-      console.log(inputComputedStyles.textTransform);
 
       //Then get the ghost span width
       const ghostSpanWidth = ghostSpan.offsetWidth + 5;
@@ -286,6 +291,7 @@ export class FormText implements FormComponent {
           maxWidth: this.maxWidth
         }}
       >
+        <span class="ghost-span">{this.value}</span>
         <div class="outer-wrapper">
           {this.label !== undefined ? (
             <label
