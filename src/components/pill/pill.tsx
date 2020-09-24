@@ -1,5 +1,4 @@
 import { Component, Element, Prop, h, Host } from "@stencil/core";
-
 @Component({
   tag: "gxg-pill",
   styleUrl: "pill.scss",
@@ -16,10 +15,10 @@ export class Pill {
   /**
    * The icon
    */
-  @Prop() icon: PillIconType = "gemini-tools/pill-filled";
+  @Prop() icon: string;
 
   /**
-   * The presence of this attribute ads a close button that when clicked, removes the pill
+   * The type of pill
    */
   @Prop({ reflect: true }) type: PillType = "static";
 
@@ -30,18 +29,31 @@ export class Pill {
     }, 250);
   }
 
+  iconType() {
+    if (this.type === "button") {
+      return "gemini-tools/pill-outlined";
+    } else if (this.type === "button-with-action") {
+      return "gemini-tools/pill-filled";
+    } else {
+      return this.icon;
+    }
+  }
+  iconColor() {
+    if (this.disabled) {
+      return "disabled";
+    } else {
+      return "success";
+    }
+  }
+
   render() {
     return (
       <Host tabindex="0">
-        {this.disabled ? (
-          <gxg-icon
-            type={this.icon}
-            size="small"
-            color="onbackground"
-          ></gxg-icon>
-        ) : (
-          <gxg-icon type={this.icon} size="small" color="success"></gxg-icon>
-        )}
+        <gxg-icon
+          type={this.iconType()}
+          size="small"
+          color={this.iconColor()}
+        ></gxg-icon>
 
         <span class="title">
           <slot></slot>
@@ -66,6 +78,3 @@ export type PillType =
   | "static-with-action"
   | "button"
   | "button-with-action";
-export type PillIconType =
-  | "gemini-tools/pill-filled"
-  | "gemini-tools/pill-outlined";

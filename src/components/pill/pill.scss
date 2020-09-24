@@ -18,12 +18,24 @@
   .title {
     @include gxg-text;
   }
+  .clear-button {
+    margin-inline-start: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 //Static
-:host([type="static"]) {
+:host([type="static"]),
+:host([type="static-with-action"]) {
   background-color: var(--gray-01);
   border-color: var(--gray-01);
   font-style: italic;
+}
+:host([type="static-with-action"]) {
+  padding-inline-end: 0;
 }
 //Button
 :host([type="button"]) {
@@ -32,17 +44,16 @@
 //Button / Button with action
 :host([type="button"]:hover),
 :host([type="button-with-action"]:hover) {
-  border-color: var(--gray-06);
+  border-color: var(--gray-07);
   cursor: pointer;
 }
 :host([type="button"]:focus),
 :host([type="button-with-action"]:focus) {
-  border-color: var(--gray-06);
-  box-shadow: 0px 0px 0px 1px var(--gray-06);
+  border-color: var(--gray-07);
 }
 :host([type="button"]:active),
 :host([type="button-with-action"]:active) {
-  border-color: var(--gray-08);
+  border-color: var(--gray-07);
 }
 //Button with action
 :host([type="button-with-action"]) {

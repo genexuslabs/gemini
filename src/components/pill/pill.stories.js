@@ -16,44 +16,30 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories
   .add("Pill Static", () => {
-    /*Pill Icon*/
-    const labelIcon = "Icon";
-    const optionsIcon = {
-      "general/pill-filled": "general/pill-filled",
-      "general/pill-outlined": "general/pill-outlined"
-    };
-    const defaultValueIcon = optionsIcon["general/pill-filled"];
+    //Pill Icon
+    const labelPillIcon = "Icon";
+    const defaultValuePillIcon = "objects/procedure";
+    const valuePillIcon = text(labelPillIcon, defaultValuePillIcon);
 
     //Pill Label
     const labelPillSlot = "Slot";
     const defaultValuePillSlot = "Pill Label";
     const valuePillSlot = text(labelPillSlot, defaultValuePillSlot);
 
-    return `<gxg-pill type="static" tabindex="0" icon="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}">${valuePillSlot}</gxg-pill>`;
+    return `<gxg-pill type="static" tabindex="0" icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
   })
   .add("Pill Static With Action", () => {
-    /*Pill Icon*/
-    const labelIcon = "Icon";
-    const optionsIcon = {
-      "general/pill-filled": "general/pill-filled",
-      "general/pill-outlined": "general/pill-outlined"
-    };
-    const defaultValueIcon = optionsIcon["general/pill-filled"];
+    //Pill Icon
+    const labelPillIcon = "Icon";
+    const defaultValuePillIcon = "objects/procedure";
+    const valuePillIcon = text(labelPillIcon, defaultValuePillIcon);
 
     //Pill Label
     const labelPillSlot = "Slot";
     const defaultValuePillSlot = "Pill Label";
     const valuePillSlot = text(labelPillSlot, defaultValuePillSlot);
 
-    return `<gxg-pill type="static" tabindex="0" icon="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}">${valuePillSlot}</gxg-pill>`;
+    return `<gxg-pill type="static-with-action" tabindex="0" icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
   })
   .add("Pill Button", () => {
     //Disabled
@@ -64,10 +50,10 @@ stories
     /*Pill Icon*/
     const labelIcon = "Icon";
     const optionsIcon = {
-      "general/pill-filled": "general/pill-filled",
-      "general/pill-outlined": "general/pill-outlined"
+      "gemini-tools/pill-filled": "gemini-tools/pill-filled",
+      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined"
     };
-    const defaultValueIcon = optionsIcon["general/pill-filled"];
+    const defaultValueIcon = optionsIcon["gemini-tools/pill-filled"];
 
     //Pill Label
     const labelPillSlot = "Slot";
@@ -95,10 +81,10 @@ stories
     /*Pill Icon*/
     const labelIcon = "Icon";
     const optionsIcon = {
-      "general/pill-filled": "general/pill-filled",
-      "general/pill-outlined": "general/pill-outlined"
+      "gemini-tools/pill-filled": "gemini-tools/pill-filled",
+      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined"
     };
-    const defaultValueIcon = optionsIcon["general/pill-filled"];
+    const defaultValueIcon = optionsIcon["gemini-tools/pill-filled"];
 
     //Pill Label
     const labelPillSlot = "Slot";

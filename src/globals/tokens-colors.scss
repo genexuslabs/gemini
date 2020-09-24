@@ -7,22 +7,22 @@ some colors on the branding are dependent on them)*/
 
 //Shades of gray
 :root {
-  --gray-01: #E8E8E9;
-  --gray-02: #C6C6C7;
-  --gray-03: #A4A5A6;
+  --gray-01: #e8e8e9;
+  --gray-02: #c6c6c7;
+  --gray-03: #a4a5a6;
   --gray-04: #828385;
   --gray-05: #616164;
-  --gray-06: #3E3F42;
-  --gray-07: #28292D;
+  --gray-06: #3e3f42;
+  --gray-07: #28292d;
 }
 :root.dark {
-  --gray-01: #28292D;
-  --gray-02: #3E3F42;
+  --gray-01: #28292d;
+  --gray-02: #3e3f42;
   --gray-03: #616164;
   --gray-04: #828385;
-  --gray-05: #A4A5A6;
-  --gray-06: #C6C6C7;
-  --gray-07: #E8E8E9;
+  --gray-05: #a4a5a6;
+  --gray-06: #c6c6c7;
+  --gray-07: #e8e8e9;
 }
 
 //Shades of gray higer contrast
@@ -115,7 +115,7 @@ the components. The content could be text or icons)*/
 }
 :root.dark {
   --color-always-black: rgb(0, 0, 0);
-  --color-error-dark: #F9464E;
+  --color-error-dark: #f9464e;
   --color-error-light: #281617;
   --color-warning-dark: #ffab13;
   --color-warning-light: #292011;
@@ -153,16 +153,16 @@ the components. The content could be text or icons)*/
 :root.dark {
   --button-icon-color: var(--color-on-background);
 
- //Icons colors
-  --icons01: #4BA3D4;
-  --icons02: #9E9ECC;
-  --icons03: #24A19A;
-  --icons04: #7CCDC7;
-  --icons05: #A1DAA5;
-  --icons06: #F4608D;
-  --icons07: #F59065;
-  --icons08: #FAB454;
-  --icons09: #A4A5A6;
+  //Icons colors
+  --icons01: #4ba3d4;
+  --icons02: #9e9ecc;
+  --icons03: #24a19a;
+  --icons04: #7ccdc7;
+  --icons05: #a1daa5;
+  --icons06: #f4608d;
+  --icons07: #f59065;
+  --icons08: #fab454;
+  --icons09: #a4a5a6;
 }
 
 /*
