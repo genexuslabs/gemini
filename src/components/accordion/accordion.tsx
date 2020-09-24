@@ -43,11 +43,6 @@ export class Accordion {
 
   @Element() el: HTMLElement;
 
-  /*
-   *If this accordion is nested into an accordion-item
-   */
-  @State() nestedAccordion = false;
-
   @Listen("accordionItemClicked")
   itemClickedHandler(event: CustomEvent) {
     event.stopPropagation();
@@ -77,15 +72,6 @@ export class Accordion {
   @Listen("accordionItemLoaded")
   itemLoadedHandler() {
     this.setupAccordions();
-  }
-
-  componentDidLoad() {
-    //Is this accordion nested into another accordion?
-    const closestAccordionItem = this.el.closest("gxg-accordion-item");
-    if (closestAccordionItem !== null) {
-      //accordion is nested
-      this.nestedAccordion = true;
-    }
   }
 
   componentWillLoad() {
@@ -161,9 +147,6 @@ export class Accordion {
   render() {
     return (
       <Host
-        class={{
-          "nested-acordion": this.nestedAccordion
-        }}
         style={{
           "max-width": this.maxWidth
         }}

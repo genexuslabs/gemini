@@ -5,7 +5,8 @@ import {
   Host,
   Element,
   Event,
-  EventEmitter
+  EventEmitter,
+  State
 } from "@stencil/core";
 import { Color, Size } from "../icon/icon";
 import { mode } from "../accordion/accordion";
@@ -68,6 +69,11 @@ export class AccordionItem {
    */
   @Event() titleChanged: EventEmitter;
 
+  /*
+   *If this accordion is nested into an accordion-item
+   */
+  @State() nestedAccordion = false;
+
   itemClickedHandler() {
     this.accordionItemClicked.emit(this.itemId);
   }
@@ -126,6 +132,14 @@ export class AccordionItem {
     this.accordionItemLoaded.emit(this.itemId);
   }
 
+  componentDidLoad() {
+    //Detect if this accordion-item has an accordion in it
+    const accordion = this.el.querySelector("gxg-accordion");
+    if (accordion !== null) {
+      this.nestedAccordion = true;
+    }
+  }
+
   handlerOnKeyDown(event) {
     if (event.keyCode == 13 && document.activeElement === this.el) {
       //enter key was pressed
@@ -176,7 +190,11 @@ export class AccordionItem {
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          "nested-acordion": this.nestedAccordion
+        }}
+      >
         <div
           class={{
             item: true,

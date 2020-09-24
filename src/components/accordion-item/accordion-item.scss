@@ -347,3 +347,11 @@
     }
   }
 }
+
+//Nested accordion
+:host(.nested-acordion) {
+  .item__container {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
