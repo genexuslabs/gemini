@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `input` |             | `CustomEvent<any>` |
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `stepperInput` |             | `CustomEvent<any>` |
 
 ---
 

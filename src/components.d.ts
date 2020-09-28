@@ -2032,7 +2032,7 @@ declare namespace LocalJSX {
      * The min. value
      */
     min?: number;
-    onInput?: (event: CustomEvent<any>) => void;
+    onStepperInput?: (event: CustomEvent<any>) => void;
     /**
      * The initial vaule
      */

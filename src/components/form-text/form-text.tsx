@@ -289,7 +289,7 @@ export class FormText implements FormComponent {
           input.style.maxWidth = innerWrapperWidth + "px";
 
           //Listen to resizeObserver to set the new max-width value on the on the input
-          const resizeObserver = new ResizeObserver(entries => {
+          const resizeObserver = new ResizeObserver(() => {
             input.style.width = "0px";
             const innerWrapperWidth =
               (this.el.shadowRoot.querySelector(
