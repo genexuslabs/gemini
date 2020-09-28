@@ -74,6 +74,7 @@ export class Toggle {
         }}
         onClick={this.switchToggle}
         onKeyup={this.onKeyUp.bind(this)}
+        tabindex="0"
       >
         <div class="toggle__container">
           <span class="toggle__container__knob"></span>
