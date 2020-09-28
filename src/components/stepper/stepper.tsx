@@ -50,7 +50,7 @@ export class Stepper {
    */
   @Prop({ reflect: true }) min = 0;
 
-  @Event() input: EventEmitter;
+  @Event() stepperInput: EventEmitter;
 
   /**
    * Reading direction
@@ -118,7 +118,7 @@ export class Stepper {
 
   @Watch("value")
   watchHandler(newValue) {
-    this.input.emit(newValue);
+    this.stepperInput.emit(newValue);
   }
 
   render() {
