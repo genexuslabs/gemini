@@ -349,9 +349,52 @@
 }
 
 //Nested accordion
-:host(.nested-acordion) {
+:host(.nested-acordion[padding="xs"]) {
   .item__container {
-    padding-left: 0;
-    margin-left: 0;
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-01) * -1);
+    }
+  }
+}
+:host(.nested-acordion[padding="s"]) {
+  .item__container {
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-02) * -1);
+    }
+  }
+}
+:host(.nested-acordion[padding="m"]) {
+  .item__container {
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-03) * -1);
+    }
+  }
+}
+:host(.nested-acordion[padding="l"]) {
+  .item__container {
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-04) * -1);
+    }
+  }
+}
+:host(.nested-acordion[padding="xl"]) {
+  .item__container {
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-05) * -1);
+    }
+  }
+}
+:host(.nested-acordion[padding="xxl"]) {
+  .item__container {
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-06) * -1);
+    }
+  }
+}
+:host(.nested-acordion[padding="xxxl"]) {
+  .item__container {
+    ::slotted(gxg-accordion) {
+      margin-left: calc(var(--spacing-comp-07) * -1);
+    }
   }
 }

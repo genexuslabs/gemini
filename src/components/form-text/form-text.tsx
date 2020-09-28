@@ -234,7 +234,6 @@ export class FormText implements FormComponent {
   }
 
   componentDidLoad() {
-    console.log("form text loaded");
     if (this.minimal) {
       document.addEventListener("mousemove", this.mouseMoveHandler.bind(this));
 
@@ -243,48 +242,74 @@ export class FormText implements FormComponent {
       Ghost span for the "minimal" type input, in order to make the input width fit the content
       **************/
 
-      const input = this.el.shadowRoot.querySelector(
-        ".input"
-      ) as HTMLInputElement;
-      const inputComputedStyles = window.getComputedStyle(input);
+      const intersectionObserver = new IntersectionObserver(
+        function(entries) {
+          // If intersectionRatio is 0, the target is out of view
+          // and we do not need to do anything.
+          if (entries[0].intersectionRatio <= 0) return;
+          console.log("intersectionObserver");
 
-      const ghostSpan = this.el.shadowRoot.querySelector(
-        ".ghost-span"
-      ) as HTMLElement;
+          const input = this.el.shadowRoot.querySelector(
+            ".input"
+          ) as HTMLInputElement;
+          const inputComputedStyles = window.getComputedStyle(input);
 
-      //Set ghostSpan outside of the visible area
-      ghostSpan.style.position = "fixed";
-      ghostSpan.style.left = "-1000px";
-      ghostSpan.style.top = "-1000px";
-      ghostSpan.style.zIndex = "-1000";
-      ghostSpan.style.opacity = "0";
-      //Set input styles that affect the width to the ghost span
-      ghostSpan.style.fontSize = inputComputedStyles.fontSize;
-      ghostSpan.style.fontFamily = inputComputedStyles.fontFamily;
-      ghostSpan.style.textTransform = inputComputedStyles.textTransform;
-      ghostSpan.style.display = "inline-block";
-      ghostSpan.style.paddingLeft = inputComputedStyles.paddingRight;
-      ghostSpan.style.paddingRight = inputComputedStyles.paddingRight;
-      ghostSpan.style.letterSpacing = inputComputedStyles.letterSpacing;
-      ghostSpan.style.fontWeight = inputComputedStyles.fontWeight;
+          const ghostSpan = this.el.shadowRoot.querySelector(
+            ".ghost-span"
+          ) as HTMLElement;
 
-      //Then get the ghost span width
-      const ghostSpanWidth = ghostSpan.offsetWidth + 5;
-      //Finally set that width to the input!
-      input.style.width = ghostSpanWidth + "px";
-    }
+          //Set ghostSpan outside of the visible area
+          ghostSpan.style.position = "fixed";
+          ghostSpan.style.left = "-1000px";
+          ghostSpan.style.top = "-1000px";
+          ghostSpan.style.zIndex = "-1000";
+          ghostSpan.style.opacity = "0";
+          //Set input styles that affect the width to the ghost span
+          ghostSpan.style.fontSize = inputComputedStyles.fontSize;
+          ghostSpan.style.fontFamily = inputComputedStyles.fontFamily;
+          ghostSpan.style.textTransform = inputComputedStyles.textTransform;
+          ghostSpan.style.display = "inline-block";
+          ghostSpan.style.paddingLeft = inputComputedStyles.paddingRight;
+          ghostSpan.style.paddingRight = inputComputedStyles.paddingRight;
+          ghostSpan.style.letterSpacing = inputComputedStyles.letterSpacing;
+          ghostSpan.style.fontWeight = inputComputedStyles.fontWeight;
 
-    //Listen to resizeObserver to set the new max-width value on the on the input
-    const resizeObserver = new ResizeObserver(entries => {
-      for (const entry of entries) {
-        const innerWrapperWidth = entry.contentRect.width + "px";
-        (this.el.shadowRoot.querySelector(
-          ".input"
-        ) as HTMLElement).style.maxWidth = innerWrapperWidth;
-      }
-    });
-    const innerWrapper = this.el.shadowRoot.querySelector(".inner-wrapper");
-    resizeObserver.observe(innerWrapper);
+          //Then get the ghost span width
+          const ghostSpanWidth = ghostSpan.offsetWidth + 5;
+
+          input.style.width = "0px";
+
+          //get inner-wrapper width
+          const innerWrapperWidth =
+            (this.el.shadowRoot.querySelector(".inner-wrapper") as HTMLElement)
+              .offsetWidth - 5;
+
+          //Finally set that width to the input!
+          input.style.width = ghostSpanWidth + "px";
+          input.style.maxWidth = innerWrapperWidth + "px";
+
+          //Listen to resizeObserver to set the new max-width value on the on the input
+          const resizeObserver = new ResizeObserver(entries => {
+            for (const entry of entries) {
+              input.style.width = "0px";
+              const innerWrapperWidth =
+                (this.el.shadowRoot.querySelector(
+                  ".inner-wrapper"
+                ) as HTMLElement).offsetWidth - 5;
+
+              input.style.maxWidth = innerWrapperWidth + "px";
+              input.style.width = ghostSpanWidth + "px";
+            }
+          });
+          const innerWrapper = this.el.shadowRoot.querySelector(
+            ".inner-wrapper"
+          );
+          resizeObserver.observe(innerWrapper);
+        }.bind(this)
+      );
+      // start observing
+      intersectionObserver.observe(this.el.shadowRoot.querySelector(".input"));
+    } // if (this.minimal)
   }
 
   componentDidUnload() {
@@ -303,7 +328,7 @@ export class FormText implements FormComponent {
           maxWidth: this.maxWidth
         }}
       >
-        <span class="ghost-span">{this.value}</span>
+        {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div class="outer-wrapper">
           {this.label !== undefined ? (
             <label
