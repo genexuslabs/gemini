@@ -74,6 +74,11 @@ export class AccordionItem {
    */
   @State() nestedAccordion = false;
 
+  /*
+   *accordion min-height
+   */
+  @State() minHeight = null;
+
   itemClickedHandler() {
     this.accordionItemClicked.emit(this.itemId);
   }
@@ -138,6 +143,21 @@ export class AccordionItem {
     if (accordion !== null) {
       this.nestedAccordion = true;
     }
+
+    //Detect click on input ".outer-wrapper"
+    const outerWrapper = this.el.shadowRoot
+      .querySelector("gxg-form-text")
+      .shadowRoot.querySelector(".outer-wrapper");
+    outerWrapper.addEventListener(
+      "click",
+      function(e) {
+        if (!e.path[0].classList.contains("input")) {
+          this.status = "closed";
+        }
+      }.bind(this)
+    );
+
+    console.log(outerWrapper);
   }
 
   handlerOnKeyDown(event) {
@@ -212,18 +232,25 @@ export class AccordionItem {
               aria-controls={this.itemId}
               aria-disabled={this.ariaDisabled()}
             >
+              <div
+                class={{
+                  cover: true,
+                  hidden: this.status === "open"
+                }}
+              ></div>
               <div class="item__header__button__title-subtitle">
                 <div
                   class="item__header__button__title-subtitle__title"
                   onClick={this.titleClickedHandler.bind(this)}
                 >
-                  {this.editableTitle && this.status === "open" ? (
+                  {this.editableTitle ? (
                     <gxg-form-text
                       onChange={event => this.changedTitleHandler(event)}
                       minimal
                       value={this.itemTitle}
                       onClick={this.gxgFormTextClickedHandler.bind(this)}
                       text-style={this.textStyle()}
+                      class="input"
                     ></gxg-form-text>
                   ) : (
                     this.itemTitle

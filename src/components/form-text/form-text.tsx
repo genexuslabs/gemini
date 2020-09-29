@@ -252,7 +252,6 @@ export class FormText implements FormComponent {
             ".input"
           ) as HTMLInputElement;
           const inputComputedStyles = window.getComputedStyle(input);
-          console.log(input);
 
           const ghostSpan = this.el.shadowRoot.querySelector(
             ".ghost-span"
