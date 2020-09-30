@@ -6,7 +6,8 @@ import {
   EventEmitter,
   Host,
   Prop,
-  State
+  State,
+  Watch
 } from "@stencil/core";
 import Pickr from "@simonwep/pickr";
 
@@ -112,6 +113,12 @@ export class ColorPicker {
 
   componentDidUnload() {
     this.pickr.destroy();
+  }
+
+  @Watch("value")
+  watchHandler(newValue) {
+    console.log("The new value of activated is: ", newValue);
+    this.pickr.setColor(newValue);
   }
 
   //Button Methods
