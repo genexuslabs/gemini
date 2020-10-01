@@ -79,8 +79,10 @@ export class AccordionItem {
    */
   @State() minHeight = null;
 
-  itemClickedHandler() {
-    this.accordionItemClicked.emit(this.itemId);
+  itemClickedHandler(e) {
+    if (e.detail != 0) {
+      this.accordionItemClicked.emit(this.itemId);
+    }
   }
   titleClickedHandler() {
     this.accordionTitleClicked.emit("title clicked");
@@ -156,19 +158,6 @@ export class AccordionItem {
         }
       }.bind(this)
     );
-
-    console.log(outerWrapper);
-  }
-
-  handlerOnKeyDown(event) {
-    if (event.keyCode == 13 && document.activeElement === this.el) {
-      //enter key was pressed
-      if (this.status === "closed") {
-        this.status = "open";
-      } else {
-        this.status = "closed";
-      }
-    }
   }
 
   ariaExpanded() {
@@ -227,7 +216,6 @@ export class AccordionItem {
               id={"accordion-" + this.itemId}
               onClick={this.itemClickedHandler.bind(this)}
               tabindex={!this.disabled ? 0 : -1}
-              onKeyDown={this.handlerOnKeyDown}
               aria-expanded={this.ariaExpanded()}
               aria-controls={this.itemId}
               aria-disabled={this.ariaDisabled()}
