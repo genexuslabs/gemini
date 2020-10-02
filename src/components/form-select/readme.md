@@ -4,7 +4,7 @@
 <ol>
    <li>Insert a <code>gxg-select</code> element</li>
    <li>Insert insde the <code>gxg-select</code>, any number of options by using the <code>gxg-form-option</code> element</li>
-   <li>Set the <code>value</code> attribute for each <code>gxg-form-option</code>, and provide the <code>selected</code> attribute for the option you want to be selected by default</li>
+   <li>Set the <code>value</code> attribute for each <code>gxg-option</code>, and provide the <code>selected</code> attribute for the option you want to be selected by default</li>
 </ol>
 
 <!-- Auto Generated Below -->

@@ -211,7 +211,7 @@ export class AccordionItem {
           }}
         >
           <header class="item__header">
-            <button
+            <div
               class="item__header__button"
               id={"accordion-" + this.itemId}
               onClick={this.itemClickedHandler.bind(this)}
@@ -260,7 +260,7 @@ export class AccordionItem {
                   {this.printIcon()}
                 </div>
               </div>
-            </button>
+            </div>
           </header>
           {this.status === "open" && !this.disabled ? (
             <div
