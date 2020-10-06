@@ -1,1 +1,4 @@
-[{ "name": "", "description": "" }]
+[{ "name": "patterns-default-associated/default-associated", "description": "Some description" },
+ { "name": "patterns-default-associated/synchronized", "description": "Some description" },
+ { "name": "patterns-default-associated/modified", "description": "Some description" }
+]
