@@ -1,1 +1,25 @@
-[{ "name": "", "description": "" }]
+[
+  { "name": "editing-structures/default", "description": "Some description" },
+  {
+    "name": "editing-structures/attribute-key",
+    "description": "Some description"
+  },
+  {
+    "name": "editing-structures/attribute-description",
+    "description": "Some description"
+  },
+  {
+    "name": "editing-structures/attribute-formula",
+    "description": "Some description"
+  },
+  {
+    "name": "editing-structures/redundant-attribute",
+    "description": "Some description"
+  },
+  { "name": "editing-structures/platforms", "description": "Some description" },
+  {
+    "name": "editing-structures/system-index",
+    "description": "Some description"
+  },
+  { "name": "editing-structures/user-index", "description": "Some description" }
+]
