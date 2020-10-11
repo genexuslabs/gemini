@@ -20,7 +20,7 @@ stories.add("Text", () => {
 
   //Icon
   const labelIcon = "Button Icon";
-  const defaultValueIcon = "general/edit";
+  const defaultValueIcon = "gemini-tools/edit";
   const valueIcon = text(labelIcon, defaultValueIcon);
 
   //Icon Position
@@ -34,6 +34,24 @@ stories.add("Text", () => {
     labelIconPosition,
     optionsIconPosition,
     defaultValueIconPosition
+  );
+
+  //Label
+  const labelLabel = "Label";
+  const defaultValueLabel = "Position";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
+  //Label Position
+  const labelLabelPosition = "Label position";
+  const optionsLabelPosition = {
+    start: "start",
+    above: "above"
+  };
+  const defaultValueLabelPosition = "above";
+  const valueLabelPosition = select(
+    labelLabelPosition,
+    optionsLabelPosition,
+    defaultValueLabelPosition
   );
 
   //Max Width
@@ -137,7 +155,8 @@ stories.add("Text", () => {
   return `<style>#root{width:700px;display:flex;flex-direction:column;align-items:center}gxg-form-text{margin-bottom: var(--spacing-lay-xs)}</style>
 
   <gxg-form-text
-  label="Position"
+  label=${valueLabel}
+  label-position=${valueLabelPosition}
   placeholder="Chief Executive"
   ${clearButtonFunc()}
   icon=${valueIcon}

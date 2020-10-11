@@ -31,7 +31,11 @@ import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
-import { IconPosition, Style } from "./components/form-text/form-text";
+import {
+  IconPosition,
+  LabelPosition,
+  Style
+} from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import { padding as padding4 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
@@ -427,6 +431,10 @@ export namespace Components {
      * The input label
      */
     label: string;
+    /**
+     * The input label
+     */
+    labelPosition: LabelPosition;
     /**
      * The input max. width
      */
@@ -1693,6 +1701,10 @@ declare namespace LocalJSX {
      * The input label
      */
     label?: string;
+    /**
+     * The input label
+     */
+    labelPosition?: LabelPosition;
     /**
      * The input max. width
      */

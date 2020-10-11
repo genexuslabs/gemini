@@ -59,6 +59,11 @@ export class FormText implements FormComponent {
   @Prop() label: string;
 
   /**
+   * The input label
+   */
+  @Prop({ reflect: true }) labelPosition: LabelPosition;
+
+  /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
   @Prop({ reflect: true }) minimal = false;
@@ -388,6 +393,7 @@ export class FormText implements FormComponent {
 }
 
 export type IconPosition = "start" | "end";
+export type LabelPosition = "start" | "above";
 export type Style =
   | "regular"
   | "quote"

@@ -17,6 +17,7 @@ FORM ELEMENT WRAPPER
   .inner-wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     gxg-icon {
       position: absolute;
@@ -38,6 +39,19 @@ LABEL
     position: relative;
     width: 100%;
     @include ui-animation(padding-left);
+  }
+}
+:host([label-position="start"]) {
+  .outer-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .inner-wrapper {
+    width: 100%;
+  }
+  .label {
+    margin-bottom: 0;
+    margin-inline-end: var(--spacing-comp-01);
   }
 }
 

@@ -21,7 +21,6 @@
           top: 0;
           background-color: transparent;
           z-index: 10;
-          box-sizing: border-box;
         }
         .cover.hidden {
           display: none;
@@ -34,6 +33,7 @@
         align-items: start;
         justify-content: space-between;
         width: 100%;
+        box-sizing: border-box;
         &:focus {
           outline: none;
         }
