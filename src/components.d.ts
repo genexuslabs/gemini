@@ -40,9 +40,10 @@ import { Color, Size } from "./components/icon/icon";
 import { padding as padding4 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
+import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
-import { LabelPosition as LabelPosition1 } from "./components/stepper/stepper";
+import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { Size as Size1 } from "./components/toggle/toggle";
@@ -646,6 +647,10 @@ export namespace Components {
      * The select label
      */
     label: string;
+    /**
+     * The input label
+     */
+    labelPosition: LabelPosition;
     /**
      * The select max. width
      */
@@ -1941,6 +1946,10 @@ declare namespace LocalJSX {
      * The select label
      */
     label?: string;
+    /**
+     * The input label
+     */
+    labelPosition?: LabelPosition;
     /**
      * The select max. width
      */

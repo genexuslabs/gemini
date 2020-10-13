@@ -44,6 +44,11 @@ export class FormSelectNew {
   @Prop() label: string;
 
   /**
+   * The input label
+   */
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
+
+  /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
   @Prop() minimal = true;
@@ -329,3 +334,5 @@ export class FormSelectNew {
     );
   }
 }
+
+export type LabelPosition = "start" | "above";

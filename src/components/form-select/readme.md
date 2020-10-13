@@ -11,17 +11,18 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                                                                                                           | Type      | Default     |
-| ---------- | ----------- | --------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled`  | The presence of this attribute disables the component                                                                 | `boolean` | `false`     |
-| `error`    | `error`     | The presence of this attribute stylizes the component with error attributes                                           | `boolean` | `false`     |
-| `label`    | `label`     | The select label                                                                                                      | `string`  | `undefined` |
-| `maxWidth` | `max-width` | The select max. width                                                                                                 | `string`  | `"100%"`    |
-| `minimal`  | `minimal`   | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus | `boolean` | `true`      |
-| `required` | `required`  | The presence of this attribute makes this input required                                                              | `boolean` | `false`     |
-| `size`     | `size`      | The maximum number of visible options                                                                                 | `string`  | `undefined` |
-| `value`    | `value`     | This holds the value of the selected option                                                                           | `string`  | `undefined` |
-| `warning`  | `warning`   | The presence of this attribute stylizes the component with warning attributes                                         | `boolean` | `false`     |
+| Property        | Attribute        | Description                                                                                                           | Type                 | Default     |
+| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------- |
+| `disabled`      | `disabled`       | The presence of this attribute disables the component                                                                 | `boolean`            | `false`     |
+| `error`         | `error`          | The presence of this attribute stylizes the component with error attributes                                           | `boolean`            | `false`     |
+| `label`         | `label`          | The select label                                                                                                      | `string`             | `undefined` |
+| `labelPosition` | `label-position` | The input label                                                                                                       | `"above" \| "start"` | `"above"`   |
+| `maxWidth`      | `max-width`      | The select max. width                                                                                                 | `string`             | `"100%"`    |
+| `minimal`       | `minimal`        | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus | `boolean`            | `true`      |
+| `required`      | `required`       | The presence of this attribute makes this input required                                                              | `boolean`            | `false`     |
+| `size`          | `size`           | The maximum number of visible options                                                                                 | `string`             | `undefined` |
+| `value`         | `value`          | This holds the value of the selected option                                                                           | `string`             | `undefined` |
+| `warning`       | `warning`        | The presence of this attribute stylizes the component with warning attributes                                         | `boolean`            | `false`     |
 
 ## Events
 

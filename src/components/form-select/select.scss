@@ -195,3 +195,18 @@ ERROR & WARNING
     //color: #1c1b1b; //No token color here, because we need the same color for both, light and dark mode
   }
 }
+
+:host([label-position="start"]) {
+  .outer-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .custom-select {
+    width: 100%;
+  }
+  .label {
+    margin-bottom: 0;
+    margin-inline-end: var(--spacing-comp-02);
+    flex-shrink: 0;
+  }
+}
