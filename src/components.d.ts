@@ -42,6 +42,7 @@ import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
 import { margin } from "./components/separator/separator";
 import { Space as Space1 } from "./components/stack/stack";
+import { LabelPosition as LabelPosition1 } from "./components/stepper/stepper";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { Size as Size1 } from "./components/toggle/toggle";
@@ -741,6 +742,10 @@ export namespace Components {
      * The label
      */
     label: string;
+    /**
+     * The label position
+     */
+    labelPosition: LabelPosition;
     /**
      * The max. value
      */
@@ -2036,6 +2041,10 @@ declare namespace LocalJSX {
      * The label
      */
     label?: string;
+    /**
+     * The label position
+     */
+    labelPosition?: LabelPosition;
     /**
      * The max. value
      */
