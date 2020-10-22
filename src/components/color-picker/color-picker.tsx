@@ -117,7 +117,6 @@ export class ColorPicker {
 
   @Watch("value")
   watchHandler(newValue) {
-    console.log("The new value of activated is: ", newValue);
     this.pickr.setColor(newValue);
   }
 
