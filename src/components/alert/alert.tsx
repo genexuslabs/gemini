@@ -87,7 +87,6 @@ export class Alert {
   }
 
   setAlertInactive() {
-    console.log("close");
     this.active = false;
     this.el.removeAttribute("role");
   }

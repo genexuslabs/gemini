@@ -26,7 +26,9 @@
   </head>
 
   <body>
-    <gxg-stepper
+
+    
+    <!-- <gxg-stepper
     min="-4"
     max="10"
     value="-5"
@@ -59,7 +61,7 @@
         Some content on accordion 100
       </gxg-accordion-item>
       <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-  </gxg-accordion>
+  </gxg-accordion> -->
 <!-- 
   <gxg-accordion mode="slim">
     <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
@@ -70,7 +72,7 @@
 
 
     <!-- CONTEXTUAL MENU -->
-    <gxg-contextual-menu> 
+    <!-- <gxg-contextual-menu> 
       <gxg-contextual-menu-item icon="gemini-tools/folder">
         Item 1
         <gxg-contextual-menu-submenu>
@@ -91,18 +93,18 @@
       <gxg-contextual-menu-item>
         Item 1
       </gxg-contextual-menu-item>
-    </gxg-contextual-menu>
+    </gxg-contextual-menu> -->
     <!-- /CONTEXTUAL MENU -->
 
-    <gxg-alert
+    <!-- <gxg-alert
       id="alert-notice"
       type="notice"
       position="center"
       alert-title="more info title"
       active-time="xxslow"
-    >This is the content of the notice alert</gxg-alert>
+    >This is the content of the notice alert</gxg-alert> -->
 
-    <gxg-tree slot="tree">
+    <!-- <gxg-tree slot="tree">
     <gxg-tree-item icon="general/file">
       Fruits
       <gxg-tree slot="tree">
@@ -159,14 +161,13 @@
         </gxg-tree-item>
       </gxg-tree>
     </gxg-tree-item>
-  </gxg-tree>
+  </gxg-tree> -->
 
-  <gxg-drag-container>
+  <!-- <gxg-drag-container>
     <gxg-drag-box key="01" id="01" deletable class="draggable" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, tenetur quis. Maiores explicabo eos, nesciunt ipsum doloremque amet debitis veritatis nam provident quisquam itaque, hic libero dolores accusamus possimus magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nulla neque quia reiciendis quos, quidem eos ducimus maiores iste iusto laborum obcaecati voluptas necessitatibus! Ex nam earum nobis excepturi! Dicta?</gxg-drag-box>
-    <!-- <gxg-drag-box key="03" id="03" deletable class="draggable"><gxg-form-text minimal value="complaint tree" text-style="quote"></gxg-form-text></gxg-drag-box> -->
     <gxg-drag-box key="04" id="04" deletable class="draggable">Container 04</gxg-drag-box>
     <gxg-drag-box key="05" id="05" deletable class="draggable">Container 05</gxg-drag-box>
-</gxg-drag-container>
+</gxg-drag-container> -->
 
 <!-- 
 
@@ -191,7 +192,7 @@
 </gxg-accordion> -->
 
 
-<gxg-more-info position="top" label="In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery." url="www.google.com"></gxg-more-info>
+<!-- <gxg-more-info position="top" label="In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery." url="www.google.com"></gxg-more-info>
 
 <gxg-toggle label="Toggle" tabindex="0" size="small"></gxg-toggle>
 <gxg-toggle on tabindex="0"></gxg-toggle>
@@ -226,9 +227,9 @@
   <gxg-pill type="button" tabindex="0" >Pill Label</gxg-pill>
   <gxg-pill type="button-with-action" tabindex="0">Pill Label</gxg-pill>
   <gxg-pill disabled type="button" tabindex="0" >Pill Label</gxg-pill>
-  <gxg-pill disabled type="button-with-action" tabindex="0">Pill Label</gxg-pill>
+  <gxg-pill disabled type="button-with-action" tabindex="0">Pill Label</gxg-pill> -->
 
-<div style="width:50%">
+<!-- <div style="width:50%">
   
 <gxg-form-text
 type="text"
@@ -245,16 +246,14 @@ value="u"
 ></gxg-form-text>
 </div>
 
-<gxg-color-picker value="red"></gxg-color-picker>
+<gxg-color-picker value="red"></gxg-color-picker> -->
        
+<!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button> -->
         <script>
           function mostrarAlertMoreInfo(alertId) {
             document.getElementById(alertId).setAttribute("active", "true");
           }
         </script>
-        <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
-          >Show alert more info</gxg-button
-        >
 
     <script>
       // CONTEXT MENU
