@@ -47,7 +47,7 @@ SELECT
     border-width: var(--border-width-sm);
     border-color: var(--gray-04);
     border-style: var(--border-style-regular);
-    height: 11px;
+    height: 10px;
 
     &:focus {
       @include form-element-common-styles-focus-type-1();

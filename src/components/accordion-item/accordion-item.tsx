@@ -147,17 +147,20 @@ export class AccordionItem {
     }
 
     //Detect click on input ".outer-wrapper"
-    const outerWrapper = this.el.shadowRoot
-      .querySelector("gxg-form-text")
-      .shadowRoot.querySelector(".outer-wrapper");
-    outerWrapper.addEventListener(
-      "click",
-      function(e) {
-        if (!e.path[0].classList.contains("input")) {
-          this.status = "closed";
-        }
-      }.bind(this)
-    );
+    const gxgFormText = this.el.shadowRoot.querySelector("gxg-form-text");
+    if (gxgFormText !== null) {
+      const outerWrapper = gxgFormText.shadowRoot.querySelector(
+        ".outer-wrapper"
+      );
+      outerWrapper.addEventListener(
+        "click",
+        function(e) {
+          if (!e.path[0].classList.contains("input")) {
+            this.status = "closed";
+          }
+        }.bind(this)
+      );
+    }
   }
 
   ariaExpanded() {
@@ -197,6 +200,12 @@ export class AccordionItem {
     }
   }
 
+  keyDownHandler(e) {
+    if (e.code === "Enter") {
+      this.accordionItemClicked.emit(this.itemId);
+    }
+  }
+
   render() {
     return (
       <Host
@@ -219,6 +228,7 @@ export class AccordionItem {
               aria-expanded={this.ariaExpanded()}
               aria-controls={this.itemId}
               aria-disabled={this.ariaDisabled()}
+              onKeyDown={this.keyDownHandler.bind(this)}
             >
               <div
                 class={{

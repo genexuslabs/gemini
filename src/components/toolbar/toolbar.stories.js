@@ -70,39 +70,39 @@ stories.add("Toolbar", () => {
   return `
   <gxg-alert
           id="alert-first-icon"
-          type="more-info"
+          type="notice"
           position="center"
-          bottom="15px"
+          bottom="s"
           alert-title="CLICKED!"
           active-time="xxfast"
         >
-          First Icon was clicked!
+          First icon was clicked!
         </gxg-alert>
         <gxg-alert
           id="alert-second-icon"
-          type="more-info"
+          type="notice"
           position="center"
-          bottom="15px"
+          bottom="s"
           alert-title="Second Icon"
           active-time="xxfast"
         >
-          Second Icon was clicked!
+          Second icon was clicked!
         </gxg-alert>
         <gxg-alert
           id="alert-third-icon"
-          type="more-info"
+          type="notice"
           position="center"
-          bottom="15px"
+          bottom="s"
           alert-title="Third Icon"
           active-time="xxfast"
         >
-          Third Icon was clicked!
+          Third icon was clicked!
         </gxg-alert>
 
   <gxg-toolbar toolbar-title="${valueTitle}" subtitle="${valueSubtitle}" position=${valueArrowPosition}>
       <gxg-toolbar-item
         slot
-        icon="general/settings"
+        icon="gemini-tools/settings"
         toolbar-item-title="${valueFirstIconTitle}"
         subtitle="${valueFirstIconSubtitle}"
         onClick="(function(){
@@ -113,15 +113,23 @@ stories.add("Toolbar", () => {
       ></gxg-toolbar-item>
       <gxg-toolbar-item
         slot
-        icon="general/settings"
+        icon="gemini-tools/settings"
         toolbar-item-title="Title"
-        subtitle="subtitle"
+        subtitle="Subtitle"
+        onClick="(function(){
+          document.getElementById('alert-second-icon').setAttribute('active', 'true');
+          return false;
+      })();return false;""
       ></gxg-toolbar-item>
       <gxg-toolbar-item
         slot
-        icon="general/settings"
+        icon="gemini-tools/settings"
         toolbar-item-title="Title"
-        subtitle="subtitle"
+        subtitle="Subtitle"
+        onClick="(function(){
+          document.getElementById('alert-third-icon').setAttribute('active', 'true');
+          return false;
+      })();return false;""
       ></gxg-toolbar-item>
     </gxg-toolbar>
   `;

@@ -26,9 +26,11 @@
       opacity: 0;
 
       &__title {
+        white-space: nowrap;
       }
       &__subtitle {
         padding-left: 5px;
+        white-space: nowrap;
       }
     }
     &:hover {
