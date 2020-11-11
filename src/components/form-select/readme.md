@@ -1,3 +1,12 @@
+# gxg-option
+
+## Properties
+
+| Property   | Attribute  | Description                                                         | Type      | Default     |
+| ---------- | ---------- | ------------------------------------------------------------------- | --------- | ----------- |
+| `selected` | `selected` | The presence of this attribute makes the option selected by default | `boolean` | `undefined` |
+| `value`    | `value`    | The value                                                           | `string`  | `undefined` |
+
 # gxg-form-select
 
 <h2>Using a gxg-select</h2>
