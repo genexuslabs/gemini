@@ -130,10 +130,7 @@ export class Accordion {
         "mode",
         this.mode
       );
-      if (
-        this.noPadding &&
-        (this.mode === "classical" || this.mode === "boxed")
-      ) {
+      if (this.noPadding) {
         (accordion as HTMLGxgAccordionItemElement).setAttribute(
           "no-padding",
           ""

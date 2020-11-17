@@ -61,6 +61,14 @@
     cursor: not-allowed;
   }
 }
+//No content padding
+:host([no-padding]) {
+  .item {
+    &__container {
+      padding: 0;
+    }
+  }
+}
 
 //Classical or Boxed
 :host([mode="classical"]),
@@ -141,15 +149,6 @@
       &__button {
         align-items: start;
       }
-    }
-  }
-}
-//No content padding
-:host([mode="classical"][no-padding]),
-:host([mode="boxed"][no-padding]) {
-  .item {
-    &__container {
-      padding: 0;
     }
   }
 }
