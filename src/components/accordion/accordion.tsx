@@ -34,6 +34,11 @@ export class Accordion {
    */
   @Prop() maxWidth = "100%";
 
+  /**
+   * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
+   */
+  @Prop() noPadding = false;
+
   @State() accordions: HTMLGxgAccordionItemElement[];
 
   @Element() el: HTMLElement;
@@ -125,6 +130,15 @@ export class Accordion {
         "mode",
         this.mode
       );
+      if (
+        this.noPadding &&
+        (this.mode === "classical" || this.mode === "boxed")
+      ) {
+        (accordion as HTMLGxgAccordionItemElement).setAttribute(
+          "no-padding",
+          ""
+        );
+      }
       if (this.disabled) {
         (accordion as HTMLGxgAccordionItemElement).setAttribute(
           "disabled",

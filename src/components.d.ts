@@ -59,6 +59,10 @@ export namespace Components {
      */
     mode: mode;
     /**
+     * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
+     */
+    noPadding: boolean;
+    /**
      * If this attribute is present, only one accordion-item can be open at the same time
      */
     singleItemOpen: boolean;
@@ -1301,6 +1305,10 @@ declare namespace LocalJSX {
      * The accordion flavor
      */
     mode?: mode;
+    /**
+     * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
+     */
+    noPadding?: boolean;
     /**
      * If this attribute is present, only one accordion-item can be open at the same time
      */

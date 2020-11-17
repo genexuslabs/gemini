@@ -144,6 +144,15 @@
     }
   }
 }
+//No content padding
+:host([mode="classical"][no-padding]),
+:host([mode="boxed"][no-padding]) {
+  .item {
+    &__container {
+      padding: 0;
+    }
+  }
+}
 
 //Classical
 :host([mode="classical"]) {
