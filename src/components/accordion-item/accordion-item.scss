@@ -61,14 +61,6 @@
     cursor: not-allowed;
   }
 }
-//No content padding
-:host([no-padding]) {
-  .item {
-    &__container {
-      padding: 0;
-    }
-  }
-}
 
 //Classical or Boxed
 :host([mode="classical"]),
@@ -149,6 +141,15 @@
       &__button {
         align-items: start;
       }
+    }
+  }
+}
+//No content padding
+:host([mode="classical"][no-padding]),
+:host([mode="boxed"][no-padding]) {
+  .item {
+    &__container {
+      padding: 0;
     }
   }
 }
@@ -278,6 +279,15 @@
     &__container {
       margin-inline-start: var(--spacing-comp-05);
       padding: var(--spacing-comp-01) 0;
+    }
+  }
+}
+:host([mode="slim"][no-padding]),
+:host([mode="minimal"][no-padding]) {
+  .item {
+    &__container {
+      padding: 0;
+      margin-inline-start: 5px;
     }
   }
 }
