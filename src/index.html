@@ -32,43 +32,179 @@
 
   <h3>Accordions</h3>
 
+  <h4>Classical</h4>
+
   <gxg-accordion mode="classical">
     <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
       Some content on accordion 100
     </gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-03" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
-  </gxg-accordion>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
 
   <br>
+
+  <h4>Classical disabled</h4>
+
+  <gxg-accordion mode="classical">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Boxed</h4>
 
   <gxg-accordion mode="boxed">
     <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
       Some content on accordion 100
     </gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-03" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
-  </gxg-accordion>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
 
   <br>
+
+  <h4>Boxed disabled</h4>
+
+  <gxg-accordion mode="boxed">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Slim</h4>
 
   <gxg-accordion mode="slim">
     <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
       Some content on accordion 100
     </gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-03" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
-  </gxg-accordion>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
 
   <br>
+
+  <h4>Slim disabled</h4>
+
+  <gxg-accordion mode="slim">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Minimal</h4>
 
   <gxg-accordion mode="minimal">
     <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
       Some content on accordion 100
     </gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-    <gxg-accordion-item item-title="tab-03" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
-  </gxg-accordion>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Minimal disabled</h4>
+
+  <gxg-accordion mode="minimal">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
 
   <h3>Containers</h3>
   <h4>Box</h4>
@@ -468,23 +604,23 @@ value="u"
     // CONTEXT MENU
     let button = document.getElementById("button");
 
-    button.addEventListener("contextmenu", e => {
-      e.preventDefault();
-      let contextualMenu = document.querySelector("gxg-contextual-menu");
-      contextualMenu.removeAttribute("visible");
-      contextualMenu.setAttribute("visible", "");
-    });
+    // button.addEventListener("contextmenu", e => {
+    //   e.preventDefault();
+    //   let contextualMenu = document.querySelector("gxg-contextual-menu");
+    //   contextualMenu.removeAttribute("visible");
+    //   contextualMenu.setAttribute("visible", "");
+    // });
 
     //DARK MODE
     const toggle = document.querySelector("#toggleDarkTheme");
 
     // Listen for the toggle check/uncheck to toggle the dark class on the <body>
-    toggle.addEventListener("change", ev => {
-      // for(var i = 0; i < gxgComponents.length; i++) {
-      //gxgComponents[i].classList.toggle('dark-mode')
-      document.getElementsByTagName("html")[0].classList.toggle("dark");
-      // }
-    });
+    // toggle.addEventListener("change", ev => {
+    //   // for(var i = 0; i < gxgComponents.length; i++) {
+    //   //gxgComponents[i].classList.toggle('dark-mode')
+    //   document.getElementsByTagName("html")[0].classList.toggle("dark");
+    //   // }
+    // });
   </script>
 </body>
 

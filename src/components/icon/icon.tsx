@@ -19,6 +19,7 @@ const DEFAULT_COLOR = "onbackground";
 const COLOR_MAPPINGS = {
   alwaysblack: "color-always-black",
   disabled: "color-primary-disabled",
+  ondisabled: "color-on-disabled",
   error: "color-error-dark",
   negative: "color-on-primary",
   onbackground: "color-on-background",
@@ -179,6 +180,7 @@ export type Color =
   | "onbackground"
   | "negative"
   | "disabled"
+  | "ondisabled"
   | "error"
   | "success"
   | "warning"

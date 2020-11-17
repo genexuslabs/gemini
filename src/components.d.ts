@@ -5,26 +5,22 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { padding } from "./components/accordion-item/accordion-item";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
-import {
-  padding as padding1,
-  status
-} from "./components/accordion-item/accordion-item";
+import { status } from "./components/accordion-item/accordion-item";
 import {
   ActiveTime,
   AlertPosition,
   AlertType,
   Spacing
 } from "./components/alert/alert";
-import { background, border, padding as padding2 } from "./components/box/box";
+import { background, border, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import {
   background as background1,
   elevation,
-  padding as padding3
+  padding as padding1
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
@@ -37,7 +33,7 @@ import {
   Style
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
-import { padding as padding4 } from "./components/modal/modal";
+import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
 import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
@@ -62,7 +58,6 @@ export namespace Components {
      * The accordion flavor
      */
     mode: mode;
-    padding: padding;
     /**
      * If this attribute is present, only one accordion-item can be open at the same time
      */
@@ -82,6 +77,10 @@ export namespace Components {
      */
     itemId: string;
     /**
+     * The accordion subtitle (optional)
+     */
+    itemSubtitle: string;
+    /**
      * The accordion title
      */
     itemTitle: string;
@@ -89,11 +88,14 @@ export namespace Components {
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
     mode: mode;
-    padding: padding;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
     status: status;
+    /**
+     * The accordion title icon
+     */
+    titleIcon: string;
   }
   interface GxgAlert {
     /**
@@ -445,6 +447,10 @@ export namespace Components {
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
     minimal: boolean;
+    /**
+     * The presence of this attribute sets the text color to white, when the element has no focus
+     */
+    overDarkBackground: boolean;
     /**
      * The input placeholder
      */
@@ -1295,7 +1301,6 @@ declare namespace LocalJSX {
      * The accordion flavor
      */
     mode?: mode;
-    padding?: padding;
     /**
      * If this attribute is present, only one accordion-item can be open at the same time
      */
@@ -1314,6 +1319,10 @@ declare namespace LocalJSX {
      * The accordion id
      */
     itemId: string;
+    /**
+     * The accordion subtitle (optional)
+     */
+    itemSubtitle?: string;
     /**
      * The accordion title
      */
@@ -1338,11 +1347,14 @@ declare namespace LocalJSX {
      * If "editable-title" attribute is present, this event emmits the title value when it has changed
      */
     onTitleChanged?: (event: CustomEvent<any>) => void;
-    padding?: padding;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
     status?: status;
+    /**
+     * The accordion title icon
+     */
+    titleIcon?: string;
   }
   interface GxgAlert {
     /**
@@ -1735,6 +1747,10 @@ declare namespace LocalJSX {
      * Returns the input value
      */
     onInput?: (event: CustomEvent<any>) => void;
+    /**
+     * The presence of this attribute sets the text color to white, when the element has no focus
+     */
+    overDarkBackground?: boolean;
     /**
      * The input placeholder
      */

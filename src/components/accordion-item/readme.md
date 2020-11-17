@@ -31,10 +31,11 @@
 | `disabled`            | `disabled`       | The presence of this attribute makes the accordion-item disabled and not focusable                                   | `boolean`                                       | `false`       |
 | `editableTitle`       | `editable-title` | The presence of this attribute makes the accordion title editable                                                    | `boolean`                                       | `false`       |
 | `itemId` _(required)_ | `item-id`        | The accordion id                                                                                                     | `string`                                        | `undefined`   |
+| `itemSubtitle`        | `item-subtitle`  | The accordion subtitle (optional)                                                                                    | `string`                                        | `null`        |
 | `itemTitle`           | `item-title`     | The accordion title                                                                                                  | `string`                                        | `undefined`   |
 | `mode`                | `mode`           | The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion) | `"boxed" \| "classical" \| "minimal" \| "slim"` | `"classical"` |
-| `padding`             | `padding`        |                                                                                                                      | `"0" \| "l" \| "m" \| "s" \| "xs"`              | `"xs"`        |
 | `status`              | `status`         | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                            | `"closed"`    |
+| `titleIcon`           | `title-icon`     | The accordion title icon                                                                                             | `string`                                        | `null`        |
 
 ## Events
 

@@ -44,8 +44,15 @@ export class AccordionItem {
    */
   @Prop() itemTitle: string;
 
-  /*The accordion padding (internal spacing)*/
-  @Prop({ reflect: true }) padding: padding = "xs";
+  /**
+   * The accordion subtitle (optional)
+   */
+  @Prop() itemSubtitle: string = null;
+
+  /**
+   * The accordion title icon
+   */
+  @Prop() titleIcon: string = null;
 
   /**
    * Set the status to "open" if you want the accordion-item open by default
@@ -79,6 +86,16 @@ export class AccordionItem {
    */
   @State() minHeight = null;
 
+  /*
+   *accordion mode
+   */
+  @State() accordionMode = null;
+
+  /*
+   * Has slotted meta
+   */
+  @State() hasSlottedMeta = null;
+
   itemClickedHandler(e) {
     if (e.detail != 0) {
       this.accordionItemClicked.emit(this.itemId);
@@ -91,7 +108,6 @@ export class AccordionItem {
   printIcon() {
     let iType;
     let iColor: Color;
-    let iSize: Size;
     if (this.status === "open" && !this.disabled) {
       iType = "navigation/chevron-up";
       if (this.mode === "classical") {
@@ -106,7 +122,7 @@ export class AccordionItem {
       iType = "navigation/chevron-down";
       if (this.mode === "classical") {
         if (this.disabled) {
-          iColor = "alwaysblack";
+          iColor = "ondisabled";
         } else {
           //item not disabled
           iColor = "alwaysblack";
@@ -122,13 +138,13 @@ export class AccordionItem {
         iColor = "negative";
       }
     }
-    if (this.mode === "classical" || this.mode === "boxed") {
-      iSize = "regular";
-    } else {
-      iSize = "small";
-    }
     return (
-      <gxg-icon slot="icon" size={iSize} type={iType} color={iColor}></gxg-icon>
+      <gxg-icon
+        slot="icon"
+        size="regular"
+        type={iType}
+        color={iColor}
+      ></gxg-icon>
     );
   }
 
@@ -137,9 +153,17 @@ export class AccordionItem {
       console.warn("gxg-accordion-item 'itemId' property is mandatory.");
     }
     this.accordionItemLoaded.emit(this.itemId);
+
+    const slottedMeta = this.el.querySelector("[slot=meta]");
+    if (slottedMeta !== null) {
+      this.hasSlottedMeta = true;
+    }
   }
 
   componentDidLoad() {
+    //Get accordion mode
+    this.accordionMode = this.el.parentElement.getAttribute("mode");
+
     //Detect if this accordion-item has an accordion in it
     const accordion = this.el.querySelector("gxg-accordion");
     if (accordion !== null) {
@@ -183,16 +207,6 @@ export class AccordionItem {
     e.stopPropagation();
   }
 
-  textStyle() {
-    if (this.mode === "classical") {
-      return "title-05";
-    } else if (this.mode === "slim" || this.mode === "minimal") {
-      return "title-03";
-    } else if (this.mode === "boxed") {
-      return "title-02";
-    }
-  }
-
   changedTitleHandler(event) {
     if (this.editableTitle) {
       this.itemTitle = event.detail;
@@ -206,13 +220,24 @@ export class AccordionItem {
     }
   }
 
+  itemSubtitleTrimmed(subtitle) {
+    if (subtitle.length > 50) {
+      return subtitle;
+    } else {
+      return "";
+    }
+  }
+
   render() {
     return (
       <Host
         class={{
-          "nested-acordion": this.nestedAccordion
+          "nested-acordion": this.nestedAccordion,
+          "has-subtitle": this.itemSubtitle !== null
         }}
       >
+        {//disabled layer prevents interacting with the component and enables to use "not-allowed" cursor
+        this.disabled ? <div class="disabled-layer"></div> : null}
         <div
           class={{
             item: true,
@@ -230,38 +255,68 @@ export class AccordionItem {
               aria-disabled={this.ariaDisabled()}
               onKeyDown={this.keyDownHandler.bind(this)}
             >
-              <div
-                class={{
-                  cover: true,
-                  hidden: this.status === "open"
-                }}
-              ></div>
-              <div class="item__header__button__title-subtitle">
+              {this.editableTitle &&
+              (this.mode === "classical" || this.mode === "boxed") ? (
+                //div.cover prevents the editable-title to be edited when the accordion-item is closed
                 <div
+                  class={{
+                    cover: true,
+                    hidden: this.status === "open"
+                  }}
+                ></div>
+              ) : null}
+
+              <div class="item__header__button__title-subtitle">
+                <h1
                   class="item__header__button__title-subtitle__title"
                   onClick={this.titleClickedHandler.bind(this)}
                 >
-                  {this.editableTitle ? (
+                  {this.titleIcon !== null &&
+                  (this.accordionMode === "classical" ||
+                    this.accordionMode === "boxed") ? (
+                    <div class="item__header__button__title-subtitle__title__icon">
+                      <gxg-icon
+                        size="regular"
+                        type="navigation/flow-arrow"
+                        color={this.disabled ? "ondisabled" : "auto"}
+                      ></gxg-icon>
+                    </div>
+                  ) : null}
+                  {this.editableTitle &&
+                  (this.mode === "classical" || this.mode === "boxed") ? (
+                    //editable title should only be available for "classical" or "boxed" modes
                     <gxg-form-text
                       onChange={event => this.changedTitleHandler(event)}
                       minimal
+                      over-dark-background={
+                        true
+                          ? this.disabled && this.mode === "classical"
+                          : false
+                      }
                       value={this.itemTitle}
                       onClick={this.gxgFormTextClickedHandler.bind(this)}
-                      text-style={this.textStyle()}
+                      text-style="title-02"
                       class="input"
                     ></gxg-form-text>
                   ) : (
                     this.itemTitle
                   )}
-                </div>
-                {this.mode === "classical" || this.mode === "boxed" ? (
-                  <div class="item__header__button__title-subtitle__subtitle">
-                    <slot name="subtitle"></slot>
-                  </div>
+                </h1>
+                {(this.mode === "classical" || this.mode === "boxed") &&
+                this.itemSubtitle !== null ? (
+                  <h2
+                    class="item__header__button__title-subtitle__subtitle"
+                    title={this.itemSubtitleTrimmed(this.itemSubtitle)}
+                  >
+                    {this.itemSubtitle.length > 50
+                      ? this.itemSubtitle.slice(0, 50) + "..."
+                      : this.itemSubtitle}
+                  </h2>
                 ) : null}
               </div>
               <div class="item__header__button__meta-icon-wrapper">
-                {this.mode === "boxed" ? (
+                {this.hasSlottedMeta &&
+                (this.mode === "classical" || this.mode === "boxed") ? (
                   <div class="item__header__button__meta-icon-wrapper__meta">
                     <slot name="meta"></slot>
                   </div>
@@ -273,14 +328,14 @@ export class AccordionItem {
             </div>
           </header>
           {this.status === "open" && !this.disabled ? (
-            <div
+            <main
               class="item__container"
               id={this.itemId}
               role="region"
               aria-labelledby={"accordion-" + this.itemId}
             >
               <slot></slot>
-            </div>
+            </main>
           ) : (
             ""
           )}
@@ -291,5 +346,3 @@ export class AccordionItem {
 }
 
 export type status = "open" | "closed";
-
-export type padding = "0" | "xs" | "s" | "m" | "l";

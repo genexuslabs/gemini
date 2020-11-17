@@ -69,6 +69,11 @@ export class FormText implements FormComponent {
   @Prop({ reflect: true }) minimal = false;
 
   /**
+   * The presence of this attribute sets the text color to white, when the element has no focus
+   */
+  @Prop({ reflect: true }) overDarkBackground = false;
+
+  /**
    * The input placeholder
    */
   @Prop() placeholder: string;
