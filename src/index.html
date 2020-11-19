@@ -30,6 +30,28 @@
 
 <body>
 
+  <script>
+    let selectArray = [
+      "uno",
+      "dos",
+      "tres",
+    ]
+  </script>
+
+  <h3>Test</h3>
+  <gxg-test item="hola"></gxg-test>
+  <gxg-button id="update-select-options" type="primary-text-only">Update select options</gxg-button>
+  
+  <h3>Select</h3>
+  <!-- <gxg-select label="Themes" label-position="start">
+    <gxg-option value="dark">Dark</gxg-option>
+    <gxg-option value="light">Light</gxg-option>
+    <gxg-option selected value="light">1</gxg-option>
+    <gxg-option value="light">2</gxg-option>
+    <gxg-option value="light">3</gxg-option>
+  </gxg-select> -->
+  
+
   <h3>Accordions</h3>
 
   <h4>Classical</h4>
@@ -365,13 +387,13 @@ return false;
 >
 
 <h3>Select</h3>
-  <gxg-select label="Themes" label-position="start">
+  <!-- <gxg-select label="Themes" label-position="start">
     <gxg-option value="dark">Dark</gxg-option>
     <gxg-option value="light">Light</gxg-option>
     <gxg-option selected value="light">1</gxg-option>
     <gxg-option value="light">2</gxg-option>
     <gxg-option value="light">3</gxg-option>
-  </gxg-select>
+  </gxg-select> -->
 
   <!-- <gxg-stepper
     min="-4"
@@ -595,6 +617,18 @@ value="u"
 
   <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button> -->
   <script>
+
+    const gxgTest = document.querySelector("gxg-test");
+    gxgTest.selectItem = "hola";
+
+    let updateSelectOptionsButton = document.getElementById("update-select-options");
+    updateSelectOptionsButton.addEventListener("click", function(){
+      gxgTest.item = "chau";
+    });
+    
+
+    /////////////////////////////////////////////////////////////////
+
     function mostrarAlertMoreInfo(alertId) {
       document.getElementById(alertId).setAttribute("active", "true");
     }

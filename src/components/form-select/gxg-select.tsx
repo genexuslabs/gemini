@@ -88,6 +88,8 @@ export class FormSelectNew {
    */
   @State() rtl = false;
 
+  @State() rerender = false;
+
   /*********************************
   METHODS
   *********************************/
@@ -121,6 +123,16 @@ export class FormSelectNew {
   }
 
   componentDidLoad() {
+    const slots = this.el.shadowRoot.querySelectorAll("slot");
+    slots[0].addEventListener(
+      "slotchange",
+      function(e) {
+        this.el.shadowRoot.querySelector(".select-selected").remove();
+        this.el.shadowRoot.querySelector(".select-items").remove();
+        this.selectCore();
+      }.bind(this)
+    );
+
     //Reading Direction
     const dirHtml = document
       .getElementsByTagName("html")[0]
@@ -132,6 +144,10 @@ export class FormSelectNew {
       this.rtl = true;
     }
 
+    this.selectCore();
+  }
+
+  selectCore() {
     const updateValue = selectedOption => {
       this.value = selectedOption;
     };
