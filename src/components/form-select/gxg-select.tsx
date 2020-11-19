@@ -126,7 +126,7 @@ export class FormSelectNew {
     const slots = this.el.shadowRoot.querySelectorAll("slot");
     slots[0].addEventListener(
       "slotchange",
-      function(e) {
+      function() {
         this.el.shadowRoot.querySelector(".select-selected").remove();
         this.el.shadowRoot.querySelector(".select-items").remove();
         this.selectCore();
