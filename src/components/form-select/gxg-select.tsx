@@ -24,7 +24,7 @@ export class FormSelectNew {
   select!: HTMLElement;
   @Element() el: HTMLElement;
 
-  /*********************************
+  /********************************
   PROPERTIES & STATE
   *********************************/
 
