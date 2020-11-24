@@ -14,7 +14,6 @@
   { "name": "controls/flex", "description": "Some description" },
   { "name": "controls/font", "description": "Some description" },
   { "name": "controls/free-style-grid", "description": "Some description" },
-  { "name": "navigation/flow-arrow", "description": "Some description" },
   { "name": "controls/google-analytics", "description": "Some description" },
   {
     "name": "controls/google-annotated-tmeline",
