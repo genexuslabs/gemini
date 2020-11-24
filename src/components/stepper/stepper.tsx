@@ -36,6 +36,11 @@ export class Stepper {
   @Prop() label = "Label";
 
   /**
+   * The label position
+   */
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
+
+  /**
    * The initial vaule
    */
   @Prop({ reflect: true }) value = 0;
@@ -154,3 +159,5 @@ export class Stepper {
     );
   }
 }
+
+export type LabelPosition = "start" | "above";

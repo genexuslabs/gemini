@@ -5,10 +5,10 @@
   .contextual-menu-item {
     position: relative;
     list-style-type: none;
-    font-size: var(--font-size-xxs);
+    font-size: var(--font-size-sm);
     font-family: var(--font-family-primary);
     padding: 1px var(--spacing-comp-05) 1px var(--spacing-comp-01);
-    height: 12px;
+    height: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@
       display: none;
     }
     &:hover {
-      background-color: var(--gray-02);
+      background-color: var(--gray-01);
       ::slotted(gxg-contextual-menu-submenu) {
         display: block;
       }

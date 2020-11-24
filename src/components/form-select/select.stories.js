@@ -13,6 +13,19 @@ const stories = storiesOf("Controls/Select", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Select", () => {
+  //Label Position
+  const labelLabelPosition = "Label position";
+  const optionsLabelPosition = {
+    start: "start",
+    above: "above"
+  };
+  const defaultValueLabelPosition = "above";
+  const valueLabelPosition = select(
+    labelLabelPosition,
+    optionsLabelPosition,
+    defaultValueLabelPosition
+  );
+
   //Max Width
   const labelMaxWidthSize = "Max. Width";
   const defaultMaxWidthSize = "100%";
@@ -96,6 +109,7 @@ stories.add("Select", () => {
   
   <gxg-select
   label="Select a car:"
+  label-position=${valueLabelPosition}
   max-width=${valueMaxWidthSize}
   ${minimal()}
   ${valueStatusType()}

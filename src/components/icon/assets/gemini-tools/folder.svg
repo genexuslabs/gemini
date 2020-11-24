@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Tools/folder</title>
-    <g id="Tools/folder" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M14.8,13.4 L5.2,13.4 L5.2,7.4 L14.8,7.4 M14.8,6.2 L10,6.2 L8.8,5 L5.2,5 C4.534,5 4,5.534 4,6.2 L4,13.4 C4,14.0627417 4.5372583,14.6 5.2,14.6 L14.8,14.6 C15.4627417,14.6 16,14.0627417 16,13.4 L16,7.4 C16,6.734 15.46,6.2 14.8,6.2 Z" id="Shape" fill="#000000"></path>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.icons09{fill:#81888e;fill-rule:evenodd;}</style></defs><title>folder</title><g id="bd597c87-6c9e-4304-a3af-da417decd748" data-name="folder"><path id="fff451f6-e85b-4ee9-85ea-37dcfe5aebbb" data-name="icons09" class="icons09" d="M15,4H1V3H2V1H7V3h8Zm0,11H1V5H15ZM16,5V3a1,1,0,0,0-1-1H8V1A1,1,0,0,0,7,0H2A1,1,0,0,0,1,1V2A1,1,0,0,0,0,3V15a1,1,0,0,0,.61.92A1,1,0,0,0,1,16H15a1,1,0,0,0,1-1Z"/></g></svg>

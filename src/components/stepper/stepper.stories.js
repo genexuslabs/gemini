@@ -28,6 +28,19 @@ stories.add("Stepper", () => {
   const defaultValueLabel = "Stepper";
   const valueLabel = text(labelLabel, defaultValueLabel);
 
+  //Label Position
+  const labelLabelPosition = "Label position";
+  const optionsLabelPosition = {
+    start: "start",
+    above: "above"
+  };
+  const defaultValueLabelPosition = "above";
+  const valueLabelPosition = select(
+    labelLabelPosition,
+    optionsLabelPosition,
+    defaultValueLabelPosition
+  );
+
   //Max value
   const labelMaxValue = "Max. Value";
   const defaultMaxValue = 10;
@@ -44,5 +57,5 @@ stories.add("Stepper", () => {
     }
   }
 
-  return `<gxg-stepper ${disabled()} value=${valueValue} label=${valueLabel} max=${valueMaxValue} min=${valueMinValue}></gxg-stepper>`;
+  return `<gxg-stepper ${disabled()} value=${valueValue} label=${valueLabel} label-position=${valueLabelPosition} max=${valueMaxValue} min=${valueMinValue}></gxg-stepper>`;
 });

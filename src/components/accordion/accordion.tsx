@@ -8,8 +8,6 @@ import {
   Prop
 } from "@stencil/core";
 
-import { padding } from "../accordion-item/accordion-item";
-
 @Component({
   tag: "gxg-accordion",
   styleUrl: "accordion.scss",
@@ -20,9 +18,6 @@ export class Accordion {
    * The presence of this attribute makes all of the accordion-items disabled and not focusable
    */
   @Prop() disabled = false;
-
-  /*The accoridion padding (internal spacing)*/
-  @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
    * If this attribute is present, only one accordion-item can be open at the same time
@@ -38,6 +33,11 @@ export class Accordion {
    * The accordion max-width
    */
   @Prop() maxWidth = "100%";
+
+  /**
+   * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
+   */
+  @Prop() noPadding = false;
 
   @State() accordions: HTMLGxgAccordionItemElement[];
 
@@ -130,17 +130,18 @@ export class Accordion {
         "mode",
         this.mode
       );
+      if (this.noPadding) {
+        (accordion as HTMLGxgAccordionItemElement).setAttribute(
+          "no-padding",
+          ""
+        );
+      }
       if (this.disabled) {
         (accordion as HTMLGxgAccordionItemElement).setAttribute(
           "disabled",
           "disabled"
         );
       }
-    });
-
-    //Set padding to accordion items
-    this.accordions.forEach(accordion => {
-      accordion.setAttribute("padding", this.padding);
     });
   }
 

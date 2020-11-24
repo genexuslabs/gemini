@@ -21,7 +21,6 @@ stories.add("Tree", () => {
   return `
   <gxg-tree id="main-tree" onClick="(function(){
     let itemClickedHandler = function(e){
-      console.log(e);
     }
     this.removeEventListener('itemClicked', itemClickedHandler);
     this.addEventListener('itemClicked', itemClickedHandler);

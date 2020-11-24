@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Tools/close</title>
-    <g id="Tools/close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M10,10.746 L4.74560375,16 L4,15.2543962 L9.25439625,10 L4,4.74560375 L4.74560375,4 L10,9.25439625 L15.2543962,4 L16,4.74560375 L10.7456038,10 L16,15.2543962 L15.2543962,16 L10,10.746 Z" id="Combined-Shape" fill="#000000"></path>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.icons09{fill:#81888e;fill-rule:evenodd;}</style></defs><title>close</title><g id="a6dc050a-c419-4cda-95ea-5b6802175e2e" data-name="close"><polygon id="aee543f4-5f48-41fd-88c1-871c83c304bd" data-name="icons09" class="icons09" points="13.71 1.74 15.08 1.74 8.81 8 15.08 14.23 13.66 14.23 8.1 8.73 2.54 14.26 1.12 14.26 7.39 8 1.09 1.76 2.48 1.76 8.1 7.32 13.71 1.74"/></g></svg>

@@ -23,7 +23,7 @@ stories.add("Contextual Menu", () => {
 
   <!-- CONTEXTUAL MENU FRUITS -->
   <gxg-contextual-menu id="contextualMenuFruits"> 
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     Apples
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>
@@ -43,7 +43,7 @@ stories.add("Contextual Menu", () => {
       </gxg-contextual-menu-item> 
     </gxg-contextual-submenu>
   </gxg-contextual-menu-item>
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     Bananas
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>
@@ -63,10 +63,10 @@ stories.add("Contextual Menu", () => {
       </gxg-contextual-menu-item> 
     </gxg-contextual-submenu>
   </gxg-contextual-menu-item>
-  <gxg-contextual-menu-item icon="general/folder"> 
+  <gxg-contextual-menu-item icon="gemini-tools/folder"> 
     Grapes
     <gxg-contextual-menu-submenu>
-      <gxg-contextual-menu-item icon="general/folder">
+      <gxg-contextual-menu-item icon="gemini-tools/folder">
       Red
         <gxg-contextual-menu-submenu>
         <gxg-contextual-menu-item>
@@ -83,7 +83,7 @@ stories.add("Contextual Menu", () => {
         </gxg-contextual-menu-item>
       </gxg-contextual-submenu>
       </gxg-contextual-menu-item>
-      <gxg-contextual-menu-item icon="general/folder">
+      <gxg-contextual-menu-item icon="gemini-tools/folder">
       White
         <gxg-contextual-menu-submenu>
           <gxg-contextual-menu-item>
@@ -109,7 +109,7 @@ stories.add("Contextual Menu", () => {
   <gxg-contextual-menu-item>
     Onion
   </gxg-contextual-menu-item>
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     Lettuce
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>
@@ -126,7 +126,7 @@ stories.add("Contextual Menu", () => {
       </gxg-contextual-menu-item>
       </gxg-contextual-submenu>
   </gxg-contextual-menu-item>
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     Tomatoes
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>
@@ -147,7 +147,7 @@ stories.add("Contextual Menu", () => {
 
 <!-- CONTEXTUAL MENU MEATS -->
 <gxg-contextual-menu id="contextualMenuMeats"> 
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     Red
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>
@@ -164,7 +164,7 @@ stories.add("Contextual Menu", () => {
       </gxg-contextual-menu-item>
       </gxg-contextual-submenu>
   </gxg-contextual-menu-item>
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     White
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>
@@ -181,7 +181,7 @@ stories.add("Contextual Menu", () => {
       </gxg-contextual-menu-item>
       </gxg-contextual-submenu>
   </gxg-contextual-menu-item>
-  <gxg-contextual-menu-item icon="general/folder">
+  <gxg-contextual-menu-item icon="gemini-tools/folder">
     Fish
     <gxg-contextual-menu-submenu>
       <gxg-contextual-menu-item>

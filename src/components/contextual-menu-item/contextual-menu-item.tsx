@@ -16,7 +16,11 @@ export class ContextualMenuItem {
   printIcon() {
     if (this.icon !== null) {
       return (
-        <gxg-icon size="small" type={this.icon} color="onbackground"></gxg-icon>
+        <gxg-icon
+          size="regular"
+          type={this.icon}
+          color="onbackground"
+        ></gxg-icon>
       );
     }
   }
@@ -29,7 +33,7 @@ export class ContextualMenuItem {
       return (
         <gxg-icon
           class="show-more"
-          size="small"
+          size="regular"
           type="navigation/arrow-right"
           color="onbackground"
         ></gxg-icon>

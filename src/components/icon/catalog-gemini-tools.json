@@ -34,5 +34,7 @@
     "description": "Some description"
   },
   { "name": "gemini-tools/success", "description": "Some description" },
-  { "name": "gemini-tools/warning", "description": "Some description" }
+  { "name": "gemini-tools/warning", "description": "Some description" },
+  { "name": "gemini-tools/card-view", "description": "Some description" },
+  { "name": "gemini-tools/list-view", "description": "Some description" }
 ]

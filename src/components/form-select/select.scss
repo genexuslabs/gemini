@@ -47,7 +47,7 @@ SELECT
     border-width: var(--border-width-sm);
     border-color: var(--gray-04);
     border-style: var(--border-style-regular);
-    height: 11px;
+    height: 10px;
 
     &:focus {
       @include form-element-common-styles-focus-type-1();
@@ -193,5 +193,20 @@ ERROR & WARNING
   }
   .select--error .select-selected {
     //color: #1c1b1b; //No token color here, because we need the same color for both, light and dark mode
+  }
+}
+
+:host([label-position="start"]) {
+  .outer-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .custom-select {
+    width: 100%;
+  }
+  .label {
+    margin-bottom: 0;
+    margin-inline-end: var(--spacing-comp-02);
+    flex-shrink: 0;
   }
 }

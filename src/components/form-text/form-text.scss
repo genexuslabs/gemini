@@ -17,6 +17,7 @@ FORM ELEMENT WRAPPER
   .inner-wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     gxg-icon {
       position: absolute;
@@ -38,6 +39,19 @@ LABEL
     position: relative;
     width: 100%;
     @include ui-animation(padding-left);
+  }
+}
+:host([label-position="start"]) {
+  .outer-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .inner-wrapper {
+    width: 100%;
+  }
+  .label {
+    margin-bottom: 0;
+    margin-inline-end: var(--spacing-comp-01);
   }
 }
 
@@ -71,7 +85,7 @@ TEXT
     @include form-element-common-styles-warning();
   }
 }
-//borderless
+//borderless and transparent background
 :host([minimal]) {
   input[type="text"]:not(:focus) {
     border-color: transparent;
@@ -94,6 +108,12 @@ TEXT
   }
   input[type="text"]:focus {
     padding-left: var(--spacing-comp-01);
+  }
+}
+//If the form-text is minimal and is on a dark background
+:host([minimal][over-dark-background]) {
+  input[type="text"]:not(:focus) {
+    color: var(--color-on-primary);
   }
 }
 /*****************************************************
