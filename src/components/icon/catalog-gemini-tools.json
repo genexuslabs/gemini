@@ -15,6 +15,7 @@
   { "name": "gemini-tools/error", "description": "Some description" },
   { "name": "gemini-tools/file", "description": "Some description" },
   { "name": "gemini-tools/folder", "description": "Some description" },
+  { "name": "gemini-tools/flow-arrow", "description": "Some description" },
   { "name": "gemini-tools/minus", "description": "Some description" },
   { "name": "gemini-tools/minus-circle", "description": "Some description" },
   { "name": "gemini-tools/notice", "description": "Some description" },
