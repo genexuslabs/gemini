@@ -7,7 +7,9 @@
   { "name": "navigation/chevron-left", "description": "Some description" },
   { "name": "navigation/chevron-right", "description": "Some description" },
   { "name": "navigation/chevron-up", "description": "Some description" },
-  { "name": "navigation/flow-arrow", "description": "Some description" },
+  { "name": "gemini-tools/drag", "description": "Some description" },
   { "name": "navigation/level-down", "description": "Some description" },
-  { "name": "navigation/level-up", "description": "Some description" }
+  { "name": "navigation/level-up", "description": "Some description" },
+  { "name": "gemini-tools/pill-filled", "description": "Some description" },
+  { "name": "gemini-tools/pill-outlined", "description": "Some description" }
 ]
