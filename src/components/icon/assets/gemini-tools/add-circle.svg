@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Tools/add-circle</title>
-    <g id="Tools/add-circle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M10,4 C13.3137085,4 16,6.6862915 16,10 C16,13.3137085 13.3137085,16 10,16 C6.6862915,16 4,13.3137085 4,10 C4,6.6862915 6.6862915,4 10,4 Z M10.5702393,6 L9.41311134,6 L9.41311134,9.4516129 L6,9.4516129 L6,10.5645161 L9.41311134,10.5645161 L9.41311134,14 L10.5702393,14 L10.5702393,10.5645161 L14,10.5645161 L14,9.4516129 L10.5702393,9.4516129 L10.5702393,6 Z" id="Shape" fill="#000000"></path>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.icons09{fill:#81888e;fill-rule:evenodd;}</style></defs><title>add-circle</title><g id="ffe605e2-6bdc-49a2-8aea-c31bc7281664" data-name="add-circle"><path id="abcc57c6-922a-40dc-91e6-1ebf1f25e960" data-name="icons09" class="icons09" d="M8.74,2.84H7.24V7.29H2.84V8.73h4.4v4.43h1.5V8.73h4.42V7.29H8.74ZM8,.26A7.74,7.74,0,1,1,.26,8,7.75,7.75,0,0,1,8,.26Z"/></g></svg>
