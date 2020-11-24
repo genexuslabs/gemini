@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Tools/file</title>
-    <g id="Tools/file" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M11,4 L6.2,4 C5.5372583,4 5,4.5372583 5,5.2 L5,14.8 C5,15.4627417 5.5372583,16 6.2,16 L13.4,16 C14.0627417,16 14.6,15.4627417 14.6,14.8 L14.6,7.6 L11,4 M13.4,14.8 L6.2,14.8 L6.2,5.2 L10.4,5.2 L10.4,8.2 L13.4,8.2 L13.4,14.8 Z" id="Shape" fill="#000000"></path>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.icons09{fill:#81888e;fill-rule:evenodd;}</style></defs><title>file</title><g id="ba0df00d-1518-400a-809b-1f790b980d90" data-name="file"><path id="a4874603-6aca-44e5-b12c-e1bd833129e2" data-name="icons09" class="icons09" d="M15,3.94,11,0H2A1,1,0,0,0,1,1V15a1,1,0,0,0,1,1H14a1,1,0,0,0,1-1V4h0ZM12,2.37l.58.59H12ZM14,15H2V1h9V3a1,1,0,0,0,1,1h2Z"/></g></svg>

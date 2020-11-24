@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Tools/close</title>
-    <g id="Tools/close" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M10,10.746 L4.74560375,16 L4,15.2543962 L9.25439625,10 L4,4.74560375 L4.74560375,4 L10,9.25439625 L15.2543962,4 L16,4.74560375 L10.7456038,10 L16,15.2543962 L15.2543962,16 L10,10.746 Z" id="Combined-Shape" fill="#000000"></path>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.icons09{fill:#81888e;fill-rule:evenodd;}</style></defs><title>close</title><g id="b39c64dc-50fd-47ce-81e0-bd661081f7c9" data-name="close"><path id="f5942a47-23ed-4565-9909-c479d4d25a30" data-name="icons09" class="icons09" d="M13.71,1.74h1.37L8.81,8l6.27,6.23H13.66L8.1,8.73,2.54,14.26H1.12L7.39,8,1.09,1.76H2.48L8.1,7.32Z"/></g></svg>
