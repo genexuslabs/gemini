@@ -3,6 +3,7 @@
   { "name": "navigation/arrow-left", "description": "Some description" },
   { "name": "navigation/arrow-right", "description": "Some description" },
   { "name": "navigation/arrow-up", "description": "Some description" },
+  { "name": "navigation/bullet", "description": "Some description" },
   { "name": "navigation/chevron-down", "description": "Some description" },
   { "name": "navigation/chevron-left", "description": "Some description" },
   { "name": "navigation/chevron-right", "description": "Some description" },
