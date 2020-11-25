@@ -5,7 +5,7 @@ import { Component, h, Host, Element, State } from "@stencil/core";
   styleUrl: "tab-bar.scss",
   shadow: true
 })
-export class TabBar {
+export class GxgTabBar {
   constructor() {
     this.detectClickOutsideTabBarMenu = this.detectClickOutsideTabBarMenu.bind(
       this

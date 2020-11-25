@@ -21,7 +21,7 @@ import {
   styleUrl: "form-text.scss",
   shadow: true
 })
-export class FormText implements FormComponent {
+export class GxgFormText implements FormComponent {
   isRequiredError = false;
 
   /*********************************

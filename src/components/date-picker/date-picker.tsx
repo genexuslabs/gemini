@@ -6,7 +6,7 @@ import datepicker from "js-datepicker";
   styleUrl: "date-picker.scss",
   shadow: true
 })
-export class DatePicker {
+export class GxgDatePicker {
   @Element() el: HTMLElement;
 
   /**

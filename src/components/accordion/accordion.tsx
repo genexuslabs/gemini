@@ -13,7 +13,7 @@ import {
   styleUrl: "accordion.scss",
   shadow: true
 })
-export class Accordion {
+export class GxgAccordion {
   /**
    * The presence of this attribute makes all of the accordion-items disabled and not focusable
    */

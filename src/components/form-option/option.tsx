@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "option.scss",
   shadow: true
 })
-export class Option {
+export class GxgFormOption {
   /**
    * The value
    */

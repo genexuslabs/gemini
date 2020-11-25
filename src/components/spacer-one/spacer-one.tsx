@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "spacer-one.scss",
   shadow: true
 })
-export class SpacerOne {
+export class GxgSpacerOne {
   /**
    * The spacing value, taken from the "token-spacing" global values
    */

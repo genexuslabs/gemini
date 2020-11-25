@@ -5,7 +5,7 @@ import { Component, Prop, h } from "@stencil/core";
   styleUrl: "scroll.scss",
   shadow: true
 })
-export class Scroll {
+export class GxgScroll {
   /**
    * Max height
    */

@@ -5,7 +5,7 @@ import { Component, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
   styleUrl: "menu-item.scss",
   shadow: true
 })
-export class MenuItem {
+export class GxgMenuItem {
   //A reference to the input
   listItem!: HTMLElement;
 

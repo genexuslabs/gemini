@@ -14,7 +14,7 @@ import {
   styleUrl: "tree-item.scss",
   shadow: true
 })
-export class TreeItem {
+export class GxgTreeItem {
   @Element() el: HTMLElement;
   @State() hasChildren = false;
 

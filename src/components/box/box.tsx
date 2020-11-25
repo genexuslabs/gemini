@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "box.scss",
   shadow: true
 })
-export class Box {
+export class GxgBox {
   /*********************************
   PROPERTIES & STATE
   *********************************/

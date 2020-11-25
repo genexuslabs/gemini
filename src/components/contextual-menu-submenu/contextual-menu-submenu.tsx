@@ -5,7 +5,7 @@ import { Component, h, Host, Element } from "@stencil/core";
   styleUrl: "contextual-menu-submenu.scss",
   shadow: true
 })
-export class ContextualMenuSubmenu {
+export class GxgContextualMenuSubmenu {
   @Element() el: HTMLElement;
 
   render() {

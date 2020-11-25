@@ -16,7 +16,7 @@ import { mode } from "../accordion/accordion";
   styleUrl: "accordion-item.scss",
   shadow: true
 })
-export class AccordionItem {
+export class GxgAccordionItem {
   @Element() el: HTMLElement;
 
   /**

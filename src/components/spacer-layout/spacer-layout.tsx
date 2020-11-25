@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "spacer-layout.scss",
   shadow: true
 })
-export class SpacerLayout {
+export class GxgSpacerLayout {
   /**
    * Add this attribute to make the spacer-layout full height
    */

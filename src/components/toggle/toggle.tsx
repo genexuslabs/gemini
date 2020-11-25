@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "toggle.scss",
   shadow: true
 })
-export class Toggle {
+export class GxgToggle {
   /*********************************
   PROPERTIES & STATE
   *********************************/

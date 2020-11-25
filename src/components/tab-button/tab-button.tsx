@@ -5,7 +5,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
   styleUrl: "tab-button.scss",
   shadow: true
 })
-export class TabButton {
+export class GxgTabButton {
   /**
    * The button label
    */

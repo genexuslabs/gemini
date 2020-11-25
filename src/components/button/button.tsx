@@ -6,7 +6,7 @@ import { Color } from "../icon/icon";
   styleUrl: "button.scss",
   shadow: true
 })
-export class Button {
+export class GxgButton {
   @Element() el: HTMLElement;
 
   /*********************************

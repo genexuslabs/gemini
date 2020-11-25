@@ -11,7 +11,7 @@ import {
   styleUrl: "form-textarea.scss",
   shadow: true
 })
-export class FormTextarea implements FormComponent {
+export class GxgFormTextarea implements FormComponent {
   isRequiredError = false;
 
   //A reference to the input

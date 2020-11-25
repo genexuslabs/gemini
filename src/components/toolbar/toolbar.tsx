@@ -5,7 +5,7 @@ import { Component, Prop, h, Host, State } from "@stencil/core";
   styleUrl: "toolbar.scss",
   shadow: true
 })
-export class Toolbar {
+export class GxgToolbar {
   /**
    * The toggle arrow position
    */

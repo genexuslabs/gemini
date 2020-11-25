@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "progress-bar.scss",
   shadow: true
 })
-export class ProgressBar {
+export class GxgProgressBar {
   /**
    * The state of the progress-bar, whether it is disabled or not.
    */

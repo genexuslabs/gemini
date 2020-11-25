@@ -36,7 +36,7 @@ const CAMEL_CASE_TO_HYPHENED_REGEX = /(.)([A-Z])/g;
   shadow: true,
   assetsDirs: ["assets"]
 })
-export class Icon {
+export class GxgIcon {
   private io?: IntersectionObserver;
 
   @Element() element: HTMLElement;

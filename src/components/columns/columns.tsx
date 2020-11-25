@@ -5,7 +5,7 @@ import { Component, Element, Prop, h, Host } from "@stencil/core";
   styleUrl: "columns.scss",
   shadow: true
 })
-export class Columns {
+export class GxgColumns {
   @Element() el: HTMLElement;
 
   /**

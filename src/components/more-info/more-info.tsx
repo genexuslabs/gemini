@@ -5,7 +5,7 @@ import { Component, Prop, h } from "@stencil/core";
   styleUrl: "more-info.scss",
   shadow: true
 })
-export class MoreInfo {
+export class GxgMoreInfo {
   /**
    the tooltip position
    */

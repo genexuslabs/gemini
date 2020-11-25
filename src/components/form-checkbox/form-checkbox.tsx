@@ -13,7 +13,7 @@ import {
   styleUrl: "form-checkbox.scss",
   shadow: true
 })
-export class FormCheckbox {
+export class GxgFormCheckbox {
   @Element() el: HTMLElement;
 
   //A reference to the input

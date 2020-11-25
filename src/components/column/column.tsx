@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "column.scss",
   shadow: true
 })
-export class Column {
+export class GxgColumn {
   /**
    * The column width value
    */

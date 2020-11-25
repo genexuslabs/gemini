@@ -5,7 +5,7 @@ import { Component, Prop, h, Host, Element, Listen } from "@stencil/core";
   styleUrl: "menu.scss",
   shadow: true
 })
-export class Menu {
+export class GxgMenu {
   @Element() el: HTMLElement;
 
   /**

@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "card.scss",
   shadow: true
 })
-export class Card {
+export class GxgCard {
   /**
    * The card box-shadow
    */

@@ -5,7 +5,7 @@ import { Component, Element, Listen, h, State } from "@stencil/core";
   styleUrl: "tabs.scss",
   shadow: true
 })
-export class Tabs {
+export class GxgTabs {
   @Element() element: HTMLGxgTabsElement;
 
   @State() activeTab = "";

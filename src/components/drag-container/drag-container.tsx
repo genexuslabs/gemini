@@ -16,7 +16,7 @@ import { makeDraggable, DraggableComponent } from "../../utils/makeDraggable";
   styleUrl: "drag-container.scss",
   shadow: true
 })
-export class DragContainer implements DraggableComponent {
+export class GxgDragContainer implements DraggableComponent {
   @Element() el: HTMLElement;
 
   /**

@@ -5,7 +5,7 @@ import { Component, Element, h } from "@stencil/core";
   styleUrl: "tree.scss",
   shadow: true
 })
-export class TreeContainer {
+export class GxgTree {
   @Element() el: HTMLElement;
 
   render() {

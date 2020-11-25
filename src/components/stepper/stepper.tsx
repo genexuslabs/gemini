@@ -15,7 +15,7 @@ import {
   styleUrl: "stepper.scss",
   shadow: true
 })
-export class Stepper {
+export class GxgStepper {
   /*********************************
   PROPERTIES & STATE
   *********************************/

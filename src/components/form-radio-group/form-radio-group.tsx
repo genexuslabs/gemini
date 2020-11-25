@@ -5,7 +5,7 @@ import { requiredLabel, formMessage } from "../../common";
   styleUrl: "form-radio-group.scss",
   shadow: true
 })
-export class FormRadioGroup {
+export class GxgFormRadioGroup {
   isRequiredError = false;
 
   @Element() el: HTMLElement;

@@ -5,7 +5,7 @@ import { Component, Prop, Element, h, Host, State, Watch } from "@stencil/core";
   styleUrl: "slider.scss",
   shadow: true
 })
-export class Slider {
+export class GxgSlider {
   @Element() el: HTMLElement;
 
   /**

@@ -5,7 +5,7 @@ import { Component, Element, Host, Prop, h, Watch } from "@stencil/core";
   styleUrl: "alert.scss",
   shadow: true
 })
-export class Alert {
+export class GxgAlert {
   @Element() el: HTMLElement;
 
   /*********************************

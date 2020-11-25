@@ -5,7 +5,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
   styleUrl: "tooltip.scss",
   shadow: true
 })
-export class Tooltip {
+export class GxgTooltip {
   /**
    the tooltip position
    */

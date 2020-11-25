@@ -5,7 +5,7 @@ import { Component, Prop, h } from "@stencil/core";
   styleUrl: "toolbar-item.scss",
   shadow: true
 })
-export class ToolbarItem {
+export class GxgToolbarItem {
   /**
    * The state of the toolbar-item, whether it is disabled or not
    */

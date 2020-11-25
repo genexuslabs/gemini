@@ -14,7 +14,7 @@ import {
   styleUrl: "form-radio.scss",
   shadow: true
 })
-export class FormRadio {
+export class GxgFormRadio {
   /**
    * Make the radio-button required
    */

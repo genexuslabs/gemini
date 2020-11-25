@@ -16,7 +16,7 @@ import Pickr from "@simonwep/pickr";
   styleUrl: "color-picker.scss",
   shadow: true
 })
-export class ColorPicker {
+export class GxgColorPicker {
   @Element() element: HTMLElement;
   private pickr: Pickr;
 

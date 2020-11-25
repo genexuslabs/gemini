@@ -5,7 +5,7 @@ import { Component, Host, Prop, h } from "@stencil/core";
   styleUrl: "text.scss",
   shadow: true
 })
-export class Text {
+export class GxgText {
   /**
    * The href (for "link" or "link-gray" types
    */

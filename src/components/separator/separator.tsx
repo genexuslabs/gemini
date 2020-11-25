@@ -5,7 +5,7 @@ import { Component, Prop, h } from "@stencil/core";
   styleUrl: "separator.scss",
   shadow: true
 })
-export class Separator {
+export class GxgSeparator {
   /**
    * The hr style
    */

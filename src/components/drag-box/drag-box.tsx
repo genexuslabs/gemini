@@ -13,7 +13,7 @@ import {
   styleUrl: "drag-box.scss",
   shadow: true
 })
-export class DragBox {
+export class GxgDragBox {
   /**
    * The presence of this attribute makes this box active
    */

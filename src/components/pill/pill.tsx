@@ -4,7 +4,7 @@ import { Component, Element, Prop, h, Host } from "@stencil/core";
   styleUrl: "pill.scss",
   shadow: true
 })
-export class Pill {
+export class GxgPill {
   @Element() el: HTMLElement;
 
   /**

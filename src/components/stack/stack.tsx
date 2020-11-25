@@ -5,7 +5,7 @@ import { Component, Prop, h } from "@stencil/core";
   styleUrl: "stack.scss",
   shadow: true
 })
-export class Stack {
+export class GxgStack {
   /**
    * The spacing value
    */

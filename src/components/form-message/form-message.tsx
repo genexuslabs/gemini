@@ -5,7 +5,7 @@ import { Component, Host, Prop, h } from "@stencil/core";
   styleUrl: "form-message.scss",
   shadow: true
 })
-export class FormMessage {
+export class GxgFormMessage {
   /**
    * The type of message
    */

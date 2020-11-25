@@ -16,7 +16,7 @@ import { requiredLabel, formMessage } from "../../common.js";
   styleUrl: "select.scss",
   shadow: true
 })
-export class FormSelectNew {
+export class GxgFormSelect {
   //A reference to the select
 
   slottedContent!: HTMLCollection;

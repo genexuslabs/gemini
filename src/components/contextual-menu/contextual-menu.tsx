@@ -5,7 +5,7 @@ import { Component, Prop, h, Host, Element, Watch, State } from "@stencil/core";
   styleUrl: "contextual-menu.scss",
   shadow: true
 })
-export class ContextualMenu {
+export class GxgContextualMenu {
   constructor() {
     this.detectClickOutsideMenu = this.detectClickOutsideMenu.bind(this);
   }

@@ -5,7 +5,7 @@ import { Component, Element, h, Host, Prop, State } from "@stencil/core";
   styleUrl: "button-group.scss",
   shadow: true
 })
-export class ButtonGroup {
+export class GxgButtonGroup {
   @Element() el: HTMLElement;
 
   /*********************************

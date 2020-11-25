@@ -5,7 +5,7 @@ import { Component, Host, Prop, h } from "@stencil/core";
   styleUrl: "title.scss",
   shadow: true
 })
-export class Title {
+export class GxgTitle {
   /**
    * Title type
    */

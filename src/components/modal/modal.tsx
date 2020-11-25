@@ -5,7 +5,7 @@ import { Component, Element, Prop, h, Host, Watch } from "@stencil/core";
   styleUrl: "modal.scss",
   shadow: true
 })
-export class Modal {
+export class GxgModal {
   @Element() el: HTMLElement;
 
   /*The accordion padding (internal spacing)*/
