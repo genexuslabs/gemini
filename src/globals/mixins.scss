@@ -374,8 +374,8 @@ FORM ELEMENTS
   background-color: var(--color-on-primary);
 }
 @mixin form-element-common-styles-disabled {
-  background-color: var(--color-on-disabled);
-  color: var(--gray-04);
+  background-color: var(--gray-01);
+  color: var(--color-on-disabled);
 }
 
 @mixin form-element-common-styles-wrapper {

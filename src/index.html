@@ -387,13 +387,42 @@ return false;
 >
 
 <h3>Select</h3>
-  <!-- <gxg-select label="Themes" label-position="start">
+
+  <gxg-select label="Themes" label-position="start">
     <gxg-option value="dark">Dark</gxg-option>
     <gxg-option value="light">Light</gxg-option>
     <gxg-option selected value="light">1</gxg-option>
     <gxg-option value="light">2</gxg-option>
     <gxg-option value="light">3</gxg-option>
-  </gxg-select> -->
+  </gxg-select>
+  <h4>Select disabled</h4>
+  <gxg-select disabled label="Themes" label-position="start">
+    <gxg-option value="dark">Dark</gxg-option>
+    <gxg-option value="light">Light</gxg-option>
+    <gxg-option selected value="light">1</gxg-option>
+    <gxg-option value="light">2</gxg-option>
+    <gxg-option value="light">3</gxg-option>
+  </gxg-select>
+
+  <h3>Text</h3>
+  <gxg-form-text
+type="text"
+label="Default"
+placeholder="Placeholder text"
+icon="search"
+icon-position="right"
+></gxg-form-text>
+
+<h4>Text disabled</h4>
+
+<gxg-form-text
+type="text"
+label="Default"
+placeholder="Placeholder text"
+icon="search"
+icon-position="right"
+disabled
+></gxg-form-text>
 
   <!-- <gxg-stepper
     min="-4"
