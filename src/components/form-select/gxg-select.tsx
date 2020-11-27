@@ -31,7 +31,7 @@ export class GxgFormSelect {
   /**
    * The presence of this attribute disables the component
    */
-  @Prop() disabled = false;
+  @Prop({ reflect: true }) disabled = false;
 
   /**
    * The presence of this attribute stylizes the component with error attributes
@@ -123,6 +123,10 @@ export class GxgFormSelect {
   }
 
   componentDidLoad() {
+    console.log("select disabled");
+    console.log(this.label);
+    console.log(this.disabled);
+
     const slots = this.el.shadowRoot.querySelectorAll("slot");
     slots[0].addEventListener(
       "slotchange",

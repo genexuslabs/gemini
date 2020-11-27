@@ -805,6 +805,7 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {}
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -1186,6 +1187,11 @@ declare global {
     prototype: HTMLGxgTabsElement;
     new (): HTMLGxgTabsElement;
   };
+  interface HTMLGxgTestElement extends Components.GxgTest, HTMLStencilElement {}
+  var HTMLGxgTestElement: {
+    prototype: HTMLGxgTestElement;
+    new (): HTMLGxgTestElement;
+  };
   interface HTMLGxgTextElement extends Components.GxgText, HTMLStencilElement {}
   var HTMLGxgTextElement: {
     prototype: HTMLGxgTextElement;
@@ -1281,6 +1287,7 @@ declare global {
     "gxg-tab-bar": HTMLGxgTabBarElement;
     "gxg-tab-button": HTMLGxgTabButtonElement;
     "gxg-tabs": HTMLGxgTabsElement;
+    "gxg-test": HTMLGxgTestElement;
     "gxg-text": HTMLGxgTextElement;
     "gxg-title": HTMLGxgTitleElement;
     "gxg-toggle": HTMLGxgToggleElement;
@@ -2124,6 +2131,7 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {}
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -2270,6 +2278,7 @@ declare namespace LocalJSX {
     "gxg-tab-bar": GxgTabBar;
     "gxg-tab-button": GxgTabButton;
     "gxg-tabs": GxgTabs;
+    "gxg-test": GxgTest;
     "gxg-text": GxgText;
     "gxg-title": GxgTitle;
     "gxg-toggle": GxgToggle;
@@ -2361,6 +2370,7 @@ declare module "@stencil/core" {
       "gxg-tab-button": LocalJSX.GxgTabButton &
         JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
       "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
+      "gxg-test": LocalJSX.GxgTest & JSXBase.HTMLAttributes<HTMLGxgTestElement>;
       "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
       "gxg-title": LocalJSX.GxgTitle &
         JSXBase.HTMLAttributes<HTMLGxgTitleElement>;
