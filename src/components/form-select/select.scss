@@ -53,12 +53,8 @@ SELECT
       @include form-element-common-styles-focus-type-1();
       border-color: transparent;
     }
-
-    &[disabled] {
-      pointer-events: none;
-      @include form-element-common-styles-disabled();
-    }
   }
+
   /*style the arrow inside the select element:*/
   .select-selected:after,
   .select-selected:before {
@@ -133,6 +129,16 @@ SELECT
   .select-items div.same-as-selected {
     background-color: var(--color-secondary-active);
     color: var(--color-on-primary);
+  }
+}
+//Disabled
+:host([disabled]) {
+  .select-selected {
+    pointer-events: none;
+    @include form-element-common-styles-disabled();
+  }
+  .custom-select {
+    cursor: not-allowed;
   }
 }
 //Reading direction
