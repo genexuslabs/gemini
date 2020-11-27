@@ -123,10 +123,6 @@ export class GxgFormSelect {
   }
 
   componentDidLoad() {
-    console.log("select disabled");
-    console.log(this.label);
-    console.log(this.disabled);
-
     const slots = this.el.shadowRoot.querySelectorAll("slot");
     slots[0].addEventListener(
       "slotchange",
