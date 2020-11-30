@@ -30,12 +30,10 @@ export class GxgPill {
   }
 
   iconType() {
-    if (this.type === "button") {
-      return "gemini-tools/pill-outlined";
-    } else if (this.type === "button-with-action") {
-      return "gemini-tools/pill-filled";
-    } else {
+    if (this.icon !== undefined) {
       return this.icon;
+    } else {
+      return "gemini-tools/empty";
     }
   }
   iconColor() {
@@ -46,14 +44,15 @@ export class GxgPill {
     }
   }
 
+  componentDidLoad() {
+    console.log("this.icon");
+    console.log(this.icon);
+  }
+
   render() {
     return (
-      <Host tabindex="0">
-        <gxg-icon
-          type={this.iconType()}
-          size="small"
-          color={this.iconColor()}
-        ></gxg-icon>
+      <Host tabindex="0" class={{ "no-icon": this.icon === undefined }}>
+        <gxg-icon type={this.iconType()} size="small" color="auto"></gxg-icon>
 
         <span class="title">
           <slot></slot>

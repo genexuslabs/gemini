@@ -42,8 +42,16 @@
 
 <h3>Test</h3>
 <gxg-test></gxg-test>
-
-<gxg-select disabled label="Index" label-position="start">
+<button id="updateGxgTestBtn">new model</button>
+<script>
+  let newModelBtn = document.querySelector("#updateGxgTestBtn");
+  const gxgTest = document.querySelector("gxg-test");
+    newModelBtn.addEventListener("click", function(){
+      gxgTest.selectedOption = "four";
+    })
+</script>
+<br><br><br>
+<gxg-select label="Index" label-position="start">
   <gxg-option value="dark">Dark</gxg-option>
   <gxg-option value="light">Light</gxg-option>
   <gxg-option selected value="light">
@@ -241,10 +249,14 @@
   </gxg-card>
 
   <h3>Pills</h3>
-  <gxg-pill type="static" icon="objects/procedure">Pill Label</gxg-pill>
-  <gxg-pill type="static-with-action" icon="objects/procedure">Pill Label</gxg-pill>
-  <gxg-pill type="button" icon="objects/procedure">Pill Label</gxg-pill>
-  <gxg-pill type="button-with-action" icon="objects/procedure">Pill Label</gxg-pill>
+  <gxg-pill type="static" icon="objects/procedure">Pill Static Icon</gxg-pill>
+  <gxg-pill type="static">Pill Static</gxg-pill>
+  <gxg-pill type="static-with-action" icon="objects/procedure">Pill static-action Icon</gxg-pill>
+  <gxg-pill type="static-with-action">Pill static-action</gxg-pill>
+  <gxg-pill type="button" icon="objects/procedure">Pill Button Icon</gxg-pill>
+  <gxg-pill type="button">Pill Button</gxg-pill>
+  <gxg-pill type="button-with-action" icon="objects/procedure">Pill button-with-action icon</gxg-pill>
+  <gxg-pill type="button-with-action">Pill button-with-action</gxg-pill>
 
   <h3>Scroll</h3>
   <gxg-scroll max-height="126px">

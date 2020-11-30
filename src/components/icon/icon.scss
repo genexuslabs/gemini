@@ -15,6 +15,9 @@ ICON
     line-height: 0;
   }
 }
+:host(.empty) {
+  width: 0;
+}
 :host(:not([color="auto"])) {
   svg {
     * {

@@ -7,7 +7,8 @@ import {
   h,
   Host,
   Watch,
-  State
+  State,
+  Listen
 } from "@stencil/core";
 import { requiredLabel, formMessage } from "../../common.js";
 
@@ -90,6 +91,11 @@ export class GxgFormSelect {
 
   @State() rerender = false;
 
+  @Listen("optionIsSelected")
+  todoCompletedHandler(event) {
+    this.value = event.detail;
+  }
+
   /*********************************
   METHODS
   *********************************/
@@ -127,6 +133,7 @@ export class GxgFormSelect {
     slots[0].addEventListener(
       "slotchange",
       function() {
+        console.log("slot changed");
         this.el.shadowRoot.querySelector(".select-selected").remove();
         this.el.shadowRoot.querySelector(".select-items").remove();
         this.selectCore();

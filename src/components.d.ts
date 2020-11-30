@@ -805,7 +805,9 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {}
-  interface GxgTest {}
+  interface GxgTest {
+    selectedOption: string;
+  }
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -1917,6 +1919,7 @@ declare namespace LocalJSX {
     url?: string;
   }
   interface GxgOption {
+    onOptionIsSelected?: (event: CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes the option selected by default
      */
@@ -2131,7 +2134,9 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {}
-  interface GxgTest {}
+  interface GxgTest {
+    selectedOption?: string;
+  }
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
