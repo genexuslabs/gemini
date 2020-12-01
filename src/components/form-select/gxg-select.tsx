@@ -133,7 +133,6 @@ export class GxgFormSelect {
     slots[0].addEventListener(
       "slotchange",
       function() {
-        console.log("slot changed");
         this.el.shadowRoot.querySelector(".select-selected").remove();
         this.el.shadowRoot.querySelector(".select-items").remove();
         this.selectCore();

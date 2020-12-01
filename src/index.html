@@ -29,25 +29,21 @@
 </head>
 
 <body>
-
-  <script>
-    let selectArray = [
-      "uno",
-      "dos",
-      "tres",
-    ]
-  </script>
-
   
 
 <h3>Test</h3>
 <gxg-test></gxg-test>
 <button id="updateGxgTestBtn">new model</button>
 <script>
+  let optionsArray = [
+      "uno",
+      "dos",
+      "tres",
+    ]
   let newModelBtn = document.querySelector("#updateGxgTestBtn");
   const gxgTest = document.querySelector("gxg-test");
     newModelBtn.addEventListener("click", function(){
-      gxgTest.selectedOption = "four";
+      gxgTest.optionsArray = optionsArray;
     })
 </script>
 <br><br><br>

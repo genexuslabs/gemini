@@ -4,9 +4,9 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type     | Default |
-| ---------------- | ----------------- | ----------- | -------- | ------- |
-| `selectedOption` | `selected-option` |             | `string` | `"two"` |
+| Property       | Attribute | Description | Type       | Default                     |
+| -------------- | --------- | ----------- | ---------- | --------------------------- |
+| `optionsArray` | --        |             | `string[]` | `["rojo", "azul", "verde"]` |
 
 ## Dependencies
 

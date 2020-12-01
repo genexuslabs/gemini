@@ -5,37 +5,27 @@ import { Component, Prop, h } from "@stencil/core";
   shadow: true
 })
 export class GxgTest {
-  @Prop() selectedOption = "two";
+  @Prop() optionsArray = ["rojo", "azul", "verde"];
   /**
    * The presence of this attribute disables the pillgit a
    */
   //@Prop() disabled = false;
-
-  defineSelected(optionValue) {
-    if (optionValue === this.selectedOption) {
-      return true;
-    } else {
-      return false;
-    }
+  updateOptions() {
+    this.optionsArray = ["rojo", "azul", "marron"];
   }
-
   render() {
-    console.log("render");
-    return (
+    return [
       <gxg-select label="Index" label-position="start">
-        <gxg-option value="one" selected={this.defineSelected("one")}>
-          One
-        </gxg-option>
-        <gxg-option value="two" selected={this.defineSelected("two")}>
-          Two
-        </gxg-option>
-        <gxg-option value="three" selected={this.defineSelected("three")}>
-          Three
-        </gxg-option>
-        <gxg-option value="four" selected={this.defineSelected("four")}>
-          Four
-        </gxg-option>
-      </gxg-select>
-    );
+        <gxg-option value="None">None</gxg-option>
+        {this.optionsArray.map(option => {
+          return (
+            <gxg-option key={option} value={option}>
+              {option}
+            </gxg-option>
+          );
+        })}
+      </gxg-select>,
+      <button onClick={this.updateOptions.bind(this)}>Update options</button>
+    ];
   }
 }

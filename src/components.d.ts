@@ -806,7 +806,7 @@ export namespace Components {
   }
   interface GxgTabs {}
   interface GxgTest {
-    selectedOption: string;
+    optionsArray: string[];
   }
   interface GxgText {
     /**
@@ -2135,7 +2135,7 @@ declare namespace LocalJSX {
   }
   interface GxgTabs {}
   interface GxgTest {
-    selectedOption?: string;
+    optionsArray?: string[];
   }
   interface GxgText {
     /**

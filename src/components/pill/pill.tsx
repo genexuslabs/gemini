@@ -44,11 +44,6 @@ export class GxgPill {
     }
   }
 
-  componentDidLoad() {
-    console.log("this.icon");
-    console.log(this.icon);
-  }
-
   render() {
     return (
       <Host tabindex="0" class={{ "no-icon": this.icon === undefined }}>
