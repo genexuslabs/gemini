@@ -8,6 +8,7 @@
 :host {
   display: inline-block;
   line-height: 0;
+  position: relative;
 }
 
 :host(.button) .button-native {
@@ -36,7 +37,9 @@
 :host(.button.button--disabled) .button-native {
   background: var(--color-primary-disabled);
   @include gxg-label--disabled;
-  cursor: not-allowed;
+}
+:host(.button.button--disabled) {
+  pointer-events: none;
 }
 
 /*********************************

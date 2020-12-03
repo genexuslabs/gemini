@@ -117,6 +117,12 @@ export class GxgButton {
     return iColor;
   }
 
+  clickHandler(e) {
+    if (this.disabled) {
+      e.preventDefault();
+    }
+  }
+
   render() {
     return (
       <Host
@@ -134,8 +140,7 @@ export class GxgButton {
           "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true
         }}
-        // onmouseenter={this.onMouseEnterHandler.bind(this)}
-        // onmouseleave={this.onMouseLeaveHandler.bind(this)}
+        onClick={this.clickHandler.bind(this)}
       >
         <button
           class="button-native gxg-text-general"
