@@ -18,6 +18,7 @@
   { "name": "gemini-tools/flow-arrow", "description": "Some description" },
   { "name": "gemini-tools/minus", "description": "Some description" },
   { "name": "gemini-tools/minus-circle", "description": "Some description" },
+  { "name": "gemini-tools/read-only", "description": "Some description" },
   { "name": "gemini-tools/notice", "description": "Some description" },
   { "name": "gemini-tools/reset", "description": "Some description" },
   { "name": "gemini-tools/search", "description": "Some description" },
