@@ -47,10 +47,4 @@ describe("gxg-toggle", () => {
     await page.waitForChanges();
     expect(await toggle).toHaveAttribute("disabled");
   });
-
-  it("is small", async () => {
-    toggle.setProperty("size", "small");
-    await page.waitForChanges();
-    expect(toggle.getAttribute("size")).toBe("small");
-  });
 });
