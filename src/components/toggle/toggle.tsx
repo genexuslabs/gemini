@@ -21,11 +21,6 @@ export class GxgToggle {
   @Prop() label = "Label";
 
   /**
-   * The label
-   */
-  @Prop({ reflect: true }) size: Size = "regular";
-
-  /**
    * If the toggle is active or not
    */
   @Prop({ reflect: true }) on = false;
@@ -84,5 +79,3 @@ export class GxgToggle {
     );
   }
 }
-
-export type Size = "regular" | "small";

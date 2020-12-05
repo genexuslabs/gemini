@@ -10,7 +10,7 @@
   background-color: var(--color-primary-active);
 }
 :host([on]) .toggle__container__knob {
-  left: 29px;
+  left: 13px;
 }
 
 :host([disabled]) {
@@ -30,10 +30,10 @@
 }
 :host {
   .toggle__container {
-    width: 48px;
-    height: 20px;
+    width: 24px;
+    height: 12px;
+    border-radius: 12px;
     background-color: var(--gray-03);
-    border-radius: 20px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -43,39 +43,19 @@
     @include ui-animation(background-color);
   }
   .toggle__container__knob {
-    height: 18px;
-    width: 18px;
-    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    left: 1px;
     background-color: var(--color-on-primary);
     display: block;
     box-shadow: var(--box-shadow-01);
     position: absolute;
-    left: 2px;
     @include ui-animation(left);
   }
 
   .toggle__label {
     @include gxg-text();
     margin-inline-start: var(--spacing-comp-01);
-  }
-}
-
-// Small version
-:host([size="small"]) {
-  .toggle__container {
-    width: 24px;
-    height: 12px;
-    border-radius: 12px;
-  }
-  .toggle__container__knob {
-    height: 10px;
-    width: 10px;
-    border-radius: 5px;
-    left: 1px;
-  }
-}
-:host([on][size="small"]) {
-  .toggle__container__knob {
-    left: 13px;
   }
 }
