@@ -42,7 +42,6 @@ import { Space as Space1 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
-import { Size as Size1 } from "./components/toggle/toggle";
 import { position as position1 } from "./components/tooltip/tooltip";
 export namespace Components {
   interface GxgAccordion {
@@ -841,10 +840,6 @@ export namespace Components {
      * If the toggle is active or not
      */
     on: boolean;
-    /**
-     * The label
-     */
-    size: Size;
   }
   interface GxgToolbar {
     /**
@@ -2171,9 +2166,9 @@ declare namespace LocalJSX {
      */
     on?: boolean;
     /**
-     * The label
+     * This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off.
      */
-    size?: Size;
+    onToggleSwitched?: (event: CustomEvent<any>) => void;
   }
   interface GxgToolbar {
     /**

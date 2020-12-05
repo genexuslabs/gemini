@@ -1,4 +1,12 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Prop,
+  h,
+  Host
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-toggle",
@@ -6,6 +14,8 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true
 })
 export class GxgToggle {
+  @Element() el: HTMLElement;
+
   /*********************************
   PROPERTIES & STATE
   *********************************/
@@ -26,8 +36,21 @@ export class GxgToggle {
   @Prop({ reflect: true }) on = false;
 
   /*********************************
+  EVENTS
+  *********************************/
+
+  /**
+   * This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off.
+   */
+  @Event() toggleSwitched: EventEmitter;
+
+  /*********************************
   METHODS
   *********************************/
+
+  componentWillLoad() {
+    // Create a new 'change' event
+  }
 
   onKeyUp(e) {
     if (e.which == 13) {
@@ -35,12 +58,6 @@ export class GxgToggle {
       this.switchToggle();
     }
   }
-  // onKeyDown(e) {
-  //   if (e.which == 9) {
-  //     //"tab" key was pressed
-  //     this.focus = false;
-  //   }
-  // }
   switchToggle() {
     if (this.disabled !== true) {
       if (this.on === true) {
@@ -49,8 +66,8 @@ export class GxgToggle {
         this.on = true;
       }
     }
+    this.toggleSwitched.emit(this.on);
   }
-
   state() {
     if (this.on) {
       return "true";
@@ -67,14 +84,16 @@ export class GxgToggle {
         class={{
           toggle: true
         }}
-        onClick={this.switchToggle}
+        onClick={this.switchToggle.bind(this)}
         onKeyup={this.onKeyUp.bind(this)}
         tabindex="0"
       >
-        <div class="toggle__container">
-          <span class="toggle__container__knob"></span>
+        <div class="main-container">
+          <div class="toggle__container">
+            <span class="toggle__container__knob"></span>
+          </div>
+          <span class="toggle__label">{this.label}</span>
         </div>
-        <span class="toggle__label">{this.label}</span>
       </Host>
     );
   }

@@ -16,9 +16,13 @@ stories.add("Toggle", () => {
   //Status
   const labelDisabled = "Disable 'Red' toggle only";
   const defaultValueDisabled = false;
-
   const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
+  function disabled() {
+    if (valueDisabled) {
+      return "disabled";
+    }
+  }
   return `
     <style>
     .bulb {
@@ -59,7 +63,7 @@ stories.add("Toggle", () => {
       </span><span class="bulb pink" id="bulb-pink"></span>
       <span class="bulb purple" id="bulb-purple"></span>
     </div>
-    <gxg-toggle tabindex="0" disabled=${valueDisabled} id="toggle-red" style="margin-bottom:20px;" label="Red" onClick="(function(){
+    <gxg-toggle tabindex="0" ${disabled()} id="toggle-red" style="margin-bottom:20px;" label="Red" onClick="(function(){
       let toggle = document.getElementById('toggle-red');
       let bulb = document.getElementById('bulb-red');
       if(toggle.hasAttribute('on')){
