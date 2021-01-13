@@ -30,13 +30,84 @@
 
 <body>
 
+  <h3>Tree</h3>
+  <gxg-tree>
+    <gxg-tree-item>
+      Fruits
+      <gxg-tree slot="tree">
+          <gxg-tree-item>apple</gxg-tree-item>
+          <gxg-tree-item>
+            banana
+            <gxg-tree slot="tree">
+              <gxg-tree-item>
+                cavendish banana
+              </gxg-tree-item>
+              <gxg-tree-item>
+                pisang raja
+              </gxg-tree-item>
+              <gxg-tree-item>
+                red banana
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Vegetables
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          sweat potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          lettuce
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>Seasonings</gxg-tree-item>
+  </gxg-tree>
+
+  <h3>Modal</h3>
+  <gxg-modal
+        padding="m"
+        modal-title="Welcome to the Design Tokens Editor!"
+        id="gxgModal"
+        width="400px";
+        footerJustifyContent="space-between"
+      >
+        Here you can create and edit your own css tokens. Would you like to take
+        the demo? It will only take two minutes!
+        <gxg-button
+          slot="footer"
+          type="primary-text-only"
+          onClick={this.initiateDemoFunc.bind(this)}
+        >
+          Yes, please
+        </gxg-button>
+        <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>
+        <gxg-button
+          slot="footer"
+          type="secondary-text-only"
+          onClick={this.cancelDemoFunc.bind(this)}
+        >
+          I will figure it out myselfff
+        </gxg-button>
+        <gxg-form-checkbox slot="after-footer" label="Do not show this again" id="not-show-this-again"></gxg-form-checkbox>
+      </gxg-modal>
+  <gxg-button id="show-modal-btn" type="primary-text-only">Show Modal</gxg-button>
+  <script>
+    const btnShowModal = document.querySelector('#show-modal-btn');
+    const gxgModal = document.querySelector('#gxgModal');
+    btnShowModal.addEventListener('click', event => {
+      gxgModal.setAttribute('visible','true');
+    });
+    </script>
+
   <h3>Toggle</h3>
   <gxg-toggle label="Toggle"></gxg-toggle>
 
-  <script>
-    const toggle = document.querySelector('gxg-toggle');
-    toggle.addEventListener('toggleSwitched', event => { console.log(event.detail) })
-    </script>
+
   
   <h3>Buttons</h3>
   <h4>Primary Text Only</h4>

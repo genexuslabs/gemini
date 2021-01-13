@@ -556,6 +556,10 @@ export namespace Components {
   }
   interface GxgModal {
     /**
+     * The footer justify content type
+     */
+    footerJustifyContent: string;
+    /**
      * The modal title
      */
     modalTitle: string;
@@ -1873,6 +1877,10 @@ declare namespace LocalJSX {
     onMenuItemActive?: (event: CustomEvent<any>) => void;
   }
   interface GxgModal {
+    /**
+     * The footer justify content type
+     */
+    footerJustifyContent?: string;
     /**
      * The modal title
      */

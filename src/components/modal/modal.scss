@@ -41,10 +41,8 @@
   .modal__container {
     padding: var(--spacing-comp-04) 0;
   }
-  .modalFooter {
+  .modal__footer {
     display: flex;
-    justify-content: flex-end;
-
     ::slotted([slot="footer"]) {
       * {
         margin-left: var(--spacing-comp-02);
@@ -111,5 +109,17 @@
     height: 100%;
     background-color: black;
     opacity: 0.25;
+  }
+}
+
+//Footer justify content
+:host(.footer-justify-end) {
+  .modal__footer {
+    justify-content: flex-end;
+  }
+}
+:host(.footer-justify-space-between) {
+  .modal__footer {
+    justify-content: space-between;
   }
 }

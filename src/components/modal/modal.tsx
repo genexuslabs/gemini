@@ -12,6 +12,11 @@ export class GxgModal {
   @Prop({ reflect: true }) padding: padding = "s";
 
   /**
+   * The footer justify content type
+   */
+  @Prop() footerJustifyContent = "flex-end";
+
+  /**
    * The modal title
    */
   @Prop() modalTitle: string;
@@ -42,6 +47,7 @@ export class GxgModal {
 
   @Watch("visible")
   watchHandler(newValue: boolean) {
+    console.log("visible has changed");
     const modal = this.el;
     if (newValue === true) {
       this.el.removeAttribute("hidden");
@@ -73,6 +79,11 @@ export class GxgModal {
         aria-hidden={this.modalHidden()}
         hidden
         style={{ "z-index": this.zIndex, display: "none" }}
+        class={{
+          "footer-justify-end": this.footerJustifyContent === "flex-end",
+          "footer-justify-space-between":
+            this.footerJustifyContent === "space-between"
+        }}
       >
         <div class="modal" style={{ width: this.width }}>
           <header class="modal__header">
@@ -86,11 +97,7 @@ export class GxgModal {
           <div class="modal__container">
             <slot></slot>
           </div>
-          <footer
-            class={{
-              modalFooter: true
-            }}
-          >
+          <footer class="modal__footer">
             <slot name="footer"></slot>
           </footer>
         </div>
@@ -101,3 +108,4 @@ export class GxgModal {
 }
 
 export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
+export type footerJustifyContent = "flex-end" | "space-between";

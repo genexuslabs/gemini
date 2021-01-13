@@ -32,6 +32,14 @@ stories.add("Modal", () => {
   };
   const defaultValuePadding = "m";
 
+  //Footer justify content
+  const labelJustifyContent = "Footer justify content";
+  const optionsJustifyContent = {
+    "flex-end": "flex-end",
+    "space-between": "space-between"
+  };
+  const defaultValuePJustifyContent = "flex-end";
+
   //Title
   const labelTitle = "Title";
   const defaultValueTitle = "Modal Title";
@@ -47,7 +55,11 @@ stories.add("Modal", () => {
     labelPadding,
     optionsPadding,
     defaultValuePadding
-  )}" modal-title="${valueTitle}" width=${valueWidth}>
+  )}" modal-title="${valueTitle}" width=${valueWidth} footer-justify-content="${select(
+    labelJustifyContent,
+    optionsJustifyContent,
+    defaultValuePJustifyContent
+  )}">
     ${valueContent}
     <gxg-button slot="footer" type="secondary-text-only">Button</gxg-button>
     <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>

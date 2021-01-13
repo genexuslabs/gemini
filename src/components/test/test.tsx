@@ -15,16 +15,14 @@ export class GxgTest {
   }
   render() {
     return [
-      <gxg-select label="Index" label-position="start">
-        <gxg-option value="None">None</gxg-option>
-        {this.optionsArray.map(option => {
-          return (
-            <gxg-option key={option} value={option}>
-              {option}
-            </gxg-option>
-          );
-        })}
-      </gxg-select>,
+      <gxg-modal
+        padding="m"
+        modal-title="Welcome to the Design tokens editor wizard"
+        width="304px"
+        visible={true}
+      >
+        Hi
+      </gxg-modal>,
       <button onClick={this.updateOptions.bind(this)}>Update options</button>
     ];
   }
