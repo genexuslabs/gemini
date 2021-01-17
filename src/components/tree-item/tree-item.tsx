@@ -22,6 +22,7 @@ export class GxgTreeItem {
    * The state of the tree-item, wether it is disabled or not
    */
   @Prop({ reflect: true }) disabled = false;
+  @Prop() checkbox = false;
   /**
    * The tree item icon
    */
@@ -120,6 +121,7 @@ export class GxgTreeItem {
                 }}
               ></gxg-icon>
             )}
+            <gxg-form-checkbox></gxg-form-checkbox>
             <gxg-icon size="small" type={this.icon}></gxg-icon>
             <slot></slot>
           </div>

@@ -308,6 +308,11 @@ export namespace Components {
      */
     noWeekends: boolean;
   }
+  interface GxgDemo {
+    initiateDemo: boolean;
+    layerZIndex: number;
+    modalMessage: string;
+  }
   interface GxgDragBox {
     /**
      * The presence of this attribute makes this box active
@@ -897,6 +902,7 @@ export namespace Components {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    checkbox: boolean;
     /**
      * The state of the tree-item, wether it is disabled or not
      */
@@ -1001,6 +1007,11 @@ declare global {
   var HTMLGxgDatePickerElement: {
     prototype: HTMLGxgDatePickerElement;
     new (): HTMLGxgDatePickerElement;
+  };
+  interface HTMLGxgDemoElement extends Components.GxgDemo, HTMLStencilElement {}
+  var HTMLGxgDemoElement: {
+    prototype: HTMLGxgDemoElement;
+    new (): HTMLGxgDemoElement;
   };
   interface HTMLGxgDragBoxElement
     extends Components.GxgDragBox,
@@ -1260,6 +1271,7 @@ declare global {
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
+    "gxg-demo": HTMLGxgDemoElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
@@ -1582,6 +1594,11 @@ declare namespace LocalJSX {
      * no weekends available
      */
     noWeekends?: boolean;
+  }
+  interface GxgDemo {
+    initiateDemo?: boolean;
+    layerZIndex?: number;
+    modalMessage?: string;
   }
   interface GxgDragBox {
     /**
@@ -2230,6 +2247,7 @@ declare namespace LocalJSX {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    checkbox?: boolean;
     /**
      * The state of the tree-item, wether it is disabled or not
      */
@@ -2258,6 +2276,7 @@ declare namespace LocalJSX {
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
     "gxg-date-picker": GxgDatePicker;
+    "gxg-demo": GxgDemo;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
     "gxg-form-checkbox": GxgFormCheckbox;
@@ -2327,6 +2346,7 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
+      "gxg-demo": LocalJSX.GxgDemo & JSXBase.HTMLAttributes<HTMLGxgDemoElement>;
       "gxg-drag-box": LocalJSX.GxgDragBox &
         JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
       "gxg-drag-container": LocalJSX.GxgDragContainer &

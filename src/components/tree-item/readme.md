@@ -17,6 +17,7 @@
 
 | Property   | Attribute  | Description                                              | Type      | Default |
 | ---------- | ---------- | -------------------------------------------------------- | --------- | ------- |
+| `checkbox` | `checkbox` |                                                          | `boolean` | `false` |
 | `disabled` | `disabled` | The state of the tree-item, wether it is disabled or not | `boolean` | `false` |
 | `icon`     | `icon`     | The tree item icon                                       | `any`     | `null`  |
 
@@ -31,12 +32,14 @@
 ### Depends on
 
 - [gxg-icon](../icon)
+- [gxg-form-checkbox](../form-checkbox)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-tree-item --> gxg-icon
+  gxg-tree-item --> gxg-form-checkbox
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

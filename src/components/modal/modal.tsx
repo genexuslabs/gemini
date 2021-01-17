@@ -47,7 +47,6 @@ export class GxgModal {
 
   @Watch("visible")
   watchHandler(newValue: boolean) {
-    console.log("visible has changed");
     const modal = this.el;
     if (newValue === true) {
       this.el.removeAttribute("hidden");

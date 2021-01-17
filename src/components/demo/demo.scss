@@ -1,0 +1,175 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  //**********************
+  // LAYER
+  //**********************
+  .layer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0;
+    animation-name: layerAnimation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes layerAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.25;
+    }
+  }
+  //**********************
+  // TOOLTIP
+  //**********************
+  .tooltip {
+    position: absolute;
+    background: var(--gray-07);
+    color: var(--color-on-primary);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-comp-03);
+    max-width: 300px;
+    display: flex;
+    opacity: 0;
+    @include ui-animation(opacity);
+    animation-name: tooltipAnimation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+
+    &.hide-instruction {
+      opacity: 0;
+    }
+
+    &:before {
+      //arrow
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid var(--gray-07);
+      position: absolute;
+    }
+
+    &.bottom-left {
+      &:before {
+        top: -5px;
+        left: 5px;
+      }
+    }
+    &.bottom-center {
+      transform: translateX(-50%);
+      &:before {
+        top: -5px;
+        left: 50%;
+        margin-left: -2.5px;
+      }
+    }
+    &.bottom-right {
+      &:before {
+        top: -5px;
+        right: 5px;
+      }
+    }
+    &.top-left {
+      transform: translateY(-100%);
+      &:before {
+        bottom: -5px;
+        transform: rotate(180deg);
+        left: 5px;
+      }
+    }
+    &.top-center {
+      transform: translateY(-100%) translateX(-50%);
+      &:before {
+        bottom: -5px;
+        transform: rotate(180deg);
+        left: 50%;
+        margin-left: -2.5px;
+      }
+    }
+    &.top-right {
+      transform: translateY(-100%);
+      &:before {
+        right: 5px;
+        bottom: -5px;
+        transform: rotate(180deg);
+      }
+    }
+
+    &__number {
+      font-weight: var(--font-weight-bold);
+      font-size: 20px;
+      padding-right: var(--spacing-comp-03);
+      line-height: 1em;
+    }
+    &__message {
+      line-height: 1.6em;
+    }
+    @keyframes tooltipAnimation {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+  //**********************
+  // MODAL
+  //**********************
+  .modal {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    height: 40px;
+    z-index: 100;
+    background-color: var(--color-background);
+    width: 450px;
+    margin-left: -225px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-02);
+    display: flex;
+    padding: 0 var(--spacing-comp-02);
+    animation-name: modalAnimation;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+
+    > div {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    p {
+      font-family: var(--font-family-primary);
+      font-size: var(--font-size-sm);
+      color: var(--color-text);
+    }
+    .col-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+    gxg-button {
+      margin-right: var(--spacing-comp-02);
+    }
+    @keyframes modalAnimation {
+      from {
+        bottom: -100px;
+      }
+      to {
+        bottom: 30px;
+      }
+    }
+  }
+}
