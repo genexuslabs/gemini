@@ -17,17 +17,68 @@ export class GxgDemo {
   @State() leftPosition: string;
   @State() rightPosition: string;
   @State() topPosition: string;
+  @State() layerVisible = false;
+  @State() instructionVisible = false;
+  @State() modalVisible = false;
+  @State() nextItemClicked: boolean;
+  @State() disableNextButton = false;
 
-  //Item styles
-  @State() previosItemZIndex: string;
-  @State() previosItemPosition: string;
-  @State() previosItemBoxShadow: string;
+  //Current Item styles
+  @State() currentItemZIndex: string;
+  @State() currentItemPosition: string;
+  @State() currentItemBoxShadow: string;
+  @State() currentItemPointerEvents: string;
 
   componentDidLoad() {
     //Retrieve all the demo items
     this.gxgDemoItems = document.querySelectorAll("*[gxg-demo-item]");
     this.numberOfItems = this.gxgDemoItems.length;
     this.setCoordinates(this.gxgDemoItems[0]);
+    this.resizeObserver();
+  }
+
+  resizeObserver() {
+    const resizeObserver = new ResizeObserver(entries => {
+      this.setCoordinates(this.gxgDemoItems[this.currentItem]);
+    });
+
+    const body = document.querySelector("body");
+    resizeObserver.observe(body);
+  }
+
+  @Watch("initiateDemo")
+  initiateDemoHandler() {
+    //Show overlay, instrucction and modal
+    if (this.initiateDemo === true) {
+      setTimeout(
+        function() {
+          this.layerVisible = true;
+        }.bind(this),
+        100
+      );
+      setTimeout(
+        function() {
+          this.instructionVisible = true;
+        }.bind(this),
+        200
+      );
+      setTimeout(
+        function() {
+          this.modalVisible = true;
+        }.bind(this),
+        800
+      );
+
+      this.saveCurrentItemStyles(this.gxgDemoItems[0]);
+      this.setItemStyles(this.gxgDemoItems[0]);
+    }
+  }
+
+  saveCurrentItemStyles(currentItem) {
+    this.currentItemZIndex = currentItem.style.zIndex;
+    this.currentItemPosition = currentItem.style.position;
+    this.currentItemBoxShadow = currentItem.style.boxShadow;
+    this.currentItemPointerEvents = currentItem.style.pointerEvents;
   }
 
   setCoordinates(item) {
@@ -87,15 +138,6 @@ export class GxgDemo {
   }
 
   setItemStyles(item) {
-    //reset previous item styles to as they where on the begining
-    if (this.currentItem !== 0) {
-      const prevItem = this.gxgDemoItems[this.currentItem - 1];
-      (prevItem as HTMLElement).style.zIndex = this.previosItemZIndex;
-      (prevItem as HTMLElement).style.position = this.previosItemPosition;
-      (prevItem as HTMLElement).style.boxShadow = this.previosItemBoxShadow;
-    }
-
-    //Apply styles to highlight element
     setTimeout(
       function() {
         item.style.zIndex = this.layerZIndex + 1;
@@ -107,24 +149,89 @@ export class GxgDemo {
     );
   }
 
-  @Watch("initiateDemo")
-  initiateDemoHandler() {
-    //save current styles of first item
-    this.previosItemZIndex = (this.gxgDemoItems[0] as HTMLElement).style.zIndex;
-    this.previosItemPosition = (this
-      .gxgDemoItems[0] as HTMLElement).style.position;
-    this.previosItemBoxShadow = (this
-      .gxgDemoItems[0] as HTMLElement).style.boxShadow;
-    this.setItemStyles(this.gxgDemoItems[0]);
+  removeStyles(item) {
+    item.style.zIndex = this.currentItemZIndex;
+    item.style.position = this.currentItemPosition;
+    item.style.boxShadow = this.currentItemBoxShadow;
+    item.style.pointerEvents = this.currentItemPointerEvents;
   }
 
-  nextDemoItem() {
-    const newItem = this.gxgDemoItems[++this.currentItem];
-    this.setCoordinates(newItem);
-    this.setItemStyles(newItem);
+  previousItem() {
+    this.nextItemClicked = false;
+    this.nextOrPrevItem();
+  }
+  nextItem() {
+    if (this.currentItem + 1 === this.numberOfItems) {
+      this.endDemo();
+    } else {
+      this.nextItemClicked = true;
+      this.nextOrPrevItem();
+    }
+    //Dehabilitate momentarily Next button to prevent more than one item to be focused
+    this.disableNextButton = true;
+    setTimeout(
+      function() {
+        this.disableNextButton = false;
+      }.bind(this),
+      250
+    );
+  }
+  nextOrPrevItem() {
+    //remove styles from previous item
+    this.removeStyles(this.gxgDemoItems[this.currentItem]);
+    this.instructionVisible = false;
+    setTimeout(
+      function() {
+        let newItem;
+        if (this.nextItemClicked) {
+          newItem = this.gxgDemoItems[++this.currentItem];
+        } else {
+          newItem = this.gxgDemoItems[--this.currentItem];
+        }
+        //save styles from current new item
+        this.saveCurrentItemStyles(newItem);
+        this.setCoordinates(newItem);
+        this.setItemStyles(newItem);
+        setTimeout(
+          function() {
+            this.instructionVisible = true;
+          }.bind(this),
+          250
+        );
+      }.bind(this),
+      250
+    );
   }
 
-  // endDemo() {}
+  endDemo() {
+    this.instructionVisible = false;
+    setTimeout(
+      function() {
+        this.removeStyles(this.gxgDemoItems[this.currentItem]);
+        setTimeout(
+          function() {
+            this.modalVisible = false;
+            setTimeout(
+              function() {
+                this.layerVisible = false;
+                setTimeout(
+                  function() {
+                    this.initiateDemo = false;
+                    this.currentItem = 0;
+                    this.setCoordinates(this.gxgDemoItems[this.currentItem]);
+                  }.bind(this),
+                  250
+                );
+              }.bind(this),
+              250
+            );
+          }.bind(this),
+          250
+        );
+      }.bind(this),
+      250
+    );
+  }
 
   render() {
     if (this.initiateDemo === true) {
@@ -132,6 +239,7 @@ export class GxgDemo {
         <div
           class={{
             tooltip: true,
+            visible: this.instructionVisible,
             "bottom-left": this.instructionPosition === "bottom-left",
             "bottom-center": this.instructionPosition === "bottom-center",
             "bottom-right": this.instructionPosition === "bottom-right",
@@ -150,7 +258,10 @@ export class GxgDemo {
           <div class="tooltip__message">{this.instructionMessage}</div>
         </div>,
         <div
-          class="modal"
+          class={{
+            modal: true,
+            visible: this.modalVisible
+          }}
           style={{
             zIndex: (this.layerZIndex + 1).toString()
           }}
@@ -164,14 +275,28 @@ export class GxgDemo {
             </gxg-button>
             <gxg-button
               type="primary-text-only"
-              onClick={this.nextDemoItem.bind(this)}
+              onClick={this.previousItem.bind(this)}
+              disabled={this.currentItem === 0}
+            >
+              Previous
+            </gxg-button>
+            <gxg-button
+              type="primary-text-only"
+              onClick={this.nextItem.bind(this)}
+              class={{
+                "next-button": true,
+                disabled: this.disableNextButton === true
+              }}
             >
               {this.currentItem + 1 !== this.numberOfItems ? "Next" : "Finish"}
             </gxg-button>
           </div>
         </div>,
         <div
-          class="layer"
+          class={{
+            layer: true,
+            visible: this.layerVisible
+          }}
           style={{ zIndex: this.layerZIndex.toString() }}
         ></div>
       ];

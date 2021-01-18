@@ -3,6 +3,7 @@
 }
 $ui-animaton-speed: var(--ui-animaton-speed);
 $ui-animaton-speed-fast: 0.1s;
+$ui-animaton-speed-slow: 0.5s;
 $ui-animation-timing-function: ease;
 
 /*****************************************************
@@ -342,6 +343,12 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
 @mixin ui-animation-fast($properties...) {
   transition-property: $properties;
   transition-duration: $ui-animaton-speed-fast;
+  transition-timing-function: $ui-animation-timing-function;
+}
+
+@mixin ui-animation-slow($properties...) {
+  transition-property: $properties;
+  transition-duration: $ui-animaton-speed-slow;
   transition-timing-function: $ui-animation-timing-function;
 }
 

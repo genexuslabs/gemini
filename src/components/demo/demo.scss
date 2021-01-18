@@ -13,16 +13,9 @@
     left: 0;
     background-color: black;
     opacity: 0;
-    animation-name: layerAnimation;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-  }
-  @keyframes layerAnimation {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 0.25;
+    @include ui-animation(opacity);
+    &.visible {
+      opacity: 0.5;
     }
   }
   //**********************
@@ -39,13 +32,9 @@
     display: flex;
     opacity: 0;
     @include ui-animation(opacity);
-    animation-name: tooltipAnimation;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
 
-    &.hide-instruction {
-      opacity: 0;
+    &.visible {
+      opacity: 1;
     }
 
     &:before {
@@ -114,14 +103,6 @@
     &__message {
       line-height: 1.6em;
     }
-    @keyframes tooltipAnimation {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
   }
   //**********************
   // MODAL
@@ -129,20 +110,20 @@
   .modal {
     position: fixed;
     bottom: -100px;
+    @include ui-animation-slow(bottom);
     left: 50%;
     height: 40px;
-    z-index: 100;
     background-color: var(--color-background);
-    width: 450px;
-    margin-left: -225px;
+    width: 500px;
+    margin-left: -250px;
     border-radius: var(--border-radius-md);
     box-shadow: var(--box-shadow-02);
     display: flex;
     padding: 0 var(--spacing-comp-02);
-    animation-name: modalAnimation;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
+
+    &.visible {
+      bottom: 20px;
+    }
 
     > div {
       display: flex;
@@ -156,20 +137,23 @@
       font-size: var(--font-size-sm);
       color: var(--color-text);
     }
+    .col-left {
+      width: 35%;
+    }
     .col-right {
+      width: 65%;
       display: flex;
       justify-content: flex-end;
     }
     gxg-button {
       margin-right: var(--spacing-comp-02);
     }
-    @keyframes modalAnimation {
-      from {
-        bottom: -100px;
-      }
-      to {
-        bottom: 30px;
-      }
+  }
+
+  //Next Button
+  .next-button {
+    &.disabled {
+      pointer-events: none;
     }
   }
 }
