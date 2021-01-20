@@ -128,9 +128,7 @@ export class GxgModal {
           style={{ "z-index": this.zIndex }}
         ></div>
       </Host>
-    ) : (
-      <div>no modal</div>
-    );
+    ) : null;
   }
 }
 
