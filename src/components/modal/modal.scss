@@ -2,15 +2,15 @@
 @import "../../globals/mixins";
 
 :host {
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  @include ui-animation(opacity);
+  // display: inline-block;
+  // position: absolute;
+  // width: 100%;
+  // height: 100%;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  // opacity: 0;
+  // @include ui-animation(opacity);
 
   .modal {
     display: flex;
@@ -19,15 +19,19 @@
     background: var(--color-on-primary);
     box-shadow: var(--box-shadow-03);
     border-radius: var(--border-radius-md);
-    display: flex;
     position: absolute;
-    z-index: 1;
     left: 50%;
     top: 50%;
+    margin-top: 30px;
     transform: translateY(-50%) translateX(-50%);
     @include gxg-text();
-    @include ui-animation(opacity, margin-top);
-    margin-top: 30px;
+    &--visible {
+      opacity: 1;
+      margin-top: 0;
+    }
+    &--transition {
+      @include ui-animation(opacity, margin-top);
+    }
   }
   .modal__header {
     display: flex;
@@ -51,15 +55,15 @@
     }
   }
 }
-:host(.visible) {
-  opacity: 1;
-  margin-top: 0;
+// :host(.visible) {
+//   opacity: 1;
+//   margin-top: 0;
 
-  .modal {
-    opacity: 1;
-    margin-top: 0;
-  }
-}
+//   .modal {
+//     opacity: 1;
+//     margin-top: 0;
+//   }
+// }
 
 //Padding
 :host([padding="0"]) {
@@ -107,8 +111,14 @@
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
     background-color: black;
-    opacity: 0.25;
+    opacity: 0;
+    @include ui-animation(opacity);
+    &--visible {
+      opacity: 0.25;
+    }
   }
 }
 

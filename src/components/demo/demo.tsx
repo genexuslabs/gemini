@@ -38,7 +38,7 @@ export class GxgDemo {
   }
 
   resizeObserver() {
-    const resizeObserver = new ResizeObserver(entries => {
+    const resizeObserver = new ResizeObserver(() => {
       this.setCoordinates(this.gxgDemoItems[this.currentItem]);
     });
 
