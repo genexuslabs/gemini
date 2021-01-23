@@ -76,7 +76,6 @@
         padding="m"
         modal-title="Welcome to the Design Tokens Editor!"
         id="gxgModal"
-        width="400px";
         footerJustifyContent="space-between"
       >
         Here you can create and edit your own css tokens. Would you like to take
@@ -100,11 +99,11 @@
       </gxg-modal>
   <gxg-button id="show-modal-btn" type="primary-text-only">Show Modal</gxg-button>
   <script>
-    // const btnShowModal = document.querySelector('#show-modal-btn');
-    // const gxgModal = document.querySelector('#gxgModal');
-    // btnShowModal.addEventListener('click', event => {
-    //   gxgModal.setAttribute('visible','true');
-    // });
+    const btnShowModal = document.querySelector('#show-modal-btn');
+    const gxgModal = document.querySelector('#gxgModal');
+    btnShowModal.addEventListener('click', event => {
+      gxgModal.setAttribute('visible','true');
+    });
     </script>
 
   <h3>Toggle</h3>
@@ -123,8 +122,7 @@
     })
   </script>
 
-<h3>Test</h3>
-<gxg-test></gxg-test>
+
 <button id="updateGxgTestBtn">new model</button>
 <script>
   let optionsArray = [
@@ -462,6 +460,28 @@
     <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
 </gxg-drag-container>
 
+<h3>Modal</h3>
+<gxg-modal
+id="modal"
+modal-title="Modal Title"
+footer-alignment="right"
+>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
+voluptatibus harum minima aut id architecto adipisci tempore numquam
+explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
+<gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+<gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+<gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+</gxg-modal>
+<gxg-button
+onClick="(function(){
+const modal = document.getElementById('modal');
+modal.setAttribute('visible','true');
+return false;
+})();return false;"
+>Launch Modal</gxg-button
+>
+
 <h3>Select</h3>
 
   <!-- <gxg-select label="Themes" label-position="start">
@@ -735,6 +755,9 @@ value="u"
       gxgTest.item = "chau";
     });
     
+
+    /////////////////////////////////////////////////////////////////
+
     function mostrarAlertMoreInfo(alertId) {
       document.getElementById(alertId).setAttribute("active", "true");
     }

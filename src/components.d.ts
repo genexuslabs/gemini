@@ -813,6 +813,9 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {}
+  interface GxgTemplate {
+    name: string;
+  }
   interface GxgTest {
     optionsArray: string[];
   }
@@ -899,18 +902,6 @@ export namespace Components {
      * the tooltip position
      */
     position: position;
-  }
-  interface GxgTree {}
-  interface GxgTreeItem {
-    checkbox: boolean;
-    /**
-     * The state of the tree-item, wether it is disabled or not
-     */
-    disabled: boolean;
-    /**
-     * The tree item icon
-     */
-    icon: any;
   }
 }
 declare global {
@@ -1199,6 +1190,13 @@ declare global {
     prototype: HTMLGxgTabsElement;
     new (): HTMLGxgTabsElement;
   };
+  interface HTMLGxgTemplateElement
+    extends Components.GxgTemplate,
+      HTMLStencilElement {}
+  var HTMLGxgTemplateElement: {
+    prototype: HTMLGxgTemplateElement;
+    new (): HTMLGxgTemplateElement;
+  };
   interface HTMLGxgTestElement extends Components.GxgTest, HTMLStencilElement {}
   var HTMLGxgTestElement: {
     prototype: HTMLGxgTestElement;
@@ -1244,18 +1242,6 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
-  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {}
-  var HTMLGxgTreeElement: {
-    prototype: HTMLGxgTreeElement;
-    new (): HTMLGxgTreeElement;
-  };
-  interface HTMLGxgTreeItemElement
-    extends Components.GxgTreeItem,
-      HTMLStencilElement {}
-  var HTMLGxgTreeItemElement: {
-    prototype: HTMLGxgTreeItemElement;
-    new (): HTMLGxgTreeItemElement;
-  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -1300,6 +1286,7 @@ declare global {
     "gxg-tab-bar": HTMLGxgTabBarElement;
     "gxg-tab-button": HTMLGxgTabButtonElement;
     "gxg-tabs": HTMLGxgTabsElement;
+    "gxg-template": HTMLGxgTemplateElement;
     "gxg-test": HTMLGxgTestElement;
     "gxg-text": HTMLGxgTextElement;
     "gxg-title": HTMLGxgTitleElement;
@@ -1307,8 +1294,6 @@ declare global {
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
-    "gxg-tree": HTMLGxgTreeElement;
-    "gxg-tree-item": HTMLGxgTreeItemElement;
   }
 }
 declare namespace LocalJSX {
@@ -2154,6 +2139,9 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {}
+  interface GxgTemplate {
+    name?: string;
+  }
   interface GxgTest {
     optionsArray?: string[];
   }
@@ -2245,22 +2233,6 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
-  interface GxgTree {}
-  interface GxgTreeItem {
-    checkbox?: boolean;
-    /**
-     * The state of the tree-item, wether it is disabled or not
-     */
-    disabled?: boolean;
-    /**
-     * The tree item icon
-     */
-    icon?: any;
-    /**
-     * (This event is for internal use)
-     */
-    onItemClicked?: (event: CustomEvent<any>) => void;
-  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -2305,6 +2277,7 @@ declare namespace LocalJSX {
     "gxg-tab-bar": GxgTabBar;
     "gxg-tab-button": GxgTabButton;
     "gxg-tabs": GxgTabs;
+    "gxg-template": GxgTemplate;
     "gxg-test": GxgTest;
     "gxg-text": GxgText;
     "gxg-title": GxgTitle;
@@ -2312,8 +2285,6 @@ declare namespace LocalJSX {
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
-    "gxg-tree": GxgTree;
-    "gxg-tree-item": GxgTreeItem;
   }
 }
 export { LocalJSX as JSX };
@@ -2398,6 +2369,8 @@ declare module "@stencil/core" {
       "gxg-tab-button": LocalJSX.GxgTabButton &
         JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
       "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
+      "gxg-template": LocalJSX.GxgTemplate &
+        JSXBase.HTMLAttributes<HTMLGxgTemplateElement>;
       "gxg-test": LocalJSX.GxgTest & JSXBase.HTMLAttributes<HTMLGxgTestElement>;
       "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
       "gxg-title": LocalJSX.GxgTitle &
@@ -2410,9 +2383,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
-      "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
-      "gxg-tree-item": LocalJSX.GxgTreeItem &
-        JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
     }
   }
 }

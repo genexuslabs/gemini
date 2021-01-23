@@ -19,20 +19,6 @@
 | -------- | ----------- | ------------------ |
 | `change` |             | `CustomEvent<any>` |
 
-## Dependencies
-
-### Used by
-
-- [gxg-tree-item](../tree-item)
-
-### Graph
-
-```mermaid
-graph TD;
-  gxg-tree-item --> gxg-form-checkbox
-  style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
