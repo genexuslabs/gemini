@@ -4,9 +4,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type      | Default |
-| ---------- | ----------- | ----------- | --------- | ------- |
-| `treeOpen` | `tree-open` |             | `boolean` | `false` |
+| Property    | Attribute    | Description | Type      | Default |
+| ----------- | ------------ | ----------- | --------- | ------- |
+| `emptyTree` | `empty-tree` |             | `boolean` | `false` |
+| `isLeaf`    | `is-leaf`    |             | `boolean` | `false` |
+| `treeOpen`  | `tree-open`  |             | `boolean` | `false` |
 
 ## Events
 

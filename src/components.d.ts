@@ -905,6 +905,8 @@ export namespace Components {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    emptyTree: boolean;
+    isLeaf: boolean;
     treeOpen: boolean;
   }
 }
@@ -2253,6 +2255,8 @@ declare namespace LocalJSX {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    emptyTree?: boolean;
+    isLeaf?: boolean;
     onItemToggled?: (event: CustomEvent<any>) => void;
     treeOpen?: boolean;
   }

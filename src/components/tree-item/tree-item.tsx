@@ -16,9 +16,10 @@ import {
 export class GxgTreeItem {
   //PROP
   @Prop() treeOpen = false;
+  @Prop() emptyTree = false;
 
   //STATE
-  @State() isLeaf = false;
+  @Prop() isLeaf = false;
   @State() paddingLeft = "4px";
   @State() numberOfParentTrees = 1;
   @State() height = 0;
@@ -35,9 +36,11 @@ export class GxgTreeItem {
   @Element() el: HTMLElement;
 
   componentWillLoad() {
+    const itemId = this.el.getAttribute("id");
+
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
-    if (treeItemHasTree === null) {
+    if (treeItemHasTree === null && !this.emptyTree) {
       this.isLeaf = true;
     }
 
@@ -79,6 +82,10 @@ export class GxgTreeItem {
     this.calculateItemHeight();
     //Recalculate item`s parents tree-items height
     this.itemToggled.emit();
+  }
+
+  liTextDoubleClicked() {
+    this.toggleTreeIconClicked();
   }
 
   returnToggleIconType() {
@@ -141,6 +148,7 @@ export class GxgTreeItem {
             "li-text--not-leaf": !this.isLeaf
           }}
           style={{ paddingLeft: this.returnPaddingLeft() }}
+          onDblClick={this.liTextDoubleClicked.bind(this)}
         >
           {!this.isLeaf ? (
             [
