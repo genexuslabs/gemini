@@ -72,14 +72,16 @@ export class GxgTreeItem {
   toggleTreeIconClicked() {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
-    if (this.treeOpen) {
-      this.treeOpen = false;
-    } else {
-      this.treeOpen = true;
+    if (!this.isLeaf) {
+      if (this.treeOpen) {
+        this.treeOpen = false;
+      } else {
+        this.treeOpen = true;
+      }
+      this.calculateItemHeight();
+      //Recalculate item`s parents tree-items height
+      this.itemToggled.emit();
     }
-    this.calculateItemHeight();
-    //Recalculate item`s parents tree-items height
-    this.itemToggled.emit();
   }
 
   liTextDoubleClicked() {
