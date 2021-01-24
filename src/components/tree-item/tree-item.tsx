@@ -36,8 +36,6 @@ export class GxgTreeItem {
   @Element() el: HTMLElement;
 
   componentWillLoad() {
-    const itemId = this.el.getAttribute("id");
-
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
     if (treeItemHasTree === null && !this.emptyTree) {
