@@ -903,6 +903,10 @@ export namespace Components {
      */
     position: position;
   }
+  interface GxgTree {}
+  interface GxgTreeItem {
+    treeOpen: boolean;
+  }
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -1242,6 +1246,18 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
+  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {}
+  var HTMLGxgTreeElement: {
+    prototype: HTMLGxgTreeElement;
+    new (): HTMLGxgTreeElement;
+  };
+  interface HTMLGxgTreeItemElement
+    extends Components.GxgTreeItem,
+      HTMLStencilElement {}
+  var HTMLGxgTreeItemElement: {
+    prototype: HTMLGxgTreeItemElement;
+    new (): HTMLGxgTreeItemElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -1294,6 +1310,8 @@ declare global {
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
+    "gxg-tree": HTMLGxgTreeElement;
+    "gxg-tree-item": HTMLGxgTreeItemElement;
   }
 }
 declare namespace LocalJSX {
@@ -2233,6 +2251,11 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
+  interface GxgTree {}
+  interface GxgTreeItem {
+    onItemToggled?: (event: CustomEvent<any>) => void;
+    treeOpen?: boolean;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -2285,6 +2308,8 @@ declare namespace LocalJSX {
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
+    "gxg-tree": GxgTree;
+    "gxg-tree-item": GxgTreeItem;
   }
 }
 export { LocalJSX as JSX };
@@ -2383,6 +2408,9 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
+      "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
+      "gxg-tree-item": LocalJSX.GxgTreeItem &
+        JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
     }
   }
 }

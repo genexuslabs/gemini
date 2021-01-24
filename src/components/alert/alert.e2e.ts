@@ -1,5 +1,4 @@
 import { newE2EPage, E2EElement, E2EPage } from "@stencil/core/testing";
-import { Alert } from "./alert";
 
 let page: E2EPage;
 let alert: E2EElement;

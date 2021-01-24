@@ -1,0 +1,69 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+  li {
+    list-style: none;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-on-background);
+    height: 20px;
+    overflow: hidden;
+
+    &.tree-open {
+      height: auto;
+    }
+
+    .li-text {
+      padding: var(--spacing-comp-01) var(--spacing-comp-02);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      position: relative;
+      &:hover {
+        background-color: var(--gray-01);
+      }
+      &--not-leaf {
+        height: 12px;
+      }
+    }
+    .vertical-line {
+      position: absolute;
+      width: 1px;
+      height: 0;
+      top: 21px;
+      left: 15px;
+      z-index: 1;
+      //border style
+      background-image: linear-gradient(
+        var(--gray-04) 28%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: right;
+      background-size: 1px 4px;
+      background-repeat: repeat-y;
+    }
+    .horizontal-line {
+      position: absolute;
+      width: 9px;
+      height: 1px;
+      left: 31px;
+      top: 11px;
+      z-index: 1;
+      //border style
+      background-image: linear-gradient(
+        to right,
+        var(--gray-04) 33%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: bottom;
+      background-size: 3px 1px;
+      background-repeat: repeat-x;
+      &.display-none {
+        display: none;
+      }
+    }
+  }
+}

@@ -18,12 +18,8 @@
       color: var(--color-text);
     }
 
-    p {
-      margin-bottom: 10px;
-    }
-
-    h4 {
-      opacity: 0.5;
+    li:hover {
+      background-color: gray;
     }
   </style>
 </head>
@@ -32,10 +28,50 @@
 
 
   <h3>Tree</h3>
-  <gxg-tree>
-  
+  <gxg-tree slot="tree">
+    <gxg-tree-item>
+      meat
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          Cow
+        </gxg-tree-item>
+        <gxg-tree-item>
+          Fish
+        </gxg-tree-item>
+        <gxg-tree-item>
+          Rabbit
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      fish
+    </gxg-tree-item>
+    <gxg-tree-item>
+      fruits
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          banana
+          <gxg-tree slot="tree">
+            <gxg-tree-item>
+              Cavendish
+            </gxg-tree-item>
+            <gxg-tree-item>
+              Pisang
+            </gxg-tree-item>
+            <gxg-tree-item>
+              Red Banana
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item>
+          orange
+        </gxg-tree-item>
+        <gxg-tree-item>
+          strawberry
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
   </gxg-tree>
 
 </body>
-
 </html>

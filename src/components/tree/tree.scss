@@ -2,4 +2,9 @@
 @import "../../globals/mixins";
 
 :host {
+  display: flex;
+  ul {
+    margin: 0;
+    padding-left: 0;
+  }
 }
