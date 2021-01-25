@@ -81,13 +81,15 @@ export class GxgTreeItem {
         this.treeOpen = false;
       } else {
         this.treeOpen = true;
+        //Play click open sound
+        const audio = new Audio(
+          getAssetPath("./tree-item-assets/click-open.mp3")
+        );
+        audio.play();
       }
       this.calculateItemHeight();
       //Recalculate item`s parents tree-items height
       this.itemToggled.emit();
-      //Play click sound
-      const audio = new Audio(getAssetPath("./tree-item-assets/click.mp3"));
-      audio.play();
     }
   }
 
