@@ -6,13 +6,17 @@ import {
   Prop,
   State,
   Listen,
-  h
+  h,
+  getAssetPath
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
   styleUrl: "tree-item.scss",
-  shadow: true
+  shadow: true,
+  assetsDirs: ["tree-item-assets"]
 })
+
+// return "./card-assets/new-card.svg";
 export class GxgTreeItem {
   //PROP
   @Prop() treeOpen = false;
@@ -81,6 +85,9 @@ export class GxgTreeItem {
       this.calculateItemHeight();
       //Recalculate item`s parents tree-items height
       this.itemToggled.emit();
+      //Play click sound
+      const audio = new Audio(getAssetPath("./tree-item-assets/click.mp3"));
+      audio.play();
     }
   }
 
