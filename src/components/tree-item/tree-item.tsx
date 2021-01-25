@@ -55,15 +55,17 @@ export class GxgTreeItem {
     if (treeItemHasTree === null && !this.emptyTree) {
       this.isLeaf = true;
     }
-
-    //Count number of parent trees in order to set the apporpiate padding-left
-    this.numberOfParentTrees = this.getParents(this.el);
-
     //Defines the height of the vertical line that associates the chid items with the parent item
     this.returnVerticalLineHeight();
   }
 
   componentDidLoad() {
+    //Count number of parent trees in order to set the apporpiate padding-left
+    this.numberOfParentTrees = this.getParents(this.el);
+
+    console.log(this.el.getAttribute("id"));
+    console.log(this.numberOfParentTrees);
+
     //Get the item height
     this.calculateItemHeight();
   }
@@ -121,7 +123,7 @@ export class GxgTreeItem {
     if (this.isLeaf) {
       return 14 * this.numberOfParentTrees + "px";
     } else {
-      return 14 * this.numberOfParentTrees - 5 + "px";
+      return 14 * this.numberOfParentTrees - 6 + "px";
     }
   }
 
@@ -137,20 +139,20 @@ export class GxgTreeItem {
   //Lines
   returnVerticalLineHeight() {
     //Returns the height of the vertical line that associates the chid-items with the parent item
-    return this.height - 27 + "px";
+    return this.height - 29 + "px";
   }
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
     if (this.numberOfParentTrees === 1) {
-      return "18px";
+      return "15px";
     } else {
-      return 18 + this.numberOfParentTrees * 6 + "px";
+      return this.numberOfParentTrees * 14 + "px";
     }
   }
   returnHorizontallLineLeftPosition() {
     //Returns the left position of the horizontal line that associates the chid-items with the parent item
     if (this.numberOfParentTrees !== 1) {
-      return this.numberOfParentTrees * 11 + "px";
+      return this.numberOfParentTrees * 14 - 10 + "px";
     }
   }
 

@@ -17,7 +17,8 @@
     }
 
     .li-text {
-      padding: var(--spacing-comp-01) var(--spacing-comp-02);
+      height: 100%;
+      padding: 0 var(--spacing-comp-02);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -26,7 +27,7 @@
         background-color: var(--gray-01);
       }
       &--not-leaf {
-        height: 12px;
+        // height: 12px;
       }
     }
     .vertical-line {
