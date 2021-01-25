@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type      | Default |
-| ----------- | ------------ | ----------- | --------- | ------- |
-| `emptyTree` | `empty-tree` |             | `boolean` | `false` |
-| `isLeaf`    | `is-leaf`    |             | `boolean` | `false` |
-| `treeOpen`  | `tree-open`  |             | `boolean` | `false` |
+| Property    | Attribute    | Description                                                                              | Type      | Default |
+| ----------- | ------------ | ---------------------------------------------------------------------------------------- | --------- | ------- |
+| `emptyTree` | `empty-tree` | Set this attribute if the tree item has a potential tree to be downloaded                | `boolean` | `false` |
+| `isLeaf`    | `is-leaf`    |                                                                                          | `boolean` | `false` |
+| `treeOpen`  | `tree-open`  | If this tree-item has a nested tree, set this attribute to make the tree open by default | `boolean` | `false` |
 
 ## Events
 

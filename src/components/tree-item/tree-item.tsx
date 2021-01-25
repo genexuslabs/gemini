@@ -18,8 +18,14 @@ import {
 
 // return "./card-assets/new-card.svg";
 export class GxgTreeItem {
-  //PROP
+  //PROPS
+  /**
+   * If this tree-item has a nested tree, set this attribute to make the tree open by default
+   */
   @Prop() treeOpen = false;
+  /**
+   * Set this attribute if the tree item has a potential tree to be downloaded
+   */
   @Prop() emptyTree = false;
 
   //STATE

@@ -905,8 +905,14 @@ export namespace Components {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    /**
+     * Set this attribute if the tree item has a potential tree to be downloaded
+     */
     emptyTree: boolean;
     isLeaf: boolean;
+    /**
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
     treeOpen: boolean;
   }
 }
@@ -2255,9 +2261,15 @@ declare namespace LocalJSX {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    /**
+     * Set this attribute if the tree item has a potential tree to be downloaded
+     */
     emptyTree?: boolean;
     isLeaf?: boolean;
     onItemToggled?: (event: CustomEvent<any>) => void;
+    /**
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
     treeOpen?: boolean;
   }
   interface IntrinsicElements {
