@@ -195,7 +195,9 @@ export class GxgTreeItem {
               }}
             ></span>
           )}
-          {this.checkbox ? <gxg-form-checkbox></gxg-form-checkbox> : null}
+          {this.checkbox ? (
+            <gxg-form-checkbox class={{ checkbox: true }}></gxg-form-checkbox>
+          ) : null}
           <span class="text">
             <slot></slot>
           </span>
