@@ -20,13 +20,17 @@ import {
 export class GxgTreeItem {
   //PROPS
   /**
-   * If this tree-item has a nested tree, set this attribute to make the tree open by default
+   * Set this attribute if you want the gxg-treeitem to display a checkbox
    */
-  @Prop() treeOpen = false;
+  @Prop() checkbox = false;
   /**
    * Set this attribute if the tree item has a potential tree to be downloaded
    */
   @Prop() emptyTree = false;
+  /**
+   * If this tree-item has a nested tree, set this attribute to make the tree open by default
+   */
+  @Prop() treeOpen = false;
 
   //STATE
   @Prop() isLeaf = false;
@@ -191,7 +195,10 @@ export class GxgTreeItem {
               }}
             ></span>
           )}
-          <slot></slot>
+          {this.checkbox ? <gxg-form-checkbox></gxg-form-checkbox> : null}
+          <span class="text">
+            <slot></slot>
+          </span>
         </div>
         <slot name="tree"></slot>
       </li>

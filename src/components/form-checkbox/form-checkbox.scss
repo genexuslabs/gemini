@@ -2,7 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
-  margin-bottom: var(--spacing-comp-03);
+  // margin-bottom: var(--spacing-comp-03);
   display: flex;
 }
 
@@ -83,6 +83,9 @@
     box-sizing: border-box;
     flex-shrink: 0;
     background: var(--color-background);
+    &.no-label {
+      margin-inline-end: 0;
+    }
   }
 
   /* On mouse-over, add a grey background color */

@@ -26,13 +26,18 @@
 
 <body>
 
+  <h3>Checkbox</h3>
+  con label
+  <gxg-form-checkbox slot="after-footer" label="Do not show this again" id="not-show-this-again"></gxg-form-checkbox>
+  sin label
+  <gxg-form-checkbox slot="after-footer" id="not-show-this-again"></gxg-form-checkbox>
 
   <h3>Tree</h3>
   <gxg-tree slot="tree">
     <gxg-tree-item tree-open>
       meat
       <gxg-tree slot="tree">
-        <gxg-tree-item>
+        <gxg-tree-item checkbox>
           Cow
         </gxg-tree-item>
         <gxg-tree-item>

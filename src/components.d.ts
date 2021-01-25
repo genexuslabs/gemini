@@ -906,6 +906,10 @@ export namespace Components {
   interface GxgTree {}
   interface GxgTreeItem {
     /**
+     * Set this attribute if you want the gxg-treeitem to display a checkbox
+     */
+    checkbox: boolean;
+    /**
      * Set this attribute if the tree item has a potential tree to be downloaded
      */
     emptyTree: boolean;
@@ -2261,6 +2265,10 @@ declare namespace LocalJSX {
   }
   interface GxgTree {}
   interface GxgTreeItem {
+    /**
+     * Set this attribute if you want the gxg-treeitem to display a checkbox
+     */
+    checkbox?: boolean;
     /**
      * Set this attribute if the tree item has a potential tree to be downloaded
      */

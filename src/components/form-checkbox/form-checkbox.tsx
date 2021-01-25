@@ -119,8 +119,11 @@ export class GxgFormCheckbox {
             onKeyUp={this.handlerOnKeyUp.bind(this)}
             tabindex="0"
           ></input>
-          <span class="checkmark" role="checkbox"></span>
-          {this.label}
+          <span
+            class={{ checkmark: true, "no-label": !this.label }}
+            role="checkbox"
+          ></span>
+          {this.label ? this.label : null}
         </label>
       </Host>
     );

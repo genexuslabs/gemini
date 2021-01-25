@@ -16,10 +16,34 @@ stories.add("Checkbox", () => {
   //Status
   const labelDisabled = "Disable red";
   const defaultValueDisabled = false;
-
   const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
-  return `<gxg-form-checkbox
+  //Orientation
+  const labelOrientation = "Orientation";
+  const optionsOrientation = {
+    vertical: "vertical",
+    horizontal: "horizontal"
+  };
+  const defaultValueOrientation = "vertical";
+  const valueOrientation = select(
+    labelOrientation,
+    optionsOrientation,
+    defaultValueOrientation
+  );
+
+  //Space
+  const labelSpace = "Space";
+  const optionsSpace = {
+    xs: "xs",
+    s: "s",
+    m: "m"
+  };
+  const defaultValueSpace = "s";
+  const valueSpace = select(labelSpace, optionsSpace, defaultValueSpace);
+
+  return `
+  <gxg-spacer-layout orientation=${valueOrientation} space=${valueSpace}>
+  <gxg-form-checkbox
   label="red"
   id="red"
   name="red"
@@ -51,5 +75,7 @@ stories.add("Checkbox", () => {
   id="pink"
   name="pink"
   value="pink"
-></gxg-form-checkbox>`;
+></gxg-form-checkbox>
+</gxg-spacer-layout>
+`;
 });
