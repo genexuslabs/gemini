@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from "@stencil/core";
+import { Component, Prop } from "@stencil/core";
 @Component({
   tag: "gxg-template",
   styleUrl: "template.scss",
