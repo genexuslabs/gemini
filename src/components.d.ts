@@ -903,12 +903,25 @@ export namespace Components {
      */
     position: position;
   }
-  interface GxgTree {}
+  interface GxgTree {
+    /**
+     * Set this attribute if you want all this tree tree-items to have a checkbox
+     */
+    checkbox: boolean;
+    /**
+     * Set this attribute if you want all this tree tree-items to have the checkbox checked
+     */
+    checked: boolean;
+  }
   interface GxgTreeItem {
     /**
      * Set this attribute if you want the gxg-treeitem to display a checkbox
      */
     checkbox: boolean;
+    /**
+     * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
+     */
+    checked: boolean;
     /**
      * Set this attribute if the tree item has a potential tree to be downloaded
      */
@@ -2263,12 +2276,25 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
-  interface GxgTree {}
+  interface GxgTree {
+    /**
+     * Set this attribute if you want all this tree tree-items to have a checkbox
+     */
+    checkbox?: boolean;
+    /**
+     * Set this attribute if you want all this tree tree-items to have the checkbox checked
+     */
+    checked?: boolean;
+  }
   interface GxgTreeItem {
     /**
      * Set this attribute if you want the gxg-treeitem to display a checkbox
      */
     checkbox?: boolean;
+    /**
+     * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
+     */
+    checked?: boolean;
     /**
      * Set this attribute if the tree item has a potential tree to be downloaded
      */

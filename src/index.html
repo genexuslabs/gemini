@@ -29,10 +29,81 @@
 
   <h3>Tree</h3>
   <gxg-tree slot="tree">
-    <gxg-tree-item tree-open checkbox id="meat">
+    <gxg-tree-item tree-open id="meat">
+      meat
+      <gxg-tree checkbox slot="tree">
+        <gxg-tree-item id="cow">
+          Cow
+        </gxg-tree-item>
+        <gxg-tree-item id="fish meat"> 
+          Fish meat
+        </gxg-tree-item>
+        <gxg-tree-item id="rabbit">
+          Rabbit
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item id="fish">
+      fish
+    </gxg-tree-item>
+    <gxg-tree-item id="fruits">
+      fruits
+      <gxg-tree slot="tree">
+        <gxg-tree-item id="banana">
+          banana
+          <gxg-tree slot="tree">
+            <gxg-tree-item checkbox id="cavendish">
+              Cavendish
+            </gxg-tree-item>
+            <gxg-tree-item id="pisang">
+              Pisang
+              <gxg-tree slot="tree">
+                <gxg-tree-item id="pisang-small">
+                  Pisang small
+                </gxg-tree-item>
+                <gxg-tree-item id="pisang-medium"> 
+                  Pisang medium
+                  <gxg-tree checkbox slot="tree">
+                    <gxg-tree-item id="pisang-medium-usa">
+                      Pisang medium Usa
+                    </gxg-tree-item>
+                    <gxg-tree-item id="pisang-medium-ecuador"> 
+                      Pisang medium Ecuador
+                    </gxg-tree-item>
+                    <gxg-tree-item id="pisang-medium-colombia">
+                      Pisang medium colombia
+                    </gxg-tree-item>
+                  </gxg-tree>
+                </gxg-tree-item>
+                <gxg-tree-item id="pisang-big">
+                  Pisang big
+                </gxg-tree-item>
+              </gxg-tree>
+            </gxg-tree-item>
+            <gxg-tree-item id="red banana">
+              Red Banana
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item id="orange">
+          orange
+        </gxg-tree-item>
+        <gxg-tree-item id="strawberry">
+          strawberry
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+  <gxg-tree-item id="nuts" empty-tree>
+    nuts
+  </gxg-tree-item>
+  </gxg-tree>
+
+  <!-- <h3>Tree 2</h3>
+  <gxg-tree slot="tree">
+    <gxg-tree-item tree-open id="meat">
       meat
       <gxg-tree slot="tree">
-        <gxg-tree-item checkbox id="cow">
+        <gxg-tree-item id="cow">
           Cow
         </gxg-tree-item>
         <gxg-tree-item id="fish meat"> 
@@ -96,7 +167,7 @@
   <gxg-tree-item id="nuts" empty-tree>
     nuts
   </gxg-tree-item>
-  </gxg-tree>
+  </gxg-tree> -->
 
 </body>
 </html>

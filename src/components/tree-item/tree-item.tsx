@@ -23,6 +23,12 @@ export class GxgTreeItem {
    * Set this attribute if you want the gxg-treeitem to display a checkbox
    */
   @Prop() checkbox = false;
+
+  /**
+   * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
+   */
+  @Prop() checked = false;
+
   /**
    * Set this attribute if the tree item has a potential tree to be downloaded
    */
@@ -37,6 +43,7 @@ export class GxgTreeItem {
   @State() paddingLeft = "4px";
   @State() numberOfParentTrees = 1;
   @State() height = 0;
+  @State() parentHasCheckbox = false;
 
   //EVENTS
   @Event() itemToggled: EventEmitter;
@@ -62,12 +69,12 @@ export class GxgTreeItem {
   componentDidLoad() {
     //Count number of parent trees in order to set the apporpiate padding-left
     this.numberOfParentTrees = this.getParents(this.el);
-
-    console.log(this.el.getAttribute("id"));
-    console.log(this.numberOfParentTrees);
-
     //Get the item height
     this.calculateItemHeight();
+    //If parent has checkbox...
+    const parentHasCheckbox = this.el.parentElement.getAttribute("checkbox");
+    console.log("parentHasCheckbox");
+    console.log(parentHasCheckbox);
   }
 
   getParents(elem) {
@@ -198,7 +205,10 @@ export class GxgTreeItem {
             ></span>
           )}
           {this.checkbox ? (
-            <gxg-form-checkbox class={{ checkbox: true }}></gxg-form-checkbox>
+            <gxg-form-checkbox
+              checked={this.checked}
+              class={{ checkbox: true }}
+            ></gxg-form-checkbox>
           ) : null}
           <span class="text">
             <slot></slot>
