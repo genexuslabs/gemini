@@ -44,6 +44,7 @@ export class GxgTreeItem {
   @State() numberOfParentTrees = 1;
   @State() height = 0;
   @State() parentHasCheckbox = false;
+  @State() hasParentTree = false;
 
   //EVENTS
   @Event() itemToggled: EventEmitter;
@@ -73,8 +74,14 @@ export class GxgTreeItem {
     this.calculateItemHeight();
     //If parent has checkbox...
     const parentHasCheckbox = this.el.parentElement.getAttribute("checkbox");
-    console.log("parentHasCheckbox");
-    console.log(parentHasCheckbox);
+    if (parentHasCheckbox !== null) {
+      this.parentHasCheckbox = true;
+    }
+    //If has parent tree
+    const parentElementNodeName = this.el.parentElement.nodeName;
+    if (parentElementNodeName === "GXG-TREE") {
+      this.hasParentTree = true;
+    }
   }
 
   getParents(elem) {
@@ -127,11 +134,17 @@ export class GxgTreeItem {
 
   returnPaddingLeft() {
     //returns the appropriate padding left to the .li-text element
+    let paddingLeft = 0;
     if (this.isLeaf) {
-      return 14 * this.numberOfParentTrees + "px";
+      paddingLeft = 14 * this.numberOfParentTrees;
+      if (this.parentHasCheckbox) {
+        paddingLeft += 20;
+      }
     } else {
-      return 14 * this.numberOfParentTrees - 6 + "px";
+      paddingLeft = 14 * this.numberOfParentTrees - 6;
     }
+
+    return paddingLeft + "px";
   }
 
   calculateItemHeight() {
@@ -155,6 +168,14 @@ export class GxgTreeItem {
     } else {
       return this.numberOfParentTrees * 14 + "px";
     }
+  }
+  returnHorizontallLineWidth() {
+    //Calculates and returns the widt of the horizontal line
+    let lineWidth = 9;
+    if (this.parentHasCheckbox) {
+      lineWidth += 18;
+    }
+    return lineWidth + "px";
   }
   returnHorizontallLineLeftPosition() {
     //Returns the left position of the horizontal line that associates the chid-items with the parent item
@@ -200,7 +221,8 @@ export class GxgTreeItem {
                 "display-none": this.numberOfParentTrees === 1
               }}
               style={{
-                left: this.returnHorizontallLineLeftPosition()
+                left: this.returnHorizontallLineLeftPosition(),
+                width: this.returnHorizontallLineWidth()
               }}
             ></span>
           )}
