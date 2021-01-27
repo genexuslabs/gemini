@@ -30,13 +30,27 @@ export class GxgTreeItem {
   @Prop() checked = false;
 
   /**
-   * Set this attribute if the tree item has a potential tree to be downloaded
+   * Set this attribute when you are downloading a resource
    */
-  @Prop() emptyTree = false;
+  @Prop() downloading = false;
+
+  /**
+   * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+   */
+  @Prop() leftIcon: string;
+  /**
+   
+
+  /**
+   * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+   */
+  @Prop() rightIcon: string;
+  /**
+
   /**
    * If this tree-item has a nested tree, set this attribute to make the tree open by default
    */
-  @Prop() treeOpen = false;
+  @Prop() open = false;
 
   //STATE
   @Prop() isLeaf = false;
@@ -45,6 +59,8 @@ export class GxgTreeItem {
   @State() height = 0;
   @State() parentHasCheckbox = false;
   @State() hasParentTree = false;
+  @State() itemPaddingLeft = 0;
+  @State() horizontalLinePaddingLeft = 0;
 
   //EVENTS
   @Event() itemToggled: EventEmitter;
@@ -60,7 +76,7 @@ export class GxgTreeItem {
   componentWillLoad() {
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
-    if (treeItemHasTree === null && !this.emptyTree) {
+    if (treeItemHasTree === null && this.isLeaf) {
       this.isLeaf = true;
     }
     //Defines the height of the vertical line that associates the chid items with the parent item
@@ -103,10 +119,10 @@ export class GxgTreeItem {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
     if (!this.isLeaf) {
-      if (this.treeOpen) {
-        this.treeOpen = false;
+      if (this.open) {
+        this.open = false;
       } else {
-        this.treeOpen = true;
+        this.open = true;
         //Play click open sound
         const audio = new Audio(
           getAssetPath("./tree-item-assets/click-open.mp3")
@@ -125,7 +141,7 @@ export class GxgTreeItem {
 
   returnToggleIconType() {
     //Returns the type of icon : gemini-tools/add or gemini-tools/minus
-    if (this.treeOpen) {
+    if (this.open) {
       return "gemini-tools/minus";
     } else {
       return "gemini-tools/add";
@@ -140,15 +156,7 @@ export class GxgTreeItem {
     if (!this.isLeaf) {
       paddingLeft -= 5;
     }
-    // if (this.isLeaf) {
-    //   paddingLeft = 14 * this.numberOfParentTrees;
-    //   if (this.parentHasCheckbox) {
-    //     paddingLeft += 20;
-    //   }
-    // } else {
-    //   paddingLeft = 14 * this.numberOfParentTrees - 6;
-    // }
-
+    this.itemPaddingLeft = paddingLeft;
     return paddingLeft + "px";
   }
 
@@ -168,32 +176,26 @@ export class GxgTreeItem {
   }
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
-    if (this.numberOfParentTrees === 1) {
-      return "15px";
-    } else {
-      return this.numberOfParentTrees * 14 + "px";
-    }
+    return this.itemPaddingLeft + 10 + "px";
   }
-  returnHorizontallLineWidth() {
-    //Calculates and returns the widt of the horizontal line
-    let lineWidth = 9;
-    if (this.parentHasCheckbox) {
-      lineWidth += 18;
-    }
-    return lineWidth + "px";
-  }
+  // returnHorizontallLineWidth() {
+  //   //Calculates and returns the widt of the horizontal line
+  //   let lineWidth = 9;
+  //   if (this.parentHasCheckbox) {
+  //     lineWidth += 18;
+  //   }
+  //   return lineWidth + "px";
+  // }
   returnHorizontallLineLeftPosition() {
     //Returns the left position of the horizontal line that associates the chid-items with the parent item
-    if (this.numberOfParentTrees !== 1) {
-      return this.numberOfParentTrees * 14 - 10 + "px";
-    }
+    return this.numberOfParentTrees * 10 + "px";
   }
 
   render() {
     return (
       <li
         class={{
-          "tree-open": this.treeOpen
+          "tree-open": this.open
         }}
       >
         <div
@@ -204,42 +206,56 @@ export class GxgTreeItem {
           style={{ paddingLeft: this.returnPaddingLeft() }}
           onDblClick={this.liTextDoubleClicked.bind(this)}
         >
-          {!this.isLeaf ? (
-            [
-              <span
-                class={{ "vertical-line": true }}
-                style={{
-                  height: this.returnVerticalLineHeight(),
-                  left: this.returnVerticalLineLeftPosition()
-                }}
-              ></span>,
-              <gxg-icon
-                type={this.returnToggleIconType()}
-                size="small"
-                onClick={this.toggleTreeIconClicked.bind(this)}
-              ></gxg-icon>
-            ]
-          ) : (
-            <span
-              class={{
-                "horizontal-line": true,
-                "display-none": this.numberOfParentTrees === 1
-              }}
-              style={{
-                left: this.returnHorizontallLineLeftPosition(),
-                width: this.returnHorizontallLineWidth()
-              }}
-            ></span>
-          )}
+          {!this.isLeaf
+            ? [
+                <span
+                  class={{ "vertical-line": true }}
+                  style={{
+                    height: this.returnVerticalLineHeight(),
+                    left: this.returnVerticalLineLeftPosition()
+                  }}
+                ></span>,
+                this.downloading ? (
+                  <span class="loading"></span>
+                ) : (
+                  <gxg-icon
+                    type={this.returnToggleIconType()}
+                    size="small"
+                    onClick={this.toggleTreeIconClicked.bind(this)}
+                  ></gxg-icon>
+                )
+              ]
+            : null}
+          <span
+            class={{
+              "horizontal-line": true,
+              "display-none": this.numberOfParentTrees === 1
+            }}
+            style={{
+              left: this.itemPaddingLeft + "px"
+              // width: this.returnHorizontallLineWidth()
+            }}
+          ></span>
           {this.checkbox ? (
             <gxg-form-checkbox
               checked={this.checked}
               class={{ checkbox: true }}
             ></gxg-form-checkbox>
           ) : null}
+          {this.leftIcon ? (
+            <gxg-icon size="small" type={this.leftIcon} color="auto"></gxg-icon>
+          ) : null}
           <span class="text">
             <slot></slot>
           </span>
+          {this.rightIcon ? (
+            <gxg-icon
+              size="small"
+              type={this.rightIcon}
+              color="auto"
+              class="right-icon"
+            ></gxg-icon>
+          ) : null}
         </div>
         <slot name="tree"></slot>
       </li>

@@ -31,7 +31,6 @@
       }
     }
     .vertical-line {
-      display: none;
       position: absolute;
       width: 1px;
       height: 0;
@@ -48,12 +47,13 @@
       background-repeat: repeat-y;
     }
     .horizontal-line {
-      display: none;
       position: absolute;
+      width: 22px;
       height: 1px;
-      left: 31px;
       top: 11px;
       z-index: 1;
+      margin-left: -24px;
+      top: 10px;
       //border style
       background-image: linear-gradient(
         to right,
@@ -70,5 +70,36 @@
   }
   .checkbox {
     margin-right: var(--spacing-comp-01);
+  }
+
+  .right-icon {
+    position: right;
+  }
+  .loading {
+    $base-line-height: 10px;
+    $white: var(--gray-01);
+    $off-white: var(--gray-04);
+    $spin-duration: 1s;
+    $pulse-duration: 750ms;
+
+    //The loading animation
+    border-radius: 50%;
+    width: $base-line-height;
+    height: $base-line-height;
+    border: 0.18rem solid $off-white;
+    border-top-color: $white;
+    animation: spin $spin-duration infinite linear;
+    &--double {
+      border-style: double;
+      border-width: 0.5rem;
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }

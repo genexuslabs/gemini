@@ -923,14 +923,22 @@ export namespace Components {
      */
     checked: boolean;
     /**
-     * Set this attribute if the tree item has a potential tree to be downloaded
+     * Set this attribute when you are downloading a resource
      */
-    emptyTree: boolean;
+    downloading: boolean;
     isLeaf: boolean;
     /**
-     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
-    treeOpen: boolean;
+    leftIcon: string;
+    /**
+     * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
+    open: boolean;
+    /**
+     * /**    Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    rightIcon: string;
   }
 }
 declare global {
@@ -2296,15 +2304,23 @@ declare namespace LocalJSX {
      */
     checked?: boolean;
     /**
-     * Set this attribute if the tree item has a potential tree to be downloaded
+     * Set this attribute when you are downloading a resource
      */
-    emptyTree?: boolean;
+    downloading?: boolean;
     isLeaf?: boolean;
+    /**
+     * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    leftIcon?: string;
     onItemToggled?: (event: CustomEvent<any>) => void;
     /**
-     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
-    treeOpen?: boolean;
+    open?: boolean;
+    /**
+     * /**    Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    rightIcon?: string;
   }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;

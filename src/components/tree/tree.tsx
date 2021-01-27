@@ -20,6 +20,7 @@ export class GxgTree {
 
   //STATE
   @State() nestedTree = false;
+  @State() mainTree = false;
 
   componentWillLoad() {
     //Check if this tree is nested
@@ -47,13 +48,32 @@ export class GxgTree {
         treeItemAboveTree.setAttribute("checked", "checked");
       }
     }
+    //if parent tree...
+    const parentTreeTagName = this.el.parentElement.tagName;
+    if (parentTreeTagName !== "GXG-TREE-ITEM") {
+      this.mainTree = true;
+    }
   }
 
   render() {
-    return (
+    return this.mainTree ? (
       <Host
         class={{
-          "nested-tree": this.nestedTree
+          "nested-tree": this.nestedTree,
+          "main-tree": this.mainTree
+        }}
+      >
+        <div class="main-tree-container">
+          <ul>
+            <slot></slot>
+          </ul>
+        </div>
+      </Host>
+    ) : (
+      <Host
+        class={{
+          "nested-tree": this.nestedTree,
+          "main-tree": this.mainTree
         }}
       >
         <ul>

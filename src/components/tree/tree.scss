@@ -8,3 +8,10 @@
     padding-left: 0;
   }
 }
+:host(.main-tree) {
+  overflow: hidden;
+}
+.main-tree-container {
+  position: relative;
+  left: -30px;
+}
