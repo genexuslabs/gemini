@@ -178,14 +178,6 @@ export class GxgTreeItem {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
     return this.itemPaddingLeft + 10 + "px";
   }
-  // returnHorizontallLineWidth() {
-  //   //Calculates and returns the widt of the horizontal line
-  //   let lineWidth = 9;
-  //   if (this.parentHasCheckbox) {
-  //     lineWidth += 18;
-  //   }
-  //   return lineWidth + "px";
-  // }
   returnHorizontallLineLeftPosition() {
     //Returns the left position of the horizontal line that associates the chid-items with the parent item
     return this.numberOfParentTrees * 10 + "px";
@@ -233,7 +225,6 @@ export class GxgTreeItem {
             }}
             style={{
               left: this.itemPaddingLeft + "px"
-              // width: this.returnHorizontallLineWidth()
             }}
           ></span>
           {this.checkbox ? (
