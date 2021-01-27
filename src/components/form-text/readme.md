@@ -31,6 +31,12 @@
 | `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
 | `input`              | Returns the input value      | `CustomEvent<any>` |
 
+## Shadow Parts
+
+| Part      | Description |
+| --------- | ----------- |
+| `"input"` |             |
+
 ## Dependencies
 
 ### Used by

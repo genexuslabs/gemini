@@ -31,6 +31,7 @@
       }
     }
     .vertical-line {
+      display: none;
       position: absolute;
       width: 1px;
       height: 0;
@@ -47,6 +48,7 @@
       background-repeat: repeat-y;
     }
     .horizontal-line {
+      display: none;
       position: absolute;
       height: 1px;
       left: 31px;

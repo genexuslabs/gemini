@@ -135,14 +135,19 @@ export class GxgTreeItem {
   returnPaddingLeft() {
     //returns the appropriate padding left to the .li-text element
     let paddingLeft = 0;
-    if (this.isLeaf) {
-      paddingLeft = 14 * this.numberOfParentTrees;
-      if (this.parentHasCheckbox) {
-        paddingLeft += 20;
-      }
-    } else {
-      paddingLeft = 14 * this.numberOfParentTrees - 6;
+
+    paddingLeft = this.numberOfParentTrees * 35;
+    if (!this.isLeaf) {
+      paddingLeft -= 5;
     }
+    // if (this.isLeaf) {
+    //   paddingLeft = 14 * this.numberOfParentTrees;
+    //   if (this.parentHasCheckbox) {
+    //     paddingLeft += 20;
+    //   }
+    // } else {
+    //   paddingLeft = 14 * this.numberOfParentTrees - 6;
+    // }
 
     return paddingLeft + "px";
   }
