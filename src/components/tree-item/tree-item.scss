@@ -28,6 +28,9 @@
       }
       &--not-leaf {
         // height: 12px;
+        .horizontal-line {
+          margin-left: -22px;
+        }
       }
     }
     .vertical-line {
@@ -52,7 +55,7 @@
       height: 1px;
       top: 11px;
       z-index: 1;
-      margin-left: -24px;
+      margin-left: -28px;
       top: 10px;
       //border style
       background-image: linear-gradient(

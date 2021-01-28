@@ -53,7 +53,7 @@ export class GxgTreeItem {
   @Prop() open = false;
 
   //STATE
-  @Prop() isLeaf = false;
+  @Prop() isLeaf: boolean;
   @State() paddingLeft = "4px";
   @State() numberOfParentTrees = 1;
   @State() height = 0;
@@ -74,10 +74,15 @@ export class GxgTreeItem {
   @Element() el: HTMLElement;
 
   componentWillLoad() {
+    console.log("componentWillLoad");
+    console.log(this.isLeaf);
+
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
-    if (treeItemHasTree === null && this.isLeaf) {
-      this.isLeaf = true;
+    if (this.isLeaf === undefined) {
+      if (treeItemHasTree === null) {
+        this.isLeaf = true;
+      }
     }
     //Defines the height of the vertical line that associates the chid items with the parent item
     this.returnVerticalLineHeight();
