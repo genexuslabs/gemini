@@ -59,7 +59,7 @@ export class GxgTreeItem {
   @State() height = 0;
   @State() parentHasCheckbox = false;
   @State() hasParentTree = false;
-  @State() itemPaddingLeft = 0;
+  @State() itemPaddingLeft;
   @State() horizontalLinePaddingLeft = 0;
 
   //EVENTS
@@ -74,9 +74,6 @@ export class GxgTreeItem {
   @Element() el: HTMLElement;
 
   componentWillLoad() {
-    console.log("componentWillLoad");
-    console.log(this.isLeaf);
-
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
     if (this.isLeaf === undefined) {
@@ -86,6 +83,12 @@ export class GxgTreeItem {
     }
     //Defines the height of the vertical line that associates the chid items with the parent item
     this.returnVerticalLineHeight();
+
+    //If has parent tree
+    const parentElementNodeName = this.el.parentElement.nodeName;
+    if (parentElementNodeName === "GXG-TREE") {
+      this.hasParentTree = true;
+    }
   }
 
   componentDidLoad() {
@@ -97,11 +100,6 @@ export class GxgTreeItem {
     const parentHasCheckbox = this.el.parentElement.getAttribute("checkbox");
     if (parentHasCheckbox !== null) {
       this.parentHasCheckbox = true;
-    }
-    //If has parent tree
-    const parentElementNodeName = this.el.parentElement.nodeName;
-    if (parentElementNodeName === "GXG-TREE") {
-      this.hasParentTree = true;
     }
   }
 

@@ -30,7 +30,7 @@
 <body>
 
 
-  <h3>Simple tree</h3>
+  <!-- <h3>Simple tree</h3>
 <gxg-tree slot="tree">
   <gxg-tree-item open id="meat">
     meat
@@ -313,22 +313,30 @@
   <gxg-tree-item left-icon="general/knowledge-base" id="nuts" empty-tree>
     nuts
   </gxg-tree-item>
-  </gxg-tree>
+  </gxg-tree> -->
 
   <h3>Tree loading items</h3>
   <gxg-tree slot="tree">
-    <gxg-tree-item downloading left-icon="general/knowledge-base" is-leaf="false" id="fish" right-icon="controls/treeview">
+    <gxg-tree-item left-icon="general/knowledge-base" is-leaf="false" id="fish" right-icon="controls/treeview">
       fish
     </gxg-tree-item>
   </gxg-tree>
  
 
   <script>
-    let fishItem = document.querySelector("#fish").shadowRoot;
-    let fishItemGxgIcon = fishItem.querySelector("gxg-icon");
-    fishItemGxgIcon.addEventListener("click", function(){
-      alert("hola");
+    
+    setTimeout(function(){
+      let fishItem = document.getElementById("fish");
+      let fishItemShadowRoot = document.querySelector("#fish").shadowRoot;
+      let fishItemGxgDownloadIcon = fishItemShadowRoot.querySelectorAll("gxg-icon")[2];
+      console.log("fishItemGxgDownloadIcon");
+      console.log(fishItemGxgDownloadIcon);
+      fishItemGxgDownloadIcon.addEventListener("click", function(){
+        fishItem.setAttribute("downloading","downloading");
     })
+    }, 1000);
+    
+    
   </script>
 
 </body>

@@ -28,6 +28,11 @@ export class GxgTree {
     if (parentElementTagName === "GXG-TREE-ITEM") {
       this.nestedTree = true;
     }
+    //if parent tree...
+    const parentTreeTagName = this.el.parentElement.tagName;
+    if (parentTreeTagName !== "GXG-TREE-ITEM") {
+      this.mainTree = true;
+    }
   }
 
   componentDidLoad() {
@@ -47,11 +52,6 @@ export class GxgTree {
       if (this.checked) {
         treeItemAboveTree.setAttribute("checked", "checked");
       }
-    }
-    //if parent tree...
-    const parentTreeTagName = this.el.parentElement.tagName;
-    if (parentTreeTagName !== "GXG-TREE-ITEM") {
-      this.mainTree = true;
     }
   }
 
