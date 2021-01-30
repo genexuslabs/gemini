@@ -70,6 +70,10 @@
         display: none;
       }
     }
+    .closed-opened-loading-icons {
+      position: relative;
+      display: flex;
+    }
   }
   .checkbox {
     margin-right: var(--spacing-comp-01);
@@ -79,12 +83,15 @@
     position: right;
   }
   .loading {
-    $base-line-height: 10px;
+    display: inline;
+    $base-line-height: 8px;
     $white: var(--gray-01);
     $off-white: var(--gray-04);
     $spin-duration: 1s;
     $pulse-duration: 750ms;
-    margin-left: 4.2px;
+    left: 3px;
+    top: 3px;
+    position: absolute;
 
     //The loading animation
     border-radius: 50%;

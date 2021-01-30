@@ -6,6 +6,7 @@
   ul {
     margin: 0;
     padding-left: 0;
+    width: 100%;
   }
 }
 :host(.main-tree) {
@@ -14,4 +15,5 @@
 .main-tree-container {
   position: relative;
   left: -30px;
+  width: 100%;
 }

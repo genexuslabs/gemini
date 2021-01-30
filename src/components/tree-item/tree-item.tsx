@@ -190,7 +190,9 @@ export class GxgTreeItem {
     return (
       <li
         class={{
-          "tree-open": this.open
+          "tree-open": this.open,
+          downloading: this.downloading,
+          "not-downloading": !this.downloading
         }}
       >
         <div
@@ -210,15 +212,14 @@ export class GxgTreeItem {
                     left: this.returnVerticalLineLeftPosition()
                   }}
                 ></span>,
-                this.downloading ? (
+                <div class={{ "closed-opened-loading-icons": true }}>
                   <span class="loading"></span>
-                ) : (
                   <gxg-icon
                     type={this.returnToggleIconType()}
                     size="small"
                     onClick={this.toggleTreeIconClicked.bind(this)}
                   ></gxg-icon>
-                )
+                </div>
               ]
             : null}
           <span
