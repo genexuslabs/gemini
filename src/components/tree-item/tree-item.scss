@@ -74,6 +74,21 @@
       position: relative;
       display: flex;
     }
+    .toggle-icon {
+      position: relative;
+      z-index: 2;
+      @include ui-animation-slow(opacity);
+    }
+    &.hide-plus-minus-icon {
+      .toggle-icon {
+        opacity: 0;
+      }
+    }
+    &.show-downloading-icon {
+      .loading {
+        opacity: 1;
+      }
+    }
   }
   .checkbox {
     margin-right: var(--spacing-comp-01);
@@ -83,6 +98,7 @@
     position: right;
   }
   .loading {
+    opacity: 0;
     display: inline;
     $base-line-height: 8px;
     $white: var(--gray-01);
@@ -92,6 +108,8 @@
     left: 3px;
     top: 3px;
     position: absolute;
+    z-index: 1;
+    @include ui-animation-slow(opacity);
 
     //The loading animation
     border-radius: 50%;

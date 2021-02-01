@@ -544,6 +544,10 @@ export namespace Components {
      */
     type: any;
   }
+  interface GxgLoader {
+    name: string;
+    show: boolean;
+  }
   interface GxgMenu {
     /**
      * The menu title
@@ -1102,6 +1106,13 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+  interface HTMLGxgLoaderElement
+    extends Components.GxgLoader,
+      HTMLStencilElement {}
+  var HTMLGxgLoaderElement: {
+    prototype: HTMLGxgLoaderElement;
+    new (): HTMLGxgLoaderElement;
+  };
   interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
   var HTMLGxgMenuElement: {
     prototype: HTMLGxgMenuElement;
@@ -1316,6 +1327,7 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
@@ -1913,6 +1925,10 @@ declare namespace LocalJSX {
      */
     type?: any;
   }
+  interface GxgLoader {
+    name?: string;
+    show?: boolean;
+  }
   interface GxgMenu {
     /**
      * The menu title
@@ -2347,6 +2363,7 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
+    "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
@@ -2426,6 +2443,8 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-loader": LocalJSX.GxgLoader &
+        JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;

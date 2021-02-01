@@ -7,7 +7,8 @@ import {
   State,
   Listen,
   h,
-  getAssetPath
+  getAssetPath,
+  Watch
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
@@ -60,7 +61,10 @@ export class GxgTreeItem {
   @State() parentHasCheckbox = false;
   @State() hasParentTree = false;
   @State() itemPaddingLeft;
+  @State() verticalLineHeight: string;
   @State() horizontalLinePaddingLeft = 0;
+  @State() hidePlusMinusIcon: boolean;
+  @State() showDownloadingIcon = false;
 
   //EVENTS
   @Event() itemToggled: EventEmitter;
@@ -81,8 +85,6 @@ export class GxgTreeItem {
         this.isLeaf = true;
       }
     }
-    //Defines the height of the vertical line that associates the chid items with the parent item
-    this.returnVerticalLineHeight();
 
     //If has parent tree
     const parentElementNodeName = this.el.parentElement.nodeName;
@@ -100,6 +102,35 @@ export class GxgTreeItem {
     const parentHasCheckbox = this.el.parentElement.getAttribute("checkbox");
     if (parentHasCheckbox !== null) {
       this.parentHasCheckbox = true;
+    }
+
+    //Defines the height of the vertical line that associates the chid items with the parent item
+    setTimeout(
+      function() {
+        this.calculateVerticalLineHeight();
+      }.bind(this),
+      500
+    );
+  }
+
+  @Watch("downloading")
+  downloadingHandler() {
+    if (this.downloading) {
+      this.hidePlusMinusIcon = true;
+      setTimeout(
+        function() {
+          this.showDownloadingIcon = true;
+        }.bind(this),
+        500
+      );
+    } else {
+      this.showDownloadingIcon = false;
+      setTimeout(
+        function() {
+          this.hidePlusMinusIcon = false;
+        }.bind(this),
+        500
+      );
     }
   }
 
@@ -168,14 +199,14 @@ export class GxgTreeItem {
       function() {
         this.height = this.el.offsetHeight;
       }.bind(this),
-      50
+      300
     );
   }
 
   //Lines
-  returnVerticalLineHeight() {
+  calculateVerticalLineHeight() {
     //Returns the height of the vertical line that associates the chid-items with the parent item
-    return this.height - 29 + "px";
+    this.verticalLineHeight = this.height - 29 + "px";
   }
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
@@ -191,8 +222,8 @@ export class GxgTreeItem {
       <li
         class={{
           "tree-open": this.open,
-          downloading: this.downloading,
-          "not-downloading": !this.downloading
+          "show-downloading-icon": this.showDownloadingIcon,
+          "hide-plus-minus-icon": this.hidePlusMinusIcon
         }}
       >
         <div
@@ -208,17 +239,18 @@ export class GxgTreeItem {
                 <span
                   class={{ "vertical-line": true }}
                   style={{
-                    height: this.returnVerticalLineHeight(),
+                    height: this.verticalLineHeight,
                     left: this.returnVerticalLineLeftPosition()
                   }}
                 ></span>,
                 <div class={{ "closed-opened-loading-icons": true }}>
-                  <span class="loading"></span>
                   <gxg-icon
                     type={this.returnToggleIconType()}
                     size="small"
                     onClick={this.toggleTreeIconClicked.bind(this)}
+                    class="toggle-icon"
                   ></gxg-icon>
+                  <span class="loading"></span>
                 </div>
               ]
             : null}
