@@ -12,7 +12,7 @@ import {
   ActiveTime,
   AlertPosition,
   AlertType,
-  Spacing
+  Spacing,
 } from "./components/alert/alert";
 import { background, border, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
@@ -20,7 +20,7 @@ import { TitleAlignment } from "./components/button-group/button-group";
 import {
   background as background1,
   elevation,
-  padding as padding1
+  padding as padding1,
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
@@ -30,7 +30,7 @@ import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
   LabelPosition,
-  Style
+  Style,
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
@@ -543,6 +543,20 @@ export namespace Components {
      * The type of icon.
      */
     type: any;
+  }
+  interface GxgLoader {
+    /**
+     * The prescence of this attribute shows the loader
+     */
+    show: boolean;
+    /**
+     * The text you want to show under the loader (optional)
+     */
+    text: string;
+    /**
+     * The z-index positive value you want for the loader when visible (default: 100)
+     */
+    visibleZIndex: string;
   }
   interface GxgMenu {
     /**
@@ -1065,6 +1079,13 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+  interface HTMLGxgLoaderElement
+    extends Components.GxgLoader,
+      HTMLStencilElement {}
+  var HTMLGxgLoaderElement: {
+    prototype: HTMLGxgLoaderElement;
+    new (): HTMLGxgLoaderElement;
+  };
   interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
   var HTMLGxgMenuElement: {
     prototype: HTMLGxgMenuElement;
@@ -1267,6 +1288,7 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
@@ -1862,6 +1884,20 @@ declare namespace LocalJSX {
      */
     type?: any;
   }
+  interface GxgLoader {
+    /**
+     * The prescence of this attribute shows the loader
+     */
+    show?: boolean;
+    /**
+     * The text you want to show under the loader (optional)
+     */
+    text?: string;
+    /**
+     * The z-index positive value you want for the loader when visible (default: 100)
+     */
+    visibleZIndex?: string;
+  }
   interface GxgMenu {
     /**
      * The menu title
@@ -2258,6 +2294,7 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
+    "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
@@ -2335,6 +2372,8 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-loader": LocalJSX.GxgLoader &
+        JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;

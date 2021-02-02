@@ -2,7 +2,7 @@ import { Component, Prop, h, State, Watch } from "@stencil/core";
 @Component({
   tag: "gxg-demo",
   styleUrl: "demo.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgDemo {
   @Prop() layerZIndex = 100;
@@ -51,19 +51,19 @@ export class GxgDemo {
     //Show overlay, instrucction and modal
     if (this.initiateDemo === true) {
       setTimeout(
-        function() {
+        function () {
           this.layerVisible = true;
         }.bind(this),
         100
       );
       setTimeout(
-        function() {
+        function () {
           this.instructionVisible = true;
         }.bind(this),
         200
       );
       setTimeout(
-        function() {
+        function () {
           this.modalVisible = true;
         }.bind(this),
         800
@@ -139,7 +139,7 @@ export class GxgDemo {
 
   setItemStyles(item) {
     setTimeout(
-      function() {
+      function () {
         item.style.zIndex = this.layerZIndex + 1;
         item.style.position = "relative";
         item.style.boxShadow = "0px 0px 8px 3px rgba(255,255,255,1)";
@@ -170,7 +170,7 @@ export class GxgDemo {
     //Dehabilitate momentarily Next button to prevent more than one item to be focused
     this.disableNextButton = true;
     setTimeout(
-      function() {
+      function () {
         this.disableNextButton = false;
       }.bind(this),
       250
@@ -181,7 +181,7 @@ export class GxgDemo {
     this.removeStyles(this.gxgDemoItems[this.currentItem]);
     this.instructionVisible = false;
     setTimeout(
-      function() {
+      function () {
         let newItem;
         if (this.nextItemClicked) {
           newItem = this.gxgDemoItems[++this.currentItem];
@@ -193,7 +193,7 @@ export class GxgDemo {
         this.setCoordinates(newItem);
         this.setItemStyles(newItem);
         setTimeout(
-          function() {
+          function () {
             this.instructionVisible = true;
           }.bind(this),
           250
@@ -206,16 +206,16 @@ export class GxgDemo {
   endDemo() {
     this.instructionVisible = false;
     setTimeout(
-      function() {
+      function () {
         this.removeStyles(this.gxgDemoItems[this.currentItem]);
         setTimeout(
-          function() {
+          function () {
             this.modalVisible = false;
             setTimeout(
-              function() {
+              function () {
                 this.layerVisible = false;
                 setTimeout(
-                  function() {
+                  function () {
                     this.initiateDemo = false;
                     this.currentItem = 0;
                     this.setCoordinates(this.gxgDemoItems[this.currentItem]);
@@ -245,13 +245,13 @@ export class GxgDemo {
             "bottom-right": this.instructionPosition === "bottom-right",
             "top-left": this.instructionPosition === "top-left",
             "top-center": this.instructionPosition === "top-center",
-            "top-right": this.instructionPosition === "top-right"
+            "top-right": this.instructionPosition === "top-right",
           }}
           style={{
-            zIndex: (this.layerZIndex + 1).toString(),
+            zIndex: (this.layerZIndex + 2).toString(),
             left: this.leftPosition,
             right: this.rightPosition,
-            top: this.topPosition
+            top: this.topPosition,
           }}
         >
           <div class="tooltip__number">{this.currentItem + 1}</div>
@@ -260,10 +260,10 @@ export class GxgDemo {
         <div
           class={{
             modal: true,
-            visible: this.modalVisible
+            visible: this.modalVisible,
           }}
           style={{
-            zIndex: (this.layerZIndex + 1).toString()
+            zIndex: (this.layerZIndex + 1).toString(),
           }}
         >
           <div class="col-left">
@@ -285,7 +285,7 @@ export class GxgDemo {
               onClick={this.nextItem.bind(this)}
               class={{
                 "next-button": true,
-                disabled: this.disableNextButton === true
+                disabled: this.disableNextButton === true,
               }}
             >
               {this.currentItem + 1 !== this.numberOfItems ? "Next" : "Finish"}
@@ -295,10 +295,10 @@ export class GxgDemo {
         <div
           class={{
             layer: true,
-            visible: this.layerVisible
+            visible: this.layerVisible,
           }}
           style={{ zIndex: this.layerZIndex.toString() }}
-        ></div>
+        ></div>,
       ];
     }
   }
