@@ -19,7 +19,6 @@
 ### Used by
 
 - [gxg-alert](../alert)
-- [gxg-demo](../demo)
 - [gxg-drag-box](../drag-box)
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
@@ -34,7 +33,6 @@
 graph TD;
   gxg-button --> gxg-icon
   gxg-alert --> gxg-button
-  gxg-demo --> gxg-button
   gxg-drag-box --> gxg-button
   gxg-modal --> gxg-button
   gxg-tab-bar --> gxg-button

@@ -8,13 +8,13 @@ import {
   Listen,
   h,
   getAssetPath,
-  Watch
+  Watch,
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
   styleUrl: "tree-item.scss",
   shadow: true,
-  assetsDirs: ["tree-item-assets"]
+  assetsDirs: ["tree-item-assets"],
 })
 
 // return "./card-assets/new-card.svg";
@@ -51,7 +51,7 @@ export class GxgTreeItem {
   /**
    * If this tree-item has a nested tree, set this attribute to make the tree open by default
    */
-  @Prop() open = false;
+  @Prop() opened = false;
 
   //STATE
   @Prop() isLeaf: boolean;
@@ -106,7 +106,7 @@ export class GxgTreeItem {
 
     //Defines the height of the vertical line that associates the chid items with the parent item
     setTimeout(
-      function() {
+      function () {
         this.calculateVerticalLineHeight();
       }.bind(this),
       500
@@ -118,7 +118,7 @@ export class GxgTreeItem {
     if (this.downloading) {
       this.hidePlusMinusIcon = true;
       setTimeout(
-        function() {
+        function () {
           this.showDownloadingIcon = true;
         }.bind(this),
         500
@@ -126,7 +126,7 @@ export class GxgTreeItem {
     } else {
       this.showDownloadingIcon = false;
       setTimeout(
-        function() {
+        function () {
           this.hidePlusMinusIcon = false;
         }.bind(this),
         500
@@ -153,10 +153,10 @@ export class GxgTreeItem {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
     if (!this.isLeaf) {
-      if (this.open) {
-        this.open = false;
+      if (this.opened) {
+        this.opened = false;
       } else {
-        this.open = true;
+        this.opened = true;
         //Play click open sound
         const audio = new Audio(
           getAssetPath("./tree-item-assets/click-open.mp3")
@@ -175,7 +175,7 @@ export class GxgTreeItem {
 
   returnToggleIconType() {
     //Returns the type of icon : gemini-tools/add or gemini-tools/minus
-    if (this.open) {
+    if (this.opened) {
       return "gemini-tools/minus";
     } else {
       return "gemini-tools/add";
@@ -196,7 +196,7 @@ export class GxgTreeItem {
 
   calculateItemHeight() {
     setTimeout(
-      function() {
+      function () {
         this.height = this.el.offsetHeight;
       }.bind(this),
       300
@@ -221,15 +221,15 @@ export class GxgTreeItem {
     return (
       <li
         class={{
-          "tree-open": this.open,
+          "tree-open": this.opened,
           "show-downloading-icon": this.showDownloadingIcon,
-          "hide-plus-minus-icon": this.hidePlusMinusIcon
+          "hide-plus-minus-icon": this.hidePlusMinusIcon,
         }}
       >
         <div
           class={{
             "li-text": true,
-            "li-text--not-leaf": !this.isLeaf
+            "li-text--not-leaf": !this.isLeaf,
           }}
           style={{ paddingLeft: this.returnPaddingLeft() }}
           onDblClick={this.liTextDoubleClicked.bind(this)}
@@ -240,7 +240,7 @@ export class GxgTreeItem {
                   class={{ "vertical-line": true }}
                   style={{
                     height: this.verticalLineHeight,
-                    left: this.returnVerticalLineLeftPosition()
+                    left: this.returnVerticalLineLeftPosition(),
                   }}
                 ></span>,
                 <div class={{ "closed-opened-loading-icons": true }}>
@@ -251,16 +251,16 @@ export class GxgTreeItem {
                     class="toggle-icon"
                   ></gxg-icon>
                   <span class="loading"></span>
-                </div>
+                </div>,
               ]
             : null}
           <span
             class={{
               "horizontal-line": true,
-              "display-none": this.numberOfParentTrees === 1
+              "display-none": this.numberOfParentTrees === 1,
             }}
             style={{
-              left: this.itemPaddingLeft + "px"
+              left: this.itemPaddingLeft + "px",
             }}
           ></span>
           {this.checkbox ? (

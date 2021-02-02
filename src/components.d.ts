@@ -308,11 +308,6 @@ export namespace Components {
      */
     noWeekends: boolean;
   }
-  interface GxgDemo {
-    initiateDemo: boolean;
-    layerZIndex: number;
-    modalMessage: string;
-  }
   interface GxgDragBox {
     /**
      * The presence of this attribute makes this box active
@@ -543,20 +538,6 @@ export namespace Components {
      * The type of icon.
      */
     type: any;
-  }
-  interface GxgLoader {
-    /**
-     * The prescence of this attribute shows the loader
-     */
-    show: boolean;
-    /**
-     * The text you want to show under the loader (optional)
-     */
-    text: string;
-    /**
-     * The z-index positive value you want for the loader when visible (default: 100)
-     */
-    visibleZIndex: string;
   }
   interface GxgMenu {
     /**
@@ -948,7 +929,7 @@ export namespace Components {
     /**
      * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
-    open: boolean;
+    opened: boolean;
     /**
      * /**    Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
@@ -1050,11 +1031,6 @@ declare global {
     prototype: HTMLGxgDatePickerElement;
     new (): HTMLGxgDatePickerElement;
   };
-  interface HTMLGxgDemoElement extends Components.GxgDemo, HTMLStencilElement {}
-  var HTMLGxgDemoElement: {
-    prototype: HTMLGxgDemoElement;
-    new (): HTMLGxgDemoElement;
-  };
   interface HTMLGxgDragBoxElement
     extends Components.GxgDragBox,
       HTMLStencilElement {}
@@ -1115,13 +1091,6 @@ declare global {
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
-  };
-  interface HTMLGxgLoaderElement
-    extends Components.GxgLoader,
-      HTMLStencilElement {}
-  var HTMLGxgLoaderElement: {
-    prototype: HTMLGxgLoaderElement;
-    new (): HTMLGxgLoaderElement;
   };
   interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
   var HTMLGxgMenuElement: {
@@ -1327,7 +1296,6 @@ declare global {
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
     "gxg-date-picker": HTMLGxgDatePickerElement;
-    "gxg-demo": HTMLGxgDemoElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
@@ -1337,7 +1305,6 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
-    "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
     "gxg-modal": HTMLGxgModalElement;
@@ -1653,11 +1620,6 @@ declare namespace LocalJSX {
      */
     noWeekends?: boolean;
   }
-  interface GxgDemo {
-    initiateDemo?: boolean;
-    layerZIndex?: number;
-    modalMessage?: string;
-  }
   interface GxgDragBox {
     /**
      * The presence of this attribute makes this box active
@@ -1934,20 +1896,6 @@ declare namespace LocalJSX {
      * The type of icon.
      */
     type?: any;
-  }
-  interface GxgLoader {
-    /**
-     * The prescence of this attribute shows the loader
-     */
-    show?: boolean;
-    /**
-     * The text you want to show under the loader (optional)
-     */
-    text?: string;
-    /**
-     * The z-index positive value you want for the loader when visible (default: 100)
-     */
-    visibleZIndex?: string;
   }
   interface GxgMenu {
     /**
@@ -2352,7 +2300,7 @@ declare namespace LocalJSX {
     /**
      * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
-    open?: boolean;
+    opened?: boolean;
     /**
      * /**    Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
@@ -2373,7 +2321,6 @@ declare namespace LocalJSX {
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
     "gxg-date-picker": GxgDatePicker;
-    "gxg-demo": GxgDemo;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
     "gxg-form-checkbox": GxgFormCheckbox;
@@ -2383,7 +2330,6 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
-    "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
     "gxg-modal": GxgModal;
@@ -2445,7 +2391,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
       "gxg-date-picker": LocalJSX.GxgDatePicker &
         JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
-      "gxg-demo": LocalJSX.GxgDemo & JSXBase.HTMLAttributes<HTMLGxgDemoElement>;
       "gxg-drag-box": LocalJSX.GxgDragBox &
         JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
       "gxg-drag-container": LocalJSX.GxgDragContainer &
@@ -2463,8 +2408,6 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
-      "gxg-loader": LocalJSX.GxgLoader &
-        JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
