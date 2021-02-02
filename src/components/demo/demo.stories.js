@@ -6,7 +6,7 @@ import {
   boolean,
   number,
   select,
-  radios,
+  radios
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Interaction/Demo", module);
@@ -33,10 +33,10 @@ stories.add("Demo", () => {
       justify-content: space-between;
     }
     .first-row {
-      margin: 100px;
+      margin: 50px;
     }
     .second-row {
-      margin: 100px;
+      margin: 50px;
     }
     .third-row {
       text-align: center;
