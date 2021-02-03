@@ -5,8 +5,6 @@ import {
   Element,
   Prop,
   State,
-  Listen,
-  h,
   getAssetPath,
   Watch,
 } from "@stencil/core";
