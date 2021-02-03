@@ -53,13 +53,18 @@ export class GxgTreeItem {
    */
   @Prop() opened = false;
 
+  /**
+   * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+   */
+  @Prop() isLeaf: boolean = undefined;
+
+  /**
+   * The presence of this attribute sets focus on it
+   */
+  @Prop() focused = false;
+
   //STATE
-  @Prop() isLeaf: boolean;
-  @State() paddingLeft = "4px";
   @State() numberOfParentTrees = 1;
-  @State() height = 0;
-  @State() parentHasCheckbox = false;
-  @State() hasParentTree = false;
   @State() itemPaddingLeft;
   @State() verticalLineHeight: string;
   @State() horizontalLinePaddingLeft = 0;
@@ -67,13 +72,7 @@ export class GxgTreeItem {
   @State() showDownloadingIcon = false;
 
   //EVENTS
-  @Event() itemToggled: EventEmitter;
-
-  //LISTEN
-  @Listen("itemToggled")
-  itemToggledHandler() {
-    this.calculateItemHeight();
-  }
+  @Event() liItemClicked: EventEmitter;
 
   @Element() el: HTMLElement;
 
@@ -85,31 +84,17 @@ export class GxgTreeItem {
         this.isLeaf = true;
       }
     }
-
-    //If has parent tree
-    const parentElementNodeName = this.el.parentElement.nodeName;
-    if (parentElementNodeName === "GXG-TREE") {
-      this.hasParentTree = true;
-    }
   }
 
   componentDidLoad() {
     //Count number of parent trees in order to set the apporpiate padding-left
     this.numberOfParentTrees = this.getParents(this.el);
-    //Get the item height
-    this.calculateItemHeight();
-    //If parent has checkbox...
-    const parentHasCheckbox = this.el.parentElement.getAttribute("checkbox");
-    if (parentHasCheckbox !== null) {
-      this.parentHasCheckbox = true;
-    }
 
-    //Defines the height of the vertical line that associates the chid items with the parent item
     setTimeout(
       function () {
-        this.calculateVerticalLineHeight();
+        this.getChildTreeHeight();
       }.bind(this),
-      500
+      100
     );
   }
 
@@ -117,20 +102,10 @@ export class GxgTreeItem {
   downloadingHandler() {
     if (this.downloading) {
       this.hidePlusMinusIcon = true;
-      setTimeout(
-        function () {
-          this.showDownloadingIcon = true;
-        }.bind(this),
-        500
-      );
+      setTimeout(() => (this.showDownloadingIcon = true), 250);
     } else {
       this.showDownloadingIcon = false;
-      setTimeout(
-        function () {
-          this.hidePlusMinusIcon = false;
-        }.bind(this),
-        500
-      );
+      setTimeout(() => (this.hidePlusMinusIcon = false), 250);
     }
   }
 
@@ -163,14 +138,19 @@ export class GxgTreeItem {
         );
         audio.play();
       }
-      this.calculateItemHeight();
-      //Recalculate item`s parents tree-items height
-      this.itemToggled.emit();
     }
   }
 
   liTextDoubleClicked() {
     this.toggleTreeIconClicked();
+  }
+
+  liTextClicked() {
+    //Remove focus from current focused item (if any)
+    this.liItemClicked.emit();
+
+    //Set focus to the element
+    this.focused = true;
   }
 
   returnToggleIconType() {
@@ -194,20 +174,17 @@ export class GxgTreeItem {
     return paddingLeft + "px";
   }
 
-  calculateItemHeight() {
-    setTimeout(
-      function () {
-        this.height = this.el.offsetHeight;
-      }.bind(this),
-      300
-    );
+  getChildTreeHeight() {
+    //Get the children tree height to calculate the vertical line that associates the chid-items with the parent item
+    const childrenTree = this.el.children;
+    if (childrenTree.item(0) !== null) {
+      //If this tree-item has a child tree element, get its height
+      const childTreeHeight = (childrenTree.item(0) as HTMLElement)
+        .offsetHeight;
+      this.verticalLineHeight = childTreeHeight - 10 + "px";
+    }
   }
 
-  //Lines
-  calculateVerticalLineHeight() {
-    //Returns the height of the vertical line that associates the chid-items with the parent item
-    this.verticalLineHeight = this.height - 29 + "px";
-  }
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
     return this.itemPaddingLeft + 10 + "px";
@@ -230,9 +207,11 @@ export class GxgTreeItem {
           class={{
             "li-text": true,
             "li-text--not-leaf": !this.isLeaf,
+            "li-text--focused": this.focused,
           }}
           style={{ paddingLeft: this.returnPaddingLeft() }}
           onDblClick={this.liTextDoubleClicked.bind(this)}
+          onClick={this.liTextClicked.bind(this)}
         >
           {!this.isLeaf
             ? [

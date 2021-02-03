@@ -1,8 +1,16 @@
-import { Component, Host, Element, State, h, Prop } from "@stencil/core";
+import {
+  Component,
+  Host,
+  Element,
+  State,
+  h,
+  Prop,
+  Listen,
+} from "@stencil/core";
 @Component({
   tag: "gxg-tree",
   styleUrl: "tree.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTree {
   @Element() el: HTMLElement;
@@ -39,7 +47,7 @@ export class GxgTree {
     if (this.checkbox) {
       //Add a checkbox to all this tree direct tree-items children
       const directTreeItemChildren = this.el.querySelectorAll("gxg-tree-item");
-      directTreeItemChildren.forEach(treeItem => {
+      directTreeItemChildren.forEach((treeItem) => {
         treeItem.setAttribute("checkbox", "checkbox");
         //If checked attribute is present, also set the checkboxes to be checked
         if (this.checked) {
@@ -55,12 +63,21 @@ export class GxgTree {
     }
   }
 
+  @Listen("liItemClicked")
+  liItemClickedHandler() {
+    //Remove focus from tree-items
+    const treeItems = this.el.querySelectorAll("gxg-tree-item");
+    treeItems.forEach((treeItem) => {
+      treeItem.setAttribute("focused", "false");
+    });
+  }
+
   render() {
     return this.mainTree ? (
       <Host
         class={{
           "nested-tree": this.nestedTree,
-          "main-tree": this.mainTree
+          "main-tree": this.mainTree,
         }}
       >
         <div class="main-tree-container">
@@ -73,7 +90,7 @@ export class GxgTree {
       <Host
         class={{
           "nested-tree": this.nestedTree,
-          "main-tree": this.mainTree
+          "main-tree": this.mainTree,
         }}
       >
         <ul>

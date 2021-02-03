@@ -23,8 +23,14 @@
       display: flex;
       align-items: center;
       position: relative;
+      &--focused {
+        box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
+      }
       &:hover {
         background-color: var(--gray-01);
+      }
+      &:active {
+        background-color: var(--gray-02);
       }
       &--not-leaf {
         // height: 12px;
@@ -95,7 +101,7 @@
   }
 
   .right-icon {
-    position: right;
+    margin-left: auto;
   }
   .loading {
     opacity: 0;

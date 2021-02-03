@@ -921,6 +921,13 @@ export namespace Components {
      * Set this attribute when you are downloading a resource
      */
     downloading: boolean;
+    /**
+     * The presence of this attribute sets focus on it
+     */
+    focused: boolean;
+    /**
+     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     */
     isLeaf: boolean;
     /**
      * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
@@ -2291,12 +2298,19 @@ declare namespace LocalJSX {
      * Set this attribute when you are downloading a resource
      */
     downloading?: boolean;
+    /**
+     * The presence of this attribute sets focus on it
+     */
+    focused?: boolean;
+    /**
+     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     */
     isLeaf?: boolean;
     /**
      * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon?: string;
-    onItemToggled?: (event: CustomEvent<any>) => void;
+    onLiItemClicked?: (event: CustomEvent<any>) => void;
     /**
      * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
