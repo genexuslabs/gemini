@@ -222,12 +222,10 @@ export class GxgTreeItem {
                   }}
                 ></span>,
                 <div class={{ "closed-opened-loading-icons": true }}>
-                  <gxg-icon
-                    type={this.returnToggleIconType()}
-                    size="small"
-                    onClick={this.toggleTreeIconClicked.bind(this)}
-                    class="toggle-icon"
-                  ></gxg-icon>
+                  <gxg-button
+                    icon={this.returnToggleIconType()}
+                    type="tertiary"
+                  ></gxg-button>
                   <span class="loading"></span>
                 </div>,
               ]

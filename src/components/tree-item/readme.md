@@ -25,15 +25,18 @@
 
 ### Depends on
 
-- [gxg-icon](../icon)
+- [gxg-button](../button)
 - [gxg-form-checkbox](../form-checkbox)
+- [gxg-icon](../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-tree-item --> gxg-icon
+  gxg-tree-item --> gxg-button
   gxg-tree-item --> gxg-form-checkbox
+  gxg-tree-item --> gxg-icon
+  gxg-button --> gxg-icon
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
