@@ -3,7 +3,7 @@ import { Component, Prop, h } from "@stencil/core";
 @Component({
   tag: "gxg-more-info",
   styleUrl: "more-info.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgMoreInfo {
   /**
@@ -34,7 +34,11 @@ export class GxgMoreInfo {
   render() {
     return (
       <span class="more-info">
-        <gxg-icon color="primary" type="gemini-tools/notice"></gxg-icon>
+        <gxg-icon
+          color="primary"
+          size="small"
+          type="gemini-tools/notice"
+        ></gxg-icon>
         <div class="more-info__text">
           <span class="more-info__text__content">
             {this.label}

@@ -11,7 +11,7 @@
 
     &__text {
       @include gxg-text();
-      font-size: var(--font-size-xxs);
+      font-size: var(--font-size-xs);
       visibility: hidden;
       opacity: 0;
       @include ui-animation(opacity);
@@ -73,7 +73,7 @@
   .more-info {
     &__text {
       top: 10px;
-      left: 120%;
+      left: 125%;
       text-align: left;
       transform: translateY(-50%);
 
@@ -90,7 +90,7 @@
 :host([position="bottom"]) {
   .more-info {
     &__text {
-      top: 25px;
+      top: 27px;
       left: 50%;
       transform: translateX(-50%);
 
@@ -107,7 +107,7 @@
     &__text {
       text-align: right;
       top: 10px;
-      right: 120%;
+      right: 125%;
       transform: translateY(-50%);
 
       &:after {
