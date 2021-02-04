@@ -24,7 +24,6 @@
       align-items: center;
       position: relative;
       &--focused {
-        box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
       }
       &:hover {
         background-color: var(--gray-01);
@@ -32,11 +31,16 @@
       &:active {
         background-color: var(--gray-02);
       }
+      &:focus {
+        outline: none;
+        box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
+      }
       &--not-leaf {
-        // height: 12px;
         .horizontal-line {
-          margin-left: -22px;
+          margin-left: -18px;
         }
+      }
+      &--only-one-parent-tree {
       }
     }
     .vertical-line {
@@ -57,11 +61,11 @@
     }
     .horizontal-line {
       position: absolute;
-      width: 22px;
+      width: 16px;
       height: 1px;
       top: 11px;
       z-index: 1;
-      margin-left: -28px;
+      margin-left: -23px;
       top: 10px;
       //border style
       background-image: linear-gradient(

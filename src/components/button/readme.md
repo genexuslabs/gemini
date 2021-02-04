@@ -22,7 +22,6 @@
 - [gxg-drag-box](../drag-box)
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
-- [gxg-tree-item](../tree-item)
 
 ### Depends on
 
@@ -37,7 +36,6 @@ graph TD;
   gxg-drag-box --> gxg-button
   gxg-modal --> gxg-button
   gxg-tab-bar --> gxg-button
-  gxg-tree-item --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

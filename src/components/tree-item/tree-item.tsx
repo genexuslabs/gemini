@@ -69,6 +69,9 @@ export class GxgTreeItem {
   @State() horizontalLinePaddingLeft = 0;
   @State() hidePlusMinusIcon: boolean;
   @State() showDownloadingIcon = false;
+  @State() hasChildTree = false;
+  @State() lastTreeItem = false;
+  @State() lastTreeItemOfParentTree = false;
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
@@ -76,19 +79,33 @@ export class GxgTreeItem {
   @Element() el: HTMLElement;
 
   componentWillLoad() {
+    //Count number of parent trees in order to set the apporpiate padding-left
+    this.numberOfParentTrees = this.getParents(this.el);
+
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
     if (this.isLeaf === undefined) {
       if (treeItemHasTree === null) {
         this.isLeaf = true;
+      } else {
+        this.hasChildTree = true;
+      }
+    }
+    //If is last item of tree
+    const nextItem = this.el.nextElementSibling;
+    if (nextItem === null) {
+      this.lastTreeItem = true;
+    }
+    //If is last item of parent Tree
+    if (this.numberOfParentTrees === 1) {
+      const nextItem = this.el.nextElementSibling;
+      if (nextItem === null) {
+        this.lastTreeItemOfParentTree = true;
       }
     }
   }
 
   componentDidLoad() {
-    //Count number of parent trees in order to set the apporpiate padding-left
-    this.numberOfParentTrees = this.getParents(this.el);
-
     setTimeout(
       function () {
         this.getChildTreeHeight();
@@ -123,9 +140,12 @@ export class GxgTreeItem {
     return numberOfTreeParents.length;
   }
 
-  toggleTreeIconClicked() {
+  toggleTreeIconClicked(e) {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
+    e.stopPropagation();
+    this.liItemClicked.emit();
+
     if (!this.isLeaf) {
       if (this.opened) {
         this.opened = false;
@@ -141,7 +161,7 @@ export class GxgTreeItem {
   }
 
   liTextDoubleClicked() {
-    this.toggleTreeIconClicked();
+    this.toggleTreeIconClicked(event);
   }
 
   liTextClicked() {
@@ -149,7 +169,46 @@ export class GxgTreeItem {
     this.liItemClicked.emit();
 
     //Set focus to the element
-    this.focused = true;
+    // this.focused = true;
+  }
+
+  liTextKeyDownPressed(e) {
+    if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+    }
+    if (e.key === "ArrowUp") {
+      //Set focus on the next item
+      const prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
+        ".li-text"
+      );
+      (prevItem as HTMLElement).focus();
+    }
+    if (e.key === "ArrowDown") {
+      if (!this.lastTreeItemOfParentTree) {
+        //Set focus on the next item
+        let nextItem;
+        if (this.lastTreeItem) {
+          const thisTree = this.el.parentElement;
+          const thisTreeParent = thisTree.parentElement;
+          const thisTreeParentNextTree = thisTreeParent.nextElementSibling;
+          nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
+            ".li-text"
+          );
+        } else {
+          if (this.hasChildTree && this.opened) {
+            nextItem = this.el
+              .querySelector("gxg-tree gxg-tree-item")
+              .shadowRoot.querySelector("li .li-text");
+          } else {
+            nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
+              ".li-text"
+            );
+          }
+        }
+
+        (nextItem as HTMLElement).focus();
+      }
+    }
   }
 
   returnToggleIconType() {
@@ -165,7 +224,11 @@ export class GxgTreeItem {
     //returns the appropriate padding left to the .li-text element
     let paddingLeft = 0;
 
-    paddingLeft = this.numberOfParentTrees * 35;
+    if (this.numberOfParentTrees !== 1) {
+      paddingLeft = (this.numberOfParentTrees - 1) * 31 + 5;
+    } else {
+      paddingLeft = 5;
+    }
     if (!this.isLeaf) {
       paddingLeft -= 5;
     }
@@ -190,7 +253,14 @@ export class GxgTreeItem {
   }
   returnHorizontallLineLeftPosition() {
     //Returns the left position of the horizontal line that associates the chid-items with the parent item
-    return this.numberOfParentTrees * 10 + "px";
+    return this.numberOfParentTrees * 30 + "px";
+  }
+
+  checkboxTabIndex() {
+    return -1;
+  }
+  liTextTabIndex() {
+    return 1;
   }
 
   render() {
@@ -206,11 +276,13 @@ export class GxgTreeItem {
           class={{
             "li-text": true,
             "li-text--not-leaf": !this.isLeaf,
-            "li-text--focused": this.focused,
+            "li-text--last-item-of-parent-tree": this.lastTreeItemOfParentTree,
           }}
           style={{ paddingLeft: this.returnPaddingLeft() }}
           onDblClick={this.liTextDoubleClicked.bind(this)}
           onClick={this.liTextClicked.bind(this)}
+          onKeyDown={this.liTextKeyDownPressed.bind(this)}
+          tabIndex={this.liTextTabIndex()}
         >
           {!this.isLeaf
             ? [
@@ -222,10 +294,12 @@ export class GxgTreeItem {
                   }}
                 ></span>,
                 <div class={{ "closed-opened-loading-icons": true }}>
-                  <gxg-button
-                    icon={this.returnToggleIconType()}
-                    type="tertiary"
-                  ></gxg-button>
+                  <gxg-icon
+                    type={this.returnToggleIconType()}
+                    size="small"
+                    onClick={this.toggleTreeIconClicked.bind(this)}
+                    class="toggle-icon"
+                  ></gxg-icon>
                   <span class="loading"></span>
                 </div>,
               ]
@@ -243,6 +317,7 @@ export class GxgTreeItem {
             <gxg-form-checkbox
               checked={this.checked}
               class={{ checkbox: true }}
+              tabIndex={this.checkboxTabIndex()}
             ></gxg-form-checkbox>
           ) : null}
           {this.leftIcon ? (
