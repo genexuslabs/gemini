@@ -69,8 +69,10 @@ export class GxgTreeItem {
   @State() horizontalLinePaddingLeft = 0;
   @State() hidePlusMinusIcon: boolean;
   @State() showDownloadingIcon = false;
-  @State() hasChildTree = false;
+  @Prop() hasChildTree = false;
+  @Prop() firstTreeItem = false;
   @State() lastTreeItem = false;
+  @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
 
   //EVENTS
@@ -91,10 +93,22 @@ export class GxgTreeItem {
         this.hasChildTree = true;
       }
     }
+    //If is first item of tree
+    const prevItem = this.el.previousElementSibling;
+    if (prevItem === null) {
+      this.firstTreeItem = true;
+    }
     //If is last item of tree
     const nextItem = this.el.nextElementSibling;
     if (nextItem === null) {
       this.lastTreeItem = true;
+    }
+    //If is first item of parent Tree
+    if (this.numberOfParentTrees === 1) {
+      const prevItem = this.el.previousElementSibling;
+      if (prevItem === null) {
+        this.firstTreeItemOfParentTree = true;
+      }
     }
     //If is last item of parent Tree
     if (this.numberOfParentTrees === 1) {
@@ -177,11 +191,22 @@ export class GxgTreeItem {
       e.preventDefault();
     }
     if (e.key === "ArrowUp") {
-      //Set focus on the next item
-      const prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
-        ".li-text"
-      );
-      (prevItem as HTMLElement).focus();
+      if (!this.firstTreeItemOfParentTree) {
+        //Set focus on the prev item
+        let prevItem;
+
+        if (((this.el as unknown) as GxgTreeItem).firstTreeItem) {
+          const parentTree = this.el.parentElement;
+          const parentTreeTree = parentTree.parentElement;
+          prevItem = parentTreeTree.shadowRoot.querySelector("li .li-text");
+        } else {
+          prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
+            ".li-text"
+          );
+        }
+
+        (prevItem as HTMLElement).focus();
+      }
     }
     if (e.key === "ArrowDown") {
       if (!this.lastTreeItemOfParentTree) {
@@ -205,7 +230,6 @@ export class GxgTreeItem {
             );
           }
         }
-
         (nextItem as HTMLElement).focus();
       }
     }
@@ -276,7 +300,8 @@ export class GxgTreeItem {
           class={{
             "li-text": true,
             "li-text--not-leaf": !this.isLeaf,
-            "li-text--last-item-of-parent-tree": this.lastTreeItemOfParentTree,
+            "li-text--first-tree-item": this.firstTreeItem,
+            "li-text--has-child-tree": this.hasChildTree,
           }}
           style={{ paddingLeft: this.returnPaddingLeft() }}
           onDblClick={this.liTextDoubleClicked.bind(this)}

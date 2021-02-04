@@ -921,10 +921,12 @@ export namespace Components {
      * Set this attribute when you are downloading a resource
      */
     downloading: boolean;
+    firstTreeItem: boolean;
     /**
      * The presence of this attribute sets focus on it
      */
     focused: boolean;
+    hasChildTree: boolean;
     /**
      * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
      */
@@ -2298,10 +2300,12 @@ declare namespace LocalJSX {
      * Set this attribute when you are downloading a resource
      */
     downloading?: boolean;
+    firstTreeItem?: boolean;
     /**
      * The presence of this attribute sets focus on it
      */
     focused?: boolean;
+    hasChildTree?: boolean;
     /**
      * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
      */
