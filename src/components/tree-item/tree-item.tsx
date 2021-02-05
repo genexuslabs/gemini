@@ -196,6 +196,8 @@ export class GxgTreeItem {
         let prevItem;
 
         const prevElementSibling = this.el.previousElementSibling;
+        prevItem = prevElementSibling.shadowRoot.querySelector("li .li-text");
+
         if (prevElementSibling !== null) {
           //If the preceding tree-item has tree inside...
           const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
@@ -212,9 +214,6 @@ export class GxgTreeItem {
               prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
                 "li .li-text"
               );
-
-              // prevElemSiblingTree.querySelectorAll("gxg-tree");
-              // console.log(prevElemSiblingTree);
             } else {
               //The preciding item has a tree, but it is closed
               prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
@@ -222,13 +221,15 @@ export class GxgTreeItem {
               );
             }
           }
-        } else {
+        } else if (prevElementSibling == null) {
+          console.log("hola");
           // has no preceding children, is the first tree-item of the tree
           const parentTree = this.el.parentElement;
           prevItem = parentTree.parentElement.shadowRoot.querySelector(
             "li .li-text"
           );
         }
+
         (prevItem as HTMLElement).focus();
       }
     }
