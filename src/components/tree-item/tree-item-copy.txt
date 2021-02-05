@@ -187,37 +187,42 @@ export class GxgTreeItem {
   }
 
   liTextKeyDownPressed(e) {
-    if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault();
     }
     if (e.key === "ArrowUp") {
-      if (!this.firstTreeItemOfParentTree) {
-        //Set focus on the prev item
-        let prevItem;
-
-        // if (((this.el as unknown) as GxgTreeItem).firstTreeItem) {
-        //   const parentTree = this.el.parentElement;
-        //   const parentTreeTree = parentTree.parentElement;
-        //   prevItem = parentTreeTree.shadowRoot.querySelector("li .li-text");
-        // } else {
-        //   prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
-        //     ".li-text"
-        //   );
-        // }
-
-        const prevElementSibling = this.el.previousElementSibling;
-        const prevGxgTreeItem = (prevElementSibling as unknown) as GxgTreeItem;
-        const prevGxgTreeItemOpened = prevGxgTreeItem.opened;
-        if (prevGxgTreeItemOpened) {
-          const prevGxgTreeItemOpenedLastChild = ((prevGxgTreeItem as unknown) as HTMLElement).querySelector(
-            "gxg-tree"
-          ).lastElementChild;
-          prevItem = prevGxgTreeItemOpenedLastChild.shadowRoot.querySelector(
-            ".li-text"
-          );
-        }
-        (prevItem as HTMLElement).focus();
-      }
+      // if (!this.firstTreeItemOfParentTree) {
+      //   //Set focus on the prev item
+      //   let prevItem;
+      //   if (((this.el as unknown) as GxgTreeItem).firstTreeItem) {
+      //     console.log("firstTreeItem");
+      //     const parentTree = this.el.parentElement;
+      //     const parentTreeTree = parentTree.parentElement;
+      //     prevItem = parentTreeTree.shadowRoot.querySelector("li .li-text");
+      //   } else if (
+      //     ((this.el.previousElementSibling as unknown) as GxgTreeItem)
+      //       .hasChildTree
+      //   ) {
+      //     //aca
+      //     if (!((this.el.parentElement as unknown) as GxgTreeItem).opened) {
+      //       //console.log(this.el.parentElement.querySelector("gxg-tree-item"));
+      //       prevItem = this.el.parentElement
+      //         .querySelector("gxg-tree-item")
+      //         .shadowRoot.querySelector("li .li-text");
+      //     } else {
+      //       console.log("hola");
+      //       let prevElement = this.el.previousElementSibling;
+      //       prevItem = prevElement.lastElementChild.lastElementChild.shadowRoot.querySelector(
+      //         "li .li-text"
+      //       );
+      //     }
+      //   } else {
+      //     prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
+      //       ".li-text"
+      //     );
+      //   }
+      //   (prevItem as HTMLElement).focus();
+      // }
     }
     if (e.key === "ArrowDown") {
       if (!this.lastTreeItemOfParentTree) {
@@ -294,8 +299,17 @@ export class GxgTreeItem {
   checkboxTabIndex() {
     return -1;
   }
+
   liTextTabIndex() {
-    return 1;
+    let parentTree = this.el.parentElement;
+    let parentTreeItem = parentTree.parentElement;
+    console.log("parentTreeItem");
+    console.log(parentTreeItem);
+    if (((parentTreeItem as unknown) as GxgTreeItem).opened) {
+      return 1;
+    } else {
+      return -1;
+    }
   }
 
   render() {

@@ -1,0 +1,6 @@
+if (!((this.el.parentElement as unknown) as GxgTreeItem).opened) {
+  //console.log(this.el.parentElement.querySelector("gxg-tree-item"));
+  prevItem = this.el.parentElement
+    .querySelector("gxg-tree-item")
+    .shadowRoot.querySelector("li .li-text");
+}
