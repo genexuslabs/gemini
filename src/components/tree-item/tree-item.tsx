@@ -196,54 +196,39 @@ export class GxgTreeItem {
         let prevItem;
 
         const prevElementSibling = this.el.previousElementSibling;
-        //If the preceding tree-item has tree inside...
-        const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
-          .hasChildTree;
-        if (prevElementSiblingHasChildTree) {
-          const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
-            .opened;
-          if (prevElementSiblingHasOpenTree) {
-            //If preceding tree-item tree is opened, then the prev item is the last item of that tree
-            const prevElemSiblingTreeItem = this.el.previousElementSibling;
-            const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
-              "gxg-tree"
-            );
-            prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-              "li .li-text"
-            );
+        if (prevElementSibling !== null) {
+          //If the preceding tree-item has tree inside...
+          const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
+            .hasChildTree;
+          if (prevElementSiblingHasChildTree) {
+            const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
+              .opened;
+            if (prevElementSiblingHasOpenTree) {
+              //If preceding tree-item tree is opened, then the prev item is the last item of that tree
+              const prevElemSiblingTreeItem = this.el.previousElementSibling;
+              const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
+                "gxg-tree"
+              );
+              prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                "li .li-text"
+              );
 
-            // prevElemSiblingTree.querySelectorAll("gxg-tree");
-            // console.log(prevElemSiblingTree);
-          } else {
-            console.log("prev item has closed tree");
+              // prevElemSiblingTree.querySelectorAll("gxg-tree");
+              // console.log(prevElemSiblingTree);
+            } else {
+              //The preciding item has a tree, but it is closed
+              prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
+                "li .li-text"
+              );
+            }
           }
         } else {
+          // has no preceding children, is the first tree-item of the tree
+          const parentTree = this.el.parentElement;
+          prevItem = parentTree.parentElement.shadowRoot.querySelector(
+            "li .li-text"
+          );
         }
-
-        // if (((this.el as unknown) as GxgTreeItem).firstTreeItem) {
-        //   const parentTree = this.el.parentElement;
-        //   const parentTreeTree = parentTree.parentElement;
-        //   prevItem = parentTreeTree.shadowRoot.querySelector("li .li-text");
-        // } else {
-        //   prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
-        //     ".li-text"
-        //   );
-        // }
-
-        // const prevElementSibling = this.el.previousElementSibling;
-        // console.log(prevElementSibling as unkw);
-        // const prevGxgTreeItem = (prevElementSibling as unknown) as HTMLElement;
-        // let nextElementChild = prevGxgTreeItem.firstElementCh
-
-        // const prevGxgTreeItemOpened = prevGxgTreeItem.opened;
-        // if (prevGxgTreeItemOpened) {
-        //   const prevGxgTreeItemOpenedLastChild = ((prevGxgTreeItem as unknown) as HTMLElement).querySelector(
-        //     "gxg-tree"
-        //   ).lastElementChild;
-        //   prevItem = prevGxgTreeItemOpenedLastChild.shadowRoot.querySelector(
-        //     ".li-text"
-        //   );
-        // }
         (prevItem as HTMLElement).focus();
       }
     }
