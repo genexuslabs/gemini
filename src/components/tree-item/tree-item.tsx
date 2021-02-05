@@ -190,44 +190,45 @@ export class GxgTreeItem {
     if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault();
     }
+    //LEFT/RIGHT NAVIGATION
+
+    // UP/DOWN NAVIGATION
     if (e.key === "ArrowUp") {
       if (!this.firstTreeItemOfParentTree) {
         //Set focus on the prev item
         let prevItem;
-
         const prevElementSibling = this.el.previousElementSibling;
-        prevItem = prevElementSibling.shadowRoot.querySelector("li .li-text");
 
-        if (prevElementSibling !== null) {
-          //If the preceding tree-item has tree inside...
-          const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
-            .hasChildTree;
-          if (prevElementSiblingHasChildTree) {
-            const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
-              .opened;
-            if (prevElementSiblingHasOpenTree) {
-              //If preceding tree-item tree is opened, then the prev item is the last item of that tree
-              const prevElemSiblingTreeItem = this.el.previousElementSibling;
-              const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
-                "gxg-tree"
-              );
-              prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-                "li .li-text"
-              );
-            } else {
-              //The preciding item has a tree, but it is closed
-              prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
-                "li .li-text"
-              );
+        if (prevElementSibling === null) {
+          const parentItem = this.el.parentElement;
+          const parentParentItem = parentItem.parentElement;
+          prevItem = parentParentItem.shadowRoot.querySelector("li .li-text");
+        } else {
+          prevItem = prevElementSibling.shadowRoot.querySelector("li .li-text");
+          if (prevElementSibling !== null) {
+            //If the preceding tree-item has tree inside...
+            const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
+              .hasChildTree;
+            if (prevElementSiblingHasChildTree) {
+              const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
+                .opened;
+              if (prevElementSiblingHasOpenTree) {
+                //If preceding tree-item tree is opened, then the prev item is the last item of that tree
+                const prevElemSiblingTreeItem = this.el.previousElementSibling;
+                const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
+                  "gxg-tree"
+                );
+                prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                  "li .li-text"
+                );
+              } else {
+                //The preciding item has a tree, but it is closed
+                prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
+                  "li .li-text"
+                );
+              }
             }
           }
-        } else if (prevElementSibling == null) {
-          console.log("hola");
-          // has no preceding children, is the first tree-item of the tree
-          const parentTree = this.el.parentElement;
-          prevItem = parentTree.parentElement.shadowRoot.querySelector(
-            "li .li-text"
-          );
         }
 
         (prevItem as HTMLElement).focus();
