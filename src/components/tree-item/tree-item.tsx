@@ -188,9 +188,32 @@ export class GxgTreeItem {
 
   liTextKeyDownPressed(e) {
     if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
-      e.preventDefault();
+      e.preventDefault(); //Prevents navigation with tab, and scrolling
+    }
+    //ENTER
+    if (e.key === "Enter") {
+      //Enter should check/uncheck the checkbox (if present)
+      if (this.checkbox) {
+        if (this.checked) {
+          this.checked = false;
+        } else {
+          this.checked = true;
+        }
+      }
     }
     //LEFT/RIGHT NAVIGATION
+    if (e.key === "ArrowLeft") {
+      //Arrow left should close the tree
+      if (this.opened) {
+        this.opened = false;
+      }
+    }
+    if (e.key === "ArrowRight") {
+      //Arrow left should open the tree
+      if (!this.opened) {
+        this.opened = true;
+      }
+    }
 
     // UP/DOWN NAVIGATION
     if (e.key === "ArrowUp") {
