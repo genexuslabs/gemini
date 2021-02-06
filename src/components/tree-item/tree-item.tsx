@@ -204,13 +204,13 @@ export class GxgTreeItem {
     //LEFT/RIGHT NAVIGATION
     if (e.key === "ArrowLeft") {
       //Arrow left should close the tree
-      if (this.opened) {
+      if (this.opened && !this.isLeaf) {
         this.opened = false;
       }
     }
     if (e.key === "ArrowRight") {
       //Arrow left should open the tree
-      if (!this.opened) {
+      if (!this.opened && !this.isLeaf) {
         this.opened = true;
       }
     }
