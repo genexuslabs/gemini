@@ -29,6 +29,8 @@ export class GxgTree {
   //STATE
   @State() nestedTree = false;
   @State() mainTree = false;
+  //MODAL
+  @State() showModal = false;
 
   componentWillLoad() {
     //Check if this tree is nested
@@ -61,6 +63,8 @@ export class GxgTree {
         treeItemAboveTree.setAttribute("checked", "checked");
       }
     }
+    //Show Modal
+    this.showModal = true;
   }
 
   @Listen("liItemClicked")
@@ -72,31 +76,73 @@ export class GxgTree {
     });
   }
 
+  closeModal() {
+    console.log("close modal");
+    this.showModal = false;
+  }
+
   render() {
     return this.mainTree ? (
-      <Host
-        class={{
-          "nested-tree": this.nestedTree,
-          "main-tree": this.mainTree,
-        }}
-      >
-        <div class="main-tree-container">
-          <ul>
-            <slot></slot>
-          </ul>
-        </div>
-      </Host>
+      [
+        <gxg-modal
+          padding="m"
+          modal-title="Interacting with the gxg-tree"
+          visible={this.showModal}
+        >
+          <ol>
+            <li>
+              Use the <em>Down arrow</em> to navigate down the tree.
+            </li>
+            <li>
+              Use the <em>Up arrow</em> to navigate up the tree.
+            </li>
+            <li>
+              Hold <em>Shift</em> and press <em>Down arrow</em> or{" "}
+              <em>Up arrow</em> to go to the next or previous sibling,
+              respectively.
+            </li>
+            <li>
+              Use the <em>Left</em> or <em>Right</em> arrows to
+              collapse/uncollapse a tree.
+            </li>
+            <li>
+              Press <em>Enter</em> key to check/uncheck a checkbox.
+            </li>
+          </ol>
+          <gxg-button
+            slot="footer"
+            type="primary-text-only"
+            role="button"
+            class="button button--primary-text-only hydrated"
+            onClick={this.closeModal.bind(this)}
+          >
+            Got it!
+          </gxg-button>
+        </gxg-modal>,
+        <div
+          class={{
+            tree: true,
+            "main-tree": true,
+          }}
+        >
+          <div class="main-tree-container">
+            <ul>
+              <slot></slot>
+            </ul>
+          </div>
+        </div>,
+      ]
     ) : (
-      <Host
+      <div
         class={{
-          "nested-tree": this.nestedTree,
-          "main-tree": this.mainTree,
+          tree: true,
+          "nested-tree": true,
         }}
       >
         <ul>
           <slot></slot>
         </ul>
-      </Host>
+      </div>
     );
   }
 }

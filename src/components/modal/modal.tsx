@@ -3,7 +3,7 @@ import { Component, Element, Prop, h, Host, State, Watch } from "@stencil/core";
 @Component({
   tag: "gxg-modal",
   styleUrl: "modal.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgModal {
   @Element() el: HTMLElement;
@@ -51,7 +51,7 @@ export class GxgModal {
     this.layerVisible = false;
     this.modalVisible = false;
     setTimeout(
-      function() {
+      function () {
         this.visible = false;
         this.modalTransition = false;
       }.bind(this),
@@ -62,11 +62,12 @@ export class GxgModal {
   @Watch("visible")
   watchVisibleHandler() {
     if (this.visible === true) {
+      this.el.style.zIndex = this.zIndex;
       setTimeout(
-        function() {
+        function () {
           this.modalTransition = true;
           setTimeout(
-            function() {
+            function () {
               this.layerVisible = true;
               this.modalVisible = true;
             }.bind(this),
@@ -94,14 +95,14 @@ export class GxgModal {
         class={{
           "footer-justify-end": this.footerJustifyContent === "flex-end",
           "footer-justify-space-between":
-            this.footerJustifyContent === "space-between"
+            this.footerJustifyContent === "space-between",
         }}
       >
         <div
           class={{
             modal: true,
             "modal--visible": this.modalVisible,
-            "modal--transition": this.modalTransition
+            "modal--transition": this.modalTransition,
           }}
           style={{ width: this.width, "z-index": this.zIndex + 1 }}
         >
@@ -123,7 +124,7 @@ export class GxgModal {
         <div
           class={{
             layer: true,
-            "layer--visible": this.layerVisible
+            "layer--visible": this.layerVisible,
           }}
           style={{ "z-index": this.zIndex }}
         ></div>

@@ -203,7 +203,6 @@ export class GxgTreeItem {
     }
     //LEFT/RIGHT NAVIGATION
     if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && !this.isLeaf) {
-      console.log("arrow left or right");
       //Toggle the tree
       if (this.opened) {
         this.opened = false;
@@ -274,7 +273,6 @@ export class GxgTreeItem {
         let nextItem;
 
         if (e.shiftKey) {
-          console.log("hola");
           //if shift key was pressed, navigate to the next sibling
           nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
             "li .li-text"

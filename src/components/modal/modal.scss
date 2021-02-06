@@ -114,3 +114,14 @@
     justify-content: space-between;
   }
 }
+
+//Style lists inside the modal
+:host {
+  ::slotted(ul) {
+    list-style-type: none;
+  }
+  ::slotted(ol) {
+    margin: 0;
+    padding-left: 12px;
+  }
+}
