@@ -9,6 +9,7 @@
   { "name": "gemini-tools/close", "description": "Some description" },
   { "name": "gemini-tools/color-picker", "description": "Some description" },
   { "name": "gemini-tools/delete", "description": "Some description" },
+  { "name": "gemini-tools/download", "description": "Some description" },
   { "name": "gemini-tools/duplicate", "description": "Some description" },
   { "name": "gemini-tools/edit", "description": "Some description" },
   { "name": "gemini-tools/edit-wand", "description": "Some description" },
