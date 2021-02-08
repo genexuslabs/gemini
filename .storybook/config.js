@@ -1,6 +1,9 @@
 import { configure } from "@storybook/html";
 import addons from "@storybook/addons";
 import { addDecorator } from "@storybook/html";
+import { initializeRTL } from "storybook-addon-rtl";
+
+initializeRTL();
 
 const channel = addons.getChannel();
 
@@ -18,7 +21,7 @@ channel.on("DARK_MODE", setDark);
 
 function loadStories() {
   const req = require.context("../src", true, /\.stories\.js$/);
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach((filename) => req(filename));
 }
 
 configure(loadStories, module);
