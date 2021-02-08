@@ -226,7 +226,11 @@ export class GxgTreeItem {
 
         if (e.shiftKey) {
           //if shift key was pressed, navigate to the previous sibling
-          prevItem = prevElementSibling.shadowRoot.querySelector("li .li-text");
+          if (prevElementSibling !== null) {
+            prevItem = prevElementSibling.shadowRoot.querySelector(
+              "li .li-text"
+            );
+          }
         } else {
           if (prevElementSibling === null) {
             const parentItem = this.el.parentElement;
@@ -264,7 +268,9 @@ export class GxgTreeItem {
           }
         }
 
-        (prevItem as HTMLElement).focus();
+        if (prevItem !== null && prevItem !== undefined) {
+          (prevItem as HTMLElement).focus();
+        }
       }
     }
     if (e.key === "ArrowDown") {
@@ -274,9 +280,11 @@ export class GxgTreeItem {
 
         if (e.shiftKey) {
           //if shift key was pressed, navigate to the next sibling
-          nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
-            "li .li-text"
-          );
+          if (this.el.nextElementSibling !== null) {
+            nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
+              "li .li-text"
+            );
+          }
         } else {
           if (this.lastTreeItem) {
             const thisTree = this.el.parentElement;
@@ -297,7 +305,9 @@ export class GxgTreeItem {
             }
           }
         }
-        (nextItem as HTMLElement).focus();
+        if (nextItem !== null && nextItem !== undefined) {
+          (nextItem as HTMLElement).focus();
+        }
       }
     }
   }
