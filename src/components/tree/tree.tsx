@@ -1,12 +1,4 @@
-import {
-  Component,
-  Host,
-  Element,
-  State,
-  h,
-  Prop,
-  Listen,
-} from "@stencil/core";
+import { Component, Element, State, h, Prop, Listen } from "@stencil/core";
 @Component({
   tag: "gxg-tree",
   styleUrl: "tree.scss",
