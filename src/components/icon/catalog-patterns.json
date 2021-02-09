@@ -1,7 +1,7 @@
 [
   { "name": "patterns/atribute", "description": "Some description" },
   { "name": "patterns/conditions", "description": "Some description" },
-  { "name": "patterns/details", "description": "Some description" },
+  { "name": "patterns/detail", "description": "Some description" },
   { "name": "patterns/documentation", "description": "Some description" },
   { "name": "patterns/events", "description": "Some description" },
   { "name": "patterns/filters", "description": "Some description" }, 
