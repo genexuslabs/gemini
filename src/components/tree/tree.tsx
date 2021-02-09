@@ -69,7 +69,6 @@ export class GxgTree {
   }
 
   closeModal() {
-    console.log("close modal");
     this.showModal = false;
   }
 

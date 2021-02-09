@@ -8,6 +8,9 @@
     padding-left: 0;
     width: 100%;
   }
+  .nested-tree {
+    width: 100%;
+  }
 }
 :host(.main-tree) {
   overflow: hidden;
