@@ -46,12 +46,6 @@
       @include gxg-text();
       text-align: start;
     }
-    // ::slotted([slot="subtitle"]) {
-    //   margin: 0 !important;
-    // }
-    // ::slotted([slot="meta"]) {
-    //   margin: 0 !important;
-    // }
   }
   .disabled-layer {
     width: 100%;
@@ -69,7 +63,10 @@
     &__header {
       &__button {
         justify-content: space-between;
-        padding: 0 var(--spacing-comp-01) 0 var(--spacing-comp-02);
+        padding-top: 0;
+        padding-inline-end: var(--spacing-comp-01);
+        padding-bottom: 0;
+        padding-inline-start: var(--spacing-comp-02);
         @include ui-animation(background-color);
 
         .cover  {
@@ -88,14 +85,8 @@
         }
 
         &__title-subtitle {
-          //display: flex;
-          // flex-direction: column;
-          // align-items: baseline;
-          // justify-content: center;
-          margin-right: var(--spacing-comp-04);
+          margin-inline-end: var(--spacing-comp-04);
           width: 100%;
-          // max-width: calc(100% - 25px);
-          // overflow: hidden;
           &__title {
             gxg-form-text::part(input) {
               letter-spacing: 0.06em;
@@ -107,8 +98,7 @@
             letter-spacing: 0.06em;
             &__icon {
               display: flex;
-              //align-self: center;
-              margin-right: var(--spacing-comp-01);
+              margin-inline-end: var(--spacing-comp-01);
             }
           }
           &__subtitle {
@@ -130,7 +120,10 @@
       }
     }
     &__container {
-      padding: var(--spacing-comp-02) var(--spacing-comp-03);
+      padding-top: var(--spacing-comp-02);
+      padding-inline-end: var(--spacing-comp-03);
+      padding-bottom: var(--spacing-comp-02);
+      padding-inline-start: var(--spacing-comp-03);
     }
   }
 }
@@ -177,7 +170,7 @@
         &__button {
           background-color: var(--color-primary-disabled);
           .icon-wrapper {
-            padding-right: 2px;
+            padding-inline-end: 2px;
           }
           &__title-subtitle {
             &__title,
@@ -278,7 +271,10 @@
     }
     &__container {
       margin-inline-start: var(--spacing-comp-05);
-      padding: var(--spacing-comp-01) 0;
+      padding-top: var(--spacing-comp-01);
+      padding-inline-end: 0;
+      padding-bottom: var(--spacing-comp-01);
+      padding-inline-start: 0;
     }
   }
 }

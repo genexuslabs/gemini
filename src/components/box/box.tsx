@@ -3,7 +3,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-box",
   styleUrl: "box.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgBox {
   /*********************************
@@ -13,7 +13,7 @@ export class GxgBox {
   /**
    * The background color
    */
-  @Prop({ reflect: true }) background: background = "surface";
+  @Prop({ reflect: true }) background: background = "white";
 
   /**
    * The border type
@@ -42,7 +42,7 @@ export class GxgBox {
       <Host
         role="article"
         class={{
-          card: true
+          card: true,
         }}
         style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
@@ -54,6 +54,6 @@ export class GxgBox {
 
 export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
-export type background = "surface" | "gray-01" | "gray-02";
+export type background = "white" | "gray-01" | "gray-02";
 
 export type border = "no-border" | "gray-03";

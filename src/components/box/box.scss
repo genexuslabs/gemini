@@ -9,7 +9,7 @@
   @include gxg-text();
   @include gxg-scroll();
 }
-:host([background="surface"]) {
+:host([background="white"]) {
   background: var(--color-background);
 }
 :host([background="gray-01"]) {

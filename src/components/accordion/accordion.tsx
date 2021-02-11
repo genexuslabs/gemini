@@ -5,13 +5,13 @@ import {
   Host,
   Listen,
   State,
-  Prop
+  Prop,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-accordion",
   styleUrl: "accordion.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgAccordion {
   /**
@@ -46,7 +46,7 @@ export class GxgAccordion {
   @Listen("accordionItemClicked")
   itemClickedHandler(event: CustomEvent) {
     event.stopPropagation();
-    this.accordions.forEach(accordion => {
+    this.accordions.forEach((accordion) => {
       const id = accordion.itemId;
       if (this.singleItemOpen) {
         if (id === event.detail) {
@@ -87,7 +87,7 @@ export class GxgAccordion {
 
     //Disabled
     if (this.disabled) {
-      this.accordions.forEach(accordion => {
+      this.accordions.forEach((accordion) => {
         (accordion as HTMLGxgAccordionItemElement).status = "closed";
       });
     }
@@ -96,7 +96,7 @@ export class GxgAccordion {
       /* If "single-item-open" is true, and more than one accordion has the "open" property, 
       show only the first accordion open.*/
       let numberOfOpenAccordions = 0;
-      this.accordions.forEach(accordion => {
+      this.accordions.forEach((accordion) => {
         if (
           (accordion as HTMLGxgAccordionItemElement).getAttribute("status") ===
           "open"
@@ -106,7 +106,7 @@ export class GxgAccordion {
       });
       if (numberOfOpenAccordions > 1) {
         let firstOpenAccordionFound = false;
-        this.accordions.forEach(accordion => {
+        this.accordions.forEach((accordion) => {
           if (
             (accordion as HTMLGxgAccordionItemElement).getAttribute(
               "status"
@@ -125,7 +125,7 @@ export class GxgAccordion {
       }
     }
 
-    this.accordions.forEach(accordion => {
+    this.accordions.forEach((accordion) => {
       (accordion as HTMLGxgAccordionItemElement).setAttribute(
         "mode",
         this.mode
@@ -149,7 +149,7 @@ export class GxgAccordion {
     return (
       <Host
         style={{
-          "max-width": this.maxWidth
+          "max-width": this.maxWidth,
         }}
       >
         <slot></slot>

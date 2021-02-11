@@ -6,7 +6,7 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Other/Containers", module);
@@ -14,14 +14,20 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories
   .add("Box", () => {
+    //Box Content
+    const labelBoxContent = "Content";
+    const defaultValueBoxContent =
+      "Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.– Bernard M. Baruch";
+    const valueBoxContent = text(labelBoxContent, defaultValueBoxContent);
+
     return `
     <gxg-box 
     background=${select(
       "Background",
       {
-        "surface (default)": "surface",
+        "white (default)": "white",
         "gray-01": "gray-01",
-        "gray-02": "gray-02"
+        "gray-02": "gray-02",
       },
       "white"
     )}
@@ -29,7 +35,7 @@ stories
         "Border",
         {
           "no-border": "no-border",
-          "gray-03": "gray-03"
+          "gray-03": "gray-03",
         },
         "no-border"
       )}"
@@ -45,23 +51,28 @@ stories
           l: "l",
           xl: "xl",
           xxl: "xxl",
-          xxxl: "xxxl"
+          xxxl: "xxxl",
         },
         "s"
       )}">
-      <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.
-      – Bernard M. Baruch</q>
+      <q>${valueBoxContent}</q>
     </gxg-box>
 `;
   })
   .add("Card", () => {
+    //Card Content
+    const labelCardContent = "Content";
+    const defaultValueCardContent =
+      "Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.– Bernard M. Baruch";
+    const valueCardContent = text(labelCardContent, defaultValueCardContent);
+
     return `
   <gxg-card 
   background=${select(
     "Background",
     {
-      "surface (default)": "surface",
-      "gray-01": "gray-01"
+      "white (default)": "white",
+      "gray-01": "gray-01",
     },
     "xs"
   )}
@@ -69,7 +80,7 @@ stories
     "Elevation",
     {
       "01": "01",
-      "03": "03"
+      "03": "03",
     },
     "xs"
   )} 
@@ -85,12 +96,11 @@ stories
         l: "l",
         xl: "xl",
         xxl: "xxl",
-        xxxl: "xxxl"
+        xxxl: "xxxl",
       },
       "s"
     )}">
-    <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.
-    – Bernard M. Baruch</q>
+    <q>${valueCardContent}</q>
   </gxg-card>
 `;
   });
