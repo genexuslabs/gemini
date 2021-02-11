@@ -20,11 +20,6 @@
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-- [gxg-tree](../tree)
-
 ### Depends on
 
 - [gxg-button](../button)
@@ -35,8 +30,6 @@
 graph TD;
   gxg-modal --> gxg-button
   gxg-button --> gxg-icon
-  gxg-test --> gxg-modal
-  gxg-tree --> gxg-modal
   style gxg-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
