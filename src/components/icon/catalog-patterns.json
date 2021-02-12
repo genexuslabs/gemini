@@ -1,5 +1,5 @@
 [
-  { "name": "patterns/atribute", "description": "Some description" },
+  { "name": "patterns/attributes", "description": "Some description" },
   { "name": "patterns/conditions", "description": "Some description" },
   { "name": "patterns/detail", "description": "Some description" },
   { "name": "patterns/documentation", "description": "Some description" },
