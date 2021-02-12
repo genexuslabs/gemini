@@ -48,6 +48,5 @@
   { "name": "objects/url-rewrite", "description": "Some description" },
   { "name": "objects/web-component", "description": "Some description" },
   { "name": "objects/webpanel", "description": "Some description" },
-  { "name": "objects/work-panel", "description": "Some description" },
-  { "name": "objects/workwith-for-sd", "description": "Some description" }
+  { "name": "objects/work-panel", "description": "Some description" }
 ]
