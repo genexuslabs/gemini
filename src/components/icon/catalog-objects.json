@@ -1,6 +1,6 @@
 [
   { "name": "objects/api", "description": "Some description" },
-  { "name": "objects/atribute", "description": "Some description" },
+  { "name": "objects/attribute", "description": "Some description" },
   { "name": "objects/bg-color", "description": "Some description" },
   {
     "name": "objects/business-process-diagram",
