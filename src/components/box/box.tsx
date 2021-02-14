@@ -16,11 +16,13 @@ export class GxgBox {
   @Prop({ reflect: true }) background: background = "white";
 
   /**
-   * The border type
+   * Wether the box has border or not
    */
-  @Prop({ reflect: true }) border: border = "no-border";
+  @Prop() border = true;
 
-  /*The box padding (internal spacing)*/
+  /**
+   * The box padding
+   */
   @Prop({ reflect: true }) padding: padding = "xs";
 
   /**
@@ -43,6 +45,7 @@ export class GxgBox {
         role="article"
         class={{
           card: true,
+          border: this.border,
         }}
         style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
@@ -55,5 +58,3 @@ export class GxgBox {
 export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
 export type background = "white" | "gray-01" | "gray-02";
-
-export type border = "no-border" | "gray-03";

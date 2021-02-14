@@ -1,9 +1,9 @@
-import { Component, Element, Host, Prop, h, Watch } from "@stencil/core";
+import { Component, Element, Host, Prop, h, State, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-alert",
   styleUrl: "alert.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgAlert {
   @Element() el: HTMLElement;
@@ -25,12 +25,12 @@ export class GxgAlert {
   /**
    * The alert position on the X axis
    */
-  @Prop() position: AlertPosition = "left";
+  @Prop() position: AlertPosition = "start";
 
   /**
    * The alert title (optional)
    */
-  @Prop() alertTitle: string;
+  @Prop() title: string;
 
   /**
    * The alert flavor
@@ -57,12 +57,28 @@ export class GxgAlert {
    */
   @Prop() width = "350px";
 
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
+
   /*********************************
   METHODS
   *********************************/
 
   componentDidLoad() {
     this.el.removeAttribute("hidden");
+
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
   }
 
   iconColor(): "onbackground" | "negative" | "error" | "success" | "warning" {
@@ -81,8 +97,8 @@ export class GxgAlert {
   }
 
   printTitle() {
-    if (this.alertTitle !== undefined) {
-      return <h2 class="alert-message--title">{this.alertTitle}</h2>;
+    if (this.title !== undefined) {
+      return <h2 class="alert-message--title">{this.title}</h2>;
     }
   }
 
@@ -151,6 +167,18 @@ export class GxgAlert {
     }
   }
 
+  transform(bottomSpacingValue) {
+    if (this.position === "center") {
+      if (this.rtl) {
+        return "translateY(-" + bottomSpacingValue + ") translateX(50%)";
+      } else {
+        return "translateY(-" + bottomSpacingValue + ") translateX(-50%)";
+      }
+    } else {
+      return "translateY(-" + bottomSpacingValue + ")";
+    }
+  }
+
   render() {
     let lateralSpacingValue;
     if (this.leftRight === "no-space") {
@@ -177,14 +205,12 @@ export class GxgAlert {
         role="alert"
         aria-hidden={this.alertHidden()}
         hidden
+        class={{ rtl: this.rtl }}
         style={{
           width: this.defineWidth(),
           left: lateralSpacingValue,
           right: lateralSpacingValue,
-          transform:
-            this.position === "center"
-              ? "translateY(-" + bottomSpacingValue + ") translateX(-50%)"
-              : "translateY(-" + bottomSpacingValue + ")"
+          transform: this.transform(bottomSpacingValue),
         }}
       >
         <div
@@ -193,7 +219,7 @@ export class GxgAlert {
             "alert-message--notice": this.type === "notice",
             "alert-message--error": this.type === "error",
             "alert-message--warning": this.type === "warning",
-            "alert-message--success": this.type === "success"
+            "alert-message--success": this.type === "success",
           }}
         >
           <div class="alert-message--container">
@@ -236,7 +262,7 @@ export class GxgAlert {
 
 export type AlertType = "notice" | "error" | "warning" | "success";
 
-export type AlertPosition = "left" | "center" | "right";
+export type AlertPosition = "start" | "center" | "end";
 
 export type ActiveTime =
   | "xxslow"

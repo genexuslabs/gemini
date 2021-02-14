@@ -31,14 +31,7 @@ stories
       },
       "white"
     )}
-      border="${select(
-        "Border",
-        {
-          "no-border": "no-border",
-          "gray-03": "gray-03",
-        },
-        "no-border"
-      )}"
+      border="${boolean("Border", true)}"
       max-width="${text("Max Width", "100%")}"
       min-height=${text("Min Height (default: auto)", "auto")}
       padding="${select(
@@ -79,8 +72,8 @@ stories
   elevation=${select(
     "Elevation",
     {
-      "01": "01",
-      "03": "03",
+      xs: "xs",
+      m: "m",
     },
     "xs"
   )} 

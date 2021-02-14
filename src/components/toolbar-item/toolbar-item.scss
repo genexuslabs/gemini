@@ -2,6 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
+  position: relative;
   .toolbar-item {
     position: relative;
     cursor: pointer;
@@ -10,6 +11,8 @@
     align-items: center;
     justify-content: center;
     width: var(--spacing-comp-05);
+    background-color: var(--color-primary-enabled);
+    @include ui-animation(background-color);
     gxg-icon {
       @include ui-animation(transform);
     }
@@ -18,7 +21,7 @@
       align-items: center;
       position: absolute;
       display: flex;
-      background-color: var(--color-primary-active);
+      background-color: var(--color-primary-enabled);
       color: var(--color-on-primary);
       top: -20px;
       padding: 1px 5px;
@@ -29,28 +32,44 @@
         white-space: nowrap;
       }
       &__subtitle {
-        padding-left: 5px;
+        padding-inline-start: 5px;
         white-space: nowrap;
       }
     }
     &:hover {
+      background-color: var(--color-primary-hover);
       .toolbar-item__label {
         height: var(--spacing-comp-04);
         opacity: 1;
       }
       gxg-icon {
-        transform: scale(0.75, 0.75);
+        transform: scale(0.85, 0.85);
       }
     }
+    &:active {
+      background-color: var(--color-primary-active);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
+    }
+
     &--disabled {
-      background-color: var(--color-primary-disabled);
       cursor: not-allowed;
+      pointer-events: none;
+      background-color: var(--color-primary-disabled);
       &:hover {
         gxg-icon {
           transform: scale(1, 1);
         }
       }
-      pointer-events: none;
     }
+  }
+  .disabled-layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 99;
+    cursor: not-allowed;
   }
 }

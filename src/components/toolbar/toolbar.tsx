@@ -3,18 +3,13 @@ import { Component, Prop, h, Host, State } from "@stencil/core";
 @Component({
   tag: "gxg-toolbar",
   styleUrl: "toolbar.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgToolbar {
   /**
    * The toggle arrow position
    */
-  @Prop() position = "bottom";
-
-  /**
-   * The state of the toggle, wether is disabled or not
-   */
-  @Prop({ reflect: true }) disabled = false;
+  @Prop() position: position = "bottom";
 
   /**
    * The toolbar title
@@ -46,22 +41,21 @@ export class GxgToolbar {
 
   render() {
     return (
-      <Host class={{}}>
+      <Host class={{ rtl: this.rtl }}>
         <div
           class={{
             toolbar: true,
             "toolbar--start": this.position === "start",
             "toolbar--top": this.position === "top",
             "toolbar--bottom": this.position === "bottom",
-            rtl: this.rtl
           }}
         >
           <div class="left-container">
             <gxg-icon
               slot="icon"
-              type="gemini-tools/drag"
+              type="navigation/drag"
               color="negative"
-              size="small"
+              size="regular"
             ></gxg-icon>
             <div class="left-container__title">
               <strong>{this.toolbarTitle}:</strong>

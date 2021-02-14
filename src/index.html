@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="rtl" lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -31,7 +31,164 @@
   </style>
 </head>
 
-<body>
+<body >
+
+  <!-----------------------------------------------
+    ALERTS
+  ------------------------------------------------>
+
+  <h3>Alerts</h3>
+  <gxg-button type="primary-text-only" onClick="(function(){
+    document.getElementById('alert-notice').setAttribute('active', 'true');
+    return false;
+})();">Alert notice</gxg-button>
+
+<gxg-button type="primary-text-only" onClick="(function(){
+  document.getElementById('alert-error').setAttribute('active', 'true');
+  return false;
+})();">Alert error</gxg-button>
+
+<gxg-button type="primary-text-only" onClick="(function(){
+  document.getElementById('alert-success').setAttribute('active', 'true');
+  return false;
+})();">Alert success</gxg-button>
+
+<gxg-button type="primary-text-only" onClick="(function(){
+  document.getElementById('alert-warning').setAttribute('active', 'true');
+  return false;
+})();">Alert warning</gxg-button>
+
+  <gxg-alert
+  id="alert-notice"
+  type="notice"
+  bottom="s"
+  position="center"
+  alert-title="Notice">
+  This is the notice alert
+  </gxg-alert>
+
+  <gxg-alert
+    id="alert-error"
+    type="error"
+    active-time="xfast"
+    bottom="s"
+    position="start"
+    alert-title="Error"
+    left-right="no-space">
+    This is the error alert
+  </gxg-alert>
+
+  <gxg-alert
+  id="alert-success"
+  type="success"
+  active-time="xfast"
+  bottom="s"
+  position="end"
+  alert-title="Success"
+  left-right="no-space">
+  This is the success alert
+  </gxg-alert>
+
+  <gxg-alert
+  id="alert-warning"
+  type="warning"
+  active-time="xfast"
+  bottom="s"
+  position="center"
+  alert-title="Warning">
+  This is the warning alert
+  </gxg-alert>
+
+  <!-----------------------------------------------
+    TOOLBAR
+  ------------------------------------------------>
+
+  <h3>Toolbar</h3>
+  <h4>Start</h4>
+  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="start" disabled>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="some title"
+      subtitle="some subtitle"
+      disabled
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      slot
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+  </gxg-toolbar>
+
+  <h4>Top</h4>
+  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="top">
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="some title"
+      subtitle="some subtitle"
+      disabled
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      slot
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+  </gxg-toolbar>
+
+
+  <h4>Bottom</h4>
+  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="bottom">
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="some title"
+      subtitle="some subtitle"
+      disabled
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      slot
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+  </gxg-toolbar>
+
+
+  <!-----------------------------------------------
+    CONTAINERS
+  ------------------------------------------------>
+
+  <h3>Containers</h3>
+  <h4>Box</h4>
+  <gxg-box background="gray-01" padding="l">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
+  </gxg-box>
+
+  <h4>Box with border</h4>
+  <gxg-box padding="l">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
+  </gxg-box>
+
+
+  <h4>Card</h4>
+  <gxg-card background="gray-01" padding="l">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
+  </gxg-card>
 
   <!-----------------------------------------------
     ACCORDIONS
@@ -302,6 +459,18 @@
     <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
   </gxg-accordion> 
 
+
+  <h3>Pills</h3>
+  <gxg-pill type="static" icon="objects/procedure">Pill Static Icon</gxg-pill>
+  <gxg-pill type="static">Pill Static</gxg-pill>
+  <gxg-pill type="static-with-action" icon="objects/procedure">Pill static-action Icon</gxg-pill>
+  <gxg-pill type="static-with-action">Pill static-action</gxg-pill>
+  <gxg-pill type="button" icon="objects/procedure">Pill Button Icon</gxg-pill>
+  <gxg-pill type="button">Pill Button</gxg-pill>
+  <gxg-pill type="button-with-action" icon="objects/procedure">Pill button-with-action icon</gxg-pill>
+  <gxg-pill type="button-with-action">Pill button-with-action</gxg-pill>
+
+
   <h3>Checkbox</h3>
   <gxg-form-checkbox></gxg-form-checkbox>
   
@@ -421,27 +590,7 @@
 
   
 
-  <h3>Containers</h3>
-  <h4>Box</h4>
-  <gxg-box background="gray-01" padding="l">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
-  </gxg-box>
-
-  <h4>Card</h4>
-  <gxg-card background="gray-01" padding="l">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
-  </gxg-card>
-
-  <h3>Pills</h3>
-  <gxg-pill type="static" icon="objects/procedure">Pill Static Icon</gxg-pill>
-  <gxg-pill type="static">Pill Static</gxg-pill>
-  <gxg-pill type="static-with-action" icon="objects/procedure">Pill static-action Icon</gxg-pill>
-  <gxg-pill type="static-with-action">Pill static-action</gxg-pill>
-  <gxg-pill type="button" icon="objects/procedure">Pill Button Icon</gxg-pill>
-  <gxg-pill type="button">Pill Button</gxg-pill>
-  <gxg-pill type="button-with-action" icon="objects/procedure">Pill button-with-action icon</gxg-pill>
-  <gxg-pill type="button-with-action">Pill button-with-action</gxg-pill>
-
+  
   <h3>Scroll</h3>
   <gxg-scroll max-height="126px">
     <gxg-text>
@@ -468,86 +617,6 @@
       </gxg-text>
   </gxg-scroll>
 
-  <h3>Toolbar</h3>
-  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="start">
-    <gxg-toolbar-item
-      icon="gemini-tools/settings"
-      toolbar-item-title="some title"
-      subtitle="some subtitle"
-    ></gxg-toolbar-item>
-    <gxg-toolbar-item
-      icon="gemini-tools/settings"
-      toolbar-item-title="Title"
-      subtitle="subtitle"
-    ></gxg-toolbar-item>
-    <gxg-toolbar-item
-      slot
-      icon="gemini-tools/settings"
-      toolbar-item-title="Title"
-      subtitle="subtitle"
-    ></gxg-toolbar-item>
-  </gxg-toolbar>
-
-  <h3>Alerts</h3>
-  <gxg-button type="primary-text-only" onClick="(function(){
-    document.getElementById('alert-notice').setAttribute('active', 'true');
-    return false;
-})();">Alert notice</gxg-button>
-
-<gxg-button type="primary-text-only" onClick="(function(){
-  document.getElementById('alert-error').setAttribute('active', 'true');
-  return false;
-})();">Alert error</gxg-button>
-
-<gxg-button type="primary-text-only" onClick="(function(){
-  document.getElementById('alert-success').setAttribute('active', 'true');
-  return false;
-})();">Alert success</gxg-button>
-
-<gxg-button type="primary-text-only" onClick="(function(){
-  document.getElementById('alert-warning').setAttribute('active', 'true');
-  return false;
-})();">Alert warning</gxg-button>
-
-  <gxg-alert
-  id="alert-notice"
-  type="notice"
-  active-time="xfast"
-  bottom="s"
-  position="center"
-  alert-title="Notice">
-  This is the notice alert
-  </gxg-alert>
-
-  <gxg-alert
-    id="alert-error"
-    type="error"
-    active-time="xfast"
-    bottom="s"
-    position="center"
-    alert-title="Error">
-    This is the error alert
-  </gxg-alert>
-
-  <gxg-alert
-  id="alert-success"
-  type="success"
-  active-time="xfast"
-  bottom="s"
-  position="center"
-  alert-title="Success">
-  This is the success alert
-  </gxg-alert>
-
-  <gxg-alert
-  id="alert-warning"
-  type="warning"
-  active-time="xfast"
-  bottom="s"
-  position="center"
-  alert-title="Warning">
-  This is the warning alert
-  </gxg-alert>
 
   <h3>Drag</h3>
   <gxg-drag-container>

@@ -3,21 +3,21 @@ import { Component, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-card",
   styleUrl: "card.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgCard {
   /**
    * The card box-shadow
    */
-  @Prop({ reflect: true }) elevation: elevation = "01";
+  @Prop({ reflect: true }) elevation: elevation = "xs";
 
   /**
    * The background color
    */
-  @Prop({ reflect: true }) background: background = "surface";
+  @Prop({ reflect: true }) background: background = "white";
 
   /**
-   * The card padding (internal spacing)
+   * The card padding
    */
   @Prop({ reflect: true }) padding: padding = "xs";
 
@@ -36,7 +36,7 @@ export class GxgCard {
       <Host
         role="article"
         class={{
-          card: true
+          card: true,
         }}
         style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
       >
@@ -46,8 +46,8 @@ export class GxgCard {
   }
 }
 
-export type elevation = "01" | "03";
+export type elevation = "xs" | "m";
 
 export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
-export type background = "surface" | "gray-01";
+export type background = "white" | "gray-01";

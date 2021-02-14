@@ -6,7 +6,7 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Other/Toolbar", module);
@@ -24,7 +24,7 @@ stories.add("Toolbar", () => {
   const valueSubtitle = text(labelSubtitle, defaultValueSubtitle);
 
   //Icon disabled
-  const iconDisabledLabel = "First Icon disabled";
+  const iconDisabledLabel = "Disabled (first icon on this example)";
   const defaultValueIconDisabled = false;
   const iconDisabledInitialValue = boolean(
     iconDisabledLabel,
@@ -58,7 +58,7 @@ stories.add("Toolbar", () => {
   const optionsArrowPosition = {
     start: "start",
     top: "top",
-    bottom: "bottom"
+    bottom: "bottom",
   };
   const defaultValueStatus = "start";
   const valueArrowPosition = select(

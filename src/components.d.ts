@@ -14,7 +14,7 @@ import {
   AlertType,
   Spacing,
 } from "./components/alert/alert";
-import { background, border, padding } from "./components/box/box";
+import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
 import { TitleAlignment } from "./components/button-group/button-group";
 import {
@@ -42,7 +42,8 @@ import { Space as Space1 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
-import { position as position1 } from "./components/tooltip/tooltip";
+import { position as position1 } from "./components/toolbar/toolbar";
+import { position as position2 } from "./components/tooltip/tooltip";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -110,10 +111,6 @@ export namespace Components {
      */
     activeTime: ActiveTime;
     /**
-     * The alert title (optional)
-     */
-    alertTitle: string;
-    /**
      * The spacing between the alert and the bottom side of the document
      */
     bottom: Spacing;
@@ -130,6 +127,10 @@ export namespace Components {
      */
     position: AlertPosition;
     /**
+     * The alert title (optional)
+     */
+    title: string;
+    /**
      * The alert flavor
      */
     type: AlertType;
@@ -144,9 +145,9 @@ export namespace Components {
      */
     background: background;
     /**
-     * The border type
+     * Wether the box has border or not
      */
-    border: border;
+    border: boolean;
     /**
      * The component max. width
      */
@@ -155,6 +156,9 @@ export namespace Components {
      * The component min. height
      */
     minHeight: string;
+    /**
+     * The box padding
+     */
     padding: padding;
   }
   interface GxgButton {
@@ -231,7 +235,7 @@ export namespace Components {
      */
     minHeight: string;
     /**
-     * The card padding (internal spacing)
+     * The card padding
      */
     padding: padding;
   }
@@ -869,13 +873,9 @@ export namespace Components {
   }
   interface GxgToolbar {
     /**
-     * The state of the toggle, wether is disabled or not
-     */
-    disabled: boolean;
-    /**
      * The toggle arrow position
      */
-    position: string;
+    position: position;
     /**
      * The toolbar title
      */
@@ -1401,10 +1401,6 @@ declare namespace LocalJSX {
      */
     activeTime?: ActiveTime;
     /**
-     * The alert title (optional)
-     */
-    alertTitle?: string;
-    /**
      * The spacing between the alert and the bottom side of the document
      */
     bottom?: Spacing;
@@ -1421,6 +1417,10 @@ declare namespace LocalJSX {
      */
     position?: AlertPosition;
     /**
+     * The alert title (optional)
+     */
+    title?: string;
+    /**
      * The alert flavor
      */
     type?: AlertType;
@@ -1435,9 +1435,9 @@ declare namespace LocalJSX {
      */
     background?: background;
     /**
-     * The border type
+     * Wether the box has border or not
      */
-    border?: border;
+    border?: boolean;
     /**
      * The component max. width
      */
@@ -1446,6 +1446,9 @@ declare namespace LocalJSX {
      * The component min. height
      */
     minHeight?: string;
+    /**
+     * The box padding
+     */
     padding?: padding;
   }
   interface GxgButton {
@@ -1522,7 +1525,7 @@ declare namespace LocalJSX {
      */
     minHeight?: string;
     /**
-     * The card padding (internal spacing)
+     * The card padding
      */
     padding?: padding;
   }
@@ -2221,13 +2224,9 @@ declare namespace LocalJSX {
   }
   interface GxgToolbar {
     /**
-     * The state of the toggle, wether is disabled or not
-     */
-    disabled?: boolean;
-    /**
      * The toggle arrow position
      */
-    position?: string;
+    position?: position;
     /**
      * The toolbar title
      */

@@ -67,7 +67,7 @@
 /*********************************
 POSITION
 *********************************/
-:host([position="right"]) {
+:host([position="end"]:not(.rtl)) {
   left: auto !important;
 }
 :host(:not([active])) {
@@ -79,4 +79,16 @@ POSITION
 }
 :host(:not([active])[position="center"]) {
   transform: translateY(100%) translateX(-50%) !important;
+}
+
+//Reading direction RTL
+:host([position="center"].rtl) {
+  right: 50% !important;
+  transform: translateX(50%);
+}
+:host(:not([active])[position="center"].rtl) {
+  transform: translateY(100%) translateX(50%) !important;
+}
+:host([position="end"].rtl) {
+  right: auto !important;
 }

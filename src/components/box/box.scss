@@ -18,7 +18,7 @@
 :host([background="gray-02"]) {
   background: var(--gray-02);
 }
-:host([border="gray-03"]) {
+:host(.border) {
   border-style: var(--border-style-regular);
   border-width: var(--border-width-sm);
   border-color: var(--gray-03);

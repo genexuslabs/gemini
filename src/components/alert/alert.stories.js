@@ -31,7 +31,7 @@ const options = {
   showMore: "general/showMore",
   success: "general/success",
   up: "general/up",
-  warning: "general/warning"
+  warning: "general/warning",
 };
 const defaultValue = options.add;
 
@@ -58,6 +58,39 @@ stories
     })();">Show alert</gxg-button>
     <gxg-alert
     id="alert-notice"
+    full-width=${boolean("Full Width", false)}
+    width=${text("Width (default: 350px)", "350px")}
+    title="${text("Title", "Conversation deleted")}"
+    position="${select(
+      "Position",
+      { start: "start", center: "center", end: "end" },
+      "center"
+    )}"
+    bottom="${select(
+      "Bottom spacing",
+      {
+        "no-space": "no-space",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+      },
+      "xs"
+    )}"
+    
+    left-right="${select(
+      "Left/Right spacing",
+      {
+        "no-space": "no-space",
+        xs: "xs",
+        s: "s",
+        m: "m",
+        l: "l",
+        xl: "xl",
+      },
+      "xs"
+    )}"
     type="notice"
     active-time="${select(
       "Active Time",
@@ -68,49 +101,20 @@ stories
         regular: "regular",
         fast: "fast",
         xfast: "xfast",
-        xxfast: "xxfast"
+        xxfast: "xxfast",
       },
       "xfast"
     )}"
-    bottom="${select(
-      "Bottom spacing",
-      {
-        "no-space": "no-space",
-        xs: "xs",
-        s: "s",
-        m: "m",
-        l: "l",
-        xl: "xl"
-      },
-      "xs"
-    )}"
-    full-width=${boolean("Full Width", false)}
-    left-right="${select(
-      "Left/Right spacing",
-      {
-        "no-space": "no-space",
-        xs: "xs",
-        s: "s",
-        m: "m",
-        l: "l",
-        xl: "xl"
-      },
-      "xs"
-    )}"
-    position="${select(
-      "Position",
-      { left: "left", center: "center", right: "right" },
-      "center"
-    )}"
-    alert-title="${text("Title", "Conversation deleted")}"
-    width=${text("Width (default: 350px)", "350px")}>
+   
+    
+    >
   ${text("Message", "The conversation has been sent to trash")}
   </gxg-alert>
         `,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -132,7 +136,7 @@ stories
       regular: "regular",
       fast: "fast",
       xfast: "xfast",
-      xxfast: "xxfast"
+      xxfast: "xxfast",
     },
     "xfast"
   )}"
@@ -144,7 +148,7 @@ stories
       s: "s",
       m: "m",
       l: "l",
-      xl: "xl"
+      xl: "xl",
     },
     "xs"
   )}"
@@ -157,13 +161,13 @@ stories
       s: "s",
       m: "m",
       l: "l",
-      xl: "xl"
+      xl: "xl",
     },
     "xs"
   )}"
   position="${select(
     "Position",
-    { left: "left", center: "center", right: "right" },
+    { start: "start", center: "center", end: "end" },
     "center"
   )}"
   alert-title="${text("Title", "EMAIL SENT")}"
@@ -173,8 +177,8 @@ stories
           `,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -197,7 +201,7 @@ stories
         regular: "regular",
         fast: "fast",
         xfast: "xfast",
-        xxfast: "xxfast"
+        xxfast: "xxfast",
       },
       "xfast"
     )}"
@@ -209,7 +213,7 @@ stories
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "xs"
     )}"
@@ -222,13 +226,13 @@ stories
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "xs"
     )}"
     position="${select(
       "Position",
-      { left: "left", center: "center", right: "right" },
+      { start: "start", center: "center", end: "end" },
       "center"
     )}"
     alert-title="${text("Title", "WARNING!")}"
@@ -238,8 +242,8 @@ stories
           `,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -261,7 +265,7 @@ stories
         regular: "regular",
         fast: "fast",
         xfast: "xfast",
-        xxfast: "xxfast"
+        xxfast: "xxfast",
       },
       "xfast"
     )}"
@@ -273,7 +277,7 @@ stories
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "xs"
     )}"
@@ -286,13 +290,13 @@ stories
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "xs"
     )}"
     position="${select(
       "Position",
-      { left: "left", center: "center", right: "right" },
+      { start: "start", center: "center", end: "end" },
       "center"
     )}"
     alert-title="${text("Title", "FATAL ERROR")}"
@@ -302,7 +306,7 @@ stories
           `,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   );

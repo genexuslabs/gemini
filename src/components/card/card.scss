@@ -10,10 +10,10 @@
 }
 
 //Box shadow
-:host([elevation="01"]) {
+:host([elevation="xs"]) {
   box-shadow: var(--box-shadow-01);
 }
-:host([elevation="03"]) {
+:host([elevation="m"]) {
   box-shadow: var(--box-shadow-03);
 }
 
@@ -43,7 +43,7 @@
   padding: var(--spacing-comp-07);
 }
 
-:host([background="surface"]) {
+:host([background="white"]) {
   background: var(--color-background);
 }
 :host([background="gray-01"]) {
