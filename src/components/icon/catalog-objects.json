@@ -1,6 +1,6 @@
 [
   { "name": "objects/api", "description": "Some description" },
-  { "name": "objects/atribute", "description": "Some description" },
+  { "name": "objects/attribute", "description": "Some description" },
   { "name": "objects/bg-color", "description": "Some description" },
   {
     "name": "objects/business-process-diagram",
@@ -48,6 +48,5 @@
   { "name": "objects/url-rewrite", "description": "Some description" },
   { "name": "objects/web-component", "description": "Some description" },
   { "name": "objects/webpanel", "description": "Some description" },
-  { "name": "objects/work-panel", "description": "Some description" },
-  { "name": "objects/workwith-for-sd", "description": "Some description" }
+  { "name": "objects/work-panel", "description": "Some description" }
 ]
