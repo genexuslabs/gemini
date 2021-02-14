@@ -60,7 +60,6 @@ stories
     id="alert-notice"
     full-width=${boolean("Full Width", false)}
     width=${text("Width (default: 350px)", "350px")}
-    title="${text("Title", "Conversation deleted")}"
     position="${select(
       "Position",
       { start: "start", center: "center", end: "end" },
@@ -105,8 +104,7 @@ stories
       },
       "xfast"
     )}"
-   
-    
+    title="${text("Title", "Conversation deleted")}"
     >
   ${text("Message", "The conversation has been sent to trash")}
   </gxg-alert>
@@ -126,6 +124,25 @@ stories
   })();">Show alert</gxg-button>
   <gxg-alert
   id="alert-success"
+  full-width=${boolean("Full Width", false)}
+  width=${text("Width (default: 350px)", "350px")}
+  position="${select(
+    "Position",
+    { start: "start", center: "center", end: "end" },
+    "center"
+  )}"
+  bottom="${select(
+    "Bottom spacing",
+    {
+      "no-space": "no-space",
+      xs: "xs",
+      s: "s",
+      m: "m",
+      l: "l",
+      xl: "xl",
+    },
+    "xs"
+  )}"
   type="success"
   active-time="${select(
     "Active Time",
@@ -140,19 +157,6 @@ stories
     },
     "xfast"
   )}"
-  bottom="${select(
-    "Bottom spacing",
-    {
-      "no-space": "no-space",
-      xs: "xs",
-      s: "s",
-      m: "m",
-      l: "l",
-      xl: "xl",
-    },
-    "xs"
-  )}"
-  full-width=${boolean("Full Width", false)}
   left-right="${select(
     "Left/Right spacing",
     {
@@ -165,13 +169,9 @@ stories
     },
     "xs"
   )}"
-  position="${select(
-    "Position",
-    { start: "start", center: "center", end: "end" },
-    "center"
-  )}"
+  
   alert-title="${text("Title", "EMAIL SENT")}"
-  width=${text("Width (default: 350px)", "350px")}>
+ >
     ${text("Message", "The email has been successfully sent to the recipient")}
     </gxg-alert>
           `,
