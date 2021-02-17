@@ -4,8 +4,8 @@
 <p>For each item:</p>
 <ol>
    <li>Add the attribute <code>gxg-demo-item</code></li>
-   <li>Set the message instruction position by passing a value to the <code>instruction-position</code> attribute.<br>Possible values: <code>bottom-left</code>, <code>bottom-center</code>, <code>bottom-right</code>, <code>top-left</code>,  <code>top-center</code>, or <code>top-right</code>. When the instruction-position is "bottom-", the instruction will appear <em>under</em> the item. When the instruction-position is "top-", the instruction will appear <em>above</em> the item.</li>
-   <li>Finally, set the instruction message, by passing the text to the <code>instruction-message</code> attribute.</li>
+   <li>Set the position by passing a value to the <code>position</code> attribute.<br>Possible values: <code>bottom-start</code>, <code>bottom-center</code>, <code>bottom-end</code>, <code>top-start</code>,  <code>top-center</code>, or <code>top-end</code>. When the position is "bottom-", the instruction will appear <em>under</em> the item. When the position is "top-", the instruction will appear <em>above</em> the item.</li>
+   <li>Finally, set the message, by passing the text to the <code>message</code> attribute.</li>
 </ol>
 
 <h2>Notes</h2>

@@ -12,8 +12,8 @@ export class GxgDemo {
   @State() gxgDemoItems: NodeList;
   @State() numberOfItems = 0;
   @State() currentItem = 0;
-  @State() instructionMessage = "This is the default message";
-  @State() instructionPosition = "top-end";
+  @State() message = "Set the message for this item";
+  @State() position = "top-end";
   @State() leftPosition: string;
   @State() rightPosition: string;
   @State() topPosition: string;
@@ -102,14 +102,11 @@ export class GxgDemo {
     const height = itemCoordinates.height;
     const top = itemCoordinates.top;
     const width = itemCoordinates.width;
-    this.instructionPosition = (item as HTMLElement).getAttribute(
-      "instruction-position"
-    );
+    this.position = (item as HTMLElement).getAttribute("position");
 
     //Position
-    let documentWidth;
     const offsetDistance = 7;
-    switch (this.instructionPosition) {
+    switch (this.position) {
       case "bottom-start":
         this.topPosition = y + height + offsetDistance + "px";
         if (this.rtl) {
@@ -165,9 +162,7 @@ export class GxgDemo {
     }
 
     //Message
-    this.instructionMessage = (item as HTMLElement).getAttribute(
-      "instruction-message"
-    );
+    this.message = (item as HTMLElement).getAttribute("message");
   }
 
   setItemStyles(item) {
@@ -276,12 +271,12 @@ export class GxgDemo {
             tooltip: true,
             visible: this.instructionVisible,
             rtl: this.rtl,
-            "bottom-start": this.instructionPosition === "bottom-start",
-            "bottom-center": this.instructionPosition === "bottom-center",
-            "bottom-end": this.instructionPosition === "bottom-end",
-            "top-start": this.instructionPosition === "top-start",
-            "top-center": this.instructionPosition === "top-center",
-            "top-end": this.instructionPosition === "top-end",
+            "bottom-start": this.position === "bottom-start",
+            "bottom-center": this.position === "bottom-center",
+            "bottom-end": this.position === "bottom-end",
+            "top-start": this.position === "top-start",
+            "top-center": this.position === "top-center",
+            "top-end": this.position === "top-end",
           }}
           style={{
             zIndex: (this.layerZIndex + 2).toString(),
@@ -291,7 +286,7 @@ export class GxgDemo {
           }}
         >
           <div class="tooltip__number">{this.currentItem + 1}</div>
-          <div class="tooltip__message">{this.instructionMessage}</div>
+          <div class="tooltip__message">{this.message}</div>
         </div>,
         <div
           class={{
