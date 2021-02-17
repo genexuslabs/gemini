@@ -13,7 +13,7 @@ export class GxgDemo {
   @State() numberOfItems = 0;
   @State() currentItem = 0;
   @State() instructionMessage = "This is the default message";
-  @State() instructionPosition = "top-right";
+  @State() instructionPosition = "top-end";
   @State() leftPosition: string;
   @State() rightPosition: string;
   @State() topPosition: string;
@@ -22,6 +22,7 @@ export class GxgDemo {
   @State() modalVisible = false;
   @State() nextItemClicked: boolean;
   @State() disableNextButton = false;
+  @State() rtl = false;
 
   //Current Item styles
   @State() currentItemZIndex: string;
@@ -35,6 +36,17 @@ export class GxgDemo {
     this.numberOfItems = this.gxgDemoItems.length;
     this.setCoordinates(this.gxgDemoItems[0]);
     this.resizeObserver();
+
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
   }
 
   resizeObserver() {
@@ -97,37 +109,58 @@ export class GxgDemo {
     //Position
     let documentWidth;
     const offsetDistance = 7;
-    const scrollWidth = 17;
     switch (this.instructionPosition) {
-      case "bottom-left":
-        this.leftPosition = x + "px";
-        this.rightPosition = "auto";
+      case "bottom-start":
         this.topPosition = y + height + offsetDistance + "px";
+        if (this.rtl) {
+          this.leftPosition = "auto";
+          this.rightPosition = window.innerWidth - right + "px";
+        } else {
+          this.leftPosition = x + "px";
+          this.rightPosition = "auto";
+        }
         break;
       case "bottom-center":
         this.leftPosition = x + width / 2 + "px";
-        this.topPosition = y + height + offsetDistance + "px";
-        break;
-      case "bottom-right":
-        documentWidth = document.body.clientWidth;
-        this.leftPosition = "auto";
-        this.rightPosition = documentWidth - right + scrollWidth + "px";
-        this.topPosition = y + height + offsetDistance + "px";
-        break;
-      case "top-left":
-        this.leftPosition = x + "px";
-        this.topPosition = top - offsetDistance + "px";
         this.rightPosition = "auto";
+        this.topPosition = y + height + offsetDistance + "px";
+        break;
+      case "bottom-end":
+        this.topPosition = y + height + offsetDistance + "px";
+        if (this.rtl) {
+          this.leftPosition = x + "px";
+          this.rightPosition = "auto";
+        } else {
+          this.leftPosition = "auto";
+          this.rightPosition = window.innerWidth - right + "px";
+        }
+        break;
+      case "top-start":
+        this.topPosition = top - offsetDistance + "px";
+        if (this.rtl) {
+          this.leftPosition = "auto";
+          this.rightPosition = window.innerWidth - right + "px";
+        } else {
+          this.leftPosition = x + "px";
+          this.rightPosition = "auto";
+        }
         break;
       case "top-center":
         this.leftPosition = x + width / 2 + "px";
         this.topPosition = top - offsetDistance + "px";
+        this.rightPosition = "auto";
         break;
-      case "top-right":
-        documentWidth = document.body.clientWidth;
-        this.leftPosition = "auto";
-        this.rightPosition = documentWidth - right + scrollWidth + "px";
+      case "top-end":
         this.topPosition = top - offsetDistance + "px";
+        console.log("this.topPosition switch case");
+        console.log(this.topPosition);
+        if (this.rtl) {
+          this.leftPosition = x + "px";
+          this.rightPosition = "auto";
+        } else {
+          this.leftPosition = "auto";
+          this.rightPosition = window.innerWidth - right + "px";
+        }
         break;
     }
 
@@ -234,18 +267,21 @@ export class GxgDemo {
   }
 
   render() {
+    console.log("this.topPosition render");
+    console.log(this.topPosition);
     if (this.initiateDemo === true) {
       return [
         <div
           class={{
             tooltip: true,
             visible: this.instructionVisible,
-            "bottom-left": this.instructionPosition === "bottom-left",
+            rtl: this.rtl,
+            "bottom-start": this.instructionPosition === "bottom-start",
             "bottom-center": this.instructionPosition === "bottom-center",
-            "bottom-right": this.instructionPosition === "bottom-right",
-            "top-left": this.instructionPosition === "top-left",
+            "bottom-end": this.instructionPosition === "bottom-end",
+            "top-start": this.instructionPosition === "top-start",
             "top-center": this.instructionPosition === "top-center",
-            "top-right": this.instructionPosition === "top-right",
+            "top-end": this.instructionPosition === "top-end",
           }}
           style={{
             zIndex: (this.layerZIndex + 2).toString(),

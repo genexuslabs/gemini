@@ -47,8 +47,8 @@
       border-bottom: 5px solid var(--gray-07);
       position: absolute;
     }
-
-    &.bottom-left {
+    //arrow position
+    &.bottom-start {
       &:before {
         top: -5px;
         left: 5px;
@@ -62,13 +62,13 @@
         margin-left: -2.5px;
       }
     }
-    &.bottom-right {
+    &.bottom-end {
       &:before {
         top: -5px;
         right: 5px;
       }
     }
-    &.top-left {
+    &.top-start {
       transform: translateY(-100%);
       &:before {
         bottom: -5px;
@@ -85,12 +85,41 @@
         margin-left: -2.5px;
       }
     }
-    &.top-right {
+    &.top-end {
       transform: translateY(-100%);
       &:before {
         right: 5px;
         bottom: -5px;
         transform: rotate(180deg);
+      }
+    }
+
+    //RTL
+    &.rtl {
+      //arrow position
+      &.bottom-start {
+        &:before {
+          right: 5px;
+          left: auto;
+        }
+      }
+      &.bottom-end {
+        &:before {
+          left: 5px;
+          right: auto;
+        }
+      }
+      &.top-start {
+        &:before {
+          right: 5px;
+          left: auto;
+        }
+      }
+      &.top-end {
+        &:before {
+          left: 5px;
+          right: auto;
+        }
       }
     }
 
