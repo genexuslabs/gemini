@@ -1,13 +1,18 @@
 [
   { "name": "patterns/attributes", "description": "Some description" },
+  { "name": "patterns/cell", "description": "Some description" },
   { "name": "patterns/detail", "description": "Some description" },
   { "name": "patterns/documentation", "description": "Some description" },
   { "name": "patterns/filters", "description": "Some description" }, 
+  { "name": "patterns/fixed-data", "description": "Some description" },
   { "name": "patterns/list", "description": "Some description" },
   { "name": "patterns/orders", "description": "Some description" },
+  { "name": "patterns/parameter", "description": "Some description" },
   { "name": "patterns/parameters", "description": "Some description" },
   { "name": "patterns/pattern-category", "description": "Some description" },
+  { "name": "patterns/row", "description": "Some description" },
    { "name": "patterns/structure", "description": "Some description" },
+  { "name": "patterns/tab", "description": "Some description" },
   { "name": "patterns/tabs", "description": "Some description" },
   { "name": "patterns/work-with-web", "description": "Some description" },
   { "name": "patterns/workwith-for-sd", "description": "Some description" }
