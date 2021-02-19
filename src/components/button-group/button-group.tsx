@@ -3,7 +3,7 @@ import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 @Component({
   tag: "gxg-button-group",
   styleUrl: "button-group.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgButtonGroup {
   @Element() el: HTMLElement;
@@ -77,11 +77,20 @@ export class GxgButtonGroup {
     if (this.disabled) {
       this.value = null;
     }
+
+    //if disabled, set buttons tabindex equal to "-1"
+    if (this.disabled) {
+      const buttonsHtmlCollection = this.el.children;
+      Array.from(buttonsHtmlCollection).forEach(function (button) {
+        button.setAttribute("tab-index", "-1");
+        (button as HTMLElement).style.pointerEvents = "none";
+      });
+    }
   }
 
   setActiveButton(event: MouseEvent) {
     const buttonsHtmlCollection = this.el.children;
-    Array.from(buttonsHtmlCollection).forEach(function(button) {
+    Array.from(buttonsHtmlCollection).forEach(function (button) {
       button.removeAttribute("data-active");
       button.setAttribute("aria-pressed", "false");
     });
@@ -95,7 +104,7 @@ export class GxgButtonGroup {
     //get id of all buttons into array
     const buttonsHtmlCollection = this.el.children;
     const buttonsIdsArray = [];
-    Array.from(buttonsHtmlCollection).forEach(button => {
+    Array.from(buttonsHtmlCollection).forEach((button) => {
       const b = button as HTMLElement;
       b.setAttribute("tabindex", "0");
       if (b.getAttribute("id") !== "") {
@@ -116,7 +125,7 @@ export class GxgButtonGroup {
       this.el.children[0].setAttribute("aria-pressed", "true");
     } else {
       if (buttonsIdsArray.includes(this.defaultSelectedBtnId)) {
-        Array.from(buttonsHtmlCollection).forEach(button => {
+        Array.from(buttonsHtmlCollection).forEach((button) => {
           const b = button as HTMLElement;
 
           if (b.id == this.defaultSelectedBtnId) {
@@ -145,6 +154,14 @@ export class GxgButtonGroup {
     }
   }
 
+  tabIndex() {
+    if (this.disabled) {
+      return "-1";
+    } else {
+      return "0";
+    }
+  }
+
   render() {
     let header = null;
     if (this.buttonGroupTitle !== undefined) {
@@ -158,12 +175,12 @@ export class GxgButtonGroup {
     }
     return (
       <Host
-        tabindex="0"
+        tabindex={this.tabIndex()}
         role="group"
         aria-label={this.buttonGroupTitle}
         class={{
           "button-group": true,
-          rtl: this.rtl
+          rtl: this.rtl,
         }}
         value={this.value}
         title-alignment={this.titleAlignment}
@@ -174,6 +191,7 @@ export class GxgButtonGroup {
           class="button-group-container"
           onClick={this.setActiveButton.bind(this)}
         >
+          {this.disabled ? <div class="disabled-layer"></div> : null}
           <slot />
         </div>
       </Host>

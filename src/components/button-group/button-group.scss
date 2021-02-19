@@ -11,6 +11,7 @@
   }
   .button-group-container {
     font-size: 0; //removes the space between buttons
+    position: relative;
   }
 
   ::slotted(button) {
@@ -42,12 +43,26 @@
   }
   ::slotted(button:focus) {
     outline: none;
-    box-shadow: var(--box-shadow-values) var(--color-primary-active);
   }
   ::slotted(button[data-active]) {
     color: var(--color-on-primary);
     background-color: var(--color-primary-active);
     border-right-color: var(--color-primary-active);
+  }
+
+  //disabled layer
+  .disabled-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: not-allowed;
+    z-index: 10;
+  }
+}
+:host(.button-group:not([disabled])) {
+  ::slotted(button:focus) {
+    outline: none;
+    box-shadow: var(--box-shadow-values) var(--color-primary-active);
   }
 }
 //reading directior rtl
@@ -111,8 +126,6 @@
   }
 }
 :host([disabled]) {
-  pointer-events: none;
-
   ::slotted(button),
   ::slotted(button[data-active]) {
     background-color: var(--color-primary-disabled);

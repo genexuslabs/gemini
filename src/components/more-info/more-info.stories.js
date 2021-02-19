@@ -6,7 +6,7 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Interaction/More info", module);
@@ -19,7 +19,7 @@ stories.add("More info", () => {
     top: "top",
     right: "right",
     bottom: "bottom",
-    left: "left"
+    left: "left",
   };
   const defaultValuePosition = "top";
   const valuePosition = select(
@@ -35,7 +35,7 @@ stories.add("More info", () => {
   const valueLabel = text(labelValueLabel, defaultValueLabel);
 
   //More info label
-  const labelMoreInfoLabel = "More info label";
+  const labelMoreInfoLabel = "More info label (optional)";
   const defaultValueMoreInfoLabel = "More info";
   const valueMoreInfoLabel = text(
     labelMoreInfoLabel,
@@ -43,7 +43,7 @@ stories.add("More info", () => {
   );
 
   //More info url
-  const labelMoreInfoUrl = "Url (Optional)";
+  const labelMoreInfoUrl = "More info Url (optional)";
   const defaultValueMoreInfoUrl =
     "https://en.wikipedia.org/wiki/Middle_Ages#:~:text=In%20the%20history%20of%20Europe,and%20the%20Age%20of%20Discovery.";
   const valueMoreInfoUrl = text(labelMoreInfoUrl, defaultValueMoreInfoUrl);
@@ -52,7 +52,7 @@ stories.add("More info", () => {
   const labelTarget = "Target";
   const optionsTarget = {
     _blank: "_blank",
-    _self: "_self"
+    _self: "_self",
   };
   const defaultValueTarget = "_blank";
   const valueTarget = radios(labelTarget, optionsTarget, defaultValueTarget);

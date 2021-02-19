@@ -3,7 +3,7 @@ import { Component, Prop, h, Host, Element } from "@stencil/core";
 @Component({
   tag: "gxg-contextual-menu-item",
   styleUrl: "contextual-menu-item.scss",
-  shadow: true
+  shadow: true,
 })
 export class ContextualMenuItem {
   @Element() el: HTMLElement;
@@ -16,11 +16,7 @@ export class ContextualMenuItem {
   printIcon() {
     if (this.icon !== null) {
       return (
-        <gxg-icon
-          size="regular"
-          type={this.icon}
-          color="onbackground"
-        ></gxg-icon>
+        <gxg-icon size="small" type={this.icon} color="onbackground"></gxg-icon>
       );
     }
   }
@@ -47,7 +43,7 @@ export class ContextualMenuItem {
         <li
           class={{
             "contextual-menu-item": true,
-            "contextual-menu-item--no-icon": this.icon === null
+            "contextual-menu-item--no-icon": this.icon === null,
           }}
         >
           {this.printIcon()}

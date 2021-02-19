@@ -323,11 +323,11 @@ export namespace Components {
      */
     active: boolean;
     /**
-     * The presence of this attribute adds a "delete" button that you can press to delete the box
+     * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
      */
     deletable: boolean;
     /**
-     * The padding (internal spacing)
+     * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
      */
     padding: Padding;
     /**
@@ -337,13 +337,16 @@ export namespace Components {
   }
   interface GxgDragContainer {
     /**
-     * The presence of this attribute adds a "delete" button to each child, that you can press to delete the item
+     * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
      */
     deletable: boolean;
     /**
      * The max-width of the box container
      */
     maxWidth: string;
+    /**
+     * The padding (internal spacing) of the gxg-drag-boxes
+     */
     padding: Padding;
   }
   interface GxgFormCheckbox {
@@ -392,6 +395,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * Styles the radio-button with error attributes
+     */
+    error: boolean;
+    /**
      * The radio label
      */
     label: string;
@@ -399,10 +406,6 @@ export namespace Components {
      * The radio name (should be the same for every radio of the same radio-group)
      */
     name: string;
-    /**
-     * Make the radio-button required
-     */
-    required: boolean;
     /**
      * The radio value
      */
@@ -460,7 +463,7 @@ export namespace Components {
      */
     minimal: boolean;
     /**
-     * The presence of this attribute sets the text color to white, when the element has no focus
+     * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground: boolean;
     /**
@@ -1616,7 +1619,7 @@ declare namespace LocalJSX {
      */
     active?: boolean;
     /**
-     * The presence of this attribute adds a "delete" button that you can press to delete the box
+     * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
      */
     deletable?: boolean;
     /**
@@ -1628,7 +1631,7 @@ declare namespace LocalJSX {
      */
     onDeleted?: (event: CustomEvent<any>) => void;
     /**
-     * The padding (internal spacing)
+     * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
      */
     padding?: Padding;
     /**
@@ -1638,7 +1641,7 @@ declare namespace LocalJSX {
   }
   interface GxgDragContainer {
     /**
-     * The presence of this attribute adds a "delete" button to each child, that you can press to delete the item
+     * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
      */
     deletable?: boolean;
     /**
@@ -1650,6 +1653,9 @@ declare namespace LocalJSX {
     onItemDragOver?: (event: CustomEvent<any>) => void;
     onItemDragStart?: (event: CustomEvent<any>) => void;
     onItemDrop?: (event: CustomEvent<any>) => void;
+    /**
+     * The padding (internal spacing) of the gxg-drag-boxes
+     */
     padding?: Padding;
   }
   interface GxgFormCheckbox {
@@ -1699,6 +1705,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * Styles the radio-button with error attributes
+     */
+    error?: boolean;
+    /**
      * The radio label
      */
     label?: string;
@@ -1718,10 +1728,6 @@ declare namespace LocalJSX {
      * (This event is for internal use)
      */
     onKeyPressed?: (event: CustomEvent<any>) => void;
-    /**
-     * Make the radio-button required
-     */
-    required?: boolean;
     /**
      * The radio value
      */
@@ -1791,7 +1797,7 @@ declare namespace LocalJSX {
      */
     onInput?: (event: CustomEvent<any>) => void;
     /**
-     * The presence of this attribute sets the text color to white, when the element has no focus
+     * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground?: boolean;
     /**

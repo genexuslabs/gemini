@@ -6,17 +6,35 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Controls/Input text", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Text", () => {
-  //Clear button
-  const labelClearButton = "Clear button";
-  const defaultValueClearButton = false;
-  const valueClearButton = boolean(labelClearButton, defaultValueClearButton);
+  //Label
+  const labelLabel = "Label";
+  const defaultValueLabel = "Position";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
+  //Label Position
+  const labelLabelPosition = "Label position";
+  const optionsLabelPosition = {
+    start: "start",
+    above: "above",
+  };
+  const defaultValueLabelPosition = "above";
+  const valueLabelPosition = select(
+    labelLabelPosition,
+    optionsLabelPosition,
+    defaultValueLabelPosition
+  );
+
+  //Required
+  const requiredLabel = "Required";
+  const requiredDefaultValue = false;
+  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
 
   //Icon
   const labelIcon = "Button Icon";
@@ -27,7 +45,7 @@ stories.add("Text", () => {
   const labelIconPosition = "Icon position";
   const optionsIconPosition = {
     start: "start",
-    end: "end"
+    end: "end",
   };
   const defaultValueIconPosition = "start";
   const valueIconPosition = select(
@@ -36,50 +54,10 @@ stories.add("Text", () => {
     defaultValueIconPosition
   );
 
-  //Label
-  const labelLabel = "Label";
-  const defaultValueLabel = "Position";
-  const valueLabel = text(labelLabel, defaultValueLabel);
-
-  //Label Position
-  const labelLabelPosition = "Label position";
-  const optionsLabelPosition = {
-    start: "start",
-    above: "above"
-  };
-  const defaultValueLabelPosition = "above";
-  const valueLabelPosition = select(
-    labelLabelPosition,
-    optionsLabelPosition,
-    defaultValueLabelPosition
-  );
-
-  //Max Width
-  const labelMaxWidth = "Max. Width";
-  const defaultValueMaxWidth = "100%";
-  const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
-
-  //Minimal
-  const labelMinimal = "Minimal (border an background visible on focus only)";
-  const defaultValueMinimal = false;
-  const valueMinimal = boolean(labelMinimal, defaultValueMinimal);
-
-  //Required
-  const requiredLabel = "Required";
-  const requiredDefaultValue = false;
-  const requiredValue = boolean(requiredLabel, requiredDefaultValue);
-
-  //Status
-  const labelStatus = "Status";
-  const optionsStatus = {
-    enabled: "enabled",
-    warning: "warning",
-    error: "error",
-    "error (multiple)": "error-multiple",
-    disabled: "disabled"
-  };
-  const defaultValueStatus = "enabled";
-  const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);
+  //Clear button
+  const labelClearButton = "Clear button";
+  const defaultValueClearButton = false;
+  const valueClearButton = boolean(labelClearButton, defaultValueClearButton);
 
   //Text Style
   const labelTextStyle = "Text Style";
@@ -90,7 +68,7 @@ stories.add("Text", () => {
     "title-02": "title-02",
     "title-03": "title-03",
     "title-04": "title-04",
-    "title-05": "title-05"
+    "title-05": "title-05",
   };
   const defaultValueTextStyle = "regular";
   const valueTextStyle = select(
@@ -98,6 +76,28 @@ stories.add("Text", () => {
     optionsTextStyle,
     defaultValueTextStyle
   );
+
+  //Minimal
+  const labelMinimal = "Minimal (border an background visible on focus only)";
+  const defaultValueMinimal = false;
+  const valueMinimal = boolean(labelMinimal, defaultValueMinimal);
+
+  //Max Width
+  const labelMaxWidth = "Max. Width";
+  const defaultValueMaxWidth = "100%";
+  const valueMaxWidth = text(labelMaxWidth, defaultValueMaxWidth);
+
+  //Status
+  const labelStatus = "Status";
+  const optionsStatus = {
+    enabled: "enabled",
+    warning: "warning",
+    error: "error",
+    "error (multiple)": "error-multiple",
+    disabled: "disabled",
+  };
+  const defaultValueStatus = "enabled";
+  const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);
 
   function valueStatusType() {
     if (valueStatus === "error" || valueStatus === "error-multiple") {

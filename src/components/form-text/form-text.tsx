@@ -7,19 +7,19 @@ import {
   Event,
   EventEmitter,
   State,
-  Watch
+  Watch,
 } from "@stencil/core";
 import {
   requiredLabel,
   formMessage,
   formHandleChange,
-  FormComponent
+  FormComponent,
 } from "../../common";
 
 @Component({
   tag: "gxg-form-text",
   styleUrl: "form-text.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormText implements FormComponent {
   isRequiredError = false;
@@ -69,7 +69,7 @@ export class GxgFormText implements FormComponent {
   @Prop({ reflect: true }) minimal = false;
 
   /**
-   * The presence of this attribute sets the text color to white, when the element has no focus
+   * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
    */
   @Prop({ reflect: true }) overDarkBackground = false;
 
@@ -130,8 +130,13 @@ export class GxgFormText implements FormComponent {
   @State() inputSize = "auto";
   @State() mouseCoordinates: object = {
     x: null,
-    y: null
+    y: null,
   };
+
+  /**
+   * Reading direction
+   */
+  @State() rtl = false;
 
   @Watch("value")
   watchHandler(newValue, oldValue) {
@@ -214,7 +219,7 @@ export class GxgFormText implements FormComponent {
 
   mouseEnterHandler() {
     setTimeout(
-      function() {
+      function () {
         const inputText = this.el.shadowRoot.querySelector(
           ".input"
         ) as HTMLInputElement;
@@ -253,7 +258,7 @@ export class GxgFormText implements FormComponent {
       **************/
 
       const intersectionObserver = new IntersectionObserver(
-        function(entries) {
+        function (entries) {
           // If intersectionRatio is 0, the target is out of view
           // and we do not need to do anything.
           if (entries[0].intersectionRatio <= 0) return;
@@ -317,6 +322,29 @@ export class GxgFormText implements FormComponent {
       // start observing
       intersectionObserver.observe(this.el.shadowRoot.querySelector(".input"));
     } // if (this.minimal)
+
+    //Reading Direction
+    const dirHtml = document
+      .getElementsByTagName("html")[0]
+      .getAttribute("dir");
+    const dirBody = document
+      .getElementsByTagName("body")[0]
+      .getAttribute("dir");
+    if (dirHtml === "rtl" || dirBody === "rtl") {
+      this.rtl = true;
+    }
+
+    //Offset error or warning message if label position is "start"
+    if (this.labelPosition === "start") {
+      //Get label width
+      const label = this.el.shadowRoot.querySelector(".label") as HTMLElement;
+      const labelWidth = label.offsetWidth;
+      //Get messages wrapper
+      const messagesWrapper = this.el.shadowRoot.querySelector(
+        ".messages-wrapper"
+      ) as HTMLElement;
+      messagesWrapper.style.paddingLeft = labelWidth + 5 + "px";
+    }
   }
 
   componentDidUnload() {
@@ -332,15 +360,16 @@ export class GxgFormText implements FormComponent {
         aria-label={this.label}
         icon-position={this.iconPositionFunc()}
         style={{
-          maxWidth: this.maxWidth
+          maxWidth: this.maxWidth,
         }}
+        class={{ rtl: this.rtl }}
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div class="outer-wrapper">
           {this.label !== undefined ? (
             <label
               class={{
-                label: true
+                label: true,
               }}
             >
               {this.label}
@@ -352,7 +381,7 @@ export class GxgFormText implements FormComponent {
           <div
             class={{
               "inner-wrapper": true,
-              "clear-button": this.clearButton === true
+              "clear-button": this.clearButton === true,
             }}
           >
             <input
@@ -363,7 +392,7 @@ export class GxgFormText implements FormComponent {
                 input: true,
                 "input--error": this.error === true,
                 "input--warning": this.warning === true,
-                "cursor-inside": this.cursorInside
+                "cursor-inside": this.cursorInside,
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}

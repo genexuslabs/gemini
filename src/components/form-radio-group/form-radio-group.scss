@@ -3,8 +3,11 @@
 
 :host {
   ::slotted(gxg-form-radio) {
-    margin-bottom: var(--spacing-comp-03);
+    margin-bottom: var(--spacing-comp-02);
     display: flex;
+  }
+  ::slotted(gxg-form-radio:last-of-type) {
+    margin-bottom: 0;
   }
   .label {
     @include form-element-common-styles-label-group();

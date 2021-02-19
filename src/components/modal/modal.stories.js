@@ -6,13 +6,18 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Interaction/Modal", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Modal", () => {
+  //Title
+  const labelTitle = "Title";
+  const defaultValueTitle = "Modal Title";
+  const valueTitle = text(labelTitle, defaultValueTitle);
+
   //Content
   const labelValueContent = "Content";
   const defaultValueContent =
@@ -28,7 +33,7 @@ stories.add("Modal", () => {
     l: "l",
     xl: "xl",
     xxl: "xxl",
-    xxxl: "xxxl"
+    xxxl: "xxxl",
   };
   const defaultValuePadding = "m";
 
@@ -36,26 +41,21 @@ stories.add("Modal", () => {
   const labelJustifyContent = "Footer justify content";
   const optionsJustifyContent = {
     "flex-end": "flex-end",
-    "space-between": "space-between"
+    "space-between": "space-between",
   };
   const defaultValuePJustifyContent = "flex-end";
 
-  //Title
-  const labelTitle = "Title";
-  const defaultValueTitle = "Modal Title";
-  const valueTitle = text(labelTitle, defaultValueTitle);
-
   //Width
-  const labelWidth = "Width";
-  const defaultValueWidth = "304px";
+  const labelWidth = "Width (default: 300px)";
+  const defaultValueWidth = "300px";
   const valueWidth = text(labelWidth, defaultValueWidth);
 
   return `
-  <gxg-modal id="modal" padding="${select(
+  <gxg-modal id="modal" modal-title="${valueTitle}" padding="${select(
     labelPadding,
     optionsPadding,
     defaultValuePadding
-  )}" modal-title="${valueTitle}" width=${valueWidth} footer-justify-content="${select(
+  )}" width=${valueWidth} footer-justify-content="${select(
     labelJustifyContent,
     optionsJustifyContent,
     defaultValuePJustifyContent

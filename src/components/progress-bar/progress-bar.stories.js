@@ -6,22 +6,22 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Interaction/Progress-bar", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Progress Bar", () => {
-  //Initial value
-  const labelValue = "Initial Value (%)";
-  const defaultValueValue = 50;
-  const valueValue = number(labelValue, defaultValueValue);
-
   //Label
   const labelLabel = "Label";
   const defaultValueLabel = "Progress-Bar";
   const valueLabel = text(labelLabel, defaultValueLabel);
+
+  //Initial value
+  const labelValue = "Initial Value (%)";
+  const defaultValueValue = 50;
+  const valueValue = number(labelValue, defaultValueValue);
 
   //Width
   const labelMaxWidth = "Max Width";

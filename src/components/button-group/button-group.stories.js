@@ -5,7 +5,7 @@ import {
   text,
   boolean,
   number,
-  select
+  select,
 } from "@storybook/addon-knobs";
 
 /*************
@@ -17,77 +17,6 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories
   .add("Two buttons", () => {
-    //Disabled
-    const labelDisabled = "Disabled";
-    const defaultValueDisabled = false;
-    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
-
-    //First button id
-    const labelFirstButtonId = "First Button Id";
-    const defaultValueFirstButtonId = "salt";
-    const valueFirstButtonId = text(
-      labelFirstButtonId,
-      defaultValueFirstButtonId
-    );
-
-    //First button label
-    const labelFirstButtonLabel = "First Button Label";
-    const defaultValueFirstButtonLabel = "Salt";
-    const valueFirstButtonLabel = text(
-      labelFirstButtonLabel,
-      defaultValueFirstButtonLabel
-    );
-
-    //First button value
-    const labelFirstButtonValue = "First Button Value";
-    const defaultValueFirstButtonValue = "salt";
-    const valueFirstButtonValue = text(
-      labelFirstButtonValue,
-      defaultValueFirstButtonValue
-    );
-
-    /*Full Width*/
-    const labelFullWidth = "Full Width";
-    const defaultValueFullWidth = false;
-    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
-
-    //Initial Selected Button Id
-    const labelInitialSelectedButtonId = "Initial Selected Button Id";
-    const defaultValueInitialSelectedButtonId = "salt";
-    const valueInitialSelectedButtonId = text(
-      labelInitialSelectedButtonId,
-      defaultValueInitialSelectedButtonId
-    );
-
-    /*Outlined*/
-    const labelOutlined = "Outlined";
-    const defaultValueOutlined = false;
-    const valueOutlined = boolean(labelOutlined, defaultValueOutlined);
-
-    //Second button id
-    const labelSecondButtonId = "Second Button Id";
-    const defaultValueSecondButtonId = "pepper";
-    const valueSecondButtonId = text(
-      labelSecondButtonId,
-      defaultValueSecondButtonId
-    );
-
-    //Second button label
-    const labelSecondButtonLabel = "Second Button Label";
-    const defaultValueSecondButtonLabel = "Pepper";
-    const valueSecondButtonLabel = text(
-      labelSecondButtonLabel,
-      defaultValueSecondButtonLabel
-    );
-
-    //Second button value
-    const labelSecondButtonValue = "Second Button Value";
-    const defaultValueSecondButtonValue = "pepper";
-    const valueSecondButtonValue = text(
-      labelSecondButtonValue,
-      defaultValueSecondButtonValue
-    );
-
     //Main Title
     const labelMainTitle = "Main Title";
     const defaultValueMainTitle = "Seasoning";
@@ -98,9 +27,64 @@ stories
     const optionsTitleAlignment = {
       left: "left",
       center: "center",
-      right: "right"
+      right: "right",
     };
     const defaultValueTitleAlignment = "left";
+
+    //First button label
+    const labelFirstButtonLabel = "First Button Label";
+    const defaultValueFirstButtonLabel = "Salt";
+    const valueFirstButtonLabel = text(
+      labelFirstButtonLabel,
+      defaultValueFirstButtonLabel
+    );
+
+    //First button id
+    const labelFirstButtonId = "First Button Id";
+    const defaultValueFirstButtonId = "salt";
+    const valueFirstButtonId = text(
+      labelFirstButtonId,
+      defaultValueFirstButtonId
+    );
+
+    //Second button label
+    const labelSecondButtonLabel = "Second Button Label";
+    const defaultValueSecondButtonLabel = "Pepper";
+    const valueSecondButtonLabel = text(
+      labelSecondButtonLabel,
+      defaultValueSecondButtonLabel
+    );
+
+    //Second button id
+    const labelSecondButtonId = "Second Button Id";
+    const defaultValueSecondButtonId = "pepper";
+    const valueSecondButtonId = text(
+      labelSecondButtonId,
+      defaultValueSecondButtonId
+    );
+
+    //Initial Selected Button Id
+    const labelInitialSelectedButtonId = "Initial Selected Button Id";
+    const defaultValueInitialSelectedButtonId = "salt";
+    const valueInitialSelectedButtonId = text(
+      labelInitialSelectedButtonId,
+      defaultValueInitialSelectedButtonId
+    );
+
+    /*Full Width*/
+    const labelFullWidth = "Full Width";
+    const defaultValueFullWidth = false;
+    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
+
+    /*Outlined*/
+    const labelOutlined = "Outlined";
+    const defaultValueOutlined = false;
+    const valueOutlined = boolean(labelOutlined, defaultValueOutlined);
+
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
     function valueDisabledFunc() {
       if (valueDisabled) {
@@ -127,17 +111,17 @@ stories
         text-align: center;
       }
     </style>
-    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} ${valueOutlinedFunc()} button-group-title="${valueMainTitle}" title-alignment="${select(
+    <gxg-button-group title-alignment="${select(
       labelTitleAlignment,
       optionsTitleAlignment,
       defaultValueTitleAlignment
-    )}" default-selected-btn-id="${valueInitialSelectedButtonId}">
+    )}" ${valueFullWidthFunc()} ${valueDisabledFunc()} ${valueOutlinedFunc()} button-group-title="${valueMainTitle}" default-selected-btn-id="${valueInitialSelectedButtonId}">
       
-    <button id="${valueFirstButtonId}" value="${valueFirstButtonValue}">
+    <button id="${valueFirstButtonId}">
       ${valueFirstButtonLabel}
     </button>
     
-    <button id="${valueSecondButtonId}" value="${valueSecondButtonValue}">
+    <button id="${valueSecondButtonId}">
       ${valueSecondButtonLabel}
     </button>
 
@@ -145,10 +129,19 @@ stories
 `;
   })
   .add("Three buttons", () => {
-    //Disabled
-    const labelDisabled = "Disabled";
-    const defaultValueDisabled = false;
-    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+    //Main Title
+    const labelMainTitle = "Main Title";
+    const defaultValueMainTitle = "Seasoning";
+    const valueMainTitle = text(labelMainTitle, defaultValueMainTitle);
+
+    //Title Alignment
+    const labelTitleAlignment = "Title Alignment";
+    const optionsTitleAlignment = {
+      left: "left",
+      center: "center",
+      right: "right",
+    };
+    const defaultValueTitleAlignment = "left";
 
     //First button id
     const labelFirstButtonId = "First Button Id";
@@ -166,32 +159,6 @@ stories
       defaultValueFirstButtonLabel
     );
 
-    //First button value
-    const labelFirstButtonValue = "First Button Value";
-    const defaultValueFirstButtonValue = "salt";
-    const valueFirstButtonValue = text(
-      labelFirstButtonValue,
-      defaultValueFirstButtonValue
-    );
-
-    /*Full Width*/
-    const labelFullWidth = "Full Width";
-    const defaultValueFullWidth = false;
-    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
-
-    //Initial Selected Button Id
-    const labelInitialSelectedButtonId = "Initial Selected Button Id";
-    const defaultValueInitialSelectedButtonId = "salt";
-    const valueInitialSelectedButtonId = text(
-      labelInitialSelectedButtonId,
-      defaultValueInitialSelectedButtonId
-    );
-
-    /*Outlined*/
-    const labelOutlined = "Outlined";
-    const defaultValueOutlined = false;
-    const valueOutlined = boolean(labelOutlined, defaultValueOutlined);
-
     //Second button id
     const labelSecondButtonId = "Second Button Id";
     const defaultValueSecondButtonId = "pepper";
@@ -207,19 +174,6 @@ stories
       labelSecondButtonLabel,
       defaultValueSecondButtonLabel
     );
-
-    //Second button value
-    const labelSecondButtonValue = "Second Button Value";
-    const defaultValueSecondButtonValue = "pepper";
-    const valueSecondButtonValue = text(
-      labelSecondButtonValue,
-      defaultValueSecondButtonValue
-    );
-
-    //Main Title
-    const labelMainTitle = "Main Title";
-    const defaultValueMainTitle = "Seasoning";
-    const valueMainTitle = text(labelMainTitle, defaultValueMainTitle);
 
     //Third button id
     const labelThirdButtonId = "Third Button Id";
@@ -237,22 +191,28 @@ stories
       defaultValueThirdButtonLabel
     );
 
-    //Third button value
-    const labelThirdButtonValue = "Third Button Value";
-    const defaultValueThirdButtonValue = "garlic";
-    const valueThirdButtonValue = text(
-      labelThirdButtonValue,
-      defaultValueThirdButtonValue
+    //Initial Selected Button Id
+    const labelInitialSelectedButtonId = "Initial Selected Button Id";
+    const defaultValueInitialSelectedButtonId = "salt";
+    const valueInitialSelectedButtonId = text(
+      labelInitialSelectedButtonId,
+      defaultValueInitialSelectedButtonId
     );
 
-    //Title Alignment
-    const labelTitleAlignment = "Title Alignment";
-    const optionsTitleAlignment = {
-      left: "left",
-      center: "center",
-      right: "right"
-    };
-    const defaultValueTitleAlignment = "left";
+    /*Full Width*/
+    const labelFullWidth = "Full Width";
+    const defaultValueFullWidth = false;
+    const valueFullWidth = boolean(labelFullWidth, defaultValueFullWidth);
+
+    /*Outlined*/
+    const labelOutlined = "Outlined";
+    const defaultValueOutlined = false;
+    const valueOutlined = boolean(labelOutlined, defaultValueOutlined);
+
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
     function valueDisabledFunc() {
       if (valueDisabled) {
@@ -291,21 +251,21 @@ stories
         text-align: center;
       }
     </style>
-    <gxg-button-group ${valueFullWidthFunc()} ${valueDisabledFunc()} ${valueOutlinedFunc()} button-group-title="${valueMainTitle}" title-alignment="${select(
+    <gxg-button-group title-alignment="${select(
       labelTitleAlignment,
       optionsTitleAlignment,
       defaultValueTitleAlignment
-    )}" default-selected-btn-id="${valueInitialSelectedButtonId}">
+    )}" ${valueFullWidthFunc()} ${valueDisabledFunc()} ${valueOutlinedFunc()} button-group-title="${valueMainTitle}"  default-selected-btn-id="${valueInitialSelectedButtonId}">
       
-    <button id="${valueFirstButtonId}" value="${valueFirstButtonValue}">
+    <button id="${valueFirstButtonId}">
       ${valueFirstButtonLabel}
     </button>
     
-    <button id="${valueSecondButtonId}" value="${valueSecondButtonValue}">
+    <button id="${valueSecondButtonId}">
       ${valueSecondButtonLabel}
     </button>
 
-    <button id="${valueThirdButtonId}" value="${valueThirdButtonValue}">
+    <button id="${valueThirdButtonId}">
       ${valueThirdButtonLabel}
     </button>
 

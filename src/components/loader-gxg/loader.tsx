@@ -25,10 +25,6 @@ export class GxgLodaer {
   @State() textOpacity100 = false;
   @State() sendLayerBack = true;
 
-  componentDidLoad() {
-    console.log(this.text);
-  }
-
   @Watch("show")
   showHandler() {
     if (this.show) {

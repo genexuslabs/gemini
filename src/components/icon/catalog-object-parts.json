@@ -1,5 +1,6 @@
-[{ "name": "objects-parts/conditions", "description": "Some description" },
- { "name": "objects-parts/events", "description": "Some description" },
- { "name": "objects-parts/rules", "description": "Some description" },
- { "name": "objects-parts/variables", "description": "Some description" },
+[
+  { "name": "objects-parts/conditions", "description": "Some description" },
+  { "name": "objects-parts/events", "description": "Some description" },
+  { "name": "objects-parts/rules", "description": "Some description" },
+  { "name": "objects-parts/variables", "description": "Some description" }
 ]

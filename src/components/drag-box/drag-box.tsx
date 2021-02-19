@@ -5,13 +5,13 @@ import {
   EventEmitter,
   h,
   Host,
-  Prop
+  Prop,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-drag-box",
   styleUrl: "drag-box.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgDragBox {
   /**
@@ -20,12 +20,12 @@ export class GxgDragBox {
   @Prop({ reflect: true }) active = false;
 
   /**
-   * The presence of this attribute adds a "delete" button that you can press to delete the box
+   * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
    */
   @Prop() deletable = false;
 
   /**
-   * The padding (internal spacing)
+   * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
    */
   @Prop({ reflect: true }) padding: Padding = "s";
 
@@ -94,7 +94,7 @@ export class GxgDragBox {
         {this.active ? null : <div class="cover"></div>}
         <span class="border"></span>
         <div class="drag-icon-container">
-          <gxg-icon size="regular" type="gemini-tools/drag"></gxg-icon>
+          <gxg-icon size="regular" type="navigation/drag"></gxg-icon>
         </div>
         <div class="container-content">
           {this.title !== undefined ? (

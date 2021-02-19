@@ -6,7 +6,7 @@ import {
   Host,
   Event,
   EventEmitter,
-  Listen
+  Listen,
 } from "@stencil/core";
 import { Padding } from "../drag-box/drag-box";
 import { makeDraggable, DraggableComponent } from "../../utils/makeDraggable";
@@ -14,13 +14,13 @@ import { makeDraggable, DraggableComponent } from "../../utils/makeDraggable";
 @Component({
   tag: "gxg-drag-container",
   styleUrl: "drag-container.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgDragContainer implements DraggableComponent {
   @Element() el: HTMLElement;
 
   /**
-   * The presence of this attribute adds a "delete" button to each child, that you can press to delete the item
+   * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
    */
   @Prop() deletable = false;
 
@@ -29,7 +29,10 @@ export class GxgDragContainer implements DraggableComponent {
    */
   @Prop() maxWidth = "100%";
 
-  @Prop() padding: Padding;
+  /**
+   * The padding (internal spacing) of the gxg-drag-boxes
+   */
+  @Prop() padding: Padding = undefined;
 
   @Event() itemDragStart: EventEmitter;
   @Event() itemDrop: EventEmitter;
@@ -40,20 +43,13 @@ export class GxgDragContainer implements DraggableComponent {
   @Listen("clicked")
   clickedHandler(event) {
     const boxes = this.el.querySelectorAll("*");
-    boxes.forEach(item => {
+    boxes.forEach((item) => {
       if (event.detail === item.getAttribute("id")) {
         item.setAttribute("active", "active");
       } else {
         item.removeAttribute("active");
       }
     });
-  }
-
-  @Listen("itemDragEnter")
-  handleItemDragEnter() {
-    // const placeholder = this.el.shadowRoot.querySelector(".placeholder");
-    // e.detail.parentElement.insertBefore(placeholder, e.detail);
-    // placeholder.classList.add("visible");
   }
 
   private dndCleanup: Function;
@@ -67,8 +63,8 @@ export class GxgDragContainer implements DraggableComponent {
 
     //Set padding to each of the drag-boxes
     const dragBoxes = this.el.querySelectorAll("gxg-drag-box");
-    dragBoxes.forEach(dragBox => {
-      if (dragBox.padding === undefined) {
+    dragBoxes.forEach((dragBox) => {
+      if (this.padding !== undefined) {
         dragBox.setAttribute("padding", this.padding);
       }
     });
@@ -76,7 +72,7 @@ export class GxgDragContainer implements DraggableComponent {
     //Deletable button for each of the child items
     if (this.deletable) {
       const items = this.el.querySelectorAll("*");
-      items.forEach(item => {
+      items.forEach((item) => {
         item.setAttribute("deletable", "deletable");
       });
     }

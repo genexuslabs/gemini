@@ -1,5 +1,10 @@
 # gxg-date-picker
 
+<h2>Notes</h2>
+<ul>
+   <li>gxg-date-picker expects a <code>min-date</code> and a <code>max-date</code> attributes to work.</li>
+</ul>
+
 <!-- Auto Generated Below -->
 
 ## Properties

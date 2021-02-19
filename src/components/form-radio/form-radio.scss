@@ -81,6 +81,15 @@
     margin-inline-end: var(--spacing-comp-02);
     flex-shrink: 0;
     box-shadow: 0px 0px 0px 1px transparent;
+    box-sizing: border-box;
+
+    &--error {
+      border-color: var(--color-error-dark) !important;
+      background: rgba(var(--color-error-dark-rgb), 0.1) !important;
+      &:after {
+        background-color: var(--color-error-dark) !important;
+      }
+    }
   }
 
   /* On mouse-over, add a grey background color */
@@ -119,8 +128,8 @@
   }
   /* Style the indicator (dot/circle) */
   .label .radiobtn:after {
-    top: 4px;
-    left: 4px;
+    top: 3px;
+    left: 3px;
     border-radius: 50%;
     background: var(--color-primary-active);
   }

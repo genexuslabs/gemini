@@ -107,6 +107,7 @@ the components. The content could be text or icons)*/
 :root {
   --color-always-black: rgb(0, 0, 0);
   --color-error-dark: #f02031;
+  --color-error-dark-rgb: 240, 32, 49; //Edit this value to change '--color-primary'
   --color-error-light: #ffeaee;
   --color-warning-dark: #ff8000;
   --color-warning-light: #ffe7e6;

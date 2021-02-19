@@ -31,7 +31,7 @@ LABEL
   label {
     @include form-element-common-styles-label();
     .required {
-      padding-left: 2px;
+      padding-inline-start: 2px;
     }
   }
 
@@ -102,19 +102,26 @@ TEXT
 }
 :host([minimal]:not([icon-position="start"])) {
   input[type="text"] {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
   input.cursor-inside {
-    padding-left: var(--spacing-comp-01);
+    padding-inline-start: var(--spacing-comp-01);
   }
   input[type="text"]:focus {
-    padding-left: var(--spacing-comp-01);
+    padding-inline-start: var(--spacing-comp-01);
   }
 }
 //If the form-text is minimal and is on a dark background
 :host([minimal][over-dark-background]) {
   input[type="text"]:not(:focus) {
     color: var(--color-on-primary);
+  }
+}
+/*****************************************************
+ERROR / WARNING MESSAGES
+*****************************************************/
+:host {
+  .messages-wrapper {
   }
 }
 /*****************************************************
@@ -141,13 +148,13 @@ INPUT TEXT ICON
 // Input with icon (on the left, or on the right)
 
 :host([icon-position="start"]) input {
-  padding-left: 20px;
+  padding-inline-start: 20px;
 }
 :host([icon-position="start"]) input {
-  padding-left: 20px;
+  padding-inline-start: 20px;
 }
 :host([icon-position="end"]) input {
-  padding-right: 20px;
+  padding-inline-end: 20px;
 }
 :host([icon-position="end"]) .inner-wrapper {
   flex-direction: row-reverse;
@@ -205,5 +212,20 @@ STYLE
 :host([text-style="title-05"]) {
   input {
     @include gxg-title-05();
+  }
+}
+/*****************************************************
+Reading direction RTL
+*****************************************************/
+:host(.rtl[icon-position="start"]) {
+  gxg-icon {
+    right: 0;
+    left: auto;
+  }
+}
+:host(.rtl[icon-position="end"]) {
+  gxg-icon {
+    right: auto;
+    left: 0;
   }
 }

@@ -15,7 +15,7 @@
 | `modalTitle`           | `modal-title`            | The modal title                    | `string`                                                      | `undefined`  |
 | `padding`              | `padding`                |                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`        |
 | `visible`              | `visible`                | Wether the modal is visible or not | `boolean`                                                     | `false`      |
-| `width`                | `width`                  | The modal width                    | `string`                                                      | `"304px"`    |
+| `width`                | `width`                  | The modal width                    | `string`                                                      | `"300px"`    |
 | `zIndex`               | `z-index`                | The z-index value of the modal     | `string`                                                      | `"100"`      |
 
 ## Dependencies

@@ -6,19 +6,20 @@ import {
   EventEmitter,
   h,
   Host,
-  Watch
+  Watch,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-form-radio",
   styleUrl: "form-radio.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormRadio {
   /**
-   * Make the radio-button required
+   * Styles the radio-button with error attributes
    */
-  @Prop() required = false;
+  @Prop() error = false;
+
   /**
    * Returns an object with the radio value, and radio id
    */
@@ -94,7 +95,7 @@ export class GxgFormRadio {
       this.radioInput.setAttribute("checked", "checked");
       this.change.emit({
         id: this.RadioId,
-        value: this.value
+        value: this.value,
       });
     }
   }
@@ -102,7 +103,7 @@ export class GxgFormRadio {
   selectRadio() {
     this.changeInternal.emit({
       id: this.RadioId,
-      value: this.value
+      value: this.value,
     });
   }
 
@@ -132,7 +133,7 @@ export class GxgFormRadio {
       <Host>
         <label class="label">
           <input
-            ref={el => (this.radioInput = el as HTMLInputElement)}
+            ref={(el) => (this.radioInput = el as HTMLInputElement)}
             type="radio"
             name={this.name}
             id={this.RadioId}
@@ -140,9 +141,10 @@ export class GxgFormRadio {
             onClick={this.selectRadio.bind(this)}
             disabled={this.disabled}
             onKeyDown={this.handlerOnKeyDown.bind(this)}
-            required={this.required}
           ></input>
-          <span class="radiobtn"></span>
+          <span
+            class={{ radiobtn: true, "radiobtn--error": this.error }}
+          ></span>
           {this.label}
         </label>
       </Host>

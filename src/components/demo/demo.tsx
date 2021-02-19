@@ -149,8 +149,6 @@ export class GxgDemo {
         break;
       case "top-end":
         this.topPosition = top - offsetDistance + "px";
-        console.log("this.topPosition switch case");
-        console.log(this.topPosition);
         if (this.rtl) {
           this.leftPosition = x + "px";
           this.rightPosition = "auto";
@@ -262,8 +260,6 @@ export class GxgDemo {
   }
 
   render() {
-    console.log("this.topPosition render");
-    console.log(this.topPosition);
     if (this.initiateDemo === true) {
       return [
         <div

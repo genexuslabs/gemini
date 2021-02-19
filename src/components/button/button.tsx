@@ -4,7 +4,7 @@ import { Color } from "../icon/icon";
 @Component({
   tag: "gxg-button",
   styleUrl: "button.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgButton {
   @Element() el: HTMLElement;
@@ -138,10 +138,11 @@ export class GxgButton {
           "button--outlined": this.type === "outlined",
           "button--disabled": this.disabled === true,
           "button--tertiary": this.type === "tertiary",
-          "button--fullwidth": this.fullWidth === true
+          "button--fullwidth": this.fullWidth === true,
         }}
         onClick={this.clickHandler.bind(this)}
       >
+        {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
