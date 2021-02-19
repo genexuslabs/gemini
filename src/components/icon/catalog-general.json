@@ -1,4 +1,6 @@
 [
+  { "name": "general/android", "description": "Some description" },
+  { "name": "general/apple", "description": "Some description" },
   { "name": "general/customization", "description": "Some description" },
   {
     "name": "general/environment-no-select",
@@ -8,5 +10,7 @@
   { "name": "general/knowledge-base", "description": "Some description" },
   { "name": "general/patterns", "description": "Some description" },
   { "name": "general/references", "description": "Some description" },
+  { "name": "general/sd", "description": "Some description" },
+  { "name": "general/sd-web", "description": "Some description" },
   { "name": "general/version", "description": "Some description" }
 ]
