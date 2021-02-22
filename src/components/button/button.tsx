@@ -82,7 +82,7 @@ export class GxgButton {
       this.type === "secondary-text-only" ||
       this.type === "outlined"
     ) {
-      return <gxg-icon class="ghost-icon" type="empty"></gxg-icon>;
+      return <gxg-icon class="ghost-icon" type="gemini-tools/empty"></gxg-icon>;
       //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
     }
   }
