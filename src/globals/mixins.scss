@@ -359,7 +359,7 @@ FORM ELEMENTS
 @mixin form-element-common-styles-label {
   @include gxg-text();
   display: flex;
-  //margin-bottom: var(--spacing-lay-s);
+  margin-bottom: var(--spacing-lay-s);
 }
 @mixin form-element-common-styles-label-group {
   @include gxg-text();
