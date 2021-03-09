@@ -302,8 +302,8 @@ stories
     )}"
     title="${text("Title", "FATAL ERROR")}"
     width=${text("Width (default: 350px)", "350px")}
-    silent=${boolean("Silent", false)}>>
-    ${text("Message", "The nuclear plant is about to explode in five minutes")}
+    silent=${boolean("Silent", false)}>
+    ${text("Message", "A fatal error has ocurred")}
     </gxg-alert>
           `,
     {
