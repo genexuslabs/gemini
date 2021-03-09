@@ -130,6 +130,17 @@
     transform: rotate(45deg);
   }
 }
+/*indeterminate*/
+:host([indeterminate]) .label input:checked ~ .checkmark:after {
+  display: block;
+  width: 10px;
+  height: 2px;
+  transform: rotate(0deg);
+  border: 0;
+  background-color: var(--color-primary-hover);
+  left: 2px;
+  top: 6px;
+}
 :host([disabled="true"]) label {
   cursor: not-allowed;
 }

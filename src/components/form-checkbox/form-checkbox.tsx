@@ -31,7 +31,12 @@ export class GxgFormCheckbox {
   /**
    * The presence of this attribute makes the checkbox checked by default
    */
-  @Prop({ reflect: true }) checked = false;
+  @Prop({ reflect: false }) checked = false;
+
+  /**
+   * The presence of this attribute makes the checkbox indeterminate
+   */
+  @Prop({ reflect: true }) indeterminate = false;
 
   /**
    * The presence of this attribute disables the checkbox

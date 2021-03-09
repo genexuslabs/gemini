@@ -6,18 +6,16 @@ import {
   Prop,
   State,
   h,
-  getAssetPath,
-  Watch,
+  Watch
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
   styleUrl: "tree-item.scss",
-  shadow: true,
-  assetsDirs: ["tree-item-assets"],
+  shadow: true
 })
-
-// return "./card-assets/new-card.svg";
 export class GxgTreeItem {
+  checkboxInput!: HTMLInputElement;
+
   //PROPS
   /**
    * Set this attribute if you want the gxg-treeitem to display a checkbox
@@ -117,11 +115,16 @@ export class GxgTreeItem {
         this.lastTreeItemOfParentTree = true;
       }
     }
+
+    //Checkbox logic
+    // this.checkboxInput.addEventListener("click", function() {
+    //   console.log("checkbox clicked");
+    // });
   }
 
   componentDidLoad() {
     setTimeout(
-      function () {
+      function() {
         this.getChildTreeHeight();
       }.bind(this),
       100
@@ -154,10 +157,10 @@ export class GxgTreeItem {
     return numberOfTreeParents.length;
   }
 
-  toggleTreeIconClicked(e) {
+  toggleTreeIconClicked() {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
-    e.stopPropagation();
+    //e.stopPropagation();
     this.liItemClicked.emit();
 
     if (!this.isLeaf) {
@@ -165,17 +168,13 @@ export class GxgTreeItem {
         this.opened = false;
       } else {
         this.opened = true;
-        //Play click open sound
-        const audio = new Audio(
-          getAssetPath("./tree-item-assets/click-open.mp3")
-        );
-        audio.play();
       }
     }
   }
 
   liTextDoubleClicked() {
-    this.toggleTreeIconClicked(event);
+    console.log("double clicked");
+    this.toggleTreeIconClicked();
   }
 
   liTextClicked() {
@@ -364,13 +363,17 @@ export class GxgTreeItem {
     return 1;
   }
 
+  checkboxClicked() {
+    console.log(this.checked);
+  }
+
   render() {
     return (
       <li
         class={{
           "tree-open": this.opened,
           "show-downloading-icon": this.showDownloadingIcon,
-          "hide-plus-minus-icon": this.hidePlusMinusIcon,
+          "hide-plus-minus-icon": this.hidePlusMinusIcon
         }}
       >
         <div
@@ -378,7 +381,7 @@ export class GxgTreeItem {
             "li-text": true,
             "li-text--not-leaf": !this.isLeaf,
             "li-text--first-tree-item": this.firstTreeItem,
-            "li-text--has-child-tree": this.hasChildTree,
+            "li-text--has-child-tree": this.hasChildTree
           }}
           style={{ paddingLeft: this.returnPaddingLeft() }}
           onDblClick={this.liTextDoubleClicked.bind(this)}
@@ -392,7 +395,7 @@ export class GxgTreeItem {
                   class={{ "vertical-line": true }}
                   style={{
                     height: this.verticalLineHeight,
-                    left: this.returnVerticalLineLeftPosition(),
+                    left: this.returnVerticalLineLeftPosition()
                   }}
                 ></span>,
                 <div class={{ "closed-opened-loading-icons": true }}>
@@ -403,16 +406,16 @@ export class GxgTreeItem {
                     class="toggle-icon"
                   ></gxg-icon>
                   <span class="loading"></span>
-                </div>,
+                </div>
               ]
             : null}
           <span
             class={{
               "horizontal-line": true,
-              "display-none": this.numberOfParentTrees === 1,
+              "display-none": this.numberOfParentTrees === 1
             }}
             style={{
-              left: this.itemPaddingLeft + "px",
+              left: this.itemPaddingLeft + "px"
             }}
           ></span>
           {this.checkbox ? (
@@ -420,6 +423,7 @@ export class GxgTreeItem {
               checked={this.checked}
               class={{ checkbox: true }}
               tabIndex={this.checkboxTabIndex()}
+              onClick={this.checkboxClicked.bind(this)}
             ></gxg-form-checkbox>
           ) : null}
           {this.leftIcon ? (

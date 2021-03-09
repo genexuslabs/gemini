@@ -57,8 +57,6 @@ export class GxgTree {
     }
 
     //Initialize sortable js
-    console.log();
-    console.log(this.ulTree);
     Sortable.create(this.ulTree, {
       group: "foo",
       animation: 100

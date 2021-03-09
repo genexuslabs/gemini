@@ -351,6 +351,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute makes the checkbox indeterminate
+     */
+    indeterminate: boolean;
+    /**
      * The checkbox label
      */
     label: string;
@@ -811,9 +815,7 @@ export namespace Components {
   interface GxgTemplate {
     name: string;
   }
-  interface GxgTest {
-    optionsArray: string[];
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -1685,6 +1687,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * The presence of this attribute makes the checkbox indeterminate
+     */
+    indeterminate?: boolean;
+    /**
      * The checkbox label
      */
     label?: string;
@@ -2186,9 +2192,7 @@ declare namespace LocalJSX {
   interface GxgTemplate {
     name?: string;
   }
-  interface GxgTest {
-    optionsArray?: string[];
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types

@@ -14,14 +14,15 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                          | Type      | Default     |
-| ------------ | ------------- | -------------------------------------------------------------------- | --------- | ----------- |
-| `checkboxId` | `checkbox-id` | The checkbox id                                                      | `string`  | `undefined` |
-| `checked`    | `checked`     | The presence of this attribute makes the checkbox checked by default | `boolean` | `false`     |
-| `disabled`   | `disabled`    | The presence of this attribute disables the checkbox                 | `boolean` | `false`     |
-| `label`      | `label`       | The checkbox label                                                   | `string`  | `undefined` |
-| `name`       | `name`        | The checkbox name                                                    | `string`  | `undefined` |
-| `value`      | `value`       | The checkbox value                                                   | `string`  | `undefined` |
+| Property        | Attribute       | Description                                                          | Type      | Default     |
+| --------------- | --------------- | -------------------------------------------------------------------- | --------- | ----------- |
+| `checkboxId`    | `checkbox-id`   | The checkbox id                                                      | `string`  | `undefined` |
+| `checked`       | `checked`       | The presence of this attribute makes the checkbox checked by default | `boolean` | `false`     |
+| `disabled`      | `disabled`      | The presence of this attribute disables the checkbox                 | `boolean` | `false`     |
+| `indeterminate` | `indeterminate` | The presence of this attribute makes the checkbox indeterminate      | `boolean` | `false`     |
+| `label`         | `label`         | The checkbox label                                                   | `string`  | `undefined` |
+| `name`          | `name`          | The checkbox name                                                    | `string`  | `undefined` |
+| `value`         | `value`         | The checkbox value                                                   | `string`  | `undefined` |
 
 ## Events
 
@@ -33,12 +34,14 @@
 
 ### Used by
 
+- [gxg-test](../test)
 - [gxg-tree-item](../tree-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-test --> gxg-form-checkbox
   gxg-tree-item --> gxg-form-checkbox
   style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```

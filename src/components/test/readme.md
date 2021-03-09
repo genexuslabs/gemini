@@ -2,11 +2,19 @@
 
 <!-- Auto Generated Below -->
 
-## Properties
+## Dependencies
 
-| Property       | Attribute | Description | Type       | Default                     |
-| -------------- | --------- | ----------- | ---------- | --------------------------- |
-| `optionsArray` | --        |             | `string[]` | `["rojo", "azul", "verde"]` |
+### Depends on
+
+- [gxg-form-checkbox](../form-checkbox)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-test --> gxg-form-checkbox
+  style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ---
 
