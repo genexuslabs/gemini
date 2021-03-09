@@ -1,9 +1,19 @@
-import { Component, Element, Host, Prop, h, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  h,
+  State,
+  Watch,
+  getAssetPath,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-alert",
   styleUrl: "alert.scss",
   shadow: true,
+  assetsDirs: ["assets"],
 })
 export class GxgAlert {
   @Element() el: HTMLElement;
@@ -161,6 +171,16 @@ export class GxgAlert {
 
   alertHidden() {
     if (this.active) {
+      let audio;
+      if (this.type === "warning") {
+        audio = new Audio(getAssetPath("./assets/warning.mp3"));
+      } else if (this.type === "error") {
+        audio = new Audio(getAssetPath("./assets/error.mp3"));
+      }
+      setTimeout(function () {
+        audio.play();
+      }, 200);
+
       return "false";
     } else {
       return "true";

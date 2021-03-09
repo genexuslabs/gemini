@@ -170,7 +170,7 @@ stories
     "xs"
   )}"
   
-  alert-title="${text("Title", "EMAIL SENT")}"
+  title="${text("Title", "EMAIL SENT")}"
  >
     ${text("Message", "The email has been successfully sent to the recipient")}
     </gxg-alert>
@@ -235,7 +235,7 @@ stories
       { start: "start", center: "center", end: "end" },
       "center"
     )}"
-    alert-title="${text("Title", "WARNING!")}"
+    title="${text("Title", "WARNING!")}"
     width=${text("Width (default: 350px)", "350px")}>
     ${text("Message", "You are about to delete all the conversations")}
     </gxg-alert>
@@ -299,7 +299,7 @@ stories
       { start: "start", center: "center", end: "end" },
       "center"
     )}"
-    alert-title="${text("Title", "FATAL ERROR")}"
+    title="${text("Title", "FATAL ERROR")}"
     width=${text("Width (default: 350px)", "350px")}>
     ${text("Message", "The nuclear plant is about to explode in five minutes")}
     </gxg-alert>
