@@ -1,9 +1,19 @@
-import { Component, Element, Prop, h, Host, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Prop,
+  h,
+  Host,
+  State,
+  Watch,
+  getAssetPath,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-modal",
   styleUrl: "modal.scss",
   shadow: true,
+  assetsDirs: ["modal-assets"],
 })
 export class GxgModal {
   @Element() el: HTMLElement;
@@ -36,6 +46,11 @@ export class GxgModal {
    */
   @Prop() zIndex = "100";
 
+  /**
+   * The presence of this attribute removes the sound that plays when the modal appears
+   */
+  @Prop() silent = false;
+
   @State() layerVisible = false;
   @State() modalVisible = false;
   @State() modalTransition = false;
@@ -60,6 +75,12 @@ export class GxgModal {
   @Watch("visible")
   watchVisibleHandler() {
     if (this.visible === true) {
+      if (!this.silent) {
+        const audio = new Audio(getAssetPath("./modal-assets/prompt.mp3"));
+        setTimeout(function () {
+          audio.play();
+        }, 100);
+      }
       setTimeout(
         function () {
           this.modalTransition = true;

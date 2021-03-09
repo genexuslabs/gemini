@@ -9,14 +9,15 @@
 
 ## Properties
 
-| Property               | Attribute                | Description                        | Type                                                          | Default      |
-| ---------------------- | ------------------------ | ---------------------------------- | ------------------------------------------------------------- | ------------ |
-| `footerJustifyContent` | `footer-justify-content` | The footer justify content type    | `string`                                                      | `"flex-end"` |
-| `modalTitle`           | `modal-title`            | The modal title                    | `string`                                                      | `undefined`  |
-| `padding`              | `padding`                |                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`        |
-| `visible`              | `visible`                | Wether the modal is visible or not | `boolean`                                                     | `false`      |
-| `width`                | `width`                  | The modal width                    | `string`                                                      | `"300px"`    |
-| `zIndex`               | `z-index`                | The z-index value of the modal     | `string`                                                      | `"100"`      |
+| Property               | Attribute                | Description                                                                        | Type                                                          | Default      |
+| ---------------------- | ------------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------ |
+| `footerJustifyContent` | `footer-justify-content` | The footer justify content type                                                    | `string`                                                      | `"flex-end"` |
+| `modalTitle`           | `modal-title`            | The modal title                                                                    | `string`                                                      | `undefined`  |
+| `padding`              | `padding`                |                                                                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`        |
+| `silent`               | `silent`                 | The presence of this attribute removes the sound that plays when the modal appears | `boolean`                                                     | `false`      |
+| `visible`              | `visible`                | Wether the modal is visible or not                                                 | `boolean`                                                     | `false`      |
+| `width`                | `width`                  | The modal width                                                                    | `string`                                                      | `"300px"`    |
+| `zIndex`               | `z-index`                | The z-index value of the modal                                                     | `string`                                                      | `"100"`      |
 
 ## Dependencies
 

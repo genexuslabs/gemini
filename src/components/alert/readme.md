@@ -4,17 +4,18 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                               | Type                                                                          | Default     |
-| ------------ | ------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
-| `active`     | `active`      | Wether the alert is active (visible) or hidden                            | `boolean`                                                                     | `false`     |
-| `activeTime` | `active-time` | The amount of time the alert is visible before hidding under the document | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"` |
-| `bottom`     | `bottom`      | The spacing between the alert and the bottom side of the document         | `"l" \| "m" \| "no-space" \| "s" \| "xl" \| "xs"`                             | `"xs"`      |
-| `fullWidth`  | `full-width`  | The presence of this attribute makes the component full-width             | `boolean`                                                                     | `false`     |
-| `leftRight`  | `left-right`  | The spacing between the alert, and the left or right side of the document | `"l" \| "m" \| "no-space" \| "s" \| "xl" \| "xs"`                             | `"xs"`      |
-| `position`   | `position`    | The alert position on the X axis                                          | `"center" \| "end" \| "start"`                                                | `"start"`   |
-| `title`      | `title`       | The alert title (optional)                                                | `string`                                                                      | `undefined` |
-| `type`       | `type`        | The alert flavor                                                          | `"error" \| "notice" \| "success" \| "warning"`                               | `"notice"`  |
-| `width`      | `width`       | The alert width                                                           | `string`                                                                      | `"350px"`   |
+| Property     | Attribute     | Description                                                                        | Type                                                                          | Default     |
+| ------------ | ------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------- |
+| `active`     | `active`      | Wether the alert is active (visible) or hidden                                     | `boolean`                                                                     | `false`     |
+| `activeTime` | `active-time` | The amount of time the alert is visible before hidding under the document          | `"fast" \| "regular" \| "slow" \| "xfast" \| "xslow" \| "xxfast" \| "xxslow"` | `"regular"` |
+| `bottom`     | `bottom`      | The spacing between the alert and the bottom side of the document                  | `"l" \| "m" \| "no-space" \| "s" \| "xl" \| "xs"`                             | `"xs"`      |
+| `fullWidth`  | `full-width`  | The presence of this attribute makes the component full-width                      | `boolean`                                                                     | `false`     |
+| `leftRight`  | `left-right`  | The spacing between the alert, and the left or right side of the document          | `"l" \| "m" \| "no-space" \| "s" \| "xl" \| "xs"`                             | `"xs"`      |
+| `position`   | `position`    | The alert position on the X axis                                                   | `"center" \| "end" \| "start"`                                                | `"start"`   |
+| `silent`     | `silent`      | The presence of this attribute removes the sound on the 'warning' or 'error' alert | `boolean`                                                                     | `false`     |
+| `title`      | `title`       | The alert title (optional)                                                         | `string`                                                                      | `undefined` |
+| `type`       | `type`        | The alert flavor                                                                   | `"error" \| "notice" \| "success" \| "warning"`                               | `"notice"`  |
+| `width`      | `width`       | The alert width                                                                    | `string`                                                                      | `"350px"`   |
 
 ## Dependencies
 

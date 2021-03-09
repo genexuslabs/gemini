@@ -47,14 +47,29 @@ stories.add("Progress Bar", () => {
   value=${valueValue}
   label=${valueLabel}
   max-width=${valueMaxWidth}
+  silent=${boolean("Silent", false)}>
 ></gxg-progress-bar>
 <gxg-button style="margin-top:30px" onClick="(function(){
   const progressBar = document.getElementById('progress-bar');
   let initialProgress = progressBar.getAttribute('value');
-  for (let index = initialProgress; index <= 100; index++) {
+  for (let index = initialProgress; index <= 75; index++) {
     progressBar.setAttribute('value',index);
   };
-  
+  setTimeout(function(){
+    for (let index = initialProgress; index <= 90; index++) {
+      progressBar.setAttribute('value',index);
+    };
+  }, 1000);
+  setTimeout(function(){
+    for (let index = initialProgress; index <= 95; index++) {
+      progressBar.setAttribute('value',index);
+    };
+  }, 2000);
+  setTimeout(function(){
+    for (let index = initialProgress; index <= 100; index++) {
+      progressBar.setAttribute('value',index);
+    };
+  }, 2500);
   return false;
 })();return false;">Animate</gxg-button>
   `;

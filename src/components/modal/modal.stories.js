@@ -50,6 +50,17 @@ stories.add("Modal", () => {
   const defaultValueWidth = "300px";
   const valueWidth = text(labelWidth, defaultValueWidth);
 
+  //Silent
+  const labelSilent = "Silent";
+  const defaultValueSilent = false;
+  const valueSilent = boolean(labelSilent, defaultValueSilent);
+
+  function silent() {
+    if (valueSilent === true) {
+      return "silent";
+    }
+  }
+
   return `
   <gxg-modal id="modal" modal-title="${valueTitle}" padding="${select(
     labelPadding,
@@ -59,7 +70,8 @@ stories.add("Modal", () => {
     labelJustifyContent,
     optionsJustifyContent,
     defaultValuePJustifyContent
-  )}">
+  )}"
+  ${silent()}>
     ${valueContent}
     <gxg-button slot="footer" type="secondary-text-only">Button</gxg-button>
     <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>

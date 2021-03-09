@@ -236,7 +236,8 @@ stories
       "center"
     )}"
     title="${text("Title", "WARNING!")}"
-    width=${text("Width (default: 350px)", "350px")}>
+    width=${text("Width (default: 350px)", "350px")}
+    silent=${boolean("Silent", false)}>
     ${text("Message", "You are about to delete all the conversations")}
     </gxg-alert>
           `,
@@ -300,7 +301,8 @@ stories
       "center"
     )}"
     title="${text("Title", "FATAL ERROR")}"
-    width=${text("Width (default: 350px)", "350px")}>
+    width=${text("Width (default: 350px)", "350px")}
+    silent=${boolean("Silent", false)}>>
     ${text("Message", "The nuclear plant is about to explode in five minutes")}
     </gxg-alert>
           `,

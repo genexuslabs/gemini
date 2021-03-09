@@ -127,6 +127,10 @@ export namespace Components {
      */
     position: AlertPosition;
     /**
+     * The presence of this attribute removes the sound on the 'warning' or 'error' alert
+     */
+    silent: boolean;
+    /**
      * The alert title (optional)
      */
     title: string;
@@ -591,6 +595,10 @@ export namespace Components {
     modalTitle: string;
     padding: padding;
     /**
+     * The presence of this attribute removes the sound that plays when the modal appears
+     */
+    silent: boolean;
+    /**
      * Wether the modal is visible or not
      */
     visible: boolean;
@@ -662,6 +670,10 @@ export namespace Components {
      * The max. width
      */
     maxWidth: string;
+    /**
+     * The presence of this attribute removes the sound that plays when the progress-bar finishes
+     */
+    silent: boolean;
     /**
      * The progress value (percentage)
      */
@@ -1420,6 +1432,10 @@ declare namespace LocalJSX {
      */
     position?: AlertPosition;
     /**
+     * The presence of this attribute removes the sound on the 'warning' or 'error' alert
+     */
+    silent?: boolean;
+    /**
      * The alert title (optional)
      */
     title?: string;
@@ -1934,6 +1950,10 @@ declare namespace LocalJSX {
     modalTitle?: string;
     padding?: padding;
     /**
+     * The presence of this attribute removes the sound that plays when the modal appears
+     */
+    silent?: boolean;
+    /**
      * Wether the modal is visible or not
      */
     visible?: boolean;
@@ -2006,6 +2026,10 @@ declare namespace LocalJSX {
      * The max. width
      */
     maxWidth?: string;
+    /**
+     * The presence of this attribute removes the sound that plays when the progress-bar finishes
+     */
+    silent?: boolean;
     /**
      * The progress value (percentage)
      */

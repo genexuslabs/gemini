@@ -13,7 +13,7 @@ import {
   tag: "gxg-alert",
   styleUrl: "alert.scss",
   shadow: true,
-  assetsDirs: ["assets"],
+  assetsDirs: ["alert-assets"],
 })
 export class GxgAlert {
   @Element() el: HTMLElement;
@@ -66,6 +66,11 @@ export class GxgAlert {
    * The alert width
    */
   @Prop() width = "350px";
+
+  /**
+   * The presence of this attribute removes the sound on the 'warning' or 'error' alert
+   */
+  @Prop() silent = false;
 
   /**
    * Reading direction
@@ -171,16 +176,17 @@ export class GxgAlert {
 
   alertHidden() {
     if (this.active) {
-      let audio;
-      if (this.type === "warning") {
-        audio = new Audio(getAssetPath("./assets/warning.mp3"));
-      } else if (this.type === "error") {
-        audio = new Audio(getAssetPath("./assets/error.mp3"));
+      if (!this.silent) {
+        let audio;
+        if (this.type === "warning") {
+          audio = new Audio(getAssetPath("./alert-assets/warning.mp3"));
+        } else if (this.type === "error") {
+          audio = new Audio(getAssetPath("./alert-assets/error.mp3"));
+        }
+        setTimeout(function () {
+          audio.play();
+        }, 100);
       }
-      setTimeout(function () {
-        audio.play();
-      }, 200);
-
       return "false";
     } else {
       return "true";

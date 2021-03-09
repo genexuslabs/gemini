@@ -1,9 +1,10 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Prop, h, Host, Watch, getAssetPath } from "@stencil/core";
 
 @Component({
   tag: "gxg-progress-bar",
   styleUrl: "progress-bar.scss",
-  shadow: true
+  shadow: true,
+  assetsDirs: ["progress-bar-assets"],
 })
 export class GxgProgressBar {
   /**
@@ -25,6 +26,21 @@ export class GxgProgressBar {
    * The max. width
    */
   @Prop() maxWidth = "100%";
+
+  /**
+   * The presence of this attribute removes the sound that plays when the progress-bar finishes
+   */
+  @Prop() silent = false;
+
+  @Watch("value")
+  watchValue() {
+    if (this.value === 100 && !this.silent) {
+      const audio = new Audio(getAssetPath("./progress-bar-assets/done.mp3"));
+      setTimeout(function () {
+        audio.play();
+      }, 500);
+    }
+  }
 
   render() {
     return (
