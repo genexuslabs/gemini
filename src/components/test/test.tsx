@@ -11,7 +11,8 @@ export class GxgTest {
     console.log("test did load");
   }
 
-  checkboxClicked() {
+  checkboxClicked(e) {
+    console.log(e);
     console.log("clicked");
   }
 

@@ -102,6 +102,10 @@ export class GxgFormCheckbox {
     }
   }
 
+  handleInputClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
     return (
       <Host
@@ -123,6 +127,7 @@ export class GxgFormCheckbox {
             onChange={this.changed.bind(this)}
             onKeyUp={this.handlerOnKeyUp.bind(this)}
             tabindex="0"
+            onClick={this.handleInputClick}
           ></input>
           <span
             class={{ checkmark: true, "no-label": !this.label }}
