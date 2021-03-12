@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  box-shadow: var(--box-shadow-01);
+  width: 200px;
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--spacing-comp-01);
+  }
+}

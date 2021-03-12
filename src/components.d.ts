@@ -12,7 +12,7 @@ import {
   ActiveTime,
   AlertPosition,
   AlertType,
-  Spacing,
+  Spacing
 } from "./components/alert/alert";
 import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
@@ -20,7 +20,7 @@ import { TitleAlignment } from "./components/button-group/button-group";
 import {
   background as background1,
   elevation,
-  padding as padding1,
+  padding as padding1
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
@@ -30,7 +30,7 @@ import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
   LabelPosition,
-  Style,
+  Style
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
@@ -932,6 +932,13 @@ export namespace Components {
      */
     position: position;
   }
+  interface GxgUnnamed {}
+  interface GxgUnnamedItem {
+    /**
+     * The icon (optional)
+     */
+    icon: any;
+  }
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -1278,6 +1285,20 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
+  interface HTMLGxgUnnamedElement
+    extends Components.GxgUnnamed,
+      HTMLStencilElement {}
+  var HTMLGxgUnnamedElement: {
+    prototype: HTMLGxgUnnamedElement;
+    new (): HTMLGxgUnnamedElement;
+  };
+  interface HTMLGxgUnnamedItemElement
+    extends Components.GxgUnnamedItem,
+      HTMLStencilElement {}
+  var HTMLGxgUnnamedItemElement: {
+    prototype: HTMLGxgUnnamedItemElement;
+    new (): HTMLGxgUnnamedItemElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -1331,6 +1352,8 @@ declare global {
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
+    "gxg-unnamed": HTMLGxgUnnamedElement;
+    "gxg-unnamed-item": HTMLGxgUnnamedItemElement;
   }
 }
 declare namespace LocalJSX {
@@ -2298,6 +2321,13 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
+  interface GxgUnnamed {}
+  interface GxgUnnamedItem {
+    /**
+     * The icon (optional)
+     */
+    icon?: any;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -2351,6 +2381,8 @@ declare namespace LocalJSX {
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
+    "gxg-unnamed": GxgUnnamed;
+    "gxg-unnamed-item": GxgUnnamedItem;
   }
 }
 export { LocalJSX as JSX };
@@ -2451,6 +2483,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
+      "gxg-unnamed": LocalJSX.GxgUnnamed &
+        JSXBase.HTMLAttributes<HTMLGxgUnnamedElement>;
+      "gxg-unnamed-item": LocalJSX.GxgUnnamedItem &
+        JSXBase.HTMLAttributes<HTMLGxgUnnamedItemElement>;
     }
   }
 }

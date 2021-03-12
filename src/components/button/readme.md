@@ -23,6 +23,7 @@
 - [gxg-drag-box](../drag-box)
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
+- [gxg-unnamed](../gxg-unnamed)
 
 ### Depends on
 
@@ -38,6 +39,7 @@ graph TD;
   gxg-drag-box --> gxg-button
   gxg-modal --> gxg-button
   gxg-tab-bar --> gxg-button
+  gxg-unnamed --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

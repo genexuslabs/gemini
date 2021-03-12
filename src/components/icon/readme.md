@@ -28,6 +28,7 @@
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
+- [gxg-unnamed-item](../gxg-unnamed-item)
 
 ### Graph
 
@@ -46,6 +47,7 @@ graph TD;
   gxg-tab-button --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
+  gxg-unnamed-item --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
