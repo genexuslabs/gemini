@@ -9,14 +9,33 @@ export class GxgUnnamedItem {
   /**
    * The icon (optional)
    */
-  @Prop() icon = undefined;
+  @Prop() type = undefined;
+
+  icon() {
+    let icon;
+    switch (this.type) {
+      case "webpanel":
+        icon = "objects/webpanel";
+        break;
+      case "module":
+        icon = "objects/module";
+        break;
+      case "theme":
+        icon = "objects/themes";
+        break;
+      case "object":
+        icon = "objects/object";
+        break;
+      default:
+      // code block
+    }
+    return icon;
+  }
 
   render() {
     return (
       <Host>
-        {this.icon !== undefined ? (
-          <gxg-icon size="small" type={this.icon}></gxg-icon>
-        ) : null}
+        <gxg-icon color="auto" size="small" type={this.icon()}></gxg-icon>
         <slot></slot>
       </Host>
     );

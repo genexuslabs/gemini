@@ -1,11 +1,24 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
 :host {
   display: block;
   box-shadow: var(--box-shadow-01);
   width: 200px;
 
+  @include gxg-scroll;
+
   .header {
     display: flex;
     justify-content: flex-end;
     padding: var(--spacing-comp-01);
+
+    .search-container {
+      width: calc(100% - 20px);
+    }
+  }
+  .main {
+    max-height: 144px;
+    overflow-y: auto;
   }
 }

@@ -64,6 +64,7 @@
 ### Used by
 
 - [gxg-accordion-item](../accordion-item)
+- [gxg-unnamed](../gxg-unnamed)
 
 ### Depends on
 
@@ -78,6 +79,7 @@ graph TD;
   gxg-form-text --> gxg-form-message
   gxg-form-message --> gxg-icon
   gxg-accordion-item --> gxg-form-text
+  gxg-unnamed --> gxg-form-text
   style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

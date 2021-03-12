@@ -2,4 +2,16 @@
   display: block;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);
+  padding: 0 var(--spacing-comp-01) 0 var(--spacing-comp-01);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-height: var(--spacing-comp-05);
+
+  gxg-icon {
+    margin-inline-end: var(--spacing-comp-01);
+  }
+}
+:host(:hover) {
+  background-color: var(--color-secondary-enabled);
 }

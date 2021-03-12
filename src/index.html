@@ -37,21 +37,22 @@
     UNNAMED
   ------------------------------------------------>
   <gxg-unnamed>
-    <div>
-    <gxg-unnamed-item>Webpanels</gxg-unnamed>
-    <gxg-unnamed-item>Webpanel01</gxg-unnamed>
-    <gxg-unnamed-item>PrimaryModule.InModuleDSO</gxg-unnamed>
-    <gxg-unnamed-item>DesignSystems</gxg-unnamed>
-    <gxg-unnamed-item>WebPanel02</gxg-unnamed>
-    <gxg-unnamed-item>DesignSystem01</gxg-unnamed>
-    </div>
+    <gxg-unnamed-item type='webpanel'>Webpanels</gxg-unnamed-item>
+    <gxg-unnamed-item type='webpanel'>Webpanel01</gxg-unnamed-item>
+    <gxg-unnamed-item type='module'>PrimaryModule.InModuleDSO</gxg-unnamed-item>
+    <gxg-unnamed-item type='theme'>DesignSystems</gxg-unnamed-item>
+    <gxg-unnamed-item type='webpanel'>WebPanel02</gxg-unnamed-item>
+    <gxg-unnamed-item type='object'>DesignSystem01</gxg-unnamed-item>
+    <gxg-unnamed-item type='module'>SecondaryModule.InModuleDSO</gxg-unnamed-item>
+    <gxg-unnamed-item type='webpanel'>WebPanel03</gxg-unnamed-item>
+    <gxg-unnamed-item type='object'>DesignSystem02</gxg-unnamed-item>
   </gxg-unnamed>
 
   <!-----------------------------------------------
     ALERTS
   ------------------------------------------------>
 
-  <h3>Alerts</h3>
+  <!-- <h3>Alerts</h3>
   <gxg-button type="primary-text-only" onClick="(function(){
     document.getElementById('alert-notice').setAttribute('active', 'true');
     return false;
@@ -111,13 +112,13 @@
   position="center"
   title="Warning">
   This is the warning alert
-  </gxg-alert>
+  </gxg-alert> -->
 
   <!-----------------------------------------------
     TOOLBAR
   ------------------------------------------------>
 
-  <h3>Toolbar</h3>
+  <!-- <h3>Toolbar</h3>
   <h4>Start</h4>
   <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="start" disabled>
     <gxg-toolbar-item
@@ -180,14 +181,14 @@
       toolbar-item-title="Title"
       subtitle="subtitle"
     ></gxg-toolbar-item>
-  </gxg-toolbar>
+  </gxg-toolbar> -->
 
 
   <!-----------------------------------------------
     CONTAINERS
   ------------------------------------------------>
 
-  <h3>Containers</h3>
+  <!-- <h3>Containers</h3>
   <h4>Box</h4>
   <gxg-box background="gray-01" padding="l">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
@@ -202,13 +203,13 @@
   <h4>Card</h4>
   <gxg-card background="gray-01" padding="l">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
-  </gxg-card>
+  </gxg-card> -->
 
   <!-----------------------------------------------
     ACCORDIONS
   ------------------------------------------------>
 
-  <h3>Accordions</h3>
+  <!-- <h3>Accordions</h3>
 
   <h4>Classical</h4>
 
@@ -665,6 +666,8 @@ return false;
 
 <h3>Select</h3>
 
+ -->
+
   <!-- <gxg-select label="Themes" label-position="start">
     <gxg-option value="dark">Dark</gxg-option>
     <gxg-option value="light">Light</gxg-option>
@@ -681,7 +684,7 @@ return false;
     <gxg-option value="light">3</gxg-option>
   </gxg-select> -->
 
-  <h3>Text</h3>
+  <!-- <h3>Text</h3>
   <gxg-form-text
 type="text"
 label="Default"
@@ -703,7 +706,7 @@ disabled
 
 <h3>Buttons</h3>
 <h4>Secondary text only</h4>
-<gxg-button type="secondary-text-only">Button</gxg-button>
+<gxg-button type="secondary-text-only">Button</gxg-button> -->
 
   <!-- <gxg-stepper
     min="-4"
@@ -926,7 +929,7 @@ value="u"
 <gxg-color-picker value="red"></gxg-color-picker> -->
 
   <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button> -->
-  <script>
+  <!-- <script>
 
     const gxgTest = document.querySelector("gxg-test");
     gxgTest.selectItem = "hola";
@@ -942,11 +945,11 @@ value="u"
     function mostrarAlertMoreInfo(alertId) {
       document.getElementById(alertId).setAttribute("active", "true");
     }
-  </script>
+  </script> -->
 
   <script>
     // CONTEXT MENU
-    let button = document.getElementById("button");
+    // let button = document.getElementById("button");
 
     // button.addEventListener("contextmenu", e => {
     //   e.preventDefault();
@@ -956,7 +959,7 @@ value="u"
     // });
 
     //DARK MODE
-    const toggle = document.querySelector("#toggleDarkTheme");
+   // const toggle = document.querySelector("#toggleDarkTheme");
 
     // Listen for the toggle check/uncheck to toggle the dark class on the <body>
     // toggle.addEventListener("change", ev => {

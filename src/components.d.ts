@@ -937,7 +937,7 @@ export namespace Components {
     /**
      * The icon (optional)
      */
-    icon: any;
+    type: any;
   }
 }
 declare global {
@@ -2326,7 +2326,7 @@ declare namespace LocalJSX {
     /**
      * The icon (optional)
      */
-    icon?: any;
+    type?: any;
   }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;

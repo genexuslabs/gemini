@@ -6,7 +6,7 @@
 
 | Property | Attribute | Description         | Type  | Default     |
 | -------- | --------- | ------------------- | ----- | ----------- |
-| `icon`   | `icon`    | The icon (optional) | `any` | `undefined` |
+| `type`   | `type`    | The icon (optional) | `any` | `undefined` |
 
 ## Dependencies
 
