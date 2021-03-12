@@ -15,6 +15,11 @@
     &.tree-open {
       height: auto;
     }
+    &.disabled {
+      .text {
+        color: var(--gray-05);
+      }
+    }
 
     .li-text {
       height: 100%;

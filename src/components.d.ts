@@ -919,22 +919,20 @@ export namespace Components {
      * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
      */
     checked: boolean;
+    disabled: boolean;
     /**
      * Set this attribute when you are downloading a resource
      */
     downloading: boolean;
     firstTreeItem: boolean;
-    /**
-     * The presence of this attribute sets focus on it
-     */
-    focused: boolean;
     hasChildTree: boolean;
+    indeterminate: boolean;
     /**
      * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
      */
     isLeaf: boolean;
     /**
-     * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon: string;
     /**
@@ -2300,22 +2298,20 @@ declare namespace LocalJSX {
      * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
      */
     checked?: boolean;
+    disabled?: boolean;
     /**
      * Set this attribute when you are downloading a resource
      */
     downloading?: boolean;
     firstTreeItem?: boolean;
-    /**
-     * The presence of this attribute sets focus on it
-     */
-    focused?: boolean;
     hasChildTree?: boolean;
+    indeterminate?: boolean;
     /**
      * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
      */
     isLeaf?: boolean;
     /**
-     * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon?: string;
     onLiItemClicked?: (event: CustomEvent<any>) => void;

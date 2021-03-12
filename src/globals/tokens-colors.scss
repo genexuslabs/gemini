@@ -50,7 +50,7 @@ the components. The content could be text or icons)*/
   --color-on-secondary: #fff;
   --color-on-background: #fff;
   --color-on-alert: #fff;
-  --color-on-disabled: #616164;
+  --color-on-disabled: var(--gray-05);
 }
 
 //Gemini

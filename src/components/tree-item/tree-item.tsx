@@ -33,7 +33,7 @@ export class GxgTreeItem {
   @Prop() downloading = false;
 
   /**
-   * Set thhe left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+   * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
    */
   @Prop() leftIcon: string;
   /**
@@ -55,10 +55,11 @@ export class GxgTreeItem {
    */
   @Prop() isLeaf: boolean = undefined;
 
-  /**
-   * The presence of this attribute sets focus on it
-   */
-  @Prop() focused = false;
+  //PROPS
+  @Prop() hasChildTree = false;
+  @Prop() firstTreeItem = false;
+  @Prop() indeterminate: boolean;
+  @Prop() disabled = false;
 
   //STATE
   @State() numberOfParentTrees = 1;
@@ -67,8 +68,6 @@ export class GxgTreeItem {
   @State() horizontalLinePaddingLeft = 0;
   @State() hidePlusMinusIcon: boolean;
   @State() showDownloadingIcon = false;
-  @Prop() hasChildTree = false;
-  @Prop() firstTreeItem = false;
   @State() lastTreeItem = false;
   @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
@@ -173,16 +172,12 @@ export class GxgTreeItem {
   }
 
   liTextDoubleClicked() {
-    console.log("double clicked");
     this.toggleTreeIconClicked();
   }
 
   liTextClicked() {
     //Remove focus from current focused item (if any)
     this.liItemClicked.emit();
-
-    //Set focus to the element
-    // this.focused = true;
   }
 
   liTextKeyDownPressed(e) {
@@ -364,7 +359,19 @@ export class GxgTreeItem {
   }
 
   checkboxClicked() {
-    console.log(this.checked);
+    console.log("clicked");
+  }
+
+  setIndeterminate() {
+    if (this.indeterminate) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  leftColorIcon() {
+    return "success";
   }
 
   render() {
@@ -373,7 +380,8 @@ export class GxgTreeItem {
         class={{
           "tree-open": this.opened,
           "show-downloading-icon": this.showDownloadingIcon,
-          "hide-plus-minus-icon": this.hidePlusMinusIcon
+          "hide-plus-minus-icon": this.hidePlusMinusIcon,
+          disabled: this.disabled
         }}
       >
         <div
@@ -424,10 +432,15 @@ export class GxgTreeItem {
               class={{ checkbox: true }}
               tabIndex={this.checkboxTabIndex()}
               onClick={this.checkboxClicked.bind(this)}
+              indeterminate={this.setIndeterminate()}
             ></gxg-form-checkbox>
           ) : null}
           {this.leftIcon ? (
-            <gxg-icon size="small" type={this.leftIcon} color="auto"></gxg-icon>
+            <gxg-icon
+              size="small"
+              type={this.leftIcon}
+              color={this.disabled ? "disabled" : "auto"}
+            ></gxg-icon>
           ) : null}
           <span class="text">
             <slot></slot>
