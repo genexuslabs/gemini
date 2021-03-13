@@ -6,12 +6,35 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  min-height: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
+  opacity: 1;
+  transition: all 0.15s;
+  overflow: hidden;
 
   gxg-icon {
     margin-inline-end: var(--spacing-comp-01);
   }
+
+  .text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: calc(100% - 24px);
+  }
 }
 :host(:hover) {
   background-color: var(--color-secondary-enabled);
+}
+:host(.opacity-zero) {
+  opacity: 0;
+}
+:host(.height-zero) {
+  height: 0;
+}
+:host(.exact-match) {
+  color: var(--color-success-dark);
+}
+:host(.exact-match:hover) {
+  color: var(--color-success-dark);
+  background-color: var(--color-success-light);
 }

@@ -7,19 +7,19 @@ import {
   Event,
   EventEmitter,
   State,
-  Watch,
+  Watch
 } from "@stencil/core";
 import {
   requiredLabel,
   formMessage,
   formHandleChange,
-  FormComponent,
+  FormComponent
 } from "../../common";
 
 @Component({
   tag: "gxg-form-text",
   styleUrl: "form-text.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgFormText implements FormComponent {
   isRequiredError = false;
@@ -130,7 +130,7 @@ export class GxgFormText implements FormComponent {
   @State() inputSize = "auto";
   @State() mouseCoordinates: object = {
     x: null,
-    y: null,
+    y: null
   };
 
   /**
@@ -180,6 +180,7 @@ export class GxgFormText implements FormComponent {
   }
 
   handleInput(e) {
+    e.stopPropagation();
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(target.value);
@@ -187,6 +188,7 @@ export class GxgFormText implements FormComponent {
   }
 
   handleChange(e) {
+    e.stopPropagation();
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.change.emit(target.value);
@@ -219,7 +221,7 @@ export class GxgFormText implements FormComponent {
 
   mouseEnterHandler() {
     setTimeout(
-      function () {
+      function() {
         const inputText = this.el.shadowRoot.querySelector(
           ".input"
         ) as HTMLInputElement;
@@ -258,7 +260,7 @@ export class GxgFormText implements FormComponent {
       **************/
 
       const intersectionObserver = new IntersectionObserver(
-        function (entries) {
+        function(entries) {
           // If intersectionRatio is 0, the target is out of view
           // and we do not need to do anything.
           if (entries[0].intersectionRatio <= 0) return;
@@ -360,7 +362,7 @@ export class GxgFormText implements FormComponent {
         aria-label={this.label}
         icon-position={this.iconPositionFunc()}
         style={{
-          maxWidth: this.maxWidth,
+          maxWidth: this.maxWidth
         }}
         class={{ rtl: this.rtl }}
       >
@@ -369,7 +371,7 @@ export class GxgFormText implements FormComponent {
           {this.label !== undefined ? (
             <label
               class={{
-                label: true,
+                label: true
               }}
             >
               {this.label}
@@ -381,7 +383,7 @@ export class GxgFormText implements FormComponent {
           <div
             class={{
               "inner-wrapper": true,
-              "clear-button": this.clearButton === true,
+              "clear-button": this.clearButton === true
             }}
           >
             <input
@@ -392,7 +394,7 @@ export class GxgFormText implements FormComponent {
                 input: true,
                 "input--error": this.error === true,
                 "input--warning": this.warning === true,
-                "cursor-inside": this.cursorInside,
+                "cursor-inside": this.cursorInside
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}

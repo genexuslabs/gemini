@@ -36,7 +36,9 @@ export class GxgUnnamedItem {
     return (
       <Host>
         <gxg-icon color="auto" size="small" type={this.icon()}></gxg-icon>
-        <slot></slot>
+        <div class="text">
+          <slot></slot>
+        </div>
       </Host>
     );
   }
