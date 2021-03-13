@@ -1,4 +1,4 @@
-# gxg-unnamed-item
+# gxg-filter-item
 
 <!-- Auto Generated Below -->
 
@@ -6,7 +6,13 @@
 
 | Property | Attribute | Description         | Type  | Default     |
 | -------- | --------- | ------------------- | ----- | ----------- |
-| `type`   | `type`    | The icon (optional) | `any` | `undefined` |
+| `type`   | `type`    | The type (optional) | `any` | `undefined` |
+
+## Events
+
+| Event              | Description                                                                                                 | Type               |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------ |
+| `itemClickedEvent` | This event is fired when the user clicks on an item. event.detail carries the item type property, and text. | `CustomEvent<any>` |
 
 ## Dependencies
 

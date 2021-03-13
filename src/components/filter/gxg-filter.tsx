@@ -1,4 +1,12 @@
-import { Component, Element, Host, h, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Host,
+  h,
+  Prop,
+  State,
+  Listen,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-filter",
@@ -8,10 +16,24 @@ import { Component, Element, Host, h, State } from "@stencil/core";
 export class GxgFilter {
   @Element() el: HTMLElement;
 
+  /**
+   * The top position of the filter, relative to the closest parent with relative position.
+   */
+  @Prop() top = "0px";
+
+  /**
+   * The left position of the filter, relative to the closest parent with relative position.
+   */
+  @Prop() left = "0px";
+
   @State() itemsNodeList: NodeList;
 
   componentWillLoad() {
     this.itemsNodeList = this.el.querySelectorAll("gxg-filter-item");
+
+    //Set position
+    this.el.style.top = this.top;
+    this.el.style.left = this.left;
   }
 
   onInputGxgformText(e) {
@@ -45,6 +67,15 @@ export class GxgFilter {
   }
 
   closeFilter() {
+    this.el.addEventListener("animationend", () => {
+      this.el.remove();
+    });
+    this.el.classList.add("hide");
+  }
+
+  @Listen("itemClickedEvent")
+  handleItemClickedEvent() {
+    //When an item has been clicked, hide the filter
     this.el.addEventListener("animationend", () => {
       this.el.remove();
     });

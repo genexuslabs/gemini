@@ -353,10 +353,19 @@ export namespace Components {
      */
     padding: Padding;
   }
-  interface GxgFilter {}
+  interface GxgFilter {
+    /**
+     * The left position of the filter, relative to the closest parent with relative position.
+     */
+    left: string;
+    /**
+     * The top position of the filter, relative to the closest parent with relative position.
+     */
+    top: string;
+  }
   interface GxgFilterItem {
     /**
-     * The icon (optional)
+     * The type (optional)
      */
     type: any;
   }
@@ -1697,10 +1706,23 @@ declare namespace LocalJSX {
      */
     padding?: Padding;
   }
-  interface GxgFilter {}
+  interface GxgFilter {
+    /**
+     * The left position of the filter, relative to the closest parent with relative position.
+     */
+    left?: string;
+    /**
+     * The top position of the filter, relative to the closest parent with relative position.
+     */
+    top?: string;
+  }
   interface GxgFilterItem {
     /**
-     * The icon (optional)
+     * This event is fired when the user clicks on an item. event.detail carries the item type property, and text.
+     */
+    onItemClickedEvent?: (event: CustomEvent<any>) => void;
+    /**
+     * The type (optional)
      */
     type?: any;
   }

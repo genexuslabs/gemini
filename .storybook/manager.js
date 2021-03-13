@@ -11,4 +11,5 @@ import geminiTheme from "./geminiTheme";
 
 addons.setConfig({
   theme: geminiTheme,
+  enableShortcuts: false,
 });
