@@ -1,5 +1,7 @@
 # gxg-filter-item
 
+<p>The content of the <code>gxg-filter-item</code> has to be passed as slotted content.</p>
+
 ## Properties
 
 | Property | Attribute | Description         | Type  | Default     |
