@@ -38,3 +38,8 @@
   color: var(--color-success-dark);
   background-color: var(--color-success-light);
 }
+:host(:focus) {
+  outline: none;
+  outline-color: var(--color-primary-active);
+  box-shadow: var(--box-shadow-values) var(--color-primary-active);
+}

@@ -1,0 +1,76 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+  box-shadow: var(--box-shadow-01);
+  width: 200px;
+  @include gxg-scroll;
+  opacity: 0;
+  margin-top: var(--spacing-lay-s);
+  animation: in 0.5s forwards;
+  border-radius: var(--border-radius-md);
+
+  #header {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--spacing-comp-01);
+
+    .search-container {
+      width: calc(100% - 24px);
+    }
+
+    .close-icon {
+      margin-inline-start: var(--spacing-comp-01);
+    }
+  }
+  #main {
+    max-height: 144px;
+    overflow-y: auto;
+
+    #no-match {
+      transition: all 0.25s;
+      display: block;
+      overflow: hidden;
+      font-family: var(--font-family-primary);
+      font-size: var(--font-size-sm);
+      padding: 0 var(--spacing-comp-01) 0 7px;
+      height: var(--spacing-comp-05);
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: -2px;
+
+      &.opacity-zero {
+        opacity: 0;
+      }
+      &.height-zero {
+        height: 0;
+      }
+    }
+  }
+}
+:host(.hide) {
+  animation: out 0.25s forwards;
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    margin-top: var(--spacing-lay-s);
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes out {
+  from {
+    opacity: 1;
+    margin-top: 0;
+  }
+  to {
+    opacity: 0;
+    margin-top: var(--spacing-lay-s);
+  }
+}

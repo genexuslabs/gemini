@@ -20,6 +20,7 @@
 - [gxg-button](../button)
 - [gxg-contextual-menu-item](../contextual-menu-item)
 - [gxg-drag-box](../drag-box)
+- [gxg-filter-item](../filter-item)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
 - [gxg-menu-item](../menu-item)
@@ -28,7 +29,6 @@
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
-- [gxg-unnamed-item](../gxg-unnamed-item)
 
 ### Graph
 
@@ -39,6 +39,7 @@ graph TD;
   gxg-button --> gxg-icon
   gxg-contextual-menu-item --> gxg-icon
   gxg-drag-box --> gxg-icon
+  gxg-filter-item --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
   gxg-menu-item --> gxg-icon
@@ -47,7 +48,6 @@ graph TD;
   gxg-tab-button --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
-  gxg-unnamed-item --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

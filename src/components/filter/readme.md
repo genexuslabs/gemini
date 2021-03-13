@@ -13,13 +13,13 @@
 
 ```mermaid
 graph TD;
-  gxg-unnamed --> gxg-form-text
-  gxg-unnamed --> gxg-button
+  gxg-filter --> gxg-form-text
+  gxg-filter --> gxg-button
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-form-message
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon
-  style gxg-unnamed fill:#f9f,stroke:#333,stroke-width:4px
+  style gxg-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

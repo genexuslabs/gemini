@@ -21,9 +21,9 @@
 - [gxg-alert](../alert)
 - [gxg-demo](../demo)
 - [gxg-drag-box](../drag-box)
+- [gxg-filter](../filter)
 - [gxg-modal](../modal)
 - [gxg-tab-bar](../tab-bar)
-- [gxg-unnamed](../gxg-unnamed)
 
 ### Depends on
 
@@ -37,9 +37,9 @@ graph TD;
   gxg-alert --> gxg-button
   gxg-demo --> gxg-button
   gxg-drag-box --> gxg-button
+  gxg-filter --> gxg-button
   gxg-modal --> gxg-button
   gxg-tab-bar --> gxg-button
-  gxg-unnamed --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

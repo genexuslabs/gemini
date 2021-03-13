@@ -18,8 +18,8 @@
 
 ```mermaid
 graph TD;
-  gxg-unnamed-item --> gxg-icon
-  style gxg-unnamed-item fill:#f9f,stroke:#333,stroke-width:4px
+  gxg-filter-item --> gxg-icon
+  style gxg-filter-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

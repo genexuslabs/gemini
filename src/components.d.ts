@@ -12,7 +12,7 @@ import {
   ActiveTime,
   AlertPosition,
   AlertType,
-  Spacing
+  Spacing,
 } from "./components/alert/alert";
 import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
@@ -20,7 +20,7 @@ import { TitleAlignment } from "./components/button-group/button-group";
 import {
   background as background1,
   elevation,
-  padding as padding1
+  padding as padding1,
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
@@ -30,7 +30,7 @@ import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
   LabelPosition,
-  Style
+  Style,
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
@@ -352,6 +352,13 @@ export namespace Components {
      * The padding (internal spacing) of the gxg-drag-boxes
      */
     padding: Padding;
+  }
+  interface GxgFilter {}
+  interface GxgFilterItem {
+    /**
+     * The icon (optional)
+     */
+    type: any;
   }
   interface GxgFormCheckbox {
     /**
@@ -932,13 +939,6 @@ export namespace Components {
      */
     position: position;
   }
-  interface GxgUnnamed {}
-  interface GxgUnnamedItem {
-    /**
-     * The icon (optional)
-     */
-    type: any;
-  }
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -1053,6 +1053,20 @@ declare global {
   var HTMLGxgDragContainerElement: {
     prototype: HTMLGxgDragContainerElement;
     new (): HTMLGxgDragContainerElement;
+  };
+  interface HTMLGxgFilterElement
+    extends Components.GxgFilter,
+      HTMLStencilElement {}
+  var HTMLGxgFilterElement: {
+    prototype: HTMLGxgFilterElement;
+    new (): HTMLGxgFilterElement;
+  };
+  interface HTMLGxgFilterItemElement
+    extends Components.GxgFilterItem,
+      HTMLStencilElement {}
+  var HTMLGxgFilterItemElement: {
+    prototype: HTMLGxgFilterItemElement;
+    new (): HTMLGxgFilterItemElement;
   };
   interface HTMLGxgFormCheckboxElement
     extends Components.GxgFormCheckbox,
@@ -1285,20 +1299,6 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
-  interface HTMLGxgUnnamedElement
-    extends Components.GxgUnnamed,
-      HTMLStencilElement {}
-  var HTMLGxgUnnamedElement: {
-    prototype: HTMLGxgUnnamedElement;
-    new (): HTMLGxgUnnamedElement;
-  };
-  interface HTMLGxgUnnamedItemElement
-    extends Components.GxgUnnamedItem,
-      HTMLStencilElement {}
-  var HTMLGxgUnnamedItemElement: {
-    prototype: HTMLGxgUnnamedItemElement;
-    new (): HTMLGxgUnnamedItemElement;
-  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -1317,6 +1317,8 @@ declare global {
     "gxg-demo": HTMLGxgDemoElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
+    "gxg-filter": HTMLGxgFilterElement;
+    "gxg-filter-item": HTMLGxgFilterItemElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
@@ -1352,8 +1354,6 @@ declare global {
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
-    "gxg-unnamed": HTMLGxgUnnamedElement;
-    "gxg-unnamed-item": HTMLGxgUnnamedItemElement;
   }
 }
 declare namespace LocalJSX {
@@ -1696,6 +1696,13 @@ declare namespace LocalJSX {
      * The padding (internal spacing) of the gxg-drag-boxes
      */
     padding?: Padding;
+  }
+  interface GxgFilter {}
+  interface GxgFilterItem {
+    /**
+     * The icon (optional)
+     */
+    type?: any;
   }
   interface GxgFormCheckbox {
     /**
@@ -2321,13 +2328,6 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
-  interface GxgUnnamed {}
-  interface GxgUnnamedItem {
-    /**
-     * The icon (optional)
-     */
-    type?: any;
-  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -2346,6 +2346,8 @@ declare namespace LocalJSX {
     "gxg-demo": GxgDemo;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
+    "gxg-filter": GxgFilter;
+    "gxg-filter-item": GxgFilterItem;
     "gxg-form-checkbox": GxgFormCheckbox;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-radio": GxgFormRadio;
@@ -2381,8 +2383,6 @@ declare namespace LocalJSX {
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
-    "gxg-unnamed": GxgUnnamed;
-    "gxg-unnamed-item": GxgUnnamedItem;
   }
 }
 export { LocalJSX as JSX };
@@ -2420,6 +2420,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
       "gxg-drag-container": LocalJSX.GxgDragContainer &
         JSXBase.HTMLAttributes<HTMLGxgDragContainerElement>;
+      "gxg-filter": LocalJSX.GxgFilter &
+        JSXBase.HTMLAttributes<HTMLGxgFilterElement>;
+      "gxg-filter-item": LocalJSX.GxgFilterItem &
+        JSXBase.HTMLAttributes<HTMLGxgFilterItemElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
         JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
@@ -2483,10 +2487,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
-      "gxg-unnamed": LocalJSX.GxgUnnamed &
-        JSXBase.HTMLAttributes<HTMLGxgUnnamedElement>;
-      "gxg-unnamed-item": LocalJSX.GxgUnnamedItem &
-        JSXBase.HTMLAttributes<HTMLGxgUnnamedItemElement>;
     }
   }
 }

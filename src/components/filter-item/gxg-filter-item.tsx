@@ -1,11 +1,11 @@
 import { Component, Host, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: "gxg-unnamed-item",
-  styleUrl: "gxg-unnamed-item.scss",
-  shadow: true
+  tag: "gxg-filter-item",
+  styleUrl: "gxg-filter-item.scss",
+  shadow: true,
 })
-export class GxgUnnamedItem {
+export class GxgFilterItem {
   /**
    * The icon (optional)
    */
@@ -32,9 +32,11 @@ export class GxgUnnamedItem {
     return icon;
   }
 
+  //itemClicked() {}
+
   render() {
     return (
-      <Host>
+      <Host onClick={this.itemClicked.bind(this)} tabindex="0">
         <gxg-icon color="auto" size="small" type={this.icon()}></gxg-icon>
         <div class="text">
           <slot></slot>
