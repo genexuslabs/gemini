@@ -12,7 +12,7 @@ import {
   ActiveTime,
   AlertPosition,
   AlertType,
-  Spacing,
+  Spacing
 } from "./components/alert/alert";
 import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
@@ -20,7 +20,7 @@ import { TitleAlignment } from "./components/button-group/button-group";
 import {
   background as background1,
   elevation,
-  padding as padding1,
+  padding as padding1
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
@@ -30,7 +30,7 @@ import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
   LabelPosition,
-  Style,
+  Style
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";

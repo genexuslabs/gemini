@@ -25,6 +25,11 @@
 
     .close-icon {
       margin-inline-start: var(--spacing-comp-01);
+      transform: scale(0.85);
+      @include ui-animation(transform);
+      &:active {
+        transform: scale(1);
+      }
     }
   }
   #main {
