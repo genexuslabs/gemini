@@ -38,11 +38,14 @@
       font-family: var(--font-family-primary);
       font-size: var(--font-size-sm);
       padding: 0 var(--spacing-comp-01) 0 7px;
-      height: var(--spacing-comp-05);
-      display: flex;
       align-items: center;
       position: relative;
       top: -2px;
+
+      .hint {
+        font-size: var(--font-size-xs);
+        color: var(--color-on-disabled);
+      }
 
       &.opacity-zero {
         opacity: 0;

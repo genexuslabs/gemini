@@ -104,7 +104,8 @@ export class GxgFilter {
         <main id="main">
           <slot></slot>
           <span id="no-match" class="opacity-zero height-zero">
-            No ocurrences found
+            No ocurrences found <br />
+            <span class="hint">ctrl + backspace to erase</span>
           </span>
         </main>
       </Host>
