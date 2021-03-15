@@ -417,7 +417,7 @@
 
   <h3>Tree with checkboxes and left icons closed</h3>
   <gxg-tree slot="tree">
-    <gxg-tree-item left-icon="general/knowledge-base" id="meat">
+    <gxg-tree-item opened left-icon="general/knowledge-base" id="meat">
       meat
       <gxg-tree checkbox slot="tree">
         <gxg-tree-item left-icon="general/knowledge-base" id="cow" checked>
@@ -434,7 +434,7 @@
     <gxg-tree-item left-icon="general/knowledge-base" id="fish">
       fish
     </gxg-tree-item>
-    <gxg-tree-item left-icon="general/knowledge-base" id="fruits">
+    <gxg-tree-item opened left-icon="general/knowledge-base" id="fruits">
       fruits
       <gxg-tree slot="tree">
         <gxg-tree-item left-icon="general/knowledge-base" id="orange">
@@ -476,8 +476,55 @@
             </gxg-tree-item>
           </gxg-tree>
         </gxg-tree-item>
-        <gxg-tree-item left-icon="general/knowledge-base" id="strawberry">
+        <gxg-tree-item opened left-icon="general/knowledge-base" id="strawberry">
           strawberry
+          <gxg-tree slot="tree">
+            <gxg-tree-item left-icon="general/knowledge-base" id="pisang-small">
+              Albion 
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base" opened id="pisang-medium"> 
+              Tillamook 
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base" id="pisang-big">
+              Northeaster 
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item left-icon="general/knowledge-base" opened id="banana">
+          banana
+          <gxg-tree slot="tree">
+            <gxg-tree-item left-icon="general/knowledge-base" checkbox id="cavendish">
+              Cavendish
+            </gxg-tree-item>
+            <gxg-tree-item opened left-icon="general/knowledge-base" id="pisang" checkbox>
+              Pisang
+              <gxg-tree slot="tree">
+                <gxg-tree-item left-icon="general/knowledge-base" id="pisang-small">
+                  Pisang small
+                </gxg-tree-item>
+                <gxg-tree-item left-icon="general/knowledge-base" opened id="pisang-medium"> 
+                  Pisang medium
+                  <gxg-tree checkbox slot="tree">
+                    <gxg-tree-item left-icon="general/knowledge-base" id="pisang-medium-usa">
+                      Pisang medium Usa
+                    </gxg-tree-item>
+                    <gxg-tree-item left-icon="general/knowledge-base" id="pisang-medium-ecuador"> 
+                      Pisang medium Ecuador
+                    </gxg-tree-item>
+                    <gxg-tree-item left-icon="general/knowledge-base" id="pisang-medium-colombia">
+                      Pisang medium colombia
+                    </gxg-tree-item>
+                  </gxg-tree>
+                </gxg-tree-item>
+                <gxg-tree-item left-icon="general/knowledge-base" id="pisang-big">
+                  Pisang big
+                </gxg-tree-item>
+              </gxg-tree>
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base" id="red banana">
+              Red Banana
+            </gxg-tree-item>
+          </gxg-tree>
         </gxg-tree-item>
       </gxg-tree>
     </gxg-tree-item>

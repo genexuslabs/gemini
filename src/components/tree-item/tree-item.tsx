@@ -302,12 +302,18 @@ export class GxgTreeItem {
           }
         } else {
           if (this.lastTreeItem) {
-            const thisTree = this.el.parentElement;
-            const thisTreeParent = thisTree.parentElement;
-            const thisTreeParentNextTree = thisTreeParent.nextElementSibling;
-            nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
-              ".li-text"
-            );
+            if (this.hasChildTree) {
+              nextItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
+                ".li-text"
+              );
+            } else {
+              const thisTree = this.el.parentElement;
+              const thisTreeParent = thisTree.parentElement;
+              const thisTreeParentNextTree = thisTreeParent.nextElementSibling;
+              nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
+                ".li-text"
+              );
+            }
           } else {
             if (this.hasChildTree && this.opened) {
               nextItem = this.el
@@ -323,6 +329,8 @@ export class GxgTreeItem {
         if (nextItem !== null && nextItem !== undefined) {
           (nextItem as HTMLElement).focus();
         }
+      } else {
+        //Last element of parent tree
       }
     }
   }
@@ -359,7 +367,6 @@ export class GxgTreeItem {
       //If this tree-item has a child tree element, get its height
       const childTreeHeight = (childrenTree.item(0) as HTMLElement)
         .offsetHeight;
-      console.log(childrenTree.item(0));
       this.verticalLineHeight = childTreeHeight - 10 + "px";
     }
   }
