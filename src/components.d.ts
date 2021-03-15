@@ -365,6 +365,10 @@ export namespace Components {
   }
   interface GxgFilterItem {
     /**
+     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+     */
+    icon: string;
+    /**
      * The type (optional)
      */
     type: any;
@@ -1717,6 +1721,10 @@ declare namespace LocalJSX {
     top?: string;
   }
   interface GxgFilterItem {
+    /**
+     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+     */
+    icon?: string;
     /**
      * This event is fired when the user clicks on an item. event.detail carries the item type property, and text.
      */

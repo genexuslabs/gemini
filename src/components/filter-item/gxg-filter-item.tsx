@@ -5,13 +5,13 @@ import {
   EventEmitter,
   Host,
   Prop,
-  h,
+  h
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-filter-item",
   styleUrl: "gxg-filter-item.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgFilterItem {
   @Element() el: HTMLElement;
@@ -22,44 +22,30 @@ export class GxgFilterItem {
   @Prop() type = undefined;
 
   /**
+   * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+   */
+  @Prop() icon: string = undefined;
+
+  /**
    * This event is fired when the user clicks on an item. event.detail carries the item type property, and text.
    */
   @Event() itemClickedEvent: EventEmitter;
-
-  icon() {
-    let icon;
-    switch (this.type) {
-      case "webpanel":
-        icon = "objects/webpanel";
-        break;
-      case "module":
-        icon = "objects/module";
-        break;
-      case "theme":
-        icon = "objects/themes";
-        break;
-      case "object":
-        icon = "objects/object";
-        break;
-      default:
-      // code block
-    }
-    return icon;
-  }
 
   itemClicked() {
     const itemText = this.el.innerHTML;
     const itemType = this.type;
     this.itemClickedEvent.emit({
       "item-text": itemText,
-      "item-type": itemType,
+      "item-type": itemType
     });
   }
 
   render() {
     return (
       <Host onClick={this.itemClicked.bind(this)} tabindex="0">
-        <gxg-icon color="auto" size="small" type={this.icon()}></gxg-icon>
+        {this.icon !== undefined ? (
+          <gxg-icon color="auto" size="small" type={this.icon}></gxg-icon>
+        ) : null}
         <div class="text">
           <slot></slot>
         </div>

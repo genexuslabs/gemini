@@ -37,22 +37,21 @@
     UNNAMED
   ------------------------------------------------>
   <gxg-filter id="gxgFilter">
-    <gxg-filter-item type='webpanel'>Webpanels</gxg-filter-item>
+    <gxg-filter-item icon='objects/webpanel' type="webpanel">Webpanels</gxg-filter-item>
     <gxg-filter-item >Webpanel01</gxg-filter-item>
-    <gxg-filter-item type='module'>PrimaryModule.InModuleDSO PrimaryModule.InModuleDSO</gxg-filter-item>
-    <gxg-filter-item type='theme'>DesignSystems</gxg-filter-item>
-    <gxg-filter-item type='webpanel'>WebPanel02</gxg-filter-item>
-    <gxg-filter-item type='object'>DesignSystem01</gxg-filter-item>
-    <gxg-filter-item type='module'>SecondaryModule.InModuleDSO</gxg-filter-item>
-    <gxg-filter-item type='webpanel'>WebPanel03</gxg-filter-item>
-    <gxg-filter-item type='object'>DesignSystem02</gxg-filter-item>
+    <gxg-filter-item icon='objects/module' type="module">PrimaryModule.InModuleDSO PrimaryModule.InModuleDSO</gxg-filter-item>
+    <gxg-filter-item icon='objects/themes' type="themes">DesignSystems</gxg-filter-item>
+    <gxg-filter-item icon='objects/webpanel' type="webpanel">WebPanel02</gxg-filter-item>
+    <gxg-filter-item icon='objects/object' type="object">DesignSystem01</gxg-filter-item>
+    <gxg-filter-item icon='objects/module' type="module">SecondaryModule.InModuleDSO</gxg-filter-item>
+    <gxg-filter-item icon='objects/webpanel' type="webpanel">WebPanel03</gxg-filter-item>
+    <gxg-filter-item icon='objects/object' type="object">DesignSystem02</gxg-filter-item>
   </gxg-filter>
-
   <script>
-    // const gxgFilter = document.getElementById('gxgFilter');
-    // gxgFilter.addEventListener('itemClickedEvent', function(e){
-    //   console.log(e.detail);
-    // })
+    const gxgFilter = document.getElementById('gxgFilter');
+    gxgFilter.addEventListener('itemClickedEvent', function(e){
+      console.log(e.detail);
+    })
   </script>
 
   <!-----------------------------------------------
