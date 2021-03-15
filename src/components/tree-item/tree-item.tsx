@@ -265,6 +265,7 @@ export class GxgTreeItem {
                   //If preceding tree-item tree is opened, then the prev item is the last item of that tree
                   const prevElemSiblingTreeItem = this.el
                     .previousElementSibling;
+                  console.log(prevElemSiblingTreeItem);
                   const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
                     "gxg-tree"
                   );
@@ -310,9 +311,15 @@ export class GxgTreeItem {
               const thisTree = this.el.parentElement;
               const thisTreeParent = thisTree.parentElement;
               const thisTreeParentNextTree = thisTreeParent.nextElementSibling;
-              nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
-                ".li-text"
-              );
+              if (thisTreeParentNextTree === null) {
+                nextItem = thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
+                  ".li-text"
+                );
+              } else {
+                nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
+                  ".li-text"
+                );
+              }
             }
           } else {
             if (this.hasChildTree && this.opened) {
