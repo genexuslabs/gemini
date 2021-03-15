@@ -921,6 +921,10 @@ export namespace Components {
     checked: boolean;
     disabled: boolean;
     /**
+     * Set this attribute if this tree-item has a resource to be downloaded;
+     */
+    download: boolean;
+    /**
      * Set this attribute when you are downloading a resource
      */
     downloading: boolean;
@@ -935,12 +939,13 @@ export namespace Components {
      * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon: string;
+    myMethod: () => Promise<void>;
     /**
-     * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
     opened: boolean;
     /**
-     * /**    Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon: string;
   }
@@ -2300,6 +2305,10 @@ declare namespace LocalJSX {
     checked?: boolean;
     disabled?: boolean;
     /**
+     * Set this attribute if this tree-item has a resource to be downloaded;
+     */
+    download?: boolean;
+    /**
      * Set this attribute when you are downloading a resource
      */
     downloading?: boolean;
@@ -2316,11 +2325,11 @@ declare namespace LocalJSX {
     leftIcon?: string;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
     /**
-     * /**    If this tree-item has a nested tree, set this attribute to make the tree open by default
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
     opened?: boolean;
     /**
-     * /**    Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon?: string;
   }

@@ -6,7 +6,9 @@ import {
   Prop,
   State,
   h,
-  Watch
+  Watch,
+  Method,
+  Listen
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
@@ -33,17 +35,19 @@ export class GxgTreeItem {
   @Prop() downloading = false;
 
   /**
+   * Set this attribute if this tree-item has a resource to be downloaded;
+   */
+  @Prop() download = false;
+
+  /**
    * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
    */
   @Prop() leftIcon: string;
-  /**
-   
 
   /**
    * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
    */
   @Prop() rightIcon: string;
-  /**
 
   /**
    * If this tree-item has a nested tree, set this attribute to make the tree open by default
@@ -66,8 +70,8 @@ export class GxgTreeItem {
   @State() itemPaddingLeft;
   @State() verticalLineHeight: string;
   @State() horizontalLinePaddingLeft = 0;
-  @State() hidePlusMinusIcon: boolean;
-  @State() showDownloadingIcon = false;
+  // @State() hidePlusMinusIcon: boolean;
+  // @State() showDownloadingIcon = false;
   @State() lastTreeItem = false;
   @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
@@ -114,11 +118,6 @@ export class GxgTreeItem {
         this.lastTreeItemOfParentTree = true;
       }
     }
-
-    //Checkbox logic
-    // this.checkboxInput.addEventListener("click", function() {
-    //   console.log("checkbox clicked");
-    // });
   }
 
   componentDidLoad() {
@@ -128,17 +127,6 @@ export class GxgTreeItem {
       }.bind(this),
       100
     );
-  }
-
-  @Watch("downloading")
-  downloadingHandler() {
-    if (this.downloading) {
-      this.hidePlusMinusIcon = true;
-      setTimeout(() => (this.showDownloadingIcon = true), 250);
-    } else {
-      this.showDownloadingIcon = false;
-      setTimeout(() => (this.hidePlusMinusIcon = false), 250);
-    }
   }
 
   getParents(elem) {
@@ -160,7 +148,7 @@ export class GxgTreeItem {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
     //e.stopPropagation();
-    this.liItemClicked.emit();
+    //this.liItemClicked.emit();
 
     if (!this.isLeaf) {
       if (this.opened) {
@@ -169,20 +157,38 @@ export class GxgTreeItem {
         this.opened = true;
       }
     }
+
+    const parent = this.el.parentElement.parentElement;
+    if (parent.tagName === "GXG-TREE-ITEM") {
+      (async () => {
+        await ((parent as unknown) as GxgTreeItem).myMethod();
+      })();
+    }
+  }
+
+  @Method()
+  async myMethod() {
+    setTimeout(
+      function() {
+        this.getChildTreeHeight();
+      }.bind(this),
+      10
+    );
   }
 
   liTextDoubleClicked() {
     this.toggleTreeIconClicked();
   }
 
-  liTextClicked() {
+  liTextClicked(e) {
     //Remove focus from current focused item (if any)
-    this.liItemClicked.emit();
+    //this.liItemClicked.emit();
+    //console.log(this.el);
   }
 
   liTextKeyDownPressed(e) {
-    if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
-      e.preventDefault(); //Prevents navigation with tab, and scrolling
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault(); //prevents scrolling
     }
     //ENTER
     if (e.key === "Enter") {
@@ -196,29 +202,56 @@ export class GxgTreeItem {
       }
     }
     //LEFT/RIGHT NAVIGATION
-    if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && !this.isLeaf) {
+    if (e.key === "ArrowRight" && !this.isLeaf) {
       //Toggle the tree
-      if (this.opened) {
-        this.opened = false;
-      } else {
+      if (!this.opened) {
         this.opened = true;
+      } else {
+        const childTree = this.el.querySelector("gxg-tree");
+        const childTreeFirstChildren = childTree.querySelector("gxg-tree-item");
+        const childTreeFirstChildrenLiText = childTreeFirstChildren.shadowRoot.querySelector(
+          ".li-text"
+        );
+        (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
     }
-    // if (e.key === "ArrowRight") {
-    //   //Arrow left should open the tree
-    //   if (!this.opened && !this.isLeaf) {
-    //     this.opened = true;
-    //   }
-    // }
+
+    if (e.key === "ArrowLeft") {
+      let hasParent = false;
+      const parentGxgTreeItem = this.el.parentElement.parentElement;
+      let parentGxgTreeItemLiText = null;
+      if (parentGxgTreeItem.tagName === "GXG-TREE-ITEM") {
+        hasParent = true;
+        parentGxgTreeItemLiText = parentGxgTreeItem.shadowRoot.querySelector(
+          ".li-text"
+        ) as HTMLElement;
+      }
+
+      if (this.isLeaf) {
+        if (hasParent) {
+          parentGxgTreeItemLiText.focus();
+        }
+      } else {
+        const li = this.el.shadowRoot.querySelector("li");
+        if (li.classList.contains("tree-open")) {
+          this.opened = false;
+        } else {
+          if (hasParent) {
+            parentGxgTreeItemLiText.focus();
+          }
+        }
+      }
+    }
 
     // UP/DOWN NAVIGATION
-    if (e.key === "ArrowUp") {
+    if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
+      e.preventDefault();
       if (!this.firstTreeItemOfParentTree) {
         //Set focus on the prev item
         let prevItem;
         const prevElementSibling = this.el.previousElementSibling;
 
-        if (e.shiftKey) {
+        if (e.shiftKey && e.key !== "Tab") {
           //if shift key was pressed, navigate to the previous sibling
           if (prevElementSibling !== null) {
             prevItem = prevElementSibling.shadowRoot.querySelector(
@@ -267,7 +300,8 @@ export class GxgTreeItem {
         }
       }
     }
-    if (e.key === "ArrowDown") {
+    if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
+      e.preventDefault();
       if (!this.lastTreeItemOfParentTree) {
         //Set focus on the next item
         let nextItem;
@@ -324,8 +358,8 @@ export class GxgTreeItem {
     } else {
       paddingLeft = 5;
     }
-    if (!this.isLeaf) {
-      paddingLeft -= 5;
+    if (!this.isLeaf && this.numberOfParentTrees !== 1) {
+      //paddingLeft -= 5;
     }
     this.itemPaddingLeft = paddingLeft;
     return paddingLeft + "px";
@@ -338,17 +372,18 @@ export class GxgTreeItem {
       //If this tree-item has a child tree element, get its height
       const childTreeHeight = (childrenTree.item(0) as HTMLElement)
         .offsetHeight;
+      console.log(childrenTree.item(0));
       this.verticalLineHeight = childTreeHeight - 10 + "px";
     }
   }
 
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
-    return this.itemPaddingLeft + 10 + "px";
-  }
-  returnHorizontallLineLeftPosition() {
-    //Returns the left position of the horizontal line that associates the chid-items with the parent item
-    return this.numberOfParentTrees * 30 + "px";
+    if (this.numberOfParentTrees !== 1) {
+      return this.itemPaddingLeft + 5 + "px";
+    } else {
+      return this.itemPaddingLeft + 5 + "px";
+    }
   }
 
   checkboxTabIndex() {
@@ -356,10 +391,6 @@ export class GxgTreeItem {
   }
   liTextTabIndex() {
     return 1;
-  }
-
-  checkboxClicked() {
-    console.log("clicked");
   }
 
   setIndeterminate() {
@@ -379,8 +410,8 @@ export class GxgTreeItem {
       <li
         class={{
           "tree-open": this.opened,
-          "show-downloading-icon": this.showDownloadingIcon,
-          "hide-plus-minus-icon": this.hidePlusMinusIcon,
+          //"show-downloading-icon": this.showDownloadingIcon,
+          // "hide-plus-minus-icon": this.hidePlusMinusIcon,
           disabled: this.disabled
         }}
       >
@@ -388,6 +419,7 @@ export class GxgTreeItem {
           class={{
             "li-text": true,
             "li-text--not-leaf": !this.isLeaf,
+            "li-text--leaf": this.isLeaf,
             "li-text--first-tree-item": this.firstTreeItem,
             "li-text--has-child-tree": this.hasChildTree
           }}
@@ -397,6 +429,9 @@ export class GxgTreeItem {
           onKeyDown={this.liTextKeyDownPressed.bind(this)}
           tabIndex={this.liTextTabIndex()}
         >
+          {this.download ? (
+            <span class={{ loading: true, "is-leaf": this.isLeaf }}></span>
+          ) : null}
           {!this.isLeaf
             ? [
                 <span
@@ -413,7 +448,7 @@ export class GxgTreeItem {
                     onClick={this.toggleTreeIconClicked.bind(this)}
                     class="toggle-icon"
                   ></gxg-icon>
-                  <span class="loading"></span>
+                  {/* <span class="loading"></span> */}
                 </div>
               ]
             : null}
@@ -431,8 +466,8 @@ export class GxgTreeItem {
               checked={this.checked}
               class={{ checkbox: true }}
               tabIndex={this.checkboxTabIndex()}
-              onClick={this.checkboxClicked.bind(this)}
               indeterminate={this.setIndeterminate()}
+              disabled={this.disabled}
             ></gxg-form-checkbox>
           ) : null}
           {this.leftIcon ? (
