@@ -19,6 +19,7 @@
   { "name": "objects/diagram", "description": "Some description" },
   { "name": "objects/document", "description": "Some description" },
   { "name": "objects/domain", "description": "Some description" },
+  { "name": "objects/dso", "description": "Some description" },
   { "name": "objects/external-object", "description": "Some description" },
   { "name": "objects/file", "description": "Some description" },
   { "name": "objects/folder", "description": "Some description" },
