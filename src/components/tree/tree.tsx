@@ -63,12 +63,21 @@ export class GxgTree {
     });
   }
 
-  @Listen("liItemClicked")
-  liItemClickedHandler() {
-    //Remove focus from tree-items
-    const treeItems = this.el.querySelectorAll("gxg-tree-item");
-    treeItems.forEach(treeItem => {
-      treeItem.setAttribute("focused", "false");
+  // @Listen("liItemClicked")
+  // liItemClickedHandler() {
+  //   //Remove focus from tree-items
+  //   const treeItems = this.el.querySelectorAll("gxg-tree-item");
+  //   treeItems.forEach(treeItem => {
+  //     treeItem.setAttribute("focused", "false");
+  //   });
+  // }
+
+  @Listen("toggleIconClicked")
+  toggleIconClickedHandler() {
+    //Update tree items that are not leaf vertical line height
+    const treeItemsNotLeaf = this.el.querySelectorAll("gxg-tree-item");
+    treeItemsNotLeaf.forEach(treeItemNotLeaf => {
+      treeItemNotLeaf.updateTreeVerticalLineHeight();
     });
   }
 

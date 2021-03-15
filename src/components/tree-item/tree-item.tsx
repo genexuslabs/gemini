@@ -3,6 +3,7 @@ import {
   Event,
   EventEmitter,
   Element,
+  Host,
   Prop,
   State,
   h,
@@ -78,6 +79,7 @@ export class GxgTreeItem {
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
+  @Event() toggleIconClicked: EventEmitter;
 
   @Element() el: HTMLElement;
 
@@ -147,8 +149,6 @@ export class GxgTreeItem {
   toggleTreeIconClicked() {
     //If tree is collapsed, uncollapse.
     //If tree is uncollapsed, collapse.
-    //e.stopPropagation();
-    //this.liItemClicked.emit();
 
     if (!this.isLeaf) {
       if (this.opened) {
@@ -158,32 +158,21 @@ export class GxgTreeItem {
       }
     }
 
-    const parent = this.el.parentElement.parentElement;
-    if (parent.tagName === "GXG-TREE-ITEM") {
-      (async () => {
-        await ((parent as unknown) as GxgTreeItem).myMethod();
-      })();
-    }
+    this.toggleIconClicked.emit();
   }
 
   @Method()
-  async myMethod() {
+  async updateTreeVerticalLineHeight() {
     setTimeout(
       function() {
         this.getChildTreeHeight();
       }.bind(this),
-      10
+      25
     );
   }
 
   liTextDoubleClicked() {
     this.toggleTreeIconClicked();
-  }
-
-  liTextClicked(e) {
-    //Remove focus from current focused item (if any)
-    //this.liItemClicked.emit();
-    //console.log(this.el);
   }
 
   liTextKeyDownPressed(e) {
@@ -407,90 +396,91 @@ export class GxgTreeItem {
 
   render() {
     return (
-      <li
-        class={{
-          "tree-open": this.opened,
-          //"show-downloading-icon": this.showDownloadingIcon,
-          // "hide-plus-minus-icon": this.hidePlusMinusIcon,
-          disabled: this.disabled
-        }}
-      >
-        <div
+      <Host class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}>
+        <li
           class={{
-            "li-text": true,
-            "li-text--not-leaf": !this.isLeaf,
-            "li-text--leaf": this.isLeaf,
-            "li-text--first-tree-item": this.firstTreeItem,
-            "li-text--has-child-tree": this.hasChildTree
+            "tree-open": this.opened,
+            //"show-downloading-icon": this.showDownloadingIcon,
+            // "hide-plus-minus-icon": this.hidePlusMinusIcon,
+            disabled: this.disabled
           }}
-          style={{ paddingLeft: this.returnPaddingLeft() }}
-          onDblClick={this.liTextDoubleClicked.bind(this)}
-          onClick={this.liTextClicked.bind(this)}
-          onKeyDown={this.liTextKeyDownPressed.bind(this)}
-          tabIndex={this.liTextTabIndex()}
         >
-          {this.download ? (
-            <span class={{ loading: true, "is-leaf": this.isLeaf }}></span>
-          ) : null}
-          {!this.isLeaf
-            ? [
-                <span
-                  class={{ "vertical-line": true }}
-                  style={{
-                    height: this.verticalLineHeight,
-                    left: this.returnVerticalLineLeftPosition()
-                  }}
-                ></span>,
-                <div class={{ "closed-opened-loading-icons": true }}>
-                  <gxg-icon
-                    type={this.returnToggleIconType()}
-                    size="small"
-                    onClick={this.toggleTreeIconClicked.bind(this)}
-                    class="toggle-icon"
-                  ></gxg-icon>
-                  {/* <span class="loading"></span> */}
-                </div>
-              ]
-            : null}
-          <span
+          <div
             class={{
-              "horizontal-line": true,
-              "display-none": this.numberOfParentTrees === 1
+              "li-text": true,
+              "li-text--not-leaf": !this.isLeaf,
+              "li-text--leaf": this.isLeaf,
+              "li-text--first-tree-item": this.firstTreeItem,
+              "li-text--has-child-tree": this.hasChildTree
             }}
-            style={{
-              left: this.itemPaddingLeft + "px"
-            }}
-          ></span>
-          {this.checkbox ? (
-            <gxg-form-checkbox
-              checked={this.checked}
-              class={{ checkbox: true }}
-              tabIndex={this.checkboxTabIndex()}
-              indeterminate={this.setIndeterminate()}
-              disabled={this.disabled}
-            ></gxg-form-checkbox>
-          ) : null}
-          {this.leftIcon ? (
-            <gxg-icon
-              size="small"
-              type={this.leftIcon}
-              color={this.disabled ? "disabled" : "auto"}
-            ></gxg-icon>
-          ) : null}
-          <span class="text">
-            <slot></slot>
-          </span>
-          {this.rightIcon ? (
-            <gxg-icon
-              size="small"
-              type={this.rightIcon}
-              color="auto"
-              class="right-icon"
-            ></gxg-icon>
-          ) : null}
-        </div>
-        <slot name="tree"></slot>
-      </li>
+            style={{ paddingLeft: this.returnPaddingLeft() }}
+            onDblClick={this.liTextDoubleClicked.bind(this)}
+            onKeyDown={this.liTextKeyDownPressed.bind(this)}
+            tabIndex={this.liTextTabIndex()}
+          >
+            {this.download ? (
+              <span class={{ loading: true, "is-leaf": this.isLeaf }}></span>
+            ) : null}
+            {!this.isLeaf
+              ? [
+                  <span
+                    class={{ "vertical-line": true }}
+                    style={{
+                      height: this.verticalLineHeight,
+                      left: this.returnVerticalLineLeftPosition()
+                    }}
+                  ></span>,
+                  <div class={{ "closed-opened-loading-icons": true }}>
+                    <gxg-icon
+                      type={this.returnToggleIconType()}
+                      size="small"
+                      onClick={this.toggleTreeIconClicked.bind(this)}
+                      class="toggle-icon"
+                    ></gxg-icon>
+                    {/* <span class="loading"></span> */}
+                  </div>
+                ]
+              : null}
+            <span
+              class={{
+                "horizontal-line": true,
+                "display-none": this.numberOfParentTrees === 1
+              }}
+              style={{
+                left: this.itemPaddingLeft + "px"
+              }}
+            ></span>
+            {this.checkbox ? (
+              <gxg-form-checkbox
+                checked={this.checked}
+                class={{ checkbox: true }}
+                tabIndex={this.checkboxTabIndex()}
+                indeterminate={this.setIndeterminate()}
+                disabled={this.disabled}
+              ></gxg-form-checkbox>
+            ) : null}
+            {this.leftIcon ? (
+              <gxg-icon
+                size="small"
+                type={this.leftIcon}
+                color={this.disabled ? "disabled" : "auto"}
+              ></gxg-icon>
+            ) : null}
+            <span class="text">
+              <slot></slot>
+            </span>
+            {this.rightIcon ? (
+              <gxg-icon
+                size="small"
+                type={this.rightIcon}
+                color="auto"
+                class="right-icon"
+              ></gxg-icon>
+            ) : null}
+          </div>
+          <slot name="tree"></slot>
+        </li>
+      </Host>
     );
   }
 }

@@ -939,7 +939,6 @@ export namespace Components {
      * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon: string;
-    myMethod: () => Promise<void>;
     /**
      * If this tree-item has a nested tree, set this attribute to make the tree open by default
      */
@@ -948,6 +947,7 @@ export namespace Components {
      * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon: string;
+    updateTreeVerticalLineHeight: () => Promise<void>;
   }
 }
 declare global {
@@ -2324,6 +2324,7 @@ declare namespace LocalJSX {
      */
     leftIcon?: string;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
+    onToggleIconClicked?: (event: CustomEvent<any>) => void;
     /**
      * If this tree-item has a nested tree, set this attribute to make the tree open by default
      */

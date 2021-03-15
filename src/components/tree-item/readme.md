@@ -21,13 +21,14 @@
 
 ## Events
 
-| Event           | Description | Type               |
-| --------------- | ----------- | ------------------ |
-| `liItemClicked` |             | `CustomEvent<any>` |
+| Event               | Description | Type               |
+| ------------------- | ----------- | ------------------ |
+| `liItemClicked`     |             | `CustomEvent<any>` |
+| `toggleIconClicked` |             | `CustomEvent<any>` |
 
 ## Methods
 
-### `myMethod() => Promise<void>`
+### `updateTreeVerticalLineHeight() => Promise<void>`
 
 #### Returns
 
