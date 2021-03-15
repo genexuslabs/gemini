@@ -7,9 +7,7 @@ import {
   Prop,
   State,
   h,
-  Watch,
-  Method,
-  Listen
+  Method
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
