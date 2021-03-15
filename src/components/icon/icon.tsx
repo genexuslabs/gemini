@@ -149,10 +149,7 @@ export class GxgIcon {
 
   render() {
     return (
-      <Host
-        aria-label={this.type}
-        class={{ empty: this.type === "gemini-tools/empty" }}
-      >
+      <Host class={{ empty: this.type === "gemini-tools/empty" }}>
         <div
           class={{
             "svg-icon-native": true
