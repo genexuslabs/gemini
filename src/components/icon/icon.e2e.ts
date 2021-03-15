@@ -17,11 +17,6 @@ describe("gxg-icon", () => {
     expect(icon).toHaveClass("hydrated");
   });
 
-  it("has aria label", async () => {
-    await page.waitForChanges();
-    expect(icon.getAttribute("aria-label")).toBe("duplicate");
-  });
-
   //Check size
   it("has the right size", async () => {
     //regular
