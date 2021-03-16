@@ -7,13 +7,14 @@
 | Property | Attribute | Description                                                                                    | Type     | Default     |
 | -------- | --------- | ---------------------------------------------------------------------------------------------- | -------- | ----------- |
 | `icon`   | `icon`    | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons | `string` | `undefined` |
+| `id`     | `id`      | The id (required if you want to know that this item was clicked)                               | `any`    | `undefined` |
 | `type`   | `type`    | The type (optional)                                                                            | `any`    | `undefined` |
 
 ## Events
 
-| Event              | Description                                                                                                 | Type               |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------ |
-| `itemClickedEvent` | This event is fired when the user clicks on an item. event.detail carries the item type property, and text. | `CustomEvent<any>` |
+| Event              | Description                                                                                            | Type               |
+| ------------------ | ------------------------------------------------------------------------------------------------------ | ------------------ |
+| `itemClickedEvent` | This event is fired when the user clicks on an item. event.detail carries the item id, type, and text. | `CustomEvent<any>` |
 
 ## Dependencies
 

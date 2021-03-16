@@ -17,14 +17,14 @@ export class GxgFilter {
   @Element() el: HTMLElement;
 
   /**
-   * The top position of the filter, relative to the closest parent with relative position.
+   * The top position of the filter, relative to the closest parent with relative position. (optional)
    */
-  @Prop() top = "0px";
+  @Prop() top = undefined;
 
   /**
-   * The left position of the filter, relative to the closest parent with relative position.
+   * The left position of the filter, relative to the closest parent with relative position. (optional)
    */
-  @Prop() left = "0px";
+  @Prop() left = undefined;
 
   @State() itemsNodeList: NodeList;
 
@@ -32,8 +32,11 @@ export class GxgFilter {
     this.itemsNodeList = this.el.querySelectorAll("gxg-filter-item");
 
     //Set position
-    this.el.style.top = this.top;
-    this.el.style.left = this.left;
+    if (this.top !== undefined && this.left !== undefined) {
+      this.el.style.top = this.top;
+      this.el.style.left = this.left;
+      this.el.style.position = "absolute";
+    }
   }
 
   onInputGxgformText(e) {
@@ -83,7 +86,6 @@ export class GxgFilter {
   }
 
   render() {
-    console.log("render method");
     return (
       <Host>
         <header id="header">

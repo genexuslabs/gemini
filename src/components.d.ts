@@ -355,19 +355,23 @@ export namespace Components {
   }
   interface GxgFilter {
     /**
-     * The left position of the filter, relative to the closest parent with relative position.
+     * The left position of the filter, relative to the closest parent with relative position. (optional)
      */
-    left: string;
+    left: any;
     /**
-     * The top position of the filter, relative to the closest parent with relative position.
+     * The top position of the filter, relative to the closest parent with relative position. (optional)
      */
-    top: string;
+    top: any;
   }
   interface GxgFilterItem {
     /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon: string;
+    /**
+     * The id (required if you want to know that this item was clicked)
+     */
+    id: any;
     /**
      * The type (optional)
      */
@@ -1712,13 +1716,13 @@ declare namespace LocalJSX {
   }
   interface GxgFilter {
     /**
-     * The left position of the filter, relative to the closest parent with relative position.
+     * The left position of the filter, relative to the closest parent with relative position. (optional)
      */
-    left?: string;
+    left?: any;
     /**
-     * The top position of the filter, relative to the closest parent with relative position.
+     * The top position of the filter, relative to the closest parent with relative position. (optional)
      */
-    top?: string;
+    top?: any;
   }
   interface GxgFilterItem {
     /**
@@ -1726,7 +1730,11 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
-     * This event is fired when the user clicks on an item. event.detail carries the item type property, and text.
+     * The id (required if you want to know that this item was clicked)
+     */
+    id?: any;
+    /**
+     * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
      */
     onItemClickedEvent?: (event: CustomEvent<any>) => void;
     /**

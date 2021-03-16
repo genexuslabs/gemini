@@ -5,16 +5,21 @@ import {
   EventEmitter,
   Host,
   Prop,
-  h
+  h,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-filter-item",
   styleUrl: "gxg-filter-item.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFilterItem {
   @Element() el: HTMLElement;
+
+  /**
+   * The id (required if you want to know that this item was clicked)
+   */
+  @Prop() id = undefined;
 
   /**
    * The type (optional)
@@ -27,16 +32,15 @@ export class GxgFilterItem {
   @Prop() icon: string = undefined;
 
   /**
-   * This event is fired when the user clicks on an item. event.detail carries the item type property, and text.
+   * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
    */
   @Event() itemClickedEvent: EventEmitter;
 
   itemClicked() {
-    const itemText = this.el.innerHTML;
-    const itemType = this.type;
     this.itemClickedEvent.emit({
-      "item-text": itemText,
-      "item-type": itemType
+      "item-id": this.id,
+      "item-text": this.el.innerHTML,
+      "item-type": this.type,
     });
   }
 
