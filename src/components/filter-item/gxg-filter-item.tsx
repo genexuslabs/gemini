@@ -17,9 +17,9 @@ export class GxgFilterItem {
   @Element() el: HTMLElement;
 
   /**
-   * The id (required if you want to know that this item was clicked)
+   * The item-id (required if you want to know that this item was clicked)
    */
-  @Prop() id = undefined;
+  @Prop() itemId = undefined;
 
   /**
    * The type (optional)
@@ -38,7 +38,7 @@ export class GxgFilterItem {
 
   itemClicked() {
     this.itemClickedEvent.emit({
-      "item-id": this.id,
+      "item-id": this.itemId,
       "item-text": this.el.innerHTML,
       "item-type": this.type,
     });
