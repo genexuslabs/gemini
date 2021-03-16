@@ -4,9 +4,11 @@
 
 ## Properties
 
-| Property | Attribute | Description         | Type  | Default     |
-| -------- | --------- | ------------------- | ----- | ----------- |
-| `type`   | `type`    | The type (optional) | `any` | `undefined` |
+| Property | Attribute | Description                                                                                    | Type     | Default     |
+| -------- | --------- | ---------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `icon`   | `icon`    | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons | `string` | `undefined` |
+| `id`     | `id`      | The id (required if you want to know that this item was clicked)                               | `any`    | `undefined` |
+| `type`   | `type`    | The type (optional)                                                                            | `any`    | `undefined` |
 
 ## Events
 
