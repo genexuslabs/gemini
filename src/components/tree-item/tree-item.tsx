@@ -7,12 +7,12 @@ import {
   Prop,
   State,
   h,
-  Method
+  Method,
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree-item",
   styleUrl: "tree-item.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTreeItem {
   checkboxInput!: HTMLInputElement;
@@ -122,7 +122,7 @@ export class GxgTreeItem {
 
   componentDidLoad() {
     setTimeout(
-      function() {
+      function () {
         this.getChildTreeHeight();
       }.bind(this),
       100
@@ -162,7 +162,7 @@ export class GxgTreeItem {
   @Method()
   async updateTreeVerticalLineHeight() {
     setTimeout(
-      function() {
+      function () {
         this.getChildTreeHeight();
       }.bind(this),
       25
@@ -234,6 +234,7 @@ export class GxgTreeItem {
     if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
       e.preventDefault();
       if (!this.firstTreeItemOfParentTree) {
+        //Is not the first element of the parent
         //Set focus on the prev item
         let prevItem;
         const prevElementSibling = this.el.previousElementSibling;
@@ -265,13 +266,23 @@ export class GxgTreeItem {
                   //If preceding tree-item tree is opened, then the prev item is the last item of that tree
                   const prevElemSiblingTreeItem = this.el
                     .previousElementSibling;
-                  console.log(prevElemSiblingTreeItem);
                   const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
                     "gxg-tree"
                   );
-                  prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-                    "li .li-text"
-                  );
+                  //
+                  if (
+                    ((prevElemSiblingTreeItemTree.lastElementChild as unknown) as GxgTreeItem)
+                      .hasChildTree
+                  ) {
+                    prevItem = prevElemSiblingTreeItemTree.lastElementChild
+                      .querySelector("gxg-tree")
+                      .lastElementChild.shadowRoot.querySelector("li .li-text");
+                  } else {
+                    prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                      "li .li-text"
+                    );
+                  }
+                  //
                 } else {
                   //The preciding item has a tree, but it is closed
                   prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
@@ -414,7 +425,7 @@ export class GxgTreeItem {
             "tree-open": this.opened,
             //"show-downloading-icon": this.showDownloadingIcon,
             // "hide-plus-minus-icon": this.hidePlusMinusIcon,
-            disabled: this.disabled
+            disabled: this.disabled,
           }}
         >
           <div
@@ -423,7 +434,7 @@ export class GxgTreeItem {
               "li-text--not-leaf": !this.isLeaf,
               "li-text--leaf": this.isLeaf,
               "li-text--first-tree-item": this.firstTreeItem,
-              "li-text--has-child-tree": this.hasChildTree
+              "li-text--has-child-tree": this.hasChildTree,
             }}
             style={{ paddingLeft: this.returnPaddingLeft() }}
             onDblClick={this.liTextDoubleClicked.bind(this)}
@@ -439,7 +450,7 @@ export class GxgTreeItem {
                     class={{ "vertical-line": true }}
                     style={{
                       height: this.verticalLineHeight,
-                      left: this.returnVerticalLineLeftPosition()
+                      left: this.returnVerticalLineLeftPosition(),
                     }}
                   ></span>,
                   <div class={{ "closed-opened-loading-icons": true }}>
@@ -450,16 +461,16 @@ export class GxgTreeItem {
                       class="toggle-icon"
                     ></gxg-icon>
                     {/* <span class="loading"></span> */}
-                  </div>
+                  </div>,
                 ]
               : null}
             <span
               class={{
                 "horizontal-line": true,
-                "display-none": this.numberOfParentTrees === 1
+                "display-none": this.numberOfParentTrees === 1,
               }}
               style={{
-                left: this.itemPaddingLeft + "px"
+                left: this.itemPaddingLeft + "px",
               }}
             ></span>
             {this.checkbox ? (

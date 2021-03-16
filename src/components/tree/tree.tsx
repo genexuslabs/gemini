@@ -1,9 +1,9 @@
 import { Component, Element, State, h, Prop, Listen } from "@stencil/core";
-import Sortable from "sortablejs";
+//import Sortable from "sortablejs";
 @Component({
   tag: "gxg-tree",
   styleUrl: "tree.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTree {
   @Element() el: HTMLElement;
@@ -41,7 +41,7 @@ export class GxgTree {
     if (this.checkbox) {
       //Add a checkbox to all this tree direct tree-items children
       const directTreeItemChildren = this.el.querySelectorAll("gxg-tree-item");
-      directTreeItemChildren.forEach(treeItem => {
+      directTreeItemChildren.forEach((treeItem) => {
         treeItem.setAttribute("checkbox", "checkbox");
         //If checked attribute is present, also set the checkboxes to be checked
         if (this.checked) {
@@ -57,10 +57,10 @@ export class GxgTree {
     }
 
     //Initialize sortable js
-    Sortable.create(this.ulTree, {
-      group: "foo",
-      animation: 100
-    });
+    // Sortable.create(this.ulTree, {
+    //   group: "foo",
+    //   animation: 100,
+    // });
   }
 
   // @Listen("liItemClicked")
@@ -76,7 +76,7 @@ export class GxgTree {
   toggleIconClickedHandler() {
     //Update tree items that are not leaf vertical line height
     const treeItemsNotLeaf = this.el.querySelectorAll("gxg-tree-item");
-    treeItemsNotLeaf.forEach(treeItemNotLeaf => {
+    treeItemsNotLeaf.forEach((treeItemNotLeaf) => {
       treeItemNotLeaf.updateTreeVerticalLineHeight();
     });
   }
@@ -86,11 +86,11 @@ export class GxgTree {
       <div
         class={{
           tree: true,
-          "main-tree": true
+          "main-tree": true,
         }}
       >
         <div class="main-tree-container">
-          <ul ref={el => (this.ulTree = el as HTMLElement)}>
+          <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
             <slot></slot>
           </ul>
         </div>
@@ -99,10 +99,10 @@ export class GxgTree {
       <div
         class={{
           tree: true,
-          "nested-tree": true
+          "nested-tree": true,
         }}
       >
-        <ul ref={el => (this.ulTree = el as HTMLElement)}>
+        <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
           <slot></slot>
         </ul>
       </div>
