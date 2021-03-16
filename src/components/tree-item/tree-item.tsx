@@ -8,7 +8,9 @@ import {
   State,
   h,
   Method,
+  Watch,
 } from "@stencil/core";
+import { Color } from "../icon/icon";
 @Component({
   tag: "gxg-tree-item",
   styleUrl: "tree-item.scss",
@@ -29,14 +31,19 @@ export class GxgTreeItem {
   @Prop() checked = false;
 
   /**
+   * Set this attribute if this tree-item has a resource to be downloaded;
+   */
+  @Prop() download = false;
+
+  /**
    * Set this attribute when you are downloading a resource
    */
   @Prop() downloading = false;
 
   /**
-   * Set this attribute if this tree-item has a resource to be downloaded;
+   * Set this attribute when you have downloaded the resource
    */
-  @Prop() download = false;
+  @Prop() downloaded = false;
 
   /**
    * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
@@ -69,11 +76,10 @@ export class GxgTreeItem {
   @State() itemPaddingLeft;
   @State() verticalLineHeight: string;
   @State() horizontalLinePaddingLeft = 0;
-  // @State() hidePlusMinusIcon: boolean;
-  // @State() showDownloadingIcon = false;
   @State() lastTreeItem = false;
   @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
+  @State() rightIconColor: Color = "auto";
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
@@ -118,6 +124,19 @@ export class GxgTreeItem {
         this.lastTreeItemOfParentTree = true;
       }
     }
+
+    //Set right icon color
+    if (this.download && this.rightIcon.includes("download")) {
+      this.rightIconColor = "primary";
+    } else if (this.disabled) {
+      this.rightIconColor = "disabled";
+    }
+
+    //If this tree item has a source to download, this item has child tree, and is not leaf
+    if (this.download) {
+      this.hasChildTree = true;
+      this.isLeaf = false;
+    }
   }
 
   componentDidLoad() {
@@ -127,6 +146,13 @@ export class GxgTreeItem {
       }.bind(this),
       100
     );
+  }
+
+  @Watch("downloaded")
+  watchHandler(newValue: boolean) {
+    if (newValue) {
+      this.updateTreeVerticalLineHeight();
+    }
   }
 
   getParents(elem) {
@@ -145,17 +171,13 @@ export class GxgTreeItem {
   }
 
   toggleTreeIconClicked() {
-    //If tree is collapsed, uncollapse.
-    //If tree is uncollapsed, collapse.
-
-    if (!this.isLeaf) {
-      if (this.opened) {
-        this.opened = false;
-      } else {
-        this.opened = true;
-      }
+    if (this.opened) {
+      console.log("opened");
+      this.opened = false;
+    } else {
+      console.log("closed");
+      this.opened = true;
     }
-
     this.toggleIconClicked.emit();
   }
 
@@ -165,7 +187,7 @@ export class GxgTreeItem {
       function () {
         this.getChildTreeHeight();
       }.bind(this),
-      25
+      50
     );
   }
 
@@ -314,6 +336,7 @@ export class GxgTreeItem {
       }
     }
     if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
+      console.log("arrow down");
       e.preventDefault();
       if (!this.lastTreeItemOfParentTree) {
         //Set focus on the next item
@@ -328,6 +351,7 @@ export class GxgTreeItem {
           }
         } else {
           if (this.lastTreeItem) {
+            console.log("last tree item");
             if (this.hasChildTree && this.opened) {
               nextItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
                 ".li-text"
@@ -352,6 +376,8 @@ export class GxgTreeItem {
               }
             }
           } else {
+            console.log("this is not the last tree item");
+            console.log(this.hasChildTree);
             if (this.hasChildTree && this.opened) {
               nextItem = this.el
                 .querySelector("gxg-tree gxg-tree-item")
@@ -447,10 +473,6 @@ export class GxgTreeItem {
     }
   }
 
-  leftColorIcon() {
-    return "success";
-  }
-
   render() {
     return (
       <Host class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}>
@@ -473,9 +495,6 @@ export class GxgTreeItem {
             onKeyDown={this.liTextKeyDownPressed.bind(this)}
             tabIndex={this.liTextTabIndex()}
           >
-            {this.download ? (
-              <span class={{ loading: true, "is-leaf": this.isLeaf }}></span>
-            ) : null}
             {!this.isLeaf || this.download
               ? [
                   <span
@@ -527,10 +546,11 @@ export class GxgTreeItem {
               <gxg-icon
                 size="small"
                 type={this.rightIcon}
-                color="auto"
-                class="right-icon"
+                color={this.rightIconColor}
+                class={{ "right-icon": true }}
               ></gxg-icon>
             ) : null}
+            {this.download ? <span class={{ loading: true }}></span> : null}
           </div>
           <slot name="tree"></slot>
         </li>

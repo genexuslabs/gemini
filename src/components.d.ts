@@ -925,6 +925,10 @@ export namespace Components {
      */
     download: boolean;
     /**
+     * Set this attribute when you have downloaded the resource
+     */
+    downloaded: boolean;
+    /**
      * Set this attribute when you are downloading a resource
      */
     downloading: boolean;
@@ -2308,6 +2312,10 @@ declare namespace LocalJSX {
      * Set this attribute if this tree-item has a resource to be downloaded;
      */
     download?: boolean;
+    /**
+     * Set this attribute when you have downloaded the resource
+     */
+    downloaded?: boolean;
     /**
      * Set this attribute when you are downloading a resource
      */

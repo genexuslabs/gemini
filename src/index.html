@@ -100,22 +100,8 @@
         </gxg-tree-item>
       </gxg-tree>
     </gxg-tree-item>
-    <gxg-tree-item left-icon="general/patterns" checkbox opened download downloading disabled right-icon="gemini-tools/download">
+    <gxg-tree-item id="fish" left-icon="general/patterns" checkbox opened download disabled right-icon="gemini-tools/download">
       Fish
-      <!-- <gxg-tree checkbox slot="tree">
-        <gxg-tree-item left-icon="general/patterns">
-          Alaskan salmon
-        </gxg-tree-item>
-        <gxg-tree-item left-icon="general/patterns"> 
-          Cod
-        </gxg-tree-item>
-        <gxg-tree-item left-icon="general/patterns">
-          Herring
-        </gxg-tree-item>
-        <gxg-tree-item left-icon="general/patterns">
-          Mahi-mahi
-        </gxg-tree-item>
-      </gxg-tree> -->
     </gxg-tree-item>
     <gxg-tree-item checkbox opened left-icon="objects/module">
       Fruits
@@ -193,6 +179,38 @@
     </gxg-tree>
   </gxg-tree-item>
   </gxg-tree>
+
+  <script>
+    const fishItem = document.getElementById('fish');
+    var handler = function (){
+      fishItem.setAttribute("downloading", "");
+      setTimeout(function(){
+      const fishItems = `<gxg-tree checkbox slot="tree">
+        <gxg-tree-item left-icon="general/patterns">
+          Alaskan salmon
+        </gxg-tree-item>
+        <gxg-tree-item left-icon="general/patterns"> 
+          Cod
+        </gxg-tree-item>
+        <gxg-tree-item left-icon="general/patterns">
+          Herring
+        </gxg-tree-item>
+        <gxg-tree-item left-icon="general/patterns">
+          Mahi-mahi
+        </gxg-tree-item>
+      </gxg-tree>`
+      fishItem.insertAdjacentHTML( 'beforeend', fishItems );
+      fishItem.setAttribute("downloaded","");
+      fishItem.removeAttribute("disabled");
+      fishItem.removeAttribute("download");
+      fishItem.removeAttribute("downloading");
+    }, 1500);
+    fishItem.removeEventListener("click", handler);
+    }
+    fishItem.addEventListener('click', handler);
+  </script>
+
+      <!--  -->
 
 
   <h3>Tree with checkboxes and left icons <span style="text-decoration: underline;">closed</span></h3>

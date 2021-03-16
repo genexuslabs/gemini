@@ -10,6 +10,7 @@
 | `checked`       | `checked`         | Set this attribute if you want the gxg-treeitem checkbox to be checked by default                                              | `boolean` | `false`     |
 | `disabled`      | `disabled`        |                                                                                                                                | `boolean` | `false`     |
 | `download`      | `download`        | Set this attribute if this tree-item has a resource to be downloaded;                                                          | `boolean` | `false`     |
+| `downloaded`    | `downloaded`      | Set this attribute when you have downloaded the resource                                                                       | `boolean` | `false`     |
 | `downloading`   | `downloading`     | Set this attribute when you are downloading a resource                                                                         | `boolean` | `false`     |
 | `firstTreeItem` | `first-tree-item` |                                                                                                                                | `boolean` | `false`     |
 | `hasChildTree`  | `has-child-tree`  |                                                                                                                                | `boolean` | `false`     |
