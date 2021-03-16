@@ -201,6 +201,7 @@ export class GxgTreeItem {
         );
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
+      this.toggleIconClicked.emit(); //this recalculates the vertical line height
     }
 
     if (e.key === "ArrowLeft") {
@@ -228,6 +229,7 @@ export class GxgTreeItem {
           }
         }
       }
+      this.toggleIconClicked.emit(); //this recalculates the vertical line height
     }
 
     // UP/DOWN NAVIGATION
@@ -335,9 +337,14 @@ export class GxgTreeItem {
               const thisTreeParent = thisTree.parentElement;
               const thisTreeParentNextTree = thisTreeParent.nextElementSibling;
               if (thisTreeParentNextTree === null) {
-                nextItem = thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
-                  ".li-text"
-                );
+                if (
+                  thisTreeParent.parentElement.parentElement
+                    .nextElementSibling !== null
+                ) {
+                  nextItem = thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
+                    ".li-text"
+                  );
+                }
               } else {
                 nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
                   ".li-text"
@@ -361,10 +368,14 @@ export class GxgTreeItem {
         }
       } else {
         //Last element of parent tree
-        if (this.el.classList.contains("not-leaf")) {
-          console.log("not leaf");
-        } else {
-          console.log("leaf");
+        if (
+          this.el.classList.contains("not-leaf") &&
+          this.el.shadowRoot.querySelector("li").classList.contains("tree-open")
+        ) {
+          const childTreeFirstTreeItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
+            "li .li-text"
+          );
+          (childTreeFirstTreeItem as HTMLElement).focus();
         }
       }
     }
@@ -476,14 +487,13 @@ export class GxgTreeItem {
                       left: this.returnVerticalLineLeftPosition(),
                     }}
                   ></span>,
-                  <div class={{ "closed-opened-loading-icons": true }}>
+                  <div class={{ "closed-opened-icons": true }}>
                     <gxg-icon
                       type={this.returnToggleIconType()}
                       size="small"
                       onClick={this.toggleTreeIconClicked.bind(this)}
                       class="toggle-icon"
                     ></gxg-icon>
-                    {/* <span class="loading"></span> */}
                   </div>,
                 ]
               : null}
