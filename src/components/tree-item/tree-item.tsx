@@ -383,10 +383,10 @@ export class GxgTreeItem {
 
   returnToggleIconType() {
     //Returns the type of icon : gemini-tools/add or gemini-tools/minus
-    if (this.opened) {
-      return "gemini-tools/minus";
-    } else {
+    if (!this.opened || this.download) {
       return "gemini-tools/add";
+    } else {
+      return "gemini-tools/minus";
     }
   }
 
@@ -457,8 +457,6 @@ export class GxgTreeItem {
         <li
           class={{
             "tree-open": this.opened,
-            //"show-downloading-icon": this.showDownloadingIcon,
-            // "hide-plus-minus-icon": this.hidePlusMinusIcon,
             disabled: this.disabled,
           }}
         >
@@ -478,7 +476,7 @@ export class GxgTreeItem {
             {this.download ? (
               <span class={{ loading: true, "is-leaf": this.isLeaf }}></span>
             ) : null}
-            {!this.isLeaf
+            {!this.isLeaf || this.download
               ? [
                   <span
                     class={{ "vertical-line": true }}
