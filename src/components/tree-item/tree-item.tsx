@@ -274,9 +274,21 @@ export class GxgTreeItem {
                     ((prevElemSiblingTreeItemTree.lastElementChild as unknown) as GxgTreeItem)
                       .hasChildTree
                   ) {
-                    prevItem = prevElemSiblingTreeItemTree.lastElementChild
-                      .querySelector("gxg-tree")
-                      .lastElementChild.shadowRoot.querySelector("li .li-text");
+                    if (
+                      prevElemSiblingTreeItemTree.lastElementChild.shadowRoot
+                        .querySelector("li")
+                        .classList.contains("tree-open")
+                    ) {
+                      prevItem = prevElemSiblingTreeItemTree.lastElementChild
+                        .querySelector("gxg-tree")
+                        .lastElementChild.shadowRoot.querySelector(
+                          "li .li-text"
+                        );
+                    } else {
+                      prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                        "li .li-text"
+                      );
+                    }
                   } else {
                     prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
                       "li .li-text"
@@ -314,7 +326,7 @@ export class GxgTreeItem {
           }
         } else {
           if (this.lastTreeItem) {
-            if (this.hasChildTree) {
+            if (this.hasChildTree && this.opened) {
               nextItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
                 ".li-text"
               );
@@ -349,6 +361,11 @@ export class GxgTreeItem {
         }
       } else {
         //Last element of parent tree
+        if (this.el.classList.contains("not-leaf")) {
+          console.log("not leaf");
+        } else {
+          console.log("leaf");
+        }
       }
     }
   }
@@ -382,10 +399,16 @@ export class GxgTreeItem {
     //Get the children tree height to calculate the vertical line that associates the chid-items with the parent item
     const childrenTree = this.el.children;
     if (childrenTree.item(0) !== null) {
+      const childrenTreeChildTreeItems = childrenTree.item(0).children;
+      const lastChildrenTreeChildTreeItemHeight = (childrenTreeChildTreeItems.item(
+        childrenTreeChildTreeItems.length - 1
+      ) as HTMLElement).offsetHeight;
+
       //If this tree-item has a child tree element, get its height
       const childTreeHeight = (childrenTree.item(0) as HTMLElement)
         .offsetHeight;
-      this.verticalLineHeight = childTreeHeight - 10 + "px";
+      this.verticalLineHeight =
+        childTreeHeight - lastChildrenTreeChildTreeItemHeight + 10 + "px";
     }
   }
 
