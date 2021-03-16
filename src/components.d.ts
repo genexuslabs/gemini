@@ -369,9 +369,9 @@ export namespace Components {
      */
     icon: string;
     /**
-     * The id (required if you want to know that this item was clicked)
+     * The item-id (required if you want to know that this item was clicked)
      */
-    id: any;
+    itemId: any;
     /**
      * The type (optional)
      */
@@ -956,6 +956,59 @@ export namespace Components {
      */
     position: position;
   }
+  interface GxgTree {
+    /**
+     * Set this attribute if you want all this tree tree-items to have a checkbox
+     */
+    checkbox: boolean;
+    /**
+     * Set this attribute if you want all this tree tree-items to have the checkbox checked
+     */
+    checked: boolean;
+  }
+  interface GxgTreeItem {
+    /**
+     * Set this attribute if you want the gxg-treeitem to display a checkbox
+     */
+    checkbox: boolean;
+    /**
+     * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
+     */
+    checked: boolean;
+    disabled: boolean;
+    /**
+     * Set this attribute if this tree-item has a resource to be downloaded;
+     */
+    download: boolean;
+    /**
+     * Set this attribute when you have downloaded the resource
+     */
+    downloaded: boolean;
+    /**
+     * Set this attribute when you are downloading a resource
+     */
+    downloading: boolean;
+    firstTreeItem: boolean;
+    hasChildTree: boolean;
+    indeterminate: boolean;
+    /**
+     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     */
+    isLeaf: boolean;
+    /**
+     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    leftIcon: string;
+    /**
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
+    opened: boolean;
+    /**
+     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    rightIcon: string;
+    updateTreeVerticalLineHeight: () => Promise<void>;
+  }
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -1316,6 +1369,18 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
+  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {}
+  var HTMLGxgTreeElement: {
+    prototype: HTMLGxgTreeElement;
+    new (): HTMLGxgTreeElement;
+  };
+  interface HTMLGxgTreeItemElement
+    extends Components.GxgTreeItem,
+      HTMLStencilElement {}
+  var HTMLGxgTreeItemElement: {
+    prototype: HTMLGxgTreeItemElement;
+    new (): HTMLGxgTreeItemElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -1371,6 +1436,8 @@ declare global {
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
+    "gxg-tree": HTMLGxgTreeElement;
+    "gxg-tree-item": HTMLGxgTreeItemElement;
   }
 }
 declare namespace LocalJSX {
@@ -1730,9 +1797,9 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
-     * The id (required if you want to know that this item was clicked)
+     * The item-id (required if you want to know that this item was clicked)
      */
-    id?: any;
+    itemId?: any;
     /**
      * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
      */
@@ -2366,6 +2433,60 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
+  interface GxgTree {
+    /**
+     * Set this attribute if you want all this tree tree-items to have a checkbox
+     */
+    checkbox?: boolean;
+    /**
+     * Set this attribute if you want all this tree tree-items to have the checkbox checked
+     */
+    checked?: boolean;
+  }
+  interface GxgTreeItem {
+    /**
+     * Set this attribute if you want the gxg-treeitem to display a checkbox
+     */
+    checkbox?: boolean;
+    /**
+     * Set this attribute if you want the gxg-treeitem checkbox to be checked by default
+     */
+    checked?: boolean;
+    disabled?: boolean;
+    /**
+     * Set this attribute if this tree-item has a resource to be downloaded;
+     */
+    download?: boolean;
+    /**
+     * Set this attribute when you have downloaded the resource
+     */
+    downloaded?: boolean;
+    /**
+     * Set this attribute when you are downloading a resource
+     */
+    downloading?: boolean;
+    firstTreeItem?: boolean;
+    hasChildTree?: boolean;
+    indeterminate?: boolean;
+    /**
+     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     */
+    isLeaf?: boolean;
+    /**
+     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    leftIcon?: string;
+    onLiItemClicked?: (event: CustomEvent<any>) => void;
+    onToggleIconClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
+    opened?: boolean;
+    /**
+     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    rightIcon?: string;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -2421,6 +2542,8 @@ declare namespace LocalJSX {
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
+    "gxg-tree": GxgTree;
+    "gxg-tree-item": GxgTreeItem;
   }
 }
 export { LocalJSX as JSX };
@@ -2525,6 +2648,9 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
+      "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
+      "gxg-tree-item": LocalJSX.GxgTreeItem &
+        JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
     }
   }
 }

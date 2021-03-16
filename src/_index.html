@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>2 - SASS - Night Mode with Class</title>
+
+  <script type="module" src="/build/gemini.esm.js"></script>
+  <script nomodule src="/build/gemini.js"></script>
+  <link href="/build/gemini.css" rel="stylesheet" />
+
+  <style>
+    html {
+      background: var(--color-background);
+      transition: background 0.2s ease-in-out;
+      font-family: arial;
+      color: var(--color-text);
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      opacity: 0.5;
+    }
+    body {
+      padding: 100px;
+    }
+  </style>
+</head>
+
+<body >
+
+  <!-----------------------------------------------
+    UNNAMED
+  ------------------------------------------------>
+  <gxg-filter id="gxgFilter">
+    <gxg-filter-item icon='objects/webpanel' type="webpanel">Webpanels</gxg-filter-item>
+    <gxg-filter-item >Webpanel01</gxg-filter-item>
+    <gxg-filter-item icon='objects/module' type="module">PrimaryModule.InModuleDSO PrimaryModule.InModuleDSO</gxg-filter-item>
+    <gxg-filter-item icon='objects/themes' type="themes">DesignSystems</gxg-filter-item>
+    <gxg-filter-item icon='objects/webpanel' type="webpanel">WebPanel02</gxg-filter-item>
+    <gxg-filter-item icon='objects/object' type="object">DesignSystem01</gxg-filter-item>
+    <gxg-filter-item icon='objects/module' type="module">SecondaryModule.InModuleDSO</gxg-filter-item>
+    <gxg-filter-item icon='objects/webpanel' type="webpanel">WebPanel03</gxg-filter-item>
+    <gxg-filter-item icon='objects/object' type="object">DesignSystem02</gxg-filter-item>
+  </gxg-filter>
+  <script>
+    const gxgFilter = document.getElementById('gxgFilter');
+    gxgFilter.addEventListener('itemClickedEvent', function(e){
+      console.log(e.detail);
+    })
+  </script>
+
+  <!-----------------------------------------------
+    ALERTS
+  ------------------------------------------------>
+
+  <!-- <h3>Alerts</h3>
+  <gxg-button type="primary-text-only" onClick="(function(){
+    document.getElementById('alert-notice').setAttribute('active', 'true');
+    return false;
+})();">Alert notice</gxg-button>
+
+<gxg-button type="primary-text-only" onClick="(function(){
+  document.getElementById('alert-error').setAttribute('active', 'true');
+  return false;
+})();">Alert error</gxg-button>
+
+<gxg-button type="primary-text-only" onClick="(function(){
+  document.getElementById('alert-success').setAttribute('active', 'true');
+  return false;
+})();">Alert success</gxg-button>
+
+<gxg-button type="primary-text-only" onClick="(function(){
+  document.getElementById('alert-warning').setAttribute('active', 'true');
+  return false;
+})();">Alert warning</gxg-button>
+
+  <gxg-alert
+  id="alert-notice"
+  type="notice"
+  bottom="s"
+  position="center"
+  title="Notice">
+  This is the notice alert
+  </gxg-alert>
+
+  <gxg-alert
+    id="alert-error"
+    type="error"
+    active-time="xfast"
+    bottom="s"
+    position="start"
+    title="Error"
+    left-right="no-space">
+    This is the error alert
+  </gxg-alert>
+
+  <gxg-alert
+  id="alert-success"
+  type="success"
+  active-time="xfast"
+  bottom="s"
+  position="end"
+  title="Success"
+  left-right="no-space">
+  This is the success alert
+  </gxg-alert>
+
+  <gxg-alert
+  id="alert-warning"
+  type="warning"
+  active-time="xfast"
+  bottom="s"
+  position="center"
+  title="Warning">
+  This is the warning alert
+  </gxg-alert> -->
+
+  <!-----------------------------------------------
+    TOOLBAR
+  ------------------------------------------------>
+
+  <!-- <h3>Toolbar</h3>
+  <h4>Start</h4>
+  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="start" disabled>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="some title"
+      subtitle="some subtitle"
+      disabled
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      slot
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+  </gxg-toolbar>
+
+  <h4>Top</h4>
+  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="top">
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="some title"
+      subtitle="some subtitle"
+      disabled
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      slot
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+  </gxg-toolbar>
+
+
+  <h4>Bottom</h4>
+  <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="bottom">
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="some title"
+      subtitle="some subtitle"
+      disabled
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+    <gxg-toolbar-item
+      slot
+      icon="gemini-tools/settings"
+      toolbar-item-title="Title"
+      subtitle="subtitle"
+    ></gxg-toolbar-item>
+  </gxg-toolbar> -->
+
+
+  <!-----------------------------------------------
+    CONTAINERS
+  ------------------------------------------------>
+
+  <!-- <h3>Containers</h3>
+  <h4>Box</h4>
+  <gxg-box background="gray-01" padding="l">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
+  </gxg-box>
+
+  <h4>Box with border</h4>
+  <gxg-box padding="l">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
+  </gxg-box>
+
+
+  <h4>Card</h4>
+  <gxg-card background="gray-01" padding="l">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
+  </gxg-card> -->
+
+  <!-----------------------------------------------
+    ACCORDIONS
+  ------------------------------------------------>
+
+  <!-- <h3>Accordions</h3>
+
+  <h4>Classical</h4>
+
+  <gxg-accordion mode="classical">
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Classical no padding</h4>
+
+  <gxg-accordion mode="classical" no-padding>
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Classical disabled</h4>
+
+  <gxg-accordion mode="classical">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Boxed</h4>
+
+  <gxg-accordion mode="boxed">
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Boxed no padding</h4>
+
+  <gxg-accordion mode="boxed" no-padding>
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Boxed disabled</h4>
+
+  <gxg-accordion mode="boxed">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-04" item-id="tab-04">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+      some content on accordion 3.
+      <div slot="meta">
+        some meta
+      </div>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-07" item-id="tab-07">
+      some content on accordion 3.
+      <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+    </gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Slim</h4>
+
+  <gxg-accordion mode="slim">
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Slim no padding</h4>
+
+  <gxg-accordion mode="slim" no-padding>
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Slim disabled</h4>
+
+  <gxg-accordion mode="slim">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Minimal</h4>
+
+  <gxg-accordion mode="minimal">
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+  <h4>Minimal no padding</h4>
+
+  <gxg-accordion mode="minimal" no-padding>
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+  <br>
+
+
+  <h4>Minimal disabled</h4>
+
+  <gxg-accordion mode="minimal">
+    <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 100
+    </gxg-accordion-item>
+    <gxg-accordion-item disabled title-icon="navigation/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+    <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+  </gxg-accordion> 
+
+
+  <h3>Pills</h3>
+  <gxg-pill type="static" icon="objects/procedure">Pill Static Icon</gxg-pill>
+  <gxg-pill type="static">Pill Static</gxg-pill>
+  <gxg-pill type="static-with-action" icon="objects/procedure">Pill static-action Icon</gxg-pill>
+  <gxg-pill type="static-with-action">Pill static-action</gxg-pill>
+  <gxg-pill type="button" icon="objects/procedure">Pill Button Icon</gxg-pill>
+  <gxg-pill type="button">Pill Button</gxg-pill>
+  <gxg-pill type="button-with-action" icon="objects/procedure">Pill button-with-action icon</gxg-pill>
+  <gxg-pill type="button-with-action">Pill button-with-action</gxg-pill>
+
+
+  <h3>Checkbox</h3>
+  <gxg-form-checkbox></gxg-form-checkbox>
+  
+  <h3>Tree</h3>
+  <gxg-tree>
+    <gxg-tree-item>
+      Fruits
+      <gxg-tree slot="tree">
+          <gxg-tree-item checkbox>apple</gxg-tree-item>
+          <gxg-tree-item>
+            banana
+            <gxg-tree slot="tree">
+              <gxg-tree-item>
+                cavendish banana
+              </gxg-tree-item>
+              <gxg-tree-item>
+                pisang raja
+              </gxg-tree-item>
+              <gxg-tree-item>
+                red banana
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Vegetables
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          sweat potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          lettuce
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>Seasonings</gxg-tree-item>
+  </gxg-tree>
+
+  <h3>Modal</h3>
+  <gxg-modal
+        padding="m"
+        modal-title="Welcome to the Design Tokens Editor!"
+        id="gxgModal"
+        footerJustifyContent="space-between"
+      >
+        Here you can create and edit your own css tokens. Would you like to take
+        the demo? It will only take two minutes!
+        <gxg-button
+          slot="footer"
+          type="primary-text-only"
+          onClick={this.initiateDemoFunc.bind(this)}
+        >
+          Yes, please
+        </gxg-button>
+        <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>
+        <gxg-button
+          slot="footer"
+          type="secondary-text-only"
+          onClick={this.cancelDemoFunc.bind(this)}
+        >
+          I will figure it out myselfs
+        </gxg-button>
+        <gxg-form-checkbox slot="after-footer" label="Do not show this again" id="not-show-this-again"></gxg-form-checkbox>
+      </gxg-modal>
+  <gxg-button id="show-modal-btn" type="primary-text-only">Show Modal</gxg-button>
+  <script>
+    const btnShowModal = document.querySelector('#show-modal-btn');
+    const gxgModal = document.querySelector('#gxgModal');
+    btnShowModal.addEventListener('click', event => {
+      gxgModal.setAttribute('visible','true');
+    });
+    </script>
+
+  <h3>Toggle</h3>
+  <gxg-toggle label="Toggle"></gxg-toggle>
+
+
+  
+  <h3>Buttons</h3>
+  <h4>Primary Text Only</h4>
+  <gxg-button type="secondary-icon-only" icon="gemini-tools/read-only"></gxg-button>
+  <gxg-button id="btn-primary-text-only" type="primary-text-only" disabled>Button</gxg-button>
+  <script>
+    let btnPrimaryTextOnly = document.getElementById("btn-primary-text-only");
+    btnPrimaryTextOnly.addEventListener("click", function(){
+      alert("hola");
+    })
+  </script>
+
+
+<button id="updateGxgTestBtn">new model</button>
+<script>
+  let optionsArray = [
+      "uno",
+      "dos",
+      "tres",
+    ]
+  let newModelBtn = document.querySelector("#updateGxgTestBtn");
+  const gxgTest = document.querySelector("gxg-test");
+    newModelBtn.addEventListener("click", function(){
+      gxgTest.optionsArray = optionsArray;
+    })
+</script>
+<br><br><br>
+<gxg-select label="Index" label-position="start">
+  <gxg-option value="dark">Dark</gxg-option>
+  <gxg-option value="light">Light</gxg-option>
+  <gxg-option selected value="light">
+    1
+  </gxg-option>
+  <gxg-option value="light">2</gxg-option>
+  <gxg-option value="light">3</gxg-option>
+</gxg-select>
+
+  
+
+  
+  <h3>Scroll</h3>
+  <gxg-scroll max-height="126px">
+    <gxg-text>
+      Crabbed Age and Youth<br>
+      Cannot live together:<br>
+      Youth is full of pleasance,<br>
+      Age is full of care;<br>
+      Youth like summer morn,<br>
+      Age like winter weather;<br>
+      Youth like summer brave,<br>
+      Age like winter bare:<br>
+      Youth is full of sports,<br>
+      Age's breath is short,<br>
+      Youth is nimble, Age is lame:<br>
+      Youth is hot and bold,<br>
+      Age is weak and cold,<br>
+      Youth is wild, and Age is tame:-<br>
+      Age, I do abhor thee;<br>
+      Youth, I do adore thee;<br>
+      O! my Love, my Love is young!<br>
+      Age, I do defy thee-<br>
+      O sweet shepherd, hie thee,<br>
+      For methinks thou stay'st too long. 
+      </gxg-text>
+  </gxg-scroll>
+
+
+  <h3>Drag</h3>
+  <gxg-drag-container>
+    <gxg-drag-box class="draggable">Container 01</gxg-drag-box>
+    <gxg-drag-box class="draggable">Container 02</gxg-drag-box>
+    <gxg-drag-box class="draggable">Container 03</gxg-drag-box>
+    <gxg-drag-box class="draggable">Container 04</gxg-drag-box>
+    <gxg-drag-box class="draggable">Container 05</gxg-drag-box>
+</gxg-drag-container>
+
+<h3>Modal</h3>
+<gxg-modal
+id="modal"
+modal-title="Modal Title"
+footer-alignment="right"
+>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, dolorum
+voluptatibus harum minima aut id architecto adipisci tempore numquam
+explicabo iure quae, laborum qui at? Qui nemo in facere voluptates.
+<gxg-button slot="footer" type="secondary-text-only">Label</gxg-button>
+<gxg-spacer-one slot="footer" space="xxsmall"></gxg-spacer-one>
+<gxg-button slot="footer" type="primary-text-only">Label</gxg-button>
+</gxg-modal>
+<gxg-button
+onClick="(function(){
+const modal = document.getElementById('modal');
+modal.setAttribute('visible','true');
+return false;
+})();return false;"
+>Launch Modal</gxg-button
+>
+
+<h3>Select</h3>
+
+ -->
+
+  <!-- <gxg-select label="Themes" label-position="start">
+    <gxg-option value="dark">Dark</gxg-option>
+    <gxg-option value="light">Light</gxg-option>
+    <gxg-option selected value="light">1</gxg-option>
+    <gxg-option value="light">2</gxg-option>
+    <gxg-option value="light">3</gxg-option>
+  </gxg-select>
+  <h4>Select disabled</h4>
+  <gxg-select disabled label="Themes" label-position="start">
+    <gxg-option value="dark">Dark</gxg-option>
+    <gxg-option value="light">Light</gxg-option>
+    <gxg-option selected value="light">1</gxg-option>
+    <gxg-option value="light">2</gxg-option>
+    <gxg-option value="light">3</gxg-option>
+  </gxg-select> -->
+
+  <!-- <h3>Text</h3>
+  <gxg-form-text
+type="text"
+label="Default"
+placeholder="Placeholder text"
+icon="search"
+icon-position="right"
+></gxg-form-text>
+
+<h4>Text disabled</h4>
+
+<gxg-form-text
+type="text"
+label="Default"
+placeholder="Placeholder text"
+icon="search"
+icon-position="right"
+disabled
+></gxg-form-text>
+
+<h3>Buttons</h3>
+<h4>Secondary text only</h4>
+<gxg-button type="secondary-text-only">Button</gxg-button> -->
+
+  <!-- <gxg-stepper
+    min="-4"
+    max="10"
+    value="-5"
+    label="Stepper"
+    tabindex="0"
+    label-position="start"
+  ></gxg-stepper>
+
+    <gxg-select label="Themes" label-position="start">
+      <gxg-option value="dark">Dark</gxg-option>
+      <gxg-option value="light">Light</gxg-option>
+    </gxg-select>
+
+    <span class="icon-checkbox-checked"></span>
+    <label style="font-size:12px;"
+      >Enable Dark Mode
+      <input
+        style="position: relative; top: 3px;"
+        type="checkbox"
+        name="night"
+        id="toggleDarkTheme"/></label
+    ><br /><br />
+
+
+    <gxg-button type="primary-text-only" id="button">Salt</gxg-button>
+
+
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+        Some content on accordion 100
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+  </gxg-accordion> -->
+  <!-- 
+  <gxg-accordion mode="slim">
+    <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+      Some content on accordion 1
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+</gxg-accordion> -->
+
+
+  <!-- CONTEXTUAL MENU -->
+  <!-- <gxg-contextual-menu> 
+      <gxg-contextual-menu-item icon="gemini-tools/folder">
+        Item 1
+        <gxg-contextual-menu-submenu>
+          <gxg-contextual-menu-item>
+            Item 1
+          </gxg-contextual-menu-item>
+          <gxg-contextual-menu-item>
+            Item 1
+          </gxg-contextual-menu-item>
+          <gxg-contextual-menu-item>
+            Item 1
+          </gxg-contextual-menu-item>    
+        </gxg-contextual-submenu>
+      </gxg-contextual-menu-item>
+      <gxg-contextual-menu-item>
+        Item 1
+      </gxg-contextual-menu-item>
+      <gxg-contextual-menu-item>
+        Item 1
+      </gxg-contextual-menu-item>
+    </gxg-contextual-menu> -->
+  <!-- /CONTEXTUAL MENU -->
+
+  <!-- <gxg-alert
+      id="alert-notice"
+      type="notice"
+      position="center"
+      alert-title="more info title"
+      active-time="xxslow"
+    >This is the content of the notice alert</gxg-alert> -->
+
+  <!-- <gxg-tree slot="tree">
+    <gxg-tree-item icon="general/file">
+      Fruits
+      <gxg-tree slot="tree">
+        <gxg-tree-item icon="general/file">
+          apple
+        </gxg-tree-item>
+        <gxg-tree-item>
+          banana
+          <gxg-tree slot="tree">
+            <gxg-tree-item>
+              cavendish banana
+            </gxg-tree-item>
+            <gxg-tree-item>
+              pisang raja
+            </gxg-tree-item>
+            <gxg-tree-item>
+              red banana
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Vegetables
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          sweat potatoes
+        </gxg-tree-item>
+        <gxg-tree-item>
+          lettuce
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item>
+      Seasonings
+      <gxg-tree slot="tree">
+        <gxg-tree-item>
+          salt
+        </gxg-tree-item>
+        <gxg-tree-item>
+          pepper
+        </gxg-tree-item>
+        <gxg-tree-item>
+          comino
+        </gxg-tree-item>
+        <gxg-tree-item>
+          parsley
+        </gxg-tree-item>
+        <gxg-tree-item>
+          basil
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+  </gxg-tree> -->
+
+  <!-- <gxg-drag-container>
+    <gxg-drag-box key="01" id="01" deletable class="draggable" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, tenetur quis. Maiores explicabo eos, nesciunt ipsum doloremque amet debitis veritatis nam provident quisquam itaque, hic libero dolores accusamus possimus magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nulla neque quia reiciendis quos, quidem eos ducimus maiores iste iusto laborum obcaecati voluptas necessitatibus! Ex nam earum nobis excepturi! Dicta?</gxg-drag-box>
+    <gxg-drag-box key="04" id="04" deletable class="draggable">Container 04</gxg-drag-box>
+    <gxg-drag-box key="05" id="05" deletable class="draggable">Container 05</gxg-drag-box>
+</gxg-drag-container> -->
+
+  <!-- 
+
+  <gxg-accordion mode="slim">
+    <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+      
+        <gxg-drag-box key="01" id="01" deletable class="draggable" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, tenetur quis. Maiores explicabo eos, nesciunt ipsum doloremque amet debitis veritatis nam provident quisquam itaque, hic libero dolores accusamus possimus magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nulla neque quia reiciendis quos, quidem eos ducimus maiores iste iusto laborum obcaecati voluptas necessitatibus! Ex nam earum nobis excepturi! Dicta?</gxg-drag-box>
+          <gxg-drag-box key="03" id="03" deletable class="draggable"><gxg-form-text minimal value="complaint tree complaint tree complaint tree complaint treecomplaint tree complaint tree " text-style="quote"></gxg-form-text></gxg-drag-box>
+        <gxg-drag-box key="04" id="04" deletable class="draggable">Container 04</gxg-drag-box>
+        <gxg-drag-box key="05" id="05" deletable class="draggable">Container 05</gxg-drag-box>
+    </gxg-drag-container>
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+</gxg-accordion> -->
+
+
+
+  <!-- <gxg-accordion mode="slim">
+  <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+    Hey
+  </gxg-accordion-item>
+</gxg-accordion> -->
+
+
+  <!-- <gxg-more-info position="top" label="In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery." url="www.google.com"></gxg-more-info>
+
+<gxg-toggle label="Toggle" tabindex="0" size="small"></gxg-toggle>
+<gxg-toggle on tabindex="0"></gxg-toggle>
+<gxg-toggle disabled tabindex="0"></gxg-toggle>
+
+<gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')"
+          >Show alert more info</gxg-button
+        >
+
+<div style="width:500px"><gxg-box border
+  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis
+  temporibus laudantium maxime laboriosam a, animi quo dolorem perspiciatis?
+  Ad fugiat nobis cum? Consectetur earum tempore iusto quos sunt
+  sint?</gxg-box></div>
+
+
+
+  <gxg-alert
+          id="alert-more-info"
+          type="more-info"
+          position="center"
+          left="15px"
+          right="15px"
+          bottom="15px"
+          alert-title="more info title"
+          active-time="xxslow"
+        >
+  </gxg-alert>
+
+  <gxg-pill type="static" tabindex="0" icon="gemini-tools/pill-filled">Pill Label</gxg-pill>
+  <gxg-pill type="static-with-action" tabindex="0" icon="gemini-tools/pill-filled">Pill Label</gxg-pill>
+  <gxg-pill type="button" tabindex="0" >Pill Label</gxg-pill>
+  <gxg-pill type="button-with-action" tabindex="0">Pill Label</gxg-pill>
+  <gxg-pill disabled type="button" tabindex="0" >Pill Label</gxg-pill>
+  <gxg-pill disabled type="button-with-action" tabindex="0">Pill Label</gxg-pill> -->
+
+  <!-- <div style="width:50%">
+  
+<gxg-form-text
+type="text"
+id="name4"
+name="name"
+label="Default"
+label-position="initial"
+placeholder="Placeholder text"
+display-flex
+icon="search"
+icon-position="right"
+required
+value="u"
+></gxg-form-text>
+</div>
+
+<gxg-color-picker value="red"></gxg-color-picker> -->
+
+  <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button> -->
+  <!-- <script>
+
+    const gxgTest = document.querySelector("gxg-test");
+    gxgTest.selectItem = "hola";
+
+    let updateSelectOptionsButton = document.getElementById("update-select-options");
+    updateSelectOptionsButton.addEventListener("click", function(){
+      gxgTest.item = "chau";
+    });
+    
+
+    /////////////////////////////////////////////////////////////////
+
+    function mostrarAlertMoreInfo(alertId) {
+      document.getElementById(alertId).setAttribute("active", "true");
+    }
+  </script> -->
+
+  <script>
+    // CONTEXT MENU
+    // let button = document.getElementById("button");
+
+    // button.addEventListener("contextmenu", e => {
+    //   e.preventDefault();
+    //   let contextualMenu = document.querySelector("gxg-contextual-menu");
+    //   contextualMenu.removeAttribute("visible");
+    //   contextualMenu.setAttribute("visible", "");
+    // });
+
+    //DARK MODE
+   // const toggle = document.querySelector("#toggleDarkTheme");
+
+    // Listen for the toggle check/uncheck to toggle the dark class on the <body>
+    // toggle.addEventListener("change", ev => {
+    //   // for(var i = 0; i < gxgComponents.length; i++) {
+    //   //gxgComponents[i].classList.toggle('dark-mode')
+    //   document.getElementsByTagName("html")[0].classList.toggle("dark");
+    //   // }
+    // });
+  </script>
+</body>
+
+</html>
