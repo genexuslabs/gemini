@@ -50,14 +50,14 @@
   font-family: var(--font-family-primary);
 }
 .qs-datepicker .qs-square.qs-day {
-  color: var(--color-text);
+  color: var(-color-on-background);
   border: 0;
   height: var(--spacing-comp-04);
 }
 .qs-datepicker .qs-square.qs-active,
 .qs-datepicker
   .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active):hover {
-  background-color: rgba(var(--color-primary-hover-rgb), 0.1);
+  background-color: var(--color-primary-hover-opacity-01);
   border-color: var(--color-primary-active);
 }
 .qs-datepicker .qs-arrow:after {

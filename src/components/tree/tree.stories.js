@@ -15,9 +15,32 @@ const stories = storiesOf("Navigation/Tree", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Tree", () => {
+  let fishItems = `<gxg-tree checkbox slot='tree'>
+  <gxg-tree-item left-icon='general/patterns'>
+    Alaskan salmon
+  </gxg-tree-item>
+  <gxg-tree-item left-icon='general/patterns'> 
+    Cod
+  </gxg-tree-item>
+  <gxg-tree-item left-icon='general/patterns'>
+    Herring
+  </gxg-tree-item>
+  <gxg-tree-item left-icon='general/patterns'>
+    Mahi-mahi
+  </gxg-tree-item>
+</gxg-tree>`;
+
+  fishItems = `hola`;
+
   return `
+  <style>
+    body {
+      display:block;
+    }
+  </style>
+  <br><br><br><br>
   <gxg-tree slot="tree">
-    <gxg-tree-item left-icon="general/knowledge-base">
+    <gxg-tree-item opened left-icon="general/knowledge-base">
       Meats
       <gxg-tree checkbox slot="tree">
         <gxg-tree-item left-icon="general/knowledge-base">
@@ -50,10 +73,49 @@ stories.add("Tree", () => {
         </gxg-tree-item>
       </gxg-tree>
     </gxg-tree-item>
-    <gxg-tree-item id="fish" left-icon="general/patterns" checkbox download disabled right-icon="gemini-tools/download">
+    <gxg-tree-item onClick="(function(){
+      this.setAttribute('downloading', '');
+
+      let gxgTree = document.createElement('GXG-TREE');   
+      gxgTree.setAttribute('slot', 'tree');
+      gxgTree.setAttribute('checkbox', '');
+
+      let gxgTreeItem1 = document.createElement('GXG-TREE-ITEM');   
+      gxgTreeItem1.setAttribute('left-icon','general/patterns');
+      gxgTreeItem1.innerHTML = 'Alaskan salmon';      
+
+      let gxgTreeItem2 = document.createElement('GXG-TREE-ITEM');   
+      gxgTreeItem2.setAttribute('left-icon','general/patterns');
+      gxgTreeItem2.innerHTML = 'Cod';      
+
+      let gxgTreeItem3 = document.createElement('GXG-TREE-ITEM');   
+      gxgTreeItem3.setAttribute('left-icon','general/patterns');
+      gxgTreeItem3.innerHTML = 'Herringn';      
+
+      let gxgTreeItem4 = document.createElement('GXG-TREE-ITEM');   
+      gxgTreeItem4.setAttribute('left-icon','general/patterns');
+      gxgTreeItem4.innerHTML = 'Mahi-mahi';      
+      
+      gxgTree.appendChild(gxgTreeItem1); 
+      gxgTree.appendChild(gxgTreeItem2); 
+      gxgTree.appendChild(gxgTreeItem3); 
+      gxgTree.appendChild(gxgTreeItem4); 
+
+      setTimeout(function(){
+        this.appendChild(gxgTree); 
+        this.setAttribute('downloaded', '');
+        this.removeAttribute('disabled');
+        this.removeAttribute('download');
+        this.removeAttribute('downloading');
+      }.bind(this), 1500);
+      this.removeAttribute('onclick');
+
+
+      return false;
+    }.bind(this))();return false; this.onclick=null;" id="fish" left-icon="general/patterns" checkbox download disabled right-icon="gemini-tools/download">
       Fish
     </gxg-tree-item>
-    <gxg-tree-item checkbox left-icon="objects/module">
+    <gxg-tree-item checkbox opened left-icon="objects/module">
       Fruits
       <gxg-tree slot="tree">
         <gxg-tree-item checkbox left-icon="objects/module">
@@ -90,7 +152,7 @@ stories.add("Tree", () => {
             <gxg-tree-item checkbox left-icon="objects/module">
               Albion 
             </gxg-tree-item>
-            <gxg-tree-item checkbox left-icon="objects/module"> 
+            <gxg-tree-item checkbox left-icon="objects/module" opened> 
               Tillamook 
             </gxg-tree-item>
             <gxg-tree-item checkbox left-icon="objects/module">
@@ -100,13 +162,13 @@ stories.add("Tree", () => {
         </gxg-tree-item>
       </gxg-tree>
     </gxg-tree-item>
-  <gxg-tree-item checkbox left-icon="objects/document" empty-tree>
+  <gxg-tree-item opened checkbox left-icon="objects/document" empty-tree>
     nuts
     <gxg-tree slot="tree">
       <gxg-tree-item checkbox left-icon="objects/document">
         Almonds 
         <gxg-tree slot="tree">
-          <gxg-tree-item checkbox left-icon="objects/document"> 
+          <gxg-tree-item checkbox left-icon="objects/document" opened> 
             Mollar de Tarragona
           </gxg-tree-item>
           <gxg-tree-item checkbox left-icon="objects/document">
@@ -117,7 +179,7 @@ stories.add("Tree", () => {
           </gxg-tree-item>
         </gxg-tree>
       </gxg-tree-item>
-      <gxg-tree-item checkbox left-icon="objects/document"> 
+      <gxg-tree-item checkbox left-icon="objects/document" opened> 
         Brazil nuts 
       </gxg-tree-item>
       <gxg-tree-item checkbox left-icon="objects/document">
@@ -129,5 +191,10 @@ stories.add("Tree", () => {
     </gxg-tree>
   </gxg-tree-item>
   </gxg-tree>
+  <br><br><br><br>
+
+  <script>
+    alert("hola");
+  </script>
     `;
 });

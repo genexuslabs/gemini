@@ -164,7 +164,7 @@
     p {
       font-family: var(--font-family-primary);
       font-size: var(--font-size-sm);
-      color: var(--color-text);
+      color: var(-color-on-background);
     }
     .col-left {
       width: 35%;

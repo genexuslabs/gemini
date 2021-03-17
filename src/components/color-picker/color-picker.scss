@@ -29,7 +29,7 @@
     }
   }
 
-  background: var(--color-white);
+  background: var(--color-background);
   position: relative;
   margin-top: -1px;
   transition: max-height 0.5s ease-in-out;
@@ -60,7 +60,7 @@
   }
 }
 .pcr-app {
-  background: var(--color-white);
+  background: var(--color-background);
 }
 .pcr-app[data-theme="nano"] .pcr-selection .pcr-color-palette .pcr-palette {
   border-radius: 0;

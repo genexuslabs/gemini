@@ -1,11 +1,86 @@
-/*******************************************
-TOKENS FOR COLORS (For Light and Dark mode)
-*******************************************/
-
-/*(We first define "shades of gray" and "On" Colors because
-some colors on the branding are dependent on them)*/
-
-//Shades of gray
+//STATES
+//Primary
+:root {
+  --color-primary-enabled: #0266a0;
+  --color-primary-active: #005688;
+  --color-primary-hover: #0077de;
+  --color-primary-disabled: #828385;
+}
+:root.dark {
+  --color-primary-enabled: #91c8e4;
+  --color-primary-active: #4ba3d4;
+  --color-primary-hover: #8dcbff;
+  --color-primary-disabled: #828385;
+}
+//Secondary
+:root {
+  --color-secondary-enabled: #cfdee6;
+  --color-secondary-active: #6a8c9f;
+  --color-secondary-hover: #97b0bf;
+  --color-secondary-disabled: #828385;
+}
+:root.dark {
+  --color-secondary-enabled: #5d7c8d;
+  --color-secondary-active: #3f5460;
+  --color-secondary-hover: #4d6776;
+  --color-secondary-disabled: #828385;
+}
+//Opacity 0.1
+:root {
+  --color-primary-hover-opacity-01: rgba(0, 119, 222, 0.1);
+}
+:root.dark {
+  --color-primary-hover-opacity-01: rgba(141, 203, 255, 0.1);
+}
+//ON COLORS
+:root {
+  --color-on-primary: #fff;
+  --color-on-secondary: #000;
+  --color-on-background: #000;
+  --color-on-alert: #000;
+  --color-on-disabled: #a4a5a6;
+}
+:root.dark {
+  --color-on-primary: #1d1e22;
+  --color-on-secondary: #fff;
+  --color-on-background: #fff;
+  --color-on-alert: #fff;
+  --color-on-disabled: #616164;
+}
+//GEMINI COLORS
+:root {
+  --color-primary: var(--color-primary-enabled);
+  --color-secondary: var(--color-secondary-enabled);
+}
+:root.dark {
+  --color-primary-rgb: var(--color-primary-enabled);
+  --color-secondary: var(--color-secondary-enabled);
+}
+//BACKGROUND COLORS
+:root {
+  --color-background: #fff;
+}
+:root.dark {
+  --color-background: #1d1e22;
+}
+//ALERT COLORS
+:root {
+  --color-error-dark: #f02031;
+  --color-error-light: #ffeaee;
+  --color-warning-dark: #ff8000;
+  --color-warning-light: #ffe7e6;
+  --color-success-dark: #02a08b;
+  --color-success-light: #e1f3f1;
+}
+:root.dark {
+  --color-error-dark: #f9464e;
+  --color-error-light: #281617;
+  --color-warning-dark: #ffab13;
+  --color-warning-light: #292011;
+  --color-success-dark: #50beae;
+  --color-success-light: #172221;
+}
+//GRAY COLORS
 :root {
   --gray-01: #e8e8e9;
   --gray-02: #c6c6c7;
@@ -24,182 +99,72 @@ some colors on the branding are dependent on them)*/
   --gray-06: #c6c6c7;
   --gray-07: #e8e8e9;
 }
-
-//Shades of gray higer contrast
-//In some cases, some shades of grey, look ok on light mode, but need more contrast on dark mode.
-//For this cases, use the following shades of gray.
+//ICONS
 :root {
-  --gray-02-hc: #dbd9d9;
+  //Enabled
+  --icons01-enabled: #0266a0;
+  --icons02-enabled: #605cab;
+  --icons03-enabled: #00746b;
+  --icons04-enabled: #00a99d;
+  --icons05-enabled: #39b54a;
+  --icons06-enabled: #ed145b;
+  --icons07-enabled: #f26522;
+  --icons08-enabled: #f7941d;
+  --icons09-enabled: #616164;
+  //Active
+  --icons01-active: #004a81;
+  --icons02-active: #484099;
+  --icons03-active: #02645b;
+  --icons04-active: #00998c;
+  --icons05-active: #2fa640;
+  --icons06-active: #dc105a;
+  --icons07-active: #e75e1e;
+  --icons08-active: #f3891b;
+  --icons09-active: #3e3f42;
+  //Hover
+  --icons01-hover: #2088c2;
+  --icons02-hover: #9e9ecc;
+  --icons03-hover: #009187;
+  --icons04-hover: #7ccdc7;
+  --icons05-hover: #79cc81;
+  --icons06-hover: #f4608d;
+  --icons07-hover: #f59065;
+  --icons08-hover: #fab454;
+  --icons09-hover: #828385;
+  //Disabled
+  --icons-disabled: #a4a5a6;
 }
 :root.dark {
-  --gray-02-hc: #3c3b3b;
+  //Enabled
+  --icons01-enabled: #4ba3d4;
+  --icons02-enabled: #9e9ecc;
+  --icons03-enabled: #24a19a;
+  --icons04-enabled: #7ccdc7;
+  --icons05-enabled: #a1daa5;
+  --icons06-enabled: #f4608d;
+  --icons07-enabled: #f59065;
+  --icons08-enabled: #fab454;
+  --icons09-enabled: #a4a5a6;
+  //Active
+  --icons01-active: #4497c6;
+  --icons02-active: #7979b8;
+  --icons03-active: #009088;
+  --icons04-active: #45b9b1;
+  --icons05-active: #7bcc81;
+  --icons06-active: #f03d73;
+  --icons07-active: #f37943;
+  --icons08-active: #f9a533;
+  --icons09-active: #c6c6c7;
+  //Hover
+  --icons01-hover: #6abee0;
+  --icons02-hover: #c4c4e1;
+  --icons03-hover: #7ec8c5;
+  --icons04-hover: #b0e0dd;
+  --icons05-hover: #c6e8c8;
+  --icons06-hover: #f78ead;
+  --icons07-hover: #facebc;
+  --icons08-hover: #fddfb4;
+  --icons09-hover: #828385;
+  //Disabled
+  --icons-disabled: #3e3f42;
 }
-
-/*On Colors
-(This are the colors used to color the content of
-the components. The content could be text or icons)*/
-:root {
-  --color-on-primary: #fff;
-  --color-on-secondary: #000;
-  --color-on-background: #000;
-  --color-on-alert: #000;
-  --color-on-disabled: #a4a5a6;
-}
-:root.dark {
-  --color-on-primary: #1d1e22;
-  --color-on-secondary: #fff;
-  --color-on-background: #fff;
-  --color-on-alert: #fff;
-  --color-on-disabled: #616164;
-}
-
-//Gemini
-:root {
-  --color-primary-rgb: 2, 102, 160; //Edit this value to change '--color-primary'
-  --color-primary-hover-rgb: 0, 119, 222; //Edit this value to change '--color-primary'
-  --color-primary: rgb(var(--color-primary-rgb)); //Do not edit this value.
-  --color-secondary: #cfdee6;
-}
-:root.dark {
-  --color-primary-rgb: 145, 200, 228;
-  --color-secondary: #eaf2f8;
-}
-
-//Primary
-:root {
-  --color-primary-enabled: var(--color-primary);
-  --color-primary-active: #005688;
-  --color-primary-hover: rgb(var(--color-primary-hover-rgb));
-  --color-primary-disabled: #828385;
-}
-:root.dark {
-  --color-primary-enabled: var(--color-primary);
-  --color-primary-active: #4ba3d4;
-  --color-primary-hover: #8dcbff;
-  --color-primary-disabled: #828385;
-}
-
-//Secondary
-:root {
-  --color-secondary-enabled: #cfdee6;
-  --color-secondary-active: #6a8c9f;
-  --color-secondary-hover: #97b0bf;
-  --color-secondary-disabled: #828385;
-}
-:root.dark {
-  --color-secondary-enabled: #5d7c8d;
-  --color-secondary-active: #3f5460;
-  --color-secondary-hover: #4d6776;
-  --color-secondary-disabled: #828385;
-}
-
-//Background
-:root {
-  --color-background: #fff;
-  --color-text: #1d1e22;
-}
-:root.dark {
-  --color-background: #1d1e22;
-  --color-text: #fff;
-}
-
-//Alert
-:root {
-  --color-always-black: rgb(0, 0, 0);
-  --color-error-dark: #f02031;
-  --color-error-dark-rgb: 240, 32, 49; //Edit this value to change '--color-primary'
-  --color-error-light: #ffeaee;
-  --color-warning-dark: #ff8000;
-  --color-warning-light: #ffe7e6;
-  --color-success-dark: #02a08b;
-  --color-success-light: #e1f3f1;
-}
-:root.dark {
-  --color-always-black: rgb(0, 0, 0);
-  --color-error-dark: #f9464e;
-  --color-error-light: #281617;
-  --color-warning-dark: #ffab13;
-  --color-warning-light: #292011;
-  --color-success-dark: #50beae;
-  --color-success-light: #172221;
-}
-
-//Other
-:root {
-  --color-black-rgb: 0, 0, 0;
-  --color-white-rgb: 255, 255, 255;
-  --color-black: rgb(0, 0, 0);
-  --color-white: rgb(255, 255, 255);
-}
-:root.dark {
-  --color-black: rgb(255, 255, 255);
-  --color-white: rgb(0, 0, 0);
-}
-
-//Icons
-:root {
-  --button-icon-color: var(--color-on-background);
-
-  //Icons colors
-  --icons01: #0266a0;
-  --icons02: #605cab;
-  --icons03: #00746b;
-  --icons04: #00a99d;
-  --icons05: #39b54a;
-  --icons06: #ed145b;
-  --icons07: #f26522;
-  --icons08: #f7941d;
-  --icons09: #616164;
-}
-:root.dark {
-  --button-icon-color: var(--color-on-background);
-
-  //Icons colors
-  --icons01: #4ba3d4;
-  --icons02: #9e9ecc;
-  --icons03: #24a19a;
-  --icons04: #7ccdc7;
-  --icons05: #a1daa5;
-  --icons06: #f4608d;
-  --icons07: #f59065;
-  --icons08: #fab454;
-  --icons09: #a4a5a6;
-}
-
-/*
-DOCUMENTATION
-The following is a set of rules on how to use some of the colors above:
-
-"On" Colors:
-
-- Text and icons that live inside a "--color-primary" color have to be "--color-white"
-- Text and icons that live inside a "--color-secondary" color have to be "--color-black"
-- Text and icons that live inside a "--color-white" color have to be "--color-black"
-- Text and icons that live inside a "--color-error-dark", "--color-warning-dark", ir "--color-success-dark" color have to be "--color-black"
-- Text and icons that live inside a "--color-primary-disabled", or "--color-secondary-disabled" color have to be "-color-disabled"
-
-
-Allowed "border" colors:
-
---color-primary-enabled
---color-primary-active
---color-primary-hover
---color-primary-disabled
-
---color-secondary-enabled
---color-secondary-active
---color-secondary-hover
---color-secondary-disabled
-
---color-error-dark
---color-warning-dark
---color-success-dark
-
---gray-01
---gray-02
---gray-03
---gray-04
---gray-05
---gray-06
---gray-07
-*/

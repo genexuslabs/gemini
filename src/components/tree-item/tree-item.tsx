@@ -61,6 +61,11 @@ export class GxgTreeItem {
   @Prop() opened = false;
 
   /**
+   * The presence of this attribute sets the tree-item as selected
+   */
+  @Prop() selected = false;
+
+  /**
    * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
    */
   @Prop() isLeaf: boolean = undefined;
@@ -172,10 +177,8 @@ export class GxgTreeItem {
 
   toggleTreeIconClicked() {
     if (this.opened) {
-      console.log("opened");
       this.opened = false;
     } else {
-      console.log("closed");
       this.opened = true;
     }
     this.toggleIconClicked.emit();
@@ -336,7 +339,6 @@ export class GxgTreeItem {
       }
     }
     if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
-      console.log("arrow down");
       e.preventDefault();
       if (!this.lastTreeItemOfParentTree) {
         //Set focus on the next item
@@ -351,7 +353,6 @@ export class GxgTreeItem {
           }
         } else {
           if (this.lastTreeItem) {
-            console.log("last tree item");
             if (this.hasChildTree && this.opened) {
               nextItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
                 ".li-text"
@@ -376,8 +377,6 @@ export class GxgTreeItem {
               }
             }
           } else {
-            console.log("this is not the last tree item");
-            console.log(this.hasChildTree);
             if (this.hasChildTree && this.opened) {
               nextItem = this.el
                 .querySelector("gxg-tree gxg-tree-item")
@@ -489,6 +488,7 @@ export class GxgTreeItem {
               "li-text--leaf": this.isLeaf,
               "li-text--first-tree-item": this.firstTreeItem,
               "li-text--has-child-tree": this.hasChildTree,
+              "li-text--selected": this.selected,
             }}
             style={{ paddingLeft: this.returnPaddingLeft() }}
             onDblClick={this.liTextDoubleClicked.bind(this)}

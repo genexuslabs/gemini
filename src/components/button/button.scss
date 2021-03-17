@@ -75,7 +75,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-icon-only) .button-native {
   background: var(--color-primary-enabled);
-  color: var(--color-white);
+  color: var(--color-on-primary);
   padding-inline-end: 0;
   padding-inline-start: 0;
   height: 20px;
@@ -90,7 +90,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
   }
   &:active:not([disabled]) {
     background: var(--color-primary-active);
-    color: var(--color-white);
+    color: var(--color-on-primary);
   }
   &:focus {
     outline: none;
@@ -110,7 +110,6 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
-    background: rgba(var(--color-primary-hover-rgb), 0.1);
   }
   &:focus:not([disabled]) {
     @include gxg-label--focus;
@@ -148,7 +147,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
-    background: rgba(var(--color-primary-hover-rgb), 0.1);
   }
   &:focus:not([disabled]) {
     @include gxg-label--focus;
@@ -178,7 +176,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-inline-start: 0;
 
   &:hover:not([disabled]) {
-    background: rgba(var(--color-primary-hover-rgb), 0.1);
   }
   &:focus:not([disabled]) {
     background: transparent;
@@ -207,7 +204,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
-    background: transparent;
+    background: var(--color-primary-hover-opacity-01);
     box-shadow: inset 0px 0px 0px 1px $gxg-label--hover-color;
   }
   &:focus:not([disabled]) {

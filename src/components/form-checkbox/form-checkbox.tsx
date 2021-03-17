@@ -5,13 +5,13 @@ import {
   Prop,
   h,
   Event,
-  EventEmitter
+  EventEmitter,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-form-checkbox",
   styleUrl: "form-checkbox.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormCheckbox {
   @Element() el: HTMLElement;
@@ -31,7 +31,12 @@ export class GxgFormCheckbox {
   /**
    * The presence of this attribute makes the checkbox checked by default
    */
-  @Prop({ reflect: true }) checked = false;
+  @Prop({ reflect: false }) checked = false;
+
+  /**
+   * The presence of this attribute makes the checkbox indeterminate
+   */
+  @Prop({ reflect: true }) indeterminate = false;
 
   /**
    * The presence of this attribute disables the checkbox
@@ -70,7 +75,7 @@ export class GxgFormCheckbox {
     this.checked = this.checkboxInput.checked;
     this.change.emit({
       "checkbox id": this.checkboxId,
-      "checkbox value": this.checked
+      "checkbox value": this.checked,
     });
   }
 
@@ -84,7 +89,7 @@ export class GxgFormCheckbox {
       }
       this.change.emit({
         "checkbox id": this.checkboxId,
-        "checkbox value": this.checked
+        "checkbox value": this.checked,
       });
     }
   }
@@ -97,6 +102,10 @@ export class GxgFormCheckbox {
     }
   }
 
+  handleInputClick(e) {
+    e.stopPropagation();
+  }
+
   render() {
     return (
       <Host
@@ -107,7 +116,7 @@ export class GxgFormCheckbox {
       >
         <label class="label">
           <input
-            ref={el => (this.checkboxInput = el as HTMLInputElement)}
+            ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
             type="checkbox"
             checked={this.checked}
             class="input"
@@ -118,9 +127,13 @@ export class GxgFormCheckbox {
             onChange={this.changed.bind(this)}
             onKeyUp={this.handlerOnKeyUp.bind(this)}
             tabindex="0"
+            onClick={this.handleInputClick}
           ></input>
-          <span class="checkmark" role="checkbox"></span>
-          {this.label}
+          <span
+            class={{ checkmark: true, "no-label": !this.label }}
+            role="checkbox"
+          ></span>
+          {this.label ? this.label : null}
         </label>
       </Host>
     );

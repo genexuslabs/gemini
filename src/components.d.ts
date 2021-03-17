@@ -391,6 +391,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute makes the checkbox indeterminate
+     */
+    indeterminate: boolean;
+    /**
      * The checkbox label
      */
     label: string;
@@ -1007,6 +1011,10 @@ export namespace Components {
      * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon: string;
+    /**
+     * The presence of this attribute sets the tree-item as selected
+     */
+    selected: boolean;
     updateTreeVerticalLineHeight: () => Promise<void>;
   }
 }
@@ -1823,6 +1831,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * The presence of this attribute makes the checkbox indeterminate
+     */
+    indeterminate?: boolean;
+    /**
      * The checkbox label
      */
     label?: string;
@@ -2486,6 +2498,10 @@ declare namespace LocalJSX {
      * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon?: string;
+    /**
+     * The presence of this attribute sets the tree-item as selected
+     */
+    selected?: boolean;
   }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;

@@ -85,7 +85,7 @@
 
     &--error {
       border-color: var(--color-error-dark) !important;
-      background: rgba(var(--color-error-dark-rgb), 0.1) !important;
+      background: var(--color-error-light) !important;
       &:after {
         background-color: var(--color-error-dark) !important;
       }
@@ -124,10 +124,10 @@
   }
   // disabled
   .label input[disabled] ~ .radiobtn {
-    border-color: var(--gray-02-hc);
+    border-color: var(--gray-04);
   }
   .label input[disabled] ~ .radiobtn:after {
-    background-color: var(--gray-02-hc);
+    background-color: var(--gray-04);
   }
   /* Style the indicator (dot/circle) */
   .label .radiobtn:after {
