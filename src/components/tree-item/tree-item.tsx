@@ -194,6 +194,11 @@ export class GxgTreeItem {
     );
   }
 
+  liTextClicked() {
+    this.liItemClicked.emit();
+    this.selected = true;
+  }
+
   liTextDoubleClicked() {
     this.toggleTreeIconClicked();
   }
@@ -472,6 +477,16 @@ export class GxgTreeItem {
     }
   }
 
+  checkboxClicked() {
+    if (this.checkbox) {
+      if (this.checked) {
+        this.checked = false;
+      } else {
+        this.checked = true;
+      }
+    }
+  }
+
   render() {
     return (
       <Host class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}>
@@ -491,6 +506,7 @@ export class GxgTreeItem {
               "li-text--selected": this.selected,
             }}
             style={{ paddingLeft: this.returnPaddingLeft() }}
+            onClick={this.liTextClicked.bind(this)}
             onDblClick={this.liTextDoubleClicked.bind(this)}
             onKeyDown={this.liTextKeyDownPressed.bind(this)}
             tabIndex={this.liTextTabIndex()}
@@ -530,6 +546,7 @@ export class GxgTreeItem {
                 tabIndex={this.checkboxTabIndex()}
                 indeterminate={this.setIndeterminate()}
                 disabled={this.disabled}
+                onClick={this.checkboxClicked.bind(this)}
               ></gxg-form-checkbox>
             ) : null}
             {this.leftIcon ? (

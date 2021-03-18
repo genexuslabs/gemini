@@ -15,7 +15,7 @@ const stories = storiesOf("Navigation/Tree", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme });
 stories.add("Tree", () => {
-  let fishItems = `<gxg-tree checkbox slot='tree'>
+  const fishItems = `<gxg-tree checkbox slot='tree'>
   <gxg-tree-item left-icon='general/patterns'>
     Alaskan salmon
   </gxg-tree-item>
@@ -29,8 +29,6 @@ stories.add("Tree", () => {
     Mahi-mahi
   </gxg-tree-item>
 </gxg-tree>`;
-
-  fishItems = `hola`;
 
   return `
   <style>
@@ -191,10 +189,5 @@ stories.add("Tree", () => {
     </gxg-tree>
   </gxg-tree-item>
   </gxg-tree>
-  <br><br><br><br>
-
-  <script>
-    alert("hola");
-  </script>
-    `;
+  <br><br><br><br>`;
 });

@@ -47,7 +47,10 @@
         }
       }
       &--selected {
-        background-color: var(--color-primary-enabled);
+        background-color: var(--color-secondary-enabled);
+        &:hover {
+          background-color: var(--color-secondary-enabled);
+        }
       }
 
       &--only-one-parent-tree {

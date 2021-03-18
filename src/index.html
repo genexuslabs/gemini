@@ -181,6 +181,7 @@
   </gxg-tree>
 
   <script>
+    //DOWNLOAD SOURCE
     const fishItem = document.getElementById('fish');
     var handler = function (){
       fishItem.setAttribute("downloading", "");
@@ -208,6 +209,70 @@
     fishItem.removeEventListener("click", handler);
     }
     fishItem.addEventListener('click', handler);
+
+    //CHECKBOXES LOGIC
+    (async () => {
+      await customElements.whenDefined('gxg-tree-item');
+      let gxgTreeItems = document.querySelectorAll('gxg-tree-item');
+        gxgTreeItems.forEach((gxgTreeItem) =>{   
+          setTimeout(function(){
+            const checkBox = gxgTreeItem.shadowRoot.querySelector('gxg-form-checkbox');
+            checkBox.addEventListener('click', function(){
+              //Check all the child gxg-tree-items checkboxes
+              const rootNodeHost = checkBox.getRootNode().host
+              const rootNodeHostGxgTree = rootNodeHost.querySelector('gxg-tree');
+              let rootNodeHostGxgTreeItems = null;
+              if(rootNodeHostGxgTree !== null) {
+                //Clicked on a not leaf
+                rootNodeHostGxgTreeItems = rootNodeHostGxgTree.querySelectorAll('gxg-tree-item');
+                rootNodeHostGxgTreeItems.forEach(gxgTreeItem =>{
+                  setTimeout(function(){ 
+                    if(rootNodeHost.checked) {
+                      gxgTreeItem.checked = true;
+                    } else {
+                      gxgTreeItem.checked = false;
+                    }
+                   }, 50);
+                });
+              } else {
+                //Clicked on a leaf
+                //Get reference to parent tree
+                const parentTree = rootNodeHost.parentElement;
+                const parentTreeItem = parentTree.parentElement;
+                let parentTreeItems = parentTree.querySelectorAll('gxg-tree-item')
+                let allTreeItemsAreChecked = true;
+                let allTreeItemsAreUnchecked = true;
+                
+                setTimeout(function(){ 
+                  parentTreeItems.forEach(treeItem => {
+                    if(treeItem.checked){
+                      allTreeItemsAreUnchecked = false;
+                    } else {
+                      allTreeItemsAreChecked = false;
+                    }
+                  });
+
+                  console.log('all tree items are checked', allTreeItemsAreChecked);
+                  console.log('all tree items are unchecked', allTreeItemsAreUnchecked);
+
+                  if(allTreeItemsAreUnchecked) {
+                    parentTreeItem.indeterminate = false;
+                    parentTreeItem.checked = false;
+                  } else if (allTreeItemsAreChecked) {
+                    parentTreeItem.indeterminate = false;
+                    parentTreeItem.checked = true;
+                  } else {
+                    //indeterminate
+                    parentTreeItem.indeterminate = true;
+                  }
+
+                }, 50);
+              }
+            })
+          }, 500);
+        })
+    })();
+
   </script>
 
       <!--  -->
@@ -341,5 +406,6 @@
     </gxg-tree>
   </gxg-tree-item>
   </gxg-tree>
+
 </body>
 </html>

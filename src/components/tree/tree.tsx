@@ -1,4 +1,5 @@
 import { Component, Element, State, h, Prop, Listen } from "@stencil/core";
+import { GxgTreeItem } from "../tree-item/tree-item";
 //import Sortable from "sortablejs";
 @Component({
   tag: "gxg-tree",
@@ -61,6 +62,15 @@ export class GxgTree {
     //   group: "foo",
     //   animation: 100,
     // });
+  }
+
+  @Listen("liItemClicked")
+  liItemClickedHandler() {
+    //Remove 'selected' state from previous selected item
+    const gxgTreeItems = this.el.querySelectorAll("gxg-tree-item");
+    gxgTreeItems.forEach((gxgTreeItem) => {
+      ((gxgTreeItem as unknown) as GxgTreeItem).selected = false;
+    });
   }
 
   @Listen("toggleIconClicked")
