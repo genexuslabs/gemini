@@ -137,10 +137,11 @@ export class GxgTreeItem {
       this.rightIconColor = "disabled";
     }
 
-    //If this tree item has a source to download, this item has child tree, and is not leaf
+    //If this tree item has a source to download, this item has child tree, and is not leaf. Also, set the tree as not open
     if (this.download) {
       this.hasChildTree = true;
       this.isLeaf = false;
+      this.opened = false;
     }
   }
 
@@ -294,13 +295,14 @@ export class GxgTreeItem {
               if (prevElementSiblingHasChildTree) {
                 const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
                   .opened;
-                if (prevElementSiblingHasOpenTree) {
+                if (prevElementSiblingHasOpenTree && !this.download) {
                   //If preceding tree-item tree is opened, then the prev item is the last item of that tree
                   const prevElemSiblingTreeItem = this.el
                     .previousElementSibling;
                   const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
                     "gxg-tree"
                   );
+                  console.log(prevElemSiblingTreeItemTree);
                   //
                   if (
                     ((prevElemSiblingTreeItemTree.lastElementChild as unknown) as GxgTreeItem)
@@ -382,7 +384,7 @@ export class GxgTreeItem {
               }
             }
           } else {
-            if (this.hasChildTree && this.opened) {
+            if (this.hasChildTree && this.opened && !this.download) {
               nextItem = this.el
                 .querySelector("gxg-tree gxg-tree-item")
                 .shadowRoot.querySelector("li .li-text");

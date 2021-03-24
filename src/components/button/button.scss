@@ -110,6 +110,7 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
+    background: transparent;
   }
   &:focus:not([disabled]) {
     @include gxg-label--focus;
