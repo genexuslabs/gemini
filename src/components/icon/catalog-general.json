@@ -12,5 +12,6 @@
   { "name": "general/references", "description": "Some description" },
   { "name": "general/sd", "description": "Some description" },
   { "name": "general/sd-web", "description": "Some description" },
+  { "name": "general/services", "description": "Some description" },
   { "name": "general/version", "description": "Some description" }
 ]
