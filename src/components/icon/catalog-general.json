@@ -1,17 +1,28 @@
 [
   { "name": "general/android", "description": "Some description" },
+  { "name": "general/angular", "description": "Some description" },
   { "name": "general/apple", "description": "Some description" },
   { "name": "general/customization", "description": "Some description" },
+  { "name": "general/csharp", "description": "Some description" },
+  { "name": "general/db2", "description": "Some description" },
   {
     "name": "general/environment-no-select",
     "description": "Some description"
   },
   { "name": "general/environment-select", "description": "Some description" },
+  { "name": "general/informix", "description": "Some description" },
+  { "name": "general/java", "description": "Some description" },
   { "name": "general/knowledge-base", "description": "Some description" },
+  { "name": "general/mysql", "description": "Some description" },
   { "name": "general/patterns", "description": "Some description" },
+  { "name": "general/postgre-sql", "description": "Some description" },
+  { "name": "general/oracle", "description": "Some description" },
   { "name": "general/references", "description": "Some description" },
+  { "name": "general/sap-hana", "description": "Some description" },
   { "name": "general/sd", "description": "Some description" },
   { "name": "general/sd-web", "description": "Some description" },
   { "name": "general/services", "description": "Some description" },
+  { "name": "general/sql-server", "description": "Some description" },
+  { "name": "general/swift", "description": "Some description" },
   { "name": "general/version", "description": "Some description" }
 ]
