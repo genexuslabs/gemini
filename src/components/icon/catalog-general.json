@@ -4,7 +4,7 @@
   { "name": "general/apple", "description": "Some description" },
   { "name": "general/customization", "description": "Some description" },
   { "name": "general/csharp", "description": "Some description" },
-  { "name": "general/datastore-category", "description": "Some description" },
+  { "name": "general/datastore", "description": "Some description" },
   { "name": "general/db2", "description": "Some description" },
   {
     "name": "general/environment-no-select",
