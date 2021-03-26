@@ -4,12 +4,14 @@
   { "name": "general/apple", "description": "Some description" },
   { "name": "general/customization", "description": "Some description" },
   { "name": "general/csharp", "description": "Some description" },
+  { "name": "general/datastore-category", "description": "Some description" },
   { "name": "general/db2", "description": "Some description" },
   {
     "name": "general/environment-no-select",
     "description": "Some description"
   },
   { "name": "general/environment-select", "description": "Some description" },
+  { "name": "general/generator", "description": "Some description" },
   { "name": "general/informix", "description": "Some description" },
   { "name": "general/java", "description": "Some description" },
   { "name": "general/knowledge-base", "description": "Some description" },
