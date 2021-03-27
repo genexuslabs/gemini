@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Controls/Checkbox", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Checkbox", () => {
   //Status
   const labelDisabled = "Disable red";

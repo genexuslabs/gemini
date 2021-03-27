@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Other/Containers", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Box", () => {
     //Box Content

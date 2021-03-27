@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Text/Text", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Text", () => {
     return `
@@ -21,7 +21,7 @@ stories
       {
         "text-regular": "text-regular",
         "text-gray": "text-gray",
-        "text-quote": "text-quote"
+        "text-quote": "text-quote",
       },
       "text-regular"
     )}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</gxg-text>
@@ -34,14 +34,14 @@ stories
       "Type",
       {
         "text-link": "text-link",
-        "text-link-gray": "text-link-gray"
+        "text-link-gray": "text-link-gray",
       },
       "link"
     )} target=${select(
       "Target",
       {
         _self: "_self",
-        _blank: "_blank"
+        _blank: "_blank",
       },
       "_self"
     )}>A link</gxg-text>
@@ -55,7 +55,7 @@ stories
     {
       "text-alert-error": "text-alert-error",
       "text-alert-warning": "text-alert-warning",
-      "text-alert-success": "text-alert-success"
+      "text-alert-success": "text-alert-success",
     },
     "text-alert-error"
   )}>An alert message</gxg-text>

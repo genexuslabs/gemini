@@ -6,6 +6,7 @@ import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 STORIES
 *************/
 const stories = storiesOf("Layout/Columns", module);
+stories.addParameters({ layout: "centered" });
 stories.addDecorator(withKnobs);
 stories
   .add(
@@ -44,7 +45,7 @@ gxg-column {
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -56,7 +57,7 @@ gxg-column {
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -79,7 +80,7 @@ Fluid
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -102,7 +103,7 @@ Fluid
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -125,7 +126,7 @@ Fluid
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -148,7 +149,7 @@ Fluid
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -171,7 +172,7 @@ Fluid
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -194,7 +195,7 @@ Fluid
         s: "s",
         m: "m",
         l: "l",
-        xl: "xl"
+        xl: "xl",
       },
       "s"
     )}">
@@ -211,8 +212,8 @@ Fluid
 </gxg-columns></gxg-stack><div style="text-align:center"><p style="margin-bottom:5px;">Note: <em>gxg-column</em> component does not has any inherent background-color or border-color styles.<br>The ones applied on this example are only for the purpose of helping understanding how the columns system works.</p><a style="display:inline-block; margin-bottom:20px;" class="gxg-link" href="https://codepen.io/brsastregx/pen/BaoXBpX?editors=1000" target="_blank">Open in Playground</a>`,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -257,7 +258,7 @@ gxg-column, .note {
       {
         top: "top",
         center: "center",
-        bottom: "bottom"
+        bottom: "bottom",
       },
       "top"
     )}">
@@ -277,8 +278,8 @@ Fluid
 </gxg-columns>`,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -321,7 +322,7 @@ gxg-column, .note {
         "2/3": "2/3",
         "2/5": "2/5",
         "3/5": "3/5",
-        "4/5": "4/5"
+        "4/5": "4/5",
       },
       "1/2"
     )}">
@@ -336,7 +337,7 @@ gxg-column, .note {
         "2/3": "2/3",
         "2/5": "2/5",
         "3/5": "3/5",
-        "4/5": "4/5"
+        "4/5": "4/5",
       },
       "1/2"
     )}
@@ -355,8 +356,8 @@ ${text("Content", "Content")}
 </gxg-columns>`,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -393,7 +394,7 @@ gxg-column, .note {
       "Collapse Bellow:",
       {
         "none (default)": "none",
-        lg: "lg"
+        lg: "lg",
       },
       "none"
     )}">
@@ -420,7 +421,7 @@ Content
 </gxg-columns>`,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   );

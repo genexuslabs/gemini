@@ -48,6 +48,7 @@ STORIES
 *************/
 const stories = storiesOf("Interaction/Alert", module);
 stories.addDecorator(withKnobs);
+stories.addParameters({ layout: "centered" });
 stories
   .add(
     "Notice",

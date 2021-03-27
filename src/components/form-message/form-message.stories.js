@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Controls/Form message", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Warning", () => {
     return `<gxg-form-message type="warning" slot="message">The name field can not contain any numbers</gxg-form-message>`;

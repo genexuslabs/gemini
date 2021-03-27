@@ -13,7 +13,7 @@ STORIES
 *************/
 const stories = storiesOf("Navigation/Tree", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Tree", () => {
   const fishItems = `<gxg-tree checkbox slot='tree'>
   <gxg-tree-item left-icon='general/patterns'>

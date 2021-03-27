@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Layout/Spacer Layout", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Spacer Layout", () => {
   //Full Height
   const labelFullHeight = "Full Height";
@@ -25,7 +25,7 @@ stories.add("Spacer Layout", () => {
     s: "s",
     m: "m",
     l: "l",
-    xl: "xl"
+    xl: "xl",
   };
   const defaultValueSpace = "xs";
 
@@ -33,7 +33,7 @@ stories.add("Spacer Layout", () => {
   const labelOrientation = "Display";
   const optionsOrientation = {
     horizontal: "horizontal",
-    vertical: "vertical"
+    vertical: "vertical",
   };
   const defaultValueOrientation = "horizontal";
   const valueOrientation = select(
@@ -49,7 +49,7 @@ stories.add("Spacer Layout", () => {
     end: "end",
     center: "center",
     "space-between": "space-between",
-    "space-around": "space-around"
+    "space-around": "space-around",
   };
   const defaultValueJustify = "flex-start";
 

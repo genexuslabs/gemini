@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Layout/Spacer One", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Spacer One", () => {
   //Space
   const labelSpace = "Space";
@@ -20,7 +20,7 @@ stories.add("Spacer One", () => {
     s: "s",
     m: "m",
     l: "l",
-    xl: "xl"
+    xl: "xl",
   };
   const defaultValueSpace = "xs";
 

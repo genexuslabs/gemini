@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Controls/Textarea", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Textarea", () => {
   //Max Width
   const labelMaxWidth = "Max. Width";
@@ -35,7 +35,7 @@ stories.add("Textarea", () => {
     warning: "warning",
     error: "error",
     "error (multiple)": "error-multiple",
-    disabled: "disabled"
+    disabled: "disabled",
   };
   const defaultValueStatus = "enabled";
   const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);

@@ -5,7 +5,7 @@ import {
   text,
   boolean,
   number,
-  select
+  select,
 } from "@storybook/addon-knobs";
 
 /*************
@@ -13,7 +13,7 @@ STORIES
 *************/
 const stories = storiesOf("Other/Pill", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Pill Static", () => {
     //Pill Icon
@@ -51,7 +51,7 @@ stories
     const labelIcon = "Icon";
     const optionsIcon = {
       "gemini-tools/pill-filled": "gemini-tools/pill-filled",
-      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined"
+      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined",
     };
     const defaultValueIcon = optionsIcon["gemini-tools/pill-filled"];
 
@@ -82,7 +82,7 @@ stories
     const labelIcon = "Icon";
     const optionsIcon = {
       "gemini-tools/pill-filled": "gemini-tools/pill-filled",
-      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined"
+      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined",
     };
     const defaultValueIcon = optionsIcon["gemini-tools/pill-filled"];
 
@@ -125,7 +125,7 @@ stories
       `,
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   );

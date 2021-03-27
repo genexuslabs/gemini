@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Other/Toolbar", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Toolbar", () => {
   //Title
   const labelTitle = "Title";

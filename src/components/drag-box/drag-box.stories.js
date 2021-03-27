@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Interaction/Drag", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Drag-boxes", () => {
   //Deletable
   const labelDeletable = "Deletable (click a drag-box to see the trash icon)";

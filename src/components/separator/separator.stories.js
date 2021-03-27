@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Layout/Separator", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Separator", () => {
   /*Top/Bottom margin*/
   const labelMargin = "Top/Bottom margin";
@@ -20,7 +20,7 @@ stories.add("Separator", () => {
     s: "s",
     m: "m",
     l: "l",
-    xl: "xl"
+    xl: "xl",
   };
   const defaultValueMargin = "xs";
 
@@ -28,7 +28,7 @@ stories.add("Separator", () => {
   const labelType = "Type";
   const optionsType = {
     solid: "solid",
-    dashed: "dashed"
+    dashed: "dashed",
   };
   const defaultValueType = "solid";
   const valueType = select(labelType, optionsType, defaultValueType);

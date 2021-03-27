@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Other/Accordion", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Classical", () => {
     //Title

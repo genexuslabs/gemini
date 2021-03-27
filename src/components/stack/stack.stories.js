@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Layout/Stack", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Stack", () => {
   return `
       <style>
@@ -26,7 +26,7 @@ stories.add("Stack", () => {
             s: "s",
             m: "m",
             l: "l",
-            xl: "xl"
+            xl: "xl",
           },
           "s"
         )}">

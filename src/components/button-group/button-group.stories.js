@@ -14,7 +14,7 @@ STORIES
 
 const stories = storiesOf("Controls/Button Group", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Two buttons", () => {
     //Main Title

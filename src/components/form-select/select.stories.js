@@ -6,18 +6,18 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Controls/Select", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Select", () => {
   //Label Position
   const labelLabelPosition = "Label position";
   const optionsLabelPosition = {
     start: "start",
-    above: "above"
+    above: "above",
   };
   const defaultValueLabelPosition = "above";
   const valueLabelPosition = select(
@@ -48,7 +48,7 @@ stories.add("Select", () => {
     warning: "warning",
     error: "error",
     "error (multiple)": "error-multiple",
-    disabled: "disabled"
+    disabled: "disabled",
   };
   const defaultValueStatus = "enabled";
   const valueStatus = select(labelStatus, optionsStatus, defaultValueStatus);

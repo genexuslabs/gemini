@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Controls/Input text", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Text", () => {
   //Label
   const labelLabel = "Label";

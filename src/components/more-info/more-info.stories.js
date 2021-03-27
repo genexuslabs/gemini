@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Interaction/More info", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("More info", () => {
   //Position
   const labelPosition = "Position";

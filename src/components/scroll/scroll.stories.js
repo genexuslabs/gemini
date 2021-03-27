@@ -5,7 +5,7 @@ import {
   text,
   boolean,
   number,
-  select
+  select,
 } from "@storybook/addon-knobs";
 
 /*************
@@ -13,7 +13,7 @@ STORIES
 *************/
 const stories = storiesOf("Other/Scroll", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Scroll", () => {
   return `<style>
     #root {

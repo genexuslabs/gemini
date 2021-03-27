@@ -5,7 +5,7 @@ import {
   text,
   boolean,
   number,
-  select
+  select,
 } from "@storybook/addon-knobs";
 
 /*************
@@ -37,7 +37,7 @@ const optionsIcon = {
   showMore: "general/showMore",
   success: "general/success",
   up: "general/up",
-  warning: "general/warning"
+  warning: "general/warning",
 };
 const defaultValueIcon = optionsIcon.add;
 
@@ -55,7 +55,7 @@ STORIES
 *************/
 const stories = storiesOf("Controls/Button", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Primary Text Only", () => {
     //Button Label

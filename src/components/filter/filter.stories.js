@@ -13,7 +13,7 @@ STORIES
 *************/
 const stories = storiesOf("Other/Filter", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Filter", () => {
   return `
     <gxg-button onClick="(function(){

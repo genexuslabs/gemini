@@ -6,12 +6,12 @@ import {
   boolean,
   number,
   select,
-  radios
+  radios,
 } from "@storybook/addon-knobs";
 
 const stories = storiesOf("Controls/Stepper", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Stepper", () => {
   //Disabled
   const labelDisabled = "Disabled";
@@ -32,7 +32,7 @@ stories.add("Stepper", () => {
   const labelLabelPosition = "Label position";
   const optionsLabelPosition = {
     start: "start",
-    above: "above"
+    above: "above",
   };
   const defaultValueLabelPosition = "above";
   const valueLabelPosition = select(

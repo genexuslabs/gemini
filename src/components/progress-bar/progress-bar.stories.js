@@ -11,7 +11,7 @@ import {
 
 const stories = storiesOf("Interaction/Progress-bar", module);
 stories.addDecorator(withKnobs);
-stories.addParameters({ notes: readme });
+stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Progress Bar", () => {
   //Label
   const labelLabel = "Label";
