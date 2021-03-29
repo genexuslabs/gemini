@@ -23,10 +23,11 @@
 
 ## Events
 
-| Event               | Description | Type               |
-| ------------------- | ----------- | ------------------ |
-| `liItemClicked`     |             | `CustomEvent<any>` |
-| `toggleIconClicked` |             | `CustomEvent<any>` |
+| Event                  | Description | Type               |
+| ---------------------- | ----------- | ------------------ |
+| `checkboxClickedEvent` |             | `CustomEvent<any>` |
+| `liItemClicked`        |             | `CustomEvent<any>` |
+| `toggleIconClicked`    |             | `CustomEvent<any>` |
 
 ## Methods
 

@@ -15,6 +15,14 @@ const stories = storiesOf("Navigation/Tree", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Tree", () => {
+  //Toggle checkboxes
+  const labelToggleCheckboxes = "Toggle checkboxes";
+  const defaultValueToggleCheckboxes = true;
+  const valueToggleCheckboxes = boolean(
+    labelToggleCheckboxes,
+    defaultValueToggleCheckboxes
+  );
+
   const fishItems = `<gxg-tree checkbox slot='tree'>
   <gxg-tree-item left-icon='general/patterns'>
     Alaskan salmon
@@ -37,7 +45,7 @@ stories.add("Tree", () => {
     }
   </style>
   <br><br><br><br>
-  <gxg-tree slot="tree">
+  <gxg-tree slot="tree" toggle-checkboxes=${valueToggleCheckboxes}>
     <gxg-tree-item opened left-icon="general/knowledge-base">
       Meats
       <gxg-tree checkbox slot="tree">

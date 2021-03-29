@@ -969,6 +969,10 @@ export namespace Components {
      * Set this attribute if you want all this tree tree-items to have the checkbox checked
      */
     checked: boolean;
+    /**
+     * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
+     */
+    toggleCheckboxes: boolean;
   }
   interface GxgTreeItem {
     /**
@@ -2454,6 +2458,10 @@ declare namespace LocalJSX {
      * Set this attribute if you want all this tree tree-items to have the checkbox checked
      */
     checked?: boolean;
+    /**
+     * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
+     */
+    toggleCheckboxes?: boolean;
   }
   interface GxgTreeItem {
     /**
@@ -2488,6 +2496,7 @@ declare namespace LocalJSX {
      * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon?: string;
+    onCheckboxClickedEvent?: (event: CustomEvent<any>) => void;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
     /**

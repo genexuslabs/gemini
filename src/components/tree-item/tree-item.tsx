@@ -11,6 +11,7 @@ import {
   Watch,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
+import { GxgTree } from "../tree/tree";
 @Component({
   tag: "gxg-tree-item",
   styleUrl: "tree-item.scss",
@@ -89,6 +90,7 @@ export class GxgTreeItem {
   //EVENTS
   @Event() liItemClicked: EventEmitter;
   @Event() toggleIconClicked: EventEmitter;
+  @Event() checkboxClickedEvent: EventEmitter;
 
   @Element() el: HTMLElement;
 
@@ -211,12 +213,10 @@ export class GxgTreeItem {
     //ENTER
     if (e.key === "Enter") {
       //Enter should check/uncheck the checkbox (if present)
-      if (this.checkbox) {
-        if (this.checked) {
-          this.checked = false;
-        } else {
-          this.checked = true;
-        }
+      this.checkboxClicked();
+      if (this.download) {
+        //If the item has a resource to be downloaded, download.
+        this.el.click();
       }
     }
     //LEFT/RIGHT NAVIGATION
@@ -302,7 +302,6 @@ export class GxgTreeItem {
                   const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
                     "gxg-tree"
                   );
-                  console.log(prevElemSiblingTreeItemTree);
                   //
                   if (
                     ((prevElemSiblingTreeItemTree.lastElementChild as unknown) as GxgTreeItem)
@@ -483,8 +482,30 @@ export class GxgTreeItem {
     if (this.checkbox) {
       if (this.checked) {
         this.checked = false;
+        this.toggleTreeItemsCheckboxes(false);
+        this.checkboxClickedEvent.emit(false);
       } else {
         this.checked = true;
+        this.toggleTreeItemsCheckboxes(true);
+        this.checkboxClickedEvent.emit(true);
+      }
+    }
+  }
+  toggleTreeItemsCheckboxes(checked) {
+    //Only do if toggleCheckboxes property exists in parent tree
+    const parentTree = (this.el.parentElement as unknown) as GxgTree;
+    if (parentTree.toggleCheckboxes) {
+      this.indeterminate = false;
+      const childTree = this.el.querySelector("gxg-tree");
+      if (childTree !== null) {
+        const childTreeItems = childTree.querySelectorAll("gxg-tree-item");
+        childTreeItems.forEach(function (treeItem) {
+          if (checked) {
+            treeItem.checked = true;
+          } else {
+            treeItem.checked = false;
+          }
+        });
       }
     }
   }

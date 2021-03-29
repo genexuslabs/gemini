@@ -33,9 +33,24 @@
 
 <body >
 
-  <!-----------------------------------------------
-    UNNAMED
-  ------------------------------------------------>
+
+
+  <gxg-form-text label="Position" label-position="above" value="hola" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="start"></gxg-form-text>
+
+  <!---------------------------------------------
+    BUTTONS
+  ---------------------------------------------->
+  <h3>Buttons</h3>
+  <h4>Primary</h4>
+
+  <h4>Secondary</h4>
+  <gxg-button type="secondary-text-only">Button</gxg-button>
+  
+
+  <!---------------------------------------------
+    FILTER
+  ---------------------------------------------->
+  <h3>Filter</h3>
   <gxg-filter id="gxgFilter">
     <gxg-filter-item icon='objects/webpanel' type="webpanel">Webpanels</gxg-filter-item>
     <gxg-filter-item >Webpanel01</gxg-filter-item>
@@ -54,11 +69,11 @@
     })
   </script>
 
-  <!-----------------------------------------------
+  <!---------------------------------------------
     ALERTS
-  ------------------------------------------------>
+  ---------------------------------------------->
 
-  <!-- <h3>Alerts</h3>
+  <h3>Alerts</h3>
   <gxg-button type="primary-text-only" onClick="(function(){
     document.getElementById('alert-notice').setAttribute('active', 'true');
     return false;
@@ -118,13 +133,13 @@
   position="center"
   title="Warning">
   This is the warning alert
-  </gxg-alert> -->
+  </gxg-alert> 
 
-  <!-----------------------------------------------
+  <!---------------------------------------------
     TOOLBAR
-  ------------------------------------------------>
+  ---------------------------------------------->
 
-  <!-- <h3>Toolbar</h3>
+  <h3>Toolbar</h3>
   <h4>Start</h4>
   <gxg-toolbar toolbar-title="toolbar title" subtitle="main subtitle" position="start" disabled>
     <gxg-toolbar-item
@@ -187,14 +202,14 @@
       toolbar-item-title="Title"
       subtitle="subtitle"
     ></gxg-toolbar-item>
-  </gxg-toolbar> -->
+  </gxg-toolbar> 
 
 
-  <!-----------------------------------------------
+  <!---------------------------------------------
     CONTAINERS
-  ------------------------------------------------>
+  ---------------------------------------------->
 
-  <!-- <h3>Containers</h3>
+  <h3>Containers</h3>
   <h4>Box</h4>
   <gxg-box background="gray-01" padding="l">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
@@ -209,13 +224,13 @@
   <h4>Card</h4>
   <gxg-card background="gray-01" padding="l">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo excepturi totam laborum odio asperiores omnis distinctio mollitia quisquam recusandae! Voluptatum vel veniam sed ab pariatur beatae, dicta nisi blanditiis cum?
-  </gxg-card> -->
+  </gxg-card> 
 
-  <!-----------------------------------------------
+  <!---------------------------------------------
     ACCORDIONS
-  ------------------------------------------------>
+  ---------------------------------------------->
 
-  <!-- <h3>Accordions</h3>
+  <h3>Accordions</h3>
 
   <h4>Classical</h4>
 
@@ -492,6 +507,9 @@
   <gxg-pill type="button-with-action">Pill button-with-action</gxg-pill>
 
 
+    <!---------------------------------------------
+    CHECKBOXES
+    ---------------------------------------------->
   <h3>Checkbox</h3>
   <gxg-form-checkbox></gxg-form-checkbox>
   
@@ -533,6 +551,10 @@
     <gxg-tree-item>Seasonings</gxg-tree-item>
   </gxg-tree>
 
+  <!---------------------------------------------
+  MODAL
+  ---------------------------------------------->
+
   <h3>Modal</h3>
   <gxg-modal
         padding="m"
@@ -571,7 +593,9 @@
   <h3>Toggle</h3>
   <gxg-toggle label="Toggle"></gxg-toggle>
 
-
+  <!---------------------------------------------
+  BUTTONS
+  ---------------------------------------------->
   
   <h3>Buttons</h3>
   <h4>Primary Text Only</h4>
@@ -610,7 +634,9 @@
 </gxg-select>
 
   
-
+  <!---------------------------------------------
+  SCROLL
+  ---------------------------------------------->
   
   <h3>Scroll</h3>
   <gxg-scroll max-height="126px">
@@ -670,11 +696,12 @@ return false;
 >Launch Modal</gxg-button
 >
 
+
+  <!---------------------------------------------
+  SELECT
+  ---------------------------------------------->
 <h3>Select</h3>
-
- -->
-
-  <!-- <gxg-select label="Themes" label-position="start">
+   <gxg-select label="Themes" label-position="start">
     <gxg-option value="dark">Dark</gxg-option>
     <gxg-option value="light">Light</gxg-option>
     <gxg-option selected value="light">1</gxg-option>
@@ -688,9 +715,9 @@ return false;
     <gxg-option selected value="light">1</gxg-option>
     <gxg-option value="light">2</gxg-option>
     <gxg-option value="light">3</gxg-option>
-  </gxg-select> -->
+  </gxg-select> 
 
-  <!-- <h3>Text</h3>
+   <h3>Text</h3>
   <gxg-form-text
 type="text"
 label="Default"
@@ -712,9 +739,9 @@ disabled
 
 <h3>Buttons</h3>
 <h4>Secondary text only</h4>
-<gxg-button type="secondary-text-only">Button</gxg-button> -->
+<gxg-button type="secondary-text-only">Button</gxg-button> 
 
-  <!-- <gxg-stepper
+   <gxg-stepper
     min="-4"
     max="10"
     value="-5"
@@ -747,18 +774,20 @@ disabled
         Some content on accordion 100
       </gxg-accordion-item>
       <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-  </gxg-accordion> -->
-  <!-- 
+  </gxg-accordion> 
+   
   <gxg-accordion mode="slim">
     <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
       Some content on accordion 1
     </gxg-accordion-item>
     <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-</gxg-accordion> -->
+</gxg-accordion> 
 
 
-  <!-- CONTEXTUAL MENU -->
-  <!-- <gxg-contextual-menu> 
+  <!---------------------------------------------
+  CONTEXTUAL MENU
+  ---------------------------------------------->
+   <gxg-contextual-menu> 
       <gxg-contextual-menu-item icon="gemini-tools/folder">
         Item 1
         <gxg-contextual-menu-submenu>
@@ -779,18 +808,21 @@ disabled
       <gxg-contextual-menu-item>
         Item 1
       </gxg-contextual-menu-item>
-    </gxg-contextual-menu> -->
-  <!-- /CONTEXTUAL MENU -->
+    </gxg-contextual-menu> 
+   
 
-  <!-- <gxg-alert
+   <gxg-alert
       id="alert-notice"
       type="notice"
       position="center"
       alert-title="more info title"
       active-time="xxslow"
-    >This is the content of the notice alert</gxg-alert> -->
+    >This is the content of the notice alert</gxg-alert> 
 
-  <!-- <gxg-tree slot="tree">
+  <!---------------------------------------------
+  TREE
+  ---------------------------------------------->
+   <gxg-tree slot="tree">
     <gxg-tree-item icon="general/file">
       Fruits
       <gxg-tree slot="tree">
@@ -847,15 +879,18 @@ disabled
         </gxg-tree-item>
       </gxg-tree>
     </gxg-tree-item>
-  </gxg-tree> -->
-
-  <!-- <gxg-drag-container>
+  </gxg-tree> 
+  
+  <!---------------------------------------------
+  DRAG CONTAINER
+  ---------------------------------------------->
+   <gxg-drag-container>
     <gxg-drag-box key="01" id="01" deletable class="draggable" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, tenetur quis. Maiores explicabo eos, nesciunt ipsum doloremque amet debitis veritatis nam provident quisquam itaque, hic libero dolores accusamus possimus magnam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nulla neque quia reiciendis quos, quidem eos ducimus maiores iste iusto laborum obcaecati voluptas necessitatibus! Ex nam earum nobis excepturi! Dicta?</gxg-drag-box>
     <gxg-drag-box key="04" id="04" deletable class="draggable">Container 04</gxg-drag-box>
     <gxg-drag-box key="05" id="05" deletable class="draggable">Container 05</gxg-drag-box>
-</gxg-drag-container> -->
+</gxg-drag-container> 
 
-  <!-- 
+   
 
   <gxg-accordion mode="slim">
     <gxg-accordion-item item-title="tab-01" item-id="tab-01">
@@ -867,18 +902,18 @@ disabled
     </gxg-drag-container>
     </gxg-accordion-item>
     <gxg-accordion-item item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-</gxg-accordion> -->
+</gxg-accordion> 
 
 
 
-  <!-- <gxg-accordion mode="slim">
+   <gxg-accordion mode="slim">
   <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
     Hey
   </gxg-accordion-item>
-</gxg-accordion> -->
+</gxg-accordion> 
 
 
-  <!-- <gxg-more-info position="top" label="In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery." url="www.google.com"></gxg-more-info>
+   <gxg-more-info position="top" label="In the history of Europe, the Middle Ages or Medieval Period lasted from the 5th to the 15th century. It began with the fall of the Western Roman Empire and merged into the Renaissance and the Age of Discovery." url="www.google.com"></gxg-more-info>
 
 <gxg-toggle label="Toggle" tabindex="0" size="small"></gxg-toggle>
 <gxg-toggle on tabindex="0"></gxg-toggle>
@@ -913,9 +948,9 @@ disabled
   <gxg-pill type="button" tabindex="0" >Pill Label</gxg-pill>
   <gxg-pill type="button-with-action" tabindex="0">Pill Label</gxg-pill>
   <gxg-pill disabled type="button" tabindex="0" >Pill Label</gxg-pill>
-  <gxg-pill disabled type="button-with-action" tabindex="0">Pill Label</gxg-pill> -->
+  <gxg-pill disabled type="button-with-action" tabindex="0">Pill Label</gxg-pill> 
 
-  <!-- <div style="width:50%">
+   <div style="width:50%">
   
 <gxg-form-text
 type="text"
@@ -932,10 +967,10 @@ value="u"
 ></gxg-form-text>
 </div>
 
-<gxg-color-picker value="red"></gxg-color-picker> -->
+<gxg-color-picker value="red"></gxg-color-picker> 
 
-  <!-- <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button> -->
-  <!-- <script>
+   <gxg-button onclick="mostrarAlertMoreInfo('alert-more-info')">Show alert more info</gxg-button> 
+   <script>
 
     const gxgTest = document.querySelector("gxg-test");
     gxgTest.selectItem = "hola";
@@ -951,7 +986,7 @@ value="u"
     function mostrarAlertMoreInfo(alertId) {
       document.getElementById(alertId).setAttribute("active", "true");
     }
-  </script> -->
+  </script> 
 
   <script>
     // CONTEXT MENU
