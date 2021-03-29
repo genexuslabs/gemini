@@ -6,7 +6,7 @@ import {
   boolean,
   number,
   select,
-  color
+  color,
 } from "@storybook/addon-knobs";
 
 /*************
@@ -25,7 +25,7 @@ const options = {
   primary: "primary",
   success: "success",
   warning: "warning",
-  default: "auto"
+  default: "auto",
 };
 
 const defaultValue = options.default;
@@ -107,39 +107,39 @@ function returnTableOfIcons(size, iconsArray) {
 }
 const stories = storiesOf("Icons/Icons", module);
 stories.addDecorator(withKnobs);
-// storiesOf('Button', module)
+stories.addParameters({ notes: readme, layout: "centered" });
 stories
   .add("Controls", () => returnTableOfIcons("regular", controls), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add(
     "Editing structures",
     () => returnTableOfIcons("regular", editingStructures),
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add("Tools", () => returnTableOfIcons("regular", tools), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add("General", () => returnTableOfIcons("regular", general), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add(
     "Gx server integration",
     () => returnTableOfIcons("regular", gxServerIntegration),
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add(
@@ -147,46 +147,46 @@ stories
     () => returnTableOfIcons("regular", menusAndCommands),
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add("Navigation", () => returnTableOfIcons("regular", navigation), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add("Object parts", () => returnTableOfIcons("regular", objectParts), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add("Objects", () => returnTableOfIcons("regular", objects), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add("Other", () => returnTableOfIcons("regular", other), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add("Patterns", () => returnTableOfIcons("regular", patterns), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   })
   .add(
     "Patterns default associated",
     () => returnTableOfIcons("regular", patternsDefaultAssociated),
     {
       notes: {
-        markdown: readme
-      }
+        markdown: readme,
+      },
     }
   )
   .add("Windows tools", () => returnTableOfIcons("regular", windowsTools), {
     notes: {
-      markdown: readme
-    }
+      markdown: readme,
+    },
   });
