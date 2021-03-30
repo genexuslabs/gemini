@@ -109,15 +109,19 @@ export class GxgTree {
         }
       });
       const parentTreeItem = (this.el.parentElement as unknown) as GxgTreeItem;
-      if (allCheckboxesChecked) {
-        parentTreeItem.checked = true;
-        parentTreeItem.indeterminate = false;
-      } else if (allCheckboxesUnchecked) {
-        parentTreeItem.checked = false;
-        parentTreeItem.indeterminate = false;
-      } else if (!allCheckboxesChecked && !allCheckboxesUnchecked) {
-        parentTreeItem.checked = true;
-        parentTreeItem.indeterminate = true;
+      const tagName = ((parentTreeItem as unknown) as HTMLElement).tagName;
+      console.log(this.el);
+      if (tagName === "GXG-TREE-ITEM") {
+        if (allCheckboxesChecked) {
+          parentTreeItem.checked = true;
+          parentTreeItem.indeterminate = false;
+        } else if (allCheckboxesUnchecked) {
+          parentTreeItem.checked = false;
+          parentTreeItem.indeterminate = false;
+        } else if (!allCheckboxesChecked && !allCheckboxesUnchecked) {
+          parentTreeItem.checked = true;
+          parentTreeItem.indeterminate = true;
+        }
       }
     }
   }
