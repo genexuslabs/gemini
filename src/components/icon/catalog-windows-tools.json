@@ -12,11 +12,11 @@
   { "name": "window-tools/history", "description": "Some description" },
   { "name": "window-tools/indexer-monitor", "description": "Some description" },
   { "name": "window-tools/kb-explorer", "description": "Some description" },
-  { "name": "window-tools/logout", "description": "Some description" },
   {
     "name": "window-tools/last-changes-view",
     "description": "Some description"
   },
+  { "name": "window-tools/logout", "description": "Some description" },
   { "name": "window-tools/output", "description": "Some description" },
   {
     "name": "window-tools/performance-test-objects",
