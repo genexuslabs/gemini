@@ -16,6 +16,7 @@
     "name": "window-tools/last-changes-view",
     "description": "Some description"
   },
+  { "name": "window-tools/logout", "description": "Some description" },
   { "name": "window-tools/output", "description": "Some description" },
   {
     "name": "window-tools/performance-test-objects",
