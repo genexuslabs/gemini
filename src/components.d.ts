@@ -571,10 +571,6 @@ export namespace Components {
      */
     color: Color;
     /**
-     * If enabled, the icon will be loaded lazily when it's visible in the viewport.
-     */
-    lazy: boolean;
-    /**
      * The size of the icon. Possible values: regular, small.
      */
     size: Size;
@@ -2047,10 +2043,6 @@ declare namespace LocalJSX {
      * The color of the icon.
      */
     color?: Color;
-    /**
-     * If enabled, the icon will be loaded lazily when it's visible in the viewport.
-     */
-    lazy?: boolean;
     /**
      * The size of the icon. Possible values: regular, small.
      */

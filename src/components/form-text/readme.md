@@ -77,6 +77,7 @@
 graph TD;
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-form-message
+  gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-accordion-item --> gxg-form-text
   gxg-filter --> gxg-form-text

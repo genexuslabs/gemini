@@ -43,11 +43,18 @@ export class GxgTree {
     }
 
     if (this.toggleCheckboxes) {
-      //This property should be set on one time on the mainTree by the developer using the component. If present, apply to all the child trees.
+      //This property should be set one time on the mainTree by the developer using the component. If present, apply to all the child trees.
       const childrenTrees = this.el.querySelectorAll("gxg-tree");
       childrenTrees.forEach(function (tree) {
         ((tree as unknown) as GxgTree).toggleCheckboxes = true;
       });
+    }
+    //If this tree has been added with appendChild, set toggleCheckboxes to true if the parent tree toggleCheckboxes property is set to true
+    const closestTree = this.el.parentElement.parentElement;
+    if (closestTree !== null && closestTree.tagName === "GXG-TREE") {
+      if (((closestTree as unknown) as GxgTree).toggleCheckboxes) {
+        this.toggleCheckboxes = true;
+      }
     }
   }
 
@@ -110,7 +117,6 @@ export class GxgTree {
       });
       const parentTreeItem = (this.el.parentElement as unknown) as GxgTreeItem;
       const tagName = ((parentTreeItem as unknown) as HTMLElement).tagName;
-      console.log(this.el);
       if (tagName === "GXG-TREE-ITEM") {
         if (allCheckboxesChecked) {
           parentTreeItem.checked = true;

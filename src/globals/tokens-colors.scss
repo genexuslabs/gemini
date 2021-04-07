@@ -39,6 +39,7 @@
   --color-on-background: #000;
   --color-on-alert: #000;
   --color-on-disabled: #a4a5a6;
+  --color-always-black: #000;
 }
 :root.dark {
   --color-on-primary: #1d1e22;
@@ -46,6 +47,7 @@
   --color-on-background: #fff;
   --color-on-alert: #fff;
   --color-on-disabled: #616164;
+  --color-always-black: #000;
 }
 //GEMINI COLORS
 :root {

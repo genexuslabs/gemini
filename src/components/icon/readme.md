@@ -4,12 +4,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                   | Type                                                                                                                                      | Default     |
-| -------- | --------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`  | `color`   | The color of the icon.                                                        | `"alwaysblack" \| "auto" \| "disabled" \| "error" \| "negative" \| "onbackground" \| "ondisabled" \| "primary" \| "success" \| "warning"` | `undefined` |
-| `lazy`   | `lazy`    | If enabled, the icon will be loaded lazily when it's visible in the viewport. | `boolean`                                                                                                                                 | `false`     |
-| `size`   | `size`    | The size of the icon. Possible values: regular, small.                        | `"regular" \| "small"`                                                                                                                    | `"regular"` |
-| `type`   | `type`    | The type of icon.                                                             | `any`                                                                                                                                     | `undefined` |
+| Property | Attribute | Description                                            | Type                                                                                                                                      | Default     |
+| -------- | --------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `color`  | `color`   | The color of the icon.                                 | `"alwaysblack" \| "auto" \| "disabled" \| "error" \| "negative" \| "onbackground" \| "ondisabled" \| "primary" \| "success" \| "warning"` | `undefined` |
+| `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                    | `"regular"` |
+| `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                     | `undefined` |
 
 ## Dependencies
 
@@ -31,10 +30,15 @@
 - [gxg-toolbar-item](../toolbar-item)
 - [gxg-tree-item](../tree-item)
 
+### Depends on
+
+- ch-icon
+
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-icon --> ch-icon
   gxg-accordion-item --> gxg-icon
   gxg-alert --> gxg-icon
   gxg-button --> gxg-icon

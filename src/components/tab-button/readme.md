@@ -29,6 +29,7 @@
 ```mermaid
 graph TD;
   gxg-tab-button --> gxg-icon
+  gxg-icon --> ch-icon
   style gxg-tab-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

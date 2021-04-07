@@ -21,6 +21,7 @@ graph TD;
   gxg-test --> gxg-modal
   gxg-modal --> gxg-button
   gxg-button --> gxg-icon
+  gxg-icon --> ch-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,20 +1,8 @@
-import {
-  Component,
-  Element,
-  Host,
-  Prop,
-  State,
-  Watch,
-  getAssetPath,
-  h
-} from "@stencil/core";
-import { getSvgContent, iconContent } from "./requests";
+import { Component, Element, Host, Prop, getAssetPath, h } from "@stencil/core";
 
 /*********************************
 CONSTANTS
 *********************************/
-
-const DEFAULT_COLOR = "onbackground";
 
 const COLOR_MAPPINGS = {
   alwaysblack: "color-always-black",
@@ -25,20 +13,16 @@ const COLOR_MAPPINGS = {
   onbackground: "color-on-background",
   primary: "color-primary-active",
   success: "color-success-dark",
-  warning: "color-warning-dark"
+  warning: "color-warning-dark",
 };
-
-const CAMEL_CASE_TO_HYPHENED_REGEX = /(.)([A-Z])/g;
 
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
   shadow: true,
-  assetsDirs: ["assets"]
+  assetsDirs: ["assets"],
 })
 export class GxgIcon {
-  private io?: IntersectionObserver;
-
   @Element() element: HTMLElement;
 
   /*********************************
@@ -48,120 +32,45 @@ export class GxgIcon {
    * The color of the icon.
    *
    */
-  @Prop({ reflect: true }) color: Color;
-
-  /**
-   * If enabled, the icon will be loaded lazily when it's visible in the viewport.
-   */
-  @Prop() lazy = false;
+  @Prop() color: Color;
 
   /**
    * The size of the icon. Possible values: regular, small.
    */
-  @Prop({ reflect: true }) size: Size = "regular";
+  @Prop() size: Size = "regular";
 
   /**
    * The type of icon.
    */
-  @Prop({ reflect: true }) type;
-
-  @State() private isVisible = false;
-
-  @State() private svgContent?: string;
+  @Prop() type;
 
   /*********************************
   METHODS
   *********************************/
 
-  connectedCallback() {
-    // purposely do not return the promise here because loading
-    // the svg file should not hold up loading the app
-    // only load the svg if it's visible
-    this.waitUntilVisible(this.element, "50px", () => {
-      this.isVisible = true;
-      this.getIcon();
-    });
+  getSrcPath() {
+    return getAssetPath(`assets/${this.type}.svg`);
   }
 
-  disconnectedCallback() {
-    if (this.io) {
-      this.io.disconnect();
-      this.io = undefined;
+  iconSize() {
+    if (this.size === "regular") {
+      return "20px";
+    } else if (this.size === "small") {
+      return "12px";
     }
-  }
-
-  private waitUntilVisible(
-    el: HTMLElement,
-    rootMargin: string,
-    callback: () => void
-  ) {
-    if (
-      this.lazy &&
-      typeof window !== "undefined" &&
-      (window as any).IntersectionObserver
-    ) {
-      const io = (this.io = new (window as any).IntersectionObserver(
-        (data: IntersectionObserverEntry[]) => {
-          if (data[0].isIntersecting) {
-            io.disconnect();
-            this.io = undefined;
-            callback();
-          }
-        },
-        { rootMargin }
-      ));
-
-      io.observe(el);
-    } else {
-      // browser doesn't support IntersectionObserver
-      // so just fallback to always show it
-      callback();
-    }
-  }
-
-  @Watch("type")
-  private async getIcon() {
-    if (this.isVisible) {
-      if (this.type === "none") {
-        this.svgContent = "";
-        return;
-      }
-
-      const fileName = this.getFileName();
-
-      const url = getAssetPath(`assets/${fileName}`);
-      if (url) {
-        if (iconContent.has(url)) {
-          this.svgContent = iconContent.get(url);
-        } else {
-          this.svgContent = await getSvgContent(url);
-        }
-      }
-    }
-  }
-
-  private getFileName() {
-    const name = this.type
-      .replace(CAMEL_CASE_TO_HYPHENED_REGEX, "$1-$2")
-      .toLowerCase();
-    return `${name}.svg`;
   }
 
   render() {
     return (
-      <Host class={{ empty: this.type === "gemini-tools/empty" }}>
-        <div
-          class={{
-            "svg-icon-native": true
-          }}
+      <Host>
+        <ch-icon
           style={{
             "--icon-color": this.mapColorToCssVar(COLOR_MAPPINGS[this.color]),
-            "--icon-color-default": this.mapColorToCssVar(
-              COLOR_MAPPINGS[DEFAULT_COLOR]
-            )
+            "--icon-size": this.iconSize(),
           }}
-          innerHTML={this.svgContent}
-        />
+          auto-color={this.color === "auto"}
+          src={this.getSrcPath()}
+        ></ch-icon>
       </Host>
     );
   }
