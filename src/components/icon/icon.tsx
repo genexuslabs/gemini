@@ -20,7 +20,7 @@ const COLOR_MAPPINGS = {
   tag: "gxg-icon",
   styleUrl: "icon.scss",
   shadow: true,
-  assetsDirs: ["assets"],
+  assetsDirs: ["icon-assets"],
 })
 export class GxgIcon {
   @Element() element: HTMLElement;
@@ -49,7 +49,8 @@ export class GxgIcon {
   *********************************/
 
   getSrcPath() {
-    return getAssetPath(`assets/${this.type}.svg`);
+    console.log(getAssetPath(`icon-assets/${this.type}.svg`));
+    return getAssetPath(`icon-assets/${this.type}.svg`);
   }
 
   iconSize() {
