@@ -60,6 +60,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@genexus/chameleon": "0.0.1",
     "@simonwep/pickr": "^1.7.4",
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-knobs": "^6.1.21",
