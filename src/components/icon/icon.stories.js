@@ -51,6 +51,7 @@ import other from "./catalog-other.json";
 import patterns from "./catalog-patterns.json";
 import patternsDefaultAssociated from "./catalog-patterns-default-associated.json";
 import windowsTools from "./catalog-windows-tools.json";
+import bpm from "./catalog-bpm.json";
 
 function returnTableOfIcons(size, iconsArray) {
   const newArray = iconsArray.map((iconType, index) => {
@@ -186,6 +187,11 @@ stories
     }
   )
   .add("Windows tools", () => returnTableOfIcons("regular", windowsTools), {
+    notes: {
+      markdown: readme,
+    },
+  })
+  .add("Bpm", () => returnTableOfIcons("regular", bpm), {
     notes: {
       markdown: readme,
     },
