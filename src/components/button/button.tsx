@@ -76,16 +76,6 @@ export class GxgButton {
     }
   }
 
-  ghostIcon() {
-    if (
-      this.type === "primary-text-only" ||
-      this.type === "secondary-text-only" ||
-      this.type === "outlined"
-    ) {
-      return <gxg-icon class="ghost-icon" type="gemini-tools/empty"></gxg-icon>;
-      //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
-    }
-  }
   regularIcon() {
     if (
       this.type !== "primary-text-only" &&
@@ -147,7 +137,6 @@ export class GxgButton {
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
         >
-          {this.ghostIcon()}
           {this.regularIcon()}
           {/* {this.iconTooltip()} */}
           {this.type.includes("text") || this.type === "outlined" ? (
