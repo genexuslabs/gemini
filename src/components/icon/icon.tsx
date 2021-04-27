@@ -49,7 +49,6 @@ export class GxgIcon {
   *********************************/
 
   getSrcPath() {
-    console.log(getAssetPath(`icon-assets/${this.type}.svg`));
     return getAssetPath(`icon-assets/${this.type}.svg`);
   }
 
