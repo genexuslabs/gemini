@@ -1,11 +1,10 @@
-import { Component, Element, h, Host, Prop, getAssetPath } from "@stencil/core";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import { Color } from "../icon/icon";
 
 @Component({
   tag: "gxg-button",
   styleUrl: "button.scss",
   shadow: true,
-  assetsDirs: ["button-assets"],
 })
 export class GxgButton {
   @Element() el: HTMLElement;
