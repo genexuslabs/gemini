@@ -129,12 +129,14 @@ INPUT TEXT ICON
 *****************************************************/
 :host([icon-position="start"]) {
   gxg-icon {
-    left: 0;
+    left: 5px;
+    top: 4px;
   }
 }
 :host([icon-position="end"]) {
   gxg-icon {
-    right: 0;
+    right: 5px;
+    top: 4px;
   }
 }
 :host([icon-position="end"]) {
@@ -165,7 +167,7 @@ CLEAR BUTTON
 *****************************************************/
 :host {
   gxg-icon.clear-button {
-    right: 0 !important;
+    right: 5px !important;
     left: auto;
     opacity: 0.5;
     cursor: pointer;
@@ -173,6 +175,14 @@ CLEAR BUTTON
     &:hover {
       opacity: 1;
     }
+  }
+}
+:host([clear-button][icon-position="end"]) {
+  gxg-icon:not(.clear-button) {
+    right: 20px;
+  }
+  input {
+    padding-inline-end: 36px;
   }
 }
 

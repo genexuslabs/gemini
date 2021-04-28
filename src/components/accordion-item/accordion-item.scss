@@ -67,6 +67,7 @@
         padding-inline-end: var(--spacing-comp-01);
         padding-bottom: 0;
         padding-inline-start: var(--spacing-comp-02);
+        min-height: 20px;
         @include ui-animation(background-color);
 
         .cover  {
