@@ -9,6 +9,10 @@
   display: inline-block;
   line-height: 0;
   position: relative;
+
+  .ghost-icon {
+    width: 0;
+  }
 }
 
 :host(.button) .button-native {
@@ -37,10 +41,10 @@
 :host(.button.button--disabled) .button-native {
   background: var(--color-primary-disabled);
   @include gxg-label--disabled;
-  cursor: not-allowed;
+  pointer-events: none;
 }
 :host(.button.button--disabled) {
-  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /*********************************
@@ -48,8 +52,8 @@ PRIMARY 'TEXT ONLY' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-only) .button-native {
   @include gxg-label--negative;
-  padding-inline-start: var(--spacing-comp-05);
-  padding-inline-end: var(--spacing-comp-05);
+  padding-inline-start: var(--spacing-comp-04);
+  padding-inline-end: var(--spacing-comp-04);
 }
 :host(.button--primary-text-only.button--disabled) .button-native {
   @include gxg-label--negative-disabled;
@@ -61,7 +65,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 :host(.button--primary-text-icon) .button-native {
   @include gxg-label--negative;
   padding-inline-start: var(--spacing-comp-02);
-  padding-inline-end: var(--spacing-comp-03);
+  padding-inline-end: var(--spacing-comp-02);
   gxg-icon {
     padding-inline-end: var(--spacing-comp-02);
   }
@@ -76,9 +80,10 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 :host(.button--primary-icon-only) .button-native {
   background: var(--color-primary-enabled);
   color: var(--color-on-primary);
-  padding-inline-end: 0;
-  padding-inline-start: 0;
+  width: 20px;
   height: 20px;
+  padding-left: 0;
+  padding-right: 0;
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
@@ -105,8 +110,8 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
 
   //Enabled
   background: transparent;
-  padding-inline-start: var(--spacing-comp-05);
-  padding-inline-end: var(--spacing-comp-05);
+  padding-inline-start: var(--spacing-comp-04);
+  padding-inline-end: var(--spacing-comp-04);
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
@@ -140,8 +145,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-start: 0;
 
-  padding-inline-start: 0;
-  padding-inline-end: var(--spacing-comp-03);
+  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-end: var(--spacing-comp-02);
   gxg-icon {
     padding-inline-end: var(--spacing-comp-01);
   }
@@ -176,6 +181,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-end: 0;
   padding-inline-start: 0;
+  width: 20px;
+  height: 20px;
 
   &:hover:not([disabled]) {
     background: transparent;
@@ -202,8 +209,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 
   //Enabled
   background: var(--color-background);
-  padding-inline-start: var(--spacing-comp-05);
-  padding-inline-end: var(--spacing-comp-05);
+  padding-inline-start: var(--spacing-comp-04);
+  padding-inline-end: var(--spacing-comp-04);
 
   &:hover:not([disabled]) {
     @include gxg-label--hover;
@@ -235,9 +242,13 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-inline-end: 0;
   padding-inline-start: 0;
   height: 20px;
+  width: 20px;
 
   &:hover:not([disabled]) {
     background: transparent;
+    gxg-icon {
+      transform: scale(0.75);
+    }
   }
   &:focus:not([disabled]) {
     background: transparent;

@@ -319,11 +319,10 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding-top: 0;
+  padding-top: 2.5px;
   padding-right: var(--spacing-comp-03);
-  padding-bottom: 0;
+  padding-bottom: 2.5px;
   padding-left: var(--spacing-comp-03);
-  min-height: 20px;
   line-height: var(--line-height-regular);
 
   //Transition

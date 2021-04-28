@@ -1,10 +1,11 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, getAssetPath } from "@stencil/core";
 import { Color } from "../icon/icon";
 
 @Component({
   tag: "gxg-button",
   styleUrl: "button.scss",
   shadow: true,
+  assetsDirs: ["button-assets"],
 })
 export class GxgButton {
   @Element() el: HTMLElement;
@@ -76,12 +77,35 @@ export class GxgButton {
     }
   }
 
+  ghostIcon() {
+    if (
+      this.type === "primary-text-only" ||
+      this.type === "secondary-text-only" ||
+      this.type === "outlined"
+    ) {
+      return (
+        <gxg-icon
+          class="ghost-icon"
+          type="gemini-tools/empty"
+          size="small"
+        ></gxg-icon>
+      );
+      //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
+    }
+  }
+
   regularIcon() {
     if (
       this.type !== "primary-text-only" &&
       this.type !== "secondary-text-only"
     ) {
-      return <gxg-icon type={this.icon} color={this.iconColor()}></gxg-icon>;
+      return (
+        <gxg-icon
+          type={this.icon}
+          color={this.iconColor()}
+          size="small"
+        ></gxg-icon>
+      );
     }
   }
 
@@ -89,6 +113,9 @@ export class GxgButton {
     let iColor: Color;
     if (this.type.includes("primary")) {
       iColor = "negative";
+      if (this.disabled) {
+        iColor = "ondisabled";
+      }
     } else if (this.type.includes("secondary")) {
       if (this.disabled) {
         iColor = "disabled";
@@ -96,12 +123,16 @@ export class GxgButton {
         iColor = "primary";
       }
     } else if (this.type.includes("tertiary")) {
-      if (this.alwaysBlack) {
-        iColor = "alwaysblack";
-      } else if (this.negative) {
-        iColor = "negative";
+      if (this.disabled) {
+        iColor = "disabled";
       } else {
-        iColor = "onbackground";
+        if (this.alwaysBlack) {
+          iColor = "alwaysblack";
+        } else if (this.negative) {
+          iColor = "negative";
+        } else {
+          iColor = "onbackground";
+        }
       }
     }
     return iColor;
@@ -137,8 +168,8 @@ export class GxgButton {
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
         >
+          {this.ghostIcon()}
           {this.regularIcon()}
-          {/* {this.iconTooltip()} */}
           {this.type.includes("text") || this.type === "outlined" ? (
             <span class="text">
               <slot />

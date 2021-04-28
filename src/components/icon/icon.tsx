@@ -54,7 +54,7 @@ export class GxgIcon {
 
   iconSize() {
     if (this.size === "regular") {
-      return "20px";
+      return "16px";
     } else if (this.size === "small") {
       return "12px";
     }

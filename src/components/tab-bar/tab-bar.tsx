@@ -3,7 +3,7 @@ import { Component, h, Host, Element, State } from "@stencil/core";
 @Component({
   tag: "gxg-tab-bar",
   styleUrl: "tab-bar.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTabBar {
   constructor() {
@@ -97,7 +97,7 @@ export class GxgTabBar {
       //this.appendTabItemsToMenu();
     }
 
-    const myObserver = new ResizeObserver(entries => {
+    const myObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         //get any button space between text and button border
         this.appendTabItemsToMenu();
@@ -115,7 +115,7 @@ export class GxgTabBar {
           <gxg-button
             onClick={this.toggleMenu.bind(this)}
             type="tertiary"
-            icon="show-more-vertical"
+            icon="gemini-tools/show-more-vertical"
           ></gxg-button>
         </div>
       );
@@ -154,7 +154,7 @@ export class GxgTabBar {
     return (
       <Host
         class={{
-          rtl: this.rtl
+          rtl: this.rtl,
         }}
       >
         <ul class="tab-bar">
@@ -164,7 +164,7 @@ export class GxgTabBar {
         <ul
           class="tab-bar-menu tab-bar-menu--collapsed"
           style={{ "--tabBarMenuHeight": this.tabBarMenuHeight }}
-          ref={el => (this.tabBarMenu = el as HTMLElement)}
+          ref={(el) => (this.tabBarMenu = el as HTMLElement)}
         >
           <slot name="tab-menu"></slot>
         </ul>
