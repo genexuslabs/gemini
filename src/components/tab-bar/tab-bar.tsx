@@ -31,7 +31,7 @@ export class GxgTabBar {
   }
 
   @Listen("tabActivated")
-  tabActivatedHandler(event) {
+  tabActivatedHandler() {
     const tabMenuContainer = this.el.shadowRoot.querySelector(
       ".tab-bar-menu"
     ) as HTMLElement;
