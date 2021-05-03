@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop } from "@stencil/core";
 import { Color } from "../icon/icon";
+import { Size } from "../icon/icon";
 
 @Component({
   tag: "gxg-button",
@@ -102,10 +103,20 @@ export class GxgButton {
         <gxg-icon
           type={this.icon}
           color={this.iconColor()}
-          size="regular"
+          size={this.iconSize()}
         ></gxg-icon>
       );
     }
+  }
+
+  iconSize() {
+    let iSize: Size;
+    if (this.type === "secondary-icon-only" || this.type === "tertiary") {
+      iSize = "regular";
+    } else {
+      iSize = "small";
+    }
+    return iSize;
   }
 
   iconColor() {
