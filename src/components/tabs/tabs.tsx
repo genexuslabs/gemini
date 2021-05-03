@@ -3,7 +3,7 @@ import { Component, Element, Listen, h, State } from "@stencil/core";
 @Component({
   tag: "gxg-tabs",
   styleUrl: "tabs.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTabs {
   @Element() element: HTMLGxgTabsElement;
@@ -22,6 +22,8 @@ export class GxgTabs {
     }
     this.updateActiveChildren(event.target.tab, "gxg-tab-button");
     this.updateActiveChildren(event.target.tab, "gxg-tab");
+
+    //hide tab menu
   }
 
   updateActiveChildren(activeTab: string, tagName: string) {
@@ -43,7 +45,7 @@ export class GxgTabs {
             ".outer-container"
           ) as HTMLElement;
 
-          setTimeout(function() {
+          setTimeout(function () {
             outerContainer.style.overflow = "visible";
           }, 100);
         }

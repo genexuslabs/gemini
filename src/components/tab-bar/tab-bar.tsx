@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, State } from "@stencil/core";
+import { Component, h, Host, Element, State, Listen } from "@stencil/core";
 
 @Component({
   tag: "gxg-tab-bar",
@@ -26,49 +26,50 @@ export class GxgTabBar {
 
   toggleMenu(event) {
     event.stopPropagation();
-
     this.tabBarMenu.classList.toggle("tab-bar-menu--collapsed");
-
     document.addEventListener("click", this.detectClickOutsideTabBarMenu);
+  }
+
+  @Listen("tabActivated")
+  tabActivatedHandler(event) {
+    const tabMenuContainer = this.el.shadowRoot.querySelector(
+      ".tab-bar-menu"
+    ) as HTMLElement;
+    tabMenuContainer.classList.add("tab-bar-menu--collapsed");
   }
 
   appendTabItemsToMenu() {
     //This function appends tab-buttons into a tab-menu, as long as the tab-buttons are too tight
 
     const buttonHeight = this.el.children.item(0).clientHeight;
+    const tabBarWidth = ((this.el.shadowRoot.querySelector(
+      ".tab-bar"
+    ) as unknown) as HTMLElement).offsetWidth;
+    const tabsWidth = this.el.parentElement.offsetWidth;
 
-    const calculateButtonPadding = () => {
-      const buttonWidth = this.el.children.item(0).clientWidth;
-      // let buttonHeight = this.el.children.item(0).clientHeight;
-      const buttonTextWidth = this.el.children
-        .item(0)
-        .shadowRoot.querySelector(".tab-button__text").clientWidth;
-      const buttonPadding = buttonWidth - buttonTextWidth;
-      return buttonPadding;
-    };
-
-    if (calculateButtonPadding() < 40) {
-      while (calculateButtonPadding() < 40) {
-        //if button "padding" is lower than 10px, then, the buttons are too short.
-        //it is time to cut off the LAST button, and put it into the menu!
-        const tabButtons = this.el.querySelectorAll("[slot=tab-bar]");
-        //get the last item of the nodeList
-        const lastTabButton = tabButtons[tabButtons.length - 1];
-        //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
-        lastTabButton.classList.add("menu-button");
-        lastTabButton.setAttribute("slot", "tab-menu");
-        this.appendedButtons++;
-      }
-    } else if (calculateButtonPadding() > 35 && this.appendedButtons > 0) {
-      //if there are buttons in the menu, cut off the first button, and append it into the last postition of the tab-bar
-
+    if (tabBarWidth + 20 > tabsWidth) {
+      const tabButtons = this.el.querySelectorAll("[slot=tab-bar]");
+      //get the last item of the nodeList
+      const lastTabButton = tabButtons[tabButtons.length - 1];
+      //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
+      lastTabButton.classList.add("menu-button");
+      lastTabButton.setAttribute("slot", "tab-menu");
+      this.appendedButtons++;
+      //}
+    } else {
       const menuButtons = this.el.querySelectorAll("[slot=tab-menu]");
       const menuFirstButton = menuButtons[0];
-
-      //remove "menu-button" class in order to remove styles that are specific for the buttons inside the menu
-      menuFirstButton.classList.remove("menu-button");
-      menuFirstButton.setAttribute("slot", "tab-bar");
-      this.appendedButtons--;
+      if (menuFirstButton !== undefined) {
+        if (
+          tabsWidth >
+          tabBarWidth +
+            ((menuFirstButton as unknown) as HTMLElement).offsetWidth
+        ) {
+          menuFirstButton.classList.remove("menu-button");
+          menuFirstButton.setAttribute("slot", "tab-bar");
+          this.appendedButtons--;
+        }
+      }
     }
 
     //set inline height to the "tab-bar-menu" for the height css transition to work propperly
@@ -85,17 +86,8 @@ export class GxgTabBar {
     if (dirHtml === "rtl" || dirBody === "rtl") {
       this.rtl = true;
     }
-    //Resize
-    window.addEventListener("resize", () => {
-      this.appendTabItemsToMenu();
-    });
 
     requestAnimationFrame(() => this.appendTabItemsToMenu());
-
-    for (let i = 1; i < 5; i++) {
-      // It is neccessary to call this function a couple of times when the page loads, in the case the tab-buttons are too tight already (before the user resizes the window)
-      //this.appendTabItemsToMenu();
-    }
 
     const myObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
@@ -104,8 +96,20 @@ export class GxgTabBar {
       });
     });
 
-    const tabBar = this.el;
-    myObserver.observe(tabBar);
+    const tabs = this.el.parentElement;
+    myObserver.observe(tabs);
+
+    //Collapse buttons if they dont't fit in the available space already
+    setTimeout(
+      function () {
+        const numberOfButtons = this.el.querySelectorAll("gxg-tab-button")
+          .length;
+        for (let i = 0; i <= numberOfButtons; i++) {
+          this.appendTabItemsToMenu();
+        }
+      }.bind(this),
+      100
+    );
   }
 
   renderTabBarMenu() {
@@ -159,8 +163,8 @@ export class GxgTabBar {
       >
         <ul class="tab-bar">
           <slot name="tab-bar"></slot>
-          {this.renderTabBarMenu()}
         </ul>
+        {this.renderTabBarMenu()}
         <ul
           class="tab-bar-menu tab-bar-menu--collapsed"
           style={{ "--tabBarMenuHeight": this.tabBarMenuHeight }}

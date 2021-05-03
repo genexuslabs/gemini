@@ -2,9 +2,11 @@
 
 :host {
   --tabBarMenuHeight: 0;
-  display: block;
+  display: inline-flex;
   text-align: right;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 
   .tab-bar {
     list-style-type: none;
@@ -14,11 +16,10 @@
     margin-top: 0;
     font-family: var(--font-family-primary);
     background-color: var(--color-background);
-
-    .tab-bar__menu {
-      display: flex;
-      align-items: center;
-    }
+  }
+  .tab-bar__menu {
+    display: flex;
+    align-items: center;
   }
   .tab-bar-menu {
     border-radius: var(--border-width-md);

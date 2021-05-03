@@ -3,7 +3,7 @@
 :host {
   display: block;
 
-  flex: 1 1 auto !important;
+  //flex: 1 1 auto !important;
   align-self: center !important;
   line-height: 0;
 
@@ -24,9 +24,9 @@
     color: var(--color-on-background);
     letter-spacing: var(--letter-spacing-regular);
     padding-top: 0;
-    padding-right: 0;
+    padding-right: var(--spacing-comp-05);
     padding-bottom: 0;
-    padding-left: 0;
+    padding-left: var(--spacing-comp-05);
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -80,7 +80,7 @@
       }
     }
     &--text-icon gxg-icon {
-      margin-right: var(--spacing-comp-01);
+      margin-right: var(--spacing-comp-02);
     }
   }
   .tab-button__text {

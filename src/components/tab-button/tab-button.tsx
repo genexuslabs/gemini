@@ -3,7 +3,7 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
 @Component({
   tag: "gxg-tab-button",
   styleUrl: "tab-button.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTabButton {
   /**
@@ -65,12 +65,11 @@ export class GxgTabButton {
             "tab-button": true,
             "tab-button--selected": this.isSelected === true,
             "tab-button--text-icon":
-              this.tabLabel !== null && this.icon !== null
+              this.tabLabel !== null && this.icon !== null,
           }}
           onClick={this.tabButtonClicked.bind(this)}
         >
           {this.printIcon()}
-          {/* <gxg-icon type={this.icon}></gxg-icon> */}
           <span class="tab-button__text">{this.tabLabel}</span>
         </button>
         <slot></slot>

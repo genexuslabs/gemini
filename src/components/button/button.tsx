@@ -102,7 +102,7 @@ export class GxgButton {
         <gxg-icon
           type={this.icon}
           color={this.iconColor()}
-          size="small"
+          size="regular"
         ></gxg-icon>
       );
     }
