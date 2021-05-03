@@ -42,6 +42,7 @@ import controls from "./catalog-controls.json";
 import editingStructures from "./catalog-editing-structures.json";
 import tools from "./catalog-gemini-tools.json";
 import general from "./catalog-general.json";
+import gxTest from "./catalog-gx-test.json";
 import gxServerIntegration from "./catalog-gxserver-integration.json";
 import menusAndCommands from "./catalog-menus-&-commands.json";
 import navigation from "./catalog-navigation.json";
@@ -130,6 +131,11 @@ stories
     },
   })
   .add("General", () => returnTableOfIcons("regular", general), {
+    notes: {
+      markdown: readme,
+    },
+  })
+  .add("Gx test", () => returnTableOfIcons("regular", gxTest), {
     notes: {
       markdown: readme,
     },
