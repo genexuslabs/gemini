@@ -47,7 +47,7 @@ export class GxgPill {
   render() {
     return (
       <Host tabindex="0" class={{ "no-icon": this.icon === undefined }}>
-        <gxg-icon type={this.iconType()} size="small" color="auto"></gxg-icon>
+        <gxg-icon type={this.icon} size="small" color="auto"></gxg-icon>
 
         <span class="title">
           <slot></slot>
