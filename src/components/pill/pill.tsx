@@ -2,7 +2,7 @@ import { Component, Element, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-pill",
   styleUrl: "pill.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgPill {
   @Element() el: HTMLElement;
@@ -29,13 +29,13 @@ export class GxgPill {
     }, 250);
   }
 
-  iconType() {
-    if (this.icon !== undefined) {
-      return this.icon;
-    } else {
-      return "gemini-tools/empty";
-    }
-  }
+  // iconType() {
+  //   if (this.icon !== undefined) {
+  //     return this.icon;
+  //   } else {
+  //     return "gemini-tools/empty";
+  //   }
+  // }
   iconColor() {
     if (this.disabled) {
       return "disabled";

@@ -6,7 +6,7 @@ import {
   Element,
   Event,
   EventEmitter,
-  State
+  State,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { mode } from "../accordion/accordion";
@@ -14,7 +14,7 @@ import { mode } from "../accordion/accordion";
 @Component({
   tag: "gxg-accordion-item",
   styleUrl: "accordion-item.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgAccordionItem {
   @Element() el: HTMLElement;
@@ -178,7 +178,7 @@ export class GxgAccordionItem {
       );
       outerWrapper.addEventListener(
         "click",
-        function(e) {
+        function (e) {
           if (!e.path[0].classList.contains("input")) {
             this.status = "closed";
           }
@@ -233,15 +233,17 @@ export class GxgAccordionItem {
       <Host
         class={{
           "nested-acordion": this.nestedAccordion,
-          "has-subtitle": this.itemSubtitle !== null
+          "has-subtitle": this.itemSubtitle !== null,
         }}
       >
-        {//disabled layer prevents interacting with the component and enables to use "not-allowed" cursor
-        this.disabled ? <div class="disabled-layer"></div> : null}
+        {
+          //disabled layer prevents interacting with the component and enables to use "not-allowed" cursor
+          this.disabled ? <div class="disabled-layer"></div> : null
+        }
         <div
           class={{
             item: true,
-            "item--disabled": this.disabled === true
+            "item--disabled": this.disabled === true,
           }}
         >
           <header class="item__header">
@@ -261,7 +263,7 @@ export class GxgAccordionItem {
                 <div
                   class={{
                     cover: true,
-                    hidden: this.status === "open"
+                    hidden: this.status === "open",
                   }}
                 ></div>
               ) : null}
@@ -277,7 +279,7 @@ export class GxgAccordionItem {
                     <div class="item__header__button__title-subtitle__title__icon">
                       <gxg-icon
                         size="regular"
-                        type="navigation/flow-arrow"
+                        type={this.titleIcon}
                         color={this.disabled ? "ondisabled" : "auto"}
                       ></gxg-icon>
                     </div>
@@ -286,7 +288,7 @@ export class GxgAccordionItem {
                   (this.mode === "classical" || this.mode === "boxed") ? (
                     //editable title should only be available for "classical" or "boxed" modes
                     <gxg-form-text
-                      onChange={event => this.changedTitleHandler(event)}
+                      onChange={(event) => this.changedTitleHandler(event)}
                       minimal
                       over-dark-background={
                         true

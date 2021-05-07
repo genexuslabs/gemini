@@ -26,6 +26,8 @@ export class GxgFilter {
    */
   @Prop() left = undefined;
 
+  @Prop({ reflect: true }) visible = false;
+
   @State() itemsNodeList: NodeList;
 
   componentWillLoad() {
@@ -70,19 +72,17 @@ export class GxgFilter {
   }
 
   closeFilter() {
-    this.el.addEventListener("animationend", () => {
-      this.el.remove();
-    });
-    this.el.classList.add("hide");
+    this.visible = false;
   }
 
   @Listen("itemClickedEvent")
   handleItemClickedEvent() {
     //When an item has been clicked, hide the filter
     this.el.addEventListener("animationend", () => {
-      this.el.remove();
+      //this.el.remove();
+      this.visible = false;
     });
-    this.el.classList.add("hide");
+    //this.el.classList.add("hide");
   }
 
   render() {

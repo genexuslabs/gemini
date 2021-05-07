@@ -67,7 +67,7 @@ stories
       "white (default)": "white",
       "gray-01": "gray-01",
     },
-    "xs"
+    "white"
   )}
   elevation=${select(
     "Elevation",

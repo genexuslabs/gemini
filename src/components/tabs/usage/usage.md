@@ -1,33 +1,3 @@
-# gxg-tab
-
-## Properties
-
-| Property     | Attribute     | Description                                                           | Type      | Default     |
-| ------------ | ------------- | --------------------------------------------------------------------- | --------- | ----------- |
-| `isSelected` | `is-selected` |                                                                       | `boolean` | `false`     |
-| `minHeight`  | `min-height`  | The tab min height. Set it on "gxg-tabs" main container               | `string`  | `undefined` |
-| `tab`        | `tab`         | The tab id. Should match the "tab" value of the correlative "gxg-tab" | `string`  | `undefined` |
-
-# gxg-tab-button
-
-## Properties
-
-| Property     | Attribute     | Description                                                                   | Type      | Default |
-| ------------ | ------------- | ----------------------------------------------------------------------------- | --------- | ------- |
-| `disabled`   | `disabled`    | Provide this attribute to make this button disabled                           | `boolean` | `false` |
-| `icon`       | `icon`        | (Optional) provide an icon to this button                                     | `string`  | `null`  |
-| `isSelected` | `is-selected` | Provide this attribute to make this button selected by default                | `boolean` | `false` |
-| `tab`        | `tab`         | The tab id. Should match the "tab" value of the correlative "gxg-tab" element | `string`  | `null`  |
-| `tabLabel`   | `tab-label`   | The button label                                                              | `string`  | `null`  |
-
-# gxg-tab
-
-<!-- Auto Generated Below -->
-
-## Usage
-
-### Usage
-
 ```
  <gxg-tabs>
    <gxg-tab-bar>
@@ -110,13 +80,3 @@
    </gxg-tab>
 </gxg-tabs>
 ```
-
-## Properties
-
-| Property    | Attribute    | Description | Type     | Default     |
-| ----------- | ------------ | ----------- | -------- | ----------- |
-| `minHeight` | `min-height` |             | `string` | `undefined` |
-
----
-
-_Built with [StencilJS](https://stenciljs.com/)_

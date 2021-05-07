@@ -6,7 +6,9 @@
    <li>To work properly, the accordion expects each <code>gxg-accordion-item</code> to have a unique <code>item-id</code></li>  
    <li>You can remove the padding on one <code>gxg-accordion-item</code> by setting the <code>no-padding</code> attribute on it, or to all of the accordion-item's by setting the <code>no-padding</code> attribute on the <code>gxg-accordion</code> component.</li>
    <li>accordion mode <em>classical</em> and <em>boxed</em> can accept a subtitle, which must be provided as an attribute: <code>&lt;gxg-accordion-item subtitle="some subtitle"&gt;</code>. The subtitle will appear under the title.<br>Checkout the examples for the <a target="_blank" href="/story/other-accordion--classical-subtitle">classical mode</a>, and <a target="_blank" href="/story/other-accordion--boxed-subtitle">boxed mode</a>.</li>
-   <li>accordion mode <em>boxed</em> will also accept meta-data, which must be provided as a <em>slotted content</em> inside the <code>gxg-accordion-item</code>: <code>&lt;p slot="meta"&gt;This is the meta-data&lt;/p&gt;</code>. The meta-data will appear on the right, just before the arrow.<br>Checkout the example for the <a href="/story/other-accordion--boxed-meta">boxed mode</a>.</li>
+   <li>accordion mode <em>classical</em> and <em>boxed</em> can also accept meta-data, which must be provided as a <em>slotted content</em> inside the <code>gxg-accordion-item</code>: <code>&lt;p slot="meta"&gt;This is the meta-data&lt;/p&gt;</code>. The meta-data will appear on the right, just before the arrow.<br>Checkout the example for the <a href="/story/other-accordion--boxed-meta">boxed mode</a> or <a href="/story/other-accordion--classical-meta">classical mode</a>.</li>
+  <li>accordion mode <em>classical</em> and <em>boxed</em> can also accept an icon, just before the title. The icon must be provided as an attribute: <code>&lt;gxg-accordion-item title-icon="navigation/level-down"&gt;</code> <br>Checkout the example for the <a href="/story/other-accordion--boxed-icon">boxed mode</a> or <a href="/story/other-accordion--classical-icon">classical mode</a>.</li>
+
    <li>accordion mode <em>classical</em> and <em>boxed</em> titles can be editable: Add the "editable-title" attribute to an <code>accordion-item</code> to make the title editable (the item must be opened).</li>
 </ul>
 
@@ -23,6 +25,30 @@
 # gxg-accordion-item
 
 <!-- Auto Generated Below -->
+
+## Usage
+
+### Usage
+
+```
+<gxg-accordion mode="classical">
+    <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        Some content on accordion 1
+    </gxg-accordion-item>
+    <gxg-accordion-item title-icon="navigation/level-down" item-title="tab-02" item-id="tab-02">
+        some content on accordion 2.
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">
+        some content on accordion 3.
+    </gxg-accordion-item>
+    <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+        some content on accordion 4.
+    <div slot="meta">
+        some meta
+    </div>
+    </gxg-accordion-item>
+</gxg-accordion>
+```
 
 ## Properties
 

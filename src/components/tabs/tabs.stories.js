@@ -34,14 +34,14 @@ stories
                 tab="bananas"
                 key="bananas"
                 isSelected="false"
-                icon="general/settings"
+                icon="gemini-tools/settings"
               ></gxg-tab-button>
               <gxg-tab-button
                 slot="tab-bar"
                 tab="cherries"
                 key="cherries"
                 isSelected="false"
-                icon="general/settings"
+                icon="gemini-tools/settings"
               ></gxg-tab-button>
               <gxg-tab-button
                 slot="tab-bar"
@@ -50,7 +50,7 @@ stories
                 key="strawberries"
                 isSelected="false"
                 disabled
-                icon="general/settings"
+                icon="gemini-tools/settings"
               ></gxg-tab-button>
               <gxg-tab-button
                 slot="tab-bar"

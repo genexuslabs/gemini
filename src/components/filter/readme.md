@@ -22,10 +22,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                        | Type  | Default     |
-| -------- | --------- | -------------------------------------------------------------------------------------------------- | ----- | ----------- |
-| `left`   | `left`    | The left position of the filter, relative to the closest parent with relative position. (optional) | `any` | `undefined` |
-| `top`    | `top`     | The top position of the filter, relative to the closest parent with relative position. (optional)  | `any` | `undefined` |
+| Property  | Attribute | Description                                                                                        | Type      | Default     |
+| --------- | --------- | -------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `left`    | `left`    | The left position of the filter, relative to the closest parent with relative position. (optional) | `any`     | `undefined` |
+| `top`     | `top`     | The top position of the filter, relative to the closest parent with relative position. (optional)  | `any`     | `undefined` |
+| `visible` | `visible` |                                                                                                    | `boolean` | `false`     |
 
 ## Dependencies
 

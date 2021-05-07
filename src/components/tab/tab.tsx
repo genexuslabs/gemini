@@ -3,7 +3,7 @@ import { Component, Element, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-tab",
   styleUrl: "tab.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTab {
   @Element() el: HTMLElement;
@@ -14,13 +14,18 @@ export class GxgTab {
   @Prop() tab: string;
 
   /**
+   * The tab min height. Set it on "gxg-tabs" main container
+   */
+  @Prop({ reflect: true }) minHeight: string;
+
+  /**
    *
    */
   @Prop({ reflect: true }) isSelected = false;
 
   componentDidLoad() {
     //Resize Observer
-    const myObserver = new ResizeObserver(entries => {
+    const myObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         this.setMaxHeight();
       });
@@ -48,7 +53,12 @@ export class GxgTab {
     return (
       <Host class={{ open: this.isSelected }}>
         <div class="outer-container">
-          <div class="inner-container">
+          <div
+            class="inner-container"
+            style={{
+              minHeight: this.minHeight,
+            }}
+          >
             <slot></slot>
           </div>
         </div>

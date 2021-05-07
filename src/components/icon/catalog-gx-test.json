@@ -13,7 +13,7 @@
   { "name": "gx-test/run-test-suite", "description": "Some description" },
   { "name": "gx-test/run-tests", "description": "Some description" },
   { "name": "gx-test/run-ui-test-sd", "description": "Some description" },
-  { "name": "gx-test/-run-ui-test-web", "description": "Some description" },
+  { "name": "gx-test/run-ui-test-web", "description": "Some description" },
   { "name": "gx-test/run-unit-test", "description": "Some description" },
   { "name": "gx-test/screenshot-viewer", "description": "Some description" },
   { "name": "gx-test/test-folder-open", "description": "Some description" },

@@ -534,6 +534,29 @@ stories
       </gxg-accordion-item>
     </gxg-accordion>`;
   })
+  .add("Classical Meta", () => {
+    //Subtitle
+    const labelValueMeta = "Meta (slotted content)";
+    const defaultValueMeta = "Click to see fruits";
+    const valueMeta = text(labelValueMeta, defaultValueMeta);
+    return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item item-title="fruits" item-id="fruits">
+        <div slot="meta">${valueMeta}</div>
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="apple" item-id="apple">
+            An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="banana" item-id="banana">
+            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="mango" item-id="mango">
+            A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
+          </gxg-accordion-item>
+      </gxg-accordion>
+      </gxg-accordion-item>
+    </gxg-accordion>`;
+  })
   .add("Boxed Meta", () => {
     //Subtitle
     const labelValueMeta = "Meta (slotted content)";
@@ -543,6 +566,50 @@ stories
     <gxg-accordion mode="boxed">
       <gxg-accordion-item item-title="fruits" item-id="fruits">
         <div slot="meta">${valueMeta}</div>
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="apple" item-id="apple">
+            An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="banana" item-id="banana">
+            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="mango" item-id="mango">
+            A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
+          </gxg-accordion-item>
+      </gxg-accordion>
+      </gxg-accordion-item>
+    </gxg-accordion>`;
+  })
+  .add("Classical Icon", () => {
+    //Subtitle
+    const labelIcon = "Icon";
+    const defaultValueIcon = "navigation/level-down";
+    const iconValue = text(labelIcon, defaultValueIcon);
+    return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item title-icon=${iconValue} item-title="fruits" item-id="fruits">
+        <gxg-accordion mode="slim">
+          <gxg-accordion-item item-title="apple" item-id="apple">
+            An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="banana" item-id="banana">
+            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. 
+          </gxg-accordion-item>
+          <gxg-accordion-item item-title="mango" item-id="mango">
+            A mango is a juicy stone fruit (drupe) produced from numerous species of tropical trees belonging to the flowering plant genus Mangifera.
+          </gxg-accordion-item>
+      </gxg-accordion>
+      </gxg-accordion-item>
+    </gxg-accordion>`;
+  })
+  .add("Boxed Icon", () => {
+    //Subtitle
+    const labelIcon = "Icon";
+    const defaultValueIcon = "navigation/level-down";
+    const iconValue = text(labelIcon, defaultValueIcon);
+    return `<style>#root {width: 700px; display:flex; justify-content: center;}</style>
+    <gxg-accordion mode="boxed">
+      <gxg-accordion-item title-icon=${iconValue} item-title="fruits" item-id="fruits">
         <gxg-accordion mode="slim">
           <gxg-accordion-item item-title="apple" item-id="apple">
             An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.

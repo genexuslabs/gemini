@@ -1,4 +1,5 @@
-import { Component, Element, Listen, h, State } from "@stencil/core";
+import { Component, Element, Listen, h, State, Prop } from "@stencil/core";
+import { GxgTab } from "../tab/tab";
 
 @Component({
   tag: "gxg-tabs",
@@ -9,6 +10,18 @@ export class GxgTabs {
   @Element() element: HTMLGxgTabsElement;
 
   @State() activeTab = "";
+  @Prop() minHeight: string;
+
+  componentDidLoad() {
+    console.log("this.minHeight", this.minHeight);
+    const gxgTabs = this.element.querySelectorAll("gxg-tab");
+    gxgTabs.forEach(
+      function (gxgTab) {
+        //((gxgTab as unknown) as GxgTab).minHeight = this.minHeight;
+        ((gxgTab as unknown) as GxgTab).minHeight = this.minHeight;
+      }.bind(this)
+    );
+  }
 
   @Listen("tabActivated")
   tabActivatedHandler(event) {

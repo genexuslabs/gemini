@@ -362,6 +362,7 @@ export namespace Components {
      * The top position of the filter, relative to the closest parent with relative position. (optional)
      */
     top: any;
+    visible: boolean;
   }
   interface GxgFilterItem {
     /**
@@ -842,6 +843,10 @@ export namespace Components {
   interface GxgTab {
     isSelected: boolean;
     /**
+     * The tab min height. Set it on "gxg-tabs" main container
+     */
+    minHeight: string;
+    /**
      * The tab id. Should match the "tab" value of the correlative "gxg-tab"
      */
     tab: string;
@@ -869,7 +874,9 @@ export namespace Components {
      */
     tabLabel: string;
   }
-  interface GxgTabs {}
+  interface GxgTabs {
+    minHeight: string;
+  }
   interface GxgTemplate {
     name: string;
   }
@@ -1798,6 +1805,7 @@ declare namespace LocalJSX {
      * The top position of the filter, relative to the closest parent with relative position. (optional)
      */
     top?: any;
+    visible?: boolean;
   }
   interface GxgFilterItem {
     /**
@@ -2322,6 +2330,10 @@ declare namespace LocalJSX {
   interface GxgTab {
     isSelected?: boolean;
     /**
+     * The tab min height. Set it on "gxg-tabs" main container
+     */
+    minHeight?: string;
+    /**
      * The tab id. Should match the "tab" value of the correlative "gxg-tab"
      */
     tab?: string;
@@ -2350,7 +2362,9 @@ declare namespace LocalJSX {
      */
     tabLabel?: string;
   }
-  interface GxgTabs {}
+  interface GxgTabs {
+    minHeight?: string;
+  }
   interface GxgTemplate {
     name?: string;
   }
