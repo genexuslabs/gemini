@@ -66,8 +66,11 @@ TEXT
     @include ui-animation(border-color, background, padding-left);
 
     &:focus {
-      //box-shadow: var(--border-width-md) 0 var(border-color);
-      @include form-element-common-styles-focus-type-1();
+      outline-style: solid;
+      outline-color: var(--color-primary-active);
+      outline-width: var(--border-width-sm);
+      border-color: var(--color-primary-active);
+      border-radius: 0;
     }
     &:hover {
     }
