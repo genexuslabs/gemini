@@ -271,7 +271,6 @@
       }
     }
     &__container {
-      margin-inline-start: var(--spacing-comp-05);
       padding-top: var(--spacing-comp-01);
       padding-inline-end: 0;
       padding-bottom: var(--spacing-comp-01);
@@ -295,6 +294,7 @@
   .item {
     &__header {
       &__button {
+        padding: 2px 0;
         &:hover {
           gxg-icon {
             background-color: var(--color-primary-hover);
@@ -306,10 +306,9 @@
           }
         }
         gxg-icon {
-          transform: scale(0.8, 0.8);
           background: var(--color-primary-enabled);
           border-radius: 50%;
-          margin-inline-end: var(--spacing-comp-01);
+          margin-inline-end: var(--spacing-comp-02);
         }
         &__title-subtitle {
           &__title {
@@ -317,6 +316,9 @@
           }
         }
       }
+    }
+    &__container {
+      margin-inline-start: 26px;
     }
     &--open {
       gxg-icon {
@@ -350,7 +352,7 @@
       }
     }
     &__container {
-      padding-inline-start: 2px;
+      margin-inline-start: 22px;
     }
   }
 }
