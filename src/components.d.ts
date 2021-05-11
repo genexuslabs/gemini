@@ -362,7 +362,6 @@ export namespace Components {
      * The top position of the filter, relative to the closest parent with relative position. (optional)
      */
     top: any;
-    visible: boolean;
   }
   interface GxgFilterItem {
     /**
@@ -511,6 +510,10 @@ export namespace Components {
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     requiredMessage: string;
+    /**
+     * sets focus on the input
+     */
+    setFocus: () => Promise<void>;
     /**
      * The text style
      */
@@ -881,7 +884,11 @@ export namespace Components {
     name: string;
   }
   interface GxgTest {
-    optionsArray: string[];
+    /**
+     * The presence of this attribute sets focus on the input
+     */
+    setFocus: boolean;
+    showPrompt: () => Promise<void>;
   }
   interface GxgText {
     /**
@@ -1805,7 +1812,6 @@ declare namespace LocalJSX {
      * The top position of the filter, relative to the closest parent with relative position. (optional)
      */
     top?: any;
-    visible?: boolean;
   }
   interface GxgFilterItem {
     /**
@@ -2369,7 +2375,10 @@ declare namespace LocalJSX {
     name?: string;
   }
   interface GxgTest {
-    optionsArray?: string[];
+    /**
+     * The presence of this attribute sets focus on the input
+     */
+    setFocus?: boolean;
   }
   interface GxgText {
     /**

@@ -6,10 +6,9 @@
   box-shadow: var(--box-shadow-01);
   width: 200px;
   @include gxg-scroll;
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.75s max-height;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 0;
+  margin-top: var(--spacing-lay-s);
+  animation: in 0.5s forwards;
   border-radius: var(--border-radius-md);
   z-index: 10;
   background-color: var(--color-background);
@@ -61,6 +60,27 @@
     }
   }
 }
-:host([visible]) {
-  max-height: 200px;
+:host(.hide) {
+  animation: out 0.25s forwards;
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    margin-top: var(--spacing-lay-s);
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes out {
+  from {
+    opacity: 1;
+    margin-top: 0;
+  }
+  to {
+    opacity: 0;
+    margin-top: var(--spacing-lay-s);
+  }
 }

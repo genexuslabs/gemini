@@ -1,29 +1,55 @@
-import { Component, Prop, h } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Watch,
+  Host,
+  Element,
+  Method,
+} from "@stencil/core";
 @Component({
   tag: "gxg-test",
   styleUrl: "test.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTest {
-  @Prop() optionsArray = ["rojo", "azul", "verde"];
+  textInput!: HTMLInputElement;
+  @Element() el: HTMLElement;
+
   /**
-   * The presence of this attribute disables the pillgit a
+   * The presence of this attribute sets focus on the input
    */
-  //@Prop() disabled = false;
-  updateOptions() {
-    this.optionsArray = ["rojo", "azul", "marron"];
+  @Prop() setFocus = false;
+
+  componentDidLoad() {
+    //focus
   }
+
+  @Watch("setFocus")
+  setFocusHandler(newValue) {
+    if (newValue === true) {
+      this.textInput.focus();
+    }
+  }
+
+  @Method()
+  async showPrompt() {
+    // show a prompt
+    this.textInput.focus();
+  }
+
+  hasFocusFunc() {
+    console.log("host has focus");
+  }
+
   render() {
-    return [
-      <gxg-modal
-        padding="m"
-        modal-title="Welcome to the Design tokens editor wizard"
-        width="304px"
-        visible={true}
-      >
-        Hi
-      </gxg-modal>,
-      <button onClick={this.updateOptions.bind(this)}>Update options</button>
-    ];
+    return (
+      <Host onFocus={this.hasFocusFunc}>
+        <input
+          tabindex="0"
+          ref={(el) => (this.textInput = el as HTMLInputElement)}
+        ></input>
+      </Host>
+    );
   }
 }

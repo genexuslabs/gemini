@@ -4,26 +4,17 @@
 
 ## Properties
 
-| Property       | Attribute | Description | Type       | Default                     |
-| -------------- | --------- | ----------- | ---------- | --------------------------- |
-| `optionsArray` | --        |             | `string[]` | `["rojo", "azul", "verde"]` |
+| Property   | Attribute   | Description                                            | Type      | Default |
+| ---------- | ----------- | ------------------------------------------------------ | --------- | ------- |
+| `setFocus` | `set-focus` | The presence of this attribute sets focus on the input | `boolean` | `false` |
 
-## Dependencies
+## Methods
 
-### Depends on
+### `showPrompt() => Promise<void>`
 
-- [gxg-modal](../modal)
+#### Returns
 
-### Graph
-
-```mermaid
-graph TD;
-  gxg-test --> gxg-modal
-  gxg-modal --> gxg-button
-  gxg-button --> gxg-icon
-  gxg-icon --> ch-icon
-  style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
-```
+Type: `Promise<void>`
 
 ---
 

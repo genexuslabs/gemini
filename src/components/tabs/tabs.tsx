@@ -13,7 +13,6 @@ export class GxgTabs {
   @Prop() minHeight: string;
 
   componentDidLoad() {
-    console.log("this.minHeight", this.minHeight);
     const gxgTabs = this.element.querySelectorAll("gxg-tab");
     gxgTabs.forEach(
       function (gxgTab) {
