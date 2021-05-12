@@ -511,10 +511,6 @@ export namespace Components {
      */
     requiredMessage: string;
     /**
-     * sets focus on the input
-     */
-    setFocus: () => Promise<void>;
-    /**
      * The text style
      */
     textStyle: Style;
@@ -883,13 +879,7 @@ export namespace Components {
   interface GxgTemplate {
     name: string;
   }
-  interface GxgTest {
-    /**
-     * The presence of this attribute sets focus on the input
-     */
-    setFocus: boolean;
-    showPrompt: () => Promise<void>;
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -2374,12 +2364,7 @@ declare namespace LocalJSX {
   interface GxgTemplate {
     name?: string;
   }
-  interface GxgTest {
-    /**
-     * The presence of this attribute sets focus on the input
-     */
-    setFocus?: boolean;
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types

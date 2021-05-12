@@ -19,11 +19,12 @@
   <body>
    <button id="button">Click</button>
    <gxg-form-text id="test" label="Position" label-position="above" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="start"></gxg-form-text>
+    <gxg-test></gxg-test>
 
    <script>
       const element = document.getElementById('test');
       const button = document.getElementById('button');
-      button.addEventListener('click', () => element.setFocus());
+      button.addEventListener('click', () => element.focus());
    </script>
   </body>
 </html>

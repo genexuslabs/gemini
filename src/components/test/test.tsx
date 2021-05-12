@@ -6,6 +6,7 @@ import {
   Host,
   Element,
   Method,
+  Listen,
 } from "@stencil/core";
 @Component({
   tag: "gxg-test",
@@ -14,37 +15,19 @@ import {
 })
 export class GxgTest {
   textInput!: HTMLInputElement;
-  @Element() el: HTMLElement;
 
-  /**
-   * The presence of this attribute sets focus on the input
-   */
-  @Prop() setFocus = false;
-
-  componentDidLoad() {
-    //focus
-  }
-
-  @Watch("setFocus")
-  setFocusHandler(newValue) {
-    if (newValue === true) {
-      this.textInput.focus();
+  @Element() host: HTMLElement;
+  @Listen("focus")
+  handleFocus(focusEvent: Event) {
+    if (focusEvent.target !== this.host) {
+      return;
     }
-  }
-
-  @Method()
-  async showPrompt() {
-    // show a prompt
     this.textInput.focus();
-  }
-
-  hasFocusFunc() {
-    console.log("host has focus");
   }
 
   render() {
     return (
-      <Host onFocus={this.hasFocusFunc}>
+      <Host tabindex="0">
         <input
           tabindex="0"
           ref={(el) => (this.textInput = el as HTMLInputElement)}

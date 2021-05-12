@@ -8,7 +8,7 @@ import {
   EventEmitter,
   State,
   Watch,
-  Method,
+  Listen,
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -153,14 +153,6 @@ export class GxgFormText implements FormComponent {
   /*********************************
   METHODS
   *********************************/
-
-  /**
-   * sets focus on the input
-   */
-  @Method()
-  async setFocus() {
-    this.textInput.focus();
-  }
 
   iconPositionFunc() {
     if (this.iconPosition !== null && this.icon !== null) {
@@ -366,6 +358,17 @@ export class GxgFormText implements FormComponent {
     }
   }
 
+  /*********************************
+  LISTEN
+  *********************************/
+  @Listen("focus")
+  handleFocus(focusEvent: Event) {
+    if (focusEvent.target !== this.el) {
+      return;
+    }
+    this.textInput.focus();
+  }
+
   render() {
     return (
       <Host
@@ -376,6 +379,7 @@ export class GxgFormText implements FormComponent {
           maxWidth: this.maxWidth,
         }}
         class={{ rtl: this.rtl }}
+        tabindex="0"
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div class="outer-wrapper">
