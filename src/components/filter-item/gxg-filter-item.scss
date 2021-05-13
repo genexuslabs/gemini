@@ -10,6 +10,7 @@
   opacity: 1;
   transition: all 0.25s;
   overflow: hidden;
+  color: var(--color-on-background);
 
   gxg-icon {
     margin-inline-end: var(--spacing-comp-01);

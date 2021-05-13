@@ -173,11 +173,7 @@ export class GxgFormText implements FormComponent {
         );
       }
       return (
-        <gxg-icon
-          type={this.icon}
-          size="small"
-          style={{ opacity: "0.5" }}
-        ></gxg-icon>
+        <gxg-icon type={this.icon} size="small" color="disabled"></gxg-icon>
       );
     }
   }

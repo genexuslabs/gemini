@@ -78,9 +78,10 @@ export class GxgIcon {
   private mapColorToCssVar(color: string): string {
     if (color) {
       return `var(--${color})`;
+    } else {
+      //default color
+      return `var(--color-on-background)`;
     }
-
-    return null;
   }
 }
 

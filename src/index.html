@@ -1,30 +1,495 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>2 - SASS - Night Mode with Class</title>
+   <head>
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+         />
+      <title>2 - SASS - Night Mode with Class</title>
+      <script type="module" src="/build/gemini.esm.js"></script>
+      <script nomodule src="/build/gemini.js"></script>
+      <link href="/build/gemini.css" rel="stylesheet" />
+      <style>
+         html {
+         font-family: "Open Sans";
+         background-color: var(--color-background);
+         }
+         h3, h4 {
+         color: var(--color-on-background)
+         }
+      </style>
+   </head>
+   <label for="" style="font-size:10px; display: flex; align-items: center;" >
+   Dark mode
+   <input type="checkbox" id="dark-mode">
+   </label>
+   <body>
 
-    <script type="module" src="/build/gemini.esm.js"></script>
-    <script nomodule src="/build/gemini.js"></script>
-    <link href="/build/gemini.css" rel="stylesheet" />
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      GXG ICON
+      --------------------------------------------------------------------------------------------------------------------------------->
+      <gxg-icon type="gx-test/plus"></gxg-icon>
 
-    <style>
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      GXG TEST
+      --------------------------------------------------------------------------------------------------------------------------------->
+
+      <button id="button">Click</button>
+      <gxg-test id="test"></gxg-test>
+      <script>
+         const element = document.getElementById('test');
+         const button = document.getElementById('button');
+         button.addEventListener('click', () => element.setFocus = true);
+      </script>
+
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      PILLS
+      --------------------------------------------------------------------------------------------------------------------------------->
+      <h3>Pills</h3>
       
-    </style>
-  </head>
-  <body>
-   <button id="button">Click</button>
-   <gxg-form-text id="test" label="Position" label-position="above" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="start"></gxg-form-text>
-    <gxg-test></gxg-test>
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      FILTER
+      --------------------------------------------------------------------------------------------------------------------------------->
+      <h3>Filter</h3>
+      <gxg-filter id="gxg-filter">
+         <gxg-filter-item type="webpanel" icon="objects/webpanel">Webpanels</gxg-filter-item>
+         <gxg-filter-item type="module" icon="objects/module">PrimaryModule.InModuleDSO PrimaryModule.InModuleDSO</gxg-filter-item>
+         <gxg-filter-item type="theme" icon="objects/themes">DesignSystems</gxg-filter-item>
+         <gxg-filter-item type="webpanel" icon="objects/webpanel">Webpanels</gxg-filter-item>
+         <gxg-filter-item type="module" icon="objects/module">PrimaryModule.InModuleDSO PrimaryModule.InModuleDSO</gxg-filter-item>
+         <gxg-filter-item type="theme" icon="objects/themes">DesignSystems</gxg-filter-item>
+         <gxg-filter-item type="webpanel" icon="objects/webpanel">Webpanels</gxg-filter-item>
+         <gxg-filter-item type="module" icon="objects/module">PrimaryModule.InModuleDSO PrimaryModule.InModuleDSO</gxg-filter-item>
+         <gxg-filter-item type="theme" icon="objects/themes">DesignSystems</gxg-filter-item>
+      </gxg-filter>
+      <gxg-button id="showFilterButton" type="primary-text-only">Show filter</gxg-button>
+      <script>
+         const filter = document.getElementById('gxg-filter');
+         const showFilterButton = document.getElementById('showFilterButton');
+         showFilterButton.addEventListener('click', function(){
+            filter.visible = true;
+         })
+      </script>
 
-   <script>
-      const element = document.getElementById('test');
-      const button = document.getElementById('button');
-      button.addEventListener('click', () => element.focus());
-   </script>
-  </body>
+
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      CONTAINERS
+      --------------------------------------------------------------------------------------------------------------------------------->
+      <h3>Containers</h3>
+      <h4>Box</h4>
+      <gxg-box background="white" max-width="200px" padding="s">
+         <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.– Bernard M. Baruch</q>
+       </gxg-box>
+      <h4>Card</h4>
+      <gxg-card background="white" elevation="xs" max-width="200px" padding="s">
+         <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.– Bernard M. Baruch</q>
+       </gxg-card>
+
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      ACCORDIONS
+      --------------------------------------------------------------------------------------------------------------------------------->
+      <h3>Accordions</h3>
+      <h4>Usage</h4>
+      <gxg-accordion mode="classical">
+         <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+            Some content on accordion 1
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="navigation/level-down" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+            some content on accordion 4.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+      </gxg-accordion>
+
+      <h4>Classical</h4>
+      <gxg-accordion mode="classical">
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+      </gxg-accordion>
+
+      <br>
+      <h4>Classical no padding</h4>
+      <gxg-accordion mode="classical" no-padding>
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Classical disabled</h4>
+      <gxg-accordion mode="classical">
+         <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-04" item-id="tab-04">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-07" item-id="tab-07">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Boxed</h4>
+      <gxg-accordion mode="boxed">
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Boxed no padding</h4>
+      <gxg-accordion mode="boxed" no-padding>
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-07" item-id="tab-07">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Boxed disabled</h4>
+      <gxg-accordion mode="boxed">
+         <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-04" item-id="tab-04">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-05" item-id="tab-05">
+            some content on accordion 3.
+            <div slot="meta">
+               some meta
+            </div>
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled item-subtitle="Lorem sit, amet consectetur adipisicing elit. Expedita eligendi" item-title="tab-06" item-id="tab-06">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-07" item-id="tab-07">
+            some content on accordion 3.
+            <gxg-pill slot="meta" type="static" icon="objects/procedure">Pill Label</gxg-pill>
+         </gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Slim</h4>
+      <gxg-accordion mode="slim">
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Slim no padding</h4>
+      <gxg-accordion mode="slim" no-padding>
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Slim disabled</h4>
+      <gxg-accordion mode="slim">
+         <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Minimal</h4>
+      <gxg-accordion mode="minimal">
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Minimal no padding</h4>
+      <gxg-accordion mode="minimal" no-padding>
+         <gxg-accordion-item editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+      </gxg-accordion>
+      <br>
+      <h4>Minimal disabled</h4>
+      <gxg-accordion mode="minimal">
+         <gxg-accordion-item disabled editable-title item-title="tab-01" item-id="tab-01">
+            Some content on accordion 100
+         </gxg-accordion-item>
+         <gxg-accordion-item disabled title-icon="gemini-tools/flow-arrow" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item disabled item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+      </gxg-accordion>
+
+      <!-------------------------------------------------------------------------------------------------------------------------------
+         BUTTONS
+         --------------------------------------------------------------------------------------------------------------------------------->
+         <h3>Buttons</h3>
+         <gxg-button type="primary-text-only">Label</gxg-button>
+         <gxg-button type="primary-text-icon" icon="navigation/arrow-down">Label</gxg-button>
+         <gxg-button type="primary-text-icon" icon="controls/action-group">Label</gxg-button>
+         <gxg-button type="primary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button type="primary-icon-only" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button type="secondary-text-only">Label</gxg-button>
+         <gxg-button type="secondary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/folder"></gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
+         <gxg-button type="outlined">Label</gxg-button>
+         <gxg-button icon="navigation/arrow-down" type="tertiary"></gxg-button>
+         <gxg-button icon="controls/google-analytics" type="tertiary"></gxg-button>
+         <gxg-button class="button-with-action" icon="controls/table-column" type="tertiary"></gxg-button>
+         <br>
+         <gxg-button disabled type="primary-text-only">Label</gxg-button>
+         <gxg-button disabled type="primary-text-icon" icon="navigation/arrow-down">Label</gxg-button>
+         <gxg-button disabled type="primary-text-icon" icon="controls/action-group">Label</gxg-button>
+         <gxg-button disabled type="primary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button disabled type="primary-icon-only" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button disabled type="secondary-text-only">Label</gxg-button>
+         <gxg-button disabled type="secondary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/folder"></gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
+         <gxg-button disabled type="outlined">Label</gxg-button>
+         <gxg-button disabled icon="navigation/arrow-down" type="tertiary"></gxg-button>
+         <gxg-button disabled icon="controls/google-analytics" type="tertiary"></gxg-button>
+         <gxg-button class="button-with-action" disabled icon="controls/table-column" type="tertiary"></gxg-button>
+         <script>
+            let buttonsWithAction = document.getElementsByClassName('button-with-action');
+            for (let button of buttonsWithAction) {
+              button.addEventListener('click', function(){
+                alert('hola');
+              })
+            }
+         </script>
+
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      TABS
+      --------------------------------------------------------------------------------------------------------------------------------->
+
+      <h3>Tabs</h3>
+      <gxg-tabs>
+         <gxg-tab-bar>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="apples"
+               tab="apples"
+               key="apples"
+               is-selected
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="bananas"
+               tab="bananas"
+               key="bananas"
+               icon="gemini-tools/settings"
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab="cherries"
+               key="cherries"
+               icon="gemini-tools/settings"
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="strawberries"
+               tab="strawberries"
+               key="strawberries"
+               disabled
+               icon="gemini-tools/settings"
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="tomatoes"
+               tab="tomatoes"
+               key="tomatoes"
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="potatoes"
+               tab="potatoes"
+               key="potatoes"
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="garlic"
+               tab="garlic"
+               key="garlic"
+               ></gxg-tab-button>
+            <gxg-tab-button
+               slot="tab-bar"
+               tab-label="onion"
+               tab="onion"
+               key="onion"
+               ></gxg-tab-button>
+         </gxg-tab-bar>
+         <gxg-tab tab="apples" key="apples" isSelected="true">
+            An apple is a sweet, edible fruit produced by an apple tree. Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+         </gxg-tab>
+         <gxg-tab tab="bananas" key="bananas" isSelected="false">
+            A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. In some countries, bananas used for cooking may be called "plantains", distinguishing them from dessert bananas.
+         </gxg-tab>
+         <gxg-tab tab="cherries" key="cherries" isSelected="false">
+            A cherry is the fruit of many plants of the genus Prunus, and is a fleshy drupe. Commercial cherries are obtained from cultivars of several species, such as the sweet Prunus avium and the sour Prunus cerasus.
+         </gxg-tab>
+         <gxg-tab tab="tomatoes" key="tomatoes" isSelected="false">
+            The tomato is the edible, often red, berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America and Central America. The Nahuatl word tomatl gave rise to the Spanish word tomate, from which the English word tomato derived.
+         </gxg-tab>
+         <gxg-tab tab="potatoes" key="potatoes" isSelected="false">
+            The potato is a root vegetable native to the Americas, a starchy tuber of the plant Solanum tuberosum, and the plant itself, a perennial in the family Solanaceae. Wild potato species, originating in modern day Peru, can be found throughout the Americas, from the United States to southern Chile.
+         </gxg-tab>
+         <gxg-tab tab="garlic" key="garlic" isSelected="false">
+            Garlic is a species in the onion genus, Allium. Its close relatives include the onion, shallot, leek, chive, and Chinese onion. It is native to Central Asia and northeastern Iran, and has long been a common seasoning worldwide, with a history of several thousand years of human consumption and use.
+         </gxg-tab>
+         <gxg-tab tab="onion" key="onion" isSelected="false">
+            The onion, also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. Its close relatives include the garlic, shallot, leek, chive, and Chinese onion.
+         </gxg-tab>
+         <gxg-tab tab="strawberries" key="strawberries" isSelected="false">
+            The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.
+         </gxg-tab>
+      </gxg-tabs>
+
+      <!-------------------------------------------------------------------------------------------------------------------------------
+      INPUT TEXT
+      --------------------------------------------------------------------------------------------------------------------------------->
+      <gxg-form-text placeholder="Search tokens" icon-position="start" icon="gemini-tools/search"></gxg-form-text>
+      <gxg-form-text label="Position" label-position="above" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="start"></gxg-form-text>
+      <gxg-form-text disabled label="Position" label-position="above" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="start"></gxg-form-text>
+      <gxg-form-text label="Position" label-position="above" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="end"></gxg-form-text>
+      <gxg-form-text label="Position" label-position="above" placeholder="Chief Executive" icon="gemini-tools/edit" icon-position="end" clear-button></gxg-form-text>
+      
+
+
+      
+      
+
+      
+      <script>
+         inputDarkMode = document.getElementById('dark-mode');
+         inputDarkMode.addEventListener("click", toggleDarkMode);
+         function toggleDarkMode(){
+           const html = document.getElementsByTagName('html');
+           if(html[0].classList.contains('dark')) {
+             html[0].classList.remove('dark')
+           } else {
+             html[0].classList.add('dark')
+           }
+         }
+      </script>
+   </body>
 </html>
