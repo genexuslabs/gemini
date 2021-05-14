@@ -124,11 +124,11 @@ SELECT
   }
   .select-items div:hover {
     background-color: var(--color-secondary-hover);
-    color: var(--color-on-primary);
+    color: var(--color-on-secondary);
   }
   .select-items div.same-as-selected {
     background-color: var(--color-secondary-active);
-    color: var(--color-on-primary);
+    color: var(--color-on-secondary);
   }
 }
 //Disabled
