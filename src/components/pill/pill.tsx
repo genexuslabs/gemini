@@ -18,6 +18,11 @@ export class GxgPill {
   @Prop() icon: string;
 
   /**
+   * The presence of this attribute sets auto-height. Usefull when the text overflows.
+   */
+  @Prop() heightAuto = false;
+
+  /**
    * The type of pill
    */
   @Prop({ reflect: true }) type: PillType = "static";

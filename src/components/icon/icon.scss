@@ -7,4 +7,9 @@ ICON
 :host {
   display: inline-block;
   line-height: 0;
+  height: 20px;
+  width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

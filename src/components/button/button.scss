@@ -20,6 +20,7 @@
     --svg-icon-small-scale
   ); // Force Icon size inside button to always be small size.
 
+  height: 20px;
   position: relative;
 
   @include gxg-button-styles;

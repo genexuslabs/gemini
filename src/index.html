@@ -25,28 +25,20 @@
    <input type="checkbox" id="dark-mode">
    </label>
    <body>
-
+      
+      <gxg-pill slot="meta" type="static" icon="objects/procedure" height-auto>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nam ducimus cupiditate eaque ipsa. Expedita deserunt, similique delectus harum porro, sequi provident earum illo odit a voluptatem sit eum repellendus.</gxg-pill>
 
 
       <!-------------------------------------------------------------------------------------------------------------------------------
-      GXG SELECT
+      CHI-ICON
       --------------------------------------------------------------------------------------------------------------------------------->
-      <gxg-select label="Select a car:">
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
+      <gxg-icon type="navigation/level-down"></gxg-icon>
+      <gxg-icon type="navigation/bullet"></gxg-icon>
+      <gxg-icon type="editing-structures/system-index"></gxg-icon>
+      <gxg-icon type="editing-structures/system-index" size="small"></gxg-icon>
+         
 
-      <!-------------------------------------------------------------------------------------------------------------------------------
-      GXG ICON
-      --------------------------------------------------------------------------------------------------------------------------------->
-      <gxg-icon type="gx-test/plus"></gxg-icon>
+
 
       
       <!-------------------------------------------------------------------------------------------------------------------------------
@@ -96,8 +88,8 @@
          <gxg-accordion-item item-title="tab-01" item-id="tab-01">
             Some content on accordion 1
          </gxg-accordion-item>
-         <gxg-accordion-item title-icon="navigation/level-down" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
-         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi" item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
+         <gxg-accordion-item title-icon="controls/component" item-title="tab-02" item-id="tab-02">some content on accordion 2.</gxg-accordion-item>
+         <gxg-accordion-item item-title="tab-03" item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit." item-id="tab-03">some content on accordion 3.</gxg-accordion-item>
          <gxg-accordion-item item-title="tab-04" item-id="tab-04">
             some content on accordion 4.
             <div slot="meta">
@@ -350,7 +342,7 @@
          <gxg-button type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
          <gxg-button type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
          <gxg-button type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
-         <gxg-button type="outlined">Label</gxg-button>
+         <gxg-button type="outlined">Outlined</gxg-button>
          <gxg-button icon="navigation/arrow-down" type="tertiary"></gxg-button>
          <gxg-button icon="controls/google-analytics" type="tertiary"></gxg-button>
          <gxg-button class="button-with-action" icon="controls/table-column" type="tertiary"></gxg-button>
@@ -366,7 +358,7 @@
          <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
          <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
          <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
-         <gxg-button disabled type="outlined">Label</gxg-button>
+         <gxg-button disabled type="outlined">Outlined</gxg-button>
          <gxg-button disabled icon="navigation/arrow-down" type="tertiary"></gxg-button>
          <gxg-button disabled icon="controls/google-analytics" type="tertiary"></gxg-button>
          <gxg-button class="button-with-action" disabled icon="controls/table-column" type="tertiary"></gxg-button>

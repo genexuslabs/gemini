@@ -11,7 +11,8 @@
   padding-inline-start: var(--spacing-comp-01);
   padding-inline-end: var(--spacing-comp-03);
   opacity: 1;
-  min-height: 16px;
+  height: 16px;
+  box-sizing: border-box;
   @include ui-animation(opacity);
 
   .title {
@@ -95,4 +96,7 @@
 }
 :host([disabled]:focus) {
   box-shadow: none;
+}
+:host([height-auto]) {
+  height: auto;
 }

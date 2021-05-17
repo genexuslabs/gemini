@@ -116,6 +116,7 @@
           &__meta {
             @include gxg-text();
             display: flex;
+            margin-right: var(--spacing-comp-02);
           }
         }
       }
@@ -309,6 +310,8 @@
           background: var(--color-primary-enabled);
           border-radius: 50%;
           margin-inline-end: var(--spacing-comp-02);
+          width: 16px;
+          height: 16px;
         }
         &__title-subtitle {
           &__title {
@@ -352,7 +355,7 @@
       }
     }
     &__container {
-      margin-inline-start: 22px;
+      margin-inline-start: 26px;
     }
   }
 }

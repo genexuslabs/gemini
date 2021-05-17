@@ -673,6 +673,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute sets auto-height. Usefull when the text overflows.
+     */
+    heightAuto: boolean;
+    /**
      * The icon
      */
     icon: string;
@@ -2151,6 +2155,10 @@ declare namespace LocalJSX {
      * The presence of this attribute disables the pillgit a
      */
     disabled?: boolean;
+    /**
+     * The presence of this attribute sets auto-height. Usefull when the text overflows.
+     */
+    heightAuto?: boolean;
     /**
      * The icon
      */

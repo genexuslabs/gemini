@@ -130,18 +130,6 @@ ERROR / WARNING MESSAGES
 /*****************************************************
 INPUT TEXT ICON
 *****************************************************/
-:host([icon-position="start"]) {
-  gxg-icon {
-    left: 5px;
-    top: 4px;
-  }
-}
-:host([icon-position="end"]) {
-  gxg-icon {
-    right: 5px;
-    top: 4px;
-  }
-}
 :host([icon-position="end"]) {
   .clear-button {
     gxg-icon:not(.clear-button) {
