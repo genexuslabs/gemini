@@ -65,7 +65,8 @@
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-knobs": "^6.1.21",
     "@storybook/addon-storysource": "^6.1.21",
-    "js-datepicker": "^5.11.0"
+    "js-datepicker": "^5.11.0",
+    "split.js": "^1.6.4"
   },
   "husky": {
     "hooks": {

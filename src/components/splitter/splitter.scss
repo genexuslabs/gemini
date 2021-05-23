@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  ::slotted(.gutter-horizontal) {
+    height: 100%;
+    float: left;
+    cursor: col-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-01);
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 16px;
+      background-color: var(--gray-06);
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: height 0.15s;
+    }
+  }
+  ::slotted(.gutter-vertical) {
+    cursor: row-resize;
+    display: flex;
+    justify-content: center;
+    background-color: var(--gray-01);
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--gray-06);
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s;
+    }
+  }
+}
+//knob hover
+:host(.knob-hover) {
+  ::slotted(.gutter-horizontal) {
+    &:after {
+      height: 26px;
+    }
+  }
+  ::slotted(.gutter-vertical) {
+    &:after {
+      width: 26px;
+    }
+  }
+}
