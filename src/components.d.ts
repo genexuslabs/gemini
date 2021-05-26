@@ -816,6 +816,7 @@ export namespace Components {
   interface GxgSplitter {
     direction: Direction;
     knob: boolean;
+    knobSimple: boolean;
     minSize: string;
     sizes: string;
   }
@@ -2326,6 +2327,7 @@ declare namespace LocalJSX {
   interface GxgSplitter {
     direction?: Direction;
     knob?: boolean;
+    knobSimple?: boolean;
     minSize?: string;
     sizes?: string;
   }

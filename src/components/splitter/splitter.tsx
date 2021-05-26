@@ -11,16 +11,17 @@ export class GxgSplitter {
 
   @Prop() direction: Direction = "horizontal";
   @Prop() knob = false;
+  @Prop() knobSimple = false;
   @Prop() minSize: string = undefined;
   @Prop() sizes: string = undefined;
 
-  @State() dragged = false;
   @State() split;
-  @State() sizesBeforeCollapse;
-  @State() collapsed = false;
   @State() minSizeArray: Array<number>;
   @State() sizesArray: Array<number>;
   @State() idsArray: Array<string> = [];
+  @State() currentSizes: number;
+  @State() leftSplitCollapsed = false;
+  @State() mouseDirection: string;
 
   componentDidLoad() {
     this.getIds();
@@ -43,24 +44,91 @@ export class GxgSplitter {
           //KNOB
           const knob = document.createElement("span");
           knob.classList.add("knob");
-          knob.style.backgroundColor = `var(--gray-05)`;
+          knob.style.backgroundColor = `var(--gray-01)`;
+          knob.style.width = `var(--spacing-comp-05)`;
+          knob.style.height = `var(--spacing-comp-05)`;
           knob.style.display = "block";
-          knob.style.opacity = "0";
           knob.style.zIndex = "5";
+          knob.style.position = "absolute";
+          knob.style.borderRadius = "50%";
           knob.style.cursor = "pointer";
-
-          if (this.direction === "horizontal") {
-            knob.style.height = "40px";
-            knob.style.width = "8px";
-          } else if (this.direction === "vertical") {
-            knob.style.width = "40px";
-            knob.style.height = "8px";
+          if (this.direction === "vertical") {
+            knob.style.transform = "rotate(90deg)";
           }
-          knob.onclick = this.knobClicked.bind(this);
-          knob.onmouseover = this.knobOver.bind(this);
-          knob.onmouseout = this.knobOut.bind(this);
+
+          //KNOB middle line
+          const knobMiddleLine = document.createElement("span");
+          knobMiddleLine.style.backgroundColor = `var(--gray-06)`;
+          knobMiddleLine.style.width = "2px";
+          knobMiddleLine.style.height = "16px";
+          knobMiddleLine.style.position = "relative";
+          knobMiddleLine.style.left = "11px";
+          knobMiddleLine.style.top = "4px";
+          knobMiddleLine.style.display = "block";
+          knob.appendChild(knobMiddleLine);
+
+          //KNOB left side
+          const knobLeftSide = document.createElement("span");
+          knobLeftSide.style.width = "11px";
+          knobLeftSide.style.height = `var(--spacing-comp-05)`;
+          knobLeftSide.style.display = "block";
+          knobLeftSide.style.top = "-16px";
+          knobLeftSide.style.position = "relative";
+          knobLeftSide.style.borderBottomLeftRadius = "40px";
+          knobLeftSide.style.borderTopLeftRadius = "40px";
+          knobLeftSide.style.backgroundColor = "transparent";
+          knobLeftSide.style.cursor = "pointer";
+          knobLeftSide.style.zIndex = "20";
+          knobLeftSide.addEventListener(
+            "click",
+            this.knobLeftClicked.bind(this)
+          );
+          knobLeftSide.onmouseover = this.knobLeftOver.bind(this);
+          knobLeftSide.onmouseout = this.knobLeftOut.bind(this);
+          knob.appendChild(knobLeftSide);
+
+          //KNOB right side
+          const knobRightSide = document.createElement("span");
+          knobRightSide.style.width = "11px";
+          knobRightSide.style.height = `var(--spacing-comp-05)`;
+          knobRightSide.style.display = "block";
+          knobRightSide.style.top = "-40px";
+          knobRightSide.style.right = "-13px";
+          knobRightSide.style.position = "relative";
+          knobRightSide.style.borderBottomRightRadius = "40px";
+          knobRightSide.style.borderTopRightRadius = "40px";
+          knobRightSide.style.backgroundColor = "transparent";
+          knobLeftSide.style.cursor = "pointer";
+          knobLeftSide.style.zIndex = "20";
+          knobRightSide.addEventListener(
+            "click",
+            this.knobRightClicked.bind(this)
+          );
+          knobRightSide.onmouseover = this.knobRightOver.bind(this);
+          knobRightSide.onmouseout = this.knobRightOut.bind(this);
+          knob.appendChild(knobRightSide);
           gutter.appendChild(knob);
           //End of KNOB
+        }
+
+        if (this.knobSimple) {
+          //KNOB middle line
+          const knob = document.createElement("span");
+          knob.style.backgroundColor = "transparent";
+          knob.style.position = "relative";
+          knob.style.display = "block";
+          knob.style.cursor = "pointer";
+          if (this.direction === "horizontal") {
+            knob.style.width = "8px";
+            knob.style.height = "30px";
+          } else if (this.direction === "vertical") {
+            knob.style.width = "30px";
+            knob.style.height = "8px";
+          }
+          knob.addEventListener("click", this.knobSimpleClicked.bind(this));
+          knob.onmouseover = this.knobSimpleOver.bind(this);
+          knob.onmouseout = this.knobSimpleOut.bind(this);
+          gutter.appendChild(knob);
         }
 
         gutter.className = `gutter gutter-${this.direction}`;
@@ -74,6 +142,10 @@ export class GxgSplitter {
       slottedSplits.forEach(function (split) {
         split.classList.add("split-horizontal");
       });
+    }
+
+    if (this.knobSimple) {
+      this.currentSizes = this.split.getSizes();
     }
   }
 
@@ -114,30 +186,85 @@ export class GxgSplitter {
   }
 
   //KNOB
-  knobClicked() {
-    if (!this.dragged) {
+  knobLeftClicked() {
+    this.el.classList.remove("gutter-reached-left");
+    this.el.classList.remove("gutter-reached-right");
+    //add class to make the transition smooth
+    const slottedSplits = document.querySelectorAll("gxg-split");
+    slottedSplits.forEach(function (split) {
+      split.classList.add("smooth-transition");
+    });
+    this.split.collapse(0);
+    setTimeout(
+      function () {
+        this.detectDragEndReachedMinimum();
+      }.bind(this),
+      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+    );
+  }
+  knobRightClicked() {
+    this.el.classList.remove("gutter-reached-left");
+    this.el.classList.remove("gutter-reached-right");
+    //add class to make the transition smooth
+    const slottedSplits = document.querySelectorAll("gxg-split");
+    slottedSplits.forEach(function (split) {
+      split.classList.add("smooth-transition");
+    });
+    this.split.collapse(1);
+    setTimeout(
+      function () {
+        this.detectDragEndReachedMinimum();
+      }.bind(this),
+      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+    );
+  }
+  knobLeftOver() {
+    this.el.classList.add("knob-left-hover");
+  }
+  knobLeftOut() {
+    this.el.classList.remove("knob-left-hover");
+  }
+  knobRightOver() {
+    this.el.classList.add("knob-right-hover");
+  }
+  knobRightOut() {
+    this.el.classList.remove("knob-right-hover");
+  }
+
+  //KNOB SIMPLE VERSION
+  knobSimpleClicked() {
+    if (!this.leftSplitCollapsed) {
+      //get current left split position
+      this.currentSizes = this.split.getSizes();
       //add class to make the transition smooth
       const slottedSplits = document.querySelectorAll("gxg-split");
       slottedSplits.forEach(function (split) {
         split.classList.add("smooth-transition");
       });
-
-      if (!this.collapsed) {
-        this.split.collapse(0);
-        this.collapsed = true;
-      } else {
-        //uncollapse
-        this.split.setSizes(this.sizesBeforeCollapse);
-        this.collapsed = false;
-      }
+      this.split.collapse(0);
+      this.leftSplitCollapsed = true;
     } else {
+      //add class to make the transition smooth
+      const slottedSplits = document.querySelectorAll("gxg-split");
+      slottedSplits.forEach(function (split) {
+        split.classList.add("smooth-transition");
+      });
+      this.split.setSizes(this.currentSizes);
+      this.leftSplitCollapsed = false;
     }
+    setTimeout(
+      function () {
+        this.detectDragEndReachedMinimum();
+      }.bind(this),
+      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+    );
   }
-  knobOver() {
-    this.el.classList.add("knob-hover");
+
+  knobSimpleOver() {
+    this.el.classList.add("knob-simple-hover");
   }
-  knobOut() {
-    this.el.classList.remove("knob-hover");
+  knobSimpleOut() {
+    this.el.classList.remove("knob-simple-hover");
   }
 
   //DRAG FUNCS
@@ -147,22 +274,95 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.remove("smooth-transition");
     });
+    console.log("drag started");
   }
   onDragFunc() {
-    this.dragged = true;
+    this.detectDragEndReachedMinimum();
+    console.log(this.mouseDirection);
   }
   onDragEndFunc() {
-    setTimeout(
-      function () {
-        this.dragged = false;
-      }.bind(this),
-      25
+    //If gutter is not positioned at the minimum of the left split, save current position
+    if (this.knobSimple) {
+      //Only applicable to knobSimple version
+      let splitterLength;
+      if (this.direction === "horizontal") {
+        splitterLength = this.el.clientWidth;
+      } else if (this.direction === "vertical") {
+        splitterLength = this.el.clientHeight;
+      }
+      //actual sizes in percentages
+      const rightActualSize = this.split.getSizes()[1];
+      const leftActualSize = this.split.getSizes()[0];
+      //actual sizes in pixels
+      const rightActualSizePixels = Math.trunc(
+        (rightActualSize * splitterLength) / 100
+      );
+      const leftActualSizePixels = Math.trunc(
+        (leftActualSize * splitterLength) / 100
+      );
+      if (
+        (rightActualSizePixels < this.minSizeArray[1] + 15 &&
+          rightActualSizePixels > this.minSizeArray[1] - 15) ||
+        (leftActualSizePixels < this.minSizeArray[0] + 15 &&
+          leftActualSizePixels > this.minSizeArray[0] - 15)
+      ) {
+        //drag ended in the minimum
+        this.leftSplitCollapsed = true;
+      } else {
+        //drag did not ended in the minimum
+        this.currentSizes = this.split.getSizes();
+        this.leftSplitCollapsed = false;
+      }
+    }
+  }
+
+  detectDragEndReachedMinimum() {
+    let splitterLength;
+    if (this.direction === "horizontal") {
+      splitterLength = this.el.clientWidth;
+    } else if (this.direction === "vertical") {
+      splitterLength = this.el.clientHeight;
+    }
+    //actual sizes in percentages
+    const rightActualSize = this.split.getSizes()[1];
+    const leftActualSize = this.split.getSizes()[0];
+    //actual sizes in pixels
+    const rightActualSizePixels = Math.trunc(
+      (rightActualSize * splitterLength) / 100
     );
-    //save current width on a state variable if the user wants to uncollapse later
-    if (this.split.getSizes()[0] > 1) {
-      console.log(this.split.getSizes()[0]);
-      this.sizesBeforeCollapse = this.split.getSizes();
-      this.collapsed = false;
+    const leftActualSizePixels = Math.trunc(
+      (leftActualSize * splitterLength) / 100
+    );
+    if (
+      (rightActualSizePixels < this.minSizeArray[1] + 15 &&
+        rightActualSizePixels > this.minSizeArray[1] - 15) ||
+      (leftActualSizePixels < this.minSizeArray[0] + 15 &&
+        leftActualSizePixels > this.minSizeArray[0] - 15)
+    ) {
+      this.el.classList.add("gutter-reached-end");
+      setTimeout(
+        function () {
+          this.el.classList.remove("gutter-reached-end");
+        }.bind(this),
+        250 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+      );
+    } else {
+      this.el.classList.remove("gutter-reached-left");
+      this.el.classList.remove("gutter-reached-right");
+    }
+    //if guttter reached right:
+    if (
+      rightActualSizePixels < this.minSizeArray[1] + 15 &&
+      rightActualSizePixels > this.minSizeArray[1] - 15
+    ) {
+      this.el.classList.add("gutter-reached-right");
+    }
+    //if guttter reached left:
+    if (
+      leftActualSizePixels < this.minSizeArray[0] + 15 &&
+      leftActualSizePixels > this.minSizeArray[0] - 15
+    ) {
+      this.el.classList.add("gutter-reached-left");
     }
   }
 
