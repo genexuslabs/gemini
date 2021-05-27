@@ -21,7 +21,9 @@ export class GxgSplitter {
   @State() idsArray: Array<string> = [];
   @State() currentSizes: number;
   @State() leftSplitCollapsed = false;
-  @State() mouseDirection: string;
+
+  @State() mouseDirection = "";
+  @State() oldx = 0;
 
   componentDidLoad() {
     this.getIds();
@@ -269,16 +271,15 @@ export class GxgSplitter {
 
   //DRAG FUNCS
   onDragStartFunc() {
-    //remove class to make the transition smooth
+    //remove class that makes the transition smooth
     const slottedSplits = document.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.remove("smooth-transition");
     });
-    console.log("drag started");
+    this.el.addEventListener("mousemove", this.mouseMoveMethod);
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
-    console.log(this.mouseDirection);
   }
   onDragEndFunc() {
     //If gutter is not positioned at the minimum of the left split, save current position
@@ -314,6 +315,16 @@ export class GxgSplitter {
         this.leftSplitCollapsed = false;
       }
     }
+    this.el.removeEventListener("mousemove", this.mouseMoveMethod);
+  }
+  mouseMoveMethod(e) {
+    if (e.pageX < this.oldx) {
+      this.mouseDirection = "left";
+    } else if (e.pageX > this.oldx) {
+      this.mouseDirection = "right";
+    }
+    this.oldx = e.pageX;
+    console.log(this.mouseDirection);
   }
 
   detectDragEndReachedMinimum() {
