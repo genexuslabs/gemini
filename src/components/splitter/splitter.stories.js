@@ -24,19 +24,6 @@ stories
     const defaultValueMinsizesLabel = "0,100";
     const minSizesValueLabel = text(minSizesLabel, defaultValueMinsizesLabel);
 
-    //Simple knob
-    const labelSimpleKnob = "Simple knob";
-    const defaultValueSimpleKnob = false;
-    const valueSimpleKnob = boolean(labelSimpleKnob, defaultValueSimpleKnob);
-
-    function simpleKnob() {
-      if (valueSimpleKnob) {
-        return "knob-simple";
-      } else {
-        return "knob";
-      }
-    }
-
     //Direction
     const labelDirection = "Direction";
     const optionsDirection = {
@@ -50,6 +37,20 @@ stories
       defaultValueDirection
     );
 
+    //Type of knob
+    const labelKnobType = "Knob type";
+    const optionsKnobType = {
+      unidirectional: "unidirectional",
+      bidirectional: "bidirectional",
+      none: "none",
+    };
+    const defaultValueKnobType = "none";
+    const valueKnobType = select(
+      labelKnobType,
+      optionsKnobType,
+      defaultValueKnobType
+    );
+
     return `
   <style>
   .container {
@@ -59,7 +60,7 @@ stories
   }
   </style>
   <div class="container">
-  <gxg-splitter direction=${valueDirection} sizes="${sizesValueLabel}" min-size="${minSizesValueLabel}" ${simpleKnob()}>
+  <gxg-splitter direction=${valueDirection} sizes="${sizesValueLabel}" min-size="${minSizesValueLabel}" knob="${valueKnobType}" >
      <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
      <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
   </gxg-splitter>

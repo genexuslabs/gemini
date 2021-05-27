@@ -9,11 +9,22 @@ import Split from "split.js";
 export class GxgSplitter {
   @Element() el: HTMLElement;
 
+  /**
+   * The splitter direction test
+   */
   @Prop() direction: Direction = "horizontal";
-  @Prop() knob = false;
-  @Prop() knobSimple = false;
-  @Prop() minSize: string = undefined;
-  @Prop() sizes: string = undefined;
+  /**
+   * The type of knob
+   */
+  @Prop({ reflect: true }) knob: Knob = "none";
+  /**
+   * The splitter min. sizes in pixels
+   */
+  @Prop() minSize = "0,0";
+  /**
+   * The splitter initial sizes, in percentages. The sum should equal 100
+   */
+  @Prop() sizes = "50,50";
 
   @State() split;
   @State() minSizeArray: Array<number>;
@@ -42,7 +53,7 @@ export class GxgSplitter {
       gutter: () => {
         const gutter = document.createElement("div");
 
-        if (this.knob) {
+        if (this.knob === "bidirectional") {
           //KNOB
           const knob = document.createElement("span");
           knob.classList.add("knob");
@@ -113,7 +124,7 @@ export class GxgSplitter {
           //End of KNOB
         }
 
-        if (this.knobSimple) {
+        if (this.knob === "unidirectional") {
           //KNOB middle line
           const knob = document.createElement("span");
           knob.style.backgroundColor = "transparent";
@@ -146,9 +157,11 @@ export class GxgSplitter {
       });
     }
 
-    if (this.knobSimple) {
+    if (this.knob === "unidirectional") {
       this.currentSizes = this.split.getSizes();
     }
+
+    //this.el.addEventListener("mousemove", this.mouseMoveMethod);
   }
 
   convertStringPropertiesToArray() {
@@ -263,10 +276,10 @@ export class GxgSplitter {
   }
 
   knobSimpleOver() {
-    this.el.classList.add("knob-simple-hover");
+    this.el.classList.add("knob-unidirectional-hover");
   }
   knobSimpleOut() {
-    this.el.classList.remove("knob-simple-hover");
+    this.el.classList.remove("knob-unidirectional-hover");
   }
 
   //DRAG FUNCS
@@ -276,14 +289,16 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.remove("smooth-transition");
     });
-    this.el.addEventListener("mousemove", this.mouseMoveMethod);
+    //this.el.addEventListener("mousemove", this.mouseMoveMethod);
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
   }
   onDragEndFunc() {
+    //this.el.removeEventListener("mousemove", this.mouseMoveMethod);
+
     //If gutter is not positioned at the minimum of the left split, save current position
-    if (this.knobSimple) {
+    if (this.knob === "unidirectional") {
       //Only applicable to knobSimple version
       let splitterLength;
       if (this.direction === "horizontal") {
@@ -315,7 +330,7 @@ export class GxgSplitter {
         this.leftSplitCollapsed = false;
       }
     }
-    this.el.removeEventListener("mousemove", this.mouseMoveMethod);
+    //this.el.removeEventListener("mousemove", this.mouseMoveMethod);
   }
   mouseMoveMethod(e) {
     if (e.pageX < this.oldx) {
@@ -387,3 +402,4 @@ export class GxgSplitter {
 }
 
 export type Direction = "horizontal" | "vertical";
+export type Knob = "unidirectional" | "bidirectional" | "none";

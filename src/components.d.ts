@@ -38,7 +38,7 @@ import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
 import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
 import { margin } from "./components/separator/separator";
-import { Direction } from "./components/splitter/splitter";
+import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space1 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
 import { TargetType, TextType } from "./components/text/text";
@@ -814,10 +814,21 @@ export namespace Components {
   }
   interface GxgSplit {}
   interface GxgSplitter {
+    /**
+     * The splitter direction test
+     */
     direction: Direction;
-    knob: boolean;
-    knobSimple: boolean;
+    /**
+     * The type of knob
+     */
+    knob: Knob;
+    /**
+     * The splitter min. sizes in pixels
+     */
     minSize: string;
+    /**
+     * The splitter initial sizes, in percentages. The sum should equal 100
+     */
     sizes: string;
   }
   interface GxgStack {
@@ -2325,10 +2336,21 @@ declare namespace LocalJSX {
   }
   interface GxgSplit {}
   interface GxgSplitter {
+    /**
+     * The splitter direction test
+     */
     direction?: Direction;
-    knob?: boolean;
-    knobSimple?: boolean;
+    /**
+     * The type of knob
+     */
+    knob?: Knob;
+    /**
+     * The splitter min. sizes in pixels
+     */
     minSize?: string;
+    /**
+     * The splitter initial sizes, in percentages. The sum should equal 100
+     */
     sizes?: string;
   }
   interface GxgStack {

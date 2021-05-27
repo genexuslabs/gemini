@@ -43,7 +43,7 @@
   }
 }
 //knob
-:host([knob]) {
+:host([knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
     &:after {
@@ -98,7 +98,7 @@
     background-color: var(--color-primary-active);
   }
 }
-:host(.gutter-reached-right[knob]) {
+:host(.gutter-reached-right[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
     &:after {
@@ -106,7 +106,7 @@
     }
   }
 }
-:host(.gutter-reached-left[knob]) {
+:host(.gutter-reached-left[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
     &:before {
@@ -115,7 +115,7 @@
   }
 }
 //Knob simple
-:host([knob-simple]) {
+:host([knob="unidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
     &:after {
@@ -144,7 +144,7 @@
     }
   }
 }
-:host(.knob-simple-hover) {
+:host(.knob-unidirectional-hover) {
   ::slotted(.gutter-horizontal) {
     &:after {
       height: 24px;
