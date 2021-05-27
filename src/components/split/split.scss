@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+}
+:host(.split-horizontal) {
+  height: 100%;
+  float: left;
+}
+:host(.smooth-transition) {
+  transition: width 0.35s, height 0.35s;
+  transition-timing-function: ease-in-out;
+}

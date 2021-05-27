@@ -38,6 +38,7 @@ import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
 import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
 import { margin } from "./components/separator/separator";
+import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space1 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
 import { TargetType, TextType } from "./components/text/text";
@@ -811,6 +812,25 @@ export namespace Components {
      */
     space: string;
   }
+  interface GxgSplit {}
+  interface GxgSplitter {
+    /**
+     * The splitter direction test
+     */
+    direction: Direction;
+    /**
+     * The type of knob
+     */
+    knob: Knob;
+    /**
+     * The splitter min. sizes in pixels
+     */
+    minSize: string;
+    /**
+     * The splitter initial sizes, in percentages. The sum should equal 100
+     */
+    sizes: string;
+  }
   interface GxgStack {
     /**
      * The spacing value
@@ -1295,6 +1315,20 @@ declare global {
     prototype: HTMLGxgSpacerOneElement;
     new (): HTMLGxgSpacerOneElement;
   };
+  interface HTMLGxgSplitElement
+    extends Components.GxgSplit,
+      HTMLStencilElement {}
+  var HTMLGxgSplitElement: {
+    prototype: HTMLGxgSplitElement;
+    new (): HTMLGxgSplitElement;
+  };
+  interface HTMLGxgSplitterElement
+    extends Components.GxgSplitter,
+      HTMLStencilElement {}
+  var HTMLGxgSplitterElement: {
+    prototype: HTMLGxgSplitterElement;
+    new (): HTMLGxgSplitterElement;
+  };
   interface HTMLGxgStackElement
     extends Components.GxgStack,
       HTMLStencilElement {}
@@ -1438,6 +1472,8 @@ declare global {
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
     "gxg-spacer-one": HTMLGxgSpacerOneElement;
+    "gxg-split": HTMLGxgSplitElement;
+    "gxg-splitter": HTMLGxgSplitterElement;
     "gxg-stack": HTMLGxgStackElement;
     "gxg-stepper": HTMLGxgStepperElement;
     "gxg-tab": HTMLGxgTabElement;
@@ -2298,6 +2334,25 @@ declare namespace LocalJSX {
      */
     space?: string;
   }
+  interface GxgSplit {}
+  interface GxgSplitter {
+    /**
+     * The splitter direction test
+     */
+    direction?: Direction;
+    /**
+     * The type of knob
+     */
+    knob?: Knob;
+    /**
+     * The splitter min. sizes in pixels
+     */
+    minSize?: string;
+    /**
+     * The splitter initial sizes, in percentages. The sum should equal 100
+     */
+    sizes?: string;
+  }
   interface GxgStack {
     /**
      * The spacing value
@@ -2561,6 +2616,8 @@ declare namespace LocalJSX {
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
     "gxg-spacer-one": GxgSpacerOne;
+    "gxg-split": GxgSplit;
+    "gxg-splitter": GxgSplitter;
     "gxg-stack": GxgStack;
     "gxg-stepper": GxgStepper;
     "gxg-tab": GxgTab;
@@ -2657,6 +2714,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgSpacerLayoutElement>;
       "gxg-spacer-one": LocalJSX.GxgSpacerOne &
         JSXBase.HTMLAttributes<HTMLGxgSpacerOneElement>;
+      "gxg-split": LocalJSX.GxgSplit &
+        JSXBase.HTMLAttributes<HTMLGxgSplitElement>;
+      "gxg-splitter": LocalJSX.GxgSplitter &
+        JSXBase.HTMLAttributes<HTMLGxgSplitterElement>;
       "gxg-stack": LocalJSX.GxgStack &
         JSXBase.HTMLAttributes<HTMLGxgStackElement>;
       "gxg-stepper": LocalJSX.GxgStepper &
