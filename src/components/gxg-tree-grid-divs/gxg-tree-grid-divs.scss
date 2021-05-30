@@ -9,6 +9,13 @@
   }
   .tr {
     display: table-row;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--color-secondary-enabled);
+    }
+    &.selected {
+      background-color: var(--color-secondary-active);
+    }
   }
   .tbody {
     display: table-row-group;

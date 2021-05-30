@@ -1,4 +1,5 @@
-import { Component, Host, h, Prop, State } from "@stencil/core";
+import { Component, Host, h, Prop, State, Element } from "@stencil/core";
+import Split from "split.js";
 
 @Component({
   tag: "gxg-tree-grid-divs",
@@ -6,6 +7,8 @@ import { Component, Host, h, Prop, State } from "@stencil/core";
   shadow: true,
 })
 export class GxgTreeGridDivs {
+  @Element() el: HTMLElement;
+
   // PROPS
   @Prop() columns: Array<object>;
   @Prop() rows: Array<object>;
@@ -18,6 +21,7 @@ export class GxgTreeGridDivs {
   @State() thWidthLeftover: string;
   @State() rowsBuffer = [];
   @State() thInPixels = false;
+  @State() rowKey = 0;
 
   componentWillLoad() {
     //Check if th width is in percentages or pixels
@@ -33,9 +37,20 @@ export class GxgTreeGridDivs {
       this.calculateThWitdhLeftover();
     }
 
-    this.rows.map((row) => {
-      this.parseRows(row, 0);
+    this.rows.map((row, i) => {
+      this.parseRows(row, 0, i);
     });
+  }
+
+  componentDidLoad() {
+    //Spliter
+    // var name = this.el.shadowRoot.getElementById("name");
+    // var type = this.el.shadowRoot.getElementById("type");
+    // var telephone = this.el.shadowRoot.getElementById("telephone");
+    // Split([name, type, telephone], {
+    //   gutterSize: 2,
+    //   cursor: "col-resize",
+    // });
   }
 
   checkThWidthUnit() {
@@ -49,13 +64,19 @@ export class GxgTreeGridDivs {
     }
   }
 
-  parseRows(row, level) {
+  parseRows(row, level, i) {
+    this.rowKey++;
+    const rowKey = this.rowKey;
     let hasChildren = false;
     if (row.hasOwnProperty("children")) {
       hasChildren = true;
     }
     this.rowsBuffer.push(
-      <div class={{ tr: true }}>
+      <div
+        class={{ tr: true }}
+        onClick={(e) => this.trClick(rowKey, e)}
+        data-key={this.rowKey}
+      >
         {Object.keys(row["cells"]).map((td, i) => (
           <div
             class={{ td: true }}
@@ -77,10 +98,55 @@ export class GxgTreeGridDivs {
     );
     if (row.hasOwnProperty("children")) {
       row["children"].map((row) => {
-        this.parseRows(row, level + 1);
+        this.parseRows(row, level + 1, i);
       });
     } else {
       return;
+    }
+  }
+
+  trClick(rowKey, e) {
+    //if ctrl key was not pressed
+    if (!e.ctrlKey && !e.shiftKey) {
+      //remove previously added classses
+      const rows = this.el.shadowRoot.querySelectorAll(".tbody .tr");
+      rows.forEach((row) => {
+        row.classList.remove("selected");
+      });
+    }
+    //Add 'selected' class to the currently clicked tr
+    const rowClicked = this.el.shadowRoot.querySelector(
+      "[data-key='" + rowKey + "']"
+    );
+
+    //if ctrl key was pressed
+    if (e.ctrlKey) {
+      if (rowClicked.classList.contains("selected")) {
+        rowClicked.classList.remove("selected");
+      } else {
+        rowClicked.classList.add("selected");
+      }
+    } else {
+      rowClicked.classList.add("selected");
+    }
+
+    //if shift key was pressed
+    if (e.shiftKey) {
+      const itemsSelected = this.el.shadowRoot.querySelectorAll(
+        ".tbody .tr.selected"
+      );
+      const firstRowSelectedDataKey = itemsSelected[0].getAttribute("data-key");
+      const lastRowSelectedDataKey = itemsSelected[1].getAttribute("data-key");
+      const allRows = this.el.shadowRoot.querySelectorAll(".tbody .tr");
+      allRows.forEach((row) => {
+        const rowDataKey = row.getAttribute("data-key");
+        if (
+          rowDataKey > firstRowSelectedDataKey &&
+          rowDataKey < lastRowSelectedDataKey
+        ) {
+          row.classList.add("selected");
+        }
+      });
     }
   }
 
