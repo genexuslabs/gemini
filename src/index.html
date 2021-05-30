@@ -11,23 +11,84 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-    
+
     <style>
-    body {
-      background-color: gray;
-    }  
-    .container {
-      width: 100%;
-      height: 600px;
-    }
+      
     </style>
+    <script>
+    let columns = [{
+            name: 'name',
+            displayName: 'Name',
+            width: '20%'
+        },
+        {
+            name: 'type',
+            displayName: 'Type',
+            width: '20%'
+        },
+        {
+            name: 'telephone',
+            displayName: 'Telephone'
+        }
+    ];
+    let rows = [
+      // Esta primer row le pone el valor "Name1" para la columna "name" y "Type1" para la columna "type"y y tiene dos rows hijas
+      {
+          cells: {
+              name: 'Name1',
+              type: 'Type1',
+              telephone: 'Telephone1',
+          },
+          children: [
+              {
+                cells: {
+                    name: 'Name2',
+                    type: 'Type2',
+                    telephone: 'Telephone2'
+                }
+              }, // Row simple sin hijos
+              {
+                  cells: {
+                      name: 'Name3',
+                      type: 'Type3',
+                      telephone: 'Telephone3'
+                  },
+                  children: [{
+                          cells: {
+                              name: 'Name4',
+                              type: 'Type4',
+                              telephone: 'Telephone4'
+                          }
+                      }, // Row simple sin hijos
+                      {
+                          cells: {
+                              name: 'Name5',
+                              type: 'Type5',
+                              telephone: 'Telephone5'
+                          }
+                      } // Row simple sin hijos
+                  ]
+              } // Row simple sin hijos
+          ]
+      },
+      {
+          cells: {
+              name: 'Name6',
+              type: 'Type6',
+              telephone: 'Telephone6'
+          }
+      } // Row simple sin hijos
+    ];
+    </script>
   </head>
   <body>
-    <div class="container">
-    <gxg-splitter direction="vertical" sizes="25,75" min-size="50,300" knob="unidirectional">
-       <gxg-split id="a"></gxg-split>
-       <gxg-split id="b"></gxg-split>
-    </gxg-splitter>
-  </div>
+
+    <gxg-tree-grid-divs id="gxgTreeGrid" ></gxg-tree-grid-divs>
+    <script>
+      let gxgTreeGrid = document.getElementById("gxgTreeGrid");
+      gxgTreeGrid.columns = columns;
+      gxgTreeGrid.rows = rows;
+    </script>
+
   </body>
 </html>

@@ -998,6 +998,16 @@ export namespace Components {
      */
     toggleCheckboxes: boolean;
   }
+  interface GxgTreeGrid {
+    columns: Array<object>;
+    rows: Array<object>;
+    width: string;
+  }
+  interface GxgTreeGridDivs {
+    columns: Array<object>;
+    rows: Array<object>;
+    width: string;
+  }
   interface GxgTreeItem {
     /**
      * Set this attribute if you want the gxg-treeitem to display a checkbox
@@ -1424,6 +1434,20 @@ declare global {
     prototype: HTMLGxgTreeElement;
     new (): HTMLGxgTreeElement;
   };
+  interface HTMLGxgTreeGridElement
+    extends Components.GxgTreeGrid,
+      HTMLStencilElement {}
+  var HTMLGxgTreeGridElement: {
+    prototype: HTMLGxgTreeGridElement;
+    new (): HTMLGxgTreeGridElement;
+  };
+  interface HTMLGxgTreeGridDivsElement
+    extends Components.GxgTreeGridDivs,
+      HTMLStencilElement {}
+  var HTMLGxgTreeGridDivsElement: {
+    prototype: HTMLGxgTreeGridDivsElement;
+    new (): HTMLGxgTreeGridDivsElement;
+  };
   interface HTMLGxgTreeItemElement
     extends Components.GxgTreeItem,
       HTMLStencilElement {}
@@ -1489,6 +1513,8 @@ declare global {
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
     "gxg-tree": HTMLGxgTreeElement;
+    "gxg-tree-grid": HTMLGxgTreeGridElement;
+    "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
     "gxg-tree-item": HTMLGxgTreeItemElement;
   }
 }
@@ -2526,6 +2552,16 @@ declare namespace LocalJSX {
      */
     toggleCheckboxes?: boolean;
   }
+  interface GxgTreeGrid {
+    columns?: Array<object>;
+    rows?: Array<object>;
+    width?: string;
+  }
+  interface GxgTreeGridDivs {
+    columns?: Array<object>;
+    rows?: Array<object>;
+    width?: string;
+  }
   interface GxgTreeItem {
     /**
      * Set this attribute if you want the gxg-treeitem to display a checkbox
@@ -2633,6 +2669,8 @@ declare namespace LocalJSX {
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
     "gxg-tree": GxgTree;
+    "gxg-tree-grid": GxgTreeGrid;
+    "gxg-tree-grid-divs": GxgTreeGridDivs;
     "gxg-tree-item": GxgTreeItem;
   }
 }
@@ -2743,6 +2781,10 @@ declare module "@stencil/core" {
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
       "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
+      "gxg-tree-grid": LocalJSX.GxgTreeGrid &
+        JSXBase.HTMLAttributes<HTMLGxgTreeGridElement>;
+      "gxg-tree-grid-divs": LocalJSX.GxgTreeGridDivs &
+        JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
       "gxg-tree-item": LocalJSX.GxgTreeItem &
         JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
     }

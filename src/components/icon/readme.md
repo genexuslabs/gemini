@@ -28,6 +28,7 @@
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
+- [gxg-tree-grid-divs](../gxg-tree-grid-divs)
 - [gxg-tree-item](../tree-item)
 
 ### Depends on
@@ -53,6 +54,7 @@ graph TD;
   gxg-tab-button --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
+  gxg-tree-grid-divs --> gxg-icon
   gxg-tree-item --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
