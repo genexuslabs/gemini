@@ -22,6 +22,7 @@ export class GxgTreeGridDivs {
   @Prop() columns: Array<object>;
   @Prop() rows: Array<object>;
   @Prop() width = "100%";
+  @Prop() childrenExpanded: ChildrenExpanded = "all";
 
   //STATE
   /**
@@ -79,8 +80,6 @@ export class GxgTreeGridDivs {
   }
 
   parseRows(row, level, i) {
-    this.rowKey++;
-    const rowKey = this.rowKey;
     let hasChildren = false;
     if (row.hasOwnProperty("children")) {
       hasChildren = true;
@@ -88,8 +87,8 @@ export class GxgTreeGridDivs {
     this.rowsBuffer.push(
       <div
         class={{ tr: true }}
-        onClick={(e) => this.trClick(rowKey, e)}
-        data-key={this.rowKey}
+        onClick={(e) => this.trClick(e, row)}
+        id={row.id}
       >
         {Object.keys(row["cells"]).map((td, i) => (
           <div
@@ -97,6 +96,7 @@ export class GxgTreeGridDivs {
             style={{
               paddingLeft: this.tdPaddingLeft(i, level),
             }}
+            data-value-type={td}
           >
             {hasChildren && i === 0 ? (
               <div class={{ "icon-text-container": true }}>
@@ -119,7 +119,7 @@ export class GxgTreeGridDivs {
     }
   }
 
-  trClick(rowKey, e) {
+  trClick(e, row) {
     //if ctrl key was not pressed
     if (!e.ctrlKey && !e.shiftKey) {
       //remove previously added classses
@@ -129,9 +129,7 @@ export class GxgTreeGridDivs {
       });
     }
     //Add 'selected' class to the currently clicked tr
-    const rowClicked = this.el.shadowRoot.querySelector(
-      "[data-key='" + rowKey + "']"
-    );
+    const rowClicked = this.el.shadowRoot.getElementById(row.id);
 
     //if ctrl key was pressed
     if (e.ctrlKey) {
@@ -149,15 +147,12 @@ export class GxgTreeGridDivs {
       const itemsSelected = this.el.shadowRoot.querySelectorAll(
         ".tbody .tr.selected"
       );
-      const firstRowSelectedDataKey = itemsSelected[0].getAttribute("data-key");
-      const lastRowSelectedDataKey = itemsSelected[1].getAttribute("data-key");
+      const firstRowSelectedId = itemsSelected[0].getAttribute("id");
+      const lastRowSelectedId = itemsSelected[1].getAttribute("id");
       const allRows = this.el.shadowRoot.querySelectorAll(".tbody .tr");
       allRows.forEach((row) => {
-        const rowDataKey = row.getAttribute("data-key");
-        if (
-          rowDataKey > firstRowSelectedDataKey &&
-          rowDataKey < lastRowSelectedDataKey
-        ) {
+        const rowId = row.getAttribute("id");
+        if (rowId > firstRowSelectedId && rowId < lastRowSelectedId) {
           row.classList.add("selected");
         }
       });
@@ -167,7 +162,19 @@ export class GxgTreeGridDivs {
     const selectedRows = this.el.shadowRoot.querySelectorAll(
       ".tbody .tr.selected"
     );
-    this.selectedRows.emit(selectedRows);
+    const dataArray = [];
+    selectedRows.forEach((row) => {
+      const rowData = {};
+      const tds = row.querySelectorAll(".td");
+      tds.forEach((td) => {
+        rowData["id"] = row.getAttribute("id");
+        const dataValueType = td.getAttribute("data-value-type");
+        const dataValue = td.innerHTML;
+        rowData[dataValueType] = dataValue;
+      });
+      dataArray.push(rowData);
+    });
+    this.selectedRows.emit(dataArray);
   }
 
   arrowIcon(i, hasChildren) {
@@ -246,3 +253,5 @@ export class GxgTreeGridDivs {
     );
   }
 }
+
+export type ChildrenExpanded = "all" | "none";

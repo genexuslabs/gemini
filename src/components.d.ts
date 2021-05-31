@@ -45,6 +45,7 @@ import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
+import { ChildrenExpanded } from "./components/gxg-tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -1004,6 +1005,7 @@ export namespace Components {
     width: string;
   }
   interface GxgTreeGridDivs {
+    childrenExpanded: ChildrenExpanded;
     columns: Array<object>;
     rows: Array<object>;
     width: string;
@@ -2558,6 +2560,7 @@ declare namespace LocalJSX {
     width?: string;
   }
   interface GxgTreeGridDivs {
+    childrenExpanded?: ChildrenExpanded;
     columns?: Array<object>;
     onAddRow?: (event: CustomEvent<any>) => void;
     onRemoveRow?: (event: CustomEvent<any>) => void;

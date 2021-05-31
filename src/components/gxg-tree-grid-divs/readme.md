@@ -4,11 +4,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type       | Default     |
-| --------- | --------- | ----------- | ---------- | ----------- |
-| `columns` | --        |             | `object[]` | `undefined` |
-| `rows`    | --        |             | `object[]` | `undefined` |
-| `width`   | `width`   |             | `string`   | `"100%"`    |
+| Property           | Attribute           | Description | Type              | Default     |
+| ------------------ | ------------------- | ----------- | ----------------- | ----------- |
+| `childrenExpanded` | `children-expanded` |             | `"all" \| "none"` | `"all"`     |
+| `columns`          | --                  |             | `object[]`        | `undefined` |
+| `rows`             | --                  |             | `object[]`        | `undefined` |
+| `width`            | `width`             |             | `string`          | `"100%"`    |
 
 ## Events
 
