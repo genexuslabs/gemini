@@ -85,10 +85,15 @@
 
     <gxg-tree-grid-divs id="gxgTreeGrid" ></gxg-tree-grid-divs>
     <script>
-      let gxgTreeGrid = document.getElementById("gxgTreeGrid");
-      gxgTreeGrid.columns = columns;
-      gxgTreeGrid.rows = rows;
-    </script>
+        let gxgTreeGrid = document.getElementById("gxgTreeGrid");
+        gxgTreeGrid.columns = columns;
+        gxgTreeGrid.rows = rows;
 
+
+        //Events
+        gxgTreeGrid.addEventListener("selectedRows", function(e) {
+            console.log(e.detail)
+        });
+    </script>
   </body>
 </html>

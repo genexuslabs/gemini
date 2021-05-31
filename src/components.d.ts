@@ -2559,6 +2559,7 @@ declare namespace LocalJSX {
   }
   interface GxgTreeGridDivs {
     columns?: Array<object>;
+    onSelectedRows?: (event: CustomEvent<any>) => void;
     rows?: Array<object>;
     width?: string;
   }

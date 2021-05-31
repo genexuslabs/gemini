@@ -1,5 +1,14 @@
-import { Component, Host, h, Prop, State, Element } from "@stencil/core";
-import Split from "split.js";
+import {
+  Component,
+  Event,
+  EventEmitter,
+  Host,
+  h,
+  Prop,
+  State,
+  Element,
+} from "@stencil/core";
+// import Split from "split.js";
 
 @Component({
   tag: "gxg-tree-grid-divs",
@@ -22,6 +31,9 @@ export class GxgTreeGridDivs {
   @State() rowsBuffer = [];
   @State() thInPixels = false;
   @State() rowKey = 0;
+
+  //EVENTS
+  @Event() selectedRows: EventEmitter;
 
   componentWillLoad() {
     //Check if th width is in percentages or pixels
@@ -148,6 +160,12 @@ export class GxgTreeGridDivs {
         }
       });
     }
+
+    //Emmit event with the table rows that are selected
+    const selectedRows = this.el.shadowRoot.querySelectorAll(
+      ".tbody .tr.selected"
+    );
+    this.selectedRows.emit(selectedRows);
   }
 
   arrowIcon(i, hasChildren) {

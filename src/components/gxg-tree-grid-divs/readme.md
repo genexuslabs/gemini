@@ -10,6 +10,12 @@
 | `rows`    | --        |             | `object[]` | `undefined` |
 | `width`   | `width`   |             | `string`   | `"100%"`    |
 
+## Events
+
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `selectedRows` |             | `CustomEvent<any>` |
+
 ## Dependencies
 
 ### Depends on
