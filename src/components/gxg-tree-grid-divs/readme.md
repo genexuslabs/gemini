@@ -14,6 +14,8 @@
 
 | Event          | Description | Type               |
 | -------------- | ----------- | ------------------ |
+| `addRow`       |             | `CustomEvent<any>` |
+| `removeRow`    |             | `CustomEvent<any>` |
 | `selectedRows` |             | `CustomEvent<any>` |
 
 ## Dependencies

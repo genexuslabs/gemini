@@ -34,6 +34,8 @@ export class GxgTreeGridDivs {
 
   //EVENTS
   @Event() selectedRows: EventEmitter;
+  @Event() addRow: EventEmitter;
+  @Event() removeRow: EventEmitter;
 
   componentWillLoad() {
     //Check if th width is in percentages or pixels
@@ -76,6 +78,14 @@ export class GxgTreeGridDivs {
     }
   }
 
+  //Add/Remove rows
+  trRemove(rowKey) {
+    this.removeRow.emit(rowKey);
+  }
+  trAdd(rowKey) {
+    this.addRow.emit(rowKey);
+  }
+
   parseRows(row, level, i) {
     this.rowKey++;
     const rowKey = this.rowKey;
@@ -89,6 +99,32 @@ export class GxgTreeGridDivs {
         onClick={(e) => this.trClick(rowKey, e)}
         data-key={this.rowKey}
       >
+        <div
+          class={{ td: true, "td-remove-row": true }}
+          onClick={() => this.trRemove(rowKey)}
+        >
+          <div class="remove-row-container">
+            <gxg-icon
+              type="gemini-tools/minus-circle"
+              onClick={this.toggleRow.bind(this)}
+              size="small"
+              class="remove-row"
+            ></gxg-icon>
+          </div>
+        </div>
+        <div
+          class={{ td: true, "td-add-row": true }}
+          onClick={() => this.trAdd(rowKey)}
+        >
+          <div class="add-row-container">
+            <gxg-icon
+              type="gemini-tools/add-circle"
+              onClick={this.toggleRow.bind(this)}
+              size="small"
+              class="add-row"
+            ></gxg-icon>
+          </div>
+        </div>
         {Object.keys(row["cells"]).map((td, i) => (
           <div
             class={{ td: true }}
@@ -218,6 +254,8 @@ export class GxgTreeGridDivs {
       <Host>
         <div class={{ table: true }} style={{ width: this.width }}>
           <div class={{ tr: true }}>
+            <div class={{ th: true }} id="remove-row"></div>
+            <div class={{ th: true }} id="add-row"></div>
             {this.columns.map((th) => {
               return (
                 <div
