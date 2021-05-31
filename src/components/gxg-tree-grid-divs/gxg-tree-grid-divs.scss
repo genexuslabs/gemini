@@ -50,35 +50,4 @@
       cursor: pointer;
     }
   }
-
-  //add and remove rows
-  .remove-row,
-  .add-row {
-    position: absolute;
-    left: -7px;
-    top: -4px;
-  }
-  #remove-row,
-  #add-row {
-    padding: 12px;
-    position: relative;
-  }
-  .remove-row-container,
-  .add-row-container {
-    position: relative;
-  }
-  .td-remove-row {
-    &:hover {
-      .remove-row {
-        transform: scale(0.75);
-      }
-    }
-  }
-  .td-add-row {
-    &:hover {
-      .add-row {
-        transform: scale(0.75);
-      }
-    }
-  }
 }
