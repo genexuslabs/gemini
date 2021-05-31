@@ -180,7 +180,7 @@ export class GxgTreeGridDivs {
   }
 
   toggleRow() {
-    console.log(this.columns);
+    console.log("toggle row");
   }
 
   tdPaddingLeft(i, level) {
