@@ -26,11 +26,14 @@
   { "name": "window-tools/properties", "description": "Some description" },
   { "name": "window-tools/references", "description": "Some description" },
   { "name": "window-tools/responsive-sizes", "description": "Some description" },
+  { "name": "window-tools/rol", "description": "Some description" },
+  { "name": "window-tools/roles", "description": "Some description" },
   { "name": "window-tools/services", "description": "Some description" },
   { "name": "window-tools/teamdev", "description": "Some description" },
   { "name": "window-tools/toolbox", "description": "Some description" },
   { "name": "window-tools/watch", "description": "Some description" },
   { "name": "window-tools/workflow", "description": "Some description" },
+  { "name": "window-tools/workflow-settings", "description": "Some description" },
   {
     "name": "window-tools/work-with-attributes",
     "description": "Some description"
