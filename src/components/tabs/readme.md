@@ -111,12 +111,6 @@
 </gxg-tabs>
 ```
 
-## Properties
-
-| Property    | Attribute    | Description | Type     | Default     |
-| ----------- | ------------ | ----------- | -------- | ----------- |
-| `minHeight` | `min-height` |             | `string` | `undefined` |
-
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

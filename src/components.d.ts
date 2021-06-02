@@ -876,11 +876,10 @@ export namespace Components {
     value: number;
   }
   interface GxgTab {
-    isSelected: boolean;
     /**
-     * The tab min height. Set it on "gxg-tabs" main container
+     * The selected tab
      */
-    minHeight: string;
+    isSelected: boolean;
     /**
      * The tab id. Should match the "tab" value of the correlative "gxg-tab"
      */
@@ -909,9 +908,7 @@ export namespace Components {
      */
     tabLabel: string;
   }
-  interface GxgTabs {
-    minHeight: string;
-  }
+  interface GxgTabs {}
   interface GxgTemplate {
     name: string;
   }
@@ -1009,11 +1006,6 @@ export namespace Components {
      * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
      */
     toggleCheckboxes: boolean;
-  }
-  interface GxgTreeGrid {
-    columns: Array<object>;
-    rows: Array<object>;
-    width: string;
   }
   interface GxgTreeGridDivs {
     columns: Array<object>;
@@ -1463,13 +1455,6 @@ declare global {
     prototype: HTMLGxgTreeElement;
     new (): HTMLGxgTreeElement;
   };
-  interface HTMLGxgTreeGridElement
-    extends Components.GxgTreeGrid,
-      HTMLStencilElement {}
-  var HTMLGxgTreeGridElement: {
-    prototype: HTMLGxgTreeGridElement;
-    new (): HTMLGxgTreeGridElement;
-  };
   interface HTMLGxgTreeGridDivsElement
     extends Components.GxgTreeGridDivs,
       HTMLStencilElement {}
@@ -1544,7 +1529,6 @@ declare global {
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
     "gxg-tooltip": HTMLGxgTooltipElement;
     "gxg-tree": HTMLGxgTreeElement;
-    "gxg-tree-grid": HTMLGxgTreeGridElement;
     "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
     "gxg-tree-item": HTMLGxgTreeItemElement;
   }
@@ -2459,11 +2443,10 @@ declare namespace LocalJSX {
     value?: number;
   }
   interface GxgTab {
-    isSelected?: boolean;
     /**
-     * The tab min height. Set it on "gxg-tabs" main container
+     * The selected tab
      */
-    minHeight?: string;
+    isSelected?: boolean;
     /**
      * The tab id. Should match the "tab" value of the correlative "gxg-tab"
      */
@@ -2493,9 +2476,7 @@ declare namespace LocalJSX {
      */
     tabLabel?: string;
   }
-  interface GxgTabs {
-    minHeight?: string;
-  }
+  interface GxgTabs {}
   interface GxgTemplate {
     name?: string;
   }
@@ -2597,11 +2578,6 @@ declare namespace LocalJSX {
      * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
      */
     toggleCheckboxes?: boolean;
-  }
-  interface GxgTreeGrid {
-    columns?: Array<object>;
-    rows?: Array<object>;
-    width?: string;
   }
   interface GxgTreeGridDivs {
     columns?: Array<object>;
@@ -2723,7 +2699,6 @@ declare namespace LocalJSX {
     "gxg-toolbar-item": GxgToolbarItem;
     "gxg-tooltip": GxgTooltip;
     "gxg-tree": GxgTree;
-    "gxg-tree-grid": GxgTreeGrid;
     "gxg-tree-grid-divs": GxgTreeGridDivs;
     "gxg-tree-item": GxgTreeItem;
   }
@@ -2839,8 +2814,6 @@ declare module "@stencil/core" {
       "gxg-tooltip": LocalJSX.GxgTooltip &
         JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
       "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
-      "gxg-tree-grid": LocalJSX.GxgTreeGrid &
-        JSXBase.HTMLAttributes<HTMLGxgTreeGridElement>;
       "gxg-tree-grid-divs": LocalJSX.GxgTreeGridDivs &
         JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
       "gxg-tree-item": LocalJSX.GxgTreeItem &

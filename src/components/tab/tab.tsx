@@ -14,51 +14,15 @@ export class GxgTab {
   @Prop() tab: string;
 
   /**
-   * The tab min height. Set it on "gxg-tabs" main container
-   */
-  @Prop({ reflect: true }) minHeight: string;
-
-  /**
-   *
+   * The selected tab
    */
   @Prop({ reflect: true }) isSelected = false;
-
-  componentDidLoad() {
-    //Resize Observer
-    const myObserver = new ResizeObserver((entries) => {
-      entries.forEach(() => {
-        this.setMaxHeight();
-      });
-    });
-    myObserver.observe(this.el);
-
-    //Set max height
-    this.setMaxHeight();
-  }
-
-  setMaxHeight() {
-    //Set max-height to ".item__outer-container"
-    let outerContainerMaxHeight = "0px";
-    outerContainerMaxHeight =
-      (this.el.shadowRoot.querySelector(".inner-container") as HTMLElement)
-        .offsetHeight + "px";
-
-    this.el.style.setProperty(
-      "--outerContainerMaxHeight",
-      outerContainerMaxHeight
-    );
-  }
 
   render() {
     return (
       <Host class={{ open: this.isSelected }}>
         <div class="outer-container">
-          <div
-            class="inner-container"
-            style={{
-              minHeight: this.minHeight,
-            }}
-          >
+          <div class="inner-container">
             <slot></slot>
           </div>
         </div>
