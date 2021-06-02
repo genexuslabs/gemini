@@ -24,7 +24,9 @@
         {
             name: 'type',
             displayName: 'Type',
-            width: '20%'
+            width: '20%',
+            render: (rowId, columnName, value) => {return "german:" + value.toString()}, //que ande con un div
+            editRender: (rowId, columnName, value) => {return "german:" + value.toString()}
         },
         {
             name: 'telephone',

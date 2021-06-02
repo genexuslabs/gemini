@@ -177,9 +177,7 @@ export namespace Components {
      */
     id: string;
   }
-  interface GxgBreadcrumbs {
-    image: string;
-  }
+  interface GxgBreadcrumbs {}
   interface GxgButton {
     /**
      * The prescence of this attribute makes the icon always black
@@ -1020,7 +1018,9 @@ export namespace Components {
   interface GxgTreeGridDivs {
     columns: Array<object>;
     displayChildren: DisplayChildren;
+    editCell: { rowId: number; columnName: string };
     rows: Array<object>;
+    selectedRowsIds: number;
     width: string;
   }
   interface GxgTreeItem {
@@ -1700,9 +1700,7 @@ declare namespace LocalJSX {
      */
     onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
   }
-  interface GxgBreadcrumbs {
-    image?: string;
-  }
+  interface GxgBreadcrumbs {}
   interface GxgButton {
     /**
      * The prescence of this attribute makes the icon always black
@@ -2608,10 +2606,12 @@ declare namespace LocalJSX {
   interface GxgTreeGridDivs {
     columns?: Array<object>;
     displayChildren?: DisplayChildren;
+    editCell?: { rowId: number; columnName: string };
     onAddRow?: (event: CustomEvent<any>) => void;
     onRemoveRow?: (event: CustomEvent<any>) => void;
     onSelectedRows?: (event: CustomEvent<any>) => void;
     rows?: Array<object>;
+    selectedRowsIds?: number;
     width?: string;
   }
   interface GxgTreeItem {

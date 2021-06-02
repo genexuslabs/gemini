@@ -4,12 +4,14 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type              | Default     |
-| ----------------- | ------------------ | ----------- | ----------------- | ----------- |
-| `columns`         | --                 |             | `object[]`        | `undefined` |
-| `displayChildren` | `display-children` |             | `"all" \| "none"` | `"all"`     |
-| `rows`            | --                 |             | `object[]`        | `undefined` |
-| `width`           | `width`            |             | `string`          | `"100%"`    |
+| Property          | Attribute           | Description | Type                                     | Default     |
+| ----------------- | ------------------- | ----------- | ---------------------------------------- | ----------- |
+| `columns`         | --                  |             | `object[]`                               | `undefined` |
+| `displayChildren` | `display-children`  |             | `"all" \| "none"`                        | `"all"`     |
+| `editCell`        | --                  |             | `{ rowId: number; columnName: string; }` | `undefined` |
+| `rows`            | --                  |             | `object[]`                               | `undefined` |
+| `selectedRowsIds` | `selected-rows-ids` |             | `number`                                 | `undefined` |
+| `width`           | `width`             |             | `string`                                 | `"100%"`    |
 
 ## Events
 

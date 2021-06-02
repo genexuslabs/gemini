@@ -58,7 +58,7 @@ export class GxgTreeGrid {
               paddingLeft: this.tdPaddingLeft(i, level),
             }}
           >
-            {row["cells"][td]}
+            hola
           </td>
         ))}
       </tr>

@@ -23,6 +23,8 @@ export class GxgTreeGridDivs {
   @Prop() rows: Array<object>;
   @Prop() width = "100%";
   @Prop() displayChildren: DisplayChildren = "all";
+  @Prop({ mutable: true }) selectedRowsIds: number;
+  @Prop() editCell: { rowId: number; columnName: string }; //rowId y column name
 
   //STATE
   /**
@@ -123,7 +125,8 @@ export class GxgTreeGridDivs {
                 {row["cells"][td]}
               </div>
             ) : (
-              row["cells"][td]
+              //row["cells"][td]
+              this.renderTd(row["cells"][td])
             )}
           </div>
         ))}
@@ -141,6 +144,18 @@ export class GxgTreeGridDivs {
     } else {
       return;
     }
+  }
+
+  renderTd(value) {
+    //debugger;
+    //si esta definido y es una funcion
+    if (this.columns[1]["cellsRenderer"]) {
+      return this.columns[1]["cellsRenderer"](0, 0, value);
+    } else {
+      return value;
+    }
+
+    //sino muestro el contenido
   }
 
   trClick(e, row) {
