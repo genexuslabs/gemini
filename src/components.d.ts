@@ -45,7 +45,7 @@ import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
-import { ChildrenExpanded } from "./components/gxg-tree-grid-divs/gxg-tree-grid-divs";
+import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -166,6 +166,19 @@ export namespace Components {
      * The box padding
      */
     padding: padding;
+  }
+  interface GxgBreadcrumb {
+    /**
+     * The breadcrumb icon (optional)
+     */
+    icon: string;
+    /**
+     * The breadcrumb id
+     */
+    id: string;
+  }
+  interface GxgBreadcrumbs {
+    image: string;
   }
   interface GxgButton {
     /**
@@ -1005,8 +1018,8 @@ export namespace Components {
     width: string;
   }
   interface GxgTreeGridDivs {
-    childrenExpanded: ChildrenExpanded;
     columns: Array<object>;
+    displayChildren: DisplayChildren;
     rows: Array<object>;
     width: string;
   }
@@ -1084,6 +1097,20 @@ declare global {
   var HTMLGxgBoxElement: {
     prototype: HTMLGxgBoxElement;
     new (): HTMLGxgBoxElement;
+  };
+  interface HTMLGxgBreadcrumbElement
+    extends Components.GxgBreadcrumb,
+      HTMLStencilElement {}
+  var HTMLGxgBreadcrumbElement: {
+    prototype: HTMLGxgBreadcrumbElement;
+    new (): HTMLGxgBreadcrumbElement;
+  };
+  interface HTMLGxgBreadcrumbsElement
+    extends Components.GxgBreadcrumbs,
+      HTMLStencilElement {}
+  var HTMLGxgBreadcrumbsElement: {
+    prototype: HTMLGxgBreadcrumbsElement;
+    new (): HTMLGxgBreadcrumbsElement;
   };
   interface HTMLGxgButtonElement
     extends Components.GxgButton,
@@ -1462,6 +1489,8 @@ declare global {
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
     "gxg-box": HTMLGxgBoxElement;
+    "gxg-breadcrumb": HTMLGxgBreadcrumbElement;
+    "gxg-breadcrumbs": HTMLGxgBreadcrumbsElement;
     "gxg-button": HTMLGxgButtonElement;
     "gxg-button-group": HTMLGxgButtonGroupElement;
     "gxg-card": HTMLGxgCardElement;
@@ -1656,6 +1685,23 @@ declare namespace LocalJSX {
      * The box padding
      */
     padding?: padding;
+  }
+  interface GxgBreadcrumb {
+    /**
+     * The breadcrumb icon (optional)
+     */
+    icon?: string;
+    /**
+     * The breadcrumb id
+     */
+    id?: string;
+    /**
+     * This event emmits the breadcrumb id
+     */
+    onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
+  }
+  interface GxgBreadcrumbs {
+    image?: string;
   }
   interface GxgButton {
     /**
@@ -2560,8 +2606,8 @@ declare namespace LocalJSX {
     width?: string;
   }
   interface GxgTreeGridDivs {
-    childrenExpanded?: ChildrenExpanded;
     columns?: Array<object>;
+    displayChildren?: DisplayChildren;
     onAddRow?: (event: CustomEvent<any>) => void;
     onRemoveRow?: (event: CustomEvent<any>) => void;
     onSelectedRows?: (event: CustomEvent<any>) => void;
@@ -2622,6 +2668,8 @@ declare namespace LocalJSX {
     "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
     "gxg-box": GxgBox;
+    "gxg-breadcrumb": GxgBreadcrumb;
+    "gxg-breadcrumbs": GxgBreadcrumbs;
     "gxg-button": GxgButton;
     "gxg-button-group": GxgButtonGroup;
     "gxg-card": GxgCard;
@@ -2691,6 +2739,10 @@ declare module "@stencil/core" {
       "gxg-alert": LocalJSX.GxgAlert &
         JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
       "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
+      "gxg-breadcrumb": LocalJSX.GxgBreadcrumb &
+        JSXBase.HTMLAttributes<HTMLGxgBreadcrumbElement>;
+      "gxg-breadcrumbs": LocalJSX.GxgBreadcrumbs &
+        JSXBase.HTMLAttributes<HTMLGxgBreadcrumbsElement>;
       "gxg-button": LocalJSX.GxgButton &
         JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
       "gxg-button-group": LocalJSX.GxgButtonGroup &

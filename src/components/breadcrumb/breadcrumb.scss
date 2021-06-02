@@ -1,0 +1,30 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  .container {
+    display: flex;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    background-color: var(--gray-01);
+    height: var(--spacing-comp-05);
+    border-radius: var(--border-radius-lg);
+    color: var(--color-on-secondary);
+    align-items: center;
+    justify-content: center;
+    padding-left: var(--spacing-comp-02);
+    padding-right: var(--spacing-comp-02);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--gray-02);
+    }
+    .custom-icon {
+      margin-right: var(--spacing-comp-01);
+    }
+  }
+}
+:host(:last-child) {
+  .arrow-icon {
+    display: none;
+  }
+}

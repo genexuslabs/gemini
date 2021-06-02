@@ -16,6 +16,7 @@
 
 - [gxg-accordion-item](../accordion-item)
 - [gxg-alert](../alert)
+- [gxg-breadcrumb](../breadcrumb)
 - [gxg-button](../button)
 - [gxg-contextual-menu-item](../contextual-menu-item)
 - [gxg-drag-box](../drag-box)
@@ -28,7 +29,7 @@
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
-- [gxg-tree-grid-divs](../gxg-tree-grid-divs)
+- [gxg-tree-grid-divs](../tree-grid-divs)
 - [gxg-tree-item](../tree-item)
 
 ### Depends on
@@ -42,6 +43,7 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-accordion-item --> gxg-icon
   gxg-alert --> gxg-icon
+  gxg-breadcrumb --> gxg-icon
   gxg-button --> gxg-icon
   gxg-contextual-menu-item --> gxg-icon
   gxg-drag-box --> gxg-icon

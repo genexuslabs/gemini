@@ -22,7 +22,7 @@ export class GxgTreeGridDivs {
   @Prop() columns: Array<object>;
   @Prop() rows: Array<object>;
   @Prop() width = "100%";
-  @Prop() childrenExpanded: ChildrenExpanded = "all";
+  @Prop() displayChildren: DisplayChildren = "all";
 
   //STATE
   /**
@@ -31,7 +31,9 @@ export class GxgTreeGridDivs {
   @State() thWidthLeftover: string;
   @State() rowsBuffer = [];
   @State() thInPixels = false;
-  @State() rowKey = 0;
+  @State() displayRowChildrenIds = [];
+  @State() columnClicked: string;
+  @State() columnOrder: string;
 
   //EVENTS
   @Event() selectedRows: EventEmitter;
@@ -52,8 +54,25 @@ export class GxgTreeGridDivs {
       this.calculateThWitdhLeftover();
     }
 
+    //Display children rows
+    if (this.displayChildren === "all") {
+      this.displayChildrenRows(this.rows);
+    }
+
+    //Parse rows
     this.rows.map((row, i) => {
       this.parseRows(row, 0, i);
+    });
+  }
+
+  displayChildrenRows(rows) {
+    rows.map((row) => {
+      if (row.hasOwnProperty("children")) {
+        this.displayRowChildrenIds.push(row["id"]);
+        this.displayChildrenRows(row["children"]);
+      } else {
+        return;
+      }
     });
   }
 
@@ -100,7 +119,7 @@ export class GxgTreeGridDivs {
           >
             {hasChildren && i === 0 ? (
               <div class={{ "icon-text-container": true }}>
-                {this.arrowIcon(i, hasChildren)}
+                {this.arrowIcon(i, hasChildren, row)}
                 {row["cells"][td]}
               </div>
             ) : (
@@ -110,7 +129,12 @@ export class GxgTreeGridDivs {
         ))}
       </div>
     );
-    if (row.hasOwnProperty("children")) {
+
+    const displayRowIdFound = this.displayRowChildrenIds.find(
+      (id) => id === row["id"]
+    );
+
+    if (row.hasOwnProperty("children") && displayRowIdFound !== undefined) {
       row["children"].map((row) => {
         this.parseRows(row, level + 1, i);
       });
@@ -177,19 +201,44 @@ export class GxgTreeGridDivs {
     this.selectedRows.emit(dataArray);
   }
 
-  arrowIcon(i, hasChildren) {
+  arrowIcon(i, hasChildren, row) {
     if (i === 0 && hasChildren) {
+      const rowId = row["id"];
+      const rowIdFoundOndisplayRowChildrenIds = this.displayRowChildrenIds.find(
+        (id) => id === rowId
+      );
+      let iconType;
+      if (rowIdFoundOndisplayRowChildrenIds !== undefined) {
+        iconType = "navigation/chevron-down";
+      } else {
+        iconType = "navigation/chevron-right";
+      }
       return (
         <gxg-icon
-          type="navigation/chevron-down"
+          type={iconType}
           onClick={this.toggleRow.bind(this)}
         ></gxg-icon>
       );
     }
   }
 
-  toggleRow() {
-    console.log("toggle row");
+  toggleRow(e) {
+    const trId = e.target.closest(".tr").getAttribute("id");
+    const trIdFoundOndisplayRowChildrenIds = this.displayRowChildrenIds.find(
+      (id) => id === trId
+    );
+    if (trIdFoundOndisplayRowChildrenIds !== undefined) {
+      const index = this.displayRowChildrenIds.indexOf(trId);
+      if (index > -1) {
+        this.displayRowChildrenIds.splice(index, 1);
+      }
+    } else {
+      this.displayRowChildrenIds.push(trId);
+    }
+    this.rowsBuffer = [];
+    this.rows.map((row, i) => {
+      this.parseRows(row, 0, i);
+    });
   }
 
   tdPaddingLeft(i, level) {
@@ -254,4 +303,5 @@ export class GxgTreeGridDivs {
   }
 }
 
-export type ChildrenExpanded = "all" | "none";
+export type DisplayChildren = "all" | "none";
+export type ColumnOrder = "ascendant" | "descendant" | "default";

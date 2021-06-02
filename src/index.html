@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="dark">  
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -13,101 +13,23 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      
+      html.dark {
+        background-color: #1D1E22;
+      }
     </style>
-    <script>
-    let columns = [{
-            name: 'name',
-            displayName: 'Name',
-            width: '20%'
-        },
-        {
-            name: 'type',
-            displayName: 'Type',
-            width: '20%'
-        },
-        {
-            name: 'telephone',
-            displayName: 'Telephone'
-        }
-    ];
-    let rows = [
-      // Esta primer row le pone el valor "Name1" para la columna "name" y "Type1" para la columna "type"y y tiene dos rows hijas
-      {     
-          id:"1",
-          cells: {
-              name: 'Name1',
-              type: 'Type1',
-              telephone: 'Telephone1',
-          },
-          children: [
-              {
-                id:"2",
-                cells: {
-                    name: 'Name2',
-                    type: 'Type2',
-                    telephone: 'Telephone2'
-                }
-              }, // Row simple sin hijos
-              {
-                  id:"3",
-                  cells: {
-                      name: 'Name3',
-                      type: 'Type3',
-                      telephone: 'Telephone3'
-                  },
-                  children: [{
-                         id:"4",
-                          cells: {
-                              name: 'Name4',
-                              type: 'Type4',
-                              telephone: 'Telephone4'
-                          }
-                      }, // Row simple sin hijos
-                      {
-                        id:"5",
-                          cells: {
-                              name: 'Name5',
-                              type: 'Type5',
-                              telephone: 'Telephone5'
-                          }
-                      } // Row simple sin hijos
-                  ]
-              } // Row simple sin hijos
-          ]
-      },
-      {
-          id:"6",
-          cells: {
-              name: 'Name6',
-              type: 'Type6',
-              telephone: 'Telephone6'
-          }
-      } // Row simple sin hijos
-    ];
-    </script>
   </head>
   <body>
+    <gxg-breadcrumbs id="breadcrumbs">
+      <gxg-breadcrumb id="main-table" icon="objects/table">MainTable</gxg-breadcrumb>
+      <gxg-breadcrumb id="grid" icon="objects/table">Grid</gxg-breadcrumb>
+      <gxg-breadcrumb id="image" icon="objects/image">Image</gxg-breadcrumb>
+    </gxg-breadcrumbs>
 
-    <gxg-tree-grid-divs id="gxgTreeGrid" ></gxg-tree-grid-divs>
     <script>
-        let gxgTreeGrid = document.getElementById("gxgTreeGrid");
-        gxgTreeGrid.columns = columns;
-        gxgTreeGrid.rows = rows;
-
-
-        //Events
-        gxgTreeGrid.addEventListener("selectedRows", function(e) {
-            console.log(e.detail)
-        });
-        //Events
-        gxgTreeGrid.addEventListener("removeRow", function(e) {
-            console.log(e.detail)
-        });
-        //Events
-        gxgTreeGrid.addEventListener("addRow", function(e) {
-            console.log(e.detail)
-        });
+      let breadcrumbs = document.getElementById("breadcrumbs");
+      breadcrumbs.addEventListener("breadcrumbClicked", function(e){
+        console.log(e.detail);
+      })
     </script>
   </body>
 </html>
