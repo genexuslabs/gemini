@@ -46,6 +46,10 @@
     &--collapsed {
       height: 0;
     }
+
+    &.bottom {
+      bottom: 0;
+    }
   }
 }
 :host(.rtl) {

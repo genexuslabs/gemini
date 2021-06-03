@@ -13,11 +13,6 @@ export class GxgTabs {
 
   @State() activeTab = "";
 
-  componentWillLoad() {
-    if (this.position === "bottom") {
-    }
-  }
-
   @Listen("tabActivated")
   tabActivatedHandler(event) {
     //first, get the active tab, and set it´s outer-container overflow to hidden
@@ -73,7 +68,14 @@ export class GxgTabs {
                 <slot name="tab-bar" />
               </div>,
             ]
-          : [<slot name="tab-bar" />, <slot></slot>]}
+          : [
+              <div class="tab-bar-container">
+                <slot name="tab-bar" />
+              </div>,
+              <div class="tabs-container">
+                <slot></slot>
+              </div>,
+            ]}
       </div>
     );
   }

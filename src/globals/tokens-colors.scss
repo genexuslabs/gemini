@@ -170,3 +170,29 @@
   //Disabled
   --icons-disabled: #3e3f42;
 }
+
+//BPM
+:root {
+  --color-bpm-01: #ff9a1b;
+  --color-bpm-02: #1b82ff;
+  --color-bpm-03: #ffed39;
+  --color-bpm-04: #ff261b;
+  --color-bpm-05: #2dcf76;
+
+  --color-bpm-start: #87cf2d;
+  --color-bpm-end: #ff261b;
+  --color-bpm-gateways: #2dcf76;
+  --color-bpm-intermediate: #3e3f42;
+}
+:root.dark {
+  --color-bpm-01: #ffb754;
+  --color-bpm-02: #5bb2ff;
+  --color-bpm-03: #fef69c;
+  --color-bpm-04: #f89491;
+  --color-bpm-05: #96e3b0;
+
+  --color-bpm-start: #87cf2d;
+  --color-bpm-end: #ff261b;
+  --color-bpm-gateways: #2dcf76;
+  --color-bpm-intermediate: #c6c6c7;
+}

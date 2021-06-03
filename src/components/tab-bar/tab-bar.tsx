@@ -110,6 +110,13 @@ export class GxgTabBar {
       }.bind(this),
       100
     );
+
+    //Tabbar menu on bottom
+    const gxgTabsPosition = this.el.parentElement.getAttribute("position");
+    if (gxgTabsPosition === "bottom") {
+      const tabBarMenu = this.el.shadowRoot.querySelector(".tab-bar-menu");
+      tabBarMenu.classList.add("bottom");
+    }
   }
 
   renderTabBarMenu() {

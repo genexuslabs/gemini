@@ -28,6 +28,12 @@
 | `minSize`   | `min-size`  | The splitter min. sizes in pixels                                    | `string`                                        | `"0,0"`        |
 | `sizes`     | `sizes`     | The splitter initial sizes, in percentages. The sum should equal 100 | `string`                                        | `"50,50"`      |
 
+## Events
+
+| Event      | Description | Type               |
+| ---------- | ----------- | ------------------ |
+| `dragging` |             | `CustomEvent<any>` |
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

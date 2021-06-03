@@ -2408,6 +2408,7 @@ declare namespace LocalJSX {
      * The splitter min. sizes in pixels
      */
     minSize?: string;
+    onDragging?: (event: CustomEvent<any>) => void;
     /**
      * The splitter initial sizes, in percentages. The sum should equal 100
      */

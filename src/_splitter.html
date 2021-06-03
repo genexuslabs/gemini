@@ -13,12 +13,19 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      
+      .container {
+        width: 628px;
+        height: 400px;
+        background-color: white;                                            
+      }
     </style>
   </head>
   <body>
-    <gxg-splitter>
-      hola
-    </gxg-splitter>
+    <div class="container">
+      <gxg-splitter direction="vertical" knob sizes="25,75" min-size="0,300">
+         <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
   </body>
 </html>

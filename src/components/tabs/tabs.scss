@@ -17,7 +17,7 @@
 
 .tabs-container {
   height: calc(100% - 32px); //32 pixels is the height of the tab-bar
-  overflow-y: scroll;
+  overflow-y: auto;
   // Scroll bar
 }
 

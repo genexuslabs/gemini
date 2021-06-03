@@ -1,4 +1,13 @@
-import { Component, Host, h, Prop, State, Element } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  State,
+  Element,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import Split from "split.js";
 
 @Component({
@@ -7,6 +16,8 @@ import Split from "split.js";
   shadow: true,
 })
 export class GxgSplitter {
+  @Event() dragging: EventEmitter;
+
   @Element() el: HTMLElement;
 
   /**
@@ -293,6 +304,9 @@ export class GxgSplitter {
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
+
+    //emmit dragging event
+    this.dragging.emit("dragging");
   }
   onDragEndFunc() {
     //this.el.removeEventListener("mousemove", this.mouseMoveMethod);
