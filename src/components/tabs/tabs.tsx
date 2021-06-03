@@ -8,6 +8,8 @@ import { Component, Element, Listen, h, State, Prop } from "@stencil/core";
 export class GxgTabs {
   @Element() element: HTMLGxgTabsElement;
 
+  @Prop() position: TabsPosition = "top";
+
   @State() activeTab = "";
 
   @Listen("tabActivated")
@@ -61,3 +63,5 @@ export class GxgTabs {
     );
   }
 }
+
+export type TabsPosition = "top" | "bottom" | "left" | "right";

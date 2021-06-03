@@ -41,6 +41,7 @@ import { margin } from "./components/separator/separator";
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space1 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
+import { TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
@@ -908,7 +909,9 @@ export namespace Components {
      */
     tabLabel: string;
   }
-  interface GxgTabs {}
+  interface GxgTabs {
+    position: TabsPosition;
+  }
   interface GxgTemplate {
     name: string;
   }
@@ -2476,7 +2479,9 @@ declare namespace LocalJSX {
      */
     tabLabel?: string;
   }
-  interface GxgTabs {}
+  interface GxgTabs {
+    position?: TabsPosition;
+  }
   interface GxgTemplate {
     name?: string;
   }

@@ -111,6 +111,12 @@
 </gxg-tabs>
 ```
 
+## Properties
+
+| Property   | Attribute  | Description | Type                                     | Default |
+| ---------- | ---------- | ----------- | ---------------------------------------- | ------- |
+| `position` | `position` |             | `"bottom" \| "left" \| "right" \| "top"` | `"top"` |
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
