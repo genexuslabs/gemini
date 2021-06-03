@@ -20,7 +20,7 @@ export class GxgTab {
 
   render() {
     return (
-      <Host class={{ open: this.isSelected }}>
+      <Host class={{ open: this.isSelected, "not-selected": !this.isSelected }}>
         <div class="outer-container">
           <div class="inner-container">
             <slot></slot>

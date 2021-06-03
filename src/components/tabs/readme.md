@@ -113,9 +113,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                     | Default |
-| ---------- | ---------- | ----------- | ---------------------------------------- | ------- |
-| `position` | `position` |             | `"bottom" \| "left" \| "right" \| "top"` | `"top"` |
+| Property   | Attribute  | Description | Type                                     | Default  |
+| ---------- | ---------- | ----------- | ---------------------------------------- | -------- |
+| `height`   | `height`   |             | `"100%" \| "auto"`                       | `"auto"` |
+| `position` | `position` |             | `"bottom" \| "left" \| "right" \| "top"` | `"top"`  |
 
 ---
 

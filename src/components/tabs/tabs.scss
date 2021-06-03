@@ -1,7 +1,41 @@
 :host {
   display: block;
-  height: 100%;
+  height: auto;
   background: var(--color-background);
   border-radius: var(--border-width-md);
   box-shadow: var(--box-shadow-01);
+}
+:host([height="100%"]) {
+  height: 100%;
+}
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tabs-container {
+  height: calc(100% - 32px); //32 pixels is the height of the tab-bar
+  overflow-y: scroll;
+  // Scroll bar
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: var(--gray-02);
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--gray-05);
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-04);
+  cursor: pointer;
 }

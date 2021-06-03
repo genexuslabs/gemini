@@ -9,8 +9,14 @@ export class GxgTabs {
   @Element() element: HTMLGxgTabsElement;
 
   @Prop() position: TabsPosition = "top";
+  @Prop({ reflect: true }) height: Height = "auto";
 
   @State() activeTab = "";
+
+  componentWillLoad() {
+    if (this.position === "bottom") {
+    }
+  }
 
   @Listen("tabActivated")
   tabActivatedHandler(event) {
@@ -57,11 +63,21 @@ export class GxgTabs {
 
   render() {
     return (
-      <nav class="tabs-container">
-        <slot></slot>
-      </nav>
+      <div class="main-container">
+        {this.position === "bottom"
+          ? [
+              <div class="tabs-container">
+                <slot></slot>
+              </div>,
+              <div class="tab-bar-container">
+                <slot name="tab-bar" />
+              </div>,
+            ]
+          : [<slot name="tab-bar" />, <slot></slot>]}
+      </div>
     );
   }
 }
 
 export type TabsPosition = "top" | "bottom" | "left" | "right";
+export type Height = "auto" | "100%";

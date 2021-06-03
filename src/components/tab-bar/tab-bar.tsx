@@ -161,17 +161,23 @@ export class GxgTabBar {
           rtl: this.rtl,
         }}
       >
-        <ul class="tab-bar">
-          <slot name="tab-bar"></slot>
-        </ul>
-        {this.renderTabBarMenu()}
-        <ul
-          class="tab-bar-menu tab-bar-menu--collapsed"
-          style={{ "--tabBarMenuHeight": this.tabBarMenuHeight }}
-          ref={(el) => (this.tabBarMenu = el as HTMLElement)}
+        <nav
+          class={{
+            nav: true,
+          }}
         >
-          <slot name="tab-menu"></slot>
-        </ul>
+          <ul class="tab-bar">
+            <slot name="tab-bar"></slot>
+          </ul>
+          {this.renderTabBarMenu()}
+          <ul
+            class="tab-bar-menu tab-bar-menu--collapsed"
+            style={{ "--tabBarMenuHeight": this.tabBarMenuHeight }}
+            ref={(el) => (this.tabBarMenu = el as HTMLElement)}
+          >
+            <slot name="tab-menu"></slot>
+          </ul>
+        </nav>
       </Host>
     );
   }
