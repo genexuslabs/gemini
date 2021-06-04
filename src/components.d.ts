@@ -901,7 +901,7 @@ export namespace Components {
      */
     isSelected: boolean;
     /**
-     * The tab id. Should match the "tab" value of the correlative "gxg-tab" element
+     * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
      */
     tab: string;
     /**
@@ -2473,7 +2473,7 @@ declare namespace LocalJSX {
     isSelected?: boolean;
     onTabActivated?: (event: CustomEvent<any>) => void;
     /**
-     * The tab id. Should match the "tab" value of the correlative "gxg-tab" element
+     * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
      */
     tab?: string;
     /**

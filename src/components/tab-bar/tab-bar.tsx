@@ -117,6 +117,15 @@ export class GxgTabBar {
       const tabBarMenu = this.el.shadowRoot.querySelector(".tab-bar-menu");
       tabBarMenu.classList.add("bottom");
     }
+
+    this.setIndexToTabButtons();
+  }
+
+  setIndexToTabButtons() {
+    const tabButtons = this.el.querySelectorAll("gxg-tab-button");
+    tabButtons.forEach((tabButton, index) => {
+      tabButton.setAttribute("data-index", index.toString());
+    });
   }
 
   renderTabBarMenu() {

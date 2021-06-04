@@ -1,4 +1,11 @@
-import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Event,
+  EventEmitter,
+  Element,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-tab-button",
@@ -6,13 +13,15 @@ import { Component, Prop, h, Event, EventEmitter } from "@stencil/core";
   shadow: true,
 })
 export class GxgTabButton {
+  @Element() el: HTMLElement;
+
   /**
    * The button label
    */
   @Prop() tabLabel: string = null;
 
   /**
-   * The tab id. Should match the "tab" value of the correlative "gxg-tab" element
+   * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
    */
   @Prop() tab: string = null;
 
@@ -38,7 +47,11 @@ export class GxgTabButton {
   //Click functions
   tabButtonClicked() {
     this.isSelected = true;
-    this.tabActivated.emit();
+    const index = parseInt(this.el.getAttribute("data-index"), 10);
+    const buttonIndex = this.tabActivated.emit({
+      tab: this.tab,
+      index: index,
+    });
   }
   printIcon() {
     if (this.icon !== null) {
