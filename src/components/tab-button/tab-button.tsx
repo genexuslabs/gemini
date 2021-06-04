@@ -48,7 +48,7 @@ export class GxgTabButton {
   tabButtonClicked() {
     this.isSelected = true;
     const index = parseInt(this.el.getAttribute("data-index"), 10);
-    const buttonIndex = this.tabActivated.emit({
+    this.tabActivated.emit({
       tab: this.tab,
       index: index,
     });
