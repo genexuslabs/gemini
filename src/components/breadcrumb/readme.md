@@ -7,7 +7,6 @@
 | Property | Attribute | Description                    | Type     | Default     |
 | -------- | --------- | ------------------------------ | -------- | ----------- |
 | `icon`   | `icon`    | The breadcrumb icon (optional) | `string` | `undefined` |
-| `id`     | `id`      | The breadcrumb id              | `string` | `undefined` |
 
 ## Events
 

@@ -1,4 +1,12 @@
-import { Component, Host, h, Prop, Event, EventEmitter } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Event,
+  EventEmitter,
+  Element,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-breadcrumb",
@@ -6,6 +14,8 @@ import { Component, Host, h, Prop, Event, EventEmitter } from "@stencil/core";
   shadow: true,
 })
 export class GxgBreadcrumb {
+  @Element() el: HTMLElement;
+
   /**
    * This event emmits the breadcrumb id
    */
@@ -16,13 +26,11 @@ export class GxgBreadcrumb {
    */
   @Prop() icon: string;
 
-  /**
-   * The breadcrumb id
-   */
-  @Prop() id: string;
-
-  breadcrumbClickedFunc(id) {
-    this.breadcrumbClicked.emit(id);
+  breadcrumbClickedFunc() {
+    const index = parseInt(this.el.getAttribute("data-index"), 10);
+    this.breadcrumbClicked.emit({
+      index: index,
+    });
   }
 
   render() {
@@ -30,7 +38,7 @@ export class GxgBreadcrumb {
       <Host>
         <div
           class={{ container: true }}
-          onClick={() => this.breadcrumbClickedFunc(this.id)}
+          onClick={() => this.breadcrumbClickedFunc()}
         >
           {this.icon !== undefined ? (
             <gxg-icon

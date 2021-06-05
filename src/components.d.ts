@@ -173,10 +173,6 @@ export namespace Components {
      * The breadcrumb icon (optional)
      */
     icon: string;
-    /**
-     * The breadcrumb id
-     */
-    id: string;
   }
   interface GxgBreadcrumbs {}
   interface GxgButton {
@@ -1679,10 +1675,6 @@ declare namespace LocalJSX {
      * The breadcrumb icon (optional)
      */
     icon?: string;
-    /**
-     * The breadcrumb id
-     */
-    id?: string;
     /**
      * This event emmits the breadcrumb id
      */
