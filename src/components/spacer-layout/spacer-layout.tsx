@@ -3,7 +3,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-spacer-layout",
   styleUrl: "spacer-layout.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgSpacerLayout {
   /**
@@ -14,17 +14,17 @@ export class GxgSpacerLayout {
   /**
    * The spacing value, taken from the "token-spacing" global values
    */
-  @Prop() space: string;
+  @Prop() space: Space = "xs";
 
   /**
    * The orientation
    */
-  @Prop() orientation = "horizontal";
+  @Prop() orientation: Orientation = "horizontal";
 
   /**
    * Content justify
    */
-  @Prop() justifyContent = "flex-start";
+  @Prop() justifyContent: JustifyContent = "start";
 
   render() {
     return (
@@ -41,7 +41,7 @@ export class GxgSpacerLayout {
           s: this.space === "s",
           m: this.space === "m",
           l: this.space === "l",
-          xl: this.space === "xl"
+          xl: this.space === "xl",
         }}
       >
         <slot></slot>
@@ -50,9 +50,9 @@ export class GxgSpacerLayout {
   }
 }
 
-export type space = "xs" | "s" | "m" | "l" | "xl";
-export type orientation = "horizontal" | "vertical";
-export type justifyContent =
+export type Space = "xs" | "s" | "m" | "l" | "xl";
+export type Orientation = "horizontal" | "vertical";
+export type JustifyContent =
   | "start"
   | "end"
   | "center"

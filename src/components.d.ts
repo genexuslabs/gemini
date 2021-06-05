@@ -38,8 +38,13 @@ import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
 import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
 import { margin } from "./components/separator/separator";
+import {
+  JustifyContent,
+  Orientation,
+  Space as Space1,
+} from "./components/spacer-layout/spacer-layout";
 import { Direction, Knob } from "./components/splitter/splitter";
-import { Space as Space1 } from "./components/stack/stack";
+import { Space as Space2 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
 import { Height, TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextType } from "./components/text/text";
@@ -805,15 +810,15 @@ export namespace Components {
     /**
      * Content justify
      */
-    justifyContent: string;
+    justifyContent: JustifyContent;
     /**
      * The orientation
      */
-    orientation: string;
+    orientation: Orientation;
     /**
      * The spacing value, taken from the "token-spacing" global values
      */
-    space: string;
+    space: Space;
   }
   interface GxgSpacerOne {
     /**
@@ -2370,15 +2375,15 @@ declare namespace LocalJSX {
     /**
      * Content justify
      */
-    justifyContent?: string;
+    justifyContent?: JustifyContent;
     /**
      * The orientation
      */
-    orientation?: string;
+    orientation?: Orientation;
     /**
      * The spacing value, taken from the "token-spacing" global values
      */
-    space?: string;
+    space?: Space;
   }
   interface GxgSpacerOne {
     /**

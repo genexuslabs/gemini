@@ -13,23 +13,24 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      html.dark {
-        background-color: #1D1E22;
+      .container {
+        background-color: lightblue;
       }
+      .item {
+        width: 30px;
+        height: 30px;
+        background-color: lightgreen;
+      }
+
     </style>
   </head>
   <body>
-    <gxg-breadcrumbs id="breadcrumbs">
-      <gxg-breadcrumb id="main-table" icon="objects/table">MainTable</gxg-breadcrumb>
-      <gxg-breadcrumb id="grid" icon="objects/table">Grid</gxg-breadcrumb>
-      <gxg-breadcrumb id="image" icon="objects/image">Image</gxg-breadcrumb>
-    </gxg-breadcrumbs>
-
-    <script>
-      let breadcrumbs = document.getElementById("breadcrumbs");
-      breadcrumbs.addEventListener("breadcrumbClicked", function(e){
-        console.log(e.detail);
-      })
-    </script>
+      <div class="container">
+      <gxg-spacer-layout space="xl" orientation="vertical">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+      </gxg-spacer-layout>
+    </div>
   </body>
 </html>
