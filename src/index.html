@@ -13,44 +13,23 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      .container {
-        width: 628px;
-        height: 400px;
-        background-color: white;                                            
+      html.dark {
+        background-color: #1D1E22;
       }
     </style>
   </head>
   <body>
-    <div class="container" id="container" >
-      <gxg-splitter id="splitter" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
-         <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
-         <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
-      </gxg-splitter>
-    </div>
-
-    <button id="colapse-button">collapse first split</button>
+    <gxg-breadcrumbs id="breadcrumbs">
+      <gxg-breadcrumb icon="objects/table">MainTable</gxg-breadcrumb>
+      <gxg-breadcrumb icon="objects/table">Grid</gxg-breadcrumb>
+      <gxg-breadcrumb icon="objects/image">Image</gxg-breadcrumb>
+    </gxg-breadcrumbs>
 
     <script>
-       let container = document.getElementById("container");
-       container.addEventListener("dragging", function(){
-          console.log("dragging")
-       });
-       container.addEventListener("dragEnded", function(){
-          console.log("dragEnded")
-       });
-
-       //Colapse first split method
-       let colapseButton = document.getElementById("colapse-button");
-       colapseButton.addEventListener("click", function(){
-          (async () => {
-            await customElements.whenDefined('gxg-splitter');
-            const gxgSplitter = document.getElementById('splitter');
-            gxgSplitter.collapseFirstSplit();
-          })();
-       })
-
-
-
+      let breadcrumbs = document.getElementById("breadcrumbs");
+      breadcrumbs.addEventListener("breadcrumbClicked", function(e){
+        console.log(e.detail);
+      })
     </script>
   </body>
 </html>

@@ -1682,7 +1682,7 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
-     * This event emmits the breadcrumb id
+     * This event emmits the breadcrumb index
      */
     onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
   }

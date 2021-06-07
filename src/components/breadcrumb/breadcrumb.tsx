@@ -17,7 +17,7 @@ export class GxgBreadcrumb {
   @Element() el: HTMLElement;
 
   /**
-   * This event emmits the breadcrumb id
+   * This event emmits the breadcrumb index
    */
   @Event() breadcrumbClicked: EventEmitter;
 

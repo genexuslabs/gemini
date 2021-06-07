@@ -49,6 +49,30 @@ export class GxgSplitter {
   @State() mouseDirection = "";
   @State() oldx = 0;
 
+  makeId(length) {
+    const result = [];
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result.push(
+        characters.charAt(Math.floor(Math.random() * charactersLength))
+      );
+    }
+    return result.join("");
+  }
+
+  componentWillLoad() {
+    const splits = this.el.querySelectorAll("gxg-split");
+    splits.forEach(
+      function (split) {
+        const randomId = this.makeId(5);
+        console.log(randomId);
+        split.setAttribute("id", randomId);
+      }.bind(this)
+    );
+  }
+
   componentDidLoad() {
     this.getIds();
     this.convertStringPropertiesToArray();
