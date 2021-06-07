@@ -7,6 +7,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  Method,
 } from "@stencil/core";
 import Split from "split.js";
 
@@ -17,6 +18,7 @@ import Split from "split.js";
 })
 export class GxgSplitter {
   @Event() dragging: EventEmitter;
+  @Event() dragEnded: EventEmitter;
 
   @Element() el: HTMLElement;
 
@@ -171,8 +173,6 @@ export class GxgSplitter {
     if (this.knob === "unidirectional") {
       this.currentSizes = this.split.getSizes();
     }
-
-    //this.el.addEventListener("mousemove", this.mouseMoveMethod);
   }
 
   convertStringPropertiesToArray() {
@@ -309,8 +309,6 @@ export class GxgSplitter {
     this.dragging.emit("dragging");
   }
   onDragEndFunc() {
-    //this.el.removeEventListener("mousemove", this.mouseMoveMethod);
-
     //If gutter is not positioned at the minimum of the left split, save current position
     if (this.knob === "unidirectional") {
       //Only applicable to knobSimple version
@@ -344,18 +342,10 @@ export class GxgSplitter {
         this.leftSplitCollapsed = false;
       }
     }
-    //this.el.removeEventListener("mousemove", this.mouseMoveMethod);
-  }
-  mouseMoveMethod(e) {
-    if (e.pageX < this.oldx) {
-      this.mouseDirection = "left";
-    } else if (e.pageX > this.oldx) {
-      this.mouseDirection = "right";
-    }
-    this.oldx = e.pageX;
-    console.log(this.mouseDirection);
-  }
 
+    //Emmit drag ended event
+    this.dragEnded.emit("drag ended");
+  }
   detectDragEndReachedMinimum() {
     let splitterLength;
     if (this.direction === "horizontal") {
@@ -404,6 +394,22 @@ export class GxgSplitter {
     ) {
       this.el.classList.add("gutter-reached-left");
     }
+  }
+
+  @Method()
+  async collapseFirstSplit() {
+    //add class to make the transition smooth
+    const slottedSplits = this.el.querySelectorAll("gxg-split");
+    slottedSplits.forEach(function (split) {
+      split.classList.add("smooth-transition");
+    });
+    this.split.collapse(0);
+    setTimeout(
+      function () {
+        this.el.classList.remove("gutter-reached-right");
+      }.bind(this),
+      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+    );
   }
 
   render() {

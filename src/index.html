@@ -13,90 +13,44 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      html,body {
-        height: 100%;
+      .container {
+        width: 628px;
+        height: 400px;
+        background-color: white;                                            
       }
     </style>
   </head>
   <body>
-    <gxg-tabs height="100%" position="bottom" id="gxgTabs">
-      <gxg-tab-bar slot="tab-bar">
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="apples"
-            tab="apples"
-            is-selected
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="bananas"
-            tab="bananas"
-            icon="gemini-tools/settings"
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab="cherries"
-            icon="gemini-tools/settings"
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="strawberries"
-            tab="strawberries"
-            disabled
-            icon="gemini-tools/settings"
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="tomatoes"
-            tab="tomatoes"
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="potatoes"
-            tab="potatoes"
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="garlic"
-            tab="garlic"
-            ></gxg-tab-button>
-         <gxg-tab-button
-            slot="tab-bar"
-            tab-label="onion"
-            tab="onion"
-            ></gxg-tab-button>
-      </gxg-tab-bar>
-      <gxg-tab tab="apples" isSelected="true">
-         An apple is a sweet, edible fruit produced by an apple tree. Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus. The tree originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
-      </gxg-tab>
-      <gxg-tab tab="bananas" isSelected="false">
-         A banana is an elongated, edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. In some countries, bananas used for cooking may be called "plantains", distinguishing them from dessert bananas.
-      </gxg-tab>
-      <gxg-tab tab="cherries" isSelected="false">
-         A cherry is the fruit of many plants of the genus Prunus, and is a fleshy drupe. Commercial cherries are obtained from cultivars of several species, such as the sweet Prunus avium and the sour Prunus cerasus.
-      </gxg-tab>
-      <gxg-tab tab="tomatoes" isSelected="false">
-         The tomato is the edible, often red, berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America and Central America. The Nahuatl word tomatl gave rise to the Spanish word tomate, from which the English word tomato derived.
-      </gxg-tab>
-      <gxg-tab tab="potatoes" isSelected="false">
-         The potato is a root vegetable native to the Americas, a starchy tuber of the plant Solanum tuberosum, and the plant itself, a perennial in the family Solanaceae. Wild potato species, originating in modern day Peru, can be found throughout the Americas, from the United States to southern Chile.
-      </gxg-tab>
-      <gxg-tab tab="garlic" isSelected="false">
-         Garlic is a species in the onion genus, Allium. Its close relatives include the onion, shallot, leek, chive, and Chinese onion. It is native to Central Asia and northeastern Iran, and has long been a common seasoning worldwide, with a history of several thousand years of human consumption and use.
-      </gxg-tab>
-      <gxg-tab tab="onion" isSelected="false">
-         The onion, also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. Its close relatives include the garlic, shallot, leek, chive, and Chinese onion.
-      </gxg-tab>
-      <gxg-tab tab="strawberries" isSelected="false">
-         The garden strawberry is a widely grown hybrid species of the genus Fragaria, collectively known as the strawberries, which are cultivated worldwide for their fruit. The fruit is widely appreciated for its characteristic aroma, bright red color, juicy texture, and sweetness.
-      </gxg-tab>
-   </gxg-tabs>
+    <div class="container" id="container" >
+      <gxg-splitter id="splitter" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
+         <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
 
-   <script>
-     gxgTabs = document.getElementById("gxgTabs");
-     gxgTabs.addEventListener("tabActivated", function(e){
-      console.log(e.detail);
-     })
-   </script>
+    <button id="colapse-button">collapse first split</button>
+
+    <script>
+       let container = document.getElementById("container");
+       container.addEventListener("dragging", function(){
+          console.log("dragging")
+       });
+       container.addEventListener("dragEnded", function(){
+          console.log("dragEnded")
+       });
+
+       //Colapse first split method
+       let colapseButton = document.getElementById("colapse-button");
+       colapseButton.addEventListener("click", function(){
+          (async () => {
+            await customElements.whenDefined('gxg-splitter');
+            const gxgSplitter = document.getElementById('splitter');
+            gxgSplitter.collapseFirstSplit();
+          })();
+       })
+
+
+
+    </script>
   </body>
 </html>

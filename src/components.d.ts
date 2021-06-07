@@ -828,6 +828,7 @@ export namespace Components {
   }
   interface GxgSplit {}
   interface GxgSplitter {
+    collapseFirstSplit: () => Promise<void>;
     /**
      * The splitter direction test
      */
@@ -2405,6 +2406,7 @@ declare namespace LocalJSX {
      * The splitter min. sizes in pixels
      */
     minSize?: string;
+    onDragEnded?: (event: CustomEvent<any>) => void;
     onDragging?: (event: CustomEvent<any>) => void;
     /**
      * The splitter initial sizes, in percentages. The sum should equal 100

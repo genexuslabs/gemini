@@ -30,9 +30,18 @@
 
 ## Events
 
-| Event      | Description | Type               |
-| ---------- | ----------- | ------------------ |
-| `dragging` |             | `CustomEvent<any>` |
+| Event       | Description | Type               |
+| ----------- | ----------- | ------------------ |
+| `dragEnded` |             | `CustomEvent<any>` |
+| `dragging`  |             | `CustomEvent<any>` |
+
+## Methods
+
+### `collapseFirstSplit() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
 
 ---
 
