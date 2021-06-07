@@ -22,11 +22,19 @@
   </head>
   <body>
     <div class="container" id="container">
-      <gxg-splitter direction="vertical" knob sizes="25,75" min-size="0,300">
+      <gxg-splitter direction="horizontal" knob sizes="25,75" min-size="0,300">
          <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
       </gxg-splitter>
     </div>
+
+    <div class="container" id="container">
+      <gxg-splitter direction="vertical" knob sizes="25,75" min-size="0,300">
+         <gxg-split id="c" style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split id="d" style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
+    
     <script>
        let container = document.getElementById("container");
        container.addEventListener("dragging", function(){

@@ -26,6 +26,7 @@
     border-right: 1px solid var(--gray-02);
     padding-left: var(--spacing-comp-03);
     padding-right: var(--spacing-comp-03);
+    height: 20px;
   }
   ::slotted(button:first-child) {
     border-top-left-radius: var(--border-radius-md);

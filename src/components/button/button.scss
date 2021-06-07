@@ -65,10 +65,10 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-icon) .button-native {
   @include gxg-label--negative;
-  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-start: var(--spacing-comp-01);
   padding-inline-end: var(--spacing-comp-02);
-  gxg-icon {
-    padding-inline-end: var(--spacing-comp-02);
+  gxg-icon:not(.ghost-icon) {
+    padding-inline-end: var(--spacing-comp-01);
   }
 }
 :host(.button--primary-text-icon.button--disabled) .button-native {
@@ -146,9 +146,9 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-start: 0;
 
-  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-start: var(--spacing-comp-01);
   padding-inline-end: var(--spacing-comp-02);
-  gxg-icon {
+  gxg-icon:not(.ghost-icon) {
     padding-inline-end: var(--spacing-comp-01);
   }
 

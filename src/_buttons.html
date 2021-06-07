@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+
+    </style>
+  </head>
+  <body>
+      <!-------------------------------------------------------------------------------------------------------------------------------
+         BUTTONS
+         --------------------------------------------------------------------------------------------------------------------------------->
+         <h3>Buttons</h3>
+         <gxg-button type="primary-text-only">Label</gxg-button>
+         <gxg-button type="primary-text-icon" icon="navigation/arrow-down">Label</gxg-button>
+         <gxg-button type="primary-text-icon" icon="controls/action-group">Label</gxg-button>
+         <gxg-button type="primary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button type="primary-icon-only" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button type="secondary-text-only" id="secondary-text-only">Label</gxg-button>
+         <gxg-button type="secondary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/folder"></gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
+         <gxg-button type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
+         <gxg-button type="outlined">Label</gxg-button>
+         <gxg-button icon="navigation/arrow-down" type="tertiary"></gxg-button>
+         <gxg-button icon="controls/google-analytics" type="tertiary"></gxg-button>
+         <gxg-button class="button-with-action" icon="controls/table-column" type="tertiary"></gxg-button>
+         <br>
+         <gxg-button disabled type="primary-text-only">Label</gxg-button>
+         <gxg-button disabled type="primary-text-icon" icon="navigation/arrow-down">Label</gxg-button>
+         <gxg-button disabled type="primary-text-icon" icon="controls/action-group">Label</gxg-button>
+         <gxg-button disabled type="primary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button disabled type="primary-icon-only" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button disabled type="secondary-text-only">Label</gxg-button>
+         <gxg-button disabled type="secondary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/folder"></gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
+         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
+         <gxg-button disabled type="outlined">Label</gxg-button>
+         <gxg-button disabled icon="navigation/arrow-down" type="tertiary"></gxg-button>
+         <gxg-button disabled icon="controls/google-analytics" type="tertiary"></gxg-button>
+         <gxg-button class="button-with-action" disabled icon="controls/table-column" type="tertiary"></gxg-button>
+         <br>
+         <button id="set-focus-button">Set focus</button>
+         <script>
+            let buttonsWithAction = document.getElementsByClassName('button-with-action');
+            for (let button of buttonsWithAction) {
+              button.addEventListener('click', function(){
+                alert('hola');
+              })
+            }
+            let secondaryTextOnlyButton = document.getElementById("secondary-text-only");
+            let setFocusButton = document.getElementById("set-focus-button");
+            setFocusButton.addEventListener("click", function(){
+              console.log(secondaryTextOnlyButton);
+              secondaryTextOnlyButton.focus();
+            })
+         </script>
+  </body>
+</html>

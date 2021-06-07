@@ -161,7 +161,7 @@ export class GxgSplitter {
     });
 
     //set classes
-    const slottedSplits = document.querySelectorAll("gxg-split");
+    const slottedSplits = this.el.querySelectorAll("gxg-split");
     if (this.direction === "horizontal") {
       slottedSplits.forEach(function (split) {
         split.classList.add("split-horizontal");
@@ -186,7 +186,7 @@ export class GxgSplitter {
   }
 
   getIds() {
-    const slottedSplits = document.querySelectorAll("gxg-split");
+    const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(
       function (split) {
         const splitId = split.getAttribute("id");
@@ -216,7 +216,7 @@ export class GxgSplitter {
     this.el.classList.remove("gutter-reached-left");
     this.el.classList.remove("gutter-reached-right");
     //add class to make the transition smooth
-    const slottedSplits = document.querySelectorAll("gxg-split");
+    const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
@@ -232,7 +232,7 @@ export class GxgSplitter {
     this.el.classList.remove("gutter-reached-left");
     this.el.classList.remove("gutter-reached-right");
     //add class to make the transition smooth
-    const slottedSplits = document.querySelectorAll("gxg-split");
+    const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
@@ -271,7 +271,7 @@ export class GxgSplitter {
       this.leftSplitCollapsed = true;
     } else {
       //add class to make the transition smooth
-      const slottedSplits = document.querySelectorAll("gxg-split");
+      const slottedSplits = this.el.querySelectorAll("gxg-split");
       slottedSplits.forEach(function (split) {
         split.classList.add("smooth-transition");
       });
@@ -296,7 +296,7 @@ export class GxgSplitter {
   //DRAG FUNCS
   onDragStartFunc() {
     //remove class that makes the transition smooth
-    const slottedSplits = document.querySelectorAll("gxg-split");
+    const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.remove("smooth-transition");
     });
