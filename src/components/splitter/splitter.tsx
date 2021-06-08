@@ -17,7 +17,13 @@ import Split from "split.js";
   shadow: true,
 })
 export class GxgSplitter {
+  /**
+   * This event is fired when the gutter is being dragged
+   */
   @Event() dragging: EventEmitter;
+  /**
+   * This event is fired when the dragging has stopped
+   */
   @Event() dragEnded: EventEmitter;
 
   @Element() el: HTMLElement;
