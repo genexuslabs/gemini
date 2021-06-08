@@ -359,7 +359,7 @@ export class GxgFormText implements FormComponent {
   *********************************/
   @Listen("focus")
   handleFocus(focusEvent: Event) {
-    console.log("focus in input text");
+    console.log("focusEvent.target", focusEvent.target);
     if (focusEvent.target !== this.el) {
       return;
     }

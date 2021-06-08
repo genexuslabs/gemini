@@ -10,9 +10,9 @@
 
 ## Events
 
-| Event               | Description                         | Type               |
-| ------------------- | ----------------------------------- | ------------------ |
-| `breadcrumbClicked` | This event emmits the breadcrumb id | `CustomEvent<any>` |
+| Event               | Description                            | Type               |
+| ------------------- | -------------------------------------- | ------------------ |
+| `breadcrumbClicked` | This event emmits the breadcrumb index | `CustomEvent<any>` |
 
 ## Dependencies
 

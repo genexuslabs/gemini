@@ -61,8 +61,8 @@ stories
   </style>
   <div class="container">
   <gxg-splitter direction=${valueDirection} sizes="${sizesValueLabel}" min-size="${minSizesValueLabel}" knob="${valueKnobType}" >
-     <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
-     <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
+     <gxg-split style="background-color:var(--color-error-light)"></gxg-split>
+     <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
   </gxg-splitter>
 </div>
 `;
@@ -78,8 +78,8 @@ stories
   </style>
   <div class="container">
   <gxg-splitter direction="vertical" knob sizes="25,75" min-size="0,300">
-     <gxg-split id="a" style="background-color:var(--color-error-light)"></gxg-split>
-     <gxg-split id="b" style="background-color:var(--color-success-light)"></gxg-split>
+     <gxg-split style="background-color:var(--color-error-light)"></gxg-split>
+     <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
   </gxg-splitter>
 </div>
 `;

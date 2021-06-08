@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop } from "@stencil/core";
+import { Component, Element, h, Host, Prop, Listen } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { Size } from "../icon/icon";
 
@@ -9,6 +9,8 @@ import { Size } from "../icon/icon";
 })
 export class GxgButton {
   @Element() el: HTMLElement;
+
+  button!: HTMLButtonElement;
 
   /*********************************
   PROPERTIES & STATE
@@ -149,6 +151,15 @@ export class GxgButton {
     }
   }
 
+  @Listen("focus")
+  handleFocus(focusEvent: Event) {
+    console.log("focus in button");
+    if (focusEvent.target !== this.el) {
+      return;
+    }
+    this.button.focus();
+  }
+
   render() {
     return (
       <Host
@@ -167,11 +178,13 @@ export class GxgButton {
           "button--fullwidth": this.fullWidth === true,
         }}
         onClick={this.clickHandler.bind(this)}
+        tabindex="0"
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
+          ref={(el) => (this.button = el as HTMLButtonElement)}
         >
           {this.ghostIcon()}
           {this.regularIcon()}
