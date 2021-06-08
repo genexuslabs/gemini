@@ -373,8 +373,13 @@ export class GxgSplitter {
       }
     }
 
-    //Emmit drag ended event
-    this.dragEnded.emit("drag ended");
+    setTimeout(
+      function () {
+        //Emmit drag ended event
+        this.dragEnded.emit("drag ended");
+      }.bind(this),
+      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+    );
   }
   detectDragEndReachedMinimum() {
     let splitterLength;
@@ -404,7 +409,7 @@ export class GxgSplitter {
         function () {
           this.el.classList.remove("gutter-reached-end");
         }.bind(this),
-        250 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+        350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
       );
     } else {
       this.el.classList.remove("gutter-reached-left");

@@ -58,7 +58,7 @@ export class GxgTabs {
 
   render() {
     return (
-      <div class="main-container">
+      <div class="main-container test">
         {this.position === "bottom"
           ? [
               <div class="tabs-container">
