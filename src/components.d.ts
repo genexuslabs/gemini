@@ -514,6 +514,10 @@ export namespace Components {
      */
     overDarkBackground: boolean;
     /**
+     * The presence of this attribute sets the input type as password
+     */
+    password: boolean;
+    /**
      * The input placeholder
      */
     placeholder: string;
@@ -2068,6 +2072,10 @@ declare namespace LocalJSX {
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground?: boolean;
+    /**
+     * The presence of this attribute sets the input type as password
+     */
+    password?: boolean;
     /**
      * The input placeholder
      */

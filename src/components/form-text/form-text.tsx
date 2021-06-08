@@ -112,6 +112,11 @@ export class GxgFormText implements FormComponent {
    */
   @Prop({ reflect: true }) textStyle: Style = "regular";
 
+  /**
+   * The presence of this attribute sets the input type as password
+   */
+  @Prop() password = false;
+
   @Element() el: HTMLElement;
 
   /**
@@ -366,6 +371,14 @@ export class GxgFormText implements FormComponent {
     this.textInput.focus();
   }
 
+  type() {
+    if (this.password) {
+      return "password";
+    } else {
+      return "text";
+    }
+  }
+
   render() {
     return (
       <Host
@@ -400,7 +413,7 @@ export class GxgFormText implements FormComponent {
           >
             <input
               part="input"
-              type="text"
+              type={this.type()}
               value={this.value}
               class={{
                 input: true,
