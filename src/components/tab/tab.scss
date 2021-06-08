@@ -10,11 +10,14 @@
 
   .outer-container {
     max-height: 0;
+    height: 100%;
     overflow: hidden;
     @include ui-animation(max-height);
   }
   .inner-container {
     @include gxg-text();
+    height: 100%;
+    box-sizing: border-box;
     padding: var(--spacing-comp-03) var(--spacing-comp-03);
   }
 }
