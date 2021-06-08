@@ -13,60 +13,48 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-
+      .container {
+        width: 628px;
+        height: 400px;
+        background-color: white;                                            
+      }
     </style>
   </head>
   <body>
-      <!-------------------------------------------------------------------------------------------------------------------------------
-         BUTTONS
-         --------------------------------------------------------------------------------------------------------------------------------->
-         <h3>Buttons</h3>
-         <gxg-button type="primary-text-only">Label</gxg-button>
-         <gxg-button type="primary-text-icon" icon="navigation/arrow-down">Label</gxg-button>
-         <gxg-button type="primary-text-icon" icon="controls/action-group">Label</gxg-button>
-         <gxg-button type="primary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
-         <gxg-button type="primary-icon-only" icon="gemini-tools/folder">Label</gxg-button>
-         <gxg-button type="secondary-text-only" id="secondary-text-only">Label</gxg-button>
-         <gxg-button type="secondary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
-         <gxg-button type="secondary-icon-only" icon="gemini-tools/folder"></gxg-button>
-         <gxg-button type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
-         <gxg-button type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
-         <gxg-button type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
-         <gxg-button type="outlined">Label</gxg-button>
-         <gxg-button icon="navigation/arrow-down" type="tertiary"></gxg-button>
-         <gxg-button icon="controls/google-analytics" type="tertiary"></gxg-button>
-         <gxg-button class="button-with-action" icon="controls/table-column" type="tertiary"></gxg-button>
-         <br>
-         <gxg-button disabled type="primary-text-only">Label</gxg-button>
-         <gxg-button disabled type="primary-text-icon" icon="navigation/arrow-down">Label</gxg-button>
-         <gxg-button disabled type="primary-text-icon" icon="controls/action-group">Label</gxg-button>
-         <gxg-button disabled type="primary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
-         <gxg-button disabled type="primary-icon-only" icon="gemini-tools/folder">Label</gxg-button>
-         <gxg-button disabled type="secondary-text-only">Label</gxg-button>
-         <gxg-button disabled type="secondary-text-icon" icon="gemini-tools/folder">Label</gxg-button>
-         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/folder"></gxg-button>
-         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/edit"></gxg-button>
-         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/duplicate"></gxg-button>
-         <gxg-button disabled type="secondary-icon-only" icon="gemini-tools/delete"></gxg-button>
-         <gxg-button disabled type="outlined">Label</gxg-button>
-         <gxg-button disabled icon="navigation/arrow-down" type="tertiary"></gxg-button>
-         <gxg-button disabled icon="controls/google-analytics" type="tertiary"></gxg-button>
-         <gxg-button class="button-with-action" disabled icon="controls/table-column" type="tertiary"></gxg-button>
-         <br>
-         <button id="set-focus-button">Set focus</button>
-         <script>
-            let buttonsWithAction = document.getElementsByClassName('button-with-action');
-            for (let button of buttonsWithAction) {
-              button.addEventListener('click', function(){
-                alert('hola');
-              })
-            }
-            let secondaryTextOnlyButton = document.getElementById("secondary-text-only");
-            let setFocusButton = document.getElementById("set-focus-button");
-            setFocusButton.addEventListener("click", function(){
-              console.log(secondaryTextOnlyButton);
-              secondaryTextOnlyButton.focus();
-            })
-         </script>
+    <div class="container" id="container" >
+      <gxg-splitter id="splitter" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
+         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
+
+    <div class="container" id="container" >
+      <gxg-splitter id="splitter" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
+         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
+
+    <button id="colapse-button">collapse first split</button>
+
+    <script>
+       let container = document.getElementById("container");
+       container.addEventListener("dragging", function(){
+          console.log("dragging")
+       });
+       container.addEventListener("dragEnded", function(){
+          console.log("dragEnded")
+       });
+
+       //Colapse first split method
+       let colapseButton = document.getElementById("colapse-button");
+       colapseButton.addEventListener("click", function(){
+          (async () => {
+            await customElements.whenDefined('gxg-splitter');
+            const gxgSplitter = document.getElementById('splitter');
+            gxgSplitter.collapse(0);
+          })();
+       })
+    </script>
   </body>
 </html>

@@ -14,8 +14,8 @@
 
 ```
 <gxg-splitter direction="vertical" sizes="25,75" min-size="50,300" knob="simple">
-    <gxg-split id="a"></gxg-split>
-    <gxg-split id="b"></gxg-split>
+    <gxg-split></gxg-split>
+    <gxg-split></gxg-split>
 </gxg-splitter>
 ```
 
@@ -30,14 +30,16 @@
 
 ## Events
 
-| Event       | Description | Type               |
-| ----------- | ----------- | ------------------ |
-| `dragEnded` |             | `CustomEvent<any>` |
-| `dragging`  |             | `CustomEvent<any>` |
+| Event       | Description                                          | Type               |
+| ----------- | ---------------------------------------------------- | ------------------ |
+| `dragEnded` | This event is fired when the dragging has stopped    | `CustomEvent<any>` |
+| `dragging`  | This event is fired when the gutter is being dragged | `CustomEvent<any>` |
 
 ## Methods
 
-### `collapseFirstSplit() => Promise<void>`
+### `collapse(split: number) => Promise<void>`
+
+This method allows to collapse the split passsed as argument
 
 #### Returns
 

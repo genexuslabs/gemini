@@ -65,6 +65,7 @@ export class GxgSplitter {
         characters.charAt(Math.floor(Math.random() * charactersLength))
       );
     }
+    result.unshift("a"); // this prevents the id begining with a number, which is not allowed
     return result.join("");
   }
 
@@ -73,7 +74,6 @@ export class GxgSplitter {
     splits.forEach(
       function (split) {
         const randomId = this.makeId(5);
-        console.log(randomId);
         split.setAttribute("id", randomId);
       }.bind(this)
     );
@@ -425,15 +425,17 @@ export class GxgSplitter {
       this.el.classList.add("gutter-reached-left");
     }
   }
-
+  /**
+   * This method allows to collapse the split passsed as argument
+   */
   @Method()
-  async collapseFirstSplit() {
+  async collapse(split: number) {
     //add class to make the transition smooth
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
-    this.split.collapse(0);
+    this.split.collapse(split);
     setTimeout(
       function () {
         this.el.classList.remove("gutter-reached-right");
