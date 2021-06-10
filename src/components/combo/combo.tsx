@@ -118,7 +118,7 @@ export class GxgCombo {
                         .toLowerCase()
                         .includes(this.searchValue),
                     }}
-                    onClick={(e) => this.itemClickedFunc(item["value"], i)}
+                    onClick={() => this.itemClickedFunc(item["value"], i)}
                   >
                     {[
                       <gxg-icon
