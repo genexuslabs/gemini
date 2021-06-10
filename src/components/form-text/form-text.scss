@@ -64,7 +64,7 @@ TEXT
     @include form-element-common-styles();
     height: 20px;
     box-sizing: border-box;
-    @include ui-animation(border-color, background, padding-left);
+    @include ui-animation(padding-left);
 
     &:focus {
       outline-style: solid;

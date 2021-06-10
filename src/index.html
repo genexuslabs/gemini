@@ -13,21 +13,67 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      
+
     </style>
   </head>
+  <script>
+      const comboItems = [
+          {
+              icon: "objects/folder",
+              value: "Common",
+          },
+          {
+              icon: "objects/business-process-diagram",
+              value: "BPM",
+          },
+          {
+              icon: "objects/conversational-flows",
+              value: "Chatbots",
+          },
+          {
+              icon: "objects/data-provider",
+              value: "Data Management",
+          },
+          {
+              icon: "objects/bg-color",
+              value: "Resources",
+          },
+          {
+              icon: "objects/webpanel",
+              value: "User interface",
+          },
+          {
+              icon: "objects/folder",
+              value: "Common",
+          },
+          {
+              icon: "objects/business-process-diagram",
+              value: "BPM",
+          },
+          {
+              icon: "objects/conversational-flows",
+              value: "Chatbots",
+          },
+          {
+              icon: "objects/data-provider",
+              value: "Data Management",
+          },
+          {
+              icon: "objects/bg-color",
+              value: "Resources",
+          },
+          {
+              icon: "objects/webpanel",
+              value: "User interface",
+          }
+      ]
+  </script>
   <body>
-    <gxg-form-text label="label" label-position="top" placeholder="Chief Executive" id="form-text"></gxg-form-text>
-    <button id="button">set focus</button>
-    <script>
-      let button = document.getElementById("button");
-      let formText = document.getElementById("form-text");
-      button.addEventListener("click", function(){
-        formText.focus();
-      })
-    </script>
-    <h3>Password</h3>
-    <gxg-form-text label="label" label-position="top" placeholder="Chief Executive" id="form-text"></gxg-form-text>
+    <gxg-combo id="gxgCombo"></gxg-combo>
 
+    <script>
+        let gxgCombo = document.getElementById("gxgCombo");
+        gxgCombo.items = comboItems;
+    </script>
   </body>
 </html>

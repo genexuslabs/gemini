@@ -122,11 +122,14 @@ export class GxgTreeGridDivs {
             {hasChildren && i === 0 ? (
               <div class={{ "icon-text-container": true }}>
                 {this.arrowIcon(i, hasChildren, row)}
-                {row["cells"][td]}
+                {
+                  //row["cells"][td]
+                  this.renderTd(row.id, td, row["cells"][td], i)
+                }
               </div>
             ) : (
               //row["cells"][td]
-              this.renderTd(row["cells"][td])
+              this.renderTd(row.id, td, row["cells"][td], i)
             )}
           </div>
         ))}
@@ -146,16 +149,13 @@ export class GxgTreeGridDivs {
     }
   }
 
-  renderTd(value) {
-    //debugger;
+  renderTd(rowId, columnName, value, columnNumber) {
     //si esta definido y es una funcion
-    if (this.columns[1]["cellsRenderer"]) {
-      return this.columns[1]["cellsRenderer"](0, 0, value);
+    if (this.columns[columnNumber]["render"]) {
+      return this.columns[columnNumber]["render"](rowId, columnName, value);
     } else {
       return value;
     }
-
-    //sino muestro el contenido
   }
 
   trClick(e, row) {

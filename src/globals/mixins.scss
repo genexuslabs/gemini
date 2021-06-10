@@ -377,7 +377,7 @@ FORM ELEMENTS
   padding-left: var(--spacing-comp-01);
   padding-right: var(--spacing-comp-01);
   color: var(--color-on-background);
-  background-color: var(--color-on-primary);
+  background-color: var(--color-background);
 }
 @mixin form-element-common-styles-disabled {
   background-color: var(--gray-01);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+
+    </style>
+  </head>
+  <script>
+      const comboItems = [
+          {
+              icon: "controls/default",
+              value: "Chatbots",
+              render: () => {return "algo:" + value.toString()}, 
+          },
+          {
+              icon: "controls/component",
+              value: "Component",
+          },
+      ]
+  </script>
+  <body>
+    <gxg-combo></gxg-combo>
+  </body>
+</html>

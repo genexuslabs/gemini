@@ -288,6 +288,9 @@ export namespace Components {
      */
     space: Space;
   }
+  interface GxgCombo {
+    items: Array<Object>;
+  }
   interface GxgContextualMenu {
     /**
      * The presence of this attribute makes the menu visible
@@ -1157,6 +1160,13 @@ declare global {
     prototype: HTMLGxgColumnsElement;
     new (): HTMLGxgColumnsElement;
   };
+  interface HTMLGxgComboElement
+    extends Components.GxgCombo,
+      HTMLStencilElement {}
+  var HTMLGxgComboElement: {
+    prototype: HTMLGxgComboElement;
+    new (): HTMLGxgComboElement;
+  };
   interface HTMLGxgContextualMenuElement
     extends Components.GxgContextualMenu,
       HTMLStencilElement {}
@@ -1495,6 +1505,7 @@ declare global {
     "gxg-color-picker": HTMLGxgColorPickerElement;
     "gxg-column": HTMLGxgColumnElement;
     "gxg-columns": HTMLGxgColumnsElement;
+    "gxg-combo": HTMLGxgComboElement;
     "gxg-contextual-menu": HTMLGxgContextualMenuElement;
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
@@ -1804,6 +1815,9 @@ declare namespace LocalJSX {
      * The spacing between columns
      */
     space?: Space;
+  }
+  interface GxgCombo {
+    items?: Array<Object>;
   }
   interface GxgContextualMenu {
     /**
@@ -2676,6 +2690,7 @@ declare namespace LocalJSX {
     "gxg-color-picker": GxgColorPicker;
     "gxg-column": GxgColumn;
     "gxg-columns": GxgColumns;
+    "gxg-combo": GxgCombo;
     "gxg-contextual-menu": GxgContextualMenu;
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
@@ -2753,6 +2768,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
       "gxg-columns": LocalJSX.GxgColumns &
         JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
+      "gxg-combo": LocalJSX.GxgCombo &
+        JSXBase.HTMLAttributes<HTMLGxgComboElement>;
       "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
       "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &

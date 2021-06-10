@@ -16,6 +16,12 @@
       
     </style>
     <script>
+
+    function render(rowId, columnName, value){
+      let div = document.createElement("div");
+      
+    }
+
     let columns = [{
             name: 'name',
             displayName: 'Name',
@@ -25,7 +31,8 @@
             name: 'type',
             displayName: 'Type',
             width: '20%',
-            render: (rowId, columnName, value) => {return "german:" + value.toString()}, //que ande con un div
+            render: (rowId, columnName, value) => render(rowId, columnName, value), //que ande con un div
+            //render: (rowId, columnName, value) => {return "german:" + value.toString()}, //que ande con un div
             editRender: (rowId, columnName, value) => {return "german:" + value.toString()}
         },
         {
