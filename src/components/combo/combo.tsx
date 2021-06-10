@@ -1,4 +1,14 @@
-import { Component, Host, h, Prop, State, Element } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  State,
+  Element,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
+import { GxgFormText } from "../form-text/form-text";
 
 @Component({
   tag: "gxg-combo",
@@ -6,8 +16,14 @@ import { Component, Host, h, Prop, State, Element } from "@stencil/core";
   shadow: true,
 })
 export class GxgCombo {
+  /**
+   * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
+   */
+  @Event() itemClicked: EventEmitter;
+
   @Element() el: HTMLElement;
-  @Prop() items: Array<Record<string, any>>;
+  @Prop() items: Array<object>;
+  @Prop() width = "240px";
   @State() searchValue = "";
   @State() selectedItemValue = "";
   @State() showItems = false;
@@ -44,10 +60,6 @@ export class GxgCombo {
     }
   }
 
-  componentWillLoad() {
-    console.log(this.items);
-  }
-
   componentDidLoad() {
     document.addEventListener("click", this.detectClickOutsideCombo.bind(this));
   }
@@ -59,22 +71,55 @@ export class GxgCombo {
     this.selectedItemValue = itemValue;
     this.showItems = false;
     this.indexItemSelected = index;
+    this.itemClicked.emit({ index: index, value: itemValue });
   }
   selecteItemFunc() {
     return this.selectedItemValue;
   }
+  onClickInput() {
+    this.showItems = true;
+  }
+  clearInputFunc() {
+    this.searchValue = "";
+    this.selectedItemValue = "";
+    const gxgFormText = this.el.shadowRoot.getElementById("gxgFormText");
+    ((gxgFormText as unknown) as GxgFormText).value = "";
+    this.indexItemSelected = null;
+    gxgFormText.focus();
+  }
+
+  noOcurrencesFound() {
+    if (this.searchValue !== "") {
+      let itemFound = false;
+      for (const item of this.items) {
+        if (
+          item["value"].toLowerCase().includes(this.searchValue.toLowerCase())
+        ) {
+          itemFound = true;
+          break;
+        }
+      }
+      if (!itemFound) {
+        return (
+          <div class="no-courrences-found">
+            No ocurrences found<span>crtl + backspace to erase</span>
+          </div>
+        );
+      }
+    }
+  }
 
   render() {
-    console.log("this.searchValue", this.searchValue);
     return (
       <Host>
-        <div class={{ "main-container": true }}>
+        <div class={{ "main-container": true }} style={{ width: this.width }}>
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder="Search item"
-              // onInput={this.onInputGxgformText()}
               onInput={(e) => this.onInputGxgformText(e)}
+              onFocus={() => this.onClickInput()}
               value={this.selecteItemFunc()}
+              id="gxgFormText"
             ></gxg-form-text>
             <gxg-icon
               class={{ "arrow-down-icon": true }}
@@ -84,53 +129,41 @@ export class GxgCombo {
             <gxg-icon
               class={{ "delete-icon": true }}
               type="menus/delete"
+              onClick={() => this.clearInputFunc()}
             ></gxg-icon>
             <span class="layer"></span>
           </div>
           {this.showItems ? (
             <div class={{ "items-container": true }}>
               {this.items.map((item, i) => {
-                // return item["value"].toLowerCase().includes(this.searchValue) ||
-                //   this.searchValue === "" ? (
-                //   <div
-                //     class={{
-                //       item: true,
-                //       selected: i === this.indexItemSelected,
-                //     }}
-                //     onClick={(e) => this.itemClickedFunc(item["value"], i)}
-                //   >
-                //     {[
-                //       <gxg-icon
-                //         class={{ "custom-icon": true }}
-                //         type={item["icon"]}
-                //         color="auto"
-                //       ></gxg-icon>,
-                //       item["value"],
-                //     ]}
-                //   </div>
-                // ) : null;
                 return (
                   <div
                     class={{
                       item: true,
                       selected: i === this.indexItemSelected,
+                      "exact-match":
+                        item["value"].toLowerCase() ===
+                        this.searchValue.toLowerCase(),
                       hidden: !item["value"]
                         .toLowerCase()
                         .includes(this.searchValue),
                     }}
                     onClick={() => this.itemClickedFunc(item["value"], i)}
                   >
-                    {[
-                      <gxg-icon
-                        class={{ "custom-icon": true }}
-                        type={item["icon"]}
-                        color="auto"
-                      ></gxg-icon>,
-                      item["value"],
-                    ]}
+                    {item["icon"]
+                      ? [
+                          <gxg-icon
+                            class={{ "custom-icon": true }}
+                            type={item["icon"]}
+                            color="auto"
+                          ></gxg-icon>,
+                          item["value"],
+                        ]
+                      : item["value"]}
                   </div>
                 );
               })}
+              {this.noOcurrencesFound()}
             </div>
           ) : null}
         </div>

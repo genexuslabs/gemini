@@ -6,7 +6,14 @@
 
 | Property | Attribute | Description | Type       | Default     |
 | -------- | --------- | ----------- | ---------- | ----------- |
-| `items`  | --        |             | `Object[]` | `undefined` |
+| `items`  | --        |             | `object[]` | `undefined` |
+| `width`  | `width`   |             | `string`   | `"240px"`   |
+
+## Events
+
+| Event         | Description                                                                                                    | Type               |
+| ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `itemClicked` | This event is triggered when the user clicks on an item. event.detail contains the item index, and item value. | `CustomEvent<any>` |
 
 ## Dependencies
 

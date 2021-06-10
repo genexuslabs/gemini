@@ -19,7 +19,6 @@
   <script>
       const comboItems = [
           {
-              icon: "objects/folder",
               value: "Common",
           },
           {
@@ -74,6 +73,10 @@
     <script>
         let gxgCombo = document.getElementById("gxgCombo");
         gxgCombo.items = comboItems;
+        gxgCombo.addEventListener("itemClicked", function(e){
+            console.log(e.detail);
+        })
+
     </script>
   </body>
 </html>

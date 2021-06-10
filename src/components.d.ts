@@ -289,7 +289,8 @@ export namespace Components {
     space: Space;
   }
   interface GxgCombo {
-    items: Array<Object>;
+    items: Array<object>;
+    width: string;
   }
   interface GxgContextualMenu {
     /**
@@ -1817,7 +1818,12 @@ declare namespace LocalJSX {
     space?: Space;
   }
   interface GxgCombo {
-    items?: Array<Object>;
+    items?: Array<object>;
+    /**
+     * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
+     */
+    onItemClicked?: (event: CustomEvent<any>) => void;
+    width?: string;
   }
   interface GxgContextualMenu {
     /**

@@ -7,8 +7,6 @@
   display: block;
 
   .main-container {
-    width: 240px;
-
     .search-container {
       position: relative;
 
@@ -52,6 +50,7 @@
       border-top: 0;
       max-height: 144px;
       overflow-y: auto;
+      background-color: var(--color-background);
 
       .item {
         cursor: pointer;
@@ -81,6 +80,25 @@
         &.hidden {
           opacity: 0;
           height: 0;
+        }
+        &.exact-match {
+          background-color: var(--color-success-light);
+          color: var(--color-success-dark);
+          &:hover {
+          }
+        }
+      }
+
+      .no-courrences-found {
+        font-family: var(--font-family-primary);
+        font-size: var(--font-size-sm);
+        color: var(--color-on-background);
+        padding: var(--spacing-comp-01);
+        background-color: var(--color-background);
+
+        span {
+          display: block;
+          color: var(--gray-04);
         }
       }
     }
