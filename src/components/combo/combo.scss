@@ -62,7 +62,7 @@
         background-color: var(--color-background);
         color: var(--color-on-background);
         padding: 0 var(--spacing-comp-01);
-        transition: all 0.25s;
+        transition: height 0.25s, opacity 0.25s;
         opacity: 1;
 
         &:hover {

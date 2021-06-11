@@ -228,7 +228,12 @@ export class GxgWindow {
               id="header"
               style={{ cursor: "grab" }}
               ref={(el) => (this.header = el as HTMLElement)}
-            ></div>
+            >
+              <gxg-button
+                icon="navigation/arrow-down"
+                type="tertiary"
+              ></gxg-button>
+            </div>
             <div id="content">
               <span style={{ display: "inline-block", paddingTop: "50px" }}>
                 <slot></slot>

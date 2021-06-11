@@ -602,6 +602,24 @@ export namespace Components {
      */
     type: any;
   }
+  interface GxgListbox {
+    /**
+     * The prescence of this attribute will display a checkbox for every item
+     */
+    checkboxes: boolean;
+    /**
+     * That array of items as objects. example: {icon: "objects/business-process-diagram", value: "BPM"}
+     */
+    items: Array<object>;
+    /**
+     * The listbox title that appears on the header
+     */
+    title: string;
+    /**
+     * The listbox width
+     */
+    width: string;
+  }
   interface GxgLoader {
     /**
      * The prescence of this attribute shows the loader
@@ -1294,6 +1312,13 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+  interface HTMLGxgListboxElement
+    extends Components.GxgListbox,
+      HTMLStencilElement {}
+  var HTMLGxgListboxElement: {
+    prototype: HTMLGxgListboxElement;
+    new (): HTMLGxgListboxElement;
+  };
   interface HTMLGxgLoaderElement
     extends Components.GxgLoader,
       HTMLStencilElement {}
@@ -1548,6 +1573,7 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-listbox": HTMLGxgListboxElement;
     "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
@@ -2211,6 +2237,25 @@ declare namespace LocalJSX {
      */
     type?: any;
   }
+  interface GxgListbox {
+    /**
+     * The prescence of this attribute will display a checkbox for every item
+     */
+    checkboxes?: boolean;
+    /**
+     * That array of items as objects. example: {icon: "objects/business-process-diagram", value: "BPM"}
+     */
+    items?: Array<object>;
+    onSelectionChanged?: (event: CustomEvent<any>) => void;
+    /**
+     * The listbox title that appears on the header
+     */
+    title?: string;
+    /**
+     * The listbox width
+     */
+    width?: string;
+  }
   interface GxgLoader {
     /**
      * The prescence of this attribute shows the loader
@@ -2757,6 +2802,7 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
+    "gxg-listbox": GxgListbox;
     "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
@@ -2851,6 +2897,8 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-listbox": LocalJSX.GxgListbox &
+        JSXBase.HTMLAttributes<HTMLGxgListboxElement>;
       "gxg-loader": LocalJSX.GxgLoader &
         JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;

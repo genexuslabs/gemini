@@ -26,15 +26,18 @@
           },
           {
               icon: "objects/business-process-diagram",
-              value: "BPM"
+              value: "BPM",
+              checkbox: true
           },
           {
               icon: "objects/conversational-flows",
-              value: "Chatbots"
+              value: "Chatbots",
+              checkbox: true
           },
           {
               icon: "objects/data-provider",
-              value: "Data Management"
+              value: "Data Management",
+              checkbox: true
           },
           {
               icon: "objects/bg-color",
@@ -70,14 +73,10 @@
           }
       ]
     </script>
-    <gxg-listbox id="list-box" title="the title"></gxg-listbox>
+    <gxg-listbox id="list-box"></gxg-listbox>
     <script>
       listBox = document.getElementById("list-box");
       listBox.items = listBoxItems;
-      listBox.checkboxes = false;
-      listBox.addEventListener("selectionChanged", function(e){
-        console.log(e.detail)
-      })
     </script>
   </body>
 </html>
