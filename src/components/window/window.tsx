@@ -204,7 +204,12 @@ export class GxgWindow {
         <div
           id="draggable-resizable-div"
           ref={(el) => (this.draggableResizableDiv = el as HTMLElement)}
-          style={{ maxWidth: "800px" }}
+          style={{
+            maxWidth: "800px",
+            minWidth: "400px",
+            minHeight: "200px",
+            maxHeight: "600px",
+          }}
         >
           <div id="top"></div>
           <div id="left"></div>
@@ -212,7 +217,12 @@ export class GxgWindow {
           <div id="right"></div>
           <div
             id="center"
-            style={{ maxWidth: "800px", width: "100px", height: "100px" }}
+            style={{
+              maxWidth: "800px",
+              minWidth: "400px",
+              minHeight: "200px",
+              maxHeight: "600px",
+            }}
           >
             <div
               id="header"
