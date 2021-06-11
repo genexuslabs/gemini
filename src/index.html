@@ -13,14 +13,70 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      html.dark {
-        background-color: #1D1E22;
-      }
+
     </style>
   </head>
+  <script>
+      const comboItems = [
+          {
+              value: "Common",
+          },
+          {
+              icon: "objects/business-process-diagram",
+              value: "BPM",
+          },
+          {
+              icon: "objects/conversational-flows",
+              value: "Chatbots",
+          },
+          {
+              icon: "objects/data-provider",
+              value: "Data Management",
+          },
+          {
+              icon: "objects/bg-color",
+              value: "Resources",
+          },
+          {
+              icon: "objects/webpanel",
+              value: "User interface",
+          },
+          {
+              icon: "objects/folder",
+              value: "Common",
+          },
+          {
+              icon: "objects/business-process-diagram",
+              value: "BPM",
+          },
+          {
+              icon: "objects/conversational-flows",
+              value: "Chatbots",
+          },
+          {
+              icon: "objects/data-provider",
+              value: "Data Management",
+          },
+          {
+              icon: "objects/bg-color",
+              value: "Resources",
+          },
+          {
+              icon: "objects/webpanel",
+              value: "User interface",
+          }
+      ]
+  </script>
   <body>
-    <gxg-window>
-      content
-    </gxg-window>
+    <gxg-combo id="gxgCombo"></gxg-combo>
+
+    <script>
+        let gxgCombo = document.getElementById("gxgCombo");
+        gxgCombo.items = comboItems;
+        gxgCombo.addEventListener("itemClicked", function(e){
+            console.log(e.detail);
+        })
+
+    </script>
   </body>
 </html>

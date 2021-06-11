@@ -138,7 +138,7 @@ export class GxgCombo {
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder="Search item"
-              onKeyDown={(e) => this.onInputGxgformText(e)}
+              onKeyUp={(e) => this.onInputGxgformText(e)}
               onFocus={() => this.onInputFocus()}
               value={this.selecteItemFunc()}
               id="gxgFormText"
