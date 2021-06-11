@@ -8,7 +8,7 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import { GxgFormText } from "../form-text/form-text";
+import { GxgFormText, IconPosition } from "../form-text/form-text";
 
 @Component({
   tag: "gxg-combo",
@@ -28,9 +28,12 @@ export class GxgCombo {
   @State() selectedItemValue = "";
   @State() showItems = false;
   @State() indexItemSelected: number;
+  @State() inputTextIcon: string = undefined;
+  @State() inputTextIconPosition: IconPosition = null;
 
   onInputGxgformText(e) {
     this.searchValue = e.target.value.toLowerCase();
+    this.inputTextIconPosition = null;
   }
 
   showItemsFunc() {
@@ -67,8 +70,15 @@ export class GxgCombo {
     document.removeEventListener("click", this.detectClickOutsideCombo);
   }
 
-  itemClickedFunc(itemValue, index) {
+  itemClickedFunc(itemValue, itemIcon, index) {
     this.selectedItemValue = itemValue;
+    if (itemIcon !== undefined) {
+      this.inputTextIcon = itemIcon;
+      this.inputTextIconPosition = "start";
+    } else {
+      this.inputTextIcon = null;
+      this.inputTextIconPosition = null;
+    }
     this.showItems = false;
     this.indexItemSelected = index;
     this.itemClicked.emit({ index: index, value: itemValue });
@@ -86,6 +96,7 @@ export class GxgCombo {
     ((gxgFormText as unknown) as GxgFormText).value = "";
     this.indexItemSelected = null;
     gxgFormText.focus();
+    this.inputTextIconPosition = null;
   }
 
   noOcurrencesFound() {
@@ -120,6 +131,8 @@ export class GxgCombo {
               onFocus={() => this.onClickInput()}
               value={this.selecteItemFunc()}
               id="gxgFormText"
+              icon={this.inputTextIcon}
+              iconPosition={this.inputTextIconPosition}
             ></gxg-form-text>
             <gxg-icon
               class={{ "arrow-down-icon": true }}
@@ -148,7 +161,9 @@ export class GxgCombo {
                         .toLowerCase()
                         .includes(this.searchValue),
                     }}
-                    onClick={() => this.itemClickedFunc(item["value"], i)}
+                    onClick={() =>
+                      this.itemClickedFunc(item["value"], item["icon"], i)
+                    }
                   >
                     {item["icon"]
                       ? [

@@ -1079,6 +1079,24 @@ export namespace Components {
     selected: boolean;
     updateTreeVerticalLineHeight: () => Promise<void>;
   }
+  interface GxgWindow {
+    /**
+     * The window max. height
+     */
+    maxHeight: string;
+    /**
+     * The window max. width
+     */
+    maxWidth: string;
+    /**
+     * The window min. height
+     */
+    minHeight: string;
+    /**
+     * The window min. width
+     */
+    minWidth: string;
+  }
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -1493,6 +1511,13 @@ declare global {
     prototype: HTMLGxgTreeItemElement;
     new (): HTMLGxgTreeItemElement;
   };
+  interface HTMLGxgWindowElement
+    extends Components.GxgWindow,
+      HTMLStencilElement {}
+  var HTMLGxgWindowElement: {
+    prototype: HTMLGxgWindowElement;
+    new (): HTMLGxgWindowElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -1556,6 +1581,7 @@ declare global {
     "gxg-tree": HTMLGxgTreeElement;
     "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
     "gxg-tree-item": HTMLGxgTreeItemElement;
+    "gxg-window": HTMLGxgWindowElement;
   }
 }
 declare namespace LocalJSX {
@@ -2683,6 +2709,24 @@ declare namespace LocalJSX {
      */
     selected?: boolean;
   }
+  interface GxgWindow {
+    /**
+     * The window max. height
+     */
+    maxHeight?: string;
+    /**
+     * The window max. width
+     */
+    maxWidth?: string;
+    /**
+     * The window min. height
+     */
+    minHeight?: string;
+    /**
+     * The window min. width
+     */
+    minWidth?: string;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -2746,6 +2790,7 @@ declare namespace LocalJSX {
     "gxg-tree": GxgTree;
     "gxg-tree-grid-divs": GxgTreeGridDivs;
     "gxg-tree-item": GxgTreeItem;
+    "gxg-window": GxgWindow;
   }
 }
 export { LocalJSX as JSX };
@@ -2865,6 +2910,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
       "gxg-tree-item": LocalJSX.GxgTreeItem &
         JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
+      "gxg-window": LocalJSX.GxgWindow &
+        JSXBase.HTMLAttributes<HTMLGxgWindowElement>;
     }
   }
 }

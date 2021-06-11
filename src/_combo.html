@@ -19,17 +19,64 @@
   <script>
       const comboItems = [
           {
-              icon: "controls/default",
-              value: "Chatbots",
-              render: () => {return "algo:" + value.toString()}, 
+              value: "Common",
           },
           {
-              icon: "controls/component",
-              value: "Component",
+              icon: "objects/business-process-diagram",
+              value: "BPM",
           },
+          {
+              icon: "objects/conversational-flows",
+              value: "Chatbots",
+          },
+          {
+              icon: "objects/data-provider",
+              value: "Data Management",
+          },
+          {
+              icon: "objects/bg-color",
+              value: "Resources",
+          },
+          {
+              icon: "objects/webpanel",
+              value: "User interface",
+          },
+          {
+              icon: "objects/folder",
+              value: "Common",
+          },
+          {
+              icon: "objects/business-process-diagram",
+              value: "BPM",
+          },
+          {
+              icon: "objects/conversational-flows",
+              value: "Chatbots",
+          },
+          {
+              icon: "objects/data-provider",
+              value: "Data Management",
+          },
+          {
+              icon: "objects/bg-color",
+              value: "Resources",
+          },
+          {
+              icon: "objects/webpanel",
+              value: "User interface",
+          }
       ]
   </script>
   <body>
-    <gxg-combo></gxg-combo>
+    <gxg-combo id="gxgCombo"></gxg-combo>
+
+    <script>
+        let gxgCombo = document.getElementById("gxgCombo");
+        gxgCombo.items = comboItems;
+        gxgCombo.addEventListener("itemClicked", function(e){
+            console.log(e.detail);
+        })
+
+    </script>
   </body>
 </html>
