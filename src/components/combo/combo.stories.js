@@ -13,11 +13,6 @@ const stories = storiesOf("Controls/Combo", module);
 stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Combo", () => {
-  //Width
-  const labelWidth = "Width";
-  const defaultValueWidth = "240px";
-  const valueWidth = text(labelWidth, defaultValueWidth);
-
   return `
   <script>
       const comboItems = [
@@ -70,9 +65,10 @@ stories.add("Combo", () => {
           },
       ]
   </script>
-  <gxg-combo id="gxgCombo" width=${valueWidth}></gxg-combo>
+  <gxg-combo id="gxgCombo"></gxg-combo>
   <script>
     let gxgCombo = document.getElementById("gxgCombo");
+
     gxgCombo.items = comboItems;
   </script>
 `;

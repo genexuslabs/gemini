@@ -69,7 +69,11 @@ export class GxgListbox {
         });
       }
       //set selected item
-      (e.target as HTMLElement).classList.add("selected");
+      if ((e.target as HTMLElement).classList.contains("selected")) {
+        (e.target as HTMLElement).classList.remove("selected");
+      } else {
+        (e.target as HTMLElement).classList.add("selected");
+      }
 
       const items = this.el.shadowRoot.querySelectorAll(".item");
       items.forEach((item, i) => {
@@ -90,7 +94,7 @@ export class GxgListbox {
         <div style={{ width: this.width }} class={{ container: true }}>
           <header class={{ header: true }}>{this.title}</header>
           <main class={{ main: true }}>
-            {this.items.map((item, i) => {
+            {this.items.map((item) => {
               return (
                 <div
                   data-value={item["value"]}

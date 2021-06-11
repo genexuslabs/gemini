@@ -43,30 +43,6 @@
           {
               icon: "objects/webpanel",
               value: "User interface",
-          },
-          {
-              icon: "objects/folder",
-              value: "Common",
-          },
-          {
-              icon: "objects/business-process-diagram",
-              value: "BPM",
-          },
-          {
-              icon: "objects/conversational-flows",
-              value: "Chatbots",
-          },
-          {
-              icon: "objects/data-provider",
-              value: "Data Management",
-          },
-          {
-              icon: "objects/bg-color",
-              value: "Resources",
-          },
-          {
-              icon: "objects/webpanel",
-              value: "User interface",
           }
       ]
     </script>
@@ -74,7 +50,6 @@
     <script>
       listBox = document.getElementById("list-box");
       listBox.items = listBoxItems;
-      listBox.checkboxes = false;
       listBox.addEventListener("selectionChanged", function(e){
         console.log(e.detail)
       })
