@@ -16,6 +16,8 @@ import { GxgFormText, IconPosition } from "../form-text/form-text";
   shadow: true,
 })
 export class GxgCombo {
+  textInput!: HTMLInputElement;
+
   /**
    * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
    */
@@ -32,12 +34,21 @@ export class GxgCombo {
   @State() inputTextIconPosition: IconPosition = null;
 
   onInputGxgformText(e) {
-    this.searchValue = e.target.value.toLowerCase();
-    this.inputTextIconPosition = null;
+    if (e.key === "Escape") {
+      this.showItems = false;
+      this.textInput.blur();
+    } else {
+      this.searchValue = e.target.value.toLowerCase();
+      this.inputTextIconPosition = null;
+    }
   }
 
-  showItemsFunc() {
-    this.showItems = true;
+  toggleItems() {
+    if (this.showItems === true) {
+      this.showItems = false;
+    } else {
+      this.showItems = true;
+    }
   }
 
   detectClickOutsideCombo(event) {
@@ -86,7 +97,7 @@ export class GxgCombo {
   selecteItemFunc() {
     return this.selectedItemValue;
   }
-  onClickInput() {
+  onInputFocus() {
     this.showItems = true;
   }
   clearInputFunc() {
@@ -127,17 +138,20 @@ export class GxgCombo {
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder="Search item"
-              onInput={(e) => this.onInputGxgformText(e)}
-              onFocus={() => this.onClickInput()}
+              onKeyDown={(e) => this.onInputGxgformText(e)}
+              onFocus={() => this.onInputFocus()}
               value={this.selecteItemFunc()}
               id="gxgFormText"
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
+              ref={(el) =>
+                (this.textInput = (el as unknown) as HTMLInputElement)
+              }
             ></gxg-form-text>
             <gxg-icon
               class={{ "arrow-down-icon": true }}
               type="navigation/arrow-down"
-              onClick={this.showItemsFunc.bind(this)}
+              onClick={this.toggleItems.bind(this)}
             ></gxg-icon>
             <gxg-icon
               class={{ "delete-icon": true }}

@@ -177,9 +177,7 @@ export class GxgFormText implements FormComponent {
           <gxg-icon type={this.icon} size="small" color="error"></gxg-icon>
         );
       }
-      return (
-        <gxg-icon type={this.icon} size="small" color="disabled"></gxg-icon>
-      );
+      return <gxg-icon type={this.icon} size="small" color="auto"></gxg-icon>;
     }
   }
 
