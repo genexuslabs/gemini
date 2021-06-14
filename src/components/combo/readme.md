@@ -1,13 +1,27 @@
-# gxg-combo
+# gxg-combo-item
+
+## Properties
+
+| Property | Attribute | Description                                                                                                                      | Type     | Default     |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `icon`   | `icon`    | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons                                   | `string` | `undefined` |
+| `value`  | `value`   | The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerText. | `string` | `undefined` |
+
+## Events
+
+| Event         | Description                                                                                                    | Type               |
+| ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `itemClicked` | This event is triggered when the user clicks on an item. event.detail contains the item index, and item value. | `CustomEvent<any>` |
+
+# gxg-combo-item
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property | Attribute | Description | Type       | Default     |
-| -------- | --------- | ----------- | ---------- | ----------- |
-| `items`  | --        |             | `object[]` | `undefined` |
-| `width`  | `width`   |             | `string`   | `"240px"`   |
+| Property | Attribute | Description     | Type     | Default   |
+| -------- | --------- | --------------- | -------- | --------- |
+| `width`  | `width`   | The combo width | `string` | `"240px"` |
 
 ## Dependencies
 

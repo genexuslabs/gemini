@@ -19,7 +19,9 @@ export class GxgCombo {
 
   @Element() el: HTMLElement;
 
-  @Prop() items: Array<object>;
+  /**
+   * The combo width
+   */
   @Prop() width = "240px";
 
   @State() itemsNodeList: NodeList;
@@ -57,12 +59,29 @@ export class GxgCombo {
       this.inputTextIcon = null;
       this.inputTextIconPosition = null;
     }
+    // Display all hidden items
+    const hiddenItems = this.el.querySelectorAll(".hidden");
+    hiddenItems.forEach((hiddenItem) => {
+      console.log("hiddenItem", hiddenItem);
+      const hiddenItemHTMLElement = hiddenItem as HTMLElement;
+      hiddenItemHTMLElement.classList.remove("hidden");
+    });
+    //remove exact match class
+    const exactMatch = this.el.querySelector(".exact-match");
+    if (exactMatch !== null) {
+      exactMatch.classList.remove("exact-match");
+    }
     this.showItems = false;
   }
 
   onInputGxgformText(e) {
     this.inputTextIcon = null;
     this.inputTextIconPosition = null;
+
+    const itemSelected = this.el.querySelector(".selected");
+    if (itemSelected !== null) {
+      itemSelected.classList.remove("selected");
+    }
 
     const filterValue = e.detail.toLowerCase();
     this.itemsNodeList.forEach((item) => {

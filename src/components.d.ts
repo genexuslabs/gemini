@@ -289,7 +289,9 @@ export namespace Components {
     space: Space;
   }
   interface GxgCombo {
-    items: Array<object>;
+    /**
+     * The combo width
+     */
     width: string;
   }
   interface GxgComboItem {
@@ -1888,7 +1890,9 @@ declare namespace LocalJSX {
     space?: Space;
   }
   interface GxgCombo {
-    items?: Array<object>;
+    /**
+     * The combo width
+     */
     width?: string;
   }
   interface GxgComboItem {
