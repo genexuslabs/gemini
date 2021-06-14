@@ -14,62 +14,19 @@ stories.addDecorator(withKnobs);
 stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Combo", () => {
   return `
-  <script>
-      const comboItems = [
-          {
-              value: "Common",
-          },
-          {
-              icon: "objects/business-process-diagram",
-              value: "BPM",
-          },
-          {
-              icon: "objects/conversational-flows",
-              value: "Chatbots",
-          },
-          {
-              icon: "objects/data-provider",
-              value: "Data Management",
-          },
-          {
-              icon: "objects/bg-color",
-              value: "Resources",
-          },
-          {
-              icon: "objects/webpanel",
-              value: "User interface",
-          },
-          {
-              icon: "objects/dashboard",
-              value: "Dashboard",
-          },
-          {
-              icon: "objects/deployment-unit",
-              value: "Deployment Unit",
-          },
-          {
-            icon: "objects/dso",
-            value: "DSO",
-          },
-          {
-            icon: "objects/structured-data-type",
-            value: "Structured Data Type",
-          },
-          {
-            icon: "objects/url-rewrite",
-            value: "URL Rewrite",
-          },
-          {
-            icon: "objects/stencil",
-            value: "Stencil",
-          },
-      ]
-  </script>
-  <gxg-combo id="gxgCombo"></gxg-combo>
-  <script>
-    let gxgCombo = document.getElementById("gxgCombo");
-
-    gxgCombo.items = comboItems;
-  </script>
+  <gxg-combo>
+    <gxg-combo-item>Common</gxg-combo-item>
+    <gxg-combo-item icon="objects/business-process-diagram">BPM</gxg-combo-item>
+    <gxg-combo-item icon="objects/conversational-flows">Chatbots</gxg-combo-item>
+    <gxg-combo-item icon="objects/data-provider">Data Management</gxg-combo-item>
+    <gxg-combo-item icon="objects/bg-color">Resources</gxg-combo-item>
+    <gxg-combo-item icon="objects/webpanel">User interface</gxg-combo-item>
+    <gxg-combo-item icon="objects/dashboard">Dashboard</gxg-combo-item>
+    <gxg-combo-item icon="objects/deployment-unit">Deployment Unit</gxg-combo-item>
+    <gxg-combo-item icon="objects/dso">DSO</gxg-combo-item>
+    <gxg-combo-item icon="objects/structured-data-type">Structured Data Type</gxg-combo-item>
+    <gxg-combo-item icon="objects/url-rewrite">URL Rewrite</gxg-combo-item>
+    <gxg-combo-item icon="objects/stencil">Stencil</gxg-combo-item>
+  </gxg-combo>
 `;
 });

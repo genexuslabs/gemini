@@ -5,8 +5,7 @@ import {
   Prop,
   State,
   Element,
-  Event,
-  EventEmitter,
+  Listen,
 } from "@stencil/core";
 import { GxgFormText, IconPosition } from "../form-text/form-text";
 
@@ -18,28 +17,85 @@ import { GxgFormText, IconPosition } from "../form-text/form-text";
 export class GxgCombo {
   textInput!: HTMLInputElement;
 
-  /**
-   * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
-   */
-  @Event() itemClicked: EventEmitter;
-
   @Element() el: HTMLElement;
+
   @Prop() items: Array<object>;
   @Prop() width = "240px";
-  @State() searchValue = "";
+
+  @State() itemsNodeList: NodeList;
   @State() selectedItemValue = "";
   @State() showItems = false;
-  @State() indexItemSelected: number;
   @State() inputTextIcon: string = undefined;
   @State() inputTextIconPosition: IconPosition = null;
+  @State() noMatch = false;
+
+  @State() slottedContent: HTMLElement = null;
+
+  componentWillLoad() {
+    this.itemsNodeList = this.el.querySelectorAll("gxg-combo-item");
+    this.itemsNodeList.forEach((item, i) => {
+      const itemHtmlElement = item as HTMLElement;
+      itemHtmlElement.setAttribute("index", i.toString());
+    });
+  }
+
+  @Listen("itemClicked")
+  itemClickedHandler(event) {
+    const previouslyselectedItem = this.el.querySelector(".selected");
+    if (previouslyselectedItem !== null) {
+      previouslyselectedItem.classList.remove("selected");
+    }
+    const actualSelectedItem = this.el.querySelector(
+      "[index='" + event.detail["index"] + "']"
+    );
+    actualSelectedItem.classList.add("selected");
+    this.selectedItemValue = event.detail.value;
+    if (event.detail.icon !== null) {
+      this.inputTextIcon = event.detail.icon;
+      this.inputTextIconPosition = "start";
+    } else {
+      this.inputTextIcon = null;
+      this.inputTextIconPosition = null;
+    }
+    this.showItems = false;
+  }
 
   onInputGxgformText(e) {
+    this.inputTextIcon = null;
+    this.inputTextIconPosition = null;
+
+    const filterValue = e.detail.toLowerCase();
+    this.itemsNodeList.forEach((item) => {
+      const itemHtmlElement = item as HTMLElement;
+      let itemValue = itemHtmlElement.getAttribute("value");
+      if (itemValue === null) {
+        itemValue = itemHtmlElement.innerText;
+      }
+      itemValue = itemValue.toLowerCase();
+      if (!itemValue.includes(filterValue)) {
+        itemHtmlElement.classList.add("hidden");
+      } else {
+        itemHtmlElement.classList.remove("hidden");
+      }
+      if (itemValue === filterValue) {
+        itemHtmlElement.classList.add("exact-match");
+      } else {
+        itemHtmlElement.classList.remove("exact-match");
+      }
+    });
+
+    const numberOfHiddenItems = this.el.getElementsByClassName("hidden").length;
+    if (this.itemsNodeList.length === numberOfHiddenItems) {
+      this.noMatch = true;
+    } else {
+      this.noMatch = false;
+    }
+  }
+
+  onKeyDownGxgformText(e) {
     if (e.key === "Escape") {
       this.showItems = false;
       this.textInput.blur();
-    } else {
-      this.searchValue = e.target.value.toLowerCase();
-      this.inputTextIconPosition = null;
     }
   }
 
@@ -81,19 +137,6 @@ export class GxgCombo {
     document.removeEventListener("click", this.detectClickOutsideCombo);
   }
 
-  itemClickedFunc(itemValue, itemIcon, index) {
-    this.selectedItemValue = itemValue;
-    if (itemIcon !== undefined) {
-      this.inputTextIcon = itemIcon;
-      this.inputTextIconPosition = "start";
-    } else {
-      this.inputTextIcon = null;
-      this.inputTextIconPosition = null;
-    }
-    this.showItems = false;
-    this.indexItemSelected = index;
-    this.itemClicked.emit({ index: index, value: itemValue });
-  }
   selecteItemFunc() {
     return this.selectedItemValue;
   }
@@ -101,33 +144,20 @@ export class GxgCombo {
     this.showItems = true;
   }
   clearInputFunc() {
-    this.searchValue = "";
     this.selectedItemValue = "";
     const gxgFormText = this.el.shadowRoot.getElementById("gxgFormText");
     ((gxgFormText as unknown) as GxgFormText).value = "";
-    this.indexItemSelected = null;
     gxgFormText.focus();
     this.inputTextIconPosition = null;
-  }
 
-  noOcurrencesFound() {
-    if (this.searchValue !== "") {
-      let itemFound = false;
-      for (const item of this.items) {
-        if (
-          item["value"].toLowerCase().includes(this.searchValue.toLowerCase())
-        ) {
-          itemFound = true;
-          break;
-        }
-      }
-      if (!itemFound) {
-        return (
-          <div class="no-courrences-found">
-            No ocurrences found<span>crtl + backspace to erase</span>
-          </div>
-        );
-      }
+    const hiddenItems = this.el.querySelectorAll(".hidden");
+    hiddenItems.forEach((item) => {
+      item.classList.remove("hidden");
+    });
+
+    const selectedItem = this.el.querySelector(".selected");
+    if (selectedItem !== null) {
+      selectedItem.classList.remove("selected");
     }
   }
 
@@ -138,9 +168,10 @@ export class GxgCombo {
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder="Search item"
-              onKeyUp={(e) => this.onInputGxgformText(e)}
+              onInput={this.onInputGxgformText.bind(this)}
+              onKeyDown={this.onKeyDownGxgformText.bind(this)}
               onFocus={() => this.onInputFocus()}
-              value={this.selecteItemFunc()}
+              value={this.selectedItemValue}
               id="gxgFormText"
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
@@ -161,38 +192,17 @@ export class GxgCombo {
             <span class="layer"></span>
           </div>
           {this.showItems ? (
-            <div class={{ "items-container": true }}>
-              {this.items.map((item, i) => {
-                return (
-                  <div
-                    class={{
-                      item: true,
-                      selected: i === this.indexItemSelected,
-                      "exact-match":
-                        item["value"].toLowerCase() ===
-                        this.searchValue.toLowerCase(),
-                      hidden: !item["value"]
-                        .toLowerCase()
-                        .includes(this.searchValue),
-                    }}
-                    onClick={() =>
-                      this.itemClickedFunc(item["value"], item["icon"], i)
-                    }
-                  >
-                    {item["icon"]
-                      ? [
-                          <gxg-icon
-                            class={{ "custom-icon": true }}
-                            type={item["icon"]}
-                            color="auto"
-                          ></gxg-icon>,
-                          item["value"],
-                        ]
-                      : item["value"]}
-                  </div>
-                );
-              })}
-              {this.noOcurrencesFound()}
+            <div
+              class={{
+                "items-container": true,
+              }}
+            >
+              <slot></slot>
+              {this.noMatch ? (
+                <div class="no-courrences-found">
+                  No occurrences found<span>ctrl/cmd + backspace to erase</span>
+                </div>
+              ) : null}
             </div>
           ) : null}
         </div>

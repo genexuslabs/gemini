@@ -52,43 +52,6 @@
       overflow-y: auto;
       background-color: var(--color-background);
 
-      .item {
-        cursor: pointer;
-        height: var(--spacing-comp-05);
-        display: flex;
-        align-items: center;
-        font-family: var(--font-family-primary);
-        font-size: var(--font-size-sm);
-        background-color: var(--color-background);
-        color: var(--color-on-background);
-        padding: 0 var(--spacing-comp-01);
-        transition: height 0.25s, opacity 0.25s;
-        opacity: 1;
-
-        &:hover {
-          background-color: var(--color-secondary-hover);
-          color: var(--color-always-white);
-        }
-
-        .custom-icon {
-          margin-inline-end: var(--spacing-comp-01);
-        }
-        &.selected {
-          background-color: var(--color-secondary-active);
-          color: var(--color-always-white);
-        }
-        &.hidden {
-          opacity: 0;
-          height: 0;
-        }
-        &.exact-match {
-          background-color: var(--color-success-light);
-          color: var(--color-success-dark);
-          &:hover {
-          }
-        }
-      }
-
       .no-courrences-found {
         font-family: var(--font-family-primary);
         font-size: var(--font-size-sm);
@@ -100,6 +63,10 @@
           display: block;
           color: var(--gray-04);
         }
+      }
+
+      &.exact-match {
+        overflow-y: hidden;
       }
     }
   }

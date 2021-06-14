@@ -292,6 +292,16 @@ export namespace Components {
     items: Array<object>;
     width: string;
   }
+  interface GxgComboItem {
+    /**
+     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+     */
+    icon: string;
+    /**
+     * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerText.
+     */
+    value: string;
+  }
   interface GxgContextualMenu {
     /**
      * The presence of this attribute makes the menu visible
@@ -1204,6 +1214,13 @@ declare global {
     prototype: HTMLGxgComboElement;
     new (): HTMLGxgComboElement;
   };
+  interface HTMLGxgComboItemElement
+    extends Components.GxgComboItem,
+      HTMLStencilElement {}
+  var HTMLGxgComboItemElement: {
+    prototype: HTMLGxgComboItemElement;
+    new (): HTMLGxgComboItemElement;
+  };
   interface HTMLGxgContextualMenuElement
     extends Components.GxgContextualMenu,
       HTMLStencilElement {}
@@ -1557,6 +1574,7 @@ declare global {
     "gxg-column": HTMLGxgColumnElement;
     "gxg-columns": HTMLGxgColumnsElement;
     "gxg-combo": HTMLGxgComboElement;
+    "gxg-combo-item": HTMLGxgComboItemElement;
     "gxg-contextual-menu": HTMLGxgContextualMenuElement;
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
@@ -1871,11 +1889,21 @@ declare namespace LocalJSX {
   }
   interface GxgCombo {
     items?: Array<object>;
+    width?: string;
+  }
+  interface GxgComboItem {
+    /**
+     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+     */
+    icon?: string;
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
      */
     onItemClicked?: (event: CustomEvent<any>) => void;
-    width?: string;
+    /**
+     * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerText.
+     */
+    value?: string;
   }
   interface GxgContextualMenu {
     /**
@@ -2786,6 +2814,7 @@ declare namespace LocalJSX {
     "gxg-column": GxgColumn;
     "gxg-columns": GxgColumns;
     "gxg-combo": GxgCombo;
+    "gxg-combo-item": GxgComboItem;
     "gxg-contextual-menu": GxgContextualMenu;
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
@@ -2867,6 +2896,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
       "gxg-combo": LocalJSX.GxgCombo &
         JSXBase.HTMLAttributes<HTMLGxgComboElement>;
+      "gxg-combo-item": LocalJSX.GxgComboItem &
+        JSXBase.HTMLAttributes<HTMLGxgComboItemElement>;
       "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
       "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &

@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  cursor: pointer;
+  height: var(--spacing-comp-05);
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  padding: 0 var(--spacing-comp-01);
+  transition: height 0.25s, opacity 0.25s;
+  opacity: 1;
+  overflow: hidden;
+}
+:host(.hidden) {
+  height: 0;
+  opacity: 0;
+}
+:host(.display-none) {
+  display: none;
+}
+:host(:hover) {
+  background-color: var(--color-secondary-hover);
+  color: var(--color-always-white);
+}
+:host(.selected) {
+  background-color: var(--color-secondary-active);
+  color: var(--color-always-white);
+}
+:host(.exact-match) {
+  background-color: var(--color-success-light);
+  color: var(--color-success-dark);
+}
