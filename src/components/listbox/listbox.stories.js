@@ -60,6 +60,5 @@ stories
     <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
     <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
   </gxg-listbox>
-  <p class="note">(press crtl/cmd to select multiple items)</p>
 `;
   });
