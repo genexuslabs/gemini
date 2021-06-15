@@ -178,6 +178,11 @@ export class GxgCombo {
     if (selectedItem !== null) {
       selectedItem.classList.remove("selected");
     }
+
+    const exactMatch = this.el.querySelector(".exact-match");
+    if (exactMatch !== null) {
+      exactMatch.classList.remove("exact-match");
+    }
   }
 
   render() {

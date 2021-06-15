@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  height: var(--spacing-comp-05);
+  padding: 0 var(--spacing-comp-02);
+  color: var(--color-on-background);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    margin-inline-end: var(--spacing-comp-01);
+  }
+
+  ::slotted(gxg-form-checkbox) {
+    margin-inline-end: var(--spacing-comp-01);
+  }
+}
+:host(:hover),
+:host(:focus) {
+  background-color: var(--color-secondary-hover);
+  color: var(--color-always-white);
+  outline: none;
+}
+:host(.has-icon.no-checkbox) {
+  padding-inline-start: var(--spacing-comp-01);
+}
+:host(.selected) {
+  background-color: var(--color-secondary-active);
+  color: var(--color-always-white);
+}

@@ -300,9 +300,9 @@ export namespace Components {
      */
     icon: string;
     /**
-     * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerText.
+     * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerHTML.
      */
-    value: string;
+    value: any;
   }
   interface GxgContextualMenu {
     /**
@@ -620,10 +620,6 @@ export namespace Components {
      */
     checkboxes: boolean;
     /**
-     * That array of items as objects. example: {icon: "objects/business-process-diagram", value: "BPM"}
-     */
-    items: Array<object>;
-    /**
      * The listbox title that appears on the header
      */
     title: string;
@@ -631,6 +627,16 @@ export namespace Components {
      * The listbox width
      */
     width: string;
+  }
+  interface GxgListboxItem {
+    /**
+     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+     */
+    icon: string;
+    /**
+     * The item value. If value is not provided, the value will be the item innerHTML.
+     */
+    value: any;
   }
   interface GxgLoader {
     /**
@@ -1338,6 +1344,13 @@ declare global {
     prototype: HTMLGxgListboxElement;
     new (): HTMLGxgListboxElement;
   };
+  interface HTMLGxgListboxItemElement
+    extends Components.GxgListboxItem,
+      HTMLStencilElement {}
+  var HTMLGxgListboxItemElement: {
+    prototype: HTMLGxgListboxItemElement;
+    new (): HTMLGxgListboxItemElement;
+  };
   interface HTMLGxgLoaderElement
     extends Components.GxgLoader,
       HTMLStencilElement {}
@@ -1594,6 +1607,7 @@ declare global {
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-listbox": HTMLGxgListboxElement;
+    "gxg-listbox-item": HTMLGxgListboxItemElement;
     "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
@@ -1901,13 +1915,13 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
-     * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
+     * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */
     onItemClicked?: (event: CustomEvent<any>) => void;
     /**
-     * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerText.
+     * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerHTML.
      */
-    value?: string;
+    value?: any;
   }
   interface GxgContextualMenu {
     /**
@@ -2275,9 +2289,8 @@ declare namespace LocalJSX {
      */
     checkboxes?: boolean;
     /**
-     * That array of items as objects. example: {icon: "objects/business-process-diagram", value: "BPM"}
+     * This event emmits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
      */
-    items?: Array<object>;
     onSelectionChanged?: (event: CustomEvent<any>) => void;
     /**
      * The listbox title that appears on the header
@@ -2287,6 +2300,24 @@ declare namespace LocalJSX {
      * The listbox width
      */
     width?: string;
+  }
+  interface GxgListboxItem {
+    /**
+     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+     */
+    icon?: string;
+    /**
+     * (This event is for internal use.)
+     */
+    onCheckboxClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * (This event is for internal use.)
+     */
+    onItemClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * The item value. If value is not provided, the value will be the item innerHTML.
+     */
+    value?: any;
   }
   interface GxgLoader {
     /**
@@ -2836,6 +2867,7 @@ declare namespace LocalJSX {
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
     "gxg-listbox": GxgListbox;
+    "gxg-listbox-item": GxgListboxItem;
     "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
@@ -2934,6 +2966,8 @@ declare module "@stencil/core" {
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
       "gxg-listbox": LocalJSX.GxgListbox &
         JSXBase.HTMLAttributes<HTMLGxgListboxElement>;
+      "gxg-listbox-item": LocalJSX.GxgListboxItem &
+        JSXBase.HTMLAttributes<HTMLGxgListboxItemElement>;
       "gxg-loader": LocalJSX.GxgLoader &
         JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;

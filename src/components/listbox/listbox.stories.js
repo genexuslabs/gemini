@@ -21,122 +21,39 @@ stories
       text-align: center;
     }
   </style>
-  <script>
-      const listItems = [
-          {
-              value: "Common",
-          },
-          {
-              icon: "objects/business-process-diagram",
-              value: "BPM",
-          },
-          {
-              icon: "objects/conversational-flows",
-              value: "Chatbots",
-          },
-          {
-              icon: "objects/data-provider",
-              value: "Data Management",
-          },
-          {
-              icon: "objects/bg-color",
-              value: "Resources",
-          },
-          {
-              icon: "objects/webpanel",
-              value: "User interface",
-          },
-          {
-              icon: "objects/dashboard",
-              value: "Dashboard",
-          },
-          {
-              icon: "objects/deployment-unit",
-              value: "Deployment Unit",
-          },
-          {
-            icon: "objects/dso",
-            value: "DSO",
-          },
-          {
-            icon: "objects/structured-data-type",
-            value: "Structured Data Type",
-          },
-          {
-            icon: "objects/url-rewrite",
-            value: "URL Rewrite",
-          },
-          {
-            icon: "objects/stencil",
-            value: "Stencil",
-          },
-      ]
-  </script>
-  <gxg-listbox id="list-box" title="select a category"></gxg-listbox>
-  <p class="note">(press crtl to select multiple items)</p>
-  <script>
-    let gxgListBox = document.getElementById("list-box");
-    gxgListBox.items = listItems;
-  </script>
+  <gxg-listbox id="list-box" title="the title">
+  <gxg-listbox-item>Common</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/data-provider">Data Management</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/bg-color">Resources</gxg-listbox-item>
+  <gxg-listbox-item value="otro value" icon="objects/webpanel">User interface</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/dashboard">Dashboard</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/deployment-unit">Deployment Unit</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/dso">DSO</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/structured-data-type">Structured Data Type</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
+  <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
+</gxg-listbox>
+<p class="note">(press crtl to select multiple items)</p>
 `;
   })
   .add("List box with checkboxes", () => {
     return `
-  <script>
-      const listItems = [
-          {
-              value: "Common",
-          },
-          {
-              icon: "objects/business-process-diagram",
-              value: "BPM",
-          },
-          {
-              icon: "objects/conversational-flows",
-              value: "Chatbots",
-          },
-          {
-              icon: "objects/data-provider",
-              value: "Data Management",
-          },
-          {
-              icon: "objects/bg-color",
-              value: "Resources",
-          },
-          {
-              icon: "objects/webpanel",
-              value: "User interface",
-          },
-          {
-              icon: "objects/dashboard",
-              value: "Dashboard",
-          },
-          {
-              icon: "objects/deployment-unit",
-              value: "Deployment Unit",
-          },
-          {
-            icon: "objects/dso",
-            value: "DSO",
-          },
-          {
-            icon: "objects/structured-data-type",
-            value: "Structured Data Type",
-          },
-          {
-            icon: "objects/url-rewrite",
-            value: "URL Rewrite",
-          },
-          {
-            icon: "objects/stencil",
-            value: "Stencil",
-          },
-      ]
-  </script>
-  <gxg-listbox id="list-box" title="select a category" checkboxes></gxg-listbox>
-  <script>
-    let gxgListBox = document.getElementById("list-box");
-    gxgListBox.items = listItems;
-  </script>
+    <gxg-listbox id="list-box" title="the title" checkboxes>
+    <gxg-listbox-item>Common</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/data-provider">Data Management</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/bg-color">Resources</gxg-listbox-item>
+    <gxg-listbox-item value="otro value" icon="objects/webpanel">User interface</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/dashboard">Dashboard</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/deployment-unit">Deployment Unit</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/dso">DSO</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/structured-data-type">Structured Data Type</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
+    <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
+  </gxg-listbox>
+  <p class="note">(press crtl to select multiple items)</p>
 `;
   });

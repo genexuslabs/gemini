@@ -25,7 +25,7 @@
 - [gxg-filter-item](../filter-item)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
-- [gxg-listbox](../listbox)
+- [gxg-listbox-item](../listbox-item)
 - [gxg-menu-item](../menu-item)
 - [gxg-more-info](../more-info)
 - [gxg-pill](../pill)
@@ -55,7 +55,7 @@ graph TD;
   gxg-filter-item --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
-  gxg-listbox --> gxg-icon
+  gxg-listbox-item --> gxg-icon
   gxg-menu-item --> gxg-icon
   gxg-more-info --> gxg-icon
   gxg-pill --> gxg-icon

@@ -75,7 +75,7 @@
     margin-inline-end: var(--spacing-comp-02);
     height: var(--spacing-comp-04);
     width: var(--spacing-comp-04);
-    background-color: transparent;
+    //background-color: transparent;
     border-width: var(--border-width-sm);
     border-style: var(--border-style-regular);
     border-radius: var(--border-radius-md);
@@ -86,11 +86,6 @@
     &.no-label {
       margin-inline-end: 0;
     }
-  }
-
-  /* On mouse-over, add a grey background color */
-  .label:hover input ~ .checkmark {
-    background-color: transparent;
   }
 
   /* When the checkbox is checked, add a blue background */

@@ -19,64 +19,26 @@
     </style>
   </head>
   <body>
+    <gxg-listbox id="list-box" title="the title">
+      <gxg-listbox-item>Common</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/data-provider">Data Management</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/bg-color">Resources</gxg-listbox-item>
+      <gxg-listbox-item value="otro value" icon="objects/webpanel">User interface</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/dashboard">Dashboard</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/deployment-unit">Deployment Unit</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/dso">DSO</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/structured-data-type">Structured Data Type</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
+    </gxg-listbox>
+
     <script>
-      const listBoxItems = [
-          {
-              value: "Common",
-          },
-          {
-              icon: "objects/business-process-diagram",
-              value: "BPM",
-              checkbox: true
-          },
-          {
-              icon: "objects/conversational-flows",
-              value: "Chatbots",
-              checkbox: true
-          },
-          {
-              icon: "objects/data-provider",
-              value: "Data Management",
-              checkbox: true
-          },
-          {
-              icon: "objects/bg-color",
-              value: "Resources",
-          },
-          {
-              icon: "objects/webpanel",
-              value: "User interface",
-          },
-          {
-              icon: "objects/folder",
-              value: "Common",
-          },
-          {
-              icon: "objects/business-process-diagram",
-              value: "BPM",
-          },
-          {
-              icon: "objects/conversational-flows",
-              value: "Chatbots",
-          },
-          {
-              icon: "objects/data-provider",
-              value: "Data Management",
-          },
-          {
-              icon: "objects/bg-color",
-              value: "Resources",
-          },
-          {
-              icon: "objects/webpanel",
-              value: "User interface",
-          }
-      ]
-    </script>
-    <gxg-listbox id="list-box"></gxg-listbox>
-    <script>
-      listBox = document.getElementById("list-box");
-      listBox.items = listBoxItems;
+      let listBox = document.getElementById("list-box");
+      listBox.addEventListener("selectionChanged", e =>{
+        console.log(e.detail);
+      })
     </script>
   </body>
 </html>

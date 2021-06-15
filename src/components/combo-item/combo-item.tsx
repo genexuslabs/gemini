@@ -17,7 +17,7 @@ export class GxgComboItem {
   @Element() el: HTMLElement;
 
   /**
-   * This event is triggered when the user clicks on an item. event.detail contains the item index, and item value.
+   * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
    */
   @Event() itemClicked: EventEmitter;
 
@@ -27,9 +27,9 @@ export class GxgComboItem {
   @Prop() icon: string = undefined;
 
   /**
-   * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerText.
+   * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerHTML.
    */
-  @Prop() value: string = undefined;
+  @Prop() value: any = undefined;
 
   itemClickedFunc() {
     const index = this.el.getAttribute("index");
@@ -40,7 +40,7 @@ export class GxgComboItem {
     }
     this.itemClicked.emit({
       index: parseInt(index, 10),
-      value: value,
+      value: value.toString(),
       icon: icon,
     });
   }
@@ -48,10 +48,10 @@ export class GxgComboItem {
   render() {
     return (
       <Host onClick={this.itemClickedFunc.bind(this)}>
-        {this.icon !== undefined ? (
-          <gxg-icon color="auto" size="small" type={this.icon}></gxg-icon>
-        ) : null}
         <div class="content">
+          {this.icon !== undefined ? (
+            <gxg-icon color="auto" size="small" type={this.icon}></gxg-icon>
+          ) : null}
           <slot></slot>
         </div>
       </Host>

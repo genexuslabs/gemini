@@ -6,8 +6,8 @@ import {
   Element,
   Event,
   EventEmitter,
+  Listen,
 } from "@stencil/core";
-import { GxgFormCheckbox } from "../form-checkbox/form-checkbox";
 
 @Component({
   tag: "gxg-listbox",
@@ -15,6 +15,9 @@ import { GxgFormCheckbox } from "../form-checkbox/form-checkbox";
   shadow: true,
 })
 export class GxgListbox {
+  /**
+   * This event emmits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
+   */
   @Event() selectionChanged: EventEmitter;
   @Element() el: HTMLElement;
 
@@ -22,10 +25,7 @@ export class GxgListbox {
    * The listbox title that appears on the header
    */
   @Prop() title = "";
-  /**
-   * That array of items as objects. example: {icon: "objects/business-process-diagram", value: "BPM"}
-   */
-  @Prop() items: Array<object>;
+
   /**
    * The listbox width
    */
@@ -35,57 +35,98 @@ export class GxgListbox {
    */
   @Prop() checkboxes = false;
 
-  onChangeFunc() {
-    //get all checked items
-    const checkedItems = [];
-    const items = this.el.shadowRoot.querySelectorAll(".item");
-    items.forEach((item, i) => {
-      const checkbox = item.querySelector(".checkbox");
-      const checkboxChecked = ((checkbox as unknown) as GxgFormCheckbox)
-        .checked;
-      if (checkboxChecked) {
-        item.classList.add("selected");
-        checkedItems.push({
-          index: i,
-          value: item.getAttribute("data-value"),
-        });
-      } else {
-        item.classList.remove("selected");
-      }
+  componentWillLoad() {
+    //Set checkboxes
+    if (this.checkboxes) {
+      const items = this.el.querySelectorAll("gxg-listbox-item");
+      items.forEach((item) => {
+        const checkbox = document.createElement("gxg-form-checkbox");
+        checkbox.setAttribute("slot", "checkbox");
+        checkbox.setAttribute("tabindex", "-1");
+        item.prepend(checkbox);
+      });
+    }
+    //Set index and Tabindex
+    const itemsNodeList = this.el.querySelectorAll("gxg-listbox-item");
+    itemsNodeList.forEach((item, i) => {
+      //index
+      const itemHtmlElement = item as HTMLElement;
+      itemHtmlElement.setAttribute("index", i.toString());
+
+      //tabindex
+      item.setAttribute("tabindex", "0");
     });
-    this.selectionChanged.emit(checkedItems);
   }
 
-  itemClicked(e) {
-    if (!this.checkboxes) {
-      const selectedItemsArray = [];
-      if (!e.ctrlKey) {
-        // clear previously selected items
-        const selectedItems = this.el.shadowRoot.querySelectorAll(
-          ".item.selected"
-        );
-        selectedItems.forEach((item) => {
+  @Listen("itemClicked")
+  itemClickedHandler(e) {
+    console.log("item clicked");
+    if (!e.detail.crtlKey && !this.checkboxes) {
+      const actualSelectedItems = this.el.querySelectorAll(".selected");
+      if (actualSelectedItems.length > 0) {
+        actualSelectedItems.forEach((item) => {
           item.classList.remove("selected");
+          const checkbox = item.querySelector("gxg-form-checkbox");
+          if (checkbox !== null) {
+            checkbox.checked = false;
+          }
         });
       }
-      //set selected item
-      if ((e.target as HTMLElement).classList.contains("selected")) {
-        (e.target as HTMLElement).classList.remove("selected");
-      } else {
-        (e.target as HTMLElement).classList.add("selected");
-      }
-
-      const items = this.el.shadowRoot.querySelectorAll(".item");
-      items.forEach((item, i) => {
-        if (item.classList.contains("selected")) {
-          selectedItemsArray.push({
-            index: i,
-            value: item.getAttribute("data-value"),
-          });
-        }
-      });
-      this.selectionChanged.emit(selectedItemsArray);
     }
+    const actualSelectedItem = this.el.querySelector(
+      "[index='" + e.detail["index"] + "']"
+    );
+    const actualSelectedItemCheckbox = actualSelectedItem.querySelector(
+      "gxg-form-checkbox"
+    );
+    if (actualSelectedItem.classList.contains("selected")) {
+      actualSelectedItem.classList.remove("selected");
+      if (actualSelectedItemCheckbox !== null) {
+        actualSelectedItemCheckbox.checked = false;
+      }
+    } else {
+      actualSelectedItem.classList.add("selected");
+      if (actualSelectedItemCheckbox !== null) {
+        actualSelectedItemCheckbox.checked = true;
+      }
+    }
+    this.emmitSelectedItems();
+  }
+
+  @Listen("checkboxClicked")
+  checkboxClickedHandler(e) {
+    const actualSelectedItem = this.el.querySelector(
+      "[index='" + e.detail["index"] + "']"
+    );
+    if (actualSelectedItem.classList.contains("selected")) {
+      actualSelectedItem.classList.remove("selected");
+    } else {
+      actualSelectedItem.classList.add("selected");
+    }
+    this.emmitSelectedItems();
+  }
+
+  emmitSelectedItems() {
+    const selectedItems = this.el.querySelectorAll(".selected");
+    const selectedItemsArray = [];
+    selectedItems.forEach((item) => {
+      const itemIndex = item.getAttribute("index");
+      let itemValue = item.getAttribute("value");
+      if (itemValue === null) {
+        itemValue = item.textContent;
+      } else {
+        itemValue = itemValue.toString();
+      }
+      const itemObj = {
+        index: itemIndex,
+        value: itemValue,
+      };
+      selectedItemsArray.push(itemObj);
+    });
+
+    this.selectionChanged.emit({
+      ...selectedItemsArray,
+    });
   }
 
   render() {
@@ -94,30 +135,7 @@ export class GxgListbox {
         <div style={{ width: this.width }} class={{ container: true }}>
           <header class={{ header: true }}>{this.title}</header>
           <main class={{ main: true }}>
-            {this.items.map((item) => {
-              return (
-                <div
-                  data-value={item["value"]}
-                  class={{ item: true }}
-                  onClick={this.itemClicked.bind(this)}
-                >
-                  {this.checkboxes ? (
-                    <gxg-form-checkbox
-                      onChange={this.onChangeFunc.bind(this)}
-                      class={{ checkbox: true }}
-                    ></gxg-form-checkbox>
-                  ) : null}
-                  {item["icon"] ? (
-                    <gxg-icon
-                      class="icon"
-                      color="auto"
-                      type={item["icon"]}
-                    ></gxg-icon>
-                  ) : null}
-                  {item["value"]}
-                </div>
-              );
-            })}
+            <slot></slot>
           </main>
         </div>
       </Host>
