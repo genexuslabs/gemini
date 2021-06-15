@@ -235,9 +235,7 @@ export class GxgWindow {
               ></gxg-button>
             </div>
             <div id="content">
-              <span style={{ display: "inline-block", paddingTop: "50px" }}>
-                <slot></slot>
-              </span>
+              <slot></slot>
             </div>
           </div>
         </div>

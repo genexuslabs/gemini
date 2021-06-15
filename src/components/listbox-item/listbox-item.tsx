@@ -55,11 +55,13 @@ export class GxgListboxItem {
   }
 
   itemClickedFunc(e) {
+    console.log(e);
     if (!this.checkboxes) {
       const index = this.el.getAttribute("index");
       this.itemClicked.emit({
         index: parseInt(index, 10),
         crtlKey: e.ctrlKey,
+        cmdKey: e.metaKey,
       });
     }
   }

@@ -61,7 +61,7 @@ export class GxgListbox {
   @Listen("itemClicked")
   itemClickedHandler(e) {
     console.log("item clicked");
-    if (!e.detail.crtlKey && !this.checkboxes) {
+    if (!e.detail.crtlKey && !e.detail.cmdKey && !this.checkboxes) {
       const actualSelectedItems = this.el.querySelectorAll(".selected");
       if (actualSelectedItems.length > 0) {
         actualSelectedItems.forEach((item) => {

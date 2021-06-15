@@ -41,13 +41,6 @@
     background: #864;
   }
 
-  #center {
-    min-width: 200px;
-    min-height: 200px;
-    text-align: center;
-    background: transparent;
-  }
-
   #header {
     height: 25px;
     background: repeating-linear-gradient(
@@ -61,16 +54,6 @@
   }
 
   #content {
-    padding: 5px;
-  }
-
-  #content > span {
-    font-weight: bold;
-    font-size: 25px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    color: #0007;
+    padding: var(--spacing-comp-03);
   }
 }

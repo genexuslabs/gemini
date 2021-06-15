@@ -35,11 +35,17 @@ stories
   <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
   <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
 </gxg-listbox>
-<p class="note">(press crtl to select multiple items)</p>
+<p class="note">(press crtl/cmd to select multiple items)</p>
 `;
   })
   .add("List box with checkboxes", () => {
     return `
+    <style>
+    .note {
+      font-family: var(--font-family-primary);
+      text-align: center;
+    }
+  </style>
     <gxg-listbox id="list-box" title="the title" checkboxes>
     <gxg-listbox-item>Common</gxg-listbox-item>
     <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
@@ -54,6 +60,6 @@ stories
     <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
     <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
   </gxg-listbox>
-  <p class="note">(press crtl to select multiple items)</p>
+  <p class="note">(press crtl/cmd to select multiple items)</p>
 `;
   });
