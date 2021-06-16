@@ -69,6 +69,7 @@ export class GxgListboxItem {
         index: parseInt(index, 10),
         crtlKey: e.ctrlKey,
         cmdKey: e.metaKey,
+        mouseClicked: true,
       });
     }
   }
@@ -92,6 +93,7 @@ export class GxgListboxItem {
         index: parseInt(index, 10),
         crtlKey: e.ctrlKey,
         cmdKey: e.metaKey,
+        mouseClicked: false,
       });
     }
   }

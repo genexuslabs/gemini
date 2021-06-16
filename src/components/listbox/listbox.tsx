@@ -85,8 +85,13 @@ export class GxgListbox {
     );
     if (actualSelectedItem.classList.contains("selected")) {
       actualSelectedItem.classList.remove("selected");
-      if (actualSelectedItemCheckbox !== null) {
-        actualSelectedItemCheckbox.checked = false;
+
+      //set icon color to auto
+      if (!e.detail.mouseClicked) {
+        ((actualSelectedItem as unknown) as GxgListboxItem).iconColor = "auto";
+        if (actualSelectedItemCheckbox !== null) {
+          actualSelectedItemCheckbox.checked = false;
+        }
       }
     } else {
       actualSelectedItem.classList.add("selected");
