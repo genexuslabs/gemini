@@ -67,6 +67,7 @@ export class GxgListboxItem {
   }
 
   onKeyDown(e) {
+    e.preventDefault();
     if (e.code === "ArrowDown") {
       const nextItem = this.el.nextElementSibling;
       if (nextItem !== null) {
@@ -83,6 +84,7 @@ export class GxgListboxItem {
       this.itemClicked.emit({
         index: parseInt(index, 10),
         crtlKey: e.ctrlKey,
+        cmdKey: e.metaKey,
       });
     }
   }
