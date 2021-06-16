@@ -7,7 +7,7 @@
 | Property     | Attribute    | Description                                                            | Type      | Default   |
 | ------------ | ------------ | ---------------------------------------------------------------------- | --------- | --------- |
 | `checkboxes` | `checkboxes` | The prescence of this attribute will display a checkbox for every item | `boolean` | `false`   |
-| `title`      | `title`      | The listbox title that appears on the header                           | `string`  | `""`      |
+| `theTitle`   | `the-title`  | The listbox title that appears on the header                           | `string`  | `""`      |
 | `width`      | `width`      | The listbox width                                                      | `string`  | `"280px"` |
 
 ## Events

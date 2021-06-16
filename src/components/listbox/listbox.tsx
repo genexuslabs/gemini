@@ -8,6 +8,7 @@ import {
   EventEmitter,
   Listen,
 } from "@stencil/core";
+import { GxgListboxItem } from "../listbox-item/listbox-item";
 
 @Component({
   tag: "gxg-listbox",
@@ -24,7 +25,7 @@ export class GxgListbox {
   /**
    * The listbox title that appears on the header
    */
-  @Prop() title = "";
+  @Prop() theTitle = "";
 
   /**
    * The listbox width
@@ -60,12 +61,14 @@ export class GxgListbox {
 
   @Listen("itemClicked")
   itemClickedHandler(e) {
-    console.log("item clicked");
     if (!e.detail.crtlKey && !e.detail.cmdKey && !this.checkboxes) {
       const actualSelectedItems = this.el.querySelectorAll(".selected");
       if (actualSelectedItems.length > 0) {
         actualSelectedItems.forEach((item) => {
           item.classList.remove("selected");
+          //set icon color to auto
+          ((item as unknown) as GxgListboxItem).iconColor = "auto";
+          //set checkbox checked to false
           const checkbox = item.querySelector("gxg-form-checkbox");
           if (checkbox !== null) {
             checkbox.checked = false;
@@ -76,16 +79,22 @@ export class GxgListbox {
     const actualSelectedItem = this.el.querySelector(
       "[index='" + e.detail["index"] + "']"
     );
+    //checkbox
     const actualSelectedItemCheckbox = actualSelectedItem.querySelector(
       "gxg-form-checkbox"
     );
     if (actualSelectedItem.classList.contains("selected")) {
       actualSelectedItem.classList.remove("selected");
+      //set icon color to auto
+      ((actualSelectedItem as unknown) as GxgListboxItem).iconColor = "auto";
       if (actualSelectedItemCheckbox !== null) {
         actualSelectedItemCheckbox.checked = false;
       }
     } else {
       actualSelectedItem.classList.add("selected");
+      //set icon color to negative
+      ((actualSelectedItem as unknown) as GxgListboxItem).iconColor =
+        "negative";
       if (actualSelectedItemCheckbox !== null) {
         actualSelectedItemCheckbox.checked = true;
       }
@@ -133,7 +142,7 @@ export class GxgListbox {
     return (
       <Host>
         <div style={{ width: this.width }} class={{ container: true }}>
-          <header class={{ header: true }}>{this.title}</header>
+          <header class={{ header: true }}>{this.theTitle}</header>
           <main class={{ main: true }}>
             <slot></slot>
           </main>

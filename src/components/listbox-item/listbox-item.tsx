@@ -7,7 +7,9 @@ import {
   Event,
   EventEmitter,
   State,
+  Listen,
 } from "@stencil/core";
+import { Color } from "../icon/icon";
 
 @Component({
   tag: "gxg-listbox-item",
@@ -36,7 +38,13 @@ export class GxgListboxItem {
    */
   @Prop() value: any = undefined;
 
+  /**
+   * (This prop is for internal use).
+   */
+  @Prop() iconColor: Color = "auto";
+
   @State() checkboxes = false;
+  @State() itemHasFocus = false;
 
   componentWillLoad() {
     const listbox = this.el.parentElement;
@@ -55,7 +63,6 @@ export class GxgListboxItem {
   }
 
   itemClickedFunc(e) {
-    console.log(e);
     if (!this.checkboxes) {
       const index = this.el.getAttribute("index");
       this.itemClicked.emit({
@@ -89,6 +96,16 @@ export class GxgListboxItem {
     }
   }
 
+  onMouseOver() {
+    this.iconColor = "negative";
+  }
+  onMouseOut() {
+    const itemIsSelected = this.el.classList.contains("selected");
+    if (!itemIsSelected) {
+      this.iconColor = "auto";
+    }
+  }
+
   render() {
     return (
       <Host
@@ -98,12 +115,14 @@ export class GxgListboxItem {
         }}
         onClick={this.itemClickedFunc.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}
+        onMouseOver={this.onMouseOver.bind(this)}
+        onMouseOut={this.onMouseOut.bind(this)}
       >
         <slot name="checkbox"></slot>
         {this.icon !== undefined ? (
           <gxg-icon
             class="icon"
-            color="auto"
+            color={this.iconColor}
             size="regular"
             type={this.icon}
           ></gxg-icon>

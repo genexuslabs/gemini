@@ -33,6 +33,7 @@ import {
   Style,
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
+import { Color as Color1 } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
@@ -622,7 +623,7 @@ export namespace Components {
     /**
      * The listbox title that appears on the header
      */
-    title: string;
+    theTitle: string;
     /**
      * The listbox width
      */
@@ -633,6 +634,10 @@ export namespace Components {
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon: string;
+    /**
+     * (This prop is for internal use).
+     */
+    iconColor: Color;
     /**
      * The item value. If value is not provided, the value will be the item innerHTML.
      */
@@ -2295,7 +2300,7 @@ declare namespace LocalJSX {
     /**
      * The listbox title that appears on the header
      */
-    title?: string;
+    theTitle?: string;
     /**
      * The listbox width
      */
@@ -2306,6 +2311,10 @@ declare namespace LocalJSX {
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon?: string;
+    /**
+     * (This prop is for internal use).
+     */
+    iconColor?: Color;
     /**
      * (This event is for internal use.)
      */

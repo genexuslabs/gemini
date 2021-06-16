@@ -21,7 +21,7 @@ stories
       text-align: center;
     }
   </style>
-  <gxg-listbox id="list-box" title="the title">
+  <gxg-listbox id="list-box" the-title="the title">
   <gxg-listbox-item>Common</gxg-listbox-item>
   <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
   <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
@@ -46,7 +46,7 @@ stories
       text-align: center;
     }
   </style>
-    <gxg-listbox id="list-box" title="the title" checkboxes>
+    <gxg-listbox id="list-box" the-title="the title" checkboxes>
     <gxg-listbox-item>Common</gxg-listbox-item>
     <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
     <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
