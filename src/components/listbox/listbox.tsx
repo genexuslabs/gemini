@@ -85,8 +85,6 @@ export class GxgListbox {
     );
     if (actualSelectedItem.classList.contains("selected")) {
       actualSelectedItem.classList.remove("selected");
-      //set icon color to auto
-      ((actualSelectedItem as unknown) as GxgListboxItem).iconColor = "auto";
       if (actualSelectedItemCheckbox !== null) {
         actualSelectedItemCheckbox.checked = false;
       }

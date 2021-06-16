@@ -125,6 +125,7 @@ export class GxgListboxItem {
             color={this.iconColor}
             size="regular"
             type={this.icon}
+            style={{ "--icon-color": "success" }}
           ></gxg-icon>
         ) : null}
         <slot></slot>
