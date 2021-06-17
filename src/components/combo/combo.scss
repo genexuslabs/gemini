@@ -19,7 +19,7 @@
         position: absolute;
         right: 15px;
         top: 0;
-        transform: scale(0.75, 0.75);
+        margin-inline-end: var(--spacing-comp-01);
       }
       .arrow-down-icon,
       .delete-icon {
@@ -32,7 +32,7 @@
       .layer {
         position: absolute;
         display: inline-block;
-        width: 35px;
+        width: 40px;
         height: calc(100% - 2px);
         background-color: var(--color-background);
         right: 1px;

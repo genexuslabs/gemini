@@ -24,6 +24,7 @@ import {
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
+import { Color } from "./components/icon/icon";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
@@ -32,8 +33,7 @@ import {
   LabelPosition,
   Style,
 } from "./components/form-text/form-text";
-import { Color, Size } from "./components/icon/icon";
-import { Color as Color1 } from "./components/icon/icon";
+import { Color as Color1, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
@@ -300,6 +300,10 @@ export namespace Components {
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon: string;
+    /**
+     * (This prop is for internal use).
+     */
+    iconColor: Color;
     /**
      * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerHTML.
      */
@@ -1919,6 +1923,10 @@ declare namespace LocalJSX {
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon?: string;
+    /**
+     * (This prop is for internal use).
+     */
+    iconColor?: Color;
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */

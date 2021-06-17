@@ -25,7 +25,8 @@
 :host(.display-none) {
   display: none;
 }
-:host(:hover) {
+:host(:hover),
+:host(.selected:hover) {
   background-color: var(--color-secondary-hover);
   color: var(--color-always-white);
 }
@@ -36,4 +37,10 @@
 :host(.exact-match) {
   background-color: var(--color-success-light);
   color: var(--color-success-dark);
+}
+:host(:focus) {
+  outline-width: var(--border-width-md);
+  outline-color: var(--color-primary-active);
+  outline-style: solid;
+  outline-offset: -2px;
 }

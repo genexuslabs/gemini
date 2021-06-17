@@ -153,7 +153,6 @@ export class GxgButton {
 
   @Listen("focus")
   handleFocus(focusEvent: Event) {
-    console.log("focus in button");
     if (focusEvent.target !== this.el) {
       return;
     }
@@ -178,13 +177,13 @@ export class GxgButton {
           "button--fullwidth": this.fullWidth === true,
         }}
         onClick={this.clickHandler.bind(this)}
-        tabindex="0"
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
           class="button-native gxg-text-general"
           disabled={this.disabled === true}
           ref={(el) => (this.button = el as HTMLButtonElement)}
+          tabindex="0"
         >
           {this.ghostIcon()}
           {this.regularIcon()}

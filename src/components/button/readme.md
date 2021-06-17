@@ -19,6 +19,7 @@
 ### Used by
 
 - [gxg-alert](../alert)
+- [gxg-combo](../combo)
 - [gxg-demo](../demo)
 - [gxg-drag-box](../drag-box)
 - [gxg-filter](../filter)
@@ -37,6 +38,7 @@ graph TD;
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
   gxg-alert --> gxg-button
+  gxg-combo --> gxg-button
   gxg-demo --> gxg-button
   gxg-drag-box --> gxg-button
   gxg-filter --> gxg-button

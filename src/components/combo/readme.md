@@ -28,18 +28,19 @@
 ### Depends on
 
 - [gxg-form-text](../form-text)
-- [gxg-icon](../icon)
+- [gxg-button](../button)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-combo --> gxg-form-text
-  gxg-combo --> gxg-icon
+  gxg-combo --> gxg-button
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
+  gxg-button --> gxg-icon
   style gxg-combo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
