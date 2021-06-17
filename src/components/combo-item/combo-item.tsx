@@ -6,7 +6,6 @@ import {
   Event,
   EventEmitter,
   Element,
-  State,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 
