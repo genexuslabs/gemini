@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop } from "@stencil/core";
+import { Component, Host, h, Element, Prop, State, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-window",
@@ -7,24 +7,61 @@ import { Component, Host, h, Element, Prop } from "@stencil/core";
 })
 export class GxgWindow {
   /**
+   * The window starting height
+   */
+  @Prop() initialHeight = "200px";
+
+  /**
+   * The window starting width
+   */
+  @Prop() initialWidth = "360px";
+
+  /**
    * The window min. height
    */
-  @Prop() minHeight: string;
+  @Prop() minHeight = "200px";
 
   /**
    * The window min. width
    */
-  @Prop() minWidth: string;
+  @Prop() minWidth = "360px";
 
   /**
    * The window max. height
    */
-  @Prop() maxHeight = "100%";
+  @Prop() maxHeight = "420px";
 
   /**
    * The window max. width
    */
-  @Prop() maxWidth = "100%";
+  @Prop() maxWidth = "520px";
+
+  /**
+   * The window left position. By default the window is horizontally centered
+   */
+  @Prop() leftPosition = "0px";
+
+  /**
+   * The window top position. By default the window is vertically centered
+   */
+  @Prop() topPosition = "0px";
+
+  /**
+   * The window title
+   */
+  @Prop() windowTitle = "";
+
+  /**
+   * The window title icon
+   */
+  @Prop() titleIcon = "";
+
+  /**
+   * Displays the window
+   */
+  @Prop() displayWindow = false;
+  @State() showWindow = false;
+  @State() customPosition = false;
 
   @Element() el: HTMLElement;
   header!: HTMLElement;
@@ -183,7 +220,11 @@ export class GxgWindow {
       elm[3].onmousedown = dragMouseDownRight;
     }
   }
-
+  componentWillLoad() {
+    if (this.leftPosition !== "0px" && this.topPosition !== "0px") {
+      this.customPosition = true;
+    }
+  }
   componentDidLoad() {
     const childrenDivs = this.el.shadowRoot.querySelectorAll(
       "#draggable-resizable-div>div"
@@ -193,22 +234,92 @@ export class GxgWindow {
     this.resizeElement(childrenDivs, this.draggableResizableDiv);
 
     (function (elm) {
-      elm.style.left = window.innerWidth / 2 - elm.offsetWidth / 2 + "px";
-      elm.style.top = window.innerHeight / 2 - elm.offsetHeight / 2 + "px";
-    })(this.draggableResizableDiv);
+      if (this.leftPosition === "0px" && this.topPosition === "0px") {
+        elm.style.left = window.innerWidth / 2 - elm.offsetWidth / 2 + "px";
+        elm.style.top = window.innerHeight / 2 - elm.offsetHeight / 2 + "px";
+      }
+    }.bind(this)(this.draggableResizableDiv));
+  }
+
+  closeWindow() {
+    this.showWindow = false;
+    setTimeout(
+      function () {
+        this.displayWindow = false;
+      }.bind(this),
+      200
+    );
+  }
+
+  @Watch("displayWindow")
+  displayWindowHandler() {
+    if (this.displayWindow === true) {
+      setTimeout(
+        function () {
+          this.showWindow = true;
+        }.bind(this),
+        50
+      );
+    }
+  }
+
+  setInitialWidth() {
+    const initialWidthInt = parseInt(
+      this.initialWidth.substring(0, this.initialWidth.length - 2)
+    );
+    const minWidthInt = parseInt(
+      this.minWidth.substring(0, this.minWidth.length - 2)
+    );
+    const maxWidthInt = parseInt(
+      this.maxWidth.substring(0, this.maxWidth.length - 2)
+    );
+    if (initialWidthInt < minWidthInt) {
+      return this.minWidth;
+    } else if (initialWidthInt > maxWidthInt) {
+      return this.maxWidth;
+    } else {
+      return this.initialWidth;
+    }
+  }
+
+  setInitialHeight() {
+    const initialHeightInt = parseInt(
+      this.initialHeight.substring(0, this.initialHeight.length - 2)
+    );
+    const minHeightInt = parseInt(
+      this.minHeight.substring(0, this.minHeight.length - 2)
+    );
+    const maxHeightInt = parseInt(
+      this.maxHeight.substring(0, this.maxHeight.length - 2)
+    );
+    if (initialHeightInt < minHeightInt) {
+      return this.minHeight;
+    } else if (initialHeightInt > maxHeightInt) {
+      return this.maxHeight;
+    } else {
+      return this.initialHeight;
+    }
   }
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          display: this.displayWindow,
+          visible: this.showWindow,
+          "custom-position": this.customPosition,
+        }}
+      >
         <div
           id="draggable-resizable-div"
           ref={(el) => (this.draggableResizableDiv = el as HTMLElement)}
           style={{
-            maxWidth: "800px",
-            minWidth: "400px",
-            minHeight: "200px",
-            maxHeight: "600px",
+            maxWidth: this.maxWidth,
+            minWidth: this.minWidth,
+            minHeight: this.minHeight,
+            maxHeight: this.maxHeight,
+            left: this.leftPosition,
+            top: this.topPosition,
           }}
         >
           <div id="top"></div>
@@ -218,10 +329,12 @@ export class GxgWindow {
           <div
             id="center"
             style={{
-              maxWidth: "800px",
-              minWidth: "400px",
-              minHeight: "200px",
-              maxHeight: "600px",
+              width: this.setInitialWidth(),
+              height: this.setInitialHeight(),
+              maxWidth: this.maxWidth,
+              minWidth: this.minWidth,
+              minHeight: this.minHeight,
+              maxHeight: this.maxHeight,
             }}
           >
             <div
@@ -229,9 +342,22 @@ export class GxgWindow {
               style={{ cursor: "grab" }}
               ref={(el) => (this.header = el as HTMLElement)}
             >
+              <div class={{ "title-container": true }}>
+                {this.titleIcon !== "" ? (
+                  <gxg-icon
+                    class="title-icon"
+                    color="auto"
+                    size="regular"
+                    type={this.titleIcon}
+                  ></gxg-icon>
+                ) : null}
+                {this.windowTitle !== "" ? this.windowTitle : null}
+              </div>
               <gxg-button
-                icon="navigation/arrow-down"
+                class={{ "delete-icon": true }}
+                icon="menus/delete"
                 type="tertiary"
+                onClick={() => this.closeWindow()}
               ></gxg-button>
             </div>
             <div id="content">

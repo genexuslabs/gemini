@@ -1126,6 +1126,22 @@ export namespace Components {
   }
   interface GxgWindow {
     /**
+     * Displays the window
+     */
+    displayWindow: boolean;
+    /**
+     * The window starting height
+     */
+    initialHeight: string;
+    /**
+     * The window starting width
+     */
+    initialWidth: string;
+    /**
+     * The window left position. By default the window is horizontally centered.
+     */
+    leftPosition: string;
+    /**
      * The window max. height
      */
     maxHeight: string;
@@ -1141,6 +1157,18 @@ export namespace Components {
      * The window min. width
      */
     minWidth: string;
+    /**
+     * The window title icon
+     */
+    titleIcon: string;
+    /**
+     * The window top position. By default the window is vertically centered.
+     */
+    topPosition: string;
+    /**
+     * The window title
+     */
+    windowTitle: string;
   }
 }
 declare global {
@@ -2836,6 +2864,22 @@ declare namespace LocalJSX {
   }
   interface GxgWindow {
     /**
+     * Displays the window
+     */
+    displayWindow?: boolean;
+    /**
+     * The window starting height
+     */
+    initialHeight?: string;
+    /**
+     * The window starting width
+     */
+    initialWidth?: string;
+    /**
+     * The window left position. By default the window is horizontally centered.
+     */
+    leftPosition?: string;
+    /**
      * The window max. height
      */
     maxHeight?: string;
@@ -2851,6 +2895,18 @@ declare namespace LocalJSX {
      * The window min. width
      */
     minWidth?: string;
+    /**
+     * The window title icon
+     */
+    titleIcon?: string;
+    /**
+     * The window top position. By default the window is vertically centered.
+     */
+    topPosition?: string;
+    /**
+     * The window title
+     */
+    windowTitle?: string;
   }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;

@@ -1,10 +1,18 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
 :host {
-  display: block;
+  font-family: var(--font-family-primary);
+
+  @include gxg-scroll();
+
   #draggable-resizable-div {
     position: absolute;
-    padding: 5px;
-    background: #a85;
-    border: 1px solid black;
+    background-color: var(--gray-01);
+    opacity: 0;
+    margin-top: 30px;
+    @include ui-animation(opacity, margin-top);
+    z-index: -99;
   }
 
   #top,
@@ -38,22 +46,45 @@
   #bottom,
   #right {
     position: absolute;
-    background: #864;
+    background: transparent;
   }
 
   #header {
-    height: 25px;
-    background: repeating-linear-gradient(
-      -45deg,
-      #642,
-      #642 5px,
-      #864 5px,
-      #864 10px
-    );
-    border-bottom: 5px solid #864;
+    height: var(--spacing-comp-06);
+    background-color: var(--gray-02);
+    font-size: var(--font-size-sm);
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-comp-02);
+    color: var(--color-on-background);
+
+    .title-container {
+      display: flex;
+      align-items: center;
+
+      .title-icon {
+        margin-inline-end: var(--spacing-comp-01);
+      }
+    }
   }
 
   #content {
     padding: var(--spacing-comp-03);
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-comp-02);
+    color: var(--color-on-background);
+    height: calc(100% - 48px);
+    overflow-y: auto;
+    line-height: var(--line-height-regular);
   }
+}
+:host(.display) {
+  display: block;
+}
+:host(.visible) #draggable-resizable-div {
+  opacity: 1;
+  margin-top: 0;
+  z-index: 99;
 }

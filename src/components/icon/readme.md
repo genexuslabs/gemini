@@ -33,6 +33,7 @@
 - [gxg-toolbar-item](../toolbar-item)
 - [gxg-tree-grid-divs](../tree-grid-divs)
 - [gxg-tree-item](../tree-item)
+- [gxg-window](../window)
 
 ### Depends on
 
@@ -62,6 +63,7 @@ graph TD;
   gxg-toolbar-item --> gxg-icon
   gxg-tree-grid-divs --> gxg-icon
   gxg-tree-item --> gxg-icon
+  gxg-window --> gxg-icon
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
