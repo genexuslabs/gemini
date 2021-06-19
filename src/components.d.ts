@@ -389,6 +389,20 @@ export namespace Components {
      */
     padding: Padding;
   }
+  interface GxgDropDown {
+    /**
+     * the component max. height
+     */
+    maxHeight: string;
+    /**
+     * Displayes the content
+     */
+    showContent: boolean;
+    /**
+     * the component width
+     */
+    width: string;
+  }
   interface GxgFilter {
     /**
      * The left position of the filter, relative to the closest parent with relative position. (optional)
@@ -1138,7 +1152,7 @@ export namespace Components {
      */
     initialWidth: string;
     /**
-     * The window left position. By default the window is horizontally centered.
+     * The window left position. By default the window is horizontally centered
      */
     leftPosition: string;
     /**
@@ -1162,7 +1176,7 @@ export namespace Components {
      */
     titleIcon: string;
     /**
-     * The window top position. By default the window is vertically centered.
+     * The window top position. By default the window is vertically centered
      */
     topPosition: string;
     /**
@@ -1312,6 +1326,13 @@ declare global {
   var HTMLGxgDragContainerElement: {
     prototype: HTMLGxgDragContainerElement;
     new (): HTMLGxgDragContainerElement;
+  };
+  interface HTMLGxgDropDownElement
+    extends Components.GxgDropDown,
+      HTMLStencilElement {}
+  var HTMLGxgDropDownElement: {
+    prototype: HTMLGxgDropDownElement;
+    new (): HTMLGxgDropDownElement;
   };
   interface HTMLGxgFilterElement
     extends Components.GxgFilter,
@@ -1634,6 +1655,7 @@ declare global {
     "gxg-demo": HTMLGxgDemoElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
+    "gxg-drop-down": HTMLGxgDropDownElement;
     "gxg-filter": HTMLGxgFilterElement;
     "gxg-filter-item": HTMLGxgFilterItemElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
@@ -2056,6 +2078,20 @@ declare namespace LocalJSX {
      * The padding (internal spacing) of the gxg-drag-boxes
      */
     padding?: Padding;
+  }
+  interface GxgDropDown {
+    /**
+     * the component max. height
+     */
+    maxHeight?: string;
+    /**
+     * Displayes the content
+     */
+    showContent?: boolean;
+    /**
+     * the component width
+     */
+    width?: string;
   }
   interface GxgFilter {
     /**
@@ -2876,7 +2912,7 @@ declare namespace LocalJSX {
      */
     initialWidth?: string;
     /**
-     * The window left position. By default the window is horizontally centered.
+     * The window left position. By default the window is horizontally centered
      */
     leftPosition?: string;
     /**
@@ -2900,7 +2936,7 @@ declare namespace LocalJSX {
      */
     titleIcon?: string;
     /**
-     * The window top position. By default the window is vertically centered.
+     * The window top position. By default the window is vertically centered
      */
     topPosition?: string;
     /**
@@ -2930,6 +2966,7 @@ declare namespace LocalJSX {
     "gxg-demo": GxgDemo;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
+    "gxg-drop-down": GxgDropDown;
     "gxg-filter": GxgFilter;
     "gxg-filter-item": GxgFilterItem;
     "gxg-form-checkbox": GxgFormCheckbox;
@@ -3020,6 +3057,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
       "gxg-drag-container": LocalJSX.GxgDragContainer &
         JSXBase.HTMLAttributes<HTMLGxgDragContainerElement>;
+      "gxg-drop-down": LocalJSX.GxgDropDown &
+        JSXBase.HTMLAttributes<HTMLGxgDropDownElement>;
       "gxg-filter": LocalJSX.GxgFilter &
         JSXBase.HTMLAttributes<HTMLGxgFilterElement>;
       "gxg-filter-item": LocalJSX.GxgFilterItem &

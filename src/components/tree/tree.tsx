@@ -1,6 +1,6 @@
 import { Component, Element, State, h, Prop, Listen } from "@stencil/core";
 import { GxgTreeItem } from "../tree-item/tree-item";
-//import Sortable from "sortablejs";
+
 @Component({
   tag: "gxg-tree",
   styleUrl: "tree.scss",
@@ -76,12 +76,6 @@ export class GxgTree {
         treeItemAboveTree.setAttribute("checked", "checked");
       }
     }
-
-    //Initialize sortable js
-    // Sortable.create(this.ulTree, {
-    //   group: "foo",
-    //   animation: 100,
-    // });
   }
 
   @Listen("liItemClicked")
