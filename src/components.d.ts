@@ -2084,6 +2084,10 @@ declare namespace LocalJSX {
      */
     maxHeight?: string;
     /**
+     * This events gets fired when the user clicks on an item. The event emmits the item "data-value"
+     */
+    onItemClicked?: (event: CustomEvent<any>) => void;
+    /**
      * Displays the dropdown content
      */
     showContent?: boolean;

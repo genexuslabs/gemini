@@ -1,4 +1,13 @@
-import { Component, Host, h, Prop, Element, State } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Element,
+  State,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-drop-down",
@@ -24,6 +33,11 @@ export class GxgDropDown {
   @Prop() showContent = false;
 
   @State() selectedValue = "Select item";
+
+  /**
+   * This events gets fired when the user clicks on an item. The event emmits the item "data-value"
+   */
+  @Event() itemClicked: EventEmitter;
 
   toggleContent() {
     if (this.showContent === true) {
@@ -67,6 +81,7 @@ export class GxgDropDown {
     slottedContent.forEach((node) => {
       node.addEventListener("click", (e) => {
         this.selectedValue = e.target["dataset"].value;
+        this.itemClicked.emit(e.target["dataset"].value);
       });
     });
   }

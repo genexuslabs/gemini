@@ -33,7 +33,7 @@
 
     <br>
 
-    <gxg-drop-down max-height="500px">
+    <gxg-drop-down max-height="500px" id="gxg-drop-down">
       <gxg-button data-value="button" type="primary-text-only">Button</gxg-button>
       <gxg-tree>
         <gxg-tree-item data-value="meats" opened left-icon="general/knowledge-base">
@@ -147,6 +147,11 @@
       </gxg-tree>
     </gxg-drop-down>
 
-
+    <script>
+      let gxgDropDown = document.getElementById("gxg-drop-down");
+      gxgDropDown.addEventListener("itemClicked", function(e){
+        console.log(e.detail);
+      })
+    </script>
   </body>
 </html>
