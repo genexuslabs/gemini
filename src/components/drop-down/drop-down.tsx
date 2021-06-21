@@ -9,17 +9,17 @@ export class GxgDropDown {
   @Element() el: HTMLElement;
 
   /**
-   * the component width
+   * the dropdown width
    */
   @Prop() width = "240px";
 
   /**
-   * the component max. height
+   * the dropdown max. height
    */
   @Prop() maxHeight = "120px";
 
   /**
-   * Displayes the content
+   * Displays the dropdown content
    */
   @Prop() showContent = false;
 
@@ -49,10 +49,10 @@ export class GxgDropDown {
       y > dropDownMainContainerArea.top &&
       y < dropDownMainContainerArea.bottom
     ) {
-      //Click happened inside the combo
+      //Click happened inside the dropdown
     } else {
       this.showContent = false;
-      //Click happened outside the combo
+      //Click happened outside the dropdown
     }
   }
 
@@ -82,15 +82,11 @@ export class GxgDropDown {
             class={{
               "select-container": true,
               "nothing-selected": this.selectedValue === "Select item",
+              focus: this.showContent,
             }}
             onClick={() => this.toggleContent()}
           >
             {this.selectedValue}
-            <gxg-button
-              class={{ "arrow-down-icon": true }}
-              icon="navigation/arrow-down"
-              type="tertiary"
-            ></gxg-button>
             <span class="layer"></span>
           </div>
           {this.showContent ? (

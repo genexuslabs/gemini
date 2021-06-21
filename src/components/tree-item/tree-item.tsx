@@ -7,7 +7,6 @@ import {
   Prop,
   State,
   h,
-  Method,
   Watch,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
@@ -80,12 +79,13 @@ export class GxgTreeItem {
   //STATE
   @State() numberOfParentTrees = 1;
   @State() itemPaddingLeft;
-  @State() verticalLineHeight: string;
+  //@State() verticalLineHeight: string;
   @State() horizontalLinePaddingLeft = 0;
   @State() lastTreeItem = false;
   @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
   @State() rightIconColor: Color = "auto";
+  @State() numberOfDirectTreeItemsDescendants = 0;
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
@@ -147,19 +147,40 @@ export class GxgTreeItem {
     }
   }
 
+  getNumberOfDirectDescendants() {
+    const directTree = this.el.querySelector(":scope > gxg-tree");
+    let directChildren;
+    let descendants;
+    let lastDirectChildren;
+    if (directTree !== null) {
+      directChildren = directTree.querySelectorAll(":scope > gxg-tree-item");
+      descendants = directTree.querySelectorAll("gxg-tree-item");
+      lastDirectChildren = directChildren[directChildren.length - 1];
+
+      const lastDirectChildrenTree = lastDirectChildren.querySelector(
+        ":scope > gxg-tree"
+      );
+      if (lastDirectChildrenTree !== null) {
+        const lastDirectChildrenTreeDirectDescendantsLength = lastDirectChildrenTree.querySelectorAll(
+          "gxg-tree-item"
+        ).length;
+
+        this.numberOfDirectTreeItemsDescendants =
+          descendants.length - lastDirectChildrenTreeDirectDescendantsLength;
+      } else {
+        this.numberOfDirectTreeItemsDescendants = descendants.length;
+      }
+    }
+  }
+
   componentDidLoad() {
-    setTimeout(
-      function () {
-        this.getChildTreeHeight();
-      }.bind(this),
-      100
-    );
+    this.getNumberOfDirectDescendants();
   }
 
   @Watch("downloaded")
   watchHandler(newValue: boolean) {
     if (newValue) {
-      this.updateTreeVerticalLineHeight();
+      //this.updateTreeVerticalLineHeight();
     }
   }
 
@@ -187,15 +208,15 @@ export class GxgTreeItem {
     this.toggleIconClicked.emit();
   }
 
-  @Method()
-  async updateTreeVerticalLineHeight() {
-    setTimeout(
-      function () {
-        this.getChildTreeHeight();
-      }.bind(this),
-      50
-    );
-  }
+  // @Method()
+  // async updateTreeVerticalLineHeight() {
+  //   setTimeout(
+  //     function () {
+  //       this.getChildTreeHeight();
+  //     }.bind(this),
+  //     50
+  //   );
+  // }
 
   liTextClicked() {
     this.liItemClicked.emit();
@@ -437,22 +458,22 @@ export class GxgTreeItem {
     return paddingLeft + "px";
   }
 
-  getChildTreeHeight() {
-    //Get the children tree height to calculate the vertical line that associates the chid-items with the parent item
-    const childrenTree = this.el.children;
-    if (childrenTree.item(0) !== null) {
-      const childrenTreeChildTreeItems = childrenTree.item(0).children;
-      const lastChildrenTreeChildTreeItemHeight = (childrenTreeChildTreeItems.item(
-        childrenTreeChildTreeItems.length - 1
-      ) as HTMLElement).offsetHeight;
+  // getChildTreeHeight() {
+  //   //Get the children tree height to calculate the vertical line that associates the chid-items with the parent item
+  //   const childrenTree = this.el.children;
+  //   if (childrenTree.item(0) !== null) {
+  //     const childrenTreeChildTreeItems = childrenTree.item(0).children;
+  //     const lastChildrenTreeChildTreeItemHeight = (childrenTreeChildTreeItems.item(
+  //       childrenTreeChildTreeItems.length - 1
+  //     ) as HTMLElement).offsetHeight;
 
-      //If this tree-item has a child tree element, get its height
-      const childTreeHeight = (childrenTree.item(0) as HTMLElement)
-        .offsetHeight;
-      this.verticalLineHeight =
-        childTreeHeight - lastChildrenTreeChildTreeItemHeight + 10 + "px";
-    }
-  }
+  //     //If this tree-item has a child tree element, get its height
+  //     const childTreeHeight = (childrenTree.item(0) as HTMLElement)
+  //       .offsetHeight;
+  //     this.verticalLineHeight =
+  //       childTreeHeight - lastChildrenTreeChildTreeItemHeight + 10 + "px";
+  //   }
+  // }
 
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item
@@ -539,7 +560,11 @@ export class GxgTreeItem {
                   <span
                     class={{ "vertical-line": true }}
                     style={{
-                      height: this.verticalLineHeight,
+                      //height: this.verticalLineHeight,
+                      height:
+                        this.numberOfDirectTreeItemsDescendants * 20 -
+                        10 +
+                        "px",
                       left: this.returnVerticalLineLeftPosition(),
                     }}
                   ></span>,

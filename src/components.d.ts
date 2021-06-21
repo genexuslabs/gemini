@@ -391,15 +391,15 @@ export namespace Components {
   }
   interface GxgDropDown {
     /**
-     * the component max. height
+     * the dropdown max. height
      */
     maxHeight: string;
     /**
-     * Displayes the content
+     * Displays the dropdown content
      */
     showContent: boolean;
     /**
-     * the component width
+     * the dropdown width
      */
     width: string;
   }
@@ -1136,7 +1136,6 @@ export namespace Components {
      * The presence of this attribute sets the tree-item as selected
      */
     selected: boolean;
-    updateTreeVerticalLineHeight: () => Promise<void>;
   }
   interface GxgWindow {
     /**
@@ -2081,15 +2080,15 @@ declare namespace LocalJSX {
   }
   interface GxgDropDown {
     /**
-     * the component max. height
+     * the dropdown max. height
      */
     maxHeight?: string;
     /**
-     * Displayes the content
+     * Displays the dropdown content
      */
     showContent?: boolean;
     /**
-     * the component width
+     * the dropdown width
      */
     width?: string;
   }
