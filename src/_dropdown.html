@@ -31,7 +31,7 @@
       <gxg-option value="8">Mercedes</gxg-option>
     </gxg-select>
 
-<br>
+    <br>
 
     <gxg-drop-down>
       hola
@@ -40,8 +40,8 @@
     <br>
 
 
-    <gxg-drop-down>
-      <gxg-button type="primary-text-only">Label</gxg-button>
+    <gxg-drop-down icon="general/generator" id="gxg-drop-down">
+      <span slot="button" style="background-color: red;">hola</span>
       <gxg-tree>
         <gxg-tree-item opened left-icon="general/knowledge-base">
           Meats
@@ -157,6 +157,17 @@
       </gxg-tree>
     </gxg-drop-down>
 
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet quisquam doloremque nemo maiores numquam minus eos necessitatibus harum nulla possimus exercitationem, atque voluptas rerum, id ratione laudantium ullam facere suscipit.</p>
+
+    <script>
+      let gxgDropDown = document.getElementById("gxg-drop-down");
+      gxgDropDown.addEventListener("opened", function(){
+        console.log("opened");
+      })
+      gxgDropDown.addEventListener("closed", function(){
+        console.log("closed");
+      })
+    </script>
 
   </body>
 </html>
