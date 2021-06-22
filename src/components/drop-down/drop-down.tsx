@@ -7,6 +7,7 @@ import {
   State,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 
 @Component({
@@ -28,65 +29,94 @@ export class GxgDropDown {
   @Prop() maxHeight = "120px";
 
   /**
+   * the dropdown icon (optional)
+   */
+  @Prop() icon = "";
+
+  /**
    * Displays the dropdown content
    */
   @Prop() showContent = false;
 
-  @State() selectedValue = "Select item";
+  @State() initialButtonText = "";
+
+  @State() detectClickOutsideDropDownVar = this.detectClickOutsideDropDown.bind(
+    this
+  );
 
   /**
-   * This events gets fired when the user clicks on an item. The event emmits the item "data-value"
+   * This events gets fired when the dropdown is opened
    */
-  @Event() itemClicked: EventEmitter;
+  @Event() opened: EventEmitter;
+
+  /**
+   * This events gets fired when the dropdown is closed
+   */
+  @Event() closed: EventEmitter;
+
+  componentWillLoad() {
+    const slotButton = this.el.querySelector("[slot=button]");
+    if (slotButton === null) {
+      this.initialButtonText = "Select item";
+    }
+  }
 
   toggleContent() {
     if (this.showContent === true) {
       this.showContent = false;
+      document.removeEventListener("click", this.detectClickOutsideDropDownVar);
     } else {
       this.showContent = true;
+      setTimeout(
+        function () {
+          document.addEventListener(
+            "click",
+            this.detectClickOutsideDropDownVar
+          );
+        }.bind(this),
+        100
+      );
     }
   }
 
   detectClickOutsideDropDown(event) {
-    const dropDownMainContainer = this.el.shadowRoot.querySelector(
-      ".main-container"
+    const dropDownContentContainer = this.el.shadowRoot.querySelector(
+      ".content-container"
     ) as HTMLElement;
 
     const x = event.x;
     const y = event.y;
 
     //Contextual menu coordinates
-    const dropDownMainContainerArea = dropDownMainContainer.getBoundingClientRect();
+    const dropDownContentContainerArea = dropDownContentContainer.getBoundingClientRect();
     if (
-      x > dropDownMainContainerArea.left &&
-      x < dropDownMainContainerArea.right &&
-      y > dropDownMainContainerArea.top &&
-      y < dropDownMainContainerArea.bottom
+      x > dropDownContentContainerArea.left &&
+      x < dropDownContentContainerArea.right &&
+      y > dropDownContentContainerArea.top &&
+      y < dropDownContentContainerArea.bottom
     ) {
       //Click happened inside the dropdown
     } else {
       this.showContent = false;
+      document.removeEventListener("click", this.detectClickOutsideDropDownVar);
       //Click happened outside the dropdown
     }
   }
 
-  componentDidLoad() {
-    document.addEventListener(
-      "click",
-      this.detectClickOutsideDropDown.bind(this)
-    );
-
-    //Emmit the data-value for the selected node/item
-    const slottedContent = this.el.querySelectorAll("*");
-    slottedContent.forEach((node) => {
-      node.addEventListener("click", (e) => {
-        this.selectedValue = e.target["dataset"].value;
-        this.itemClicked.emit(e.target["dataset"].value);
-      });
-    });
-  }
   componentDidUnload() {
     document.removeEventListener("click", this.detectClickOutsideDropDown);
+  }
+
+  @Watch("showContent")
+  watchHandler(newValue: boolean) {
+    console.log("newValue", newValue);
+    if (newValue === true) {
+      console.log("emmit opened");
+      this.opened.emit(true);
+    } else {
+      console.log("emmit closed");
+      this.closed.emit(true);
+    }
   }
 
   render() {
@@ -96,12 +126,21 @@ export class GxgDropDown {
           <div
             class={{
               "select-container": true,
-              "nothing-selected": this.selectedValue === "Select item",
+              "nothing-selected": this.initialButtonText === "Select item",
               focus: this.showContent,
             }}
             onClick={() => this.toggleContent()}
           >
-            {this.selectedValue}
+            {this.icon !== "" ? (
+              <gxg-icon
+                class="icon"
+                type={this.icon}
+                color="auto"
+                size="small"
+              ></gxg-icon>
+            ) : null}
+            {this.initialButtonText !== "" ? this.initialButtonText : null}
+            <slot name="button"></slot>
             <span class="layer"></span>
           </div>
           {this.showContent ? (

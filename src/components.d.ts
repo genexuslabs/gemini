@@ -391,6 +391,10 @@ export namespace Components {
   }
   interface GxgDropDown {
     /**
+     * the dropdown icon (optional)
+     */
+    icon: string;
+    /**
      * the dropdown max. height
      */
     maxHeight: string;
@@ -2080,13 +2084,21 @@ declare namespace LocalJSX {
   }
   interface GxgDropDown {
     /**
+     * the dropdown icon (optional)
+     */
+    icon?: string;
+    /**
      * the dropdown max. height
      */
     maxHeight?: string;
     /**
-     * This events gets fired when the user clicks on an item. The event emmits the item "data-value"
+     * This events gets fired when the dropdown is closed
      */
-    onItemClicked?: (event: CustomEvent<any>) => void;
+    onClosed?: (event: CustomEvent<any>) => void;
+    /**
+     * This events gets fired when the dropdown is opened
+     */
+    onOpened?: (event: CustomEvent<any>) => void;
     /**
      * Displays the dropdown content
      */

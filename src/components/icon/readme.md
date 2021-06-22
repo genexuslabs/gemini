@@ -21,6 +21,7 @@
 - [gxg-combo-item](../combo-item)
 - [gxg-contextual-menu-item](../contextual-menu-item)
 - [gxg-drag-box](../drag-box)
+- [gxg-drop-down](../drop-down)
 - [gxg-filter-item](../filter-item)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
@@ -51,6 +52,7 @@ graph TD;
   gxg-combo-item --> gxg-icon
   gxg-contextual-menu-item --> gxg-icon
   gxg-drag-box --> gxg-icon
+  gxg-drop-down --> gxg-icon
   gxg-filter-item --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon

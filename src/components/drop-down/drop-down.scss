@@ -24,6 +24,10 @@
     cursor: pointer;
     color: var(--color-on-background);
 
+    .icon {
+      margin-left: -4px;
+    }
+
     &.nothing-selected {
       color: var(--gray-04);
     }
