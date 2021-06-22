@@ -15,6 +15,11 @@ stories.addParameters({ notes: readme, layout: "centered" });
 stories.add("Dropdown", () => {
   //FIRST BREADCRUMB
 
+  //Label
+  const labelLabel = "Label (optional)";
+  const defaultValueLabel = "Module/Folder:";
+  const valueLabel = text(labelLabel, defaultValueLabel);
+
   //Icon
   const labelIcon = "Icon (optional)";
   const defaultValueIcon = "general/generator";
@@ -31,7 +36,7 @@ stories.add("Dropdown", () => {
   const valueMaxHeight = text(labelMaxHeight, defaultValueMaxHeight);
 
   return `
-  <gxg-drop-down icon="${valueIcon}" width="${valueWidth}" max-height="${valueMaxHeight}">
+  <gxg-drop-down label="${valueLabel}" icon="${valueIcon}" width="${valueWidth}" max-height="${valueMaxHeight}">
   <span slot="button">Select item</span>
   <gxg-tree>
     <gxg-tree-item opened left-icon="general/knowledge-base">

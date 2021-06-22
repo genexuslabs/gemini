@@ -12,6 +12,7 @@
 | Property      | Attribute      | Description                   | Type      | Default   |
 | ------------- | -------------- | ----------------------------- | --------- | --------- |
 | `icon`        | `icon`         | the dropdown icon (optional)  | `string`  | `""`      |
+| `label`       | `label`        | the dropdown label (optional) | `string`  | `""`      |
 | `maxHeight`   | `max-height`   | the dropdown max. height      | `string`  | `"120px"` |
 | `showContent` | `show-content` | Displays the dropdown content | `boolean` | `false`   |
 | `width`       | `width`        | the dropdown width            | `string`  | `"240px"` |

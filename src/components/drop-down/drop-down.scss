@@ -10,6 +10,14 @@
     position: relative;
   }
 
+  .label {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    color: var(--color-on-background);
+    margin-bottom: var(--spacing-comp-01);
+    display: inline-block;
+  }
+
   .select-container {
     border-width: var(--border-width-sm);
     border-style: solid;

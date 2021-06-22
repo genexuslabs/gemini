@@ -29,6 +29,11 @@ export class GxgDropDown {
   @Prop() maxHeight = "120px";
 
   /**
+   * the dropdown label (optional)
+   */
+  @Prop() label = "";
+
+  /**
    * the dropdown icon (optional)
    */
   @Prop() icon = "";
@@ -123,6 +128,9 @@ export class GxgDropDown {
     return (
       <Host>
         <div class={{ "main-container": true }} style={{ width: this.width }}>
+          {this.label !== "" ? (
+            <label class={{ label: true }}>{this.label}</label>
+          ) : null}
           <div
             class={{
               "select-container": true,

@@ -395,6 +395,10 @@ export namespace Components {
      */
     icon: string;
     /**
+     * the dropdown label (optional)
+     */
+    label: string;
+    /**
      * the dropdown max. height
      */
     maxHeight: string;
@@ -2087,6 +2091,10 @@ declare namespace LocalJSX {
      * the dropdown icon (optional)
      */
     icon?: string;
+    /**
+     * the dropdown label (optional)
+     */
+    label?: string;
     /**
      * the dropdown max. height
      */
