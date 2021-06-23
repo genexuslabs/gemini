@@ -29,6 +29,14 @@
 | `liItemClicked`        |             | `CustomEvent<any>` |
 | `toggleIconClicked`    |             | `CustomEvent<any>` |
 
+## Methods
+
+### `updateTreeVerticalLineHeight() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
 ## Dependencies
 
 ### Depends on

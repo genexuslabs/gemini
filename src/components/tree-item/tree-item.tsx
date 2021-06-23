@@ -8,6 +8,7 @@ import {
   State,
   h,
   Watch,
+  Method,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { GxgTree } from "../tree/tree";
@@ -147,34 +148,67 @@ export class GxgTreeItem {
     }
   }
 
-  getNumberOfDirectDescendants() {
+  getNumberOfVisibleDescendants() {
     const directTree = this.el.querySelector(":scope > gxg-tree");
-    let directChildren;
-    let descendants;
-    let lastDirectChildren;
-    if (directTree !== null) {
-      directChildren = directTree.querySelectorAll(":scope > gxg-tree-item");
-      descendants = directTree.querySelectorAll("gxg-tree-item");
-      lastDirectChildren = directChildren[directChildren.length - 1];
 
-      const lastDirectChildrenTree = lastDirectChildren.querySelector(
-        ":scope > gxg-tree"
+    if (directTree !== null && this.opened) {
+      //if tree item has a tree inside and is open...
+      const visibleChildren = directTree.querySelectorAll(
+        "gxg-tree-item.visible"
       );
-      if (lastDirectChildrenTree !== null) {
-        const lastDirectChildrenTreeDirectDescendantsLength = lastDirectChildrenTree.querySelectorAll(
-          "gxg-tree-item"
-        ).length;
 
+      //direct descendants
+      const directDescendants = directTree.querySelectorAll(
+        ":scope > gxg-tree-item.visible"
+      );
+
+      //last direct descendant
+      const lastDirectDescendant =
+        directDescendants[directDescendants.length - 1];
+
+      const lastDirectDescendantIsOpened = ((lastDirectDescendant as unknown) as GxgTreeItem)
+        .opened;
+
+      let lastDirectDescendantTreeItemsLength = 0;
+      if (lastDirectDescendantIsOpened) {
+        const lastDirectDescendantTree = lastDirectDescendant.querySelector(
+          ":scope > gxg-tree"
+        );
+        lastDirectDescendantTreeItemsLength = lastDirectDescendantTree.querySelectorAll(
+          ":scope > gxg-tree-item"
+        ).length;
+      }
+
+      if (visibleChildren.length > 0) {
         this.numberOfDirectTreeItemsDescendants =
-          descendants.length - lastDirectChildrenTreeDirectDescendantsLength;
+          visibleChildren.length - lastDirectDescendantTreeItemsLength;
+      }
+    }
+  }
+
+  setVisibleTreeItems() {
+    const directTree = this.el.querySelector(":scope > gxg-tree");
+    if (directTree !== null) {
+      const directTreeDirectTreeItems = directTree.querySelectorAll(
+        ":scope > gxg-tree-item"
+      );
+      if (this.opened) {
+        directTreeDirectTreeItems.forEach((item) => {
+          item.classList.remove("not-visible");
+          item.classList.add("visible");
+        });
       } else {
-        this.numberOfDirectTreeItemsDescendants = descendants.length;
+        directTreeDirectTreeItems.forEach((item) => {
+          item.classList.remove("visible");
+          item.classList.add("not-visible");
+        });
       }
     }
   }
 
   componentDidLoad() {
-    this.getNumberOfDirectDescendants();
+    this.setVisibleTreeItems();
+    this.getNumberOfVisibleDescendants();
   }
 
   @Watch("downloaded")
@@ -205,18 +239,14 @@ export class GxgTreeItem {
     } else {
       this.opened = true;
     }
+    this.setVisibleTreeItems();
     this.toggleIconClicked.emit();
   }
 
-  // @Method()
-  // async updateTreeVerticalLineHeight() {
-  //   setTimeout(
-  //     function () {
-  //       this.getChildTreeHeight();
-  //     }.bind(this),
-  //     50
-  //   );
-  // }
+  @Method()
+  async updateTreeVerticalLineHeight() {
+    this.getNumberOfVisibleDescendants();
+  }
 
   liTextClicked() {
     this.liItemClicked.emit();
@@ -253,6 +283,7 @@ export class GxgTreeItem {
         );
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
+      this.setVisibleTreeItems();
       this.toggleIconClicked.emit(); //this recalculates the vertical line height
     }
 
@@ -281,6 +312,7 @@ export class GxgTreeItem {
           }
         }
       }
+      this.setVisibleTreeItems();
       this.toggleIconClicked.emit(); //this recalculates the vertical line height
     }
 
@@ -457,23 +489,6 @@ export class GxgTreeItem {
     this.itemPaddingLeft = paddingLeft;
     return paddingLeft + "px";
   }
-
-  // getChildTreeHeight() {
-  //   //Get the children tree height to calculate the vertical line that associates the chid-items with the parent item
-  //   const childrenTree = this.el.children;
-  //   if (childrenTree.item(0) !== null) {
-  //     const childrenTreeChildTreeItems = childrenTree.item(0).children;
-  //     const lastChildrenTreeChildTreeItemHeight = (childrenTreeChildTreeItems.item(
-  //       childrenTreeChildTreeItems.length - 1
-  //     ) as HTMLElement).offsetHeight;
-
-  //     //If this tree-item has a child tree element, get its height
-  //     const childTreeHeight = (childrenTree.item(0) as HTMLElement)
-  //       .offsetHeight;
-  //     this.verticalLineHeight =
-  //       childTreeHeight - lastChildrenTreeChildTreeItemHeight + 10 + "px";
-  //   }
-  // }
 
   returnVerticalLineLeftPosition() {
     //Returns the left position of the vertical line that associates the chid-items with the parent item

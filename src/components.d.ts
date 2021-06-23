@@ -1144,6 +1144,7 @@ export namespace Components {
      * The presence of this attribute sets the tree-item as selected
      */
     selected: boolean;
+    updateTreeVerticalLineHeight: () => Promise<void>;
   }
   interface GxgWindow {
     /**

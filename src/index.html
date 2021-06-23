@@ -1,74 +1,183 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>2 - SASS - Night Mode with Class</title>
 
-    <script type="module" src="/build/gemini.esm.js"></script>
-    <script nomodule src="/build/gemini.js"></script>
-    <link href="/build/gemini.css" rel="stylesheet" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>2 - SASS - Night Mode with Class</title>
 
-    <style>
-      html.dark {
-        background-color: #1D1E22;
-      }
-    </style>
-  </head>
-  <body>
-    <gxg-select>
-      <gxg-option value="0">Select car:</gxg-option>
-      <gxg-option value="1">Audi</gxg-option>
-      <gxg-option value="2">BMW</gxg-option>
-      <gxg-option selected value="3">Citroen</gxg-option>
-      <gxg-option value="4">Ford</gxg-option>
-      <gxg-option value="5">Honda</gxg-option>
-      <gxg-option value="6">Jaguar</gxg-option>
-      <gxg-option value="7">Land Rover</gxg-option>
-      <gxg-option value="8">Mercedes</gxg-option>
-    </gxg-select>
+  <script type="module" src="/build/gemini.esm.js"></script>
+  <script nomodule src="/build/gemini.js"></script>
+  <link href="/build/gemini.css" rel="stylesheet" />
 
-    <br>
+  <style>
+    html {
+      background: var(--color-background);
+      transition: background 0.2s ease-in-out;
+      font-family: arial;
+      color: var(--color-text);
+    }
 
-    <gxg-drop-down>
-      hola
-    </gxg-drop-down>
+    li:hover {
+      background-color: gray;
+    }
+    body {
+      padding: 20px;
+    }
+    .trees-main-container {
+      width: 400px;
+    }
+  </style>
+</head>
 
-    <br>
+<body>
 
+<html dir="ltr" lang="en">
 
-    <gxg-drop-down icon="general/generator" id="gxg-drop-down" label="Module/Folder:">
-      <span slot="button" style="background-color: red;">hola</span>
-      contenido html de la ventana que se despliega.
-    </gxg-drop-down>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>2 - SASS - Night Mode with Class</title>
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet quisquam doloremque nemo maiores numquam minus eos necessitatibus harum nulla possimus exercitationem, atque voluptas rerum, id ratione laudantium ullam facere suscipit.</p>
-    
-    <button id="close-drop-down-btn">close dropdown</button>
-    <button id="open-drop-down-btn">open dropdown</button>
+  <script type="module" src="/build/gemini.esm.js"></script>
+  <script nomodule src="/build/gemini.js"></script>
+  <link href="/build/gemini.css" rel="stylesheet" />
 
-    <script>
-      let gxgDropDown = document.getElementById("gxg-drop-down");
-      gxgDropDown.addEventListener("opened", function(){
-        console.log("opened");
-      })
-      gxgDropDown.addEventListener("closed", function(){
-        console.log("closed");
-      })
-      //close dropdown button
-      closeDropDownBtn = document.getElementById("close-drop-down-btn");
-      closeDropDownBtn.addEventListener("click", function(){
-        gxgDropDown.showContent = false;
-      });
-      //open dropdown button
-      openDropDownBtn = document.getElementById("open-drop-down-btn");
-      openDropDownBtn.addEventListener("click", function(){
-        gxgDropDown.showContent = true;
-      });
-    </script>
+  <style>
+    html {
+      background: var(--color-background);
+      transition: background 0.2s ease-in-out;
+      font-family: arial;
+      color: var(--color-text);
+    }
 
-  </body>
+    li:hover {
+      background-color: gray;
+    }
+    body {
+      padding: 20px;
+    }
+    .trees-main-container {
+      width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <gxg-tree>
+    <gxg-tree-item opened left-icon="general/knowledge-base">
+      Meats
+      <gxg-tree checkbox slot="tree">
+        <gxg-tree-item left-icon="general/knowledge-base">
+          White meats
+          <gxg-tree checkbox slot="tree">
+            <gxg-tree-item left-icon="general/knowledge-base">
+              Chicken
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base"> 
+              Turkey
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base">
+              Duck
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item left-icon="general/knowledge-base">
+          Red meats
+          <gxg-tree checkbox slot="tree">
+            <gxg-tree-item left-icon="general/knowledge-base">
+              Beef
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base"> 
+              Lamb and mutton
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="general/knowledge-base">
+              Pork
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+    <gxg-tree-item id="fish" left-icon="general/patterns" checkbox opened download disabled right-icon="gemini-tools/download">
+      Fish
+    </gxg-tree-item>
+    <gxg-tree-item checkbox opened left-icon="objects/module">
+      Fruits
+      <gxg-tree slot="tree">
+        <gxg-tree-item checkbox left-icon="objects/module">
+          Orange
+        </gxg-tree-item>
+        <gxg-tree-item checkbox left-icon="objects/module" opened>
+          Banana
+          <gxg-tree slot="tree">
+            <gxg-tree-item left-icon="objects/module" checkbox>
+              Pisang
+            </gxg-tree-item>
+            <gxg-tree-item checkbox left-icon="objects/module">
+              Red Banana
+            </gxg-tree-item>
+            <gxg-tree-item left-icon="objects/module" checkbox>
+              Cavendish
+              <gxg-tree slot="tree">
+                <gxg-tree-item left-icon="objects/module" checkbox>
+                  Big
+                </gxg-tree-item>
+                <gxg-tree-item left-icon="objects/module" checkbox>
+                  Small
+                </gxg-tree-item>
+                <gxg-tree-item checkbox left-icon="objects/module">
+                  Mini
+                </gxg-tree-item>
+              </gxg-tree>
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item checkbox opened left-icon="objects/module">
+          Strawberry
+          <gxg-tree slot="tree">
+            <gxg-tree-item checkbox left-icon="objects/module">
+              Albion 
+            </gxg-tree-item>
+            <gxg-tree-item checkbox left-icon="objects/module" opened> 
+              Tillamook 
+            </gxg-tree-item>
+            <gxg-tree-item checkbox left-icon="objects/module">
+              Northeaster 
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+      </gxg-tree>
+    </gxg-tree-item>
+  <gxg-tree-item opened checkbox left-icon="objects/document" empty-tree>
+    nuts
+    <gxg-tree slot="tree">
+      <gxg-tree-item opened checkbox left-icon="objects/document">
+        Almonds 
+        <gxg-tree slot="tree">
+          <gxg-tree-item checkbox left-icon="objects/document" opened> 
+            Mollar de Tarragona
+          </gxg-tree-item>
+          <gxg-tree-item checkbox left-icon="objects/document">
+            Ferragnès 
+          </gxg-tree-item>
+          <gxg-tree-item checkbox left-icon="objects/document">
+            Verdal 
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item checkbox left-icon="objects/document" opened> 
+        Brazil nuts 
+      </gxg-tree-item>
+      <gxg-tree-item checkbox left-icon="objects/document">
+        Cashews 
+      </gxg-tree-item>
+      <gxg-tree-item checkbox left-icon="objects/document">
+        Chestnuts 
+      </gxg-tree-item>
+    </gxg-tree>
+  </gxg-tree-item>
+  </gxg-tree>
+
+</body>
 </html>
