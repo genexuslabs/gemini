@@ -304,3 +304,14 @@ ICON TOOLTIP (ONLY FOR PRIMARY-ICON-ONLY & SECONDARY-ICON-ONLY TYPES)
     opacity: 1;
   }
 }
+
+html.big {
+  :host {
+    background-color: red !important;
+  }
+}
+:root.big {
+  :host {
+    background-color: red !important;
+  }
+}

@@ -8,10 +8,10 @@
   border-width: var(--border-width-sm);
   border-style: var(--border-style-regular);
   border-radius: 11px;
-  padding-inline-start: var(--spacing-comp-01);
+  padding-inline-start: var(--spacing-comp-02);
   padding-inline-end: var(--spacing-comp-03);
   opacity: 1;
-  height: 16px;
+  height: var(--spacing-comp-04);
   box-sizing: border-box;
   @include ui-animation(opacity);
 
@@ -35,7 +35,13 @@
 }
 //Pill wil no icon
 :host(.no-icon) {
-  padding-inline-start: var(--spacing-comp-03);
+  gxg-icon.custom {
+    width: 0;
+  }
+}
+//Pill wil custom icon
+:host(.has-icon) {
+  padding-inline-start: 0;
 }
 
 //Static
@@ -50,6 +56,9 @@
   padding-inline-end: 0;
 }
 //Button / Button with action
+:host([type="button"]) {
+  padding-inline-end: var(--spacing-comp-02);
+}
 :host([type="button"]:hover),
 :host([type="button-with-action"]:hover) {
   border-color: var(--gray-07);
@@ -82,10 +91,8 @@
 }
 :host(:focus) {
   outline: none;
-  //border-color: var(--gray-06);
 }
 :host([disabled]) {
-  border-color: var(--gray-03);
   .title {
     color: var(--gray-03);
   }
@@ -93,6 +100,10 @@
     opacity: 0.3;
   }
   pointer-events: none;
+}
+:host([disabled][type="button"]),
+:host([disabled][type="button-with-action"]) {
+  border-color: var(--gray-03);
 }
 :host([disabled]:focus) {
   box-shadow: none;

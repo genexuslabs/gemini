@@ -1,0 +1,113 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: inline-flex;
+  align-items: center;
+  border-color: var(--gray-02);
+  border-width: var(--border-width-sm);
+  border-style: var(--border-style-regular);
+  border-radius: 11px;
+  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-end: var(--spacing-comp-03);
+  opacity: 1;
+  height: var(--spacing-comp-04);
+  box-sizing: border-box;
+  @include ui-animation(opacity);
+
+  .title {
+    @include gxg-text;
+  }
+  .clear-button {
+    margin-inline-start: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  gxg-icon {
+    transform: scale(0.84);
+    &.clear-button {
+      transform: scale(0.65);
+    }
+  }
+}
+//Pill wil no icon
+:host(.no-icon) {
+  gxg-icon.custom {
+    width: 0;
+  }
+}
+//Pill wil custom icon
+:host(.has-icon) {
+  padding-inline-start: 0;
+}
+
+//Static
+:host([type="static"]),
+:host([type="static-with-action"]) {
+  background-color: var(--gray-01);
+  border-color: var(--gray-01);
+  font-style: italic;
+}
+:host([type="static-with-action"]),
+:host([type="button-with-action"]) {
+  padding-inline-end: 0;
+}
+//Button / Button with action
+:host([type="button"]) {
+  padding-inline-end: var(--spacing-comp-02);
+}
+:host([type="button"]:hover),
+:host([type="button-with-action"]:hover) {
+  border-color: var(--gray-07);
+  cursor: pointer;
+}
+:host([type="button"]:focus),
+:host([type="button-with-action"]:focus) {
+  border-color: var(--gray-07);
+}
+:host([type="button"]:active),
+:host([type="button-with-action"]:active) {
+  border-color: var(--gray-07);
+}
+//Button with action
+:host([type="button-with-action"]) {
+  padding-inline-end: 2px;
+
+  .clear-button {
+    cursor: pointer;
+    opacity: 0.5;
+    margin-inline-start: 8px;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+:host(.hide) {
+  opacity: 0;
+}
+:host(:focus) {
+  outline: none;
+}
+:host([disabled]) {
+  .title {
+    color: var(--gray-03);
+  }
+  gxg-icon {
+    opacity: 0.3;
+  }
+  pointer-events: none;
+}
+:host([disabled][type="button"]),
+:host([disabled][type="button-with-action"]) {
+  border-color: var(--gray-03);
+}
+:host([disabled]:focus) {
+  box-shadow: none;
+}
+:host([height-auto]) {
+  height: auto;
+}

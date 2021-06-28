@@ -26,7 +26,18 @@ stories
     const defaultValuePillSlot = "Pill Label";
     const valuePillSlot = text(labelPillSlot, defaultValuePillSlot);
 
-    return `<gxg-pill type="static" tabindex="0" icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
+    function disabledPill() {
+      if (valueDisabled) {
+        return "disabled";
+      }
+    }
+
+    return `<gxg-pill type="static" tabindex="0" ${disabledPill()} icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
   })
   .add("Pill Static With Action", () => {
     //Pill Icon
@@ -39,26 +50,34 @@ stories
     const defaultValuePillSlot = "Pill Label";
     const valuePillSlot = text(labelPillSlot, defaultValuePillSlot);
 
-    return `<gxg-pill type="static-with-action" tabindex="0" icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
+
+    function disabledPill() {
+      if (valueDisabled) {
+        return "disabled";
+      }
+    }
+
+    return `<gxg-pill type="static-with-action" tabindex="0" ${disabledPill()} icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
   })
   .add("Pill Button", () => {
-    //Disabled
-    const labelDisabled = "Disabled";
-    const defaultValueDisabled = false;
-    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
-
-    /*Pill Icon*/
-    const labelIcon = "Icon";
-    const optionsIcon = {
-      "gemini-tools/pill-filled": "gemini-tools/pill-filled",
-      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined",
-    };
-    const defaultValueIcon = optionsIcon["gemini-tools/pill-filled"];
+    //Pill Icon
+    const labelPillIcon = "Icon";
+    const defaultValuePillIcon = "gx-server/lock-without-changes";
+    const valuePillIcon = text(labelPillIcon, defaultValuePillIcon);
 
     //Pill Label
     const labelPillSlot = "Slot";
     const defaultValuePillSlot = "Pill Label";
     const valuePillSlot = text(labelPillSlot, defaultValuePillSlot);
+
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
     function disabledPill() {
       if (valueDisabled) {
@@ -66,30 +85,23 @@ stories
       }
     }
 
-    return `<gxg-pill type="button" tabindex="0" ${disabledPill()} icon="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}">${valuePillSlot}</gxg-pill>`;
+    return `<gxg-pill type="button" tabindex="0" ${disabledPill()} icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
   })
   .add("Pill Button With Action", () => {
-    //Disabled
-    const labelDisabled = "Disabled";
-    const defaultValueDisabled = false;
-    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
-
-    /*Pill Icon*/
-    const labelIcon = "Icon";
-    const optionsIcon = {
-      "gemini-tools/pill-filled": "gemini-tools/pill-filled",
-      "gemini-tools/pill-outlined": "gemini-tools/pill-outlined",
-    };
-    const defaultValueIcon = optionsIcon["gemini-tools/pill-filled"];
+    //Pill Icon
+    const labelPillIcon = "Icon";
+    const defaultValuePillIcon = "gx-server/changes-commit-pending";
+    const valuePillIcon = text(labelPillIcon, defaultValuePillIcon);
 
     //Pill Label
     const labelPillSlot = "Slot";
     const defaultValuePillSlot = "Pill Label";
     const valuePillSlot = text(labelPillSlot, defaultValuePillSlot);
+
+    //Disabled
+    const labelDisabled = "Disabled";
+    const defaultValueDisabled = false;
+    const valueDisabled = boolean(labelDisabled, defaultValueDisabled);
 
     function disabledPill() {
       if (valueDisabled) {
@@ -97,11 +109,7 @@ stories
       }
     }
 
-    return `<gxg-pill type="button-with-action" tabindex="0" ${disabledPill()} icon="${select(
-      labelIcon,
-      optionsIcon,
-      defaultValueIcon
-    )}">${valuePillSlot}</gxg-pill>`;
+    return `<gxg-pill type="button-with-action" tabindex="0" ${disabledPill()} icon="${valuePillIcon}">${valuePillSlot}</gxg-pill>`;
   })
   .add(
     "Pills Together",

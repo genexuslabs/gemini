@@ -1,7 +1,10 @@
 import { Component, Element, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-pill",
-  styleUrl: "pill.scss",
+  styleUrls: {
+    regular: "pill.regular.scss",
+    large: "pill.large.scss",
+  },
   shadow: true,
 })
 export class GxgPill {
@@ -15,7 +18,7 @@ export class GxgPill {
   /**
    * The icon
    */
-  @Prop() icon: string;
+  @Prop() icon: string = undefined;
 
   /**
    * The presence of this attribute sets auto-height. Usefull when the text overflows.
@@ -34,13 +37,14 @@ export class GxgPill {
     }, 250);
   }
 
-  // iconType() {
-  //   if (this.icon !== undefined) {
-  //     return this.icon;
-  //   } else {
-  //     return "gemini-tools/empty";
-  //   }
-  // }
+  iconType() {
+    if (this.icon !== undefined) {
+      return this.icon;
+    } else {
+      console.log("empty icon");
+      return "gemini-tools/empty";
+    }
+  }
   iconColor() {
     if (this.disabled) {
       return "disabled";
@@ -51,8 +55,19 @@ export class GxgPill {
 
   render() {
     return (
-      <Host tabindex="0" class={{ "no-icon": this.icon === undefined }}>
-        <gxg-icon type={this.icon} size="small" color="auto"></gxg-icon>
+      <Host
+        tabindex="0"
+        class={{
+          "no-icon": this.icon === undefined,
+          "has-icon": this.icon !== undefined,
+        }}
+      >
+        <gxg-icon
+          class="custom"
+          type={this.iconType()}
+          size="regular"
+          color={this.iconColor()}
+        ></gxg-icon>
 
         <span class="title">
           <slot></slot>

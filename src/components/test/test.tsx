@@ -1,29 +1,15 @@
-import { Component, h, Host, Element, Listen } from "@stencil/core";
+import { Component, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-test",
-  styleUrl: "test.scss",
+  styleUrls: {
+    ios: "test.ios.scss",
+    md: "test.md.scss",
+    big: "test.big.scss",
+  },
   shadow: true,
 })
 export class GxgTest {
-  textInput!: HTMLInputElement;
-
-  @Element() host: HTMLElement;
-  @Listen("focus")
-  handleFocus(focusEvent: Event) {
-    if (focusEvent.target !== this.host) {
-      return;
-    }
-    this.textInput.focus();
-  }
-
   render() {
-    return (
-      <Host tabindex="0">
-        <input
-          tabindex="0"
-          ref={(el) => (this.textInput = el as HTMLInputElement)}
-        ></input>
-      </Host>
-    );
+    return <Host>hola</Host>;
   }
 }
