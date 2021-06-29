@@ -11,7 +11,9 @@ const COLOR_MAPPINGS = {
   error: "color-error-dark",
   negative: "color-on-primary",
   onbackground: "color-on-background",
-  primary: "color-primary-active",
+  "primary-enabled": "color-primary-enabled",
+  "primary-active": "color-primary-active",
+  "primary-hover": "color-primary-hover",
   success: "color-success-dark",
   warning: "color-warning-dark",
 };
@@ -86,7 +88,9 @@ export class GxgIcon {
 }
 
 export type Color =
-  | "primary"
+  | "primary-enabled"
+  | "primary-active"
+  | "primary-hover"
   | "onbackground"
   | "negative"
   | "disabled"

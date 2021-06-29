@@ -10,5 +10,3 @@ const getMode = (el: HTMLElement): string => {
 };
 
 setMode((el) => getMode(el));
-
-console.log("global.ts loaded");

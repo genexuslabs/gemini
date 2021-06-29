@@ -135,7 +135,7 @@ export class GxgTreeItem {
 
     //Set right icon color
     if (this.download && this.rightIcon.includes("download")) {
-      this.rightIconColor = "primary";
+      this.rightIconColor = "primary-enabled";
     } else if (this.disabled) {
       this.rightIconColor = "disabled";
     }

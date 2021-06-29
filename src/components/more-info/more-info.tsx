@@ -35,7 +35,7 @@ export class GxgMoreInfo {
     return (
       <span class="more-info">
         <gxg-icon
-          color="primary"
+          color="primary-enabled"
           size="small"
           type="gemini-tools/notice"
         ></gxg-icon>

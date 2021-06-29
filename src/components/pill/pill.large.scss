@@ -11,12 +11,13 @@
   padding-inline-start: var(--spacing-comp-02);
   padding-inline-end: var(--spacing-comp-03);
   opacity: 1;
-  height: var(--spacing-comp-04);
+  height: 20px;
   box-sizing: border-box;
   @include ui-animation(opacity);
 
   .title {
     @include gxg-text;
+    font-size: var(--font-size-lg);
   }
   .clear-button {
     margin-inline-start: 10px;
@@ -29,7 +30,7 @@
   gxg-icon {
     transform: scale(0.84);
     &.clear-button {
-      transform: scale(0.65);
+      transform: scale(0.85);
     }
   }
 }

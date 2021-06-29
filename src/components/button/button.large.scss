@@ -20,11 +20,12 @@
     --svg-icon-small-scale
   ); // Force Icon size inside button to always be small size.
 
-  height: 20px;
+  height: var(--spacing-comp-05);
   position: relative;
 
   @include gxg-button-styles;
   /*button styles are included on a mixin, because they are used on both, gxg-button, and gxg-button-group elements*/
+  font-size: var(--font-size-lg) !important;
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
@@ -65,8 +66,8 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-icon) .button-native {
   @include gxg-label--negative;
-  padding-inline-start: var(--spacing-comp-01);
-  padding-inline-end: var(--spacing-comp-02);
+  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-end: var(--spacing-comp-03);
   gxg-icon:not(.ghost-icon) {
     padding-inline-end: var(--spacing-comp-01);
   }
@@ -81,8 +82,8 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 :host(.button--primary-icon-only) .button-native {
   background: var(--color-primary-enabled);
   color: var(--color-on-primary);
-  width: 20px;
-  height: 20px;
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
   padding-left: 0;
   padding-right: 0;
 
@@ -146,8 +147,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-start: 0;
 
-  padding-inline-start: var(--spacing-comp-01);
-  padding-inline-end: var(--spacing-comp-02);
+  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-end: var(--spacing-comp-03);
   gxg-icon:not(.ghost-icon) {
     padding-inline-end: var(--spacing-comp-01);
   }
@@ -182,8 +183,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-end: 0;
   padding-inline-start: 0;
-  width: 20px;
-  height: 20px;
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
 
   &:hover:not([disabled]) {
     background: transparent;
@@ -242,8 +243,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-end: 0;
   padding-inline-start: 0;
-  height: 20px;
-  width: 20px;
+  height: var(--spacing-comp-05);
+  width: var(--spacing-comp-05);
 
   &:hover:not([disabled]) {
     background: transparent;
@@ -302,16 +303,5 @@ ICON TOOLTIP (ONLY FOR PRIMARY-ICON-ONLY & SECONDARY-ICON-ONLY TYPES)
 :host(.show-tooltip) {
   .icon-tooltip {
     opacity: 1;
-  }
-}
-
-html.big {
-  :host {
-    background-color: red !important;
-  }
-}
-:root.big {
-  :host {
-    background-color: red !important;
   }
 }

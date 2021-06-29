@@ -13,40 +13,49 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      html.dark {
-        background-color: #1D1E22;
-      }
-      body {
-        font-family: "opens sans", sans-serif;
+      .container {
+        width: 628px;
+        height: 400px;
+        background-color: white;                                            
       }
     </style>
   </head>
   <body>
-    <h4>pills without icon</h4>
-    <gxg-pill type="static">Salt</gxg-pill>
-    <gxg-pill type="static-with-action">Salt</gxg-pill>
-    <gxg-pill type="button">Salt</gxg-pill>
-    <gxg-pill type="button-with-action">Salt</gxg-pill>
-    
-    <h4>pills without icon disabled</h4>
-    <gxg-pill disabled type="static">Salt</gxg-pill>
-    <gxg-pill disabled type="static-with-action">Salt</gxg-pill>
-    <gxg-pill disabled type="button">Salt</gxg-pill>
-    <gxg-pill disabled type="button-with-action">Salt</gxg-pill>
+    <div class="container" id="container" >
+      <gxg-splitter id="splitter1" direction="horizontal" knob="bidirectional" sizes="25,75" min-size="100,300">
+         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
+    <br>
+    <div class="container" id="container" >
+      <gxg-splitter id="splitter2" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
+         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
 
-    <h4>pills with icon</h4>
-    <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
-    <gxg-pill icon="objects/procedure" type="static-with-action">Salt</gxg-pill>
-    <gxg-pill icon="gx-server/lock-without-changes" type="button">Salt</gxg-pill>
-    <gxg-pill icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
+    <button id="colapse-button">collapse first split</button>
 
-    <h4>pills with icon disabled</h4>
-    <gxg-pill disabled icon="objects/procedure" type="static">Salt</gxg-pill>
-    <gxg-pill disabled icon="objects/procedure" type="static-with-action">Salt</gxg-pill>
-    <gxg-pill disabled icon="gx-server/lock-without-changes" type="button">Salt</gxg-pill>
-    <gxg-pill disabled icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
     <script>
-      
+       let container = document.getElementById("container");
+       container.addEventListener("dragging", function(){
+          console.log("dragging")
+       });
+       container.addEventListener("dragEnded", function(){
+          console.log("dragEnded")
+       });
+
+       //Colapse first split method
+       let colapseButton = document.getElementById("colapse-button");
+       colapseButton.addEventListener("click", function(){
+          (async () => {
+            await customElements.whenDefined('gxg-splitter');
+            const gxgSplitter = document.getElementById('splitter');
+            gxgSplitter.collapse(1);
+          })();
+       })
+
     </script>
   </body>
 </html>

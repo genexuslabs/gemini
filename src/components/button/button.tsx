@@ -1,10 +1,21 @@
-import { Component, Element, h, Host, Prop, Listen } from "@stencil/core";
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Prop,
+  Listen,
+  State,
+} from "@stencil/core";
 import { Color } from "../icon/icon";
 import { Size } from "../icon/icon";
 
 @Component({
   tag: "gxg-button",
-  styleUrl: "button.scss",
+  styleUrls: {
+    regular: "button.regular.scss",
+    large: "button.large.scss",
+  },
   shadow: true,
 })
 export class GxgButton {
@@ -50,6 +61,9 @@ export class GxgButton {
    * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
    */
   @Prop() buttonStylesEditable = false;
+
+  @State() mouseEnter = false;
+  @State() focusIn = false;
 
   /*********************************
   METHODS
@@ -127,7 +141,15 @@ export class GxgButton {
       if (this.disabled) {
         iColor = "disabled";
       } else {
-        iColor = "primary";
+        if (this.mouseEnter) {
+          iColor = "primary-hover";
+        } else {
+          if (this.focusIn) {
+            iColor = "primary-active";
+          } else {
+            iColor = "primary-enabled";
+          }
+        }
       }
     } else if (this.type.includes("tertiary")) {
       if (this.disabled) {
@@ -159,6 +181,20 @@ export class GxgButton {
     this.button.focus();
   }
 
+  onMouseEnter() {
+    this.mouseEnter = true;
+  }
+  onMouseLeave() {
+    this.mouseEnter = false;
+  }
+  onFocusIn() {
+    this.focusIn = true;
+    this.mouseEnter = false;
+  }
+  onFocusOut() {
+    this.focusIn = false;
+  }
+
   render() {
     return (
       <Host
@@ -177,6 +213,10 @@ export class GxgButton {
           "button--fullwidth": this.fullWidth === true,
         }}
         onClick={this.clickHandler.bind(this)}
+        onMouseEnter={this.onMouseEnter.bind(this)}
+        onMouseLeave={this.onMouseLeave.bind(this)}
+        onfocusin={this.onFocusIn.bind(this)}
+        onfocusout={this.onFocusOut.bind(this)}
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
