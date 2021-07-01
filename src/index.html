@@ -22,14 +22,14 @@
   </head>
   <body>
     <div class="container" id="container" >
-      <gxg-splitter id="splitter1" direction="horizontal" knob="bidirectional" sizes="25,75" min-size="100,300">
+      <gxg-splitter id="splitter" direction="horizontal" knob="bidirectional" sizes="25,75" min-size="0,300">
          <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
       </gxg-splitter>
     </div>
     <br>
     <div class="container" id="container" >
-      <gxg-splitter id="splitter2" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
+      <gxg-splitter id="splitter" direction="vertical" knob="bidirectional" sizes="25,75" min-size="0,300">
          <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
       </gxg-splitter>
@@ -52,7 +52,7 @@
           (async () => {
             await customElements.whenDefined('gxg-splitter');
             const gxgSplitter = document.getElementById('splitter');
-            gxgSplitter.collapse(1);
+            gxgSplitter.collapseFirstSplit();
           })();
        })
 

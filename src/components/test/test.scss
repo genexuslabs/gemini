@@ -1,0 +1,6 @@
+:host {
+  background-color: yellow;
+}
+:host([mode="large"]) {
+  background-color: red;
+}
