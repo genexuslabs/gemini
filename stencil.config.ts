@@ -3,7 +3,6 @@ import { sass } from "@stencil/sass";
 
 export const config: Config = {
   namespace: "gemini",
-  globalScript: "./src/globals/global.ts",
   outputTargets: [
     {
       type: "dist",

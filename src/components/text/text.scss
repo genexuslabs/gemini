@@ -9,8 +9,25 @@
   display: inline-block;
 }
 :host {
+  font-size: 14px;
   p,
   q {
     margin: 0;
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  .gxg-text,
+  .gxg-text--gray,
+  .gxg-quote,
+  .gxg-link,
+  .gxg-link-gray,
+  .gxg-alert-error,
+  .gxg-alert-warning,
+  .gxg-alert-success {
+    font-size: var(--font-size-lg);
   }
 }

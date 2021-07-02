@@ -1,9 +1,10 @@
 import { Component, Host, Prop, h } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-text",
   styleUrl: "text.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgText {
   /**
@@ -63,7 +64,7 @@ export class GxgText {
   }
 
   render() {
-    return <Host>{this.textType()} </Host>;
+    return <Host class={{ large: state.large }}>{this.textType()} </Host>;
   }
 }
 

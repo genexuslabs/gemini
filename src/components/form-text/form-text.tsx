@@ -16,6 +16,7 @@ import {
   formHandleChange,
   FormComponent,
 } from "../../common";
+import state from "../store";
 
 @Component({
   tag: "gxg-form-text",
@@ -385,7 +386,10 @@ export class GxgFormText implements FormComponent {
         style={{
           maxWidth: this.maxWidth,
         }}
-        class={{ rtl: this.rtl }}
+        class={{
+          rtl: this.rtl,
+          large: state.large,
+        }}
         tabindex="0"
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}

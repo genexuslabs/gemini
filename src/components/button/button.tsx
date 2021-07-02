@@ -9,13 +9,11 @@ import {
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { Size } from "../icon/icon";
+import state from "../store";
 
 @Component({
   tag: "gxg-button",
-  styleUrls: {
-    regular: "button.regular.scss",
-    large: "button.large.scss",
-  },
+  styleUrl: "button.scss",
   shadow: true,
 })
 export class GxgButton {
@@ -211,6 +209,7 @@ export class GxgButton {
           "button--disabled": this.disabled === true,
           "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true,
+          large: state.large,
         }}
         onClick={this.clickHandler.bind(this)}
         onMouseEnter={this.onMouseEnter.bind(this)}

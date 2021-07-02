@@ -54,3 +54,16 @@ TEXTAREA
     @include form-element-common-styles-warning();
   }
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  label,
+  textarea {
+    font-size: var(--font-size-lg);
+  }
+  textarea {
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  }
+}

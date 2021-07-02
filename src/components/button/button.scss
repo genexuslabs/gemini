@@ -304,3 +304,36 @@ ICON TOOLTIP (ONLY FOR PRIMARY-ICON-ONLY & SECONDARY-ICON-ONLY TYPES)
     opacity: 1;
   }
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) .button-native {
+  height: var(--spacing-comp-05);
+  font-size: var(--font-size-lg) !important;
+}
+//PRIMARY 'TEXT + ICON' BUTTON TYPE
+:host(.button--primary-text-icon.large) .button-native {
+  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-end: var(--spacing-comp-03);
+}
+//'PRIMARY ICON ONLY' BUTTON TYPE
+:host(.button--primary-icon-only.large) .button-native {
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
+}
+//SECONDARY 'TEXT ICON' BUTTON TYPE
+:host(.button--secondary-text-icon.large) .button-native {
+  padding-inline-start: var(--spacing-comp-02);
+  padding-inline-end: var(--spacing-comp-03);
+}
+//'SECONDARY ICON ONLY' BUTTON TYPE
+:host(.button--secondary-icon-only.large) .button-native {
+  width: var(--spacing-comp-05);
+  height: var(--spacing-comp-05);
+}
+//'TERTIARY' BUTTON TYPE
+:host(.button--tertiary.large) .button-native {
+  height: var(--spacing-comp-05);
+  width: var(--spacing-comp-05);
+}

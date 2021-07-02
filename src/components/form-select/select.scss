@@ -104,7 +104,7 @@ SELECT
     right: 0;
     z-index: 99;
     border-width: var(--border-width-sm);
-    border-color: var(--gray-04);
+    border-color: var(--gray-02);
     border-style: var(--border-style-regular);
     border-top: 0;
     overflow-y: scroll;
@@ -214,5 +214,36 @@ ERROR & WARNING
     margin-bottom: 0;
     margin-inline-end: var(--spacing-comp-02);
     flex-shrink: 0;
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  label {
+    font-size: var(--font-size-lg);
+  }
+  .select-selected {
+    height: var(--spacing-comp-05);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-lg);
+  }
+  .select-selected:before {
+    top: 3px;
+  }
+  .select-selected:after {
+    top: 14px;
+  }
+  .select-items {
+    max-height: calc(var(--size) * var(--spacing-comp-05));
+  }
+  .select-items div {
+    height: 14px;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-lg);
   }
 }

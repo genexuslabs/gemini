@@ -3,13 +3,14 @@ import {
   requiredLabel,
   formMessage,
   formHandleChange,
-  FormComponent
+  FormComponent,
 } from "../../common";
+import state from "../store";
 
 @Component({
   tag: "gxg-form-textarea",
   styleUrl: "form-textarea.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormTextarea implements FormComponent {
   isRequiredError = false;
@@ -107,11 +108,14 @@ export class GxgFormTextarea implements FormComponent {
         role="textbox"
         aria-label={this.label}
         style={{ maxWidth: this.maxWidth }}
+        class={{
+          large: state.large,
+        }}
       >
         {this.label !== undefined ? (
           <label
             class={{
-              label: true
+              label: true,
             }}
           >
             {this.label}
@@ -122,11 +126,11 @@ export class GxgFormTextarea implements FormComponent {
         )}
 
         <textarea
-          ref={el => (this.textArea = el as HTMLTextAreaElement)}
+          ref={(el) => (this.textArea = el as HTMLTextAreaElement)}
           class={{
             textarea: true,
             "textarea--error": this.error === true,
-            "textarea--warning": this.warning === true
+            "textarea--warning": this.warning === true,
           }}
           placeholder={this.placeholder}
           disabled={this.disabled}

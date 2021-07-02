@@ -97,7 +97,6 @@ TYPOGRAPHY
 /*Title 05*/
 @mixin gxg-title-05 {
   font-family: var(--font-family-primary);
-  text-transform: uppercase;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
   letter-spacing: var(--letter-spacing-sm);
@@ -138,7 +137,7 @@ TYPOGRAPHY
 }
 @mixin gxg-text--gray {
   @include gxg-text;
-  color: var(--gray-04);
+  color: var(--gray-05);
 }
 .gxg-text--gray {
   @include gxg-text--gray;
@@ -201,6 +200,7 @@ TYPOGRAPHY
 @mixin gxg-alert-error {
   @include gxg-text;
   color: var(--color-error-dark);
+  display: inline-block;
 }
 .gxg-alert-error {
   @include gxg-alert-error;
@@ -208,6 +208,7 @@ TYPOGRAPHY
 @mixin gxg-alert-warning {
   @include gxg-text;
   color: var(--color-warning-dark);
+  display: inline-block;
 }
 .gxg-alert-warning {
   @include gxg-alert-warning;
@@ -215,6 +216,7 @@ TYPOGRAPHY
 @mixin gxg-alert-success {
   @include gxg-text;
   color: var(--color-success-dark);
+  display: inline-block;
 }
 .gxg-alert-success {
   @include gxg-alert-success;
@@ -371,7 +373,7 @@ FORM ELEMENTS
 }
 @mixin form-element-common-styles {
   border-width: var(--border-width-sm);
-  border-color: var(--gray-04);
+  border-color: var(--gray-02);
   border-style: var(--border-style-regular);
   border-radius: var(--border-radius-sm);
   padding-left: var(--spacing-comp-01);

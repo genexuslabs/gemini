@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <gxg-form-textarea
+    id="gxg-textarea"
+    max-width="240px"
+    label="Describe your experience"
+    placeholder="I have experience as a.."
+    rows="4"
+  ></gxg-form-textarea>
+  <br>
+  <gxg-button id="btn-show-errors">Show errors</gxg-button>
+  <script>
+    //Display error message
+    const btnShowErrors = document.getElementById("btn-show-errors");
+    btnShowErrors.addEventListener("click", function(){
+    const gxgFormTextArea = document.getElementById("gxg-textarea");
+    const gxgFormMessage = document.createElement("gxg-form-message");
+    gxgFormMessage.innerHTML = "Please, describe your experience";
+    gxgFormMessage.setAttribute("type", "error");
+    gxgFormMessage.setAttribute("slot", "message");
+    gxgFormTextArea.setAttribute("error",true);
+    gxgFormTextArea.appendChild(gxgFormMessage);
+  });
+  </script>
+  </body>
+</html>

@@ -10,3 +10,24 @@
     margin: 0;
   }
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  .gxg-title-01 {
+    font-size: var(--font-size-xl);
+  }
+  .gxg-title-02 {
+    font-size: var(--font-size-lg);
+  }
+  .gxg-title-03 {
+    font-size: var(--font-size-lg);
+  }
+  .gxg-title-04 {
+    font-size: var(--font-size-xl);
+  }
+  .gxg-title-05 {
+    font-size: var(--font-size-lg);
+  }
+}

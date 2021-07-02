@@ -153,3 +153,16 @@
     }
   }
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.button-group.large) {
+  .button-group-header-title {
+    font-size: var(--font-size-lg);
+  }
+  ::slotted(button) {
+    height: var(--spacing-comp-05);
+    font-size: var(--font-size-lg) !important;
+  }
+}

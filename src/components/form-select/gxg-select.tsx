@@ -8,14 +8,15 @@ import {
   Host,
   Watch,
   State,
-  Listen
+  Listen,
 } from "@stencil/core";
 import { requiredLabel, formMessage } from "../../common.js";
+import state from "../store";
 
 @Component({
   tag: "gxg-select",
   styleUrl: "select.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormSelect {
   //A reference to the select
@@ -132,7 +133,7 @@ export class GxgFormSelect {
     const slots = this.el.shadowRoot.querySelectorAll("slot");
     slots[0].addEventListener(
       "slotchange",
-      function() {
+      function () {
         this.el.shadowRoot.querySelector(".select-selected").remove();
         this.el.shadowRoot.querySelector(".select-items").remove();
         this.selectCore();
@@ -154,7 +155,7 @@ export class GxgFormSelect {
   }
 
   selectCore() {
-    const updateValue = selectedOption => {
+    const updateValue = (selectedOption) => {
       this.value = selectedOption;
     };
 
@@ -170,7 +171,7 @@ export class GxgFormSelect {
       a.setAttribute("class", "select-selected");
       a.setAttribute("tabindex", "0");
       a.setAttribute("role", "listbox");
-      a.addEventListener("keydown", event => {
+      a.addEventListener("keydown", (event) => {
         //event.preventDefault();
         const select = this.el.shadowRoot.querySelector(".select-items");
         let selected = select.querySelector(".same-as-selected");
@@ -249,7 +250,7 @@ export class GxgFormSelect {
         b.appendChild(c);
       }
       x[i].appendChild(b);
-      a.addEventListener("click", function(e) {
+      a.addEventListener("click", function (e) {
         e.stopPropagation();
 
         this.nextSibling.classList.toggle("select-hide");
@@ -317,10 +318,11 @@ export class GxgFormSelect {
       <Host
         style={{
           maxWidth: this.maxWidth,
-          "--size": this.size
+          "--size": this.size,
         }}
         class={{
-          rtl: this.rtl
+          rtl: this.rtl,
+          large: state.large,
         }}
         onKeyDown={this.handlerOnKeyDown.bind(this)}
       >
@@ -328,7 +330,7 @@ export class GxgFormSelect {
           {this.label !== undefined ? (
             <label
               class={{
-                label: true
+                label: true,
               }}
             >
               {this.label}
@@ -342,9 +344,9 @@ export class GxgFormSelect {
               "custom-select": true,
               select: true,
               "select--error": this.error === true,
-              "select--warning": this.warning === true
+              "select--warning": this.warning === true,
             }}
-            ref={el => (this.select = el as HTMLDivElement)}
+            ref={(el) => (this.select = el as HTMLDivElement)}
           >
             <select id="original">
               <slot></slot>

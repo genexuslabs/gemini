@@ -238,3 +238,21 @@ Reading direction RTL
     left: 0;
   }
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  label {
+    font-size: var(--font-size-lg);
+  }
+  input {
+    height: var(--spacing-comp-05);
+    font-size: var(--font-size-lg);
+  }
+  input[type="text"],
+  input[type="password"] {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}

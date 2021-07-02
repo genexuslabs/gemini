@@ -1,9 +1,10 @@
 import { Component, Host, Prop, h } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-title",
   styleUrl: "title.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTitle {
   /**
@@ -36,7 +37,7 @@ export class GxgTitle {
   }
 
   render() {
-    return <Host>{this.titleType()} </Host>;
+    return <Host class={{ large: state.large }}>{this.titleType()} </Host>;
   }
 }
 

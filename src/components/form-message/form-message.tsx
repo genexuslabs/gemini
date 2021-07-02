@@ -1,9 +1,10 @@
 import { Component, Host, Prop, h } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-form-message",
   styleUrl: "form-message.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormMessage {
   /**
@@ -29,7 +30,11 @@ export class GxgFormMessage {
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          large: state.large,
+        }}
+      >
         <gxg-icon
           style={{ "--icon-size": "15px" }}
           slot="icon"

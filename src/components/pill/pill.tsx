@@ -1,10 +1,8 @@
 import { Component, Element, Prop, h, Host } from "@stencil/core";
+import state from "../store";
 @Component({
   tag: "gxg-pill",
-  styleUrls: {
-    regular: "pill.regular.scss",
-    large: "pill.large.scss",
-  },
+  styleUrl: "pill.scss",
   shadow: true,
 })
 export class GxgPill {
@@ -60,6 +58,7 @@ export class GxgPill {
         class={{
           "no-icon": this.icon === undefined,
           "has-icon": this.icon !== undefined,
+          large: state.large,
         }}
       >
         <gxg-icon

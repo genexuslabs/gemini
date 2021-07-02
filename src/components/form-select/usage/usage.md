@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>2 - SASS - Night Mode with Class</title>
-
-    <script type="module" src="/build/gemini.esm.js"></script>
-    <script nomodule src="/build/gemini.js"></script>
-    <link href="/build/gemini.css" rel="stylesheet" />
-
-    <style>
-      
-    </style>
-  </head>
-  <body>
-    <gxg-select
+```
+   <gxg-select
     label="Select a car:"
     label-position="above"
     max-width="240px"
@@ -48,5 +30,4 @@
       gxgSelect.appendChild(gxgFormMessage);
     });
   </script>
-  </body>
-</html>
+```

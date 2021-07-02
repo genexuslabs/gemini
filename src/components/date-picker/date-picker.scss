@@ -15,7 +15,7 @@
   width: 100%;
   @include gxg-text;
   @include form-element-common-styles();
-  height: var(--spacing-comp-05);
+  height: 20px;
   box-sizing: border-box;
 
   &:focus {
@@ -25,34 +25,42 @@
   cursor: pointer;
   z-index: 100;
 }
+.qs-datepicker {
+  padding: 4px 0 0 0;
+}
 .qs-datepicker-container {
   border: none;
   box-shadow: var(--box-shadow-01);
-  padding: var(--spacing-comp-02) var(--spacing-comp-02) 7px
-    var(--spacing-comp-02);
+  padding: 0;
   width: 181px;
   background: var(--color-background);
+  margin-top: 6px;
 }
 .qs-datepicker .qs-controls {
   background-color: transparent;
   color: var(--color-on-background);
 }
 .qs-datepicker .qs-square {
-  border: 1px solid var(--gray-03);
+  border: 1px solid var(--gray-01);
   border-radius: 0;
   width: var(--spacing-comp-05);
   height: var(--spacing-comp-05);
   margin: 0.5px;
   color: var(--color-on-background);
-}
-.qs-month-year {
-  font-size: var(--font-size-md);
   font-family: var(--font-family-primary);
 }
+.qs-month-year {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-primary);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-regular);
+}
 .qs-datepicker .qs-square.qs-day {
-  color: var(-color-on-background);
+  color: var(--color-on-background);
   border: 0;
   height: var(--spacing-comp-04);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-extra-bold);
 }
 .qs-datepicker .qs-square.qs-active,
 .qs-datepicker
@@ -61,8 +69,8 @@
   border-color: var(--color-primary-active);
 }
 .qs-datepicker .qs-arrow:after {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
   border: 1px solid black;
   top: 4px;
 }
@@ -76,21 +84,41 @@
 .qs-datepicker .qs-arrow.qs-left:after {
   border-color: var(--color-on-background);
 }
-.qs-datepicker .qs-arrow.qs-right:after {
-  border-left: 0;
-  border-bottom: 0;
-  transform: rotate(45deg) !important;
-  left: 3px;
-}
 .qs-datepicker .qs-arrow.qs-left:after {
   border-right: 0;
   border-bottom: 0;
   transform: rotate(-45deg) !important;
-  left: 6px;
+  left: 13px;
+}
+.qs-datepicker .qs-arrow.qs-right:after {
+  border-left: 0;
+  border-bottom: 0;
+  transform: rotate(45deg) !important;
+  left: -4px;
+}
+.qs-disabled,
+.qs-outside-current-month {
+  opacity: 0.4;
 }
 //reading direction
 :host(.rtl) {
   .qs-datepicker-container {
     right: 0;
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  #date-picker {
+    font-size: var(--font-size-lg);
+    height: var(--spacing-comp-05);
+  }
+  label,
+  .qs-month-year,
+  .qs-square.qs-day,
+  .qs-square {
+    font-size: var(--font-size-lg);
   }
 }

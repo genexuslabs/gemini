@@ -111,3 +111,18 @@
 :host([height-auto]) {
   height: auto;
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  height: 20px;
+  .title {
+    font-size: var(--font-size-lg);
+  }
+  gxg-icon {
+    &.clear-button {
+      transform: scale(0.85);
+    }
+  }
+}

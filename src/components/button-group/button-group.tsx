@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-button-group",
@@ -181,6 +182,7 @@ export class GxgButtonGroup {
         class={{
           "button-group": true,
           rtl: this.rtl,
+          large: state.large,
         }}
         value={this.value}
         title-alignment={this.titleAlignment}

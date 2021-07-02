@@ -17,10 +17,13 @@
     </style>
   </head>
   <body>
-    <gxg-button-group title-alignment="left" button-group-title="Buttons title"  default-selected-btn-id="button1">
-      <button id="button1">Button 1</button>
-      <button id="button2">Button 2</button>
-      <button id="button3">Button 3</button>
-    </gxg-button-group>
+    <gxg-date-picker  
+    default-date="2020, 12, 20"
+    label="Set your birthday:"
+    max-width="240px"
+    max-date="2023, 12, 20"
+    min-date="2019, 12, 20"
+    no-weekends
+  ></gxg-date-picker>
   </body>
 </html>

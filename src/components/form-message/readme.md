@@ -3,7 +3,7 @@
 <h2>Notes</h2>
 <ul>
     <li>The <code>gxg-form-message</code> component is intended to be used inside form related components, in order to display warning or error messages relative to the fields validation.</li>
-    <li>Just append a <code>gxg-form-message</code> inside a gxg-form-x component with the following attributes: <code>type="warining"</code> or <code>"error"</code>, and <code>slot="message"</code></li>
+    <li>Just append a <code>gxg-form-message</code> inside a gxg-form-x component with the following attributes: <code>type="warning"</code> or <code>"error"</code>, and <code>slot="message"</code></li>
 </ul>
 <!-- Auto Generated Below -->
 
