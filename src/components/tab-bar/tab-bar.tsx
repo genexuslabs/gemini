@@ -40,39 +40,69 @@ export class GxgTabBar {
 
   appendTabItemsToMenu() {
     //This function appends tab-buttons into a tab-menu, as long as the tab-buttons are too tight
-
+    const gxgTabsPosition = this.el.parentElement.getAttribute("position");
     const buttonHeight = this.el.children.item(0).clientHeight;
-    const tabBarWidth = ((this.el.shadowRoot.querySelector(
-      ".tab-bar"
-    ) as unknown) as HTMLElement).offsetWidth;
-    const tabsWidth = this.el.parentElement.offsetWidth;
 
-    if (tabBarWidth + 20 > tabsWidth) {
-      const tabButtons = this.el.querySelectorAll("[slot=tab-bar]");
-      //get the last item of the nodeList
-      const lastTabButton = tabButtons[tabButtons.length - 1];
-      //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
-      lastTabButton.classList.add("menu-button");
-      lastTabButton.setAttribute("slot", "tab-menu");
-      this.appendedButtons++;
-      //}
-    } else {
-      const menuButtons = this.el.querySelectorAll("[slot=tab-menu]");
-      const menuFirstButton = menuButtons[0];
-      if (menuFirstButton !== undefined) {
-        if (
-          tabsWidth >
-          tabBarWidth +
-            ((menuFirstButton as unknown) as HTMLElement).offsetWidth
-        ) {
-          menuFirstButton.classList.remove("menu-button");
-          menuFirstButton.setAttribute("slot", "tab-bar");
-          this.appendedButtons--;
+    if (gxgTabsPosition === "top" || gxgTabsPosition === "bottom") {
+      const tabBarWidth = ((this.el.shadowRoot.querySelector(
+        ".tab-bar"
+      ) as unknown) as HTMLElement).offsetWidth;
+      const tabsWidth = this.el.parentElement.offsetWidth;
+
+      if (tabBarWidth + 20 > tabsWidth) {
+        const tabButtons = this.el.querySelectorAll("[slot=tab-bar]");
+        //get the last item of the nodeList
+        const lastTabButton = tabButtons[tabButtons.length - 1];
+        //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
+        lastTabButton.classList.add("menu-button");
+        lastTabButton.setAttribute("slot", "tab-menu");
+        this.appendedButtons++;
+        //}
+      } else {
+        const menuButtons = this.el.querySelectorAll("[slot=tab-menu]");
+        const menuFirstButton = menuButtons[0];
+        if (menuFirstButton !== undefined) {
+          if (
+            tabsWidth >
+            tabBarWidth +
+              ((menuFirstButton as unknown) as HTMLElement).offsetWidth
+          ) {
+            menuFirstButton.classList.remove("menu-button");
+            menuFirstButton.setAttribute("slot", "tab-bar");
+            this.appendedButtons--;
+          }
+        }
+      }
+    } else if (gxgTabsPosition === "left" || gxgTabsPosition === "right") {
+      const gxgTabsHeight = this.el.parentElement.offsetHeight;
+      const tabBarHeight = this.el.offsetWidth;
+
+      if (tabBarHeight > gxgTabsHeight) {
+        //tabBarHeight is higher than gxgTabsHeight
+        const tabButtons = this.el.querySelectorAll("[slot=tab-bar]");
+        //get the last item of the nodeList
+        const lastTabButton = tabButtons[tabButtons.length - 1];
+        //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
+        lastTabButton.classList.add("menu-button");
+        lastTabButton.setAttribute("slot", "tab-menu");
+        this.appendedButtons++;
+      } else {
+        //tabBarHeight is lower than gxgTabsHeight
+        const menuButtons = this.el.querySelectorAll("[slot=tab-menu]");
+        const menuFirstButton = menuButtons[0];
+        if (menuFirstButton !== undefined) {
+          if (
+            gxgTabsHeight >
+            tabBarHeight +
+              ((menuFirstButton as unknown) as HTMLElement).offsetWidth
+          ) {
+            menuFirstButton.classList.remove("menu-button");
+            menuFirstButton.setAttribute("slot", "tab-bar");
+            this.appendedButtons--;
+          }
         }
       }
     }
-
-    //set inline height to the "tab-bar-menu" for the height css transition to work propperly
     this.tabBarMenuHeight = this.appendedButtons * buttonHeight + "px";
   }
   componentDidLoad() {
@@ -115,7 +145,13 @@ export class GxgTabBar {
     const gxgTabsPosition = this.el.parentElement.getAttribute("position");
     if (gxgTabsPosition === "bottom") {
       const tabBarMenu = this.el.shadowRoot.querySelector(".tab-bar-menu");
+      console.log("tabBarMenu", tabBarMenu);
       tabBarMenu.classList.add("bottom");
+    }
+    //Tabbar menu on right
+    if (gxgTabsPosition === "right") {
+      const tabBarMenu = this.el.shadowRoot.querySelector(".tab-bar-menu");
+      tabBarMenu.classList.add("right");
     }
 
     this.setIndexToTabButtons();

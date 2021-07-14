@@ -13,14 +13,40 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-
+      html.dark {
+        background-color: #1D1E22;
+      }
+      body {
+        font-family: "opens sans", sans-serif;
+      }
     </style>
   </head>
   <body>
-    <gxg-title type="title-01">This is a title type 01</gxg-title><br>
-    <gxg-title type="title-02">This is a title type 02</gxg-title><br>
-    <gxg-title type="title-03">This is a title type 03</gxg-title><br>
-    <gxg-title type="title-04">This is a title type 04</gxg-title><br>
-    <gxg-title type="title-05">This is a title type 05</gxg-title>
+    <h4>pills without icon</h4>
+    <gxg-pill type="static">Salt</gxg-pill>
+    <gxg-pill type="static-with-action">Salt</gxg-pill>
+    <gxg-pill type="button">Salt</gxg-pill>
+    <gxg-pill type="button-with-action">Salt</gxg-pill>
+    
+    <h4>pills without icon disabled</h4>
+    <gxg-pill disabled type="static">Salt</gxg-pill>
+    <gxg-pill disabled type="static-with-action">Salt</gxg-pill>
+    <gxg-pill disabled type="button">Salt</gxg-pill>
+    <gxg-pill disabled type="button-with-action">Salt</gxg-pill>
+
+    <h4>pills with icon</h4>
+    <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
+    <gxg-pill icon="objects/procedure" type="static-with-action">Salt</gxg-pill>
+    <gxg-pill icon="gx-server/lock-without-changes" type="button">Salt</gxg-pill>
+    <gxg-pill icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
+
+    <h4>pills with icon disabled</h4>
+    <gxg-pill disabled icon="objects/procedure" type="static">Salt</gxg-pill>
+    <gxg-pill disabled icon="objects/procedure" type="static-with-action">Salt</gxg-pill>
+    <gxg-pill disabled icon="gx-server/lock-without-changes" type="button">Salt</gxg-pill>
+    <gxg-pill disabled icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
+    <script>
+      
+    </script>
   </body>
 </html>

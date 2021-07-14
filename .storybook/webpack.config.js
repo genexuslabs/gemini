@@ -7,7 +7,7 @@ module.exports = async ({ config }) => {
   config.entry.push(path.join(__dirname, "../dist/gemini.js"));
   config.entry.push(path.join(__dirname, "../dist/gemini/gemini.css"));
   fs.readdirSync(path.join(__dirname, "../dist/collection/components")).map(
-    function(file) {
+    function (file) {
       jsFilePath = path.join(
         __dirname,
         `../dist/collection/components/${file}/${file}.js`
@@ -39,8 +39,8 @@ module.exports = async ({ config }) => {
       {
         from: "**/*",
         to: "./",
-        context: "dist"
-      }
+        context: "dist",
+      },
     ])
   );
 
@@ -49,7 +49,13 @@ module.exports = async ({ config }) => {
   config.module.rules.push({
     test: /\.stories\.jsx?$/,
     loaders: [require.resolve("@storybook/source-loader")],
-    enforce: "pre"
+    enforce: "pre",
+  });
+
+  config.module.rules.push({
+    type: "javascript/auto",
+    test: /\.mjs$/,
+    use: [],
   });
 
   return config;

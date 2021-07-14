@@ -19,6 +19,9 @@ function setDark(isDark) {
 }
 channel.on("DARK_MODE", setDark);
 
+const root = document.getElementsByTagName("html")[0]; // '0' to assign the first (and only `HTML` tag)
+root.setAttribute("class", "gxg-large");
+
 function loadStories() {
   const req = require.context("../src", true, /\.stories\.js$/);
   req.keys().forEach((filename) => req(filename));

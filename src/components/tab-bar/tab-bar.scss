@@ -50,6 +50,9 @@
     &.bottom {
       bottom: 0;
     }
+    &.right {
+      bottom: 0;
+    }
   }
 }
 :host(.rtl) {

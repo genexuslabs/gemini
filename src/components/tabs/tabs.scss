@@ -39,3 +39,40 @@
   background: var(--gray-04);
   cursor: pointer;
 }
+
+//Tab bar left positioned
+:host([position="left"]) {
+  .tab-bar-container {
+    transform: rotate(-90deg) translate(-100%,0);
+    transform-origin: left top;
+    position: absolute;
+    z-index: 10;
+  }
+  .tabs-container {
+    position: absolute;
+    left: 32px;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+//Tab bar right positioned
+:host([position="right"]) {
+  .tab-bar-container {
+    transform: rotate(-90deg) translate(-100%,0);
+    transform-origin: left top;
+    position: absolute;
+    z-index: 10;
+    left: calc(100% - 32px);
+  }
+  .tabs-container {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+    width: calc(100% - 32px);
+  }
+  .tab-bar-menu {
+    background-color: red;
+  }
+}
