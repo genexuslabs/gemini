@@ -147,10 +147,6 @@ INPUT TEXT ICON
 }
 
 // Input with icon (on the left, or on the right)
-
-:host([icon-position="start"]) input {
-  padding-inline-start: 20px;
-}
 :host([icon-position="start"]) input {
   padding-inline-start: 20px;
 }
@@ -255,4 +251,48 @@ LARGE VERSION (html tag has 'gxg-large' class)
     padding-left: 7px;
     padding-right: 7px;
   }
+}
+// Input with icon (on the left, or on the right)
+:host(.large[icon-position="start"]) input{
+  padding-inline-start: var(--spacing-comp-05);  
+  .inner-wrapper gxg-icon {
+    top: 2px;
+    left: 2px;
+  }
+}
+:host(.large[icon-position="end"]) input{
+  padding-inline-end: var(--spacing-comp-05);
+  .inner-wrapper gxg-icon {
+    right: 2px;
+    left: auto;
+  }
+}
+:host(.large[icon-position="start"]){
+  .inner-wrapper gxg-icon {
+    top: 2px;
+    left: 2px;
+  }
+}
+:host(.large[icon-position="end"]){
+  .inner-wrapper gxg-icon {
+    top: 2px;
+    right: 2px;
+    left: auto;
+  }
+}
+//clear button
+:host(.large) gxg-icon.clear-button {
+  right: 5px !important;
+  left: auto !important;
+}
+:host(.large[icon-position="end"][clear-button]){
+  .inner-wrapper gxg-icon {
+    right: 21px;
+  }
+}
+:host(.large[icon-position="start"][clear-button]) input{
+  padding-inline-end: 26px;
+}
+:host(.large[icon-position="end"][clear-button]) input{
+  padding-inline-end: 42px;
 }

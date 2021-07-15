@@ -36,7 +36,7 @@ stories
         "text-link": "text-link",
         "text-link-gray": "text-link-gray",
       },
-      "link"
+      "text-link"
     )} target=${select(
       "Target",
       {

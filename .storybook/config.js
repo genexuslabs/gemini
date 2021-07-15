@@ -19,6 +19,7 @@ function setDark(isDark) {
 }
 channel.on("DARK_MODE", setDark);
 
+//Set large version
 const root = document.getElementsByTagName("html")[0]; // '0' to assign the first (and only `HTML` tag)
 root.setAttribute("class", "gxg-large");
 

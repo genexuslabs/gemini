@@ -37,7 +37,7 @@ stories.add("Text", () => {
   const requiredValue = boolean(requiredLabel, requiredDefaultValue);
 
   //Icon
-  const labelIcon = "Button Icon";
+  const labelIcon = "Icon";
   const defaultValueIcon = "gemini-tools/edit";
   const valueIcon = text(labelIcon, defaultValueIcon);
 
