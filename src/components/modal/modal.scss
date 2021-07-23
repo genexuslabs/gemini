@@ -22,7 +22,6 @@
     &--transition {
       @include ui-animation(opacity, margin-top);
     }
-    position: fixed;
   }
   .modal__header {
     display: flex;
@@ -90,7 +89,7 @@
 }
 :host {
   .layer {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
