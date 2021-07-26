@@ -1,12 +1,19 @@
 [
-  { "name": "window-tools/alphabetical-order", "description": "Some description" },
+  {
+    "name": "window-tools/alphabetical-order",
+    "description": "Some description"
+  },
   { "name": "window-tools/backend", "description": "Some description" },
   { "name": "window-tools/breakpoints", "description": "Some description" },
   { "name": "window-tools/category-groups", "description": "Some description" },
   { "name": "window-tools/debugx", "description": "Some description" },
   { "name": "window-tools/datastores", "description": "Some description" },
   { "name": "window-tools/error-list", "description": "Some description" },
-  { "name": "window-tools/filter-conditions", "description": "Some description" },
+  { "name": "window-tools/filter", "description": "Some description" },
+  {
+    "name": "window-tools/filter-conditions",
+    "description": "Some description"
+  },
   { "name": "window-tools/frontend", "description": "Some description" },
   { "name": "window-tools/genexus-cloud", "description": "Some description" },
   { "name": "window-tools/history", "description": "Some description" },
@@ -25,7 +32,10 @@
   { "name": "window-tools/preferences", "description": "Some description" },
   { "name": "window-tools/properties", "description": "Some description" },
   { "name": "window-tools/references", "description": "Some description" },
-  { "name": "window-tools/responsive-sizes", "description": "Some description" },
+  {
+    "name": "window-tools/responsive-sizes",
+    "description": "Some description"
+  },
   { "name": "window-tools/rol", "description": "Some description" },
   { "name": "window-tools/roles", "description": "Some description" },
   { "name": "window-tools/services", "description": "Some description" },
@@ -33,7 +43,10 @@
   { "name": "window-tools/toolbox", "description": "Some description" },
   { "name": "window-tools/watch", "description": "Some description" },
   { "name": "window-tools/workflow", "description": "Some description" },
-  { "name": "window-tools/workflow-settings", "description": "Some description" },
+  {
+    "name": "window-tools/workflow-settings",
+    "description": "Some description"
+  },
   {
     "name": "window-tools/work-with-attributes",
     "description": "Some description"
