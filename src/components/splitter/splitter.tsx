@@ -29,9 +29,14 @@ export class GxgSplitter {
   @Element() el: HTMLElement;
 
   /**
-   * The splitter direction test
+   * The splitter direction
    */
   @Prop() direction: Direction = "horizontal";
+
+  /**
+   * The splitter direction
+   */
+  @Prop() forceCollapseZero = false;
   /**
    * The type of knob
    */
@@ -50,10 +55,10 @@ export class GxgSplitter {
   @State() sizesArray: Array<number>;
   @State() idsArray: Array<string> = [];
   @State() currentSizes: number;
-  @State() leftSplitCollapsed = false;
+  @State() leftSplitReachedMin = false;
+  @State() rightSplitReachedMin = false;
 
-  @State() mouseDirection = "";
-  @State() oldx = 0;
+  @State() collapsedToZero = false;
 
   makeId(length) {
     const result = [];
@@ -135,6 +140,8 @@ export class GxgSplitter {
           knobLeftSide.style.backgroundColor = "transparent";
           knobLeftSide.style.cursor = "pointer";
           knobLeftSide.style.zIndex = "20";
+          knobLeftSide.style.pointerEvents = "auto";
+
           knobLeftSide.addEventListener(
             "click",
             this.knobLeftClicked.bind(this)
@@ -154,8 +161,9 @@ export class GxgSplitter {
           knobRightSide.style.borderBottomRightRadius = "40px";
           knobRightSide.style.borderTopRightRadius = "40px";
           knobRightSide.style.backgroundColor = "transparent";
-          knobLeftSide.style.cursor = "pointer";
-          knobLeftSide.style.zIndex = "20";
+          knobRightSide.style.cursor = "pointer";
+          knobRightSide.style.zIndex = "20";
+          knobRightSide.style.pointerEvents = "auto";
           knobRightSide.addEventListener(
             "click",
             this.knobRightClicked.bind(this)
@@ -165,26 +173,6 @@ export class GxgSplitter {
           knob.appendChild(knobRightSide);
           gutter.appendChild(knob);
           //End of KNOB
-        }
-
-        if (this.knob === "unidirectional") {
-          //KNOB middle line
-          const knob = document.createElement("span");
-          knob.style.backgroundColor = "transparent";
-          knob.style.position = "relative";
-          knob.style.display = "block";
-          knob.style.cursor = "pointer";
-          if (this.direction === "horizontal") {
-            knob.style.width = "8px";
-            knob.style.height = "30px";
-          } else if (this.direction === "vertical") {
-            knob.style.width = "30px";
-            knob.style.height = "8px";
-          }
-          knob.addEventListener("click", this.knobSimpleClicked.bind(this));
-          knob.onmouseover = this.knobSimpleOver.bind(this);
-          knob.onmouseout = this.knobSimpleOut.bind(this);
-          gutter.appendChild(knob);
         }
 
         gutter.className = `gutter gutter-${this.direction}`;
@@ -198,10 +186,6 @@ export class GxgSplitter {
       slottedSplits.forEach(function (split) {
         split.classList.add("split-horizontal");
       });
-    }
-
-    if (this.knob === "unidirectional") {
-      this.currentSizes = this.split.getSizes();
     }
   }
 
@@ -243,36 +227,85 @@ export class GxgSplitter {
 
   //KNOB
   knobLeftClicked() {
-    this.el.classList.remove("gutter-reached-left");
-    this.el.classList.remove("gutter-reached-right");
     //add class to make the transition smooth
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
-    this.split.collapse(0);
-    setTimeout(
-      function () {
-        this.detectDragEndReachedMinimum();
-      }.bind(this),
-      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-    );
+    if (this.forceCollapseZero) {
+      if (this.collapsedToZero) {
+        console.log("collapsed to zero");
+        this.split.collapse(1);
+        this.rightSplitReachedMin = true;
+        this.collapsedToZero = false;
+      } else if (this.leftSplitReachedMin) {
+        console.log("left Split Reached Min");
+        const leftSplit = slottedSplits[0];
+        const rightSplit = slottedSplits[1];
+        if (this.direction === "horizontal") {
+          leftSplit.style.width = "0";
+          rightSplit.style.width = "calc(100% - 8px)";
+          this.collapsedToZero = true;
+        } else if (this.direction === "vertical") {
+          leftSplit.style.height = "0";
+          rightSplit.style.height = "calc(100% - 8px)";
+          this.collapsedToZero = true;
+        }
+      } else {
+        this.split.collapse(0);
+        this.leftSplitReachedMin = true;
+        this.rightSplitReachedMin = false;
+      }
+    } else {
+      this.split.collapse(0);
+      setTimeout(
+        function () {
+          this.detectDragEndReachedMinimum();
+        }.bind(this),
+        350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+      );
+    }
   }
   knobRightClicked() {
-    this.el.classList.remove("gutter-reached-left");
-    this.el.classList.remove("gutter-reached-right");
     //add class to make the transition smooth
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
-    this.split.collapse(1);
-    setTimeout(
-      function () {
-        this.detectDragEndReachedMinimum();
-      }.bind(this),
-      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-    );
+    if (this.forceCollapseZero) {
+      if (this.collapsedToZero) {
+        console.log("collapsed to zero");
+        this.split.collapse(0);
+        this.rightSplitReachedMin = false;
+        this.collapsedToZero = false;
+      } else if (this.rightSplitReachedMin) {
+        console.log("right Split Reached Min");
+        const leftSplit = slottedSplits[0];
+        const rightSplit = slottedSplits[1];
+        if (this.direction === "horizontal") {
+          leftSplit.style.width = "calc(100% - 8px)";
+          rightSplit.style.width = "0";
+          this.collapsedToZero = true;
+        } else if (this.direction === "vertical") {
+          leftSplit.style.height = "calc(100% - 8px)";
+          rightSplit.style.height = "0";
+          this.collapsedToZero = true;
+        }
+      } else {
+        console.log("collapse 1");
+        this.split.collapse(1);
+        this.rightSplitReachedMin = true;
+        this.leftSplitReachedMin = false;
+      }
+    } else {
+      this.split.collapse(1);
+      setTimeout(
+        function () {
+          this.detectDragEndReachedMinimum();
+        }.bind(this),
+        350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
+      );
+    }
   }
   knobLeftOver() {
     this.el.classList.add("knob-left-hover");
@@ -287,42 +320,6 @@ export class GxgSplitter {
     this.el.classList.remove("knob-right-hover");
   }
 
-  //KNOB SIMPLE VERSION
-  knobSimpleClicked() {
-    if (!this.leftSplitCollapsed) {
-      //get current left split position
-      this.currentSizes = this.split.getSizes();
-      //add class to make the transition smooth
-      const slottedSplits = document.querySelectorAll("gxg-split");
-      slottedSplits.forEach(function (split) {
-        split.classList.add("smooth-transition");
-      });
-      this.split.collapse(0);
-      this.leftSplitCollapsed = true;
-    } else {
-      //add class to make the transition smooth
-      const slottedSplits = this.el.querySelectorAll("gxg-split");
-      slottedSplits.forEach(function (split) {
-        split.classList.add("smooth-transition");
-      });
-      this.split.setSizes(this.currentSizes);
-      this.leftSplitCollapsed = false;
-    }
-    setTimeout(
-      function () {
-        this.detectDragEndReachedMinimum();
-      }.bind(this),
-      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-    );
-  }
-
-  knobSimpleOver() {
-    this.el.classList.add("knob-unidirectional-hover");
-  }
-  knobSimpleOut() {
-    this.el.classList.remove("knob-unidirectional-hover");
-  }
-
   //DRAG FUNCS
   onDragStartFunc() {
     //remove class that makes the transition smooth
@@ -330,7 +327,6 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.remove("smooth-transition");
     });
-    //this.el.addEventListener("mousemove", this.mouseMoveMethod);
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
@@ -339,40 +335,6 @@ export class GxgSplitter {
     this.dragging.emit("dragging");
   }
   onDragEndFunc() {
-    //If gutter is not positioned at the minimum of the left split, save current position
-    if (this.knob === "unidirectional") {
-      //Only applicable to knobSimple version
-      let splitterLength;
-      if (this.direction === "horizontal") {
-        splitterLength = this.el.clientWidth;
-      } else if (this.direction === "vertical") {
-        splitterLength = this.el.clientHeight;
-      }
-      //actual sizes in percentages
-      const rightActualSize = this.split.getSizes()[1];
-      const leftActualSize = this.split.getSizes()[0];
-      //actual sizes in pixels
-      const rightActualSizePixels = Math.trunc(
-        (rightActualSize * splitterLength) / 100
-      );
-      const leftActualSizePixels = Math.trunc(
-        (leftActualSize * splitterLength) / 100
-      );
-      if (
-        (rightActualSizePixels < this.minSizeArray[1] + 15 &&
-          rightActualSizePixels > this.minSizeArray[1] - 15) ||
-        (leftActualSizePixels < this.minSizeArray[0] + 15 &&
-          leftActualSizePixels > this.minSizeArray[0] - 15)
-      ) {
-        //drag ended in the minimum
-        this.leftSplitCollapsed = true;
-      } else {
-        //drag did not ended in the minimum
-        this.currentSizes = this.split.getSizes();
-        this.leftSplitCollapsed = false;
-      }
-    }
-
     setTimeout(
       function () {
         //Emmit drag ended event
@@ -414,44 +376,75 @@ export class GxgSplitter {
     } else {
       this.el.classList.remove("gutter-reached-left");
       this.el.classList.remove("gutter-reached-right");
+      this.rightSplitReachedMin = false;
+      this.leftSplitReachedMin = false;
     }
     //if guttter reached right:
     if (
       rightActualSizePixels < this.minSizeArray[1] + 15 &&
       rightActualSizePixels > this.minSizeArray[1] - 15
     ) {
-      this.el.classList.add("gutter-reached-right");
+      if (!this.forceCollapseZero) {
+        this.el.classList.add("gutter-reached-right");
+        this.el.classList.remove("gutter-reached-left");
+      } else {
+        this.rightSplitReachedMin = true;
+        this.leftSplitReachedMin = false;
+      }
     }
     //if guttter reached left:
     if (
       leftActualSizePixels < this.minSizeArray[0] + 15 &&
       leftActualSizePixels > this.minSizeArray[0] - 15
     ) {
-      this.el.classList.add("gutter-reached-left");
+      if (!this.forceCollapseZero) {
+        this.el.classList.add("gutter-reached-left");
+        this.el.classList.remove("gutter-reached-right");
+      } else {
+        this.leftSplitReachedMin = true;
+        this.rightSplitReachedMin = false;
+      }
     }
   }
   /**
    * This method allows to collapse the split passsed as argument
    */
   @Method()
-  async collapse(split: number) {
+  async collapse(split: number, forceCollapseZero = false) {
     //add class to make the transition smooth
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
-    this.split.collapse(split);
-    setTimeout(
-      function () {
-        this.el.classList.remove("gutter-reached-right");
-      }.bind(this),
-      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-    );
+    const leftSplit = slottedSplits[0];
+    const rightSplit = slottedSplits[1];
+    if (this.forceCollapseZero && forceCollapseZero) {
+      if (this.direction === "horizontal") {
+        if (split === 0) {
+          leftSplit.style.width = "0";
+          rightSplit.style.width = "calc(100% - 8px)";
+        } else if (split === 1) {
+          leftSplit.style.width = "calc(100% - 8px)";
+          rightSplit.style.width = "0";
+        }
+      } else if (this.direction === "vertical") {
+        if (split === 0) {
+          leftSplit.style.height = "0";
+          rightSplit.style.height = "calc(100% - 8px)";
+        } else if (split === 1) {
+          leftSplit.style.height = "calc(100% - 8px)";
+          rightSplit.style.height = "0";
+        }
+      }
+      this.collapsedToZero = true;
+    } else {
+      this.split.collapse(split);
+    }
   }
 
   render() {
     return (
-      <Host>
+      <Host class={{ "collapsed-to-zero": this.collapsedToZero }}>
         <slot></slot>
       </Host>
     );
@@ -459,4 +452,4 @@ export class GxgSplitter {
 }
 
 export type Direction = "horizontal" | "vertical";
-export type Knob = "unidirectional" | "bidirectional" | "none";
+export type Knob = "bidirectional" | "none";

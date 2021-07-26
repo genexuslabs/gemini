@@ -98,6 +98,14 @@
     background-color: var(--color-primary-active);
   }
 }
+//Collapsed to zero
+:host(.collapsed-to-zero) ::slotted(.gutter){
+    pointer-events: none;
+}
+:host(.collapsed-to-zero) ::slotted(.knob){
+  pointer-events: auto;
+}
+//Gutter reached right 
 :host(.gutter-reached-right[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
@@ -106,53 +114,12 @@
     }
   }
 }
+//Gutter reached left
 :host(.gutter-reached-left[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
     &:before {
       display: none;
-    }
-  }
-}
-//Knob simple
-:host([knob="unidirectional"]) {
-  ::slotted(.gutter-horizontal),
-  ::slotted(.gutter-vertical) {
-    &:after {
-      content: "";
-      z-index: 10;
-      position: absolute;
-      pointer-events: none;
-      border-radius: 2px;
-      background-color: var(--gray-03);
-      width: 2px;
-      height: 16px;
-      transition: 0.25s all;
-    }
-  }
-  ::slotted(.gutter-horizontal) {
-    &:after {
-      left: 3px;
-    }
-  }
-  ::slotted(.gutter-vertical) {
-    &:after {
-      width: 16px;
-      height: 2px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-}
-:host(.knob-unidirectional-hover) {
-  ::slotted(.gutter-horizontal) {
-    &:after {
-      height: 24px;
-    }
-  }
-  ::slotted(.gutter-vertical) {
-    &:after {
-      width: 24px;
     }
   }
 }

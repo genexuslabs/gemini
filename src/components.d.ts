@@ -906,11 +906,15 @@ export namespace Components {
     /**
      * This method allows to collapse the split passsed as argument
      */
-    collapse: (split: number) => Promise<void>;
+    collapse: (split: number, forceCollapseZero?: boolean) => Promise<void>;
     /**
-     * The splitter direction test
+     * The splitter direction
      */
     direction: Direction;
+    /**
+     * The splitter direction
+     */
+    forceCollapseZero: boolean;
     /**
      * The type of knob
      */
@@ -2665,9 +2669,13 @@ declare namespace LocalJSX {
   interface GxgSplit {}
   interface GxgSplitter {
     /**
-     * The splitter direction test
+     * The splitter direction
      */
     direction?: Direction;
+    /**
+     * The splitter direction
+     */
+    forceCollapseZero?: boolean;
     /**
      * The type of knob
      */
