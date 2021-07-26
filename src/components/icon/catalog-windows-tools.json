@@ -6,6 +6,7 @@
   { "name": "window-tools/debugx", "description": "Some description" },
   { "name": "window-tools/datastores", "description": "Some description" },
   { "name": "window-tools/error-list", "description": "Some description" },
+   { "name": "window-tools/filter", "description": "Some description" },
   { "name": "window-tools/filter-conditions", "description": "Some description" },
   { "name": "window-tools/frontend", "description": "Some description" },
   { "name": "window-tools/genexus-cloud", "description": "Some description" },
