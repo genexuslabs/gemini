@@ -5,6 +5,10 @@
     "description": "Some description"
   },
   { "name": "gx-server/conflict", "description": "Some description" },
+    {
+    "name": "gx-server/delete",
+    "description": "Some description"
+  },
   {
     "name": "gx-server/lock-without-changes",
     "description": "Some description"
