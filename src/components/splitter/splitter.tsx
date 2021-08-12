@@ -5,8 +5,6 @@ import {
   Prop,
   State,
   Element,
-  Event,
-  EventEmitter,
   Method,
 } from "@stencil/core";
 import Split from "split.js";
@@ -17,15 +15,6 @@ import Split from "split.js";
   shadow: true,
 })
 export class GxgSplitter {
-  /**
-   * This event is fired when the gutter is being dragged
-   */
-  @Event() dragging: EventEmitter;
-  /**
-   * This event is fired when the dragging has stopped
-   */
-  @Event() dragEnded: EventEmitter;
-
   @Element() el: HTMLElement;
 
   /**
@@ -40,7 +29,7 @@ export class GxgSplitter {
   /**
    * The type of knob
    */
-  @Prop({ reflect: true }) knob: Knob = "none";
+  @Prop({ reflect: true }) knob: Knob = "simple";
   /**
    * The splitter min. sizes in pixels
    */
@@ -54,11 +43,11 @@ export class GxgSplitter {
   @State() minSizeArray: Array<number>;
   @State() sizesArray: Array<number>;
   @State() idsArray: Array<string> = [];
-  @State() currentSizes: number;
-  @State() leftSplitReachedMin = false;
-  @State() rightSplitReachedMin = false;
+  @State() currentSizes: Array<number>;
+  @State() dragging = false;
 
-  @State() collapsedToZero = false;
+  @State() leftCollapsedToZero = false;
+  @State() rightCollapsedToZero = false;
 
   makeId(length) {
     const result = [];
@@ -105,27 +94,26 @@ export class GxgSplitter {
           //KNOB
           const knob = document.createElement("span");
           knob.classList.add("knob");
-          knob.style.backgroundColor = `var(--gray-01)`;
           knob.style.width = `var(--spacing-comp-05)`;
           knob.style.height = `var(--spacing-comp-05)`;
           knob.style.display = "block";
           knob.style.zIndex = "5";
           knob.style.position = "absolute";
-          knob.style.borderRadius = "50%";
-          knob.style.cursor = "pointer";
           if (this.direction === "vertical") {
             knob.style.transform = "rotate(90deg)";
           }
 
           //KNOB middle line
           const knobMiddleLine = document.createElement("span");
-          knobMiddleLine.style.backgroundColor = `var(--gray-06)`;
+          knobMiddleLine.style.backgroundColor = `var(--gray-03)`;
           knobMiddleLine.style.width = "2px";
           knobMiddleLine.style.height = "16px";
           knobMiddleLine.style.position = "relative";
           knobMiddleLine.style.left = "11px";
           knobMiddleLine.style.top = "4px";
           knobMiddleLine.style.display = "block";
+          knobMiddleLine.style.transition = "0.25s all";
+          knobMiddleLine.classList.add("middle-line");
           knob.appendChild(knobMiddleLine);
 
           //KNOB left side
@@ -133,7 +121,8 @@ export class GxgSplitter {
           knobLeftSide.style.width = "11px";
           knobLeftSide.style.height = `var(--spacing-comp-05)`;
           knobLeftSide.style.display = "block";
-          knobLeftSide.style.top = "-16px";
+          knobLeftSide.style.top = "-36px";
+          knobLeftSide.style.left = "6px";
           knobLeftSide.style.position = "relative";
           knobLeftSide.style.borderBottomLeftRadius = "40px";
           knobLeftSide.style.borderTopLeftRadius = "40px";
@@ -141,6 +130,7 @@ export class GxgSplitter {
           knobLeftSide.style.cursor = "pointer";
           knobLeftSide.style.zIndex = "20";
           knobLeftSide.style.pointerEvents = "auto";
+          knobLeftSide.classList.add("left-knob");
 
           knobLeftSide.addEventListener(
             "click",
@@ -155,8 +145,8 @@ export class GxgSplitter {
           knobRightSide.style.width = "11px";
           knobRightSide.style.height = `var(--spacing-comp-05)`;
           knobRightSide.style.display = "block";
-          knobRightSide.style.top = "-40px";
-          knobRightSide.style.right = "-13px";
+          knobRightSide.style.top = "-20px";
+          knobRightSide.style.right = "-6px";
           knobRightSide.style.position = "relative";
           knobRightSide.style.borderBottomRightRadius = "40px";
           knobRightSide.style.borderTopRightRadius = "40px";
@@ -164,6 +154,7 @@ export class GxgSplitter {
           knobRightSide.style.cursor = "pointer";
           knobRightSide.style.zIndex = "20";
           knobRightSide.style.pointerEvents = "auto";
+          knobRightSide.classList.add("right-knob");
           knobRightSide.addEventListener(
             "click",
             this.knobRightClicked.bind(this)
@@ -173,6 +164,33 @@ export class GxgSplitter {
           knob.appendChild(knobRightSide);
           gutter.appendChild(knob);
           //End of KNOB
+        } else {
+          //KNOB
+          const knob = document.createElement("span");
+          knob.classList.add("knob");
+          knob.style.width = `var(--spacing-comp-05)`;
+          knob.style.height = `var(--spacing-comp-05)`;
+          knob.style.display = "block";
+          knob.style.zIndex = "5";
+          knob.style.position = "absolute";
+          if (this.direction === "vertical") {
+            knob.style.transform = "rotate(90deg)";
+          }
+
+          //KNOB middle line
+          const knobMiddleLine = document.createElement("span");
+          knobMiddleLine.style.backgroundColor = `var(--gray-03)`;
+          knobMiddleLine.style.width = "2px";
+          knobMiddleLine.style.height = "16px";
+          knobMiddleLine.style.position = "relative";
+          knobMiddleLine.style.left = "11px";
+          knobMiddleLine.style.top = "4px";
+          knobMiddleLine.style.display = "block";
+          knobMiddleLine.style.transition = "0.25s all";
+          knobMiddleLine.classList.add("middle-line");
+          knob.appendChild(knobMiddleLine);
+
+          gutter.appendChild(knob);
         }
 
         gutter.className = `gutter gutter-${this.direction}`;
@@ -232,39 +250,61 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
+    this.dragging = true;
+    const middleLine = this.el.querySelector(".middle-line");
+    ((middleLine as unknown) as HTMLElement).style.backgroundColor =
+      "var(--color-on-primary)";
+    setTimeout(
+      function () {
+        this.dragging = false;
+        ((middleLine as unknown) as HTMLElement).style.backgroundColor =
+          "var(--gray-03)";
+      }.bind(this),
+      450
+    );
     if (this.forceCollapseZero) {
-      if (this.collapsedToZero) {
-        console.log("collapsed to zero");
-        this.split.collapse(1);
-        this.rightSplitReachedMin = true;
-        this.collapsedToZero = false;
-      } else if (this.leftSplitReachedMin) {
-        console.log("left Split Reached Min");
+      if (!this.rightCollapsedToZero) {
+        this.currentSizes = this.split.getSizes();
+
         const leftSplit = slottedSplits[0];
         const rightSplit = slottedSplits[1];
+
         if (this.direction === "horizontal") {
           leftSplit.style.width = "0";
           rightSplit.style.width = "calc(100% - 8px)";
-          this.collapsedToZero = true;
+          this.leftCollapsedToZero = true;
         } else if (this.direction === "vertical") {
           leftSplit.style.height = "0";
           rightSplit.style.height = "calc(100% - 8px)";
-          this.collapsedToZero = true;
+          this.leftCollapsedToZero = true;
         }
+
+        const leftKnob = this.el.querySelector(".left-knob");
+        ((leftKnob as unknown) as HTMLElement).style.pointerEvents = "none";
+        const middleLine = this.el.querySelector(".middle-line");
+        ((middleLine as unknown) as HTMLElement).style.opacity = "0";
+        ((middleLine as unknown) as HTMLElement).style.pointerEvents = "none";
+        const rightKnob = this.el.querySelector(".right-knob");
+        ((rightKnob as unknown) as HTMLElement).style.top = "-40px";
       } else {
-        this.split.collapse(0);
-        this.leftSplitReachedMin = true;
-        this.rightSplitReachedMin = false;
+        //Right split is collapsed to zero. Set sizes to last saved positions
+        this.split.setSizes(this.currentSizes);
+        this.rightCollapsedToZero = false;
+
+        const middleLine = this.el.querySelector(".middle-line");
+        ((middleLine as unknown) as HTMLElement).style.opacity = "1";
+        ((middleLine as unknown) as HTMLElement).style.pointerEvents = "auto";
+
+        const rightKnob = this.el.querySelector(".right-knob");
+        ((rightKnob as unknown) as HTMLElement).style.pointerEvents = "auto";
+
+        const leftKnob = this.el.querySelector(".left-knob");
+        ((leftKnob as unknown) as HTMLElement).style.top = "-36px";
       }
     } else {
       this.split.collapse(0);
-      setTimeout(
-        function () {
-          this.detectDragEndReachedMinimum();
-        }.bind(this),
-        350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-      );
     }
+    this.detectDragEndReachedMinimum();
   }
   knobRightClicked() {
     //add class to make the transition smooth
@@ -272,40 +312,62 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
+    this.dragging = true;
+    const middleLine = this.el.querySelector(".middle-line");
+    ((middleLine as unknown) as HTMLElement).style.backgroundColor =
+      "var(--color-on-primary)";
+    setTimeout(
+      function () {
+        this.dragging = false;
+        ((middleLine as unknown) as HTMLElement).style.backgroundColor =
+          "var(--gray-03)";
+      }.bind(this),
+      450
+    );
+
     if (this.forceCollapseZero) {
-      if (this.collapsedToZero) {
-        console.log("collapsed to zero");
-        this.split.collapse(0);
-        this.rightSplitReachedMin = false;
-        this.collapsedToZero = false;
-      } else if (this.rightSplitReachedMin) {
-        console.log("right Split Reached Min");
+      if (!this.leftCollapsedToZero) {
+        this.currentSizes = this.split.getSizes();
+
         const leftSplit = slottedSplits[0];
         const rightSplit = slottedSplits[1];
+
         if (this.direction === "horizontal") {
           leftSplit.style.width = "calc(100% - 8px)";
           rightSplit.style.width = "0";
-          this.collapsedToZero = true;
+          this.rightCollapsedToZero = true;
         } else if (this.direction === "vertical") {
           leftSplit.style.height = "calc(100% - 8px)";
           rightSplit.style.height = "0";
-          this.collapsedToZero = true;
+          this.rightCollapsedToZero = true;
         }
+
+        const rightKnob = this.el.querySelector(".right-knob");
+        ((rightKnob as unknown) as HTMLElement).style.pointerEvents = "none";
+        const middleLine = this.el.querySelector(".middle-line");
+        ((middleLine as unknown) as HTMLElement).style.opacity = "0";
+        ((middleLine as unknown) as HTMLElement).style.pointerEvents = "none";
+        const leftKnob = this.el.querySelector(".left-knob");
+        ((leftKnob as unknown) as HTMLElement).style.top = "-16px";
       } else {
-        console.log("collapse 1");
-        this.split.collapse(1);
-        this.rightSplitReachedMin = true;
-        this.leftSplitReachedMin = false;
+        //Left split is collapsed to zero. Set sizes to last saved positions
+        this.split.setSizes(this.currentSizes);
+        this.leftCollapsedToZero = false;
+
+        const middleLine = this.el.querySelector(".middle-line");
+        ((middleLine as unknown) as HTMLElement).style.opacity = "1";
+        ((middleLine as unknown) as HTMLElement).style.pointerEvents = "auto";
+
+        const leftKnob = this.el.querySelector(".left-knob");
+        ((leftKnob as unknown) as HTMLElement).style.pointerEvents = "auto";
+
+        const rightKnob = this.el.querySelector(".right-knob");
+        ((rightKnob as unknown) as HTMLElement).style.top = "-20px";
       }
     } else {
       this.split.collapse(1);
-      setTimeout(
-        function () {
-          this.detectDragEndReachedMinimum();
-        }.bind(this),
-        350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-      );
     }
+    this.detectDragEndReachedMinimum();
   }
   knobLeftOver() {
     this.el.classList.add("knob-left-hover");
@@ -322,28 +384,29 @@ export class GxgSplitter {
 
   //DRAG FUNCS
   onDragStartFunc() {
+    this.dragging = true;
     //remove class that makes the transition smooth
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
       split.classList.remove("smooth-transition");
     });
+
+    const middleLine = this.el.querySelector(".middle-line");
+    ((middleLine as unknown) as HTMLElement).style.backgroundColor =
+      "var(--color-on-primary)";
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
-
-    //emmit dragging event
-    this.dragging.emit("dragging");
   }
   onDragEndFunc() {
-    setTimeout(
-      function () {
-        //Emmit drag ended event
-        this.dragEnded.emit("drag ended");
-      }.bind(this),
-      350 // This value has to the be same as transition speed on split.scss on the .smooth-transition class
-    );
+    this.dragging = false;
+
+    const middleLine = this.el.querySelector(".middle-line");
+    ((middleLine as unknown) as HTMLElement).style.backgroundColor =
+      "var(--gray-03)";
   }
   detectDragEndReachedMinimum() {
+    console.log("detect drag end reached minimum");
     let splitterLength;
     if (this.direction === "horizontal") {
       splitterLength = this.el.clientWidth;
@@ -376,8 +439,6 @@ export class GxgSplitter {
     } else {
       this.el.classList.remove("gutter-reached-left");
       this.el.classList.remove("gutter-reached-right");
-      this.rightSplitReachedMin = false;
-      this.leftSplitReachedMin = false;
     }
     //if guttter reached right:
     if (
@@ -387,9 +448,6 @@ export class GxgSplitter {
       if (!this.forceCollapseZero) {
         this.el.classList.add("gutter-reached-right");
         this.el.classList.remove("gutter-reached-left");
-      } else {
-        this.rightSplitReachedMin = true;
-        this.leftSplitReachedMin = false;
       }
     }
     //if guttter reached left:
@@ -400,51 +458,73 @@ export class GxgSplitter {
       if (!this.forceCollapseZero) {
         this.el.classList.add("gutter-reached-left");
         this.el.classList.remove("gutter-reached-right");
-      } else {
-        this.leftSplitReachedMin = true;
-        this.rightSplitReachedMin = false;
       }
     }
   }
+
   /**
    * This method allows to collapse the split passsed as argument
    */
   @Method()
-  async collapse(split: number, forceCollapseZero = false) {
-    //add class to make the transition smooth
-    const slottedSplits = this.el.querySelectorAll("gxg-split");
-    slottedSplits.forEach(function (split) {
-      split.classList.add("smooth-transition");
-    });
-    const leftSplit = slottedSplits[0];
-    const rightSplit = slottedSplits[1];
-    if (this.forceCollapseZero && forceCollapseZero) {
+  async collapse(split: number, forceCollapseToZero = false) {
+    if (!forceCollapseToZero) {
+      if (split === 0) {
+        const leftKnob = this.el.querySelector(".left-knob");
+        ((leftKnob as unknown) as HTMLElement).click();
+      } else if (split === 1) {
+        const rightKnob = this.el.querySelector(".right-knob");
+        ((rightKnob as unknown) as HTMLElement).click();
+      }
+    } else {
+      //Collapse to zero
+      const slottedSplits = this.el.querySelectorAll("gxg-split");
+      slottedSplits.forEach(function (split) {
+        split.classList.add("smooth-transition");
+      });
+      const leftSplit = slottedSplits[0];
+      const rightSplit = slottedSplits[1];
+
       if (this.direction === "horizontal") {
         if (split === 0) {
+          const leftKnob = this.el.querySelector(".left-knob");
+          ((leftKnob as unknown) as HTMLElement).click();
+          ((leftKnob as unknown) as HTMLElement).click();
           leftSplit.style.width = "0";
           rightSplit.style.width = "calc(100% - 8px)";
         } else if (split === 1) {
+          const rightKnob = this.el.querySelector(".right-knob");
+          ((rightKnob as unknown) as HTMLElement).click();
+          ((rightKnob as unknown) as HTMLElement).click();
           leftSplit.style.width = "calc(100% - 8px)";
           rightSplit.style.width = "0";
         }
       } else if (this.direction === "vertical") {
         if (split === 0) {
+          const leftKnob = this.el.querySelector(".left-knob");
+          ((leftKnob as unknown) as HTMLElement).click();
+          ((leftKnob as unknown) as HTMLElement).click();
           leftSplit.style.height = "0";
           rightSplit.style.height = "calc(100% - 8px)";
         } else if (split === 1) {
+          const rightKnob = this.el.querySelector(".right-knob");
+          ((rightKnob as unknown) as HTMLElement).click();
+          ((rightKnob as unknown) as HTMLElement).click();
           leftSplit.style.height = "calc(100% - 8px)";
           rightSplit.style.height = "0";
         }
       }
-      this.collapsedToZero = true;
-    } else {
-      this.split.collapse(split);
     }
   }
 
   render() {
     return (
-      <Host class={{ "collapsed-to-zero": this.collapsedToZero }}>
+      <Host
+        class={{
+          "left-collapsed-to-zero": this.leftCollapsedToZero,
+          "right-collapsed-to-zero": this.rightCollapsedToZero,
+          dragging: this.dragging,
+        }}
+      >
         <slot></slot>
       </Host>
     );
@@ -452,4 +532,4 @@ export class GxgSplitter {
 }
 
 export type Direction = "horizontal" | "vertical";
-export type Knob = "bidirectional" | "none";
+export type Knob = "bidirectional" | "simple";

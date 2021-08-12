@@ -29,13 +29,14 @@
     </div>
     <br>
     <div class="container" id="container" >
-      <gxg-splitter id="splitter2" direction="vertical" knob="bidirectional" sizes="25,75" min-size="100,100" force-collapse-zero>
+      <gxg-splitter id="splitter2" direction="vertical" knob="simple" sizes="25,75" min-size="100,100" force-collapse-zero>
          <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
       </gxg-splitter>
     </div>
 
-    <button id="colapse-button">collapse first split</button>
+    <button id="colapse-left-spit-button">collapse left split</button>
+    <button id="colapse-right-spit-button">collapse right split</button>
 
     <script>
        let container = document.getElementById("container");
@@ -46,13 +47,23 @@
           console.log("dragEnded")
        });
 
-       //Colapse first split method
-       let colapseButton = document.getElementById("colapse-button");
-       colapseButton.addEventListener("click", function(){
+       //Colapse left split method
+       let colapseLeftSplitButton = document.getElementById("colapse-left-spit-button");
+       colapseLeftSplitButton.addEventListener("click", function(){
           (async () => {
             await customElements.whenDefined('gxg-splitter');
-            const gxgSplitter = document.getElementById('splitter1');
+            const gxgSplitter = document.getElementById('splitter2');
             gxgSplitter.collapse(0, true);
+          })();
+       })
+
+       //Colapse right split method
+       let colapseRightSplitButton = document.getElementById("colapse-right-spit-button");
+       colapseRightSplitButton.addEventListener("click", function(){
+          (async () => {
+            await customElements.whenDefined('gxg-splitter');
+            const gxgSplitter = document.getElementById('splitter2');
+            gxgSplitter.collapse(1, true);
           })();
        })
 

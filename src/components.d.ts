@@ -906,7 +906,7 @@ export namespace Components {
     /**
      * This method allows to collapse the split passsed as argument
      */
-    collapse: (split: number, forceCollapseZero?: boolean) => Promise<void>;
+    collapse: (split: number, forceCollapseToZero?: boolean) => Promise<void>;
     /**
      * The splitter direction
      */
@@ -2684,14 +2684,6 @@ declare namespace LocalJSX {
      * The splitter min. sizes in pixels
      */
     minSize?: string;
-    /**
-     * This event is fired when the dragging has stopped
-     */
-    onDragEnded?: (event: CustomEvent<any>) => void;
-    /**
-     * This event is fired when the gutter is being dragged
-     */
-    onDragging?: (event: CustomEvent<any>) => void;
     /**
      * The splitter initial sizes, in percentages. The sum should equal 100
      */
