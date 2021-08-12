@@ -23,11 +23,11 @@ export class GxgSplitter {
   @Prop() direction: Direction = "horizontal";
 
   /**
-   * The splitter direction
+   * The prescence of this attributes forces the splitter to collapse to zero
    */
   @Prop() forceCollapseZero = false;
   /**
-   * The type of knob
+   * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
    */
   @Prop({ reflect: true }) knob: Knob = "simple";
   /**
