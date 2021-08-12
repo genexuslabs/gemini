@@ -2,7 +2,7 @@
 
 <h2>Notes</h2>
 <ul>
-   <li><strong style="color:red">Important notice:</strong> The knob is only supported for two splits. If you need to use more than two splits do not use the knob.</li>
+   <li><strong style="color:red">Important notice:</strong> 'bidirectional' knob is only supported for two splits. If you need to use more than two splits use the 'simple' knob.</li>
 </ul>
 
 <!-- Auto Generated Below -->
