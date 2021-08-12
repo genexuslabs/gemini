@@ -77,7 +77,6 @@ export class GxgSplitter {
     this.getIds();
     this.convertStringPropertiesToArray();
     this.validateSizes();
-
     this.split = Split(this.idsArray, {
       gutterSize: 8,
       cursor: "col-resize",
@@ -197,7 +196,7 @@ export class GxgSplitter {
         return gutter;
       },
     });
-
+    this.detectDragEndReachedMinimum();
     //set classes
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     if (this.direction === "horizontal") {
@@ -406,7 +405,6 @@ export class GxgSplitter {
       "var(--gray-03)";
   }
   detectDragEndReachedMinimum() {
-    console.log("detect drag end reached minimum");
     let splitterLength;
     if (this.direction === "horizontal") {
       splitterLength = this.el.clientWidth;
