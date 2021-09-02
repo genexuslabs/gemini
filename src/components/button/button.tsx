@@ -91,14 +91,8 @@ export class GxgButton {
     }
   }
 
-  ghostIcon() {
-    return (
-      <gxg-icon
-        class="ghost-icon"
-        type="gemini-tools/empty"
-        size="regular"
-      ></gxg-icon>
-    );
+  emptyDiv() {
+    return <div style={{ height: "20px" }}></div>;
     //This is a workaround I found for alligning vertically the buttons that have no icon, with the buttons that do have icons.
   }
 
@@ -224,7 +218,7 @@ export class GxgButton {
           ref={(el) => (this.button = el as HTMLButtonElement)}
           tabindex="0"
         >
-          {this.ghostIcon()}
+          {this.emptyDiv()}
           {this.regularIcon()}
           {this.type.includes("text") || this.type === "outlined" ? (
             <span class="text">
