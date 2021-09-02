@@ -912,11 +912,11 @@ export namespace Components {
      */
     direction: Direction;
     /**
-     * The splitter direction
+     * The prescence of this attributes forces the splitter to collapse to zero
      */
     forceCollapseZero: boolean;
     /**
-     * The type of knob
+     * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
      */
     knob: Knob;
     /**
@@ -2673,11 +2673,11 @@ declare namespace LocalJSX {
      */
     direction?: Direction;
     /**
-     * The splitter direction
+     * The prescence of this attributes forces the splitter to collapse to zero
      */
     forceCollapseZero?: boolean;
     /**
-     * The type of knob
+     * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
      */
     knob?: Knob;
     /**

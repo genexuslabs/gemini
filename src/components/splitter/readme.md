@@ -20,13 +20,13 @@
 
 ## Properties
 
-| Property            | Attribute             | Description                                                          | Type                          | Default        |
-| ------------------- | --------------------- | -------------------------------------------------------------------- | ----------------------------- | -------------- |
-| `direction`         | `direction`           | The splitter direction                                               | `"horizontal" \| "vertical"`  | `"horizontal"` |
-| `forceCollapseZero` | `force-collapse-zero` | The splitter direction                                               | `boolean`                     | `false`        |
-| `knob`              | `knob`                | The type of knob                                                     | `"bidirectional" \| "simple"` | `"simple"`     |
-| `minSize`           | `min-size`            | The splitter min. sizes in pixels                                    | `string`                      | `"0,0"`        |
-| `sizes`             | `sizes`               | The splitter initial sizes, in percentages. The sum should equal 100 | `string`                      | `"50,50"`      |
+| Property            | Attribute             | Description                                                                                                 | Type                          | Default        |
+| ------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------- |
+| `direction`         | `direction`           | The splitter direction                                                                                      | `"horizontal" \| "vertical"`  | `"horizontal"` |
+| `forceCollapseZero` | `force-collapse-zero` | The prescence of this attributes forces the splitter to collapse to zero                                    | `boolean`                     | `false`        |
+| `knob`              | `knob`                | The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows) | `"bidirectional" \| "simple"` | `"simple"`     |
+| `minSize`           | `min-size`            | The splitter min. sizes in pixels                                                                           | `string`                      | `"0,0"`        |
+| `sizes`             | `sizes`               | The splitter initial sizes, in percentages. The sum should equal 100                                        | `string`                      | `"50,50"`      |
 
 ## Methods
 

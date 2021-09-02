@@ -22,15 +22,15 @@
   </head>
   <body>
     <div class="container" id="container" >
-      <gxg-splitter id="splitter1" direction="horizontal" knob="bidirectional" sizes="25,75" min-size="100,100" force-collapse-zero>
+      <gxg-splitter id="splitter1" direction="horizontal" knob="bidirectional" sizes="15,85" min-size="100,100">
          <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
       </gxg-splitter>
     </div>
     <br>
     <div class="container" id="container" >
-      <gxg-splitter id="splitter2" direction="vertical" knob="bidirectional" sizes="25,75" min-size="100,100">
-         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
+      <gxg-splitter id="splitter2" direction="vertical" knob="simple" sizes="25,75" min-size="100,100" force-collapse-zero>
+         <gxg-split style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
       </gxg-splitter>
     </div>
@@ -52,7 +52,7 @@
        colapseLeftSplitButton.addEventListener("click", function(){
           (async () => {
             await customElements.whenDefined('gxg-splitter');
-            const gxgSplitter = document.getElementById('splitter1');
+            const gxgSplitter = document.getElementById('splitter2');
             gxgSplitter.collapse(0, true);
           })();
        })
@@ -62,7 +62,7 @@
        colapseRightSplitButton.addEventListener("click", function(){
           (async () => {
             await customElements.whenDefined('gxg-splitter');
-            const gxgSplitter = document.getElementById('splitter1');
+            const gxgSplitter = document.getElementById('splitter2');
             gxgSplitter.collapse(1, true);
           })();
        })
