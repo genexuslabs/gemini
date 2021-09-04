@@ -33,12 +33,12 @@ export class GxgDatePicker {
   /**
    * The min. date
    */
-  @Prop() minDate: string;
+  @Prop() minDate = "1000, 1, 1";
 
   /**
    * The max. date
    */
-  @Prop() maxDate: string;
+  @Prop() maxDate = "3000, 1, 1";
 
   /**
    * The max. width
@@ -137,18 +137,18 @@ export class GxgDatePicker {
         "December",
       ],
       customOverlayMonths: [
-        "😀",
-        "😂",
-        "😎",
-        "😍",
-        "🤩",
-        "😜",
-        "😬",
-        "😳",
-        "🤪",
-        "🤓 ",
-        "😝",
-        "😮",
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC",
       ],
       overlayButton: "Go!",
       overlayPlaceholder: "Enter a 4-digit year",
@@ -164,9 +164,9 @@ export class GxgDatePicker {
       // Disabling things.
       noWeekends: this.noWeekends, // Saturday's and Sunday's will be unselectable.
       disabler: (date) => date.getDay() === 2 && date.getMonth() === 9, // Disabled every Tuesday in October
-      disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
+      // disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
       disableMobile: true, // Conditionally disabled on mobile devices.
-      disableYearOverlay: true, // Clicking the year or month will *not* bring up the year overlay.
+      disableYearOverlay: false, // Clicking the year or month will *not* bring up the year overlay.
 
       // ID - be sure to provide a 2nd picker with the same id to create a daterange pair.
       id: "date-picker",

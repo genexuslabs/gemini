@@ -106,6 +106,51 @@
     right: 0;
   }
 }
+//QS OVERLAY
+.qs-overlay {
+  background-color: var(--color-background);
+  font-family: var(--font-family-primary);
+}
+.qs-overlay .qs-close {
+  color: var(--color-on-background);
+  margin-top: 4px;
+  margin-right: 4px;
+}
+.qs-overlay .qs-overlay-year {
+  font-size: var(--font-size-lg);
+  color: var(--color-on-background);
+}
+.qs-overlay .qs-overlay-year:focus-visible {
+  outline: none;
+}
+.qs-overlay .qs-overlay-month {
+  font-size: var(--font-size-lg);
+  color: var(--color-on-background);
+}
+.qs-overlay .qs-submit {
+  border-radius: var(--border-radius-xs);
+  border: none;
+  padding: 0.2em;
+  padding-inline-start: var(--spacing-comp-04);
+  padding-inline-end: var(--spacing-comp-04);
+  background: var(--color-primary-enabled);
+  font-size: var(--font-size-lg);
+  transition: background 0.25s;
+}
+.qs-overlay .qs-submit:hover {
+  background: var(--color-primary-hover);
+}
+.qs-overlay .qs-submit.qs-disabled {
+  color: var(--color-on-disabled);
+  background: var(--color-primary-disabled);
+  opacity: 1;
+}
+.qs-overlay-month-container {
+  flex-wrap: wrap;
+  flex-grow: 0.8;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
