@@ -21,7 +21,7 @@
     </style>
   </head>
   <body>
-    <div class="container" id="container" >
+    <div class="container" id="container">
       <gxg-splitter id="splitter1" direction="horizontal" knob="bidirectional" sizes="15,85" min-size="100,100">
          <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
          <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
@@ -40,11 +40,11 @@
 
     <script>
        let container = document.getElementById("container");
-       container.addEventListener("dragging", function(){
-          console.log("dragging")
+       container.addEventListener("draggingEvt", function(){
+          console.log("dragging event ocurred")
        });
-       container.addEventListener("dragEnded", function(){
-          console.log("dragEnded")
+       container.addEventListener("dragEndedEvt", function(){
+          console.log("dragEnded event occured")
        });
 
        //Colapse left split method
@@ -66,7 +66,7 @@
             gxgSplitter.collapse(1, true);
           })();
        })
-
+       
     </script>
   </body>
 </html>

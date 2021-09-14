@@ -6,6 +6,8 @@ import {
   State,
   Element,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 import Split from "split.js";
 
@@ -48,6 +50,9 @@ export class GxgSplitter {
 
   @State() leftCollapsedToZero = false;
   @State() rightCollapsedToZero = false;
+
+  @Event() draggingEvt: EventEmitter;
+  @Event() dragEndedEvt: EventEmitter;
 
   makeId(length) {
     const result = [];
@@ -396,9 +401,11 @@ export class GxgSplitter {
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
+    this.draggingEvt.emit("dragging");
   }
   onDragEndFunc() {
     this.dragging = false;
+    this.dragEndedEvt.emit("dragg ended");
 
     const middleLine = this.el.querySelector(".middle-line");
     ((middleLine as unknown) as HTMLElement).style.backgroundColor =

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -13,17 +13,61 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      
+      .container {
+        width: 628px;
+        height: 400px;
+        background-color: white;                                            
+      }
     </style>
   </head>
   <body>
-    <gxg-date-picker  
-    default-date="2020, 12, 20"
-    label="Set your birthday:"
-    max-width="240px"
-    max-date="2023, 12, 20"
-    
-    no-weekends
-  ></gxg-date-picker>
+    <div class="container" id="container">
+      <gxg-splitter id="splitter1" direction="horizontal" knob="bidirectional" sizes="15,85" min-size="100,100">
+         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
+    <br>
+    <div class="container" id="container" >
+      <gxg-splitter id="splitter2" direction="vertical" knob="simple" sizes="25,75" min-size="100,100" force-collapse-zero>
+         <gxg-split style="background-color:var(--color-error-light)"></gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      </gxg-splitter>
+    </div>
+
+    <button id="colapse-left-spit-button">collapse left split</button>
+    <button id="colapse-right-spit-button">collapse right split</button>
+
+    <script>
+       let container = document.getElementById("container");
+       container.addEventListener("draggingEvt", function(){
+          console.log("dragging event ocurred")
+       });
+       container.addEventListener("dragEndedEvt", function(){
+          console.log("dragEnded event occured")
+       });
+
+       //Colapse left split method
+       let colapseLeftSplitButton = document.getElementById("colapse-left-spit-button");
+       colapseLeftSplitButton.addEventListener("click", function(){
+          (async () => {
+            await customElements.whenDefined('gxg-splitter');
+            const gxgSplitter = document.getElementById('splitter2');
+            gxgSplitter.collapse(0, true);
+          })();
+       })
+
+       //Colapse right split method
+       let colapseRightSplitButton = document.getElementById("colapse-right-spit-button");
+       colapseRightSplitButton.addEventListener("click", function(){
+          (async () => {
+            await customElements.whenDefined('gxg-splitter');
+            const gxgSplitter = document.getElementById('splitter2');
+            gxgSplitter.collapse(1, true);
+          })();
+       })
+       
+
+    </script>
   </body>
 </html>
