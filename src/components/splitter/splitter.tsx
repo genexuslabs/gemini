@@ -31,7 +31,7 @@ export class GxgSplitter {
   /**
    * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
    */
-  @Prop({ reflect: true }) knob: Knob = "simple";
+  @Prop({ reflect: true }) knob: Knob = "bidirectional";
   /**
    * The splitter min. sizes in pixels
    */
@@ -46,13 +46,13 @@ export class GxgSplitter {
   @State() sizesArray: Array<number>;
   @State() idsArray: Array<string> = [];
   @State() currentSizes: Array<number>;
-  @State() dragging = false;
+  @State() draggingState = false;
 
   @State() leftCollapsedToZero = false;
   @State() rightCollapsedToZero = false;
 
-  @Event() draggingEvt: EventEmitter;
-  @Event() dragEndedEvt: EventEmitter;
+  @Event() dragging: EventEmitter;
+  @Event() dragEnded: EventEmitter;
 
   makeId(length) {
     const result = [];
@@ -254,13 +254,13 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
-    this.dragging = true;
+    this.draggingState = true;
     const middleLine = this.el.querySelector(".middle-line");
     ((middleLine as unknown) as HTMLElement).style.backgroundColor =
       "var(--color-on-primary)";
     setTimeout(
       function () {
-        this.dragging = false;
+        this.draggingState = false;
         ((middleLine as unknown) as HTMLElement).style.backgroundColor =
           "var(--gray-03)";
       }.bind(this),
@@ -316,13 +316,13 @@ export class GxgSplitter {
     slottedSplits.forEach(function (split) {
       split.classList.add("smooth-transition");
     });
-    this.dragging = true;
+    this.draggingState = true;
     const middleLine = this.el.querySelector(".middle-line");
     ((middleLine as unknown) as HTMLElement).style.backgroundColor =
       "var(--color-on-primary)";
     setTimeout(
       function () {
-        this.dragging = false;
+        this.draggingState = false;
         ((middleLine as unknown) as HTMLElement).style.backgroundColor =
           "var(--gray-03)";
       }.bind(this),
@@ -388,7 +388,7 @@ export class GxgSplitter {
 
   //DRAG FUNCS
   onDragStartFunc() {
-    this.dragging = true;
+    this.draggingState = true;
     //remove class that makes the transition smooth
     const slottedSplits = this.el.querySelectorAll("gxg-split");
     slottedSplits.forEach(function (split) {
@@ -401,11 +401,11 @@ export class GxgSplitter {
   }
   onDragFunc() {
     this.detectDragEndReachedMinimum();
-    this.draggingEvt.emit("dragging");
+    this.dragging.emit("dragging");
   }
   onDragEndFunc() {
-    this.dragging = false;
-    this.dragEndedEvt.emit("dragg ended");
+    this.draggingState = false;
+    this.dragEnded.emit("dragg ended");
 
     const middleLine = this.el.querySelector(".middle-line");
     ((middleLine as unknown) as HTMLElement).style.backgroundColor =
@@ -527,7 +527,7 @@ export class GxgSplitter {
         class={{
           "left-collapsed-to-zero": this.leftCollapsedToZero,
           "right-collapsed-to-zero": this.rightCollapsedToZero,
-          dragging: this.dragging,
+          dragging: this.draggingState,
         }}
       >
         <slot></slot>
