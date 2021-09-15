@@ -18,13 +18,23 @@
         height: 400px;
         background-color: white;                                            
       }
+      .test {
+        width: 50px;
+        height: 50px;
+        background-color: black;
+        color: #fff;
+      }
     </style>
   </head>
   <body>
     <div class="container" id="container">
       <gxg-splitter id="splitter1" direction="horizontal" sizes="15,85" min-size="100,100">
-         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
-         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+         <gxg-split  style="background-color:var(--color-error-light)">
+            hola
+        </gxg-split>
+         <gxg-split style="background-color:var(--color-success-light)">
+          <div class="test">test</div>
+        </gxg-split>
       </gxg-splitter>
     </div>
     <br>
