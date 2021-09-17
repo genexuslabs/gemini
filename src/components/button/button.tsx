@@ -68,6 +68,8 @@ export class GxgButton {
   *********************************/
 
   componentDidLoad() {
+    console.log("gemini button loaded");
+
     // Set aria-label to host
     if (
       this.type === "primary-icon-only" ||
