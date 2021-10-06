@@ -1,19 +1,9 @@
-import {
-  Component,
-  Element,
-  Prop,
-  h,
-  Host,
-  State,
-  Watch,
-  getAssetPath,
-} from "@stencil/core";
+import { Component, Element, Prop, h, Host, State, Watch } from "@stencil/core";
 
 @Component({
   tag: "gxg-modal",
   styleUrl: "modal.scss",
   shadow: true,
-  assetsDirs: ["modal-assets"],
 })
 export class GxgModal {
   @Element() el: HTMLElement;
@@ -57,7 +47,6 @@ export class GxgModal {
 
   componentDidLoad() {
     this.el.style.display = "block";
-    this.el.style.zIndex = "-1";
   }
 
   closeModal() {
@@ -75,12 +64,6 @@ export class GxgModal {
   @Watch("visible")
   watchVisibleHandler() {
     if (this.visible === true) {
-      if (!this.silent) {
-        const audio = new Audio(getAssetPath("./modal-assets/prompt.mp3"));
-        setTimeout(function () {
-          audio.play();
-        }, 100);
-      }
       setTimeout(
         function () {
           this.modalTransition = true;
