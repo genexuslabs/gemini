@@ -51,7 +51,7 @@ export class GxgIcon {
   *********************************/
 
   getSrcPath() {
-    return getAssetPath(`icon-assets/${this.type}.svg`);
+    return getAssetPath(`./icon-assets/${this.type}.svg`);
   }
 
   iconSize() {
