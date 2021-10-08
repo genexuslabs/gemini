@@ -52,7 +52,7 @@ export class GxgIcon {
 
   componentDidLoad() {
     console.log("icon loaded");
-    getAssetPath(`./icon-assets/icon.svg`);
+    console.log(getAssetPath(`./icon-assets/icon.svg`));
   }
 
   getSrcPath() {
