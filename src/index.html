@@ -42,11 +42,15 @@
         const changeCpValue = document.getElementById("changeCpValue");
         const colorPicker = document.getElementById("customColorPicker");
         const modal = document.getElementById("customColorDialog");
+        
         showModalButton.addEventListener("click", function(){
             modal.setAttribute('visible','true');
+            setTimeout(function(){
+              colorPicker.value = "#516F6C";
+            }, 50);
         })
         changeCpValue.addEventListener("click", function(){
-            colorPicker.value = "#516F6C";
+            
         })
     </script>
 
