@@ -121,7 +121,7 @@
     }
   }
 }
-:host(:focus) {
+:host(not[disabled]:focus) {
   &:before {
   }
   outline: none;

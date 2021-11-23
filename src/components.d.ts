@@ -381,6 +381,10 @@ export namespace Components {
      */
     deletable: boolean;
     /**
+     * The presence of this attribute disables the drag and drop functionality.
+     */
+    disable: boolean;
+    /**
      * The max-width of the box container
      */
     maxWidth: string;
@@ -2077,6 +2081,10 @@ declare namespace LocalJSX {
      * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
      */
     deletable?: boolean;
+    /**
+     * The presence of this attribute disables the drag and drop functionality.
+     */
+    disable?: boolean;
     /**
      * The max-width of the box container
      */

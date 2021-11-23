@@ -25,6 +25,11 @@ export class GxgDragContainer implements DraggableComponent {
   @Prop() deletable = false;
 
   /**
+   * The presence of this attribute disables the drag and drop functionality.
+   */
+  @Prop() disable = true;
+
+  /**
    * The max-width of the box container
    */
   @Prop() maxWidth = "100%";
@@ -42,20 +47,24 @@ export class GxgDragContainer implements DraggableComponent {
 
   @Listen("clicked")
   clickedHandler(event) {
-    const boxes = this.el.querySelectorAll("*");
-    boxes.forEach((item) => {
-      if (event.detail === item.getAttribute("id")) {
-        item.setAttribute("active", "active");
-      } else {
-        item.removeAttribute("active");
-      }
-    });
+    if (!this.disable) {
+      const boxes = this.el.querySelectorAll("*");
+      boxes.forEach((item) => {
+        if (event.detail === item.getAttribute("id")) {
+          item.setAttribute("active", "active");
+        } else {
+          item.removeAttribute("active");
+        }
+      });
+    }
   }
 
   private dndCleanup: Function;
 
   getDraggableElements() {
-    return this.el.querySelectorAll("gxg-drag-box");
+    if (!this.disable) {
+      return this.el.querySelectorAll("gxg-drag-box");
+    }
   }
 
   componentDidLoad() {

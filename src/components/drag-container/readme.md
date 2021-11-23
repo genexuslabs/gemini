@@ -14,6 +14,7 @@
 | Property    | Attribute   | Description                                                                                                               | Type                                                          | Default     |
 | ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------- |
 | `deletable` | `deletable` | The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited. | `boolean`                                                     | `false`     |
+| `disable`   | `disable`   | The presence of this attribute disables the drag and drop functionality.                                                  | `boolean`                                                     | `true`      |
 | `maxWidth`  | `max-width` | The max-width of the box container                                                                                        | `string`                                                      | `"100%"`    |
 | `padding`   | `padding`   | The padding (internal spacing) of the gxg-drag-boxes                                                                      | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
 
