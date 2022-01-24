@@ -9,6 +9,9 @@
     "name": "gx-server/delete",
     "description": "Some description"
   },
+  { "name": "gx-server/private", "description": "Some description" },
+  { "name": "gx-server/internal", "description": "Some description" },
+  { "name": "gx-server/public", "description": "Some description" },
   {
     "name": "gx-server/lock-without-changes",
     "description": "Some description"
