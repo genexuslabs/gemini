@@ -17,6 +17,7 @@
   { "name": "objects/datastore-category", "description": "Some description" },
   { "name": "objects/dataview-index", "description": "Some description" },
   { "name": "objects/deployment-unit", "description": "Some description" },
+  { "name": "objects/design", "description": "Some description" },
   { "name": "objects/diagram", "description": "Some description" },
   { "name": "objects/document", "description": "Some description" },
    { "name": "objects/document-workflow", "description": "Some description" },
