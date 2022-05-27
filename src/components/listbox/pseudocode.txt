@@ -1,0 +1,32 @@
+Si (la tecla cmd y ctrl y shift no fueron presionadas) {
+    deseleccionar los items actualmente seleccionados
+    seleccionar el item clickeado
+    setear el item seleccionado como lastSelectedItem
+}
+Sino (si la tecla cmd o ctrl fue presionada) {
+    toggleo el item clickeado
+    setear el item seleccionado como lastSelectedItem
+}
+Sino (si la tecla shift fue presionada) {
+
+    Si no hay ningun item seleccionado {
+        seleccionar desde el primero hasta el item clickeado
+    }
+    Sino {
+        Deseleccionar todos los items
+        Si el item clickeado es el seleccionado {
+            seleccionar item
+        }
+        Si el indice del item clickeado es menor que el indice de lastSelectedItem {
+            for(i = lastSelectedItem; i > indice item clickeado; i--) {
+                seleccionar item[i]
+            }
+        }
+        Sino {
+            //el indice del item clickeado es mayor que el indice de lastSelectedItem
+            for(i = lastSelectedItem; i < indice item clickeado; i++) {
+                seleccionar item[i]
+            }
+        }
+    }
+}

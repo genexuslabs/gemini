@@ -68,6 +68,7 @@ export class GxgListboxItem {
         index: parseInt(index, 10),
         crtlKey: e.ctrlKey,
         cmdKey: e.metaKey,
+        shiftKey: e.shiftKey,
         mouseClicked: true,
       });
     }
@@ -91,14 +92,14 @@ export class GxgListboxItem {
     } else if (e.code === "Enter") {
       index = this.el.getAttribute("index");
     }
-    if (index) {
-      this.itemClicked.emit({
-        index: parseInt(index, 10),
-        crtlKey: e.ctrlKey,
-        cmdKey: e.metaKey,
-        mouseClicked: false,
-      });
-    }
+    // if (index) {
+    //   this.itemClicked.emit({
+    //     index: parseInt(index, 10),
+    //     crtlKey: e.ctrlKey,
+    //     cmdKey: e.metaKey,
+    //     mouseClicked: false,
+    //   });
+    // }
   }
 
   onMouseOver() {

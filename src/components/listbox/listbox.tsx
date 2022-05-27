@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Listen,
+  State,
 } from "@stencil/core";
 import { GxgListboxItem } from "../listbox-item/listbox-item";
 
@@ -31,10 +32,13 @@ export class GxgListbox {
    * The listbox width
    */
   @Prop() width = "280px";
+
   /**
    * The prescence of this attribute will display a checkbox for every item
    */
   @Prop() checkboxes = false;
+
+  @State() lastSelectedItemIndex: number | undefined = undefined;
 
   componentWillLoad() {
     //Set checkboxes
@@ -61,45 +65,109 @@ export class GxgListbox {
 
   @Listen("itemClicked")
   itemClickedHandler(e) {
-    console.log("item clicked!");
-
-    if (!e.detail.crtlKey && !e.detail.cmdKey && !this.checkboxes) {
-      const actualSelectedItems = this.el.querySelectorAll(".selected");
-      if (actualSelectedItems.length > 0) {
-        actualSelectedItems.forEach((item) => {
-          item.classList.remove("selected");
-          //set icon color to auto
-          ((item as unknown) as GxgListboxItem).iconColor = "auto";
-        });
-      }
-    }
-    const actualSelectedItem = this.el.querySelector(
-      "[index='" + e.detail["index"] + "']"
+    const clickedItem = this.getItem(e.detail["index"]);
+    const clickedItemIndex: number = parseInt(
+      clickedItem.getAttribute("index")
     );
-    //checkbox
-    const actualSelectedItemCheckbox = actualSelectedItem.querySelector(
-      "gxg-form-checkbox"
-    );
-    if (actualSelectedItem.classList.contains("selected")) {
-      actualSelectedItem.classList.remove("selected");
 
-      //set icon color to auto
-      if (!e.detail.mouseClicked) {
-        ((actualSelectedItem as unknown) as GxgListboxItem).iconColor = "auto";
-        if (actualSelectedItemCheckbox !== null) {
-          actualSelectedItemCheckbox.checked = false;
+    if (!e.detail.crtlKey && !e.detail.cmdKey && !e.detail.shiftKey) {
+      //If ctrl and command and shift keys were not pressed, unselect previous selected items
+      this.clearSelectedItems();
+      this.selectItem(clickedItem);
+      this.lastSelectedItemIndex = clickedItemIndex;
+    } else if (e.detail.crtlKey || e.detail.cmdKey) {
+      clickedItem.classList.toggle("selected");
+      this.lastSelectedItemIndex = clickedItemIndex;
+    } else if (e.detail.shiftKey) {
+      if (this.lastSelectedItemIndex === undefined) {
+        console.log("lastSelectedItemIndex is undefined");
+        this.selectMulitpleItems(0, clickedItemIndex);
+        this.lastSelectedItemIndex = clickedItemIndex;
+      } else {
+        this.clearSelectedItems();
+        if (clickedItemIndex === this.lastSelectedItemIndex) {
+          this.selectItem(clickedItem);
+        } else if (clickedItemIndex < this.lastSelectedItemIndex) {
+          this.selectMulitpleItems(
+            clickedItemIndex,
+            this.lastSelectedItemIndex
+          );
+        } else {
+          this.selectMulitpleItems(
+            this.lastSelectedItemIndex,
+            clickedItemIndex
+          );
         }
       }
-    } else {
-      actualSelectedItem.classList.add("selected");
-      //set icon color to negative
-      ((actualSelectedItem as unknown) as GxgListboxItem).iconColor =
-        "negative";
-      if (actualSelectedItemCheckbox !== null) {
-        actualSelectedItemCheckbox.checked = true;
-      }
     }
+
+    //Then select clicked item
+
+    // if (!e.detail.crtlKey && !e.detail.cmdKey && !this.checkboxes) {
+    //   const actualSelectedItems = this.el.querySelectorAll(".selected");
+    //   if (actualSelectedItems.length > 0) {
+    //     actualSelectedItems.forEach((item) => {
+    //       item.classList.remove("selected");
+    //       //set icon color to auto
+    //       ((item as unknown) as GxgListboxItem).iconColor = "auto";
+    //     });
+    //   }
+    // }
+    // const actualSelectedItem = this.el.querySelector(
+    //   "[index='" + e.detail["index"] + "']"
+    // );
+    // //checkbox
+    // const actualSelectedItemCheckbox = actualSelectedItem.querySelector(
+    //   "gxg-form-checkbox"
+    // );
+    // if (actualSelectedItem.classList.contains("selected")) {
+    //   actualSelectedItem.classList.remove("selected");
+
+    //   //set icon color to auto
+    //   if (!e.detail.mouseClicked) {
+    //     ((actualSelectedItem as unknown) as GxgListboxItem).iconColor = "auto";
+    //     if (actualSelectedItemCheckbox !== null) {
+    //       actualSelectedItemCheckbox.checked = false;
+    //     }
+    //   }
+    // } else {
+    //   actualSelectedItem.classList.add("selected");
+    //   //set icon color to negative
+    //   ((actualSelectedItem as unknown) as GxgListboxItem).iconColor =
+    //     "negative";
+    //   if (actualSelectedItemCheckbox !== null) {
+    //     actualSelectedItemCheckbox.checked = true;
+    //   }
+    // }
     this.emmitSelectedItems();
+  }
+
+  selectMulitpleItems(fromIndex: number, toIndex: number) {
+    for (let i = fromIndex; i <= toIndex; i++) {
+      const item = this.el.querySelector("gxg-listbox-item[index='" + i + "']");
+      this.selectItem(item);
+    }
+  }
+
+  clearSelectedItems() {
+    const actualSelectedItems = this.el.querySelectorAll(".selected");
+    if (actualSelectedItems.length > 0) {
+      actualSelectedItems.forEach((item) => {
+        item.classList.remove("selected");
+        //set icon color to auto
+        ((item as unknown) as GxgListboxItem).iconColor = "auto";
+      });
+    }
+  }
+
+  getItem(index) {
+    return this.el.querySelector("gxg-listbox-item[index='" + index + "']");
+  }
+
+  selectItem(item) {
+    item.classList.add("selected");
+    //set icon color to negative
+    ((item as unknown) as GxgListboxItem).iconColor = "negative";
   }
 
   @Listen("checkboxClicked")
