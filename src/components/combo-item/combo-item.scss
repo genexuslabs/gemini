@@ -19,8 +19,9 @@
   }
 }
 :host(.hidden) {
-  height: 0;
-  opacity: 0;
+  // height: 0;
+  // opacity: 0;
+  display: none;
 }
 :host(.display-none) {
   display: none;

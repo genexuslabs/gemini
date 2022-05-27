@@ -23,6 +23,12 @@ export class GxgComboItem {
   @Event() itemClicked: EventEmitter;
 
   /**
+   * This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component
+   * and then focus is set on "search" input.
+   */
+  @Event() keyDownComboItem: EventEmitter;
+
+  /**
    * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
    */
   @Prop() icon: string = undefined;
@@ -54,18 +60,27 @@ export class GxgComboItem {
   onKeyDown(e) {
     e.preventDefault();
     if (e.code === "ArrowDown") {
-      const nextItem = this.el.nextElementSibling;
-      if (nextItem !== null) {
+      let nextItem = this.el.nextElementSibling;
+      while (nextItem !== null && nextItem.classList.contains("hidden")) {
+        nextItem = nextItem.nextElementSibling;
+      }
+      if (nextItem) {
         (nextItem as HTMLElement).focus();
       }
     } else if (e.code === "ArrowUp") {
-      const prevItem = this.el.previousElementSibling;
-      if (prevItem !== null) {
-        (prevItem as HTMLElement).focus();
+      let prevItem = this.el.previousElementSibling;
+      while (prevItem !== null && prevItem.classList.contains("hidden")) {
+        prevItem = prevItem.previousElementSibling;
       }
-    }
-    if (e.code === "Enter") {
+      if (prevItem) {
+        (prevItem as HTMLElement).focus();
+      } else {
+        this.keyDownComboItem.emit(e.code);
+      }
+    } else if (e.code === "Enter") {
       this.itemClickedFunc();
+    } else if (e.code === "Tab" || e.code === "Escape") {
+      this.keyDownComboItem.emit(e.code);
     }
   }
 

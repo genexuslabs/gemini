@@ -61,6 +61,8 @@ export class GxgListbox {
 
   @Listen("itemClicked")
   itemClickedHandler(e) {
+    console.log("item clicked!");
+
     if (!e.detail.crtlKey && !e.detail.cmdKey && !this.checkboxes) {
       const actualSelectedItems = this.el.querySelectorAll(".selected");
       if (actualSelectedItems.length > 0) {
@@ -68,11 +70,6 @@ export class GxgListbox {
           item.classList.remove("selected");
           //set icon color to auto
           ((item as unknown) as GxgListboxItem).iconColor = "auto";
-          //set checkbox checked to false
-          const checkbox = item.querySelector("gxg-form-checkbox");
-          if (checkbox !== null) {
-            checkbox.checked = false;
-          }
         });
       }
     }
@@ -145,7 +142,9 @@ export class GxgListbox {
     return (
       <Host>
         <div style={{ width: this.width }} class={{ container: true }}>
-          <header class={{ header: true }}>{this.theTitle}</header>
+          {this.theTitle ? (
+            <header class={{ header: true }}>{this.theTitle}</header>
+          ) : null}
           <main class={{ main: true }}>
             <slot></slot>
           </main>

@@ -13,6 +13,19 @@
     <link href="/build/gemini.css" rel="stylesheet" />
   </head>
   <body>
+    <gxg-button type="primary-text-only">Label</gxg-button>
     <gxg-test></gxg-test>
+    <gxg-button type="primary-text-only" id="btn-set-focus">Set focus</gxg-button>
+    
+    <script>
+      //Set focus programatically
+      let btnSetFocus = document.getElementById("btn-set-focus");
+      let formText = document.getElementById("gxg-form-text");
+      btnSetFocus.addEventListener("click", function(){
+        formText.focus();
+      })
+    });
+    </script>
+
   </body>
 </html>

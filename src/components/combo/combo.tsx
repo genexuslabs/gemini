@@ -78,9 +78,22 @@ export class GxgCombo {
       exactMatch.classList.remove("exact-match");
     }
     this.showItems = false;
+    this.textInput.focus();
+  }
+
+  @Listen("keyDownComboItem")
+  keyDownComboItemHandler(event) {
+    if (event.detail === "ArrowUp") {
+      this.textInput.focus();
+    } else if (event.detail === "Tab" || event.detail === "Escape") {
+      this.showItems = false;
+      this.textInput.focus();
+    }
   }
 
   onInputGxgformText(e) {
+    this.showItems = true;
+
     this.inputTextValue = e.detail;
     this.inputTextIcon = null;
     this.inputTextIconPosition = null;
@@ -119,9 +132,24 @@ export class GxgCombo {
   }
 
   onKeyDownGxgformText(e) {
-    if (e.key === "Escape") {
+    if (e.key === "Enter") {
+      this.showItems = true;
+    } else if (e.key === "ArrowDown") {
+      //set focus on the first list item
+      e.preventDefault();
+      (this.el.querySelector(
+        "gxg-combo-item:not(.hidden)"
+      ) as HTMLElement).focus();
+    } else if (e.key === "Escape") {
       this.showItems = false;
-      this.textInput.blur();
+    }
+  }
+
+  onKeyDownGxgButtonArrowDown(e) {
+    if (e.key === "ArrowDown") {
+      //set focus on the first list item
+      e.preventDefault();
+      this.el.querySelector("gxg-combo-item").focus();
     }
   }
 
@@ -170,9 +198,6 @@ export class GxgCombo {
   selecteItemFunc() {
     return this.selectedItemValue;
   }
-  onInputFocus() {
-    this.showItems = true;
-  }
   clearInputFunc() {
     this.selectedItemValue = "";
     this.inputTextValue = "";
@@ -213,7 +238,7 @@ export class GxgCombo {
               placeholder="Search item"
               onInput={this.onInputGxgformText.bind(this)}
               onKeyDown={this.onKeyDownGxgformText.bind(this)}
-              onFocus={() => this.onInputFocus()}
+              onClick={() => this.toggleItems()}
               value={this.selectedItemValue}
               id="gxgFormText"
               icon={this.inputTextIcon}
@@ -228,6 +253,7 @@ export class GxgCombo {
                 icon="menus/delete"
                 type="tertiary"
                 onClick={() => this.clearInputFunc()}
+                tabindex="-1"
               ></gxg-button>
             ) : null}
 
@@ -236,6 +262,8 @@ export class GxgCombo {
               icon="navigation/arrow-down"
               type="tertiary"
               onClick={() => this.toggleItems()}
+              onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
+              tabindex="-1"
             ></gxg-button>
             <span class="layer"></span>
           </div>

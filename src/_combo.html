@@ -17,6 +17,10 @@
     </style>
   </head>
   <body>
+    <div style="height: 4000px">
+      
+    <gxg-button type="primary-text-only">Label</gxg-button>
+
     <gxg-combo id="gxgCombo">
       <gxg-combo-item>Common</gxg-combo-item>
       <gxg-combo-item icon="objects/business-process-diagram">BPM</gxg-combo-item>
@@ -32,11 +36,14 @@
       <gxg-combo-item icon="objects/stencil">Stencil</gxg-combo-item>
     </gxg-combo>
 
+    <gxg-button type="primary-text-only">Label</gxg-button>
+
     <script>
         let gxgCombo = document.getElementById("gxgCombo");
         gxgCombo.addEventListener("itemClicked", function(e){
           console.log(e.detail);
         })
     </script>
+    </div>
   </body>
 </html>

@@ -1,4 +1,4 @@
-import { Component, h, Host } from "@stencil/core";
+import { Component, h, Host, Listen } from "@stencil/core";
 import state from "../store";
 
 @Component({
@@ -7,6 +7,15 @@ import state from "../store";
   shadow: true,
 })
 export class GxgTest {
+  @Listen("focus")
+  handleFocus(focusEvent: Event) {
+    console.log("gxg-test tiene foco");
+  }
+
+  onInputFocus(e) {
+    console.log("input has focus");
+  }
+
   render() {
     return (
       <Host
@@ -14,7 +23,7 @@ export class GxgTest {
           large: state.large,
         }}
       >
-        hola
+        <input type="text" onFocus={(e) => this.onInputFocus(e)} />
       </Host>
     );
   }

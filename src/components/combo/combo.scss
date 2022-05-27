@@ -7,6 +7,8 @@
   display: block;
 
   .main-container {
+    position: relative;
+
     .search-container {
       position: relative;
 
@@ -50,7 +52,12 @@
       border-top: 0;
       max-height: 144px;
       overflow-y: auto;
+      overscroll-behavior: contain;
       background-color: var(--color-background);
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 99;
 
       .no-courrences-found {
         font-family: var(--font-family-primary);
