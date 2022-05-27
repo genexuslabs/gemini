@@ -170,6 +170,11 @@ export class GxgListbox {
     ((item as unknown) as GxgListboxItem).iconColor = "negative";
   }
 
+  toggleItem(item) {
+    //set icon color to negative
+    ((item as unknown) as GxgListboxItem).iconColor = "negative";
+  }
+
   @Listen("checkboxClicked")
   checkboxClickedHandler(e) {
     const actualSelectedItem = this.el.querySelector(

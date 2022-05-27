@@ -62,44 +62,30 @@ export class GxgListboxItem {
   }
 
   itemClickedFunc(e) {
-    if (!this.checkboxes) {
-      const index = this.el.getAttribute("index");
-      this.itemClicked.emit({
-        index: parseInt(index, 10),
-        crtlKey: e.ctrlKey,
-        cmdKey: e.metaKey,
-        shiftKey: e.shiftKey,
-        mouseClicked: true,
-      });
-    }
+    const index = this.el.getAttribute("index");
+    this.itemClicked.emit({
+      index: parseInt(index, 10),
+      crtlKey: e.ctrlKey,
+      cmdKey: e.metaKey,
+      shiftKey: e.shiftKey,
+      mouseClicked: true,
+    });
   }
 
   onKeyDown(e) {
     e.preventDefault();
-    let index = undefined;
     if (e.code === "ArrowDown") {
       const nextItem = this.el.nextElementSibling;
       if (nextItem !== null) {
         (nextItem as HTMLElement).focus();
-        index = nextItem.getAttribute("index");
       }
     } else if (e.code === "ArrowUp") {
       const prevItem = this.el.previousElementSibling;
       if (prevItem !== null) {
         (prevItem as HTMLElement).focus();
-        index = prevItem.getAttribute("index");
       }
     } else if (e.code === "Enter") {
-      index = this.el.getAttribute("index");
     }
-    // if (index) {
-    //   this.itemClicked.emit({
-    //     index: parseInt(index, 10),
-    //     crtlKey: e.ctrlKey,
-    //     cmdKey: e.metaKey,
-    //     mouseClicked: false,
-    //   });
-    // }
   }
 
   onMouseOver() {
