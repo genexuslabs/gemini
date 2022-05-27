@@ -10,10 +10,12 @@ export class GxgTest {
   @Listen("focus")
   handleFocus(focusEvent: Event) {
     console.log("gxg-test tiene foco");
+    console.log(focusEvent);
   }
 
   onInputFocus(e) {
     console.log("input has focus");
+    console.log(e);
   }
 
   render() {
