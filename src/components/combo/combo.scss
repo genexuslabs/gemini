@@ -78,3 +78,10 @@
     }
   }
 }
+
+:host(.filter-disabled) {
+  gxg-form-text::part(input) {
+    cursor: pointer;
+    background-color: var(--color-background);;
+  }
+}

@@ -19,9 +19,11 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default   |
-| -------- | --------- | --------------- | -------- | --------- |
-| `width`  | `width`   | The combo width | `string` | `"240px"` |
+| Property        | Attribute        | Description                                        | Type      | Default         |
+| --------------- | ---------------- | -------------------------------------------------- | --------- | --------------- |
+| `disableFilter` | `disable-filter` | The presence of this attribute disables the filter | `boolean` | `false`         |
+| `placeholder`   | `placeholder`    | The combo width                                    | `string`  | `"Search item"` |
+| `width`         | `width`          | The combo width                                    | `string`  | `"240px"`       |
 
 ## Dependencies
 

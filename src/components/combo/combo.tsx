@@ -25,6 +25,16 @@ export class GxgCombo {
    */
   @Prop() width = "240px";
 
+  /**
+   * The combo width
+   */
+  @Prop() placeholder = "Search item";
+
+  /**
+   * The presence of this attribute disables the filter
+   */
+  @Prop() disableFilter = false;
+
   @State() itemsNodeList: NodeList;
   @State() selectedItemValue = "";
   @State() inputTextValue = "";
@@ -231,11 +241,11 @@ export class GxgCombo {
 
   render() {
     return (
-      <Host>
+      <Host class={{ "filter-disabled": this.disableFilter }}>
         <div class={{ "main-container": true }} style={{ width: this.width }}>
           <div class={{ "search-container": true }}>
             <gxg-form-text
-              placeholder="Search item"
+              placeholder={this.placeholder}
               onInput={this.onInputGxgformText.bind(this)}
               onKeyDown={this.onKeyDownGxgformText.bind(this)}
               onClick={() => this.toggleItems()}
@@ -243,11 +253,12 @@ export class GxgCombo {
               id="gxgFormText"
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
+              disabled={this.disableFilter}
               ref={(el) =>
                 (this.textInput = (el as unknown) as HTMLInputElement)
               }
             ></gxg-form-text>
-            {this.inputTextValue !== "" ? (
+            {this.inputTextValue !== "" && !this.disableFilter ? (
               <gxg-button
                 class={{ "delete-icon": true }}
                 icon="menus/delete"
@@ -265,7 +276,7 @@ export class GxgCombo {
               onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
               tabindex="-1"
             ></gxg-button>
-            <span class="layer"></span>
+            {!this.disableFilter ? <span class="layer"></span> : null}
           </div>
           {this.showItems ? (
             <div

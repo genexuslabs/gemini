@@ -4,11 +4,12 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                                                            | Type      | Default   |
-| ------------ | ------------ | ---------------------------------------------------------------------- | --------- | --------- |
-| `checkboxes` | `checkboxes` | The prescence of this attribute will display a checkbox for every item | `boolean` | `false`   |
-| `theTitle`   | `the-title`  | The listbox title that appears on the header                           | `string`  | `""`      |
-| `width`      | `width`      | The listbox width                                                      | `string`  | `"280px"` |
+| Property          | Attribute          | Description                                                            | Type      | Default   |
+| ----------------- | ------------------ | ---------------------------------------------------------------------- | --------- | --------- |
+| `checkboxes`      | `checkboxes`       | The prescence of this attribute will display a checkbox for every item | `boolean` | `false`   |
+| `singleSelection` | `single-selection` | The prescence of this attribute will deactivate multi-selection        | `boolean` | `false`   |
+| `theTitle`        | `the-title`        | The listbox title that appears on the header                           | `string`  | `""`      |
+| `width`           | `width`            | The listbox width                                                      | `string`  | `"280px"` |
 
 ## Events
 

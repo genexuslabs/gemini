@@ -78,7 +78,6 @@ TEXT
   }
   input[disabled] {
     @include form-element-common-styles-disabled();
-    cursor: not-allowed;
   }
   input[disabled]::-webkit-input-placeholder {
     color: var(--gray-04);

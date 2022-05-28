@@ -19,7 +19,25 @@
     </style>
   </head>
   <body>
-    <gxg-listbox id="list-box" the-title="the title">
+    <gxg-listbox single-selection id="list-box" the-title="listbox without multi-selection">
+      <gxg-listbox-item>0.Common</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/business-process-diagram">1.BPM</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/conversational-flows">2.Chatbots</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/data-provider">3.Data Management</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/bg-color">4.Resources</gxg-listbox-item>
+      <gxg-listbox-item value="otro value" icon="objects/webpanel">5.User interface</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/dashboard">6.Dashboard</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/deployment-unit">7.Deployment Unit</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/dso">8.DSO</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/structured-data-type">9.Structured Data Type</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/url-rewrite">10.URL Rewrite</gxg-listbox-item>
+      <gxg-listbox-item icon="objects/stencil">11.Stencil</gxg-listbox-item>
+    </gxg-listbox>
+    <br>
+    <gxg-button id="gxg-btn-list-box">Get selected items</gxg-button>
+    <br><br>
+
+    <gxg-listbox checkboxes id="list-box-checkboxes" the-title="listbox with multi-selection">
       <gxg-listbox-item>Common</gxg-listbox-item>
       <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
       <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
@@ -33,12 +51,34 @@
       <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
       <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
     </gxg-listbox>
+    <br>
+    <gxg-button id="gxg-btn-list-box-checkboxes">Get selected items</gxg-button>
+    <br><br>
 
     <script>
       let listBox = document.getElementById("list-box");
       listBox.addEventListener("selectionChanged", e =>{
         console.log(e.detail);
-      })
+      });
+
+      let listBoxCheckboxes = document.getElementById("list-box-checkboxes");
+      listBoxCheckboxes.addEventListener("selectionChanged", e =>{
+        console.log(e.detail);
+      });
+
+      let btnListBox = document.getElementById("gxg-btn-list-box");
+      btnListBox.addEventListener("click", e =>{
+        listBox.getSelectedItems()
+        .then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      let btnListBoxCheckboxes = document.getElementById("gxg-btn-list-box-checkboxes");
+      btnListBoxCheckboxes.addEventListener("click", e =>{
+        
+      });
+
     </script>
   </body>
 </html>

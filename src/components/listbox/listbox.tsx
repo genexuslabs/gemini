@@ -39,6 +39,11 @@ export class GxgListbox {
    */
   @Prop() checkboxes = false;
 
+  /**
+   * The prescence of this attribute will deactivate multi-selection
+   */
+  @Prop() singleSelection = false;
+
   @Method()
   async getSelectedItems() {
     return { ...this.selectedItems() };
@@ -71,39 +76,43 @@ export class GxgListbox {
 
   @Listen("itemClicked")
   itemClickedHandler(e) {
-    console.log("item clicked");
     const clickedItem = this.getItem(e.detail["index"]);
     const clickedItemIndex: number = parseInt(
       clickedItem.getAttribute("index")
     );
-    if (!e.detail.crtlKey && !e.detail.cmdKey && !e.detail.shiftKey) {
-      //If ctrl and command and shift keys were not pressed, unselect previous selected items
-      this.clearSelectedItems();
-      this.selectItem(clickedItem);
-      this.lastSelectedItemIndex = clickedItemIndex;
-    } else if (e.detail.crtlKey || e.detail.cmdKey) {
-      this.toggleItem(clickedItem);
-      this.lastSelectedItemIndex = clickedItemIndex;
-    } else if (e.detail.shiftKey) {
-      if (this.lastSelectedItemIndex === undefined) {
-        this.selectMulitpleItems(0, clickedItemIndex);
-        this.lastSelectedItemIndex = clickedItemIndex;
-      } else {
+    if (!this.singleSelection) {
+      if (!e.detail.crtlKey && !e.detail.cmdKey && !e.detail.shiftKey) {
+        //If ctrl and command and shift keys were not pressed, unselect previous selected items
         this.clearSelectedItems();
-        if (clickedItemIndex === this.lastSelectedItemIndex) {
-          this.selectItem(clickedItem);
-        } else if (clickedItemIndex < this.lastSelectedItemIndex) {
-          this.selectMulitpleItems(
-            clickedItemIndex,
-            this.lastSelectedItemIndex
-          );
+        this.selectItem(clickedItem);
+        this.lastSelectedItemIndex = clickedItemIndex;
+      } else if (e.detail.crtlKey || e.detail.cmdKey) {
+        this.toggleItem(clickedItem);
+        this.lastSelectedItemIndex = clickedItemIndex;
+      } else if (e.detail.shiftKey) {
+        if (this.lastSelectedItemIndex === undefined) {
+          this.selectMulitpleItems(0, clickedItemIndex);
+          this.lastSelectedItemIndex = clickedItemIndex;
         } else {
-          this.selectMulitpleItems(
-            this.lastSelectedItemIndex,
-            clickedItemIndex
-          );
+          this.clearSelectedItems();
+          if (clickedItemIndex === this.lastSelectedItemIndex) {
+            this.selectItem(clickedItem);
+          } else if (clickedItemIndex < this.lastSelectedItemIndex) {
+            this.selectMulitpleItems(
+              clickedItemIndex,
+              this.lastSelectedItemIndex
+            );
+          } else {
+            this.selectMulitpleItems(
+              this.lastSelectedItemIndex,
+              clickedItemIndex
+            );
+          }
         }
       }
+    } else {
+      this.clearSelectedItems();
+      this.selectItem(clickedItem);
     }
     this.emmitSelectedItems();
   }
@@ -117,7 +126,10 @@ export class GxgListbox {
     if (e.detail.eCode === "ArrowDown") {
       const nextElement = this.getItem(e.detail.index).nextElementSibling;
       if (nextElement !== null) {
-        if (!e.detail.shiftKey && !e.detail.crtlKey) {
+        if (
+          (!e.detail.shiftKey && !e.detail.crtlKey) ||
+          (this.singleSelection && !e.detail.crtlKey)
+        ) {
           this.clearSelectedItems();
         }
         (nextElement as HTMLElement).focus();
@@ -134,7 +146,10 @@ export class GxgListbox {
     } else if (e.detail.eCode === "ArrowUp") {
       const prevElement = this.getItem(e.detail.index).previousElementSibling;
       if (prevElement !== null) {
-        if (!e.detail.shiftKey && !e.detail.crtlKey) {
+        if (
+          (!e.detail.shiftKey && !e.detail.crtlKey) ||
+          (this.singleSelection && !e.detail.crtlKey)
+        ) {
           this.clearSelectedItems();
         }
         (prevElement as HTMLElement).focus();

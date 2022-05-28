@@ -19,65 +19,54 @@
     </style>
   </head>
   <body>
-    <gxg-listbox id="list-box">
-      <gxg-listbox-item>0.Common</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/business-process-diagram">1.BPM</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/conversational-flows">2.Chatbots</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/data-provider">3.Data Management</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/bg-color">4.Resources</gxg-listbox-item>
-      <gxg-listbox-item value="otro value" icon="objects/webpanel">5.User interface</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/dashboard">6.Dashboard</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/deployment-unit">7.Deployment Unit</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/dso">8.DSO</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/structured-data-type">9.Structured Data Type</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/url-rewrite">10.URL Rewrite</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/stencil">11.Stencil</gxg-listbox-item>
-    </gxg-listbox>
+    <gxg-select>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select>
+
     <br>
-    <gxg-button id="gxg-btn-list-box">Get selected items</gxg-button>
-    <br><br>
-    <gxg-listbox checkboxes id="list-box-checkboxes">
-      <gxg-listbox-item>Common</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/conversational-flows">Chatbots</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/data-provider">Data Management</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/bg-color">Resources</gxg-listbox-item>
-      <gxg-listbox-item value="otro value" icon="objects/webpanel">User interface</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/dashboard">Dashboard</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/deployment-unit">Deployment Unit</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/dso">DSO</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/structured-data-type">Structured Data Type</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
-      <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
-    </gxg-listbox>
+
+    <gxg-drop-down>
+      hola
+    </gxg-drop-down>
+
     <br>
-    <gxg-button id="gxg-btn-list-box-checkboxes">Get selected items</gxg-button>
-    <br><br>
+
+
+    <gxg-drop-down icon="general/generator" id="gxg-drop-down" label="Module/Folder:">
+      <span slot="button" style="background-color: red;">hola</span>
+      contenido html de la ventana que se despliega.
+    </gxg-drop-down>
+    <br>
+    <gxg-button id="close-drop-down-btn">close dropdown</gxg-button>
+    <gxg-button id="open-drop-down-btn">open dropdown</gxg-button>
 
     <script>
-      let listBox = document.getElementById("list-box");
-      listBox.addEventListener("selectionChanged", e =>{
-        console.log(e.detail);
+      let gxgDropDown = document.getElementById("gxg-drop-down");
+      gxgDropDown.addEventListener("opened", function(){
+        console.log("opened");
+      })
+      gxgDropDown.addEventListener("closed", function(){
+        console.log("closed");
+      })
+      //close dropdown button
+      closeDropDownBtn = document.getElementById("close-drop-down-btn");
+      closeDropDownBtn.addEventListener("click", function(){
+        gxgDropDown.showContent = false;
       });
-
-      let listBoxCheckboxes = document.getElementById("list-box-checkboxes");
-      listBoxCheckboxes.addEventListener("selectionChanged", e =>{
-        console.log(e.detail);
+      //open dropdown button
+      openDropDownBtn = document.getElementById("open-drop-down-btn");
+      openDropDownBtn.addEventListener("click", function(){
+        gxgDropDown.showContent = true;
       });
-
-      let btnListBox = document.getElementById("gxg-btn-list-box");
-      btnListBox.addEventListener("click", e =>{
-        listBox.getSelectedItems()
-        .then((selectedItems) => {
-          console.log(selectedItems);
-        });
-      });
-
-      let btnListBoxCheckboxes = document.getElementById("gxg-btn-list-box-checkboxes");
-      btnListBoxCheckboxes.addEventListener("click", e =>{
-        
-      });
-
     </script>
+
   </body>
 </html>
