@@ -33,9 +33,9 @@
       <gxg-listbox-item icon="objects/url-rewrite">10.URL Rewrite</gxg-listbox-item>
       <gxg-listbox-item icon="objects/stencil">11.Stencil</gxg-listbox-item>
     </gxg-listbox>
-
     <br>
-
+    <gxg-button id="gxg-btn-list-box">Get selected items</gxg-button>
+    <br><br>
     <gxg-listbox checkboxes id="list-box-checkboxes">
       <gxg-listbox-item>Common</gxg-listbox-item>
       <gxg-listbox-item icon="objects/business-process-diagram">BPM</gxg-listbox-item>
@@ -50,17 +50,34 @@
       <gxg-listbox-item icon="objects/url-rewrite">URL Rewrite</gxg-listbox-item>
       <gxg-listbox-item icon="objects/stencil">Stencil</gxg-listbox-item>
     </gxg-listbox>
+    <br>
+    <gxg-button id="gxg-btn-list-box-checkboxes">Get selected items</gxg-button>
+    <br><br>
 
     <script>
       let listBox = document.getElementById("list-box");
       listBox.addEventListener("selectionChanged", e =>{
         console.log(e.detail);
-      })
+      });
 
       let listBoxCheckboxes = document.getElementById("list-box-checkboxes");
       listBoxCheckboxes.addEventListener("selectionChanged", e =>{
         console.log(e.detail);
-      })
+      });
+
+      let btnListBox = document.getElementById("gxg-btn-list-box");
+      btnListBox.addEventListener("click", e =>{
+        listBox.getSelectedItems()
+        .then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      let btnListBoxCheckboxes = document.getElementById("gxg-btn-list-box-checkboxes");
+      btnListBoxCheckboxes.addEventListener("click", e =>{
+        
+      });
+
     </script>
   </body>
 </html>

@@ -8,6 +8,7 @@ import {
   EventEmitter,
   Listen,
   State,
+  Method,
 } from "@stencil/core";
 import { GxgListboxItem } from "../listbox-item/listbox-item";
 
@@ -37,6 +38,11 @@ export class GxgListbox {
    * The prescence of this attribute will display a checkbox for every item
    */
   @Prop() checkboxes = false;
+
+  @Method()
+  async getSelectedItems() {
+    return { ...this.selectedItems() };
+  }
 
   @State() lastSelectedItemIndex: number | undefined = undefined;
 
@@ -212,7 +218,7 @@ export class GxgListbox {
     }
   }
 
-  emmitSelectedItems() {
+  selectedItems() {
     const selectedItems = this.el.querySelectorAll(".selected");
     const selectedItemsArray = [];
     selectedItems.forEach((item) => {
@@ -229,9 +235,12 @@ export class GxgListbox {
       };
       selectedItemsArray.push(itemObj);
     });
+    return selectedItemsArray;
+  }
 
+  emmitSelectedItems() {
     this.selectionChanged.emit({
-      ...selectedItemsArray,
+      ...this.selectedItems(),
     });
   }
 
