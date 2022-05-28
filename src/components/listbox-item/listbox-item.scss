@@ -8,6 +8,10 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select:none;
+  user-select:none;-o-user-select:none;
 
   .icon {
     margin-inline-end: var(--spacing-comp-01);

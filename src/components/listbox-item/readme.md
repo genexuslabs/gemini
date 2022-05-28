@@ -12,10 +12,10 @@
 
 ## Events
 
-| Event             | Description                       | Type               |
-| ----------------- | --------------------------------- | ------------------ |
-| `checkboxClicked` | (This event is for internal use.) | `CustomEvent<any>` |
-| `itemClicked`     | (This event is for internal use.) | `CustomEvent<any>` |
+| Event         | Description                       | Type               |
+| ------------- | --------------------------------- | ------------------ |
+| `itemClicked` | (This event is for internal use.) | `CustomEvent<any>` |
+| `KeyPressed`  | (This event is for internal use.) | `CustomEvent<any>` |
 
 ## Dependencies
 

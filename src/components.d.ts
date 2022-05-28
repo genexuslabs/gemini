@@ -2375,11 +2375,11 @@ declare namespace LocalJSX {
         /**
           * (This event is for internal use.)
          */
-        "onCheckboxClicked"?: (event: CustomEvent<any>) => void;
+        "onItemClicked"?: (event: CustomEvent<any>) => void;
         /**
           * (This event is for internal use.)
          */
-        "onItemClicked"?: (event: CustomEvent<any>) => void;
+        "onKeyPressed"?: (event: CustomEvent<any>) => void;
         /**
           * The item value. If value is not provided, the value will be the item innerHTML.
          */

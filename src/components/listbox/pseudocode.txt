@@ -1,3 +1,5 @@
+CUANDO SE HACE CLICK
+
 Si (la tecla cmd y ctrl y shift no fueron presionadas) {
     deseleccionar los items actualmente seleccionados
     seleccionar el item clickeado
@@ -30,3 +32,29 @@ Sino (si la tecla shift fue presionada) {
         }
     }
 }
+
+============================================================================
+
+CUANDO SE TOCA UNA TECLA
+
+itemConFoco = el item que actualmente tiene foco 
+Si la tecla es arrow down {
+    Si el proximoElementoHermano no es nulo {
+        Si la techa shift no estaba apretada {
+            Deseleccionar todos los items
+        } 
+        poner foco en el proximoElementoHermano
+        si el proximoElementoHermano no esta seleccionado {
+            seleccionar
+        } sino {
+            deseleccionar itemConFoco
+        }
+    }
+}
+Sino, si la tecla es arrow up {
+    Si el anteriorElementoHermano no es nulo {
+        poner foco en el anteriorElementoHermano
+        seleccionar el anteriorElementoHermano
+        
+    }
+} 

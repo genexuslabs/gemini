@@ -30,7 +30,7 @@ export class GxgListboxItem {
   /**
    * (This event is for internal use.)
    */
-  @Event() checkboxClicked: EventEmitter;
+  @Event() KeyPressed: EventEmitter;
 
   /**
    * The item value. If value is not provided, the value will be the item innerHTML.
@@ -43,21 +43,12 @@ export class GxgListboxItem {
   @Prop() iconColor: Color = "auto";
 
   @State() checkboxes = false;
-  @State() itemHasFocus = false;
 
   componentWillLoad() {
     const listbox = this.el.parentElement;
     const listboxCheckboxes = listbox.getAttribute("checkboxes");
     if (listboxCheckboxes !== null) {
       this.checkboxes = true;
-
-      const checkbox = this.el.querySelector("gxg-form-checkbox");
-      checkbox.addEventListener("click", () => {
-        const index = this.el.getAttribute("index");
-        this.checkboxClicked.emit({
-          index: parseInt(index, 10),
-        });
-      });
     }
   }
 
@@ -68,29 +59,27 @@ export class GxgListboxItem {
       crtlKey: e.ctrlKey,
       cmdKey: e.metaKey,
       shiftKey: e.shiftKey,
-      mouseClicked: true,
     });
   }
 
   onKeyDown(e) {
     e.preventDefault();
-    if (e.code === "ArrowDown") {
-      const nextItem = this.el.nextElementSibling;
-      if (nextItem !== null) {
-        (nextItem as HTMLElement).focus();
-      }
-    } else if (e.code === "ArrowUp") {
-      const prevItem = this.el.previousElementSibling;
-      if (prevItem !== null) {
-        (prevItem as HTMLElement).focus();
-      }
-    } else if (e.code === "Enter") {
+    if (e.code === "ArrowDown" || e.code === "ArrowUp" || e.code === "Enter") {
+      const index = this.el.getAttribute("index");
+      this.KeyPressed.emit({
+        index: parseInt(index, 10),
+        crtlKey: e.ctrlKey,
+        cmdKey: e.metaKey,
+        shiftKey: e.shiftKey,
+        eCode: e.code,
+      });
     }
   }
 
   onMouseOver() {
     this.iconColor = "negative";
   }
+
   onMouseOut() {
     const itemIsSelected = this.el.classList.contains("selected");
     if (!itemIsSelected) {
