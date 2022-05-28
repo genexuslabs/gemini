@@ -111,35 +111,44 @@ export class GxgListbox {
     if (e.detail.eCode === "ArrowDown") {
       const nextElement = this.getItem(e.detail.index).nextElementSibling;
       if (nextElement !== null) {
-        if (!e.detail.shiftKey) {
+        if (!e.detail.shiftKey && !e.detail.crtlKey) {
           this.clearSelectedItems();
         }
         (nextElement as HTMLElement).focus();
-        if (!nextElement.classList.contains("selected")) {
-          this.selectItem(nextElement);
-        } else {
-          if (itemWithFocus) {
-            this.unselectItem(itemWithFocus);
+        if (!e.detail.crtlKey) {
+          if (!nextElement.classList.contains("selected")) {
+            this.selectItem(nextElement);
+          } else {
+            if (itemWithFocus) {
+              this.unselectItem(itemWithFocus);
+            }
           }
         }
       }
     } else if (e.detail.eCode === "ArrowUp") {
       const prevElement = this.getItem(e.detail.index).previousElementSibling;
       if (prevElement !== null) {
-        if (!e.detail.shiftKey) {
+        if (!e.detail.shiftKey && !e.detail.crtlKey) {
           this.clearSelectedItems();
         }
         (prevElement as HTMLElement).focus();
-        if (!prevElement.classList.contains("selected")) {
-          this.selectItem(prevElement);
-        } else {
-          if (itemWithFocus) {
-            this.unselectItem(itemWithFocus);
+        if (!e.detail.crtlKey) {
+          if (!prevElement.classList.contains("selected")) {
+            this.selectItem(prevElement);
+          } else {
+            if (itemWithFocus) {
+              this.unselectItem(itemWithFocus);
+            }
           }
         }
       }
     } else if (e.detail.eCode === "Enter") {
+      if (!e.detail.crtlKey) {
+        this.clearSelectedItems();
+      }
+      this.selectItem(itemWithFocus);
     }
+    this.emmitSelectedItems();
   }
 
   selectMulitpleItems(fromIndex: number, toIndex: number) {
