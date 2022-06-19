@@ -1,0 +1,125 @@
+
+ComponentWillLoad() {
+    setear index a cada combo item.
+}
+
+@Listen("itemClicked")
+itemClickedHandler(event) { CHECKED
+    this.value = event.value
+}
+
+onInputGxgformText(e) { CHECKED
+    this.showItems = true;
+    //this.inputTextValue = e.detail;
+    
+    si(this.strict) {
+        this.value = undefined;
+    } else {
+        this.value = e.detail
+    }
+    this.inputTextIcon = null;
+    this.inputTextIconPosition = null;
+
+    1.clearSelectedItem()
+
+    const filterValue = e.detail
+    2.para cada item :
+
+        si el itemDescription no incluye el filterValue {
+            le agregamos la clase "hidden"
+        } sino {
+            le quitamos la clase "hidden"
+        }
+
+        si el itemDescription === filterValue {
+            le agregamos la clase "exact-match"
+        } sino {
+            le quitamos la clase "exact-match"
+        }
+
+    3. Si la cantidad de items ocultos es igual al largo de la lista de items && this.strict , noMatch = true, sino noMatch = false
+}
+
+@Watch('value') CHECKED
+    onValueChanged(newValue: any, oldValue: any) {
+    
+    si(newValue !== undefined){
+        const item = getItemByValue(value)
+    }
+    if(item) {
+        updateSelectedItem(item);
+    } else {
+        //no existe item con ese valor
+        if(strict) {
+            this.value = oldValue
+        }
+    }
+}
+
+getItemByValue(value){ CHECKED
+    si exsite item {
+        return item
+    } else {
+        return null
+    }
+}
+
+updateSelectedItem(item) { CHECKED
+
+    clearSelectedItem();
+    clearExactMatch();
+
+    //setear icono
+    si (nuevoItemTieneIcono) {
+        setIcon(icon);
+    } sino {
+        clearIcon();
+    }
+    
+    //setear description
+    si (nuevoItemTieneDescription !== "") {
+        this.inputTextValue = nuevoItemDescription
+    } sino {
+        this.inputTextValue = " ";
+    }
+
+    //setear item seleccionado
+    item.classlist.add("selected");
+
+    showItems = false;
+}
+
+clearSelectedItem(){ CHECKED
+    remover clase "selected";
+}
+clearExactMatch() { CHECKED
+    remover clase "exact-match";
+}
+setIcon(icon:string) { CHECKED
+    this.inputTextIcon = icon
+    this.inputTextIconPosition = "start"
+}
+clearIcon(){ CHECKED
+    this.inputTextIcon = null
+    this.inputTextIconPosition = null
+}
+
+
+clearCombo() { CHECKED
+    this.value = undefined;
+    this.inputTextValue = "";
+    clearIcon();
+
+    1. para cada item hidden, quitar la clase hidden;
+    2. si hay un selected item
+        setear el color del icono del item seleccionado a "auto"
+        quitarle al item seleccionado la clase "selected"
+    3. clearExactMatch()
+    4. this.showItems = true;
+
+    this.textInput.focus();
+}
+
+==========================================
+
+notas: cambiar el nombre de "keyDownComboItem" por algo mas adecuado

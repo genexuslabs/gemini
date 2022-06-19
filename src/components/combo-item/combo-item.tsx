@@ -23,7 +23,7 @@ export class GxgComboItem {
   @Event() itemClicked: EventEmitter;
 
   /**
-   * This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component
+   * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component
    * and then focus is set on "search" input.
    */
   @Event() keyDownComboItem: EventEmitter;
@@ -34,25 +34,32 @@ export class GxgComboItem {
   @Prop() icon: string = undefined;
 
   /**
-   * The item value. This is what the filter with search for. If value is not provided, the filter will search by the item innerHTML.
+   * The item value. If value is not provided, an automatic value will be generated with the innerText.
    */
-  @Prop() value: any = undefined;
+  @Prop({ reflect: true }) value: any = undefined;
 
   /**
    * (This prop is for internal use).
    */
   @Prop() iconColor: Color = "auto";
 
+  componentWillLoad() {
+    this.el.tabIndex = 0;
+    if (!this.value) {
+      this.value = this.el.innerHTML.toLocaleLowerCase().replace(" ", "-");
+    }
+  }
+
   itemClickedFunc() {
     const index = this.el.getAttribute("index");
+    const value = this.value;
+    const description = this.el.innerHTML;
     const icon = this.el.getAttribute("icon");
-    let value = this.value;
-    if (value === undefined) {
-      value = this.el.innerHTML;
-    }
+
     this.itemClicked.emit({
       index: parseInt(index, 10),
-      value: value.toString(),
+      value: value,
+      description: description,
       icon: icon,
     });
   }

@@ -145,7 +145,6 @@ export class GxgTabBar {
     const gxgTabsPosition = this.el.parentElement.getAttribute("position");
     if (gxgTabsPosition === "bottom") {
       const tabBarMenu = this.el.shadowRoot.querySelector(".tab-bar-menu");
-      console.log("tabBarMenu", tabBarMenu);
       tabBarMenu.classList.add("bottom");
     }
     //Tabbar menu on right

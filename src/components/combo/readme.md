@@ -19,11 +19,13 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                        | Type      | Default         |
-| --------------- | ---------------- | -------------------------------------------------- | --------- | --------------- |
-| `disableFilter` | `disable-filter` | The presence of this attribute disables the filter | `boolean` | `false`         |
-| `placeholder`   | `placeholder`    | The combo width                                    | `string`  | `"Search item"` |
-| `width`         | `width`          | The combo width                                    | `string`  | `"240px"`       |
+| Property        | Attribute        | Description                                                                                                                                                                                                                                                   | Type      | Default         |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- |
+| `disableFilter` | `disable-filter` | The presence of this attribute disables the filter                                                                                                                                                                                                            | `boolean` | `false`         |
+| `maxWidth`      | `max-width`      | The combo max-width                                                                                                                                                                                                                                           | `string`  | `"240px"`       |
+| `placeholder`   | `placeholder`    | The combo placeholder                                                                                                                                                                                                                                         | `string`  | `"Search item"` |
+| `strict`        | `strict`         | If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has. | `boolean` | `false`         |
+| `value`         | `value`          | Get or set the selected item value                                                                                                                                                                                                                            | `any`     | `null`          |
 
 ## Dependencies
 
