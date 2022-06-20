@@ -92,7 +92,9 @@ export class GxgComboItem {
   }
 
   onMouseOver() {
-    this.iconColor = "negative";
+    if (!this.el.classList.contains("exact-match")) {
+      this.iconColor = "negative";
+    }
   }
   onMouseOut() {
     const itemIsSelected = this.el.classList.contains("selected");

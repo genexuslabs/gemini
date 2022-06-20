@@ -58,6 +58,7 @@ export class GxgCombo {
   @State() slottedContent: HTMLElement = null;
 
   componentWillLoad() {
+    // DONE
     this.itemsNodeList = this.el.querySelectorAll("gxg-combo-item");
     this.itemsNodeList.forEach((item, i) => {
       const itemHtmlElement = item as HTMLElement;
@@ -67,45 +68,11 @@ export class GxgCombo {
 
   @Listen("itemClicked")
   itemClickedHandler(event) {
-    //unselect previous selected item
-    const previouslyselectedItem = this.el.querySelector(".selected");
-    if (previouslyselectedItem !== null) {
-      previouslyselectedItem.classList.remove("selected");
-      ((previouslyselectedItem as unknown) as GxgListboxItem).iconColor =
-        "auto";
-    }
-
-    //update active item
-    const actualSelectedItem = this.el.querySelector(
-      "[index='" + event.detail["index"] + "']"
-    );
-    actualSelectedItem.classList.add("selected");
-
+    // DONE
     this.value = event.detail.value;
-    this.inputTextValue = event.detail.description;
-    if (event.detail.icon !== null) {
-      this.inputTextIcon = event.detail.icon;
-      this.inputTextIconPosition = "start";
-    } else {
-      this.inputTextIcon = null;
-      this.inputTextIconPosition = null;
-    }
-    // Display all hidden items
-    const hiddenItems = this.el.querySelectorAll(".hidden");
-    hiddenItems.forEach((hiddenItem) => {
-      const hiddenItemHTMLElement = hiddenItem as HTMLElement;
-      hiddenItemHTMLElement.classList.remove("hidden");
-    });
-    //remove exact match class
-    const exactMatch = this.el.querySelector(".exact-match");
-    if (exactMatch !== null) {
-      exactMatch.classList.remove("exact-match");
-    }
-    this.showItems = false;
-    this.textInput.focus();
   }
 
-  @Listen("keyDownComboItem")
+  @Listen("keyDownComboItem") //DONE
   keyDownComboItemHandler(event) {
     if (event.detail === "ArrowUp") {
       this.textInput.focus();
@@ -116,16 +83,17 @@ export class GxgCombo {
   }
 
   onInputGxgformText(e) {
+    //DONE
     this.showItems = true;
+    this.inputTextValue = e.detail;
 
-    //this.inputTextValue = e.detail;
+    if (!this.strict) {
+      this.value = e.detail;
+    }
+
     this.inputTextIcon = null;
     this.inputTextIconPosition = null;
-
-    const itemSelected = this.el.querySelector(".selected");
-    if (itemSelected !== null) {
-      itemSelected.classList.remove("selected");
-    }
+    this.clearSelectedItem();
 
     const filterValue = e.detail.toLowerCase();
     this.itemsNodeList.forEach((item) => {
@@ -151,16 +119,66 @@ export class GxgCombo {
     }
   }
 
-  updateSelectedItem(itemValue: any) {
-    console.log("cambio el value");
+  @Watch("value") // DONE
+  onValueChanged(newValue: string, oldValue: string) {
+    let item = undefined;
+    if (newValue !== undefined) {
+      item = this.getItemByValue(newValue);
+    }
+    if (item) {
+      this.updateSelectedItem(item);
+    } else {
+      if (this.strict) {
+        this.value = oldValue;
+      }
+    }
   }
 
-  @Watch("value")
-  onValueChanged(newValue: any) {
-    this.updateSelectedItem(newValue);
+  getItemByValue(value: string): GxgComboItem | undefined {
+    //DONE
+    let item = undefined;
+    for (let i = 0; i < this.itemsNodeList.length; i++) {
+      if (
+        ((this.itemsNodeList[i] as unknown) as GxgComboItem).value === value
+      ) {
+        item = this.itemsNodeList[i];
+        break;
+      }
+    }
+    return item;
+  }
+
+  updateSelectedItem(item: GxgComboItem) {
+    //DONE
+    this.clearSelectedItem();
+    this.clearExactMatch();
+    this.clearHiddenItems();
+
+    //set icon
+    if (item.icon) {
+      this.setIcon(item.icon);
+      item.iconColor = "negative";
+    } else {
+      this.clearIcon();
+    }
+
+    //set description
+    const itemDescription = ((item as unknown) as HTMLElement).innerText;
+    if (itemDescription) {
+      this.inputTextValue = itemDescription;
+    } else {
+      this.inputTextValue = " ";
+    }
+
+    //set item as selected
+    ((item as unknown) as HTMLElement).classList.add("selected");
+
+    this.showItems = false;
+    this.textInput.focus();
   }
 
   onKeyDownGxgformText(e) {
+    // DONE
     if (e.key === "Enter") {
       this.showItems = true;
     } else if (e.key === "ArrowDown") {
@@ -175,6 +193,7 @@ export class GxgCombo {
   }
 
   onKeyDownGxgButtonArrowDown(e) {
+    // DONE
     if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
@@ -183,6 +202,7 @@ export class GxgCombo {
   }
 
   toggleItems() {
+    // DONE (?)
     if (this.showItems === true) {
       this.showItems = false;
     } else {
@@ -190,7 +210,47 @@ export class GxgCombo {
     }
   }
 
+  clearSelectedItem(): void {
+    //DONE
+    const selectedItem = this.el.querySelector(".selected");
+    if (selectedItem !== null) {
+      selectedItem.classList.remove("selected");
+      if (selectedItem.hasAttribute("icon")) {
+        ((selectedItem as unknown) as GxgComboItem).iconColor = "auto";
+      }
+    }
+  }
+
+  clearExactMatch(): void {
+    //DONE
+    const itemExactMatch = this.el.querySelector(".exact-match");
+    if (itemExactMatch !== null) {
+      itemExactMatch.classList.remove("exact-match");
+    }
+  }
+
+  clearHiddenItems() {
+    // DONE
+    const hiddenItems = this.el.querySelectorAll(".hidden");
+    hiddenItems.forEach((item) => {
+      item.classList.remove("hidden");
+    });
+  }
+
+  setIcon(icon: string): void {
+    //DONE
+    this.inputTextIcon = icon;
+    this.inputTextIconPosition = "start";
+  }
+
+  clearIcon(): void {
+    //DONE
+    this.inputTextIcon = null;
+    this.inputTextIconPosition = null;
+  }
+
   detectClickOutsideCombo(event) {
+    //DONE
     const comboMainContainer = this.el.shadowRoot.querySelector(
       ".main-container"
     ) as HTMLElement;
@@ -218,40 +278,22 @@ export class GxgCombo {
   }
 
   componentDidLoad() {
+    //DONE
     document.addEventListener("click", this.detectClickOutsideCombo.bind(this));
   }
   componentDidUnload() {
+    //DONE
     document.removeEventListener("click", this.detectClickOutsideCombo);
   }
 
   clearCombo() {
     this.value = undefined;
     this.inputTextValue = "";
-    this.textInput.focus();
-    this.inputTextIcon = null;
-    this.inputTextIconPosition = null;
-
-    const hiddenItems = this.el.querySelectorAll(".hidden");
-    hiddenItems.forEach((item) => {
-      item.classList.remove("hidden");
-    });
-
-    const selectedItem = this.el.querySelector(".selected");
-    if (selectedItem !== null) {
-      //set icon color to auto
-      const selectedItemIcon = selectedItem.shadowRoot.querySelector(
-        "gxg-icon"
-      );
-      selectedItemIcon.color = "auto";
-      selectedItem.classList.remove("selected");
-    }
-
-    const exactMatch = this.el.querySelector(".exact-match");
-    if (exactMatch !== null) {
-      exactMatch.classList.remove("exact-match");
-    }
-
+    this.clearIcon();
+    this.clearSelectedItem();
+    this.clearHiddenItems();
     this.showItems = true;
+    this.textInput.focus();
   }
 
   render() {
