@@ -8,6 +8,7 @@ import {
   Element,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
+import state from "../store";
 
 @Component({
   tag: "gxg-combo-item",
@@ -103,6 +104,14 @@ export class GxgComboItem {
     }
   }
 
+  iconSize(): "regular" | "small" {
+    if (state.large) {
+      return "regular";
+    } else {
+      return "small";
+    }
+  }
+
   render() {
     return (
       <Host
@@ -110,15 +119,18 @@ export class GxgComboItem {
         onKeyDown={this.onKeyDown.bind(this)}
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
+        class={{
+          large: state.large,
+        }}
       >
-        <div class="content">
-          {this.icon !== undefined ? (
-            <gxg-icon
-              color={this.iconColor}
-              size="small"
-              type={this.icon}
-            ></gxg-icon>
-          ) : null}
+        {this.icon !== undefined ? (
+          <gxg-icon
+            color={this.iconColor}
+            size={this.iconSize()}
+            type={this.icon}
+          ></gxg-icon>
+        ) : null}
+        <div class="description">
           <slot></slot>
         </div>
       </Host>

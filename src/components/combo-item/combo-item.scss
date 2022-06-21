@@ -1,7 +1,7 @@
 :host {
   display: block;
   cursor: pointer;
-  height: var(--spacing-comp-05);
+  min-height: var(--spacing-comp-05);
   display: flex;
   align-items: center;
   font-family: var(--font-family-primary);
@@ -12,11 +12,6 @@
   transition: height 0.25s, opacity 0.25s;
   opacity: 1;
   overflow: hidden;
-
-  .content {
-    display: flex;
-    align-items: center;
-  }
 }
 :host(.hidden) {
   // height: 0;
@@ -44,4 +39,18 @@
   outline-color: var(--color-primary-active);
   outline-style: solid;
   outline-offset: -2px;
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+
+:host(.large) {
+  font-size: var(--font-size-lg);
+  min-height: auto;
+  padding-top: var(--spacing-comp-01);
+  padding-bottom: var(--spacing-comp-01);
+  gxg-icon {
+    margin-right: var(--spacing-comp-01);
+  }
 }

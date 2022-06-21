@@ -59,7 +59,7 @@
       box-sizing: border-box;
       z-index: 99;
 
-      .no-courrences-found {
+      .no-ocurrences-found {
         font-family: var(--font-family-primary);
         font-size: var(--font-size-sm);
         color: var(--color-on-background);
@@ -83,5 +83,19 @@
   gxg-form-text::part(input) {
     cursor: pointer;
     background-color: var(--color-background);;
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+
+:host(.large) {
+  .main-container {
+    .items-container {
+      .no-ocurrences-found {
+        font-size: var(--font-size-lg);
+      }
+    }
   }
 }

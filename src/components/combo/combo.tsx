@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 import { GxgComboItem } from "../combo-item/combo-item";
 import { IconPosition } from "../form-text/form-text";
+import state from "../store";
 
 @Component({
   tag: "gxg-combo",
@@ -125,13 +126,15 @@ export class GxgCombo {
   @Watch("value")
   onValueChanged(newValue: string) {
     if (!this.userTyped) {
-      let item = null;
-      item = this.getItemByValue(newValue);
+      const item = this.getItemByValue(newValue);
       if (item) {
         this.updateSelectedItem(item);
         this.lastAllowedValue = (item as GxgComboItem).value;
-      } else {
+      } else if (this.strict) {
         this.value = this.lastAllowedValue;
+      } else {
+        this.clearIcon();
+        this.inputTextValue = newValue;
       }
     } else if (newValue !== undefined) {
       //user did not type
@@ -296,7 +299,12 @@ export class GxgCombo {
 
   render() {
     return (
-      <Host class={{ "filter-disabled": this.disableFilter }}>
+      <Host
+        class={{
+          "filter-disabled": this.disableFilter,
+          large: state.large,
+        }}
+      >
         <div
           class={{ "main-container": true }}
           style={{ maxWidth: this.maxWidth }}
@@ -344,7 +352,7 @@ export class GxgCombo {
             >
               <slot></slot>
               {this.noMatch && this.strict ? (
-                <div class="no-courrences-found">
+                <div class="no-ocurrences-found">
                   No occurrences found<span>ctrl/cmd + backspace to erase</span>
                 </div>
               ) : null}

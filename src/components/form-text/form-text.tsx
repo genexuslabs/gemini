@@ -167,18 +167,21 @@ export class GxgFormText implements FormComponent {
   }
 
   inputIcon() {
+    const iconSize = this.iconSize();
     if (this.iconPosition !== null && this.icon !== null) {
       if (this.warning) {
         return (
-          <gxg-icon type={this.icon} size="small" color="warning"></gxg-icon>
+          <gxg-icon type={this.icon} size={iconSize} color="warning"></gxg-icon>
         );
       }
       if (this.error) {
         return (
-          <gxg-icon type={this.icon} size="small" color="error"></gxg-icon>
+          <gxg-icon type={this.icon} size={iconSize} color="error"></gxg-icon>
         );
       }
-      return <gxg-icon type={this.icon} size="small" color="auto"></gxg-icon>;
+      return (
+        <gxg-icon type={this.icon} size={iconSize} color="auto"></gxg-icon>
+      );
     }
   }
 
@@ -358,6 +361,14 @@ export class GxgFormText implements FormComponent {
     }
   }
 
+  iconSize(): "regular" | "small" {
+    if (state.large) {
+      return "regular";
+    } else {
+      return "small";
+    }
+  }
+
   /*********************************
   LISTEN
   *********************************/
@@ -436,7 +447,7 @@ export class GxgFormText implements FormComponent {
               <gxg-icon
                 class="clear-button"
                 type="gemini-tools/close"
-                size="small"
+                size={this.iconSize()}
                 color="onbackground"
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
