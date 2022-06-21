@@ -38,7 +38,7 @@
 
     <gxg-button type="primary-text-only">Label</gxg-button>
 
-    <gxg-combo id="gxgCombo2">
+    <gxg-combo strict id="gxgCombo2">
       <gxg-combo-item>Common</gxg-combo-item>
       <gxg-combo-item value="bpm" icon="objects/business-process-diagram">BPM</gxg-combo-item>
       <gxg-combo-item value="chatbots" icon="objects/conversational-flows">Chatbots</gxg-combo-item>
@@ -66,9 +66,9 @@
         })
 
         const btnSetRandomValue = document.getElementById("setRandomValue");
-        btnChangeValue.addEventListener("click", function(e){
+        btnSetRandomValue.addEventListener("click", function(e){
           const gxgCombo2 = document.getElementById("gxgCombo2");
-          gxgCombo2.value = "asdf";
+          gxgCombo2.value = "asdf1";
         })
 
         const btnGetValue = document.getElementById("getValue");
@@ -82,6 +82,8 @@
         //   console.log(e.detail);
         // })
     </script>
+
+    
     </div>
   </body>
 </html>

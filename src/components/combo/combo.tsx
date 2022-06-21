@@ -10,7 +10,6 @@ import {
 } from "@stencil/core";
 import { GxgComboItem } from "../combo-item/combo-item";
 import { IconPosition } from "../form-text/form-text";
-import { GxgListboxItem } from "../listbox-item/listbox-item";
 
 @Component({
   tag: "gxg-combo",
@@ -46,7 +45,7 @@ export class GxgCombo {
   /**
    * Get or set the selected item value
    */
-  @Prop({ mutable: true }) value = null;
+  @Prop({ mutable: true }) value = undefined;
 
   @State() itemsNodeList: NodeList;
   @State() inputTextValue = "";
@@ -54,8 +53,10 @@ export class GxgCombo {
   @State() inputTextIcon: string = undefined;
   @State() inputTextIconPosition: IconPosition = null;
   @State() noMatch = false;
-
+  @State() valueCopy = this.value;
+  @State() lastAllowedValue = this.value;
   @State() slottedContent: HTMLElement = null;
+  @State() userTyped = false;
 
   componentWillLoad() {
     // DONE
@@ -84,11 +85,14 @@ export class GxgCombo {
 
   onInputGxgformText(e) {
     //DONE
+    this.userTyped = true;
     this.showItems = true;
     this.inputTextValue = e.detail;
 
     if (!this.strict) {
       this.value = e.detail;
+    } else {
+      this.value = undefined;
     }
 
     this.inputTextIcon = null;
@@ -117,26 +121,31 @@ export class GxgCombo {
     } else {
       this.noMatch = false;
     }
+
+    this.userTyped = false;
   }
 
   @Watch("value") // DONE
-  onValueChanged(newValue: string, oldValue: string) {
-    let item = undefined;
-    if (newValue !== undefined) {
+  onValueChanged(newValue: string) {
+    if (!this.userTyped) {
+      let item = null;
       item = this.getItemByValue(newValue);
-    }
-    if (item) {
-      this.updateSelectedItem(item);
-    } else {
-      if (this.strict) {
-        this.value = oldValue;
+      if (item) {
+        this.updateSelectedItem(item);
+        this.lastAllowedValue = (item as GxgComboItem).value;
+      } else {
+        this.value = this.lastAllowedValue;
       }
+    } else if (newValue !== undefined) {
+      //user did not type
+      this.lastAllowedValue = this.value;
     }
+    this.userTyped = false;
   }
 
   getItemByValue(value: string): GxgComboItem | undefined {
     //DONE
-    let item = undefined;
+    let item = null;
     for (let i = 0; i < this.itemsNodeList.length; i++) {
       if (
         ((this.itemsNodeList[i] as unknown) as GxgComboItem).value === value
@@ -174,7 +183,6 @@ export class GxgCombo {
     ((item as unknown) as HTMLElement).classList.add("selected");
 
     this.showItems = false;
-    this.textInput.focus();
   }
 
   onKeyDownGxgformText(e) {
@@ -201,7 +209,7 @@ export class GxgCombo {
     }
   }
 
-  toggleItems() {
+  toggleItems(): void {
     // DONE (?)
     if (this.showItems === true) {
       this.showItems = false;
@@ -249,6 +257,10 @@ export class GxgCombo {
     this.inputTextIconPosition = null;
   }
 
+  setFocus() {
+    this.textInput.focus();
+  }
+
   detectClickOutsideCombo(event) {
     //DONE
     const comboMainContainer = this.el.shadowRoot.querySelector(
@@ -287,13 +299,14 @@ export class GxgCombo {
   }
 
   clearCombo() {
+    this.lastAllowedValue = undefined;
     this.value = undefined;
     this.inputTextValue = "";
     this.clearIcon();
     this.clearSelectedItem();
     this.clearHiddenItems();
     this.showItems = true;
-    this.textInput.focus();
+    this.setFocus();
   }
 
   render() {
@@ -345,7 +358,7 @@ export class GxgCombo {
               }}
             >
               <slot></slot>
-              {this.noMatch ? (
+              {this.noMatch && this.strict ? (
                 <div class="no-courrences-found">
                   No occurrences found<span>ctrl/cmd + backspace to erase</span>
                 </div>
