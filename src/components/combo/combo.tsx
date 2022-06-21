@@ -59,7 +59,6 @@ export class GxgCombo {
   @State() userTyped = false;
 
   componentWillLoad() {
-    // DONE
     this.itemsNodeList = this.el.querySelectorAll("gxg-combo-item");
     this.itemsNodeList.forEach((item, i) => {
       const itemHtmlElement = item as HTMLElement;
@@ -69,11 +68,10 @@ export class GxgCombo {
 
   @Listen("itemClicked")
   itemClickedHandler(event) {
-    // DONE
     this.value = event.detail.value;
   }
 
-  @Listen("keyDownComboItem") //DONE
+  @Listen("keyDownComboItem")
   keyDownComboItemHandler(event) {
     if (event.detail === "ArrowUp") {
       this.textInput.focus();
@@ -84,7 +82,6 @@ export class GxgCombo {
   }
 
   onInputGxgformText(e) {
-    //DONE
     this.userTyped = true;
     this.showItems = true;
     this.inputTextValue = e.detail;
@@ -125,7 +122,7 @@ export class GxgCombo {
     this.userTyped = false;
   }
 
-  @Watch("value") // DONE
+  @Watch("value")
   onValueChanged(newValue: string) {
     if (!this.userTyped) {
       let item = null;
@@ -144,7 +141,6 @@ export class GxgCombo {
   }
 
   getItemByValue(value: string): GxgComboItem | undefined {
-    //DONE
     let item = null;
     for (let i = 0; i < this.itemsNodeList.length; i++) {
       if (
@@ -158,7 +154,6 @@ export class GxgCombo {
   }
 
   updateSelectedItem(item: GxgComboItem) {
-    //DONE
     this.clearSelectedItem();
     this.clearExactMatch();
     this.clearHiddenItems();
@@ -201,7 +196,6 @@ export class GxgCombo {
   }
 
   onKeyDownGxgButtonArrowDown(e) {
-    // DONE
     if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
@@ -210,7 +204,6 @@ export class GxgCombo {
   }
 
   toggleItems(): void {
-    // DONE (?)
     if (this.showItems === true) {
       this.showItems = false;
     } else {
@@ -219,7 +212,6 @@ export class GxgCombo {
   }
 
   clearSelectedItem(): void {
-    //DONE
     const selectedItem = this.el.querySelector(".selected");
     if (selectedItem !== null) {
       selectedItem.classList.remove("selected");
@@ -230,7 +222,6 @@ export class GxgCombo {
   }
 
   clearExactMatch(): void {
-    //DONE
     const itemExactMatch = this.el.querySelector(".exact-match");
     if (itemExactMatch !== null) {
       itemExactMatch.classList.remove("exact-match");
@@ -238,7 +229,6 @@ export class GxgCombo {
   }
 
   clearHiddenItems() {
-    // DONE
     const hiddenItems = this.el.querySelectorAll(".hidden");
     hiddenItems.forEach((item) => {
       item.classList.remove("hidden");
@@ -246,13 +236,11 @@ export class GxgCombo {
   }
 
   setIcon(icon: string): void {
-    //DONE
     this.inputTextIcon = icon;
     this.inputTextIconPosition = "start";
   }
 
   clearIcon(): void {
-    //DONE
     this.inputTextIcon = null;
     this.inputTextIconPosition = null;
   }
@@ -262,7 +250,6 @@ export class GxgCombo {
   }
 
   detectClickOutsideCombo(event) {
-    //DONE
     const comboMainContainer = this.el.shadowRoot.querySelector(
       ".main-container"
     ) as HTMLElement;
@@ -290,11 +277,9 @@ export class GxgCombo {
   }
 
   componentDidLoad() {
-    //DONE
     document.addEventListener("click", this.detectClickOutsideCombo.bind(this));
   }
   componentDidUnload() {
-    //DONE
     document.removeEventListener("click", this.detectClickOutsideCombo);
   }
 
