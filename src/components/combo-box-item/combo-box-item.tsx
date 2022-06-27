@@ -11,11 +11,11 @@ import { Color } from "../icon/icon";
 import state from "../store";
 
 @Component({
-  tag: "gxg-combo-item",
-  styleUrl: "combo-item.scss",
+  tag: "gxg-combo-box-item",
+  styleUrl: "combo-box-item.scss",
   shadow: true,
 })
-export class GxgComboItem {
+export class GxgComboBoxItem {
   @Element() el: HTMLElement;
 
   /**

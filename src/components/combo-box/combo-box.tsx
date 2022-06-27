@@ -9,16 +9,16 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
-import { GxgComboItem } from "../combo-item/combo-item";
+import { GxgComboBoxItem } from "../combo-box-item/combo-box-item";
 import { GxgFormText, IconPosition } from "../form-text/form-text";
 import state from "../store";
 
 @Component({
-  tag: "gxg-combo",
-  styleUrl: "combo.scss",
+  tag: "gxg-combo-box",
+  styleUrl: "combo-box.scss",
   shadow: true,
 })
-export class GxgCombo {
+export class GxgComboBox {
   gxgFormText!: GxgFormText;
 
   @Element() el: HTMLElement;
@@ -84,7 +84,7 @@ export class GxgCombo {
   }
 
   setItemsNodeList() {
-    this.itemsNodeList = this.el.querySelectorAll("gxg-combo-item");
+    this.itemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
     this.itemsNodeList.forEach((item, i) => {
       const itemHtmlElement = item as HTMLElement;
       itemHtmlElement.setAttribute("index", i.toString());
@@ -186,7 +186,7 @@ export class GxgCombo {
       const item = this.getItemByValue(value);
       if (item) {
         this.updateSelectedItem(item);
-        this.lastAllowedValue = (item as GxgComboItem).value;
+        this.lastAllowedValue = (item as GxgComboBoxItem).value;
       } else if (this.strict) {
         this.value = this.lastAllowedValue;
       } else {
@@ -200,12 +200,13 @@ export class GxgCombo {
     this.userTyped = false;
   }
 
-  getItemByValue(value: string): GxgComboItem | undefined {
+  getItemByValue(value: string): GxgComboBoxItem | undefined {
     let item = null;
     if (value !== undefined) {
       for (let i = 0; i < this.itemsNodeList.length; i++) {
         if (
-          ((this.itemsNodeList[i] as unknown) as GxgComboItem).value === value
+          ((this.itemsNodeList[i] as unknown) as GxgComboBoxItem).value ===
+          value
         ) {
           item = this.itemsNodeList[i];
           break;
@@ -215,7 +216,7 @@ export class GxgCombo {
     return item;
   }
 
-  updateSelectedItem(item: GxgComboItem) {
+  updateSelectedItem(item: GxgComboBoxItem) {
     this.clearSelectedItem();
     this.clearExactMatch();
     this.clearHiddenItems();
@@ -255,7 +256,7 @@ export class GxgCombo {
       e.preventDefault();
       if (this.showItems) {
         const nextVisibleItem = this.el.querySelector(
-          "gxg-combo-item:not(.hidden)"
+          "gxg-combo-box-item:not(.hidden)"
         ) as HTMLElement;
         nextVisibleItem ? nextVisibleItem.focus() : null;
       } else {
@@ -270,7 +271,7 @@ export class GxgCombo {
     if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
-      this.el.querySelector("gxg-combo-item").focus();
+      this.el.querySelector("gxg-combo-box-item").focus();
     }
   }
 
@@ -287,7 +288,7 @@ export class GxgCombo {
     if (selectedItem !== null) {
       selectedItem.classList.remove("selected");
       if (selectedItem.hasAttribute("icon")) {
-        ((selectedItem as unknown) as GxgComboItem).iconColor = "auto";
+        ((selectedItem as unknown) as GxgComboBoxItem).iconColor = "auto";
       }
     }
   }

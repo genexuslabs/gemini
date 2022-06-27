@@ -121,7 +121,7 @@ Type: `Promise<void>`
 ### Used by
 
 - [gxg-accordion-item](../accordion-item)
-- [gxg-combo](../combo)
+- [gxg-combo-box](../combo-box)
 - [gxg-filter](../filter)
 
 ### Depends on
@@ -138,7 +138,7 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-accordion-item --> gxg-form-text
-  gxg-combo --> gxg-form-text
+  gxg-combo-box --> gxg-form-text
   gxg-filter --> gxg-form-text
   style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```

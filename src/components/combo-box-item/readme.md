@@ -27,9 +27,9 @@
 
 ```mermaid
 graph TD;
-  gxg-combo-item --> gxg-icon
+  gxg-combo-box-item --> gxg-icon
   gxg-icon --> ch-icon
-  style gxg-combo-item fill:#f9f,stroke:#333,stroke-width:4px
+  style gxg-combo-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---
