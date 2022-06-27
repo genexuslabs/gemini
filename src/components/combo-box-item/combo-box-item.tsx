@@ -45,7 +45,7 @@ export class GxgComboBoxItem {
   @Prop() iconColor: Color = "auto";
 
   componentWillLoad() {
-    this.el.tabIndex = 0;
+    this.el.tabIndex = 0; //Make the item focusable
     if (!this.value) {
       this.value = this.el.innerHTML;
     }

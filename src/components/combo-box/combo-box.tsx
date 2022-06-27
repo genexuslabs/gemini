@@ -268,10 +268,13 @@ export class GxgComboBox {
   }
 
   onKeyDownGxgButtonArrowDown(e) {
+    console.log("onKeyDownGxgButtonArrowDown");
     if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
-      this.el.querySelector("gxg-combo-box-item").focus();
+      ((this.el.querySelector(
+        "gxg-combo-box-item"
+      ) as unknown) as HTMLElement).focus();
     }
   }
 

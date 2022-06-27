@@ -41,10 +41,7 @@
   color: var(--color-success-dark);
 }
 :host(:focus) {
-  outline-width: var(--border-width-md);
-  outline-color: var(--color-primary-active);
-  outline-style: solid;
-  outline-offset: -2px;
+  //this styles are on src/globals/components/combo-box.scss
 }
 
 /*********************************************
