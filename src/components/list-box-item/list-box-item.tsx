@@ -11,8 +11,8 @@ import {
 import { Color } from "../icon/icon";
 
 @Component({
-  tag: "gxg-listbox-item",
-  styleUrl: "listbox-item.scss",
+  tag: "gxg-list-box-item",
+  styleUrl: "list-box-item.scss",
   shadow: true,
 })
 export class GxgListboxItem {

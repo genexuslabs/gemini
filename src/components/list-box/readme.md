@@ -35,8 +35,8 @@ Type: `Promise<{ [x: number]: any; length: number; toString(): string; toLocaleS
 
 ```mermaid
 graph TD;
-  gxg-listbox --> gxg-form-checkbox
-  style gxg-listbox fill:#f9f,stroke:#333,stroke-width:4px
+  gxg-list-box --> gxg-form-checkbox
+  style gxg-list-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

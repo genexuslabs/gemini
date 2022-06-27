@@ -10,14 +10,14 @@ import {
   State,
   Method,
 } from "@stencil/core";
-import { GxgListboxItem } from "../listbox-item/listbox-item";
+import { GxgListboxItem } from "../list-box-item/list-box-item";
 
 @Component({
-  tag: "gxg-listbox",
-  styleUrl: "listbox.scss",
+  tag: "gxg-list-box",
+  styleUrl: "list-box.scss",
   shadow: true,
 })
-export class GxgListbox {
+export class GxgListBox {
   /**
    * This event emmits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
    */
@@ -54,7 +54,7 @@ export class GxgListbox {
   componentWillLoad() {
     //Set checkboxes
     if (this.checkboxes) {
-      const items = this.el.querySelectorAll("gxg-listbox-item");
+      const items = this.el.querySelectorAll("gxg-list-box-item");
       items.forEach((item) => {
         const checkbox = document.createElement("gxg-form-checkbox");
         checkbox.setAttribute("slot", "checkbox");
@@ -63,7 +63,7 @@ export class GxgListbox {
       });
     }
     //Set index and Tabindex
-    const itemsNodeList = this.el.querySelectorAll("gxg-listbox-item");
+    const itemsNodeList = this.el.querySelectorAll("gxg-list-box-item");
     itemsNodeList.forEach((item, i) => {
       //index
       const itemHtmlElement = item as HTMLElement;
@@ -120,7 +120,7 @@ export class GxgListbox {
   @Listen("KeyPressed")
   KeyPressedHandler(e) {
     let itemWithFocus = document.activeElement;
-    if (itemWithFocus.tagName !== "GXG-LISTBOX-ITEM") {
+    if (itemWithFocus.tagName !== "GXG-LIST-BOX-ITEM") {
       itemWithFocus = undefined;
     }
     if (e.detail.eCode === "ArrowDown") {
@@ -174,7 +174,9 @@ export class GxgListbox {
 
   selectMulitpleItems(fromIndex: number, toIndex: number) {
     for (let i = fromIndex; i <= toIndex; i++) {
-      const item = this.el.querySelector("gxg-listbox-item[index='" + i + "']");
+      const item = this.el.querySelector(
+        "gxg-list-box-item[index='" + i + "']"
+      );
       this.selectItem(item);
     }
   }
@@ -196,7 +198,7 @@ export class GxgListbox {
   }
 
   getItem(index) {
-    return this.el.querySelector("gxg-listbox-item[index='" + index + "']");
+    return this.el.querySelector("gxg-list-box-item[index='" + index + "']");
   }
 
   selectItem(item) {
