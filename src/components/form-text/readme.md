@@ -81,6 +81,7 @@
 | `overDarkBackground` | `over-dark-background` | The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark           | `boolean`                                                                                    | `false`     |
 | `password`           | `password`             | The presence of this attribute sets the input type as password                                                                                                 | `boolean`                                                                                    | `false`     |
 | `placeholder`        | `placeholder`          | The input placeholder                                                                                                                                          | `string`                                                                                     | `undefined` |
+| `readonly`           | `readonly`             | The presence of this attribute makes the input readonly                                                                                                        | `boolean`                                                                                    | `false`     |
 | `required`           | `required`             | The presence of this attribute makes this input required                                                                                                       | `boolean`                                                                                    | `false`     |
 | `requiredMessage`    | `required-message`     | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`                                                                                     | `undefined` |
 | `textStyle`          | `text-style`           | The text style                                                                                                                                                 | `"quote" \| "regular" \| "title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"regular"` |
@@ -94,6 +95,20 @@
 | `change`             | Returns the input value      | `CustomEvent<any>` |
 | `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
 | `input`              | Returns the input value      | `CustomEvent<any>` |
+
+## Methods
+
+### `setFocus() => Promise<void>`
+
+---
+
+LISTEN
+
+---
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Shadow Parts
 

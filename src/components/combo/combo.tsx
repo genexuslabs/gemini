@@ -7,9 +7,10 @@ import {
   Element,
   Listen,
   Watch,
+  Method,
 } from "@stencil/core";
 import { GxgComboItem } from "../combo-item/combo-item";
-import { IconPosition } from "../form-text/form-text";
+import { GxgFormText, IconPosition } from "../form-text/form-text";
 import state from "../store";
 
 @Component({
@@ -18,14 +19,24 @@ import state from "../store";
   shadow: true,
 })
 export class GxgCombo {
-  textInput!: HTMLInputElement;
+  gxgFormText!: GxgFormText;
 
   @Element() el: HTMLElement;
 
   /**
+   * The combo width
+   */
+  @Prop() width = "240px";
+
+  /**
+   * The combo min-width
+   */
+  @Prop() minWidth = "none";
+
+  /**
    * The combo max-width
    */
-  @Prop() maxWidth = "240px";
+  @Prop() maxWidth = "none";
 
   /**
    * The combo placeholder
@@ -48,18 +59,31 @@ export class GxgCombo {
    */
   @Prop({ mutable: true }) value = undefined;
 
+  /**
+   * This property returns true if the combo-box list is open, false otherwise.
+   * Do not use this property to open or close the combo-bos list, for that purpose use the open() or close() methods.
+   */
+  @Prop({ mutable: true }) isOpen = false;
+
   @State() itemsNodeList: NodeList;
   @State() inputTextValue = "";
   @State() showItems = false;
   @State() inputTextIcon: string = undefined;
   @State() inputTextIconPosition: IconPosition = null;
   @State() noMatch = false;
-  @State() valueCopy = this.value;
-  @State() lastAllowedValue = this.value;
+  @State() lastAllowedValue = undefined;
   @State() slottedContent: HTMLElement = null;
   @State() userTyped = false;
+  @State() selectionNotProgramatic = true;
 
   componentWillLoad() {
+    this.setItemsNodeList();
+    if (this.value !== undefined) {
+      this.tryToSetItem(this.value);
+    }
+  }
+
+  setItemsNodeList() {
     this.itemsNodeList = this.el.querySelectorAll("gxg-combo-item");
     this.itemsNodeList.forEach((item, i) => {
       const itemHtmlElement = item as HTMLElement;
@@ -67,18 +91,43 @@ export class GxgCombo {
     });
   }
 
-  @Listen("itemClicked")
-  itemClickedHandler(event) {
+  @Method()
+  async updateItems() {
+    //This method must be called after the combo-box items list has been programatically updated/changed.
+    this.setItemsNodeList();
+    this.clearCombo();
+  }
+
+  @Method()
+  async setFocus() {
+    this.focus();
+  }
+
+  @Method()
+  async open() {
+    //console.log("'open' method was called");
+    this.showItems = true;
+  }
+
+  @Method()
+  async close() {
+    //console.log("'close' method was called");
+    this.showItems = false;
+  }
+
+  @Listen("itemSelected")
+  itemSelectedHandler(event) {
+    this.selectionNotProgramatic = true;
     this.value = event.detail.value;
   }
 
   @Listen("keyDownComboItem")
   keyDownComboItemHandler(event) {
     if (event.detail === "ArrowUp") {
-      this.textInput.focus();
+      this.gxgFormText.setFocus();
     } else if (event.detail === "Tab" || event.detail === "Escape") {
       this.showItems = false;
-      this.textInput.focus();
+      this.gxgFormText.setFocus();
     }
   }
 
@@ -119,14 +168,22 @@ export class GxgCombo {
     } else {
       this.noMatch = false;
     }
-
     this.userTyped = false;
   }
 
   @Watch("value")
   onValueChanged(newValue: string) {
+    this.tryToSetItem(newValue);
+  }
+
+  @Watch("showItems")
+  onShowItemsChanged(newValue: boolean) {
+    newValue ? (this.isOpen = true) : (this.isOpen = false);
+  }
+
+  tryToSetItem(value) {
     if (!this.userTyped) {
-      const item = this.getItemByValue(newValue);
+      const item = this.getItemByValue(value);
       if (item) {
         this.updateSelectedItem(item);
         this.lastAllowedValue = (item as GxgComboItem).value;
@@ -134,9 +191,9 @@ export class GxgCombo {
         this.value = this.lastAllowedValue;
       } else {
         this.clearIcon();
-        this.inputTextValue = newValue;
+        this.inputTextValue = value;
       }
-    } else if (newValue !== undefined) {
+    } else if (value !== undefined) {
       //user did not type
       this.lastAllowedValue = this.value;
     }
@@ -145,12 +202,14 @@ export class GxgCombo {
 
   getItemByValue(value: string): GxgComboItem | undefined {
     let item = null;
-    for (let i = 0; i < this.itemsNodeList.length; i++) {
-      if (
-        ((this.itemsNodeList[i] as unknown) as GxgComboItem).value === value
-      ) {
-        item = this.itemsNodeList[i];
-        break;
+    if (value !== undefined) {
+      for (let i = 0; i < this.itemsNodeList.length; i++) {
+        if (
+          ((this.itemsNodeList[i] as unknown) as GxgComboItem).value === value
+        ) {
+          item = this.itemsNodeList[i];
+          break;
+        }
       }
     }
     return item;
@@ -181,6 +240,10 @@ export class GxgCombo {
     ((item as unknown) as HTMLElement).classList.add("selected");
 
     this.showItems = false;
+    if (this.gxgFormText && this.selectionNotProgramatic) {
+      this.focus();
+      this.selectionNotProgramatic = false;
+    }
   }
 
   onKeyDownGxgformText(e) {
@@ -190,9 +253,14 @@ export class GxgCombo {
     } else if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
-      (this.el.querySelector(
-        "gxg-combo-item:not(.hidden)"
-      ) as HTMLElement).focus();
+      if (this.showItems) {
+        const nextVisibleItem = this.el.querySelector(
+          "gxg-combo-item:not(.hidden)"
+        ) as HTMLElement;
+        nextVisibleItem ? nextVisibleItem.focus() : null;
+      } else {
+        this.showItems = true;
+      }
     } else if (e.key === "Escape") {
       this.showItems = false;
     }
@@ -248,8 +316,8 @@ export class GxgCombo {
     this.inputTextIconPosition = null;
   }
 
-  setFocus() {
-    this.textInput.focus();
+  focus() {
+    this.gxgFormText.setFocus();
   }
 
   detectClickOutsideCombo(event) {
@@ -274,6 +342,7 @@ export class GxgCombo {
     ) {
       //Click happened inside the combo
     } else {
+      //console.log("clicked outside the combo box");
       this.showItems = false;
       //Click happened outside the combo
     }
@@ -294,7 +363,7 @@ export class GxgCombo {
     this.clearSelectedItem();
     this.clearHiddenItems();
     this.showItems = true;
-    this.setFocus();
+    this.focus();
   }
 
   render() {
@@ -307,7 +376,11 @@ export class GxgCombo {
       >
         <div
           class={{ "main-container": true }}
-          style={{ maxWidth: this.maxWidth }}
+          style={{
+            width: this.width,
+            minWidth: this.minWidth,
+            maxWidth: this.maxWidth,
+          }}
         >
           <div class={{ "search-container": true }}>
             <gxg-form-text
@@ -319,10 +392,8 @@ export class GxgCombo {
               id="gxgFormText"
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
-              disabled={this.disableFilter}
-              ref={(el) =>
-                (this.textInput = (el as unknown) as HTMLInputElement)
-              }
+              readonly={this.disableFilter}
+              ref={(el) => (this.gxgFormText = (el as unknown) as GxgFormText)}
             ></gxg-form-text>
             {this.inputTextValue !== "" && !this.disableFilter ? (
               <gxg-button

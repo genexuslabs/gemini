@@ -2,20 +2,26 @@
   display: block;
   cursor: pointer;
   min-height: var(--spacing-comp-05);
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);
   background-color: var(--color-background);
   color: var(--color-on-background);
-  padding: 0 var(--spacing-comp-01);
+  padding: var(--spacing-comp-00) var(--spacing-comp-01);
   transition: height 0.25s, opacity 0.25s;
   opacity: 1;
   overflow: hidden;
+
+  gxg-icon {
+    flex-shrink: 0;
+  }
+}
+:host(.no-icon) {
+  padding-left: var(--spacing-comp-02);
 }
 :host(.hidden) {
-  // height: 0;
-  // opacity: 0;
   display: none;
 }
 :host(.display-none) {

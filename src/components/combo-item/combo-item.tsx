@@ -21,7 +21,7 @@ export class GxgComboItem {
   /**
    * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
    */
-  @Event() itemClicked: EventEmitter;
+  @Event() itemSelected: EventEmitter;
 
   /**
    * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component
@@ -47,17 +47,17 @@ export class GxgComboItem {
   componentWillLoad() {
     this.el.tabIndex = 0;
     if (!this.value) {
-      this.value = this.el.innerHTML.toLocaleLowerCase().replace(" ", "-");
+      this.value = this.el.innerHTML;
     }
   }
 
-  itemClickedFunc() {
+  itemSelectedFunc() {
     const index = this.el.getAttribute("index");
     const value = this.value;
     const description = this.el.innerHTML;
     const icon = this.el.getAttribute("icon");
 
-    this.itemClicked.emit({
+    this.itemSelected.emit({
       index: parseInt(index, 10),
       value: value,
       description: description,
@@ -86,7 +86,7 @@ export class GxgComboItem {
         this.keyDownComboItem.emit(e.code);
       }
     } else if (e.code === "Enter") {
-      this.itemClickedFunc();
+      this.itemSelectedFunc();
     } else if (e.code === "Tab" || e.code === "Escape") {
       this.keyDownComboItem.emit(e.code);
     }
@@ -115,12 +115,13 @@ export class GxgComboItem {
   render() {
     return (
       <Host
-        onClick={this.itemClickedFunc.bind(this)}
+        onClick={this.itemSelectedFunc.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
         class={{
           large: state.large,
+          "no-icon": !this.icon,
         }}
       >
         {this.icon !== undefined ? (

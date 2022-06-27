@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Listen } from "@stencil/core";
+import { Component, h, Host, Prop, Listen, Method } from "@stencil/core";
 import state from "../store";
 
 @Component({
@@ -7,17 +7,11 @@ import state from "../store";
   shadow: true,
 })
 export class GxgTest {
-  @Listen("focus")
-  handleFocus(focusEvent: Event) {
-    console.log("gxg-test tiene foco");
-    console.log(focusEvent);
-  }
-
   @Prop() name = "Andres";
 
-  onInputFocus(e) {
-    console.log("input has focus");
-    console.log(e);
+  @Method()
+  async setFocus() {
+    console.log("focus");
   }
 
   render() {
@@ -27,7 +21,7 @@ export class GxgTest {
           large: state.large,
         }}
       >
-        <input type="text" onFocus={(e) => this.onInputFocus(e)} />
+        <input type="text" />
       </Host>
     );
   }

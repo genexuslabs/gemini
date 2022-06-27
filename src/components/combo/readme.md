@@ -22,10 +22,39 @@
 | Property        | Attribute        | Description                                                                                                                                                                                                                                                   | Type      | Default         |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------- |
 | `disableFilter` | `disable-filter` | The presence of this attribute disables the filter                                                                                                                                                                                                            | `boolean` | `false`         |
-| `maxWidth`      | `max-width`      | The combo max-width                                                                                                                                                                                                                                           | `string`  | `"240px"`       |
+| `isOpen`        | `is-open`        | This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-bos list, for that purpose use the open() or close() methods.                                                                  | `boolean` | `false`         |
+| `maxWidth`      | `max-width`      | The combo max-width                                                                                                                                                                                                                                           | `string`  | `"none"`        |
+| `minWidth`      | `min-width`      | The combo min-width                                                                                                                                                                                                                                           | `string`  | `"none"`        |
 | `placeholder`   | `placeholder`    | The combo placeholder                                                                                                                                                                                                                                         | `string`  | `"Search item"` |
 | `strict`        | `strict`         | If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has. | `boolean` | `false`         |
 | `value`         | `value`          | Get or set the selected item value                                                                                                                                                                                                                            | `any`     | `undefined`     |
+| `width`         | `width`          | The combo width                                                                                                                                                                                                                                               | `string`  | `"240px"`       |
+
+## Methods
+
+### `close() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
+### `open() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
+### `setFocus() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
+### `updateItems() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Dependencies
 

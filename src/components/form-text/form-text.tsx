@@ -9,6 +9,7 @@ import {
   State,
   Watch,
   Listen,
+  Method,
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -41,6 +42,11 @@ export class GxgFormText implements FormComponent {
    * The presence of this attribute makes the input disabled
    */
   @Prop() disabled = false;
+
+  /**
+   * The presence of this attribute makes the input readonly
+   */
+  @Prop() readonly = false;
 
   /**
    * The presence of this attribute gives the component error styles
@@ -372,11 +378,17 @@ export class GxgFormText implements FormComponent {
   /*********************************
   LISTEN
   *********************************/
-  @Listen("focus")
-  handleFocus(focusEvent: Event) {
-    if (focusEvent.target !== this.el) {
-      return;
-    }
+  // @Listen("focus")
+  // handleFocus(focusEvent: Event) {
+  //   console.log("foco en el input text");
+  //   if (focusEvent.target !== this.el) {
+  //     return;
+  //   }
+  //   this.textInput.focus();
+  // }
+
+  @Method()
+  async setFocus() {
     this.textInput.focus();
   }
 
@@ -401,7 +413,7 @@ export class GxgFormText implements FormComponent {
           rtl: this.rtl,
           large: state.large,
         }}
-        tabindex="0"
+        // tabindex="1"
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div class="outer-wrapper">
@@ -435,6 +447,7 @@ export class GxgFormText implements FormComponent {
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
+              readonly={"readonly" ? this.readonly : null}
               onInput={this.handleInput.bind(this)}
               onChange={this.handleChange.bind(this)}
               required={this.required}

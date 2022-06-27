@@ -8,6 +8,14 @@
 | -------- | --------- | ----------- | -------- | ---------- |
 | `name`   | `name`    |             | `string` | `"Andres"` |
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
