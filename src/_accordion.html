@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        Some content on accordion 1
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        title-icon="navigation/level-down"
+        item-title="tab-02"
+        item-id="tab-02"
+      >
+        some content on accordion 2.
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        item-title="tab-03"
+        item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi"
+        item-id="tab-03"
+      >
+        some content on accordion 3.
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+        some content on accordion 4.
+        <div slot="meta">some meta</div>
+      </gxg-accordion-item>
+    </gxg-accordion>
+  </body>
+</html>
