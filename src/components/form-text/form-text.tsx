@@ -8,7 +8,6 @@ import {
   EventEmitter,
   State,
   Watch,
-  Listen,
   Method,
 } from "@stencil/core";
 import {
