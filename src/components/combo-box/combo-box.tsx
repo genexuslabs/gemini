@@ -61,7 +61,7 @@ export class GxgComboBox {
 
   /**
    * This property returns true if the combo-box list is open, false otherwise.
-   * Do not use this property to open or close the combo-bos list, for that purpose use the open() or close() methods.
+   * Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.
    */
   @Prop({ mutable: true }) isOpen = false;
 

@@ -4,11 +4,24 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default    |
-| -------- | --------- | ----------- | -------- | ---------- |
-| `name`   | `name`    |             | `string` | `"Andres"` |
+| Property | Attribute | Description | Type      | Default    |
+| -------- | --------- | ----------- | --------- | ---------- |
+| `name`   | `name`    |             | `string`  | `"Andres"` |
+| `show`   | `show`    |             | `boolean` | `false`    |
 
 ## Methods
+
+### `close() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
+### `open() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 

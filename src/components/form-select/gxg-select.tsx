@@ -251,8 +251,18 @@ export class GxgFormSelect {
       }
       x[i].appendChild(b);
       a.addEventListener("click", function (e) {
-        e.stopPropagation();
+        //Patch
+        const gxgSelects = document.querySelectorAll("gxg-select");
+        gxgSelects.forEach((gxgSelect) => {
+          const selectItems = gxgSelect.shadowRoot.querySelector(
+            ".select-items"
+          );
+          if (!selectItems.classList.contains(".select-hide")) {
+            selectItems.classList.add("select-hide");
+          }
+        });
 
+        e.stopPropagation();
         this.nextSibling.classList.toggle("select-hide");
         this.classList.toggle("select-arrow-active");
       });

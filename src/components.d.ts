@@ -289,14 +289,14 @@ export namespace Components {
      */
     space: Space;
   }
-  interface GxgCombo {
+  interface GxgComboBox {
     close: () => Promise<void>;
     /**
      * The presence of this attribute disables the filter
      */
     disableFilter: boolean;
     /**
-     * This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-bos list, for that purpose use the open() or close() methods.
+     * This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.
      */
     isOpen: boolean;
     /**
@@ -327,7 +327,7 @@ export namespace Components {
      */
     width: string;
   }
-  interface GxgComboItem {
+  interface GxgComboBoxItem {
     /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
@@ -431,6 +431,10 @@ export namespace Components {
      */
     icon: string;
     /**
+     * This property returns true if the drop-down list is open, false otherwise. Do not use this property to open or close the drop-down list, for that purpose use the open() or close() methods.
+     */
+    isOpen: boolean;
+    /**
      * the dropdown label (optional)
      */
     label: string;
@@ -438,10 +442,6 @@ export namespace Components {
      * the dropdown max. height
      */
     maxHeight: string;
-    /**
-     * Displays the dropdown content
-     */
-    showContent: boolean;
     /**
      * the dropdown width
      */
@@ -685,7 +685,7 @@ export namespace Components {
      */
     type: any;
   }
-  interface GxgListbox {
+  interface GxgListBox {
     /**
      * The prescence of this attribute will display a checkbox for every item
      */
@@ -832,7 +832,7 @@ export namespace Components {
      */
     width: string;
   }
-  interface GxgListboxItem {
+  interface GxgListBoxItem {
     /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
@@ -1178,8 +1178,11 @@ export namespace Components {
     name: string;
   }
   interface GxgTest {
+    close: () => Promise<void>;
     name: string;
+    open: () => Promise<void>;
     setFocus: () => Promise<void>;
+    show: boolean;
   }
   interface GxgText {
     /**
@@ -1458,19 +1461,19 @@ declare global {
     prototype: HTMLGxgColumnsElement;
     new (): HTMLGxgColumnsElement;
   };
-  interface HTMLGxgComboElement
-    extends Components.GxgCombo,
+  interface HTMLGxgComboBoxElement
+    extends Components.GxgComboBox,
       HTMLStencilElement {}
-  var HTMLGxgComboElement: {
-    prototype: HTMLGxgComboElement;
-    new (): HTMLGxgComboElement;
+  var HTMLGxgComboBoxElement: {
+    prototype: HTMLGxgComboBoxElement;
+    new (): HTMLGxgComboBoxElement;
   };
-  interface HTMLGxgComboItemElement
-    extends Components.GxgComboItem,
+  interface HTMLGxgComboBoxItemElement
+    extends Components.GxgComboBoxItem,
       HTMLStencilElement {}
-  var HTMLGxgComboItemElement: {
-    prototype: HTMLGxgComboItemElement;
-    new (): HTMLGxgComboItemElement;
+  var HTMLGxgComboBoxItemElement: {
+    prototype: HTMLGxgComboBoxItemElement;
+    new (): HTMLGxgComboBoxItemElement;
   };
   interface HTMLGxgContextualMenuElement
     extends Components.GxgContextualMenu,
@@ -1587,19 +1590,19 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
-  interface HTMLGxgListboxElement
-    extends Components.GxgListbox,
+  interface HTMLGxgListBoxElement
+    extends Components.GxgListBox,
       HTMLStencilElement {}
-  var HTMLGxgListboxElement: {
-    prototype: HTMLGxgListboxElement;
-    new (): HTMLGxgListboxElement;
+  var HTMLGxgListBoxElement: {
+    prototype: HTMLGxgListBoxElement;
+    new (): HTMLGxgListBoxElement;
   };
-  interface HTMLGxgListboxItemElement
-    extends Components.GxgListboxItem,
+  interface HTMLGxgListBoxItemElement
+    extends Components.GxgListBoxItem,
       HTMLStencilElement {}
-  var HTMLGxgListboxItemElement: {
-    prototype: HTMLGxgListboxItemElement;
-    new (): HTMLGxgListboxItemElement;
+  var HTMLGxgListBoxItemElement: {
+    prototype: HTMLGxgListBoxItemElement;
+    new (): HTMLGxgListBoxItemElement;
   };
   interface HTMLGxgLoaderElement
     extends Components.GxgLoader,
@@ -1838,8 +1841,8 @@ declare global {
     "gxg-color-picker": HTMLGxgColorPickerElement;
     "gxg-column": HTMLGxgColumnElement;
     "gxg-columns": HTMLGxgColumnsElement;
-    "gxg-combo": HTMLGxgComboElement;
-    "gxg-combo-item": HTMLGxgComboItemElement;
+    "gxg-combo-box": HTMLGxgComboBoxElement;
+    "gxg-combo-box-item": HTMLGxgComboBoxItemElement;
     "gxg-contextual-menu": HTMLGxgContextualMenuElement;
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
@@ -1857,8 +1860,8 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-icon": HTMLGxgIconElement;
-    "gxg-listbox": HTMLGxgListboxElement;
-    "gxg-listbox-item": HTMLGxgListboxItemElement;
+    "gxg-list-box": HTMLGxgListBoxElement;
+    "gxg-list-box-item": HTMLGxgListBoxItemElement;
     "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
@@ -2154,13 +2157,13 @@ declare namespace LocalJSX {
      */
     space?: Space;
   }
-  interface GxgCombo {
+  interface GxgComboBox {
     /**
      * The presence of this attribute disables the filter
      */
     disableFilter?: boolean;
     /**
-     * This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-bos list, for that purpose use the open() or close() methods.
+     * This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.
      */
     isOpen?: boolean;
     /**
@@ -2188,7 +2191,7 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
-  interface GxgComboItem {
+  interface GxgComboBoxItem {
     /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
@@ -2313,6 +2316,10 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
+     * This property returns true if the drop-down list is open, false otherwise. Do not use this property to open or close the drop-down list, for that purpose use the open() or close() methods.
+     */
+    isOpen?: boolean;
+    /**
      * the dropdown label (optional)
      */
     label?: string;
@@ -2328,10 +2335,6 @@ declare namespace LocalJSX {
      * This events gets fired when the dropdown is opened
      */
     onOpened?: (event: CustomEvent<any>) => void;
-    /**
-     * Displays the dropdown content
-     */
-    showContent?: boolean;
     /**
      * the dropdown width
      */
@@ -2608,7 +2611,7 @@ declare namespace LocalJSX {
      */
     type?: any;
   }
-  interface GxgListbox {
+  interface GxgListBox {
     /**
      * The prescence of this attribute will display a checkbox for every item
      */
@@ -2630,7 +2633,7 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
-  interface GxgListboxItem {
+  interface GxgListBoxItem {
     /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
@@ -2991,6 +2994,7 @@ declare namespace LocalJSX {
   }
   interface GxgTest {
     name?: string;
+    show?: boolean;
   }
   interface GxgText {
     /**
@@ -3209,8 +3213,8 @@ declare namespace LocalJSX {
     "gxg-color-picker": GxgColorPicker;
     "gxg-column": GxgColumn;
     "gxg-columns": GxgColumns;
-    "gxg-combo": GxgCombo;
-    "gxg-combo-item": GxgComboItem;
+    "gxg-combo-box": GxgComboBox;
+    "gxg-combo-box-item": GxgComboBoxItem;
     "gxg-contextual-menu": GxgContextualMenu;
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
@@ -3228,8 +3232,8 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-icon": GxgIcon;
-    "gxg-listbox": GxgListbox;
-    "gxg-listbox-item": GxgListboxItem;
+    "gxg-list-box": GxgListBox;
+    "gxg-list-box-item": GxgListBoxItem;
     "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
@@ -3292,10 +3296,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
       "gxg-columns": LocalJSX.GxgColumns &
         JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
-      "gxg-combo": LocalJSX.GxgCombo &
-        JSXBase.HTMLAttributes<HTMLGxgComboElement>;
-      "gxg-combo-item": LocalJSX.GxgComboItem &
-        JSXBase.HTMLAttributes<HTMLGxgComboItemElement>;
+      "gxg-combo-box": LocalJSX.GxgComboBox &
+        JSXBase.HTMLAttributes<HTMLGxgComboBoxElement>;
+      "gxg-combo-box-item": LocalJSX.GxgComboBoxItem &
+        JSXBase.HTMLAttributes<HTMLGxgComboBoxItemElement>;
       "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
       "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &
@@ -3328,10 +3332,10 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
-      "gxg-listbox": LocalJSX.GxgListbox &
-        JSXBase.HTMLAttributes<HTMLGxgListboxElement>;
-      "gxg-listbox-item": LocalJSX.GxgListboxItem &
-        JSXBase.HTMLAttributes<HTMLGxgListboxItemElement>;
+      "gxg-list-box": LocalJSX.GxgListBox &
+        JSXBase.HTMLAttributes<HTMLGxgListBoxElement>;
+      "gxg-list-box-item": LocalJSX.GxgListBoxItem &
+        JSXBase.HTMLAttributes<HTMLGxgListBoxItemElement>;
       "gxg-loader": LocalJSX.GxgLoader &
         JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
