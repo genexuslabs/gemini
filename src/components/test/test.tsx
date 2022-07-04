@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Method, State, Watch } from "@stencil/core";
+import { Component, h, Host, Prop, Method, Watch } from "@stencil/core";
 import state from "../store";
 
 @Component({
