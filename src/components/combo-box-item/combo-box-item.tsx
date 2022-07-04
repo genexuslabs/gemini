@@ -49,6 +49,12 @@ export class GxgComboBoxItem {
     if (!this.value) {
       this.value = this.el.innerHTML;
     }
+    this.setIndex();
+  }
+
+  setIndex() {
+    const index = Array.from(this.el.parentElement.children).indexOf(this.el);
+    this.el.setAttribute("index", index.toString());
   }
 
   itemSelectedFunc() {

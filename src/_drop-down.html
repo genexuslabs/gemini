@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -14,7 +14,7 @@
 
     <style>
       html.dark {
-        background-color: #1D1E22;
+        background-color: #1d1e22;
       }
     </style>
   </head>
@@ -31,42 +31,42 @@
       <gxg-option value="8">Mercedes</gxg-option>
     </gxg-select>
 
-    <br>
+    <br />
 
-    <gxg-drop-down>
-      hola
-    </gxg-drop-down>
+    <gxg-drop-down> hola </gxg-drop-down>
 
-    <br>
+    <br />
 
-
-    <gxg-drop-down icon="general/generator" id="gxg-drop-down" label="Module/Folder:">
-      <span slot="button" style="background-color: red;">hola</span>
+    <gxg-drop-down
+      icon="general/generator"
+      id="gxg-drop-down"
+      label="Module/Folder:"
+    >
+      <span slot="button" style="background-color: red">hola</span>
       contenido html de la ventana que se despliega.
     </gxg-drop-down>
-    
+
     <button id="close-drop-down-btn">close dropdown</button>
     <button id="open-drop-down-btn">open dropdown</button>
 
     <script>
       let gxgDropDown = document.getElementById("gxg-drop-down");
-      gxgDropDown.addEventListener("opened", function(){
+      gxgDropDown.addEventListener("opened", function () {
         console.log("opened");
-      })
-      gxgDropDown.addEventListener("closed", function(){
+      });
+      gxgDropDown.addEventListener("closed", function () {
         console.log("closed");
-      })
+      });
       //close dropdown button
       closeDropDownBtn = document.getElementById("close-drop-down-btn");
-      closeDropDownBtn.addEventListener("click", function(){
+      closeDropDownBtn.addEventListener("click", function () {
         gxgDropDown.showContent = false;
       });
       //open dropdown button
       openDropDownBtn = document.getElementById("open-drop-down-btn");
-      openDropDownBtn.addEventListener("click", function(){
+      openDropDownBtn.addEventListener("click", function () {
         gxgDropDown.showContent = true;
       });
     </script>
-
   </body>
 </html>

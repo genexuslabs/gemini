@@ -16,7 +16,7 @@ import state from "../store";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgComboBox {
   gxgFormText!: GxgFormText;
@@ -31,7 +31,7 @@ export class GxgComboBox {
   /**
    * The combo min-width
    */
-  @Prop() minWidth = "none";
+  @Prop() minWidth = "0";
 
   /**
    * The combo max-width
@@ -65,7 +65,6 @@ export class GxgComboBox {
    */
   @Prop({ mutable: true }) isOpen = false;
 
-  @State() itemsNodeList: NodeList;
   @State() inputTextValue = "";
   @State() showItems = false;
   @State() inputTextIcon: string = undefined;
@@ -74,60 +73,64 @@ export class GxgComboBox {
   @State() lastAllowedValue = undefined;
   @State() slottedContent: HTMLElement = null;
   @State() userTyped = false;
-  @State() selectionNotProgramatic = true;
+  @State() selectionProgramatic = true;
+
+  private detectClickOutsideCombo = this.detectClickOutsideComboFunc.bind(this);
 
   componentWillLoad() {
-    this.setItemsNodeList();
     if (this.value !== undefined) {
       this.tryToSetItem(this.value);
     }
   }
 
-  setItemsNodeList() {
-    this.itemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
-    this.itemsNodeList.forEach((item, i) => {
-      const itemHtmlElement = item as HTMLElement;
-      itemHtmlElement.setAttribute("index", i.toString());
-    });
-  }
-
-  @Method()
-  async updateItems() {
-    //This method must be called after the combo-box items list has been programatically updated/changed.
-    this.setItemsNodeList();
-    this.clearCombo();
-  }
-
-  @Method()
-  async setFocus() {
-    this.focus();
-  }
-
   @Method()
   async open() {
-    //console.log("'open' method was called");
     this.showItems = true;
   }
 
   @Method()
   async close() {
-    //console.log("'close' method was called");
     this.showItems = false;
+  }
+
+  @Method()
+  async getValueByIndex(index: number): Promise<string> {
+    index++;
+    let itemValue = undefined;
+    const item = this.el.querySelector(
+      "gxg-combo-box-item:nth-child(" + index + ")"
+    );
+    if (item) {
+      itemValue = ((item as unknown) as GxgComboBoxItem).value;
+    }
+    return itemValue;
+  }
+
+  @Method()
+  async setValueByIndex(index: number): Promise<void> {
+    index++;
+    const item = this.el.querySelector(
+      "gxg-combo-box-item:nth-child(" + index + ")"
+    );
+    if (item) {
+      const itemValue = ((item as unknown) as GxgComboBoxItem).value;
+      this.value = itemValue;
+    }
   }
 
   @Listen("itemSelected")
   itemSelectedHandler(event) {
-    this.selectionNotProgramatic = true;
+    this.selectionProgramatic = false;
     this.value = event.detail.value;
   }
 
   @Listen("keyDownComboItem")
   keyDownComboItemHandler(event) {
     if (event.detail === "ArrowUp") {
-      this.gxgFormText.setFocus();
+      ((this.gxgFormText as unknown) as HTMLElement).focus();
     } else if (event.detail === "Tab" || event.detail === "Escape") {
       this.showItems = false;
-      this.gxgFormText.setFocus();
+      ((this.gxgFormText as unknown) as HTMLElement).focus();
     }
   }
 
@@ -147,7 +150,9 @@ export class GxgComboBox {
     this.clearSelectedItem();
 
     const filterValue = e.detail.toLowerCase();
-    this.itemsNodeList.forEach((item) => {
+
+    const itemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
+    itemsNodeList.forEach((item) => {
       const itemHtmlElement = item as HTMLElement;
       const itemDescription = itemHtmlElement.innerText.toLocaleLowerCase();
       if (!itemDescription.includes(filterValue)) {
@@ -163,7 +168,7 @@ export class GxgComboBox {
     });
 
     const numberOfHiddenItems = this.el.getElementsByClassName("hidden").length;
-    if (this.itemsNodeList.length === numberOfHiddenItems) {
+    if (itemsNodeList.length === numberOfHiddenItems) {
       this.noMatch = true;
     } else {
       this.noMatch = false;
@@ -178,7 +183,13 @@ export class GxgComboBox {
 
   @Watch("showItems")
   onShowItemsChanged(newValue: boolean) {
-    newValue ? (this.isOpen = true) : (this.isOpen = false);
+    if (newValue) {
+      document.addEventListener("click", this.detectClickOutsideCombo, true);
+      this.isOpen = true;
+    } else {
+      document.removeEventListener("click", this.detectClickOutsideCombo, true);
+      this.isOpen = false;
+    }
   }
 
   tryToSetItem(value) {
@@ -203,12 +214,12 @@ export class GxgComboBox {
   getItemByValue(value: string): GxgComboBoxItem | undefined {
     let item = null;
     if (value !== undefined) {
-      for (let i = 0; i < this.itemsNodeList.length; i++) {
+      const itemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
+      for (let i = 0; i < itemsNodeList.length; i++) {
         if (
-          ((this.itemsNodeList[i] as unknown) as GxgComboBoxItem).value ===
-          value
+          ((itemsNodeList[i] as unknown) as GxgComboBoxItem).value === value
         ) {
-          item = this.itemsNodeList[i];
+          item = itemsNodeList[i];
           break;
         }
       }
@@ -241,9 +252,9 @@ export class GxgComboBox {
     ((item as unknown) as HTMLElement).classList.add("selected");
 
     this.showItems = false;
-    if (this.gxgFormText && this.selectionNotProgramatic) {
+    if (!this.selectionProgramatic) {
       this.focus();
-      this.selectionNotProgramatic = false;
+      this.selectionProgramatic = false;
     }
   }
 
@@ -268,7 +279,6 @@ export class GxgComboBox {
   }
 
   onKeyDownGxgButtonArrowDown(e) {
-    console.log("onKeyDownGxgButtonArrowDown");
     if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
@@ -321,10 +331,10 @@ export class GxgComboBox {
   }
 
   focus() {
-    this.gxgFormText.setFocus();
+    ((this.gxgFormText as unknown) as HTMLElement).focus();
   }
 
-  detectClickOutsideCombo(event) {
+  detectClickOutsideComboFunc(event) {
     const comboMainContainer = this.el.shadowRoot.querySelector(
       ".main-container"
     ) as HTMLElement;
@@ -346,17 +356,13 @@ export class GxgComboBox {
     ) {
       //Click happened inside the combo
     } else {
-      //console.log("clicked outside the combo box");
       this.showItems = false;
       //Click happened outside the combo
     }
   }
 
-  componentDidLoad() {
-    document.addEventListener("click", this.detectClickOutsideCombo.bind(this));
-  }
   componentDidUnload() {
-    document.removeEventListener("click", this.detectClickOutsideCombo);
+    document.removeEventListener("click", this.detectClickOutsideCombo, true);
   }
 
   clearCombo() {

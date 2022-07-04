@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -29,7 +29,6 @@
       disable-filter
       placeholder="Select item"
       value="bpm"
-      strict
     >
       <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
       <gxg-combo-box-item value="bpm" icon="objects/business-process-diagram"
@@ -79,6 +78,24 @@
 
     <gxg-button id="setFocus1" type="primary-text-only">Set focus</gxg-button>
 
+    <gxg-button id="updateItems1" type="primary-text-only"
+      >Update Items</gxg-button
+    >
+    <gxg-button id="openComboBox1" type="primary-text-only"
+      >Open combo-box</gxg-button
+    >
+    <gxg-button id="closeComboBox1" type="primary-text-only"
+      >Close combo-box</gxg-button
+    >
+
+    <gxg-button id="getValueByIndex1" type="primary-text-only"
+      >Get Value By Index (1)</gxg-button
+    >
+
+    <gxg-button id="setValueByIndex1" type="primary-text-only"
+      >Set Value By Index (1)</gxg-button
+    >
+
     <script>
       const btnChangeValue1 = document.getElementById("setBPMValue1");
       const gxgCombo1 = document.getElementById("gxgCombo1");
@@ -98,7 +115,36 @@
 
       const btnSetFocus1 = document.getElementById("setFocus1");
       btnSetFocus1.addEventListener("click", function (e) {
-        gxgCombo1.setFocus();
+        gxgCombo1.focus();
+      });
+
+      const btnUpdateItems1 = document.getElementById("updateItems1");
+      btnUpdateItems1.addEventListener("click", function (e) {
+        gxgCombo1.innerHTML = `
+        <gxg-combo-box-item>Hamburguesas</gxg-combo-box-item>
+        <gxg-combo-box-item value="panchos" icon="objects/business-process-diagram">Panchos</gxg-combo-box-item>
+        `;
+      });
+
+      const btnOpenComboBox1 = document.getElementById("openComboBox1");
+      btnOpenComboBox1.addEventListener("click", function (e) {
+        gxgCombo1.open();
+      });
+
+      const btnCloseComboBox1 = document.getElementById("closeComboBox1");
+      btnCloseComboBox1.addEventListener("click", function (e) {
+        gxgCombo1.close();
+      });
+
+      const btnGetValueByIndex1 = document.getElementById("getValueByIndex1");
+      btnGetValueByIndex1.addEventListener("click", async function (e) {
+        const itemValue = await gxgCombo1.getValueByIndex(1);
+        console.log(itemValue);
+      });
+
+      const btnSetValueByIndex1 = document.getElementById("setValueByIndex1");
+      btnSetValueByIndex1.addEventListener("click", async function (e) {
+        gxgCombo1.setValueByIndex(1);
       });
 
       gxgCombo1.addEventListener("itemSelected", function (e) {
@@ -110,7 +156,7 @@
     <!---------------------- COMBO 2 ---------------------->
     <!----------------------------------------------------->
 
-    <gxg-combo-box strict value="bpmdd" id="gxgCombo2">
+    <gxg-combo-box value="bpms" id="gxgCombo2">
       <gxg-combo-box-item>Commondasdsa 1</gxg-combo-box-item>
       <gxg-combo-box-item value="bpm" icon="objects/business-process-diagram"
         >BPM</gxg-combo-box-item
@@ -118,7 +164,7 @@
       <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
         >Chatbots</gxg-combo-box-item
       >
-      <gxg-combo-box-item value="data-management" icon="objects/data-provider"
+      <gxg-combo-box-item icon="objects/data-provider"
         >Data Management</gxg-combo-box-item
       >
       <gxg-combo-box-item value="resources" icon="objects/bg-color"
@@ -167,6 +213,14 @@
       >Close combo-box</gxg-button
     >
 
+    <gxg-button id="getValueByIndex2" type="primary-text-only"
+      >Get Value By Index (1)</gxg-button
+    >
+
+    <gxg-button id="setValueByIndex2" type="primary-text-only"
+      >Set Value By Index (1)</gxg-button
+    >
+
     <script>
       const gxgCombo2 = document.getElementById("gxgCombo2");
       const btnChangeValue2 = document.getElementById("setBPMValue2");
@@ -186,7 +240,8 @@
 
       const btnSetFocus2 = document.getElementById("setFocus2");
       btnSetFocus2.addEventListener("click", function (e) {
-        gxgCombo2.setFocus();
+        gxgCombo2.open();
+        gxgCombo2.focus();
       });
 
       const btnUpdateItems2 = document.getElementById("updateItems2");
@@ -195,7 +250,6 @@
         <gxg-combo-box-item>Hamburguesas</gxg-combo-box-item>
         <gxg-combo-box-item value="panchos" icon="objects/business-process-diagram">Panchos</gxg-combo-box-item>
         `;
-        gxgCombo2.updateItems();
       });
 
       const btnOpenComboBox2 = document.getElementById("openComboBox2");
@@ -206,6 +260,17 @@
       const btnCloseComboBox2 = document.getElementById("closeComboBox2");
       btnCloseComboBox2.addEventListener("click", function (e) {
         gxgCombo2.close();
+      });
+
+      const btnGetValueByIndex2 = document.getElementById("getValueByIndex2");
+      btnGetValueByIndex2.addEventListener("click", async function (e) {
+        const itemValue = await gxgCombo2.getValueByIndex(1);
+        console.log(itemValue);
+      });
+
+      const btnSetValueByIndex2 = document.getElementById("setValueByIndex2");
+      btnSetValueByIndex2.addEventListener("click", async function (e) {
+        gxgCombo2.setValueByIndex(1);
       });
 
       gxgCombo2.addEventListener("itemSelected", function (e) {

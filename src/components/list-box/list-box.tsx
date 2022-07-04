@@ -11,6 +11,7 @@ import {
   Method,
 } from "@stencil/core";
 import { GxgListboxItem } from "../list-box-item/list-box-item";
+import state from "../store";
 
 @Component({
   tag: "gxg-list-box",
@@ -30,9 +31,19 @@ export class GxgListBox {
   @Prop() theTitle = "";
 
   /**
-   * The listbox width
+   * The list-box width
    */
-  @Prop() width = "280px";
+  @Prop() width = "240px";
+
+  /**
+   * The list-box min-width
+   */
+  @Prop() minWidth = "0";
+
+  /**
+   * The list-box max-width
+   */
+  @Prop() maxWidth = "none";
 
   /**
    * The prescence of this attribute will display a checkbox for every item
@@ -263,8 +274,15 @@ export class GxgListBox {
 
   render() {
     return (
-      <Host>
-        <div style={{ width: this.width }} class={{ container: true }}>
+      <Host class={{ large: state.large }}>
+        <div
+          style={{
+            width: this.width,
+            minWidth: this.minWidth,
+            maxWidth: this.maxWidth,
+          }}
+          class={{ container: true }}
+        >
           {this.theTitle ? (
             <header class={{ header: true }}>{this.theTitle}</header>
           ) : null}

@@ -96,20 +96,6 @@
 | `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
 | `input`              | Returns the input value      | `CustomEvent<any>` |
 
-## Methods
-
-### `setFocus() => Promise<void>`
-
----
-
-LISTEN
-
----
-
-#### Returns
-
-Type: `Promise<void>`
-
 ## Shadow Parts
 
 | Part      | Description |

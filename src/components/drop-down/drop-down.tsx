@@ -9,6 +9,7 @@ import {
   EventEmitter,
   Watch,
 } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-drop-down",
@@ -19,9 +20,19 @@ export class GxgDropDown {
   @Element() el: HTMLElement;
 
   /**
-   * the dropdown width
+   * The dropdown width
    */
   @Prop() width = "240px";
+
+  /**
+   * The dropdown min-width
+   */
+  @Prop() minWidth = "0";
+
+  /**
+   * The codropdownmbo max-width
+   */
+  @Prop() maxWidth = "none";
 
   /**
    * the dropdown max. height
@@ -45,9 +56,8 @@ export class GxgDropDown {
 
   @State() initialButtonText = "";
 
-  @State() detectClickOutsideDropDownVar = this.detectClickOutsideDropDown.bind(
-    this
-  );
+  @State()
+  detectClickOutsideDropDown = this.detectClickOutsideDropDownFunc.bind(this);
 
   /**
    * This events gets fired when the dropdown is opened
@@ -69,22 +79,13 @@ export class GxgDropDown {
   toggleContent() {
     if (this.showContent === true) {
       this.showContent = false;
-      document.removeEventListener("click", this.detectClickOutsideDropDownVar);
     } else {
       this.showContent = true;
-      setTimeout(
-        function () {
-          document.addEventListener(
-            "click",
-            this.detectClickOutsideDropDownVar
-          );
-        }.bind(this),
-        100
-      );
     }
   }
 
-  detectClickOutsideDropDown(event) {
+  detectClickOutsideDropDownFunc(event) {
+    console.log("hola");
     const dropDownContentContainer = this.el.shadowRoot.querySelector(
       ".content-container"
     ) as HTMLElement;
@@ -103,7 +104,6 @@ export class GxgDropDown {
       //Click happened inside the dropdown
     } else {
       this.showContent = false;
-      document.removeEventListener("click", this.detectClickOutsideDropDownVar);
       //Click happened outside the dropdown
     }
   }
@@ -114,20 +114,34 @@ export class GxgDropDown {
 
   @Watch("showContent")
   watchHandler(newValue: boolean) {
-    console.log("newValue", newValue);
     if (newValue === true) {
-      console.log("emmit opened");
       this.opened.emit(true);
+      document.addEventListener("click", this.detectClickOutsideDropDown, true);
     } else {
-      console.log("emmit closed");
       this.closed.emit(true);
+      document.removeEventListener(
+        "click",
+        this.detectClickOutsideDropDown,
+        true
+      );
     }
   }
 
   render() {
     return (
-      <Host>
-        <div class={{ "main-container": true }} style={{ width: this.width }}>
+      <Host
+        class={{
+          large: state.large,
+        }}
+      >
+        <div
+          class={{ "main-container": true }}
+          style={{
+            width: this.width,
+            minWidth: this.minWidth,
+            maxWidth: this.maxWidth,
+          }}
+        >
           {this.label !== "" ? (
             <label class={{ label: true }}>{this.label}</label>
           ) : null}

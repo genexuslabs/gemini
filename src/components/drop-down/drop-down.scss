@@ -93,3 +93,26 @@
     background-color: var(--color-background);
   }
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  label {
+    font-size: var(--font-size-lg);
+  }
+  .select-container {
+    font-size: var(--font-size-lg);
+    height: var(--spacing-comp-05);
+
+    &:before {
+      top: 2px;
+    }
+    &:after {
+      top: 14px;
+    }
+  }
+  .content-container {
+    font-size: var(--font-size-lg);
+  }
+}

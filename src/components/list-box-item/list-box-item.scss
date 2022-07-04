@@ -1,20 +1,23 @@
 :host {
   display: block;
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
-  height: var(--spacing-comp-05);
-  padding: 0 var(--spacing-comp-02);
+  font-size: inherit;
+  //min-height: var(--spacing-comp-05);
+  padding: var(--spacing-comp-00) var(--spacing-comp-02);
   color: var(--color-on-background);
   cursor: pointer;
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select:none;
-  user-select:none;-o-user-select:none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
 
   .icon {
     margin-inline-end: var(--spacing-comp-01);
+    flex-shrink: 0;
   }
 
   ::slotted(gxg-form-checkbox) {
@@ -38,4 +41,12 @@
   outline-color: var(--color-primary-active);
   outline-style: solid;
   outline-offset: -2px;
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+
+:host(.large) {
+  padding: var(--spacing-comp-01);
 }

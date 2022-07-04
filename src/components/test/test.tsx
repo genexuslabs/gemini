@@ -56,18 +56,41 @@ export class GxgTest {
 
   render() {
     return (
+      // <Host
+      //   class={{
+      //     large: state.large,
+      //   }}
+      // >
+      //   <button onClick={this.showInput.bind(this)}>Show input</button>
+      //   {this.show ? (
+      //     <input
+      //       ref={(el) => (this.textInput = el as HTMLInputElement)}
+      //       type="text"
+      //     />
+      //   ) : null}
+      // </Host>
       <Host
         class={{
           large: state.large,
         }}
       >
-        <button onClick={this.showInput.bind(this)}>Show input</button>
-        {this.show ? (
-          <input
-            ref={(el) => (this.textInput = el as HTMLInputElement)}
-            type="text"
-          />
-        ) : null}
+        <ch-grid>
+          <ch-grid-columnset>
+            <ch-grid-column> Codigo </ch-grid-column>
+            <ch-grid-column> Poblacion </ch-grid-column>
+            <ch-grid-column> City </ch-grid-column>
+          </ch-grid-columnset>
+          <ch-grid-row>
+            <ch-grid-cell> Code 1 </ch-grid-cell>
+            <ch-grid-cell> 100 </ch-grid-cell>
+            <ch-grid-cell> Montevideo </ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell> Code 2 </ch-grid-cell>
+            <ch-grid-cell> 200 </ch-grid-cell>
+            <ch-grid-cell> Buenos Aires </ch-grid-cell>
+          </ch-grid-row>
+        </ch-grid>
       </Host>
     );
   }

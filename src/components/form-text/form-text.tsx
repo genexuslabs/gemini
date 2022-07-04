@@ -8,7 +8,6 @@ import {
   EventEmitter,
   State,
   Watch,
-  Method,
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -21,7 +20,7 @@ import state from "../store";
 @Component({
   tag: "gxg-form-text",
   styleUrl: "form-text.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgFormText implements FormComponent {
   isRequiredError = false;
@@ -374,23 +373,6 @@ export class GxgFormText implements FormComponent {
     }
   }
 
-  /*********************************
-  LISTEN
-  *********************************/
-  // @Listen("focus")
-  // handleFocus(focusEvent: Event) {
-  //   console.log("foco en el input text");
-  //   if (focusEvent.target !== this.el) {
-  //     return;
-  //   }
-  //   this.textInput.focus();
-  // }
-
-  @Method()
-  async setFocus() {
-    this.textInput.focus();
-  }
-
   type() {
     if (this.password) {
       return "password";
@@ -412,7 +394,6 @@ export class GxgFormText implements FormComponent {
           rtl: this.rtl,
           large: state.large,
         }}
-        // tabindex="1"
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div class="outer-wrapper">

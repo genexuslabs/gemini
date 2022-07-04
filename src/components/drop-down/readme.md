@@ -9,13 +9,15 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                                                                                                                                                  | Type      | Default   |
-| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- |
-| `icon`      | `icon`       | the dropdown icon (optional)                                                                                                                                                                 | `string`  | `""`      |
-| `isOpen`    | `is-open`    | This property returns true if the drop-down list is open, false otherwise. Do not use this property to open or close the drop-down list, for that purpose use the open() or close() methods. | `boolean` | `false`   |
-| `label`     | `label`      | the dropdown label (optional)                                                                                                                                                                | `string`  | `""`      |
-| `maxHeight` | `max-height` | the dropdown max. height                                                                                                                                                                     | `string`  | `"120px"` |
-| `width`     | `width`      | the dropdown width                                                                                                                                                                           | `string`  | `"240px"` |
+| Property      | Attribute      | Description                   | Type      | Default   |
+| ------------- | -------------- | ----------------------------- | --------- | --------- |
+| `icon`        | `icon`         | the dropdown icon (optional)  | `string`  | `""`      |
+| `label`       | `label`        | the dropdown label (optional) | `string`  | `""`      |
+| `maxHeight`   | `max-height`   | the dropdown max. height      | `string`  | `"120px"` |
+| `maxWidth`    | `max-width`    | The codropdownmbo max-width   | `string`  | `"none"`  |
+| `minWidth`    | `min-width`    | The dropdown min-width        | `string`  | `"0"`     |
+| `showContent` | `show-content` | Displays the dropdown content | `boolean` | `false`   |
+| `width`       | `width`        | The dropdown width            | `string`  | `"240px"` |
 
 ## Events
 

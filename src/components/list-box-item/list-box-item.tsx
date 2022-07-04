@@ -9,6 +9,7 @@ import {
   State,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
+import state from "../store";
 
 @Component({
   tag: "gxg-list-box-item",
@@ -93,6 +94,7 @@ export class GxgListboxItem {
         class={{
           "has-icon": this.icon !== undefined,
           "no-checkbox": !this.checkboxes,
+          large: state.large,
         }}
         onClick={this.itemClickedFunc.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}
