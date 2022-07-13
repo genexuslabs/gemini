@@ -1,0 +1,4 @@
+para darle estilos:
+- al columnset 
+- ch-grid-column::part(bar-name)
+- column sort changed

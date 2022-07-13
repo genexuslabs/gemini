@@ -8,6 +8,10 @@
   },
   { "name": "gemini-tools/close", "description": "Some description" },
   { "name": "gemini-tools/color-picker", "description": "Some description" },
+  {
+    "name": "gemini-tools/copy-to-clipboard",
+    "description": "Some description"
+  },
   { "name": "gemini-tools/delete", "description": "Some description" },
   { "name": "gemini-tools/download", "description": "Some description" },
   { "name": "gemini-tools/duplicate", "description": "Some description" },
@@ -24,6 +28,7 @@
   { "name": "gemini-tools/reset", "description": "Some description" },
   { "name": "gemini-tools/search", "description": "Some description" },
   { "name": "gemini-tools/settings", "description": "Some description" },
+  { "name": "gemini-tools/share", "description": "Some description" },
   {
     "name": "gemini-tools/show-more-horizontal",
     "description": "Some description"
