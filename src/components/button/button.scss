@@ -203,7 +203,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 /*********************************
 'OUTLINED' BUTTON TYPE
 *********************************/
-:host(.button--outlined) .button-native {
+:host(.button--outlined) .button-native,
+:host(.button--outlined-text-icon) .button-native {
   // This are the styles for 'outlined button' type.
 
   box-shadow: inset 0px 0px 0px 1px $gxg-label-color;
@@ -228,11 +229,18 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
     background: transparent;
     box-shadow: inset 0px 0px 0px 1px $gxg-label--active-color;
   }
+  gxg-icon:not(.ghost-icon) {
+    padding-inline-end: var(--spacing-comp-01);
+  }
 }
-:host(.button--outlined.button--disabled) .button-native {
+:host(.button--outlined.button--disabled) .button-native,
+:host(.button--outlined-text-icon.button--disabled) .button-native {
   box-shadow: inset 0px 0px 0px 1px $gxg-label--disabled-color;
   background: var(--color-transparent);
   @include gxg-label--disabled;
+}
+:host(.button--outlined-text-icon) .button-native {
+  padding-inline-start: var(--spacing-comp-03);
 }
 
 /*********************************

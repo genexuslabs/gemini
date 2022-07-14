@@ -79,13 +79,14 @@ export class GxgDropDown {
   toggleContent() {
     if (this.showContent === true) {
       this.showContent = false;
+      console.log("show content false");
     } else {
       this.showContent = true;
+      console.log("show content true");
     }
   }
 
   detectClickOutsideDropDownFunc(event) {
-    console.log("hola");
     const dropDownContentContainer = this.el.shadowRoot.querySelector(
       ".content-container"
     ) as HTMLElement;
@@ -109,7 +110,11 @@ export class GxgDropDown {
   }
 
   componentDidUnload() {
-    document.removeEventListener("click", this.detectClickOutsideDropDown);
+    document.removeEventListener(
+      "click",
+      this.detectClickOutsideDropDown,
+      true
+    );
   }
 
   @Watch("showContent")

@@ -155,6 +155,11 @@ export class GxgButton {
           iColor = "onbackground";
         }
       }
+    } else if (this.type.includes("outlined")) {
+      iColor = "primary-active";
+      if (this.disabled) {
+        iColor = "ondisabled";
+      }
     }
     return iColor;
   }
@@ -200,6 +205,7 @@ export class GxgButton {
           "button--secondary-text-icon": this.type === "secondary-text-icon",
           "button--secondary-icon-only": this.type === "secondary-icon-only",
           "button--outlined": this.type === "outlined",
+          "button--outlined-text-icon": this.type === "outlined-text-icon",
           "button--disabled": this.disabled === true,
           "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true,
@@ -239,4 +245,5 @@ export type ButtonType =
   | "secondary-text-icon"
   | "secondary-icon-only"
   | "outlined"
+  | "outlined-text-icon"
   | "tertiary";
