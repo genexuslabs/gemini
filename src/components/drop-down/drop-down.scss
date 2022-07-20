@@ -23,7 +23,7 @@
     border-width: var(--border-width-sm);
     border-style: solid;
     border-color: var(--gray-02);
-    height: 18px;
+    height: 20px;
     font-family: var(--font-family-primary);
     font-size: var(--font-size-sm);
     display: flex;
@@ -33,6 +33,7 @@
     cursor: pointer;
     color: var(--color-on-background);
     overflow: hidden;
+    box-sizing: border-box;
 
     .icon {
       margin-left: -4px;
@@ -102,5 +103,10 @@ LARGE VERSION (html tag has 'gxg-large' class)
   }
   .content-container {
     font-size: var(--font-size-lg);
+  }
+}
+:host(.large.above) {
+  .content-container {
+    transform: translateY(calc(-100% - 24px));
   }
 }
