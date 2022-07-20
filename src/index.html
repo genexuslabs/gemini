@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
+<html dir="ltr" lang="en" class="gxg-larges">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -12,137 +12,116 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style></style>
+    <style>
+      html.dark {
+        background-color: #1d1e22;
+      }
+    </style>
   </head>
   <body>
-    <!-------------------------------------------------------------------------------------------------------------------------------
-         BUTTONS
-         --------------------------------------------------------------------------------------------------------------------------------->
-    <h3>Buttons</h3>
-    <gxg-button type="primary-text-only">Label</gxg-button>
-    <gxg-button type="primary-text-icon" icon="navigation/arrow-down"
-      >Label</gxg-button
-    >
-    <gxg-button type="primary-text-icon" icon="controls/action-group"
-      >Label</gxg-button
-    >
-    <gxg-button type="primary-text-icon" icon="gemini-tools/folder"
-      >Label</gxg-button
-    >
-    <gxg-button type="primary-icon-only" icon="gemini-tools/folder"
-      >Label</gxg-button
-    >
-    <gxg-button type="secondary-text-only" id="secondary-text-only"
-      >Label</gxg-button
-    >
-    <gxg-button type="secondary-text-icon" icon="gemini-tools/folder"
-      >Label</gxg-button
-    >
-    <gxg-button
-      type="secondary-icon-only"
-      icon="gemini-tools/folder"
-    ></gxg-button>
-    <gxg-button
-      type="secondary-icon-only"
-      icon="gemini-tools/edit"
-    ></gxg-button>
-    <gxg-button
-      type="secondary-icon-only"
-      icon="gemini-tools/duplicate"
-    ></gxg-button>
-    <gxg-button
-      type="secondary-icon-only"
-      icon="gemini-tools/delete"
-    ></gxg-button>
-    <gxg-button type="outlined">Label</gxg-button>
-    <gxg-button icon="gemini-tools/folder" type="outlined-text-icon"
-      >Label</gxg-button
-    >
-    <gxg-button icon="navigation/arrow-down" type="tertiary"></gxg-button>
-    <gxg-button icon="controls/google-analytics" type="tertiary"></gxg-button>
-    <gxg-button
-      class="button-with-action"
-      icon="controls/table-column"
-      type="tertiary"
-    ></gxg-button>
-    <br />
-    <gxg-button disabled type="primary-text-only">Label</gxg-button>
-    <gxg-button disabled type="primary-text-icon" icon="navigation/arrow-down"
-      >Label</gxg-button
-    >
-    <gxg-button disabled type="primary-text-icon" icon="controls/action-group"
-      >Label</gxg-button
-    >
-    <gxg-button disabled type="primary-text-icon" icon="gemini-tools/folder"
-      >Label</gxg-button
-    >
-    <gxg-button disabled type="primary-icon-only" icon="gemini-tools/folder"
-      >Label</gxg-button
-    >
-    <gxg-button disabled type="secondary-text-only">Label</gxg-button>
-    <gxg-button disabled type="secondary-text-icon" icon="gemini-tools/folder"
-      >Label</gxg-button
-    >
-    <gxg-button
-      disabled
-      type="secondary-icon-only"
-      icon="gemini-tools/folder"
-    ></gxg-button>
-    <gxg-button
-      disabled
-      type="secondary-icon-only"
-      icon="gemini-tools/edit"
-    ></gxg-button>
-    <gxg-button
-      disabled
-      type="secondary-icon-only"
-      icon="gemini-tools/duplicate"
-    ></gxg-button>
-    <gxg-button
-      disabled
-      type="secondary-icon-only"
-      icon="gemini-tools/delete"
-    ></gxg-button>
-    <gxg-button disabled type="outlined">Label</gxg-button>
-    <gxg-button disabled icon="gemini-tools/folder" type="outlined-text-icon"
-      >Label</gxg-button
-    >
-    <gxg-button
-      disabled
-      icon="navigation/arrow-down"
-      type="tertiary"
-    ></gxg-button>
-    <gxg-button
-      disabled
-      icon="controls/google-analytics"
-      type="tertiary"
-    ></gxg-button>
-    <gxg-button
-      class="button-with-action"
-      disabled
-      icon="controls/table-column"
-      type="tertiary"
-    ></gxg-button>
+    <gxg-select>
+      <gxg-option value="0">Select car:</gxg-option>
+      <gxg-option value="1">Audi</gxg-option>
+      <gxg-option value="2">BMW</gxg-option>
+      <gxg-option selected value="3">Citroen</gxg-option>
+      <gxg-option value="4">Ford</gxg-option>
+      <gxg-option value="5">Honda</gxg-option>
+      <gxg-option value="6">Jaguar</gxg-option>
+      <gxg-option value="7">Land Rover</gxg-option>
+      <gxg-option value="8">Mercedes</gxg-option>
+    </gxg-select>
+
     <br />
 
-    <button id="set-focus-button">Set focus</button>
+    <!-- <gxg-drop-down> hola </gxg-drop-down> -->
+
+    <br />
+
+    <gxg-drop-down
+      icon="general/generator"
+      id="gxg-drop-down"
+      label="Module/Folder:"
+      above
+    >
+      <span slot="button" style="background-color: red"
+        >hola hola hola hola hola hola hola</span
+      >
+      contenido html de la ventana que se despliega. contenido html de la
+      ventana que se despliega. contenido html de la ventana que se
+      despliega.contenido html de la ventana que se despliega.
+    </gxg-drop-down>
+
+    <button id="close-drop-down-btn">close dropdown</button>
+    <button id="open-drop-down-btn">open dropdown</button>
+    <button id="set-focus">set focus</button>
+
     <script>
-      let buttonsWithAction = document.getElementsByClassName(
-        "button-with-action"
-      );
-      for (let button of buttonsWithAction) {
-        button.addEventListener("click", function () {
-          alert("hola");
-        });
-      }
-      let secondaryTextOnlyButton = document.getElementById(
-        "secondary-text-only"
-      );
-      let setFocusButton = document.getElementById("set-focus-button");
-      setFocusButton.addEventListener("click", function () {
-        console.log(secondaryTextOnlyButton);
-        secondaryTextOnlyButton.focus();
+      let gxgDropDown = document.getElementById("gxg-drop-down");
+      gxgDropDown.addEventListener("opened", function () {
+        //console.log("opened");
+      });
+      gxgDropDown.addEventListener("closed", function () {
+        //console.log("closed");
+      });
+      //close dropdown button
+      closeDropDownBtn = document.getElementById("close-drop-down-btn");
+      closeDropDownBtn.addEventListener("click", function () {
+        gxgDropDown.showContent = false;
+      });
+      //open dropdown button
+      openDropDownBtn = document.getElementById("open-drop-down-btn");
+      openDropDownBtn.addEventListener("click", function () {
+        gxgDropDown.showContent = true;
+      });
+      //set focus
+      setFocusBtn = document.getElementById("set-focus");
+      setFocusBtn.addEventListener("click", function () {
+        gxgDropDown.focus();
       });
     </script>
+
+    <gxg-combo-box
+      id="gxgCombo1"
+      disable-filter
+      placeholder="Select item"
+      value="bpm"
+    >
+      <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+      <gxg-combo-box-item value="bpm" icon="objects/business-process-diagram"
+        >BPM</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+        >Chatbots</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="data-management" icon="objects/data-provider"
+        >Data Management</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="resources" icon="objects/bg-color"
+        >Resources</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="user-interface" icon="objects/webpanel"
+        >User interface</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="dashboard" icon="objects/dashboard"
+        >Dashboard</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="deployment-unit" icon="objects/deployment-unit"
+        >Deployment Unit</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="dso" icon="objects/dso"
+        >DSO</gxg-combo-box-item
+      >
+      <gxg-combo-box-item
+        value="structured-data-type"
+        icon="objects/structured-data-type"
+        >Structured Data Type</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="url-rewrite" icon="objects/url-rewrite"
+        >URL Rewrite</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="stencil" icon="objects/stencil"
+        >Stencil</gxg-combo-box-item
+      >
+    </gxg-combo-box>
   </body>
 </html>

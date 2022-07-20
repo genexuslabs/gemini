@@ -14,7 +14,7 @@ import state from "../store";
 @Component({
   tag: "gxg-drop-down",
   styleUrl: "drop-down.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgDropDown {
   @Element() el: HTMLElement;
@@ -54,6 +54,11 @@ export class GxgDropDown {
    */
   @Prop() showContent = false;
 
+  /**
+   * Displays the dropdown .content-container above (usefull when there is no available space bellow/under the dropdown)
+   */
+  @Prop() above = false;
+
   @State() initialButtonText = "";
 
   @State()
@@ -79,16 +84,14 @@ export class GxgDropDown {
   toggleContent() {
     if (this.showContent === true) {
       this.showContent = false;
-      console.log("show content false");
     } else {
       this.showContent = true;
-      console.log("show content true");
     }
   }
 
   detectClickOutsideDropDownFunc(event) {
     const dropDownContentContainer = this.el.shadowRoot.querySelector(
-      ".content-container"
+      ".select-container"
     ) as HTMLElement;
 
     const x = event.x;
@@ -132,11 +135,30 @@ export class GxgDropDown {
     }
   }
 
+  onKeyDown(e) {
+    if (e.key === "Enter") {
+      this.toggleContent();
+    }
+    if (e.key === "Escape") {
+      this.showContent = false;
+    }
+    if (e.key === "Tab") {
+      this.showContent = false;
+    }
+  }
+
+  onKeyDownGxgButtonArrowDown(e) {
+    if (e.key === "Enter") {
+      this.toggleContent();
+    }
+  }
+
   render() {
     return (
       <Host
         class={{
           large: state.large,
+          above: this.above,
         }}
       >
         <div
@@ -151,12 +173,13 @@ export class GxgDropDown {
             <label class={{ label: true }}>{this.label}</label>
           ) : null}
           <div
+            tabIndex={0}
             class={{
               "select-container": true,
               "nothing-selected": this.initialButtonText === "Select item",
-              focus: this.showContent,
             }}
-            onClick={() => this.toggleContent()}
+            onClick={this.toggleContent.bind(this)}
+            onKeyDown={this.onKeyDown.bind(this)}
           >
             {this.icon !== "" ? (
               <gxg-icon
@@ -168,7 +191,13 @@ export class GxgDropDown {
             ) : null}
             {this.initialButtonText !== "" ? this.initialButtonText : null}
             <slot name="button"></slot>
-            <span class="layer"></span>
+            <gxg-button
+              class={{ "arrow-down-button": true }}
+              icon="navigation/arrow-down"
+              type="tertiary"
+              onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
+              tabindex="-1"
+            ></gxg-button>
           </div>
           {this.showContent ? (
             <div

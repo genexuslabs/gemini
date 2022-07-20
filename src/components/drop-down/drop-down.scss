@@ -19,6 +19,7 @@
   }
 
   .select-container {
+    border-radius: var(--border-radius-sm);
     border-width: var(--border-width-sm);
     border-style: solid;
     border-color: var(--gray-02);
@@ -27,10 +28,11 @@
     font-size: var(--font-size-sm);
     display: flex;
     align-items: center;
-    padding: 0 var(--spacing-comp-01);
+    padding: 0 0 0 var(--spacing-comp-01);
     position: relative;
     cursor: pointer;
     color: var(--color-on-background);
+    overflow: hidden;
 
     .icon {
       margin-left: -4px;
@@ -39,46 +41,16 @@
     &.nothing-selected {
       color: var(--gray-04);
     }
-    &.focus {
+    &:focus {
       @include form-element-common-styles-focus-type-1();
     }
-
-    /*style the arrow inside the select element:*/
-    &:after,
-    &:before {
-      position: absolute;
-      content: "";
-      right: 6px;
-      //right: 6px;
-      width: 0;
-      height: 0;
-      border: 4px solid transparent;
-      border-color: var(--gray-06) transparent transparent transparent;
-    }
-    &:after {
-      top: 11px;
-    }
-    &:before {
-      top: 0;
-      transform: rotate(180deg);
-    }
-    &:hover:after,
-    &:hover:before {
-      border-color: var(--gray-04) transparent transparent transparent;
-    }
-  }
-
-  .arrow-down-icon {
-    position: absolute;
-    right: 0;
-    pointer-events: none;
   }
 
   .content-container {
     border-width: var(--border-width-sm);
     border-style: solid;
     border-color: var(--gray-02);
-    border-top: 0;
+    border-top-width: 0;
     padding: var(--spacing-comp-01);
     font-family: var(--font-family-primary);
     font-size: var(--font-size-sm);
@@ -91,6 +63,22 @@
     box-sizing: border-box;
     z-index: 99;
     background-color: var(--color-background);
+  }
+
+  .arrow-down-button {
+    margin-left: auto;
+  }
+}
+
+:host(.above) {
+  .content-container {
+    transform: translateY(calc(-100% - 20px));
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    border-top-left-radius: var(--border-radius-sm);
+    border-top-right-radius: var(--border-radius-sm);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 
