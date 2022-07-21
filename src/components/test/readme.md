@@ -33,21 +33,23 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- ch-grid
-- ch-grid-columnset
-- ch-grid-column
+- [gxg-combo-box](../combo-box)
+- [gxg-combo-box-item](../combo-box-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> ch-grid
-  gxg-test --> ch-grid-columnset
-  gxg-test --> ch-grid-column
-  ch-grid --> ch-grid-settings
-  ch-grid --> ch-grid-settings-columns
-  ch-grid-settings --> ch-window
-  ch-grid-column --> ch-grid-column-resize
+  gxg-test --> gxg-combo-box
+  gxg-test --> gxg-combo-box-item
+  gxg-combo-box --> gxg-form-text
+  gxg-combo-box --> gxg-button
+  gxg-form-text --> gxg-icon
+  gxg-form-text --> gxg-form-message
+  gxg-icon --> ch-icon
+  gxg-form-message --> gxg-icon
+  gxg-button --> gxg-icon
+  gxg-combo-box-item --> gxg-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

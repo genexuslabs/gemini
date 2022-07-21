@@ -2,3 +2,22 @@ para darle estilos:
 - al columnset 
 - ch-grid-column::part(bar-name)
 - column sort changed
+
+==============================
+
+columnSortChanged es el evento, custom event
+ChGridColumnSortChangedEvent
+
+  @Listen("columnSortChanged")
+  columnSortChangedHandler(
+    eventInfo: CustomEvent<ChGridColumnSortChangedEvent>
+  ) {
+
+    eventoInfo.detail
+
+- Estilo para flecha de orden:
+Los selectores de los íconos son:
+::part(bar-sort-ascending)
+::part(bar-sort-descending)
+
+===============================

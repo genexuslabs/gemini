@@ -122,6 +122,7 @@ export class GxgComboBox {
   itemSelectedHandler(event) {
     this.selectionProgramatic = false;
     this.value = event.detail.value;
+    console.log(this.value);
   }
 
   @Listen("keyDownComboItem")

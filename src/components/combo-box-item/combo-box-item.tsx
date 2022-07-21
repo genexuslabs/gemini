@@ -69,6 +69,8 @@ export class GxgComboBoxItem {
       description: description,
       icon: icon,
     });
+
+    console.log("value", value);
   }
 
   onKeyDown(e) {

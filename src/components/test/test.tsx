@@ -56,41 +56,58 @@ export class GxgTest {
 
   render() {
     return (
-      // <Host
-      //   class={{
-      //     large: state.large,
-      //   }}
-      // >
-      //   <button onClick={this.showInput.bind(this)}>Show input</button>
-      //   {this.show ? (
-      //     <input
-      //       ref={(el) => (this.textInput = el as HTMLInputElement)}
-      //       type="text"
-      //     />
-      //   ) : null}
-      // </Host>
       <Host
         class={{
           large: state.large,
         }}
       >
-        <ch-grid>
-          <ch-grid-columnset>
-            <ch-grid-column> Codigo </ch-grid-column>
-            <ch-grid-column> Poblacion </ch-grid-column>
-            <ch-grid-column> City </ch-grid-column>
-          </ch-grid-columnset>
-          <ch-grid-row>
-            <ch-grid-cell> Code 1 </ch-grid-cell>
-            <ch-grid-cell> 100 </ch-grid-cell>
-            <ch-grid-cell> Montevideo </ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-row>
-            <ch-grid-cell> Code 2 </ch-grid-cell>
-            <ch-grid-cell> 200 </ch-grid-cell>
-            <ch-grid-cell> Buenos Aires </ch-grid-cell>
-          </ch-grid-row>
-        </ch-grid>
+        <gxg-combo-box
+          id="gxgCombo1"
+          disable-filter
+          placeholder="Select item"
+          value="bpm"
+        >
+          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+          <gxg-combo-box-item
+            value="bpm"
+            icon="objects/business-process-diagram"
+          >
+            BPM
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value={true} icon="objects/data-provider">
+            Data Management
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value="resources" icon="objects/bg-color">
+            Resources
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value="user-interface" icon="objects/webpanel">
+            User interface
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value="dashboard" icon="objects/dashboard">
+            Dashboard
+          </gxg-combo-box-item>
+          <gxg-combo-box-item
+            value="deployment-unit"
+            icon="objects/deployment-unit"
+          >
+            Deployment Unit
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value="dso" icon="objects/dso">
+            DSO
+          </gxg-combo-box-item>
+          <gxg-combo-box-item
+            value="structured-data-type"
+            icon="objects/structured-data-type"
+          >
+            Structured Data Type
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value="url-rewrite" icon="objects/url-rewrite">
+            URL Rewrite
+          </gxg-combo-box-item>
+          <gxg-combo-box-item value="stencil" icon="objects/stencil">
+            Stencil
+          </gxg-combo-box-item>
+        </gxg-combo-box>
       </Host>
     );
   }

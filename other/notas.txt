@@ -1,37 +1,5 @@
-Ajustes Combo German:
-
-Hola Bruno,
-estuve probando la última versión con el tema del Value y una par de cosas
-
-La más importante es que no puedo inicializar el value al momento de crear el combo, imaginate que estoy haciendo el render de un componente que lo usa así:
-<gxg-combo value="item1">
-<gxg-combo-item value="tem1">Item 1</gxg-combo-item>
-...
-</gxg-combo
-
-En ese caso el combo internamente por lo que veo queda con el valor item1 seteado pero no se refleja visualmente, la caja de texto queda vacía.
-
-El segundo tema es que si los combo items no tienen propiedad value, el value es el texto del item pero en minúsculas y con guiones, debería ser tal cual el texto que se le pone.
-
-Por ejemplo, si tengo
-
-<gxg-combo>
-<gxg-combo-item value="tem1">Item 1</gxg-combo-item>
-....
-</gxg-combo
-
-Y el valor seleccionado es 'Item 1' y no "item-1"
-
-Lo demás por lo que veo está funcionando bien.
-
-================================================================================================
-
-Otro detalle, cuando selecciono un item del combo tengo un evento que se llama "itemClicked", creo que lo más correcto es que se llame "itemSelected", porque puedo hacerlo con el mouse y con el teclado. 
-
-================================================================================================
 
 Intersection observer 2 para determinar si se esta viendo cortado o no.
 Si se esta viendo cortado lo paso a fixed.
 
 - ponerle mas z index al combo
-
