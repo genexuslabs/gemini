@@ -103,3 +103,13 @@
 :host(.menu-button:hover) {
   background: var(--color-secondary);
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host {
+  .tab-button {
+    font-size: var(--font-size-lg);
+    min-height: var(--spacing-comp-07);
+  }
+}

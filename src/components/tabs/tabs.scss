@@ -5,9 +5,6 @@
   border-radius: var(--border-width-md);
   box-shadow: var(--box-shadow-01);
 }
-:host([height="100%"]) {
-  height: 100%;
-}
 .main-container {
   height: 100%;
   display: flex;
@@ -43,36 +40,31 @@
 //Tab bar left positioned
 :host([position="left"]) {
   .tab-bar-container {
-    transform: rotate(-90deg) translate(-100%,0);
+    transform: rotate(-90deg) translate(-100%, 0);
     transform-origin: left top;
     position: absolute;
     z-index: 10;
   }
   .tabs-container {
-    position: absolute;
-    left: 32px;
     height: 100%;
-    z-index: 1;
+    width: calc(100% - 32px);
+    margin-left: 32px;
   }
 }
 
 //Tab bar right positioned
 :host([position="right"]) {
   .tab-bar-container {
-    transform: rotate(-90deg) translate(-100%,0);
+    transform: rotate(-90deg) translate(-100%, 0);
     transform-origin: left top;
     position: absolute;
     z-index: 10;
     left: calc(100% - 32px);
   }
   .tabs-container {
-    position: absolute;
-    left: 0;
     height: 100%;
-    z-index: 1;
     width: calc(100% - 32px);
   }
   .tab-bar-menu {
-    background-color: red;
   }
 }

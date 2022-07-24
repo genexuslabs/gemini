@@ -1,4 +1,12 @@
-import { Component, Element, Listen, h, State, Prop } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Listen,
+  Host,
+  h,
+  State,
+  Prop,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-tabs",
@@ -15,18 +23,8 @@ export class GxgTabs {
 
   @Listen("tabActivated")
   tabActivatedHandler(event) {
-    //first, get the active tab, and set it´s outer-container overflow to hidden
-    const activeTab = this.element.querySelector("gxg-tab[is-selected]");
-    if (activeTab !== null) {
-      const outerContainer = activeTab.shadowRoot.querySelector(
-        ".outer-container"
-      ) as HTMLElement;
-      outerContainer.style.overflow = "hidden";
-    }
     this.updateActiveChildren(event.target.tab, "gxg-tab-button");
     this.updateActiveChildren(event.target.tab, "gxg-tab");
-
-    //hide tab menu
   }
 
   updateActiveChildren(activeTab: string, tagName: string) {
@@ -37,46 +35,32 @@ export class GxgTabs {
     );
     for (const child of children) {
       child.isSelected = activeTab === child.tab;
-
-      if (activeTab === child.tab) {
-        let outerContainer = child.shadowRoot.querySelector(
-          ".outer-container"
-        ) as HTMLElement;
-
-        if (child.tagName === "GXG-TAB") {
-          outerContainer = child.shadowRoot.querySelector(
-            ".outer-container"
-          ) as HTMLElement;
-
-          setTimeout(function () {
-            outerContainer.style.overflow = "visible";
-          }, 100);
-        }
-      }
     }
   }
 
   render() {
     return (
-      <div class="main-container">
-        {this.position === "bottom"
-          ? [
-              <div class="tabs-container">
-                <slot></slot>
-              </div>,
-              <div class="tab-bar-container">
-                <slot name="tab-bar" />
-              </div>,
-            ]
-          : [
-              <div class="tab-bar-container">
-                <slot name="tab-bar" />
-              </div>,
-              <div class="tabs-container">
-                <slot></slot>
-              </div>,
-            ]}
-      </div>
+      <Host style={{ height: this.height }}>
+        <div class="main-container">
+          {this.position === "bottom"
+            ? [
+                <div class="tabs-container">
+                  <slot></slot>
+                </div>,
+                <div class="tab-bar-container">
+                  <slot name="tab-bar" />
+                </div>,
+              ]
+            : [
+                <div class="tab-bar-container">
+                  <slot name="tab-bar" />
+                </div>,
+                <div class="tabs-container">
+                  <slot></slot>
+                </div>,
+              ]}
+        </div>
+      </Host>
     );
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Element, Prop, h, Host } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-tab",
@@ -20,7 +21,13 @@ export class GxgTab {
 
   render() {
     return (
-      <Host class={{ open: this.isSelected, "not-selected": !this.isSelected }}>
+      <Host
+        class={{
+          open: this.isSelected,
+          "not-selected": !this.isSelected,
+          large: state.large,
+        }}
+      >
         <div class="outer-container">
           <div class="inner-container">
             <slot></slot>

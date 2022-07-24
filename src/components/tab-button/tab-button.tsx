@@ -6,6 +6,7 @@ import {
   EventEmitter,
   Element,
 } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-tab-button",
@@ -79,6 +80,7 @@ export class GxgTabButton {
             "tab-button--selected": this.isSelected === true,
             "tab-button--text-icon":
               this.tabLabel !== null && this.icon !== null,
+            large: state.large,
           }}
           onClick={this.tabButtonClicked.bind(this)}
         >

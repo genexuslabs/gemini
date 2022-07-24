@@ -18,7 +18,10 @@
     <gxg-grid>
       <ch-grid>
         <ch-grid-columnset>
-          <ch-grid-column column-name="Codigo"></ch-grid-column>
+          <ch-grid-column
+            size="min-content"
+            column-name="Codigo"
+          ></ch-grid-column>
           <ch-grid-column column-name="Poblacion"></ch-grid-column>
           <ch-grid-column column-name="City"></ch-grid-column>
         </ch-grid-columnset>
@@ -31,6 +34,28 @@
           <ch-grid-cell> Code 2 </ch-grid-cell>
           <ch-grid-cell> 200 </ch-grid-cell>
           <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+      </ch-grid>
+    </gxg-grid>
+
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            column-name="Icon"
+            size="min-content"
+          ></ch-grid-column>
+          <ch-grid-column column-name="Name"></ch-grid-column>
+          <ch-grid-column column-name="Module"></ch-grid-column>
+          <ch-grid-column column-name="Type"></ch-grid-column>
+          <ch-grid-column column-name="Description"></ch-grid-column>
+        </ch-grid-columnset>
+        <ch-grid-row>
+          <ch-grid-cell> icon</ch-grid-cell>
+          <ch-grid-cell> Name </ch-grid-cell>
+          <ch-grid-cell> Module </ch-grid-cell>
+          <ch-grid-cell> Type</ch-grid-cell>
+          <ch-grid-cell> Placeholder </ch-grid-cell>
         </ch-grid-row>
       </ch-grid>
     </gxg-grid>
