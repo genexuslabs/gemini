@@ -14,6 +14,7 @@
 
 | Event              | Description                                                                                                                                                                                               | Type               |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `itemDidLoad`      |                                                                                                                                                                                                           | `CustomEvent<any>` |
 | `itemSelected`     | This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.                                                                                 | `CustomEvent<any>` |
 | `keyDownComboItem` | This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input. | `CustomEvent<any>` |
 

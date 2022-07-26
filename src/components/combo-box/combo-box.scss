@@ -54,8 +54,8 @@
       overflow-y: auto;
       overscroll-behavior: contain;
       background-color: var(--color-background);
-      position: absolute;
-      width: 100%;
+      position: fixed;
+      width: inherit;
       box-sizing: border-box;
       z-index: 99;
 

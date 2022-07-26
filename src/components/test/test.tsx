@@ -1,4 +1,14 @@
-import { Component, h, Host, Prop, Method, Watch } from "@stencil/core";
+import {
+  Component,
+  h,
+  Host,
+  Prop,
+  Method,
+  Watch,
+  State,
+  Element,
+} from "@stencil/core";
+import { GxgComboBox } from "../combo-box/combo-box";
 import state from "../store";
 
 @Component({
@@ -9,49 +19,30 @@ import state from "../store";
 export class GxgTest {
   @Prop() name = "Andres";
   @Prop() show = false;
-  textInput!: HTMLInputElement;
+  @State() comboListArray = [];
 
-  @Watch("show")
-  onShowChanged(newValue: boolean) {
-    if (newValue) {
-      this.addMouseEventListener();
-    } else {
-      this.removeMouseEventListener();
-    }
+  comboBox!: GxgComboBox;
+
+  componentDidLoad() {
+    setTimeout(() => {
+      this.comboListArray = [
+        {
+          icon: "objects/data-provider",
+          value: "data-management",
+          description: "Data Management",
+        },
+        {
+          icon: "objects/business-process-diagram",
+          value: 12,
+          description: "BPM",
+        },
+        { icon: "objects/dso", value: "dso", description: "DSO" },
+      ];
+    }, 1000);
   }
 
-  @Method()
-  async setFocus() {
-    console.log("focus");
-  }
-
-  @Method()
-  async open() {
-    this.show = true;
-  }
-
-  @Method()
-  async close() {
-    this.show = false;
-  }
-
-  showInput() {
-    this.show = true;
-  }
-
-  addMouseEventListener() {
-    document.addEventListener("mouseup", this.onMouseUp);
-  }
-
-  onMouseUp(event) {
-    if (!event.composedPath().includes(this.textInput)) {
-      this.show = false;
-    } else {
-    }
-  }
-
-  removeMouseEventListener() {
-    console.log("remove event listener");
+  getValue() {
+    console.log(this.comboBox.value);
   }
 
   render() {
@@ -66,48 +57,18 @@ export class GxgTest {
           disable-filter
           placeholder="Select item"
           value="bpm"
+          strict
+          ref={(el) => (this.comboBox = (el as unknown) as GxgComboBox)}
         >
-          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-          <gxg-combo-box-item
-            value="bpm"
-            icon="objects/business-process-diagram"
-          >
-            BPM
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value={true} icon="objects/data-provider">
-            Data Management
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value="resources" icon="objects/bg-color">
-            Resources
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value="user-interface" icon="objects/webpanel">
-            User interface
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value="dashboard" icon="objects/dashboard">
-            Dashboard
-          </gxg-combo-box-item>
-          <gxg-combo-box-item
-            value="deployment-unit"
-            icon="objects/deployment-unit"
-          >
-            Deployment Unit
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value="dso" icon="objects/dso">
-            DSO
-          </gxg-combo-box-item>
-          <gxg-combo-box-item
-            value="structured-data-type"
-            icon="objects/structured-data-type"
-          >
-            Structured Data Type
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value="url-rewrite" icon="objects/url-rewrite">
-            URL Rewrite
-          </gxg-combo-box-item>
-          <gxg-combo-box-item value="stencil" icon="objects/stencil">
-            Stencil
-          </gxg-combo-box-item>
+          {this.comboListArray.map((i) => (
+            <gxg-combo-box-item icon={i.icon} value={i.value}>
+              {i.description}
+            </gxg-combo-box-item>
+          ))}
         </gxg-combo-box>
+        <gxg-button type="primary-text-only" onClick={this.getValue.bind(this)}>
+          Get value
+        </gxg-button>
       </Host>
     );
   }

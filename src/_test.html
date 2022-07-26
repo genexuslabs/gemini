@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -13,19 +13,6 @@
     <link href="/build/gemini.css" rel="stylesheet" />
   </head>
   <body>
-    <gxg-button type="primary-text-only">Label</gxg-button>
     <gxg-test></gxg-test>
-    <gxg-button type="primary-text-only" id="btn-set-focus"
-      >Set focus</gxg-button
-    >
-
-    <script>
-      //Set focus programatically
-      let btnSetFocus = document.getElementById("btn-set-focus");
-      let formText = document.getElementById("gxg-form-text");
-      btnSetFocus.addEventListener("click", function () {
-        formText.setFocus();
-      });
-    </script>
   </body>
 </html>

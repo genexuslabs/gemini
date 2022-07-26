@@ -24,6 +24,11 @@ export class GxgComboBoxItem {
   @Event() itemSelected: EventEmitter;
 
   /**
+   *
+   */
+  @Event() itemDidLoad: EventEmitter;
+
+  /**
    * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component
    * and then focus is set on "search" input.
    */
@@ -37,7 +42,7 @@ export class GxgComboBoxItem {
   /**
    * The item value. If value is not provided, an automatic value will be generated with the innerText.
    */
-  @Prop({ reflect: true }) value: any = undefined;
+  @Prop({ reflect: true }) value = undefined;
 
   /**
    * (This prop is for internal use).
@@ -50,6 +55,12 @@ export class GxgComboBoxItem {
       this.value = this.el.innerHTML;
     }
     this.setIndex();
+  }
+
+  componentDidLoad() {
+    this.itemDidLoad.emit({
+      value: this.value,
+    });
   }
 
   setIndex() {
@@ -69,8 +80,6 @@ export class GxgComboBoxItem {
       description: description,
       icon: icon,
     });
-
-    console.log("value", value);
   }
 
   onKeyDown(e) {

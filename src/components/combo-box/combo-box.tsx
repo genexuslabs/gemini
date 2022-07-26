@@ -74,10 +74,13 @@ export class GxgComboBox {
   @State() slottedContent: HTMLElement = null;
   @State() userTyped = false;
   @State() selectionProgramatic = true;
+  @State() lastSetValueByUser;
 
   private detectClickOutsideCombo = this.detectClickOutsideComboFunc.bind(this);
+  private detectMouseScroll = this.detectMouseScrollFunc.bind(this);
 
   componentWillLoad() {
+    this.lastSetValueByUser = this.value;
     if (this.value !== undefined) {
       this.tryToSetItem(this.value);
     }
@@ -122,7 +125,14 @@ export class GxgComboBox {
   itemSelectedHandler(event) {
     this.selectionProgramatic = false;
     this.value = event.detail.value;
-    console.log(this.value);
+    this.clearIconsColor();
+  }
+
+  @Listen("itemDidLoad")
+  itemDidLoadHandler(event) {
+    if (this.lastSetValueByUser === event.detail.value && this.strict) {
+      this.tryToSetItem(event.detail.value);
+    }
   }
 
   @Listen("keyDownComboItem")
@@ -179,6 +189,9 @@ export class GxgComboBox {
 
   @Watch("value")
   onValueChanged(newValue: string) {
+    if (newValue) {
+      this.lastSetValueByUser = newValue;
+    }
     this.tryToSetItem(newValue);
   }
 
@@ -186,9 +199,11 @@ export class GxgComboBox {
   onShowItemsChanged(newValue: boolean) {
     if (newValue) {
       document.addEventListener("click", this.detectClickOutsideCombo, true);
+      document.addEventListener("scroll", this.detectMouseScroll, true);
       this.isOpen = true;
     } else {
       document.removeEventListener("click", this.detectClickOutsideCombo, true);
+      document.removeEventListener("scroll", this.detectMouseScroll, true);
       this.isOpen = false;
     }
   }
@@ -297,6 +312,15 @@ export class GxgComboBox {
     }
   }
 
+  clearIconsColor() {
+    const comboBoxItems = this.el.querySelectorAll("gxg-combo-box-item");
+    comboBoxItems.forEach((item) => {
+      if (!item.classList.contains("selected")) {
+        item.iconColor = "auto";
+      }
+    });
+  }
+
   clearSelectedItem(): void {
     const selectedItem = this.el.querySelector(".selected");
     if (selectedItem !== null) {
@@ -362,8 +386,13 @@ export class GxgComboBox {
     }
   }
 
+  detectMouseScrollFunc() {
+    this.showItems = false;
+  }
+
   componentDidUnload() {
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
+    document.removeEventListener("scroll", this.detectMouseScroll, true);
   }
 
   clearCombo() {

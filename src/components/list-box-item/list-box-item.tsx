@@ -64,8 +64,8 @@ export class GxgListboxItem {
   }
 
   onKeyDown(e) {
-    e.preventDefault();
     if (e.code === "ArrowDown" || e.code === "ArrowUp" || e.code === "Enter") {
+      e.preventDefault();
       const index = this.el.getAttribute("index");
       this.KeyPressed.emit({
         index: parseInt(index, 10),

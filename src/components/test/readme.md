@@ -9,32 +9,13 @@
 | `name`   | `name`    |             | `string`  | `"Andres"` |
 | `show`   | `show`    |             | `boolean` | `false`    |
 
-## Methods
-
-### `close() => Promise<void>`
-
-#### Returns
-
-Type: `Promise<void>`
-
-### `open() => Promise<void>`
-
-#### Returns
-
-Type: `Promise<void>`
-
-### `setFocus() => Promise<void>`
-
-#### Returns
-
-Type: `Promise<void>`
-
 ## Dependencies
 
 ### Depends on
 
 - [gxg-combo-box](../combo-box)
 - [gxg-combo-box-item](../combo-box-item)
+- [gxg-button](../button)
 
 ### Graph
 
@@ -42,6 +23,7 @@ Type: `Promise<void>`
 graph TD;
   gxg-test --> gxg-combo-box
   gxg-test --> gxg-combo-box-item
+  gxg-test --> gxg-button
   gxg-combo-box --> gxg-form-text
   gxg-combo-box --> gxg-button
   gxg-form-text --> gxg-icon
