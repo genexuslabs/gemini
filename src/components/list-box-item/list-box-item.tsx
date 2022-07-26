@@ -101,16 +101,18 @@ export class GxgListboxItem {
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
       >
-        <slot name="checkbox"></slot>
-        {this.icon !== undefined ? (
-          <gxg-icon
-            class="icon"
-            color={this.iconColor}
-            size="regular"
-            type={this.icon}
-          ></gxg-icon>
-        ) : null}
-        <slot></slot>
+        <div class="container">
+          <slot name="checkbox"></slot>
+          {this.icon !== undefined ? (
+            <gxg-icon
+              class="icon"
+              color={this.iconColor}
+              size="regular"
+              type={this.icon}
+            ></gxg-icon>
+          ) : null}
+          <slot></slot>
+        </div>
       </Host>
     );
   }

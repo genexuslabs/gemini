@@ -141,15 +141,17 @@ export class GxgComboBoxItem {
           "no-icon": !this.icon,
         }}
       >
-        {this.icon !== undefined ? (
-          <gxg-icon
-            color={this.iconColor}
-            size={this.iconSize()}
-            type={this.icon}
-          ></gxg-icon>
-        ) : null}
-        <div class="description">
-          <slot></slot>
+        <div class="container">
+          {this.icon !== undefined ? (
+            <gxg-icon
+              color={this.iconColor}
+              size={this.iconSize()}
+              type={this.icon}
+            ></gxg-icon>
+          ) : null}
+          <div class="description">
+            <slot></slot>
+          </div>
         </div>
       </Host>
     );

@@ -1,13 +1,4 @@
-import {
-  Component,
-  h,
-  Host,
-  Prop,
-  Method,
-  Watch,
-  State,
-  Element,
-} from "@stencil/core";
+import { Component, h, Host, Prop, State } from "@stencil/core";
 import { GxgComboBox } from "../combo-box/combo-box";
 import state from "../store";
 

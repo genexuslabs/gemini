@@ -39,7 +39,6 @@ export class GxgPill {
     if (this.icon !== undefined) {
       return this.icon;
     } else {
-      console.log("empty icon");
       return "gemini-tools/empty";
     }
   }

@@ -9,17 +9,25 @@
   font-size: var(--font-size-sm);
   background-color: var(--color-background);
   color: var(--color-on-background);
-  padding: var(--spacing-comp-00) var(--spacing-comp-01);
   transition: height 0.25s, opacity 0.25s;
   opacity: 1;
   overflow: hidden;
+
+  .container {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-comp-00) var(--spacing-comp-01);
+    width: 100%;
+  }
 
   gxg-icon {
     flex-shrink: 0;
   }
 }
 :host(.no-icon) {
-  padding-left: var(--spacing-comp-02);
+  .container {
+    padding-left: var(--spacing-comp-02);
+  }
 }
 :host(.hidden) {
   display: none;
@@ -41,7 +49,13 @@
   color: var(--color-success-dark);
 }
 :host(:focus) {
-  //this styles are on src/globals/components/combo-box.scss
+  outline: none;
+  .container {
+    outline-width: var(--border-width-md);
+    outline-color: var(--color-primary-active);
+    outline-style: solid;
+    outline-offset: -2px;
+  }
 }
 
 /*********************************************
@@ -51,8 +65,10 @@ LARGE VERSION (html tag has 'gxg-large' class)
 :host(.large) {
   font-size: var(--font-size-lg);
   min-height: auto;
-  padding-top: var(--spacing-comp-01);
-  padding-bottom: var(--spacing-comp-01);
+  .container {
+    padding-top: var(--spacing-comp-01);
+    padding-bottom: var(--spacing-comp-01);
+  }
   gxg-icon {
     margin-right: var(--spacing-comp-01);
   }

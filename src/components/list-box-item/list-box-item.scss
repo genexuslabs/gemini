@@ -3,7 +3,6 @@
   font-family: var(--font-family-primary);
   font-size: inherit;
   //min-height: var(--spacing-comp-05);
-  padding: var(--spacing-comp-00) var(--spacing-comp-02);
   color: var(--color-on-background);
   cursor: pointer;
   display: flex;
@@ -14,6 +13,14 @@
   -ms-user-select: none;
   user-select: none;
   -o-user-select: none;
+  outline: none;
+
+  .container {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-comp-00) var(--spacing-comp-02);
+    width: 100%;
+  }
 
   .icon {
     margin-inline-end: var(--spacing-comp-01);
@@ -30,17 +37,21 @@
   color: var(--color-always-white);
 }
 :host(.has-icon.no-checkbox) {
-  padding-inline-start: var(--spacing-comp-01);
+  .container {
+    padding-inline-start: var(--spacing-comp-01);
+  }
 }
 :host(.selected) {
   background-color: var(--color-secondary-active);
   color: var(--color-always-white);
 }
 :host(:focus) {
-  outline-width: var(--border-width-md);
-  outline-color: var(--color-primary-active);
-  outline-style: solid;
-  outline-offset: -2px;
+  .container {
+    outline-width: var(--border-width-md);
+    outline-color: var(--color-primary-active);
+    outline-style: solid;
+    outline-offset: -2px;
+  }
 }
 
 /*********************************************
@@ -48,5 +59,7 @@ LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
 
 :host(.large) {
-  padding: var(--spacing-comp-01);
+  .container {
+    padding: var(--spacing-comp-01);
+  }
 }
