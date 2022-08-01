@@ -39,6 +39,11 @@ export class GxgAccordion {
    */
   @Prop() noPadding = false;
 
+  /**
+   * The presence of this attribue adds a border to each accordion item.
+   */
+  @Prop() hasBorder = false;
+
   @State() accordions: HTMLGxgAccordionItemElement[];
 
   @Element() el: HTMLElement;
@@ -140,6 +145,12 @@ export class GxgAccordion {
         (accordion as HTMLGxgAccordionItemElement).setAttribute(
           "disabled",
           "disabled"
+        );
+      }
+      if (this.hasBorder && this.mode === "classical") {
+        (accordion as HTMLGxgAccordionItemElement).setAttribute(
+          "has-border",
+          ""
         );
       }
     });

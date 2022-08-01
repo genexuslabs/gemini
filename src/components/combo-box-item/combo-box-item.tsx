@@ -42,7 +42,7 @@ export class GxgComboBoxItem {
   /**
    * The item value. If value is not provided, an automatic value will be generated with the innerText.
    */
-  @Prop({ reflect: true }) value = undefined;
+  @Prop() value = undefined;
 
   /**
    * (This prop is for internal use).

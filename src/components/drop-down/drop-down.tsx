@@ -93,17 +93,25 @@ export class GxgDropDown {
     const dropDownContentContainer = this.el.shadowRoot.querySelector(
       ".select-container"
     ) as HTMLElement;
+    const contentContainer = this.el.shadowRoot.querySelector(
+      ".content-container"
+    ) as HTMLElement;
 
     const x = event.x;
     const y = event.y;
 
     //Contextual menu coordinates
     const dropDownContentContainerArea = dropDownContentContainer.getBoundingClientRect();
+    const contentContainerArea = contentContainer.getBoundingClientRect();
     if (
-      x > dropDownContentContainerArea.left &&
-      x < dropDownContentContainerArea.right &&
-      y > dropDownContentContainerArea.top &&
-      y < dropDownContentContainerArea.bottom
+      (x > dropDownContentContainerArea.left &&
+        x < dropDownContentContainerArea.right &&
+        y > dropDownContentContainerArea.top &&
+        y < dropDownContentContainerArea.bottom) ||
+      (x > contentContainerArea.left &&
+        x < contentContainerArea.right &&
+        y > contentContainerArea.top &&
+        y < contentContainerArea.bottom)
     ) {
       //Click happened inside the dropdown
     } else {
@@ -161,6 +169,11 @@ export class GxgDropDown {
           above: this.above,
         }}
       >
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam minus
+          non nam esse iusto totam, magnam atque consequatur, laudantium sed
+          nisi aliquam? Fugit sapiente nemo fuga! Necessitatibus vel quod atque!
+        </p>
         <div
           class={{ "main-container": true }}
           style={{

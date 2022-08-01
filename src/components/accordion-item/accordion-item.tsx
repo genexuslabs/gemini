@@ -60,6 +60,11 @@ export class GxgAccordionItem {
   @Prop({ reflect: true }) status: status = "closed";
 
   /**
+   * The presence of this attribue adds a border to the accordion item.
+   */
+  @Prop() hasBorder = false;
+
+  /**
    * This event is for internal use
    */
   @Event() accordionItemClicked: EventEmitter;

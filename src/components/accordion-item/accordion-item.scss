@@ -148,6 +148,15 @@
     }
   }
 }
+//With border
+:host([mode="classical"][has-border]) {
+  .item {
+    &__container {
+      border: var(--border-width-sm) solid var(--gray-02);
+      border-top: 0;
+    }
+  }
+}
 
 //Classical
 :host([mode="classical"]) {
