@@ -40,7 +40,7 @@ STORIES
 
 import controls from "./catalog-controls.json";
 import editingStructures from "./catalog-editing-structures.json";
-import tools from "./catalog-gemini-tools.json";
+import geminiTools from "./catalog-gemini-tools.json";
 import general from "./catalog-general.json";
 import gxTest from "./catalog-gx-test.json";
 import gxServerIntegration from "./catalog-gxserver-integration.json";
@@ -125,7 +125,7 @@ stories
       },
     }
   )
-  .add("Tools", () => returnTableOfIcons("regular", tools), {
+  .add("Gemini Tools", () => returnTableOfIcons("regular", geminiTools), {
     notes: {
       markdown: readme,
     },

@@ -1,0 +1,4 @@
+- para darle estilos al footer es con part="footer"
+- para darle estilos al first, prev, next y last, les asigno una clase y les doy estilos.
+- El action bar puede tener slot="footer" o slot="header"
+- ch-grid-action-settings no esta pronto aun.

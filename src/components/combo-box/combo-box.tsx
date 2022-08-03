@@ -464,7 +464,8 @@ export class GxgComboBox {
               <slot></slot>
               {this.noMatch && this.strict ? (
                 <div class="no-ocurrences-found">
-                  No occurrences found<span>ctrl/cmd + backspace to erase</span>
+                  No occurrences found
+                  <span>ctrl/cmd + backspace to erase</span>
                 </div>
               ) : null}
             </div>

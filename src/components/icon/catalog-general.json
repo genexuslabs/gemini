@@ -15,6 +15,7 @@
   { "name": "general/informix", "description": "Some description" },
   { "name": "general/java", "description": "Some description" },
   { "name": "general/knowledge-base", "description": "Some description" },
+  { "name": "general/launchpad", "description": "Some description" },
   { "name": "general/mysql", "description": "Some description" },
   { "name": "general/patterns", "description": "Some description" },
   { "name": "general/postgre-sql", "description": "Some description" },
