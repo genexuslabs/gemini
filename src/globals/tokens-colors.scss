@@ -55,10 +55,12 @@
 :root {
   --color-primary: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
+  --color-hover: #f4f7f9;
 }
 :root.dark {
   --color-primary-rgb: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
+  --color-hover: #25262c;
 }
 //BACKGROUND COLORS
 :root {
