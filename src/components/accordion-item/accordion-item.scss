@@ -5,7 +5,7 @@
   position: relative;
   outline: none;
   display: block;
-  margin-bottom: var(--spacing-lay-xs);
+  margin-bottom: var(--spacing-lay-s);
   font-family: "Times New Roman", Times, serif;
   &:last-child {
     margin-bottom: 0;
@@ -123,9 +123,9 @@
     }
     &__container {
       padding-top: var(--spacing-comp-02);
-      padding-inline-end: var(--spacing-comp-03);
+      padding-inline-end: var(--spacing-comp-02);
       padding-bottom: var(--spacing-comp-02);
-      padding-inline-start: var(--spacing-comp-03);
+      padding-inline-start: var(--spacing-comp-02);
     }
   }
 }
@@ -232,7 +232,6 @@
     }
     &__container {
       background: transparent;
-      padding-top: var(--spacing-comp-01);
     }
     &:hover {
       border-color: var(--color-primary-hover);
@@ -365,6 +364,71 @@
     }
     &__container {
       margin-inline-start: 26px;
+    }
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+
+//Classical and Boxed
+:host([mode="classical"].large),
+:host([mode="boxed"].large) {
+  .item {
+    &__header {
+      &__button {
+        &__title-subtitle {
+          &__title {
+            font-size: var(--font-size-lg);
+          }
+          &__subtitle {
+            font-size: var(--font-size-lg);
+          }
+        }
+        &__meta-icon-wrapper {
+          &__meta {
+            font-size: var(--font-size-lg);
+          }
+        }
+      }
+    }
+    &__container {
+      font-size: var(--font-size-lg);
+    }
+  }
+}
+//Slim
+:host([mode="slim"].large) {
+  .item {
+    &__header {
+      &__button {
+        &__title-subtitle {
+          &__title {
+            font-size: var(--font-size-lg);
+          }
+        }
+      }
+    }
+    &__container {
+      font-size: var(--font-size-lg);
+    }
+  }
+}
+//Minimal
+:host([mode="minimal"].large) {
+  .item {
+    &__header {
+      &__button {
+        &__title-subtitle {
+          &__title {
+            font-size: var(--font-size-lg);
+          }
+        }
+      }
+    }
+    &__container {
+      font-size: var(--font-size-lg);
     }
   }
 }

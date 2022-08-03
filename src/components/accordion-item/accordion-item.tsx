@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { mode } from "../accordion/accordion";
+import state from "../store";
 
 @Component({
   tag: "gxg-accordion-item",
@@ -239,6 +240,7 @@ export class GxgAccordionItem {
         class={{
           "nested-acordion": this.nestedAccordion,
           "has-subtitle": this.itemSubtitle !== null,
+          large: state.large,
         }}
       >
         {
