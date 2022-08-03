@@ -41,9 +41,10 @@ ch-grid-row {
   border-bottom: 1px solid $borderColor;
   padding-block-start: var(--spacing-comp-01);
   padding-block-end: var(--spacing-comp-01);
+  background-color: var(--color-background);
 }
 ch-grid-row[highlighted] {
-  background-color: #f4f7f9;
+  background-color: var(--color-hover);
 }
 ch-grid-cell {
   padding-inline-start: var(--spacing-comp-02) !important;
