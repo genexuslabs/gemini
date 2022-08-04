@@ -11,51 +11,102 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-
-    <style></style>
   </head>
   <body>
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-actionbar slot="header">
-          <ch-grid-action-refresh>refresh</ch-grid-action-refresh>
-          <ch-grid-action-settings>settings</ch-grid-action-settings>
-        </ch-grid-actionbar>
-        <ch-grid-columnset>
-          <ch-grid-column
-            size="min-content"
-            column-name="Codigo"
-          ></ch-grid-column>
-          <ch-grid-column column-name="Poblacion"></ch-grid-column>
-          <ch-grid-column column-name="City"></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-paginator slot="footer">
-          <ch-paginator-navigate type="first">first</ch-paginator-navigate>
-          <ch-paginator-navigate type="previous">prev.</ch-paginator-navigate>
-          <ch-paginator-navigate type="next">next</ch-paginator-navigate>
-          <ch-paginator-navigate type="last">last</ch-paginator-navigate>
-        </ch-paginator>
-      </ch-grid>
-    </gxg-grid>
+    <gxg-accordion mode="classical">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        Some content on accordion 1
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        title-icon="navigation/level-down"
+        item-title="tab-02"
+        item-id="tab-02"
+      >
+        some content on accordion 2.
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        item-title="tab-03"
+        item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi"
+        item-id="tab-03"
+      >
+        some content on accordion 3.
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+        some content on accordion 4.
+        <div slot="meta">some meta</div>
+      </gxg-accordion-item>
+    </gxg-accordion>
+    <br />
+    <gxg-accordion mode="boxed">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        Some content on accordion 1
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        title-icon="navigation/level-down"
+        item-title="tab-02"
+        item-id="tab-02"
+      >
+        some content on accordion 2.
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        item-title="tab-03"
+        item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi"
+        item-id="tab-03"
+      >
+        some content on accordion 3.
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+        some content on accordion 4.
+        <div slot="meta">some meta</div>
+      </gxg-accordion-item>
+    </gxg-accordion>
+    <br />
+    <gxg-accordion mode="slim">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        Some content on accordion 1
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        title-icon="navigation/level-down"
+        item-title="tab-02"
+        item-id="tab-02"
+      >
+        some content on accordion 2.
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        item-title="tab-03"
+        item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi"
+        item-id="tab-03"
+      >
+        some content on accordion 3.
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+        some content on accordion 4.
+        <div slot="meta">some meta</div>
+      </gxg-accordion-item>
+    </gxg-accordion>
+    <br />
+    <gxg-accordion mode="minimal">
+      <gxg-accordion-item item-title="tab-01" item-id="tab-01">
+        Some content on accordion 1
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        title-icon="navigation/level-down"
+        item-title="tab-02"
+        item-id="tab-02"
+      >
+        some content on accordion 2.
+      </gxg-accordion-item>
+      <gxg-accordion-item
+        item-title="tab-03"
+        item-subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita eligendi"
+        item-id="tab-03"
+      >
+        some content on accordion 3.
+      </gxg-accordion-item>
+      <gxg-accordion-item item-title="tab-04" item-id="tab-04">
+        some content on accordion 4.
+        <div slot="meta">some meta</div>
+      </gxg-accordion-item>
+    </gxg-accordion>
   </body>
 </html>
