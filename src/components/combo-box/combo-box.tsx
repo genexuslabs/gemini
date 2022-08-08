@@ -424,7 +424,7 @@ export class GxgComboBox {
 
   resizeObserver() {
     const myObserver = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
+      entries.forEach(() => {
         this.setMainContainerWidth();
       });
     });
