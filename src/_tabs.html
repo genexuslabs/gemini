@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -18,10 +18,15 @@
         height: 100%;
         margin: 0;
       }
+      .div-apples {
+        width: 2000px;
+        height: 600px;
+        background-color: burlywood;
+      }
     </style>
   </head>
   <body>
-    <gxg-tabs height="400px" position="top" id="gxgTabs">
+    <gxg-tabs height="100%" position="bottom" id="gxgTabs">
       <gxg-tab-bar slot="tab-bar">
         <gxg-tab-button
           slot="tab-bar"
@@ -69,10 +74,12 @@
         ></gxg-tab-button>
       </gxg-tab-bar>
       <gxg-tab tab="apples">
-        An apple is a sweet, edible fruit produced by an apple tree. Apple trees
-        are cultivated worldwide and are the most widely grown species in the
-        genus Malus. The tree originated in Central Asia, where its wild
-        ancestor, Malus sieversii, is still found today.
+        <div class="div-apples">
+          An apple is a sweet, edible fruit produced by an apple tree. Apple
+          trees are cultivated worldwide and are the most widely grown species
+          in the genus Malus. The tree originated in Central Asia, where its
+          wild ancestor, Malus sieversii, is still found today.
+        </div>
       </gxg-tab>
       <gxg-tab tab="bananas">
         A banana is an elongated, edible fruit – botanically a berry – produced

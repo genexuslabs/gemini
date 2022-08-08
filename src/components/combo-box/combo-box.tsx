@@ -22,6 +22,8 @@ export class GxgComboBox {
   gxgFormText!: GxgFormText;
 
   @Element() el: HTMLElement;
+  mainContainer!: HTMLDivElement;
+  itemsContainer!: HTMLDivElement;
 
   /**
    * The combo width
@@ -84,6 +86,12 @@ export class GxgComboBox {
     if (this.value !== undefined) {
       this.tryToSetItem(this.value);
     }
+  }
+  componentDidLoad() {
+    this.setMainContainerWidth();
+
+    //Listen to combo resize, in order to reset main container width
+    this.resizeObserver();
   }
 
   @Method()
@@ -201,6 +209,9 @@ export class GxgComboBox {
       document.addEventListener("click", this.detectClickOutsideCombo, true);
       document.addEventListener("scroll", this.detectMouseScroll, true);
       this.isOpen = true;
+
+      //Reposition .items-container, since it has fixed position
+      this.repositionItemsContainer();
     } else {
       document.removeEventListener("click", this.detectClickOutsideCombo, true);
       document.removeEventListener("scroll", this.detectMouseScroll, true);
@@ -406,6 +417,31 @@ export class GxgComboBox {
     this.focus();
   }
 
+  setMainContainerWidth() {
+    const gxgComboWidth = this.el.clientWidth;
+    this.mainContainer.style.width = gxgComboWidth + "px";
+  }
+
+  resizeObserver() {
+    const myObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        this.setMainContainerWidth();
+      });
+    });
+
+    const gxgCombo = this.el;
+    myObserver.observe(gxgCombo);
+  }
+
+  repositionItemsContainer() {
+    const gxgComboCoordinates = this.el.getBoundingClientRect();
+    const gxgComboY = gxgComboCoordinates.y;
+    const gxgComboHeight = gxgComboCoordinates.height;
+    setTimeout(() => {
+      this.itemsContainer.style.top = gxgComboY + gxgComboHeight + "px";
+    }, 10);
+  }
+
   render() {
     return (
       <Host
@@ -413,14 +449,15 @@ export class GxgComboBox {
           "filter-disabled": this.disableFilter,
           large: state.large,
         }}
+        style={{
+          width: this.width,
+          minWidth: this.minWidth,
+          maxWidth: this.maxWidth,
+        }}
       >
         <div
           class={{ "main-container": true }}
-          style={{
-            width: this.width,
-            minWidth: this.minWidth,
-            maxWidth: this.maxWidth,
-          }}
+          ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
           <div class={{ "search-container": true }}>
             <gxg-form-text
@@ -460,6 +497,7 @@ export class GxgComboBox {
               class={{
                 "items-container": true,
               }}
+              ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
             >
               <slot></slot>
               {this.noMatch && this.strict ? (

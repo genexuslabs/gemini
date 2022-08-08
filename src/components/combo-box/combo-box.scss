@@ -7,6 +7,7 @@
   display: block;
 
   .main-container {
+    width: 100%;
     position: relative;
 
     .search-container {
@@ -57,7 +58,7 @@
       position: fixed;
       width: inherit;
       box-sizing: border-box;
-      z-index: 99;
+      z-index: 999;
 
       .no-ocurrences-found {
         font-family: var(--font-family-primary);

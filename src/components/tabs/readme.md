@@ -113,10 +113,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                     | Default  |
-| ---------- | ---------- | ----------- | ---------------------------------------- | -------- |
-| `height`   | `height`   |             | `"100%" \| "auto"`                       | `"auto"` |
-| `position` | `position` |             | `"bottom" \| "left" \| "right" \| "top"` | `"top"`  |
+| Property    | Attribute    | Description                                                        | Type                                     | Default  |
+| ----------- | ------------ | ------------------------------------------------------------------ | ---------------------------------------- | -------- |
+| `height`    | `height`     |                                                                    | `"100%" \| "auto"`                       | `"auto"` |
+| `noPadding` | `no-padding` | The presence of this attribute removes each tab .container padding | `boolean`                                | `false`  |
+| `position`  | `position`   |                                                                    | `"bottom" \| "left" \| "right" \| "top"` | `"top"`  |
 
 ---
 

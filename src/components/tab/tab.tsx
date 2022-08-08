@@ -15,6 +15,11 @@ export class GxgTab {
   @Prop() tab: string;
 
   /**
+   * The presence of this attribute removes the tab .container padding
+   */
+  @Prop() noPadding = false;
+
+  /**
    * The selected tab
    */
   @Prop({ reflect: true }) isSelected = false;
@@ -25,13 +30,12 @@ export class GxgTab {
         class={{
           open: this.isSelected,
           "not-selected": !this.isSelected,
+          "no-padding": this.noPadding,
           large: state.large,
         }}
       >
-        <div class="outer-container">
-          <div class="inner-container">
-            <slot></slot>
-          </div>
+        <div class="container">
+          <slot></slot>
         </div>
       </Host>
     );

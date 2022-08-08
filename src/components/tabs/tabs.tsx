@@ -7,6 +7,7 @@ import {
   State,
   Prop,
 } from "@stencil/core";
+import { GxgTab } from "../tab/tab";
 
 @Component({
   tag: "gxg-tabs",
@@ -14,10 +15,15 @@ import {
   shadow: true,
 })
 export class GxgTabs {
-  @Element() element: HTMLGxgTabsElement;
+  @Element() el: HTMLGxgTabsElement;
 
   @Prop() position: TabsPosition = "top";
   @Prop({ reflect: true }) height: Height = "auto";
+
+  /**
+   * The presence of this attribute removes each tab .container padding
+   */
+  @Prop() noPadding = false;
 
   @State() activeTab = "";
 
@@ -27,14 +33,27 @@ export class GxgTabs {
     this.updateActiveChildren(event.target.tab, "gxg-tab");
   }
 
+  componentWillLoad() {
+    this.configureTabs();
+  }
+
   updateActiveChildren(activeTab: string, tagName: string) {
     const children = Array.from(
-      this.element.querySelectorAll(tagName) as NodeListOf<
+      this.el.querySelectorAll(tagName) as NodeListOf<
         HTMLGxgTabButtonElement | HTMLGxgTabElement
       >
     );
     for (const child of children) {
       child.isSelected = activeTab === child.tab;
+    }
+  }
+
+  configureTabs() {
+    const tabs = this.el.querySelectorAll("gxg-tab");
+    if (this.noPadding) {
+      tabs.forEach((tab) => {
+        ((tab as unknown) as GxgTab).noPadding = true;
+      });
     }
   }
 
