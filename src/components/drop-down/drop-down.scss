@@ -59,11 +59,16 @@
     border-bottom-right-radius: var(--border-radius-sm);
     color: var(--color-on-background);
     overflow-y: auto;
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    width: inherit;
     box-sizing: border-box;
     z-index: 999;
     background-color: var(--color-background);
+    display: none;
+
+    &--show {
+      display: block;
+    }
   }
 
   .arrow-down-button {

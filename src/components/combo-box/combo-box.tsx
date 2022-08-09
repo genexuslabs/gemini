@@ -77,6 +77,7 @@ export class GxgComboBox {
   @State() userTyped = false;
   @State() selectionProgramatic = true;
   @State() lastSetValueByUser;
+  @State() myObserver = null;
 
   private detectClickOutsideCombo = this.detectClickOutsideComboFunc.bind(this);
   private detectMouseScroll = this.detectMouseScrollFunc.bind(this);
@@ -88,10 +89,12 @@ export class GxgComboBox {
     }
   }
   componentDidLoad() {
-    this.setMainContainerWidth();
-
-    //Listen to combo resize, in order to reset main container width
     this.resizeObserver();
+  }
+  disconnectedCallback() {
+    this.myObserver.unobserve(document.body);
+    document.removeEventListener("click", this.detectClickOutsideCombo, true);
+    document.removeEventListener("scroll", this.detectMouseScroll, true);
   }
 
   @Method()
@@ -401,11 +404,6 @@ export class GxgComboBox {
     this.showItems = false;
   }
 
-  componentDidUnload() {
-    document.removeEventListener("click", this.detectClickOutsideCombo, true);
-    document.removeEventListener("scroll", this.detectMouseScroll, true);
-  }
-
   clearCombo() {
     this.lastAllowedValue = undefined;
     this.value = undefined;
@@ -417,29 +415,25 @@ export class GxgComboBox {
     this.focus();
   }
 
-  setMainContainerWidth() {
-    const gxgComboWidth = this.el.clientWidth;
-    this.mainContainer.style.width = gxgComboWidth + "px";
-  }
-
   resizeObserver() {
-    const myObserver = new ResizeObserver((entries) => {
+    this.myObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
-        this.setMainContainerWidth();
+        this.repositionItemsContainer();
       });
     });
 
-    const gxgCombo = this.el;
-    myObserver.observe(gxgCombo);
+    this.myObserver.observe(document.body);
   }
 
   repositionItemsContainer() {
+    //redefine .main-container width
+    const gxgComboWidth = this.el.clientWidth;
+    this.mainContainer.style.width = gxgComboWidth + "px";
+    //redefine .items-container "top" value
     const gxgComboCoordinates = this.el.getBoundingClientRect();
     const gxgComboY = gxgComboCoordinates.y;
     const gxgComboHeight = gxgComboCoordinates.height;
-    setTimeout(() => {
-      this.itemsContainer.style.top = gxgComboY + gxgComboHeight + "px";
-    }, 10);
+    this.itemsContainer.style.top = gxgComboY + gxgComboHeight + "px";
   }
 
   render() {
@@ -492,22 +486,22 @@ export class GxgComboBox {
             ></gxg-button>
             {!this.disableFilter ? <span class="layer"></span> : null}
           </div>
-          {this.showItems ? (
-            <div
-              class={{
-                "items-container": true,
-              }}
-              ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
-            >
-              <slot></slot>
-              {this.noMatch && this.strict ? (
-                <div class="no-ocurrences-found">
-                  No occurrences found
-                  <span>ctrl/cmd + backspace to erase</span>
-                </div>
-              ) : null}
-            </div>
-          ) : null}
+
+          <div
+            class={{
+              "items-container": true,
+              "items-container--show": this.showItems,
+            }}
+            ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
+          >
+            <slot></slot>
+            {this.noMatch && this.strict ? (
+              <div class="no-ocurrences-found">
+                No occurrences found
+                <span>ctrl/cmd + backspace to erase</span>
+              </div>
+            ) : null}
+          </div>
         </div>
       </Host>
     );

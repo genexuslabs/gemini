@@ -18,6 +18,8 @@ import state from "../store";
 })
 export class GxgDropDown {
   @Element() el: HTMLElement;
+  mainContainer!: HTMLDivElement;
+  contentContainer!: HTMLDivElement;
 
   /**
    * The dropdown width
@@ -60,9 +62,11 @@ export class GxgDropDown {
   @Prop() above = false;
 
   @State() initialButtonText = "";
-
   @State()
   detectClickOutsideDropDown = this.detectClickOutsideDropDownFunc.bind(this);
+  @State()
+  detectMouseScroll = this.detectMouseScrollFunc.bind(this);
+  @State() myObserver = null;
 
   /**
    * This events gets fired when the dropdown is opened
@@ -79,6 +83,10 @@ export class GxgDropDown {
     if (slotButton === null) {
       this.initialButtonText = "Select item";
     }
+  }
+
+  componentDidLoad() {
+    this.resizeObserver();
   }
 
   toggleContent() {
@@ -120,12 +128,18 @@ export class GxgDropDown {
     }
   }
 
-  componentDidUnload() {
+  detectMouseScrollFunc() {
+    this.showContent = false;
+  }
+
+  disconnectedCallback() {
     document.removeEventListener(
       "click",
       this.detectClickOutsideDropDown,
       true
     );
+    document.removeEventListener("scroll", this.detectMouseScroll, true);
+    this.myObserver.unobserve(document.body);
   }
 
   @Watch("showContent")
@@ -133,6 +147,9 @@ export class GxgDropDown {
     if (newValue === true) {
       this.opened.emit(true);
       document.addEventListener("click", this.detectClickOutsideDropDown, true);
+      document.addEventListener("scroll", this.detectMouseScroll, true);
+      //Reposition .content-container, since it has fixed position
+      this.repositionContentContainer();
     } else {
       this.closed.emit(true);
       document.removeEventListener(
@@ -140,6 +157,7 @@ export class GxgDropDown {
         this.detectClickOutsideDropDown,
         true
       );
+      document.removeEventListener("scroll", this.detectMouseScroll, true);
     }
   }
 
@@ -161,6 +179,27 @@ export class GxgDropDown {
     }
   }
 
+  resizeObserver() {
+    this.myObserver = new ResizeObserver((entries) => {
+      entries.forEach(() => {
+        this.repositionContentContainer();
+      });
+    });
+
+    this.myObserver.observe(document.body);
+  }
+
+  repositionContentContainer() {
+    //redefine .main-container width
+    const gxgDropDownWidth = this.el.clientWidth;
+    this.mainContainer.style.width = gxgDropDownWidth + "px";
+    //redefine .content-container "top" value
+    const gxgDropDownCoordinates = this.el.getBoundingClientRect();
+    const gxgDropDownY = gxgDropDownCoordinates.y;
+    const gxgDropDownHeight = gxgDropDownCoordinates.height;
+    this.contentContainer.style.top = gxgDropDownY + gxgDropDownHeight + "px";
+  }
+
   render() {
     return (
       <Host
@@ -168,19 +207,15 @@ export class GxgDropDown {
           large: state.large,
           above: this.above,
         }}
+        style={{
+          width: this.width,
+          minWidth: this.minWidth,
+          maxWidth: this.maxWidth,
+        }}
       >
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam minus
-          non nam esse iusto totam, magnam atque consequatur, laudantium sed
-          nisi aliquam? Fugit sapiente nemo fuga! Necessitatibus vel quod atque!
-        </p>
         <div
           class={{ "main-container": true }}
-          style={{
-            width: this.width,
-            minWidth: this.minWidth,
-            maxWidth: this.maxWidth,
-          }}
+          ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
           {this.label !== "" ? (
             <label class={{ label: true }}>{this.label}</label>
@@ -212,18 +247,19 @@ export class GxgDropDown {
               tabindex="-1"
             ></gxg-button>
           </div>
-          {this.showContent ? (
-            <div
-              class={{
-                "content-container": true,
-              }}
-              style={{
-                maxHeight: this.maxHeight,
-              }}
-            >
-              <slot></slot>
-            </div>
-          ) : null}
+
+          <div
+            class={{
+              "content-container": true,
+              "content-container--show": this.showContent,
+            }}
+            style={{
+              maxHeight: this.maxHeight,
+            }}
+            ref={(el) => (this.contentContainer = el as HTMLDivElement)}
+          >
+            <slot></slot>
+          </div>
         </div>
       </Host>
     );

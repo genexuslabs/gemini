@@ -59,6 +59,11 @@
       width: inherit;
       box-sizing: border-box;
       z-index: 999;
+      display: none;
+
+      &--show {
+        display: block;
+      }
 
       .no-ocurrences-found {
         font-family: var(--font-family-primary);
