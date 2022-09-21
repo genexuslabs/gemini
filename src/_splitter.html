@@ -14,59 +14,86 @@
 
     <style>
       .container {
-        width: 628px;
+        width: 300px;
         height: 400px;
-        background-color: white;                                            
+        background-color: white;
       }
     </style>
   </head>
   <body>
     <div class="container" id="container">
-      <gxg-splitter id="splitter1" direction="horizontal" sizes="15,85" min-size="100,100">
-         <gxg-split  style="background-color:var(--color-error-light)"></gxg-split>
-         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+      <gxg-splitter
+        id="splitter1"
+        direction="horizontal"
+        sizes="15,85"
+        min-size="100,100"
+      >
+        <gxg-split
+          style="background-color: var(--color-error-light)"
+        ></gxg-split>
+        <gxg-split
+          style="background-color: var(--color-success-light)"
+        ></gxg-split>
       </gxg-splitter>
     </div>
-    <br>
-    <div class="container" id="container" >
-      <gxg-splitter id="splitter2" direction="vertical" sizes="25,75" min-size="100,100" force-collapse-zero>
-         <gxg-split style="background-color:var(--color-error-light)"></gxg-split>
-         <gxg-split style="background-color:var(--color-success-light)"></gxg-split>
+    <br />
+
+    <div class="container" id="container">
+      <gxg-splitter
+        id="splitter2"
+        direction="vertical"
+        sizes="25,75"
+        min-size="100,100"
+        force-collapse-zero
+      >
+        <gxg-split
+          style="background-color: var(--color-error-light)"
+        ></gxg-split>
+        <gxg-split
+          style="background-color: var(--color-success-light)"
+        ></gxg-split>
       </gxg-splitter>
+    </div>
+
+    <div class="container" id="container">
+      <gxg-splitter-2></gxg-splitter-2>
     </div>
 
     <button id="colapse-left-spit-button">collapse left split</button>
     <button id="colapse-right-spit-button">collapse right split</button>
 
     <script>
-       let container = document.getElementById("container");
-       container.addEventListener("dragging", function(){
-          console.log("dragging event ocurred")
-       });
-       container.addEventListener("dragEnded", function(){
-          console.log("dragEnded event occured")
-       });
+      let container = document.getElementById("container");
+      container.addEventListener("dragging", function () {
+        console.log("dragging event ocurred");
+      });
+      container.addEventListener("dragEnded", function () {
+        console.log("dragEnded event occured");
+      });
 
-       //Colapse left split method
-       let colapseLeftSplitButton = document.getElementById("colapse-left-spit-button");
-       colapseLeftSplitButton.addEventListener("click", function(){
-          (async () => {
-            await customElements.whenDefined('gxg-splitter');
-            const gxgSplitter = document.getElementById('splitter2');
-            gxgSplitter.collapse(0, false);
-          })();
-       })
+      //Colapse left split method
+      let colapseLeftSplitButton = document.getElementById(
+        "colapse-left-spit-button"
+      );
+      colapseLeftSplitButton.addEventListener("click", function () {
+        (async () => {
+          await customElements.whenDefined("gxg-splitter");
+          const gxgSplitter = document.getElementById("splitter2");
+          gxgSplitter.collapse(0, false);
+        })();
+      });
 
-       //Colapse right split method
-       let colapseRightSplitButton = document.getElementById("colapse-right-spit-button");
-       colapseRightSplitButton.addEventListener("click", function(){
-          (async () => {
-            await customElements.whenDefined('gxg-splitter');
-            const gxgSplitter = document.getElementById('splitter2');
-            gxgSplitter.collapse(1, false);
-          })();
-       })
-       
+      //Colapse right split method
+      let colapseRightSplitButton = document.getElementById(
+        "colapse-right-spit-button"
+      );
+      colapseRightSplitButton.addEventListener("click", function () {
+        (async () => {
+          await customElements.whenDefined("gxg-splitter");
+          const gxgSplitter = document.getElementById("splitter2");
+          gxgSplitter.collapse(1, false);
+        })();
+      });
     </script>
   </body>
 </html>

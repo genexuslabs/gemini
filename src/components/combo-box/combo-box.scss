@@ -50,7 +50,7 @@
       border-radius: var(--border-radius-md);
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      border-top: 0;
+      border-top-width: 0;
       max-height: 144px;
       overflow-y: auto;
       overscroll-behavior: contain;
@@ -89,6 +89,13 @@
   gxg-form-text::part(input) {
     cursor: pointer;
     background-color: var(--color-background);
+  }
+}
+
+:host(.position-top) {
+  .items-container {
+    transform: translateY(calc(-100% - 24px));
+    border-top-width: 1px;
   }
 }
 

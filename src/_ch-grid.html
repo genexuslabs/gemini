@@ -22,13 +22,58 @@
           <ch-grid-action-settings>settings</ch-grid-action-settings>
         </ch-grid-actionbar>
         <ch-grid-columnset>
+          <ch-grid-column column-name="Codigo" column-name-position="text">
+            <div slot="settings">settings</div>
+          </ch-grid-column>
           <ch-grid-column
-            size="min-content"
-            column-name="Codigo"
+            column-name="Poblacion"
+            column-name-position="text"
           ></ch-grid-column>
-          <ch-grid-column column-name="Poblacion"></ch-grid-column>
-          <ch-grid-column column-name="City"></ch-grid-column>
+          <ch-grid-column
+            column-name="City"
+            column-name-position="text"
+          ></ch-grid-column>
         </ch-grid-columnset>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
         <ch-grid-row>
           <ch-grid-cell> Code 1 </ch-grid-cell>
           <ch-grid-cell> 100 </ch-grid-cell>
@@ -54,6 +99,10 @@
           <ch-paginator-navigate type="previous">prev.</ch-paginator-navigate>
           <ch-paginator-navigate type="next">next</ch-paginator-navigate>
           <ch-paginator-navigate type="last">last</ch-paginator-navigate>
+          <ch-paginator-pages
+            active-page="30"
+            total-pages="117"
+          ></ch-paginator-pages>
         </ch-paginator>
       </ch-grid>
     </gxg-grid>

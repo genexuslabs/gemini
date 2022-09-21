@@ -31,6 +31,11 @@ export class GxgBox {
   @Prop() minHeight = "auto";
 
   /**
+   * The component  height
+   */
+  @Prop() height = "auto";
+
+  /**
    * The component max. width
    */
   @Prop() maxWidth = "100%";
@@ -47,7 +52,11 @@ export class GxgBox {
           card: true,
           border: this.border,
         }}
-        style={{ maxWidth: this.maxWidth, minHeight: this.minHeight }}
+        style={{
+          maxWidth: this.maxWidth,
+          minHeight: this.minHeight,
+          height: this.height,
+        }}
       >
         <slot></slot>
       </Host>

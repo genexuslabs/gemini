@@ -3,3 +3,9 @@
 - El action bar puede tener slot="footer" o slot="header"
 - ch-grid-action-settings no esta pronto aun. (hay dos, a nivel del ch-grid (pronto) o a nivel del ch-grid-column (falta)) que son basicamente iguales.
 Para poder ver los settings
+
+- Para hacer la paginacion en el launchpad:
+ - Tener un state con la pagina actual
+ - El pagination tira un evento "navigationClicked". Con eso actualizdo el current Stage. Hay que definir cuantas rows por pagina.
+ - usar un slice.
+ - los botones de paginacion (numeros) tiran otro evento que es "activePageChanged"

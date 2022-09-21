@@ -60,14 +60,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@genexus/chameleon": "^0.1.0",
+    "@genexus/chameleon": "^0.1.1",
     "@simonwep/pickr": "^1.7.4",
     "@stencil/store": "^1.4.1",
     "@storybook/addon-a11y": "^6.1.21",
     "@storybook/addon-knobs": "^6.1.21",
     "@storybook/addon-storysource": "^6.1.21",
     "js-datepicker": "^5.11.0",
-    "split.js": "^1.6.4"
+    "split.js": "^1.6.5"
   },
   "husky": {
     "hooks": {

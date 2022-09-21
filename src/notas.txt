@@ -1,0 +1,5 @@
+Controles a los que defini altura:
+- box
+- card
+- form-textarea (no funciona porcentual)
+- listbox no tiene sentido (el alto esta deternminado por el contenido.)

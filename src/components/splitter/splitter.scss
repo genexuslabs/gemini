@@ -1,5 +1,5 @@
 :host {
-  display: block;
+  display: flex;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -42,11 +42,17 @@
     }
   }
 }
+
+:host([direction="vertical"]) {
+  flex-direction: column;
+}
+
 //knob horizontal or vertical
 :host([knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {
-    &:after, &:before {
+    &:after,
+    &:before {
       content: "";
       width: 0;
       height: 0;
@@ -127,10 +133,10 @@
 }
 //Collapsed to zero
 :host(.left-collapsed-to-zero) ::slotted(.gutter),
-:host(.right-collapsed-to-zero) ::slotted(.gutter){
+:host(.right-collapsed-to-zero) ::slotted(.gutter) {
   pointer-events: none;
 }
-:host(.collapsed-to-zero) ::slotted(.knob){
+:host(.collapsed-to-zero) ::slotted(.knob) {
   pointer-events: auto;
 }
 //Left collapsed to zero
@@ -154,7 +160,7 @@
 :host(.left-collapsed-to-zero[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal) {
     &:after {
-      bottom:0;
+      bottom: 0;
     }
   }
 }
@@ -186,18 +192,18 @@
 :host(.right-collapsed-to-zero[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal) {
     &:before {
-      top:0;
+      top: 0;
     }
   }
 }
 :host(.right-collapsed-to-zero[knob="bidirectional"]) {
   ::slotted(.gutter-vertical) {
     &:before {
-      left:3px;
+      left: 3px;
     }
   }
 }
-//Gutter reached right 
+//Gutter reached right
 :host(.gutter-reached-right[knob="bidirectional"]) {
   ::slotted(.gutter-horizontal),
   ::slotted(.gutter-vertical) {

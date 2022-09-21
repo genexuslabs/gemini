@@ -48,6 +48,11 @@ export class GxgFormTextarea implements FormComponent {
   @Prop() maxWidth = "100%";
 
   /**
+   * The textarea height
+   */
+  @Prop() height = "auto";
+
+  /**
    * The textarea placeholder
    */
   @Prop() placeholder: string;
@@ -139,6 +144,7 @@ export class GxgFormTextarea implements FormComponent {
           value={this.value}
           rows={this.rows}
           required={this.required}
+          style={{ height: this.height }}
         ></textarea>
 
         {formMessage(

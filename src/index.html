@@ -17,13 +17,9 @@
         background-color: #1d1e22;
       }
       .container {
-        overflow: hidden;
-        border: 3px solid black;
-        display: inline-block;
-        height: 100px;
-      }
-      body {
-        height: 3000px;
+        background-color: bisque;
+        width: 800px;
+        margin-top: 400px;
       }
     </style>
   </head>
@@ -42,18 +38,154 @@
 
     <br />
 
-    <!-- <gxg-drop-down> hola </gxg-drop-down> -->
+    <gxg-drop-down
+      icon="general/generator"
+      id="gxg-drop-down"
+      label="Module/Folder:"
+      above
+      width="100%"
+    >
+      <div style="height: 100px">
+        <div
+          style="
+            height: 150px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+          "
+          class=""
+        >
+          <ul
+            class="ui-fancytree fancytree-container fancytree-plain fancytree-ext-wide fancytree-ext-glyph"
+            id="ui-id-5"
+            tabindex="0"
+            role="tree"
+            aria-multiselectable="true"
+            aria-activedescendant="ui-id-6"
+          >
+            <li role="treeitem" aria-selected="false" id="ui-id-6">
+              <span
+                class="fancytree-node fancytree-exp-n fancytree-ico-c fancytree-level-1"
+                ><span class="fancytree-expander"></span
+                ><span
+                  role="presentation"
+                  class="fancytree-icon icon icon-file-text"
+                ></span
+                ><span class="fancytree-title">Item 1</span></span
+              >
+            </li>
+            <li
+              role="treeitem"
+              aria-expanded="false"
+              aria-selected="false"
+              class="fancytree-lastsib"
+            >
+              <span
+                class="fancytree-node fancytree-has-children fancytree-lastsib fancytree-exp-cl fancytree-ico-c fancytree-level-1"
+                ><span
+                  role="button"
+                  class="fancytree-expander icon icon-chevron-right"
+                ></span
+                ><span
+                  role="presentation"
+                  class="fancytree-icon icon icon-file-text"
+                ></span
+                ><span class="fancytree-title">Item 2</span></span
+              >
+            </li>
+          </ul>
+          <div
+            class="erd_scroll_detection_container erd_scroll_detection_container_animation_active"
+            style="
+              visibility: hidden;
+              display: inline;
+              width: 0px;
+              height: 0px;
+              z-index: -1;
+              overflow: hidden;
+              margin: 0px;
+              padding: 0px;
+            "
+          >
+            <div
+              dir="ltr"
+              class="erd_scroll_detection_container"
+              style="
+                position: absolute;
+                flex: 0 0 auto;
+                overflow: hidden;
+                z-index: -1;
+                visibility: hidden;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                top: 0px;
+              "
+            >
+              <div
+                class="erd_scroll_detection_container"
+                style="
+                  position: absolute;
+                  flex: 0 0 auto;
+                  overflow: hidden;
+                  z-index: -1;
+                  visibility: hidden;
+                  inset: -11px -10px -10px -11px;
+                "
+              >
+                <div
+                  style="
+                    position: absolute;
+                    flex: 0 0 auto;
+                    overflow: scroll;
+                    z-index: -1;
+                    visibility: hidden;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <div
+                    style="
+                      position: absolute;
+                      left: 0px;
+                      top: 0px;
+                      width: 365px;
+                      height: 181px;
+                    "
+                  ></div>
+                </div>
+                <div
+                  style="
+                    position: absolute;
+                    flex: 0 0 auto;
+                    overflow: scroll;
+                    z-index: -1;
+                    visibility: hidden;
+                    width: 100%;
+                    height: 100%;
+                  "
+                >
+                  <div
+                    style="position: absolute; width: 200%; height: 200%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button>Close</button><button>Set Value</button>
+      </div>
+    </gxg-drop-down>
 
     <br />
 
-    <div class="container" style="width: 25%">
+    <div class="container">
       <gxg-drop-down
         icon="general/generator"
         id="gxg-drop-down"
         label="Module/Folder:"
+        above
         width="100%"
-        min-width="200px"
-        max-width="250px"
       >
         <span slot="button" style="background-color: red"
           >hola hola hola hola hola hola hola</span
@@ -93,61 +225,11 @@
       });
     </script>
 
-    <div class="container" style="width: 20%">
-      <gxg-combo-box
-        id="gxgCombo1"
-        disable-filter
-        placeholder="Select item"
-        value="bpm"
-        width="100%"
-      >
-        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-        <gxg-combo-box-item value="bpm" icon="objects/business-process-diagram"
-          >BPM</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
-          >Chatbots</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="data-management" icon="objects/data-provider"
-          >Data Management</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="resources" icon="objects/bg-color"
-          >Resources</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="user-interface" icon="objects/webpanel"
-          >User interface</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="dashboard" icon="objects/dashboard"
-          >Dashboard</gxg-combo-box-item
-        >
-        <gxg-combo-box-item
-          value="deployment-unit"
-          icon="objects/deployment-unit"
-          >Deployment Unit</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="dso" icon="objects/dso"
-          >DSO</gxg-combo-box-item
-        >
-        <gxg-combo-box-item
-          value="structured-data-type"
-          icon="objects/structured-data-type"
-          >Structured Data Type</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="url-rewrite" icon="objects/url-rewrite"
-          >URL Rewrite</gxg-combo-box-item
-        >
-        <gxg-combo-box-item value="stencil" icon="objects/stencil"
-          >Stencil</gxg-combo-box-item
-        >
-      </gxg-combo-box>
-    </div>
-
     <gxg-combo-box
       id="gxgCombo1"
       disable-filter
       placeholder="Select item"
       value="bpm"
-      width="50%"
     >
       <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
       <gxg-combo-box-item value="bpm" icon="objects/business-process-diagram"

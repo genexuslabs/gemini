@@ -8,6 +8,8 @@ import {
   Listen,
   Watch,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 import { GxgComboBoxItem } from "../combo-box-item/combo-box-item";
 import { GxgFormText, IconPosition } from "../form-text/form-text";
@@ -19,6 +21,8 @@ import state from "../store";
   shadow: { delegatesFocus: true },
 })
 export class GxgComboBox {
+  @Event() keyDown: EventEmitter<string>;
+
   gxgFormText!: GxgFormText;
 
   @Element() el: HTMLElement;
@@ -62,6 +66,11 @@ export class GxgComboBox {
   @Prop({ mutable: true }) value = undefined;
 
   /**
+   * The container 'items container' position
+   */
+  @Prop() position: "top" | "bottom" = "bottom";
+
+  /**
    * This property returns true if the combo-box list is open, false otherwise.
    * Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.
    */
@@ -82,6 +91,13 @@ export class GxgComboBox {
   private detectClickOutsideCombo = this.detectClickOutsideComboFunc.bind(this);
   private detectMouseScroll = this.detectMouseScrollFunc.bind(this);
 
+  componentDidUpdate() {
+    const itemsContainerIsOverflowing = this.itemsContainerBottomOverflows();
+    if (itemsContainerIsOverflowing) {
+      this.position = "top";
+    }
+  }
+
   componentWillLoad() {
     this.lastSetValueByUser = this.value;
     if (this.value !== undefined) {
@@ -92,6 +108,7 @@ export class GxgComboBox {
     this.resizeObserver();
   }
   disconnectedCallback() {
+    console.log("disconnected");
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
     document.removeEventListener("scroll", this.detectMouseScroll, true);
@@ -290,6 +307,8 @@ export class GxgComboBox {
 
   onKeyDownGxgformText(e) {
     // DONE
+    //e.stopPropagation();
+    this.keyDown.emit("key down was pressed");
     if (e.key === "Enter") {
       this.showItems = true;
     } else if (e.key === "ArrowDown") {
@@ -421,8 +440,8 @@ export class GxgComboBox {
         this.repositionItemsContainer();
       });
     });
-
     this.myObserver.observe(document.body);
+    this.myObserver.observe(this.el);
   }
 
   repositionItemsContainer() {
@@ -436,12 +455,29 @@ export class GxgComboBox {
     this.itemsContainer.style.top = gxgComboY + gxgComboHeight + "px";
   }
 
+  itemsContainerBottomOverflows() {
+    const viewportHeight = window.innerHeight;
+    const itemsContainerHeight = this.itemsContainer.clientHeight;
+    const itemsContainerBottom = this.itemsContainer.getBoundingClientRect()
+      .bottom;
+    const result = viewportHeight - itemsContainerBottom;
+
+    //console.log("viewportHeight", viewportHeight);
+    //console.log("itemsContainerHeight", itemsContainerHeight);
+    //console.log("result", viewportHeight - itemsContainerBottom);
+
+    const itOverflows = true ? result < 0 : false;
+    return itOverflows;
+  }
+
   render() {
     return (
       <Host
         class={{
           "filter-disabled": this.disableFilter,
           large: state.large,
+          "position-top": this.position === "top",
+          "position-bottom": this.position === "bottom",
         }}
         style={{
           width: this.width,

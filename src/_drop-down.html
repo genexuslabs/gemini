@@ -16,6 +16,11 @@
       html.dark {
         background-color: #1d1e22;
       }
+      .container {
+        background-color: bisque;
+        width: 800px;
+        margin-top: 400px;
+      }
     </style>
   </head>
   <body>
@@ -37,19 +42,22 @@
 
     <br />
 
-    <gxg-drop-down
-      icon="general/generator"
-      id="gxg-drop-down"
-      label="Module/Folder:"
-      above
-    >
-      <span slot="button" style="background-color: red"
-        >hola hola hola hola hola hola hola</span
+    <div class="container">
+      <gxg-drop-down
+        icon="general/generator"
+        id="gxg-drop-down"
+        label="Module/Folder:"
+        above
+        width="100%"
       >
-      contenido html de la ventana que se despliega. contenido html de la
-      ventana que se despliega. contenido html de la ventana que se
-      despliega.contenido html de la ventana que se despliega.
-    </gxg-drop-down>
+        <span slot="button" style="background-color: red"
+          >hola hola hola hola hola hola hola</span
+        >
+        contenido html de la ventana que se despliega. contenido html de la
+        ventana que se despliega. contenido html de la ventana que se
+        despliega.contenido html de la ventana que se despliega.
+      </gxg-drop-down>
+    </div>
 
     <button id="close-drop-down-btn">close dropdown</button>
     <button id="open-drop-down-btn">open dropdown</button>

@@ -154,6 +154,10 @@ export namespace Components {
          */
         "border": boolean;
         /**
+          * The component  height
+         */
+        "height": string;
+        /**
           * The component max. width
          */
         "maxWidth": string;
@@ -240,6 +244,10 @@ export namespace Components {
          */
         "elevation": elevation;
         /**
+          * The component height
+         */
+        "height": string;
+        /**
           * The component max. width
          */
         "maxWidth": string;
@@ -306,6 +314,10 @@ export namespace Components {
           * The combo placeholder
          */
         "placeholder": string;
+        /**
+          * The container 'items container' position
+         */
+        "position": "top" | "bottom";
         "setValueByIndex": (index: number) => Promise<void>;
         /**
           * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
@@ -421,9 +433,9 @@ export namespace Components {
     }
     interface GxgDropDown {
         /**
-          * Displays the dropdown .content-container above (usefull when there is no available space bellow/under the dropdown)
+          * the dropdown height
          */
-        "above": boolean;
+        "height": string;
         /**
           * the dropdown icon (optional)
          */
@@ -444,6 +456,10 @@ export namespace Components {
           * The dropdown min-width
          */
         "minWidth": string;
+        /**
+          * The container 'items container' position
+         */
+        "position": "top" | "bottom";
         /**
           * Displays the dropdown content
          */
@@ -640,6 +656,10 @@ export namespace Components {
           * The presence of this attribute gives the component error styles
          */
         "error": boolean;
+        /**
+          * The textarea height
+         */
+        "height": string;
         /**
           * The textarea label
          */
@@ -1067,9 +1087,6 @@ export namespace Components {
          */
         "noPadding": boolean;
         "position": TabsPosition;
-    }
-    interface GxgTemplate {
-        "name": string;
     }
     interface GxgTest {
         "name": string;
@@ -1608,12 +1625,6 @@ declare global {
         prototype: HTMLGxgTabsElement;
         new (): HTMLGxgTabsElement;
     };
-    interface HTMLGxgTemplateElement extends Components.GxgTemplate, HTMLStencilElement {
-    }
-    var HTMLGxgTemplateElement: {
-        prototype: HTMLGxgTemplateElement;
-        new (): HTMLGxgTemplateElement;
-    };
     interface HTMLGxgTestElement extends Components.GxgTest, HTMLStencilElement {
     }
     var HTMLGxgTestElement: {
@@ -1737,7 +1748,6 @@ declare global {
         "gxg-tab-bar": HTMLGxgTabBarElement;
         "gxg-tab-button": HTMLGxgTabButtonElement;
         "gxg-tabs": HTMLGxgTabsElement;
-        "gxg-template": HTMLGxgTemplateElement;
         "gxg-test": HTMLGxgTestElement;
         "gxg-text": HTMLGxgTextElement;
         "gxg-title": HTMLGxgTitleElement;
@@ -1884,6 +1894,10 @@ declare namespace LocalJSX {
          */
         "border"?: boolean;
         /**
+          * The component  height
+         */
+        "height"?: string;
+        /**
           * The component max. width
          */
         "maxWidth"?: string;
@@ -1974,6 +1988,10 @@ declare namespace LocalJSX {
          */
         "elevation"?: elevation;
         /**
+          * The component height
+         */
+        "height"?: string;
+        /**
           * The component max. width
          */
         "maxWidth"?: string;
@@ -2036,10 +2054,15 @@ declare namespace LocalJSX {
           * The combo min-width
          */
         "minWidth"?: string;
+        "onKeyDown"?: (event: CustomEvent<string>) => void;
         /**
           * The combo placeholder
          */
         "placeholder"?: string;
+        /**
+          * The container 'items container' position
+         */
+        "position"?: "top" | "bottom";
         /**
           * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
          */
@@ -2176,9 +2199,9 @@ declare namespace LocalJSX {
     }
     interface GxgDropDown {
         /**
-          * Displays the dropdown .content-container above (usefull when there is no available space bellow/under the dropdown)
+          * the dropdown height
          */
-        "above"?: boolean;
+        "height"?: string;
         /**
           * the dropdown icon (optional)
          */
@@ -2207,6 +2230,10 @@ declare namespace LocalJSX {
           * This events gets fired when the dropdown is opened
          */
         "onOpened"?: (event: CustomEvent<any>) => void;
+        /**
+          * The container 'items container' position
+         */
+        "position"?: "top" | "bottom";
         /**
           * Displays the dropdown content
          */
@@ -2432,6 +2459,10 @@ declare namespace LocalJSX {
           * The presence of this attribute gives the component error styles
          */
         "error"?: boolean;
+        /**
+          * The textarea height
+         */
+        "height"?: string;
         /**
           * The textarea label
          */
@@ -2885,9 +2916,6 @@ declare namespace LocalJSX {
         "noPadding"?: boolean;
         "position"?: TabsPosition;
     }
-    interface GxgTemplate {
-        "name"?: string;
-    }
     interface GxgTest {
         "name"?: string;
         "show"?: boolean;
@@ -3153,7 +3181,6 @@ declare namespace LocalJSX {
         "gxg-tab-bar": GxgTabBar;
         "gxg-tab-button": GxgTabButton;
         "gxg-tabs": GxgTabs;
-        "gxg-template": GxgTemplate;
         "gxg-test": GxgTest;
         "gxg-text": GxgText;
         "gxg-title": GxgTitle;
@@ -3227,7 +3254,6 @@ declare module "@stencil/core" {
             "gxg-tab-bar": LocalJSX.GxgTabBar & JSXBase.HTMLAttributes<HTMLGxgTabBarElement>;
             "gxg-tab-button": LocalJSX.GxgTabButton & JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
             "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
-            "gxg-template": LocalJSX.GxgTemplate & JSXBase.HTMLAttributes<HTMLGxgTemplateElement>;
             "gxg-test": LocalJSX.GxgTest & JSXBase.HTMLAttributes<HTMLGxgTestElement>;
             "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
             "gxg-title": LocalJSX.GxgTitle & JSXBase.HTMLAttributes<HTMLGxgTitleElement>;

@@ -34,6 +34,7 @@
 | ------------ | ------------ | ------------------------- | ------------------------------------------------------------- | --------- |
 | `background` | `background` | The background color      | `"gray-01" \| "white"`                                        | `"white"` |
 | `elevation`  | `elevation`  | The card box-shadow       | `"m" \| "xs"`                                                 | `"xs"`    |
+| `height`     | `height`     | The component height      | `string`                                                      | `"auto"`  |
 | `maxWidth`   | `max-width`  | The component max. width  | `string`                                                      | `"100%"`  |
 | `minHeight`  | `min-height` | The component min. height | `string`                                                      | `"auto"`  |
 | `padding`    | `padding`    | The card padding          | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`    |

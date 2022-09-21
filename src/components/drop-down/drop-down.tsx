@@ -42,6 +42,11 @@ export class GxgDropDown {
   @Prop() maxHeight = "120px";
 
   /**
+   * the dropdown height
+   */
+  @Prop() height = "auto";
+
+  /**
    * the dropdown label (optional)
    */
   @Prop() label = "";
@@ -57,9 +62,9 @@ export class GxgDropDown {
   @Prop() showContent = false;
 
   /**
-   * Displays the dropdown .content-container above (usefull when there is no available space bellow/under the dropdown)
+   * The container 'items container' position
    */
-  @Prop() above = false;
+  @Prop() position: "top" | "bottom" = "bottom";
 
   @State() initialButtonText = "";
   @State()
@@ -77,6 +82,13 @@ export class GxgDropDown {
    * This events gets fired when the dropdown is closed
    */
   @Event() closed: EventEmitter;
+
+  componentDidUpdate() {
+    const itemsContainerIsOverflowing = this.itemsContainerBottomOverflows();
+    if (itemsContainerIsOverflowing) {
+      this.position = "top";
+    }
+  }
 
   componentWillLoad() {
     const slotButton = this.el.querySelector("[slot=button]");
@@ -187,12 +199,13 @@ export class GxgDropDown {
     });
 
     this.myObserver.observe(document.body);
+    this.myObserver.observe(this.el);
   }
 
   repositionContentContainer() {
     //redefine .main-container width
     const gxgDropDownWidth = this.el.clientWidth;
-    this.mainContainer.style.width = gxgDropDownWidth + "px";
+    this.contentContainer.style.width = gxgDropDownWidth + "px";
     //redefine .content-container "top" value
     const gxgDropDownCoordinates = this.el.getBoundingClientRect();
     const gxgDropDownY = gxgDropDownCoordinates.y;
@@ -200,12 +213,23 @@ export class GxgDropDown {
     this.contentContainer.style.top = gxgDropDownY + gxgDropDownHeight + "px";
   }
 
+  itemsContainerBottomOverflows() {
+    const viewportHeight = window.innerHeight;
+    const contentContainerBottom = this.contentContainer.getBoundingClientRect()
+      .bottom;
+    const result = viewportHeight - contentContainerBottom;
+
+    const itOverflows = true ? result < 0 : false;
+    return itOverflows;
+  }
+
   render() {
     return (
       <Host
         class={{
           large: state.large,
-          above: this.above,
+          "position-top": this.position === "top",
+          "position-bottom": this.position === "bottom",
         }}
         style={{
           width: this.width,
@@ -255,6 +279,7 @@ export class GxgDropDown {
             }}
             style={{
               maxHeight: this.maxHeight,
+              height: this.height,
             }}
             ref={(el) => (this.contentContainer = el as HTMLDivElement)}
           >

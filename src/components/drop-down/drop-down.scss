@@ -6,7 +6,6 @@
   @include gxg-scroll();
 
   .main-container {
-    background-color: var(--color-background);
     position: relative;
   }
 
@@ -19,6 +18,7 @@
   }
 
   .select-container {
+    background-color: var(--color-background);
     border-radius: var(--border-radius-sm);
     border-width: var(--border-width-sm);
     border-style: solid;
@@ -76,7 +76,7 @@
   }
 }
 
-:host(.above) {
+:host(.position-top) {
   .content-container {
     transform: translateY(calc(-100% - 20px));
     border-top-width: 1px;

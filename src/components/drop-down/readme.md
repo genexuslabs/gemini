@@ -9,16 +9,17 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                         | Type      | Default   |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------------------------- | --------- | --------- |
-| `above`       | `above`        | Displays the dropdown .content-container above (usefull when there is no available space bellow/under the dropdown) | `boolean` | `false`   |
-| `icon`        | `icon`         | the dropdown icon (optional)                                                                                        | `string`  | `""`      |
-| `label`       | `label`        | the dropdown label (optional)                                                                                       | `string`  | `""`      |
-| `maxHeight`   | `max-height`   | the dropdown max. height                                                                                            | `string`  | `"120px"` |
-| `maxWidth`    | `max-width`    | The codropdownmbo max-width                                                                                         | `string`  | `"none"`  |
-| `minWidth`    | `min-width`    | The dropdown min-width                                                                                              | `string`  | `"0"`     |
-| `showContent` | `show-content` | Displays the dropdown content                                                                                       | `boolean` | `false`   |
-| `width`       | `width`        | The dropdown width                                                                                                  | `string`  | `"240px"` |
+| Property      | Attribute      | Description                              | Type                | Default    |
+| ------------- | -------------- | ---------------------------------------- | ------------------- | ---------- |
+| `height`      | `height`       | the dropdown height                      | `string`            | `"auto"`   |
+| `icon`        | `icon`         | the dropdown icon (optional)             | `string`            | `""`       |
+| `label`       | `label`        | the dropdown label (optional)            | `string`            | `""`       |
+| `maxHeight`   | `max-height`   | the dropdown max. height                 | `string`            | `"120px"`  |
+| `maxWidth`    | `max-width`    | The codropdownmbo max-width              | `string`            | `"none"`   |
+| `minWidth`    | `min-width`    | The dropdown min-width                   | `string`            | `"0"`      |
+| `position`    | `position`     | The container 'items container' position | `"bottom" \| "top"` | `"bottom"` |
+| `showContent` | `show-content` | Displays the dropdown content            | `boolean`           | `false`    |
+| `width`       | `width`        | The dropdown width                       | `string`            | `"240px"`  |
 
 ## Events
 
