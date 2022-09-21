@@ -457,13 +457,11 @@ export class GxgComboBox {
 
   itemsContainerBottomOverflows() {
     const viewportHeight = window.innerHeight;
-    const itemsContainerHeight = this.itemsContainer.clientHeight;
     const itemsContainerBottom = this.itemsContainer.getBoundingClientRect()
       .bottom;
     const result = viewportHeight - itemsContainerBottom;
 
     //console.log("viewportHeight", viewportHeight);
-    //console.log("itemsContainerHeight", itemsContainerHeight);
     //console.log("result", viewportHeight - itemsContainerBottom);
 
     const itOverflows = true ? result < 0 : false;
