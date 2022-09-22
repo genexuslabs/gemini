@@ -84,9 +84,13 @@ export class GxgDropDown {
   @Event() closed: EventEmitter;
 
   componentDidUpdate() {
-    const itemsContainerIsOverflowing = this.itemsContainerBottomOverflows();
-    if (itemsContainerIsOverflowing) {
-      this.position = "top";
+    const contentContainerIsOverflowing = this.contentContainerOverflows();
+    if (contentContainerIsOverflowing) {
+      this.el.classList.add("position-top");
+      this.el.classList.remove("position-bottom");
+    } else {
+      this.el.classList.add("position-bottom");
+      this.el.classList.remove("position-top");
     }
   }
 
@@ -213,13 +217,13 @@ export class GxgDropDown {
     this.contentContainer.style.top = gxgDropDownY + gxgDropDownHeight + "px";
   }
 
-  itemsContainerBottomOverflows() {
+  contentContainerOverflows() {
     const viewportHeight = window.innerHeight;
-    const contentContainerBottom = this.contentContainer.getBoundingClientRect()
-      .bottom;
-    const result = viewportHeight - contentContainerBottom;
+    const dropdownBottom = this.el.getBoundingClientRect().bottom;
+    const contentContainerHeight = this.contentContainer.clientHeight;
+    const result = dropdownBottom + contentContainerHeight;
 
-    const itOverflows = true ? result < 0 : false;
+    const itOverflows = true ? result > viewportHeight : false;
     return itOverflows;
   }
 
@@ -228,8 +232,6 @@ export class GxgDropDown {
       <Host
         class={{
           large: state.large,
-          "position-top": this.position === "top",
-          "position-bottom": this.position === "bottom",
         }}
         style={{
           width: this.width,

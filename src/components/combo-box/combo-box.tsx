@@ -94,7 +94,11 @@ export class GxgComboBox {
   componentDidUpdate() {
     const itemsContainerIsOverflowing = this.itemsContainerBottomOverflows();
     if (itemsContainerIsOverflowing) {
-      this.position = "top";
+      this.el.classList.add("position-top");
+      this.el.classList.remove("position-bottom");
+    } else {
+      this.el.classList.add("position-bottom");
+      this.el.classList.remove("position-top");
     }
   }
 
@@ -108,7 +112,6 @@ export class GxgComboBox {
     this.resizeObserver();
   }
   disconnectedCallback() {
-    console.log("disconnected");
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
     document.removeEventListener("scroll", this.detectMouseScroll, true);
@@ -457,14 +460,11 @@ export class GxgComboBox {
 
   itemsContainerBottomOverflows() {
     const viewportHeight = window.innerHeight;
-    const itemsContainerBottom = this.itemsContainer.getBoundingClientRect()
-      .bottom;
-    const result = viewportHeight - itemsContainerBottom;
+    const comboBottom = this.el.getBoundingClientRect().bottom;
+    const itemsContainerHeight = this.itemsContainer.clientHeight;
+    const result = comboBottom + itemsContainerHeight;
 
-    //console.log("viewportHeight", viewportHeight);
-    //console.log("result", viewportHeight - itemsContainerBottom);
-
-    const itOverflows = true ? result < 0 : false;
+    const itOverflows = true ? result > viewportHeight : false;
     return itOverflows;
   }
 
@@ -474,8 +474,6 @@ export class GxgComboBox {
         class={{
           "filter-disabled": this.disableFilter,
           large: state.large,
-          "position-top": this.position === "top",
-          "position-bottom": this.position === "bottom",
         }}
         style={{
           width: this.width,
