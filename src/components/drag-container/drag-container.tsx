@@ -67,11 +67,21 @@ export class GxgDragContainer implements DraggableComponent {
     }
   }
 
-  componentDidLoad() {
-    this.dndCleanup = makeDraggable(this);
+  componentWillLoad() {
+    if (!this.disable) {
+      this.dndCleanup = makeDraggable(this);
+    }
+
+    const dragBoxes = this.el.querySelectorAll("gxg-drag-box");
+
+    //If disable, set disabled to each drag-box
+    if (this.disable) {
+      dragBoxes.forEach((dragBox) => {
+        dragBox.disabled = true;
+      });
+    }
 
     //Set padding to each of the drag-boxes
-    const dragBoxes = this.el.querySelectorAll("gxg-drag-box");
     dragBoxes.forEach((dragBox) => {
       if (this.padding !== undefined) {
         dragBox.setAttribute("padding", this.padding);
@@ -88,7 +98,9 @@ export class GxgDragContainer implements DraggableComponent {
   }
 
   disconnectedCallback() {
-    this.dndCleanup();
+    if (!this.disable) {
+      this.dndCleanup();
+    }
   }
 
   render() {

@@ -30,6 +30,11 @@ export class GxgDragBox {
   @Prop({ reflect: true }) padding: Padding = "s";
 
   /**
+   * The presence of this attribute disables the box, hidding the drag and drop icon.
+   */
+  @Prop() disabled = false;
+
+  /**
    * The title
    */
   @Prop() title: string;
@@ -93,15 +98,20 @@ export class GxgDragBox {
       >
         {this.active ? null : <div class="cover"></div>}
         <span class="border"></span>
-        <div class="drag-icon-container">
-          <gxg-icon size="regular" type="navigation/drag"></gxg-icon>
-        </div>
+
+        {!this.disabled ? (
+          <div class="drag-icon-container">
+            <gxg-icon size="regular" type="navigation/drag"></gxg-icon>
+          </div>
+        ) : null}
+
         <div class="container-content">
           {this.title !== undefined ? (
             <span class="container-content__title">{this.title}</span>
           ) : null}
           <slot></slot>
         </div>
+
         <div class="delete-button-container">
           {this.deletable ? (
             <gxg-button
