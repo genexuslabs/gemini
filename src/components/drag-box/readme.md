@@ -26,7 +26,7 @@
 | ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ----------- |
 | `active`    | `active`    | The presence of this attribute makes this box active                                                                                     | `boolean`                                                     | `false`     |
 | `deletable` | `deletable` | The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event                                   | `boolean`                                                     | `false`     |
-| `disabled`  | --          | The presence of this attribute disables the box, hidding the drag and drop icon.                                                         | `Boolean`                                                     | `false`     |
+| `disabled`  | `disabled`  | The presence of this attribute disables the box, hidding the drag and drop icon.                                                         | `boolean`                                                     | `false`     |
 | `padding`   | `padding`   | The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items) | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`       |
 | `title`     | `title`     | The title                                                                                                                                | `string`                                                      | `undefined` |
 

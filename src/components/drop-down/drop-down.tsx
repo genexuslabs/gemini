@@ -144,8 +144,10 @@ export class GxgDropDown {
     }
   }
 
-  detectMouseScrollFunc() {
-    this.showContent = false;
+  detectMouseScrollFunc(e) {
+    if (e.target === document) {
+      this.showContent = false;
+    }
   }
 
   disconnectedCallback() {

@@ -422,7 +422,7 @@ export namespace Components {
     /**
      * The presence of this attribute disables the box, hidding the drag and drop icon.
      */
-    disabled: Boolean;
+    disabled: boolean;
     /**
      * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
      */
@@ -2345,7 +2345,7 @@ declare namespace LocalJSX {
     /**
      * The presence of this attribute disables the box, hidding the drag and drop icon.
      */
-    disabled?: Boolean;
+    disabled?: boolean;
     /**
      * This event is for internal use
      */
