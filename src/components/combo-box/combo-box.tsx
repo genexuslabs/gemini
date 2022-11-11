@@ -310,7 +310,7 @@ export class GxgComboBox {
 
   onKeyDownGxgformText(e) {
     // DONE
-    //e.stopPropagation();
+    e.stopPropagation();
     this.keyDown.emit("key down was pressed");
     if (e.key === "Enter") {
       this.showItems = true;
