@@ -180,13 +180,13 @@ export class GxgDropDown {
   }
 
   onKeyDown(e) {
-    if (e.key === "Enter") {
+    if (e.key === "ArrowDown") {
+      this.showContent = true;
+    } else if (e.key === "Enter") {
       this.toggleContent();
-    }
-    if (e.key === "Escape") {
+    } else if (e.key === "Escape") {
       this.showContent = false;
-    }
-    if (e.key === "Tab") {
+    } else if (e.key === "Tab") {
       this.showContent = false;
     }
   }
