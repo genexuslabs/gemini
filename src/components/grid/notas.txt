@@ -9,3 +9,36 @@ Para poder ver los settings
  - El pagination tira un evento "navigationClicked". Con eso actualizdo el current Stage. Hay que definir cuantas rows por pagina.
  - usar un slice.
  - los botones de paginacion (numeros) tiran otro evento que es "activePageChanged"
+
+ ------------------------------------------
+
+Refresh solo tira un evento: refreshClicked
+Para ponerle un icono es background image.
+
+Para darle estilos al modal, me fijo en parts.
+para ponerle icono al close es background image.
+
+Por ahora para darle estilos al checkbox, tiene parts.
+
+El paginator esta pendiente de avances.
+
+Esta faltando los settings de las columnas.
+
+sorteable
+settingeable
+
+    columnId={column.htmlName}
+    columnIconUrl={column.Icon}
+    columnName={column.title}
+    columnNamePosition={column.NamePosition}
+    size={this.getColumnSize(column)}
+    displayObserverClass={column.gxColumnClass}
+    class={`${this.grid.ColumnClass} ${column.HeaderClass}`}
+    hidden={column.Hidden == -1}
+    hideable={column.Hideable == -1}
+    resizeable={column.Resizeable == -1}
+    sortable={column.Sortable == -1}
+    settingable={column.Filterable == -1}
+    sortDirection={column.SortDirection}
+
+ 
