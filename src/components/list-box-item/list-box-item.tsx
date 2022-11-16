@@ -24,6 +24,16 @@ export class GxgListboxItem {
   @Prop() icon: string = undefined;
 
   /**
+   * The presence of this attribute sets this item as selected
+   */
+  @Prop() selected = false;
+
+  /**
+   * This property is set by the list-box item. It should not be set by the user.
+   */
+  @Prop({ reflect: true }) index: number = null;
+
+  /**
    * (This event is for internal use.)
    */
   @Event() itemClicked: EventEmitter;
@@ -32,6 +42,11 @@ export class GxgListboxItem {
    * (This event is for internal use.)
    */
   @Event() KeyPressed: EventEmitter;
+
+  /**
+   * (This event is for internal use.)
+   */
+  @Event() itemLoaded: EventEmitter;
 
   /**
    * The item value. If value is not provided, the value will be the item innerHTML.
@@ -53,6 +68,10 @@ export class GxgListboxItem {
     }
   }
 
+  componentDidLoad() {
+    this.itemLoaded.emit();
+  }
+
   itemClickedFunc(e) {
     const index = this.el.getAttribute("index");
     this.itemClicked.emit({
@@ -64,6 +83,7 @@ export class GxgListboxItem {
   }
 
   onKeyDown(e) {
+    e.stopPropagation();
     if (e.code === "ArrowDown" || e.code === "ArrowUp" || e.code === "Enter") {
       e.preventDefault();
       const index = this.el.getAttribute("index");
@@ -95,6 +115,7 @@ export class GxgListboxItem {
           "has-icon": this.icon !== undefined,
           "no-checkbox": !this.checkboxes,
           large: state.large,
+          selected: this.selected,
         }}
         onClick={this.itemClickedFunc.bind(this)}
         onKeyDown={this.onKeyDown.bind(this)}

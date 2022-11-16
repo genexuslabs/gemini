@@ -46,6 +46,11 @@ export class GxgListBox {
   @Prop() maxWidth = "none";
 
   /**
+   * The list-box max-height
+   */
+  @Prop() maxHeight = "none";
+
+  /**
    * The prescence of this attribute will display a checkbox for every item
    */
   @Prop() checkboxes = false;
@@ -57,7 +62,7 @@ export class GxgListBox {
 
   @Method()
   async getSelectedItems() {
-    return { ...this.selectedItems() };
+    return [...this.selectedItems()];
   }
 
   @State() lastSelectedItemIndex: number | undefined = undefined;
@@ -73,16 +78,65 @@ export class GxgListBox {
         item.prepend(checkbox);
       });
     }
+  }
+
+  setUpItems() {
     //Set index and Tabindex
     const itemsNodeList = this.el.querySelectorAll("gxg-list-box-item");
     itemsNodeList.forEach((item, i) => {
       //index
-      const itemHtmlElement = item as HTMLElement;
-      itemHtmlElement.setAttribute("index", i.toString());
+      const listBoxItem = (item as unknown) as GxgListboxItem;
+      listBoxItem.index = i;
 
       //tabindex
       item.setAttribute("tabindex", "0");
     });
+  }
+
+  componentDidLoad() {
+    //Set selected item
+    this.setSelectedItem();
+  }
+
+  setSelectedItem() {
+    //1. If no list-box-item is initially selected, the first list-box-item should be selected
+    //2. If the list-box is not multi-selection, only one list-box-item sould be selected.
+    //3. For each selected list-box-item with checkbox, check the checkbox.
+
+    const selectedItems = this.el.querySelectorAll(
+      "gxg-list-box-item.selected"
+    );
+    if (selectedItems.length === 0) {
+      const firstItem = this.el.querySelector("gxg-list-box-item");
+      this.toggleItem(firstItem);
+    } else {
+      if (selectedItems.length === 1) {
+        if (this.checkboxes) {
+          const item = selectedItems[0];
+          const checkbox = item.querySelector("gxg-form-checkbox");
+          checkbox.checked = true;
+        }
+      } else {
+        //More than one list-box-item is selected
+        if (this.singleSelection) {
+          selectedItems.forEach((item, index) => {
+            if (index !== 0) {
+              this.toggleItem(item);
+            }
+          });
+        } else if (this.checkboxes) {
+          selectedItems.forEach((item) => {
+            const checkbox = item.querySelector("gxg-form-checkbox");
+            checkbox.checked = true;
+          });
+        }
+      }
+    }
+  }
+
+  @Listen("itemLoaded")
+  itemLoadedHandler(e) {
+    this.setUpItems();
   }
 
   @Listen("itemClicked")
@@ -250,12 +304,13 @@ export class GxgListBox {
     const selectedItems = this.el.querySelectorAll(".selected");
     const selectedItemsArray = [];
     selectedItems.forEach((item) => {
-      const itemIndex = item.getAttribute("index");
-      let itemValue = item.getAttribute("value");
-      if (itemValue === null) {
+      const listBoxItem = (item as unknown) as GxgListboxItem;
+      const itemIndex = listBoxItem.index;
+      let itemValue = listBoxItem.value;
+      if (!itemValue) {
         itemValue = item.textContent;
       } else {
-        itemValue = itemValue.toString();
+        itemValue = itemValue;
       }
       const itemObj = {
         index: itemIndex,
@@ -267,9 +322,7 @@ export class GxgListBox {
   }
 
   emmitSelectedItems() {
-    this.selectionChanged.emit({
-      ...this.selectedItems(),
-    });
+    this.selectionChanged.emit([...this.selectedItems()]);
   }
 
   render() {
@@ -286,7 +339,7 @@ export class GxgListBox {
           {this.theTitle ? (
             <header class={{ header: true }}>{this.theTitle}</header>
           ) : null}
-          <main class={{ main: true }}>
+          <main class={{ main: true }} style={{ maxHeight: this.maxHeight }}>
             <slot></slot>
           </main>
         </div>

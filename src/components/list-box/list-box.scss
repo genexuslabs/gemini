@@ -1,6 +1,9 @@
+@import "../../globals/mixins";
+
 :host {
   display: block;
   font-size: var(--font-size-sm);
+  @include gxg-scroll;
 
   .header {
     min-height: var(--spacing-comp-05);
@@ -19,6 +22,7 @@
     border-style: var(--border-style-regular);
     border-width: var(--border-radius-xs);
     border-color: var(--gray-02);
+    overflow-y: auto;
   }
 
   .icon {
