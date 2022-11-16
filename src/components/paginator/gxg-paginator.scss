@@ -10,6 +10,7 @@ ch-paginator {
   gap: $gap;
   margin-top: var(--spacing-comp-01);
   justify-content: center;
+  font-family: "Times New Roman", Times, serif;
 }
 ch-paginator-navigate,
 ch-paginator-pages::part(button) {
@@ -63,4 +64,5 @@ ch-paginator-pages::part(button) {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-family-primary);
 }
