@@ -135,7 +135,7 @@ export class GxgListBox {
   }
 
   @Listen("itemLoaded")
-  itemLoadedHandler(e) {
+  itemLoadedHandler() {
     this.setUpItems();
   }
 
