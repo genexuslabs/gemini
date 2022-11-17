@@ -117,7 +117,6 @@ export class GxgComboBox {
     this.resizeObserver();
   }
   disconnectedCallback() {
-    console.log(this.myObserver);
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
     document.removeEventListener("scroll", this.detectMouseScroll, true);

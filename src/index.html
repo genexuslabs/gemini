@@ -15,102 +15,80 @@
     <style></style>
   </head>
   <body>
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-actionbar slot="header">
-          <ch-grid-action-refresh></ch-grid-action-refresh>
-          <ch-grid-action-settings></ch-grid-action-settings>
-        </ch-grid-actionbar>
-        <ch-grid-columnset>
-          <ch-grid-column
-            settingable
-            column-name="Codigo"
-            column-name-position="text"
-          >
-            <div slot="settings">settings</div>
-          </ch-grid-column>
-          <ch-grid-column
-            column-name="Poblacion"
-            column-name-position="text"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="City"
-            column-name-position="text"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-      </ch-grid>
-    </gxg-grid>
-    <gxg-paginator>
-      <ch-paginator slot="footer">
-        <ch-paginator-navigate type="first"></ch-paginator-navigate>
-        <ch-paginator-navigate type="previous"></ch-paginator-navigate>
-        <ch-paginator-pages
-          active-page="30"
-          total-pages="117"
-        ></ch-paginator-pages>
-        <ch-paginator-navigate type="next"></ch-paginator-navigate>
-        <ch-paginator-navigate type="last"></ch-paginator-navigate>
-      </ch-paginator>
-    </gxg-paginator>
+    <gxg-form-text
+      label="Full name"
+      label-position="top"
+      placeholder="John Smith"
+      id="gxg-form-text"
+      max-width="240px"
+    ></gxg-form-text>
+    <br />
+    <gxg-button id="btn-set-focus">set focus</gxg-button>
+    <gxg-button id="btn-show-errors">Show errors</gxg-button>
+    <br />
+    <br />
+    <gxg-form-text
+      icon="gemini-tools/edit"
+      icon-position="start"
+      label="Full name"
+      label-position="top"
+      placeholder="John Smith"
+      id="gxg-form-text"
+      max-width="240px"
+      disabled
+    ></gxg-form-text>
+    <br />
+    <gxg-form-text
+      icon="gemini-tools/edit"
+      icon-position="end"
+      label="Full name"
+      label-position="top"
+      placeholder="John Smith"
+      id="gxg-form-text"
+      max-width="240px"
+    ></gxg-form-text>
+    <br />
+    <gxg-form-text
+      clear-button
+      icon="gemini-tools/edit"
+      icon-position="start"
+      label="Full name"
+      label-position="top"
+      placeholder="John Smith"
+      id="gxg-form-text"
+      max-width="240px"
+    ></gxg-form-text>
+    <br />
+    <gxg-form-text
+      clear-button
+      icon="gemini-tools/edit"
+      icon-position="end"
+      label="Full name"
+      label-position="top"
+      placeholder="John Smith"
+      id="gxg-form-text"
+      max-width="240px"
+    ></gxg-form-text>
+
+    <script>
+      //Set focus programatically
+      let btnSetFocus = document.getElementById("btn-set-focus");
+      let formText = document.getElementById("gxg-form-text");
+      btnSetFocus.addEventListener("click", function () {
+        formText.focus();
+      });
+
+      //Display error message
+      const btnShowErrors = document.getElementById("btn-show-errors");
+      btnShowErrors.addEventListener("click", function () {
+        const gxgFormText = document.getElementById("gxg-form-text");
+        const gxgFormMessage = document.createElement("gxg-form-message");
+        gxgFormMessage.innerHTML = "Please, provide your full name";
+        gxgFormMessage.setAttribute("type", "error");
+        gxgFormMessage.setAttribute("slot", "message");
+        gxgFormText.setAttribute("error", true);
+        gxgFormText.appendChild(gxgFormMessage);
+      });
+    </script>
   </body>
 </html>
