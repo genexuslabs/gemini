@@ -18,8 +18,8 @@
     <gxg-grid>
       <ch-grid>
         <ch-grid-actionbar slot="header">
-          <ch-grid-action-refresh>refresh</ch-grid-action-refresh>
-          <ch-grid-action-settings>settings</ch-grid-action-settings>
+          <ch-grid-action-refresh></ch-grid-action-refresh>
+          <ch-grid-action-settings></ch-grid-action-settings>
         </ch-grid-actionbar>
         <ch-grid-columnset>
           <ch-grid-column
@@ -98,17 +98,19 @@
           <ch-grid-cell> 200 </ch-grid-cell>
           <ch-grid-cell> Buenos Aires </ch-grid-cell>
         </ch-grid-row>
-        <ch-paginator slot="footer">
-          <ch-paginator-navigate type="first">first</ch-paginator-navigate>
-          <ch-paginator-navigate type="previous">prev.</ch-paginator-navigate>
-          <ch-paginator-navigate type="next">next</ch-paginator-navigate>
-          <ch-paginator-navigate type="last">last</ch-paginator-navigate>
-          <ch-paginator-pages
-            active-page="30"
-            total-pages="117"
-          ></ch-paginator-pages>
-        </ch-paginator>
       </ch-grid>
     </gxg-grid>
+    <gxg-paginator>
+      <ch-paginator slot="footer">
+        <ch-paginator-navigate type="first"></ch-paginator-navigate>
+        <ch-paginator-navigate type="previous"></ch-paginator-navigate>
+        <ch-paginator-pages
+          active-page="30"
+          total-pages="117"
+        ></ch-paginator-pages>
+        <ch-paginator-navigate type="next"></ch-paginator-navigate>
+        <ch-paginator-navigate type="last"></ch-paginator-navigate>
+      </ch-paginator>
+    </gxg-paginator>
   </body>
 </html>
