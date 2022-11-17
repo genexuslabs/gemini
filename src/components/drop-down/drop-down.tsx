@@ -37,11 +37,6 @@ export class GxgDropDown {
   @Prop() maxWidth = "none";
 
   /**
-   * the dropdown max. height
-   */
-  @Prop() maxHeight = "120px";
-
-  /**
    * the dropdown height
    */
   @Prop() height = "auto";
@@ -282,7 +277,6 @@ export class GxgDropDown {
               "content-container--show": this.showContent,
             }}
             style={{
-              maxHeight: this.maxHeight,
               height: this.height,
             }}
             ref={(el) => (this.contentContainer = el as HTMLDivElement)}

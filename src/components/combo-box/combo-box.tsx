@@ -55,6 +55,11 @@ export class GxgComboBox {
   @Prop() disableFilter = false;
 
   /**
+   * The presence of this attribute disables the clear button
+   */
+  @Prop() disableClear = false;
+
+  /**
    * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined.
    * if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
    */
@@ -112,6 +117,8 @@ export class GxgComboBox {
     this.resizeObserver();
   }
   disconnectedCallback() {
+    console.log("disconnectedCallback");
+    console.log(this.myObserver);
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
     document.removeEventListener("scroll", this.detectMouseScroll, true);
@@ -168,6 +175,7 @@ export class GxgComboBox {
 
   @Listen("keyDownComboItem")
   keyDownComboItemHandler(event) {
+    event.stopPropagation();
     if (event.detail === "ArrowUp") {
       ((this.gxgFormText as unknown) as HTMLElement).focus();
     } else if (event.detail === "Tab" || event.detail === "Escape") {
@@ -498,7 +506,9 @@ export class GxgComboBox {
               readonly={this.disableFilter}
               ref={(el) => (this.gxgFormText = (el as unknown) as GxgFormText)}
             ></gxg-form-text>
-            {this.inputTextValue !== "" && !this.disableFilter ? (
+            {this.inputTextValue !== "" &&
+            !this.disableFilter &&
+            !this.disableClear ? (
               <gxg-button
                 class={{ "delete-icon": true }}
                 icon="menus/delete"

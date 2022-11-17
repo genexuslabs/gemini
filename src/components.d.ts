@@ -293,6 +293,10 @@ export namespace Components {
     interface GxgComboBox {
         "close": () => Promise<void>;
         /**
+          * The presence of this attribute disables the clear button
+         */
+        "disableClear": boolean;
+        /**
           * The presence of this attribute disables the filter
          */
         "disableFilter": boolean;
@@ -448,10 +452,6 @@ export namespace Components {
           * the dropdown label (optional)
          */
         "label": string;
-        /**
-          * the dropdown max. height
-         */
-        "maxHeight": string;
         /**
           * The codropdownmbo max-width
          */
@@ -2066,6 +2066,10 @@ declare namespace LocalJSX {
     }
     interface GxgComboBox {
         /**
+          * The presence of this attribute disables the clear button
+         */
+        "disableClear"?: boolean;
+        /**
           * The presence of this attribute disables the filter
          */
         "disableFilter"?: boolean;
@@ -2241,10 +2245,6 @@ declare namespace LocalJSX {
           * the dropdown label (optional)
          */
         "label"?: string;
-        /**
-          * the dropdown max. height
-         */
-        "maxHeight"?: string;
         /**
           * The codropdownmbo max-width
          */

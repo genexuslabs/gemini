@@ -23,6 +23,9 @@ ch-paginator-pages::part(button) {
     background-color: var(--color-secondary-hover);
   }
 }
+ch-paginator-pages::part(button) {
+  color: var(--color-on-secondary);
+}
 ch-paginator-navigate {
   display: inline-block;
   background-repeat: no-repeat;

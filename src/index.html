@@ -12,103 +12,105 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style>
-      html.dark {
-        background-color: #1d1e22;
-      }
-      .flex {
-        display: flex;
-        gap: 10px;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
-    <div class="flex">
-      <gxg-list-box
-        single-selection
-        id="list-box-1"
-        the-title="listbox without multi-selection"
-      >
-        <gxg-list-box-item>0.Common</gxg-list-box-item>
-        <gxg-list-box-item id="bpm" icon="objects/business-process-diagram"
-          >1.BPM</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/conversational-flows"
-          >2.Chatbots</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/data-provider"
-          >3.Data Management</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/bg-color"
-          >4.Resources</gxg-list-box-item
-        >
-        <gxg-list-box-item value="otro value" icon="objects/webpanel"
-          >5.User interface</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dashboard"
-          >6.Dashboard</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/deployment-unit"
-          >7.Deployment Unit</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
-        <gxg-list-box-item icon="objects/structured-data-type"
-          >9.Structured Data Type</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/url-rewrite"
-          >10.URL Rewrite</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/stencil">11.Stencil</gxg-list-box-item>
-      </gxg-list-box>
-
-      <gxg-list-box id="list-box-2" the-title="listbox with multi-selection">
-        <gxg-list-box-item>Common</gxg-list-box-item>
-        <gxg-list-box-item icon="objects/business-process-diagram"
-          >BPM</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/conversational-flows"
-          >Chatbots</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/data-provider"
-          >Data Management</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/bg-color">Resources</gxg-list-box-item>
-        <gxg-list-box-item value="otro value" icon="objects/webpanel"
-          >User interface</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dashboard"
-          >Dashboard</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/deployment-unit"
-          >Deployment Unit</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dso">DSO</gxg-list-box-item>
-        <gxg-list-box-item icon="objects/structured-data-type"
-          >Structured Data Type</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/url-rewrite"
-          >URL Rewrite</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
-      </gxg-list-box>
-    </div>
-
-    <script>
-      const bpm = document.getElementById("bpm");
-      bpm.addEventListener("click", function () {
-        listBox2.innerHTML =
-          '<gxg-list-box-item icon="objects/conversational-flows">Chatbots</gxg-list-box-item>';
-      });
-
-      let listBox1 = document.getElementById("list-box-1");
-      listBox1.addEventListener("selectionChanged", (e) => {
-        console.log(e.detail);
-      });
-
-      let listBox2 = document.getElementById("list-box-2");
-      listBox2.addEventListener("selectionChanged", (e) => {
-        console.log(e.detail);
-      });
-    </script>
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-actionbar slot="header">
+          <ch-grid-action-refresh></ch-grid-action-refresh>
+          <ch-grid-action-settings></ch-grid-action-settings>
+        </ch-grid-actionbar>
+        <ch-grid-columnset>
+          <ch-grid-column
+            settingable
+            column-name="Codigo"
+            column-name-position="text"
+          >
+            <div slot="settings">settings</div>
+          </ch-grid-column>
+          <ch-grid-column
+            column-name="Poblacion"
+            column-name-position="text"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="City"
+            column-name-position="text"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+      </ch-grid>
+    </gxg-grid>
+    <gxg-paginator>
+      <ch-paginator slot="footer">
+        <ch-paginator-navigate type="first"></ch-paginator-navigate>
+        <ch-paginator-navigate type="previous"></ch-paginator-navigate>
+        <ch-paginator-pages
+          active-page="30"
+          total-pages="117"
+        ></ch-paginator-pages>
+        <ch-paginator-navigate type="next"></ch-paginator-navigate>
+        <ch-paginator-navigate type="last"></ch-paginator-navigate>
+      </ch-paginator>
+    </gxg-paginator>
   </body>
 </html>

@@ -14,7 +14,6 @@
 | `height`      | `height`       | the dropdown height                      | `string`            | `"auto"`   |
 | `icon`        | `icon`         | the dropdown icon (optional)             | `string`            | `""`       |
 | `label`       | `label`        | the dropdown label (optional)            | `string`            | `""`       |
-| `maxHeight`   | `max-height`   | the dropdown max. height                 | `string`            | `"120px"`  |
 | `maxWidth`    | `max-width`    | The codropdownmbo max-width              | `string`            | `"none"`   |
 | `minWidth`    | `min-width`    | The dropdown min-width                   | `string`            | `"0"`      |
 | `position`    | `position`     | The container 'items container' position | `"bottom" \| "top"` | `"bottom"` |

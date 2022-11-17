@@ -84,6 +84,7 @@ export class GxgComboBoxItem {
 
   onKeyDown(e) {
     e.preventDefault();
+    e.stopPropagation();
     if (e.code === "ArrowDown") {
       let nextItem = this.el.nextElementSibling;
       while (nextItem !== null && nextItem.classList.contains("hidden")) {
@@ -142,7 +143,7 @@ export class GxgComboBoxItem {
         }}
       >
         <div class="container">
-          {this.icon !== undefined ? (
+          {this.icon ? (
             <gxg-icon
               color={this.iconColor}
               size={this.iconSize()}

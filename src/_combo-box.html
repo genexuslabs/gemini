@@ -31,7 +31,7 @@
     <!---------------------- COMBO 1 ---------------------->
     <!----------------------------------------------------->
 
-    <div class="container">
+    <div class="container" id="container-1">
       <gxg-combo-box
         id="gxgCombo1"
         disable-filter
@@ -40,9 +40,7 @@
         width="100%"
       >
         <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-        <gxg-combo-box-item value="bpm" icon="objects/business-process-diagram"
-          >BPM</gxg-combo-box-item
-        >
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
         <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
           >Chatbots</gxg-combo-box-item
         >
@@ -234,6 +232,11 @@
     >
 
     <script>
+      const container1 = document.querySelector("#container-1");
+      container1.addEventListener("keydown", function () {
+        console.log("key pressed 2");
+      });
+
       const gxgCombo2 = document.getElementById("gxgCombo2");
       const btnChangeValue2 = document.getElementById("setBPMValue2");
       btnChangeValue2.addEventListener("click", function (e) {
