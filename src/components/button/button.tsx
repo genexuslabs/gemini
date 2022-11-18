@@ -1,12 +1,4 @@
-import {
-  Component,
-  Element,
-  h,
-  Host,
-  Prop,
-  Listen,
-  State,
-} from "@stencil/core";
+import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { Size } from "../icon/icon";
 import state from "../store";
