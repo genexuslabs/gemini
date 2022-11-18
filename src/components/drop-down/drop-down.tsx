@@ -39,7 +39,7 @@ export class GxgDropDown {
   /**
    * the dropdown height
    */
-  @Prop() height = "auto";
+  @Prop() dropDownHeight = "auto";
 
   /**
    * the dropdown label (optional)
@@ -277,7 +277,7 @@ export class GxgDropDown {
               "content-container--show": this.showContent,
             }}
             style={{
-              height: this.height,
+              height: this.dropDownHeight,
             }}
             ref={(el) => (this.contentContainer = el as HTMLDivElement)}
           >

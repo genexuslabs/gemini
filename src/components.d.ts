@@ -443,7 +443,7 @@ export namespace Components {
         /**
           * the dropdown height
          */
-        "height": string;
+        "dropDownHeight": string;
         /**
           * the dropdown icon (optional)
          */
@@ -2236,7 +2236,7 @@ declare namespace LocalJSX {
         /**
           * the dropdown height
          */
-        "height"?: string;
+        "dropDownHeight"?: string;
         /**
           * the dropdown icon (optional)
          */

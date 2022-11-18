@@ -15,102 +15,133 @@
     <style></style>
   </head>
   <body>
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-actionbar slot="header">
-          <ch-grid-action-refresh></ch-grid-action-refresh>
-          <ch-grid-action-settings></ch-grid-action-settings>
-        </ch-grid-actionbar>
-        <ch-grid-columnset>
-          <ch-grid-column
-            settingable
-            column-name="Codigo"
-            column-name-position="text"
-          >
-            <div slot="settings">settings</div>
-          </ch-grid-column>
-          <ch-grid-column
-            column-name="Poblacion"
-            column-name-position="text"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="City"
-            column-name-position="text"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-      </ch-grid>
-    </gxg-grid>
-    <gxg-paginator>
-      <ch-paginator slot="footer">
-        <ch-paginator-navigate type="first"></ch-paginator-navigate>
-        <ch-paginator-navigate type="previous"></ch-paginator-navigate>
-        <ch-paginator-pages
-          active-page="30"
-          total-pages="117"
-        ></ch-paginator-pages>
-        <ch-paginator-navigate type="next"></ch-paginator-navigate>
-        <ch-paginator-navigate type="last"></ch-paginator-navigate>
-      </ch-paginator>
-    </gxg-paginator>
+    <!-------------------------------------------------------------------------------------------------------------------------------
+         BUTTONS
+         --------------------------------------------------------------------------------------------------------------------------------->
+    <h3>Buttons</h3>
+    <gxg-button type="primary-text-only">Label</gxg-button>
+    <gxg-button type="primary-text-icon" icon="navigation/arrow-down"
+      >Label</gxg-button
+    >
+    <gxg-button type="primary-text-icon" icon="controls/action-group"
+      >Label</gxg-button
+    >
+    <gxg-button type="primary-text-icon" icon="gemini-tools/folder"
+      >Label</gxg-button
+    >
+    <gxg-button type="primary-icon-only" icon="gemini-tools/folder"
+      >Label</gxg-button
+    >
+    <gxg-button type="secondary-text-only" id="secondary-text-only"
+      >Secondary text only</gxg-button
+    >
+    <gxg-button type="secondary-text-icon" icon="gemini-tools/folder"
+      >Label</gxg-button
+    >
+    <gxg-button
+      type="secondary-icon-only"
+      icon="gemini-tools/folder"
+    ></gxg-button>
+    <gxg-button
+      type="secondary-icon-only"
+      icon="gemini-tools/edit"
+    ></gxg-button>
+    <gxg-button
+      type="secondary-icon-only"
+      icon="gemini-tools/duplicate"
+    ></gxg-button>
+    <gxg-button
+      type="secondary-icon-only"
+      icon="gemini-tools/delete"
+    ></gxg-button>
+    <gxg-button type="outlined">Label</gxg-button>
+    <gxg-button icon="gemini-tools/folder" type="outlined-text-icon"
+      >Label</gxg-button
+    >
+    <gxg-button icon="navigation/arrow-down" type="tertiary"></gxg-button>
+    <gxg-button icon="controls/google-analytics" type="tertiary"></gxg-button>
+    <gxg-button
+      class="button-with-action"
+      icon="controls/table-column"
+      type="tertiary"
+    ></gxg-button>
+    <br />
+    <gxg-button disabled type="primary-text-only">Label</gxg-button>
+    <gxg-button disabled type="primary-text-icon" icon="navigation/arrow-down"
+      >Label</gxg-button
+    >
+    <gxg-button disabled type="primary-text-icon" icon="controls/action-group"
+      >Label</gxg-button
+    >
+    <gxg-button disabled type="primary-text-icon" icon="gemini-tools/folder"
+      >Label</gxg-button
+    >
+    <gxg-button disabled type="primary-icon-only" icon="gemini-tools/folder"
+      >Label</gxg-button
+    >
+    <gxg-button disabled type="secondary-text-only">Label</gxg-button>
+    <gxg-button disabled type="secondary-text-icon" icon="gemini-tools/folder"
+      >Label</gxg-button
+    >
+    <gxg-button
+      disabled
+      type="secondary-icon-only"
+      icon="gemini-tools/folder"
+    ></gxg-button>
+    <gxg-button
+      disabled
+      type="secondary-icon-only"
+      icon="gemini-tools/edit"
+    ></gxg-button>
+    <gxg-button
+      disabled
+      type="secondary-icon-only"
+      icon="gemini-tools/duplicate"
+    ></gxg-button>
+    <gxg-button
+      disabled
+      type="secondary-icon-only"
+      icon="gemini-tools/delete"
+    ></gxg-button>
+    <gxg-button disabled type="outlined">Label</gxg-button>
+    <gxg-button disabled icon="gemini-tools/folder" type="outlined-text-icon"
+      >Label</gxg-button
+    >
+    <gxg-button
+      disabled
+      icon="navigation/arrow-down"
+      type="tertiary"
+    ></gxg-button>
+    <gxg-button
+      disabled
+      icon="controls/google-analytics"
+      type="tertiary"
+    ></gxg-button>
+    <gxg-button
+      class="button-with-action"
+      disabled
+      icon="controls/table-column"
+      type="tertiary"
+    ></gxg-button>
+    <br />
+
+    <button id="set-focus-button">Set focus</button>
+    <script>
+      let buttonsWithAction = document.getElementsByClassName(
+        "button-with-action"
+      );
+      for (let button of buttonsWithAction) {
+        button.addEventListener("click", function () {
+          alert("hola");
+        });
+      }
+      let secondaryTextOnlyButton = document.getElementById(
+        "secondary-text-only"
+      );
+      let setFocusButton = document.getElementById("set-focus-button");
+      setFocusButton.addEventListener("click", function () {
+        secondaryTextOnlyButton.focus();
+      });
+    </script>
   </body>
 </html>

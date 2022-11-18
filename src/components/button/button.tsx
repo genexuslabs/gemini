@@ -14,7 +14,7 @@ import state from "../store";
 @Component({
   tag: "gxg-button",
   styleUrl: "button.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgButton {
   @Element() el: HTMLElement;
@@ -168,14 +168,6 @@ export class GxgButton {
     if (this.disabled) {
       e.preventDefault();
     }
-  }
-
-  @Listen("focus")
-  handleFocus(focusEvent: Event) {
-    if (focusEvent.target !== this.el) {
-      return;
-    }
-    this.button.focus();
   }
 
   onMouseEnter() {
