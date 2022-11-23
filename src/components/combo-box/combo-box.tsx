@@ -458,7 +458,7 @@ export class GxgComboBox {
   repositionItemsContainer() {
     //redefine .main-container width
     const gxgComboWidth = this.el.clientWidth;
-    this.mainContainer.style.width = gxgComboWidth + "px";
+    this.itemsContainer.style.width = gxgComboWidth + "px";
     //redefine .items-container "top" value
     const gxgComboCoordinates = this.el.getBoundingClientRect();
     const gxgComboY = gxgComboCoordinates.y;

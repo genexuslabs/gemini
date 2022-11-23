@@ -7,7 +7,7 @@
 | Property          | Attribute          | Description                                                            | Type      | Default   |
 | ----------------- | ------------------ | ---------------------------------------------------------------------- | --------- | --------- |
 | `checkboxes`      | `checkboxes`       | The prescence of this attribute will display a checkbox for every item | `boolean` | `false`   |
-| `maxHeight`       | `max-height`       | The list-box max-height                                                | `string`  | `"none"`  |
+| `height`          | `height`           | The list-box height                                                    | `string`  | `"auto"`  |
 | `maxWidth`        | `max-width`        | The list-box max-width                                                 | `string`  | `"none"`  |
 | `minWidth`        | `min-width`        | The list-box min-width                                                 | `string`  | `"0"`     |
 | `singleSelection` | `single-selection` | The prescence of this attribute will deactivate multi-selection        | `boolean` | `false`   |

@@ -46,9 +46,9 @@ export class GxgListBox {
   @Prop() maxWidth = "none";
 
   /**
-   * The list-box max-height
+   * The list-box height
    */
-  @Prop() maxHeight = "none";
+  @Prop() height = "auto";
 
   /**
    * The prescence of this attribute will display a checkbox for every item
@@ -339,7 +339,7 @@ export class GxgListBox {
           {this.theTitle ? (
             <header class={{ header: true }}>{this.theTitle}</header>
           ) : null}
-          <main class={{ main: true }} style={{ maxHeight: this.maxHeight }}>
+          <main class={{ main: true }} style={{ height: this.height }}>
             <slot></slot>
           </main>
         </div>
