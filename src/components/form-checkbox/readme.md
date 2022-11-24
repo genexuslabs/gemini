@@ -34,14 +34,14 @@
 
 ### Used by
 
-- [gxg-list-box](../list-box)
+- [gxg-list-box-item](../list-box-item)
 - [gxg-tree-item](../tree-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-list-box --> gxg-form-checkbox
+  gxg-list-box-item --> gxg-form-checkbox
   gxg-tree-item --> gxg-form-checkbox
   style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -67,19 +67,6 @@ export class GxgListBox {
 
   @State() lastSelectedItemIndex: number | undefined = undefined;
 
-  componentWillLoad() {
-    //Set checkboxes
-    if (this.checkboxes) {
-      const items = this.el.querySelectorAll("gxg-list-box-item");
-      items.forEach((item) => {
-        const checkbox = document.createElement("gxg-form-checkbox");
-        checkbox.setAttribute("slot", "checkbox");
-        checkbox.setAttribute("tabindex", "-1");
-        item.prepend(checkbox);
-      });
-    }
-  }
-
   setUpItems() {
     //Set index and Tabindex
     const itemsNodeList = this.el.querySelectorAll("gxg-list-box-item");
@@ -93,42 +80,23 @@ export class GxgListBox {
     });
   }
 
-  componentDidLoad() {
-    //Set selected item
-    this.setSelectedItem();
-  }
-
   setSelectedItem() {
     //1. If no list-box-item is initially selected, the first list-box-item should be selected
-    //2. If the list-box is not multi-selection, only one list-box-item sould be selected.
-    //3. For each selected list-box-item with checkbox, check the checkbox.
+    //2. If the list-box is single-selection, only one list-box-item sould be selected.
 
     const selectedItems = this.el.querySelectorAll(
-      "gxg-list-box-item.selected"
+      "gxg-list-box-item[selected]"
     );
     if (selectedItems.length === 0) {
       const firstItem = this.el.querySelector("gxg-list-box-item");
       this.toggleItem(firstItem);
     } else {
-      if (selectedItems.length === 1) {
-        if (this.checkboxes) {
-          const item = selectedItems[0];
-          const checkbox = item.querySelector("gxg-form-checkbox");
-          checkbox.checked = true;
-        }
-      } else {
-        //More than one list-box-item is selected
-        if (this.singleSelection) {
-          selectedItems.forEach((item, index) => {
-            if (index !== 0) {
-              this.toggleItem(item);
-            }
-          });
-        } else if (this.checkboxes) {
-          selectedItems.forEach((item) => {
-            const checkbox = item.querySelector("gxg-form-checkbox");
-            checkbox.checked = true;
-          });
+      if (selectedItems.length > 1 && this.singleSelection) {
+        this.clearSelectedItems();
+        if (((selectedItems[0] as unknown) as GxgListboxItem).index === 0) {
+          this.selectItem(selectedItems[1]);
+        } else {
+          this.selectItem(selectedItems[0]);
         }
       }
     }
@@ -137,6 +105,7 @@ export class GxgListBox {
   @Listen("itemLoaded")
   itemLoadedHandler() {
     this.setUpItems();
+    this.setSelectedItem();
   }
 
   @Listen("itemClicked")
@@ -247,10 +216,12 @@ export class GxgListBox {
   }
 
   clearSelectedItems() {
-    const actualSelectedItems = this.el.querySelectorAll(".selected");
+    const actualSelectedItems = this.el.querySelectorAll(
+      "gxg-list-box-item[selected]"
+    );
     if (actualSelectedItems.length > 0) {
       actualSelectedItems.forEach((item) => {
-        item.classList.remove("selected");
+        ((item as unknown) as GxgListboxItem).selected = false;
         //set icon color to auto
         ((item as unknown) as GxgListboxItem).iconColor = "auto";
         //checkbox
@@ -267,7 +238,8 @@ export class GxgListBox {
   }
 
   selectItem(item) {
-    item.classList.add("selected");
+    //item.classList.add("selected");
+    ((item as unknown) as GxgListboxItem).selected = true;
     //set icon color to negative
     ((item as unknown) as GxgListboxItem).iconColor = "negative";
     //checkbox
@@ -278,7 +250,8 @@ export class GxgListBox {
   }
 
   unselectItem(item) {
-    item.classList.remove("selected");
+    //item.classList.remove("selected");
+    ((item as unknown) as GxgListboxItem).selected = false;
     //set icon color to auto
     ((item as unknown) as GxgListboxItem).iconColor = "auto";
     //checkbox
@@ -289,7 +262,11 @@ export class GxgListBox {
   }
 
   toggleItem(item) {
-    item.classList.toggle("selected");
+    if (((item as unknown) as GxgListboxItem).selected === false) {
+      ((item as unknown) as GxgListboxItem).selected = true;
+    } else {
+      ((item as unknown) as GxgListboxItem).selected = false;
+    }
     const checkbox = item.querySelector("gxg-form-checkbox");
     if (checkbox !== null) {
       if (checkbox.checked === true) {

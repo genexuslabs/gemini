@@ -28,20 +28,6 @@
 
 Type: `Promise<any[]>`
 
-## Dependencies
-
-### Depends on
-
-- [gxg-form-checkbox](../form-checkbox)
-
-### Graph
-
-```mermaid
-graph TD;
-  gxg-list-box --> gxg-form-checkbox
-  style gxg-list-box fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

@@ -24,90 +24,100 @@
   </head>
   <body>
     <div class="flex">
-      <gxg-list-box
-        single-selection
-        id="list-box-1"
-        the-title="listbox without multi-selection"
-      >
-        <gxg-list-box-item>0.Common</gxg-list-box-item>
-        <gxg-list-box-item id="bpm" icon="objects/business-process-diagram"
-          >1.BPM</gxg-list-box-item
+      <div>
+        <gxg-list-box
+          id="list-box-1"
+          the-title="listbox single-selection"
+          single-selection
+          checkboxes
         >
-        <gxg-list-box-item icon="objects/conversational-flows"
-          >2.Chatbots</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/data-provider"
-          >3.Data Management</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/bg-color"
-          >4.Resources</gxg-list-box-item
-        >
-        <gxg-list-box-item value="otro value" icon="objects/webpanel"
-          >5.User interface</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dashboard"
-          >6.Dashboard</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/deployment-unit"
-          >7.Deployment Unit</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
-        <gxg-list-box-item icon="objects/structured-data-type"
-          >9.Structured Data Type</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/url-rewrite"
-          >10.URL Rewrite</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/stencil">11.Stencil</gxg-list-box-item>
-      </gxg-list-box>
+          <gxg-list-box-item>0.Common</gxg-list-box-item>
+          <gxg-list-box-item
+            selected
+            id="bpm"
+            icon="objects/business-process-diagram"
+            >1.BPM</gxg-list-box-item
+          >
+          <gxg-list-box-item id="chatbots" icon="objects/conversational-flows"
+            >2.Chatbots</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/data-provider"
+            >3.Data Management</gxg-list-box-item
+          >
+        </gxg-list-box>
+        <gxg-button id="add-item-single"> Add item </gxg-button>
+        <gxg-button id="add-items-single"> Add items </gxg-button>
+      </div>
 
-      <gxg-list-box id="list-box-2" the-title="listbox with multi-selection">
-        <gxg-list-box-item>Common</gxg-list-box-item>
-        <gxg-list-box-item icon="objects/business-process-diagram"
-          >BPM</gxg-list-box-item
+      <div>
+        <gxg-list-box
+          id="list-box-2"
+          the-title="listbox with multi-selection"
+          checkboxes
         >
-        <gxg-list-box-item icon="objects/conversational-flows"
-          >Chatbots</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/data-provider"
-          >Data Management</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/bg-color">Resources</gxg-list-box-item>
-        <gxg-list-box-item value="otro value" icon="objects/webpanel"
-          >User interface</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dashboard"
-          >Dashboard</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/deployment-unit"
-          >Deployment Unit</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/dso">DSO</gxg-list-box-item>
-        <gxg-list-box-item icon="objects/structured-data-type"
-          >Structured Data Type</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/url-rewrite"
-          >URL Rewrite</gxg-list-box-item
-        >
-        <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
-      </gxg-list-box>
+          <gxg-list-box-item>Common</gxg-list-box-item>
+          <gxg-list-box-item icon="objects/business-process-diagram"
+            >BPM</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/conversational-flows"
+            >Chatbots</gxg-list-box-item
+          >
+          <gxg-list-box-item selected icon="objects/data-provider"
+            >Data Management</gxg-list-box-item
+          >
+          <gxg-list-box-item selected icon="objects/bg-color"
+            >Resources</gxg-list-box-item
+          >
+          <gxg-list-box-item value="otro value" icon="objects/webpanel"
+            >User interface</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/dashboard"
+            >Dashboard</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/deployment-unit"
+            >Deployment Unit</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/dso">DSO</gxg-list-box-item>
+          <gxg-list-box-item icon="objects/structured-data-type"
+            >Structured Data Type</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/url-rewrite"
+            >URL Rewrite</gxg-list-box-item
+          >
+          <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
+        </gxg-list-box>
+        <gxg-button id="add-item-multiple"> Add item </gxg-button>
+        <gxg-button id="add-items-multiple"> Add items </gxg-button>
+      </div>
     </div>
 
     <script>
-      const bpm = document.getElementById("bpm");
-      bpm.addEventListener("click", function () {
+      const btnAddSingle = document.getElementById("add-item-single");
+      const btnAddSingles = document.getElementById("add-items-single");
+      const listBox1 = document.getElementById("list-box-1");
+      btnAddSingle.addEventListener("click", function () {
+        const item = document.createElement("gxg-list-box-item");
+        item.innerHTML = "Chatbots";
+        item.setAttribute("selected", "selected");
+        listBox1.appendChild(item);
+      });
+      btnAddSingles.addEventListener("click", function () {
+        listBox1.innerHTML =
+          '<gxg-list-box-item selected icon="objects/bg-color">Resources</gxg-list-box-item><gxg-list-box-item selected icon="objects/data-provider">Data Management</gxg-list-box-item><gxg-list-box-item selected icon="objects/bg-color">Resources</gxg-list-box-item>';
+      });
+
+      const btnAddMultiple = document.getElementById("add-item-multiple");
+      const btnAddMultiples = document.getElementById("add-items-multiple");
+      const listBox2 = document.getElementById("list-box-2");
+      btnAddMultiple.addEventListener("click", function () {
+        const item = document.createElement("gxg-list-box-item");
+        item.innerHTML = "Chatbots";
+        item.setAttribute("selected", "selected");
+        listBox2.appendChild(item);
+      });
+      btnAddMultiples.addEventListener("click", function () {
         listBox2.innerHTML =
-          '<gxg-list-box-item icon="objects/conversational-flows">Chatbots</gxg-list-box-item>';
-      });
-
-      let listBox1 = document.getElementById("list-box-1");
-      listBox1.addEventListener("selectionChanged", (e) => {
-        console.log(e.detail);
-      });
-
-      let listBox2 = document.getElementById("list-box-2");
-      listBox2.addEventListener("selectionChanged", (e) => {
-        console.log(e.detail);
+          '<gxg-list-box-item selected icon="objects/bg-color">Resources</gxg-list-box-item><gxg-list-box-item selected icon="objects/data-provider">Data Management</gxg-list-box-item><gxg-list-box-item selected icon="objects/bg-color">Resources</gxg-list-box-item>';
       });
     </script>
   </body>

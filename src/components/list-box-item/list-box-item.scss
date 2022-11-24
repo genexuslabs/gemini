@@ -27,7 +27,7 @@
     flex-shrink: 0;
   }
 
-  ::slotted(gxg-form-checkbox) {
+  gxg-form-checkbox {
     margin-inline-end: var(--spacing-comp-01);
   }
 }

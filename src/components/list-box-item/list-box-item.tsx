@@ -9,6 +9,7 @@ import {
   State,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
+import { GxgListBox } from "../list-box/list-box";
 import state from "../store";
 
 @Component({
@@ -26,7 +27,7 @@ export class GxgListboxItem {
   /**
    * The presence of this attribute sets this item as selected
    */
-  @Prop() selected = false;
+  @Prop({ reflect: true }) selected = false;
 
   /**
    * This property is set by the list-box item. It should not be set by the user.
@@ -58,13 +59,14 @@ export class GxgListboxItem {
    */
   @Prop() iconColor: Color = "auto";
 
-  @State() checkboxes = false;
+  @State() checkbox = false;
 
   componentWillLoad() {
-    const listbox = this.el.parentElement;
-    const listboxCheckboxes = listbox.getAttribute("checkboxes");
-    if (listboxCheckboxes !== null) {
-      this.checkboxes = true;
+    this.checkbox = ((this.el
+      .parentElement as unknown) as GxgListBox).checkboxes;
+
+    if (this.selected) {
+      this.iconColor = "negative";
     }
   }
 
@@ -113,7 +115,7 @@ export class GxgListboxItem {
       <Host
         class={{
           "has-icon": this.icon !== undefined,
-          "no-checkbox": !this.checkboxes,
+          "no-checkbox": !this.checkbox,
           large: state.large,
           selected: this.selected,
         }}
@@ -123,7 +125,9 @@ export class GxgListboxItem {
         onMouseOut={this.onMouseOut.bind(this)}
       >
         <div class="container">
-          <slot name="checkbox"></slot>
+          {this.checkbox ? (
+            <gxg-form-checkbox checked={this.selected}></gxg-form-checkbox>
+          ) : null}
           {this.icon !== undefined ? (
             <gxg-icon
               class="icon"
