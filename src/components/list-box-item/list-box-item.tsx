@@ -50,6 +50,11 @@ export class GxgListboxItem {
   @Event() itemLoaded: EventEmitter;
 
   /**
+   * (This event is for internal use.)
+   */
+  @Event() itemSelected: EventEmitter;
+
+  /**
    * The item value. If value is not provided, the value will be the item innerHTML.
    */
   @Prop() value: any = undefined;

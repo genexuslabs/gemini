@@ -14,11 +14,12 @@
 
 ## Events
 
-| Event         | Description                       | Type               |
-| ------------- | --------------------------------- | ------------------ |
-| `itemClicked` | (This event is for internal use.) | `CustomEvent<any>` |
-| `itemLoaded`  | (This event is for internal use.) | `CustomEvent<any>` |
-| `KeyPressed`  | (This event is for internal use.) | `CustomEvent<any>` |
+| Event          | Description                       | Type               |
+| -------------- | --------------------------------- | ------------------ |
+| `itemClicked`  | (This event is for internal use.) | `CustomEvent<any>` |
+| `itemLoaded`   | (This event is for internal use.) | `CustomEvent<any>` |
+| `itemSelected` | (This event is for internal use.) | `CustomEvent<any>` |
+| `KeyPressed`   | (This event is for internal use.) | `CustomEvent<any>` |
 
 ## Dependencies
 

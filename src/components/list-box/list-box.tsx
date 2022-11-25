@@ -9,6 +9,7 @@ import {
   Listen,
   State,
   Method,
+  Watch,
 } from "@stencil/core";
 import { GxgListboxItem } from "../list-box-item/list-box-item";
 import state from "../store";
@@ -238,7 +239,6 @@ export class GxgListBox {
   }
 
   selectItem(item) {
-    //item.classList.add("selected");
     ((item as unknown) as GxgListboxItem).selected = true;
     //set icon color to negative
     ((item as unknown) as GxgListboxItem).iconColor = "negative";
@@ -278,7 +278,9 @@ export class GxgListBox {
   }
 
   selectedItems() {
-    const selectedItems = this.el.querySelectorAll(".selected");
+    const selectedItems = this.el.querySelectorAll(
+      "gxg-list-box-item[selected]"
+    );
     const selectedItemsArray = [];
     selectedItems.forEach((item) => {
       const listBoxItem = (item as unknown) as GxgListboxItem;
