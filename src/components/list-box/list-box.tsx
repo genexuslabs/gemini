@@ -9,7 +9,6 @@ import {
   Listen,
   State,
   Method,
-  Watch,
 } from "@stencil/core";
 import { GxgListboxItem } from "../list-box-item/list-box-item";
 import state from "../store";
