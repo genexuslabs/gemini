@@ -231,16 +231,11 @@ export class GxgListBox {
   }
 
   selectItem(item) {
-    //((item as unknown) as GxgListboxItem).selected = true;
     (item as HTMLElement).setAttribute("selected", "");
-    //set icon color to negative
-    ((item as unknown) as GxgListboxItem).iconColor = "negative";
   }
 
   unselectItem(item) {
     (item as HTMLElement).removeAttribute("selected");
-    //set icon color to auto
-    ((item as unknown) as GxgListboxItem).iconColor = "auto";
   }
 
   toggleItem(item) {

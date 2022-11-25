@@ -132,7 +132,11 @@
       let btnListBoxCheckboxes = document.getElementById(
         "gxg-btn-list-box-checkboxes"
       );
-      btnListBoxCheckboxes.addEventListener("click", (e) => {});
+      btnListBoxCheckboxes.addEventListener("click", (e) => {
+        listBoxCheckboxes.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
     </script>
   </body>
 </html>
