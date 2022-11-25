@@ -221,14 +221,7 @@ export class GxgListBox {
     );
     if (actualSelectedItems.length > 0) {
       actualSelectedItems.forEach((item) => {
-        ((item as unknown) as GxgListboxItem).selected = false;
-        //set icon color to auto
-        ((item as unknown) as GxgListboxItem).iconColor = "auto";
-        //checkbox
-        const checkbox = item.querySelector("gxg-form-checkbox");
-        if (checkbox !== null) {
-          checkbox.checked = false;
-        }
+        this.unselectItem(item);
       });
     }
   }
@@ -238,41 +231,23 @@ export class GxgListBox {
   }
 
   selectItem(item) {
-    ((item as unknown) as GxgListboxItem).selected = true;
+    //((item as unknown) as GxgListboxItem).selected = true;
+    (item as HTMLElement).setAttribute("selected", "");
     //set icon color to negative
     ((item as unknown) as GxgListboxItem).iconColor = "negative";
-    //checkbox
-    const checkbox = item.querySelector("gxg-form-checkbox");
-    if (checkbox !== null) {
-      checkbox.checked = true;
-    }
   }
 
   unselectItem(item) {
-    //item.classList.remove("selected");
-    ((item as unknown) as GxgListboxItem).selected = false;
+    (item as HTMLElement).removeAttribute("selected");
     //set icon color to auto
     ((item as unknown) as GxgListboxItem).iconColor = "auto";
-    //checkbox
-    const checkbox = item.querySelector("gxg-form-checkbox");
-    if (checkbox !== null) {
-      checkbox.checked = false;
-    }
   }
 
   toggleItem(item) {
-    if (((item as unknown) as GxgListboxItem).selected === false) {
-      ((item as unknown) as GxgListboxItem).selected = true;
+    if ((item as HTMLElement).hasAttribute("selected")) {
+      this.unselectItem(item);
     } else {
-      ((item as unknown) as GxgListboxItem).selected = false;
-    }
-    const checkbox = item.querySelector("gxg-form-checkbox");
-    if (checkbox !== null) {
-      if (checkbox.checked === true) {
-        checkbox.checked = false;
-      } else {
-        checkbox.checked = true;
-      }
+      this.selectItem(item);
     }
   }
 
