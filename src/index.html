@@ -98,19 +98,203 @@
           <ch-grid-cell> 200 </ch-grid-cell>
           <ch-grid-cell> Buenos Aires </ch-grid-cell>
         </ch-grid-row>
+        <div class="footer" slot="footer">
+          <gxg-paginator>
+            <ch-paginator>
+              <ch-paginator-navigate type="first"></ch-paginator-navigate>
+              <ch-paginator-navigate type="previous"></ch-paginator-navigate>
+              <ch-paginator-pages
+                active-page="30"
+                total-pages="117"
+              ></ch-paginator-pages>
+              <ch-paginator-navigate type="next"></ch-paginator-navigate>
+              <ch-paginator-navigate type="last"></ch-paginator-navigate>
+            </ch-paginator>
+          </gxg-paginator>
+        </div>
       </ch-grid>
     </gxg-grid>
-    <gxg-paginator>
-      <ch-paginator slot="footer">
-        <ch-paginator-navigate type="first"></ch-paginator-navigate>
-        <ch-paginator-navigate type="previous"></ch-paginator-navigate>
-        <ch-paginator-pages
-          active-page="30"
-          total-pages="117"
-        ></ch-paginator-pages>
-        <ch-paginator-navigate type="next"></ch-paginator-navigate>
-        <ch-paginator-navigate type="last"></ch-paginator-navigate>
-      </ch-paginator>
-    </gxg-paginator>
+    <br />
+    <!-- <gxg-form-checkbox
+      label="orange"
+      id="orange"
+      name="orange"
+      value="orange"
+    ></gxg-form-checkbox> -->
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            column-name=""
+            settingable="false"
+            column-type="rich"
+            rich-row-drag
+            size="min-content"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name=""
+            settingable="false"
+            column-type="rich"
+            rich-row-selector
+            size="min-content"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Property"
+            settingable="false"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Value"
+            settingable="false"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+
+        <ch-grid-row selected>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Nombre</ch-grid-cell>
+          <ch-grid-cell>Productos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>English</ch-grid-cell>
+          <ch-grid-cell>Products</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Português</ch-grid-cell>
+          <ch-grid-cell>Produtos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Redireccionar a</ch-grid-cell>
+          <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+          <ch-grid-cell>Found</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Url amigable</ch-grid-cell>
+          <ch-grid-cell>productos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>English</ch-grid-cell>
+          <ch-grid-cell>products</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Português</ch-grid-cell>
+          <ch-grid-cell>produtos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Id</ch-grid-cell>
+          <ch-grid-cell>7867</ch-grid-cell>
+        </ch-grid-row>
+
+        <div class="header" slot="header">
+          <span>HEADER</span>
+        </div>
+        <div class="footer" slot="footer">
+          <span>FOOTER</span>
+        </div>
+        <div slot="row-actions">
+          <gxg-button type="primary-text-icon" icon="controls/action-group"
+            >Action A</gxg-button
+          >
+          <gxg-button type="primary-text-icon" icon="controls/action-group"
+            >Action B</gxg-button
+          >
+        </div>
+      </ch-grid>
+    </gxg-grid>
+    <br />
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            column-name="Property"
+            settingable="false"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Value"
+            settingable="false"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+
+        <ch-grid-rowset>
+          <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
+
+          <ch-grid-row>
+            <ch-grid-cell>Nombre</ch-grid-cell>
+            <ch-grid-cell>Productos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>English</ch-grid-cell>
+            <ch-grid-cell>Products</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>Português</ch-grid-cell>
+            <ch-grid-cell>Produtos</ch-grid-cell>
+          </ch-grid-row>
+        </ch-grid-rowset>
+
+        <ch-grid-rowset>
+          <ch-grid-rowset-legend>Redirección</ch-grid-rowset-legend>
+
+          <ch-grid-row>
+            <ch-grid-cell>Redireccionar a</ch-grid-cell>
+            <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+            <ch-grid-cell>Found</ch-grid-cell>
+          </ch-grid-row>
+        </ch-grid-rowset>
+
+        <ch-grid-rowset>
+          <ch-grid-rowset-legend>Url</ch-grid-rowset-legend>
+
+          <ch-grid-row>
+            <ch-grid-cell>Url amigable</ch-grid-cell>
+            <ch-grid-cell>productos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>English</ch-grid-cell>
+            <ch-grid-cell>products</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>Português</ch-grid-cell>
+            <ch-grid-cell>produtos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-rowset>
+            <ch-grid-rowset-legend>Permalink</ch-grid-rowset-legend>
+
+            <ch-grid-row>
+              <ch-grid-cell>Id</ch-grid-cell>
+              <ch-grid-cell>7867</ch-grid-cell>
+            </ch-grid-row>
+          </ch-grid-rowset>
+        </ch-grid-rowset>
+
+        <div class="header" slot="header">
+          <span>HEADER</span>
+        </div>
+        <div class="footer" slot="footer">
+          <span>FOOTER</span>
+        </div>
+      </ch-grid>
+    </gxg-grid>
   </body>
 </html>
