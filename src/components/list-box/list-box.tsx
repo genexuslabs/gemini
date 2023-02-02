@@ -24,6 +24,7 @@ export class GxgListBox {
    */
   @Event() selectionChanged: EventEmitter;
   @Element() el: HTMLElement;
+  header!: HTMLElement;
 
   /**
    * The listbox title that appears on the header
@@ -66,6 +67,13 @@ export class GxgListBox {
   }
 
   @State() lastSelectedItemIndex: number | undefined = undefined;
+  @State() headerHeight = 0;
+
+  componentDidRender() {
+    if (this.theTitle) {
+      this.headerHeight = this.header.clientHeight;
+    }
+  }
 
   setUpItems() {
     //Set index and Tabindex
@@ -275,19 +283,35 @@ export class GxgListBox {
 
   render() {
     return (
-      <Host class={{ large: state.large }}>
+      <Host
+        class={{ large: state.large }}
+        style={{
+          height: this.height,
+        }}
+      >
         <div
           style={{
             width: this.width,
             minWidth: this.minWidth,
             maxWidth: this.maxWidth,
+            height: "100%",
           }}
           class={{ container: true }}
         >
           {this.theTitle ? (
-            <header class={{ header: true }}>{this.theTitle}</header>
+            <header
+              class={{ header: true }}
+              ref={(el) => (this.header = el as HTMLElement)}
+            >
+              {this.theTitle}
+            </header>
           ) : null}
-          <main class={{ main: true }} style={{ height: this.height }}>
+          <main
+            class={{ main: true }}
+            style={{
+              height: `calc(100% - ${this.headerHeight}px)`,
+            }}
+          >
             <slot></slot>
           </main>
         </div>

@@ -5,11 +5,17 @@
   font-size: var(--font-size-sm);
   @include gxg-scroll;
 
+  .container {
+    height: 100%;
+  }
+
   .header {
-    min-height: var(--spacing-comp-05);
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
     background-color: var(--gray-02);
-    display: flex;
-    align-items: center;
     padding: var(--spacing-comp-01) var(--spacing-comp-02);
     font-family: var(--font-family-primary);
     text-transform: uppercase;
