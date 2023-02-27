@@ -792,6 +792,7 @@ export namespace Components {
         "label": string;
     }
     interface GxgModal {
+        "close": () => Promise<void>;
         /**
           * The footer justify content type
          */

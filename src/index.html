@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,40 +11,8 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-
-    <style>
-      html.dark {
-        background-color: #1d1e22;
-      }
-    </style>
   </head>
   <body>
-    <gxg-modal id="modal" modal-title="Modal title">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-      delectus ullam asperiores ab itaque! Magnam, dolorum reprehenderit, fugiat
-      molestiae animi sequi quos, praesentium eligendi a voluptatem eum
-      excepturi esse magni.
-      <gxg-button
-        slot="footer"
-        type="secondary-text-only"
-        id="cancelModalButton"
-        >Cancel</gxg-button
-      >
-      <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>
-      <gxg-button slot="footer" type="primary-text-only"
-        >Other Button</gxg-button
-      >
-    </gxg-modal>
-    <button id="showModalButton">Show modal</button>
-    <script>
-      const showModalButton = document.getElementById("showModalButton");
-      const modal = document.getElementById("modal");
-      showModalButton.addEventListener("click", function () {});
-
-      const cancelButton = document.getElementById("cancelModalButton");
-      cancelButton.addEventListener("click", function () {
-        modal.setAttribute("visible", "false");
-      });
-    </script>
+    <gxg-test></gxg-test>
   </body>
 </html>

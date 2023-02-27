@@ -1,4 +1,13 @@
-import { Component, Element, Prop, h, Host, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Prop,
+  h,
+  Host,
+  State,
+  Watch,
+  Method,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-modal",
@@ -61,6 +70,12 @@ export class GxgModal {
     );
   }
 
+  @Method()
+  public close(): void {
+    // Implementation of the method
+    this.closeModal();
+  }
+
   @Watch("visible")
   watchVisibleHandler() {
     if (this.visible === true) {
@@ -78,6 +93,7 @@ export class GxgModal {
         50
       );
     } else {
+      console.log("close modal");
       this.closeModal.bind(this);
     }
   }
