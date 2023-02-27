@@ -77,6 +77,8 @@ export class GxgModal {
         }.bind(this),
         50
       );
+    } else {
+      this.closeModal.bind(this);
     }
   }
 
