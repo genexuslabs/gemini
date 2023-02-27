@@ -139,3 +139,10 @@
 :host([disabled="true"]) label {
   cursor: not-allowed;
 }
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) .label {
+  font-size: var(--font-size-lg);
+}

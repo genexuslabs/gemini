@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-form-checkbox",
@@ -113,6 +114,9 @@ export class GxgFormCheckbox {
         value={this.value}
         aria-checked={this.ariaChecked}
         aria-label={this.label}
+        class={{
+          large: state.large,
+        }}
       >
         <label class="label">
           <input
