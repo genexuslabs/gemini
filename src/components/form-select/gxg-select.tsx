@@ -7,6 +7,7 @@ import {
   h,
   Host,
   Watch,
+  Method,
   State,
   Listen,
 } from "@stencil/core";
@@ -91,6 +92,7 @@ export class GxgFormSelect {
   @State() rtl = false;
 
   @State() rerender = false;
+  private selectIsOpen = false;
 
   @Listen("optionIsSelected")
   todoCompletedHandler(event) {
@@ -310,6 +312,16 @@ export class GxgFormSelect {
       }
     }
     document.addEventListener("click", closeAllSelect.bind(this));
+  }
+
+  @Method()
+  async isOpen() {
+    const selectItems = this.el.shadowRoot.querySelector(".select-items");
+    if (selectItems.classList.contains("select-hide")) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   @Watch("value")

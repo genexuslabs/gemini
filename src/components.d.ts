@@ -910,6 +910,7 @@ export namespace Components {
           * The presence of this attribute stylizes the component with error attributes
          */
         "error": boolean;
+        "isOpen": () => Promise<boolean>;
         /**
           * The select label
          */

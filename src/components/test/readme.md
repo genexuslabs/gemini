@@ -15,6 +15,8 @@
 
 - [gxg-modal](../modal)
 - [gxg-button](../button)
+- [gxg-select](../form-select)
+- [gxg-option](../form-option)
 
 ### Graph
 
@@ -22,6 +24,8 @@
 graph TD;
   gxg-test --> gxg-modal
   gxg-test --> gxg-button
+  gxg-test --> gxg-select
+  gxg-test --> gxg-option
   gxg-modal --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon

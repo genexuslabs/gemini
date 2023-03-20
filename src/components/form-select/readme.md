@@ -77,6 +77,28 @@
 | -------- | ---------------------------------------- | ------------------ |
 | `change` | Returns the value of the selected option | `CustomEvent<any>` |
 
+## Methods
+
+### `isOpen() => Promise<boolean>`
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+## Dependencies
+
+### Used by
+
+- [gxg-test](../test)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-test --> gxg-select
+  style gxg-select fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

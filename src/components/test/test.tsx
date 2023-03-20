@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
 import { GxgComboBox } from "../combo-box/combo-box";
+import { GxgFormSelect } from "../form-select/gxg-select";
 import { GxgModal } from "../modal/modal";
 import state from "../store";
 
@@ -17,6 +18,7 @@ export class GxgTest {
   modalCloseButton!: HTMLElement;
   modal!: HTMLElement;
   showModal!: HTMLElement;
+  gxgSelect!: GxgFormSelect;
 
   componentDidLoad() {
     setTimeout(() => {
@@ -41,6 +43,13 @@ export class GxgTest {
     this.showModal.addEventListener("click", () => {
       ((this.modal as unknown) as GxgModal).visible = true;
     });
+
+    setTimeout(() => {
+      (async () => {
+        const isOpen = await this.gxgSelect.isOpen();
+        console.log(isOpen);
+      })();
+    }, 2000);
   }
 
   getValue() {
@@ -95,6 +104,25 @@ export class GxgTest {
         >
           show modal
         </gxg-button>
+
+        <gxg-select
+          label="Select a car:"
+          label-position="above"
+          max-width="240px"
+          size="5"
+          id="gxg-select"
+          ref={(el) => (this.gxgSelect = (el as unknown) as GxgFormSelect)}
+        >
+          <gxg-option value="0">Select car:</gxg-option>
+          <gxg-option value="1">Audi</gxg-option>
+          <gxg-option value="2">BMW</gxg-option>
+          <gxg-option value="3">Citroen</gxg-option>
+          <gxg-option value="4">Ford</gxg-option>
+          <gxg-option value="5">Honda</gxg-option>
+          <gxg-option value="6">Jaguar</gxg-option>
+          <gxg-option value="7">Land Rover</gxg-option>
+          <gxg-option value="8">Mercedes</gxg-option>
+        </gxg-select>
       </Host>
     );
   }

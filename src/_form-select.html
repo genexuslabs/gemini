@@ -34,10 +34,12 @@
     </gxg-select>
     <br />
     <gxg-button id="btn-show-errors">Show errors</gxg-button>
+    <gxg-button id="btn-focus-select">Focus select</gxg-button>
     <script>
       const btnShowErrors = document.getElementById("btn-show-errors");
+      const btnFocusSelect = document.getElementById("btn-focus-select");
+      const gxgSelect = document.getElementById("gxg-select");
       btnShowErrors.addEventListener("click", function () {
-        const gxgSelect = document.getElementById("gxg-select");
         const gxgFormMessage = document.createElement("gxg-form-message");
         gxgFormMessage.innerHTML = "You have to select a car";
         gxgFormMessage.setAttribute("type", "error");
@@ -45,15 +47,9 @@
         gxgSelect.setAttribute("error", true);
         gxgSelect.appendChild(gxgFormMessage);
       });
+      btnFocusSelect.addEventListener("click", function () {
+        gxgSelect.focus();
+      });
     </script>
-
-    <br /><br />
-
-    <select name="cars" id="">
-      <option value="audi">audi</option>
-      <option value="ford">ford</option>
-      <option value="ferrari">ferrari</option>
-      <option value="porsche">porsche</option>
-    </select>
   </body>
 </html>
