@@ -16,7 +16,7 @@ import state from "../store";
 @Component({
   tag: "gxg-select",
   styleUrl: "select.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgFormSelect {
   //A reference to the select
