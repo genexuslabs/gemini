@@ -179,12 +179,22 @@ export class GxgFormSelect {
         if (event.keyCode === 13) {
           //enter key was pressed
           select.classList.toggle("select-hide");
+          const selected = select.querySelector(".same-as-selected");
+          const value = selected.getAttribute("value");
+          this.change.emit(value);
         } else if (event.keyCode === 38) {
           //key up pressed
           if (selected !== null) {
-            if (selected.previousElementSibling !== null) {
-              selected.classList.remove("same-as-selected");
-              selected.previousElementSibling.classList.add("same-as-selected");
+            if (!select.classList.contains("select-hide")) {
+              if (selected.previousElementSibling !== null) {
+                selected.classList.remove("same-as-selected");
+                selected.previousElementSibling.classList.add(
+                  "same-as-selected"
+                );
+              }
+            } else {
+              //select is hidden. show.
+              select.classList.remove("select-hide");
             }
           } else {
             //do nothing
@@ -192,9 +202,14 @@ export class GxgFormSelect {
         } else if (event.keyCode === 40) {
           //key down pressed
           if (selected !== null) {
-            if (selected.nextElementSibling !== null) {
-              selected.classList.remove("same-as-selected");
-              selected.nextElementSibling.classList.add("same-as-selected");
+            if (!select.classList.contains("select-hide")) {
+              if (selected.nextElementSibling !== null) {
+                selected.classList.remove("same-as-selected");
+                selected.nextElementSibling.classList.add("same-as-selected");
+              }
+            } else {
+              //select is hidden. show.
+              select.classList.remove("select-hide");
             }
           } else {
             selected = select.querySelector("div[role='option']:first-child");
