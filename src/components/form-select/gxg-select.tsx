@@ -337,12 +337,20 @@ export class GxgFormSelect {
 
   @Watch("value")
   valueHandler(newValue, oldValue) {
-    if (oldValue !== undefined) {
-      this.change.emit(newValue);
-    }
-
-    if (oldValue !== undefined) {
-      this.updateSelectedOption(newValue);
+    //check if new value exists in any of the options
+    const option = this.el.querySelector(
+      "gxg-option[value='" + newValue + "']"
+    );
+    if (option) {
+      if (oldValue !== undefined) {
+        this.change.emit(newValue);
+      }
+      if (oldValue !== undefined) {
+        this.updateSelectedOption(newValue);
+      }
+    } else {
+      //if new value does not exists, return to previous value
+      this.value = oldValue;
     }
   }
 
@@ -351,24 +359,26 @@ export class GxgFormSelect {
     const selectedGxgOption = this.el.querySelector(
       "gxg-option[value='" + value + "']"
     );
-    this.el.shadowRoot.querySelector(".select-selected").innerHTML =
-      selectedGxgOption.innerHTML;
-    const selectItems = this.el.shadowRoot.querySelector(".select-items");
+    if (selectedGxgOption) {
+      this.el.shadowRoot.querySelector(".select-selected").innerHTML =
+        selectedGxgOption.innerHTML;
+      const selectItems = this.el.shadowRoot.querySelector(".select-items");
 
-    //Remove previous selected option style
-    const prevSelectedOption = selectItems.querySelector(".same-as-selected");
-    if (prevSelectedOption) {
-      prevSelectedOption.classList.remove("same-as-selected");
+      //Remove previous selected option style
+      const prevSelectedOption = selectItems.querySelector(".same-as-selected");
+      if (prevSelectedOption) {
+        prevSelectedOption.classList.remove("same-as-selected");
+      }
+
+      //Apply selected option style to new selected option
+      const actualSelectedOption = selectItems.querySelector(
+        "div[value='" + value + "']"
+      );
+      actualSelectedOption.classList.add("same-as-selected");
+
+      //Update value
+      this.value = value;
     }
-
-    //Apply selected option style to new selected option
-    const actualSelectedOption = selectItems.querySelector(
-      "div[value='" + value + "']"
-    );
-    actualSelectedOption.classList.add("same-as-selected");
-
-    //Update value
-    this.value = value;
   }
 
   handlerOnKeyDown(event) {
