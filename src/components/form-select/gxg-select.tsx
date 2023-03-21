@@ -72,6 +72,11 @@ export class GxgFormSelect {
   @Prop() value: string;
 
   /**
+   * This holds the value of the initial selected option
+   */
+  @Prop() initialValue: string | undefined = undefined;
+
+  /**
    * The presence of this attribute stylizes the component with warning attributes
    */
   @Prop() warning = false;
@@ -92,7 +97,6 @@ export class GxgFormSelect {
   @State() rtl = false;
 
   @State() rerender = false;
-  private selectIsOpen = false;
 
   @Listen("optionIsSelected")
   todoCompletedHandler(event) {
@@ -154,6 +158,13 @@ export class GxgFormSelect {
     }
 
     this.selectCore();
+    this.setInitialValue();
+  }
+
+  setInitialValue() {
+    if (this.initialValue !== undefined) {
+      this.updateSelectedOption(this.initialValue);
+    }
   }
 
   selectCore() {
@@ -331,13 +342,33 @@ export class GxgFormSelect {
     }
 
     if (oldValue !== undefined) {
-      //update visible value innerHTML
-      const selectedGxgOption = this.el.querySelector(
-        "gxg-option[value='" + newValue + "']"
-      );
-      this.el.shadowRoot.querySelector(".select-selected").innerHTML =
-        selectedGxgOption.innerHTML;
+      this.updateSelectedOption(newValue);
     }
+  }
+
+  updateSelectedOption(value: string) {
+    //update visible value innerHTML
+    const selectedGxgOption = this.el.querySelector(
+      "gxg-option[value='" + value + "']"
+    );
+    this.el.shadowRoot.querySelector(".select-selected").innerHTML =
+      selectedGxgOption.innerHTML;
+    const selectItems = this.el.shadowRoot.querySelector(".select-items");
+
+    //Remove previous selected option style
+    const prevSelectedOption = selectItems.querySelector(".same-as-selected");
+    if (prevSelectedOption) {
+      prevSelectedOption.classList.remove("same-as-selected");
+    }
+
+    //Apply selected option style to new selected option
+    const actualSelectedOption = selectItems.querySelector(
+      "div[value='" + value + "']"
+    );
+    actualSelectedOption.classList.add("same-as-selected");
+
+    //Update value
+    this.value = value;
   }
 
   handlerOnKeyDown(event) {

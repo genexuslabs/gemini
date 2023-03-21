@@ -62,6 +62,7 @@
 | --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------- |
 | `disabled`      | `disabled`       | The presence of this attribute disables the component                                                                 | `boolean`            | `false`     |
 | `error`         | `error`          | The presence of this attribute stylizes the component with error attributes                                           | `boolean`            | `false`     |
+| `initialValue`  | `initial-value`  | This holds the value of the initial selected option                                                                   | `string`             | `undefined` |
 | `label`         | `label`          | The select label                                                                                                      | `string`             | `undefined` |
 | `labelPosition` | `label-position` | The input label                                                                                                       | `"above" \| "start"` | `"above"`   |
 | `maxWidth`      | `max-width`      | The select max. width                                                                                                 | `string`             | `"100%"`    |

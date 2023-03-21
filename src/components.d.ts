@@ -910,6 +910,10 @@ export namespace Components {
           * The presence of this attribute stylizes the component with error attributes
          */
         "error": boolean;
+        /**
+          * This holds the value of the initial selected option
+         */
+        "initialValue": string | undefined;
         "isOpen": () => Promise<boolean>;
         /**
           * The select label
@@ -2766,6 +2770,10 @@ declare namespace LocalJSX {
           * The presence of this attribute stylizes the component with error attributes
          */
         "error"?: boolean;
+        /**
+          * This holds the value of the initial selected option
+         */
+        "initialValue"?: string | undefined;
         /**
           * The select label
          */
