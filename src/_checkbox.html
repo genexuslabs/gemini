@@ -23,5 +23,14 @@
       label="Show Inherited Classes"
       id="show-inherited-classes"
     ></gxg-form-checkbox>
+    <br />
+    <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
+    <script>
+      const button = document.getElementById("button");
+      const checkbox = document.getElementById("show-inherited-classes");
+      button.addEventListener("click", function () {
+        checkbox.focus();
+      });
+    </script>
   </body>
 </html>
