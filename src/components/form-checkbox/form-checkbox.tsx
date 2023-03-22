@@ -12,7 +12,7 @@ import state from "../store";
 @Component({
   tag: "gxg-form-checkbox",
   styleUrl: "form-checkbox.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgFormCheckbox {
   @Element() el: HTMLElement;
