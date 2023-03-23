@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  padding: var(--spacing-comp-01);
+  height: var(--optionHeight);
+  box-sizing: border-box;
+  background-color: var(--color-background);
+  cursor: pointer;
+  border: 1px solid var(--color-background);
+  align-items: center;
+}
+:host(:focus) {
+  border: 1px solid var(--color-primary-active);
+  outline: none;
+}
+:host(:hover) {
+  background-color: var(--gray-01);
+}
+:host(.options-item--disabled) {
+  color: var(--gray-03);
+  pointer-events: none;
+  background-color: var(--color-background);
+}
+:host .options-item__wrapper {
+  min-width: 0;
+  width: 100%;
+}
+:host .options-item__p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  height: 100%;
+}

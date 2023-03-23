@@ -1,0 +1,32 @@
+@import "../../globals/mixins";
+:host {
+  display: block;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  color: var(--color-on-background);
+  position: relative;
+  @include gxg-scroll;
+}
+
+:host .options__items-container {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--gray-04);
+  border-radius: var(--border-radius-sm);
+  position: absolute;
+  text-align: left;
+  overflow: hidden;
+  overflow-y: auto;
+}
+:host(.options--visible) .options__items-container {
+  display: flex;
+}
+:host(.options--right) .options__items-container {
+  right: 0;
+}
+
+//large
+:host(.large) {
+  font-size: var(--font-size-lg);
+}

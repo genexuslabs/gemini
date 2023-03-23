@@ -12,16 +12,33 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style></style>
+    <style>
+      .input-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+      .options-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    </style>
   </head>
   <body>
-    <gxg-form-text
-      label="Full name"
-      label-position="top"
-      placeholder="John Smith"
-      id="gxg-form-text"
-      max-width="240px"
-    ></gxg-form-text>
+    <div class="input-wrapper">
+      <gxg-form-text
+        label="Full name"
+        label-position="top"
+        placeholder="John Smith"
+        id="gxg-form-text"
+        max-width="240px"
+      ></gxg-form-text>
+      <gxg-button
+        class="options-icon"
+        icon="gemini-tools/show-more-horizontal"
+        type="tertiary"
+      ></gxg-button>
+    </div>
     <br />
     <gxg-button id="btn-set-focus">set focus</gxg-button>
     <gxg-button id="btn-show-errors">Show errors</gxg-button>

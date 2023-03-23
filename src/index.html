@@ -1,35 +1,73 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>2 - SASS - Night Mode with Class</title>
+    <title>Options</title>
 
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-
     <style>
-      html.dark {
-        background-color: #1d1e22;
+      .right {
+        text-align: right;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
       }
     </style>
   </head>
   <body>
-    <gxg-form-checkbox
-      label="Show Inherited Classes"
-      id="show-inherited-classes"
-    ></gxg-form-checkbox>
-    <br />
-    <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
+    <!-- left -->
+    <div class="left container">
+      <gxg-options max-width="300px" id="gxg-options"
+        ><gxg-options-item id="first-option"
+          >Set as main object Set as main object Set as main object Set as main
+          object Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item disabled>Set as main object</gxg-options-item>
+        <gxg-options-item disabled>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item></gxg-options
+      >
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        facilis nemo consectetur porro temporibus perferendis possimus minus
+        consequatur esse et commodi id, dicta laudantium quis eaque,
+        consequuntur numquam sapiente fugit.
+      </p>
+    </div>
+
+    <!-- right -->
+    <div class="right container">
+      <gxg-options max-width="300px" position="right"
+        ><gxg-options-item
+          >Set as main object Set as main object Set as main object Set as main
+          object Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item disabled
+          >Set as main object</gxg-options-item
+        ></gxg-options
+      >
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        facilis nemo consectetur porro temporibus perferendis possimus minus
+        consequatur esse et commodi id, dicta laudantium quis eaque,
+        consequuntur numquam sapiente fugit.
+      </p>
+    </div>
+
     <script>
-      const button = document.getElementById("button");
-      const checkbox = document.getElementById("show-inherited-classes");
-      button.addEventListener("click", function () {
-        checkbox.focus();
+      const gxgOptions = document.getElementById("gxg-options");
+      gxgOptions.addEventListener("optionSelected", function (e) {
+        console.log(e.detail);
       });
     </script>
   </body>
