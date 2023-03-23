@@ -74,7 +74,6 @@ export class GxgFormCheckbox {
   }
 
   changed(programaticallyChanged = false) {
-    console.log("changed");
     if (!programaticallyChanged) {
       this.checked = this.checkboxInput.checked;
     }
