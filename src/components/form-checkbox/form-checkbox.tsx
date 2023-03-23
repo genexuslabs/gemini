@@ -6,6 +6,7 @@ import {
   h,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 import state from "../store";
 
@@ -72,12 +73,20 @@ export class GxgFormCheckbox {
     }
   }
 
-  changed() {
-    this.checked = this.checkboxInput.checked;
+  changed(programaticallyChanged = false) {
+    console.log("changed");
+    if (!programaticallyChanged) {
+      this.checked = this.checkboxInput.checked;
+    }
     this.change.emit({
       "checkbox id": this.checkboxId,
       "checkbox value": this.checked,
     });
+  }
+
+  @Watch("checked")
+  checkedHandler() {
+    this.changed(true);
   }
 
   handlerOnKeyUp(event) {
