@@ -5,11 +5,12 @@
   box-sizing: border-box;
   background-color: var(--color-background);
   cursor: pointer;
-  border: 1px solid var(--color-background);
+  border: 2px solid var(--color-background);
   align-items: center;
 }
 :host(:focus) {
-  border: 1px solid var(--color-primary-active);
+  border: 2px solid var(--color-primary-active);
+  background-color: var(--gray-01);
   outline: none;
 }
 :host(:hover) {

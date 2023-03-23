@@ -24,7 +24,7 @@ export class GxgOptionsItem {
     const enter = e.code === "Enter";
     if (enter) {
       //simulate click
-      this.clickHandler(e);
+      this.el.click();
     } else {
       const escape = e.code === "Escape";
       const dataId = (e.target as HTMLElement).getAttribute("data-id");

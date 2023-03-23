@@ -9,6 +9,7 @@
 | `maxVisibleOptions` | `max-visible-options` |             | `number`            | `6`      |
 | `maxWidth`          | `max-width`           |             | `string`            | `"100%"` |
 | `position`          | `position`            |             | `"left" \| "right"` | `"left"` |
+| `width`             | `width`               |             | `string`            | `"100%"` |
 | `zIndex`            | `z-index`             |             | `string`            | `"10"`   |
 
 ## Dependencies
