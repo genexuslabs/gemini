@@ -24,12 +24,23 @@
       id="show-inherited-classes"
     ></gxg-form-checkbox>
     <br />
-    <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
+    <gxg-button type="primary-text-only" id="button-focus"> focus </gxg-button>
+    <br />
+    <gxg-button type="primary-text-only" id="button-check-value">
+      check value
+    </gxg-button>
     <script>
-      const button = document.getElementById("button");
       const checkbox = document.getElementById("show-inherited-classes");
-      button.addEventListener("click", function () {
+      const buttonFocus = document.getElementById("button-focus");
+      const buttonCheckValue = document.getElementById("button-check-value");
+      buttonFocus.addEventListener("click", function () {
         checkbox.focus();
+      });
+      buttonCheckValue.addEventListener("click", function () {
+        console.log(checkbox.checked);
+      });
+      checkbox.addEventListener("change", function () {
+        console.log("changed");
       });
     </script>
   </body>

@@ -73,10 +73,8 @@ export class GxgFormCheckbox {
     }
   }
 
-  changed(programaticallyChanged = false) {
-    if (!programaticallyChanged) {
-      this.checked = this.checkboxInput.checked;
-    }
+  changed() {
+    this.checked = this.checkboxInput.checked;
     this.change.emit({
       "checkbox id": this.checkboxId,
       "checkbox value": this.checked,
@@ -85,7 +83,10 @@ export class GxgFormCheckbox {
 
   @Watch("checked")
   checkedHandler() {
-    this.changed(true);
+    this.change.emit({
+      "checkbox id": this.checkboxId,
+      "checkbox value": this.checked,
+    });
   }
 
   handlerOnKeyUp(event) {
