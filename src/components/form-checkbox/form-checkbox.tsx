@@ -75,10 +75,6 @@ export class GxgFormCheckbox {
 
   changed() {
     this.checked = this.checkboxInput.checked;
-    this.change.emit({
-      "checkbox id": this.checkboxId,
-      "checkbox value": this.checked,
-    });
   }
 
   @Watch("checked")
