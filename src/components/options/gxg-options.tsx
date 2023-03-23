@@ -21,6 +21,7 @@ export class GxgOptions {
 
   @Element() el: HTMLElement;
   @Prop() maxWidth = "100%";
+  @Prop() width = "100%";
   @Prop() zIndex = "10";
   @Prop() position: "left" | "right" = "left";
   @Prop() maxVisibleOptions = 6;
@@ -175,7 +176,11 @@ export class GxgOptions {
           ></gxg-button>
           <div
             class="options__items-container"
-            style={{ maxWidth: this.maxWidth, zIndex: this.zIndex }}
+            style={{
+              width: this.width,
+              maxWidth: this.maxWidth,
+              zIndex: this.zIndex,
+            }}
             ref={(el) => (this.optionsItemsContainer = el as HTMLElement)}
           >
             <slot></slot>
