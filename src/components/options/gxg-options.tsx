@@ -6,6 +6,7 @@ import {
   Prop,
   Listen,
   Element,
+  Watch,
 } from "@stencil/core";
 import state from "../store";
 
@@ -24,7 +25,8 @@ export class GxgOptions {
   @Prop() position: "left" | "right" = "left";
   @Prop() maxVisibleOptions = 6;
   @State() optionsVisible = false;
-  private maxHeight = "0px";
+
+  private clickedOutsideContainer = this.clickedOutsideContainerFunc.bind(this);
 
   componentWillLoad() {
     this.assignDataIds();
@@ -41,6 +43,42 @@ export class GxgOptions {
       "max-height",
       `calc(var(--optionHeight) * ${this.maxVisibleOptions})`
     );
+  }
+
+  clickedOutsideContainerFunc(event) {
+    const x = event.x;
+    const y = event.y;
+
+    //Contextual menu coordinates
+    const optionsContainerArea = this.optionsItemsContainer.getBoundingClientRect();
+    if (
+      (x > optionsContainerArea.left &&
+        x < optionsContainerArea.right &&
+        y > optionsContainerArea.top &&
+        y < optionsContainerArea.bottom) ||
+      (event.screenX === 0 &&
+        event.screenY === 0 &&
+        event.clientX === 0 &&
+        event.clientY === 0)
+    ) {
+      //Click happened inside the combo
+    } else {
+      this.optionsVisible = false;
+      //Click happened outside the combo
+    }
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener("click", this.clickedOutsideContainer, true);
+  }
+
+  @Watch("optionsVisible")
+  showItemsHandler(optionsVisible: boolean) {
+    if (optionsVisible) {
+      document.addEventListener("click", this.clickedOutsideContainer, true);
+    } else {
+      document.removeEventListener("click", this.clickedOutsideContainer, true);
+    }
   }
 
   assignDataIds() {

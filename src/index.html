@@ -1,47 +1,53 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>2 - SASS - Night Mode with Class</title>
+    <title>Options</title>
 
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-
     <style>
-      html.dark {
-        background-color: #1d1e22;
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
       }
     </style>
   </head>
   <body>
-    <gxg-form-checkbox
-      label="Show Inherited Classes"
-      id="show-inherited-classes"
-    ></gxg-form-checkbox>
-    <br />
-    <gxg-button type="primary-text-only" id="button-focus"> focus </gxg-button>
-    <br />
-    <gxg-button type="primary-text-only" id="button-check-value">
-      check value
-    </gxg-button>
-    <script>
-      const checkbox = document.getElementById("show-inherited-classes");
-      const buttonFocus = document.getElementById("button-focus");
-      const buttonCheckValue = document.getElementById("button-check-value");
-      buttonFocus.addEventListener("click", function () {
-        checkbox.focus();
-      });
-      buttonCheckValue.addEventListener("click", function () {
-        console.log(checkbox.checked);
-      });
-      checkbox.addEventListener("change", function () {
-        console.log("changed");
-      });
-    </script>
+    <div class="container left">
+      <gxg-options max-width="300px"
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item></gxg-options
+      >
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quia
+        aliquid commodi atque! Doloremque animi amet totam odio excepturi
+        laudantium voluptate ipsam eius inventore autem harum, dolorum cumque
+        quisquam quia?
+      </p>
+    </div>
+    <div class="container right">
+      <gxg-options position="right" max-width="300px"
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item>Set as main object</gxg-options-item></gxg-options
+      >
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quia
+        aliquid commodi atque! Doloremque animi amet totam odio excepturi
+        laudantium voluptate ipsam eius inventore autem harum, dolorum cumque
+        quisquam quia?
+      </p>
+    </div>
   </body>
 </html>

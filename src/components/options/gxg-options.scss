@@ -22,8 +22,13 @@
 :host(.options--visible) .options__items-container {
   display: flex;
 }
-:host(.options--right) .options__items-container {
-  right: 0;
+:host(.options--right) {
+  .options__container {
+    text-align: right;
+  }
+  .options__items-container {
+    right: 0;
+  }
 }
 
 //large
