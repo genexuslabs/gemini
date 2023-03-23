@@ -132,7 +132,7 @@ export class GxgOptions {
   }
 
   @Listen("optionSelected")
-  optionSelectedHandler(event: CustomEvent<boolean>) {
+  optionSelectedHandler() {
     //An option was selected. Close options.
     this.optionsVisible = false;
   }
