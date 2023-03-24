@@ -86,17 +86,8 @@ export class GxgFormCheckbox {
   }
 
   handlerOnKeyUp(event) {
-    if (event.keyCode == 13) {
-      //Enter key was pressed
-      if (!this.checked) {
-        this.el.setAttribute("checked", "true");
-      } else {
-        this.el.removeAttribute("checked");
-      }
-      this.change.emit({
-        "checkbox id": this.checkboxId,
-        "checkbox value": this.checked,
-      });
+    if (event.code == "Enter") {
+      this.checked = !this.checked;
     }
   }
 
