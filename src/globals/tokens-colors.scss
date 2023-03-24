@@ -57,12 +57,14 @@
   --color-secondary: var(--color-secondary-enabled);
   --color-hover: #f4f7f9;
   --color-highlighted: #487f9d;
+  --color-highlighted-light: #f2f7fa;
 }
 :root.dark {
   --color-primary-rgb: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
   --color-hover: #25262c;
   --color-highlighted: #66a6c9;
+  --color-highlighted-light: #66a6c9;
 }
 //BACKGROUND COLORS
 :root {
@@ -90,6 +92,7 @@
 }
 //GRAY COLORS
 :root {
+  --gray-00: #f4f4f4;
   --gray-01: #e8e8e9;
   --gray-02: #c6c6c7;
   --gray-03: #a4a5a6;
@@ -99,6 +102,7 @@
   --gray-07: #28292d;
 }
 :root.dark {
+  --gray-00: #28292d;
   --gray-01: #28292d;
   --gray-02: #3e3f42;
   --gray-03: #616164;
