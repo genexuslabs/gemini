@@ -21,7 +21,8 @@
   <body>
     <div class="container left">
       <gxg-options max-width="300px"
-        ><gxg-options-item>Set as main object</gxg-options-item
+        ><gxg-options-item id="first-option"
+          >Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
@@ -49,5 +50,12 @@
         quisquam quia?
       </p>
     </div>
+
+    <script>
+      const firstOption = document.getElementById("first-option");
+      firstOption.addEventListener("click", function () {
+        console.log("clicked");
+      });
+    </script>
   </body>
 </html>

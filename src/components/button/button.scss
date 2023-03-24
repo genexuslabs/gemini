@@ -256,7 +256,8 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   &:hover:not([disabled]) {
     background: transparent;
     gxg-icon {
-      transform: scale(0.75);
+      --color-on-background: var(--gray-05);
+      //transform: scale(0.75);
     }
   }
   &:focus:not([disabled]) {
