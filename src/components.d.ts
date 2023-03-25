@@ -698,6 +698,7 @@ export namespace Components {
         "warning": boolean;
     }
     interface GxgGrid {
+        "noBorder": boolean;
     }
     interface GxgIcon {
         /**
@@ -2562,6 +2563,7 @@ declare namespace LocalJSX {
         "warning"?: boolean;
     }
     interface GxgGrid {
+        "noBorder"?: boolean;
     }
     interface GxgIcon {
         /**

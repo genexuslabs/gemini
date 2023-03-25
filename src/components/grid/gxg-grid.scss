@@ -11,6 +11,11 @@ $iconSize: 70%;
 ch-grid {
   border: 1px solid $borderColor;
 }
+gxg-grid.no-border {
+  ch-grid {
+    border: 0;
+  }
+}
 
 ch-grid::part(header),
 ch-grid::part(footer) {
@@ -67,7 +72,7 @@ ch-grid {
   color: var(--gray-06);
 }
 ch-grid-column {
-  background-color: var(--gray-01);
+  background-color: var(--color-background);
   font-weight: var(--font-weight-bold);
   padding: var(--spacing-comp-02) !important;
   cursor: pointer;
@@ -125,6 +130,11 @@ ch-grid-column::part(bar-settings-button):before {
 }
 ch-grid-row {
   background-color: var(--color-background);
+  color: var(--gray-04);
+
+  &:nth-child(odd) {
+    background-color: var(--gray-00);
+  }
 }
 ch-grid-row[highlighted] {
   background-color: var(--color-hover);
@@ -138,7 +148,6 @@ ch-grid-cell {
   padding-inline-end: var(--spacing-comp-02) !important;
   padding-block-start: var(--spacing-comp-01);
   padding-block-end: var(--spacing-comp-01);
-  border-bottom: 1px solid $borderColor;
   align-items: center;
   min-height: var(--spacing-comp-04);
 }
@@ -233,7 +242,7 @@ ch-grid-column::part(selector):before {
 ch-grid::part(settings-columns-visible):after,
 ch-grid-cell::part(selector):after,
 ch-grid-column::part(selector):after {
-  opacity: 1;
+  opacity: 0;
   display: block;
   position: absolute;
   content: "";

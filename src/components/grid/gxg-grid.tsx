@@ -1,4 +1,4 @@
-import { Component, Host, h, getAssetPath, Element } from "@stencil/core";
+import { Component, Host, h, getAssetPath, Element, Prop } from "@stencil/core";
 import state from "../store";
 
 @Component({
@@ -7,6 +7,7 @@ import state from "../store";
   shadow: false,
 })
 export class GxgGrid {
+  @Prop() noBorder = false;
   @Element() el!: HTMLElement;
 
   componentWillLoad() {
@@ -51,7 +52,7 @@ export class GxgGrid {
 
   render() {
     return (
-      <Host class={{ large: state.large }}>
+      <Host class={{ large: state.large, "no-border": this.noBorder }}>
         <slot></slot>
       </Host>
     );

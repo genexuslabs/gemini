@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -12,28 +12,289 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style>
-      html.dark {
-        background-color: #1d1e22;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
-    <gxg-form-checkbox
-      label="Show Inherited Classes"
-      id="show-inherited-classes"
-    ></gxg-form-checkbox>
+    <gxg-grid no-border>
+      <ch-grid>
+        <ch-grid-actionbar slot="header">
+          <ch-grid-action-refresh></ch-grid-action-refresh>
+          <ch-grid-action-settings></ch-grid-action-settings>
+        </ch-grid-actionbar>
+        <ch-grid-columnset>
+          <ch-grid-column
+            settingable
+            column-name="Codigo"
+            column-name-position="text"
+          >
+            <div slot="settings">settings</div>
+          </ch-grid-column>
+          <ch-grid-column
+            column-name="Poblacion"
+            column-name-position="text"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="City"
+            column-name-position="text"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell> Montevideo </ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> 200 </ch-grid-cell>
+          <ch-grid-cell> Buenos Aires </ch-grid-cell>
+        </ch-grid-row>
+        <div class="footer" slot="footer">
+          <gxg-paginator>
+            <ch-paginator>
+              <ch-paginator-navigate type="first"></ch-paginator-navigate>
+              <ch-paginator-navigate type="previous"></ch-paginator-navigate>
+              <ch-paginator-pages
+                active-page="30"
+                total-pages="117"
+              ></ch-paginator-pages>
+              <ch-paginator-navigate type="next"></ch-paginator-navigate>
+              <ch-paginator-navigate type="last"></ch-paginator-navigate>
+            </ch-paginator>
+          </gxg-paginator>
+        </div>
+      </ch-grid>
+    </gxg-grid>
     <br />
-    <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
-    <script>
-      const button = document.getElementById("button");
-      const checkbox = document.getElementById("show-inherited-classes");
-      button.addEventListener("click", function () {
-        checkbox.focus();
-      });
-      checkbox.addEventListener("change", function () {
-        console.log("changed");
-      });
-    </script>
+    <!-- <gxg-form-checkbox
+      label="orange"
+      id="orange"
+      name="orange"
+      value="orange"
+    ></gxg-form-checkbox> -->
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            column-name=""
+            settingable="false"
+            column-type="rich"
+            rich-row-drag
+            size="min-content"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name=""
+            settingable="false"
+            column-type="rich"
+            rich-row-selector
+            size="min-content"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Property"
+            settingable="false"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Value"
+            settingable="false"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+
+        <ch-grid-row selected>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Nombre</ch-grid-cell>
+          <ch-grid-cell>Productos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>English</ch-grid-cell>
+          <ch-grid-cell>Products</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Português</ch-grid-cell>
+          <ch-grid-cell>Produtos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Redireccionar a</ch-grid-cell>
+          <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+          <ch-grid-cell>Found</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Url amigable</ch-grid-cell>
+          <ch-grid-cell>productos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>English</ch-grid-cell>
+          <ch-grid-cell>products</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Português</ch-grid-cell>
+          <ch-grid-cell>produtos</ch-grid-cell>
+        </ch-grid-row>
+        <ch-grid-row>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Id</ch-grid-cell>
+          <ch-grid-cell>7867</ch-grid-cell>
+        </ch-grid-row>
+
+        <div class="header" slot="header">
+          <span>HEADER</span>
+        </div>
+        <div class="footer" slot="footer">
+          <span>FOOTER</span>
+        </div>
+        <div slot="row-actions">
+          <gxg-button type="primary-text-icon" icon="controls/action-group"
+            >Action A</gxg-button
+          >
+          <gxg-button type="primary-text-icon" icon="controls/action-group"
+            >Action B</gxg-button
+          >
+        </div>
+      </ch-grid>
+    </gxg-grid>
+    <br />
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            column-name="Property"
+            settingable="false"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Value"
+            settingable="false"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+
+        <ch-grid-rowset>
+          <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
+
+          <ch-grid-row>
+            <ch-grid-cell>Nombre</ch-grid-cell>
+            <ch-grid-cell>Productos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>English</ch-grid-cell>
+            <ch-grid-cell>Products</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>Português</ch-grid-cell>
+            <ch-grid-cell>Produtos</ch-grid-cell>
+          </ch-grid-row>
+        </ch-grid-rowset>
+
+        <ch-grid-rowset>
+          <ch-grid-rowset-legend>Redirección</ch-grid-rowset-legend>
+
+          <ch-grid-row>
+            <ch-grid-cell>Redireccionar a</ch-grid-cell>
+            <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+            <ch-grid-cell>Found</ch-grid-cell>
+          </ch-grid-row>
+        </ch-grid-rowset>
+
+        <ch-grid-rowset>
+          <ch-grid-rowset-legend>Url</ch-grid-rowset-legend>
+
+          <ch-grid-row>
+            <ch-grid-cell>Url amigable</ch-grid-cell>
+            <ch-grid-cell>productos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>English</ch-grid-cell>
+            <ch-grid-cell>products</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell>Português</ch-grid-cell>
+            <ch-grid-cell>produtos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-rowset>
+            <ch-grid-rowset-legend>Permalink</ch-grid-rowset-legend>
+
+            <ch-grid-row>
+              <ch-grid-cell>Id</ch-grid-cell>
+              <ch-grid-cell>7867</ch-grid-cell>
+            </ch-grid-row>
+          </ch-grid-rowset>
+        </ch-grid-rowset>
+
+        <div class="header" slot="header">
+          <span>HEADER</span>
+        </div>
+        <div class="footer" slot="footer">
+          <span>FOOTER</span>
+        </div>
+      </ch-grid>
+    </gxg-grid>
   </body>
 </html>

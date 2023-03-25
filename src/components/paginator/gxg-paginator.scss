@@ -1,5 +1,7 @@
 $buttonSize: var(--spacing-comp-05);
 $gap: var(--spacing-comp-01);
+$color: var(--gray-04);
+$colorHover: var(--color-primary-hover);
 
 gxg-paginator {
   display: block;
@@ -20,14 +22,18 @@ ch-paginator-pages::part(button) {
   width: $buttonSize;
   height: $buttonSize;
   cursor: pointer;
-  background-color: var(--color-secondary-enabled);
+  background-color: transparent;
 
   &:hover {
-    background-color: var(--color-secondary-hover);
+    color: $colorHover;
   }
 }
 ch-paginator-pages::part(button) {
-  color: var(--color-on-secondary);
+  color: $color;
+}
+ch-paginator-pages::part(active) {
+  color: $colorHover;
+  font-weight: var(--font-weight-semibold);
 }
 ch-paginator-navigate {
   display: inline-block;
@@ -47,7 +53,10 @@ ch-paginator-navigate[type="last"] {
     -webkit-mask-size: contain;
     width: 100%;
     height: 100%;
-    background-color: var(--color-on-secondary);
+    background-color: $color;
+  }
+  &:hover:before {
+    background-color: $colorHover;
   }
 }
 ch-paginator-navigate[type="first"]:before {
