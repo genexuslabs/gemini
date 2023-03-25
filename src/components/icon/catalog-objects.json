@@ -31,6 +31,7 @@
   { "name": "objects/generator-category", "description": "Some description" },
   { "name": "objects/image", "description": "Some description" },
   { "name": "objects/lenguage", "description": "Some description" },
+  { "name": "objects/main-object", "description": "Some description" },
   { "name": "objects/masterpage", "description": "Some description" },
   { "name": "objects/menu", "description": "Some description" },
   { "name": "objects/menubar", "description": "Some description" },

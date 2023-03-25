@@ -27,5 +27,6 @@
   { "name": "general/services", "description": "Some description" },
   { "name": "general/sql-server", "description": "Some description" },
   { "name": "general/swift", "description": "Some description" },
-  { "name": "general/version", "description": "Some description" }
+  { "name": "general/version", "description": "Some description" },
+  { "name": "general/qr-code", "description": "Some description" }
 ]
