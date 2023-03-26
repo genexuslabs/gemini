@@ -15,6 +15,7 @@
       .container {
         max-width: 600px;
         margin: 0 auto;
+        border: 1px solid blue;
       }
     </style>
   </head>
@@ -55,6 +56,13 @@
       const firstOption = document.getElementById("first-option");
       firstOption.addEventListener("click", function () {
         console.log("clicked");
+      });
+
+      const containers = document.querySelectorAll(".container");
+      containers.forEach((container) => {
+        container.addEventListener("click", function () {
+          console.log("clicked");
+        });
       });
     </script>
   </body>

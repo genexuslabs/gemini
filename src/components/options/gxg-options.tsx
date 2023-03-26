@@ -90,7 +90,8 @@ export class GxgOptions {
     });
   }
 
-  toggleOptions() {
+  toggleOptions(e) {
+    e.stopPropagation();
     this.optionsVisible = !this.optionsVisible;
   }
 
