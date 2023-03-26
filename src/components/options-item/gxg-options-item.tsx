@@ -34,6 +34,7 @@ export class GxgOptionsItem {
   }
 
   clickHandler(e) {
+    e.stopPropagation();
     const dataId = (e.target as HTMLElement).getAttribute("data-id");
     const id = (e.target as HTMLElement).getAttribute("id");
     if (!this.disabled) {
