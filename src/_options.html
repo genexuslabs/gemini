@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
+<html dir="ltr" lang="en" class="gxg">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -15,12 +15,14 @@
       .container {
         max-width: 600px;
         margin: 0 auto;
+        border: 1px solid blue;
+        line-height: 2em;
       }
     </style>
   </head>
   <body>
     <div class="container left">
-      <gxg-options max-width="300px"
+      <gxg-options max-width="300px" icon-direction="vertical"
         ><gxg-options-item id="first-option"
           >Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
@@ -36,12 +38,18 @@
       </p>
     </div>
     <div class="container right">
-      <gxg-options position="right" max-width="300px"
+      <gxg-options
+        position="right"
+        max-width="300px"
+        icon-direction="horizontal"
         ><gxg-options-item>Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
         ><gxg-options-item>Set as main object</gxg-options-item
-        ><gxg-options-item>Set as main object</gxg-options-item></gxg-options
+        ><gxg-options-item
+          >Copy URL to Clipboard Copy URL to Clipboard Copy URL to
+          Clipboard</gxg-options-item
+        ></gxg-options
       >
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil quia
@@ -54,7 +62,14 @@
     <script>
       const firstOption = document.getElementById("first-option");
       firstOption.addEventListener("click", function () {
-        console.log("clicked");
+        console.log("clicked first option");
+      });
+
+      const containers = document.querySelectorAll(".container");
+      containers.forEach((container) => {
+        container.addEventListener("click", function () {
+          console.log("clicked");
+        });
       });
     </script>
   </body>

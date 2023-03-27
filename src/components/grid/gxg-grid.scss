@@ -132,7 +132,7 @@ ch-grid-row {
   background-color: var(--color-background);
   color: var(--gray-04);
 
-  &:nth-child(odd) {
+  &:nth-of-type(odd) {
     background-color: var(--gray-00);
   }
 }

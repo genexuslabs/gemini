@@ -24,6 +24,7 @@ export class GxgOptions {
   @Prop() width = "100%";
   @Prop() zIndex = "10";
   @Prop() position: "left" | "right" = "left";
+  @Prop() iconDirection: "vertical" | "horizontal" = "vertical";
   @Prop() maxVisibleOptions = 6;
   @State() optionsVisible = false;
 
@@ -156,6 +157,12 @@ export class GxgOptions {
     }
   }
 
+  icon() {
+    return this.iconDirection === "horizontal"
+      ? "gemini-tools/show-more-horizontal"
+      : "gemini-tools/show-more-vertical";
+  }
+
   render() {
     return (
       <Host
@@ -169,7 +176,7 @@ export class GxgOptions {
       >
         <div class="options__container">
           <gxg-button
-            icon="gemini-tools/show-more-horizontal"
+            icon={this.icon()}
             type="tertiary"
             onClick={this.toggleOptions.bind(this)}
             onKeyDown={this.optionsButtonKeyDownHandler.bind(this)}
