@@ -23,7 +23,7 @@
     overflow: hidden;
     overflow-y: auto;
     font-size: var(--font-size-sm);
-    line-height: var(--font-size-sm);
+    line-height: 14px;
     margin-top: var(--spacing-comp-01);
   }
 }
@@ -44,7 +44,7 @@
   .options {
     &__items-container {
       font-size: var(--font-size-lg);
-      line-height: var(--font-size-lg);
+      line-height: 16px;
     }
   }
 }
