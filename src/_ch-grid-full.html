@@ -1030,12 +1030,12 @@
     </div>
 
     <script>
-      document.addEventListener("rowClicked", (eventInfo) =>
+      document.addEventListener("rowClicked", eventInfo =>
         console.log(
           `[rowClicked] rowId:${eventInfo.detail.rowId}, cellId:${eventInfo.detail.cellId}`
         )
       );
-      document.addEventListener("selectionChanged", (eventInfo) =>
+      document.addEventListener("selectionChanged", eventInfo =>
         console.log(`[selectionChanged] rowsId:${eventInfo.detail.rowsId}`)
       );
     </script>
