@@ -31,6 +31,7 @@ ch-grid-column::part(bar-settings-button),
 ch-grid-column::part(settings-close),
 ch-grid::part(settings-close),
 ch-grid-cell::part(drag-icon),
+ch-grid-cell::part(caret),
 ch-grid-rowset-legend::part(caret) {
   display: inline-flex;
   align-items: center;
@@ -309,14 +310,21 @@ ch-grid-rowset-legend {
   cursor: pointer;
 }
 /*caret*/
-ch-grid-rowset-legend::part(caret) {
+ch-grid-rowset-legend::part(caret),
+ch-grid-cell::part(caret) {
   width: var(--spacing-comp-04);
   height: var(--spacing-comp-04);
 }
-ch-grid-rowset > ch-grid-rowset-legend::part(caret):before {
+ch-grid-cell::part(caret) {
+  cursor: pointer;
+  margin-right: var(--spacing-comp-01);
+}
+ch-grid-rowset > ch-grid-rowset-legend::part(caret):before,
+ch-grid-row > ch-grid-cell::part(caret):before {
   -webkit-mask-image: var(--caretCollapseIconUrl);
 }
-ch-grid-rowset[collapsed] > ch-grid-rowset-legend::part(caret):before {
+ch-grid-rowset[collapsed] > ch-grid-rowset-legend::part(caret):before,
+ch-grid-row[collapsed] > ch-grid-cell::part(caret):before {
   -webkit-mask-image: var(--caretExpandIconUrl);
 }
 ch-grid-rowset[collapsed] ch-grid-rowset-legend {
