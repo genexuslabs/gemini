@@ -46,6 +46,10 @@ export class GxgIcon {
    */
   @Prop() type;
 
+  componentDidLoad() {
+    console.log(getAssetPath);
+  }
+
   /*********************************
   METHODS
   *********************************/
