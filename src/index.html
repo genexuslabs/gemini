@@ -12,7 +12,11 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style></style>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+    </style>
   </head>
   <body>
     <gxg-grid>
@@ -294,6 +298,168 @@
         <div class="footer" slot="footer">
           <span>FOOTER</span>
         </div>
+      </ch-grid>
+    </gxg-grid>
+    <br />
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            column-name="Name"
+            settingable="false"
+            column-type="tree"
+            freeze="start"
+            size="20%"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Type"
+            settingable="false"
+            size="80%"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Description"
+            settingable="false"
+            size="500px"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="Is Collection"
+            settingable="false"
+            size="100px"
+            freeze="end"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+        <ch-grid-row>
+          <ch-grid-cell>Target</ch-grid-cell> <ch-grid-cell></ch-grid-cell>
+          <ch-grid-cell>Target</ch-grid-cell>
+          <ch-grid-cell>false</ch-grid-cell>
+          <ch-grid-rowset>
+            <ch-grid-row leaf="false">
+              <ch-grid-cell>TargetType</ch-grid-cell>
+              <ch-grid-cell
+                >TargetType, GeneXus.Common.Notifications</ch-grid-cell
+              >
+              <ch-grid-cell>Target Type (required)</ch-grid-cell>
+              <ch-grid-cell>false</ch-grid-cell>
+            </ch-grid-row>
+            <ch-grid-row>
+              <ch-grid-cell>Devices</ch-grid-cell>
+              <ch-grid-cell></ch-grid-cell>
+              <ch-grid-cell>Devices List</ch-grid-cell>
+              <ch-grid-cell>true</ch-grid-cell>
+              <ch-grid-rowset>
+                <ch-grid-row>
+                  <ch-grid-cell>Device</ch-grid-cell>
+                  <ch-grid-cell></ch-grid-cell> <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-rowset>
+                    <ch-grid-row>
+                      <ch-grid-cell>DeviceToken</ch-grid-cell>
+                      <ch-grid-cell>Character(500)</ch-grid-cell>
+                      <ch-grid-cell>DeviceToken</ch-grid-cell>
+                      <ch-grid-cell>false</ch-grid-cell>
+                    </ch-grid-row>
+                  </ch-grid-rowset>
+                </ch-grid-row>
+              </ch-grid-rowset>
+            </ch-grid-row>
+            <ch-grid-row>
+              <ch-grid-cell>Groups</ch-grid-cell> <ch-grid-cell></ch-grid-cell>
+              <ch-grid-cell>Groups</ch-grid-cell>
+              <ch-grid-cell>true</ch-grid-cell>
+              <ch-grid-rowset>
+                <ch-grid-row>
+                  <ch-grid-cell>Group</ch-grid-cell>
+                  <ch-grid-cell></ch-grid-cell> <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-rowset>
+                    <ch-grid-row>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>Character(100)</ch-grid-cell>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>false</ch-grid-cell>
+                    </ch-grid-row>
+                  </ch-grid-rowset>
+                </ch-grid-row>
+              </ch-grid-rowset>
+            </ch-grid-row>
+            <ch-grid-row>
+              <ch-grid-cell>Targets</ch-grid-cell>
+              <ch-grid-cell></ch-grid-cell>
+              <ch-grid-cell>Targets</ch-grid-cell>
+              <ch-grid-cell>true</ch-grid-cell>
+              <ch-grid-rowset>
+                <ch-grid-row>
+                  <ch-grid-cell>Filter</ch-grid-cell>
+                  <ch-grid-cell></ch-grid-cell> <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-rowset>
+                    <ch-grid-row>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>Character(100)</ch-grid-cell>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>false</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell>Value</ch-grid-cell>
+                      <ch-grid-cell>Character(100)</ch-grid-cell>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>false</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>Character(100)</ch-grid-cell>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>false</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>Character(100)</ch-grid-cell>
+                      <ch-grid-cell>Name</ch-grid-cell>
+                      <ch-grid-cell>false</ch-grid-cell>
+                    </ch-grid-row>
+                  </ch-grid-rowset>
+                </ch-grid-row>
+              </ch-grid-rowset>
+            </ch-grid-row>
+          </ch-grid-rowset>
+        </ch-grid-row>
+      </ch-grid>
+    </gxg-grid>
+    <br />
+    Ejemplo German
+    <br /><br />
+    <gxg-grid>
+      <ch-grid>
+        <ch-grid-columnset>
+          <ch-grid-column
+            settingable
+            column-name="Codigo"
+            column-name-position="text"
+            column-type="tree"
+          >
+            <div slot="settings">settings</div>
+          </ch-grid-column>
+          <ch-grid-column
+            column-name="Poblacion"
+            column-name-position="text"
+          ></ch-grid-column>
+          <ch-grid-column
+            column-name="City"
+            column-name-position="text"
+          ></ch-grid-column>
+        </ch-grid-columnset>
+        <ch-grid-row>
+          <ch-grid-cell> AAAAA </ch-grid-cell>
+          <ch-grid-cell> BBBB </ch-grid-cell>
+          <ch-grid-cell> CCCC </ch-grid-cell>
+          <ch-grid-rowset>
+            <ch-grid-row>
+              <ch-grid-cell> Code 2 </ch-grid-cell>
+              <ch-grid-cell> 100 </ch-grid-cell>
+              <ch-grid-cell> Montevideo </ch-grid-cell>
+            </ch-grid-row>
+          </ch-grid-rowset>
+        </ch-grid-row>
       </ch-grid>
     </gxg-grid>
   </body>
