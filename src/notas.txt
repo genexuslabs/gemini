@@ -3,3 +3,34 @@ Controles a los que defini altura:
 - card
 - form-textarea (no funciona porcentual)
 - listbox no tiene sentido (el alto esta deternminado por el contenido.)
+
+------------------------------------------------------------------------
+
+0.6.0
+
+- checkbox con estado indeterminate. (linea horizontal)
+hay una part 'indeterminate'
+
+
+- tambien ponerle foco a la celda activa.
+
+
+- ponerle estilos a la row "marked". Son las rows que estan marcadas (checkbox) pero no seleccinoadas.
+column-type="rich" en el ch-grid-column.
+rich-row-selector es el atributo que va en el ch-grid-column.
+rich-row-selector.
+(de momento no le hago nada)
+
+<ch-grid-column
+            column-id="select"
+            column-name="Select"
+            column-name-position="title"
+            settingable="false"
+            column-type="rich"
+            rich-row-selector
+            rich-row-selector-mode="mark"
+            size="min-content"
+          ></ch-grid-column>
+
+mark -> no hay relacion entre la fila seleccionada y la marcada
+select -> el checkbox si esta relacionado a lo que esta marcado.

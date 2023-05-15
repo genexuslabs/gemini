@@ -160,13 +160,23 @@ ch-grid-row[focused] {
   border-color: var(--color-primary-active);
 }
 ch-grid-row[selected] {
-  ch-grid-cell {
-    background-color: var(--color-secondary-enabled);
-    border-bottom-color: var(--color-secondary-hover);
+  ch-grid-cell:not([selected]) {
+    background-color: var(--color-secondary-hover);
+    color: var(--color-on-primary);
+  }
+  ch-grid-cell[selected] {
+    background-color: var(--color-secondary-hover);
   }
 }
-ch-grid-row[selected]:last-of-type {
-  background-color: red !important;
+ch-grid-cell[selected] {
+  background-color: var(--color-secondary-enabled) !important;
+}
+ch-grid-row[selected] {
+  + ch-grid-row[selected] {
+    ch-grid-cell {
+      border-top-color: var(--color-secondary-hover);
+    }
+  }
 }
 ch-grid-cell {
   box-sizing: border-box;
