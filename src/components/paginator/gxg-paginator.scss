@@ -83,3 +83,10 @@ ch-paginator-pages::part(button) {
   justify-content: center;
   font-family: var(--font-family-primary);
 }
+
+ch-paginator-pages::part(button),
+ch-paginator-navigate {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-active);
+  }
+}

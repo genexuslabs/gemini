@@ -10,11 +10,16 @@ $iconSize: 70%;
 
 ch-grid {
   border: 1px solid $borderColor;
+  --focus-style: 2px solid var(--color-primary-active);
 }
 gxg-grid.no-border {
   ch-grid {
     border: 0;
   }
+}
+gxg-grid:focus-visible,
+ch-grid:focus-visible {
+  outline: none;
 }
 
 ch-grid::part(header),
@@ -58,6 +63,10 @@ ch-grid-action-settings {
 
   &:hover {
     background-color: var(--color-secondary-hover);
+  }
+
+  &:focus-visible {
+    outline: var(--focus-style);
   }
 }
 ch-grid-action-refresh:before {
@@ -125,6 +134,9 @@ ch-grid-column::part(bar-settings-button) {
   &:hover {
     background-color: var(--gray-02);
   }
+  &:focus-visible {
+    outline: var(--focus-style);
+  }
 }
 ch-grid-column::part(bar-settings-button):before {
   -webkit-mask-image: var(--barSettingsButtonIconUrl);
@@ -132,6 +144,7 @@ ch-grid-column::part(bar-settings-button):before {
 ch-grid-row {
   background-color: var(--color-background);
   color: var(--gray-04);
+  border: 2px solid transparent;
 
   &:nth-of-type(odd) {
     background-color: var(--gray-00);
@@ -142,6 +155,18 @@ ch-grid-row[highlighted] {
 }
 ch-grid-row[dragging] {
   box-shadow: var(--box-shadow-03);
+}
+ch-grid-row[focused] {
+  border-color: var(--color-primary-active);
+}
+ch-grid-row[selected] {
+  ch-grid-cell {
+    background-color: var(--color-secondary-enabled);
+    border-bottom-color: var(--color-secondary-hover);
+  }
+}
+ch-grid-row[selected]:last-of-type {
+  background-color: red !important;
 }
 ch-grid-cell {
   box-sizing: border-box;
@@ -171,10 +196,12 @@ ch-grid::part(settings-window) {
   background-color: var(--color-background);
   width: 100%;
   max-width: 600px;
-  margin: 0 var(--spacing-comp-05);
   padding: var(--spacing-comp-03);
   border-radius: var(--border-width-lg);
   box-shadow: var(--box-shadow-04);
+}
+ch-grid::part(settings-window) {
+  margin: 0 var(--spacing-comp-05);
 }
 ch-grid-column::part(settings-header),
 ch-grid::part(settings-header) {
@@ -202,6 +229,9 @@ ch-grid::part(settings-close) {
   &:before {
     -webkit-mask-image: var(--settingsCloseIconUrl);
   }
+  &:focus-visible {
+    outline: var(--focus-style);
+  }
 }
 
 ch-grid::part(settings-columns) {
@@ -222,6 +252,10 @@ ch-grid-column::part(selector) {
   margin: 0;
   height: var(--spacing-comp-04);
   width: var(--spacing-comp-04);
+
+  &:focus-visible {
+    outline: var(--focus-style);
+  }
 }
 ch-grid::part(settings-columns-visible):before,
 ch-grid-cell::part(selector):before,
@@ -248,7 +282,7 @@ ch-grid-column::part(selector):after {
   position: absolute;
   content: "";
   left: 6px;
-  top: 2px;
+  top: 3px;
   width: 3px;
   height: 7px;
   border: solid;
@@ -262,14 +296,29 @@ ch-grid-column::part(selector):after {
   transition-timing-function: ease;
   cursor: pointer;
 }
+ch-grid-column::part(indeterminate):after {
+  opacity: 1;
+  display: block;
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 1.5px;
+  border: 0;
+  background-color: var(--color-primary-hover);
+  -webkit-transform: rotate(0) translateY(-50%) translateX(-50%);
+  -ms-transform: rotate(0) translateY(-50%) translateX(-50%);
+  transform: rotate(0) translateY(-50%) translateX(-50%);
+}
 ch-grid::part(settings-columns-visible-checked):before,
-ch-grid-cell::part(selector-checked):before,
-ch-grid-column::part(selector-checked):before {
+ch-grid-cell::part(checked):before,
+ch-grid-column::part(checked):before {
   border-color: var(--color-primary-hover);
 }
 ch-grid::part(settings-columns-visible-checked):after,
-ch-grid-cell::part(selector-checked):after,
-ch-grid-column::part(selector-checked):after {
+ch-grid-cell::part(checked):after,
+ch-grid-column::part(checked):after {
   opacity: 1;
 }
 /*Drag*/
