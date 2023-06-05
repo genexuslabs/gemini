@@ -7,6 +7,8 @@ import {
   State,
   Watch,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 
 @Component({
@@ -50,6 +52,11 @@ export class GxgModal {
    */
   @Prop() silent = false;
 
+  /**
+   * Emmited when the modal was closed
+   */
+  @Event() modalClosed: EventEmitter;
+
   @State() layerVisible = false;
   @State() modalVisible = false;
   @State() modalTransition = false;
@@ -61,6 +68,7 @@ export class GxgModal {
   closeModal() {
     this.layerVisible = false;
     this.modalVisible = false;
+    this.modalClosed.emit(true);
     setTimeout(
       function () {
         this.visible = false;
@@ -93,7 +101,6 @@ export class GxgModal {
         50
       );
     } else {
-      console.log("close modal");
       this.closeModal.bind(this);
     }
   }

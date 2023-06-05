@@ -14,24 +14,33 @@
 
     <style>
       html.dark {
-        background-color: #1D1E22;
+        background-color: #1d1e22;
       }
     </style>
   </head>
   <body>
     <gxg-modal id="modal" modal-title="Modal title">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus ullam asperiores ab itaque! Magnam, dolorum reprehenderit, fugiat molestiae animi sequi quos, praesentium eligendi a voluptatem eum excepturi esse magni.
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+      delectus ullam asperiores ab itaque! Magnam, dolorum reprehenderit, fugiat
+      molestiae animi sequi quos, praesentium eligendi a voluptatem eum
+      excepturi esse magni.
       <gxg-button slot="footer" type="secondary-text-only">Button</gxg-button>
       <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>
-      <gxg-button slot="footer" type="primary-text-only">Other Button</gxg-button>
+      <gxg-button slot="footer" type="primary-text-only"
+        >Other Button</gxg-button
+      >
     </gxg-modal>
     <button id="showModalButton">Show modal</button>
     <script>
       const showModalButton = document.getElementById("showModalButton");
       const modal = document.getElementById("modal");
-      showModalButton.addEventListener("click", function(){
-        modal.setAttribute('visible','true');
-      })
+      showModalButton.addEventListener("click", function () {
+        modal.setAttribute("visible", "true");
+      });
+      const body = document.querySelector("body");
+      body.addEventListener("modalClosed", function () {
+        console.log("modal closed");
+      });
     </script>
   </body>
 </html>

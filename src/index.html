@@ -11,458 +11,99 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./pages/dev-styles.css" />
+    <script>
+      //Components
+      const inProgress = [];
 
-    <style>
-      body {
-        font-family: sans-serif;
-      }
-    </style>
+      const completed = [
+        "accordion",
+        "all",
+        "box",
+        "breadcrumbs",
+        "button-group",
+        "buttons-alignment",
+        "buttons",
+        "card",
+        "ch-grid-full",
+        "ch-grid-german",
+        "ch-grid",
+        "ch-icon",
+        "ch-qr",
+        "chameleon",
+        "checkbox",
+        "color-picker",
+        "combo-box-dialog",
+        "combo-box-overflow",
+        "combo-box",
+        "date-picker",
+        "demo",
+        "drag-box",
+        "drop-down-overflow",
+        "drop-down",
+        "filter",
+        "form-select",
+        "form-text",
+        "form-textarea",
+        "list-box-two",
+        "list-box",
+        "modal-color-picker",
+        "modal",
+        "more-info",
+        "options",
+        "pill",
+        "spacer-layout",
+        "splitter",
+        "tabs",
+        "test",
+        "text",
+        "titles",
+        "tree-grid",
+        "tree-small",
+        "tree",
+        "window",
+      ];
+    </script>
   </head>
-  <body>
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-actionbar slot="header">
-          <ch-grid-action-refresh></ch-grid-action-refresh>
-          <ch-grid-action-settings></ch-grid-action-settings>
-        </ch-grid-actionbar>
-        <ch-grid-columnset>
-          <ch-grid-column
-            settingable
-            column-name="Codigo"
-            column-name-position="text"
-          >
-            <div slot="settings">settings</div>
-          </ch-grid-column>
-          <ch-grid-column
-            column-name="Poblacion"
-            column-name-position="text"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="City"
-            column-name-position="text"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
-          <ch-grid-cell> Montevideo </ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
-          <ch-grid-cell> 200 </ch-grid-cell>
-          <ch-grid-cell> Buenos Aires </ch-grid-cell>
-        </ch-grid-row>
-        <div class="footer" slot="footer">
-          <gxg-paginator>
-            <ch-paginator>
-              <ch-paginator-navigate type="first"></ch-paginator-navigate>
-              <ch-paginator-navigate type="previous"></ch-paginator-navigate>
-              <ch-paginator-pages
-                active-page="30"
-                total-pages="117"
-              ></ch-paginator-pages>
-              <ch-paginator-navigate type="next"></ch-paginator-navigate>
-              <ch-paginator-navigate type="last"></ch-paginator-navigate>
-            </ch-paginator>
-          </gxg-paginator>
-        </div>
-      </ch-grid>
-    </gxg-grid>
-    <br />
-    <!-- <gxg-form-checkbox
-      label="orange"
-      id="orange"
-      name="orange"
-      value="orange"
-    ></gxg-form-checkbox> -->
+  <body class="dark">
+    <div class="container">
+      <h1 class="title h2">Gemini</h1>
+      <p>Web Components</p>
+      <h2 class="title h4">Completed:</h2>
+      <ul class="list unstyled" id="completedUl">
+        <!-- populated dinamically with javascript -->
+      </ul>
+    </div>
 
-    <!-- seleccion multiple -->
-    <gxg-grid>
-      <ch-grid row-selection-mode="multiple">
-        <ch-grid-columnset>
-          <ch-grid-column
-            column-name=""
-            settingable="false"
-            column-type="rich"
-            rich-row-drag
-            size="min-content"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name=""
-            settingable="false"
-            column-type="rich"
-            rich-row-selector
-            size="min-content"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="Property"
-            settingable="false"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="Value"
-            settingable="false"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-
-        <ch-grid-row selected>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Nombre</ch-grid-cell>
-          <ch-grid-cell>Productos</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>English</ch-grid-cell>
-          <ch-grid-cell>Products</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Português</ch-grid-cell>
-          <ch-grid-cell>Produtos</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Redireccionar a</ch-grid-cell>
-          <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Tipo de redirección</ch-grid-cell>
-          <ch-grid-cell>Found</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Url amigable</ch-grid-cell>
-          <ch-grid-cell>productos</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>English</ch-grid-cell>
-          <ch-grid-cell>products</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Português</ch-grid-cell>
-          <ch-grid-cell>produtos</ch-grid-cell>
-        </ch-grid-row>
-        <ch-grid-row>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Id</ch-grid-cell>
-          <ch-grid-cell>7867</ch-grid-cell>
-        </ch-grid-row>
-
-        <div class="header" slot="header">
-          <span>HEADER</span>
-        </div>
-        <div class="footer" slot="footer">
-          <span>FOOTER</span>
-        </div>
-        <div slot="row-actions">
-          <gxg-button type="primary-text-icon" icon="controls/action-group"
-            >Action A</gxg-button
-          >
-          <gxg-button type="primary-text-icon" icon="controls/action-group"
-            >Action B</gxg-button
-          >
-        </div>
-      </ch-grid>
-    </gxg-grid>
-    <br />
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-columnset>
-          <ch-grid-column
-            column-name="Property"
-            settingable="false"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="Value"
-            settingable="false"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-
-        <ch-grid-rowset>
-          <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
-
-          <ch-grid-row>
-            <ch-grid-cell>Nombre</ch-grid-cell>
-            <ch-grid-cell>Productos</ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-row>
-            <ch-grid-cell>English</ch-grid-cell>
-            <ch-grid-cell>Products</ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-row>
-            <ch-grid-cell>Português</ch-grid-cell>
-            <ch-grid-cell>Produtos</ch-grid-cell>
-          </ch-grid-row>
-        </ch-grid-rowset>
-
-        <ch-grid-rowset>
-          <ch-grid-rowset-legend>Redirección</ch-grid-rowset-legend>
-
-          <ch-grid-row>
-            <ch-grid-cell>Redireccionar a</ch-grid-cell>
-            <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-row>
-            <ch-grid-cell>Tipo de redirección</ch-grid-cell>
-            <ch-grid-cell>Found</ch-grid-cell>
-          </ch-grid-row>
-        </ch-grid-rowset>
-
-        <ch-grid-rowset>
-          <ch-grid-rowset-legend>Url</ch-grid-rowset-legend>
-
-          <ch-grid-row>
-            <ch-grid-cell>Url amigable</ch-grid-cell>
-            <ch-grid-cell>productos</ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-row>
-            <ch-grid-cell>English</ch-grid-cell>
-            <ch-grid-cell>products</ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-row>
-            <ch-grid-cell>Português</ch-grid-cell>
-            <ch-grid-cell>produtos</ch-grid-cell>
-          </ch-grid-row>
-          <ch-grid-rowset>
-            <ch-grid-rowset-legend>Permalink</ch-grid-rowset-legend>
-
-            <ch-grid-row>
-              <ch-grid-cell>Id</ch-grid-cell>
-              <ch-grid-cell>7867</ch-grid-cell>
-            </ch-grid-row>
-          </ch-grid-rowset>
-        </ch-grid-rowset>
-
-        <div class="header" slot="header">
-          <span>HEADER</span>
-        </div>
-        <div class="footer" slot="footer">
-          <span>FOOTER</span>
-        </div>
-      </ch-grid>
-    </gxg-grid>
-    <br />
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-columnset>
-          <ch-grid-column
-            column-name="Name"
-            settingable="false"
-            column-type="tree"
-            freeze="start"
-            size="20%"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="Type"
-            settingable="false"
-            size="80%"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="Description"
-            settingable="false"
-            size="500px"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="Is Collection"
-            settingable="false"
-            size="100px"
-            freeze="end"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell>Target</ch-grid-cell> <ch-grid-cell></ch-grid-cell>
-          <ch-grid-cell>Target</ch-grid-cell>
-          <ch-grid-cell>false</ch-grid-cell>
-          <ch-grid-rowset>
-            <ch-grid-row leaf="false">
-              <ch-grid-cell>TargetType</ch-grid-cell>
-              <ch-grid-cell
-                >TargetType, GeneXus.Common.Notifications</ch-grid-cell
-              >
-              <ch-grid-cell>Target Type (required)</ch-grid-cell>
-              <ch-grid-cell>false</ch-grid-cell>
-            </ch-grid-row>
-            <ch-grid-row>
-              <ch-grid-cell>Devices</ch-grid-cell>
-              <ch-grid-cell></ch-grid-cell>
-              <ch-grid-cell>Devices List</ch-grid-cell>
-              <ch-grid-cell>true</ch-grid-cell>
-              <ch-grid-rowset>
-                <ch-grid-row>
-                  <ch-grid-cell>Device</ch-grid-cell>
-                  <ch-grid-cell></ch-grid-cell> <ch-grid-cell></ch-grid-cell>
-                  <ch-grid-cell></ch-grid-cell>
-                  <ch-grid-rowset>
-                    <ch-grid-row>
-                      <ch-grid-cell>DeviceToken</ch-grid-cell>
-                      <ch-grid-cell>Character(500)</ch-grid-cell>
-                      <ch-grid-cell>DeviceToken</ch-grid-cell>
-                      <ch-grid-cell>false</ch-grid-cell>
-                    </ch-grid-row>
-                  </ch-grid-rowset>
-                </ch-grid-row>
-              </ch-grid-rowset>
-            </ch-grid-row>
-            <ch-grid-row>
-              <ch-grid-cell>Groups</ch-grid-cell> <ch-grid-cell></ch-grid-cell>
-              <ch-grid-cell>Groups</ch-grid-cell>
-              <ch-grid-cell>true</ch-grid-cell>
-              <ch-grid-rowset>
-                <ch-grid-row>
-                  <ch-grid-cell>Group</ch-grid-cell>
-                  <ch-grid-cell></ch-grid-cell> <ch-grid-cell></ch-grid-cell>
-                  <ch-grid-cell></ch-grid-cell>
-                  <ch-grid-rowset>
-                    <ch-grid-row>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>Character(100)</ch-grid-cell>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>false</ch-grid-cell>
-                    </ch-grid-row>
-                  </ch-grid-rowset>
-                </ch-grid-row>
-              </ch-grid-rowset>
-            </ch-grid-row>
-            <ch-grid-row>
-              <ch-grid-cell>Targets</ch-grid-cell>
-              <ch-grid-cell></ch-grid-cell>
-              <ch-grid-cell>Targets</ch-grid-cell>
-              <ch-grid-cell>true</ch-grid-cell>
-              <ch-grid-rowset>
-                <ch-grid-row>
-                  <ch-grid-cell>Filter</ch-grid-cell>
-                  <ch-grid-cell></ch-grid-cell> <ch-grid-cell></ch-grid-cell>
-                  <ch-grid-cell></ch-grid-cell>
-                  <ch-grid-rowset>
-                    <ch-grid-row>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>Character(100)</ch-grid-cell>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>false</ch-grid-cell>
-                    </ch-grid-row>
-                    <ch-grid-row>
-                      <ch-grid-cell>Value</ch-grid-cell>
-                      <ch-grid-cell>Character(100)</ch-grid-cell>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>false</ch-grid-cell>
-                    </ch-grid-row>
-                    <ch-grid-row>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>Character(100)</ch-grid-cell>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>false</ch-grid-cell>
-                    </ch-grid-row>
-                    <ch-grid-row>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>Character(100)</ch-grid-cell>
-                      <ch-grid-cell>Name</ch-grid-cell>
-                      <ch-grid-cell>false</ch-grid-cell>
-                    </ch-grid-row>
-                  </ch-grid-rowset>
-                </ch-grid-row>
-              </ch-grid-rowset>
-            </ch-grid-row>
-          </ch-grid-rowset>
-        </ch-grid-row>
-      </ch-grid>
-    </gxg-grid>
-    <br />
-    Ejemplo German
-    <br /><br />
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-columnset>
-          <ch-grid-column
-            settingable
-            column-name="Codigo"
-            column-name-position="text"
-            column-type="tree"
-          >
-            <div slot="settings">settings</div>
-          </ch-grid-column>
-          <ch-grid-column
-            column-name="Poblacion"
-            column-name-position="text"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="City"
-            column-name-position="text"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell> AAAAA </ch-grid-cell>
-          <ch-grid-cell> BBBB </ch-grid-cell>
-          <ch-grid-cell> CCCC </ch-grid-cell>
-          <ch-grid-rowset>
-            <ch-grid-row>
-              <ch-grid-cell> Code 2 </ch-grid-cell>
-              <ch-grid-cell> 100 </ch-grid-cell>
-              <ch-grid-cell> Montevideo </ch-grid-cell>
-            </ch-grid-row>
-          </ch-grid-rowset>
-        </ch-grid-row>
-      </ch-grid>
-    </gxg-grid>
+    <div class="container">
+      <h2 class="title h4">In progress:</h2>
+      <ul class="list unstyled in-progress" id="inProgressUl">
+        <!-- populated dinamically with javascript -->
+      </ul>
+    </div>
   </body>
+
+  <script>
+    //Completed
+    const completedUl = document.getElementById("completedUl");
+    completed.sort().forEach((el) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.setAttribute("href", `/pages/${el}.html`);
+      a.innerText = el;
+      li.appendChild(a);
+      completedUl.appendChild(li);
+    });
+
+    //In Progress
+    const inProgressUl = document.getElementById("inProgressUl");
+    inProgress.sort().forEach((el) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.setAttribute("href", `/pages/${el}.html`);
+      a.innerText = el;
+      li.appendChild(a);
+      inProgressUl.appendChild(li);
+    });
+  </script>
 </html>

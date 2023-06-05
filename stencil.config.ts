@@ -14,7 +14,7 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null, // disable service workers
-      copy: [{ src: "assets" }],
+      copy: [{ src: "assets" }, { src: "pages" }],
     },
   ],
   globalStyle: "src/globals/global.scss",

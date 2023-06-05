@@ -19,6 +19,12 @@
 | `width`                | `width`                  | The modal width                                                                    | `string`                                                      | `"300px"`    |
 | `zIndex`               | `z-index`                | The z-index value of the modal                                                     | `string`                                                      | `"100"`      |
 
+## Events
+
+| Event         | Description                       | Type               |
+| ------------- | --------------------------------- | ------------------ |
+| `modalClosed` | Emmited when the modal was closed | `CustomEvent<any>` |
+
 ## Methods
 
 ### `close() => Promise<void>`

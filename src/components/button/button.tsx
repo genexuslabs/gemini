@@ -9,7 +9,7 @@ import state from "../store";
   shadow: { delegatesFocus: true },
 })
 export class GxgButton {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLGxgButtonElement;
 
   button!: HTMLButtonElement;
 
