@@ -27,7 +27,6 @@
 ```mermaid
 graph TD;
   gxg-filter-item --> gxg-icon
-  gxg-icon --> ch-icon
   style gxg-filter-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -814,6 +814,10 @@ export namespace Components {
      */
     footerJustifyContent: string;
     /**
+     * The modal max-width
+     */
+    maxWidth: string;
+    /**
      * The modal title
      */
     modalTitle: string;
@@ -2740,6 +2744,10 @@ declare namespace LocalJSX {
      * The footer justify content type
      */
     footerJustifyContent?: string;
+    /**
+     * The modal max-width
+     */
+    maxWidth?: string;
     /**
      * The modal title
      */

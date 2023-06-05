@@ -19,7 +19,6 @@
 ```mermaid
 graph TD;
   gxg-contextual-menu-item --> gxg-icon
-  gxg-icon --> ch-icon
   style gxg-contextual-menu-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

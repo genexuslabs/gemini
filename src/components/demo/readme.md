@@ -36,7 +36,6 @@
 graph TD;
   gxg-demo --> gxg-button
   gxg-button --> gxg-icon
-  gxg-icon --> ch-icon
   style gxg-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

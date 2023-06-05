@@ -32,7 +32,6 @@
 ```mermaid
 graph TD;
   gxg-tree-grid-divs --> gxg-icon
-  gxg-icon --> ch-icon
   style gxg-tree-grid-divs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

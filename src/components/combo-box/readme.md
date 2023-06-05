@@ -79,7 +79,6 @@ graph TD;
   gxg-combo-box --> gxg-button
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-form-message
-  gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px

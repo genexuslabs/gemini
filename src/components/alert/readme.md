@@ -30,7 +30,6 @@
 graph TD;
   gxg-alert --> gxg-icon
   gxg-alert --> gxg-button
-  gxg-icon --> ch-icon
   gxg-button --> gxg-icon
   style gxg-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```

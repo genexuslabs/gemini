@@ -40,7 +40,6 @@
 ```mermaid
 graph TD;
   gxg-toolbar --> gxg-icon
-  gxg-icon --> ch-icon
   style gxg-toolbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

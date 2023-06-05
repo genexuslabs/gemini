@@ -35,7 +35,12 @@ export class GxgModal {
   /**
    * The modal width
    */
-  @Prop() width = "300px";
+  @Prop() width = "100%";
+
+  /**
+   * The modal max-width
+   */
+  @Prop() maxWidth = "300px";
 
   /**
    * Wether the modal is visible or not
@@ -130,7 +135,11 @@ export class GxgModal {
             "modal--visible": this.modalVisible,
             "modal--transition": this.modalTransition,
           }}
-          style={{ width: this.width, "z-index": this.zIndex + 1 }}
+          style={{
+            width: this.width,
+            maxWidth: this.maxWidth,
+            "z-index": this.zIndex + 1,
+          }}
         >
           <header class="modal__header">
             <span class="modal__header__title">{this.modalTitle}</span>

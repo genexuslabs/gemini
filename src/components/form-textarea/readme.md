@@ -67,7 +67,6 @@ btnShowErrors.addEventListener("click", function(){
 graph TD;
   gxg-form-textarea --> gxg-form-message
   gxg-form-message --> gxg-icon
-  gxg-icon --> ch-icon
   style gxg-form-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

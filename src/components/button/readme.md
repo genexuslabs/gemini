@@ -61,7 +61,6 @@
 ```mermaid
 graph TD;
   gxg-button --> gxg-icon
-  gxg-icon --> ch-icon
   gxg-alert --> gxg-button
   gxg-combo-box --> gxg-button
   gxg-demo --> gxg-button
