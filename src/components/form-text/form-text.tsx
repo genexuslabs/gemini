@@ -347,7 +347,7 @@ export class GxgFormText implements FormComponent {
     }
 
     //Offset error or warning message if label position is "start"
-    if (this.labelPosition === "start") {
+    if (this.label && this.labelPosition === "start") {
       //Get label width
       const label = this.el.shadowRoot.querySelector(".label") as HTMLElement;
       const labelWidth = label.offsetWidth;
