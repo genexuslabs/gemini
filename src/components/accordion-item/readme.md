@@ -86,6 +86,7 @@
 graph TD;
   gxg-accordion-item --> gxg-icon
   gxg-accordion-item --> gxg-form-text
+  gxg-icon --> ch-icon
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-form-message
   gxg-form-message --> gxg-icon

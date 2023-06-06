@@ -25,6 +25,7 @@
 ```mermaid
 graph TD;
   gxg-breadcrumb --> gxg-icon
+  gxg-icon --> ch-icon
   style gxg-breadcrumb fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

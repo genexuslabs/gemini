@@ -36,10 +36,15 @@
 - [gxg-tree-item](../tree-item)
 - [gxg-window](../window)
 
+### Depends on
+
+- ch-icon
+
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-icon --> ch-icon
   gxg-accordion-item --> gxg-icon
   gxg-alert --> gxg-icon
   gxg-breadcrumb --> gxg-icon

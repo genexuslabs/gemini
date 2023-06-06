@@ -33,7 +33,7 @@
     margin-left: 0;
     border: 0;
     width: 100%;
-    min-height: var(--spacing-comp-05);
+    min-height: var(--spacing-comp-06);
     position: relative;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -110,6 +110,5 @@ LARGE VERSION (html tag has 'gxg-large' class)
 :host(.large) {
   .tab-button {
     font-size: var(--font-size-lg);
-    min-height: var(--spacing-comp-06);
   }
 }

@@ -30,6 +30,7 @@
 ```mermaid
 graph TD;
   gxg-form-message --> gxg-icon
+  gxg-icon --> ch-icon
   gxg-form-radio-group --> gxg-form-message
   gxg-form-text --> gxg-form-message
   gxg-form-textarea --> gxg-form-message

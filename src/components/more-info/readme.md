@@ -23,6 +23,7 @@
 ```mermaid
 graph TD;
   gxg-more-info --> gxg-icon
+  gxg-icon --> ch-icon
   style gxg-more-info fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -31,6 +31,7 @@
 graph TD;
   gxg-window --> gxg-icon
   gxg-window --> gxg-button
+  gxg-icon --> ch-icon
   gxg-button --> gxg-icon
   style gxg-window fill:#f9f,stroke:#333,stroke-width:4px
 ```

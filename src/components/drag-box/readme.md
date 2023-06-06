@@ -50,6 +50,7 @@
 graph TD;
   gxg-drag-box --> gxg-icon
   gxg-drag-box --> gxg-button
+  gxg-icon --> ch-icon
   gxg-button --> gxg-icon
   style gxg-drag-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
