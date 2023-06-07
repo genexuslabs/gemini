@@ -12,20 +12,6 @@
 | -------- | --------- | --------------------------------------------------------------- | -------- | ----------- |
 | `space`  | `space`   | The spacing value, taken from the "token-spacing" global values | `string` | `undefined` |
 
-## Dependencies
-
-### Used by
-
-- [gx-ide-new-kb](../gx-ide-new-kb)
-
-### Graph
-
-```mermaid
-graph TD;
-  gx-ide-new-kb --> gxg-spacer-one
-  style gxg-spacer-one fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

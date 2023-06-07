@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { GxOption } from "./gx-ide-common/definitions";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
@@ -57,81 +56,6 @@ import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
-  interface GxIdeNewKb {
-    /**
-     * Specify the language in which the application screens will be developed (default language)
-     */
-    UILanguages: GxOption[];
-    /**
-     * Defines the type of authentication for the connection to the previously defined database
-     */
-    authenticationTypes: GxOption[];
-    /**
-     * DB Collations
-     */
-    collations: GxOption[];
-    /**
-     * Disabled if the first item of the 'Server Name' combo is selected
-     */
-    createDatafilesInKBFolder: boolean;
-    /**
-     * It allows defining the DBMS that will be used in the solution
-     */
-    dataSources: "SQL Server" | "SQL Lite" | "Mongo DB";
-    /**
-     * Name of the database where we are going to persist the information of our KB
-     */
-    databaseName: string;
-    /**
-     * It allows selecting multiple generators for the front end
-     */
-    frontEnd:
-      | "Web (.NET)"
-      | "Android"
-      | "Apple"
-      | "Web (Angular)"
-      | "WeChatMiniProgram";
-    /**
-     * Specify whether it is feasible to display information related to local configuration parameters
-     */
-    isLocal: boolean;
-    /**
-     * Default suggested path to a directory where the information related to the KB will be stored/generated
-     */
-    location: string;
-    /**
-     * The knowledge base default suggested name
-     */
-    name: string;
-    /**
-     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    password: string;
-    /**
-     * It allows selecting the default environment that the KB will have (additional environments can be created later)
-     */
-    prototypingEnvironments: ".NET Framework" | "Java" | ".NET";
-    /**
-     * Path to a directory where the information related to the KB will be stored/generated
-     */
-    prototypingTargets: GxOption[];
-    /**
-     * Visible if something other than Windows Authentication is selected
-     */
-    savePassword: boolean;
-    /**
-     * Name of the DB server where we want to persist the information of our KB
-     */
-    serverNames: GxOption[];
-    /**
-     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    userName: string;
-    /**
-     * The dialog visibility
-     */
-    visible: boolean;
-  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -1490,13 +1414,6 @@ export namespace Components {
   }
 }
 declare global {
-  interface HTMLGxIdeNewKbElement
-    extends Components.GxIdeNewKb,
-      HTMLStencilElement {}
-  var HTMLGxIdeNewKbElement: {
-    prototype: HTMLGxIdeNewKbElement;
-    new (): HTMLGxIdeNewKbElement;
-  };
   interface HTMLGxgAccordionElement
     extends Components.GxgAccordion,
       HTMLStencilElement {}
@@ -1978,7 +1895,6 @@ declare global {
     new (): HTMLGxgWindowElement;
   };
   interface HTMLElementTagNameMap {
-    "gx-ide-new-kb": HTMLGxIdeNewKbElement;
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
@@ -2054,81 +1970,6 @@ declare global {
   }
 }
 declare namespace LocalJSX {
-  interface GxIdeNewKb {
-    /**
-     * Specify the language in which the application screens will be developed (default language)
-     */
-    UILanguages?: GxOption[];
-    /**
-     * Defines the type of authentication for the connection to the previously defined database
-     */
-    authenticationTypes?: GxOption[];
-    /**
-     * DB Collations
-     */
-    collations?: GxOption[];
-    /**
-     * Disabled if the first item of the 'Server Name' combo is selected
-     */
-    createDatafilesInKBFolder?: boolean;
-    /**
-     * It allows defining the DBMS that will be used in the solution
-     */
-    dataSources?: "SQL Server" | "SQL Lite" | "Mongo DB";
-    /**
-     * Name of the database where we are going to persist the information of our KB
-     */
-    databaseName?: string;
-    /**
-     * It allows selecting multiple generators for the front end
-     */
-    frontEnd?:
-      | "Web (.NET)"
-      | "Android"
-      | "Apple"
-      | "Web (Angular)"
-      | "WeChatMiniProgram";
-    /**
-     * Specify whether it is feasible to display information related to local configuration parameters
-     */
-    isLocal?: boolean;
-    /**
-     * Default suggested path to a directory where the information related to the KB will be stored/generated
-     */
-    location?: string;
-    /**
-     * The knowledge base default suggested name
-     */
-    name?: string;
-    /**
-     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    password?: string;
-    /**
-     * It allows selecting the default environment that the KB will have (additional environments can be created later)
-     */
-    prototypingEnvironments?: ".NET Framework" | "Java" | ".NET";
-    /**
-     * Path to a directory where the information related to the KB will be stored/generated
-     */
-    prototypingTargets?: GxOption[];
-    /**
-     * Visible if something other than Windows Authentication is selected
-     */
-    savePassword?: boolean;
-    /**
-     * Name of the DB server where we want to persist the information of our KB
-     */
-    serverNames?: GxOption[];
-    /**
-     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    userName?: string;
-    /**
-     * The dialog visibility
-     */
-    visible?: boolean;
-  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -3616,7 +3457,6 @@ declare namespace LocalJSX {
     windowTitle?: string;
   }
   interface IntrinsicElements {
-    "gx-ide-new-kb": GxIdeNewKb;
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
@@ -3695,8 +3535,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      "gx-ide-new-kb": LocalJSX.GxIdeNewKb &
-        JSXBase.HTMLAttributes<HTMLGxIdeNewKbElement>;
       "gxg-accordion": LocalJSX.GxgAccordion &
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-item": LocalJSX.GxgAccordionItem &

@@ -119,20 +119,6 @@
 | `noPadding` | `no-padding` | The presence of this attribute removes each tab .container padding | `boolean`                                | `false`  |
 | `position`  | `position`   |                                                                    | `"bottom" \| "left" \| "right" \| "top"` | `"top"`  |
 
-## Dependencies
-
-### Used by
-
-- [gx-ide-new-kb](../gx-ide-new-kb)
-
-### Graph
-
-```mermaid
-graph TD;
-  gx-ide-new-kb --> gxg-tabs
-  style gxg-tabs fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
