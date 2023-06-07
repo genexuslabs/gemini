@@ -30,6 +30,11 @@ export class GxgComboBox {
   itemsContainer!: HTMLDivElement;
 
   /**
+   * The combo label
+   */
+  @Prop() label: string = undefined;
+
+  /**
    * The combo width
    */
   @Prop() width = "240px";
@@ -493,6 +498,7 @@ export class GxgComboBox {
           class={{ "main-container": true }}
           ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
+          {this.label ? <span class="label">{this.label}</span> : null}
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder={this.placeholder}

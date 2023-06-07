@@ -60,6 +60,11 @@ export class GxgFormCheckbox {
    */
   @Prop() name: string;
 
+  /**
+   * The checkbox icon
+   */
+  @Prop() iconName: string = undefined;
+
   @Event() change: EventEmitter;
 
   /*********************************
@@ -103,6 +108,14 @@ export class GxgFormCheckbox {
     e.stopPropagation();
   }
 
+  icon() {
+    if (this.iconName) {
+      return (
+        <gxg-icon type={this.iconName} color="auto" size="small"></gxg-icon>
+      );
+    }
+  }
+
   render() {
     return (
       <Host
@@ -130,9 +143,14 @@ export class GxgFormCheckbox {
             onClick={this.handleInputClick}
           ></input>
           <span
-            class={{ checkmark: true, "no-label": !this.label }}
+            class={{
+              checkmark: true,
+              "no-label": !this.label,
+              "has-icon": this.iconName !== undefined,
+            }}
             role="checkbox"
           ></span>
+          {this.icon()}
           {this.label ? this.label : null}
         </label>
       </Host>

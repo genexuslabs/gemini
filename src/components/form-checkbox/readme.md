@@ -19,6 +19,7 @@
 | `checkboxId`    | `checkbox-id`   | The checkbox id                                                      | `string`  | `undefined` |
 | `checked`       | `checked`       | The presence of this attribute makes the checkbox checked by default | `boolean` | `false`     |
 | `disabled`      | `disabled`      | The presence of this attribute disables the checkbox                 | `boolean` | `false`     |
+| `iconName`      | `icon-name`     | The checkbox icon                                                    | `string`  | `undefined` |
 | `indeterminate` | `indeterminate` | The presence of this attribute makes the checkbox indeterminate      | `boolean` | `false`     |
 | `label`         | `label`         | The checkbox label                                                   | `string`  | `undefined` |
 | `name`          | `name`          | The checkbox name                                                    | `string`  | `undefined` |
@@ -34,13 +35,21 @@
 
 ### Used by
 
+- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-list-box-item](../list-box-item)
 - [gxg-tree-item](../tree-item)
+
+### Depends on
+
+- [gxg-icon](../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-form-checkbox --> gxg-icon
+  gxg-icon --> ch-icon
+  gx-ide-new-kb --> gxg-form-checkbox
   gxg-list-box-item --> gxg-form-checkbox
   gxg-tree-item --> gxg-form-checkbox
   style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px

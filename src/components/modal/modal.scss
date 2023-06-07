@@ -2,6 +2,17 @@
 @import "../../globals/mixins";
 
 :host {
+  .modal-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
   .modal {
     display: flex;
     flex-direction: column;
@@ -10,10 +21,10 @@
     box-shadow: var(--box-shadow-03);
     border-radius: var(--border-radius-md);
     position: absolute;
-    left: 50%;
-    top: 50%;
+    //left: 50%;
+    //top: 50%;
     margin-top: 30px;
-    transform: translateY(-50%) translateX(-50%);
+    //transform: translateY(-50%) translateX(-50%);
     @include gxg-text();
     &--visible {
       opacity: 1;
@@ -42,6 +53,31 @@
         margin-left: var(--spacing-comp-02);
         margin-right: var(--spacing-comp-02);
       }
+    }
+  }
+}
+
+/*********************************************
+FLAVOR ALTERNATE
+**********************************************/
+:host(.flavor-alternate) {
+  .modal {
+    padding: 0 !important;
+    border: 1px solid var(--gray-02);
+    box-shadow: none;
+    border-radius: 0;
+    &__header {
+      padding: var(--spacing-comp-02) var(--spacing-comp-04);
+      background-color: var(--gray-00);
+      &__title {
+        font-weight: var(--font-weight-regular);
+      }
+    }
+    &__container {
+      padding: var(--spacing-comp-03) var(--spacing-comp-04);
+    }
+    &__footer {
+      padding: var(--spacing-comp-02) var(--spacing-comp-04);
     }
   }
 }
@@ -112,5 +148,14 @@
 :host(.footer-justify-space-between) {
   .modal__footer {
     justify-content: space-between;
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  .modal {
+    font-size: var(--font-size-lg);
   }
 }

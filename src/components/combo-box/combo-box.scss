@@ -3,10 +3,15 @@
 
 :host {
   @include gxg-scroll;
+  font-family: var(--font-family-primary);
 
   display: block;
 
   .main-container {
+    .label {
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--spacing-lay-xs);
+    }
     width: 100%;
     position: relative;
 
@@ -105,6 +110,12 @@ LARGE VERSION (html tag has 'gxg-large' class)
 
 :host(.large) {
   .main-container {
+    .label {
+      display: flex;
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-lay-xs);
+      line-height: 1.455em;
+    }
     .items-container {
       .no-ocurrences-found {
         font-size: var(--font-size-lg);

@@ -23,11 +23,13 @@
 - [gxg-drag-box](../drag-box)
 - [gxg-drop-down](../drop-down)
 - [gxg-filter-item](../filter-item)
+- [gxg-form-checkbox](../form-checkbox)
 - [gxg-form-message](../form-message)
 - [gxg-form-text](../form-text)
 - [gxg-list-box-item](../list-box-item)
 - [gxg-menu-item](../menu-item)
 - [gxg-more-info](../more-info)
+- [gxg-option-v2](../form-option-v2)
 - [gxg-pill](../pill)
 - [gxg-tab-button](../tab-button)
 - [gxg-toolbar](../toolbar)
@@ -54,11 +56,13 @@ graph TD;
   gxg-drag-box --> gxg-icon
   gxg-drop-down --> gxg-icon
   gxg-filter-item --> gxg-icon
+  gxg-form-checkbox --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-form-text --> gxg-icon
   gxg-list-box-item --> gxg-icon
   gxg-menu-item --> gxg-icon
   gxg-more-info --> gxg-icon
+  gxg-option-v2 --> gxg-icon
   gxg-pill --> gxg-icon
   gxg-tab-button --> gxg-icon
   gxg-toolbar --> gxg-icon

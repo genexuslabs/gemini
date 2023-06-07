@@ -5,6 +5,7 @@ import {
   Event,
   EventEmitter,
   Element,
+  Host,
 } from "@stencil/core";
 import state from "../store";
 
@@ -72,23 +73,29 @@ export class GxgTabButton {
 
   render() {
     return (
-      <li class="tab-item">
-        <button
-          disabled={this.disabled}
-          class={{
-            "tab-button": true,
-            "tab-button--selected": this.isSelected === true,
-            "tab-button--text-icon":
-              this.tabLabel !== null && this.icon !== null,
-            large: state.large,
-          }}
-          onClick={this.tabButtonClicked.bind(this)}
-        >
-          {this.printIcon()}
-          <span class="tab-button__text">{this.tabLabel}</span>
-        </button>
-        <slot></slot>
-      </li>
+      <Host
+        class={{
+          large: state.large,
+        }}
+      >
+        <li class="tab-item">
+          <button
+            disabled={this.disabled}
+            class={{
+              "tab-button": true,
+              "tab-button--selected": this.isSelected === true,
+              "tab-button--text-icon":
+                this.tabLabel !== null && this.icon !== null,
+              large: state.large,
+            }}
+            onClick={this.tabButtonClicked.bind(this)}
+          >
+            {this.printIcon()}
+            <span class="tab-button__text">{this.tabLabel}</span>
+          </button>
+          <slot></slot>
+        </li>
+      </Host>
     );
   }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+      gxg-combo {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .container {
+        width: 800px;
+        background-color: bisque;
+      }
+      #gxgCombo1 {
+        margin-top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <gxg-modal id="modal" modal-title="Modal title">
+      <gxg-combo-box
+        id="gxgCombo1"
+        disable-filter
+        placeholder="Select item"
+        value="bpm"
+        width="100%"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+        <gxg-combo-box-item value="data-management" icon="objects/data-provider"
+          >Data Management</gxg-combo-box-item
+        >
+        <gxg-combo-box-item value="resources" icon="objects/bg-color"
+          >Resources</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+    </gxg-modal>
+    <button id="showModalButton">Show modal</button>
+    <script>
+      const showModalButton = document.getElementById("showModalButton");
+      const modal = document.getElementById("modal");
+      showModalButton.addEventListener("click", function () {
+        modal.setAttribute("visible", "true");
+      });
+      const body = document.querySelector("body");
+      body.addEventListener("modalClosed", function () {
+        console.log("modal closed");
+      });
+    </script>
+  </body>
+</html>

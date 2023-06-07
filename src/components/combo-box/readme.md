@@ -24,6 +24,7 @@
 | `disableClear`  | `disable-clear`  | The presence of this attribute disables the clear button                                                                                                                                                                                                      | `boolean`           | `false`         |
 | `disableFilter` | `disable-filter` | The presence of this attribute disables the filter                                                                                                                                                                                                            | `boolean`           | `false`         |
 | `isOpen`        | `is-open`        | This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.                                                                  | `boolean`           | `false`         |
+| `label`         | `label`          | The combo label                                                                                                                                                                                                                                               | `string`            | `undefined`     |
 | `maxWidth`      | `max-width`      | The combo max-width                                                                                                                                                                                                                                           | `string`            | `"none"`        |
 | `minWidth`      | `min-width`      | The combo min-width                                                                                                                                                                                                                                           | `string`            | `"0"`           |
 | `placeholder`   | `placeholder`    | The combo placeholder                                                                                                                                                                                                                                         | `string`            | `"Search item"` |
@@ -66,6 +67,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+- [gx-ide-new-kb](../gx-ide-new-kb)
+
 ### Depends on
 
 - [gxg-form-text](../form-text)
@@ -82,6 +87,7 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon
+  gx-ide-new-kb --> gxg-combo-box
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

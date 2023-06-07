@@ -86,6 +86,9 @@
     &.no-label {
       margin-inline-end: 0;
     }
+    &.has-icon {
+      margin-inline-end: var(--spacing-comp-01);
+    }
   }
 
   /* When the checkbox is checked, add a blue background */

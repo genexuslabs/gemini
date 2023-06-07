@@ -12,9 +12,15 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style></style>
+    <style>
+      body {
+        font-family: "open sans", arial, sans-serif;
+      }
+    </style>
   </head>
   <body>
+    <!--Form Select-->
+    <strong>form-select</strong>
     <gxg-select
       label="Select a car:"
       label-position="above"
@@ -33,8 +39,35 @@
       <gxg-option value="8">Mercedes</gxg-option>
     </gxg-select>
     <br />
+
+    <!--Form Select v2-->
+    <strong>form-select-v2</strong>
+
+    <br />
+
+    <gxg-select-v2
+      label="Select a car:"
+      label-position="above"
+      max-width="240px"
+      size="5"
+      id="gxg-select"
+      initial-value="Select a car:"
+    >
+      <gxg-option-v2 value="1">Audi</gxg-option-v2>
+      <gxg-option-v2 value="2">BMW</gxg-option-v2>
+      <gxg-option-v2 value="3">Citroen</gxg-option-v2>
+      <gxg-option-v2 value="4">Ford</gxg-option-v2>
+      <gxg-option-v2 value="5">Honda</gxg-option-v2>
+      <gxg-option-v2 value="6">Jaguar</gxg-option-v2>
+      <gxg-option-v2 value="7">Land Rover</gxg-option-v2>
+      <gxg-option-v2 value="8">Mercedes</gxg-option-v2>
+    </gxg-select-v2>
+
+    <br />
+
     <gxg-button id="btn-show-errors">Show errors</gxg-button>
     <gxg-button id="btn-focus-select">Focus select</gxg-button>
+
     <script>
       const btnShowErrors = document.getElementById("btn-show-errors");
       const btnFocusSelect = document.getElementById("btn-focus-select");

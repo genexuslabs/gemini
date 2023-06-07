@@ -1,4 +1,4 @@
-# gxg-option
+# gxg-option-v2
 
 <!-- Auto Generated Below -->
 
@@ -18,16 +18,17 @@
 
 ## Dependencies
 
-### Used by
+### Depends on
 
-- [gxg-test](../test)
+- [gxg-icon](../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-option
-  style gxg-option fill:#f9f,stroke:#333,stroke-width:4px
+  gxg-option-v2 --> gxg-icon
+  gxg-icon --> ch-icon
+  style gxg-option-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

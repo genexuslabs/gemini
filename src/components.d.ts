@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { GxOption } from "./gx-ide-common/definitions";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
@@ -39,6 +40,7 @@ import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
 import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
+import { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
 import {
   JustifyContent,
@@ -47,7 +49,7 @@ import {
 } from "./components/spacer-layout/spacer-layout";
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
-import { LabelPosition as LabelPosition2 } from "./components/stepper/stepper";
+import { LabelPosition as LabelPosition3 } from "./components/stepper/stepper";
 import { Height, TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
@@ -55,6 +57,81 @@ import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
+  interface GxIdeNewKb {
+    /**
+     * Specify the language in which the application screens will be developed (default language)
+     */
+    UILanguages: GxOption[];
+    /**
+     * Defines the type of authentication for the connection to the previously defined database
+     */
+    authenticationTypes: GxOption[];
+    /**
+     * DB Collations
+     */
+    collations: GxOption[];
+    /**
+     * Disabled if the first item of the 'Server Name' combo is selected
+     */
+    createDatafilesInKBFolder: boolean;
+    /**
+     * It allows defining the DBMS that will be used in the solution
+     */
+    dataSources: "SQL Server" | "SQL Lite" | "Mongo DB";
+    /**
+     * Name of the database where we are going to persist the information of our KB
+     */
+    databaseName: string;
+    /**
+     * It allows selecting multiple generators for the front end
+     */
+    frontEnd:
+      | "Web (.NET)"
+      | "Android"
+      | "Apple"
+      | "Web (Angular)"
+      | "WeChatMiniProgram";
+    /**
+     * Specify whether it is feasible to display information related to local configuration parameters
+     */
+    isLocal: boolean;
+    /**
+     * Default suggested path to a directory where the information related to the KB will be stored/generated
+     */
+    location: string;
+    /**
+     * The knowledge base default suggested name
+     */
+    name: string;
+    /**
+     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    password: string;
+    /**
+     * It allows selecting the default environment that the KB will have (additional environments can be created later)
+     */
+    prototypingEnvironments: ".NET Framework" | "Java" | ".NET";
+    /**
+     * Path to a directory where the information related to the KB will be stored/generated
+     */
+    prototypingTargets: GxOption[];
+    /**
+     * Visible if something other than Windows Authentication is selected
+     */
+    savePassword: boolean;
+    /**
+     * Name of the DB server where we want to persist the information of our KB
+     */
+    serverNames: GxOption[];
+    /**
+     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    userName: string;
+    /**
+     * The dialog visibility
+     */
+    visible: boolean;
+  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -322,6 +399,10 @@ export namespace Components {
      */
     isOpen: boolean;
     /**
+     * The combo label
+     */
+    label: string;
+    /**
      * The combo max-width
      */
     maxWidth: string;
@@ -525,6 +606,10 @@ export namespace Components {
      * The presence of this attribute disables the checkbox
      */
     disabled: boolean;
+    /**
+     * The checkbox icon
+     */
+    iconName: string;
     /**
      * The presence of this attribute makes the checkbox indeterminate
      */
@@ -809,6 +894,7 @@ export namespace Components {
   }
   interface GxgModal {
     close: () => Promise<void>;
+    flavor: "classic" | "alternate";
     /**
      * The footer justify content type
      */
@@ -862,6 +948,24 @@ export namespace Components {
     url: string;
   }
   interface GxgOption {
+    /**
+     * The icon name (optional)
+     */
+    iconName: string;
+    /**
+     * The presence of this attribute makes the option selected by default
+     */
+    selected: boolean;
+    /**
+     * The value
+     */
+    value: string;
+  }
+  interface GxgOptionV2 {
+    /**
+     * The icon name (optional)
+     */
+    iconName: string;
     /**
      * The presence of this attribute makes the option selected by default
      */
@@ -978,6 +1082,52 @@ export namespace Components {
      * The presence of this attribute stylizes the component with warning attributes
      */
     warning: boolean;
+  }
+  interface GxgSelectV2 {
+    /**
+     * The presence of this attribute disables the component
+     */
+    disabled: boolean;
+    /**
+     * The presence of this attribute stylizes the component with error attributes
+     */
+    error: boolean;
+    /**
+     * The select label
+     */
+    label: string;
+    /**
+     * The label position
+     */
+    labelPosition: LabelPosition;
+    /**
+     * The select max. width
+     */
+    maxWidth: any;
+    /**
+     * The select min. width
+     */
+    minWidth: any;
+    /**
+     * The presence of this attribute makes this input required
+     */
+    required: boolean;
+    /**
+     * The maximum number of visible options
+     */
+    size: string;
+    /**
+     * This holds the value of the selected option
+     */
+    value: string;
+    /**
+     * The presence of this attribute stylizes the component with warning attributes
+     */
+    warning: boolean;
+    /**
+     * The select width
+     */
+    width: string;
   }
   interface GxgSeparator {
     /**
@@ -1340,6 +1490,13 @@ export namespace Components {
   }
 }
 declare global {
+  interface HTMLGxIdeNewKbElement
+    extends Components.GxIdeNewKb,
+      HTMLStencilElement {}
+  var HTMLGxIdeNewKbElement: {
+    prototype: HTMLGxIdeNewKbElement;
+    new (): HTMLGxIdeNewKbElement;
+  };
   interface HTMLGxgAccordionElement
     extends Components.GxgAccordion,
       HTMLStencilElement {}
@@ -1608,6 +1765,13 @@ declare global {
     prototype: HTMLGxgOptionElement;
     new (): HTMLGxgOptionElement;
   };
+  interface HTMLGxgOptionV2Element
+    extends Components.GxgOptionV2,
+      HTMLStencilElement {}
+  var HTMLGxgOptionV2Element: {
+    prototype: HTMLGxgOptionV2Element;
+    new (): HTMLGxgOptionV2Element;
+  };
   interface HTMLGxgOptionsElement
     extends Components.GxgOptions,
       HTMLStencilElement {}
@@ -1654,6 +1818,13 @@ declare global {
   var HTMLGxgSelectElement: {
     prototype: HTMLGxgSelectElement;
     new (): HTMLGxgSelectElement;
+  };
+  interface HTMLGxgSelectV2Element
+    extends Components.GxgSelectV2,
+      HTMLStencilElement {}
+  var HTMLGxgSelectV2Element: {
+    prototype: HTMLGxgSelectV2Element;
+    new (): HTMLGxgSelectV2Element;
   };
   interface HTMLGxgSeparatorElement
     extends Components.GxgSeparator,
@@ -1807,6 +1978,7 @@ declare global {
     new (): HTMLGxgWindowElement;
   };
   interface HTMLElementTagNameMap {
+    "gx-ide-new-kb": HTMLGxIdeNewKbElement;
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
@@ -1847,6 +2019,7 @@ declare global {
     "gxg-modal": HTMLGxgModalElement;
     "gxg-more-info": HTMLGxgMoreInfoElement;
     "gxg-option": HTMLGxgOptionElement;
+    "gxg-option-v2": HTMLGxgOptionV2Element;
     "gxg-options": HTMLGxgOptionsElement;
     "gxg-options-item": HTMLGxgOptionsItemElement;
     "gxg-paginator": HTMLGxgPaginatorElement;
@@ -1854,6 +2027,7 @@ declare global {
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-scroll": HTMLGxgScrollElement;
     "gxg-select": HTMLGxgSelectElement;
+    "gxg-select-v2": HTMLGxgSelectV2Element;
     "gxg-separator": HTMLGxgSeparatorElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
@@ -1880,6 +2054,81 @@ declare global {
   }
 }
 declare namespace LocalJSX {
+  interface GxIdeNewKb {
+    /**
+     * Specify the language in which the application screens will be developed (default language)
+     */
+    UILanguages?: GxOption[];
+    /**
+     * Defines the type of authentication for the connection to the previously defined database
+     */
+    authenticationTypes?: GxOption[];
+    /**
+     * DB Collations
+     */
+    collations?: GxOption[];
+    /**
+     * Disabled if the first item of the 'Server Name' combo is selected
+     */
+    createDatafilesInKBFolder?: boolean;
+    /**
+     * It allows defining the DBMS that will be used in the solution
+     */
+    dataSources?: "SQL Server" | "SQL Lite" | "Mongo DB";
+    /**
+     * Name of the database where we are going to persist the information of our KB
+     */
+    databaseName?: string;
+    /**
+     * It allows selecting multiple generators for the front end
+     */
+    frontEnd?:
+      | "Web (.NET)"
+      | "Android"
+      | "Apple"
+      | "Web (Angular)"
+      | "WeChatMiniProgram";
+    /**
+     * Specify whether it is feasible to display information related to local configuration parameters
+     */
+    isLocal?: boolean;
+    /**
+     * Default suggested path to a directory where the information related to the KB will be stored/generated
+     */
+    location?: string;
+    /**
+     * The knowledge base default suggested name
+     */
+    name?: string;
+    /**
+     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    password?: string;
+    /**
+     * It allows selecting the default environment that the KB will have (additional environments can be created later)
+     */
+    prototypingEnvironments?: ".NET Framework" | "Java" | ".NET";
+    /**
+     * Path to a directory where the information related to the KB will be stored/generated
+     */
+    prototypingTargets?: GxOption[];
+    /**
+     * Visible if something other than Windows Authentication is selected
+     */
+    savePassword?: boolean;
+    /**
+     * Name of the DB server where we want to persist the information of our KB
+     */
+    serverNames?: GxOption[];
+    /**
+     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    userName?: string;
+    /**
+     * The dialog visibility
+     */
+    visible?: boolean;
+  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -2168,6 +2417,10 @@ declare namespace LocalJSX {
      */
     isOpen?: boolean;
     /**
+     * The combo label
+     */
+    label?: string;
+    /**
      * The combo max-width
      */
     maxWidth?: string;
@@ -2404,6 +2657,10 @@ declare namespace LocalJSX {
      * The presence of this attribute disables the checkbox
      */
     disabled?: boolean;
+    /**
+     * The checkbox icon
+     */
+    iconName?: string;
     /**
      * The presence of this attribute makes the checkbox indeterminate
      */
@@ -2740,6 +2997,7 @@ declare namespace LocalJSX {
     onMenuItemActive?: (event: CustomEvent<any>) => void;
   }
   interface GxgModal {
+    flavor?: "classic" | "alternate";
     /**
      * The footer justify content type
      */
@@ -2797,6 +3055,25 @@ declare namespace LocalJSX {
     url?: string;
   }
   interface GxgOption {
+    /**
+     * The icon name (optional)
+     */
+    iconName?: string;
+    onOptionIsSelected?: (event: CustomEvent<any>) => void;
+    /**
+     * The presence of this attribute makes the option selected by default
+     */
+    selected?: boolean;
+    /**
+     * The value
+     */
+    value?: string;
+  }
+  interface GxgOptionV2 {
+    /**
+     * The icon name (optional)
+     */
+    iconName?: string;
     onOptionIsSelected?: (event: CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes the option selected by default
@@ -2919,6 +3196,56 @@ declare namespace LocalJSX {
      * The presence of this attribute stylizes the component with warning attributes
      */
     warning?: boolean;
+  }
+  interface GxgSelectV2 {
+    /**
+     * The presence of this attribute disables the component
+     */
+    disabled?: boolean;
+    /**
+     * The presence of this attribute stylizes the component with error attributes
+     */
+    error?: boolean;
+    /**
+     * The select label
+     */
+    label?: string;
+    /**
+     * The label position
+     */
+    labelPosition?: LabelPosition;
+    /**
+     * The select max. width
+     */
+    maxWidth?: any;
+    /**
+     * The select min. width
+     */
+    minWidth?: any;
+    /**
+     * Returns the value of the selected option
+     */
+    onChange?: (event: CustomEvent<any>) => void;
+    /**
+     * The presence of this attribute makes this input required
+     */
+    required?: boolean;
+    /**
+     * The maximum number of visible options
+     */
+    size?: string;
+    /**
+     * This holds the value of the selected option
+     */
+    value?: string;
+    /**
+     * The presence of this attribute stylizes the component with warning attributes
+     */
+    warning?: boolean;
+    /**
+     * The select width
+     */
+    width?: string;
   }
   interface GxgSeparator {
     /**
@@ -3289,6 +3616,7 @@ declare namespace LocalJSX {
     windowTitle?: string;
   }
   interface IntrinsicElements {
+    "gx-ide-new-kb": GxIdeNewKb;
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
@@ -3329,6 +3657,7 @@ declare namespace LocalJSX {
     "gxg-modal": GxgModal;
     "gxg-more-info": GxgMoreInfo;
     "gxg-option": GxgOption;
+    "gxg-option-v2": GxgOptionV2;
     "gxg-options": GxgOptions;
     "gxg-options-item": GxgOptionsItem;
     "gxg-paginator": GxgPaginator;
@@ -3336,6 +3665,7 @@ declare namespace LocalJSX {
     "gxg-progress-bar": GxgProgressBar;
     "gxg-scroll": GxgScroll;
     "gxg-select": GxgSelect;
+    "gxg-select-v2": GxgSelectV2;
     "gxg-separator": GxgSeparator;
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
@@ -3365,6 +3695,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      "gx-ide-new-kb": LocalJSX.GxIdeNewKb &
+        JSXBase.HTMLAttributes<HTMLGxIdeNewKbElement>;
       "gxg-accordion": LocalJSX.GxgAccordion &
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-item": LocalJSX.GxgAccordionItem &
@@ -3439,6 +3771,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgMoreInfoElement>;
       "gxg-option": LocalJSX.GxgOption &
         JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
+      "gxg-option-v2": LocalJSX.GxgOptionV2 &
+        JSXBase.HTMLAttributes<HTMLGxgOptionV2Element>;
       "gxg-options": LocalJSX.GxgOptions &
         JSXBase.HTMLAttributes<HTMLGxgOptionsElement>;
       "gxg-options-item": LocalJSX.GxgOptionsItem &
@@ -3452,6 +3786,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgScrollElement>;
       "gxg-select": LocalJSX.GxgSelect &
         JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
+      "gxg-select-v2": LocalJSX.GxgSelectV2 &
+        JSXBase.HTMLAttributes<HTMLGxgSelectV2Element>;
       "gxg-separator": LocalJSX.GxgSeparator &
         JSXBase.HTMLAttributes<HTMLGxgSeparatorElement>;
       "gxg-slider": LocalJSX.GxgSlider &

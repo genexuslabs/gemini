@@ -10,6 +10,7 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-modal",
@@ -18,6 +19,9 @@ import {
 })
 export class GxgModal {
   @Element() el: HTMLElement;
+
+  /*The modal flavor*/
+  @Prop() flavor: "classic" | "alternate" = "classic";
 
   /*The accordion padding (internal spacing)*/
   @Prop({ reflect: true }) padding: padding = "s";
@@ -127,34 +131,38 @@ export class GxgModal {
           "footer-justify-end": this.footerJustifyContent === "flex-end",
           "footer-justify-space-between":
             this.footerJustifyContent === "space-between",
+          large: state.large,
+          "flavor-alternate": this.flavor === "alternate",
         }}
       >
-        <div
-          class={{
-            modal: true,
-            "modal--visible": this.modalVisible,
-            "modal--transition": this.modalTransition,
-          }}
-          style={{
-            width: this.width,
-            maxWidth: this.maxWidth,
-            "z-index": this.zIndex + 1,
-          }}
-        >
-          <header class="modal__header">
-            <span class="modal__header__title">{this.modalTitle}</span>
-            <gxg-button
-              icon="gemini-tools/close"
-              type="secondary-icon-only"
-              onClick={this.closeModal.bind(this)}
-            ></gxg-button>
-          </header>
-          <div class="modal__container">
-            <slot></slot>
+        <div class="modal-container">
+          <div
+            class={{
+              modal: true,
+              "modal--visible": this.modalVisible,
+              "modal--transition": this.modalTransition,
+            }}
+            style={{
+              width: this.width,
+              maxWidth: this.maxWidth,
+              "z-index": this.zIndex + 1,
+            }}
+          >
+            <header class="modal__header">
+              <span class="modal__header__title">{this.modalTitle}</span>
+              <gxg-button
+                icon="gemini-tools/close"
+                type="tertiary"
+                onClick={this.closeModal.bind(this)}
+              ></gxg-button>
+            </header>
+            <div class="modal__container">
+              <slot></slot>
+            </div>
+            <footer class="modal__footer">
+              <slot name="footer"></slot>
+            </footer>
           </div>
-          <footer class="modal__footer">
-            <slot name="footer"></slot>
-          </footer>
         </div>
         <div
           class={{

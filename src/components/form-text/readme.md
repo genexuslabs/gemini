@@ -106,6 +106,7 @@
 
 ### Used by
 
+- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-accordion-item](../accordion-item)
 - [gxg-combo-box](../combo-box)
 - [gxg-filter](../filter)
@@ -123,6 +124,7 @@ graph TD;
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
+  gx-ide-new-kb --> gxg-form-text
   gxg-accordion-item --> gxg-form-text
   gxg-combo-box --> gxg-form-text
   gxg-filter --> gxg-form-text

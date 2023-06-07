@@ -9,8 +9,8 @@ import {
 } from "@stencil/core";
 
 @Component({
-  tag: "gxg-option",
-  styleUrl: "option.scss",
+  tag: "gxg-option-v2",
+  styleUrl: "form-option-v2.scss",
   shadow: true,
 })
 export class GxgFormOption {
@@ -38,7 +38,22 @@ export class GxgFormOption {
     }
   }
 
+  icon() {
+    if (this.iconName) {
+      return (
+        <gxg-icon type={this.iconName} color="auto" size="small"></gxg-icon>
+      );
+    }
+  }
+
   render() {
-    return <Host value={this.value} role="option"></Host>;
+    return (
+      <Host role="option">
+        {this.icon()}{" "}
+        <span class="label">
+          <slot></slot>
+        </span>
+      </Host>
+    );
   }
 }

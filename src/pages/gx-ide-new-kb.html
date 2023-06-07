@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1><code>gx-ide-new-kb</code></h1>
+
+    <gx-ide-new-kb id="new-kb-1"></gx-ide-new-kb>
+    <gxg-button id="showKbButton">Show new kb</gxg-button>
+    <script>
+      /*MODAL*/
+      const showKbButton = document.getElementById("showKbButton");
+      const gxIdeNewKb = document.querySelector("gx-ide-new-kb");
+      showKbButton.addEventListener("click", function () {
+        gxIdeNewKb.setAttribute("visible", "true");
+      });
+
+      /*SERVER NAME*/
+      const newKb1 = document.getElementById("new-kb-1");
+      /*prototyiping targets*/
+      newKb1.prototypingTargets = [
+        {
+          id: "local",
+          text: "Local",
+        },
+        {
+          id: "could",
+          text: "Cloud",
+        },
+      ];
+      /*user interface languages*/
+      newKb1.UILanguages = [
+        { id: "es", text: "Spanish" },
+        { id: "de", text: "German" },
+        { id: "en", text: "English" },
+        { id: "it", text: "Italian" },
+        { id: "pt", text: "Portuguese" },
+        { id: "zh-CN", text: "Simplified Chinese" },
+        { id: "zh-TW", text: "Traditional Chinese" },
+        { id: "ja", text: "Japanese" },
+        { id: "ar", text: "Arabic" },
+      ];
+      /*user interface languages*/
+      /*servers names*/
+      newKb1.serverNames = [
+        {
+          id: "server1",
+          text: "Server Name 1",
+        },
+        {
+          id: "server2",
+          text: "Server Name 2",
+        },
+        {
+          id: "server3",
+          text: "Server Name 3",
+        },
+      ];
+      /*collations*/
+      newKb1.collations = [
+        {
+          id: "collation1",
+          text: "Collation 1",
+        },
+        {
+          id: "collation2",
+          text: "Collation 2",
+        },
+        {
+          id: "collation3",
+          text: "Collation 3",
+        },
+      ];
+      /*authentication type*/
+      newKb1.authenticationTypes = [
+        {
+          id: 1,
+          text: "Username and Password",
+        },
+        {
+          id: 2,
+          text: "Two-Factor Authentication",
+        },
+        {
+          id: 3,
+          text: "Biometric Authentication",
+        },
+        {
+          id: 4,
+          text: "OAuth Authentication",
+        },
+      ];
+    </script>
+  </body>
+</html>

@@ -20,6 +20,20 @@
 | -------- | --------- | ----------- | -------------------------------------------------------------------- | ------------ |
 | `type`   | `type`    | Title type  | `"title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"title-01"` |
 
+## Dependencies
+
+### Used by
+
+- [gx-ide-new-kb](../gx-ide-new-kb)
+
+### Graph
+
+```mermaid
+graph TD;
+  gx-ide-new-kb --> gxg-title
+  style gxg-title fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

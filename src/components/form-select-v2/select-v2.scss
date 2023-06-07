@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  font-size: var(--font-size-sm);
+  position: relative;
+  font-family: var(--font-family-primary);
+
+  .label {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-sm);
+    letter-spacing: var(--letter-spacing-xs);
+    color: var(--color-on-background);
+    text-align: start;
+    line-height: 1.455em;
+    display: flex;
+    margin-bottom: var(--spacing-lay-xs);
+  }
+  .selected-value {
+    position: fixed;
+    z-index: 999;
+    border: 1px solid var(--gray-02);
+    padding: var(--spacing-comp-01);
+    line-height: 0.95em;
+    height: 10px;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      right: 6px;
+      width: 0;
+      height: 0;
+      border: 4px solid transparent;
+      border-color: var(--gray-06) transparent transparent transparent;
+    }
+    &:before {
+      top: 0;
+      transform: rotate(180deg);
+    }
+    &:after {
+      bottom: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+      &:before,
+      &:after {
+        border-color: var(--gray-04) transparent transparent transparent;
+      }
+    }
+  }
+}
+
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  font-size: var(--font-size-lg);
+}
