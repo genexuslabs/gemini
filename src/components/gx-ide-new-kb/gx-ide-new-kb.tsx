@@ -237,6 +237,7 @@ INDEX:
                   max-width="100%"
                   value={this.name}
                   ref={(el) => (this.firstElement = el as HTMLElement)}
+                  error
                 ></gxg-form-text>
               </div>
               <div class="header__item header__item--right-1"></div>

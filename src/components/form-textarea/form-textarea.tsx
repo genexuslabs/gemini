@@ -13,7 +13,7 @@ import state from "../store";
   shadow: true,
 })
 export class GxgFormTextarea implements FormComponent {
-  isRequiredError = false;
+  showValidationMessage = false;
 
   //A reference to the input
   textArea!: HTMLTextAreaElement;
@@ -35,7 +35,7 @@ export class GxgFormTextarea implements FormComponent {
   /**
    * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
    */
-  @Prop({ mutable: true }) requiredMessage: string;
+  @Prop({ mutable: true }) validationMessage: string;
 
   /**
    * The textarea label
@@ -148,9 +148,9 @@ export class GxgFormTextarea implements FormComponent {
         ></textarea>
 
         {formMessage(
-          this.isRequiredError ? (
+          this.showValidationMessage ? (
             <gxg-form-message type="error" key="required-error">
-              {this.requiredMessage}
+              {this.validationMessage}
             </gxg-form-message>
           ) : null
         )}

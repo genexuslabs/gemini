@@ -85,10 +85,16 @@ TEXT
   .input--error[type="text"],
   .input--error[type="password"] {
     @include form-element-common-styles-error();
+    &:focus {
+      @include form-element-common-styles-error-focus();
+    }
   }
   .input--warning[type="text"],
   .input--warning[type="password"] {
     @include form-element-common-styles-warning();
+    &:focus {
+      @include form-element-common-styles-warning-focus();
+    }
   }
 }
 //borderless and transparent background
@@ -252,27 +258,27 @@ LARGE VERSION (html tag has 'gxg-large' class)
   }
 }
 // Input with icon (on the left, or on the right)
-:host(.large[icon-position="start"]) input{
-  padding-inline-start: var(--spacing-comp-05);  
+:host(.large[icon-position="start"]) input {
+  padding-inline-start: var(--spacing-comp-05);
   .inner-wrapper gxg-icon {
     top: 2px;
     left: 2px;
   }
 }
-:host(.large[icon-position="end"]) input{
+:host(.large[icon-position="end"]) input {
   padding-inline-end: var(--spacing-comp-05);
   .inner-wrapper gxg-icon {
     right: 2px;
     left: auto;
   }
 }
-:host(.large[icon-position="start"]){
+:host(.large[icon-position="start"]) {
   .inner-wrapper gxg-icon {
     top: 2px;
     left: 2px;
   }
 }
-:host(.large[icon-position="end"]){
+:host(.large[icon-position="end"]) {
   .inner-wrapper gxg-icon {
     top: 2px;
     right: 2px;
@@ -284,14 +290,14 @@ LARGE VERSION (html tag has 'gxg-large' class)
   right: 5px !important;
   left: auto !important;
 }
-:host(.large[icon-position="end"][clear-button]){
+:host(.large[icon-position="end"][clear-button]) {
   .inner-wrapper gxg-icon {
     right: 21px;
   }
 }
-:host(.large[icon-position="start"][clear-button]) input{
+:host(.large[icon-position="start"][clear-button]) input {
   padding-inline-end: 26px;
 }
-:host(.large[icon-position="end"][clear-button]) input{
+:host(.large[icon-position="end"][clear-button]) input {
   padding-inline-end: 42px;
 }

@@ -3,10 +3,10 @@ import { requiredLabel, formMessage } from "../../common";
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgFormRadioGroup {
-  isRequiredError = false;
+  showValidationMessage = false;
 
   @Element() el: HTMLElement;
 
@@ -23,7 +23,7 @@ export class GxgFormRadioGroup {
    * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
    *
    */
-  @Prop({ mutable: true }) requiredMessage: string;
+  @Prop({ mutable: true }) validationMessage: string;
 
   /**
    * Make the radio-buttons required
@@ -74,7 +74,7 @@ export class GxgFormRadioGroup {
   radioClickedHandler(event: CustomEvent) {
     const radioButtonsNodeList = this.el.querySelectorAll("gxg-form-radio");
 
-    radioButtonsNodeList.forEach(function(currentRadio) {
+    radioButtonsNodeList.forEach(function (currentRadio) {
       if (event.detail["id"] === currentRadio.getAttribute("radio-id")) {
         currentRadio.setAttribute("checked", "checked");
         currentRadio.shadowRoot
@@ -112,9 +112,9 @@ export class GxgFormRadioGroup {
         {this.labelFunc()}
         <slot></slot>
         {formMessage(
-          this.isRequiredError ? (
+          this.showValidationMessage ? (
             <gxg-form-message type="error" key="required-error">
-              {this.requiredMessage}
+              {this.validationMessage}
             </gxg-form-message>
           ) : null
         )}

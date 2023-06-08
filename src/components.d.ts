@@ -670,7 +670,7 @@ export namespace Components {
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
-    requiredMessage: string;
+    validationMessage: string;
   }
   interface GxgFormText {
     /**
@@ -730,13 +730,17 @@ export namespace Components {
      */
     required: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     * The presence of this attribute will show a validation message if the input has an error
      */
-    requiredMessage: string;
+    showValidationMessage: boolean;
     /**
      * The text style
      */
     textStyle: Style;
+    /**
+     * A unique custom message to display if the input has any validation errors
+     */
+    validationMessage: string | undefined;
     /**
      * The input value
      */
@@ -776,13 +780,13 @@ export namespace Components {
      */
     required: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    requiredMessage: string;
-    /**
      * The number of rows
      */
     rows: number;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage: string;
     /**
      * The textarea value
      */
@@ -2729,7 +2733,7 @@ declare namespace LocalJSX {
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
-    requiredMessage?: string;
+    validationMessage?: string;
   }
   interface GxgFormText {
     /**
@@ -2801,13 +2805,17 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     * The presence of this attribute will show a validation message if the input has an error
      */
-    requiredMessage?: string;
+    showValidationMessage?: boolean;
     /**
      * The text style
      */
     textStyle?: Style;
+    /**
+     * A unique custom message to display if the input has any validation errors
+     */
+    validationMessage?: string | undefined;
     /**
      * The input value
      */
@@ -2855,13 +2863,13 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    requiredMessage?: string;
-    /**
      * The number of rows
      */
     rows?: number;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage?: string;
     /**
      * The textarea value
      */

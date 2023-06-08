@@ -23,8 +23,6 @@ import state from "../store";
   shadow: { delegatesFocus: true },
 })
 export class GxgFormText implements FormComponent {
-  isRequiredError = false;
-
   textInput!: HTMLInputElement;
 
   /*********************************
@@ -50,6 +48,11 @@ export class GxgFormText implements FormComponent {
    * The presence of this attribute gives the component error styles
    */
   @Prop({ mutable: true }) error = false;
+
+  /**
+   * The presence of this attribute will show a validation message if the input has an error
+   */
+  @Prop({ mutable: true }) showValidationMessage = false;
 
   /**
    * The input icon (optional)
@@ -92,10 +95,10 @@ export class GxgFormText implements FormComponent {
   @Prop({ reflect: true }) required = false;
 
   /**
-   * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+   * A unique custom message to display if the input has any validation errors
    *
    */
-  @Prop({ mutable: true }) requiredMessage: string;
+  @Prop({ mutable: true }) validationMessage: string | undefined = undefined;
 
   /**
    * The input value
@@ -382,6 +385,7 @@ export class GxgFormText implements FormComponent {
   }
 
   render() {
+    console.log("show validation message", this.showValidationMessage);
     return (
       <Host
         role="textbox"
@@ -447,13 +451,13 @@ export class GxgFormText implements FormComponent {
             ) : null}
           </div>
         </div>
-        {formMessage(
-          this.isRequiredError ? (
-            <gxg-form-message type="error" key="required-error">
-              {this.requiredMessage}
-            </gxg-form-message>
-          ) : null
-        )}
+        {this.error && this.showValidationMessage
+          ? formMessage(
+              <gxg-form-message type="error" key="required-error">
+                <p>hola</p>
+              </gxg-form-message>
+            )
+          : null}
       </Host>
     );
   }

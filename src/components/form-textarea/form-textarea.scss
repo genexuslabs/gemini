@@ -49,9 +49,15 @@ TEXTAREA
   }
   textarea.textarea--error {
     @include form-element-common-styles-error();
+    &:focus {
+      @include form-element-common-styles-error-focus();
+    }
   }
   textarea.textarea--warning {
     @include form-element-common-styles-warning();
+    &:focus {
+      @include form-element-common-styles-warning-focus();
+    }
   }
 }
 

@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property          | Attribute          | Description                                                                                                                                                    | Type      | Default     |
-| ----------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `label`           | `label`            | The radio group label                                                                                                                                          | `string`  | `undefined` |
-| `required`        | `required`         | Make the radio-buttons required                                                                                                                                | `boolean` | `false`     |
-| `requiredMessage` | `required-message` | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`  | `undefined` |
+| Property            | Attribute            | Description                                                                                                                                                    | Type      | Default     |
+| ------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `label`             | `label`              | The radio group label                                                                                                                                          | `string`  | `undefined` |
+| `required`          | `required`           | Make the radio-buttons required                                                                                                                                | `boolean` | `false`     |
+| `validationMessage` | `validation-message` | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`  | `undefined` |
 
 ## Dependencies
 

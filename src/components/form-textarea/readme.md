@@ -34,19 +34,19 @@ btnShowErrors.addEventListener("click", function(){
 
 ## Properties
 
-| Property          | Attribute          | Description                                                                                                                                                    | Type      | Default     |
-| ----------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`        | `disabled`         | The presence of this attribute makes the textarea disabled                                                                                                     | `boolean` | `false`     |
-| `error`           | `error`            | The presence of this attribute gives the component error styles                                                                                                | `boolean` | `false`     |
-| `height`          | `height`           | The textarea height                                                                                                                                            | `string`  | `"auto"`    |
-| `label`           | `label`            | The textarea label                                                                                                                                             | `string`  | `undefined` |
-| `maxWidth`        | `max-width`        | The max-width                                                                                                                                                  | `string`  | `"100%"`    |
-| `placeholder`     | `placeholder`      | The textarea placeholder                                                                                                                                       | `string`  | `undefined` |
-| `required`        | `required`         | The presence of this attribute makes the textarea required                                                                                                     | `boolean` | `false`     |
-| `requiredMessage` | `required-message` | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`  | `undefined` |
-| `rows`            | `rows`             | The number of rows                                                                                                                                             | `number`  | `4`         |
-| `value`           | `value`            | The textarea value                                                                                                                                             | `string`  | `undefined` |
-| `warning`         | `warning`          | The presence of this attribute gives the component warning styles                                                                                              | `boolean` | `false`     |
+| Property            | Attribute            | Description                                                                                                                                                    | Type      | Default     |
+| ------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`          | `disabled`           | The presence of this attribute makes the textarea disabled                                                                                                     | `boolean` | `false`     |
+| `error`             | `error`              | The presence of this attribute gives the component error styles                                                                                                | `boolean` | `false`     |
+| `height`            | `height`             | The textarea height                                                                                                                                            | `string`  | `"auto"`    |
+| `label`             | `label`              | The textarea label                                                                                                                                             | `string`  | `undefined` |
+| `maxWidth`          | `max-width`          | The max-width                                                                                                                                                  | `string`  | `"100%"`    |
+| `placeholder`       | `placeholder`        | The textarea placeholder                                                                                                                                       | `string`  | `undefined` |
+| `required`          | `required`           | The presence of this attribute makes the textarea required                                                                                                     | `boolean` | `false`     |
+| `rows`              | `rows`               | The number of rows                                                                                                                                             | `number`  | `4`         |
+| `validationMessage` | `validation-message` | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`  | `undefined` |
+| `value`             | `value`              | The textarea value                                                                                                                                             | `string`  | `undefined` |
+| `warning`           | `warning`            | The presence of this attribute gives the component warning styles                                                                                              | `boolean` | `false`     |
 
 ## Events
 

@@ -190,11 +190,18 @@ ERROR & WARNING
   .select--error {
     .select-selected {
       @include form-element-common-styles-error();
+
+      &:focus {
+        @include form-element-common-styles-error-focus();
+      }
     }
   }
   .select--warning {
     .select-selected {
       @include form-element-common-styles-warning();
+      &:focus {
+        @include form-element-common-styles-warning-focus();
+      }
     }
   }
   .select--error .select-selected {
