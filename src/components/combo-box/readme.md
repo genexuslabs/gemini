@@ -67,6 +67,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+- [gx-ide-new-kb](../gx-ide-new-kb)
+
 ### Depends on
 
 - [gxg-form-text](../form-text)
@@ -83,6 +87,7 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon
+  gx-ide-new-kb --> gxg-combo-box
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

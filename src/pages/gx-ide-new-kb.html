@@ -50,7 +50,18 @@
         { id: "ja", text: "Japanese" },
         { id: "ar", text: "Arabic" },
       ];
-      /*user interface languages*/
+      /*prototying environments*/
+      newKb1.prototypingEnvironments = [
+        { id: ".net", text: ".NET" },
+        { id: ".net-framework", text: ".NET Framework" },
+        { id: "java", text: "Java" },
+      ];
+      /*data sources*/
+      newKb1.dataSources = [
+        { id: "sql-server", text: "SQL Server" },
+        { id: "mysql", text: "MySQL" },
+        { id: "postgre-sql", text: "PostgreSQL" },
+      ];
       /*servers names*/
       newKb1.serverNames = [
         {
@@ -69,16 +80,24 @@
       /*collations*/
       newKb1.collations = [
         {
-          id: "collation1",
-          text: "Collation 1",
+          id: "cs",
+          text: "Case-sensitive (_CS)",
         },
         {
-          id: "collation2",
-          text: "Collation 2",
+          id: "as",
+          text: "Accent-sensitive (_AS)",
         },
         {
-          id: "collation3",
-          text: "Collation 3",
+          id: "ks",
+          text: "Kana-sensitive (_KS)",
+        },
+        {
+          id: "ws",
+          text: "Width-sensitive (_WS)",
+        },
+        {
+          id: "vss",
+          text: "Variation-selector-sensitive (_VSS)",
         },
       ];
       /*authentication type*/
@@ -98,6 +117,34 @@
         {
           id: 4,
           text: "OAuth Authentication",
+        },
+      ];
+      /*front end*/
+      newKb1.frontEnd = [
+        {
+          id: "web-net",
+          text: "Web (.NET)",
+          iconName: null,
+        },
+        {
+          id: "android",
+          text: "Android",
+          iconName: "general/android",
+        },
+        {
+          id: "apple",
+          text: "Apple",
+          iconName: "general/apple",
+        },
+        {
+          id: "web-angular",
+          text: "Web (Angular)",
+          iconName: "general/angular",
+        },
+        {
+          id: "we-chat-mini-program",
+          text: "We Chat Mini Program",
+          iconName: null,
         },
       ];
     </script>

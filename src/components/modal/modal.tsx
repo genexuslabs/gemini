@@ -66,6 +66,11 @@ export class GxgModal {
    */
   @Event() modalClosed: EventEmitter;
 
+  /**
+   * Emmited when the modal was opened
+   */
+  @Event() modalOpened: EventEmitter;
+
   @State() layerVisible = false;
   @State() modalVisible = false;
   @State() modalTransition = false;
@@ -103,6 +108,7 @@ export class GxgModal {
             function () {
               this.layerVisible = true;
               this.modalVisible = true;
+              this.modalOpened.emit(true);
             }.bind(this),
             50
           );

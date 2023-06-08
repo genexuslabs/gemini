@@ -146,7 +146,7 @@ export class GxgFormCheckbox {
             class={{
               checkmark: true,
               "no-label": !this.label,
-              "has-icon": this.iconName !== undefined,
+              "has-icon": !!this.iconName,
             }}
             role="checkbox"
           ></span>

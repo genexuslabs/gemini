@@ -20,6 +20,10 @@
 
 ## Dependencies
 
+### Used by
+
+- [gx-ide-new-kb](../gx-ide-new-kb)
+
 ### Depends on
 
 - [gxg-icon](../icon)
@@ -30,6 +34,7 @@
 graph TD;
   gxg-combo-box-item --> gxg-icon
   gxg-icon --> ch-icon
+  gx-ide-new-kb --> gxg-combo-box-item
   style gxg-combo-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,0 +1,200 @@
+:host {
+  display: block;
+}
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr 30px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: var(--spacing-comp-02);
+  grid-row-gap: var(--spacing-comp-02);
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+  margin-bottom: var(--spacing-comp-03);
+}
+#gxgTabs {
+  margin-top: 0;
+  box-shadow: none;
+}
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-comp-03) var(--common-lateral-padding);
+}
+/*TAB CONTAINER*/
+.tab-container {
+  border: 1px solid var(--gray-02);
+}
+/*BASIC TAB*/
+.basic {
+  &__container {
+    border: 1px solid var(--gray-02);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-rows: min-content auto;
+  }
+  &__box {
+    padding: var(--spacing-comp-03) var(--spacing-comp-04);
+    &--top {
+      grid-area: 1 / 1 / 2 / 3;
+      gap: var(--spacing-comp-03);
+      display: flex;
+
+      > gxg-select {
+        flex: 1;
+      }
+      border-bottom: 1px solid var(--gray-02);
+    }
+    &--left {
+      grid-area: 2 / 1 / 3 / 2;
+      gap: var(--spacing-comp-03);
+      border-right: 1px solid var(--gray-02);
+    }
+    &--right {
+      grid-area: 2 / 2 / 3 / 3;
+      gap: var(--spacing-comp-03);
+    }
+    &-inner {
+      display: flex;
+    }
+    &-inner-wrapper {
+      margin-top: var(--spacing-comp-03);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-comp-03);
+
+      &--smaller-gap {
+        gap: var(--spacing-comp-02);
+      }
+    }
+  }
+}
+/*ADVANCED TAB*/
+.advanced {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-rows: min-content auto;
+  }
+  &__box {
+    padding: var(--spacing-comp-03) var(--spacing-comp-04);
+    &--top {
+      grid-area: 1 / 1 / 2 / 3;
+      border-bottom: 1px solid var(--gray-02);
+    }
+    &--left {
+      grid-area: 2 / 1 / 3 / 2;
+      border-right: 1px solid var(--gray-02);
+      padding-right: var(--spacing-comp-03);
+
+      &__inner-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: var(--spacing-comp-02);
+        grid-row-gap: var(--spacing-comp-04);
+
+        .row1-right,
+        .row2-right,
+        .row3-right {
+          display: flex;
+          align-items: self-end;
+        }
+        .row1-left {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        .row1-right {
+          grid-area: 1 / 2 / 2 / 3;
+        }
+        .row2-left {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        .row2-right {
+          grid-area: 2 / 2 / 3 / 3;
+        }
+        .row3-left {
+          grid-area: 3 / 1 / 4 / 2;
+        }
+        .row3-right {
+          grid-area: 3 / 2 / 4 / 3;
+        }
+        .row4-left {
+          grid-area: 4 / 1 / 5 / 2;
+        }
+        .row4-right {
+          grid-area: 4 / 2 / 5 / 3;
+        }
+      }
+    }
+    &--right {
+      grid-area: 2 / 2 / 3 / 3;
+      padding-right: var(--spacing-comp-03);
+
+      &__inner-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: var(--spacing-comp-02);
+        grid-row-gap: var(--spacing-comp-04);
+
+        .row1-right,
+        .row2-right,
+        .row3-right {
+          display: flex;
+          align-items: self-end;
+        }
+        .row1-left {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        .row1-right {
+          grid-area: 1 / 2 / 2 / 3;
+        }
+        .row2-left {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        .row2-right {
+          grid-area: 2 / 2 / 3 / 3;
+        }
+        .row3-left {
+          grid-area: 3 / 1 / 4 / 2;
+        }
+        .row3-right {
+          grid-area: 3 / 2 / 4 / 3;
+        }
+        .row4-left {
+          grid-area: 4 / 1 / 5 / 2;
+        }
+        .row4-right {
+          grid-area: 4 / 2 / 5 / 3;
+        }
+      }
+    }
+  }
+}
+.option-wrapper {
+  display: flex;
+  gap: var(--spacing-comp-01);
+  &__left {
+    flex-grow: 1;
+  }
+  &__right {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+/*FOOTER*/
+#button-create {
+  margin-right: var(--spacing-comp-03);
+}
+/*MODAL*/
+#modal {
+  margin: 0 var(--spacing-comp-03);
+}

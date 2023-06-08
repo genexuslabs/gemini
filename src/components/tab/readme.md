@@ -10,6 +10,20 @@
 | `noPadding`  | `no-padding`  | The presence of this attribute removes the tab .container padding     | `boolean` | `false`     |
 | `tab`        | `tab`         | The tab id. Should match the "tab" value of the correlative "gxg-tab" | `string`  | `undefined` |
 
+## Dependencies
+
+### Used by
+
+- [gx-ide-new-kb](../gx-ide-new-kb)
+
+### Graph
+
+```mermaid
+graph TD;
+  gx-ide-new-kb --> gxg-tab
+  style gxg-tab fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
