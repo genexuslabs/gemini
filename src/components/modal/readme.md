@@ -39,10 +39,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-button](../button)
@@ -54,7 +50,6 @@ graph TD;
   gxg-modal --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-test --> gxg-modal
   style gxg-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

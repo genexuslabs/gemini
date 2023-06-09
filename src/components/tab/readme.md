@@ -15,12 +15,14 @@
 ### Used by
 
 - [gx-ide-new-kb](../gx-ide-new-kb)
+- [gxg-test](../test)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gx-ide-new-kb --> gxg-tab
+  gxg-test --> gxg-tab
   style gxg-tab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

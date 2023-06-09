@@ -44,7 +44,6 @@ export class GxgTabBar {
     const originTab = this.el.querySelector(
       `gxg-tab-button[tab='${e.detail["originTab"]}']`
     );
-    console.log("originTab", e.detail["originTab"]);
     let destinationTab: GxgTabButton = null;
 
     if (e.detail["arrowPressed"] === "ArrowRight") {

@@ -13,7 +13,7 @@ import state from "../store";
 @Component({
   tag: "gxg-tab-button",
   styleUrl: "tab-button.scss",
-  shadow: { delegatesFocus: true },
+  shadow: true,
 })
 export class GxgTabButton {
   @Element() el: HTMLElement;
@@ -27,7 +27,7 @@ export class GxgTabButton {
   /**
    * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
    */
-  @Prop() tab: string = null;
+  @Prop({ reflect: true }) tab: string = null;
 
   /**
    * Provide this attribute to make this button selected by default
