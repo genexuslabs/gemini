@@ -4,10 +4,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default    |
-| -------- | --------- | ----------- | --------- | ---------- |
-| `name`   | `name`    |             | `string`  | `"Andres"` |
-| `show`   | `show`    |             | `boolean` | `false`    |
+| Property                | Attribute                 | Description | Type      | Default    |
+| ----------------------- | ------------------------- | ----------- | --------- | ---------- |
+| `name`                  | `name`                    |             | `string`  | `"Andres"` |
+| `show`                  | `show`                    |             | `boolean` | `false`    |
+| `showValidationMessage` | `show-validation-message` |             | `boolean` | `false`    |
 
 ## Dependencies
 

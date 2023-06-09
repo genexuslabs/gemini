@@ -76,15 +76,19 @@
 | `iconPosition`          | `icon-position`           | The input icon side                                                                                                                                  | `"end" \| "start"`                                                                           | `null`      |
 | `label`                 | `label`                   | The input label                                                                                                                                      | `string`                                                                                     | `undefined` |
 | `labelPosition`         | `label-position`          | The input label                                                                                                                                      | `"above" \| "start"`                                                                         | `undefined` |
+| `maxLength`             | `max-length`              | The input max. length                                                                                                                                | `string`                                                                                     | `undefined` |
 | `maxWidth`              | `max-width`               | The input max. width                                                                                                                                 | `string`                                                                                     | `"100%"`    |
+| `minLength`             | `min-length`              | The input min. length                                                                                                                                | `string`                                                                                     | `undefined` |
 | `minimal`               | `minimal`                 | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus                                | `boolean`                                                                                    | `false`     |
 | `overDarkBackground`    | `over-dark-background`    | The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark | `boolean`                                                                                    | `false`     |
 | `password`              | `password`                | The presence of this attribute sets the input type as password                                                                                       | `boolean`                                                                                    | `false`     |
+| `pattern`               | `pattern`                 | The input pattern attribute specifies a regular expression that the input field's value is checked against                                           | `string`                                                                                     | `undefined` |
 | `placeholder`           | `placeholder`             | The input placeholder                                                                                                                                | `string`                                                                                     | `undefined` |
 | `readonly`              | `readonly`                | The presence of this attribute makes the input readonly                                                                                              | `boolean`                                                                                    | `false`     |
 | `required`              | `required`                | The presence of this attribute makes this input required                                                                                             | `boolean`                                                                                    | `false`     |
 | `showValidationMessage` | `show-validation-message` | The presence of this attribute will show a validation message if the input has an error                                                              | `boolean`                                                                                    | `false`     |
 | `textStyle`             | `text-style`              | The text style                                                                                                                                       | `"quote" \| "regular" \| "title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"regular"` |
+| `validateOnInput`       | `validate-on-input`       | The presence of this attribute will check the input validity on every user input                                                                     | `boolean`                                                                                    | `false`     |
 | `validationMessage`     | `validation-message`      | A unique custom message to display if the input has any validation errors                                                                            | `string`                                                                                     | `undefined` |
 | `value`                 | `value`                   | The input value                                                                                                                                      | `string`                                                                                     | `undefined` |
 | `warning`               | `warning`                 | The presence of this attribute gives the component warning styles                                                                                    | `boolean`                                                                                    | `false`     |
@@ -96,6 +100,20 @@
 | `change`             | Returns the input value      | `CustomEvent<any>` |
 | `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
 | `input`              | Returns the input value      | `CustomEvent<any>` |
+
+## Methods
+
+### `validate() => Promise<void>`
+
+---
+
+METHODS
+
+---
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Shadow Parts
 

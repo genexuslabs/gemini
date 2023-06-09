@@ -67,11 +67,7 @@ TEXT
     @include ui-animation(padding-left);
 
     &:focus {
-      outline-style: solid;
-      outline-color: var(--color-primary-active);
-      outline-width: var(--border-width-sm);
-      border-color: var(--color-primary-active);
-      border-radius: 0;
+      @include form-element-common-styles-focus-type-1;
     }
     &:hover {
     }
@@ -143,6 +139,12 @@ ERROR / WARNING MESSAGES
 /*****************************************************
 INPUT TEXT ICON
 *****************************************************/
+:host {
+  gxg-icon {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 :host([icon-position="end"]) {
   .clear-button {
     gxg-icon:not(.clear-button) {
@@ -167,7 +169,6 @@ CLEAR BUTTON
 *****************************************************/
 :host {
   gxg-icon.clear-button {
-    right: 5px !important;
     left: auto;
     opacity: 0.5;
     cursor: pointer;
@@ -179,11 +180,18 @@ CLEAR BUTTON
 }
 :host([clear-button][icon-position="end"]) {
   gxg-icon:not(.clear-button) {
-    right: 20px;
+    right: 16px;
   }
   input {
     padding-inline-end: 36px;
   }
+}
+
+/*****************************************************
+CUSTOM ICON
+*****************************************************/
+.custom-icon:has(+ .clear-button) {
+  /* Styles for the target element if the next sibling has the class */
 }
 
 /*****************************************************
@@ -245,7 +253,7 @@ LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
 :host(.large) {
   label {
-    font-size: var(--font-size-lg);
+    @include form-element-common-styles-label-large();
   }
   input {
     height: var(--spacing-comp-05);
@@ -261,27 +269,20 @@ LARGE VERSION (html tag has 'gxg-large' class)
 :host(.large[icon-position="start"]) input {
   padding-inline-start: var(--spacing-comp-05);
   .inner-wrapper gxg-icon {
-    top: 2px;
     left: 2px;
   }
 }
 :host(.large[icon-position="end"]) input {
   padding-inline-end: var(--spacing-comp-05);
-  .inner-wrapper gxg-icon {
-    right: 2px;
-    left: auto;
-  }
 }
 :host(.large[icon-position="start"]) {
   .inner-wrapper gxg-icon {
-    top: 2px;
     left: 2px;
   }
 }
 :host(.large[icon-position="end"]) {
   .inner-wrapper gxg-icon {
-    top: 2px;
-    right: 2px;
+    right: 4px;
     left: auto;
   }
 }
@@ -292,12 +293,12 @@ LARGE VERSION (html tag has 'gxg-large' class)
 }
 :host(.large[icon-position="end"][clear-button]) {
   .inner-wrapper gxg-icon {
-    right: 21px;
+    right: 26px;
   }
 }
 :host(.large[icon-position="start"][clear-button]) input {
   padding-inline-end: 26px;
 }
 :host(.large[icon-position="end"][clear-button]) input {
-  padding-inline-end: 42px;
+  padding-inline-end: 48px;
 }

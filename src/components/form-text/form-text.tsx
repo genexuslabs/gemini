@@ -8,6 +8,7 @@ import {
   EventEmitter,
   State,
   Watch,
+  Method,
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -52,7 +53,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute will show a validation message if the input has an error
    */
-  @Prop({ mutable: true }) showValidationMessage = false;
+  @Prop() showValidationMessage = false;
 
   /**
    * The input icon (optional)
@@ -101,6 +102,12 @@ export class GxgFormText implements FormComponent {
   @Prop({ mutable: true }) validationMessage: string | undefined = undefined;
 
   /**
+   * The presence of this attribute will check the input validity on every user input
+   *
+   */
+  @Prop() validateOnInput = false;
+
+  /**
    * The input value
    */
   @Prop({ reflect: true }) value: string;
@@ -116,6 +123,11 @@ export class GxgFormText implements FormComponent {
   @Prop() maxWidth = "100%";
 
   /**
+   * The input pattern attribute specifies a regular expression that the input field's value is checked against
+   */
+  @Prop() pattern: string | undefined = undefined;
+
+  /**
    * The text style
    */
   @Prop({ reflect: true }) textStyle: Style = "regular";
@@ -124,6 +136,16 @@ export class GxgFormText implements FormComponent {
    * The presence of this attribute sets the input type as password
    */
   @Prop() password = false;
+
+  /**
+   * The input max. length
+   */
+  @Prop() maxLength: string | undefined = undefined;
+
+  /**
+   * The input min. length
+   */
+  @Prop() minLength: string | undefined = undefined;
 
   @Element() el: HTMLElement;
 
@@ -167,6 +189,11 @@ export class GxgFormText implements FormComponent {
   METHODS
   *********************************/
 
+  @Method()
+  async validate() {
+    formHandleChange(this, this.textInput);
+  }
+
   iconPositionFunc() {
     if (this.iconPosition !== null && this.icon !== null) {
       return this.iconPosition;
@@ -178,16 +205,31 @@ export class GxgFormText implements FormComponent {
     if (this.iconPosition !== null && this.icon !== null) {
       if (this.warning) {
         return (
-          <gxg-icon type={this.icon} size={iconSize} color="warning"></gxg-icon>
+          <gxg-icon
+            class="custom-icon"
+            type={this.icon}
+            size={iconSize}
+            color="warning"
+          ></gxg-icon>
         );
       }
       if (this.error) {
         return (
-          <gxg-icon type={this.icon} size={iconSize} color="error"></gxg-icon>
+          <gxg-icon
+            class="custom-icon"
+            type={this.icon}
+            size={iconSize}
+            color="error"
+          ></gxg-icon>
         );
       }
       return (
-        <gxg-icon type={this.icon} size={iconSize} color="auto"></gxg-icon>
+        <gxg-icon
+          class="custom-icon"
+          type={this.icon}
+          size={iconSize}
+          color="auto"
+        ></gxg-icon>
       );
     }
   }
@@ -197,7 +239,9 @@ export class GxgFormText implements FormComponent {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(target.value);
-    formHandleChange(this, e.target);
+    if (this.validateOnInput) {
+      formHandleChange(this, e.target);
+    }
   }
 
   handleChange(e) {
@@ -428,6 +472,9 @@ export class GxgFormText implements FormComponent {
                 "input--error": this.error === true,
                 "input--warning": this.warning === true,
                 "cursor-inside": this.cursorInside,
+                "clear-button": this.clearButton === true,
+                "custom-icon": this.icon,
+                "custom-icon--end": this.iconPosition === "end",
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
@@ -438,6 +485,9 @@ export class GxgFormText implements FormComponent {
               onMouseEnter={this.mouseEnterHandler.bind(this)}
               onMouseOut={this.mouseOutHandler.bind(this)}
               ref={(el) => (this.textInput = el as HTMLInputElement)}
+              maxLength={this.maxLength ? parseInt(this.maxLength) : null}
+              minLength={this.minLength ? parseInt(this.minLength) : null}
+              pattern={this.pattern ? this.pattern : null}
             ></input>
             {this.inputIcon()}
             {this.clearButton ? (
@@ -454,7 +504,7 @@ export class GxgFormText implements FormComponent {
         {this.error && this.showValidationMessage
           ? formMessage(
               <gxg-form-message type="error" key="required-error">
-                <p>hola</p>
+                {this.validationMessage}
               </gxg-form-message>
             )
           : null}

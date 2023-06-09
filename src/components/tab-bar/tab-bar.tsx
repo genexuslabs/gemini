@@ -1,4 +1,5 @@
 import { Component, h, Host, Element, State, Listen } from "@stencil/core";
+import { GxgTabButton } from "../tab-button/tab-button";
 
 @Component({
   tag: "gxg-tab-bar",
@@ -36,6 +37,30 @@ export class GxgTabBar {
       ".tab-bar-menu"
     ) as HTMLElement;
     tabMenuContainer.classList.add("tab-bar-menu--collapsed");
+  }
+
+  @Listen("PrevOrNextTab")
+  PrevOrNextTabHandler(e) {
+    const originTab = this.el.querySelector(
+      `gxg-tab-button[tab='${e.detail["originTab"]}']`
+    );
+    console.log("originTab", e.detail["originTab"]);
+    let destinationTab: GxgTabButton = null;
+
+    if (e.detail["arrowPressed"] === "ArrowRight") {
+      const nextTabButton = (originTab.nextElementSibling as unknown) as GxgTabButton;
+      if (nextTabButton) {
+        destinationTab = nextTabButton;
+      }
+    } else if (e.detail["arrowPressed"] === "ArrowLeft") {
+      const prevTabButton = (originTab.previousElementSibling as unknown) as GxgTabButton;
+      if (prevTabButton) {
+        destinationTab = prevTabButton;
+      }
+    }
+    if (destinationTab) {
+      destinationTab.tabButtonClick();
+    }
   }
 
   appendTabItemsToMenu() {

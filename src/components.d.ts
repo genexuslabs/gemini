@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { GxOption } from "./gx-ide-common/definitions";
+import { locationFunction } from "./components/gx-ide-new-kb/gx-ide-new-kb";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
@@ -93,7 +94,11 @@ export namespace Components {
     /**
      * Default suggested path to a directory where the information related to the KB will be stored/generated
      */
-    location: string;
+    location: string | undefined;
+    /**
+     * This is a function provided by the developer that returns a string, with the location path.
+     */
+    locationFunction: locationFunction;
     /**
      * The knowledge base default suggested name
      */
@@ -702,9 +707,17 @@ export namespace Components {
      */
     labelPosition: LabelPosition;
     /**
+     * The input max. length
+     */
+    maxLength: string | undefined;
+    /**
      * The input max. width
      */
     maxWidth: string;
+    /**
+     * The input min. length
+     */
+    minLength: string | undefined;
     /**
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
@@ -717,6 +730,10 @@ export namespace Components {
      * The presence of this attribute sets the input type as password
      */
     password: boolean;
+    /**
+     * The input pattern attribute specifies a regular expression that the input field's value is checked against
+     */
+    pattern: string | undefined;
     /**
      * The input placeholder
      */
@@ -737,6 +754,14 @@ export namespace Components {
      * The text style
      */
     textStyle: Style;
+    /**
+     * ******************************* METHODS *******************************
+     */
+    validate: () => Promise<void>;
+    /**
+     * The presence of this attribute will check the input validity on every user input
+     */
+    validateOnInput: boolean;
     /**
      * A unique custom message to display if the input has any validation errors
      */
@@ -898,6 +923,10 @@ export namespace Components {
      * The footer justify content type
      */
     footerJustifyContent: string;
+    /**
+     * The presence of this attribute hides the footer.
+     */
+    hideFooter: boolean;
     /**
      * The modal max-width
      */
@@ -1275,6 +1304,7 @@ export namespace Components {
      * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
      */
     tab: string;
+    tabButtonClick: () => Promise<void>;
     /**
      * The button label
      */
@@ -1291,6 +1321,7 @@ export namespace Components {
   interface GxgTest {
     name: string;
     show: boolean;
+    showValidationMessage: boolean;
   }
   interface GxgText {
     /**
@@ -2089,7 +2120,11 @@ declare namespace LocalJSX {
     /**
      * Default suggested path to a directory where the information related to the KB will be stored/generated
      */
-    location?: string;
+    location?: string | undefined;
+    /**
+     * This is a function provided by the developer that returns a string, with the location path.
+     */
+    locationFunction?: locationFunction;
     /**
      * The knowledge base default suggested name
      */
@@ -2765,9 +2800,17 @@ declare namespace LocalJSX {
      */
     labelPosition?: LabelPosition;
     /**
+     * The input max. length
+     */
+    maxLength?: string | undefined;
+    /**
      * The input max. width
      */
     maxWidth?: string;
+    /**
+     * The input min. length
+     */
+    minLength?: string | undefined;
     /**
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
@@ -2793,6 +2836,10 @@ declare namespace LocalJSX {
      */
     password?: boolean;
     /**
+     * The input pattern attribute specifies a regular expression that the input field's value is checked against
+     */
+    pattern?: string | undefined;
+    /**
      * The input placeholder
      */
     placeholder?: string;
@@ -2812,6 +2859,10 @@ declare namespace LocalJSX {
      * The text style
      */
     textStyle?: Style;
+    /**
+     * The presence of this attribute will check the input validity on every user input
+     */
+    validateOnInput?: boolean;
     /**
      * A unique custom message to display if the input has any validation errors
      */
@@ -3000,6 +3051,10 @@ declare namespace LocalJSX {
      * The footer justify content type
      */
     footerJustifyContent?: string;
+    /**
+     * The presence of this attribute hides the footer.
+     */
+    hideFooter?: boolean;
     /**
      * The modal max-width
      */
@@ -3391,6 +3446,7 @@ declare namespace LocalJSX {
      * Provide this attribute to make this button selected by default
      */
     isSelected?: boolean;
+    onPrevOrNextTab?: (event: CustomEvent<any>) => void;
     onTabActivated?: (event: CustomEvent<any>) => void;
     /**
      * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
@@ -3412,6 +3468,7 @@ declare namespace LocalJSX {
   interface GxgTest {
     name?: string;
     show?: boolean;
+    showValidationMessage?: boolean;
   }
   interface GxgText {
     /**

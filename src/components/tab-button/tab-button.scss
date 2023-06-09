@@ -65,10 +65,7 @@
       }
     }
     &:focus {
-      outline: none;
-      -webkit-box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
-      -moz-box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
-      box-shadow: inset 0px 0px 0px 1px var(--color-primary-enabled);
+      @include form-element-common-styles-focus-type-1;
     }
     &[disabled] {
       color: var(--color-primary-disabled);

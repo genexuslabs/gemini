@@ -12,6 +12,7 @@ import state from "../store";
 export class GxgTest {
   @Prop() name = "Andres";
   @Prop() show = false;
+  @Prop() showValidationMessage = false;
   @State() comboListArray = [];
 
   comboBox!: GxgComboBox;
@@ -21,6 +22,7 @@ export class GxgTest {
   gxgSelect!: GxgFormSelect;
 
   componentDidLoad() {
+    console.log("show validation message", this.showValidationMessage);
     setTimeout(() => {
       this.comboListArray = [
         {

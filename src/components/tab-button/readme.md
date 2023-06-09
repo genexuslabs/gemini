@@ -14,9 +14,18 @@
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `tabActivated` |             | `CustomEvent<any>` |
+| Event           | Description | Type               |
+| --------------- | ----------- | ------------------ |
+| `PrevOrNextTab` |             | `CustomEvent<any>` |
+| `tabActivated`  |             | `CustomEvent<any>` |
+
+## Methods
+
+### `tabButtonClick() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Dependencies
 

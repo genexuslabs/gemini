@@ -62,6 +62,11 @@ export class GxgModal {
   @Prop() silent = false;
 
   /**
+   * The presence of this attribute hides the footer.
+   */
+  @Prop() hideFooter = false;
+
+  /**
    * Emmited when the modal was closed
    */
   @Event() modalClosed: EventEmitter;
@@ -165,9 +170,11 @@ export class GxgModal {
             <div class="modal__container">
               <slot></slot>
             </div>
-            <footer class="modal__footer">
-              <slot name="footer"></slot>
-            </footer>
+            {!this.hideFooter ? (
+              <footer class="modal__footer">
+                <slot name="footer"></slot>
+              </footer>
+            ) : null}
           </div>
         </div>
         <div

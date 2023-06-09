@@ -13,6 +13,7 @@
 | ---------------------- | ------------------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------ |
 | `flavor`               | `flavor`                 |                                                                                    | `"alternate" \| "classic"`                                    | `"classic"`  |
 | `footerJustifyContent` | `footer-justify-content` | The footer justify content type                                                    | `string`                                                      | `"flex-end"` |
+| `hideFooter`           | `hide-footer`            | The presence of this attribute hides the footer.                                   | `boolean`                                                     | `false`      |
 | `maxWidth`             | `max-width`              | The modal max-width                                                                | `string`                                                      | `"300px"`    |
 | `modalTitle`           | `modal-title`            | The modal title                                                                    | `string`                                                      | `undefined`  |
 | `padding`              | `padding`                |                                                                                    | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`        |
@@ -40,7 +41,6 @@ Type: `Promise<void>`
 
 ### Used by
 
-- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-test](../test)
 
 ### Depends on
@@ -54,7 +54,6 @@ graph TD;
   gxg-modal --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
-  gx-ide-new-kb --> gxg-modal
   gxg-test --> gxg-modal
   style gxg-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```

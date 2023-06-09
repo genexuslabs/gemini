@@ -42,7 +42,12 @@ INDEX:
   /**
    * Default suggested path to a directory where the information related to the KB will be stored/generated
    */
-  @Prop() readonly location: string = "";
+  @Prop({ mutable: true }) location: string | undefined = undefined;
+
+  /**
+   * This is a function provided by the developer that returns a string, with the location path.
+   */
+  @Prop() readonly locationFunction: locationFunction = undefined;
 
   /**
    * The knowledge base default suggested name
@@ -210,239 +215,249 @@ INDEX:
   }
 
   selectLocation(): void {
-    console.log("select directory");
+    this.location = this.locationFunction();
   }
 
   render(): void {
     return (
       <Host>
-        <gxg-modal
-          id="modal"
-          modal-title="New Knowledge Base"
-          visible={this.visible}
-          width="calc(100% - 16px)"
-          max-width="600px"
-          flavor="alternate"
-        >
-          <div class="wrapper">
-            <header class="header">
-              <div class="header__item header__item--left-1">
-                <label htmlFor="kb-name">Name:</label>
-              </div>
-              <div class="header__item header__item--middle-1">
-                <gxg-form-text
-                  label-position="start"
-                  placeholder="Knowledge Base"
-                  id="kb-name"
-                  max-width="100%"
-                  value={this.name}
-                  ref={(el) => (this.firstElement = el as HTMLElement)}
-                  error
-                ></gxg-form-text>
-              </div>
-              <div class="header__item header__item--right-1"></div>
-              <div class="header__item header__item--left-2">
-                <label htmlFor="kb-name">Location:</label>
-              </div>
-              <div class="header__item header__item--middle-2">
-                <gxg-form-text
-                  label-position="start"
-                  placeholder="C:\Models"
-                  id="kb-name"
-                  max-width="100%"
-                  value={this.location}
-                ></gxg-form-text>
-              </div>
-              <div class="header__item header__item--right-2">
-                <gxg-button
-                  type="secondary-icon-only"
-                  icon="gemini-tools/folder"
-                  onClick={this.selectLocation.bind(this)}
-                ></gxg-button>
-              </div>
-            </header>
-            <main class="main">
-              <gxg-tabs height="100%" position="top" id="gxgTabs">
-                <gxg-tab-bar slot="tab-bar">
-                  <gxg-tab-button
-                    slot="tab-bar"
-                    tab-label="basic"
-                    tab="basic"
-                    is-selected
-                  ></gxg-tab-button>
-                  <gxg-tab-button
-                    slot="tab-bar"
-                    tab-label="advanced"
-                    tab="advanced"
-                  ></gxg-tab-button>
-                </gxg-tab-bar>
-                <gxg-tab tab="basic" no-padding>
-                  <div class="tab-container basic__container">
-                    <div class="basic__box basic__box--top">
+        <div class="wrapper">
+          <header
+            class={{
+              header: true,
+              "header--no-location-folder": !this.locationFunction,
+            }}
+          >
+            <div class="header__item header__item--left-1">
+              <label htmlFor="kb-name">Name:</label>
+            </div>
+            <div class="header__item header__item--middle-1">
+              <gxg-form-text
+                label-position="start"
+                placeholder="Knowledge Base"
+                id="kb-name"
+                max-width="100%"
+                value={this.name}
+                ref={(el) => (this.firstElement = el as HTMLElement)}
+                error
+              ></gxg-form-text>
+            </div>
+            <div
+              class={{
+                ["header__item"]: true,
+                "header__item--right-1": !this.locationFunction,
+                hidden: !this.locationFunction,
+              }}
+            ></div>
+            <div class="header__item header__item--left-2">
+              <label htmlFor="kb-name">Location:</label>
+            </div>
+            <div class="header__item header__item--middle-2">
+              <gxg-form-text
+                label-position="start"
+                placeholder="C:\Models"
+                id="kb-name"
+                max-width="100%"
+                value={this.location}
+              ></gxg-form-text>
+            </div>
+            <div
+              class={{
+                ["header__item"]: true,
+                "header__item--right-2": !this.locationFunction,
+                hidden: !this.locationFunction,
+              }}
+            >
+              <gxg-button
+                type="secondary-icon-only"
+                icon="gemini-tools/folder"
+                onClick={this.selectLocation.bind(this)}
+              ></gxg-button>
+            </div>
+          </header>
+          <main class="main">
+            <gxg-tabs height="100%" position="top" id="gxgTabs">
+              <gxg-tab-bar slot="tab-bar">
+                <gxg-tab-button
+                  slot="tab-bar"
+                  tab-label="basic"
+                  tab="basic"
+                  is-selected
+                ></gxg-tab-button>
+                <gxg-tab-button
+                  slot="tab-bar"
+                  tab-label="advanced"
+                  tab="advanced"
+                ></gxg-tab-button>
+              </gxg-tab-bar>
+              <gxg-tab tab="basic" no-padding>
+                <div class="tab-container basic__container">
+                  <div class="basic__box basic__box--top">
+                    <gxg-combo-box
+                      id="prototyping-target"
+                      disable-filter
+                      width="100%"
+                      label="Prototyping Target"
+                      value={this.prototypingTargets[0]["id"]}
+                    >
+                      {this.createOptions("prototyping-target")}
+                    </gxg-combo-box>
+
+                    <gxg-combo-box
+                      id="user-interface-language"
+                      disable-filter
+                      width="100%"
+                      label="User Interface Language"
+                      value={this.UILanguages[0]["id"]}
+                    >
+                      {this.createOptions("user-interface-language")}
+                    </gxg-combo-box>
+                  </div>
+                  <div class="basic__box basic__box--left">
+                    <header class="section__header">
+                      <gxg-title type="title-04" class="large hydrated">
+                        Back End
+                      </gxg-title>
+                    </header>
+                    <div class="basic__box-inner-wrapper">
                       <gxg-combo-box
-                        id="prototyping-target"
+                        id="prototyping-environment"
                         disable-filter
                         width="100%"
-                        label="Prototyping Target"
-                        value={this.prototypingTargets[0]["id"]}
+                        label="Prototyping Environment"
+                        value={this.prototypingEnvironments[0]["id"]}
                       >
-                        {this.createOptions("prototyping-target")}
+                        {this.createOptions("prototyping-environment")}
                       </gxg-combo-box>
 
                       <gxg-combo-box
+                        label="Data Source"
                         id="user-interface-language"
                         disable-filter
                         width="100%"
-                        label="User Interface Language"
-                        value={this.UILanguages[0]["id"]}
+                        value={this.dataSources[0]["id"]}
                       >
-                        {this.createOptions("user-interface-language")}
+                        {this.createOptions("data-source")}
                       </gxg-combo-box>
                     </div>
-                    <div class="basic__box basic__box--left">
-                      <header class="section__header">
-                        <gxg-title type="title-04" class="large hydrated">
-                          Back End
-                        </gxg-title>
-                      </header>
-                      <div class="basic__box-inner-wrapper">
-                        <gxg-combo-box
-                          id="prototyping-environment"
-                          disable-filter
-                          width="100%"
-                          label="Prototyping Environment"
-                          value={this.prototypingEnvironments[0]["id"]}
-                        >
-                          {this.createOptions("prototyping-environment")}
-                        </gxg-combo-box>
-
-                        <gxg-combo-box
-                          label="Data Source"
-                          id="user-interface-language"
-                          disable-filter
-                          width="100%"
-                          value={this.dataSources[0]["id"]}
-                        >
-                          {this.createOptions("data-source")}
-                        </gxg-combo-box>
-                      </div>
-                    </div>
-                    <div class="basic__box basic__box--right">
-                      <header class="section__header">
-                        <gxg-title type="title-04" class="large hydrated">
-                          Front End
-                        </gxg-title>
-                      </header>
-                      <div class="basic__box-inner-wrapper basic__box-inner-wrapper--smaller-gap">
-                        {this.createOptions("front-end", "gxg-form-checkbox")}
-                      </div>
-                    </div>
                   </div>
-                </gxg-tab>
-                <gxg-tab tab="advanced" no-padding>
-                  <div class="tab-container advanced__container">
-                    <header class="advanced__box advanced__box--top section__header">
+                  <div class="basic__box basic__box--right">
+                    <header class="section__header">
                       <gxg-title type="title-04" class="large hydrated">
-                        Knowledge Base Storage
+                        Front End
                       </gxg-title>
                     </header>
-                    <div class="advanced__box advanced__box--left">
-                      <div class="advanced__box--left__inner-wrapper">
-                        <gxg-combo-box
-                          label="Server Name"
-                          id="server-name"
-                          disable-filter
-                          width="100%"
-                          value="Select a server name"
-                          class="row1-left"
-                        >
-                          {this.createOptions("server-name")}
-                        </gxg-combo-box>
-                        <gxg-button
-                          type="secondary-icon-only"
-                          icon="gemini-tools/search"
-                          class="row1-right"
-                        ></gxg-button>
-                        <gxg-form-text
-                          label-position="above"
-                          label="Database Name"
-                          placeholder="MyDatabase"
-                          id="database-name"
-                          max-width="100%"
-                          class="row2-left"
-                        ></gxg-form-text>
-                        <gxg-combo-box
-                          label="Collations"
-                          id="collations"
-                          disable-filter
-                          width="100%"
-                          class="row3-left"
-                          value={this.collations[0]["id"]}
-                        >
-                          {this.createOptions("collation")}
-                        </gxg-combo-box>
-                        <gxg-button
-                          type="secondary-icon-only"
-                          icon="gemini-tools/reset"
-                          class="row3-right"
-                        ></gxg-button>
-                        <gxg-form-checkbox
-                          label="Create datafiles in Knowledge Base folder"
-                          id="web-net"
-                          class="row4-left"
-                        ></gxg-form-checkbox>
-                      </div>
-                    </div>
-                    <div class="advanced__box advanced__box--right">
-                      <div class="advanced__box--right__inner-wrapper">
-                        <gxg-combo-box
-                          label="Authentication Type"
-                          id="authentication-type"
-                          disable-filter
-                          width="100%"
-                          value={this.authenticationTypes[0]["id"]}
-                          class="row1-left"
-                        >
-                          {this.createOptions("authentication-type")}
-                        </gxg-combo-box>
-                        <gxg-form-text
-                          label-position="above"
-                          label="User name"
-                          id="user-name"
-                          max-width="100%"
-                          class="row2-left"
-                        ></gxg-form-text>
-                        <gxg-form-text
-                          label-position="above"
-                          label="Password"
-                          id="password"
-                          max-width="100%"
-                          class="row3-left"
-                          password
-                        ></gxg-form-text>
-                        <gxg-form-checkbox
-                          label="Save password"
-                          id="save-password"
-                          class="row4-left"
-                        ></gxg-form-checkbox>
-                      </div>
+                    <div class="basic__box-inner-wrapper basic__box-inner-wrapper--smaller-gap">
+                      {this.createOptions("front-end", "gxg-form-checkbox")}
                     </div>
                   </div>
-                </gxg-tab>
-              </gxg-tabs>
-            </main>
-          </div>
+                </div>
+              </gxg-tab>
+              <gxg-tab tab="advanced" no-padding>
+                <div class="tab-container advanced__container">
+                  <header class="advanced__box advanced__box--top section__header">
+                    <gxg-title type="title-04" class="large hydrated">
+                      Knowledge Base Storage
+                    </gxg-title>
+                  </header>
+                  <div class="advanced__box advanced__box--left">
+                    <div class="advanced__box--left__inner-wrapper">
+                      <gxg-combo-box
+                        label="Server Name"
+                        id="server-name"
+                        disable-filter
+                        width="100%"
+                        value="Select a server name"
+                        class="row1-left"
+                      >
+                        {this.createOptions("server-name")}
+                      </gxg-combo-box>
+                      <gxg-button
+                        type="secondary-icon-only"
+                        icon="gemini-tools/search"
+                        class="row1-right"
+                      ></gxg-button>
+                      <gxg-form-text
+                        label-position="above"
+                        label="Database Name"
+                        placeholder="MyDatabase"
+                        id="database-name"
+                        max-width="100%"
+                        class="row2-left"
+                      ></gxg-form-text>
+                      <gxg-combo-box
+                        label="Collations"
+                        id="collations"
+                        disable-filter
+                        width="100%"
+                        class="row3-left"
+                        value={this.collations[0]["id"]}
+                      >
+                        {this.createOptions("collation")}
+                      </gxg-combo-box>
+                      <gxg-button
+                        type="secondary-icon-only"
+                        icon="gemini-tools/reset"
+                        class="row3-right"
+                      ></gxg-button>
+                      <gxg-form-checkbox
+                        label="Create datafiles in Knowledge Base folder"
+                        id="web-net"
+                        class="row4-left"
+                      ></gxg-form-checkbox>
+                    </div>
+                  </div>
+                  <div class="advanced__box advanced__box--right">
+                    <div class="advanced__box--right__inner-wrapper">
+                      <gxg-combo-box
+                        label="Authentication Type"
+                        id="authentication-type"
+                        disable-filter
+                        width="100%"
+                        value={this.authenticationTypes[0]["id"]}
+                        class="row1-left"
+                      >
+                        {this.createOptions("authentication-type")}
+                      </gxg-combo-box>
+                      <gxg-form-text
+                        label-position="above"
+                        label="User name"
+                        id="user-name"
+                        max-width="100%"
+                        class="row2-left"
+                      ></gxg-form-text>
+                      <gxg-form-text
+                        label-position="above"
+                        label="Password"
+                        id="password"
+                        max-width="100%"
+                        class="row3-left"
+                        password
+                      ></gxg-form-text>
+                      <gxg-form-checkbox
+                        label="Save password"
+                        id="save-password"
+                        class="row4-left"
+                      ></gxg-form-checkbox>
+                    </div>
+                  </div>
+                </div>
+              </gxg-tab>
+            </gxg-tabs>
+          </main>
+        </div>
+        <footer class="footer">
           <gxg-button id="button-create" slot="footer" type="primary-text-only">
             Create
           </gxg-button>
           <gxg-button id="button-cancel" slot="footer" type="outlined">
             Cancel
           </gxg-button>
-          <gxg-spacer-one slot="footer" space="xs"></gxg-spacer-one>
-        </gxg-modal>
+        </footer>
       </Host>
     );
   }
 }
 
 type createOptionsArray = (GxgComboBoxItem | GxgFormCheckbox)[];
+export type locationFunction = () => string | undefined | null;

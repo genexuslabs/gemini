@@ -6,16 +6,18 @@ import {
   EventEmitter,
   Element,
   Host,
+  Method,
 } from "@stencil/core";
 import state from "../store";
 
 @Component({
   tag: "gxg-tab-button",
   styleUrl: "tab-button.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgTabButton {
   @Element() el: HTMLElement;
+  tabButton!: HTMLButtonElement;
 
   /**
    * The button label
@@ -45,15 +47,30 @@ export class GxgTabButton {
   //Events
   @Event()
   tabActivated: EventEmitter;
+  @Event()
+  PrevOrNextTab: EventEmitter;
 
-  //Click functions
-  tabButtonClicked() {
+  @Method()
+  async tabButtonClick() {
+    this.buttonClickHandler();
+    this.tabButton.focus();
+  }
+
+  buttonClickHandler() {
     this.isSelected = true;
     const index = parseInt(this.el.getAttribute("data-index"), 10);
     this.tabActivated.emit({
       tab: this.tab,
       index: index,
     });
+  }
+  buttonKeyDownHandler(e) {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      this.PrevOrNextTab.emit({
+        originTab: this.tab,
+        arrowPressed: e.key,
+      });
+    }
   }
   printIcon() {
     if (this.icon !== null) {
@@ -88,7 +105,9 @@ export class GxgTabButton {
                 this.tabLabel !== null && this.icon !== null,
               large: state.large,
             }}
-            onClick={this.tabButtonClicked.bind(this)}
+            onClick={this.buttonClickHandler.bind(this)}
+            onKeyDown={this.buttonKeyDownHandler.bind(this)}
+            ref={(el) => (this.tabButton = el as HTMLInputElement)}
           >
             {this.printIcon()}
             <span class="tab-button__text">{this.tabLabel}</span>

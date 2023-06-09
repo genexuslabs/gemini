@@ -13,140 +13,162 @@
     <link href="/build/gemini.css" rel="stylesheet" />
   </head>
   <body>
-    <h1><code>gx-ide-new-kb</code></h1>
+    <header>
+      <h1><code>gx-ide-new-kb</code></h1>
+    </header>
 
-    <gx-ide-new-kb id="new-kb-1"></gx-ide-new-kb>
-    <gxg-button id="showKbButton">Show new kb</gxg-button>
+    <gxg-modal
+      id="modal"
+      modal-title="New Knowledge Base"
+      width="calc(100% - 16px)"
+      max-width="600px"
+      flavor="alternate"
+      hide-footer
+    >
+      <gx-ide-new-kb class="new-kb"></gx-ide-new-kb>
+    </gxg-modal>
+
+    <gx-ide-new-kb class="new-kb"></gx-ide-new-kb>
+    <gxg-button id="show-modal-btn" style="margin-top: 16px"
+      >Show in Modal</gxg-button
+    >
     <script>
       /*MODAL*/
-      const showKbButton = document.getElementById("showKbButton");
-      const gxIdeNewKb = document.querySelector("gx-ide-new-kb");
-      showKbButton.addEventListener("click", function () {
-        gxIdeNewKb.setAttribute("visible", "true");
+      const modal = document.getElementById("modal");
+      const showModalBtn = document.getElementById("show-modal-btn");
+      const gxIdeNewKbs = document.querySelectorAll(".new-kb");
+      showModalBtn.addEventListener("click", function () {
+        modal.setAttribute("visible", "true");
       });
 
-      /*SERVER NAME*/
-      const newKb1 = document.getElementById("new-kb-1");
-      /*prototyiping targets*/
-      newKb1.prototypingTargets = [
-        {
-          id: "local",
-          text: "Local",
-        },
-        {
-          id: "could",
-          text: "Cloud",
-        },
-      ];
-      /*user interface languages*/
-      newKb1.UILanguages = [
-        { id: "es", text: "Spanish" },
-        { id: "de", text: "German" },
-        { id: "en", text: "English" },
-        { id: "it", text: "Italian" },
-        { id: "pt", text: "Portuguese" },
-        { id: "zh-CN", text: "Simplified Chinese" },
-        { id: "zh-TW", text: "Traditional Chinese" },
-        { id: "ja", text: "Japanese" },
-        { id: "ar", text: "Arabic" },
-      ];
-      /*prototying environments*/
-      newKb1.prototypingEnvironments = [
-        { id: ".net", text: ".NET" },
-        { id: ".net-framework", text: ".NET Framework" },
-        { id: "java", text: "Java" },
-      ];
-      /*data sources*/
-      newKb1.dataSources = [
-        { id: "sql-server", text: "SQL Server" },
-        { id: "mysql", text: "MySQL" },
-        { id: "postgre-sql", text: "PostgreSQL" },
-      ];
-      /*servers names*/
-      newKb1.serverNames = [
-        {
-          id: "server1",
-          text: "Server Name 1",
-        },
-        {
-          id: "server2",
-          text: "Server Name 2",
-        },
-        {
-          id: "server3",
-          text: "Server Name 3",
-        },
-      ];
-      /*collations*/
-      newKb1.collations = [
-        {
-          id: "cs",
-          text: "Case-sensitive (_CS)",
-        },
-        {
-          id: "as",
-          text: "Accent-sensitive (_AS)",
-        },
-        {
-          id: "ks",
-          text: "Kana-sensitive (_KS)",
-        },
-        {
-          id: "ws",
-          text: "Width-sensitive (_WS)",
-        },
-        {
-          id: "vss",
-          text: "Variation-selector-sensitive (_VSS)",
-        },
-      ];
-      /*authentication type*/
-      newKb1.authenticationTypes = [
-        {
-          id: 1,
-          text: "Username and Password",
-        },
-        {
-          id: 2,
-          text: "Two-Factor Authentication",
-        },
-        {
-          id: 3,
-          text: "Biometric Authentication",
-        },
-        {
-          id: 4,
-          text: "OAuth Authentication",
-        },
-      ];
-      /*front end*/
-      newKb1.frontEnd = [
-        {
-          id: "web-net",
-          text: "Web (.NET)",
-          iconName: null,
-        },
-        {
-          id: "android",
-          text: "Android",
-          iconName: "general/android",
-        },
-        {
-          id: "apple",
-          text: "Apple",
-          iconName: "general/apple",
-        },
-        {
-          id: "web-angular",
-          text: "Web (Angular)",
-          iconName: "general/angular",
-        },
-        {
-          id: "we-chat-mini-program",
-          text: "We Chat Mini Program",
-          iconName: null,
-        },
-      ];
+      gxIdeNewKbs.forEach((newKb) => {
+        /*SERVER NAME*/
+        /*prototyiping targets*/
+        newKb.prototypingTargets = [
+          {
+            id: "local",
+            text: "Local",
+          },
+          {
+            id: "could",
+            text: "Cloud",
+          },
+        ];
+        /*user interface languages*/
+        newKb.UILanguages = [
+          { id: "es", text: "Spanish" },
+          { id: "de", text: "German" },
+          { id: "en", text: "English" },
+          { id: "it", text: "Italian" },
+          { id: "pt", text: "Portuguese" },
+          { id: "zh-CN", text: "Simplified Chinese" },
+          { id: "zh-TW", text: "Traditional Chinese" },
+          { id: "ja", text: "Japanese" },
+          { id: "ar", text: "Arabic" },
+        ];
+        /*prototying environments*/
+        newKb.prototypingEnvironments = [
+          { id: ".net", text: ".NET" },
+          { id: ".net-framework", text: ".NET Framework" },
+          { id: "java", text: "Java" },
+        ];
+        /*data sources*/
+        newKb.dataSources = [
+          { id: "sql-server", text: "SQL Server" },
+          { id: "mysql", text: "MySQL" },
+          { id: "postgre-sql", text: "PostgreSQL" },
+        ];
+        /*servers names*/
+        newKb.serverNames = [
+          {
+            id: "server1",
+            text: "Server Name 1",
+          },
+          {
+            id: "server2",
+            text: "Server Name 2",
+          },
+          {
+            id: "server3",
+            text: "Server Name 3",
+          },
+        ];
+        /*collations*/
+        newKb.collations = [
+          {
+            id: "cs",
+            text: "Case-sensitive (_CS)",
+          },
+          {
+            id: "as",
+            text: "Accent-sensitive (_AS)",
+          },
+          {
+            id: "ks",
+            text: "Kana-sensitive (_KS)",
+          },
+          {
+            id: "ws",
+            text: "Width-sensitive (_WS)",
+          },
+          {
+            id: "vss",
+            text: "Variation-selector-sensitive (_VSS)",
+          },
+        ];
+        /*authentication type*/
+        newKb.authenticationTypes = [
+          {
+            id: 1,
+            text: "Username and Password",
+          },
+          {
+            id: 2,
+            text: "Two-Factor Authentication",
+          },
+          {
+            id: 3,
+            text: "Biometric Authentication",
+          },
+          {
+            id: 4,
+            text: "OAuth Authentication",
+          },
+        ];
+        /*front end*/
+        newKb.frontEnd = [
+          {
+            id: "web-net",
+            text: "Web (.NET)",
+            iconName: null,
+          },
+          {
+            id: "android",
+            text: "Android",
+            iconName: "general/android",
+          },
+          {
+            id: "apple",
+            text: "Apple",
+            iconName: "general/apple",
+          },
+          {
+            id: "web-angular",
+            text: "Web (Angular)",
+            iconName: "general/angular",
+          },
+          {
+            id: "we-chat-mini-program",
+            text: "We Chat Mini Program",
+            iconName: null,
+          },
+        ];
+        /*location function*/
+        const customLocationFunction = () => {
+          return "C:\\Users\\JohnDoe\\Documents\\Projects\\my-app";
+        };
+        newKb.locationFunction = customLocationFunction;
+      });
     </script>
   </body>
 </html>

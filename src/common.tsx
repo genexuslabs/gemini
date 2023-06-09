@@ -31,8 +31,6 @@ function formHandleChange(
 ) {
   const hasError = !formElement.validity.valid;
   component.error = hasError;
-  //component.showValidationMessage = component.error;
-  //If validity is false, show message
   if (hasError) {
     component.validationMessage =
       component.validationMessage || formElement.validationMessage;

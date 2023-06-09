@@ -1,3 +1,9 @@
+@import "../../globals/mixins";
+
+/*GENERAL*/
+.hidden {
+  display: none !important;
+}
 :host {
   display: block;
 }
@@ -10,8 +16,17 @@
   &__item {
     display: flex;
     align-items: center;
+    label {
+      @include form-element-common-styles-label();
+      @include form-element-common-styles-label-large();
+      margin-bottom: 0;
+    }
   }
   margin-bottom: var(--spacing-comp-03);
+
+  &--no-location-folder {
+    grid-template-columns: auto 1fr;
+  }
 }
 #gxgTabs {
   margin-top: 0;
@@ -191,10 +206,11 @@
   }
 }
 /*FOOTER*/
-#button-create {
-  margin-right: var(--spacing-comp-03);
-}
-/*MODAL*/
-#modal {
-  margin: 0 var(--spacing-comp-03);
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--spacing-comp-03);
+  gap: var(--spacing-comp-03);
+  border: 1px solid var(--gray-02);
+  border-top: 0;
 }
