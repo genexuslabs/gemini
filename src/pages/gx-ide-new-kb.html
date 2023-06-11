@@ -11,34 +11,55 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./dev-styles.css" />
   </head>
   <body>
-    <header>
+    <header class="header-dev">
       <h1><code>gx-ide-new-kb</code></h1>
+      <div class="right">
+        <gxg-button id="toggle-dark-btn">Toggle Dark</gxg-button>
+        <gxg-button id="show-modal-btn">Show in Modal</gxg-button>
+      </div>
     </header>
+    <section style="max-width: 600px; margin: 0 auto">
+      <div class="container">
+        <gxg-modal
+          id="modal"
+          modal-title="New Knowledge Base"
+          width="calc(100% - 16px)"
+          max-width="600px"
+          flavor="alternate"
+          hide-footer
+        >
+          <gx-ide-new-kb is-advanced class="new-kb"></gx-ide-new-kb>
+        </gxg-modal>
 
-    <gxg-modal
-      id="modal"
-      modal-title="New Knowledge Base"
-      width="calc(100% - 16px)"
-      max-width="600px"
-      flavor="alternate"
-      hide-footer
-    >
-      <gx-ide-new-kb class="new-kb"></gx-ide-new-kb>
-    </gxg-modal>
-
-    <gx-ide-new-kb class="new-kb"></gx-ide-new-kb>
-    <gxg-button id="show-modal-btn" style="margin-top: 16px"
-      >Show in Modal</gxg-button
-    >
+        <gx-ide-new-kb is-advanced class="new-kb"></gx-ide-new-kb>
+        <div class="code-wrapper">
+          <strong class="title">Received data:</strong>
+          <p class="note">
+            Properites with 'undefined' values are not shown here, but they do
+            appear on the event.detail | Open console on the developer tools to
+            see the full detail.
+          </p>
+          <hr />
+          <pre><code class="code"></code></pre>
+        </div>
+      </div>
+    </section>
     <script>
       /*MODAL*/
       const modal = document.getElementById("modal");
       const showModalBtn = document.getElementById("show-modal-btn");
+      const toggleDark = document.getElementById("toggle-dark-btn");
       const gxIdeNewKbs = document.querySelectorAll(".new-kb");
+      const code = document.querySelector(".code");
       showModalBtn.addEventListener("click", function () {
         modal.setAttribute("visible", "true");
+      });
+      toggleDark.addEventListener("click", function () {
+        const html = document.querySelector("html");
+        html.classList.toggle("dark");
       });
 
       gxIdeNewKbs.forEach((newKb) => {
@@ -168,6 +189,21 @@
           return "C:\\Users\\JohnDoe\\Documents\\Projects\\my-app";
         };
         newKb.locationFunction = customLocationFunction;
+        //Listen to create new kb event
+
+        newKb.addEventListener("createKb", (event) => {
+          const data = event.detail.data;
+          const strinfifiedData = JSON.stringify(data, null, 2);
+          code.textContent = strinfifiedData;
+          const frontEnd = data.frontEnd;
+          delete data.frontEnd;
+          console.table(data);
+          console.log("Front End ↓");
+          console.table(frontEnd);
+          console.log("=======");
+          console.log("END");
+          console.log("=======");
+        });
       });
     </script>
   </body>

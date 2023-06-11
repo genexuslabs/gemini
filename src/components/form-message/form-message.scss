@@ -12,11 +12,12 @@
   animation-duration: 0.5s;
   position: relative;
   font-size: var(--font-size-xs);
+  margin-top: var(--spacing-comp-01);
 
   gxg-icon {
     height: 10px;
     width: 15px;
-    margin-right: var(--spacing-comp-02);
+    margin-right: var(--spacing-comp-01);
   }
 }
 :host([type="error"]) {

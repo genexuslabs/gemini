@@ -6,7 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { GxOption } from "./gx-ide-common/definitions";
-import { locationFunction } from "./components/gx-ide-new-kb/gx-ide-new-kb";
+import {
+  locationFunction,
+  NewKBData,
+} from "./components/gx-ide-new-kb/gx-ide-new-kb";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
@@ -92,6 +95,10 @@ export namespace Components {
      */
     isAdvanced: boolean;
     /**
+     * The knowledge base default suggested name
+     */
+    kbName: string;
+    /**
      * Default suggested path to a directory where the information related to the KB will be stored/generated
      */
     location: string | undefined;
@@ -99,10 +106,6 @@ export namespace Components {
      * This is a function provided by the developer that returns a string, with the location path.
      */
     locationFunction: locationFunction;
-    /**
-     * The knowledge base default suggested name
-     */
-    name: string;
     /**
      * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
      */
@@ -691,6 +694,10 @@ export namespace Components {
      */
     error: boolean;
     /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage: boolean;
+    /**
      * The input icon (optional)
      */
     icon: any;
@@ -747,10 +754,6 @@ export namespace Components {
      */
     required: boolean;
     /**
-     * The presence of this attribute will show a validation message if the input has an error
-     */
-    showValidationMessage: boolean;
-    /**
      * The text style
      */
     textStyle: Style;
@@ -763,7 +766,7 @@ export namespace Components {
      */
     validateOnInput: boolean;
     /**
-     * A unique custom message to display if the input has any validation errors
+     * The message to display when validity is false
      */
     validationMessage: string | undefined;
     /**
@@ -788,6 +791,10 @@ export namespace Components {
      * The textarea height
      */
     height: string;
+    /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage: boolean;
     /**
      * The textarea label
      */
@@ -2118,6 +2125,10 @@ declare namespace LocalJSX {
      */
     isAdvanced?: boolean;
     /**
+     * The knowledge base default suggested name
+     */
+    kbName?: string;
+    /**
      * Default suggested path to a directory where the information related to the KB will be stored/generated
      */
     location?: string | undefined;
@@ -2126,9 +2137,9 @@ declare namespace LocalJSX {
      */
     locationFunction?: locationFunction;
     /**
-     * The knowledge base default suggested name
+     * This event emmits the data needed to create a new kb
      */
-    name?: string;
+    onCreateKb?: (event: CustomEvent<NewKBData>) => void;
     /**
      * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
      */
@@ -2784,6 +2795,10 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage?: boolean;
+    /**
      * The input icon (optional)
      */
     icon?: any;
@@ -2828,6 +2843,10 @@ declare namespace LocalJSX {
      */
     onInput?: (event: CustomEvent<any>) => void;
     /**
+     * The validation error message
+     */
+    onValidationErrorMessage?: (event: CustomEvent<any>) => void;
+    /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground?: boolean;
@@ -2852,10 +2871,6 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
-     * The presence of this attribute will show a validation message if the input has an error
-     */
-    showValidationMessage?: boolean;
-    /**
      * The text style
      */
     textStyle?: Style;
@@ -2864,7 +2879,7 @@ declare namespace LocalJSX {
      */
     validateOnInput?: boolean;
     /**
-     * A unique custom message to display if the input has any validation errors
+     * The message to display when validity is false
      */
     validationMessage?: string | undefined;
     /**
@@ -2889,6 +2904,10 @@ declare namespace LocalJSX {
      * The textarea height
      */
     height?: string;
+    /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage?: boolean;
     /**
      * The textarea label
      */

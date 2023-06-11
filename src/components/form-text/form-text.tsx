@@ -53,7 +53,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute will show a validation message if the input has an error
    */
-  @Prop() showValidationMessage = false;
+  @Prop() hideValidationMessage = false;
 
   /**
    * The input icon (optional)
@@ -96,10 +96,10 @@ export class GxgFormText implements FormComponent {
   @Prop({ reflect: true }) required = false;
 
   /**
-   * A unique custom message to display if the input has any validation errors
+   * The message to display when validity is false
    *
    */
-  @Prop({ mutable: true }) validationMessage: string | undefined = undefined;
+  @Prop() validationMessage: string | undefined = undefined;
 
   /**
    * The presence of this attribute will check the input validity on every user input
@@ -163,6 +163,11 @@ export class GxgFormText implements FormComponent {
    * The clear button was clicked
    */
   @Event() clearButtonClicked: EventEmitter;
+
+  /**
+   * The validation error message
+   */
+  @Event() validationErrorMessage: EventEmitter;
 
   @State() cursorInside = false;
   @State() inputSize = "auto";
@@ -249,7 +254,10 @@ export class GxgFormText implements FormComponent {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.change.emit(target.value);
-    formHandleChange(this, e.target);
+    const hasError = formHandleChange(this, e.target);
+    if (hasError) {
+      this.validationErrorMessage.emit(this.validationMessage);
+    }
   }
 
   clearButtonFunc() {
@@ -429,7 +437,6 @@ export class GxgFormText implements FormComponent {
   }
 
   render() {
-    console.log("show validation message", this.showValidationMessage);
     return (
       <Host
         role="textbox"
@@ -501,7 +508,7 @@ export class GxgFormText implements FormComponent {
             ) : null}
           </div>
         </div>
-        {this.error && this.showValidationMessage
+        {this.error && !this.hideValidationMessage
           ? formMessage(
               <gxg-form-message type="error" key="required-error">
                 {this.validationMessage}

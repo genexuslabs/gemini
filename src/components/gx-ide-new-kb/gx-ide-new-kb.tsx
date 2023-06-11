@@ -1,7 +1,17 @@
-import { Component, Host, h, Prop, Listen, Watch } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Listen,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import { GxOption } from "../../gx-ide-common/definitions";
 import { GxgComboBoxItem } from "../combo-box-item/combo-box-item";
 import { GxgFormCheckbox } from "../form-checkbox/form-checkbox";
+import { GxgFormText } from "../form-text/form-text";
+import { GxgComboBox } from "../combo-box/combo-box";
 
 @Component({
   tag: "gx-ide-new-kb",
@@ -52,7 +62,7 @@ INDEX:
   /**
    * The knowledge base default suggested name
    */
-  @Prop() readonly name: string = "";
+  @Prop() readonly kbName: string = "";
 
   /**
    * It allows selecting the default environment that the KB will have (additional environments can be created later)
@@ -120,34 +130,47 @@ INDEX:
   /*******************************
    *  3.REFERENCES TO DOM ELEMENTS
    ******************************/
-  firstElement!: HTMLElement;
+  /*References needed to collect data con "Create" button submit*/
+  nameEl!: GxgFormText;
+  locationEl!: GxgFormText;
+  prototypingTargetEl!: GxgComboBox;
+  userInterfaceLanguageEl!: GxgComboBox;
+  prototypingEnvironmentEl!: GxgComboBox;
+  dataSourceEl!: GxgComboBox;
+  frontEndBoxEl!: HTMLElement;
+  private frontEndOptionsArray: Array<any>; /*There are multiple checkboxes*/
+  serverNameEl!: GxgComboBox;
+  databaseNameEl!: GxgFormText;
+  collationEl!: GxgComboBox;
+  createDataFilesInKBFolderEl!: GxgFormCheckbox;
+  authenticationTypeEl!: GxgComboBox;
+  userNameEl!: GxgFormText;
+  passwordEl!: GxgFormText;
+  savePasswordEl!: GxgFormCheckbox;
 
   /********************
    *  4.EVENTS (EMMIT)
    ********************/
 
+  /**
+   * This event emmits the data needed to create a new kb
+   */
+  @Event() createKb: EventEmitter<NewKBData>;
+
   /********************
    *  5.EVENTS (LISTEN)
    ********************/
 
-  @Listen("modalClosed")
-  modalClosedHandler(event: CustomEvent<boolean>): void {
-    if (event.detail) {
-      this.visible = false;
-    }
-  }
-
-  @Listen("modalOpened")
-  modalOpenedHandler(event: CustomEvent<boolean>): void {
-    if (event.detail) {
-      this.firstElement.focus();
-    }
+  @Listen("validationErrorMessage")
+  validationErrorMessageHandler(event): void {
+    console.log("message", event.detail);
   }
 
   /********************
    *  6.LYFECICLE METHODS
    ********************/
   componentDidLoad(): void {
+    ((this.nameEl as unknown) as HTMLElement).focus();
     //console.log("this.serverNames", this.serverNames);
   }
 
@@ -218,6 +241,42 @@ INDEX:
     this.location = this.locationFunction();
   }
 
+  getFrontEndOptionsValues() {
+    this.frontEndOptionsArray = [];
+    const FrontEndOptions = this.frontEndBoxEl.querySelectorAll(
+      "gxg-form-checkbox"
+    );
+    FrontEndOptions?.forEach((FrontEndOption) => {
+      this.frontEndOptionsArray.push({
+        id: FrontEndOption.id,
+        checked: FrontEndOption.checked,
+      });
+    });
+    return this.frontEndOptionsArray;
+  }
+
+  createKbHandler() {
+    this.createKb.emit({
+      data: {
+        kbName: this.nameEl.value,
+        location: this.locationEl.value,
+        prototypingTarget: this.prototypingEnvironmentEl.value,
+        userInterfaceLanguage: this.userInterfaceLanguageEl.value,
+        prototypingEnvironment: this.prototypingEnvironmentEl.value,
+        dataSource: this.dataSourceEl.value,
+        frontEnd: this.getFrontEndOptionsValues(),
+        serverName: this.serverNameEl.value,
+        databaseName: this.databaseNameEl.value,
+        collation: this.collationEl.value,
+        createDataFilesInKBFolder: this.createDataFilesInKBFolderEl.checked,
+        authenticationType: this.authenticationTypeEl.value,
+        userName: this.userNameEl.value,
+        password: this.passwordEl.value,
+        savePassword: this.savePasswordEl.checked,
+      },
+    });
+  }
+
   render(): void {
     return (
       <Host>
@@ -237,9 +296,8 @@ INDEX:
                 placeholder="Knowledge Base"
                 id="kb-name"
                 max-width="100%"
-                value={this.name}
-                ref={(el) => (this.firstElement = el as HTMLElement)}
-                error
+                value={this.kbName}
+                ref={(el) => (this.nameEl = (el as unknown) as GxgFormText)}
               ></gxg-form-text>
             </div>
             <div
@@ -259,6 +317,7 @@ INDEX:
                 id="kb-name"
                 max-width="100%"
                 value={this.location}
+                ref={(el) => (this.locationEl = (el as unknown) as GxgFormText)}
               ></gxg-form-text>
             </div>
             <div
@@ -288,6 +347,7 @@ INDEX:
                   slot="tab-bar"
                   tab-label="advanced"
                   tab="advanced"
+                  disabled={!this.isAdvanced}
                 ></gxg-tab-button>
               </gxg-tab-bar>
               <gxg-tab tab="basic" no-padding>
@@ -299,6 +359,9 @@ INDEX:
                       width="100%"
                       label="Prototyping Target"
                       value={this.prototypingTargets[0]["id"]}
+                      ref={(el) =>
+                        (this.prototypingTargetEl = (el as unknown) as GxgComboBox)
+                      }
                     >
                       {this.createOptions("prototyping-target")}
                     </gxg-combo-box>
@@ -309,6 +372,9 @@ INDEX:
                       width="100%"
                       label="User Interface Language"
                       value={this.UILanguages[0]["id"]}
+                      ref={(el) =>
+                        (this.userInterfaceLanguageEl = (el as unknown) as GxgComboBox)
+                      }
                     >
                       {this.createOptions("user-interface-language")}
                     </gxg-combo-box>
@@ -326,16 +392,22 @@ INDEX:
                         width="100%"
                         label="Prototyping Environment"
                         value={this.prototypingEnvironments[0]["id"]}
+                        ref={(el) =>
+                          (this.prototypingEnvironmentEl = (el as unknown) as GxgComboBox)
+                        }
                       >
                         {this.createOptions("prototyping-environment")}
                       </gxg-combo-box>
 
                       <gxg-combo-box
                         label="Data Source"
-                        id="user-interface-language"
+                        id="data-source"
                         disable-filter
                         width="100%"
                         value={this.dataSources[0]["id"]}
+                        ref={(el) =>
+                          (this.dataSourceEl = (el as unknown) as GxgComboBox)
+                        }
                       >
                         {this.createOptions("data-source")}
                       </gxg-combo-box>
@@ -347,7 +419,10 @@ INDEX:
                         Front End
                       </gxg-title>
                     </header>
-                    <div class="basic__box-inner-wrapper basic__box-inner-wrapper--smaller-gap">
+                    <div
+                      class="basic__box-inner-wrapper basic__box-inner-wrapper--smaller-gap"
+                      ref={(el) => (this.frontEndBoxEl = el as HTMLElement)}
+                    >
                       {this.createOptions("front-end", "gxg-form-checkbox")}
                     </div>
                   </div>
@@ -369,6 +444,9 @@ INDEX:
                         width="100%"
                         value="Select a server name"
                         class="row1-left"
+                        ref={(el) =>
+                          (this.serverNameEl = (el as unknown) as GxgComboBox)
+                        }
                       >
                         {this.createOptions("server-name")}
                       </gxg-combo-box>
@@ -384,14 +462,20 @@ INDEX:
                         id="database-name"
                         max-width="100%"
                         class="row2-left"
+                        ref={(el) =>
+                          (this.databaseNameEl = (el as unknown) as GxgFormText)
+                        }
                       ></gxg-form-text>
                       <gxg-combo-box
-                        label="Collations"
-                        id="collations"
+                        label="Collation"
+                        id="collation"
                         disable-filter
                         width="100%"
                         class="row3-left"
                         value={this.collations[0]["id"]}
+                        ref={(el) =>
+                          (this.collationEl = (el as unknown) as GxgComboBox)
+                        }
                       >
                         {this.createOptions("collation")}
                       </gxg-combo-box>
@@ -404,6 +488,9 @@ INDEX:
                         label="Create datafiles in Knowledge Base folder"
                         id="web-net"
                         class="row4-left"
+                        ref={(el) =>
+                          (this.createDataFilesInKBFolderEl = (el as unknown) as GxgFormCheckbox)
+                        }
                       ></gxg-form-checkbox>
                     </div>
                   </div>
@@ -416,6 +503,9 @@ INDEX:
                         width="100%"
                         value={this.authenticationTypes[0]["id"]}
                         class="row1-left"
+                        ref={(el) =>
+                          (this.authenticationTypeEl = (el as unknown) as GxgComboBox)
+                        }
                       >
                         {this.createOptions("authentication-type")}
                       </gxg-combo-box>
@@ -425,6 +515,9 @@ INDEX:
                         id="user-name"
                         max-width="100%"
                         class="row2-left"
+                        ref={(el) =>
+                          (this.userNameEl = (el as unknown) as GxgFormText)
+                        }
                       ></gxg-form-text>
                       <gxg-form-text
                         label-position="above"
@@ -433,11 +526,17 @@ INDEX:
                         max-width="100%"
                         class="row3-left"
                         password
+                        ref={(el) =>
+                          (this.passwordEl = (el as unknown) as GxgFormText)
+                        }
                       ></gxg-form-text>
                       <gxg-form-checkbox
                         label="Save password"
                         id="save-password"
                         class="row4-left"
+                        ref={(el) =>
+                          (this.savePasswordEl = (el as unknown) as GxgFormCheckbox)
+                        }
                       ></gxg-form-checkbox>
                     </div>
                   </div>
@@ -447,7 +546,12 @@ INDEX:
           </main>
         </div>
         <footer class="footer">
-          <gxg-button id="button-create" slot="footer" type="primary-text-only">
+          <gxg-button
+            id="button-create"
+            slot="footer"
+            type="primary-text-only"
+            onClick={this.createKbHandler.bind(this)}
+          >
             Create
           </gxg-button>
           <gxg-button id="button-cancel" slot="footer" type="outlined">
@@ -461,3 +565,22 @@ INDEX:
 
 type createOptionsArray = (GxgComboBoxItem | GxgFormCheckbox)[];
 export type locationFunction = () => string | undefined | null;
+export interface NewKBData {
+  data: {
+    kbName: string;
+    location: string;
+    prototypingTarget: string;
+    userInterfaceLanguage: string;
+    prototypingEnvironment: string;
+    dataSource: string;
+    frontEnd: string[];
+    serverName: string;
+    databaseName: string;
+    collation: string;
+    createDataFilesInKBFolder: boolean;
+    authenticationType: string;
+    userName: string;
+    password: string;
+    savePassword: boolean;
+  };
+}

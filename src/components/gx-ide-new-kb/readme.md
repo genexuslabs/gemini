@@ -14,9 +14,9 @@
 | `databaseName`              | `database-name`                  | Name of the database where we are going to persist the information of our KB                                                                | `string`       | `undefined` |
 | `frontEnd`                  | --                               | It allows selecting multiple generators for the front end                                                                                   | `GxOption[]`   | `undefined` |
 | `isAdvanced`                | `is-advanced`                    | Specify whether it is feasible to display information related to local configuration parameters                                             | `boolean`      | `false`     |
+| `kbName`                    | `kb-name`                        | The knowledge base default suggested name                                                                                                   | `string`       | `""`        |
 | `location`                  | `location`                       | Default suggested path to a directory where the information related to the KB will be stored/generated                                      | `string`       | `undefined` |
 | `locationFunction`          | --                               | This is a function provided by the developer that returns a string, with the location path.                                                 | `() => string` | `undefined` |
-| `name`                      | `name`                           | The knowledge base default suggested name                                                                                                   | `string`       | `""`        |
 | `password`                  | `password`                       | Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo) | `string`       | `undefined` |
 | `prototypingEnvironments`   | --                               | It allows selecting the default environment that the KB will have (additional environments can be created later)                            | `GxOption[]`   | `undefined` |
 | `prototypingTargets`        | --                               | Path to a directory where the information related to the KB will be stored/generated                                                        | `GxOption[]`   | `undefined` |
@@ -24,6 +24,12 @@
 | `serverNames`               | --                               | Name of the DB server where we want to persist the information of our KB                                                                    | `GxOption[]`   | `undefined` |
 | `userName`                  | `user-name`                      | Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo) | `string`       | `undefined` |
 | `visible`                   | `visible`                        | The dialog visibility                                                                                                                       | `boolean`      | `false`     |
+
+## Events
+
+| Event      | Description                                          | Type                     |
+| ---------- | ---------------------------------------------------- | ------------------------ |
+| `createKb` | This event emmits the data needed to create a new kb | `CustomEvent<NewKBData>` |
 
 ## Dependencies
 

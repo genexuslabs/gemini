@@ -15,10 +15,11 @@
   grid-row-gap: var(--spacing-comp-02);
   &__item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     label {
       @include form-element-common-styles-label();
       @include form-element-common-styles-label-large();
+      padding-top: var(--spacing-comp-01);
       margin-bottom: 0;
     }
   }

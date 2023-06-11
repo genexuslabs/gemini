@@ -7,6 +7,7 @@ import {
   Element,
   Host,
   Method,
+  Watch,
 } from "@stencil/core";
 import state from "../store";
 
@@ -56,6 +57,16 @@ export class GxgTabButton {
     this.tabButton.focus();
   }
 
+  @Watch("isSelected")
+  isSelectedHandler(newValue: boolean) {
+    console.log("isSelected");
+    if (newValue) {
+      this.el.removeAttribute("tabindex");
+    } else {
+      this.el.setAttribute("tabindex", "-1");
+    }
+  }
+
   buttonClickHandler() {
     this.isSelected = true;
     const index = parseInt(this.el.getAttribute("data-index"), 10);
@@ -94,6 +105,7 @@ export class GxgTabButton {
         class={{
           large: state.large,
         }}
+        tabindex={!this.isSelected ? "-1" : null}
       >
         <li class="tab-item">
           <button

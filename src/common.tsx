@@ -2,7 +2,7 @@ import { h } from "@stencil/core";
 
 interface FormComponent {
   error: boolean;
-  showValidationMessage: boolean;
+  hideValidationMessage: boolean;
   validationMessage: string | undefined;
 }
 
@@ -34,6 +34,9 @@ function formHandleChange(
   if (hasError) {
     component.validationMessage =
       component.validationMessage || formElement.validationMessage;
+    return true;
+  } else {
+    return false;
   }
 }
 
