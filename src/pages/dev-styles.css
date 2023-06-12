@@ -248,17 +248,18 @@ body {
   color: var(--gray-07);
   padding: var(--gwds__space--s);
   margin-top: var(--gwds__space--s);
-  border: 1px solid var(--gray-07);
+  border: 1px solid var(--gray-02);
   display: block;
   margin-bottom: var(--gwds__space--s);
+  font-size: 12px;
 }
 .code-wrapper .note {
   margin-top: 4px;
   font-size: 12px;
   line-height: 1.4em;
 }
-.code-wrapper hr {
-  border-color: var(--gray-07);
+.code-wrapper pre {
+  margin-bottom: 0 !important;
 }
 .title {
   margin-bottom: 0;
@@ -332,3 +333,40 @@ body {
 /***********************
 /END OF CUSTOM STYLES
 ***********************/
+
+/********************************
+PRISM SYNTAX HIGHLIGHTER
+********************************/
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: var(--gray-00) !important;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+  text-shadow: none !important;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--color-success-dark) !important;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--color-primary-enabled) !important;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--color-warning-dark) !important;
+}
+/********************************
+/END OF PRISM SYNTAX HIGHLIGHTER
+********************************/

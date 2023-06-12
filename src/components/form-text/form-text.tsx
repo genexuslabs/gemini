@@ -76,6 +76,11 @@ export class GxgFormText implements FormComponent {
   @Prop({ reflect: true }) labelPosition: LabelPosition;
 
   /**
+   * The presence of this attribute hides the border.
+   */
+  @Prop() borderless = false;
+
+  /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
   @Prop({ reflect: true }) minimal = false;
@@ -448,6 +453,7 @@ export class GxgFormText implements FormComponent {
         class={{
           rtl: this.rtl,
           large: state.large,
+          borderless: this.borderless,
         }}
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
@@ -482,6 +488,7 @@ export class GxgFormText implements FormComponent {
                 "clear-button": this.clearButton === true,
                 "custom-icon": this.icon,
                 "custom-icon--end": this.iconPosition === "end",
+                "input--borderless": this.borderless,
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}

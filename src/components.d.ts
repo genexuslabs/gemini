@@ -288,6 +288,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+     */
+    fit: boolean;
+    /**
      * The presence of this attribute makes the component full-width
      */
     fullWidth: boolean;
@@ -681,6 +685,10 @@ export namespace Components {
     validationMessage: string;
   }
   interface GxgFormText {
+    /**
+     * The presence of this attribute hides the border.
+     */
+    borderless: boolean;
     /**
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
@@ -2342,6 +2350,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+     */
+    fit?: boolean;
+    /**
      * The presence of this attribute makes the component full-width
      */
     fullWidth?: boolean;
@@ -2782,6 +2794,10 @@ declare namespace LocalJSX {
     validationMessage?: string;
   }
   interface GxgFormText {
+    /**
+     * The presence of this attribute hides the border.
+     */
+    borderless?: boolean;
     /**
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */

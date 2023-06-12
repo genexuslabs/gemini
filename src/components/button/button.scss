@@ -276,8 +276,11 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 :host(.button--fullwidth) {
   width: 100%;
 }
-:host(.button--fullwidth) .button-native {
-  width: 100%;
+:host(.button--fit) {
+  .button-native {
+    height: 100% !important;
+    width: 100% !important;
+  }
 }
 
 /********************************************************************

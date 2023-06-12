@@ -12,6 +12,11 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
     <link rel="stylesheet" href="./dev-styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css"
+    />
   </head>
   <body>
     <header class="header-dev">
@@ -41,8 +46,8 @@
             Properites with 'undefined' values are not shown here, but they do
             appear on the console.
           </p>
-          <hr />
-          <pre><code class="code"></code></pre>
+          <pre><code id="code" class="code language-javascript">
+            </code></pre>
         </div>
       </div>
     </section>
@@ -194,6 +199,8 @@
           const data = event.detail.data;
           const strinfifiedData = JSON.stringify(data, null, 2);
           code.textContent = strinfifiedData;
+          Prism.highlightElement(code);
+          //Then show on the console as well
           const frontEnd = data.frontEnd;
           delete data.frontEnd;
           console.table(data);

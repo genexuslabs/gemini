@@ -92,6 +92,9 @@ TEXT
       @include form-element-common-styles-warning-focus();
     }
   }
+  .input--borderless {
+    border-color: transparent !important;
+  }
 }
 //borderless and transparent background
 :host([minimal]) {
