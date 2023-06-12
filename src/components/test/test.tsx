@@ -1,7 +1,7 @@
 import { Component, h, Host, Prop, State } from "@stencil/core";
-import { GxgComboBox } from "../combo-box/combo-box";
-import { GxgFormSelect } from "../form-select/gxg-select";
-import { GxgModal } from "../modal/modal";
+//import { GxgComboBox } from "../combo-box/combo-box";
+//import { GxgFormSelect } from "../form-select/gxg-select";
+//import { GxgModal } from "../modal/modal";
 import state from "../store";
 
 @Component({

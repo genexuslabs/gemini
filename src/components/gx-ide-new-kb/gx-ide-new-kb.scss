@@ -69,7 +69,7 @@
     &--left {
       grid-area: 2 / 1 / 3 / 2;
       gap: var(--spacing-comp-03);
-      border-right: 1px solid var(--gray-02);
+      border-inline-end: 1px solid var(--gray-02);
     }
     &--right {
       grid-area: 2 / 2 / 3 / 3;
@@ -108,7 +108,7 @@
     }
     &--left {
       grid-area: 2 / 1 / 3 / 2;
-      border-right: 1px solid var(--gray-02);
+      border-inline-end: 1px solid var(--gray-02);
       padding-right: var(--spacing-comp-03);
 
       &__inner-wrapper {
@@ -215,3 +215,17 @@
   border: 1px solid var(--gray-02);
   border-top: 0;
 }
+
+/********************
+RESPONSIVE
+********************/
+// .basic__container {
+//   grid-template-columns: repeat(2, 1fr);
+//   container-type: inline-size;
+//   container-name: basicContainer;
+// }
+// @container basicContainer (max-width: 480px) {
+//   .basic__box--top {
+//     flex-direction: column;
+//   }
+// }

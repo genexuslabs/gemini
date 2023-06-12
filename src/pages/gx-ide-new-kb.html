@@ -24,6 +24,7 @@
       <div class="right">
         <gxg-button id="toggle-dark-btn">Toggle Dark</gxg-button>
         <gxg-button id="show-modal-btn">Show in Modal</gxg-button>
+        <gxg-button id="toggle-dir-btn">Toggle Dir</gxg-button>
       </div>
     </header>
     <section style="max-width: 600px; margin: 0 auto">
@@ -55,15 +56,25 @@
       /*MODAL*/
       const modal = document.getElementById("modal");
       const showModalBtn = document.getElementById("show-modal-btn");
-      const toggleDark = document.getElementById("toggle-dark-btn");
+      const toggleDarkBtn = document.getElementById("toggle-dark-btn");
+      const toggleDir = document.getElementById("toggle-dir-btn");
       const gxIdeNewKbs = document.querySelectorAll(".new-kb");
       const code = document.querySelector(".code");
       showModalBtn.addEventListener("click", function () {
         modal.setAttribute("visible", "true");
       });
-      toggleDark.addEventListener("click", function () {
+      toggleDarkBtn.addEventListener("click", function () {
         const html = document.querySelector("html");
         html.classList.toggle("dark");
+      });
+      toggleDir.addEventListener("click", function () {
+        const html = document.querySelector("html");
+        const dir = html.getAttribute("dir");
+        if (dir === "ltr") {
+          html.setAttribute("dir", "rtl");
+        } else {
+          html.setAttribute("dir", "ltr");
+        }
       });
 
       gxIdeNewKbs.forEach((newKb) => {
