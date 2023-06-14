@@ -487,6 +487,7 @@ export class GxgComboBox {
         class={{
           "filter-disabled": this.disableFilter,
           large: state.large,
+          rtl: state.rtl,
         }}
         style={{
           width: this.width,
@@ -512,33 +513,37 @@ export class GxgComboBox {
               readonly={this.disableFilter}
               ref={(el) => (this.gxgFormText = (el as unknown) as GxgFormText)}
             ></gxg-form-text>
-            {this.inputTextValue !== "" &&
-            !this.disableFilter &&
-            !this.disableClear ? (
-              <gxg-button
-                class={{ "delete-icon": true }}
-                icon="menus/delete"
-                type="tertiary"
-                onClick={() => this.clearCombo()}
-                tabindex="-1"
-              ></gxg-button>
-            ) : null}
+            <div class="buttons-wrapper">
+              {this.inputTextValue !== "" &&
+              !this.disableFilter &&
+              !this.disableClear ? (
+                <gxg-button
+                  class={{ "button-icon delete-icon": true }}
+                  icon="menus/delete"
+                  type="tertiary"
+                  onClick={() => this.clearCombo()}
+                  tabindex="-1"
+                  fit
+                ></gxg-button>
+              ) : null}
 
-            <gxg-button
-              class={{ "arrow-down-icon": true }}
-              icon="navigation/arrow-down"
-              type="tertiary"
-              onClick={() => this.toggleItems()}
-              onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
-              tabindex="-1"
-            ></gxg-button>
-            {!this.disableFilter ? <span class="layer"></span> : null}
+              <gxg-button
+                class={{ "button-icon arrow-down-icon": true }}
+                icon="navigation/arrow-down"
+                type="tertiary"
+                onClick={() => this.toggleItems()}
+                onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
+                tabindex="-1"
+                fit
+              ></gxg-button>
+            </div>
           </div>
 
           <div
             class={{
               "items-container": true,
               "items-container--show": this.showItems,
+              "items-container--no-match": this.noMatch,
             }}
             ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
           >

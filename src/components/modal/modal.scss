@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     z-index: 999;
+    box-sizing: border-box;
   }
   .modal {
     display: flex;
@@ -21,10 +22,6 @@
     box-shadow: var(--box-shadow-03);
     border-radius: var(--border-radius-md);
     position: absolute;
-    //left: 50%;
-    //top: 50%;
-    margin-top: 30px;
-    //transform: translateY(-50%) translateX(-50%);
     @include gxg-text();
     &--visible {
       opacity: 1;

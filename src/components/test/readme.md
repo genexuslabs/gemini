@@ -4,31 +4,33 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default    |
-| -------- | --------- | ----------- | --------- | ---------- |
-| `name`   | `name`    |             | `string`  | `"Andres"` |
-| `show`   | `show`    |             | `boolean` | `false`    |
+| Property                | Attribute                 | Description | Type      | Default    |
+| ----------------------- | ------------------------- | ----------- | --------- | ---------- |
+| `name`                  | `name`                    |             | `string`  | `"Andres"` |
+| `show`                  | `show`                    |             | `boolean` | `false`    |
+| `showValidationMessage` | `show-validation-message` |             | `boolean` | `false`    |
 
 ## Dependencies
 
 ### Depends on
 
-- [gxg-modal](../modal)
-- [gxg-button](../button)
-- [gxg-select](../form-select)
-- [gxg-option](../form-option)
+- [gxg-tabs](../tabs)
+- [gxg-tab-bar](../tab-bar)
+- [gxg-tab-button](../tab-button)
+- [gxg-tab](../tab)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-modal
-  gxg-test --> gxg-button
-  gxg-test --> gxg-select
-  gxg-test --> gxg-option
-  gxg-modal --> gxg-button
+  gxg-test --> gxg-tabs
+  gxg-test --> gxg-tab-bar
+  gxg-test --> gxg-tab-button
+  gxg-test --> gxg-tab
+  gxg-tab-bar --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-tab-button --> gxg-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

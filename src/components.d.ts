@@ -5,6 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { GxOption } from "./gx-ide-common/definitions";
+import {
+  locationFunction,
+  NewKBData,
+} from "./components/gx-ide-new-kb/gx-ide-new-kb";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
@@ -56,6 +61,80 @@ import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
+  interface GxIdeNewKb {
+    /**
+     * Specify the language in which the application screens will be developed (default language)
+     */
+    UILanguages: GxOption[];
+    /**
+     * Defines the type of authentication for the connection to the previously defined database
+     */
+    authenticationTypes: GxOption[];
+    /**
+     * DB Collations
+     */
+    collations: GxOption[];
+    /**
+     * Disabled if the first item of the 'Server Name' combo is selected
+     */
+    createDatafilesInKBFolder: boolean;
+    /**
+     * It allows defining the DBMS that will be used in the solution
+     */
+    dataSources: GxOption[];
+    /**
+     * Name of the database where we are going to persist the information of our KB
+     */
+    databaseName: string;
+    /**
+     * It allows selecting multiple generators for the front end
+     */
+    frontEnd: GxOption[];
+    /**
+     * Specify whether it is feasible to display information related to local configuration parameters
+     */
+    isAdvanced: boolean;
+    /**
+     * The knowledge base default suggested name
+     */
+    kbName: string;
+    /**
+     * Default suggested path to a directory where the information related to the KB will be stored/generated
+     */
+    location: string | undefined;
+    /**
+     * This is a function provided by the developer that returns a string, with the location path.
+     */
+    locationFunction: locationFunction;
+    /**
+     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    password: string;
+    /**
+     * It allows selecting the default environment that the KB will have (additional environments can be created later)
+     */
+    prototypingEnvironments: GxOption[];
+    /**
+     * Path to a directory where the information related to the KB will be stored/generated
+     */
+    prototypingTargets: GxOption[];
+    /**
+     * Visible if something other than Windows Authentication is selected
+     */
+    savePassword: boolean;
+    /**
+     * Name of the DB server where we want to persist the information of our KB
+     */
+    serverNames: GxOption[];
+    /**
+     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    userName: string;
+    /**
+     * The dialog visibility
+     */
+    visible: boolean;
+  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -208,6 +287,10 @@ export namespace Components {
      * The state of the button, whether it is disabled or not
      */
     disabled: boolean;
+    /**
+     * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+     */
+    fit: boolean;
     /**
      * The presence of this attribute makes the component full-width
      */
@@ -599,9 +682,13 @@ export namespace Components {
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
-    requiredMessage: string;
+    validationMessage: string;
   }
   interface GxgFormText {
+    /**
+     * The presence of this attribute hides the border.
+     */
+    borderless: boolean;
     /**
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
@@ -614,6 +701,10 @@ export namespace Components {
      * The presence of this attribute gives the component error styles
      */
     error: boolean;
+    /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage: boolean;
     /**
      * The input icon (optional)
      */
@@ -631,9 +722,17 @@ export namespace Components {
      */
     labelPosition: LabelPosition;
     /**
+     * The input max. length
+     */
+    maxLength: string | undefined;
+    /**
      * The input max. width
      */
     maxWidth: string;
+    /**
+     * The input min. length
+     */
+    minLength: string | undefined;
     /**
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
@@ -647,6 +746,10 @@ export namespace Components {
      */
     password: boolean;
     /**
+     * The input pattern attribute specifies a regular expression that the input field's value is checked against
+     */
+    pattern: string | undefined;
+    /**
      * The input placeholder
      */
     placeholder: string;
@@ -659,13 +762,21 @@ export namespace Components {
      */
     required: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    requiredMessage: string;
-    /**
      * The text style
      */
     textStyle: Style;
+    /**
+     * ******************************* METHODS *******************************
+     */
+    validate: () => Promise<void>;
+    /**
+     * The presence of this attribute will check the input validity on every user input
+     */
+    validateOnInput: boolean;
+    /**
+     * The message to display when validity is false
+     */
+    validationMessage: string | undefined;
     /**
      * The input value
      */
@@ -689,6 +800,10 @@ export namespace Components {
      */
     height: string;
     /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage: boolean;
+    /**
      * The textarea label
      */
     label: string;
@@ -705,13 +820,13 @@ export namespace Components {
      */
     required: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    requiredMessage: string;
-    /**
      * The number of rows
      */
     rows: number;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage: string;
     /**
      * The textarea value
      */
@@ -823,6 +938,10 @@ export namespace Components {
      * The footer justify content type
      */
     footerJustifyContent: string;
+    /**
+     * The presence of this attribute hides the footer.
+     */
+    hideFooter: boolean;
     /**
      * The modal max-width
      */
@@ -1200,6 +1319,7 @@ export namespace Components {
      * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
      */
     tab: string;
+    tabButtonClick: () => Promise<void>;
     /**
      * The button label
      */
@@ -1216,6 +1336,7 @@ export namespace Components {
   interface GxgTest {
     name: string;
     show: boolean;
+    showValidationMessage: boolean;
   }
   interface GxgText {
     /**
@@ -1414,6 +1535,13 @@ export namespace Components {
   }
 }
 declare global {
+  interface HTMLGxIdeNewKbElement
+    extends Components.GxIdeNewKb,
+      HTMLStencilElement {}
+  var HTMLGxIdeNewKbElement: {
+    prototype: HTMLGxIdeNewKbElement;
+    new (): HTMLGxIdeNewKbElement;
+  };
   interface HTMLGxgAccordionElement
     extends Components.GxgAccordion,
       HTMLStencilElement {}
@@ -1895,6 +2023,7 @@ declare global {
     new (): HTMLGxgWindowElement;
   };
   interface HTMLElementTagNameMap {
+    "gx-ide-new-kb": HTMLGxIdeNewKbElement;
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
@@ -1970,6 +2099,84 @@ declare global {
   }
 }
 declare namespace LocalJSX {
+  interface GxIdeNewKb {
+    /**
+     * Specify the language in which the application screens will be developed (default language)
+     */
+    UILanguages?: GxOption[];
+    /**
+     * Defines the type of authentication for the connection to the previously defined database
+     */
+    authenticationTypes?: GxOption[];
+    /**
+     * DB Collations
+     */
+    collations?: GxOption[];
+    /**
+     * Disabled if the first item of the 'Server Name' combo is selected
+     */
+    createDatafilesInKBFolder?: boolean;
+    /**
+     * It allows defining the DBMS that will be used in the solution
+     */
+    dataSources?: GxOption[];
+    /**
+     * Name of the database where we are going to persist the information of our KB
+     */
+    databaseName?: string;
+    /**
+     * It allows selecting multiple generators for the front end
+     */
+    frontEnd?: GxOption[];
+    /**
+     * Specify whether it is feasible to display information related to local configuration parameters
+     */
+    isAdvanced?: boolean;
+    /**
+     * The knowledge base default suggested name
+     */
+    kbName?: string;
+    /**
+     * Default suggested path to a directory where the information related to the KB will be stored/generated
+     */
+    location?: string | undefined;
+    /**
+     * This is a function provided by the developer that returns a string, with the location path.
+     */
+    locationFunction?: locationFunction;
+    /**
+     * This event emmits the data needed to create a new kb
+     */
+    onCreateKb?: (event: CustomEvent<NewKBData>) => void;
+    /**
+     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    password?: string;
+    /**
+     * It allows selecting the default environment that the KB will have (additional environments can be created later)
+     */
+    prototypingEnvironments?: GxOption[];
+    /**
+     * Path to a directory where the information related to the KB will be stored/generated
+     */
+    prototypingTargets?: GxOption[];
+    /**
+     * Visible if something other than Windows Authentication is selected
+     */
+    savePassword?: boolean;
+    /**
+     * Name of the DB server where we want to persist the information of our KB
+     */
+    serverNames?: GxOption[];
+    /**
+     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
+     */
+    userName?: string;
+    /**
+     * The dialog visibility
+     */
+    visible?: boolean;
+  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -2142,6 +2349,10 @@ declare namespace LocalJSX {
      * The state of the button, whether it is disabled or not
      */
     disabled?: boolean;
+    /**
+     * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+     */
+    fit?: boolean;
     /**
      * The presence of this attribute makes the component full-width
      */
@@ -2580,9 +2791,13 @@ declare namespace LocalJSX {
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
-    requiredMessage?: string;
+    validationMessage?: string;
   }
   interface GxgFormText {
+    /**
+     * The presence of this attribute hides the border.
+     */
+    borderless?: boolean;
     /**
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
@@ -2595,6 +2810,10 @@ declare namespace LocalJSX {
      * The presence of this attribute gives the component error styles
      */
     error?: boolean;
+    /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage?: boolean;
     /**
      * The input icon (optional)
      */
@@ -2612,9 +2831,17 @@ declare namespace LocalJSX {
      */
     labelPosition?: LabelPosition;
     /**
+     * The input max. length
+     */
+    maxLength?: string | undefined;
+    /**
      * The input max. width
      */
     maxWidth?: string;
+    /**
+     * The input min. length
+     */
+    minLength?: string | undefined;
     /**
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
@@ -2632,6 +2859,10 @@ declare namespace LocalJSX {
      */
     onInput?: (event: CustomEvent<any>) => void;
     /**
+     * The validation error message
+     */
+    onValidationErrorMessage?: (event: CustomEvent<any>) => void;
+    /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground?: boolean;
@@ -2639,6 +2870,10 @@ declare namespace LocalJSX {
      * The presence of this attribute sets the input type as password
      */
     password?: boolean;
+    /**
+     * The input pattern attribute specifies a regular expression that the input field's value is checked against
+     */
+    pattern?: string | undefined;
     /**
      * The input placeholder
      */
@@ -2652,13 +2887,17 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    requiredMessage?: string;
-    /**
      * The text style
      */
     textStyle?: Style;
+    /**
+     * The presence of this attribute will check the input validity on every user input
+     */
+    validateOnInput?: boolean;
+    /**
+     * The message to display when validity is false
+     */
+    validationMessage?: string | undefined;
     /**
      * The input value
      */
@@ -2681,6 +2920,10 @@ declare namespace LocalJSX {
      * The textarea height
      */
     height?: string;
+    /**
+     * The presence of this attribute will show a validation message if the input has an error
+     */
+    hideValidationMessage?: boolean;
     /**
      * The textarea label
      */
@@ -2706,13 +2949,13 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    requiredMessage?: string;
-    /**
      * The number of rows
      */
     rows?: number;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage?: string;
     /**
      * The textarea value
      */
@@ -2844,6 +3087,10 @@ declare namespace LocalJSX {
      */
     footerJustifyContent?: string;
     /**
+     * The presence of this attribute hides the footer.
+     */
+    hideFooter?: boolean;
+    /**
      * The modal max-width
      */
     maxWidth?: string;
@@ -2855,6 +3102,10 @@ declare namespace LocalJSX {
      * Emmited when the modal was closed
      */
     onModalClosed?: (event: CustomEvent<any>) => void;
+    /**
+     * Emmited when the modal was opened
+     */
+    onModalOpened?: (event: CustomEvent<any>) => void;
     padding?: padding;
     /**
      * The presence of this attribute removes the sound that plays when the modal appears
@@ -3230,6 +3481,7 @@ declare namespace LocalJSX {
      * Provide this attribute to make this button selected by default
      */
     isSelected?: boolean;
+    onPrevOrNextTab?: (event: CustomEvent<any>) => void;
     onTabActivated?: (event: CustomEvent<any>) => void;
     /**
      * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
@@ -3251,6 +3503,7 @@ declare namespace LocalJSX {
   interface GxgTest {
     name?: string;
     show?: boolean;
+    showValidationMessage?: boolean;
   }
   interface GxgText {
     /**
@@ -3457,6 +3710,7 @@ declare namespace LocalJSX {
     windowTitle?: string;
   }
   interface IntrinsicElements {
+    "gx-ide-new-kb": GxIdeNewKb;
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
@@ -3535,6 +3789,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      "gx-ide-new-kb": LocalJSX.GxIdeNewKb &
+        JSXBase.HTMLAttributes<HTMLGxIdeNewKbElement>;
       "gxg-accordion": LocalJSX.GxgAccordion &
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-item": LocalJSX.GxgAccordionItem &

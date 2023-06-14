@@ -28,6 +28,11 @@ export class GxgButton {
   @Prop() disabled = false;
 
   /**
+   * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+   */
+  @Prop() fit = false;
+
+  /**
    * The presence of this attribute makes the component full-width
    */
   @Prop() fullWidth = false;
@@ -193,6 +198,7 @@ export class GxgButton {
           "button--disabled": this.disabled === true,
           "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true,
+          "button--fit": this.fit,
           large: state.large,
         }}
         onClick={this.clickHandler.bind(this)}

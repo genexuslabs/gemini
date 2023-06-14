@@ -6,6 +6,8 @@ import {
   EventEmitter,
   Element,
   Host,
+  Method,
+  Watch,
 } from "@stencil/core";
 import state from "../store";
 
@@ -16,6 +18,7 @@ import state from "../store";
 })
 export class GxgTabButton {
   @Element() el: HTMLElement;
+  tabButton!: HTMLButtonElement;
 
   /**
    * The button label
@@ -25,7 +28,7 @@ export class GxgTabButton {
   /**
    * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
    */
-  @Prop() tab: string = null;
+  @Prop({ reflect: true }) tab: string = null;
 
   /**
    * Provide this attribute to make this button selected by default
@@ -45,15 +48,40 @@ export class GxgTabButton {
   //Events
   @Event()
   tabActivated: EventEmitter;
+  @Event()
+  PrevOrNextTab: EventEmitter;
 
-  //Click functions
-  tabButtonClicked() {
+  @Method()
+  async tabButtonClick() {
+    this.buttonClickHandler();
+    this.tabButton.focus();
+  }
+
+  @Watch("isSelected")
+  isSelectedHandler(newValue: boolean) {
+    console.log("isSelected");
+    if (newValue) {
+      this.el.removeAttribute("tabindex");
+    } else {
+      this.el.setAttribute("tabindex", "-1");
+    }
+  }
+
+  buttonClickHandler() {
     this.isSelected = true;
     const index = parseInt(this.el.getAttribute("data-index"), 10);
     this.tabActivated.emit({
       tab: this.tab,
       index: index,
     });
+  }
+  buttonKeyDownHandler(e) {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      this.PrevOrNextTab.emit({
+        originTab: this.tab,
+        arrowPressed: e.key,
+      });
+    }
   }
   printIcon() {
     if (this.icon !== null) {
@@ -77,6 +105,7 @@ export class GxgTabButton {
         class={{
           large: state.large,
         }}
+        tabindex={!this.isSelected ? "-1" : null}
       >
         <li class="tab-item">
           <button
@@ -88,7 +117,9 @@ export class GxgTabButton {
                 this.tabLabel !== null && this.icon !== null,
               large: state.large,
             }}
-            onClick={this.tabButtonClicked.bind(this)}
+            onClick={this.buttonClickHandler.bind(this)}
+            onKeyDown={this.buttonKeyDownHandler.bind(this)}
+            ref={(el) => (this.tabButton = el as HTMLInputElement)}
           >
             {this.printIcon()}
             <span class="tab-button__text">{this.tabLabel}</span>

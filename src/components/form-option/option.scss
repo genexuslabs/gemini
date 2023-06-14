@@ -161,22 +161,3 @@ SCROLLBAR
     cursor: pointer;
   }
 }
-
-/*****************************************************
-ERROR & WARNING
-*****************************************************/
-:host {
-  .select--error {
-    .select-selected {
-      @include form-element-common-styles-error();
-    }
-  }
-  .select--warning {
-    .select-selected {
-      @include form-element-common-styles-warning();
-    }
-  }
-  .select--error .select-selected {
-    //color: #1c1b1b; //No token color here, because we need the same color for both, light and dark mode
-  }
-}

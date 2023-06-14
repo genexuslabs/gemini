@@ -6,12 +6,10 @@ import {
   EventEmitter,
   h,
   Host,
-  Watch,
-  Method,
   State,
   Listen,
 } from "@stencil/core";
-import { requiredLabel, formMessage } from "../../common.js";
+//import { requiredLabel, formMessage } from "../../common.js";
 import state from "../store.js";
 
 @Component({
@@ -95,7 +93,6 @@ export class FormSelectV2 {
 
   @State() myObserver = null;
 
-  private firstLoad = true;
   private detectClickOutsideSelect = this.detectClickOutsideSelectFunc.bind(
     this
   );

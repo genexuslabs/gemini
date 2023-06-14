@@ -2,8 +2,8 @@ import { h } from "@stencil/core";
 
 interface FormComponent {
   error: boolean;
-  isRequiredError: boolean;
-  requiredMessage: string;
+  hideValidationMessage: boolean;
+  validationMessage: string | undefined;
 }
 
 function requiredLabel(component) {
@@ -17,9 +17,9 @@ function formMessage(children?: JSX.Element) {
   The purpose of this jsx snippet is to show error or warning messages,
   inserted on the "message" slot with a gxg-form-message component
   */
+  console.log(children);
   return (
     <div class="messages-wrapper" role="alert" aria-live="assertive">
-      <slot name="message"></slot>
       {children}
     </div>
   );
@@ -31,11 +31,12 @@ function formHandleChange(
 ) {
   const hasError = !formElement.validity.valid;
   component.error = hasError;
-  component.isRequiredError = component.error;
-  //If validity is false, show message
   if (hasError) {
-    component.requiredMessage =
-      component.requiredMessage || formElement.validationMessage;
+    component.validationMessage =
+      component.validationMessage || formElement.validationMessage;
+    return true;
+  } else {
+    return false;
   }
 }
 

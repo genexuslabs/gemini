@@ -224,14 +224,46 @@ END OF BOOTSTRAP
 CUSTOM STYLES
 ***********************/
 body {
-  margin: 1rem;
+  margin: 0;
+  background-color: var(--color-background);
+}
+.header-dev {
+  background-color: var(--gray-07);
+  color: var(--gray-01);
+  padding: var(--gwds__space--s) var(--gwds__space--s);
+  margin-bottom: var(--gwds__space--m);
+  display: flex;
+  justify-content: space-between;
+}
+.header-dev .right {
+  display: flex;
+  gap: var(--gwds__space--xs);
+}
+.header-dev h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+.code-wrapper {
+  color: var(--gray-07);
+  padding: var(--gwds__space--s);
+  margin-top: var(--gwds__space--s);
+  border: 1px solid var(--gray-02);
+  display: block;
+  margin-bottom: var(--gwds__space--s);
+  font-size: 12px;
+}
+.code-wrapper .note {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.4em;
+}
+.code-wrapper pre {
+  margin-bottom: 0 !important;
 }
 .title {
   margin-bottom: 0;
   margin-top: var(--gwds__space--m);
-}
-.container {
-  text-align: center;
 }
 .list {
   display: grid;
@@ -301,3 +333,40 @@ body {
 /***********************
 /END OF CUSTOM STYLES
 ***********************/
+
+/********************************
+PRISM SYNTAX HIGHLIGHTER
+********************************/
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: var(--gray-00) !important;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+  text-shadow: none !important;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--color-success-dark) !important;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--color-primary-enabled) !important;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--color-warning-dark) !important;
+}
+/********************************
+/END OF PRISM SYNTAX HIGHLIGHTER
+********************************/

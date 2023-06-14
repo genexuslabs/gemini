@@ -357,10 +357,13 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
 FORM ELEMENTS
 *****************************************************/
 
-@mixin form-element-common-styles-label {
+@mixin form-element-common-styles-label() {
   @include gxg-text();
   display: flex;
   margin-bottom: var(--spacing-lay-xs);
+}
+@mixin form-element-common-styles-label-large {
+  font-size: var(--font-size-lg);
 }
 @mixin form-element-common-styles-label-group {
   @include gxg-text();
@@ -409,12 +412,20 @@ FORM ELEMENTS
   margin-bottom: 0;
   color: var(--color-always-black);
 }
+@mixin form-element-common-styles-error-focus {
+  outline-color: var(--color-error-dark);
+  border-color: var(--color-error-dark);
+}
 
 @mixin form-element-common-styles-warning {
   border-color: var(--color-warning-dark);
   background-color: var(--color-warning-light);
   margin-bottom: 0;
   color: var(--color-always-black);
+}
+@mixin form-element-common-styles-warning-focus {
+  outline-color: var(--color-warning-dark);
+  border-color: var(--color-warning-dark);
 }
 
 @mixin gxg-scroll {

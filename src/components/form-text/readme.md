@@ -67,34 +67,55 @@
 
 ## Properties
 
-| Property             | Attribute              | Description                                                                                                                                                    | Type                                                                                         | Default     |
-| -------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
-| `clearButton`        | `clear-button`         | The presence of this attribute displays a clear (cross) button-icon on the right side                                                                          | `boolean`                                                                                    | `false`     |
-| `disabled`           | `disabled`             | The presence of this attribute makes the input disabled                                                                                                        | `boolean`                                                                                    | `false`     |
-| `error`              | `error`                | The presence of this attribute gives the component error styles                                                                                                | `boolean`                                                                                    | `false`     |
-| `icon`               | `icon`                 | The input icon (optional)                                                                                                                                      | `any`                                                                                        | `null`      |
-| `iconPosition`       | `icon-position`        | The input icon side                                                                                                                                            | `"end" \| "start"`                                                                           | `null`      |
-| `label`              | `label`                | The input label                                                                                                                                                | `string`                                                                                     | `undefined` |
-| `labelPosition`      | `label-position`       | The input label                                                                                                                                                | `"above" \| "start"`                                                                         | `undefined` |
-| `maxWidth`           | `max-width`            | The input max. width                                                                                                                                           | `string`                                                                                     | `"100%"`    |
-| `minimal`            | `minimal`              | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus                                          | `boolean`                                                                                    | `false`     |
-| `overDarkBackground` | `over-dark-background` | The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark           | `boolean`                                                                                    | `false`     |
-| `password`           | `password`             | The presence of this attribute sets the input type as password                                                                                                 | `boolean`                                                                                    | `false`     |
-| `placeholder`        | `placeholder`          | The input placeholder                                                                                                                                          | `string`                                                                                     | `undefined` |
-| `readonly`           | `readonly`             | The presence of this attribute makes the input readonly                                                                                                        | `boolean`                                                                                    | `false`     |
-| `required`           | `required`             | The presence of this attribute makes this input required                                                                                                       | `boolean`                                                                                    | `false`     |
-| `requiredMessage`    | `required-message`     | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`                                                                                     | `undefined` |
-| `textStyle`          | `text-style`           | The text style                                                                                                                                                 | `"quote" \| "regular" \| "title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"regular"` |
-| `value`              | `value`                | The input value                                                                                                                                                | `string`                                                                                     | `undefined` |
-| `warning`            | `warning`              | The presence of this attribute gives the component warning styles                                                                                              | `boolean`                                                                                    | `false`     |
+| Property                | Attribute                 | Description                                                                                                                                          | Type                                                                                         | Default     |
+| ----------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
+| `borderless`            | `borderless`              | The presence of this attribute hides the border.                                                                                                     | `boolean`                                                                                    | `false`     |
+| `clearButton`           | `clear-button`            | The presence of this attribute displays a clear (cross) button-icon on the right side                                                                | `boolean`                                                                                    | `false`     |
+| `disabled`              | `disabled`                | The presence of this attribute makes the input disabled                                                                                              | `boolean`                                                                                    | `false`     |
+| `error`                 | `error`                   | The presence of this attribute gives the component error styles                                                                                      | `boolean`                                                                                    | `false`     |
+| `hideValidationMessage` | `hide-validation-message` | The presence of this attribute will show a validation message if the input has an error                                                              | `boolean`                                                                                    | `false`     |
+| `icon`                  | `icon`                    | The input icon (optional)                                                                                                                            | `any`                                                                                        | `null`      |
+| `iconPosition`          | `icon-position`           | The input icon side                                                                                                                                  | `"end" \| "start"`                                                                           | `null`      |
+| `label`                 | `label`                   | The input label                                                                                                                                      | `string`                                                                                     | `undefined` |
+| `labelPosition`         | `label-position`          | The input label                                                                                                                                      | `"above" \| "start"`                                                                         | `undefined` |
+| `maxLength`             | `max-length`              | The input max. length                                                                                                                                | `string`                                                                                     | `undefined` |
+| `maxWidth`              | `max-width`               | The input max. width                                                                                                                                 | `string`                                                                                     | `"100%"`    |
+| `minLength`             | `min-length`              | The input min. length                                                                                                                                | `string`                                                                                     | `undefined` |
+| `minimal`               | `minimal`                 | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus                                | `boolean`                                                                                    | `false`     |
+| `overDarkBackground`    | `over-dark-background`    | The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark | `boolean`                                                                                    | `false`     |
+| `password`              | `password`                | The presence of this attribute sets the input type as password                                                                                       | `boolean`                                                                                    | `false`     |
+| `pattern`               | `pattern`                 | The input pattern attribute specifies a regular expression that the input field's value is checked against                                           | `string`                                                                                     | `undefined` |
+| `placeholder`           | `placeholder`             | The input placeholder                                                                                                                                | `string`                                                                                     | `undefined` |
+| `readonly`              | `readonly`                | The presence of this attribute makes the input readonly                                                                                              | `boolean`                                                                                    | `false`     |
+| `required`              | `required`                | The presence of this attribute makes this input required                                                                                             | `boolean`                                                                                    | `false`     |
+| `textStyle`             | `text-style`              | The text style                                                                                                                                       | `"quote" \| "regular" \| "title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"regular"` |
+| `validateOnInput`       | `validate-on-input`       | The presence of this attribute will check the input validity on every user input                                                                     | `boolean`                                                                                    | `false`     |
+| `validationMessage`     | `validation-message`      | The message to display when validity is false                                                                                                        | `string`                                                                                     | `undefined` |
+| `value`                 | `value`                   | The input value                                                                                                                                      | `string`                                                                                     | `undefined` |
+| `warning`               | `warning`                 | The presence of this attribute gives the component warning styles                                                                                    | `boolean`                                                                                    | `false`     |
 
 ## Events
 
-| Event                | Description                  | Type               |
-| -------------------- | ---------------------------- | ------------------ |
-| `change`             | Returns the input value      | `CustomEvent<any>` |
-| `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>` |
-| `input`              | Returns the input value      | `CustomEvent<any>` |
+| Event                    | Description                  | Type               |
+| ------------------------ | ---------------------------- | ------------------ |
+| `change`                 | Returns the input value      | `CustomEvent<any>` |
+| `clearButtonClicked`     | The clear button was clicked | `CustomEvent<any>` |
+| `input`                  | Returns the input value      | `CustomEvent<any>` |
+| `validationErrorMessage` | The validation error message | `CustomEvent<any>` |
+
+## Methods
+
+### `validate() => Promise<void>`
+
+---
+
+METHODS
+
+---
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Shadow Parts
 
@@ -106,6 +127,7 @@
 
 ### Used by
 
+- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-accordion-item](../accordion-item)
 - [gxg-combo-box](../combo-box)
 - [gxg-filter](../filter)
@@ -123,6 +145,7 @@ graph TD;
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
+  gx-ide-new-kb --> gxg-form-text
   gxg-accordion-item --> gxg-form-text
   gxg-combo-box --> gxg-form-text
   gxg-filter --> gxg-form-text

@@ -11,6 +11,8 @@
   animation-name: errorMessage;
   animation-duration: 0.5s;
   position: relative;
+  font-size: var(--font-size-xs);
+  margin-top: var(--spacing-comp-01);
 
   gxg-icon {
     height: 10px;
@@ -41,5 +43,5 @@ LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
 
 :host(.large) {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-sm);
 }

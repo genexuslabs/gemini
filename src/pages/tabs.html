@@ -41,15 +41,17 @@
         ></gxg-tab-button>
       </gxg-tab-bar>
       <gxg-tab tab="apples">
-        <div class="div-apples"></div>
+        <button>Buy Apples</button>
       </gxg-tab>
-      <gxg-tab tab="bananas"> </gxg-tab>
+      <gxg-tab tab="bananas">
+        <button>Buy Bananas</button>
+      </gxg-tab>
     </gxg-tabs>
 
     <script>
       gxgTabs = document.getElementById("gxgTabs");
       gxgTabs.addEventListener("tabActivated", function (e) {
-        console.log(e.detail);
+        //console.log(e.detail);
       });
     </script>
   </body>
