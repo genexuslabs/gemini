@@ -9,16 +9,16 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                              | Type                | Default    |
-| ---------------- | ------------------ | ---------------------------------------- | ------------------- | ---------- |
-| `dropDownHeight` | `drop-down-height` | the dropdown height                      | `string`            | `"auto"`   |
-| `icon`           | `icon`             | the dropdown icon (optional)             | `string`            | `""`       |
-| `label`          | `label`            | the dropdown label (optional)            | `string`            | `""`       |
-| `maxWidth`       | `max-width`        | The codropdownmbo max-width              | `string`            | `"none"`   |
-| `minWidth`       | `min-width`        | The dropdown min-width                   | `string`            | `"0"`      |
-| `position`       | `position`         | The container 'items container' position | `"bottom" \| "top"` | `"bottom"` |
-| `showContent`    | `show-content`     | Displays the dropdown content            | `boolean`           | `false`    |
-| `width`          | `width`            | The dropdown width                       | `string`            | `"240px"`  |
+| Property         | Attribute          | Description                              | Type                | Default     |
+| ---------------- | ------------------ | ---------------------------------------- | ------------------- | ----------- |
+| `dropDownHeight` | `drop-down-height` | the dropdown height                      | `string`            | `"auto"`    |
+| `icon`           | `icon`             | the dropdown icon (optional)             | `string`            | `""`        |
+| `label`          | `label`            | the dropdown label (optional)            | `string`            | `undefined` |
+| `maxWidth`       | `max-width`        | The codropdownmbo max-width              | `string`            | `"none"`    |
+| `minWidth`       | `min-width`        | The dropdown min-width                   | `string`            | `"0"`       |
+| `position`       | `position`         | The container 'items container' position | `"bottom" \| "top"` | `"bottom"`  |
+| `showContent`    | `show-content`     | Displays the dropdown content            | `boolean`           | `false`     |
+| `width`          | `width`            | The dropdown width                       | `string`            | `"240px"`   |
 
 ## Events
 
@@ -31,6 +31,7 @@
 
 ### Depends on
 
+- [gxg-label](../label)
 - [gxg-icon](../icon)
 - [gxg-button](../button)
 
@@ -38,6 +39,7 @@
 
 ```mermaid
 graph TD;
+  gxg-drop-down --> gxg-label
   gxg-drop-down --> gxg-icon
   gxg-drop-down --> gxg-button
   gxg-icon --> ch-icon

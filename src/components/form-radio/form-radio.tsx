@@ -130,15 +130,14 @@ export class GxgFormRadio {
 
   render() {
     return (
-      <Host>
-        <label class="label">
+      <Host onClick={this.selectRadio.bind(this)}>
+        <gxg-label noMargin class="label">
           <input
             ref={(el) => (this.radioInput = el as HTMLInputElement)}
             type="radio"
             name={this.name}
             id={this.RadioId}
             value={this.value}
-            onClick={this.selectRadio.bind(this)}
             disabled={this.disabled}
             onKeyDown={this.handlerOnKeyDown.bind(this)}
           ></input>
@@ -146,7 +145,7 @@ export class GxgFormRadio {
             class={{ radiobtn: true, "radiobtn--error": this.error }}
           ></span>
           {this.label}
-        </label>
+        </gxg-label>
       </Host>
     );
   }

@@ -67,12 +67,9 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
-- [gx-ide-new-kb](../gx-ide-new-kb)
-
 ### Depends on
 
+- [gxg-label](../label)
 - [gxg-form-text](../form-text)
 - [gxg-button](../button)
 
@@ -80,14 +77,15 @@ Type: `Promise<void>`
 
 ```mermaid
 graph TD;
+  gxg-combo-box --> gxg-label
   gxg-combo-box --> gxg-form-text
   gxg-combo-box --> gxg-button
   gxg-form-text --> gxg-icon
+  gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon
-  gx-ide-new-kb --> gxg-combo-box
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

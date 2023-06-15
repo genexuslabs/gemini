@@ -37,6 +37,20 @@
 | `changeInternal` | (This event is for internal use)                     | `CustomEvent<any>` |
 | `keyPressed`     | (This event is for internal use)                     | `CustomEvent<any>` |
 
+## Dependencies
+
+### Depends on
+
+- [gxg-label](../label)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-form-radio --> gxg-label
+  style gxg-form-radio fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

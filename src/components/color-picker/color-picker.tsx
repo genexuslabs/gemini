@@ -7,14 +7,14 @@ import {
   Host,
   Prop,
   State,
-  Watch
+  Watch,
 } from "@stencil/core";
 import Pickr from "@simonwep/pickr";
 
 @Component({
   tag: "gxg-color-picker",
   styleUrl: "color-picker.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgColorPicker {
   @Element() element: HTMLElement;
@@ -23,7 +23,7 @@ export class GxgColorPicker {
   /**
   The label of the color picker (optional)
   */
-  @Prop({ mutable: true }) label = "";
+  @Prop({ mutable: true }) label = undefined;
 
   /**
   The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
@@ -80,13 +80,13 @@ export class GxgColorPicker {
         interaction: {
           // hex: true,
           // rgb: true,
-          input: false
+          input: false,
           // save: true
-        }
-      }
+        },
+      },
     });
 
-    this.pickr.on("change", color => {
+    this.pickr.on("change", (color) => {
       this.colorObject = color;
       if (this.colorRepresentation === "HEXA") {
         this.value = this.colorObject.toHEXA().toString();
@@ -103,7 +103,7 @@ export class GxgColorPicker {
     const options = {
       root: document.querySelector("body"),
       rootMargin: "0px",
-      threshold: 1.0
+      threshold: 1.0,
     };
     const observer = new IntersectionObserver(() => {
       this.pickr.setColor(this.value); //We have to set the color by force, because we need to get the color at this time, and pickr seems to defer it.
@@ -170,10 +170,10 @@ export class GxgColorPicker {
   render() {
     return (
       <Host>
-        <h1 class="label">{this.label}</h1>
+        {this.label ? <gxg-label>{this.label}</gxg-label> : null}
         <div
           class={{
-            "color-picker-main-container": true
+            "color-picker-main-container": true,
           }}
           id="color-picker-main-container"
         >

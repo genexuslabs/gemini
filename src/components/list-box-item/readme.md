@@ -34,6 +34,7 @@ graph TD;
   gxg-list-box-item --> gxg-form-checkbox
   gxg-list-box-item --> gxg-icon
   gxg-form-checkbox --> gxg-icon
+  gxg-form-checkbox --> gxg-label
   gxg-icon --> ch-icon
   style gxg-list-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -41,7 +41,6 @@
 
 ### Used by
 
-- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-alert](../alert)
 - [gxg-combo-box](../combo-box)
 - [gxg-demo](../demo)
@@ -63,7 +62,6 @@
 graph TD;
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
-  gx-ide-new-kb --> gxg-button
   gxg-alert --> gxg-button
   gxg-combo-box --> gxg-button
   gxg-demo --> gxg-button

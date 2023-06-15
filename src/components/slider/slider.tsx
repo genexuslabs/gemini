@@ -3,7 +3,7 @@ import { Component, Prop, Element, h, Host, State, Watch } from "@stencil/core";
 @Component({
   tag: "gxg-slider",
   styleUrl: "slider.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgSlider {
   @Element() el: HTMLElement;
@@ -58,7 +58,7 @@ export class GxgSlider {
     this.updateLabel();
 
     //Resize Observer
-    const myObserver = new ResizeObserver(entries => {
+    const myObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         this.updateLabel();
       });
@@ -103,7 +103,7 @@ export class GxgSlider {
     return (
       <Host
         class={{
-          disabled: this.disabled
+          disabled: this.disabled,
         }}
         style={{ maxWidth: this.maxWidth }}
       >
@@ -126,7 +126,7 @@ export class GxgSlider {
           </div>
 
           <div class="box-value">
-            <label class="label">{this.label}</label>
+            <gxg-label class="label">{this.label}</gxg-label>
             <span id="actual-value"></span>
           </div>
         </div>

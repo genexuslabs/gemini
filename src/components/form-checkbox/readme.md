@@ -35,21 +35,21 @@
 
 ### Used by
 
-- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-list-box-item](../list-box-item)
 - [gxg-tree-item](../tree-item)
 
 ### Depends on
 
 - [gxg-icon](../icon)
+- [gxg-label](../label)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-form-checkbox --> gxg-icon
+  gxg-form-checkbox --> gxg-label
   gxg-icon --> ch-icon
-  gx-ide-new-kb --> gxg-form-checkbox
   gxg-list-box-item --> gxg-form-checkbox
   gxg-tree-item --> gxg-form-checkbox
   style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px

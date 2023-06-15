@@ -405,15 +405,15 @@ export class GxgFormSelect {
         onKeyDown={this.handlerOnKeyDown.bind(this)}
       >
         <div class="outer-wrapper">
-          {this.label !== undefined ? (
-            <label
+          {this.label ? (
+            <gxg-label
               class={{
                 label: true,
               }}
             >
               {this.label}
               {requiredLabel(this)}
-            </label>
+            </gxg-label>
           ) : (
             ""
           )}

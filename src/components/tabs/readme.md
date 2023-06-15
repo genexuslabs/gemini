@@ -123,14 +123,12 @@
 
 ### Used by
 
-- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-test](../test)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gx-ide-new-kb --> gxg-tabs
   gxg-test --> gxg-tabs
   style gxg-tabs fill:#f9f,stroke:#333,stroke-width:4px
 ```

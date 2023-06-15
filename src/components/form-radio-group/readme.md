@@ -14,12 +14,14 @@
 
 ### Depends on
 
+- [gxg-label](../label)
 - [gxg-form-message](../form-message)
 
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-form-radio-group --> gxg-label
   gxg-form-radio-group --> gxg-form-message
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon

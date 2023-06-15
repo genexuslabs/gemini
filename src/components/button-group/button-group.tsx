@@ -168,9 +168,9 @@ export class GxgButtonGroup {
     if (this.buttonGroupTitle !== undefined) {
       header = (
         <header class="button-group-header">
-          <label class="button-group-header-title">
+          <gxg-label class="button-group-header-label">
             {this.buttonGroupTitle}
-          </label>
+          </gxg-label>
         </header>
       );
     }

@@ -499,7 +499,9 @@ export class GxgComboBox {
           class={{ "main-container": true }}
           ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
-          {this.label ? <span class="label">{this.label}</span> : null}
+          {this.label ? (
+            <gxg-label class="label">{this.label}</gxg-label>
+          ) : null}
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder={this.placeholder}

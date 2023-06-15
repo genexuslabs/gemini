@@ -34,6 +34,20 @@ no-weekends>
 | `minDate`     | `min-date`     | The min. date                                                       | `string`  | `"1000, 1, 1"` |
 | `noWeekends`  | `no-weekends`  | no weekends available                                               | `boolean` | `false`        |
 
+## Dependencies
+
+### Depends on
+
+- [gxg-label](../label)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-date-picker --> gxg-label
+  style gxg-date-picker fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

@@ -127,7 +127,6 @@ Type: `Promise<void>`
 
 ### Used by
 
-- [gx-ide-new-kb](../gx-ide-new-kb)
 - [gxg-accordion-item](../accordion-item)
 - [gxg-combo-box](../combo-box)
 - [gxg-filter](../filter)
@@ -135,6 +134,7 @@ Type: `Promise<void>`
 ### Depends on
 
 - [gxg-icon](../icon)
+- [gxg-label](../label)
 - [gxg-form-message](../form-message)
 
 ### Graph
@@ -142,10 +142,10 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   gxg-form-text --> gxg-icon
+  gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
-  gx-ide-new-kb --> gxg-form-text
   gxg-accordion-item --> gxg-form-text
   gxg-combo-box --> gxg-form-text
   gxg-filter --> gxg-form-text

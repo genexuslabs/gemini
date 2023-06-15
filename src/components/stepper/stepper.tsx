@@ -7,13 +7,13 @@ import {
   h,
   Host,
   Watch,
-  State
+  State,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-stepper",
   styleUrl: "stepper.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgStepper {
   /*********************************
@@ -33,7 +33,7 @@ export class GxgStepper {
   /**
    * The label
    */
-  @Prop() label = "Label";
+  @Prop() label: string | undefined = undefined;
 
   /**
    * The label position
@@ -130,13 +130,13 @@ export class GxgStepper {
     return (
       <Host
         class={{
-          rtl: this.rtl
+          rtl: this.rtl,
         }}
       >
-        <label class="label">{this.label}</label>
+        <gxg-label class="label">{this.label}</gxg-label>
         <div class="outer-wrapper">
           <button
-            ref={el => (this.minusButton = el as HTMLButtonElement)}
+            ref={(el) => (this.minusButton = el as HTMLButtonElement)}
             class="button button--minus"
             onClick={this.minus.bind(this)}
             tabindex="0"
@@ -147,7 +147,7 @@ export class GxgStepper {
             <span class="value-container__value">{this.value}</span>
           </span>
           <button
-            ref={el => (this.plusButton = el as HTMLButtonElement)}
+            ref={(el) => (this.plusButton = el as HTMLButtonElement)}
             class="button button--plus"
             onClick={this.plus.bind(this)}
             tabindex="0"

@@ -23,7 +23,7 @@ export class GxgDatePicker {
   /**
    * The datepicker label
    */
-  @Prop() label: string;
+  @Prop() label: string = undefined;
 
   /**
    * no weekends available
@@ -175,12 +175,6 @@ export class GxgDatePicker {
     picker.calendarContainer.style.setProperty("font-size", "9px");
   }
 
-  printLabel() {
-    if (this.label) {
-      return <label class="label">{this.label}</label>;
-    }
-  }
-
   render() {
     return (
       <Host
@@ -192,7 +186,7 @@ export class GxgDatePicker {
           maxWidth: this.maxWidth,
         }}
       >
-        {this.printLabel()}
+        {this.label ? <gxg-label class="label">{this.label}</gxg-label> : null}
         <input type="text" id="date-picker"></input>
       </Host>
     );

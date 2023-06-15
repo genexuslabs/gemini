@@ -48,7 +48,7 @@ export class GxgFormCheckbox {
   /**
    * The checkbox label
    */
-  @Prop() label: string;
+  @Prop() label: string | undefined = undefined;
 
   /**
    * The checkbox value
@@ -127,32 +127,34 @@ export class GxgFormCheckbox {
           large: state.large,
         }}
       >
-        <label class="label">
-          <input
-            ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
-            type="checkbox"
-            checked={this.checked}
-            class="input"
-            id={this.checkboxId}
-            name={this.name}
-            value={this.value}
-            disabled={this.disabled}
-            onChange={this.changed.bind(this)}
-            onKeyUp={this.handlerOnKeyUp.bind(this)}
-            tabindex="0"
-            onClick={this.handleInputClick}
-          ></input>
-          <span
-            class={{
-              checkmark: true,
-              "no-label": !this.label,
-              "has-icon": !!this.iconName,
-            }}
-            role="checkbox"
-          ></span>
-          {this.icon()}
-          {this.label ? this.label : null}
-        </label>
+        {this.label ? (
+          <gxg-label class="label">
+            <input
+              ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
+              type="checkbox"
+              checked={this.checked}
+              class="input"
+              id={this.checkboxId}
+              name={this.name}
+              value={this.value}
+              disabled={this.disabled}
+              onChange={this.changed.bind(this)}
+              onKeyUp={this.handlerOnKeyUp.bind(this)}
+              tabindex="0"
+              onClick={this.handleInputClick}
+            ></input>
+            <span
+              class={{
+                checkmark: true,
+                "no-label": !this.label,
+                "has-icon": !!this.iconName,
+              }}
+              role="checkbox"
+            ></span>
+            {this.icon()}
+            {this.label}
+          </gxg-label>
+        ) : null}
       </Host>
     );
   }

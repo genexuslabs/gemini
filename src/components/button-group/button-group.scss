@@ -6,8 +6,7 @@
   line-height: 0;
   outline: none;
 
-  .button-group-header-title {
-    @include form-element-common-styles-label();
+  .button-group-header-label {
   }
   .button-group-container {
     font-size: 0; //removes the space between buttons

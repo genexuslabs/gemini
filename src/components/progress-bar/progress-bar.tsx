@@ -52,7 +52,7 @@ export class GxgProgressBar {
         aria-valuemax="100"
       >
         <div class="outer-wrapper">
-          <label class="label">{this.label}</label>
+          <gxg-label class="label">{this.label}</gxg-label>
           <span class="outer-bar">
             <span class="inner-bar" style={{ width: this.value + "%" }}></span>
           </span>

@@ -2,6 +2,8 @@
 @import "../../globals/mixins";
 
 :host {
+  display: inline-block;
+  cursor: pointer;
   input:focus + .radiobtn {
     box-shadow: 0px 0px 0px 1px var(--color-primary-active);
   }
@@ -113,14 +115,15 @@
     display: block;
     width: 8px;
     height: 8px;
-    transform: scale(0, 0);
-    @include ui-animation(transform);
+    @include ui-animation(all);
   }
 
   /* Show the indicator (dot/circle) when checked */
   .label input[checked] ~ .radiobtn:after {
     display: block;
-    transform: scale(1, 1);
+    transform: translateY(-50%) translateX(-50%);
+    width: 8px;
+    height: 8px;
   }
   // disabled
   .label input[disabled] ~ .radiobtn {
@@ -131,8 +134,11 @@
   }
   /* Style the indicator (dot/circle) */
   .label .radiobtn:after {
-    top: 3px;
-    left: 3px;
+    height: 0;
+    width: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     border-radius: 50%;
     background: var(--color-primary-active);
   }
