@@ -52,6 +52,7 @@ graph TD;
   gxg-tree-item --> gxg-form-checkbox
   gxg-icon --> ch-icon
   gxg-form-checkbox --> gxg-icon
+  gxg-form-checkbox --> gxg-label
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

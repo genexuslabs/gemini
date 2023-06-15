@@ -120,15 +120,15 @@ export class GxgFormTextarea implements FormComponent {
           large: state.large,
         }}
       >
-        {this.label !== undefined ? (
-          <label
+        {this.label ? (
+          <gxg-label
             class={{
               label: true,
             }}
           >
             {this.label}
             {requiredLabel(this)}
-          </label>
+          </gxg-label>
         ) : (
           ""
         )}

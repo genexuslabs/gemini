@@ -44,7 +44,7 @@ export class GxgDropDown {
   /**
    * the dropdown label (optional)
    */
-  @Prop() label = "";
+  @Prop() label: string | undefined = undefined;
 
   /**
    * the dropdown icon (optional)
@@ -240,8 +240,8 @@ export class GxgDropDown {
           class={{ "main-container": true }}
           ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
-          {this.label !== "" ? (
-            <label class={{ label: true }}>{this.label}</label>
+          {this.label ? (
+            <gxg-label class={{ label: true }}>{this.label}</gxg-label>
           ) : null}
           <div
             tabIndex={0}

@@ -5,13 +5,13 @@ import {
   EventEmitter,
   Prop,
   h,
-  Host
+  Host,
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-toggle",
   styleUrl: "toggle.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgToggle {
   @Element() el: HTMLElement;
@@ -28,7 +28,7 @@ export class GxgToggle {
   /**
    * The label
    */
-  @Prop() label = "Label";
+  @Prop() label: string | undefined = undefined;
 
   /**
    * If the toggle is active or not
@@ -82,7 +82,7 @@ export class GxgToggle {
         role="switch"
         aria-checked={this.state()}
         class={{
-          toggle: true
+          toggle: true,
         }}
         onClick={this.switchToggle.bind(this)}
         onKeyup={this.onKeyUp.bind(this)}
@@ -92,7 +92,9 @@ export class GxgToggle {
           <div class="toggle__container">
             <span class="toggle__container__knob"></span>
           </div>
-          <span class="toggle__label">{this.label}</span>
+          <gxg-label labelPosition="end" class="toggle__label">
+            {this.label}
+          </gxg-label>
         </div>
       </Host>
     );

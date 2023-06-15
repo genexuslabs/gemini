@@ -2,9 +2,11 @@
 @import "../../globals/mixins";
 
 :host {
+  display: inline-flex;
+  flex-direction: column;
   ::slotted(gxg-form-radio) {
     margin-bottom: var(--spacing-comp-02);
-    display: flex;
+    display: inline-flex;
   }
   ::slotted(gxg-form-radio:last-of-type) {
     margin-bottom: 0;

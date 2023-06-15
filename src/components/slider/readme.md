@@ -12,6 +12,20 @@
 | `maxWidth` | `max-width` | The slider max. width                                | `string`  | `"100%"`  |
 | `value`    | `value`     | The initial value                                    | `number`  | `0`       |
 
+## Dependencies
+
+### Depends on
+
+- [gxg-label](../label)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-slider --> gxg-label
+  style gxg-slider fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

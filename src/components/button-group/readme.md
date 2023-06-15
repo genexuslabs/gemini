@@ -45,10 +45,15 @@
 
 - [gxg-color-picker](../color-picker)
 
+### Depends on
+
+- [gxg-label](../label)
+
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-button-group --> gxg-label
   gxg-color-picker --> gxg-button-group
   style gxg-button-group fill:#f9f,stroke:#333,stroke-width:4px
 ```

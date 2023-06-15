@@ -9,7 +9,6 @@
     width: 100%;
   }
   .box-value {
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -72,7 +71,6 @@
     border-radius: var(--border-radius-md);
     width: var(--spacing-comp-05);
     height: var(--spacing-comp-04);
-    margin-top: 20px;
     margin-left: 0;
     left: attr(value);
 

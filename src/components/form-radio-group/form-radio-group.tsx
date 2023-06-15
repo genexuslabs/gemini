@@ -98,10 +98,10 @@ export class GxgFormRadioGroup {
   labelFunc() {
     if (this.label) {
       return (
-        <span class="label">
+        <gxg-label class="label">
           {this.label}
           {requiredLabel(this)}
-        </span>
+        </gxg-label>
       );
     }
   }

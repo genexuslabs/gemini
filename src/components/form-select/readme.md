@@ -86,6 +86,20 @@
 
 Type: `Promise<boolean>`
 
+## Dependencies
+
+### Depends on
+
+- [gxg-label](../label)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-select --> gxg-label
+  style gxg-select fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

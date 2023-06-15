@@ -1,0 +1,30 @@
+@import "../../globals/mixins";
+:host {
+  display: inline-block;
+  label {
+    @include form-element-common-styles-label();
+  }
+}
+:host(.position-above) {
+  margin-block-end: var(--spacing-lay-xs);
+}
+:host(.position-end) {
+  margin-inline-start: var(--spacing-lay-xs);
+}
+:host(.position-below) {
+  margin-block-start: var(--spacing-lay-xs);
+}
+:host(.position-start) {
+  margin-inline-end: var(--spacing-lay-xs);
+}
+:host(.no-margin) {
+  margin: 0 !important;
+}
+/*********************************************
+LARGE VERSION (html tag has 'gxg-large' class)
+**********************************************/
+:host(.large) {
+  label {
+    @include form-element-common-styles-label-large();
+  }
+}

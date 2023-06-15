@@ -5,11 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { GxOption } from "./gx-ide-common/definitions";
-import {
-  locationFunction,
-  NewKBData,
-} from "./components/gx-ide-new-kb/gx-ide-new-kb";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
@@ -61,80 +56,6 @@ import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
-  interface GxIdeNewKb {
-    /**
-     * Specify the language in which the application screens will be developed (default language)
-     */
-    UILanguages: GxOption[];
-    /**
-     * Defines the type of authentication for the connection to the previously defined database
-     */
-    authenticationTypes: GxOption[];
-    /**
-     * DB Collations
-     */
-    collations: GxOption[];
-    /**
-     * Disabled if the first item of the 'Server Name' combo is selected
-     */
-    createDatafilesInKBFolder: boolean;
-    /**
-     * It allows defining the DBMS that will be used in the solution
-     */
-    dataSources: GxOption[];
-    /**
-     * Name of the database where we are going to persist the information of our KB
-     */
-    databaseName: string;
-    /**
-     * It allows selecting multiple generators for the front end
-     */
-    frontEnd: GxOption[];
-    /**
-     * Specify whether it is feasible to display information related to local configuration parameters
-     */
-    isAdvanced: boolean;
-    /**
-     * The knowledge base default suggested name
-     */
-    kbName: string;
-    /**
-     * Default suggested path to a directory where the information related to the KB will be stored/generated
-     */
-    location: string | undefined;
-    /**
-     * This is a function provided by the developer that returns a string, with the location path.
-     */
-    locationFunction: locationFunction;
-    /**
-     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    password: string;
-    /**
-     * It allows selecting the default environment that the KB will have (additional environments can be created later)
-     */
-    prototypingEnvironments: GxOption[];
-    /**
-     * Path to a directory where the information related to the KB will be stored/generated
-     */
-    prototypingTargets: GxOption[];
-    /**
-     * Visible if something other than Windows Authentication is selected
-     */
-    savePassword: boolean;
-    /**
-     * Name of the DB server where we want to persist the information of our KB
-     */
-    serverNames: GxOption[];
-    /**
-     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    userName: string;
-    /**
-     * The dialog visibility
-     */
-    visible: boolean;
-  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -364,7 +285,7 @@ export namespace Components {
     /**
      * The label of the color picker (optional)
      */
-    label: string;
+    label: any;
     /**
      * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
      */
@@ -554,7 +475,7 @@ export namespace Components {
     /**
      * the dropdown label (optional)
      */
-    label: string;
+    label: string | undefined;
     /**
      * The codropdownmbo max-width
      */
@@ -624,7 +545,7 @@ export namespace Components {
     /**
      * The checkbox label
      */
-    label: string;
+    label: string | undefined;
     /**
      * The checkbox name
      */
@@ -852,6 +773,13 @@ export namespace Components {
      * The type of icon.
      */
     type: any;
+  }
+  interface GxgLabel {
+    /**
+     * ******************************* PROPERTIES & STATE *******************************
+     */
+    labelPosition: "above" | "end" | "below" | "start";
+    noMargin: boolean;
   }
   interface GxgListBox {
     /**
@@ -1269,7 +1197,7 @@ export namespace Components {
     /**
      * The label
      */
-    label: string;
+    label: string | undefined;
     /**
      * The label position
      */
@@ -1366,7 +1294,7 @@ export namespace Components {
     /**
      * The label
      */
-    label: string;
+    label: string | undefined;
     /**
      * If the toggle is active or not
      */
@@ -1535,13 +1463,6 @@ export namespace Components {
   }
 }
 declare global {
-  interface HTMLGxIdeNewKbElement
-    extends Components.GxIdeNewKb,
-      HTMLStencilElement {}
-  var HTMLGxIdeNewKbElement: {
-    prototype: HTMLGxIdeNewKbElement;
-    new (): HTMLGxIdeNewKbElement;
-  };
   interface HTMLGxgAccordionElement
     extends Components.GxgAccordion,
       HTMLStencilElement {}
@@ -1755,6 +1676,13 @@ declare global {
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
+  };
+  interface HTMLGxgLabelElement
+    extends Components.GxgLabel,
+      HTMLStencilElement {}
+  var HTMLGxgLabelElement: {
+    prototype: HTMLGxgLabelElement;
+    new (): HTMLGxgLabelElement;
   };
   interface HTMLGxgListBoxElement
     extends Components.GxgListBox,
@@ -2023,7 +1951,6 @@ declare global {
     new (): HTMLGxgWindowElement;
   };
   interface HTMLElementTagNameMap {
-    "gx-ide-new-kb": HTMLGxIdeNewKbElement;
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
     "gxg-alert": HTMLGxgAlertElement;
@@ -2056,6 +1983,7 @@ declare global {
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-grid": HTMLGxgGridElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-label": HTMLGxgLabelElement;
     "gxg-list-box": HTMLGxgListBoxElement;
     "gxg-list-box-item": HTMLGxgListBoxItemElement;
     "gxg-loader": HTMLGxgLoaderElement;
@@ -2099,84 +2027,6 @@ declare global {
   }
 }
 declare namespace LocalJSX {
-  interface GxIdeNewKb {
-    /**
-     * Specify the language in which the application screens will be developed (default language)
-     */
-    UILanguages?: GxOption[];
-    /**
-     * Defines the type of authentication for the connection to the previously defined database
-     */
-    authenticationTypes?: GxOption[];
-    /**
-     * DB Collations
-     */
-    collations?: GxOption[];
-    /**
-     * Disabled if the first item of the 'Server Name' combo is selected
-     */
-    createDatafilesInKBFolder?: boolean;
-    /**
-     * It allows defining the DBMS that will be used in the solution
-     */
-    dataSources?: GxOption[];
-    /**
-     * Name of the database where we are going to persist the information of our KB
-     */
-    databaseName?: string;
-    /**
-     * It allows selecting multiple generators for the front end
-     */
-    frontEnd?: GxOption[];
-    /**
-     * Specify whether it is feasible to display information related to local configuration parameters
-     */
-    isAdvanced?: boolean;
-    /**
-     * The knowledge base default suggested name
-     */
-    kbName?: string;
-    /**
-     * Default suggested path to a directory where the information related to the KB will be stored/generated
-     */
-    location?: string | undefined;
-    /**
-     * This is a function provided by the developer that returns a string, with the location path.
-     */
-    locationFunction?: locationFunction;
-    /**
-     * This event emmits the data needed to create a new kb
-     */
-    onCreateKb?: (event: CustomEvent<NewKBData>) => void;
-    /**
-     * Password for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    password?: string;
-    /**
-     * It allows selecting the default environment that the KB will have (additional environments can be created later)
-     */
-    prototypingEnvironments?: GxOption[];
-    /**
-     * Path to a directory where the information related to the KB will be stored/generated
-     */
-    prototypingTargets?: GxOption[];
-    /**
-     * Visible if something other than Windows Authentication is selected
-     */
-    savePassword?: boolean;
-    /**
-     * Name of the DB server where we want to persist the information of our KB
-     */
-    serverNames?: GxOption[];
-    /**
-     * Username for the database connection. Visible if the Authentication Type is different from Windows Authentication (first item of the combo)
-     */
-    userName?: string;
-    /**
-     * The dialog visibility
-     */
-    visible?: boolean;
-  }
   interface GxgAccordion {
     /**
      * The presence of this attribute makes all of the accordion-items disabled and not focusable
@@ -2426,7 +2276,7 @@ declare namespace LocalJSX {
     /**
      * The label of the color picker (optional)
      */
-    label?: string;
+    label?: any;
     onChange?: (event: CustomEvent<any>) => void;
     onNameInputEvent?: (event: CustomEvent<any>) => void;
     onSave?: (event: CustomEvent<any>) => void;
@@ -2638,7 +2488,7 @@ declare namespace LocalJSX {
     /**
      * the dropdown label (optional)
      */
-    label?: string;
+    label?: string | undefined;
     /**
      * The codropdownmbo max-width
      */
@@ -2720,7 +2570,7 @@ declare namespace LocalJSX {
     /**
      * The checkbox label
      */
-    label?: string;
+    label?: string | undefined;
     /**
      * The checkbox name
      */
@@ -2981,6 +2831,13 @@ declare namespace LocalJSX {
      * The type of icon.
      */
     type?: any;
+  }
+  interface GxgLabel {
+    /**
+     * ******************************* PROPERTIES & STATE *******************************
+     */
+    labelPosition?: "above" | "end" | "below" | "start";
+    noMargin?: boolean;
   }
   interface GxgListBox {
     /**
@@ -3434,7 +3291,7 @@ declare namespace LocalJSX {
     /**
      * The label
      */
-    label?: string;
+    label?: string | undefined;
     /**
      * The label position
      */
@@ -3533,7 +3390,7 @@ declare namespace LocalJSX {
     /**
      * The label
      */
-    label?: string;
+    label?: string | undefined;
     /**
      * If the toggle is active or not
      */
@@ -3710,7 +3567,6 @@ declare namespace LocalJSX {
     windowTitle?: string;
   }
   interface IntrinsicElements {
-    "gx-ide-new-kb": GxIdeNewKb;
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
     "gxg-alert": GxgAlert;
@@ -3743,6 +3599,7 @@ declare namespace LocalJSX {
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-grid": GxgGrid;
     "gxg-icon": GxgIcon;
+    "gxg-label": GxgLabel;
     "gxg-list-box": GxgListBox;
     "gxg-list-box-item": GxgListBoxItem;
     "gxg-loader": GxgLoader;
@@ -3789,8 +3646,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      "gx-ide-new-kb": LocalJSX.GxIdeNewKb &
-        JSXBase.HTMLAttributes<HTMLGxIdeNewKbElement>;
       "gxg-accordion": LocalJSX.GxgAccordion &
         JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
       "gxg-accordion-item": LocalJSX.GxgAccordionItem &
@@ -3850,6 +3705,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-label": LocalJSX.GxgLabel &
+        JSXBase.HTMLAttributes<HTMLGxgLabelElement>;
       "gxg-list-box": LocalJSX.GxgListBox &
         JSXBase.HTMLAttributes<HTMLGxgListBoxElement>;
       "gxg-list-box-item": LocalJSX.GxgListBoxItem &

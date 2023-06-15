@@ -41,6 +41,7 @@ graph TD;
   gxg-filter --> gxg-form-text
   gxg-filter --> gxg-button
   gxg-form-text --> gxg-icon
+  gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon

@@ -60,12 +60,14 @@ btnShowErrors.addEventListener("click", function(){
 
 ### Depends on
 
+- [gxg-label](../label)
 - [gxg-form-message](../form-message)
 
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-form-textarea --> gxg-label
   gxg-form-textarea --> gxg-form-message
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
