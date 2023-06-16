@@ -361,7 +361,7 @@ FORM ELEMENTS
   @include gxg-text();
   display: flex;
   align-items: center;
-  cursor: inherit;
+  cursor: default;
 }
 @mixin form-element-common-styles-label-large {
   font-size: var(--font-size-lg);

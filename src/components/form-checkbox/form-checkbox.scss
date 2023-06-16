@@ -7,10 +7,6 @@
 }
 
 :host {
-  .label {
-    display: block;
-    margin-bottom: var(--spacing-lay-m);
-  }
   .label:last-child {
     margin-bottom: 0;
   }
@@ -44,13 +40,12 @@
     display: flex;
     align-items: center;
     position: relative;
-    cursor: pointer;
+    cursor: default;
     @include form-element-common-styles-label();
   }
   .label__required {
     @include form-element-common-styles-label-required();
   }
-
   /* Hide the browser's default checkbox */
   .label input {
     position: absolute;

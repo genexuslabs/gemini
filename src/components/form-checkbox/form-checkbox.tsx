@@ -96,6 +96,10 @@ export class GxgFormCheckbox {
     }
   }
 
+  private handleGxgLabelClick = () => {
+    this.checkboxInput.click();
+  };
+
   ariaChecked() {
     if (this.checked) {
       return "true";
@@ -128,7 +132,7 @@ export class GxgFormCheckbox {
         }}
       >
         {this.label ? (
-          <gxg-label class="label">
+          <gxg-label class="label" onClick={this.handleGxgLabelClick}>
             <input
               ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
               type="checkbox"
