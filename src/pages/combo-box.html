@@ -27,6 +27,14 @@
     </style>
   </head>
   <body>
+    <button id="toggle-rtl-btn">toggle rtl</button>
+    <script>
+      const toggleRtlBtn = document.getElementById("toggle-rtl-btn");
+      toggleRtlBtn.addEventListener("click", function () {
+        document.querySelector("html").setAttribute("dir", "rtl");
+      });
+    </script>
+
     <!-------------------------------------------------------------->
     <!---------------------- COMBO VALIDATION ---------------------->
     <!-------------------------------------------------------------->

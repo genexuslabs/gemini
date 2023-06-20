@@ -598,7 +598,6 @@ export class GxgComboBox implements FormComponent {
         class={{
           "filter-disabled": this.disableFilter,
           large: state.large,
-          rtl: state.rtl,
           [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
             .displayValidationStyles,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:

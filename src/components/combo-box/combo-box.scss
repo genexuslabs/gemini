@@ -26,12 +26,12 @@
       position: relative;
       .buttons-wrapper {
         position: absolute;
-        right: 2px;
         top: 2px;
         height: calc(100% - 4px);
         display: flex;
         align-items: center;
         padding-inline-start: var(--spacing-comp-01);
+        inset-inline-end: 2px;
 
         .button-icon {
           height: 20px;
@@ -94,16 +94,6 @@
   .items-container {
     transform: translateY(calc(-100% - 24px));
     border-top-width: 1px;
-  }
-}
-
-/*********************************************
-RTL
-**********************************************/
-:host(.rtl) {
-  .buttons-wrapper {
-    right: auto !important;
-    left: 2px;
   }
 }
 
