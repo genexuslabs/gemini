@@ -10,23 +10,29 @@ export class GxgFormMessage {
   /**
    * The type of message
    */
-  @Prop() type: Message;
-
-  iconColor() {
-    if (this.type === "error") {
-      return "error";
-    } else if (this.type === "warning") {
-      return "warning";
-    }
-  }
+  @Prop() type: Message = "indeterminate";
 
   iconType() {
     if (this.type === "error") {
       return "gemini-tools/error";
     } else if (this.type === "warning") {
       return "gemini-tools/warning";
+    } else if (this.type === "success") {
+      return "gemini-tools/success";
     }
   }
+
+  private iconColor = () => {
+    if (
+      this.type === "warning" ||
+      this.type === "error" ||
+      this.type === "success"
+    ) {
+      return this.type;
+    } else {
+      return "auto";
+    }
+  };
 
   render() {
     return (
@@ -35,17 +41,19 @@ export class GxgFormMessage {
           large: state.large,
         }}
       >
-        <gxg-icon
-          style={{ "--icon-size": "15px" }}
-          slot="icon"
-          size="small"
-          type={this.iconType()}
-          color={this.iconColor()}
-        ></gxg-icon>
+        {this.type !== "indeterminate" ? (
+          <gxg-icon
+            style={{ "--icon-size": "15px" }}
+            slot="icon"
+            size="small"
+            type={this.iconType()}
+            color={this.iconColor()}
+          ></gxg-icon>
+        ) : null}
         <slot></slot>
       </Host>
     );
   }
 }
 
-export type Message = "error" | "warning";
+export type Message = "indeterminate" | "warning" | "error" | "success";

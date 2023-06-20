@@ -1,7 +1,14 @@
-@import "../../globals/normalize.scss";
+@import "../../globals/normalize";
 @import "../../globals/mixins";
 
 :host {
+  gxg-form-text::part(input) {
+    padding-inline-end: var(--spacing-comp-05);
+  }
+  gxg-form-text.clear-icon::part(input) {
+    padding-inline-end: calc(var(--spacing-comp-05) * 2);
+  }
+
   @include gxg-scroll;
   font-family: var(--font-family-primary);
 
@@ -18,7 +25,6 @@
     .search-container {
       position: relative;
       .buttons-wrapper {
-        background-color: var(--color-background);
         position: absolute;
         right: 2px;
         top: 2px;
@@ -81,7 +87,6 @@
 :host(.filter-disabled) {
   gxg-form-text::part(input) {
     cursor: pointer;
-    background-color: var(--color-background);
   }
 }
 

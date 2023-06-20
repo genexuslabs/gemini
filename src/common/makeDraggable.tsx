@@ -4,7 +4,7 @@ export function makeDraggable(component: DraggableComponent): Function {
   const draggableItems = component.getDraggableElements();
   const items = Array.from(draggableItems);
 
-  items.forEach(listItem => {
+  items.forEach((listItem) => {
     listItem.setAttribute("draggable", "true");
   });
 
@@ -61,7 +61,7 @@ export function makeDraggable(component: DraggableComponent): Function {
   }
 
   function dragEnd() {
-    items.forEach(item => item.classList.remove("over"));
+    items.forEach((item) => item.classList.remove("over"));
     this.style.opacity = "1";
   }
 
@@ -83,10 +83,10 @@ export function makeDraggable(component: DraggableComponent): Function {
     el.removeEventListener("dragend", dragEnd);
   }
 
-  items.forEach(item => addEventsDragAndDrop(item));
+  items.forEach((item) => addEventsDragAndDrop(item));
 
   return function cleanup() {
-    items.forEach(item => removeEventsDragAndDrop(item));
+    items.forEach((item) => removeEventsDragAndDrop(item));
   };
 }
 

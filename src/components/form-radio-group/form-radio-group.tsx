@@ -1,5 +1,5 @@
 import { Component, Prop, h, Listen, Element, Host } from "@stencil/core";
-import { requiredLabel, formMessage } from "../../common";
+import { requiredLabel, formMessage } from "../../common/form";
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",

@@ -9,14 +9,16 @@
 
 ## Properties
 
-| Property | Attribute | Description         | Type                   | Default     |
-| -------- | --------- | ------------------- | ---------------------- | ----------- |
-| `type`   | `type`    | The type of message | `"error" \| "warning"` | `undefined` |
+| Property | Attribute | Description         | Type                                                   | Default           |
+| -------- | --------- | ------------------- | ------------------------------------------------------ | ----------------- |
+| `type`   | `type`    | The type of message | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 
 ## Dependencies
 
 ### Used by
 
+- [gxg-combo-box](../combo-box)
+- [gxg-form-checkbox](../form-checkbox)
 - [gxg-form-radio-group](../form-radio-group)
 - [gxg-form-text](../form-text)
 - [gxg-form-textarea](../form-textarea)
@@ -31,6 +33,8 @@
 graph TD;
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-combo-box --> gxg-form-message
+  gxg-form-checkbox --> gxg-form-message
   gxg-form-radio-group --> gxg-form-message
   gxg-form-text --> gxg-form-message
   gxg-form-textarea --> gxg-form-message

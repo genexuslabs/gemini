@@ -406,27 +406,38 @@ FORM ELEMENTS
   box-shadow: 0px 0px 0px 1px var(--color-primary-enabled);
 }
 
-//ERROR & WARNING
-@mixin form-element-common-styles-error {
-  border-color: var(--color-error-dark);
-  background-color: var(--color-error-light);
-  margin-bottom: 0;
-  color: var(--color-always-black);
+//VALIDATION
+@mixin form-element-validation($status) {
+  border-color: var(--color-#{$status}-dark);
+  background-color: var(--color-#{$status}-light);
 }
-@mixin form-element-common-styles-error-focus {
-  outline-color: var(--color-error-dark);
-  border-color: var(--color-error-dark);
+@mixin form-element-validation-focus($status) {
+  outline-color: var(--color-#{$status}-dark);
+  border-color: var(--color-#{$status}-dark);
+  //just for the checkbox
+  & + .checkmark {
+    --checkmark-border-color: var(--color-#{$status}-dark);
+  }
 }
-
+//Warning (remove)
 @mixin form-element-common-styles-warning {
   border-color: var(--color-warning-dark);
   background-color: var(--color-warning-light);
   margin-bottom: 0;
-  color: var(--color-always-black);
 }
 @mixin form-element-common-styles-warning-focus {
   outline-color: var(--color-warning-dark);
   border-color: var(--color-warning-dark);
+}
+//Error (remove)
+@mixin form-element-common-styles-error {
+  border-color: var(--color-error-dark);
+  background-color: var(--color-error-light);
+  margin-bottom: 0;
+}
+@mixin form-element-common-styles-error-focus {
+  outline-color: var(--color-error-dark);
+  border-color: var(--color-error-dark);
 }
 
 @mixin gxg-scroll {

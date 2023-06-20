@@ -22,7 +22,14 @@
     <gxg-form-checkbox
       label="Show Inherited Classes"
       id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
     ></gxg-form-checkbox>
+    <br />
+    <gxg-button id="validate-btn">Validate</gxg-button>
     <br />
     <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
     <script>
@@ -30,6 +37,12 @@
       const checkbox = document.getElementById("show-inherited-classes");
       button.addEventListener("click", function () {
         checkbox.focus();
+      });
+
+      //validate
+      const validateBtn = document.getElementById("validate-btn");
+      validateBtn.addEventListener("click", function () {
+        checkbox.validate();
       });
     </script>
   </body>

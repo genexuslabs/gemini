@@ -26,6 +26,7 @@
   </head>
   <body>
     <gxg-form-text
+      id="first-form-text"
       label="Full name"
       label-position="top"
       placeholder="John Smith"
@@ -33,8 +34,12 @@
       value="hola"
       min-length="2"
       pattern="^[a-z]{3}$"
-      validation-message="Hubo un error"
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
     ></gxg-form-text>
+    <gxg-button id="validate-btn">Validate</gxg-button>
 
     <hr />
     <br />
@@ -130,6 +135,13 @@
         gxgFormMessage.setAttribute("slot", "message");
         gxgFormText.setAttribute("error", true);
         gxgFormText.appendChild(gxgFormMessage);
+      });
+
+      //validate
+      const firstFormText = document.getElementById("first-form-text");
+      const validateBtn = document.getElementById("validate-btn");
+      validateBtn.addEventListener("click", function () {
+        firstFormText.validate();
       });
     </script>
   </body>

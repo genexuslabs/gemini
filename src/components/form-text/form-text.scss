@@ -1,5 +1,6 @@
-@import "../../globals/normalize.scss";
+@import "../../globals/normalize";
 @import "../../globals/mixins";
+@import "../../globals/form-validation";
 
 :host {
   display: flex;
@@ -78,20 +79,6 @@ TEXT
   input[disabled]::-webkit-input-placeholder {
     color: var(--gray-04);
   }
-  .input--error[type="text"],
-  .input--error[type="password"] {
-    @include form-element-common-styles-error();
-    &:focus {
-      @include form-element-common-styles-error-focus();
-    }
-  }
-  .input--warning[type="text"],
-  .input--warning[type="password"] {
-    @include form-element-common-styles-warning();
-    &:focus {
-      @include form-element-common-styles-warning-focus();
-    }
-  }
   .input--borderless {
     border-color: transparent !important;
   }
@@ -130,13 +117,6 @@ TEXT
   input[type="text"]:not(:focus),
   input[type="password"]:not(:focus) {
     color: var(--color-on-primary);
-  }
-}
-/*****************************************************
-ERROR / WARNING MESSAGES
-*****************************************************/
-:host {
-  .messages-wrapper {
   }
 }
 /*****************************************************

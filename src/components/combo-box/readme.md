@@ -19,19 +19,29 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                                                                                                                                                                                   | Type                | Default         |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | --------------- |
-| `disableClear`  | `disable-clear`  | The presence of this attribute disables the clear button                                                                                                                                                                                                      | `boolean`           | `false`         |
-| `disableFilter` | `disable-filter` | The presence of this attribute disables the filter                                                                                                                                                                                                            | `boolean`           | `false`         |
-| `isOpen`        | `is-open`        | This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.                                                                  | `boolean`           | `false`         |
-| `label`         | `label`          | The combo label                                                                                                                                                                                                                                               | `string`            | `undefined`     |
-| `maxWidth`      | `max-width`      | The combo max-width                                                                                                                                                                                                                                           | `string`            | `"none"`        |
-| `minWidth`      | `min-width`      | The combo min-width                                                                                                                                                                                                                                           | `string`            | `"0"`           |
-| `placeholder`   | `placeholder`    | The combo placeholder                                                                                                                                                                                                                                         | `string`            | `"Search item"` |
-| `position`      | `position`       | The container 'items container' position                                                                                                                                                                                                                      | `"bottom" \| "top"` | `"bottom"`      |
-| `strict`        | `strict`         | If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has. | `boolean`           | `false`         |
-| `value`         | `value`          | Get or set the selected item value                                                                                                                                                                                                                            | `any`               | `undefined`     |
-| `width`         | `width`          | The combo width                                                                                                                                                                                                                                               | `string`            | `"240px"`       |
+| Property                   | Attribute                    | Description                                                                                                                                                                                                                                                   | Type                                                   | Default         |
+| -------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | --------------- |
+| `disableClear`             | `disable-clear`              | The presence of this attribute disables the clear button                                                                                                                                                                                                      | `boolean`                                              | `false`         |
+| `disableFilter`            | `disable-filter`             | The presence of this attribute disables the filter                                                                                                                                                                                                            | `boolean`                                              | `false`         |
+| `disabled`                 | `disabled`                   | The presence of this attribute makes the input disabled                                                                                                                                                                                                       | `boolean`                                              | `false`         |
+| `displayValidationMessage` | `display-validation-message` | The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status                                                                                                                    | `boolean`                                              | `false`         |
+| `displayValidationStyles`  | `display-validation-styles`  | The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status                                                                                                                    | `boolean`                                              | `false`         |
+| `errorCondition`           | --                           | A function that will return true or false depending on wether the error condition is met or not                                                                                                                                                               | `Function`                                             | `undefined`     |
+| `informationMessage`       | `information-message`        | An informative message to help the user filling the information                                                                                                                                                                                               | `string`                                               | `undefined`     |
+| `isOpen`                   | `is-open`                    | This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.                                                                  | `boolean`                                              | `false`         |
+| `label`                    | `label`                      | The combo label                                                                                                                                                                                                                                               | `string`                                               | `undefined`     |
+| `maxWidth`                 | `max-width`                  | The combo max-width                                                                                                                                                                                                                                           | `string`                                               | `"none"`        |
+| `minWidth`                 | `min-width`                  | The combo min-width                                                                                                                                                                                                                                           | `string`                                               | `"0"`           |
+| `placeholder`              | `placeholder`                | The combo placeholder                                                                                                                                                                                                                                         | `string`                                               | `"Search item"` |
+| `position`                 | `position`                   | The container 'items container' position                                                                                                                                                                                                                      | `"bottom" \| "top"`                                    | `"bottom"`      |
+| `required`                 | `required`                   | The presence of this attribute makes the commbo required                                                                                                                                                                                                      | `boolean`                                              | `false`         |
+| `strict`                   | `strict`                     | If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has. | `boolean`                                              | `false`         |
+| `validateOnChange`         | `validate-on-change`         | The presence of this attribute will check the input validity on every user input                                                                                                                                                                              | `boolean`                                              | `false`         |
+| `validationMessage`        | `validation-message`         | The message to display when validation fails (error)                                                                                                                                                                                                          | `string`                                               | `undefined`     |
+| `validationStatus`         | `validation-status`          | The validation status                                                                                                                                                                                                                                         | `"error" \| "indeterminate" \| "success" \| "warning"` | `undefined`     |
+| `value`                    | `value`                      | Get or set the selected item value                                                                                                                                                                                                                            | `any`                                                  | `undefined`     |
+| `warningCondition`         | --                           | A function that will return true or false depending on wether the warning condition is met or not                                                                                                                                                             | `Function`                                             | `undefined`     |
+| `width`                    | `width`                      | The combo width                                                                                                                                                                                                                                               | `string`                                               | `"240px"`       |
 
 ## Events
 
@@ -65,6 +75,18 @@ Type: `Promise<void>`
 
 Type: `Promise<void>`
 
+### `validate() => Promise<void>`
+
+---
+
+METHODS
+
+---
+
+#### Returns
+
+Type: `Promise<void>`
+
 ## Dependencies
 
 ### Depends on
@@ -72,6 +94,7 @@ Type: `Promise<void>`
 - [gxg-label](../label)
 - [gxg-form-text](../form-text)
 - [gxg-button](../button)
+- [gxg-form-message](../form-message)
 
 ### Graph
 
@@ -80,6 +103,7 @@ graph TD;
   gxg-combo-box --> gxg-label
   gxg-combo-box --> gxg-form-text
   gxg-combo-box --> gxg-button
+  gxg-combo-box --> gxg-form-message
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message

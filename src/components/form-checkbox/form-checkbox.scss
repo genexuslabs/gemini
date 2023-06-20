@@ -1,18 +1,19 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+@import "../../globals/form-validation";
 
 :host {
-  // margin-bottom: var(--spacing-comp-03);
-  display: flex;
-}
-
-:host {
+  --checkmark-border-color: var(--color-primary-active);
+  .gxg-form-checkbox__wrapper {
+    display: flex;
+    align-items: center;
+  }
   .label:last-child {
     margin-bottom: 0;
   }
   input:focus + .checkmark {
-    box-shadow: 0px 0px 0px var(--border-width-sm) var(--color-primary-active);
-    border-color: var(--color-primary-active) !important  ;
+    box-shadow: 0px 0px 0px var(--border-width-sm) var(--checkmark-border-color);
+    border-color: var(--checkmark-border-color) !important  ;
   }
   input[disabled] {
     cursor: not-allowed;
@@ -102,11 +103,8 @@
   /* Show the checkmark when checked */
   .label input:checked ~ .checkmark:after {
     display: block;
-    border-color: var(--color-primary-hover);
+    border-color: var(--checkmark-border-color);
     @include ui-animation(border-color);
-  }
-  .label input:checked ~ .checkmark {
-    border-color: var(--color-primary-hover);
   }
 
   /* Style the checkmark/indicator */
@@ -116,7 +114,7 @@
     width: 3px;
     height: 7px;
     border: solid;
-    border-color: var(--color-primary-hover);
+    border-color: var(--checkmark-border-color);
     border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -130,12 +128,19 @@
   height: 2px;
   transform: rotate(0deg);
   border: 0;
-  background-color: var(--color-primary-hover);
+  background-color: var(--checkmark-border-color);
   left: 2px;
   top: 6px;
 }
 :host([disabled="true"]) label {
   cursor: not-allowed;
+}
+
+/*********************************************
+VALIDATION
+**********************************************/
+:host(.gxg-display-validation-styles.hydrated.gxg-validation--error) {
+  --checkmark-border-color: var(--color-error-dark);
 }
 
 /*********************************************

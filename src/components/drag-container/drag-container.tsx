@@ -9,7 +9,7 @@ import {
   Listen,
 } from "@stencil/core";
 import { Padding } from "../drag-box/drag-box";
-import { makeDraggable, DraggableComponent } from "../../utils/makeDraggable";
+import { makeDraggable, DraggableComponent } from "../../common/makeDraggable";
 
 @Component({
   tag: "gxg-drag-container",

@@ -12,7 +12,10 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { GxgComboBoxItem } from "../combo-box-item/combo-box-item";
-import { GxgFormText, IconPosition } from "../form-text/form-text";
+import { IconPosition } from "../form-text/form-text";
+import { formClasses } from "../../common/classes-names";
+import { formMessageLogic } from "../../common/form";
+import { FormComponent } from "../../common/interfaces";
 import state from "../store";
 
 @Component({
@@ -20,14 +23,19 @@ import state from "../store";
   styleUrl: "combo-box.scss",
   shadow: { delegatesFocus: true },
 })
-export class GxgComboBox {
+export class GxgComboBox implements FormComponent {
   @Event() keyDown: EventEmitter<string>;
 
-  gxgFormText!: GxgFormText;
+  gxgFormText!: HTMLGxgFormTextElement;
 
   @Element() el: HTMLElement;
   mainContainer!: HTMLDivElement;
   itemsContainer!: HTMLDivElement;
+
+  /**
+   * The presence of this attribute makes the input disabled
+   */
+  @Prop() disabled = false;
 
   /**
    * The combo label
@@ -86,6 +94,67 @@ export class GxgComboBox {
    */
   @Prop({ mutable: true }) isOpen = false;
 
+  /*VALIDATION*/
+
+  /**
+   * The presence of this attribute makes the commbo required
+   */
+  @Prop({ reflect: true }) required = false;
+
+  /**
+   * The validation status
+   *
+   */
+  @Prop({ mutable: true }) validationStatus:
+    | "indeterminate"
+    | "warning"
+    | "error"
+    | "success";
+
+  /**
+   * The presence of this attribute will check the input validity on every user input
+   *
+   */
+  @Prop() validateOnChange = false;
+
+  /**
+   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+   *
+   */
+  @Prop() displayValidationStyles = false;
+
+  /**
+   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+   *
+   */
+  @Prop() displayValidationMessage = false;
+
+  /**
+   * The message to display when validation fails (error)
+   *
+   */
+  @Prop() validationMessage: string;
+
+  /**
+   * An informative message to help the user filling the information
+   *
+   */
+  @Prop() informationMessage: string;
+
+  /**
+   * A function that will return true or false depending on wether the
+   * error condition is met or not
+   */
+  @Prop() errorCondition: Function;
+
+  /**
+   * A function that will return true or false depending on wether the
+   * warning condition is met or not
+   */
+  @Prop() warningCondition: Function;
+
+  formMessageLogic = formMessageLogic;
+
   @State() inputTextValue = "";
   @State() showItems = false;
   @State() inputTextIcon: string = undefined;
@@ -127,13 +196,45 @@ export class GxgComboBox {
     document.removeEventListener("scroll", this.detectMouseScroll, true);
   }
 
+  /*********************************
+  METHODS
+  *********************************/
+
   @Method()
-  async open() {
+  async validate(): Promise<void> {
+    this.handleValidation();
+  }
+
+  handleValidation = (): void => {
+    this.handleError();
+    this.handleWarning();
+  };
+  handleError = (): void => {
+    const hasError =
+      (this.required && !this.value) ||
+      (this.errorCondition && this.errorCondition());
+    if (hasError) {
+      this.validationStatus = "error";
+    } else {
+      this.validationStatus = "indeterminate";
+    }
+  };
+  handleWarning = (): void => {
+    const hasWarning = this.warningCondition && this.warningCondition();
+    if (hasWarning) {
+      this.validationStatus === "warning";
+    } else {
+      this.validationStatus === "indeterminate";
+    }
+  };
+
+  @Method()
+  async open(): Promise<void> {
     this.showItems = true;
   }
 
   @Method()
-  async close() {
+  async close(): Promise<void> {
     this.showItems = false;
   }
 
@@ -161,6 +262,10 @@ export class GxgComboBox {
       this.value = itemValue;
     }
   }
+
+  /*********************************
+  LISTEN
+  *********************************/
 
   @Listen("itemSelected")
   itemSelectedHandler(event) {
@@ -230,15 +335,18 @@ export class GxgComboBox {
   }
 
   @Watch("value")
-  onValueChanged(newValue: string) {
+  onValueChanged(newValue: string): void {
     if (newValue) {
       this.lastSetValueByUser = newValue;
     }
     this.tryToSetItem(newValue);
+    if (this.validateOnChange) {
+      this.handleValidation();
+    }
   }
 
   @Watch("showItems")
-  onShowItemsChanged(newValue: boolean) {
+  onShowItemsChanged(newValue: boolean): void {
     if (newValue) {
       document.addEventListener("click", this.detectClickOutsideCombo, true);
       document.addEventListener("scroll", this.detectMouseScroll, true);
@@ -253,7 +361,7 @@ export class GxgComboBox {
     }
   }
 
-  tryToSetItem(value) {
+  tryToSetItem(value): void {
     if (!this.userTyped) {
       const item = this.getItemByValue(value);
       if (item) {
@@ -288,7 +396,7 @@ export class GxgComboBox {
     return item;
   }
 
-  updateSelectedItem(item: GxgComboBoxItem) {
+  updateSelectedItem(item: GxgComboBoxItem): void {
     this.clearSelectedItem();
     this.clearExactMatch();
     this.clearHiddenItems();
@@ -319,8 +427,7 @@ export class GxgComboBox {
     }
   }
 
-  onKeyDownGxgformText(e) {
-    // DONE
+  onKeyDownGxgformText(e): void {
     if (this.showItems) {
       e.stopPropagation();
     }
@@ -343,7 +450,7 @@ export class GxgComboBox {
     }
   }
 
-  onKeyDownGxgButtonArrowDown(e) {
+  onKeyDownGxgButtonArrowDown(e): void {
     if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
@@ -361,7 +468,7 @@ export class GxgComboBox {
     }
   }
 
-  clearIconsColor() {
+  clearIconsColor(): void {
     const comboBoxItems = this.el.querySelectorAll("gxg-combo-box-item");
     comboBoxItems.forEach((item) => {
       if (!item.classList.contains("selected")) {
@@ -387,7 +494,7 @@ export class GxgComboBox {
     }
   }
 
-  clearHiddenItems() {
+  clearHiddenItems(): void {
     const hiddenItems = this.el.querySelectorAll(".hidden");
     hiddenItems.forEach((item) => {
       item.classList.remove("hidden");
@@ -404,11 +511,11 @@ export class GxgComboBox {
     this.inputTextIconPosition = null;
   }
 
-  focus() {
+  focus(): void {
     ((this.gxgFormText as unknown) as HTMLElement).focus();
   }
 
-  detectClickOutsideComboFunc(event) {
+  detectClickOutsideComboFunc(event): void {
     const comboMainContainer = this.el.shadowRoot.querySelector(
       ".main-container"
     ) as HTMLElement;
@@ -435,11 +542,11 @@ export class GxgComboBox {
     }
   }
 
-  detectMouseScrollFunc() {
+  detectMouseScrollFunc(): void {
     this.showItems = false;
   }
 
-  clearCombo() {
+  clearCombo(): void {
     this.lastAllowedValue = undefined;
     this.value = undefined;
     this.inputTextValue = "";
@@ -450,7 +557,7 @@ export class GxgComboBox {
     this.focus();
   }
 
-  resizeObserver() {
+  resizeObserver(): void {
     this.myObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         this.repositionItemsContainer();
@@ -460,18 +567,20 @@ export class GxgComboBox {
     this.myObserver.observe(this.el);
   }
 
-  repositionItemsContainer() {
+  repositionItemsContainer(): void {
     //redefine .main-container width
     const gxgComboWidth = this.el.clientWidth;
     this.itemsContainer.style.width = gxgComboWidth + "px";
     //redefine .items-container "top" value
-    const gxgComboCoordinates = this.el.getBoundingClientRect();
-    const gxgComboY = gxgComboCoordinates.y;
-    const gxgComboHeight = gxgComboCoordinates.height;
-    this.itemsContainer.style.top = gxgComboY + gxgComboHeight + "px";
+    const gxgComboTextInput = (this
+      .gxgFormText as HTMLGxgFormTextElement).getBoundingClientRect();
+    const gxgComboTextInputY = gxgComboTextInput.y;
+    const gxgComboTextInputHeight = gxgComboTextInput.height;
+    this.itemsContainer.style.top =
+      gxgComboTextInputY + gxgComboTextInputHeight + "px";
   }
 
-  itemsContainerBottomOverflows() {
+  itemsContainerBottomOverflows(): boolean {
     const viewportHeight = window.innerHeight;
     const comboBottom = this.el.getBoundingClientRect().bottom;
     const itemsContainerHeight = this.itemsContainer.clientHeight;
@@ -481,13 +590,25 @@ export class GxgComboBox {
     return itOverflows;
   }
 
-  render() {
+  render(): void {
+    const clearIcon =
+      this.inputTextValue !== "" && !this.disableFilter && !this.disableClear;
     return (
       <Host
         class={{
           "filter-disabled": this.disableFilter,
           large: state.large,
           rtl: state.rtl,
+          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
+            .displayValidationStyles,
+          [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
+            this.validationStatus === "indeterminate",
+          [formClasses["VALIDATION_WARNING_CLASS"]]:
+            this.validationStatus === "warning",
+          [formClasses["VALIDATION_ERROR_CLASS"]]:
+            this.validationStatus === "error",
+          [formClasses["VALIDATION_SUCCESS_CLASS"]]:
+            this.validationStatus === "success",
         }}
         style={{
           width: this.width,
@@ -513,7 +634,10 @@ export class GxgComboBox {
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
               readonly={this.disableFilter}
-              ref={(el) => (this.gxgFormText = (el as unknown) as GxgFormText)}
+              ref={(el) => (this.gxgFormText = el as HTMLGxgFormTextElement)}
+              displayValidationStyles={this.displayValidationStyles}
+              validationStatus={this.validationStatus}
+              class={{ "clear-icon": clearIcon }}
             ></gxg-form-text>
             <div class="buttons-wrapper">
               {this.inputTextValue !== "" &&
@@ -530,9 +654,9 @@ export class GxgComboBox {
               ) : null}
 
               <gxg-button
-                class={{ "button-icon arrow-down-icon": true }}
+                class={{ "button-icon": true }}
                 icon="navigation/arrow-down"
-                type="tertiary"
+                type="secondary-icon-only"
                 onClick={() => this.toggleItems()}
                 onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
                 tabindex="-1"
@@ -558,6 +682,7 @@ export class GxgComboBox {
             ) : null}
           </div>
         </div>
+        {this.formMessageLogic(this)}
       </Host>
     );
   }

@@ -11,7 +11,7 @@ import {
   State,
   Listen,
 } from "@stencil/core";
-import { requiredLabel, formMessage } from "../../common.js";
+import { requiredLabel, formMessage } from "../../common/form.js";
 import state from "../store";
 
 @Component({

@@ -2,9 +2,9 @@ import { Component, Host, Prop, h, Event, EventEmitter } from "@stencil/core";
 import {
   requiredLabel,
   formMessage,
-  formHandleChange,
-  FormComponent,
-} from "../../common";
+  //formHandleValidation,
+  //FormComponent,
+} from "../../common/form";
 import state from "../store";
 
 @Component({
@@ -12,7 +12,7 @@ import state from "../store";
   styleUrl: "form-textarea.scss",
   shadow: true,
 })
-export class GxgFormTextarea implements FormComponent {
+export class GxgFormTextarea {
   //A reference to the input
   textArea!: HTMLTextAreaElement;
 
@@ -98,15 +98,15 @@ export class GxgFormTextarea implements FormComponent {
   }
 
   handleInput(e) {
-    formHandleChange(this, e.target);
+    //formHandleValidation(this, e.target);
 
     const target = e.target as HTMLTextAreaElement;
     this.value = target.value;
     this.input.emit(this.value);
   }
 
-  handleChange(e) {
-    formHandleChange(this, e.target);
+  handleChange() {
+    //formHandleValidation(this, e.target);
     this.change.emit(this.value);
   }
 

@@ -1,0 +1,27 @@
+/*Warning*/
+:host(.gxg-display-validation-styles.gxg-validation--warning) {
+  .form-element {
+    @include form-element-validation("warning");
+    &:focus {
+      @include form-element-validation-focus("warning");
+    }
+  }
+}
+/*Error*/
+:host(.gxg-display-validation-styles.gxg-validation--error) {
+  .form-element {
+    @include form-element-validation("error");
+    &:focus {
+      @include form-element-validation-focus("error");
+    }
+  }
+}
+/*Success*/
+:host(.gxg-display-validation-styles.gxg-validation--success) {
+  .form-element {
+    @include form-element-validation("success");
+    &:focus {
+      @include form-element-validation-focus("success");
+    }
+  }
+}
