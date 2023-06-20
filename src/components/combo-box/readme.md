@@ -75,7 +75,7 @@ Type: `Promise<void>`
 
 Type: `Promise<void>`
 
-### `validate() => Promise<void>`
+### `validate() => Promise<boolean>`
 
 ---
 
@@ -85,7 +85,7 @@ METHODS
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<boolean>`
 
 ## Dependencies
 

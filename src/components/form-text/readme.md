@@ -106,7 +106,7 @@
 
 ## Methods
 
-### `validate() => Promise<void>`
+### `validate() => Promise<boolean>`
 
 ---
 
@@ -116,7 +116,7 @@ METHODS
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<boolean>`
 
 ## Shadow Parts
 

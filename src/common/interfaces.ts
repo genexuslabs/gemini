@@ -4,6 +4,7 @@ export interface DisableableComponent {
 export interface FormComponent extends DisableableComponent {
   required: boolean;
   validationStatus: "indeterminate" | "warning" | "error" | "success";
+  validate: () => Promise<boolean>;
   validateOnInput?: boolean;
   validateOnChange?: boolean;
   displayValidationStyles: boolean;

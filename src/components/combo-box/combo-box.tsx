@@ -201,8 +201,13 @@ export class GxgComboBox implements FormComponent {
   *********************************/
 
   @Method()
-  async validate(): Promise<void> {
+  async validate(): Promise<boolean> {
     this.handleValidation();
+    if (this.validationStatus === "error") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   handleValidation = (): void => {

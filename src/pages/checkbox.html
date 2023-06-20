@@ -41,8 +41,9 @@
 
       //validate
       const validateBtn = document.getElementById("validate-btn");
-      validateBtn.addEventListener("click", function () {
-        checkbox.validate();
+      validateBtn.addEventListener("click", async function () {
+        const isValid = await checkbox.validate();
+        console.log("is valid", isValid);
       });
     </script>
   </body>

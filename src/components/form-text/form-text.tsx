@@ -220,9 +220,14 @@ export class GxgFormText implements FormComponent {
   *********************************/
 
   @Method()
-  async validate(): Promise<void> {
+  async validate(): Promise<boolean> {
     this.handleError(formHandleValidation(this, this.textInput));
     this.handleWarning();
+    if (this.validationStatus === "error") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   iconPositionFunc(): IconPosition {
