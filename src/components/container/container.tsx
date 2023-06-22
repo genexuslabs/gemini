@@ -40,29 +40,29 @@ https://stenciljs.com/docs/style-guide#code-organization
   @Prop() readonly containerTitle: string;
 
   /**
-   * Makes this container has a border all around
+   * Dsiplays a border all around the container
    */
   @Prop() readonly displayBorder: boolean = false;
 
   /**
    * Removes the component border on the top
    */
-  @Prop() readonly noBorderTop: boolean = false;
+  @Prop() readonly displayBorderTop: boolean = false;
 
   /**
    * Removes the component border on the end
    */
-  @Prop() readonly noBorderEnd: boolean = false;
+  @Prop() readonly displayBorderEnd: boolean = false;
 
   /**
    * Removes the component border on the bottom
    */
-  @Prop() readonly noBorderBottom: boolean = false;
+  @Prop() readonly displayBorderBottom: boolean = false;
 
   /**
    * Removes the component border on the start
    */
-  @Prop() readonly noBorderStart: boolean = false;
+  @Prop() readonly displayBorderStart: boolean = false;
 
   /**
    * The container general padding (applies to .heading, .content, and .footer)
@@ -276,10 +276,10 @@ https://stenciljs.com/docs/style-guide#code-organization
           "gxg-container": true,
           [`gxg-container--padding-${this.sectionsPadding}`]: true,
           "gxg-container--display-border": this.displayBorder,
-          "gxg-container--no-border-top": this.noBorderTop,
-          "gxg-container--no-border-end": this.noBorderEnd,
-          "gxg-container--no-border-bottom": this.noBorderBottom,
-          "gxg-container--no-border-start": this.noBorderStart,
+          "gxg-container--display-border-top": this.displayBorderTop,
+          "gxg-container--display-border-end": this.displayBorderEnd,
+          "gxg-container--display-border-bottom": this.displayBorderBottom,
+          "gxg-container--display-border-start": this.displayBorderStart,
         }}
       >
         {result}

@@ -426,9 +426,25 @@ export namespace Components {
      */
     containerTitle: string;
     /**
-     * Makes this container has a border all around
+     * Dsiplays a border all around the container
      */
     displayBorder: boolean;
+    /**
+     * Removes the component border on the bottom
+     */
+    displayBorderBottom: boolean;
+    /**
+     * Removes the component border on the end
+     */
+    displayBorderEnd: boolean;
+    /**
+     * Removes the component border on the start
+     */
+    displayBorderStart: boolean;
+    /**
+     * Removes the component border on the top
+     */
+    displayBorderTop: boolean;
     /**
      * Makes this component content act as a fieldset
      */
@@ -442,25 +458,9 @@ export namespace Components {
      */
     headingJustify: headingJustify;
     /**
-     * Removes the component border on the bottom
-     */
-    noBorderBottom: boolean;
-    /**
-     * Removes the component border on the end
-     */
-    noBorderEnd: boolean;
-    /**
      * Removes the border top from the footer
      */
     noBorderFooter: boolean;
-    /**
-     * Removes the component border on the start
-     */
-    noBorderStart: boolean;
-    /**
-     * Removes the component border on the top
-     */
-    noBorderTop: boolean;
     /**
      * Removes the gap from the content
      */
@@ -2585,9 +2585,25 @@ declare namespace LocalJSX {
      */
     containerTitle?: string;
     /**
-     * Makes this container has a border all around
+     * Dsiplays a border all around the container
      */
     displayBorder?: boolean;
+    /**
+     * Removes the component border on the bottom
+     */
+    displayBorderBottom?: boolean;
+    /**
+     * Removes the component border on the end
+     */
+    displayBorderEnd?: boolean;
+    /**
+     * Removes the component border on the start
+     */
+    displayBorderStart?: boolean;
+    /**
+     * Removes the component border on the top
+     */
+    displayBorderTop?: boolean;
     /**
      * Makes this component content act as a fieldset
      */
@@ -2601,25 +2617,9 @@ declare namespace LocalJSX {
      */
     headingJustify?: headingJustify;
     /**
-     * Removes the component border on the bottom
-     */
-    noBorderBottom?: boolean;
-    /**
-     * Removes the component border on the end
-     */
-    noBorderEnd?: boolean;
-    /**
      * Removes the border top from the footer
      */
     noBorderFooter?: boolean;
-    /**
-     * Removes the component border on the start
-     */
-    noBorderStart?: boolean;
-    /**
-     * Removes the component border on the top
-     */
-    noBorderTop?: boolean;
     /**
      * Removes the gap from the content
      */

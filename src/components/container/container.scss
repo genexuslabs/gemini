@@ -29,21 +29,21 @@ fieldset {
 :host(.gxg-container--padding-l) {
   --gxg-container--padding: var(--spacing-comp-04);
 }
-/*BORDER*/
+/*BORDERS*/
 :host(.gxg-container--display-border) {
   border: 1px solid var(--gxg-border-color--regular);
 }
-:host(.gxg-container--no-border-top) {
-  border-top: none;
+:host(.gxg-container--display-border-top) {
+  border-top: 1px solid var(--gxg-border-color--regular);
 }
-:host(.gxg-container--no-border-end) {
-  border-inline-end: none;
+:host(.gxg-container--display-border-end) {
+  border-inline-end: 1px solid var(--gxg-border-color--regular);
 }
-:host(.gxg-container--no-border-bottom) {
-  border-bottom: none;
+:host(.gxg-container--display-border-bottom) {
+  border-bottom: 1px solid var(--gxg-border-color--regular);
 }
-:host(.gxg-container--no-border-start) {
-  border-inline-start: none;
+:host(.gxg-container--display-border-start) {
+  border-inline-start: 1px solid var(--gxg-border-color--regular);
 }
 /*******************************
 HEADING
