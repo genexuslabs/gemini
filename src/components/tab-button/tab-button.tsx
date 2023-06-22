@@ -59,7 +59,6 @@ export class GxgTabButton {
 
   @Watch("isSelected")
   isSelectedHandler(newValue: boolean) {
-    console.log("isSelected");
     if (newValue) {
       this.el.removeAttribute("tabindex");
     } else {

@@ -191,7 +191,6 @@ export class FormSelectV2 {
   }
 
   render() {
-    console.log("render");
     return (
       <Host
         style={{
