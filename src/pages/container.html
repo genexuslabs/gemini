@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Container | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: var(--font-family-primary);
+      }
+      strong {
+        display: block;
+        margin-bottom: 16px;
+      }
+      gxg-container {
+        margin-bottom: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- complete -->
+    <strong>complete</strong>
+    <gxg-container fieldset container-title="Back End" display-border>
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        label="The title:"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        label="The title:"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        label="The title:"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+      <gxg-button slot="footer" type="primary-text-only"> Create </gxg-button>
+      <gxg-button slot="footer" type="outlined"> Cancel </gxg-button>
+    </gxg-container>
+
+    <!-- only header -->
+    <strong>only header</strong>
+    <gxg-container fieldset container-title="Back End" display-border>
+    </gxg-container>
+
+    <!-- only content -->
+    <strong>only content</strong>
+    <gxg-container fieldset display-border>
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        label="The title:"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+    </gxg-container>
+
+    <!-- only footer -->
+    <strong>only footer</strong>
+    <gxg-container fieldset display-border>
+      <gxg-button slot="footer" type="outlined"> Cancel </gxg-button>
+    </gxg-container>
+
+    <!-- header & content -->
+    <strong>header & content</strong>
+    <gxg-container fieldset display-border container-title="Back End">
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        label="The title:"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+    </gxg-container>
+
+    <!-- header & footer -->
+    <strong>header & footer</strong>
+    <gxg-container fieldset display-border container-title="Back End">
+      <gxg-button slot="footer" type="primary-text-only"> Create </gxg-button>
+    </gxg-container>
+
+    <!-- content & footer -->
+    <strong>content & footer</strong>
+    <gxg-container fieldset display-border>
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        label="The title:"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+      <gxg-button slot="footer" type="primary-text-only"> Create </gxg-button>
+    </gxg-container>
+  </body>
+</html>

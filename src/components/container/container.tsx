@@ -126,9 +126,24 @@ https://stenciljs.com/docs/style-guide#code-organization
    ********************************/
 
   /**
+   * A boolean variable indicating if the component has or not any content slotted content (regular slotted content, without 'slot' attribute)
+   */
+  @State() hasSlottedContent = false;
+
+  /**
    * A boolean variable indicating if the component has or not any content for the 'footer' slot
    */
   @State() hasFooterSlot = false;
+
+  /**
+   * A boolean variable indicating that the container only has the heading section
+   */
+  @State() hasOnlyHeading = false;
+
+  /**
+   * A boolean variable indicating that the container only has the footer section
+   */
+  @State() hasOnlyFooter = false;
 
   /** *****************************
    4.PUBLIC PROPERTY API
@@ -143,10 +158,7 @@ https://stenciljs.com/docs/style-guide#code-organization
    ********************************/
 
   componentWillLoad() {
-    const footerSlot = this.el.querySelectorAll('[slot="footer"]');
-    if (footerSlot.length) {
-      this.hasFooterSlot = true;
-    }
+    this.evaluateSlots();
   }
 
   /** *****************************
@@ -161,10 +173,32 @@ https://stenciljs.com/docs/style-guide#code-organization
    *  9.LOCAL METHODS
    ********************************/
 
+  private evaluateSlots() {
+    //content
+    const slottedContent = this.el.querySelectorAll(":not([slot])");
+    if (slottedContent.length) {
+      this.hasSlottedContent = true;
+    }
+    //footer
+    const footerSlot = this.el.querySelectorAll('[slot="footer"]');
+    if (footerSlot.length) {
+      this.hasFooterSlot = true;
+    }
+  }
+
+  private evaluateSections() {
+    if (!this.hasSlottedContent && !this.hasFooterSlot) {
+      this.hasOnlyHeading = true;
+    }
+    if (!this.hasSlottedContent && !this.containerTitle) {
+      this.hasOnlyFooter = true;
+    }
+  }
+
   private headingClasses = (): string | { [className: string]: boolean } => {
     return {
       heading: true,
-      "heading--no-border": this.noHeadingBorder,
+      "heading--no-border": this.noHeadingBorder || this.hasOnlyHeading,
       [`heading--justify-${this.headingJustify}`]: true,
       ["heading--no-padding"]: this.noHeadingPadding,
     };
@@ -183,7 +217,10 @@ https://stenciljs.com/docs/style-guide#code-organization
       <footer
         class={{
           footer: true,
-          "footer--no-border": this.noHeadingBorder,
+          "footer--no-border":
+            this.noHeadingBorder ||
+            this.hasOnlyFooter ||
+            !this.hasSlottedContent,
           [`footer--justify-${this.footerJustify}`]: true,
           [`footer--justify-${this.footerJustify}`]: true,
           ["footer--no-padding"]: this.noFooterPadding,
@@ -199,6 +236,7 @@ https://stenciljs.com/docs/style-guide#code-organization
    ********************************/
 
   render() {
+    this.evaluateSections();
     let result;
     if (this.fieldset) {
       result = [
@@ -208,22 +246,26 @@ https://stenciljs.com/docs/style-guide#code-organization
               {<gxg-title type="title-04">{this.containerTitle}</gxg-title>}
             </legend>
           ) : null}
-          <div class={this.contentClasses()}>
-            <slot></slot>
-          </div>
+          {this.hasSlottedContent ? (
+            <div class={this.contentClasses()}>
+              <slot></slot>
+            </div>
+          ) : null}
         </fieldset>,
         this.footer(),
       ];
     } else {
       result = [
         this.containerTitle ? (
-          <header class={this.contentClasses()}>
+          <header class={this.headingClasses()}>
             {<gxg-title type="title-04">{this.containerTitle}</gxg-title>}
           </header>
         ) : null,
-        <div class={this.headingClasses()}>
-          <slot></slot>
-        </div>,
+        this.hasSlottedContent ? (
+          <div class={this.contentClasses()}>
+            <slot></slot>
+          </div>
+        ) : null,
         this.footer(),
       ];
     }
