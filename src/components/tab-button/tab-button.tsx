@@ -118,7 +118,7 @@ export class GxgTabButton {
             }}
             onClick={this.buttonClickHandler.bind(this)}
             onKeyDown={this.buttonKeyDownHandler.bind(this)}
-            ref={(el) => (this.tabButton = el as HTMLInputElement)}
+            ref={(el) => (this.tabButton = el as HTMLButtonElement)}
           >
             {this.printIcon()}
             <span class="tab-button__text">{this.tabLabel}</span>

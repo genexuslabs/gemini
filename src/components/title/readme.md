@@ -24,13 +24,13 @@
 
 ### Used by
 
-- [gxg-group](../group)
+- [gxg-container](../container)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-group --> gxg-title
+  gxg-container --> gxg-title
   style gxg-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

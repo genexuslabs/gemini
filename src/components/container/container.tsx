@@ -1,11 +1,11 @@
 import { Component, Host, h, Prop, Element, State } from "@stencil/core";
 
 @Component({
-  tag: "gxg-group",
-  styleUrl: "group.scss",
+  tag: "gxg-container",
+  styleUrl: "container.scss",
   shadow: true,
 })
-export class GxgGroup {
+export class GxgContainer {
   /*
 INDEX:
 1.OWN PROPERTIES
@@ -30,17 +30,17 @@ https://stenciljs.com/docs/style-guide#code-organization
   /*GENERAL*/
 
   /**
-   * Makes this group act as a fieldset
+   * Makes this component content act as a fieldset
    */
   @Prop() readonly fieldset: boolean = false;
 
   /**
-   * The title of the group
+   * The title of the container
    */
-  @Prop() readonly groupTitle: string;
+  @Prop() readonly containerTitle: string;
 
   /**
-   * Makes this group has a border all around
+   * Makes this container has a border all around
    */
   @Prop() readonly displayBorder: boolean = false;
 
@@ -65,7 +65,7 @@ https://stenciljs.com/docs/style-guide#code-organization
   @Prop() readonly noBorderStart: boolean = false;
 
   /**
-   * The group general padding (applies to .heading, .content, and .footer)
+   * The container general padding (applies to .heading, .content, and .footer)
    */
   @Prop() readonly sectionsPadding: sectionsPadding = "m";
 
@@ -203,9 +203,9 @@ https://stenciljs.com/docs/style-guide#code-organization
     if (this.fieldset) {
       result = [
         <fieldset>
-          {this.groupTitle ? (
+          {this.containerTitle ? (
             <legend class={this.headingClasses()}>
-              {<gxg-title type="title-04">{this.groupTitle}</gxg-title>}
+              {<gxg-title type="title-04">{this.containerTitle}</gxg-title>}
             </legend>
           ) : null}
           <div class={this.contentClasses()}>
@@ -216,9 +216,9 @@ https://stenciljs.com/docs/style-guide#code-organization
       ];
     } else {
       result = [
-        this.groupTitle ? (
+        this.containerTitle ? (
           <header class={this.contentClasses()}>
-            {<gxg-title type="title-04">{this.groupTitle}</gxg-title>}
+            {<gxg-title type="title-04">{this.containerTitle}</gxg-title>}
           </header>
         ) : null,
         <div class={this.headingClasses()}>
@@ -231,13 +231,13 @@ https://stenciljs.com/docs/style-guide#code-organization
     return (
       <Host
         class={{
-          "gxg-group": true,
-          [`gxg-group--padding-${this.sectionsPadding}`]: true,
-          "gxg-group--display-border": this.displayBorder,
-          "gxg-group--no-border-top": this.noBorderTop,
-          "gxg-group--no-border-end": this.noBorderEnd,
-          "gxg-group--no-border-bottom": this.noBorderBottom,
-          "gxg-group--no-border-start": this.noBorderStart,
+          "gxg-container": true,
+          [`gxg-container--padding-${this.sectionsPadding}`]: true,
+          "gxg-container--display-border": this.displayBorder,
+          "gxg-container--no-border-top": this.noBorderTop,
+          "gxg-container--no-border-end": this.noBorderEnd,
+          "gxg-container--no-border-bottom": this.noBorderBottom,
+          "gxg-container--no-border-start": this.noBorderStart,
         }}
       >
         {result}

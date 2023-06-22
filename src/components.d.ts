@@ -26,6 +26,11 @@ import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { GxgComboBoxItem } from "./components/combo-box-item/combo-box-item";
 import { Color } from "./components/icon/icon";
+import {
+  footerJustify,
+  headingJustify,
+  sectionsPadding,
+} from "./components/container/container";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { Message } from "./components/form-message/form-message";
@@ -34,11 +39,6 @@ import {
   LabelPosition,
   Style,
 } from "./components/form-text/form-text";
-import {
-  footerJustify,
-  headingJustify,
-  sectionsPadding,
-} from "./components/group/group";
 import { Color as Color1, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
@@ -419,6 +419,72 @@ export namespace Components {
      * The item value. If value is not provided, an automatic value will be generated with the innerText.
      */
     value: any;
+  }
+  interface GxgContainer {
+    /**
+     * The title of the container
+     */
+    containerTitle: string;
+    /**
+     * Makes this container has a border all around
+     */
+    displayBorder: boolean;
+    /**
+     * Makes this component content act as a fieldset
+     */
+    fieldset: boolean;
+    /**
+     * The footer justification
+     */
+    footerJustify: footerJustify;
+    /**
+     * The heading justification
+     */
+    headingJustify: headingJustify;
+    /**
+     * Removes the component border on the bottom
+     */
+    noBorderBottom: boolean;
+    /**
+     * Removes the component border on the end
+     */
+    noBorderEnd: boolean;
+    /**
+     * Removes the border top from the footer
+     */
+    noBorderFooter: boolean;
+    /**
+     * Removes the component border on the start
+     */
+    noBorderStart: boolean;
+    /**
+     * Removes the component border on the top
+     */
+    noBorderTop: boolean;
+    /**
+     * Removes the gap from the content
+     */
+    noContentGap: boolean;
+    /**
+     * Removes the padding from the content
+     */
+    noContentPadding: boolean;
+    /**
+     * Removes the padding from the footer
+     */
+    noFooterPadding: boolean;
+    /**
+     * Removes the border bottom from the heading
+     */
+    noHeadingBorder: boolean;
+    /**
+     * Removes the padding from the heading
+     */
+    noHeadingPadding: boolean;
+    /**
+     * The container general padding (applies to .heading, .content, and .footer)
+     */
+    sectionsPadding: sectionsPadding;
   }
   interface GxgContextualMenu {
     /**
@@ -852,72 +918,6 @@ export namespace Components {
   }
   interface GxgGrid {
     noBorder: boolean;
-  }
-  interface GxgGroup {
-    /**
-     * Makes this group has a border all around
-     */
-    displayBorder: boolean;
-    /**
-     * Makes this group act as a fieldset
-     */
-    fieldset: boolean;
-    /**
-     * The footer justification
-     */
-    footerJustify: footerJustify;
-    /**
-     * The title of the group
-     */
-    groupTitle: string;
-    /**
-     * The heading justification
-     */
-    headingJustify: headingJustify;
-    /**
-     * Removes the component border on the bottom
-     */
-    noBorderBottom: boolean;
-    /**
-     * Removes the component border on the end
-     */
-    noBorderEnd: boolean;
-    /**
-     * Removes the border top from the footer
-     */
-    noBorderFooter: boolean;
-    /**
-     * Removes the component border on the start
-     */
-    noBorderStart: boolean;
-    /**
-     * Removes the component border on the top
-     */
-    noBorderTop: boolean;
-    /**
-     * Removes the gap from the content
-     */
-    noContentGap: boolean;
-    /**
-     * Removes the padding from the content
-     */
-    noContentPadding: boolean;
-    /**
-     * Removes the padding from the footer
-     */
-    noFooterPadding: boolean;
-    /**
-     * Removes the border bottom from the heading
-     */
-    noHeadingBorder: boolean;
-    /**
-     * Removes the padding from the heading
-     */
-    noHeadingPadding: boolean;
-    /**
-     * The group general padding (applies to .heading, .content, and .footer)
-     */
-    sectionsPadding: sectionsPadding;
   }
   interface GxgIcon {
     /**
@@ -1717,6 +1717,13 @@ declare global {
     prototype: HTMLGxgComboBoxItemElement;
     new (): HTMLGxgComboBoxItemElement;
   };
+  interface HTMLGxgContainerElement
+    extends Components.GxgContainer,
+      HTMLStencilElement {}
+  var HTMLGxgContainerElement: {
+    prototype: HTMLGxgContainerElement;
+    new (): HTMLGxgContainerElement;
+  };
   interface HTMLGxgContextualMenuElement
     extends Components.GxgContextualMenu,
       HTMLStencilElement {}
@@ -1831,13 +1838,6 @@ declare global {
   var HTMLGxgGridElement: {
     prototype: HTMLGxgGridElement;
     new (): HTMLGxgGridElement;
-  };
-  interface HTMLGxgGroupElement
-    extends Components.GxgGroup,
-      HTMLStencilElement {}
-  var HTMLGxgGroupElement: {
-    prototype: HTMLGxgGroupElement;
-    new (): HTMLGxgGroupElement;
   };
   interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
   var HTMLGxgIconElement: {
@@ -2132,6 +2132,7 @@ declare global {
     "gxg-columns": HTMLGxgColumnsElement;
     "gxg-combo-box": HTMLGxgComboBoxElement;
     "gxg-combo-box-item": HTMLGxgComboBoxItemElement;
+    "gxg-container": HTMLGxgContainerElement;
     "gxg-contextual-menu": HTMLGxgContextualMenuElement;
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
@@ -2149,7 +2150,6 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-grid": HTMLGxgGridElement;
-    "gxg-group": HTMLGxgGroupElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-label": HTMLGxgLabelElement;
     "gxg-list-box": HTMLGxgListBoxElement;
@@ -2578,6 +2578,72 @@ declare namespace LocalJSX {
      * The item value. If value is not provided, an automatic value will be generated with the innerText.
      */
     value?: any;
+  }
+  interface GxgContainer {
+    /**
+     * The title of the container
+     */
+    containerTitle?: string;
+    /**
+     * Makes this container has a border all around
+     */
+    displayBorder?: boolean;
+    /**
+     * Makes this component content act as a fieldset
+     */
+    fieldset?: boolean;
+    /**
+     * The footer justification
+     */
+    footerJustify?: footerJustify;
+    /**
+     * The heading justification
+     */
+    headingJustify?: headingJustify;
+    /**
+     * Removes the component border on the bottom
+     */
+    noBorderBottom?: boolean;
+    /**
+     * Removes the component border on the end
+     */
+    noBorderEnd?: boolean;
+    /**
+     * Removes the border top from the footer
+     */
+    noBorderFooter?: boolean;
+    /**
+     * Removes the component border on the start
+     */
+    noBorderStart?: boolean;
+    /**
+     * Removes the component border on the top
+     */
+    noBorderTop?: boolean;
+    /**
+     * Removes the gap from the content
+     */
+    noContentGap?: boolean;
+    /**
+     * Removes the padding from the content
+     */
+    noContentPadding?: boolean;
+    /**
+     * Removes the padding from the footer
+     */
+    noFooterPadding?: boolean;
+    /**
+     * Removes the border bottom from the heading
+     */
+    noHeadingBorder?: boolean;
+    /**
+     * Removes the padding from the heading
+     */
+    noHeadingPadding?: boolean;
+    /**
+     * The container general padding (applies to .heading, .content, and .footer)
+     */
+    sectionsPadding?: sectionsPadding;
   }
   interface GxgContextualMenu {
     /**
@@ -3061,72 +3127,6 @@ declare namespace LocalJSX {
   }
   interface GxgGrid {
     noBorder?: boolean;
-  }
-  interface GxgGroup {
-    /**
-     * Makes this group has a border all around
-     */
-    displayBorder?: boolean;
-    /**
-     * Makes this group act as a fieldset
-     */
-    fieldset?: boolean;
-    /**
-     * The footer justification
-     */
-    footerJustify?: footerJustify;
-    /**
-     * The title of the group
-     */
-    groupTitle?: string;
-    /**
-     * The heading justification
-     */
-    headingJustify?: headingJustify;
-    /**
-     * Removes the component border on the bottom
-     */
-    noBorderBottom?: boolean;
-    /**
-     * Removes the component border on the end
-     */
-    noBorderEnd?: boolean;
-    /**
-     * Removes the border top from the footer
-     */
-    noBorderFooter?: boolean;
-    /**
-     * Removes the component border on the start
-     */
-    noBorderStart?: boolean;
-    /**
-     * Removes the component border on the top
-     */
-    noBorderTop?: boolean;
-    /**
-     * Removes the gap from the content
-     */
-    noContentGap?: boolean;
-    /**
-     * Removes the padding from the content
-     */
-    noContentPadding?: boolean;
-    /**
-     * Removes the padding from the footer
-     */
-    noFooterPadding?: boolean;
-    /**
-     * Removes the border bottom from the heading
-     */
-    noHeadingBorder?: boolean;
-    /**
-     * Removes the padding from the heading
-     */
-    noHeadingPadding?: boolean;
-    /**
-     * The group general padding (applies to .heading, .content, and .footer)
-     */
-    sectionsPadding?: sectionsPadding;
   }
   interface GxgIcon {
     /**
@@ -3891,6 +3891,7 @@ declare namespace LocalJSX {
     "gxg-columns": GxgColumns;
     "gxg-combo-box": GxgComboBox;
     "gxg-combo-box-item": GxgComboBoxItem;
+    "gxg-container": GxgContainer;
     "gxg-contextual-menu": GxgContextualMenu;
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
@@ -3908,7 +3909,6 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-grid": GxgGrid;
-    "gxg-group": GxgGroup;
     "gxg-icon": GxgIcon;
     "gxg-label": GxgLabel;
     "gxg-list-box": GxgListBox;
@@ -3983,6 +3983,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgComboBoxElement>;
       "gxg-combo-box-item": LocalJSX.GxgComboBoxItem &
         JSXBase.HTMLAttributes<HTMLGxgComboBoxItemElement>;
+      "gxg-container": LocalJSX.GxgContainer &
+        JSXBase.HTMLAttributes<HTMLGxgContainerElement>;
       "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
       "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &
@@ -4015,8 +4017,6 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
-      "gxg-group": LocalJSX.GxgGroup &
-        JSXBase.HTMLAttributes<HTMLGxgGroupElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
       "gxg-label": LocalJSX.GxgLabel &
         JSXBase.HTMLAttributes<HTMLGxgLabelElement>;
