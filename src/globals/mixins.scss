@@ -6,6 +6,20 @@ $ui-animaton-speed-fast: 0.1s;
 $ui-animaton-speed-slow: 0.5s;
 $ui-animation-timing-function: ease;
 
+/*ALIGNMENT*/
+@mixin gxg-flex-justify {
+  display: flex;
+  &--justify-start {
+    justify-content: start;
+  }
+  &--justify-center {
+    justify-content: center;
+  }
+  &--justify-end {
+    justify-content: end;
+  }
+}
+
 /*****************************************************
 TYPOGRAPHY
 *****************************************************/

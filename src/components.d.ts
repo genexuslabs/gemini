@@ -34,6 +34,11 @@ import {
   LabelPosition,
   Style,
 } from "./components/form-text/form-text";
+import {
+  footerJustify,
+  headingJustify,
+  sectionsPadding,
+} from "./components/group/group";
 import { Color as Color1, Size } from "./components/icon/icon";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
@@ -400,10 +405,6 @@ export namespace Components {
      * A function that will return true or false depending on wether the warning condition is met or not
      */
     warningCondition: Function;
-    /**
-     * The combo width
-     */
-    width: string;
   }
   interface GxgComboBoxItem {
     /**
@@ -851,6 +852,72 @@ export namespace Components {
   }
   interface GxgGrid {
     noBorder: boolean;
+  }
+  interface GxgGroup {
+    /**
+     * Makes this group has a border all around
+     */
+    displayBorder: boolean;
+    /**
+     * Makes this group act as a fieldset
+     */
+    fieldset: boolean;
+    /**
+     * The footer justification
+     */
+    footerJustify: footerJustify;
+    /**
+     * The title of the group
+     */
+    groupTitle: string;
+    /**
+     * The heading justification
+     */
+    headingJustify: headingJustify;
+    /**
+     * Removes the component border on the bottom
+     */
+    noBorderBottom: boolean;
+    /**
+     * Removes the component border on the end
+     */
+    noBorderEnd: boolean;
+    /**
+     * Removes the border top from the footer
+     */
+    noBorderFooter: boolean;
+    /**
+     * Removes the component border on the start
+     */
+    noBorderStart: boolean;
+    /**
+     * Removes the component border on the top
+     */
+    noBorderTop: boolean;
+    /**
+     * Removes the gap from the content
+     */
+    noContentGap: boolean;
+    /**
+     * Removes the padding from the content
+     */
+    noContentPadding: boolean;
+    /**
+     * Removes the padding from the footer
+     */
+    noFooterPadding: boolean;
+    /**
+     * Removes the border bottom from the heading
+     */
+    noHeadingBorder: boolean;
+    /**
+     * Removes the padding from the heading
+     */
+    noHeadingPadding: boolean;
+    /**
+     * The group general padding (applies to .heading, .content, and .footer)
+     */
+    sectionsPadding: sectionsPadding;
   }
   interface GxgIcon {
     /**
@@ -1357,6 +1424,7 @@ export namespace Components {
     name: string;
     show: boolean;
     showValidationMessage: boolean;
+    validate: () => Promise<boolean>;
   }
   interface GxgText {
     /**
@@ -1764,6 +1832,13 @@ declare global {
     prototype: HTMLGxgGridElement;
     new (): HTMLGxgGridElement;
   };
+  interface HTMLGxgGroupElement
+    extends Components.GxgGroup,
+      HTMLStencilElement {}
+  var HTMLGxgGroupElement: {
+    prototype: HTMLGxgGroupElement;
+    new (): HTMLGxgGroupElement;
+  };
   interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
   var HTMLGxgIconElement: {
     prototype: HTMLGxgIconElement;
@@ -2074,6 +2149,7 @@ declare global {
     "gxg-form-text": HTMLGxgFormTextElement;
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-grid": HTMLGxgGridElement;
+    "gxg-group": HTMLGxgGroupElement;
     "gxg-icon": HTMLGxgIconElement;
     "gxg-label": HTMLGxgLabelElement;
     "gxg-list-box": HTMLGxgListBoxElement;
@@ -2479,10 +2555,6 @@ declare namespace LocalJSX {
      * A function that will return true or false depending on wether the warning condition is met or not
      */
     warningCondition?: Function;
-    /**
-     * The combo width
-     */
-    width?: string;
   }
   interface GxgComboBoxItem {
     /**
@@ -2989,6 +3061,72 @@ declare namespace LocalJSX {
   }
   interface GxgGrid {
     noBorder?: boolean;
+  }
+  interface GxgGroup {
+    /**
+     * Makes this group has a border all around
+     */
+    displayBorder?: boolean;
+    /**
+     * Makes this group act as a fieldset
+     */
+    fieldset?: boolean;
+    /**
+     * The footer justification
+     */
+    footerJustify?: footerJustify;
+    /**
+     * The title of the group
+     */
+    groupTitle?: string;
+    /**
+     * The heading justification
+     */
+    headingJustify?: headingJustify;
+    /**
+     * Removes the component border on the bottom
+     */
+    noBorderBottom?: boolean;
+    /**
+     * Removes the component border on the end
+     */
+    noBorderEnd?: boolean;
+    /**
+     * Removes the border top from the footer
+     */
+    noBorderFooter?: boolean;
+    /**
+     * Removes the component border on the start
+     */
+    noBorderStart?: boolean;
+    /**
+     * Removes the component border on the top
+     */
+    noBorderTop?: boolean;
+    /**
+     * Removes the gap from the content
+     */
+    noContentGap?: boolean;
+    /**
+     * Removes the padding from the content
+     */
+    noContentPadding?: boolean;
+    /**
+     * Removes the padding from the footer
+     */
+    noFooterPadding?: boolean;
+    /**
+     * Removes the border bottom from the heading
+     */
+    noHeadingBorder?: boolean;
+    /**
+     * Removes the padding from the heading
+     */
+    noHeadingPadding?: boolean;
+    /**
+     * The group general padding (applies to .heading, .content, and .footer)
+     */
+    sectionsPadding?: sectionsPadding;
   }
   interface GxgIcon {
     /**
@@ -3770,6 +3908,7 @@ declare namespace LocalJSX {
     "gxg-form-text": GxgFormText;
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-grid": GxgGrid;
+    "gxg-group": GxgGroup;
     "gxg-icon": GxgIcon;
     "gxg-label": GxgLabel;
     "gxg-list-box": GxgListBox;
@@ -3876,6 +4015,8 @@ declare module "@stencil/core" {
       "gxg-form-textarea": LocalJSX.GxgFormTextarea &
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
+      "gxg-group": LocalJSX.GxgGroup &
+        JSXBase.HTMLAttributes<HTMLGxgGroupElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
       "gxg-label": LocalJSX.GxgLabel &
         JSXBase.HTMLAttributes<HTMLGxgLabelElement>;

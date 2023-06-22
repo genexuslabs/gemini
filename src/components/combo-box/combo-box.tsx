@@ -43,11 +43,6 @@ export class GxgComboBox implements FormComponent {
   @Prop() label: string = undefined;
 
   /**
-   * The combo width
-   */
-  @Prop() width = "240px";
-
-  /**
    * The combo min-width
    */
   @Prop() minWidth = "0";
@@ -613,11 +608,6 @@ export class GxgComboBox implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-        }}
-        style={{
-          width: this.width,
-          minWidth: this.minWidth,
-          maxWidth: this.maxWidth,
         }}
       >
         <div

@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import { Component, h, Host, Prop, State, Method } from "@stencil/core";
 //import { GxgComboBox } from "../combo-box/combo-box";
 //import { GxgFormSelect } from "../form-select/gxg-select";
 //import { GxgModal } from "../modal/modal";
@@ -14,6 +14,17 @@ export class GxgTest {
   @Prop() show = false;
   @Prop() showValidationMessage = false;
   @State() comboListArray = [];
+  private formText!: HTMLGxgFormTextElement;
+
+  @Method()
+  async validate(): Promise<boolean> {
+    //const isValid = this.validateData();
+    return true;
+  }
+
+  private validateText = () => {
+    this.formText.validate();
+  };
 
   render() {
     return (
@@ -22,25 +33,16 @@ export class GxgTest {
           large: state.large,
         }}
       >
-        <gxg-tabs height="100%" id="gxgTabs">
-          <gxg-tab-bar slot="tab-bar">
-            <gxg-tab-button
-              slot="tab-bar"
-              tab-label="apples"
-              tab="apples"
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab-label="bananas"
-              tab="bananas"
-              icon="gemini-tools/settings"
-            ></gxg-tab-button>
-          </gxg-tab-bar>
-          <gxg-tab tab="apples">
-            <div class="div-apples"></div>
-          </gxg-tab>
-          <gxg-tab tab="bananas"> </gxg-tab>
-        </gxg-tabs>
+        <gxg-form-text
+          value="uno"
+          minLength="5"
+          display-validation-styles
+          display-validation-message
+          ref={(el: HTMLGxgFormTextElement) =>
+            (this.formText = el as HTMLGxgFormTextElement)
+          }
+        ></gxg-form-text>
+        <gxg-button onClick={this.validateText}>Validate</gxg-button>
       </Host>
     );
   }

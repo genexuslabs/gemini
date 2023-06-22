@@ -26,6 +26,7 @@
   </head>
   <body>
     <gxg-form-text
+      id="first-form-text-1"
       id="first-form-text"
       label="Full name"
       label-position="top"
@@ -39,7 +40,24 @@
       display-validation-styles
       display-validation-message
     ></gxg-form-text>
-    <gxg-button id="validate-btn">Validate</gxg-button>
+    <gxg-button id="validate-btn-1">Validate</gxg-button>
+    <br />
+    <br />
+    <gxg-form-text
+      id="first-form-text-2"
+      label="Full name"
+      label-position="top"
+      placeholder="John Smith"
+      max-width="240px"
+      value="hola"
+      min-length="2"
+      pattern="^[a-z]{3}$"
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
+    ></gxg-form-text>
+    <gxg-button id="validate-btn-2">Validate</gxg-button>
 
     <hr />
     <br />
@@ -138,10 +156,15 @@
       });
 
       //validate
-      const firstFormText = document.getElementById("first-form-text");
-      const validateBtn = document.getElementById("validate-btn");
-      validateBtn.addEventListener("click", function () {
-        firstFormText.validate();
+      const firstFormText1 = document.getElementById("first-form-text-1");
+      const firstFormText2 = document.getElementById("first-form-text-2");
+      const validateBtn1 = document.getElementById("validate-btn-1");
+      const validateBtn2 = document.getElementById("validate-btn-2");
+      validateBtn1.addEventListener("click", function () {
+        firstFormText1.validate();
+      });
+      validateBtn2.addEventListener("click", function () {
+        firstFormText2.validate();
       });
     </script>
   </body>

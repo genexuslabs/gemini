@@ -29,8 +29,11 @@ function formHandleValidation(
   component: FormComponent,
   formElement: HTMLInputElement | HTMLTextAreaElement
 ): boolean {
+  console.log("component", component);
+  console.log("formElement", formElement.validity);
   const hasError = !formElement.validity.valid;
   if (hasError) {
+    console.log("hasError");
     component.validationMessage =
       component.validationMessage || formElement.validationMessage;
     return true;

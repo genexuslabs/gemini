@@ -223,6 +223,11 @@ END OF BOOTSTRAP
 /***********************
 CUSTOM STYLES
 ***********************/
+/*SEARCH INPUT*/
+.search-components {
+  background-color: transparent;
+}
+
 body {
   margin: 0;
   background-color: var(--color-background);
