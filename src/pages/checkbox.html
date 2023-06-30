@@ -19,6 +19,7 @@
     </style>
   </head>
   <body>
+    <!-- disabled -->
     <gxg-form-checkbox
       label="Show Inherited Classes"
       id="show-inherited-classes"
@@ -27,6 +28,43 @@
       information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
       display-validation-styles
       display-validation-message
+      disabled
+    ></gxg-form-checkbox>
+
+    <!-- disabled checked-->
+    <gxg-form-checkbox
+      label="Show Inherited Classes"
+      id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
+      disabled
+      checked
+    ></gxg-form-checkbox>
+
+    <!-- enabled -->
+    <gxg-form-checkbox
+      label="Show Inherited Classes"
+      id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
+    ></gxg-form-checkbox>
+
+    <!-- enabled checked -->
+    <gxg-form-checkbox
+      label="Show Inherited Classes"
+      id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
+      checked
     ></gxg-form-checkbox>
     <br />
     <gxg-button id="validate-btn">Validate</gxg-button>

@@ -22,7 +22,7 @@
     border-color: var(--gray-04) !important;
     pointer-events: none;
   }
-  input[disabled] + .checkmark:after {
+  input:checked[disabled] + .checkmark:after {
     border-color: var(--gray-04) !important;
   }
 }
