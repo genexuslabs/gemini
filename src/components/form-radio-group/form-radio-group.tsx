@@ -1,5 +1,14 @@
-import { Component, Prop, h, Listen, Element, Host } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Listen,
+  Element,
+  Host,
+  Watch,
+} from "@stencil/core";
 import { requiredLabel, formMessage } from "../../common/form";
+import { GxgFormRadio } from "../form-radio/form-radio";
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",
@@ -20,6 +29,16 @@ export class GxgFormRadioGroup {
   @Prop() label: string;
 
   /**
+   * The radio group checked radio value
+   */
+  @Prop({ reflect: true }) value: string;
+
+  /**
+   * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
+   */
+  @Prop() row: boolean;
+
+  /**
    * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
    *
    */
@@ -34,68 +53,43 @@ export class GxgFormRadioGroup {
   METHODS
   *********************************/
 
+  @Watch("value")
+  watchValueHandler(newValue: string) {
+    this.uncheckAll();
+    this.setNewRadio();
+  }
+
   @Listen("keyPressed")
   keyPressedHandler(event: CustomEvent) {
-    const currentActiveRadio = this.el.querySelector("gxg-form-radio[checked]");
-    currentActiveRadio.shadowRoot
-      .querySelector("input")
-      .setAttribute("tabindex", "-1");
-    currentActiveRadio.removeAttribute("checked");
-    if (event.detail.direction === "next") {
-      const nextSibling = currentActiveRadio.nextElementSibling;
-      if (nextSibling !== null) {
-        nextSibling.shadowRoot
-          .querySelector("input")
-          .setAttribute("tabindex", "0");
-        nextSibling.setAttribute("checked", "checked");
-        nextSibling.shadowRoot.querySelector("input").focus();
-      } else {
-        const firstRadio = this.el.querySelector("gxg-form-radio:first-child");
-        firstRadio.setAttribute("checked", "checked");
-        firstRadio.shadowRoot.querySelector("input").focus();
+    const key = event.detail;
+    const currentRadio = event.target;
+    let newRadio = null;
+    if (key === "ArrowDown" || key === "ArrowRight") {
+      newRadio = (currentRadio as HTMLGxgFormRadioElement).nextElementSibling;
+    } else if (key === "ArrowUp" || key === "ArrowLeft") {
+      newRadio = (currentRadio as HTMLGxgFormRadioElement)
+        .previousElementSibling;
+    } else if (key === "Enter") {
+      const gxgFormRadio = currentRadio as HTMLGxgFormRadioElement;
+      if (!gxgFormRadio.checked) {
+        this.value = gxgFormRadio.value;
       }
-    } else if (event.detail.direction === "previous") {
-      const prevSibling = currentActiveRadio.previousElementSibling;
-      if (prevSibling !== null) {
-        prevSibling.shadowRoot
-          .querySelector("input")
-          .setAttribute("tabindex", "0");
-        prevSibling.setAttribute("checked", "checked");
-        prevSibling.shadowRoot.querySelector("input").focus();
-      } else {
-        const lastRadio = this.el.querySelector("gxg-form-radio:last-child");
-        lastRadio.setAttribute("checked", "checked");
-        lastRadio.shadowRoot.querySelector("input").focus();
-      }
+    }
+    if (newRadio) {
+      newRadio.focus();
     }
   }
 
-  @Listen("changeInternal")
-  radioClickedHandler(event: CustomEvent) {
-    const radioButtonsNodeList = this.el.querySelectorAll("gxg-form-radio");
-
-    radioButtonsNodeList.forEach(function (currentRadio) {
-      if (event.detail["id"] === currentRadio.getAttribute("radio-id")) {
-        currentRadio.setAttribute("checked", "checked");
-        currentRadio.shadowRoot
-          .querySelector("input")
-          .setAttribute("tabindex", "0");
-      } else {
-        currentRadio.removeAttribute("checked");
-        currentRadio.shadowRoot.querySelector("input");
-        currentRadio.shadowRoot
-          .querySelector("input")
-          .setAttribute("tabindex", "-1");
-      }
-    }, "myThisArg");
+  @Listen("radioClicked")
+  radioClickedHandler(event: CustomEvent): void {
+    this.value = (event.target as HTMLGxgFormRadioElement).value;
   }
 
   componentDidLoad() {
-    const firstRadioButton = this.el.querySelector("gxg-option:first-child");
-    firstRadioButton.setAttribute("required", "required");
+    this.setInitialValue();
   }
 
-  labelFunc() {
+  renderLabel() {
     if (this.label) {
       return (
         <gxg-label class="label">
@@ -106,11 +100,60 @@ export class GxgFormRadioGroup {
     }
   }
 
+  private uncheckAll = (): void => {
+    const currentChecked = this.el.querySelectorAll("gxg-form-radio[checked]");
+    currentChecked.forEach((radio) => {
+      (radio as HTMLGxgFormRadioElement).checked = false;
+    });
+  };
+
+  private setNewRadio = (): void => {
+    const radios = this.el.querySelectorAll("gxg-form-radio");
+    for (let index = 0; index < radios.length; index++) {
+      const gxgFormRadio = radios[index] as HTMLGxgFormRadioElement;
+      if (this.value === gxgFormRadio.value) {
+        gxgFormRadio.checked = true;
+        break;
+      }
+    }
+  };
+
+  private setInitialValue = (): void => {
+    const checkedRadios = this.el.querySelectorAll("gxg-form-radio[checked]");
+    if (this.value) {
+      if (checkedRadios.length > 0) {
+        this.uncheckAll();
+      }
+      this.setNewRadio();
+    } else {
+      let newRadio = null;
+      if (checkedRadios.length === 0) {
+        newRadio = this.el.querySelector(
+          "gxg-form-radio"
+        ) as HTMLGxgFormRadioElement;
+      } else {
+        newRadio = this.el.querySelector(
+          "gxg-form-radio[checked]"
+        ) as HTMLGxgFormRadioElement;
+      }
+      if (newRadio && newRadio.value) {
+        this.value = newRadio.value;
+      }
+    }
+  };
+
   render() {
     return (
-      <Host>
-        {this.labelFunc()}
-        <slot></slot>
+      <Host
+        class={{
+          "gxg-form-radio-group": true,
+          "gxg-form-radio-group--row": this.row,
+        }}
+      >
+        {this.renderLabel()}
+        <div class="radios-wrapper">
+          <slot></slot>
+        </div>
         {formMessage(
           this.showValidationMessage ? (
             <gxg-form-message type="error" key="required-error">

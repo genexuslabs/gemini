@@ -12,7 +12,7 @@ import {
 @Component({
   tag: "gxg-form-radio",
   styleUrl: "form-radio.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgFormRadio {
   /**
@@ -27,7 +27,7 @@ export class GxgFormRadio {
   /**
    * (This event is for internal use)
    */
-  @Event() changeInternal: EventEmitter;
+  @Event() radioClicked: EventEmitter;
   /**
    * (This event is for internal use)
    */
@@ -100,37 +100,17 @@ export class GxgFormRadio {
     }
   }
 
-  selectRadio() {
-    this.changeInternal.emit({
-      id: this.RadioId,
-      value: this.value,
-    });
-  }
+  private clickedHandler = () => {
+    this.radioClicked.emit();
+  };
 
   handlerOnKeyDown(event) {
-    if (event.keyCode == 9) {
-      //tab key was pressed
-      if (event.shiftKey) {
-        //shift key was also pressed
-        this.keyPressed.emit({ direction: "previous-tab" });
-      } else {
-        this.keyPressed.emit({ direction: "next-tab" });
-      }
-    } else if (event.keyCode == 37 || event.keyCode == 38) {
-      //arrow-left, or arrow-up key was pressed. focus should be positioned on the previous radiobtn.
-      event.preventDefault();
-      this.keyPressed.emit({ direction: "previous" });
-    }
-    if (event.keyCode == 39 || event.keyCode == 40) {
-      //arrow-right, or arrow-down key was pressed. focus should be positioned on the next radiobtn
-      event.preventDefault();
-      this.keyPressed.emit({ direction: "next" });
-    }
+    this.keyPressed.emit(event.key);
   }
 
   render() {
     return (
-      <Host onClick={this.selectRadio.bind(this)}>
+      <Host onClick={this.clickedHandler}>
         <gxg-label noMargin class="label">
           <input
             ref={(el) => (this.radioInput = el as HTMLInputElement)}

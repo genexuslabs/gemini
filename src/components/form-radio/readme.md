@@ -31,13 +31,17 @@
 
 ## Events
 
-| Event            | Description                                          | Type               |
-| ---------------- | ---------------------------------------------------- | ------------------ |
-| `change`         | Returns an object with the radio value, and radio id | `CustomEvent<any>` |
-| `changeInternal` | (This event is for internal use)                     | `CustomEvent<any>` |
-| `keyPressed`     | (This event is for internal use)                     | `CustomEvent<any>` |
+| Event          | Description                                          | Type               |
+| -------------- | ---------------------------------------------------- | ------------------ |
+| `change`       | Returns an object with the radio value, and radio id | `CustomEvent<any>` |
+| `keyPressed`   | (This event is for internal use)                     | `CustomEvent<any>` |
+| `radioClicked` | (This event is for internal use)                     | `CustomEvent<any>` |
 
 ## Dependencies
+
+### Used by
+
+- [gxg-test](../test)
 
 ### Depends on
 
@@ -48,6 +52,7 @@
 ```mermaid
 graph TD;
   gxg-form-radio --> gxg-label
+  gxg-test --> gxg-form-radio
   style gxg-form-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

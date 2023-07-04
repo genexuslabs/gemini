@@ -752,9 +752,17 @@ export namespace Components {
      */
     required: boolean;
     /**
+     * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
+     */
+    row: boolean;
+    /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     validationMessage: string;
+    /**
+     * The radio group checked radio value
+     */
+    value: string;
   }
   interface GxgFormText {
     /**
@@ -2925,11 +2933,11 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use)
      */
-    onChangeInternal?: (event: CustomEvent<any>) => void;
+    onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
      * (This event is for internal use)
      */
-    onKeyPressed?: (event: CustomEvent<any>) => void;
+    onRadioClicked?: (event: CustomEvent<any>) => void;
     /**
      * The radio value
      */
@@ -2945,9 +2953,17 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
+     * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
+     */
+    row?: boolean;
+    /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     validationMessage?: string;
+    /**
+     * The radio group checked radio value
+     */
+    value?: string;
   }
   interface GxgFormText {
     /**

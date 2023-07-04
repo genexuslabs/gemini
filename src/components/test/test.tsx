@@ -33,7 +33,33 @@ export class GxgTest {
           large: state.large,
         }}
       >
-        <gxg-form-text
+        <gxg-form-radio-group label="my favorite color">
+          <gxg-form-radio
+            label="red"
+            name="colors"
+            value="red"
+            radio-id="red"
+          ></gxg-form-radio>
+          <gxg-form-radio
+            label="blue"
+            name="colors"
+            value="blue"
+            radio-id="blue"
+          ></gxg-form-radio>
+          <gxg-form-radio
+            label="green"
+            name="colors"
+            value="green"
+            radio-id="green"
+          ></gxg-form-radio>
+          <gxg-form-radio
+            label="yellow"
+            name="colors"
+            value="yellow"
+            radio-id="yellow"
+          ></gxg-form-radio>
+        </gxg-form-radio-group>
+        {/* <gxg-form-text
           value="uno"
           minLength="5"
           display-validation-styles
@@ -42,7 +68,7 @@ export class GxgTest {
             (this.formText = el as HTMLGxgFormTextElement)
           }
         ></gxg-form-text>
-        <gxg-button onClick={this.validateText}>Validate</gxg-button>
+        <gxg-button onClick={this.validateText}>Validate</gxg-button> */}
       </Host>
     );
   }

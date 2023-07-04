@@ -2,18 +2,23 @@
 @import "../../globals/mixins";
 
 :host {
-  display: inline-flex;
-  flex-direction: column;
-  ::slotted(gxg-form-radio) {
-    margin-bottom: var(--spacing-comp-02);
-    display: inline-flex;
-  }
-  ::slotted(gxg-form-radio:last-of-type) {
-    margin-bottom: 0;
-  }
+  display: block;
   .label {
     @include form-element-common-styles-label-group();
     display: inline-block;
+    margin-bottom: var(--spacing-comp-02);
+  }
+  .radios-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-comp-02);
+  }
+}
+:host(.gxg-form-radio-group--row) {
+  .radios-wrapper {
+    flex-direction: row;
+    gap: var(--spacing-comp-04);
+    align-items: center;
   }
 }
 :host .required {

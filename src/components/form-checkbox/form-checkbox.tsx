@@ -13,6 +13,7 @@ import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classes-names";
 import state from "../store";
+import { JSXElement } from "@babel/types";
 
 @Component({
   tag: "gxg-form-checkbox",
@@ -225,6 +226,36 @@ export class GxgFormCheckbox implements FormComponent {
     }
   }
 
+  private renderCheckbox = (): JSXElement[] => {
+    return [
+      <input
+        ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
+        type="checkbox"
+        checked={this.checked}
+        class="input"
+        id={this.checkboxId}
+        name={this.name}
+        value={this.value}
+        disabled={this.disabled}
+        onChange={this.changed.bind(this)}
+        onKeyUp={this.handlerOnKeyUp.bind(this)}
+        tabindex="0"
+        onClick={this.handleInputClick}
+      ></input>,
+      <span
+        class={{
+          checkmark: true,
+          "no-label": !this.label,
+          "has-icon": !!this.iconName,
+          "form-element": true,
+        }}
+        role="checkbox"
+      ></span>,
+      this.icon(),
+      this.label,
+    ];
+  };
+
   render() {
     return (
       <Host
@@ -249,33 +280,13 @@ export class GxgFormCheckbox implements FormComponent {
         <div class="gxg-form-checkbox__wrapper">
           {this.label ? (
             <gxg-label class="label" onClick={this.handleGxgLabelClick}>
-              <input
-                ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
-                type="checkbox"
-                checked={this.checked}
-                class="input"
-                id={this.checkboxId}
-                name={this.name}
-                value={this.value}
-                disabled={this.disabled}
-                onChange={this.changed.bind(this)}
-                onKeyUp={this.handlerOnKeyUp.bind(this)}
-                tabindex="0"
-                onClick={this.handleInputClick}
-              ></input>
-              <span
-                class={{
-                  checkmark: true,
-                  "no-label": !this.label,
-                  "has-icon": !!this.iconName,
-                  "form-element": true,
-                }}
-                role="checkbox"
-              ></span>
-              {this.icon()}
-              {this.label}
+              {this.renderCheckbox()}
             </gxg-label>
-          ) : null}
+          ) : (
+            <div class="wrapper" onClick={this.handleGxgLabelClick}>
+              {this.renderCheckbox()}
+            </div>
+          )}
         </div>
         {this.formMessageLogic(this)}
       </Host>

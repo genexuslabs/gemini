@@ -37,7 +37,8 @@
 
 :host {
   /* The label */
-  .label {
+  .label,
+  .wrapper {
     display: flex;
     align-items: center;
     position: relative;
@@ -48,7 +49,7 @@
     @include form-element-common-styles-label-required();
   }
   /* Hide the browser's default checkbox */
-  .label input {
+  input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -96,19 +97,19 @@
     display: none;
   }
 
-  .label input ~ .checkmark:after {
+  input ~ .checkmark:after {
     display: block;
     border-color: transparent;
   }
   /* Show the checkmark when checked */
-  .label input:checked ~ .checkmark:after {
+  input:checked ~ .checkmark:after {
     display: block;
     border-color: var(--checkmark-border-color);
     @include ui-animation(border-color);
   }
 
   /* Style the checkmark/indicator */
-  .label .checkmark:after {
+  .checkmark:after {
     left: 5px;
     top: 2px;
     width: 3px;

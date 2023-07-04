@@ -16,10 +16,47 @@
       html.dark {
         background-color: #1d1e22;
       }
+      body {
+        font-family: var(--font-family-primary);
+      }
+      span {
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 4px;
+        display: inline-block;
+      }
+      gxg-form-checkbox {
+        display: block;
+        margin-bottom: 16px;
+      }
     </style>
   </head>
   <body>
+    <!-- no label enabled -->
+    <span>no label enabled</span>
+    <gxg-form-checkbox
+      id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
+    ></gxg-form-checkbox>
+
+    <!-- no label disabled -->
+    <span>no label disabled</span>
+    <gxg-form-checkbox
+      id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+      display-validation-message
+      disabled
+    ></gxg-form-checkbox>
+
     <!-- disabled -->
+    <span>disabled</span>
     <gxg-form-checkbox
       label="Show Inherited Classes"
       id="show-inherited-classes"
@@ -32,6 +69,7 @@
     ></gxg-form-checkbox>
 
     <!-- disabled checked-->
+    <span>disabled checked</span>
     <gxg-form-checkbox
       label="Show Inherited Classes"
       id="show-inherited-classes"
@@ -45,6 +83,7 @@
     ></gxg-form-checkbox>
 
     <!-- enabled -->
+    <span>enabled</span>
     <gxg-form-checkbox
       label="Show Inherited Classes"
       id="show-inherited-classes"
@@ -56,6 +95,7 @@
     ></gxg-form-checkbox>
 
     <!-- enabled checked -->
+    <span>enabled checked</span>
     <gxg-form-checkbox
       label="Show Inherited Classes"
       id="show-inherited-classes"
