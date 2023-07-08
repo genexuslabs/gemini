@@ -34,20 +34,26 @@ btnShowErrors.addEventListener("click", function(){
 
 ## Properties
 
-| Property                | Attribute                 | Description                                                                                                                                                    | Type      | Default     |
-| ----------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`              | `disabled`                | The presence of this attribute makes the textarea disabled                                                                                                     | `boolean` | `false`     |
-| `error`                 | `error`                   | The presence of this attribute gives the component error styles                                                                                                | `boolean` | `false`     |
-| `height`                | `height`                  | The textarea height                                                                                                                                            | `string`  | `"auto"`    |
-| `hideValidationMessage` | `hide-validation-message` | The presence of this attribute will show a validation message if the input has an error                                                                        | `boolean` | `false`     |
-| `label`                 | `label`                   | The textarea label                                                                                                                                             | `string`  | `undefined` |
-| `maxWidth`              | `max-width`               | The max-width                                                                                                                                                  | `string`  | `"100%"`    |
-| `placeholder`           | `placeholder`             | The textarea placeholder                                                                                                                                       | `string`  | `undefined` |
-| `required`              | `required`                | The presence of this attribute makes the textarea required                                                                                                     | `boolean` | `false`     |
-| `rows`                  | `rows`                    | The number of rows                                                                                                                                             | `number`  | `4`         |
-| `validationMessage`     | `validation-message`      | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`  | `undefined` |
-| `value`                 | `value`                   | The textarea value                                                                                                                                             | `string`  | `undefined` |
-| `warning`               | `warning`                 | The presence of this attribute gives the component warning styles                                                                                              | `boolean` | `false`     |
+| Property                   | Attribute                    | Description                                                                                                                                                    | Type                                                   | Default     |
+| -------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `disabled`                 | `disabled`                   | The presence of this attribute makes the component disabled                                                                                                    | `boolean`                                              | `false`     |
+| `displayValidationMessage` | `display-validation-message` | The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status                     | `boolean`                                              | `false`     |
+| `displayValidationStyles`  | `display-validation-styles`  | The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status                     | `boolean`                                              | `false`     |
+| `error`                    | `error`                      | The presence of this attribute gives the component error styles                                                                                                | `boolean`                                              | `false`     |
+| `errorCondition`           | --                           | A function that will return true or false depending on wether the error condition is met or not                                                                | `Function`                                             | `undefined` |
+| `height`                   | `height`                     | The textarea height                                                                                                                                            | `string`                                               | `"auto"`    |
+| `hideValidationMessage`    | `hide-validation-message`    | The presence of this attribute will show a validation message if the input has an error                                                                        | `boolean`                                              | `false`     |
+| `informationMessage`       | `information-message`        | An informative message to help the user filling the information                                                                                                | `string`                                               | `undefined` |
+| `label`                    | `label`                      | The textarea label                                                                                                                                             | `string`                                               | `undefined` |
+| `maxWidth`                 | `max-width`                  | The max-width                                                                                                                                                  | `string`                                               | `"100%"`    |
+| `placeholder`              | `placeholder`                | The textarea placeholder                                                                                                                                       | `string`                                               | `undefined` |
+| `required`                 | `required`                   | Make the radio-buttons required                                                                                                                                | `boolean`                                              | `false`     |
+| `rows`                     | `rows`                       | The number of rows                                                                                                                                             | `number`                                               | `4`         |
+| `validationMessage`        | `validation-message`         | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`                                               | `undefined` |
+| `validationStatus`         | `validation-status`          | The validation status                                                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `undefined` |
+| `value`                    | `value`                      | The textarea value                                                                                                                                             | `string`                                               | `undefined` |
+| `warning`                  | `warning`                    | The presence of this attribute gives the component warning styles                                                                                              | `boolean`                                              | `false`     |
+| `warningCondition`         | --                           | A function that will return true or false depending on wether the warning condition is met or not                                                              | `Function`                                             | `undefined` |
 
 ## Events
 
@@ -55,6 +61,20 @@ btnShowErrors.addEventListener("click", function(){
 | -------- | -------------------------- | ------------------ |
 | `change` | Returns the textarea value | `CustomEvent<any>` |
 | `input`  | Returns the textarea value | `CustomEvent<any>` |
+
+## Methods
+
+### `validate() => Promise<boolean>`
+
+---
+
+METHODS
+
+---
+
+#### Returns
+
+Type: `Promise<boolean>`
 
 ## Dependencies
 

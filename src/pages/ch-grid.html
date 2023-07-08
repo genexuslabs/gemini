@@ -43,8 +43,45 @@
           ></ch-grid-column>
         </ch-grid-columnset>
         <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
-          <ch-grid-cell> 100 </ch-grid-cell>
+          <ch-grid-cell>
+            <gxg-combo-box
+              value="bpms"
+              id="gxgCombo2"
+              label="This is the label"
+            >
+              <gxg-combo-box-item>Commondasdsa 1</gxg-combo-box-item>
+              <gxg-combo-box-item
+                value="bpm"
+                icon="objects/business-process-diagram"
+                >BPM</gxg-combo-box-item
+              >
+              <gxg-combo-box-item
+                value="chatbots"
+                icon="objects/conversational-flows"
+                >Chatbots</gxg-combo-box-item
+              >
+              <gxg-combo-box-item icon="objects/data-provider"
+                >Data Management</gxg-combo-box-item
+              >
+              <gxg-combo-box-item value="resources" icon="objects/bg-color"
+                >Resources</gxg-combo-box-item
+              >
+            </gxg-combo-box>
+          </ch-grid-cell>
+          <ch-grid-cell>
+            <gxg-drop-down
+              icon="general/generator"
+              id="gxg-drop-down"
+              label="Module/Folder:"
+              above
+              width="100%"
+            >
+              <span slot="button">Hello World!</span>
+              contenido html de la ventana que se despliega. contenido html de
+              la ventana que se despliega. contenido html de la ventana que se
+              despliega.contenido html de la ventana que se despliega.
+            </gxg-drop-down>
+          </ch-grid-cell>
           <ch-grid-cell> Montevideo </ch-grid-cell>
         </ch-grid-row>
         <ch-grid-row>

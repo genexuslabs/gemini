@@ -43,6 +43,13 @@
   }
 }
 
+/*********************************************
+VALIDATION
+**********************************************/
+.messages-wrapper {
+  @include messages-wrapper();
+}
+
 :host(.large) {
   font-size: var(--font-size-lg);
 }

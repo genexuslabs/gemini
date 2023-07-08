@@ -1,5 +1,6 @@
 @import "../../globals/normalize";
 @import "../../globals/mixins";
+@import "../../globals/form-validation";
 
 :host {
   gxg-form-text::part(input) {
@@ -95,6 +96,12 @@
     transform: translateY(calc(-100% - 24px));
     border-top-width: 1px;
   }
+}
+/*********************************************
+VALIDATION
+**********************************************/
+.messages-wrapper {
+  @include messages-wrapper();
 }
 
 /*********************************************

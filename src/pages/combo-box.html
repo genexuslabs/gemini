@@ -329,6 +329,12 @@
           return true;
         }
       };
+      gxgComboValidate.setAttribute(
+        "validation-message",
+        "This is an error message"
+      );
+      gxgComboValidate.setAttribute("display-validation-styles", true);
+      gxgComboValidate.setAttribute("display-validation-message", true);
       const validateBtn = document.getElementById("validate-btn");
       validateBtn.addEventListener("click", function () {
         gxgComboValidate.validate();

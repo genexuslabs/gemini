@@ -29,11 +29,8 @@ function formHandleValidation(
   component: FormComponent,
   formElement: HTMLInputElement | HTMLTextAreaElement
 ): boolean {
-  console.log("component", component);
-  console.log("formElement", formElement.validity);
   const hasError = !formElement.validity.valid;
   if (hasError) {
-    console.log("hasError");
     component.validationMessage =
       component.validationMessage || formElement.validationMessage;
     return true;
@@ -46,14 +43,17 @@ function formMessageLogic(comp: FormComponent): JSX.Element {
   {
     return comp.informationMessage ||
       (comp.displayValidationMessage &&
-        comp.validationStatus === ("error" || "warning"))
+        (comp.validationStatus === "error" ||
+          comp.validationStatus === "warning"))
       ? formMessage([
           comp.informationMessage ? (
             <gxg-form-message type="indeterminate">
               {comp.informationMessage}
             </gxg-form-message>
           ) : null,
-          comp.validationStatus === ("error" || "warning") ? (
+          comp.displayValidationMessage &&
+          (comp.validationStatus === "error" ||
+            comp.validationStatus === "warning") ? (
             <gxg-form-message type={comp.validationStatus}>
               {comp.validationMessage}
             </gxg-form-message>

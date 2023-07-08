@@ -1,5 +1,6 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+@import "../../globals/form-validation";
 
 :host {
   display: flex;
@@ -59,6 +60,13 @@ TEXTAREA
       @include form-element-common-styles-warning-focus();
     }
   }
+}
+
+/*********************************************
+VALIDATION
+**********************************************/
+.messages-wrapper {
+  @include messages-wrapper();
 }
 
 /*********************************************

@@ -14,6 +14,9 @@
     gap: var(--spacing-comp-02);
   }
 }
+.messages-wrapper {
+  @include messages-wrapper();
+}
 :host(.gxg-form-radio-group--row) {
   .radios-wrapper {
     flex-direction: row;

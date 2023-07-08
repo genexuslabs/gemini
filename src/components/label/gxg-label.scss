@@ -20,6 +20,12 @@
 :host(.no-margin) {
   margin: 0 !important;
 }
+/*DISABLED*/
+:host([disabled]) {
+  label {
+    color: var(--gxg-text-color-on-primary--disabled);
+  }
+}
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/

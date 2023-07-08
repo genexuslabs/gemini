@@ -54,7 +54,7 @@ export class GxgFormRadio {
   /**
    * The presence of this attribute disables the radio
    */
-  @Prop() disabled = false;
+  @Prop({ reflect: true }) disabled = false;
 
   /**
    * The radio label
@@ -110,8 +110,11 @@ export class GxgFormRadio {
 
   render() {
     return (
-      <Host onClick={this.clickedHandler}>
-        <gxg-label noMargin class="label">
+      <Host
+        onClick={this.clickedHandler}
+        class={{ "gxg-form-radio--disabled": this.disabled }}
+      >
+        <gxg-label noMargin class="label" disabled={this.disabled}>
           <input
             ref={(el) => (this.radioInput = el as HTMLInputElement)}
             type="radio"

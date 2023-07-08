@@ -165,7 +165,7 @@ export class GxgComboBox implements FormComponent {
   private detectClickOutsideCombo = this.detectClickOutsideComboFunc.bind(this);
   private detectMouseScroll = this.detectMouseScrollFunc.bind(this);
 
-  componentDidUpdate() {
+  componentDidUpdate(): void {
     const itemsContainerIsOverflowing = this.itemsContainerBottomOverflows();
     if (itemsContainerIsOverflowing) {
       this.el.classList.add("position-top");
@@ -176,16 +176,16 @@ export class GxgComboBox implements FormComponent {
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.lastSetValueByUser = this.value;
     if (this.value !== undefined) {
       this.tryToSetItem(this.value);
     }
   }
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.resizeObserver();
   }
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
     document.removeEventListener("scroll", this.detectMouseScroll, true);
@@ -268,21 +268,21 @@ export class GxgComboBox implements FormComponent {
   *********************************/
 
   @Listen("itemSelected")
-  itemSelectedHandler(event) {
+  itemSelectedHandler(event): void {
     this.selectionProgramatic = false;
     this.value = event.detail.value;
     this.clearIconsColor();
   }
 
   @Listen("itemDidLoad")
-  itemDidLoadHandler(event) {
+  itemDidLoadHandler(event): void {
     if (this.lastSetValueByUser === event.detail.value && this.strict) {
       this.tryToSetItem(event.detail.value);
     }
   }
 
   @Listen("keyDownComboItem")
-  keyDownComboItemHandler(event) {
+  keyDownComboItemHandler(event): void {
     event.stopPropagation();
     if (event.detail === "ArrowUp") {
       ((this.gxgFormText as unknown) as HTMLElement).focus();
@@ -292,7 +292,7 @@ export class GxgComboBox implements FormComponent {
     }
   }
 
-  onInputGxgformText(e) {
+  onInputGxgformText(e): void {
     this.userTyped = true;
     this.showItems = true;
     this.inputTextValue = e.detail;
@@ -598,16 +598,6 @@ export class GxgComboBox implements FormComponent {
         class={{
           "filter-disabled": this.disableFilter,
           large: state.large,
-          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-            .displayValidationStyles,
-          [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
-            this.validationStatus === "indeterminate",
-          [formClasses["VALIDATION_WARNING_CLASS"]]:
-            this.validationStatus === "warning",
-          [formClasses["VALIDATION_ERROR_CLASS"]]:
-            this.validationStatus === "error",
-          [formClasses["VALIDATION_SUCCESS_CLASS"]]:
-            this.validationStatus === "success",
         }}
       >
         <div
@@ -631,7 +621,19 @@ export class GxgComboBox implements FormComponent {
               ref={(el) => (this.gxgFormText = el as HTMLGxgFormTextElement)}
               displayValidationStyles={this.displayValidationStyles}
               validationStatus={this.validationStatus}
-              class={{ "clear-icon": clearIcon }}
+              class={{
+                "clear-icon": clearIcon,
+                [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
+                  .displayValidationStyles,
+                [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
+                  this.validationStatus === "indeterminate",
+                [formClasses["VALIDATION_WARNING_CLASS"]]:
+                  this.validationStatus === "warning",
+                [formClasses["VALIDATION_ERROR_CLASS"]]:
+                  this.validationStatus === "error",
+                [formClasses["VALIDATION_SUCCESS_CLASS"]]:
+                  this.validationStatus === "success",
+              }}
             ></gxg-form-text>
             <div class="buttons-wrapper">
               {this.inputTextValue !== "" &&

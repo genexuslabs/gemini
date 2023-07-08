@@ -744,6 +744,26 @@ export namespace Components {
   }
   interface GxgFormRadioGroup {
     /**
+     * The presence of this attribute makes the input disabled
+     */
+    disabled: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationMessage: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationStyles: boolean;
+    /**
+     * A function that will return true or false depending on wether the error condition is met or not
+     */
+    errorCondition: Function;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage: string;
+    /**
      * The radio group label
      */
     label: string;
@@ -756,13 +776,25 @@ export namespace Components {
      */
     row: boolean;
     /**
+     * ******************************* METHODS *******************************
+     */
+    validate: () => Promise<boolean>;
+    /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     validationMessage: string;
     /**
+     * The validation status
+     */
+    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    /**
      * The radio group checked radio value
      */
     value: string;
+    /**
+     * A function that will return true or false depending on wether the warning condition is met or not
+     */
+    warningCondition: Function;
   }
   interface GxgFormText {
     /**
@@ -876,13 +908,25 @@ export namespace Components {
   }
   interface GxgFormTextarea {
     /**
-     * The presence of this attribute makes the textarea disabled
+     * The presence of this attribute makes the component disabled
      */
     disabled: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationMessage: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationStyles: boolean;
     /**
      * The presence of this attribute gives the component error styles
      */
     error: boolean;
+    /**
+     * A function that will return true or false depending on wether the error condition is met or not
+     */
+    errorCondition: Function;
     /**
      * The textarea height
      */
@@ -891,6 +935,10 @@ export namespace Components {
      * The presence of this attribute will show a validation message if the input has an error
      */
     hideValidationMessage: boolean;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage: string;
     /**
      * The textarea label
      */
@@ -904,7 +952,7 @@ export namespace Components {
      */
     placeholder: string;
     /**
-     * The presence of this attribute makes the textarea required
+     * Make the radio-buttons required
      */
     required: boolean;
     /**
@@ -912,9 +960,17 @@ export namespace Components {
      */
     rows: number;
     /**
+     * ******************************* METHODS *******************************
+     */
+    validate: () => Promise<boolean>;
+    /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     validationMessage: string;
+    /**
+     * The validation status
+     */
+    validationStatus: "indeterminate" | "warning" | "error" | "success";
     /**
      * The textarea value
      */
@@ -923,6 +979,10 @@ export namespace Components {
      * The presence of this attribute gives the component warning styles
      */
     warning: boolean;
+    /**
+     * A function that will return true or false depending on wether the warning condition is met or not
+     */
+    warningCondition: Function;
   }
   interface GxgGrid {
     noBorder: boolean;
@@ -942,6 +1002,7 @@ export namespace Components {
     type: any;
   }
   interface GxgLabel {
+    disabled: boolean;
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
@@ -950,14 +1011,38 @@ export namespace Components {
   }
   interface GxgListBox {
     /**
+     * The prescence of this attribute allows the list-box to not have any list-box-item selected
+     */
+    allowsEmptySelection: boolean;
+    /**
      * The prescence of this attribute will display a checkbox for every item
      */
     checkboxes: boolean;
+    /**
+     * The presence of this attribute makes the component disabled
+     */
+    disabled: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationMessage: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationStyles: boolean;
+    /**
+     * A function that will return true or false depending on wether the error condition is met or not
+     */
+    errorCondition: Function;
     getSelectedItems: () => Promise<any[]>;
     /**
      * The list-box height
      */
     height: string;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage: string;
     /**
      * The list-box max-width
      */
@@ -967,6 +1052,10 @@ export namespace Components {
      */
     minWidth: string;
     /**
+     * Make the radio-buttons required
+     */
+    required: boolean;
+    /**
      * The prescence of this attribute will deactivate multi-selection
      */
     singleSelection: boolean;
@@ -974,6 +1063,22 @@ export namespace Components {
      * The listbox title that appears on the header
      */
     theTitle: string;
+    /**
+     * ******************************* METHODS *******************************
+     */
+    validate: () => Promise<boolean>;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage: string;
+    /**
+     * The validation status
+     */
+    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    /**
+     * A function that will return true or false depending on wether the warning condition is met or not
+     */
+    warningCondition: Function;
     /**
      * The list-box width
      */
@@ -2945,6 +3050,26 @@ declare namespace LocalJSX {
   }
   interface GxgFormRadioGroup {
     /**
+     * The presence of this attribute makes the input disabled
+     */
+    disabled?: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationMessage?: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationStyles?: boolean;
+    /**
+     * A function that will return true or false depending on wether the error condition is met or not
+     */
+    errorCondition?: Function;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage?: string;
+    /**
      * The radio group label
      */
     label?: string;
@@ -2961,9 +3086,17 @@ declare namespace LocalJSX {
      */
     validationMessage?: string;
     /**
+     * The validation status
+     */
+    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    /**
      * The radio group checked radio value
      */
     value?: string;
+    /**
+     * A function that will return true or false depending on wether the warning condition is met or not
+     */
+    warningCondition?: Function;
   }
   interface GxgFormText {
     /**
@@ -3085,13 +3218,25 @@ declare namespace LocalJSX {
   }
   interface GxgFormTextarea {
     /**
-     * The presence of this attribute makes the textarea disabled
+     * The presence of this attribute makes the component disabled
      */
     disabled?: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationMessage?: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationStyles?: boolean;
     /**
      * The presence of this attribute gives the component error styles
      */
     error?: boolean;
+    /**
+     * A function that will return true or false depending on wether the error condition is met or not
+     */
+    errorCondition?: Function;
     /**
      * The textarea height
      */
@@ -3100,6 +3245,10 @@ declare namespace LocalJSX {
      * The presence of this attribute will show a validation message if the input has an error
      */
     hideValidationMessage?: boolean;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage?: string;
     /**
      * The textarea label
      */
@@ -3121,7 +3270,7 @@ declare namespace LocalJSX {
      */
     placeholder?: string;
     /**
-     * The presence of this attribute makes the textarea required
+     * Make the radio-buttons required
      */
     required?: boolean;
     /**
@@ -3133,6 +3282,10 @@ declare namespace LocalJSX {
      */
     validationMessage?: string;
     /**
+     * The validation status
+     */
+    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    /**
      * The textarea value
      */
     value?: string;
@@ -3140,6 +3293,10 @@ declare namespace LocalJSX {
      * The presence of this attribute gives the component warning styles
      */
     warning?: boolean;
+    /**
+     * A function that will return true or false depending on wether the warning condition is met or not
+     */
+    warningCondition?: Function;
   }
   interface GxgGrid {
     noBorder?: boolean;
@@ -3159,6 +3316,7 @@ declare namespace LocalJSX {
     type?: any;
   }
   interface GxgLabel {
+    disabled?: boolean;
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
@@ -3167,13 +3325,37 @@ declare namespace LocalJSX {
   }
   interface GxgListBox {
     /**
+     * The prescence of this attribute allows the list-box to not have any list-box-item selected
+     */
+    allowsEmptySelection?: boolean;
+    /**
      * The prescence of this attribute will display a checkbox for every item
      */
     checkboxes?: boolean;
     /**
+     * The presence of this attribute makes the component disabled
+     */
+    disabled?: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationMessage?: boolean;
+    /**
+     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     */
+    displayValidationStyles?: boolean;
+    /**
+     * A function that will return true or false depending on wether the error condition is met or not
+     */
+    errorCondition?: Function;
+    /**
      * The list-box height
      */
     height?: string;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage?: string;
     /**
      * The list-box max-width
      */
@@ -3187,6 +3369,10 @@ declare namespace LocalJSX {
      */
     onSelectionChanged?: (event: CustomEvent<any>) => void;
     /**
+     * Make the radio-buttons required
+     */
+    required?: boolean;
+    /**
      * The prescence of this attribute will deactivate multi-selection
      */
     singleSelection?: boolean;
@@ -3194,6 +3380,18 @@ declare namespace LocalJSX {
      * The listbox title that appears on the header
      */
     theTitle?: string;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage?: string;
+    /**
+     * The validation status
+     */
+    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    /**
+     * A function that will return true or false depending on wether the warning condition is met or not
+     */
+    warningCondition?: Function;
     /**
      * The list-box width
      */

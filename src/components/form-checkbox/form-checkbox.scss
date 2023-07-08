@@ -19,11 +19,11 @@
     cursor: not-allowed;
   }
   input[disabled] + .checkmark {
-    border-color: var(--gray-04) !important;
+    border-color: var(--gxg-border-color--disabled) !important;
     pointer-events: none;
   }
   input:checked[disabled] + .checkmark:after {
-    border-color: var(--gray-04) !important;
+    border-color: var(--gxg-border-color--disabled) !important;
   }
 }
 
@@ -140,8 +140,8 @@
 /*********************************************
 VALIDATION
 **********************************************/
-:host(.gxg-display-validation-styles.hydrated.gxg-validation--error) {
-  --checkmark-border-color: var(--color-error-dark);
+.messages-wrapper {
+  @include messages-wrapper();
 }
 
 /*********************************************

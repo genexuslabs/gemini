@@ -22,6 +22,7 @@
 - [gxg-form-radio-group](../form-radio-group)
 - [gxg-form-text](../form-text)
 - [gxg-form-textarea](../form-textarea)
+- [gxg-list-box](../list-box)
 
 ### Depends on
 
@@ -38,6 +39,7 @@ graph TD;
   gxg-form-radio-group --> gxg-form-message
   gxg-form-text --> gxg-form-message
   gxg-form-textarea --> gxg-form-message
+  gxg-list-box --> gxg-form-message
   style gxg-form-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

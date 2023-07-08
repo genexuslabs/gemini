@@ -17,8 +17,32 @@
         background-color: #1d1e22;
       }
       #div-listbox-container {
-        height: 200px;
-        background-color: yellow;
+        /*height: 200px;*/
+        /*background-color: yellow;*/
+      }
+      span {
+        font-family: var(--font-family-primary);
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-lg);
+        display: block;
+        margin-bottom: 8px;
+      }
+      h2 {
+        font-family: var(--font-family-primary);
+        font-weight: var(--font-weight-semibold);
+        font-size: 18px;
+      }
+      gxg-button {
+        margin: 16px 0 24px 0;
+      }
+      hr {
+        width: 30px;
+      }
+      .separator {
+        width: 50px;
+        border-bottom: 1px solid rgb(191, 191, 191);
+        margin-top: 16px;
+        margin-bottom: 32px;
       }
     </style>
   </head>
@@ -42,12 +66,21 @@
     </gxg-select>
     <br />
 
-    <div id="div-listbox-container">
+    <!-- AUTO HEIGHT -->
+    <h2>auto-height</h2>
+    <div
+      class="list-box-container"
+      style="background-color: rgb(234, 234, 234); height: 600px"
+    >
       <gxg-list-box
+        allows-empty-selection
         single-selection
-        id="list-box"
-        the-title="listbox without multi-selection listbox without multi-selection"
+        id="list-box-errors"
+        the-title="listbox single-selection"
         height="100%"
+        display-validation-message
+        validation-message="This is the validation message"
+        required
       >
         <gxg-list-box-item>0.Common</gxg-list-box-item>
         <gxg-list-box-item icon="objects/business-process-diagram"
@@ -62,7 +95,7 @@
         <gxg-list-box-item icon="objects/bg-color"
           >4.Resources</gxg-list-box-item
         >
-        <gxg-list-box-item value="otro value" icon="objects/webpanel"
+        <gxg-list-box-item value="user-interface" icon="objects/webpanel"
           >5.User interface</gxg-list-box-item
         >
         <gxg-list-box-item icon="objects/dashboard"
@@ -77,16 +110,133 @@
         >
       </gxg-list-box>
     </div>
-    <br />
 
-    <gxg-button id="gxg-btn-list-box">Get selected items</gxg-button>
-    <br /><br />
+    <!-- ERRORS -->
+    <h2>show errors</h2>
 
+    <!-- (errors) -->
+    <span>show errors</span>
     <gxg-list-box
-      checkboxes
-      id="list-box-checkboxes"
-      the-title="listbox with multi-selection"
+      allows-empty-selection
+      single-selection
+      id="list-box-errors"
+      the-title="listbox single-selection"
+      height="100%"
+      display-validation-message
+      validation-message="This is the validation message"
+      required
     >
+      <gxg-list-box-item>0.Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+    <gxg-button id="btn-show-errors">Show errors</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- WITHOUT CHECKBOXES -->
+
+    <h2>wihtout checkboxes</h2>
+
+    <!-- (1) -->
+    <span>(1) single-selection</span>
+    <gxg-list-box
+      single-selection
+      id="list-box-1"
+      the-title="listbox single-selection"
+      height="100%"
+    >
+      <gxg-list-box-item>0.Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+    <gxg-button id="btn-1">Get selected items</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- (2) -->
+    <span>(2) single-selection | allows-empty-selection</span>
+    <gxg-list-box
+      single-selection
+      id="list-box-2"
+      the-title="listbox single-selection"
+      height="100%"
+      allows-empty-selection
+    >
+      <gxg-list-box-item>0.Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+    <gxg-button id="btn-2">Get selected items</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- (3) -->
+    <span>(3) multi-selection</span>
+    <gxg-list-box id="list-box-3" the-title="listbox with multi-selection">
       <gxg-list-box-item>Common</gxg-list-box-item>
       <gxg-list-box-item icon="objects/business-process-diagram"
         >BPM</gxg-list-box-item
@@ -98,7 +248,7 @@
         >Data Management</gxg-list-box-item
       >
       <gxg-list-box-item icon="objects/bg-color">Resources</gxg-list-box-item>
-      <gxg-list-box-item value="otro value" icon="objects/webpanel"
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
         >User interface</gxg-list-box-item
       >
       <gxg-list-box-item icon="objects/dashboard">Dashboard</gxg-list-box-item>
@@ -114,33 +264,306 @@
       >
       <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
     </gxg-list-box>
-    <br />
-    <gxg-button id="gxg-btn-list-box-checkboxes">Get selected items</gxg-button>
-    <br /><br />
+    <gxg-button id="btn-3">Get selected items</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- (4) -->
+    <span>(4) multi-selection | allows-empty-selection</span>
+    <gxg-list-box
+      id="list-box-4"
+      the-title="listbox with multi-selection"
+      allows-empty-selection
+    >
+      <gxg-list-box-item>Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard">Dashboard</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >Structured Data Type</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/url-rewrite"
+        >URL Rewrite</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
+    </gxg-list-box>
+    <gxg-button id="btn-4">Get selected items</gxg-button>
+
+    <!-- WITH CHECKBOXES -->
+
+    <h2>with checkboxes</h2>
+
+    <!-- (5) -->
+    <span>(5) single-selection</span>
+    <gxg-list-box
+      checkboxes
+      single-selection
+      id="list-box-5"
+      the-title="listbox single-selection"
+      height="100%"
+    >
+      <gxg-list-box-item>0.Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+    <gxg-button id="btn-5">Get selected items</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- (6) -->
+    <span>(6) single-selection | allows-empty-selection</span>
+    <gxg-list-box
+      checkboxes
+      single-selection
+      id="list-box-6"
+      the-title="listbox single-selection"
+      height="100%"
+      allows-empty-selection
+    >
+      <gxg-list-box-item>0.Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+    <gxg-button id="btn-6">Get selected items</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- (7) -->
+    <span>(7) multi-selection</span>
+    <gxg-list-box
+      checkboxes
+      id="list-box-7"
+      the-title="listbox with multi-selection"
+    >
+      <gxg-list-box-item>Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard">Dashboard</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >Structured Data Type</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/url-rewrite"
+        >URL Rewrite</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
+    </gxg-list-box>
+    <gxg-button id="btn-7">Get selected items</gxg-button>
+
+    <span class="separator"></span>
+
+    <!-- (8) -->
+    <span>(8) multi-selection | allows-empty-selection</span>
+    <gxg-list-box
+      checkboxes
+      id="list-box-8"
+      the-title="listbox with multi-selection"
+      allows-empty-selection
+    >
+      <gxg-list-box-item>Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard">Dashboard</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >Structured Data Type</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/url-rewrite"
+        >URL Rewrite</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/stencil">Stencil</gxg-list-box-item>
+    </gxg-list-box>
+    <gxg-button id="btn-8">Get selected items</gxg-button>
 
     <script>
-      let listBox = document.getElementById("list-box");
-      listBox.addEventListener("selectionChanged", (e) => {
-        console.log(e.detail);
+      /*show errors*/
+      let listBoxErrors = document.getElementById("list-box-errors");
+      listBoxErrors.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-1", e.detail);*/
+      });
+      let btnShowErrors = document.getElementById("btn-show-errors");
+      btnShowErrors.addEventListener("click", (e) => {
+        const valid = listBoxErrors.validate();
+        console.log(valid);
       });
 
-      let listBoxCheckboxes = document.getElementById("list-box-checkboxes");
-      listBoxCheckboxes.addEventListener("selectionChanged", (e) => {
-        console.log(e.detail);
+      /*(1)*/
+      let listBox1 = document.getElementById("list-box-1");
+      listBox1.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-1", e.detail);*/
       });
-
-      let btnListBox = document.getElementById("gxg-btn-list-box");
-      btnListBox.addEventListener("click", (e) => {
-        listBox.getSelectedItems().then((selectedItems) => {
+      let btn1 = document.getElementById("btn-1");
+      btn1.addEventListener("click", (e) => {
+        listBox1.getSelectedItems().then((selectedItems) => {
           console.log(selectedItems);
         });
       });
 
-      let btnListBoxCheckboxes = document.getElementById(
-        "gxg-btn-list-box-checkboxes"
-      );
-      btnListBoxCheckboxes.addEventListener("click", (e) => {
-        listBoxCheckboxes.getSelectedItems().then((selectedItems) => {
+      /*(2)*/
+      let listBox2 = document.getElementById("list-box-2");
+      listBox2.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-2", e.detail);*/
+      });
+      let btn2 = document.getElementById("btn-2");
+      btn2.addEventListener("click", (e) => {
+        listBox2.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      /*(3)*/
+      let listBox3 = document.getElementById("list-box-3");
+      listBox3.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-3", e.detail);*/
+      });
+      let btn3 = document.getElementById("btn-3");
+      btn3.addEventListener("click", (e) => {
+        listBox3.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      /*(4)*/
+      let listBox4 = document.getElementById("list-box-4");
+      listBox4.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-4", e.detail);*/
+      });
+      let btn4 = document.getElementById("btn-4");
+      btn4.addEventListener("click", (e) => {
+        listBox4.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      /*(5)*/
+      let listBox5 = document.getElementById("list-box-5");
+      listBox5.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-5", e.detail);*/
+      });
+      let btn5 = document.getElementById("btn-5");
+      btn5.addEventListener("click", (e) => {
+        listBox5.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      /*(6)*/
+      let listBox6 = document.getElementById("list-box-6");
+      listBox6.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-6", e.detail);*/
+      });
+      let btn6 = document.getElementById("btn-6");
+      btn6.addEventListener("click", (e) => {
+        listBox6.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      /*(7)*/
+      let listBox7 = document.getElementById("list-box-7");
+      listBox7.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-7", e.detail);*/
+      });
+      let btn7 = document.getElementById("btn-7");
+      btn7.addEventListener("click", (e) => {
+        listBox7.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
+      /*(8)*/
+      let listBox8 = document.getElementById("list-box-8");
+      listBox6.addEventListener("selectionChanged", (e) => {
+        /*console.log("list-box-8", e.detail);*/
+      });
+      let btn8 = document.getElementById("btn-8");
+      btn8.addEventListener("click", (e) => {
+        listBox8.getSelectedItems().then((selectedItems) => {
           console.log(selectedItems);
         });
       });

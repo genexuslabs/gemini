@@ -169,6 +169,7 @@ ch-grid-row[selected] {
   }
 }
 ch-grid-cell[selected] {
+  z-index: 1;
   background-color: var(--color-secondary-enabled) !important;
 }
 ch-grid-row[selected] {

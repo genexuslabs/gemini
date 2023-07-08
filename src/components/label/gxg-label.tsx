@@ -17,6 +17,11 @@ export class GxgLabel {
   @Prop() labelPosition: "above" | "end" | "below" | "start" = "above";
 
   /*
+   * The presence of this attribute styles the label as disabled
+   */
+  @Prop({ reflect: true }) disabled = false;
+
+  /*
    * The presence of this attribute removes the margin
    */
   @Prop() noMargin = false;

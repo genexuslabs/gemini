@@ -27,36 +27,21 @@
     <!-- as column -->
     <span><strong>as column</strong></span
     ><br />
-    <gxg-form-radio-group label="my favorite color">
-      <gxg-form-radio
-        label="red"
-        name="colors"
-        value="red"
-        radio-id="red"
-      ></gxg-form-radio>
+    <gxg-form-radio-group label="my favorite color" id="first-radio-group">
+      <gxg-form-radio label="red" value="red" disabled></gxg-form-radio>
       <gxg-form-radio
         label="blue"
-        name="colors"
         value="blue"
-        radio-id="blue"
+        id="radio-blue"
       ></gxg-form-radio>
-      <gxg-form-radio
-        label="green"
-        name="colors"
-        value="green"
-        radio-id="green"
-      ></gxg-form-radio>
-      <gxg-form-radio
-        label="yellow"
-        name="colors"
-        value="yellow"
-        radio-id="yellow"
-      ></gxg-form-radio>
+      <gxg-form-radio label="green" value="green"></gxg-form-radio>
+      <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
     </gxg-form-radio-group>
 
     <!-- as row -->
     <span><strong>as row</strong></span
     ><br />
+
     <gxg-form-radio-group row label="my favorite color">
       <gxg-form-radio
         label="red"
@@ -69,12 +54,15 @@
         name="colors"
         value="blue"
         radio-id="blue"
+        checked
+        disabled
       ></gxg-form-radio>
       <gxg-form-radio
         label="green"
         name="colors"
         value="green"
         radio-id="green"
+        checked
       ></gxg-form-radio>
       <gxg-form-radio
         label="yellow"
@@ -83,5 +71,33 @@
         radio-id="yellow"
       ></gxg-form-radio>
     </gxg-form-radio-group>
+
+    <gxg-button id="error-btn">Show Error</gxg-button>
+    <gxg-button id="warning-btn">Show Warning</gxg-button>
+
+    <script>
+      const firstRadioGroup = document.getElementById("first-radio-group");
+      firstRadioGroup.setAttribute("display-validation-message", true);
+
+      /*error*/
+      const errorBtn = document.getElementById("error-btn");
+      errorBtn.addEventListener("click", () => {
+        firstRadioGroup.setAttribute(
+          "validation-message",
+          "This is an error message"
+        );
+        firstRadioGroup.setAttribute("validation-status", "error");
+      });
+
+      /*warning*/
+      const warningBtn = document.getElementById("warning-btn");
+      warningBtn.addEventListener("click", () => {
+        firstRadioGroup.setAttribute(
+          "validation-message",
+          "This is a warning message"
+        );
+        firstRadioGroup.setAttribute("validation-status", "warning");
+      });
+    </script>
   </body>
 </html>

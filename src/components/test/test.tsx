@@ -1,4 +1,12 @@
-import { Component, h, Host, Prop, State, Method } from "@stencil/core";
+import {
+  Component,
+  h,
+  Host,
+  Prop,
+  State,
+  Method,
+  Element,
+} from "@stencil/core";
 //import { GxgComboBox } from "../combo-box/combo-box";
 //import { GxgFormSelect } from "../form-select/gxg-select";
 //import { GxgModal } from "../modal/modal";
@@ -10,6 +18,7 @@ import state from "../store";
   shadow: true,
 })
 export class GxgTest {
+  @Element() el: HTMLElement;
   @Prop() name = "Andres";
   @Prop() show = false;
   @Prop() showValidationMessage = false;
@@ -25,6 +34,15 @@ export class GxgTest {
   private validateText = () => {
     this.formText.validate();
   };
+
+  componentDidLoad() {
+    const radioGroup = this.el.shadowRoot.querySelector("gxg-form-radio-group");
+    console.log(radioGroup);
+    const radioBlue = radioGroup.querySelector(
+      "gxg-form-radio[radio-id='red']"
+    );
+    (radioBlue as HTMLGxgFormRadioElement).disabled = true;
+  }
 
   render() {
     return (

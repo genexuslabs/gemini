@@ -125,13 +125,6 @@
     width: 8px;
     height: 8px;
   }
-  // disabled
-  .label input[disabled] ~ .radiobtn {
-    border-color: var(--gray-04);
-  }
-  .label input[disabled] ~ .radiobtn:after {
-    background-color: var(--gray-04);
-  }
   /* Style the indicator (dot/circle) */
   .label .radiobtn:after {
     height: 0;
@@ -143,6 +136,13 @@
     background: var(--color-primary-active);
   }
 }
-:host([disabled="true"]) label {
-  cursor: not-allowed;
+:host([disabled]) {
+  pointer-events: none;
+  .radiobtn,
+  .label input[checked] ~ .radiobtn {
+    border-color: var(--gxg-border-color--disabled);
+  }
+  .radiobtn:after {
+    background-color: var(--gxg-border-color--disabled);
+  }
 }

@@ -10,7 +10,10 @@ import {
   State,
   Method,
 } from "@stencil/core";
+import { formMessageLogic } from "../../common/form";
 import { GxgListboxItem } from "../list-box-item/list-box-item";
+import { FormComponent } from "../../common/interfaces";
+import { formClasses } from "../../common/classes-names";
 import state from "../store";
 
 @Component({
@@ -18,13 +21,17 @@ import state from "../store";
   styleUrl: "list-box.scss",
   shadow: true,
 })
-export class GxgListBox {
+export class GxgListBox implements FormComponent {
   /**
    * This event emmits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
    */
   @Event() selectionChanged: EventEmitter;
   @Element() el: HTMLElement;
   header!: HTMLElement;
+
+  /*********************************
+  PROPERTIES & STATE
+  *********************************/
 
   /**
    * The listbox title that appears on the header
@@ -61,21 +68,126 @@ export class GxgListBox {
    */
   @Prop() singleSelection = false;
 
+  /**
+   * The prescence of this attribute allows the list-box to not have any list-box-item selected
+   */
+  @Prop() allowsEmptySelection = false;
+
+  @State() lastSelectedItemIndex: number | undefined = undefined;
+  @State() headerHeight = 0;
+
+  /*********************************
+  PROPERTIES FOR VALIDATION 
+  *********************************/
+
+  /**
+   * The presence of this attribute makes the component disabled
+   */
+  @Prop() disabled = false;
+
+  /*VALIDATION*/
+
+  formMessageLogic = formMessageLogic;
+
+  /**
+   * Make the radio-buttons required
+   */
+  @Prop() required = false;
+
+  /**
+   * The validation status
+   *
+   */
+  @Prop({ mutable: true }) validationStatus:
+    | "indeterminate"
+    | "warning"
+    | "error"
+    | "success";
+
+  /**
+   * A function that will return true or false depending on wether the
+   * error condition is met or not
+   */
+  @Prop() errorCondition: Function;
+
+  /**
+   * A function that will return true or false depending on wether the
+   * warning condition is met or not
+   */
+  @Prop() warningCondition: Function;
+
+  /**
+   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+   *
+   */
+  @Prop() displayValidationStyles = false;
+
+  /**
+   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+   *
+   */
+  @Prop() displayValidationMessage = false;
+
+  /**
+   * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+   *
+   */
+  @Prop({ mutable: true }) validationMessage: string;
+
+  /**
+   * An informative message to help the user filling the information
+   *
+   */
+  @Prop() informationMessage: string;
+
+  /*********************************
+  METHODS
+  *********************************/
+
+  @Method()
+  async validate(): Promise<boolean> {
+    this.handleValidation();
+    if (this.validationStatus === "error") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  handleValidation = (): void => {
+    this.handleError();
+    this.handleWarning();
+  };
+  handleError = (): void => {
+    const hasError =
+      (this.required && this.selectedItems().length === 0) ||
+      (this.errorCondition && this.errorCondition());
+    if (hasError) {
+      this.validationStatus = "error";
+    } else {
+      this.validationStatus = "indeterminate";
+    }
+  };
+  handleWarning = (): void => {
+    const hasWarning = this.warningCondition && this.warningCondition();
+    if (hasWarning) {
+      this.validationStatus === "warning";
+    } else {
+      this.validationStatus === "indeterminate";
+    }
+  };
+
   @Method()
   async getSelectedItems() {
     return [...this.selectedItems()];
   }
 
-  @State() lastSelectedItemIndex: number | undefined = undefined;
-  @State() headerHeight = 0;
-
-  componentDidRender() {
+  componentDidRender(): void {
     if (this.theTitle) {
       this.headerHeight = this.header.clientHeight;
     }
   }
 
-  setUpItems() {
+  setUpItems(): void {
     //Set index and Tabindex
     const itemsNodeList = this.el.querySelectorAll("gxg-list-box-item");
     itemsNodeList.forEach((item, i) => {
@@ -88,14 +200,14 @@ export class GxgListBox {
     });
   }
 
-  setSelectedItem() {
-    //1. If no list-box-item is initially selected, the first list-box-item should be selected
+  setSelectedItem(): void {
+    //1. If no list-box-item is initially selected and 'allowsEmptySelection' is false, the first list-box-item should be selected
     //2. If the list-box is single-selection, only one list-box-item sould be selected.
 
     const selectedItems = this.el.querySelectorAll(
       "gxg-list-box-item[selected]"
     );
-    if (selectedItems.length === 0) {
+    if (selectedItems.length === 0 && !this.allowsEmptySelection) {
       const firstItem = this.el.querySelector("gxg-list-box-item");
       this.toggleItem(firstItem);
     } else {
@@ -111,24 +223,34 @@ export class GxgListBox {
   }
 
   @Listen("itemLoaded")
-  itemLoadedHandler() {
+  itemLoadedHandler(): void {
     this.setUpItems();
     this.setSelectedItem();
   }
 
   @Listen("itemClicked")
-  itemClickedHandler(e) {
+  itemClickedHandler(e): void {
     const clickedItem = this.getItem(e.detail["index"]);
     const clickedItemIndex: number = parseInt(
       clickedItem.getAttribute("index")
     );
     if (!this.singleSelection) {
+      /*multi-selection*/
       if (!e.detail.crtlKey && !e.detail.cmdKey && !e.detail.shiftKey) {
         //If ctrl and command and shift keys were not pressed, unselect previous selected items
         this.clearSelectedItems();
         this.selectItem(clickedItem);
         this.lastSelectedItemIndex = clickedItemIndex;
       } else if (e.detail.crtlKey || e.detail.cmdKey) {
+        const listBoxItem = clickedItem as HTMLGxgListBoxItemElement;
+        const selectedItemsLength = this.selectedItems().length;
+        if (
+          !this.allowsEmptySelection &&
+          selectedItemsLength === 1 &&
+          listBoxItem.selected
+        ) {
+          return;
+        }
         this.toggleItem(clickedItem);
         this.lastSelectedItemIndex = clickedItemIndex;
       } else if (e.detail.shiftKey) {
@@ -153,14 +275,22 @@ export class GxgListBox {
         }
       }
     } else {
+      /*single-selection*/
       this.clearSelectedItems();
-      this.selectItem(clickedItem);
+      if (
+        this.allowsEmptySelection &&
+        (e.detail["crtlKey"] || e.detail["cmdKey"])
+      ) {
+        this.unselectItem(clickedItem);
+      } else {
+        this.selectItem(clickedItem);
+      }
     }
     this.emmitSelectedItems();
   }
 
   @Listen("KeyPressed")
-  KeyPressedHandler(e) {
+  KeyPressedHandler(e): void {
     let itemWithFocus = document.activeElement;
     if (itemWithFocus.tagName !== "GXG-LIST-BOX-ITEM") {
       itemWithFocus = undefined;
@@ -214,7 +344,7 @@ export class GxgListBox {
     this.emmitSelectedItems();
   }
 
-  selectMulitpleItems(fromIndex: number, toIndex: number) {
+  selectMulitpleItems(fromIndex: number, toIndex: number): void {
     for (let i = fromIndex; i <= toIndex; i++) {
       const item = this.el.querySelector(
         "gxg-list-box-item[index='" + i + "']"
@@ -223,7 +353,7 @@ export class GxgListBox {
     }
   }
 
-  clearSelectedItems() {
+  clearSelectedItems(): void {
     const actualSelectedItems = this.el.querySelectorAll(
       "gxg-list-box-item[selected]"
     );
@@ -234,19 +364,19 @@ export class GxgListBox {
     }
   }
 
-  getItem(index) {
+  getItem(index): Element {
     return this.el.querySelector("gxg-list-box-item[index='" + index + "']");
   }
 
-  selectItem(item) {
+  selectItem(item): void {
     (item as HTMLElement).setAttribute("selected", "");
   }
 
-  unselectItem(item) {
+  unselectItem(item): void {
     (item as HTMLElement).removeAttribute("selected");
   }
 
-  toggleItem(item) {
+  toggleItem(item): void {
     if ((item as HTMLElement).hasAttribute("selected")) {
       this.unselectItem(item);
     } else {
@@ -277,14 +407,26 @@ export class GxgListBox {
     return selectedItemsArray;
   }
 
-  emmitSelectedItems() {
+  emmitSelectedItems(): void {
     this.selectionChanged.emit([...this.selectedItems()]);
   }
 
-  render() {
+  render(): void {
     return (
       <Host
-        class={{ large: state.large }}
+        class={{
+          large: state.large,
+          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
+            .displayValidationStyles,
+          [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
+            this.validationStatus === "indeterminate",
+          [formClasses["VALIDATION_WARNING_CLASS"]]:
+            this.validationStatus === "warning",
+          [formClasses["VALIDATION_ERROR_CLASS"]]:
+            this.validationStatus === "error",
+          [formClasses["VALIDATION_SUCCESS_CLASS"]]:
+            this.validationStatus === "success",
+        }}
         style={{
           height: this.height,
         }}
@@ -315,6 +457,7 @@ export class GxgListBox {
             <slot></slot>
           </main>
         </div>
+        {formMessageLogic(this)}
       </Host>
     );
   }

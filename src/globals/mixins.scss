@@ -453,6 +453,9 @@ FORM ELEMENTS
   outline-color: var(--color-error-dark);
   border-color: var(--color-error-dark);
 }
+@mixin messages-wrapper {
+  margin-top: var(--spacing-comp-02);
+}
 
 @mixin gxg-scroll {
   // Scroll bar

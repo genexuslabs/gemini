@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Errors | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      span {
+        font-family: var(--font-family-primary);
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-lg);
+        display: block;
+        margin-bottom: 8px;
+      }
+      .separator {
+        width: 50px;
+        border-bottom: 1px solid rgb(191, 191, 191);
+        margin-top: 32px;
+        margin-bottom: 32px;
+      }
+      .container {
+        max-width: 640px;
+      }
+      h1 {
+        font-family: var(--font-family-primary);
+        font-weight: var(--font-weight-semibold);
+        font-size: 18px;
+      }
+      p {
+        font-family: var(--font-family-primary);
+        font-size: 12px;
+        line-height: 1.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Form Components Validation</h1>
+      <p>
+        The purpose of this page is to see at a glance is the validation styles
+        and message is working fine across all "form" components. To validate
+        press "Validate All Components" buttons at the end of the page.
+      </p>
+      <span class="separator"></span>
+
+      <!-- gxg-listbox -->
+      <span>list-box</span>
+      <gxg-list-box
+        allows-empty-selection
+        single-selection
+        id="list-box-errors"
+        the-title="listbox single-selection"
+        height="100%"
+        class="form-component"
+      >
+        <gxg-list-box-item>0.Common</gxg-list-box-item>
+        <gxg-list-box-item icon="objects/business-process-diagram"
+          >1.BPM</gxg-list-box-item
+        >
+        <gxg-list-box-item icon="objects/conversational-flows"
+          >2.Chatbots</gxg-list-box-item
+        >
+        <gxg-list-box-item icon="objects/data-provider"
+          >3.Data Management</gxg-list-box-item
+        >
+        <gxg-list-box-item icon="objects/bg-color"
+          >4.Resources</gxg-list-box-item
+        >
+        <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+          >5.User interface</gxg-list-box-item
+        >
+        <gxg-list-box-item icon="objects/dashboard"
+          >6.Dashboard</gxg-list-box-item
+        >
+        <gxg-list-box-item icon="objects/deployment-unit"
+          >7.Deployment Unit</gxg-list-box-item
+        >
+        <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+        <gxg-list-box-item icon="objects/structured-data-type"
+          >9.Structured Data Type</gxg-list-box-item
+        >
+      </gxg-list-box>
+      <span class="separator"></span>
+
+      <!-- gxg-form-text -->
+      <span>form-text</span>
+      <gxg-form-text class="form-component"></gxg-form-text>
+      <span class="separator"></span>
+
+      <!-- gxg-form-text-area -->
+      <span>form-text-area</span>
+      <gxg-form-textarea
+        id="gxg-textarea"
+        max-width="240px"
+        label="Describe your experience"
+        placeholder="I have experience as a.."
+        rows="4"
+        class="form-component"
+      ></gxg-form-textarea>
+      <span class="separator"></span>
+
+      <!-- gxg-form-radio -->
+      <span>form-radio-group</span>
+      <gxg-form-radio-group
+        row
+        label="my favorite color"
+        class="form-component"
+      >
+        <gxg-form-radio
+          label="red"
+          name="colors"
+          value="red"
+          radio-id="red"
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="blue"
+          name="colors"
+          value="blue"
+          radio-id="blue"
+          checked
+          disabled
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="green"
+          name="colors"
+          value="green"
+          radio-id="green"
+          checked
+        ></gxg-form-radio>
+        <gxg-form-radio
+          label="yellow"
+          name="colors"
+          value="yellow"
+          radio-id="yellow"
+        ></gxg-form-radio>
+      </gxg-form-radio-group>
+      <span class="separator"></span>
+
+      <!-- gxg-form-checkbox -->
+      <span>form-checkbox</span>
+      <gxg-form-checkbox
+        id="show-inherited-classes"
+        label="this is the label"
+        class="form-component"
+      ></gxg-form-checkbox>
+      <span class="separator"></span>
+
+      <!-- gxg-combo-box -->
+      <span>combo-box</span>
+      <gxg-combo-box
+        id="gxg-combo-validate"
+        placeholder="Select item"
+        value="bpm"
+        width="100%"
+        label="The title:"
+        class="form-component"
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+      <span class="separator"></span>
+
+      <gxg-button id="validate-components-btn"
+        >Validate All Components</gxg-button
+      >
+
+      <script>
+        const formComponents = document.querySelectorAll(".form-component");
+        /*General Validation Settings*/
+        formComponents.forEach((formComponent) => {
+          formComponent.setAttribute("display-validation-message", true);
+          formComponent.setAttribute("display-validation-styles", true);
+          formComponent.setAttribute(
+            "validation-message",
+            "This is a custom validation message"
+          );
+          formComponent.setAttribute("required", true);
+        });
+
+        /*Specific validation settings for gxg-form-radio-group*/
+        const radioGroup = document.querySelector("gxg-form-radio-group");
+        console.log("radioGroup", radioGroup);
+        radioGroup.errorCondition = function () {
+          if (this.value !== "red") {
+            return true;
+          }
+        };
+
+        /*Specific validation settings for gxg-combo-box*/
+        const comboBox = document.querySelector("gxg-combo-box");
+        comboBox.errorCondition = function () {
+          if (this.value !== "green") {
+            return true;
+          }
+        };
+
+        /*Button*/
+        const validateComponentsBtn = document.getElementById(
+          "validate-components-btn"
+        );
+        validateComponentsBtn.addEventListener("click", () => {
+          formComponents.forEach((component) => {
+            component.validate();
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
