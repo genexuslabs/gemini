@@ -596,7 +596,7 @@ export class GxgComboBox implements FormComponent {
     return (
       <Host
         class={{
-          "filter-disabled": this.disableFilter,
+          "gxg-combo-box--disabled": this.disableFilter,
           large: state.large,
         }}
       >
@@ -621,19 +621,8 @@ export class GxgComboBox implements FormComponent {
               ref={(el) => (this.gxgFormText = el as HTMLGxgFormTextElement)}
               displayValidationStyles={this.displayValidationStyles}
               validationStatus={this.validationStatus}
-              class={{
-                "clear-icon": clearIcon,
-                [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-                  .displayValidationStyles,
-                [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
-                  this.validationStatus === "indeterminate",
-                [formClasses["VALIDATION_WARNING_CLASS"]]:
-                  this.validationStatus === "warning",
-                [formClasses["VALIDATION_ERROR_CLASS"]]:
-                  this.validationStatus === "error",
-                [formClasses["VALIDATION_SUCCESS_CLASS"]]:
-                  this.validationStatus === "success",
-              }}
+              disabled={this.disabled}
+              class={{ "clear-icon": clearIcon }}
             ></gxg-form-text>
             <div class="buttons-wrapper">
               {this.inputTextValue !== "" &&
@@ -646,6 +635,7 @@ export class GxgComboBox implements FormComponent {
                   onClick={() => this.clearCombo()}
                   tabindex="-1"
                   fit
+                  disabled={this.disabled}
                 ></gxg-button>
               ) : null}
 
@@ -657,6 +647,7 @@ export class GxgComboBox implements FormComponent {
                 onKeyDown={this.onKeyDownGxgButtonArrowDown.bind(this)}
                 tabindex="-1"
                 fit
+                disabled={this.disabled}
               ></gxg-button>
             </div>
           </div>

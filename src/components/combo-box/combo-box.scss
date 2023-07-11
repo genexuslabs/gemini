@@ -1,8 +1,10 @@
 @import "../../globals/normalize";
 @import "../../globals/mixins";
-@import "../../globals/form-validation";
 
 :host {
+  font-family: var(--font-family-primary);
+  display: block;
+
   gxg-form-text::part(input) {
     padding-inline-end: var(--spacing-comp-05);
   }
@@ -11,9 +13,6 @@
   }
 
   @include gxg-scroll;
-  font-family: var(--font-family-primary);
-
-  display: block;
 
   .main-container {
     .label {
@@ -84,19 +83,19 @@
     }
   }
 }
-
-:host(.filter-disabled) {
-  gxg-form-text::part(input) {
-    cursor: pointer;
-  }
-}
-
+/*POSITION TOP*/
 :host(.position-top) {
   .items-container {
     transform: translateY(calc(-100% - 24px));
     border-top-width: 1px;
   }
 }
+/*********************************************
+DISABLED
+**********************************************/
+:host(.gxg-combo-box--disabled) {
+}
+
 /*********************************************
 VALIDATION
 **********************************************/

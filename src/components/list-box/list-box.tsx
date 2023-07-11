@@ -140,6 +140,8 @@ export class GxgListBox implements FormComponent {
    */
   @Prop() informationMessage: string;
 
+  private selectedItem: HTMLGxgListBoxItemElement;
+
   /*********************************
   METHODS
   *********************************/
@@ -194,9 +196,6 @@ export class GxgListBox implements FormComponent {
       //index
       const listBoxItem = (item as unknown) as GxgListboxItem;
       listBoxItem.index = i;
-
-      //tabindex
-      item.setAttribute("tabindex", "0");
     });
   }
 
@@ -208,15 +207,17 @@ export class GxgListBox implements FormComponent {
       "gxg-list-box-item[selected]"
     );
     if (selectedItems.length === 0 && !this.allowsEmptySelection) {
-      const firstItem = this.el.querySelector("gxg-list-box-item");
+      const firstItem = this.el.querySelector(
+        "gxg-list-box-item"
+      ) as HTMLGxgListBoxItemElement;
       this.toggleItem(firstItem);
     } else {
       if (selectedItems.length > 1 && this.singleSelection) {
         this.clearSelectedItems();
-        if (((selectedItems[0] as unknown) as GxgListboxItem).index === 0) {
-          this.selectItem(selectedItems[1]);
+        if ((selectedItems[0] as HTMLGxgListBoxItemElement).index === 0) {
+          this.selectItem(selectedItems[1] as HTMLGxgListBoxItemElement);
         } else {
-          this.selectItem(selectedItems[0]);
+          this.selectItem(selectedItems[0] as HTMLGxgListBoxItemElement);
         }
       }
     }
@@ -230,7 +231,7 @@ export class GxgListBox implements FormComponent {
 
   @Listen("itemClicked")
   itemClickedHandler(e): void {
-    const clickedItem = this.getItem(e.detail["index"]);
+    const clickedItem = e.detail.el as HTMLGxgListBoxItemElement;
     const clickedItemIndex: number = parseInt(
       clickedItem.getAttribute("index")
     );
@@ -279,77 +280,80 @@ export class GxgListBox implements FormComponent {
       this.clearSelectedItems();
       if (
         this.allowsEmptySelection &&
-        (e.detail["crtlKey"] || e.detail["cmdKey"])
+        (e.detail["crtlKey"] || e.detail["cmdKey"]) &&
+        clickedItem === this.selectedItem
       ) {
         this.unselectItem(clickedItem);
       } else {
         this.selectItem(clickedItem);
       }
     }
-    this.emmitSelectedItems();
   }
 
-  @Listen("KeyPressed")
-  KeyPressedHandler(e): void {
-    let itemWithFocus = document.activeElement;
-    if (itemWithFocus.tagName !== "GXG-LIST-BOX-ITEM") {
-      itemWithFocus = undefined;
+  handleKeyDown = (e: KeyboardEvent): void => {
+    const selectedItemIndex = this.getIndexByElement(this.selectedItem);
+    if (e.code === "ArrowDown" || e.code === "ArrowUp" || e.code === "Space") {
+      e.preventDefault();
     }
-    if (e.detail.eCode === "ArrowDown") {
-      const nextElement = this.getItem(e.detail.index).nextElementSibling;
+    if (e.code === "ArrowDown") {
+      const nextElement: HTMLGxgListBoxItemElement = this.getNextItem(
+        selectedItemIndex
+      );
       if (nextElement !== null) {
         if (
-          (!e.detail.shiftKey && !e.detail.crtlKey) ||
-          (this.singleSelection && !e.detail.crtlKey)
+          (!e.shiftKey && !e.ctrlKey) ||
+          (this.singleSelection && !e.ctrlKey)
         ) {
           this.clearSelectedItems();
         }
-        (nextElement as HTMLElement).focus();
-        if (!e.detail.crtlKey) {
-          if (!nextElement.classList.contains("selected")) {
+        if (!e.ctrlKey) {
+          if (!nextElement.selected) {
             this.selectItem(nextElement);
           } else {
-            if (itemWithFocus) {
-              this.unselectItem(itemWithFocus);
-            }
+            this.unselectItem(this.selectedItem);
           }
         }
       }
-    } else if (e.detail.eCode === "ArrowUp") {
-      const prevElement = this.getItem(e.detail.index).previousElementSibling;
+    } else if (e.code === "ArrowUp") {
+      const prevElement: HTMLGxgListBoxItemElement = this.getPrevItem(
+        selectedItemIndex
+      );
       if (prevElement !== null) {
         if (
-          (!e.detail.shiftKey && !e.detail.crtlKey) ||
-          (this.singleSelection && !e.detail.crtlKey)
+          (!e.shiftKey && !e.ctrlKey) ||
+          (this.singleSelection && !e.ctrlKey)
         ) {
           this.clearSelectedItems();
         }
-        (prevElement as HTMLElement).focus();
-        if (!e.detail.crtlKey) {
-          if (!prevElement.classList.contains("selected")) {
+        if (!e.ctrlKey) {
+          if (!prevElement.selected) {
             this.selectItem(prevElement);
           } else {
-            if (itemWithFocus) {
-              this.unselectItem(itemWithFocus);
+            if (this.selectedItem) {
+              this.unselectItem(this.selectedItem);
             }
           }
         }
       }
-    } else if (e.detail.eCode === "Enter") {
-      if (!e.detail.crtlKey) {
-        this.clearSelectedItems();
-      }
-      this.selectItem(itemWithFocus);
+    } else if (e.code === "Space" && this.allowsEmptySelection) {
     }
-    this.emmitSelectedItems();
-  }
+  };
+
+  handleFocus = () => {
+    if (!this.selectedItem) {
+      const firstItem: HTMLGxgListBoxItemElement = this.getItemByIndex(0);
+      if (firstItem) {
+        this.selectItem(firstItem);
+      }
+    }
+  };
 
   selectMulitpleItems(fromIndex: number, toIndex: number): void {
     for (let i = fromIndex; i <= toIndex; i++) {
       const item = this.el.querySelector(
         "gxg-list-box-item[index='" + i + "']"
       );
-      this.selectItem(item);
+      this.selectItem(item as HTMLGxgListBoxItemElement);
     }
   }
 
@@ -359,25 +363,100 @@ export class GxgListBox implements FormComponent {
     );
     if (actualSelectedItems.length > 0) {
       actualSelectedItems.forEach((item) => {
-        this.unselectItem(item);
+        this.unselectItem(item as HTMLGxgListBoxItemElement);
       });
     }
   }
 
-  getItem(index): Element {
-    return this.el.querySelector("gxg-list-box-item[index='" + index + "']");
+  getItemByIndex(index: number): HTMLGxgListBoxItemElement {
+    const item = this.el.querySelector(
+      "gxg-list-box-item[index='" + index + "']"
+    );
+    if (item) {
+      return item as HTMLGxgListBoxItemElement;
+    }
+    return null;
   }
 
-  selectItem(item): void {
-    (item as HTMLElement).setAttribute("selected", "");
+  getIndexByElement = (element: HTMLGxgListBoxItemElement): number => {
+    return Array.from(this.el.querySelectorAll("gxg-list-box-item")).findIndex(
+      (item) => {
+        return item === element;
+      }
+    );
+  };
+
+  getNextItem(index: number): HTMLGxgListBoxItemElement {
+    const allItems = this.el.querySelectorAll("gxg-list-box-item");
+    if (index === -1) {
+      return allItems[0];
+    }
+    const allItemsLength = allItems.length;
+    let nextItemIndex = index + 1;
+    while (
+      nextItemIndex < allItemsLength &&
+      (allItems[nextItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      nextItemIndex++;
+    }
+    if (
+      nextItemIndex < allItemsLength &&
+      !(allItems[nextItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      return allItems[nextItemIndex] as HTMLGxgListBoxItemElement;
+    }
+    return null;
   }
 
-  unselectItem(item): void {
-    (item as HTMLElement).removeAttribute("selected");
+  getPrevItem(index: number): HTMLGxgListBoxItemElement {
+    const allItems = this.el.querySelectorAll("gxg-list-box-item");
+    let prevItemIndex = index - 1;
+    while (
+      prevItemIndex > -1 &&
+      (allItems[prevItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      prevItemIndex--;
+    }
+    if (
+      prevItemIndex > -1 &&
+      !(allItems[prevItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      return allItems[prevItemIndex] as HTMLGxgListBoxItemElement;
+    }
+    return null;
   }
 
-  toggleItem(item): void {
-    if ((item as HTMLElement).hasAttribute("selected")) {
+  selectItem(item: HTMLGxgListBoxItemElement): void {
+    if (item) {
+      item.selected = true;
+      this.selectedItem = item;
+      this.emmitSelectedItems();
+    }
+    return null;
+  }
+
+  unselectItem(item: HTMLGxgListBoxItemElement): void {
+    if (item) {
+      item.selected = false;
+      this.emmitSelectedItems();
+    }
+  }
+
+  highlightItem(item: HTMLGxgListBoxItemElement): void {
+    if (item) {
+      item.highlighted = true;
+    }
+    return null;
+  }
+
+  unhighlightItem(item: HTMLGxgListBoxItemElement): void {
+    if (item) {
+      item.highlighted = false;
+    }
+  }
+
+  toggleItem(item: HTMLGxgListBoxItemElement): void {
+    if (item.selected) {
       this.unselectItem(item);
     } else {
       this.selectItem(item);
@@ -385,24 +464,17 @@ export class GxgListBox implements FormComponent {
   }
 
   selectedItems() {
-    const selectedItems = this.el.querySelectorAll(
-      "gxg-list-box-item[selected]"
-    );
+    const allItems = this.el.querySelectorAll("gxg-list-box-item");
     const selectedItemsArray = [];
-    selectedItems.forEach((item) => {
-      const listBoxItem = (item as unknown) as GxgListboxItem;
-      const itemIndex = listBoxItem.index;
-      let itemValue = listBoxItem.value;
-      if (!itemValue) {
-        itemValue = item.textContent;
-      } else {
-        itemValue = itemValue;
+    allItems.forEach((item) => {
+      const HTMLListBoxItemElement = item as HTMLGxgListBoxItemElement;
+      if (HTMLListBoxItemElement.selected && !HTMLListBoxItemElement.disabled) {
+        selectedItemsArray.push({
+          index: HTMLListBoxItemElement.index,
+          value:
+            HTMLListBoxItemElement.value || HTMLListBoxItemElement.textContent,
+        });
       }
-      const itemObj = {
-        index: itemIndex,
-        value: itemValue,
-      };
-      selectedItemsArray.push(itemObj);
     });
     return selectedItemsArray;
   }
@@ -430,6 +502,9 @@ export class GxgListBox implements FormComponent {
         style={{
           height: this.height,
         }}
+        tabindex="0"
+        onKeyDown={this.handleKeyDown}
+        onFocus={this.handleFocus}
       >
         <div
           style={{

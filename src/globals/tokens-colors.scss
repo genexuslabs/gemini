@@ -41,6 +41,7 @@
   --color-on-disabled: #a4a5a6;
   --color-always-black: #000;
   --color-always-white: #fff;
+  --color-on-background--disabled: var(--gray-04);
   --color-on-primary--disabled: var(--gray-04);
 }
 :root.dark {
@@ -70,6 +71,7 @@
 //BACKGROUND COLORS
 :root {
   --color-background: #fff;
+  --color-background-disabled: var(--gray-00);
 }
 :root.dark {
   --color-background: #1d1e22;

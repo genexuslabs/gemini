@@ -1,0 +1,9 @@
+/*Warning*/
+:host(.gxg--disabled) {
+  pointer-events: none;
+  .disabled-element {
+    background-color: var(--color-background-disabled);
+    color: var(--color-on-background--disabled);
+    cursor: default;
+  }
+}

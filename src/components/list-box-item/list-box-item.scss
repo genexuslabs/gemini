@@ -1,3 +1,4 @@
+@import "../../globals/common-css-classes";
 :host {
   display: block;
   font-family: var(--font-family-primary);
@@ -32,7 +33,7 @@
   }
 }
 :host(:hover),
-:host(.selected:hover) {
+:host([selected]:hover) {
   background-color: var(--color-secondary-hover);
   color: var(--color-always-white);
 }
@@ -41,7 +42,7 @@
     padding-inline-start: var(--spacing-comp-01);
   }
 }
-:host(.selected) {
+:host([selected]) {
   background-color: var(--color-secondary-active);
   color: var(--color-always-white);
 }

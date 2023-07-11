@@ -64,13 +64,13 @@
         <gxg-list-box-item icon="objects/business-process-diagram"
           >1.BPM</gxg-list-box-item
         >
-        <gxg-list-box-item icon="objects/conversational-flows"
+        <gxg-list-box-item icon="objects/conversational-flows" disabled
           >2.Chatbots</gxg-list-box-item
         >
         <gxg-list-box-item icon="objects/data-provider"
           >3.Data Management</gxg-list-box-item
         >
-        <gxg-list-box-item icon="objects/bg-color"
+        <gxg-list-box-item icon="objects/bg-color" disabled
           >4.Resources</gxg-list-box-item
         >
         <gxg-list-box-item value="user-interface" icon="objects/webpanel"
@@ -79,7 +79,7 @@
         <gxg-list-box-item icon="objects/dashboard"
           >6.Dashboard</gxg-list-box-item
         >
-        <gxg-list-box-item icon="objects/deployment-unit"
+        <gxg-list-box-item icon="objects/deployment-unit" disabled
           >7.Deployment Unit</gxg-list-box-item
         >
         <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
@@ -173,6 +173,9 @@
       <gxg-button id="validate-components-btn"
         >Validate All Components</gxg-button
       >
+      <gxg-button id="disable-components-btn"
+        >Disable All Components</gxg-button
+      >
 
       <script>
         const formComponents = document.querySelectorAll(".form-component");
@@ -204,13 +207,22 @@
           }
         };
 
-        /*Button*/
+        /*Button Errors*/
         const validateComponentsBtn = document.getElementById(
           "validate-components-btn"
         );
         validateComponentsBtn.addEventListener("click", () => {
           formComponents.forEach((component) => {
             component.validate();
+          });
+        });
+        /*Button Disable*/
+        const disableComponentsBtn = document.getElementById(
+          "disable-components-btn"
+        );
+        disableComponentsBtn.addEventListener("click", () => {
+          formComponents.forEach((component) => {
+            component.disable = true;
           });
         });
       </script>

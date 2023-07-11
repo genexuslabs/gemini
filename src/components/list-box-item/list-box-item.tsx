@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 import { GxgListBox } from "../list-box/list-box";
 import state from "../store";
+import { commonClassesNames } from "../../common/classes-names";
 
 @Component({
   tag: "gxg-list-box-item",
@@ -18,6 +19,12 @@ import state from "../store";
 })
 export class GxgListboxItem {
   @Element() el: HTMLElement;
+
+  /**
+   * The presence of this attribute disabled the list-box-item
+   */
+  @Prop({ reflect: true }) disabled: boolean;
+
   /**
    * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
    */
@@ -29,6 +36,11 @@ export class GxgListboxItem {
   @Prop({ reflect: true }) selected = false;
 
   /**
+   * The presence of this attribute sets this item as highlighted
+   */
+  @Prop({ reflect: true }) highlighted = false;
+
+  /**
    * This property is set by the list-box item. It should not be set by the user.
    */
   @Prop({ reflect: true }) index: number = null;
@@ -37,11 +49,6 @@ export class GxgListboxItem {
    * (This event is for internal use.)
    */
   @Event() itemClicked: EventEmitter;
-
-  /**
-   * (This event is for internal use.)
-   */
-  @Event() KeyPressed: EventEmitter;
 
   /**
    * (This event is for internal use.)
@@ -68,7 +75,9 @@ export class GxgListboxItem {
   }
 
   iconColor() {
-    if (this.selected || this.mouseOver) {
+    if (this.disabled) {
+      return "disabled";
+    } else if (this.selected || this.mouseOver) {
       return "negative";
     } else {
       return "auto";
@@ -82,26 +91,11 @@ export class GxgListboxItem {
   itemClickedFunc(e) {
     const index = this.el.getAttribute("index");
     this.itemClicked.emit({
-      index: parseInt(index, 10),
+      el: this.el,
       crtlKey: e.ctrlKey,
       cmdKey: e.metaKey,
       shiftKey: e.shiftKey,
     });
-  }
-
-  onKeyDown(e) {
-    e.stopPropagation();
-    if (e.code === "ArrowDown" || e.code === "ArrowUp" || e.code === "Enter") {
-      e.preventDefault();
-      const index = this.el.getAttribute("index");
-      this.KeyPressed.emit({
-        index: parseInt(index, 10),
-        crtlKey: e.ctrlKey,
-        cmdKey: e.metaKey,
-        shiftKey: e.shiftKey,
-        eCode: e.code,
-      });
-    }
   }
 
   onMouseOver() {
@@ -119,14 +113,13 @@ export class GxgListboxItem {
           "has-icon": this.icon !== undefined,
           "no-checkbox": !this.checkbox,
           large: state.large,
-          selected: this.selected,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         onClick={this.itemClickedFunc.bind(this)}
-        onKeyDown={this.onKeyDown.bind(this)}
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
       >
-        <div class="container">
+        <div class="container disabled-element">
           {this.checkbox ? (
             <gxg-form-checkbox checked={this.selected}></gxg-form-checkbox>
           ) : null}

@@ -1086,6 +1086,14 @@ export namespace Components {
   }
   interface GxgListBoxItem {
     /**
+     * The presence of this attribute disabled the list-box-item
+     */
+    disabled: boolean;
+    /**
+     * The presence of this attribute sets this item as highlighted
+     */
+    highlighted: boolean;
+    /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon: string;
@@ -3399,6 +3407,14 @@ declare namespace LocalJSX {
   }
   interface GxgListBoxItem {
     /**
+     * The presence of this attribute disabled the list-box-item
+     */
+    disabled?: boolean;
+    /**
+     * The presence of this attribute sets this item as highlighted
+     */
+    highlighted?: boolean;
+    /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon?: string;
@@ -3418,10 +3434,6 @@ declare namespace LocalJSX {
      * (This event is for internal use.)
      */
     onItemSelected?: (event: CustomEvent<any>) => void;
-    /**
-     * (This event is for internal use.)
-     */
-    onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
      * The presence of this attribute sets this item as selected
      */
