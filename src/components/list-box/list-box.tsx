@@ -41,7 +41,7 @@ export class GxgListBox implements FormComponent {
   /**
    * The list-box width
    */
-  @Prop() width = "240px";
+  @Prop() width = "100%";
 
   /**
    * The list-box min-width

@@ -22,7 +22,7 @@
 | `validationMessage`        | `validation-message`         | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`                                               | `undefined` |
 | `validationStatus`         | `validation-status`          | The validation status                                                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `undefined` |
 | `warningCondition`         | --                           | A function that will return true or false depending on wether the warning condition is met or not                                                              | `Function`                                             | `undefined` |
-| `width`                    | `width`                      | The list-box width                                                                                                                                             | `string`                                               | `"240px"`   |
+| `width`                    | `width`                      | The list-box width                                                                                                                                             | `string`                                               | `"100%"`    |
 
 ## Events
 
