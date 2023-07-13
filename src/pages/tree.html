@@ -1,183 +1,218 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>2 - SASS - Night Mode with Class</title>
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
 
-  <script type="module" src="/build/gemini.esm.js"></script>
-  <script nomodule src="/build/gemini.js"></script>
-  <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      html {
+        background: var(--color-background);
+        transition: background 0.2s ease-in-out;
+        font-family: arial;
+        color: var(--color-text);
+      }
 
-  <style>
-    html {
-      background: var(--color-background);
-      transition: background 0.2s ease-in-out;
-      font-family: arial;
-      color: var(--color-text);
-    }
+      li:hover {
+        background-color: gray;
+      }
+      body {
+        padding: 20px;
+      }
+      .trees-main-container {
+        width: 400px;
+      }
+    </style>
+  </head>
 
-    li:hover {
-      background-color: gray;
-    }
-    body {
-      padding: 20px;
-    }
-    .trees-main-container {
-      width: 400px;
-    }
-  </style>
-</head>
+  <body>
+    <html dir="ltr" lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+        />
+        <title>2 - SASS - Night Mode with Class</title>
 
-<body>
+        <script type="module" src="/build/gemini.esm.js"></script>
+        <script nomodule src="/build/gemini.js"></script>
+        <link href="/build/gemini.css" rel="stylesheet" />
 
-<html dir="ltr" lang="en">
+        <style>
+          html {
+            background: var(--color-background);
+            transition: background 0.2s ease-in-out;
+            font-family: arial;
+            color: var(--color-text);
+          }
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>2 - SASS - Night Mode with Class</title>
+          li:hover {
+            background-color: gray;
+          }
+          body {
+            padding: 20px;
+          }
+          .trees-main-container {
+            width: 400px;
+          }
+        </style>
+      </head>
 
-  <script type="module" src="/build/gemini.esm.js"></script>
-  <script nomodule src="/build/gemini.js"></script>
-  <link href="/build/gemini.css" rel="stylesheet" />
-
-  <style>
-    html {
-      background: var(--color-background);
-      transition: background 0.2s ease-in-out;
-      font-family: arial;
-      color: var(--color-text);
-    }
-
-    li:hover {
-      background-color: gray;
-    }
-    body {
-      padding: 20px;
-    }
-    .trees-main-container {
-      width: 400px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <gxg-tree>
-    <gxg-tree-item opened left-icon="general/knowledge-base">
-      Meats
-      <gxg-tree checkbox slot="tree">
-        <gxg-tree-item left-icon="general/knowledge-base">
-          White meats
-          <gxg-tree checkbox slot="tree">
-            <gxg-tree-item left-icon="general/knowledge-base">
-              Chicken
-            </gxg-tree-item>
-            <gxg-tree-item left-icon="general/knowledge-base"> 
-              Turkey
-            </gxg-tree-item>
-            <gxg-tree-item left-icon="general/knowledge-base">
-              Duck
-            </gxg-tree-item>
-          </gxg-tree>
-        </gxg-tree-item>
-        <gxg-tree-item left-icon="general/knowledge-base">
-          Red meats
-          <gxg-tree checkbox slot="tree">
-            <gxg-tree-item left-icon="general/knowledge-base">
-              Beef
-            </gxg-tree-item>
-            <gxg-tree-item left-icon="general/knowledge-base"> 
-              Lamb and mutton
-            </gxg-tree-item>
-            <gxg-tree-item left-icon="general/knowledge-base">
-              Pork
-            </gxg-tree-item>
-          </gxg-tree>
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-    <gxg-tree-item id="fish" left-icon="general/patterns" checkbox opened download disabled right-icon="gemini-tools/download">
-      Fish
-    </gxg-tree-item>
-    <gxg-tree-item checkbox opened left-icon="objects/module">
-      Fruits
-      <gxg-tree slot="tree">
-        <gxg-tree-item checkbox left-icon="objects/module">
-          Orange
-        </gxg-tree-item>
-        <gxg-tree-item checkbox left-icon="objects/module" opened>
-          Banana
-          <gxg-tree slot="tree">
-            <gxg-tree-item left-icon="objects/module" checkbox>
-              Pisang
-            </gxg-tree-item>
-            <gxg-tree-item checkbox left-icon="objects/module">
-              Red Banana
-            </gxg-tree-item>
-            <gxg-tree-item left-icon="objects/module" checkbox>
-              Cavendish
-              <gxg-tree slot="tree">
-                <gxg-tree-item left-icon="objects/module" checkbox>
-                  Big
-                </gxg-tree-item>
-                <gxg-tree-item left-icon="objects/module" checkbox>
-                  Small
-                </gxg-tree-item>
-                <gxg-tree-item checkbox left-icon="objects/module">
-                  Mini
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-          </gxg-tree>
-        </gxg-tree-item>
-        <gxg-tree-item checkbox opened left-icon="objects/module">
-          Strawberry
-          <gxg-tree slot="tree">
-            <gxg-tree-item checkbox left-icon="objects/module">
-              Albion 
-            </gxg-tree-item>
-            <gxg-tree-item checkbox left-icon="objects/module" opened> 
-              Tillamook 
-            </gxg-tree-item>
-            <gxg-tree-item checkbox left-icon="objects/module">
-              Northeaster 
-            </gxg-tree-item>
-          </gxg-tree>
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-  <gxg-tree-item opened checkbox left-icon="objects/document" empty-tree>
-    nuts
-    <gxg-tree slot="tree">
-      <gxg-tree-item opened checkbox left-icon="objects/document">
-        Almonds 
-        <gxg-tree slot="tree">
-          <gxg-tree-item checkbox left-icon="objects/document" opened> 
-            Mollar de Tarragona
+      <body>
+        <gxg-tree>
+          <gxg-tree-item opened left-icon="general/knowledge-base">
+            Meats
+            <gxg-tree checkbox slot="tree">
+              <gxg-tree-item left-icon="general/knowledge-base">
+                White meats
+                <gxg-tree checkbox slot="tree">
+                  <gxg-tree-item left-icon="general/knowledge-base">
+                    Chicken
+                  </gxg-tree-item>
+                  <gxg-tree-item left-icon="general/knowledge-base">
+                    Turkey
+                  </gxg-tree-item>
+                  <gxg-tree-item left-icon="general/knowledge-base">
+                    Duck
+                  </gxg-tree-item>
+                </gxg-tree>
+              </gxg-tree-item>
+              <gxg-tree-item left-icon="general/knowledge-base">
+                Red meats
+                <gxg-tree checkbox slot="tree">
+                  <gxg-tree-item left-icon="general/knowledge-base">
+                    Beef
+                  </gxg-tree-item>
+                  <gxg-tree-item left-icon="general/knowledge-base">
+                    Lamb and mutton
+                  </gxg-tree-item>
+                  <gxg-tree-item left-icon="general/knowledge-base">
+                    Pork
+                  </gxg-tree-item>
+                </gxg-tree>
+              </gxg-tree-item>
+            </gxg-tree>
           </gxg-tree-item>
-          <gxg-tree-item checkbox left-icon="objects/document">
-            Ferragnès 
+          <gxg-tree-item
+            id="fish"
+            left-icon="general/patterns"
+            checkbox
+            opened
+            download
+            disabled
+            right-icon="gemini-tools/download"
+          >
+            Fish
           </gxg-tree-item>
-          <gxg-tree-item checkbox left-icon="objects/document">
-            Verdal 
+          <gxg-tree-item checkbox opened left-icon="objects/module">
+            Fruits
+            <gxg-tree slot="tree">
+              <gxg-tree-item checkbox left-icon="objects/module">
+                Orange
+              </gxg-tree-item>
+              <gxg-tree-item checkbox left-icon="objects/module" opened>
+                Banana
+                <gxg-tree slot="tree">
+                  <gxg-tree-item left-icon="objects/module" checkbox>
+                    Pisang
+                  </gxg-tree-item>
+                  <gxg-tree-item checkbox left-icon="objects/module">
+                    Red Banana
+                  </gxg-tree-item>
+                  <gxg-tree-item left-icon="objects/module" checkbox>
+                    Cavendish
+                    <gxg-tree slot="tree">
+                      <gxg-tree-item left-icon="objects/module" checkbox>
+                        Big
+                      </gxg-tree-item>
+                      <gxg-tree-item left-icon="objects/module" checkbox>
+                        Small
+                      </gxg-tree-item>
+                      <gxg-tree-item checkbox left-icon="objects/module">
+                        Mini
+                      </gxg-tree-item>
+                    </gxg-tree>
+                  </gxg-tree-item>
+                </gxg-tree>
+              </gxg-tree-item>
+              <gxg-tree-item checkbox opened left-icon="objects/module">
+                Strawberry
+                <gxg-tree slot="tree">
+                  <gxg-tree-item checkbox left-icon="objects/module">
+                    Albion
+                  </gxg-tree-item>
+                  <gxg-tree-item checkbox left-icon="objects/module" opened>
+                    Tillamook
+                  </gxg-tree-item>
+                  <gxg-tree-item checkbox left-icon="objects/module">
+                    Northeaster
+                  </gxg-tree-item>
+                </gxg-tree>
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+          <gxg-tree-item
+            opened
+            checkbox
+            left-icon="objects/document"
+            empty-tree
+          >
+            nuts
+            <gxg-tree slot="tree">
+              <gxg-tree-item opened checkbox left-icon="objects/document">
+                Almonds
+                <gxg-tree slot="tree">
+                  <gxg-tree-item checkbox left-icon="objects/document" opened>
+                    Mollar de Tarragona
+                  </gxg-tree-item>
+                  <gxg-tree-item checkbox left-icon="objects/document">
+                    Ferragnès
+                  </gxg-tree-item>
+                  <gxg-tree-item checkbox left-icon="objects/document">
+                    Verdal
+                  </gxg-tree-item>
+                </gxg-tree>
+              </gxg-tree-item>
+              <gxg-tree-item checkbox left-icon="objects/document" opened>
+                Brazil nuts
+              </gxg-tree-item>
+              <gxg-tree-item checkbox left-icon="objects/document">
+                Cashews
+              </gxg-tree-item>
+              <gxg-tree-item checkbox left-icon="objects/document">
+                Chestnuts
+              </gxg-tree-item>
+            </gxg-tree>
           </gxg-tree-item>
         </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item checkbox left-icon="objects/document" opened> 
-        Brazil nuts 
-      </gxg-tree-item>
-      <gxg-tree-item checkbox left-icon="objects/document">
-        Cashews 
-      </gxg-tree-item>
-      <gxg-tree-item checkbox left-icon="objects/document">
-        Chestnuts 
-      </gxg-tree-item>
-    </gxg-tree>
-  </gxg-tree-item>
-  </gxg-tree>
 
-</body>
+        <br />
+        <gxg-button id="get-items-btn">Get checked items</gxg-button>
+
+        <script>
+          const tree = document.querySelector("gxg-tree");
+          const items = tree.querySelectorAll("gxg-tree-item");
+          let checkedItemsArray = [];
+          const getItemsBtn = document.getElementById("get-items-btn");
+
+          getItemsBtn.addEventListener("click", () => {
+            items.forEach((item) => {
+              if (item.checked) {
+                checkedItemsArray.push(item);
+              }
+            });
+            console.log(checkedItemsArray);
+          });
+        </script>
+      </body>
+    </html>
+  </body>
 </html>

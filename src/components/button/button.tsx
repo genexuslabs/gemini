@@ -18,7 +18,7 @@ export class GxgButton {
   *********************************/
 
   /**
-   * The prescence of this attribute makes the icon always black
+   * The presence of this attribute makes the icon always black
    */
   @Prop() alwaysBlack = false;
 

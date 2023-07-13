@@ -41,6 +41,12 @@ export class GxgListboxItem {
   @Prop({ reflect: true }) highlighted = false;
 
   /**
+   * The presence of this attribute sets this item as active (it is as if it was focused)
+   * Only one item at a time should be active.
+   */
+  @Prop({ reflect: true }) active = false;
+
+  /**
    * This property is set by the list-box item. It should not be set by the user.
    */
   @Prop({ reflect: true }) index: number = null;
@@ -48,7 +54,7 @@ export class GxgListboxItem {
   /**
    * (This event is for internal use.)
    */
-  @Event() itemClicked: EventEmitter;
+  @Event() itemClicked: EventEmitter<ItemClicked>;
 
   /**
    * (This event is for internal use.)
@@ -65,14 +71,9 @@ export class GxgListboxItem {
    */
   @Prop() value: any = undefined;
 
-  @State() checkbox = false;
+  @Prop() checkbox = false;
 
   @State() mouseOver = false;
-
-  componentWillLoad() {
-    this.checkbox = ((this.el
-      .parentElement as unknown) as GxgListBox).checkboxes;
-  }
 
   iconColor() {
     if (this.disabled) {
@@ -89,12 +90,12 @@ export class GxgListboxItem {
   }
 
   itemClickedFunc(e) {
-    const index = this.el.getAttribute("index");
     this.itemClicked.emit({
-      el: this.el,
-      crtlKey: e.ctrlKey,
+      clickedItem: this.el as HTMLGxgListBoxItemElement,
+      ctrlKey: e.ctrlKey,
       cmdKey: e.metaKey,
       shiftKey: e.shiftKey,
+      index: this.index,
     });
   }
 
@@ -121,7 +122,7 @@ export class GxgListboxItem {
       >
         <div class="container disabled-element">
           {this.checkbox ? (
-            <gxg-form-checkbox checked={this.selected}></gxg-form-checkbox>
+            <gxg-form-checkbox tabindex="-1"></gxg-form-checkbox>
           ) : null}
           {this.icon !== undefined ? (
             <gxg-icon
@@ -137,3 +138,11 @@ export class GxgListboxItem {
     );
   }
 }
+
+export type ItemClicked = {
+  clickedItem: HTMLGxgListBoxItemElement;
+  ctrlKey: boolean;
+  cmdKey: boolean;
+  shiftKey: boolean;
+  index: number;
+};

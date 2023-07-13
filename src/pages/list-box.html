@@ -81,7 +81,6 @@
         "
       >
         <gxg-list-box
-          allows-empty-selection
           single-selection
           id="auto-height"
           the-title="listbox single-selection"
@@ -89,6 +88,7 @@
           display-validation-message
           validation-message="This is the validation message"
           required
+          checkboxes
         >
           <gxg-list-box-item>0.Common</gxg-list-box-item>
           <gxg-list-box-item icon="objects/business-process-diagram" disabled
@@ -118,6 +118,8 @@
           >
         </gxg-list-box>
       </div>
+      <gxg-button id="btn-auto-height">Get selected items</gxg-button>
+      <span class="separator"></span>
 
       <!-- ERRORS -->
       <h2>show errors</h2>
@@ -487,6 +489,18 @@
       <gxg-button id="btn-8">Get selected items</gxg-button>
     </div>
     <script>
+      /*auto-height*/
+      let listBoxAutoHeight = document.getElementById("auto-height");
+      listBoxAutoHeight.addEventListener("selectionChanged", (e) => {
+        console.log("auto-height", e.detail);
+      });
+      let btnAutoHeight = document.getElementById("btn-auto-height");
+      btnAutoHeight.addEventListener("click", (e) => {
+        listBoxAutoHeight.getSelectedItems().then((selectedItems) => {
+          console.log(selectedItems);
+        });
+      });
+
       /*show errors*/
       let listBoxErrors = document.getElementById("list-box-errors");
       listBoxErrors.addEventListener("selectionChanged", (e) => {

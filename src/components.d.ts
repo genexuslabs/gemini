@@ -40,6 +40,7 @@ import {
   Style,
 } from "./components/form-text/form-text";
 import { Color as Color1, Size } from "./components/icon/icon";
+import { ItemClicked } from "./components/list-box-item/list-box-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
@@ -202,7 +203,7 @@ export namespace Components {
   interface GxgBreadcrumbs {}
   interface GxgButton {
     /**
-     * The prescence of this attribute makes the icon always black
+     * The presence of this attribute makes the icon always black
      */
     alwaysBlack: boolean;
     /**
@@ -1085,6 +1086,11 @@ export namespace Components {
     width: string;
   }
   interface GxgListBoxItem {
+    /**
+     * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
+     */
+    active: boolean;
+    checkbox: boolean;
     /**
      * The presence of this attribute disabled the list-box-item
      */
@@ -2477,7 +2483,7 @@ declare namespace LocalJSX {
   interface GxgBreadcrumbs {}
   interface GxgButton {
     /**
-     * The prescence of this attribute makes the icon always black
+     * The presence of this attribute makes the icon always black
      */
     alwaysBlack?: boolean;
     /**
@@ -3407,6 +3413,11 @@ declare namespace LocalJSX {
   }
   interface GxgListBoxItem {
     /**
+     * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
+     */
+    active?: boolean;
+    checkbox?: boolean;
+    /**
      * The presence of this attribute disabled the list-box-item
      */
     disabled?: boolean;
@@ -3425,7 +3436,7 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use.)
      */
-    onItemClicked?: (event: CustomEvent<any>) => void;
+    onItemClicked?: (event: CustomEvent<ItemClicked>) => void;
     /**
      * (This event is for internal use.)
      */

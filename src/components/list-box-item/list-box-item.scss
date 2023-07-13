@@ -1,4 +1,6 @@
 @import "../../globals/common-css-classes";
+@import "../../globals/mixins";
+
 :host {
   display: block;
   font-family: var(--font-family-primary);
@@ -34,7 +36,7 @@
 }
 :host(:hover),
 :host([selected]:hover) {
-  background-color: var(--color-secondary-hover);
+  background-color: var(--gxg-form-item-bgcolor-hover);
   color: var(--color-always-white);
 }
 :host(.has-icon.no-checkbox) {
@@ -42,17 +44,19 @@
     padding-inline-start: var(--spacing-comp-01);
   }
 }
+/*SELECTED*/
 :host([selected]) {
   background-color: var(--color-secondary-active);
   color: var(--color-always-white);
 }
-:host(:focus) {
-  .container {
-    outline-width: var(--border-width-md);
-    outline-color: var(--color-primary-active);
-    outline-style: solid;
-    outline-offset: -2px;
-  }
+/*HIGHLIGHTED*/
+:host([highlighted]) {
+  background-color: var(--gxg-form-item-bgcolor-hover);
+  color: var(--color-always-white);
+}
+/*ACTIVE*/
+:host([active]) {
+  @include form-element-common-styles-focus-type-1();
 }
 
 /*********************************************
