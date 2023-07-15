@@ -300,6 +300,7 @@ export class GxgListBox implements FormComponent {
       this.handleArrow(e.code, e.shiftKey, activeItemIndex);
     } else if (e.code === "Space" || e.code === "Enter") {
       if ((ctrlKey || cmdKey) && this.selectedItemsLength() >= 1) {
+        console.log("3");
         const deselectionNotAllowed =
           (!this.allowsNoSelection &&
             this.selectedItemsLength() === 1 &&
@@ -311,7 +312,9 @@ export class GxgListBox implements FormComponent {
         }
         this.unselectItem(this.activeItem);
       } else if (!ctrlKey && !cmdKey) {
+        console.log("4");
         if (this.singleSelection) {
+          console.log("5");
           if (this.activeItem === this.getSelectedItemsFunc()[0]) {
             console.log("do nothing");
             return;
@@ -319,8 +322,17 @@ export class GxgListBox implements FormComponent {
           this.clearSelectedItems();
           this.selectItem(this.activeItem);
         } else {
+          console.log("6");
           /*multi-select allowed*/
-          this.toggleHighlightedItems();
+          if (ctrlKey || cmdKey) {
+            console.log("7");
+            this.clearHighlightedItems();
+          } else {
+            if (!this.activeItem.selected) {
+              console.log("8");
+              this.selectHighlightedItems();
+            }
+          }
         }
       }
     }
@@ -344,35 +356,28 @@ export class GxgListBox implements FormComponent {
     }
     /*Handle*/
     if (newElement) {
+      this.singleSelection &&
+        this.activeItem &&
+        !this.allowsNoSelection &&
+        this.clearSelectedItems();
+      if (shiftKey && !this.singleSelection && !this.activeItem.selected) {
+        this.activeItem.selected = true;
+      }
+      this.unhighlightItem(this.activeItem);
       this.setActiveItem(newElement);
       this.highlightItem(newElement);
-      if (shiftKey) {
-      } else {
+      if (shiftKey && !this.singleSelection && !this.activeItem.selected) {
+        this.activeItem.selected = true;
       }
-      // if (this.singleSelection) {
-      //   if (!this.allowsNoSelection) {
-      //     this.clearSelectedItems();
-      //   }
-      //   this.clearHighlightedItems();
-      //   if (!this.allowsNoSelection) {
-      //     this.selectItem(newElement);
-      //     this.highlightItem(newElement);
-      //   } else {
-      //     this.highlightItem(newElement);
-      //   }
-      // } else {
-      //   /*multiple-selection allowed*/
-      //   this.clearHighlightedItems();
-      //   if (shiftKey) {
-      //     this.toggleItem(newElement);
-      //   } else {
-      //     if (!this.allowsNoSelection) {
-      //       //this.clearSelectedItems();
-      //       //this.selectItem(newElement);
-      //     }
-      //   }
-      //   this.highlightItem(newElement);
-      // }
+      if (
+        (!newElement.selected || (shiftKey && !this.singleSelection)) &&
+        !this.allowsNoSelection
+      ) {
+        console.log("1");
+        this.selectItem(newElement);
+      } else if (this.singleSelection) {
+        console.log("2");
+      }
     }
   };
 
@@ -385,8 +390,9 @@ export class GxgListBox implements FormComponent {
         )
       : this.el.querySelectorAll("gxg-list-box-item[selected]");
     if (actualSelectedItems.length > 0) {
+      const disableEmmit = this.singleSelection;
       actualSelectedItems.forEach((item) => {
-        this.unselectItem(item as HTMLGxgListBoxItemElement);
+        this.unselectItem(item as HTMLGxgListBoxItemElement, disableEmmit);
       });
     }
   }
@@ -565,6 +571,7 @@ export class GxgListBox implements FormComponent {
   selectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
     if (!item?.disabled) {
       item.selected = true;
+      console.log("emit select");
       !disableEmit && this.emitSelectedItems();
     }
     return null;
@@ -573,6 +580,7 @@ export class GxgListBox implements FormComponent {
   unselectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
     if (item) {
       item.selected = false;
+      console.log("emit unselect");
       !disableEmit && this.emitSelectedItems();
     }
   }
