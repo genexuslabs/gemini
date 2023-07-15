@@ -1012,11 +1012,11 @@ export namespace Components {
   }
   interface GxgListBox {
     /**
-     * The prescence of this attribute allows the list-box to not have any list-box-item selected
+     * The presence of this attribute allows the list-box to not have any list-box-item selected
      */
-    allowsEmptySelection: boolean;
+    allowsNoSelection: boolean;
     /**
-     * The prescence of this attribute will display a checkbox for every item
+     * The presence of this attribute will display a checkbox for every item
      */
     checkboxes: boolean;
     /**
@@ -1057,7 +1057,7 @@ export namespace Components {
      */
     required: boolean;
     /**
-     * The prescence of this attribute will deactivate multi-selection
+     * The presence of this attribute will deactivate multi-selection
      */
     singleSelection: boolean;
     /**
@@ -3339,11 +3339,11 @@ declare namespace LocalJSX {
   }
   interface GxgListBox {
     /**
-     * The prescence of this attribute allows the list-box to not have any list-box-item selected
+     * The presence of this attribute allows the list-box to not have any list-box-item selected
      */
-    allowsEmptySelection?: boolean;
+    allowsNoSelection?: boolean;
     /**
-     * The prescence of this attribute will display a checkbox for every item
+     * The presence of this attribute will display a checkbox for every item
      */
     checkboxes?: boolean;
     /**
@@ -3379,7 +3379,7 @@ declare namespace LocalJSX {
      */
     minWidth?: string;
     /**
-     * This event emmits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
+     * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
      */
     onSelectionChanged?: (event: CustomEvent<any>) => void;
     /**
@@ -3387,7 +3387,7 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
-     * The prescence of this attribute will deactivate multi-selection
+     * The presence of this attribute will deactivate multi-selection
      */
     singleSelection?: boolean;
     /**

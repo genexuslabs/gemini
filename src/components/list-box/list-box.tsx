@@ -24,7 +24,7 @@ import { ItemClicked } from "../list-box-item/list-box-item";
 })
 export class GxgListBox implements FormComponent {
   /**
-   * This event emmits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
+   * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
    */
   @Event() selectionChanged: EventEmitter;
   @Element() el: HTMLElement;
@@ -60,19 +60,19 @@ export class GxgListBox implements FormComponent {
   @Prop() height = "auto";
 
   /**
-   * The prescence of this attribute will display a checkbox for every item
+   * The presence of this attribute will display a checkbox for every item
    */
   @Prop() checkboxes = false;
 
   /**
-   * The prescence of this attribute will deactivate multi-selection
+   * The presence of this attribute will deactivate multi-selection
    */
   @Prop() singleSelection = false;
 
   /**
-   * The prescence of this attribute allows the list-box to not have any list-box-item selected
+   * The presence of this attribute allows the list-box to not have any list-box-item selected
    */
-  @Prop() allowsEmptySelection = false;
+  @Prop() allowsNoSelection = false;
 
   @State() lastSelectedItemIndex: number | undefined = undefined;
   @State() headerHeight = 0;
@@ -204,18 +204,8 @@ export class GxgListBox implements FormComponent {
     });
   }
 
-  setSelectedItem(): void {
-    //1. If the list-box is single-selection, only one list-box-item sould be selected.
-    if (this.selectedItemsLength() > 1 && this.singleSelection) {
-      this.clearSelectedItems();
-      this.selectItem(
-        this.getSelectedItemsFunc()[0] as HTMLGxgListBoxItemElement
-      );
-    }
-  }
-
   initialSetup = (): void => {
-    if (!this.allowsEmptySelection) {
+    if (!this.allowsNoSelection) {
       const selectedItems = this.el.querySelectorAll(
         "gxg-list-box-item[selected]"
       );
@@ -242,11 +232,11 @@ export class GxgListBox implements FormComponent {
   itemClickedHandler(event: ItemClicked): void {
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
     if (this.singleSelection) {
-      if (this.activeItem === clickedItem && !this.allowsEmptySelection) {
+      if (this.activeItem === clickedItem && !this.allowsNoSelection) {
         /*same item. do nothing.*/
         return;
       }
-      if (this.allowsEmptySelection && (ctrlKey || cmdKey)) {
+      if (this.allowsNoSelection && (ctrlKey || cmdKey)) {
         this.unselectItem(clickedItem);
       } else {
         this.clearHighlightedItems();
@@ -277,7 +267,7 @@ export class GxgListBox implements FormComponent {
         this.selectMultipleItems(fromIndex, toIndex);
       } else if (ctrlKey) {
         if (
-          !this.allowsEmptySelection &&
+          !this.allowsNoSelection &&
           this.selectedItemsLength() === 1 &&
           clickedItem === this.getFirstSelectedItem()
         ) {
@@ -294,6 +284,9 @@ export class GxgListBox implements FormComponent {
   }
 
   handleKeyDown = (e: KeyboardEvent): void => {
+    const ctrlKey = e.ctrlKey;
+    const cmdKey = e.metaKey;
+    const shiftKey = e.shiftKey;
     const activeItemIndex = this.getIndexByElement(this.activeItem);
     if (
       e.code === "ArrowDown" ||
@@ -306,14 +299,29 @@ export class GxgListBox implements FormComponent {
     if (e.code === "ArrowDown" || e.code === "ArrowUp") {
       this.handleArrow(e.code, e.shiftKey, activeItemIndex);
     } else if (e.code === "Space" || e.code === "Enter") {
-      if (!this.allowsEmptySelection && this.selectedItemsLength() === 1) {
-      }
-      if (this.singleSelection) {
-        this.clearSelectedItems(true);
-        this.toggleItem(this.activeItem);
-      } else {
-        /*multi-select allowed*/
-        this.toggleHighlightedItems();
+      if ((ctrlKey || cmdKey) && this.selectedItemsLength() >= 1) {
+        const deselectionNotAllowed =
+          (!this.allowsNoSelection &&
+            this.selectedItemsLength() === 1 &&
+            this.activeItem === this.getSelectedItemsFunc()[0]) ||
+          !this.activeItem.selected;
+        if (deselectionNotAllowed) {
+          console.log("do nothing");
+          return;
+        }
+        this.unselectItem(this.activeItem);
+      } else if (!ctrlKey && !cmdKey) {
+        if (this.singleSelection) {
+          if (this.activeItem === this.getSelectedItemsFunc()[0]) {
+            console.log("do nothing");
+            return;
+          }
+          this.clearSelectedItems();
+          this.selectItem(this.activeItem);
+        } else {
+          /*multi-select allowed*/
+          this.toggleHighlightedItems();
+        }
       }
     }
   };
@@ -342,11 +350,11 @@ export class GxgListBox implements FormComponent {
       } else {
       }
       // if (this.singleSelection) {
-      //   if (!this.allowsEmptySelection) {
+      //   if (!this.allowsNoSelection) {
       //     this.clearSelectedItems();
       //   }
       //   this.clearHighlightedItems();
-      //   if (!this.allowsEmptySelection) {
+      //   if (!this.allowsNoSelection) {
       //     this.selectItem(newElement);
       //     this.highlightItem(newElement);
       //   } else {
@@ -358,7 +366,7 @@ export class GxgListBox implements FormComponent {
       //   if (shiftKey) {
       //     this.toggleItem(newElement);
       //   } else {
-      //     if (!this.allowsEmptySelection) {
+      //     if (!this.allowsNoSelection) {
       //       //this.clearSelectedItems();
       //       //this.selectItem(newElement);
       //     }
@@ -368,42 +376,7 @@ export class GxgListBox implements FormComponent {
     }
   };
 
-  selectMultipleItems(fromIndex: number, toIndex: number): void {
-    let comparator = toIndex;
-    if (fromIndex === toIndex) {
-      return;
-    } else if (fromIndex > toIndex) {
-      const fromIndexCopy = fromIndex;
-      fromIndex = toIndex;
-      toIndex = fromIndexCopy;
-      comparator = fromIndex;
-    }
-    for (let i = fromIndex; i <= toIndex; i++) {
-      const item = this.el.querySelector(
-        "gxg-list-box-item[index='" + i + "']"
-      ) as HTMLGxgListBoxItemElement;
-      this.selectItem(item);
-      if (i === comparator) {
-        this.highlightItem(item);
-      }
-    }
-  }
-
-  selectHighligthedItems(): void {
-    const highlightedItems = this.el.querySelectorAll(
-      "gxg-list-box-item[highlighted]"
-    );
-    highlightedItems.forEach((item) => {
-      this.selectItem(item as HTMLGxgListBoxItemElement);
-    });
-  }
-
-  toggleHighlightedItems(): void {
-    const highlightedItems = this.getHighlightedItems();
-    highlightedItems.forEach((item) => {
-      this.toggleItem(item);
-    });
-  }
+  /* SELECTED */
 
   clearSelectedItems(ignoreHighlighted = false): void {
     const actualSelectedItems = ignoreHighlighted
@@ -415,162 +388,6 @@ export class GxgListBox implements FormComponent {
       actualSelectedItems.forEach((item) => {
         this.unselectItem(item as HTMLGxgListBoxItemElement);
       });
-    }
-  }
-
-  clearHighlightedItems(): void {
-    const actualHighlightedItems = this.el.querySelectorAll(
-      "gxg-list-box-item[highlighted]"
-    );
-    if (actualHighlightedItems.length > 0) {
-      actualHighlightedItems.forEach((item) => {
-        this.unhighlightItem(item as HTMLGxgListBoxItemElement);
-      });
-    }
-  }
-
-  getItemByIndex(index: number): HTMLGxgListBoxItemElement {
-    const item = this.el.querySelector(
-      "gxg-list-box-item[index='" + index + "']"
-    );
-    if (item) {
-      return item as HTMLGxgListBoxItemElement;
-    }
-    return null;
-  }
-
-  getIndexByElement = (element: HTMLGxgListBoxItemElement): number => {
-    return Array.from(this.el.querySelectorAll("gxg-list-box-item")).findIndex(
-      (item) => {
-        return item === element;
-      }
-    );
-  };
-
-  getNextItem(index: number): HTMLGxgListBoxItemElement {
-    const allItems = this.el.querySelectorAll("gxg-list-box-item");
-    if (index === -1) {
-      return allItems[0];
-    }
-    const allItemsLength = allItems.length;
-    let nextItemIndex = index + 1;
-    while (
-      nextItemIndex < allItemsLength &&
-      (allItems[nextItemIndex] as HTMLGxgListBoxItemElement).disabled
-    ) {
-      nextItemIndex++;
-    }
-    if (
-      nextItemIndex < allItemsLength &&
-      !(allItems[nextItemIndex] as HTMLGxgListBoxItemElement).disabled
-    ) {
-      return allItems[nextItemIndex] as HTMLGxgListBoxItemElement;
-    }
-    return null;
-  }
-
-  getPrevItem(index: number): HTMLGxgListBoxItemElement {
-    const allItems = this.el.querySelectorAll("gxg-list-box-item");
-    let prevItemIndex = index - 1;
-    while (
-      prevItemIndex > -1 &&
-      (allItems[prevItemIndex] as HTMLGxgListBoxItemElement).disabled
-    ) {
-      prevItemIndex--;
-    }
-    if (
-      prevItemIndex > -1 &&
-      !(allItems[prevItemIndex] as HTMLGxgListBoxItemElement).disabled
-    ) {
-      return allItems[prevItemIndex] as HTMLGxgListBoxItemElement;
-    }
-    return null;
-  }
-
-  getFirstEnabledItem(): HTMLGxgListBoxItemElement {
-    return this.el.querySelector(
-      "gxg-list-box-item:not([disabled])"
-    ) as HTMLGxgListBoxItemElement;
-  }
-
-  getFirstSelectedItem(): HTMLGxgListBoxItemElement {
-    return this.el.querySelector(
-      "gxg-list-box-item[selected]:not([disabled])"
-    ) as HTMLGxgListBoxItemElement;
-  }
-
-  getHighlightedItems(): HTMLGxgListBoxItemElement[] {
-    const highlightedItems: HTMLGxgListBoxItemElement[] = [];
-    const highlightedItemsNodelist = this.el.querySelectorAll(
-      "gxg-list-box-item[highlighted]:not([disabled])"
-    );
-    highlightedItemsNodelist?.forEach((item) => {
-      highlightedItems.push(item as HTMLGxgListBoxItemElement);
-    });
-    return highlightedItems;
-  }
-
-  getHighlightedItemsLength(): number {
-    return this.getHighlightedItems().length;
-  }
-
-  setActiveItem(item: HTMLGxgListBoxItemElement): boolean {
-    if (item) {
-      this.clearActiveItem(); /*Only one active item allowed at a time*/
-      item.active = true;
-      this.activeItem = item;
-      return true;
-    }
-    return false;
-  }
-  getActiveItem(): HTMLGxgListBoxItemElement {
-    return this.el.querySelector("gxg-list-box-item[active]:not([disabled])");
-  }
-  clearActiveItem(): boolean {
-    const activeElement = this.el.querySelector(
-      "gxg-list-box-item[active]:not([disabled])"
-    );
-    if (activeElement) {
-      (activeElement as HTMLGxgListBoxItemElement).active = false;
-      return true;
-    }
-    return false;
-  }
-
-  selectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
-    if (!item?.disabled) {
-      item.selected = true;
-      !disableEmit && this.emitSelectedItems();
-    }
-    return null;
-  }
-
-  unselectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
-    if (item) {
-      item.selected = false;
-      !disableEmit && this.emitSelectedItems();
-    }
-  }
-
-  highlightItem(item: HTMLGxgListBoxItemElement): void {
-    if (item) {
-      this.singleSelection && this.clearHighlightedItems();
-      item.highlighted = true;
-      this.activeItem = item;
-    }
-  }
-
-  unhighlightItem(item: HTMLGxgListBoxItemElement): void {
-    if (item) {
-      item.highlighted = false;
-    }
-  }
-
-  toggleItem(item: HTMLGxgListBoxItemElement): void {
-    if (item.selected) {
-      this.unselectItem(item);
-    } else {
-      this.selectItem(item);
     }
   }
 
@@ -612,6 +429,225 @@ export class GxgListBox implements FormComponent {
   emitSelectedItems(): void {
     this.selectionChanged.emit([...this.getSelectedItemsInfo()]);
   }
+
+  setSelectedItem(): void {
+    //1. If the list-box is single-selection, only one list-box-item sould be selected.
+    if (this.selectedItemsLength() > 1 && this.singleSelection) {
+      this.clearSelectedItems();
+      this.selectItem(
+        this.getSelectedItemsFunc()[0] as HTMLGxgListBoxItemElement
+      );
+    }
+  }
+
+  /* HIGHLIGHTED */
+
+  highlightItem(item: HTMLGxgListBoxItemElement): void {
+    if (item) {
+      this.singleSelection && this.clearHighlightedItems();
+      item.highlighted = true;
+      this.activeItem = item;
+    }
+  }
+
+  unhighlightItem(item: HTMLGxgListBoxItemElement): void {
+    if (item) {
+      item.highlighted = false;
+    }
+  }
+
+  toggleHighlightedItems(): void {
+    const highlightedItems = this.getHighlightedItems();
+    highlightedItems.forEach((item) => {
+      this.toggleItem(item);
+    });
+  }
+
+  selectHighlightedItems(): void {
+    const highlightedItems = this.el.querySelectorAll(
+      "gxg-list-box-item[highlighted]"
+    );
+    highlightedItems.forEach((item) => {
+      this.selectItem(item as HTMLGxgListBoxItemElement);
+    });
+  }
+
+  clearHighlightedItems(): void {
+    const actualHighlightedItems = this.el.querySelectorAll(
+      "gxg-list-box-item[highlighted]"
+    );
+    if (actualHighlightedItems.length > 0) {
+      actualHighlightedItems.forEach((item) => {
+        this.unhighlightItem(item as HTMLGxgListBoxItemElement);
+      });
+    }
+  }
+
+  getHighlightedItems(): HTMLGxgListBoxItemElement[] {
+    const highlightedItems: HTMLGxgListBoxItemElement[] = [];
+    const highlightedItemsNodelist = this.el.querySelectorAll(
+      "gxg-list-box-item[highlighted]:not([disabled])"
+    );
+    highlightedItemsNodelist?.forEach((item) => {
+      highlightedItems.push(item as HTMLGxgListBoxItemElement);
+    });
+    return highlightedItems;
+  }
+
+  getHighlightedItemsLength(): number {
+    return this.getHighlightedItems().length;
+  }
+
+  /* INDEX */
+
+  getItemByIndex(index: number): HTMLGxgListBoxItemElement {
+    const item = this.el.querySelector(
+      "gxg-list-box-item[index='" + index + "']"
+    );
+    if (item) {
+      return item as HTMLGxgListBoxItemElement;
+    }
+    return null;
+  }
+
+  getIndexByElement = (element: HTMLGxgListBoxItemElement): number => {
+    return Array.from(this.el.querySelectorAll("gxg-list-box-item")).findIndex(
+      (item) => {
+        return item === element;
+      }
+    );
+  };
+
+  /* PREV/NEXT */
+
+  getNextItem(index: number): HTMLGxgListBoxItemElement {
+    const allItems = this.el.querySelectorAll("gxg-list-box-item");
+    if (index === -1) {
+      return allItems[0];
+    }
+    const allItemsLength = allItems.length;
+    let nextItemIndex = index + 1;
+    while (
+      nextItemIndex < allItemsLength &&
+      (allItems[nextItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      nextItemIndex++;
+    }
+    if (
+      nextItemIndex < allItemsLength &&
+      !(allItems[nextItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      return allItems[nextItemIndex] as HTMLGxgListBoxItemElement;
+    }
+    return null;
+  }
+
+  getPrevItem(index: number): HTMLGxgListBoxItemElement {
+    const allItems = this.el.querySelectorAll("gxg-list-box-item");
+    let prevItemIndex = index - 1;
+    while (
+      prevItemIndex > -1 &&
+      (allItems[prevItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      prevItemIndex--;
+    }
+    if (
+      prevItemIndex > -1 &&
+      !(allItems[prevItemIndex] as HTMLGxgListBoxItemElement).disabled
+    ) {
+      return allItems[prevItemIndex] as HTMLGxgListBoxItemElement;
+    }
+    return null;
+  }
+
+  /* SELECTED */
+
+  selectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
+    if (!item?.disabled) {
+      item.selected = true;
+      !disableEmit && this.emitSelectedItems();
+    }
+    return null;
+  }
+
+  unselectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
+    if (item) {
+      item.selected = false;
+      !disableEmit && this.emitSelectedItems();
+    }
+  }
+
+  toggleItem(item: HTMLGxgListBoxItemElement): void {
+    if (item.selected) {
+      this.unselectItem(item);
+    } else {
+      this.selectItem(item);
+    }
+  }
+
+  /* ACTIVE */
+
+  getActiveItem(): HTMLGxgListBoxItemElement {
+    return this.el.querySelector("gxg-list-box-item[active]:not([disabled])");
+  }
+
+  setActiveItem(item: HTMLGxgListBoxItemElement): boolean {
+    if (item) {
+      this.clearActiveItem(); /*Only one active item allowed at a time*/
+      item.active = true;
+      this.activeItem = item;
+      return true;
+    }
+    return false;
+  }
+
+  clearActiveItem(): boolean {
+    const activeElement = this.el.querySelector(
+      "gxg-list-box-item[active]:not([disabled])"
+    );
+    if (activeElement) {
+      (activeElement as HTMLGxgListBoxItemElement).active = false;
+      return true;
+    }
+    return false;
+  }
+
+  /* OTHER */
+
+  getFirstEnabledItem(): HTMLGxgListBoxItemElement {
+    return this.el.querySelector(
+      "gxg-list-box-item:not([disabled])"
+    ) as HTMLGxgListBoxItemElement;
+  }
+
+  getFirstSelectedItem(): HTMLGxgListBoxItemElement {
+    return this.el.querySelector(
+      "gxg-list-box-item[selected]:not([disabled])"
+    ) as HTMLGxgListBoxItemElement;
+  }
+
+  selectMultipleItems(fromIndex: number, toIndex: number): void {
+    let comparator = toIndex;
+    if (fromIndex === toIndex) {
+      return;
+    } else if (fromIndex > toIndex) {
+      const fromIndexCopy = fromIndex;
+      fromIndex = toIndex;
+      toIndex = fromIndexCopy;
+      comparator = fromIndex;
+    }
+    for (let i = fromIndex; i <= toIndex; i++) {
+      const item = this.el.querySelector(
+        "gxg-list-box-item[index='" + i + "']"
+      ) as HTMLGxgListBoxItemElement;
+      this.selectItem(item);
+      if (i === comparator) {
+        this.highlightItem(item);
+      }
+    }
+  }
+
+  /* RENDER */
 
   render(): void {
     return (
