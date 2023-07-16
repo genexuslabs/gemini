@@ -40,7 +40,10 @@ import {
   Style,
 } from "./components/form-text/form-text";
 import { Color as Color1, Size } from "./components/icon/icon";
-import { SelectedItems } from "./components/list-box/list-box";
+import {
+  KeyboardSuggestions,
+  SelectedItems,
+} from "./components/list-box/list-box";
 import { ItemClicked } from "./components/list-box-item/list-box-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
@@ -1021,6 +1024,10 @@ export namespace Components {
      */
     checkboxes: boolean;
     /**
+     * Disable suggestions about keyboard combinations
+     */
+    disableSuggestions: boolean;
+    /**
      * The presence of this attribute makes the component disabled
      */
     disabled: boolean;
@@ -1045,6 +1052,10 @@ export namespace Components {
      * An informative message to help the user filling the information
      */
     informationMessage: string;
+    /**
+     * An object with suggestions about the possible keyboard combinations
+     */
+    keyboardSuggestions: KeyboardSuggestions;
     /**
      * The list-box max-width
      */
@@ -1103,6 +1114,10 @@ export namespace Components {
      * The presence of this attribute disabled the list-box-item
      */
     disabled: boolean;
+    /**
+     * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
+     */
+    emitCheckboxChange: boolean;
     /**
      * The presence of this attribute sets this item as highlighted
      */
@@ -3355,6 +3370,10 @@ declare namespace LocalJSX {
      */
     checkboxes?: boolean;
     /**
+     * Disable suggestions about keyboard combinations
+     */
+    disableSuggestions?: boolean;
+    /**
      * The presence of this attribute makes the component disabled
      */
     disabled?: boolean;
@@ -3378,6 +3397,10 @@ declare namespace LocalJSX {
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
+    /**
+     * An object with suggestions about the possible keyboard combinations
+     */
+    keyboardSuggestions?: KeyboardSuggestions;
     /**
      * The list-box max-width
      */
@@ -3437,6 +3460,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
+     */
+    emitCheckboxChange?: boolean;
+    /**
      * The presence of this attribute sets this item as highlighted
      */
     highlighted?: boolean;
@@ -3448,6 +3475,10 @@ declare namespace LocalJSX {
      * This property is set by the list-box item. It should not be set by the user.
      */
     index?: number;
+    /**
+     * (This event is for internal use.)
+     */
+    onCheckboxClicked?: (event: CustomEvent<any>) => void;
     /**
      * (This event is for internal use.)
      */

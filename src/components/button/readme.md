@@ -47,6 +47,7 @@
 - [gxg-drag-box](../drag-box)
 - [gxg-drop-down](../drop-down)
 - [gxg-filter](../filter)
+- [gxg-list-box](../list-box)
 - [gxg-modal](../modal)
 - [gxg-options](../options)
 - [gxg-tab-bar](../tab-bar)
@@ -68,6 +69,7 @@ graph TD;
   gxg-drag-box --> gxg-button
   gxg-drop-down --> gxg-button
   gxg-filter --> gxg-button
+  gxg-list-box --> gxg-button
   gxg-modal --> gxg-button
   gxg-options --> gxg-button
   gxg-tab-bar --> gxg-button

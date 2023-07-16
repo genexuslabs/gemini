@@ -33,6 +33,9 @@
   gxg-form-checkbox {
     margin-inline-end: var(--spacing-comp-01);
   }
+  gxg-form-checkbox::part(box) {
+    outline: none;
+  }
 }
 :host(:hover),
 :host([selected]:hover) {

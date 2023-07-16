@@ -9,6 +9,7 @@ import {
   Listen,
   State,
   Method,
+  Watch,
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { GxgListboxItem } from "../list-box-item/list-box-item";
@@ -73,6 +74,29 @@ export class GxgListBox implements FormComponent {
    * The presence of this attribute allows the list-box to not have any list-box-item selected
    */
   @Prop() allowsEmpty = false;
+
+  /**
+   * An object with suggestions about the possible keyboard combinations
+   */
+  @Prop() keyboardSuggestions: KeyboardSuggestions = {
+    checkCheckbox: "to check a checkbox press (shift + space)",
+    uncheckCheckbox: "to uncheck a checkbox press (shift + ctrl + space)",
+  };
+
+  /**
+   * Disable suggestions about keyboard combinations
+   */
+  @Prop() disableSuggestions = false;
+
+  /**
+   * Hides the keyboard suggestions
+   */
+  @State() hideKeyboardSuggestions = true;
+
+  /**
+   * This is needed to evaluate if keyboard suggestions should be displayed.
+   */
+  private userUsedKeyboard = false;
 
   @State() headerHeight = 0;
 
@@ -204,20 +228,29 @@ export class GxgListBox implements FormComponent {
   }
 
   initialSetup = (): void => {
-    if (!this.allowsEmpty) {
-      const selectedItems = this.el.querySelectorAll(
-        "gxg-list-box-item[selected]"
+    const selectItem = !this.allowsEmpty && this.selectedItemsLength() < 1;
+    const setCheckbox = this.checkboxes;
+    const doSetup = selectItem || setCheckbox;
+    if (doSetup) {
+      console.log("do setup");
+      const enabledItemsArray = Array.from(
+        this.el.querySelectorAll("gxg-list-box-item:not([disabled])")
       );
-      if (!selectedItems?.length) {
-        const firstEnabledItem = this.getFirstEnabledItem();
-        this.selectItem(firstEnabledItem);
+      if (selectItem) {
+        const firstDeselectedItem = enabledItemsArray.find((item) => {
+          return !(item as HTMLGxgListBoxItemElement).selected;
+        });
+        firstDeselectedItem &&
+          ((firstDeselectedItem as HTMLGxgListBoxItemElement).selected = true);
       }
-    }
-    if (this.checkboxes) {
-      const allItems = this.el.querySelectorAll("gxg-list-box-item");
-      allItems.forEach((item) => {
-        (item as HTMLGxgListBoxItemElement).checkbox = true;
-      });
+      if (setCheckbox) {
+        enabledItemsArray.forEach((item) => {
+          const ListBoxItemElement = item as HTMLGxgListBoxItemElement;
+          item && (ListBoxItemElement.checkbox = true);
+          !this.disableSuggestions &&
+            (ListBoxItemElement.emitCheckboxChange = true);
+        });
+      }
     }
   };
 
@@ -282,7 +315,30 @@ export class GxgListBox implements FormComponent {
     }
   }
 
+  @Watch("hideKeyboardSuggestions")
+  hideKeyboardSuggestionsHandler(newValue: boolean, oldValue: boolean): void {
+    console.log("newValue", newValue);
+    console.log("oldValue", oldValue);
+    newValue === true &&
+      oldValue === false &&
+      localStorage.setItem("gxg-list-box-hide-keyboard-suggestions", "true");
+  }
+  @Listen("checkboxClicked")
+  checkboxClickedHandler(): void {
+    const localStorageExists = localStorage.getItem(
+      "gxg-list-box-hide-keyboard-suggestions"
+    );
+    if (
+      !localStorageExists &&
+      !this.disableSuggestions &&
+      this.userUsedKeyboard
+    ) {
+      this.hideKeyboardSuggestions = false;
+    }
+  }
+
   handleKeyDown = (e: KeyboardEvent): void => {
+    this.userUsedKeyboard = true;
     const ctrlKey = e.ctrlKey;
     const cmdKey = e.metaKey;
     const shiftKey = e.shiftKey;
@@ -302,10 +358,19 @@ export class GxgListBox implements FormComponent {
     if (e.code === "ArrowDown" || e.code === "ArrowUp") {
       this.HandleArrow(e.code, shiftKey, activeItemIndex);
     } else if (e.code === "Space" || e.code === "Enter") {
+      console.log("Space or Enter");
       if (shiftKey && ctrlKey) {
-        this.setCheckboxState(this.getHighlightedItems(), false);
+        const changedLength = this.setCheckboxState(
+          this.getHighlightedItems(),
+          false
+        );
+        changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (shiftKey && !ctrlKey) {
-        this.setCheckboxState(this.getHighlightedItems(), true);
+        const changedLength = this.setCheckboxState(
+          this.getHighlightedItems(),
+          true
+        );
+        changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (
         !shiftKey &&
         (ctrlKey || cmdKey) &&
@@ -704,22 +769,22 @@ export class GxgListBox implements FormComponent {
     items: HTMLGxgListBoxItemElement | HTMLGxgListBoxItemElement[],
     check = true
   ): number {
-    console.log("items", items);
-    console.log("check", check);
     if (items && Array.isArray(items) && items.length !== 0) {
-      console.log("deberias hacer algo");
+      console.log(items);
       let changed = 0;
       items.forEach((item) => {
         if (!item.checked && check) {
           item.checked = true;
           changed++;
         } else if (item.checked && !check) {
+          console.log("uncheck");
           item.checked = false;
           changed++;
         }
       });
       return changed;
     } else if (!(items && Array.isArray(items))) {
+      console.log();
       const item = items as HTMLGxgListBoxItemElement;
       if (!item.checked && check) {
         item.checked = true;
@@ -767,6 +832,39 @@ export class GxgListBox implements FormComponent {
     }
   }
 
+  renderKeyboardSuggestions() {
+    if (Object.keys(this.keyboardSuggestions).length) {
+      const itemsArray = [];
+      for (const key in this.keyboardSuggestions) {
+        const listItem = (
+          <li class="suggestions-__list-item">
+            {this.keyboardSuggestions[key]}
+          </li>
+        );
+        itemsArray.push(listItem);
+      }
+      return (
+        <div class="suggestions suggestions__container">
+          <ul class="suggestions__list">{itemsArray}</ul>
+          <gxg-button
+            class="suggestions__button"
+            type="secondary-icon-only"
+            icon="gemini-tools/close"
+            onClick={this.hideKeyboardSuggestionsLogic}
+          ></gxg-button>
+        </div>
+      );
+    }
+  }
+
+  hideKeyboardSuggestionsLogic = () => {
+    this.hideKeyboardSuggestions = true;
+  };
+
+  keyBoardSuggestionsLogic() {
+    console.log("logic");
+  }
+
   /* RENDER */
 
   render(): void {
@@ -808,6 +906,9 @@ export class GxgListBox implements FormComponent {
               {this.theTitle}
             </header>
           ) : null}
+          {!this.disableSuggestions && !this.hideKeyboardSuggestions
+            ? this.renderKeyboardSuggestions()
+            : null}
           <main
             class={{ main: true }}
             style={{
@@ -831,4 +932,9 @@ export type SelectedItems = {
   highlighted: boolean;
   index: number;
   value: string;
+};
+
+export type KeyboardSuggestions = {
+  checkCheckbox: string;
+  uncheckCheckbox: string;
 };

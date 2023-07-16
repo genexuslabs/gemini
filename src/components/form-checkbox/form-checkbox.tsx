@@ -188,8 +188,8 @@ export class GxgFormCheckbox implements FormComponent {
   @Watch("checked")
   checkedHandler() {
     this.change.emit({
-      "checkbox id": this.checkboxId,
-      "checkbox value": this.checked,
+      id: this.checkboxId,
+      value: this.checked,
     });
     if (this.validateOnChange) {
       this.handleValidation();
@@ -243,8 +243,9 @@ export class GxgFormCheckbox implements FormComponent {
         onClick={this.handleInputClick}
       ></input>,
       <span
+        part="box"
         class={{
-          checkmark: true,
+          box: true,
           "no-label": !this.label,
           "has-icon": !!this.iconName,
           "form-element": true,

@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   State,
+  Listen,
 } from "@stencil/core";
 import { GxgListBox } from "../list-box/list-box";
 import state from "../store";
@@ -52,6 +53,11 @@ export class GxgListboxItem {
   @Prop({ reflect: true }) index: number = null;
 
   /**
+   * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
+   */
+  @Prop() emitCheckboxChange = false;
+
+  /**
    * (This event is for internal use.)
    */
   @Event() itemClicked: EventEmitter<ItemClicked>;
@@ -65,6 +71,11 @@ export class GxgListboxItem {
    * (This event is for internal use.)
    */
   @Event() itemSelected: EventEmitter;
+
+  /**
+   * (This event is for internal use.)
+   */
+  @Event() checkboxClicked: EventEmitter;
 
   /**
    * The item value. If value is not provided, the value will be the item innerHTML.
@@ -82,6 +93,16 @@ export class GxgListboxItem {
   @Prop() checked = false;
 
   @State() mouseOver = false;
+
+  @Listen("change")
+  checkboxChangedHandler(event: CustomEvent<object>): void {
+    this.emitCheckboxChange && this.checkboxClicked.emit();
+  }
+  handleCheckboxClick = (e): void => {
+    (e.target as HTMLGxgFormCheckboxElement).checked
+      ? (this.checked = true)
+      : (this.checked = false);
+  };
 
   iconColor() {
     if (this.disabled) {
@@ -133,6 +154,7 @@ export class GxgListboxItem {
             <gxg-form-checkbox
               tabindex="-1"
               checked={this.checked}
+              onClick={this.handleCheckboxClick}
             ></gxg-form-checkbox>
           ) : null}
           {this.icon !== undefined ? (

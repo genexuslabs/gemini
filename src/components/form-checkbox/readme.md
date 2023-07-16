@@ -54,6 +54,12 @@ METHODS
 
 Type: `Promise<boolean>`
 
+## Shadow Parts
+
+| Part    | Description |
+| ------- | ----------- |
+| `"box"` |             |
+
 ## Dependencies
 
 ### Used by

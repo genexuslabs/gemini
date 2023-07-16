@@ -3,7 +3,7 @@
 @import "../../globals/form-validation";
 
 :host {
-  --checkmark-border-color: var(--color-primary-active);
+  --box-border-color: var(--color-primary-active);
   .gxg-form-checkbox__wrapper {
     display: flex;
     align-items: center;
@@ -11,18 +11,17 @@
   .label:last-child {
     margin-bottom: 0;
   }
-  input:focus + .checkmark {
-    box-shadow: 0px 0px 0px var(--border-width-sm) var(--checkmark-border-color);
-    border-color: var(--checkmark-border-color) !important  ;
+  input:focus + .box {
+    @include form-element-common-styles-focus-type-1();
   }
   input[disabled] {
     cursor: not-allowed;
   }
-  input[disabled] + .checkmark {
+  input[disabled] + .box {
     border-color: var(--gxg-border-color--disabled) !important;
     pointer-events: none;
   }
-  input:checked[disabled] + .checkmark:after {
+  input:checked[disabled] + .box:after {
     border-color: var(--gxg-border-color--disabled) !important;
   }
 }
@@ -57,16 +56,16 @@
     width: 0;
   }
 
-  .label input[on-focus] + .checkmark {
+  .label input[on-focus] + .box {
     box-shadow: inset 0px 0px 0px 1px var(--color-primary-active);
     border-color: var(--color-primary-active) !important;
   }
-  .checkmark:focus {
+  .box:focus {
     box-shadow: none;
   }
 
   /* Create a custom checkbox */
-  .checkmark {
+  .box {
     display: inline-block;
     position: relative;
     margin-inline-end: var(--spacing-comp-02);
@@ -90,32 +89,32 @@
 
   /* When the checkbox is checked, add a blue background */
 
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+  /* Create the box/indicator (hidden when not checked) */
+  .box:after {
     content: "";
     position: absolute;
     display: none;
   }
 
-  input ~ .checkmark:after {
+  input ~ .box:after {
     display: block;
     border-color: transparent;
   }
-  /* Show the checkmark when checked */
-  input:checked ~ .checkmark:after {
+  /* Show the box when checked */
+  input:checked ~ .box:after {
     display: block;
-    border-color: var(--checkmark-border-color);
+    border-color: var(--box-border-color);
     @include ui-animation(border-color);
   }
 
-  /* Style the checkmark/indicator */
-  .checkmark:after {
+  /* Style the box/indicator */
+  .box:after {
     left: 5px;
     top: 2px;
     width: 3px;
     height: 7px;
     border: solid;
-    border-color: var(--checkmark-border-color);
+    border-color: var(--box-border-color);
     border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -123,13 +122,13 @@
   }
 }
 /*indeterminate*/
-:host([indeterminate]) .label input:checked ~ .checkmark:after {
+:host([indeterminate]) .label input:checked ~ .box:after {
   display: block;
   width: 10px;
   height: 2px;
   transform: rotate(0deg);
   border: 0;
-  background-color: var(--checkmark-border-color);
+  background-color: var(--box-border-color);
   left: 2px;
   top: 6px;
 }

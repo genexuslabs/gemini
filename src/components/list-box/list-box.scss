@@ -3,12 +3,11 @@
 :host {
   display: block;
   font-size: var(--font-size-sm);
+  font-family: var(--font-family-primary);
   @include gxg-scroll;
-
   .container {
     height: 100%;
   }
-
   .header {
     width: 100%;
     white-space: nowrap;
@@ -17,7 +16,7 @@
     box-sizing: border-box;
     background-color: var(--gray-02);
     padding: var(--spacing-comp-01) var(--spacing-comp-02);
-    font-family: var(--font-family-primary);
+
     text-transform: uppercase;
     font-size: inherit;
     font-weight: var(--font-weight-bold);
@@ -45,6 +44,30 @@
 
 :host(:focus) {
   @include form-element-common-styles-focus-type-1();
+}
+
+/*SUGGESTION LIST*/
+.suggestions {
+  &__container {
+    background-color: var(--gray-01);
+    color: var(--gray-06);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    display: flex;
+    gap: var(--spacing-comp-01);
+    align-items: center;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex-grow: 1;
+  }
+  &__item {
+  }
+  &__button {
+  }
 }
 /*********************************************
 VALIDATION
