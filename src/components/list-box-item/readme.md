@@ -7,7 +7,8 @@
 | Property      | Attribute     | Description                                                                                                                    | Type      | Default     |
 | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
 | `active`      | `active`      | The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active. | `boolean` | `false`     |
-| `checkbox`    | `checkbox`    |                                                                                                                                | `boolean` | `false`     |
+| `checkbox`    | `checkbox`    | The presence of this attribute will add a checkbox to the item.                                                                | `boolean` | `false`     |
+| `checked`     | `checked`     | The presence of this attribute will make the checkbox checked.                                                                 | `boolean` | `false`     |
 | `disabled`    | `disabled`    | The presence of this attribute disabled the list-box-item                                                                      | `boolean` | `undefined` |
 | `highlighted` | `highlighted` | The presence of this attribute sets this item as highlighted                                                                   | `boolean` | `false`     |
 | `icon`        | `icon`        | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons                                 | `string`  | `undefined` |

@@ -6,7 +6,7 @@
 
 | Property                   | Attribute                    | Description                                                                                                                                                    | Type                                                   | Default     |
 | -------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| `allowsNoSelection`        | `allows-no-selection`        | The presence of this attribute allows the list-box to not have any list-box-item selected                                                                      | `boolean`                                              | `false`     |
+| `allowsEmpty`              | `allows-empty`               | The presence of this attribute allows the list-box to not have any list-box-item selected                                                                      | `boolean`                                              | `false`     |
 | `checkboxes`               | `checkboxes`                 | The presence of this attribute will display a checkbox for every item                                                                                          | `boolean`                                              | `false`     |
 | `disabled`                 | `disabled`                   | The presence of this attribute makes the component disabled                                                                                                    | `boolean`                                              | `false`     |
 | `displayValidationMessage` | `display-validation-message` | The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status                     | `boolean`                                              | `false`     |
@@ -32,11 +32,11 @@
 
 ## Methods
 
-### `getSelectedItems() => Promise<any[]>`
+### `getSelectedItems() => Promise<SelectedItems[]>`
 
 #### Returns
 
-Type: `Promise<any[]>`
+Type: `Promise<SelectedItems[]>`
 
 ### `validate() => Promise<boolean>`
 

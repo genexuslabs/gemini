@@ -40,6 +40,7 @@ import {
   Style,
 } from "./components/form-text/form-text";
 import { Color as Color1, Size } from "./components/icon/icon";
+import { SelectedItems } from "./components/list-box/list-box";
 import { ItemClicked } from "./components/list-box-item/list-box-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
@@ -1014,7 +1015,7 @@ export namespace Components {
     /**
      * The presence of this attribute allows the list-box to not have any list-box-item selected
      */
-    allowsNoSelection: boolean;
+    allowsEmpty: boolean;
     /**
      * The presence of this attribute will display a checkbox for every item
      */
@@ -1035,7 +1036,7 @@ export namespace Components {
      * A function that will return true or false depending on wether the error condition is met or not
      */
     errorCondition: Function;
-    getSelectedItems: () => Promise<any[]>;
+    getSelectedItems: () => Promise<SelectedItems[]>;
     /**
      * The list-box height
      */
@@ -1090,7 +1091,14 @@ export namespace Components {
      * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
      */
     active: boolean;
+    /**
+     * The presence of this attribute will add a checkbox to the item.
+     */
     checkbox: boolean;
+    /**
+     * The presence of this attribute will make the checkbox checked.
+     */
+    checked: boolean;
     /**
      * The presence of this attribute disabled the list-box-item
      */
@@ -3341,7 +3349,7 @@ declare namespace LocalJSX {
     /**
      * The presence of this attribute allows the list-box to not have any list-box-item selected
      */
-    allowsNoSelection?: boolean;
+    allowsEmpty?: boolean;
     /**
      * The presence of this attribute will display a checkbox for every item
      */
@@ -3416,7 +3424,14 @@ declare namespace LocalJSX {
      * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
      */
     active?: boolean;
+    /**
+     * The presence of this attribute will add a checkbox to the item.
+     */
     checkbox?: boolean;
+    /**
+     * The presence of this attribute will make the checkbox checked.
+     */
+    checked?: boolean;
     /**
      * The presence of this attribute disabled the list-box-item
      */

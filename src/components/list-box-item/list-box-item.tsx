@@ -71,7 +71,15 @@ export class GxgListboxItem {
    */
   @Prop() value: any = undefined;
 
+  /**
+   * The presence of this attribute will add a checkbox to the item.
+   */
   @Prop() checkbox = false;
+
+  /**
+   * The presence of this attribute will make the checkbox checked.
+   */
+  @Prop() checked = false;
 
   @State() mouseOver = false;
 
@@ -122,7 +130,10 @@ export class GxgListboxItem {
       >
         <div class="container disabled-element">
           {this.checkbox ? (
-            <gxg-form-checkbox tabindex="-1"></gxg-form-checkbox>
+            <gxg-form-checkbox
+              tabindex="-1"
+              checked={this.checked}
+            ></gxg-form-checkbox>
           ) : null}
           {this.icon !== undefined ? (
             <gxg-icon

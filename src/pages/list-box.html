@@ -81,7 +81,7 @@
         "
       >
         <gxg-list-box
-          allows-no-selection
+          single-selection
           id="auto-height"
           the-title="listbox single-selection"
           height="100%"
@@ -492,7 +492,7 @@
       /*auto-height*/
       let listBoxAutoHeight = document.getElementById("auto-height");
       listBoxAutoHeight.addEventListener("selectionChanged", (e) => {
-        console.log("auto-height", e.detail);
+        console.table(e.detail);
       });
       let btnAutoHeight = document.getElementById("btn-auto-height");
       btnAutoHeight.addEventListener("click", (e) => {

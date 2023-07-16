@@ -72,10 +72,11 @@ export class GxgListBox implements FormComponent {
   /**
    * The presence of this attribute allows the list-box to not have any list-box-item selected
    */
-  @Prop() allowsNoSelection = false;
+  @Prop() allowsEmpty = false;
 
-  @State() lastSelectedItemIndex: number | undefined = undefined;
   @State() headerHeight = 0;
+
+  private activeItem: HTMLGxgListBoxItemElement;
 
   /*********************************
   PROPERTIES FOR VALIDATION 
@@ -141,8 +142,6 @@ export class GxgListBox implements FormComponent {
    */
   @Prop() informationMessage: string;
 
-  private activeItem: HTMLGxgListBoxItemElement;
-
   /*********************************
   METHODS
   *********************************/
@@ -180,7 +179,7 @@ export class GxgListBox implements FormComponent {
   };
 
   @Method()
-  async getSelectedItems() {
+  async getSelectedItems(): Promise<SelectedItems[]> {
     return [...this.getSelectedItemsInfo()];
   }
 
@@ -190,7 +189,7 @@ export class GxgListBox implements FormComponent {
     }
   }
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     this.initialSetup();
   }
 
@@ -205,7 +204,7 @@ export class GxgListBox implements FormComponent {
   }
 
   initialSetup = (): void => {
-    if (!this.allowsNoSelection) {
+    if (!this.allowsEmpty) {
       const selectedItems = this.el.querySelectorAll(
         "gxg-list-box-item[selected]"
       );
@@ -232,11 +231,11 @@ export class GxgListBox implements FormComponent {
   itemClickedHandler(event: ItemClicked): void {
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
     if (this.singleSelection) {
-      if (this.activeItem === clickedItem && !this.allowsNoSelection) {
+      if (this.activeItem === clickedItem && !this.allowsEmpty) {
         /*same item. do nothing.*/
         return;
       }
-      if (this.allowsNoSelection && (ctrlKey || cmdKey)) {
+      if (this.allowsEmpty && (ctrlKey || cmdKey)) {
         this.unselectItem(clickedItem);
       } else {
         this.clearHighlightedItems();
@@ -267,7 +266,7 @@ export class GxgListBox implements FormComponent {
         this.selectMultipleItems(fromIndex, toIndex);
       } else if (ctrlKey) {
         if (
-          !this.allowsNoSelection &&
+          !this.allowsEmpty &&
           this.selectedItemsLength() === 1 &&
           clickedItem === this.getFirstSelectedItem()
         ) {
@@ -292,22 +291,34 @@ export class GxgListBox implements FormComponent {
       e.code === "ArrowDown" ||
       e.code === "ArrowUp" ||
       e.code === "Space" ||
-      e.code === "Enter"
+      e.code === "Enter" ||
+      e.code === "Backspace" ||
+      e.code === "Delete" ||
+      e.code === "KeyA"
     ) {
       e.preventDefault();
     }
+
     if (e.code === "ArrowDown" || e.code === "ArrowUp") {
-      this.handleArrow(e.code, e.shiftKey, activeItemIndex);
+      this.HandleArrow(e.code, shiftKey, activeItemIndex);
     } else if (e.code === "Space" || e.code === "Enter") {
-      if ((ctrlKey || cmdKey) && this.selectedItemsLength() >= 1) {
+      if (shiftKey && ctrlKey) {
+        this.setCheckboxState(this.getHighlightedItems(), false);
+      } else if (shiftKey && !ctrlKey) {
+        this.setCheckboxState(this.getHighlightedItems(), true);
+      } else if (
+        !shiftKey &&
+        (ctrlKey || cmdKey) &&
+        this.selectedItemsLength() >= 1
+      ) {
         console.log("3");
         const deselectionNotAllowed =
-          (!this.allowsNoSelection &&
+          (!this.allowsEmpty &&
             this.selectedItemsLength() === 1 &&
             this.activeItem === this.getSelectedItemsFunc()[0]) ||
           !this.activeItem.selected;
         if (deselectionNotAllowed) {
-          console.log("do nothing");
+          console.log("do nothing 1");
           return;
         }
         this.unselectItem(this.activeItem);
@@ -316,7 +327,7 @@ export class GxgListBox implements FormComponent {
         if (this.singleSelection) {
           console.log("5");
           if (this.activeItem === this.getSelectedItemsFunc()[0]) {
-            console.log("do nothing");
+            console.log("do nothing 2");
             return;
           }
           this.clearSelectedItems();
@@ -328,18 +339,28 @@ export class GxgListBox implements FormComponent {
             console.log("7");
             this.clearHighlightedItems();
           } else {
-            if (!this.activeItem.selected) {
+            if (!this.activeItem?.selected) {
               console.log("8");
               this.selectHighlightedItems();
             }
           }
         }
       }
+    } else if (
+      e.code === "KeyA" &&
+      (ctrlKey || cmdKey) &&
+      !this.singleSelection
+    ) {
+      /*highlight all*/
+      this.highlightAll();
+    } else if (e.code === "Delete" || e.code === "Backspace") {
+      /*Deselect highlighted items*/
+      this.unselectHighlightedItems();
     }
   };
 
-  handleArrow = (
-    direction: handleArrow,
+  HandleArrow = (
+    direction: HandleArrow,
     shiftKey: boolean,
     activeItemIndex: number
   ): void => {
@@ -358,20 +379,23 @@ export class GxgListBox implements FormComponent {
     if (newElement) {
       this.singleSelection &&
         this.activeItem &&
-        !this.allowsNoSelection &&
+        !this.allowsEmpty &&
         this.clearSelectedItems();
-      if (shiftKey && !this.singleSelection && !this.activeItem.selected) {
-        this.activeItem.selected = true;
+      if (shiftKey && !this.singleSelection) {
+        console.log("9");
+        !this.activeItem.selected && this.selectItem(this.activeItem);
+        !newElement.selected && this.selectItem(newElement);
       }
-      this.unhighlightItem(this.activeItem);
+      this.unhighlightAll();
       this.setActiveItem(newElement);
       this.highlightItem(newElement);
-      if (shiftKey && !this.singleSelection && !this.activeItem.selected) {
-        this.activeItem.selected = true;
+      if (shiftKey && !this.singleSelection) {
+        //this.selectItem(this.activeItem);
       }
       if (
-        (!newElement.selected || (shiftKey && !this.singleSelection)) &&
-        !this.allowsNoSelection
+        (this.singleSelection || (!this.singleSelection && shiftKey)) &&
+        !newElement.selected &&
+        !this.allowsEmpty
       ) {
         console.log("1");
         this.selectItem(newElement);
@@ -397,20 +421,22 @@ export class GxgListBox implements FormComponent {
     }
   }
 
-  getSelectedItemsInfo() {
+  getSelectedItemsInfo(): SelectedItems[] {
     const allItems = this.el.querySelectorAll("gxg-list-box-item");
-    const selectedItemsArray = [];
+    const selectedItems: SelectedItems[] = [];
     allItems.forEach((item) => {
-      const HTMLListBoxItemElement = item as HTMLGxgListBoxItemElement;
-      if (HTMLListBoxItemElement.selected && !HTMLListBoxItemElement.disabled) {
-        selectedItemsArray.push({
-          index: HTMLListBoxItemElement.index,
-          value:
-            HTMLListBoxItemElement.value || HTMLListBoxItemElement.textContent,
+      if (item.selected && !item.disabled) {
+        console.log("item.index", item.index);
+        selectedItems.push({
+          checked: item.checked,
+          highlighted: item.highlighted,
+          index: item.index,
+          value: item.value || item.textContent,
+          active: item.active,
         });
       }
     });
-    return selectedItemsArray;
+    return selectedItems;
   }
 
   selectedItemsLength = (): number => {
@@ -462,6 +488,21 @@ export class GxgListBox implements FormComponent {
     }
   }
 
+  unhighlightAll(ignoreActiveItem = false): number {
+    const allItems = this.el.querySelectorAll(
+      "gxg-list-box-item:not([disabled])"
+    );
+    if (allItems) {
+      allItems.forEach((item) => {
+        ignoreActiveItem && item === this.activeItem
+          ? null
+          : ((item as HTMLGxgListBoxItemElement).highlighted = false);
+      });
+      return allItems.length;
+    }
+    return 0;
+  }
+
   toggleHighlightedItems(): void {
     const highlightedItems = this.getHighlightedItems();
     highlightedItems.forEach((item) => {
@@ -469,13 +510,37 @@ export class GxgListBox implements FormComponent {
     });
   }
 
-  selectHighlightedItems(): void {
+  selectHighlightedItems(): number {
     const highlightedItems = this.el.querySelectorAll(
       "gxg-list-box-item[highlighted]"
     );
-    highlightedItems.forEach((item) => {
-      this.selectItem(item as HTMLGxgListBoxItemElement);
-    });
+    if (highlightedItems) {
+      highlightedItems.forEach((item) => {
+        this.selectItem(item as HTMLGxgListBoxItemElement, true);
+      });
+      this.emitSelectedItems();
+      this.unhighlightAll(true);
+      return highlightedItems.length;
+    }
+    return 0;
+  }
+
+  unselectHighlightedItems(): number {
+    const highlightedItems: HTMLGxgListBoxItemElement[] = this.getHighlightedItems();
+    if (highlightedItems) {
+      highlightedItems.forEach((item, i) => {
+        if (
+          !this.allowsEmpty &&
+          this.getHighlightedItemsLength() === this.selectedItemsLength() &&
+          i !== 0
+        ) {
+          this.unselectItem(item);
+        }
+      });
+      this.unhighlightAll(true);
+      return highlightedItems.length;
+    }
+    return 0;
   }
 
   clearHighlightedItems(): void {
@@ -502,6 +567,19 @@ export class GxgListBox implements FormComponent {
 
   getHighlightedItemsLength(): number {
     return this.getHighlightedItems().length;
+  }
+
+  highlightAll(): number {
+    const highlighted = this.el.querySelectorAll(
+      "gxg-list-box-item:not([disabled])"
+    );
+    if (highlighted) {
+      highlighted.forEach((item) => {
+        (item as HTMLGxgListBoxItemElement).highlighted = true;
+      });
+      return highlighted.length;
+    }
+    return 0;
   }
 
   /* INDEX */
@@ -571,7 +649,7 @@ export class GxgListBox implements FormComponent {
   selectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
     if (!item?.disabled) {
       item.selected = true;
-      console.log("emit select");
+      this.singleSelection && (item.active = true);
       !disableEmit && this.emitSelectedItems();
     }
     return null;
@@ -580,7 +658,7 @@ export class GxgListBox implements FormComponent {
   unselectItem(item: HTMLGxgListBoxItemElement, disableEmit = false): void {
     if (item) {
       item.selected = false;
-      console.log("emit unselect");
+      this.singleSelection && (item.active = false);
       !disableEmit && this.emitSelectedItems();
     }
   }
@@ -618,6 +696,40 @@ export class GxgListBox implements FormComponent {
       return true;
     }
     return false;
+  }
+
+  /* CHECKBOX */
+
+  setCheckboxState(
+    items: HTMLGxgListBoxItemElement | HTMLGxgListBoxItemElement[],
+    check = true
+  ): number {
+    console.log("items", items);
+    console.log("check", check);
+    if (items && Array.isArray(items) && items.length !== 0) {
+      console.log("deberias hacer algo");
+      let changed = 0;
+      items.forEach((item) => {
+        if (!item.checked && check) {
+          item.checked = true;
+          changed++;
+        } else if (item.checked && !check) {
+          item.checked = false;
+          changed++;
+        }
+      });
+      return changed;
+    } else if (!(items && Array.isArray(items))) {
+      const item = items as HTMLGxgListBoxItemElement;
+      if (!item.checked && check) {
+        item.checked = true;
+        return 1;
+      } else if (item.checked && !check) {
+        item.checked = false;
+        return 1;
+      }
+    }
+    return 0;
   }
 
   /* OTHER */
@@ -711,4 +823,12 @@ export class GxgListBox implements FormComponent {
   }
 }
 
-type handleArrow = "ArrowUp" | "ArrowDown";
+type HandleArrow = "ArrowUp" | "ArrowDown";
+
+export type SelectedItems = {
+  active: boolean;
+  checked: boolean;
+  highlighted: boolean;
+  index: number;
+  value: string;
+};
