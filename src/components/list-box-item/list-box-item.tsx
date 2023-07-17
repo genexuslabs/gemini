@@ -9,9 +9,9 @@ import {
   State,
   Listen,
 } from "@stencil/core";
-import { GxgListBox } from "../list-box/list-box";
 import state from "../store";
 import { commonClassesNames } from "../../common/classes-names";
+import { GxgFormCheckbox, CheckboxInfo } from "../form-checkbox/form-checkbox";
 
 @Component({
   tag: "gxg-list-box-item",
@@ -75,7 +75,7 @@ export class GxgListboxItem {
   /**
    * (This event is for internal use.)
    */
-  @Event() checkboxClicked: EventEmitter;
+  @Event() checkboxStateChanged: EventEmitter<ItemChecked>;
 
   /**
    * The item value. If value is not provided, the value will be the item innerHTML.
@@ -95,10 +95,16 @@ export class GxgListboxItem {
   @State() mouseOver = false;
 
   @Listen("change")
-  checkboxChangedHandler(event: CustomEvent<object>): void {
-    this.emitCheckboxChange && this.checkboxClicked.emit();
+  checkboxChangedHandler(e: CustomEvent<CheckboxInfo>): void {
+    const checked = e.detail.value;
+    this.emitCheckboxChange &&
+      this.checkboxStateChanged.emit({
+        checkedItem: this.el as HTMLGxgListBoxItemElement,
+        checked: checked,
+      });
   }
   handleCheckboxClick = (e): void => {
+    e.stopPropagation();
     (e.target as HTMLGxgFormCheckboxElement).checked
       ? (this.checked = true)
       : (this.checked = false);
@@ -107,7 +113,7 @@ export class GxgListboxItem {
   iconColor() {
     if (this.disabled) {
       return "disabled";
-    } else if (this.selected || this.mouseOver) {
+    } else if (this.selected || this.highlighted || this.mouseOver) {
       return "negative";
     } else {
       return "auto";
@@ -150,11 +156,12 @@ export class GxgListboxItem {
         onMouseOut={this.onMouseOut.bind(this)}
       >
         <div class="container disabled-element">
-          {this.checkbox ? (
+          {this.checkbox && !this.disabled ? (
             <gxg-form-checkbox
               tabindex="-1"
               checked={this.checked}
               onClick={this.handleCheckboxClick}
+              disabled={this.disabled}
             ></gxg-form-checkbox>
           ) : null}
           {this.icon !== undefined ? (
@@ -178,4 +185,8 @@ export type ItemClicked = {
   cmdKey: boolean;
   shiftKey: boolean;
   index: number;
+};
+export type ItemChecked = {
+  checkedItem: HTMLGxgListBoxItemElement;
+  checked: boolean;
 };

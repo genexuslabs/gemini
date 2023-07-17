@@ -70,7 +70,7 @@ export class GxgFormCheckbox implements FormComponent {
    */
   @Prop() iconName: string = undefined;
 
-  @Event() change: EventEmitter;
+  @Event() change: EventEmitter<CheckboxInfo>;
 
   /*VALIDATION*/
 
@@ -298,3 +298,8 @@ export class GxgFormCheckbox implements FormComponent {
     );
   }
 }
+
+export type CheckboxInfo = {
+  id: string;
+  value: boolean;
+};

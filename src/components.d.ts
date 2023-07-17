@@ -33,6 +33,7 @@ import {
 } from "./components/container/container";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
+import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
 import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
@@ -41,10 +42,13 @@ import {
 } from "./components/form-text/form-text";
 import { Color as Color1, Size } from "./components/icon/icon";
 import {
+  ItemsInformation,
   KeyboardSuggestions,
-  SelectedItems,
 } from "./components/list-box/list-box";
-import { ItemClicked } from "./components/list-box-item/list-box-item";
+import {
+  ItemChecked,
+  ItemClicked,
+} from "./components/list-box-item/list-box-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
@@ -1043,7 +1047,7 @@ export namespace Components {
      * A function that will return true or false depending on wether the error condition is met or not
      */
     errorCondition: Function;
-    getSelectedItems: () => Promise<SelectedItems[]>;
+    getSelectedItems: () => Promise<ItemsInformation[]>;
     /**
      * The list-box height
      */
@@ -1057,13 +1061,17 @@ export namespace Components {
      */
     keyboardSuggestions: KeyboardSuggestions;
     /**
-     * The list-box max-width
+     * The list-box max-height
      */
-    maxWidth: string;
+    maxHeight: string;
     /**
-     * The list-box min-width
+     * The list-box min-height
      */
-    minWidth: string;
+    minHeight: string;
+    /**
+     * The presence of this attribute disables the border
+     */
+    noBorder: boolean;
     /**
      * Make the radio-buttons required
      */
@@ -1092,10 +1100,6 @@ export namespace Components {
      * A function that will return true or false depending on wether the warning condition is met or not
      */
     warningCondition: Function;
-    /**
-     * The list-box width
-     */
-    width: string;
   }
   interface GxgListBoxItem {
     /**
@@ -3011,7 +3015,7 @@ declare namespace LocalJSX {
      * The checkbox name
      */
     name?: string;
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: CustomEvent<CheckboxInfo>) => void;
     /**
      * The presence of this attribute makes the commbo required
      */
@@ -3402,13 +3406,18 @@ declare namespace LocalJSX {
      */
     keyboardSuggestions?: KeyboardSuggestions;
     /**
-     * The list-box max-width
+     * The list-box max-height
      */
-    maxWidth?: string;
+    maxHeight?: string;
     /**
-     * The list-box min-width
+     * The list-box min-height
      */
-    minWidth?: string;
+    minHeight?: string;
+    /**
+     * The presence of this attribute disables the border
+     */
+    noBorder?: boolean;
+    onCheckedChanged?: (event: CustomEvent<any>) => void;
     /**
      * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
      */
@@ -3437,10 +3446,6 @@ declare namespace LocalJSX {
      * A function that will return true or false depending on wether the warning condition is met or not
      */
     warningCondition?: Function;
-    /**
-     * The list-box width
-     */
-    width?: string;
   }
   interface GxgListBoxItem {
     /**
@@ -3478,7 +3483,7 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use.)
      */
-    onCheckboxClicked?: (event: CustomEvent<any>) => void;
+    onCheckboxStateChanged?: (event: CustomEvent<ItemChecked>) => void;
     /**
      * (This event is for internal use.)
      */

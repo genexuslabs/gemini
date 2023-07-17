@@ -4,7 +4,8 @@
   display: block;
   font-size: var(--font-size-sm);
   font-family: var(--font-family-primary);
-  @include gxg-scroll;
+  background-color: var(--color-background);
+  @include gxg-scroll();
   .container {
     height: 100%;
   }
@@ -28,6 +29,10 @@
     border-width: var(--border-radius-xs);
     border-color: var(--gray-02);
     overflow-y: auto;
+
+    &--no-border {
+      border: none;
+    }
   }
 
   .icon {
@@ -43,7 +48,7 @@
 }
 
 :host(:focus) {
-  @include form-element-common-styles-focus-type-1();
+  @include form-element-common-styles-focus-type-1($direction: "outside");
 }
 
 /*SUGGESTION LIST*/

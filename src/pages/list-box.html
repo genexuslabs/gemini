@@ -52,23 +52,25 @@
   <body>
     <div class="container">
       <!-- AUTO HEIGHT -->
-      <h2>auto-height</h2>
+      <h2>max-height</h2>
       <div
         class="list-box-container"
         style="
-          background-color: rgb(255, 251, 222);
-          height: 600px;
+          background-color: rgb(215, 228, 250);
           padding: 16px;
+          height: 200px;
         "
       >
         <gxg-list-box
-          id="auto-height"
+          id="max-height"
           the-title="listbox single-selection"
           height="100%"
           display-validation-message
           validation-message="This is the validation message"
           required
           checkboxes
+          min-height="50%"
+          no-border
         >
           <gxg-list-box-item>0.Common</gxg-list-box-item>
           <gxg-list-box-item icon="objects/business-process-diagram" disabled
@@ -98,7 +100,7 @@
           >
         </gxg-list-box>
       </div>
-      <gxg-button id="btn-auto-height">Get selected items</gxg-button>
+      <gxg-button id="btn-max-height">Get selected items</gxg-button>
       <span class="separator"></span>
 
       <!-- ERRORS -->
@@ -468,14 +470,17 @@
       <gxg-button id="btn-8">Get selected items</gxg-button>
     </div>
     <script>
-      /*auto-height*/
-      let listBoxAutoHeight = document.getElementById("auto-height");
-      listBoxAutoHeight.addEventListener("selectionChanged", (e) => {
-        console.table(e.detail);
+      /*max-height*/
+      let listBoxMaxHeight = document.getElementById("max-height");
+      listBoxMaxHeight.addEventListener("selectionChanged", (e) => {
+        console.table("selectionChanged", e.detail);
       });
-      let btnAutoHeight = document.getElementById("btn-auto-height");
-      btnAutoHeight.addEventListener("click", (e) => {
-        listBoxAutoHeight.getSelectedItems().then((selectedItems) => {
+      listBoxMaxHeight.addEventListener("checkedChanged", (e) => {
+        console.table("checkedChanged", e.detail);
+      });
+      let btnMaxHeight = document.getElementById("btn-max-height");
+      btnMaxHeight.addEventListener("click", (e) => {
+        listBoxMaxHeight.getSelectedItems().then((selectedItems) => {
           console.log(selectedItems);
         });
       });

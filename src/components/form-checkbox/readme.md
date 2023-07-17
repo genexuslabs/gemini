@@ -36,9 +36,9 @@
 
 ## Events
 
-| Event    | Description | Type               |
-| -------- | ----------- | ------------------ |
-| `change` |             | `CustomEvent<any>` |
+| Event    | Description | Type                                           |
+| -------- | ----------- | ---------------------------------------------- |
+| `change` |             | `CustomEvent<{ id: string; value: boolean; }>` |
 
 ## Methods
 

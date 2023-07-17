@@ -12,11 +12,10 @@ import {
   Watch,
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
-import { GxgListboxItem } from "../list-box-item/list-box-item";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classes-names";
 import state from "../store";
-import { ItemClicked } from "../list-box-item/list-box-item";
+import { ItemClicked, ItemChecked } from "../list-box-item/list-box-item";
 
 @Component({
   tag: "gxg-list-box",
@@ -28,6 +27,7 @@ export class GxgListBox implements FormComponent {
    * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
    */
   @Event() selectionChanged: EventEmitter;
+  @Event() checkedChanged: EventEmitter;
   @Element() el: HTMLElement;
   header!: HTMLElement;
 
@@ -41,24 +41,19 @@ export class GxgListBox implements FormComponent {
   @Prop() theTitle = "";
 
   /**
-   * The list-box width
+   * The list-box min-height
    */
-  @Prop() width = "100%";
-
-  /**
-   * The list-box min-width
-   */
-  @Prop() minWidth = "0";
-
-  /**
-   * The list-box max-width
-   */
-  @Prop() maxWidth = "none";
+  @Prop() minHeight = "0";
 
   /**
    * The list-box height
    */
-  @Prop() height = "auto";
+  @Prop() height = "100%";
+
+  /**
+   * The list-box max-height
+   */
+  @Prop() maxHeight = "100%";
 
   /**
    * The presence of this attribute will display a checkbox for every item
@@ -76,6 +71,11 @@ export class GxgListBox implements FormComponent {
   @Prop() allowsEmpty = false;
 
   /**
+   * The presence of this attribute disables the border
+   */
+  @Prop() noBorder = false;
+
+  /**
    * An object with suggestions about the possible keyboard combinations
    */
   @Prop() keyboardSuggestions: KeyboardSuggestions = {
@@ -88,7 +88,15 @@ export class GxgListBox implements FormComponent {
    */
   @Prop() disableSuggestions = false;
 
-  @State() selectedItems: SelectedItems[] = [];
+  /**
+   * this variable keeps an array of the selected items.
+   */
+  @State() selectedItems: ItemsInformation[] = [];
+
+  /**
+   * this variable keeps an array of the items with checked checkboxes.
+   */
+  @State() checkedItems: ItemsInformation[] = [];
 
   /**
    * Hides the keyboard suggestions
@@ -205,7 +213,7 @@ export class GxgListBox implements FormComponent {
   };
 
   @Method()
-  async getSelectedItems(): Promise<SelectedItems[]> {
+  async getSelectedItems(): Promise<ItemsInformation[]> {
     return this.selectedItems;
   }
 
@@ -231,7 +239,9 @@ export class GxgListBox implements FormComponent {
     const unselectItems =
       this.singleSelection && this.selectedItemsLength() > 1;
     const setCheckbox = this.checkboxes;
-    const doSetup = selectItem || setCheckbox || unselectItems;
+    const disableListbox = this.disabled;
+    const doSetup =
+      selectItem || setCheckbox || unselectItems || disableListbox;
     /*/conditions to do setup*/
     if (doSetup) {
       const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
@@ -251,8 +261,13 @@ export class GxgListBox implements FormComponent {
       }
       if (setCheckbox) {
         enabledItems.forEach((item) => {
-          item && (item.checkbox = true);
+          item.checkbox = true;
           !this.disableSuggestions && (item.emitCheckboxChange = true);
+        });
+      }
+      if (disableListbox) {
+        enabledItems.forEach((item) => {
+          item.disabled = true;
         });
       }
     }
@@ -268,6 +283,7 @@ export class GxgListBox implements FormComponent {
   @Listen("itemClicked")
   itemClickedHandler(event: ItemClicked): void {
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
+    //this.clearActiveItem();
     if (this.singleSelection) {
       if (this.activeItem === clickedItem && !this.allowsEmpty) {
         /*same item. do nothing.*/
@@ -306,7 +322,7 @@ export class GxgListBox implements FormComponent {
         if (
           !this.allowsEmpty &&
           this.selectedItemsLength() === 1 &&
-          clickedItem === this.getFirstSelectedItem()
+          (clickedItem as HTMLGxgListBoxItemElement).selected
         ) {
           return;
         }
@@ -318,11 +334,16 @@ export class GxgListBox implements FormComponent {
         this.highlightItem(clickedItem);
       }
     }
+    this.setActiveItem(clickedItem);
   }
 
   @Watch("selectedItems")
-  selectedItemsHandler(newArray: Array<SelectedItems>): void {
+  selectedItemsHandler(newArray: Array<ItemsInformation>): void {
     this.selectionChanged.emit(newArray);
+  }
+  @Watch("checkedItems")
+  checkedItemsHandler(newArray: Array<ItemsInformation>): void {
+    this.checkedChanged.emit(newArray);
   }
 
   @Watch("hideKeyboardSuggestions")
@@ -331,8 +352,37 @@ export class GxgListBox implements FormComponent {
       oldValue === false &&
       localStorage.setItem("gxg-list-box-hide-keyboard-suggestions", "true");
   }
-  @Listen("checkboxClicked")
-  checkboxClickedHandler(): void {
+  @Listen("checkboxStateChanged")
+  checkboxStateChangedHandler(e: CustomEvent<ItemChecked>): void {
+    const checkedItemEl = e.detail.checkedItem;
+    const checkedItemValue = e.detail.checked;
+    /*Update checkboxes array*/
+    const checkedItemsArray: ItemsInformation[] = [];
+    const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
+    if (enabledItems?.length) {
+      enabledItems.forEach((enabledItem) => {
+        let item: HTMLGxgListBoxItemElement;
+        if (enabledItem === checkedItemEl) {
+          item = checkedItemEl;
+        } else {
+          item = enabledItem;
+        }
+        const checked =
+          enabledItem === checkedItemEl ? checkedItemValue : item.checked;
+        if (item && checked) {
+          checkedItemsArray.push({
+            active: item.active,
+            checked: checked,
+            highlighted: item.highlighted,
+            index: item.index,
+            value: item.value || item.textContent,
+          });
+        }
+      });
+      this.checkedItems = checkedItemsArray;
+    }
+
+    /*Local Storage*/
     const localStorageExists = localStorage.getItem(
       "gxg-list-box-hide-keyboard-suggestions"
     );
@@ -384,33 +434,17 @@ export class GxgListBox implements FormComponent {
         (ctrlKey || cmdKey) &&
         this.selectedItemsLength() >= 1
       ) {
-        console.log("3");
-        // const deselectionNotAllowed =
-        //   (!this.allowsEmpty &&
-        //     this.selectedItemsLength() === 1 &&
-        //     this.activeItem === this.getSelectedItemsFunc()[0]) ||
-        //   !this.activeItem.selected;
-        // if (deselectionNotAllowed) {
-        //   console.log("do nothing 1");
-        //   return;
-        // }
-        // this.unselectItems(this.activeItem);
         this.unselectHighlightedItems();
       } else if (!ctrlKey && !cmdKey) {
-        console.log("4");
         if (this.singleSelection) {
-          console.log("5");
           if (this.activeItem === this.getSelectedItemsFunc()[0]) {
-            console.log("do nothing 2");
             return;
           }
           this.clearSelectedItems();
           this.selectItems(this.activeItem);
         } else {
-          console.log("6");
           /*multi-select allowed*/
           if (ctrlKey || cmdKey) {
-            console.log("7");
             this.clearHighlightedItems();
           } else {
             this.selectHighlightedItems();
@@ -453,7 +487,6 @@ export class GxgListBox implements FormComponent {
         newElement !== this.getSelectedItemsFunc()[0] &&
         this.clearSelectedItems();
       if (shiftKey && !this.singleSelection) {
-        console.log("9");
         !this.activeItem.selected && this.selectItems(this.activeItem);
         !newElement.selected && this.selectItems(newElement);
       }
@@ -468,10 +501,8 @@ export class GxgListBox implements FormComponent {
         !newElement.selected &&
         !this.allowsEmpty
       ) {
-        console.log("1");
         this.selectItems(newElement);
       } else if (this.singleSelection) {
-        console.log("2");
       }
     }
   };
@@ -709,7 +740,7 @@ export class GxgListBox implements FormComponent {
   }
 
   updateSelectedItems = (): void => {
-    const selectedItemsArray: SelectedItems[] = [];
+    const selectedItemsArray: ItemsInformation[] = [];
     const selectedItems = this.getSelectedItemsFunc();
     selectedItems.forEach((item) => {
       selectedItemsArray.push({
@@ -818,6 +849,7 @@ export class GxgListBox implements FormComponent {
 
   selectMultipleItems(fromIndex: number, toIndex: number): void {
     let comparator = toIndex;
+    const selectedItems: HTMLGxgListBoxItemElement[] = [];
     if (fromIndex === toIndex) {
       return;
     } else if (fromIndex > toIndex) {
@@ -827,11 +859,14 @@ export class GxgListBox implements FormComponent {
       comparator = fromIndex;
     }
     for (let i = fromIndex; i <= toIndex; i++) {
-      const item = this.getItemByIndex(i);
-      item && this.selectItems(item);
+      const item: HTMLGxgListBoxItemElement = this.getItemByIndex(i);
+      item && selectedItems.push(item);
       if (i === comparator) {
         this.highlightItem(item);
       }
+    }
+    if (selectedItems?.length > 0) {
+      this.selectItems(selectedItems);
     }
   }
 
@@ -878,21 +913,15 @@ export class GxgListBox implements FormComponent {
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
         }}
-        style={{
-          height: this.height,
-        }}
-        tabindex="0"
+        tabindex={this.disabled ? "-1" : "0"}
         onKeyDown={this.handleKeyDown}
+        style={{
+          minHeight: this.minHeight,
+          height: this.height,
+          maxHeight: this.maxHeight,
+        }}
       >
-        <div
-          style={{
-            width: this.width,
-            minWidth: this.minWidth,
-            maxWidth: this.maxWidth,
-            height: "100%",
-          }}
-          class={{ container: true }}
-        >
+        <div class={{ container: true }}>
           {this.theTitle ? (
             <header
               class={{ header: true }}
@@ -905,7 +934,7 @@ export class GxgListBox implements FormComponent {
             ? this.renderKeyboardSuggestions()
             : null}
           <main
-            class={{ main: true }}
+            class={{ main: true, "main--no-border": this.noBorder }}
             style={{
               height: `calc(100% - ${this.headerHeight}px)`,
             }}
@@ -921,7 +950,7 @@ export class GxgListBox implements FormComponent {
 
 type HandleArrow = "ArrowUp" | "ArrowDown";
 
-export type SelectedItems = {
+export type ItemsInformation = {
   active: boolean;
   checked: boolean;
   highlighted: boolean;
