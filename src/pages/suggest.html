@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Suggest | Gemini</title>
+
+    <script src=""></script>
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: var(--font-family-primary);
+        font-size: var(--font-size-lg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="set-focus">Set focus on suggest</button> <br /><br />
+
+      <!-- frutas -->
+      <span><strong>frutas</strong></span>
+      <ul data-category="frutas" class="data-list">
+        <li data-icon="editing-structures/attribute-formula">manzanas</li>
+        <li data-icon="editing-structures/attribute-formula">bananas</li>
+        <li>naranjas</li>
+        <li>uvas</li>
+        <li>frutillas</li>
+      </ul>
+      <!-- granos -->
+      <span><strong>(sin categoría)</strong></span>
+      <ul class="data-list">
+        <li>porotos</li>
+        <li>garbanzos</li>
+        <li>lentejas</li>
+        <li>chia</li>
+      </ul>
+      <!-- verduras -->
+      <span><strong>verduras</strong></span>
+      <ul data-category="verduras" class="data-list">
+        <li>lecuhgas</li>
+        <li>tomates</li>
+        <li>cebollas</li>
+        <li>apio</li>
+        <li>papas</li>
+      </ul>
+
+      <!-- ch-suggest -->
+      <section class="section-dev" data-title="ch-suggest">
+        <ch-suggest label="nombre"></ch-suggest>
+      </section>
+    </div>
+
+    <script>
+      const chSuggest = document.querySelector("ch-suggest");
+      const lists = document.querySelectorAll(".data-list");
+      chSuggest.addEventListener("inputChanged", (e) => {
+        let counter = 0;
+        chSuggest.innerHTML = "";
+        lists.forEach((list) => {
+          const category = list.getAttribute("data-category");
+          const items = list.querySelectorAll("li");
+          const filteredItems = Array.from(items).filter((item) => {
+            return item.innerText.toLowerCase().includes(e.detail);
+          });
+          if (filteredItems.length) {
+            const chSuggestList = document.createElement("ch-suggest-list");
+            if (category) {
+              chSuggestList.setAttribute("label", category);
+            }
+            filteredItems.forEach((item) => {
+              const chSuggestListItem = document.createElement(
+                "ch-suggest-list-item"
+              );
+              chSuggestListItem.innerText = item.innerText;
+              if (category) {
+                chSuggestList.appendChild(chSuggestListItem);
+                counter++;
+              } else {
+                chSuggest.appendChild(chSuggestListItem);
+                counter++;
+              }
+              const dataIcon = item.getAttribute("data-icon");
+              if (dataIcon) {
+                const gxgIcon = document.createElement("gxg-icon");
+                gxgIcon.setAttribute("type", dataIcon);
+                gxgIcon.setAttribute("size", "small");
+                gxgIcon.setAttribute("slot", "icon");
+                chSuggestListItem.appendChild(gxgIcon);
+              }
+            });
+            if (category) {
+              chSuggest.appendChild(chSuggestList);
+            }
+          }
+        });
+        if (e.detail !== "" && counter === 0) {
+          /*no hay coincidencias*/
+          chSuggest.innerHTML = "<p style='margin:0'>No hay coincidencias</p>";
+        }
+      });
+    </script>
+
+    <script>
+      const setFocusBtn = document.getElementById("set-focus");
+      setFocusBtn.addEventListener("click", function () {
+        chSuggest.focus();
+      });
+    </script>
+  </body>
+</html>

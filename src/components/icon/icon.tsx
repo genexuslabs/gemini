@@ -72,6 +72,7 @@ export class GxgIcon {
           }}
           auto-color={this.color === "auto"}
           src={this.getSrcPath()}
+          part="ch-icon"
         ></ch-icon>
       </Host>
     );

@@ -10,6 +10,12 @@
 | `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                                                                   | `"regular"` |
 | `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                                                                    | `undefined` |
 
+## Shadow Parts
+
+| Part        | Description |
+| ----------- | ----------- |
+| `"ch-icon"` |             |
+
 ## Dependencies
 
 ### Used by
