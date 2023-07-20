@@ -13,7 +13,6 @@ import {
 } from "@stencil/core";
 import { GxgComboBoxItem } from "../combo-box-item/combo-box-item";
 import { IconPosition } from "../form-text/form-text";
-import { formClasses } from "../../common/classes-names";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import state from "../store";
@@ -180,6 +179,12 @@ export class GxgComboBox implements FormComponent {
     this.lastSetValueByUser = this.value;
     if (this.value !== undefined) {
       this.tryToSetItem(this.value);
+    } else if (this.strict && !this.value) {
+      console.log("aqui");
+      /*on strict mode, a selected value is mandatory*/
+      const firstEnabledItem = this.el.querySelector("gxg-combo-box-item");
+      const item = (firstEnabledItem as unknown) as GxgComboBoxItem;
+      this.updateSelectedItem(item);
     }
   }
   componentDidLoad(): void {
@@ -396,7 +401,8 @@ export class GxgComboBox implements FormComponent {
     return item;
   }
 
-  updateSelectedItem(item: GxgComboBoxItem): void {
+  updateSelectedItem(item: HTMLGxgComboBoxItemElement): void {
+    item as HTMLGxgComboBoxItemElement;
     this.clearSelectedItem();
     this.clearExactMatch();
     this.clearHiddenItems();
@@ -410,7 +416,7 @@ export class GxgComboBox implements FormComponent {
     }
 
     //set description
-    const itemDescription = ((item as unknown) as HTMLElement).innerText;
+    const itemDescription = item.innerText;
     if (itemDescription) {
       this.inputTextValue = itemDescription;
     } else {
@@ -432,9 +438,7 @@ export class GxgComboBox implements FormComponent {
       e.stopPropagation();
     }
     this.keyDown.emit("key down was pressed");
-    if (e.key === "Enter") {
-      this.showItems = true;
-    } else if (e.key === "ArrowDown") {
+    if (e.key === "ArrowDown") {
       //set focus on the first list item
       e.preventDefault();
       if (this.showItems) {
@@ -463,7 +467,7 @@ export class GxgComboBox implements FormComponent {
   toggleItems(): void {
     if (this.showItems === true) {
       this.showItems = false;
-    } else {
+    } else if (this.disableFilter) {
       this.showItems = true;
     }
   }
@@ -596,7 +600,7 @@ export class GxgComboBox implements FormComponent {
     return (
       <Host
         class={{
-          "gxg-combo-box--disabled": this.disableFilter,
+          "gxg-combo-box--filter-disabled": this.disableFilter,
           large: state.large,
         }}
       >

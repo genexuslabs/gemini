@@ -19,6 +19,22 @@
     </style>
   </head>
   <body>
+    <gxg-combo-box
+      id="gxg-combo-validate"
+      placeholder="Select item"
+      value="bpm"
+      width="100%"
+      label="The title:"
+    >
+      <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+      <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+      <gxg-combo-box-item
+        value="chatbots"
+        icon="objects/conversational-flows"
+        disabled
+        >Chatbots</gxg-combo-box-item
+      >
+    </gxg-combo-box>
     <gxg-grid>
       <ch-grid>
         <ch-grid-actionbar slot="header">

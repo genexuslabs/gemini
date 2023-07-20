@@ -40,6 +40,65 @@
   </head>
   <body>
     <div class="container">
+      <!-------------------------------------------------------------->
+      <!---------------------- TEST GERMAN ---------------------->
+      <!-------------------------------------------------------------->
+      <span><strong>div que puede tener foco</strong></span>
+      <div
+        class="container"
+        tabindex="0"
+        style="
+          border: 2px solid yellow;
+          padding: 20px;
+          background-color: antiquewhite;"
+          id="combo-box-container"
+      >
+        <gxg-combo-box
+          id="gxg-combo-validate"
+          placeholder="Select item"
+          value="bpm"
+          width="100%"
+          label="The title:"
+          strict
+        >
+          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+          <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+          <gxg-combo-box-item
+            value="chatbots"
+            icon="objects/conversational-flows"
+            disabled
+            >Chatbots</gxg-combo-box-item
+          >
+        </gxg-combo-box>
+      </div>
+
+      <script>
+        const comboBoxContainer = document.querySelector("#combo-box-container");
+        comboBoxContainer.addEventListener("keydown", keyHandler = (e) => {
+          console.log("escuchando desde fuera", e);
+        })
+      </script>
+
+      <br />
+        <gxg-combo-box
+          id="gxg-combo-validate"
+          placeholder="Select item"
+          value="bpm"
+          width="100%"
+          label="The title:"
+          strict
+        >
+          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+          <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+          <gxg-combo-box-item
+            value="chatbots"
+            icon="objects/conversational-flows"
+            disabled
+            >Chatbots</gxg-combo-box-item
+          >
+        </gxg-combo-box>
+      </div>
+
       <button id="toggle-rtl-btn">toggle rtl</button>
       <script>
         const toggleRtlBtn = document.getElementById("toggle-rtl-btn");
@@ -49,9 +108,10 @@
       </script>
 
       <!-------------------------------------------------------------->
-      <!---------------------- COMBO VALIDATION ---------------------->
+      <!---------------------- COMBO 1 ---------------------->
       <!-------------------------------------------------------------->
-      <section class="section">
+      <section class="section" tabindex="0">
+        <strong>combo 1</strong>
         <gxg-combo-box
           id="gxg-combo-validate"
           placeholder="Select item"
@@ -69,8 +129,10 @@
           >
         </gxg-combo-box>
         <div class="buttons-container">
-          <gxg-button id="validate-btn">Validate</gxg-button>
-          <gxg-button id="disable-combo-box">Disable Combo Box</gxg-button>
+          <gxg-button tabindex="-1" id="validate-btn">Validate</gxg-button>
+          <gxg-button tabindex="-1" id="disable-combo-box"
+            >Disable Combo Box</gxg-button
+          >
         </div>
       </section>
 
@@ -100,18 +162,19 @@
       </script>
 
       <!----------------------------------------------------->
-      <!---------------------- COMBO 1 ---------------------->
+      <!---------------------- COMBO 2 ---------------------->
       <!----------------------------------------------------->
 
       <section class="section">
+        <strong>combo 2</strong>
         <div id="container-1">
           <gxg-combo-box
             id="gxgCombo1"
-            disable-filter
             placeholder="Select item"
-            value="bpm"
             width="100%"
             label="The title:"
+            disable-filter
+            strict
           >
             <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
             <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
@@ -248,10 +311,11 @@
       </script>
 
       <!----------------------------------------------------->
-      <!---------------------- COMBO 2 ---------------------->
+      <!---------------------- COMBO 3 ---------------------->
       <!----------------------------------------------------->
 
       <section class="section">
+        <strong>combo 3</strong>
         <gxg-combo-box value="bpms" id="gxgCombo2">
           <gxg-combo-box-item>Commondasdsa 1</gxg-combo-box-item>
           <gxg-combo-box-item

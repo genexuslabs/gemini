@@ -82,6 +82,9 @@ TEXT
   .input--borderless {
     border-color: transparent !important;
   }
+  input[readonly] {
+    cursor: default;
+  }
 }
 //borderless and transparent background
 :host([minimal]) {
