@@ -28,7 +28,7 @@ import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
 import { ListPosition } from "./components/combo-box/combo-box";
 import {
   ComboBoxItemValue as ComboBoxItemValue1,
-  itemInformation,
+  ItemInformation,
 } from "./components/combo-box-item/combo-box-item";
 import {
   footerJustify,
@@ -330,6 +330,10 @@ export namespace Components {
     space: Space;
   }
   interface GxgComboBox {
+    /**
+     * The presence of this attribute with make the filter search for values with case sensitive distinction
+     */
+    caseSensitive: boolean;
     close: () => Promise<void>;
     /**
      * The presence of this attribute disables the clear button
@@ -360,10 +364,6 @@ export namespace Components {
      * An informative message to help the user filling the information
      */
     informationMessage: string;
-    /**
-     * This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.
-     */
-    isOpen: boolean;
     /**
      * The combo label
      */
@@ -2641,6 +2641,10 @@ declare namespace LocalJSX {
   }
   interface GxgComboBox {
     /**
+     * The presence of this attribute with make the filter search for values with case sensitive distinction
+     */
+    caseSensitive?: boolean;
+    /**
      * The presence of this attribute disables the clear button
      */
     disableClear?: boolean;
@@ -2668,10 +2672,6 @@ declare namespace LocalJSX {
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
-    /**
-     * This property returns true if the combo-box list is open, false otherwise. Do not use this property to open or close the combo-box list, for that purpose use the open() or close() methods.
-     */
-    isOpen?: boolean;
     /**
      * The combo label
      */
@@ -2739,7 +2739,7 @@ declare namespace LocalJSX {
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */
-    onItemSelected?: (event: CustomEvent<itemInformation>) => void;
+    onItemSelected?: (event: CustomEvent<ItemInformation>) => void;
     /**
      * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input.
      */

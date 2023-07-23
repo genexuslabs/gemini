@@ -30,7 +30,7 @@
     background: var(--color-primary-hover);
     cursor: pointer;
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     background: var(--color-primary-enabled);
     box-shadow: var(--box-shadow-values) var(--color-primary-active);
     outline: none;
@@ -90,7 +90,7 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
     background: var(--color-primary-hover);
     @include gxg-label--hover;
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     background: var(--color-primary-enabled);
     @include gxg-label--hover;
   }
@@ -118,7 +118,7 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
     @include gxg-label--hover;
     background: transparent;
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     @include gxg-label--focus;
     background: transparent;
     box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
@@ -156,7 +156,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
     @include gxg-label--hover;
     background: transparent;
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     @include gxg-label--focus;
     background: transparent;
     box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
@@ -188,9 +188,9 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   &:hover:not([disabled]) {
     background: transparent;
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     background: transparent;
-    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
+    //box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
   }
   &:active:not([disabled]) {
     background: transparent;
@@ -219,7 +219,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
     background: var(--color-primary-hover-opacity-01);
     box-shadow: inset 0px 0px 0px 1px $gxg-label--hover-color;
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     @include gxg-label--focus;
     background: transparent;
     box-shadow: inset 0px 0px 0px 2px $gxg-label--focus-color;
@@ -260,7 +260,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
       //transform: scale(0.75);
     }
   }
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]):not(.no-tab-index) {
     background: transparent;
     box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
   }

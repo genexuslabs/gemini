@@ -36,86 +36,65 @@
       gxg-combo-box {
         margin-bottom: 18px;
       }
+      span {
+        display: block;
+        font-weight: bold;
+        font-family: var(--font-family-primary);
+        margin-bottom: 8px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-------------------------------------------------------------->
-      <!---------------------- TEST GERMAN ---------------------->
-      <!-------------------------------------------------------------->
-      <span><strong>div que puede tener foco</strong></span>
+      <!-- TEST GERMAN-->
+      <span>div que puede tener foco</span>
       <div
         class="container"
         tabindex="0"
         style="
           border: 2px solid yellow;
           padding: 20px;
-          background-color: antiquewhite;"
-          id="combo-box-container"
+          background-color: antiquewhite;
+        "
+        id="combo-box-container"
       >
         <gxg-combo-box
           id="gxg-combo-validate"
           placeholder="Select item"
-          value="bpm"
           width="100%"
           label="The title:"
-          strict
         >
           <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-          <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
-          <gxg-combo-box-item
-          disabled
-            value="chatbots"
-            icon="objects/conversational-flows"
-            >Chatbots</gxg-combo-box-item
+          <gxg-combo-box-item value="bpm" icon="objects/conversational-flows"
+            >BPM</gxg-combo-box-item
           >
-        </gxg-combo-box>
-      </div>
-
-      <script>
-        const comboBoxContainer = document.querySelector("#combo-box-container");
-        comboBoxContainer.addEventListener("keydown", keyHandler = (e) => {
-          //console.log("escuchando desde fuera", e);
-        })
-      </script>
-
-      <br />
-        <gxg-combo-box
-          id="gxg-combo-validate"
-          placeholder="Select item"
-          value="bpm"
-          width="100%"
-          label="The title:"
-          strict
-        >
-          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-          <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
           <gxg-combo-box-item
-            value="chatbots"
-            icon="objects/conversational-flows"
             disabled
+            value="chatbots"
+            icon="objects/conversational-flows"
             >Chatbots</gxg-combo-box-item
           >
         </gxg-combo-box>
       </div>
 
-      <button id="toggle-rtl-btn">toggle rtl</button>
       <script>
-        const toggleRtlBtn = document.getElementById("toggle-rtl-btn");
-        toggleRtlBtn.addEventListener("click", function () {
-          document.querySelector("html").setAttribute("dir", "rtl");
-        });
+        const comboBoxContainer = document.querySelector(
+          "#combo-box-container"
+        );
+        comboBoxContainer.addEventListener(
+          "keydown",
+          (keyHandler = (e) => {
+            //console.log("escuchando desde fuera", e);
+          })
+        );
       </script>
 
-      <!-------------------------------------------------------------->
-      <!---------------------- COMBO 1 ---------------------->
-      <!-------------------------------------------------------------->
+      <!-- STANDARD -->
       <section class="section" tabindex="0">
-        <strong>combo 1</strong>
+        <span>Standard</span>
         <gxg-combo-box
           id="gxg-combo-validate"
           placeholder="Select item"
-          value="bpm"
           width="100%"
           label="The title:"
         >
@@ -161,12 +140,9 @@
         });
       </script>
 
-      <!----------------------------------------------------->
-      <!---------------------- COMBO 2 ---------------------->
-      <!----------------------------------------------------->
-
+      <!--DISABLE FILTER-->
       <section class="section">
-        <strong>combo 2</strong>
+        <span>Disable filter</span>
         <div id="container-1">
           <gxg-combo-box
             id="gxgCombo1"
@@ -303,7 +279,7 @@
         const btnSetValueByIndex1 = document.getElementById("setValueByIndex1");
         btnSetValueByIndex1.addEventListener("click", async function (e) {
           const result = await gxgCombo1.setValueByIndex(1);
-          console.log("result", result)
+          console.log("result", result);
         });
 
         gxgCombo1.addEventListener("itemSelected", function (e) {
@@ -311,12 +287,9 @@
         });
       </script>
 
-      <!----------------------------------------------------->
-      <!---------------------- COMBO 3 ---------------------->
-      <!----------------------------------------------------->
-
+      <!-- STRICT -->
       <section class="section">
-        <strong>combo 3</strong>
+        <span>Strict</span>
         <gxg-combo-box value="bpms" id="gxgCombo2">
           <gxg-combo-box-item>Commondasdsa 1</gxg-combo-box-item>
           <gxg-combo-box-item

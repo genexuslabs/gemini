@@ -50,16 +50,6 @@
   background-color: var(--color-success-light);
   color: var(--color-success-dark);
 }
-:host(:focus) {
-  outline: none;
-  .container {
-    outline-width: var(--border-width-md);
-    outline-color: var(--color-primary-active);
-    outline-style: solid;
-    outline-offset: -2px;
-  }
-}
-
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/

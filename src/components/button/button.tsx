@@ -60,9 +60,18 @@ export class GxgButton {
   @State() mouseEnter = false;
   @State() focusIn = false;
 
+  private noTabIndex = false;
+
   /*********************************
   METHODS
   *********************************/
+
+  componentWillLoad() {
+    const tabIndex = this.el.getAttribute("tabindex");
+    if (tabIndex === "-1") {
+      this.noTabIndex = true;
+    }
+  }
 
   componentDidLoad() {
     // Set aria-label to host
@@ -209,10 +218,13 @@ export class GxgButton {
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
-          class="button-native gxg-text-general"
+          class={{
+            "button-native": true,
+            "gxg-text-general": true,
+            "no-tab-index": this.noTabIndex,
+          }}
           disabled={this.disabled === true}
           ref={(el) => (this.button = el as HTMLButtonElement)}
-          tabindex="0"
         >
           {this.emptyDiv()}
           {this.regularIcon()}

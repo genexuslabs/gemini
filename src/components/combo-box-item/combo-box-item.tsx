@@ -6,6 +6,7 @@ import {
   Event,
   EventEmitter,
   Element,
+  State,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import state from "../store";
@@ -24,7 +25,7 @@ export class GxgComboBoxItem {
   /**
    * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
    */
-  @Event() itemSelected: EventEmitter<itemInformation>;
+  @Event() itemSelected: EventEmitter<ItemInformation>;
 
   /**
    *
@@ -62,14 +63,18 @@ export class GxgComboBoxItem {
    */
   @Prop({ reflect: true }) selected = false;
 
+  /**
+   * The presence of this attribute makes this combo-item selected.
+   */
+  @State() iconColor: Color;
+
   componentWillLoad() {
     this.setup();
+    this.disabled ? (this.iconColor = "ondisabled") : (this.iconColor = "auto");
   }
 
   componentDidLoad() {
-    this.itemDidLoad.emit({
-      value: this.value,
-    });
+    this.itemDidLoad.emit();
   }
 
   private setup = () => {
@@ -78,64 +83,29 @@ export class GxgComboBoxItem {
     }
   };
 
-  private itemSelectedHandler = () => {
+  private clickHandler = () => {
     this.itemSelected.emit({
       el: this.el as HTMLGxgComboBoxItemElement,
       index: this.index,
       value: this.value,
+      icon: this.icon,
     });
   };
 
-  private keyDownHandler = (e: KeyboardEvent) => {
-    e.preventDefault();
-    console.log(e);
-    //e.stopPropagation();
-    // if (e.code === "ArrowDown") {
-    //   let nextItem = this.el.nextElementSibling;
-    //   while (nextItem !== null && nextItem.classList.contains("hidden")) {
-    //     nextItem = nextItem.nextElementSibling;
-    //   }
-    //   if (nextItem) {
-    //     (nextItem as HTMLElement).focus();
-    //   }
-    // } else if (e.code === "ArrowUp") {
-    //   let prevItem = this.el.previousElementSibling;
-    //   while (prevItem !== null && prevItem.classList.contains("hidden")) {
-    //     prevItem = prevItem.previousElementSibling;
-    //   }
-    //   if (prevItem) {
-    //     (prevItem as HTMLElement).focus();
-    //   } else {
-    //     this.keyDownComboItem.emit(e.code);
-    //   }
-    // } else if (e.code === "Enter") {
-    //   this.itemSelectedHandler();
-    // } else if (e.code === "Tab" || e.code === "Escape") {
-    //   this.keyDownComboItem.emit(e.code);
-    // }
-  };
-
   private onMouseOverHandler = () => {
-    console.log("mouse over");
+    this.iconColor = "negative";
   };
 
-  private setIconColor = (): Color => {
-    return this.disabled ? "ondisabled" : "auto";
+  private onMouseOutHandler = () => {
+    !this.selected && (this.iconColor = "auto");
   };
-
-  // private onMouseOut = () => {
-  //   const itemIsSelected = this.el.classList.contains("selected");
-  //   if (!itemIsSelected) {
-  //     this.iconColor = "auto";
-  //   }
-  // };
 
   render() {
     return (
       <Host
-        onClick={this.itemSelectedHandler}
-        onKeyDown={this.keyDownHandler}
+        onClick={this.clickHandler}
         onMouseOver={this.onMouseOverHandler}
+        onMouseOut={this.onMouseOutHandler}
         class={{
           large: state.large,
           "no-icon": !this.icon,
@@ -145,7 +115,7 @@ export class GxgComboBoxItem {
         <div class={{ container: true }}>
           {this.icon ? (
             <gxg-icon
-              color={this.setIconColor()}
+              color={this.iconColor}
               size={state.large ? "regular" : "small"}
               type={this.icon}
             ></gxg-icon>
@@ -159,10 +129,11 @@ export class GxgComboBoxItem {
   }
 }
 
-export type itemInformation = {
+export type ItemInformation = {
   el: HTMLGxgComboBoxItemElement;
   index: number;
   value: any;
+  icon: string;
 };
 
 export type ComboBoxItemValue = any;
