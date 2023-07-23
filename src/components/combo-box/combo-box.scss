@@ -2,6 +2,7 @@
 @import "../../globals/mixins";
 
 :host {
+  $itemsContainerBorderRadius: var(--border-radius-md);
   font-family: var(--font-family-primary);
   display: block;
 
@@ -40,10 +41,8 @@
       }
     }
     .items-container {
-      border-width: var(--border-width-sm);
-      border-style: solid;
-      border-color: var(--gray-04);
-      border-radius: var(--border-radius-md);
+      border: var(--border-width-sm) solid var(--gxg-border-color--regular);
+      border-radius: $itemsContainerBorderRadius;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-top-width: 0;
@@ -81,13 +80,18 @@
         overflow-y: hidden;
       }
     }
-  }
-}
-/*POSITION TOP*/
-:host(.position-top) {
-  .items-container {
-    transform: translateY(calc(-100% - 24px));
-    border-top-width: 1px;
+    /*POSITION TOP*/
+    .items-container {
+      &--above {
+        transform: translateY(calc(-100% - 24px));
+        border-top-width: 1px;
+        border-bottom-width: 0;
+        border-top-left-radius: $itemsContainerBorderRadius;
+        border-top-right-radius: $itemsContainerBorderRadius;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
   }
 }
 

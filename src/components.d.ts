@@ -24,8 +24,12 @@ import {
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
-import { GxgComboBoxItem } from "./components/combo-box-item/combo-box-item";
-import { Color } from "./components/icon/icon";
+import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
+import { ListPosition } from "./components/combo-box/combo-box";
+import {
+  ComboBoxItemValue as ComboBoxItemValue1,
+  itemInformation,
+} from "./components/combo-box-item/combo-box-item";
 import {
   footerJustify,
   headingJustify,
@@ -40,7 +44,7 @@ import {
   LabelPosition,
   Style,
 } from "./components/form-text/form-text";
-import { Color as Color1, Size } from "./components/icon/icon";
+import { Color, Size } from "./components/icon/icon";
 import {
   ItemsInformation,
   KeyboardSuggestions,
@@ -365,6 +369,10 @@ export namespace Components {
      */
     label: string;
     /**
+     * The container 'items container' position
+     */
+    listPosition: ListPosition;
+    /**
      * The combo max-width
      */
     maxWidth: string;
@@ -378,14 +386,10 @@ export namespace Components {
      */
     placeholder: string;
     /**
-     * The container 'items container' position
-     */
-    position: "top" | "bottom";
-    /**
      * The presence of this attribute makes the commbo required
      */
     required: boolean;
-    setValueByIndex: (index: number) => Promise<void>;
+    setValueByIndex: (index: number) => Promise<boolean>;
     /**
      * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
      */
@@ -407,9 +411,9 @@ export namespace Components {
      */
     validationStatus: "indeterminate" | "warning" | "error" | "success";
     /**
-     * Get or set the selected item value
+     * The current combo box item value
      */
-    value: any;
+    value: ComboBoxItemValue;
     /**
      * A function that will return true or false depending on wether the warning condition is met or not
      */
@@ -417,17 +421,25 @@ export namespace Components {
   }
   interface GxgComboBoxItem {
     /**
+     * The presence of this attribute makes this combo-item disabled and not interactive.
+     */
+    disabled: boolean;
+    /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon: string;
     /**
      * (This prop is for internal use).
      */
-    iconColor: Color;
+    index: number;
+    /**
+     * The presence of this attribute makes this combo-item selected.
+     */
+    selected: boolean;
     /**
      * The item value. If value is not provided, an automatic value will be generated with the innerText.
      */
-    value: any;
+    value: ComboBoxItemValue;
   }
   interface GxgContainer {
     /**
@@ -2665,6 +2677,10 @@ declare namespace LocalJSX {
      */
     label?: string;
     /**
+     * The container 'items container' position
+     */
+    listPosition?: ListPosition;
+    /**
      * The combo max-width
      */
     maxWidth?: string;
@@ -2677,10 +2693,6 @@ declare namespace LocalJSX {
      * The combo placeholder
      */
     placeholder?: string;
-    /**
-     * The container 'items container' position
-     */
-    position?: "top" | "bottom";
     /**
      * The presence of this attribute makes the commbo required
      */
@@ -2702,9 +2714,9 @@ declare namespace LocalJSX {
      */
     validationStatus?: "indeterminate" | "warning" | "error" | "success";
     /**
-     * Get or set the selected item value
+     * The current combo box item value
      */
-    value?: any;
+    value?: ComboBoxItemValue;
     /**
      * A function that will return true or false depending on wether the warning condition is met or not
      */
@@ -2712,26 +2724,34 @@ declare namespace LocalJSX {
   }
   interface GxgComboBoxItem {
     /**
+     * The presence of this attribute makes this combo-item disabled and not interactive.
+     */
+    disabled?: boolean;
+    /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon?: string;
     /**
      * (This prop is for internal use).
      */
-    iconColor?: Color;
+    index?: number;
     onItemDidLoad?: (event: CustomEvent<any>) => void;
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */
-    onItemSelected?: (event: CustomEvent<any>) => void;
+    onItemSelected?: (event: CustomEvent<itemInformation>) => void;
     /**
      * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input.
      */
-    onKeyDownComboItem?: (event: CustomEvent<any>) => void;
+    onKeyDownPressed?: (event: CustomEvent<any>) => void;
+    /**
+     * The presence of this attribute makes this combo-item selected.
+     */
+    selected?: boolean;
     /**
      * The item value. If value is not provided, an automatic value will be generated with the innerText.
      */
-    value?: any;
+    value?: ComboBoxItemValue;
   }
   interface GxgContainer {
     /**

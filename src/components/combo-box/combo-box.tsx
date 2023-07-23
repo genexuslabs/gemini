@@ -11,12 +11,19 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import { GxgComboBoxItem } from "../combo-box-item/combo-box-item";
+import {
+  GxgComboBoxItem,
+  ComboBoxItemValue,
+} from "../combo-box-item/combo-box-item";
 import { IconPosition } from "../form-text/form-text";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import state from "../store";
 
+const ARROW_DOWN = "ArrowDown";
+const ARROW_UP = "ArrowUp";
+const SELECT = "Select";
+const ENTER = "Enter";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
@@ -40,6 +47,11 @@ export class GxgComboBox implements FormComponent {
    * The combo label
    */
   @Prop() label: string = undefined;
+
+  /**
+   * The actual selected combo box item
+   */
+  private selectedItem: HTMLGxgComboBoxItemElement;
 
   /**
    * The combo min-width
@@ -73,14 +85,14 @@ export class GxgComboBox implements FormComponent {
   @Prop() strict = false;
 
   /**
-   * Get or set the selected item value
+   * The current combo box item value
    */
-  @Prop({ mutable: true }) value = undefined;
+  @Prop() value: ComboBoxItemValue;
 
   /**
    * The container 'items container' position
    */
-  @Prop() position: "top" | "bottom" = "bottom";
+  @Prop() listPosition: ListPosition = "below";
 
   /**
    * This property returns true if the combo-box list is open, false otherwise.
@@ -166,34 +178,23 @@ export class GxgComboBox implements FormComponent {
 
   componentDidUpdate(): void {
     const itemsContainerIsOverflowing = this.itemsContainerBottomOverflows();
-    if (itemsContainerIsOverflowing) {
-      this.el.classList.add("position-top");
-      this.el.classList.remove("position-bottom");
-    } else {
-      this.el.classList.add("position-bottom");
-      this.el.classList.remove("position-top");
-    }
+    itemsContainerIsOverflowing
+      ? (this.listPosition = "above")
+      : (this.listPosition = "below");
   }
 
   componentWillLoad(): void {
-    this.lastSetValueByUser = this.value;
-    if (this.value !== undefined) {
-      this.tryToSetItem(this.value);
-    } else if (this.strict && !this.value) {
-      console.log("aqui");
-      /*on strict mode, a selected value is mandatory*/
-      const firstEnabledItem = this.el.querySelector("gxg-combo-box-item");
-      const item = (firstEnabledItem as unknown) as GxgComboBoxItem;
-      this.updateSelectedItem(item);
-    }
+    this.setup();
+    // this.lastSetValueByUser = this.value;
+    // if (this.value !== undefined) {
+    //   this.tryToSetItem(this.value);
+    // }
   }
   componentDidLoad(): void {
     this.resizeObserver();
   }
   disconnectedCallback(): void {
-    this.myObserver.unobserve(document.body);
-    document.removeEventListener("click", this.detectClickOutsideCombo, true);
-    document.removeEventListener("scroll", this.detectMouseScroll, true);
+    this.cleanup();
   }
 
   /*********************************
@@ -209,7 +210,6 @@ export class GxgComboBox implements FormComponent {
       return true;
     }
   }
-
   handleValidation = (): void => {
     this.handleError();
     this.handleWarning();
@@ -245,45 +245,35 @@ export class GxgComboBox implements FormComponent {
 
   @Method()
   async getValueByIndex(index: number): Promise<string> {
-    index++;
-    let itemValue = undefined;
-    const item = this.el.querySelector(
-      "gxg-combo-box-item:nth-child(" + index + ")"
-    );
-    if (item) {
-      itemValue = ((item as unknown) as GxgComboBoxItem).value;
-    }
-    return itemValue;
+    const enabledItems = this.getEnabledItems();
+    const foundItem = enabledItems.filter((item) => item.index === index)[0];
+    return foundItem?.value;
   }
 
   @Method()
-  async setValueByIndex(index: number): Promise<void> {
-    index++;
-    const item = this.el.querySelector(
-      "gxg-combo-box-item:nth-child(" + index + ")"
-    );
-    if (item) {
-      const itemValue = ((item as unknown) as GxgComboBoxItem).value;
-      this.value = itemValue;
+  async setValueByIndex(index: number): Promise<boolean> {
+    const enabledItems = this.getEnabledItems();
+    const foundItem = enabledItems.filter((item) => item.index === index)[0];
+    if (foundItem && foundItem.value) {
+      this.value = foundItem.value;
+      return true;
     }
+    return false;
   }
 
   /*********************************
   LISTEN
   *********************************/
-
   @Listen("itemSelected")
   itemSelectedHandler(event): void {
-    this.selectionProgramatic = false;
-    this.value = event.detail.value;
-    this.clearIconsColor();
+    //this.selectionProgramatic = false;
+    // this.value = event.detail.value;
+    // this.clearIconsColor();
   }
 
   @Listen("itemDidLoad")
   itemDidLoadHandler(event): void {
-    if (this.lastSetValueByUser === event.detail.value && this.strict) {
-      this.tryToSetItem(event.detail.value);
-    }
+    console.log(event);
   }
 
   @Listen("keyDownComboItem")
@@ -297,7 +287,12 @@ export class GxgComboBox implements FormComponent {
     }
   }
 
-  onInputGxgformText(e): void {
+  /*********************************
+  HANDLERS
+  *********************************/
+
+  private inputHandler = (e): void => {
+    console.log("input handler");
     this.userTyped = true;
     this.showItems = true;
     this.inputTextValue = e.detail;
@@ -310,7 +305,6 @@ export class GxgComboBox implements FormComponent {
 
     this.inputTextIcon = null;
     this.inputTextIconPosition = null;
-    this.clearSelectedItem();
 
     const filterValue = e.detail.toLowerCase();
 
@@ -337,17 +331,26 @@ export class GxgComboBox implements FormComponent {
       this.noMatch = false;
     }
     this.userTyped = false;
-  }
+  };
+
+  private keyDownHandler = (e: KeyboardEvent): void => {
+    let newItem: HTMLGxgComboBoxItemElement;
+    if (e.code === ARROW_DOWN) {
+      newItem = this.getNewItem("next");
+    } else if (e.code === ARROW_UP) {
+      newItem = this.getNewItem("prev");
+    }
+    newItem?.value && (this.value = newItem?.value);
+  };
+
+  /*********************************
+  WATCH
+  *********************************/
 
   @Watch("value")
-  onValueChanged(newValue: string): void {
-    if (newValue) {
-      this.lastSetValueByUser = newValue;
-    }
-    this.tryToSetItem(newValue);
-    if (this.validateOnChange) {
-      this.handleValidation();
-    }
+  onValueChanged(newValue: ComboBoxItemValue): void {
+    const newItem = this.getItemByValue(newValue);
+    newItem && this.setSelectedItem(newItem);
   }
 
   @Watch("showItems")
@@ -366,93 +369,126 @@ export class GxgComboBox implements FormComponent {
     }
   }
 
-  tryToSetItem(value): void {
-    if (!this.userTyped) {
-      const item = this.getItemByValue(value);
-      if (item) {
-        this.updateSelectedItem(item);
-        this.lastAllowedValue = (item as GxgComboBoxItem).value;
-      } else if (this.strict) {
-        this.value = this.lastAllowedValue;
-      } else {
-        this.clearIcon();
-        this.inputTextValue = value;
-      }
-    } else if (value !== undefined) {
-      //user did not type
-      this.lastAllowedValue = this.value;
-    }
-    this.userTyped = false;
-  }
+  /*********************************
+  PRIVATE METHODS
+  *********************************/
 
-  getItemByValue(value: string): GxgComboBoxItem | undefined {
-    let item = null;
-    if (value !== undefined) {
-      const itemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
-      for (let i = 0; i < itemsNodeList.length; i++) {
-        if (
-          ((itemsNodeList[i] as unknown) as GxgComboBoxItem).value === value
-        ) {
-          item = itemsNodeList[i];
-          break;
-        }
-      }
+  private cleanup = () => {
+    this.myObserver.unobserve(document.body);
+    document.removeEventListener("click", this.detectClickOutsideCombo, true);
+    document.removeEventListener("scroll", this.detectMouseScroll, true);
+  };
+
+  private setup = () => {
+    this.setIndexes();
+    this.value && (this.selectedItem = this.getItemByValue(this.value));
+  };
+
+  private setIndexes = (): void => {
+    const allItems = this.getAllItems();
+    allItems.forEach((item, i) => {
+      item.index = i;
+    });
+  };
+
+  private getEnabledItems = (): HTMLGxgComboBoxItemElement[] => {
+    const enabledItems: HTMLGxgComboBoxItemElement[] = [];
+    const allItems: HTMLGxgComboBoxItemElement[] = this.getAllItems();
+    allItems.forEach((item) => {
+      !item.disabled && enabledItems.push(item);
+    });
+    return enabledItems;
+  };
+
+  private getAllItems = (): HTMLGxgComboBoxItemElement[] => {
+    const allItems: HTMLGxgComboBoxItemElement[] = [];
+    const allItemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
+    allItemsNodeList.forEach((item) => {
+      allItems.push(item as HTMLGxgComboBoxItemElement);
+    });
+    return allItems;
+  };
+
+  private getItemByValue = (
+    value: ComboBoxItemValue
+  ): HTMLGxgComboBoxItemElement => {
+    let item: HTMLGxgComboBoxItemElement;
+    if (value) {
+      const enabledItems: HTMLGxgComboBoxItemElement[] = this.getEnabledItems();
+      item = enabledItems.find((item) => {
+        return !item.disabled && item?.value && item.value === value;
+      });
     }
     return item;
-  }
+  };
 
-  updateSelectedItem(item: HTMLGxgComboBoxItemElement): void {
-    item as HTMLGxgComboBoxItemElement;
-    this.clearSelectedItem();
-    this.clearExactMatch();
-    this.clearHiddenItems();
-
-    //set icon
-    if (item.icon) {
-      this.setIcon(item.icon);
-      item.iconColor = "negative";
-    } else {
-      this.clearIcon();
+  private getItemByIndex = (index: number): HTMLGxgComboBoxItemElement => {
+    let item: HTMLGxgComboBoxItemElement;
+    if (index >= 0) {
+      item = this.getEnabledItems()[index];
     }
+    return item;
+  };
 
-    //set description
-    const itemDescription = item.innerText;
-    if (itemDescription) {
-      this.inputTextValue = itemDescription;
-    } else {
-      this.inputTextValue = " ";
-    }
+  private getValueByItem = (
+    item: HTMLGxgComboBoxItemElement
+  ): ComboBoxItemValue => {
+    return item?.value;
+  };
 
-    //set item as selected
-    ((item as unknown) as HTMLElement).classList.add("selected");
-
-    this.showItems = false;
-    if (!this.selectionProgramatic) {
-      this.focus();
-      this.selectionProgramatic = false;
-    }
-  }
-
-  onKeyDownGxgformText(e): void {
-    if (this.showItems) {
-      e.stopPropagation();
-    }
-    this.keyDown.emit("key down was pressed");
-    if (e.key === "ArrowDown") {
-      //set focus on the first list item
-      e.preventDefault();
-      if (this.showItems) {
-        const nextVisibleItem = this.el.querySelector(
-          "gxg-combo-box-item:not(.hidden)"
-        ) as HTMLElement;
-        nextVisibleItem ? nextVisibleItem.focus() : null;
-      } else {
-        this.showItems = true;
+  private getNewItem = (
+    direction: "prev" | "next"
+  ): HTMLGxgComboBoxItemElement => {
+    if (direction === "next") {
+      if (!this.selectedItem) {
+        return this.getEnabledItems()[0];
       }
-    } else if (e.key === "Escape") {
-      this.showItems = false;
+      return this.getItemByIndex(this.selectedItem?.index + 1);
+    } else if (direction === "prev") {
+      return this.getItemByIndex(this.selectedItem?.index - 1);
     }
-  }
+  };
+
+  private setSelectedItem = (item: HTMLGxgComboBoxItemElement): boolean => {
+    if (item) {
+      this.selectedItem && (this.selectedItem.selected = false);
+      item.selected = true;
+      this.selectedItem = item;
+      return true;
+    }
+    return false;
+  };
+
+  // updateSelectedItem(item: GxgComboBoxItem): void {
+  //   this.clearSelectedItem();
+  //   this.clearExactMatch();
+  //   this.clearHiddenItems();
+
+  //   //set icon
+  //   if (item.icon) {
+  //     this.setIcon(item.icon);
+  //     item.iconColor = "negative";
+  //   } else {
+  //     this.clearIcon();
+  //   }
+
+  //   //set description
+  //   const itemDescription = ((item as unknown) as HTMLElement).innerText;
+  //   if (itemDescription) {
+  //     this.inputTextValue = itemDescription;
+  //   } else {
+  //     this.inputTextValue = " ";
+  //   }
+
+  //   //set item as selected
+  //   ((item as unknown) as HTMLElement).classList.add("selected");
+
+  //   this.showItems = false;
+  //   if (!this.selectionProgramatic) {
+  //     this.focus();
+  //     this.selectionProgramatic = false;
+  //   }
+  // }
 
   onKeyDownGxgButtonArrowDown(e): void {
     if (e.key === "ArrowDown") {
@@ -467,42 +503,9 @@ export class GxgComboBox implements FormComponent {
   toggleItems(): void {
     if (this.showItems === true) {
       this.showItems = false;
-    } else if (this.disableFilter) {
+    } else {
       this.showItems = true;
     }
-  }
-
-  clearIconsColor(): void {
-    const comboBoxItems = this.el.querySelectorAll("gxg-combo-box-item");
-    comboBoxItems.forEach((item) => {
-      if (!item.classList.contains("selected")) {
-        item.iconColor = "auto";
-      }
-    });
-  }
-
-  clearSelectedItem(): void {
-    const selectedItem = this.el.querySelector(".selected");
-    if (selectedItem !== null) {
-      selectedItem.classList.remove("selected");
-      if (selectedItem.hasAttribute("icon")) {
-        ((selectedItem as unknown) as GxgComboBoxItem).iconColor = "auto";
-      }
-    }
-  }
-
-  clearExactMatch(): void {
-    const itemExactMatch = this.el.querySelector(".exact-match");
-    if (itemExactMatch !== null) {
-      itemExactMatch.classList.remove("exact-match");
-    }
-  }
-
-  clearHiddenItems(): void {
-    const hiddenItems = this.el.querySelectorAll(".hidden");
-    hiddenItems.forEach((item) => {
-      item.classList.remove("hidden");
-    });
   }
 
   setIcon(icon: string): void {
@@ -551,12 +554,7 @@ export class GxgComboBox implements FormComponent {
   }
 
   clearCombo(): void {
-    this.lastAllowedValue = undefined;
     this.value = undefined;
-    this.inputTextValue = "";
-    this.clearIcon();
-    this.clearSelectedItem();
-    this.clearHiddenItems();
     this.showItems = true;
     this.focus();
   }
@@ -600,7 +598,7 @@ export class GxgComboBox implements FormComponent {
     return (
       <Host
         class={{
-          "gxg-combo-box--filter-disabled": this.disableFilter,
+          "gxg-combo-box--disabled": this.disableFilter,
           large: state.large,
         }}
       >
@@ -614,10 +612,10 @@ export class GxgComboBox implements FormComponent {
           <div class={{ "search-container": true }}>
             <gxg-form-text
               placeholder={this.placeholder}
-              onInput={this.onInputGxgformText.bind(this)}
-              onKeyDown={this.onKeyDownGxgformText.bind(this)}
+              onInput={this.inputHandler.bind(this)}
+              onKeyDown={this.keyDownHandler.bind(this)}
               onClick={() => this.toggleItems()}
-              value={this.inputTextValue}
+              value={this.value}
               id="gxgFormText"
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
@@ -661,6 +659,8 @@ export class GxgComboBox implements FormComponent {
               "items-container": true,
               "items-container--show": this.showItems,
               "items-container--no-match": this.noMatch,
+              "items-container--below": this.listPosition === "below",
+              "items-container--above": this.listPosition === "above",
             }}
             ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
           >
@@ -678,3 +678,5 @@ export class GxgComboBox implements FormComponent {
     );
   }
 }
+
+export type ListPosition = "above" | "below";

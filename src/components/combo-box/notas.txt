@@ -1,0 +1,39 @@
+disableFilter -> no permite la escritura
+stricto: solo devuelve uno de los valores asignado, si escribi algo que no esta en la lista
+devuelvo undefined. tiene que matchear con el texto, no con el value. agregamos una property caseSensitive
+por defecto no es caseSensitive.
+required: -> la sacamos
+
+disableClear -> solo aparece cuando tengo filtro, o cuando esta presente la propiedad
+por defecto false.
+
+Permitir configurar el texto "no matches". y todos los demas textos.
+
+si no hay fltro: 
+
+SIEMPRE
+escape cierra la lista
+flecha arriba / flecha abajo cambia la opcion
+alt + flecha abajo lo abre y pone foco en el primer elemento
+doble click el combo selecciona el siguiente (sin abrirlo)
+
+condiciones:
+cuando haces click solo lo enfoca.
+el enter no lo abre
+
+a nivel del combo se indica el valor del seleccionado.
+si no me pasas valor, el valor es el texto.
+
+El enter no hace nada nunca.
+si no hay matches no mostrar la lista
+al abrir con la oreja, se muestran todas las opciones, aunque no haya coincidencias.
+
+el contenido del combo-item
+el icono solo recibe el nombre
+
+
+
+
+
+
+

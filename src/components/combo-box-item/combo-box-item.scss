@@ -1,3 +1,5 @@
+@import "../../globals/common-css-classes";
+
 :host {
   display: block;
   cursor: pointer;
@@ -40,7 +42,7 @@
   background-color: var(--color-secondary-hover);
   color: var(--color-always-white);
 }
-:host(.selected) {
+:host([selected]) {
   background-color: var(--color-secondary-active);
   color: var(--color-always-white);
 }

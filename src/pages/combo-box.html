@@ -64,9 +64,9 @@
           <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
           <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
           <gxg-combo-box-item
+          disabled
             value="chatbots"
             icon="objects/conversational-flows"
-            disabled
             >Chatbots</gxg-combo-box-item
           >
         </gxg-combo-box>
@@ -75,7 +75,7 @@
       <script>
         const comboBoxContainer = document.querySelector("#combo-box-container");
         comboBoxContainer.addEventListener("keydown", keyHandler = (e) => {
-          console.log("escuchando desde fuera", e);
+          //console.log("escuchando desde fuera", e);
         })
       </script>
 
@@ -297,12 +297,13 @@
         const btnGetValueByIndex1 = document.getElementById("getValueByIndex1");
         btnGetValueByIndex1.addEventListener("click", async function (e) {
           const itemValue = await gxgCombo1.getValueByIndex(1);
-          console.log(itemValue);
+          console.log("result", itemValue);
         });
 
         const btnSetValueByIndex1 = document.getElementById("setValueByIndex1");
         btnSetValueByIndex1.addEventListener("click", async function (e) {
-          gxgCombo1.setValueByIndex(1);
+          const result = await gxgCombo1.setValueByIndex(1);
+          console.log("result", result)
         });
 
         gxgCombo1.addEventListener("itemSelected", function (e) {

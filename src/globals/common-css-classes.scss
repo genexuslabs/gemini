@@ -1,9 +1,8 @@
-/*Warning*/
-:host(.gxg--disabled) {
+:host(.gxg--disabled),
+.gxg--disabled {
   pointer-events: none;
-  .disabled-element {
-    background-color: var(--color-background-disabled);
-    color: var(--color-on-background--disabled);
-    cursor: default;
-  }
+  background-color: var(--color-background-disabled);
+  color: var(--color-on-background--disabled);
+  cursor: default;
+  --icon-color: var();
 }
