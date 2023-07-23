@@ -4,13 +4,15 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                        | Type      | Default     |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled` | The presence of this attribute makes this combo-item disabled and not interactive.                 | `boolean` | `false`     |
-| `icon`     | `icon`     | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons     | `string`  | `undefined` |
-| `index`    | `index`    | (This prop is for internal use).                                                                   | `number`  | `undefined` |
-| `selected` | `selected` | The presence of this attribute makes this combo-item selected.                                     | `boolean` | `false`     |
-| `value`    | `value`    | The item value. If value is not provided, an automatic value will be generated with the innerText. | `any`     | `undefined` |
+| Property     | Attribute     | Description                                                                                        | Type      | Default     |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`   | `disabled`    | The presence of this attribute makes this combo-item disabled and not interactive.                 | `boolean` | `false`     |
+| `exactMatch` | `exact-match` | True if the text typed on the combo box input is equal to this combo box item text                 | `boolean` | `false`     |
+| `hidden`     | `hidden`      | This property hides the combo box item                                                             | `boolean` | `false`     |
+| `icon`       | `icon`        | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons     | `string`  | `undefined` |
+| `index`      | `index`       | (This prop is for internal use).                                                                   | `number`  | `undefined` |
+| `selected`   | `selected`    | The presence of this attribute makes this combo-item selected.                                     | `boolean` | `false`     |
+| `value`      | `value`       | The item value. If value is not provided, an automatic value will be generated with the innerText. | `any`     | `undefined` |
 
 ## Events
 

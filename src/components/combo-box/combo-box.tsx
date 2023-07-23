@@ -98,6 +98,11 @@ export class GxgComboBox implements FormComponent {
    */
   @Prop() listPosition: ListPosition = "below";
 
+  /**
+   * True when the user is typing. False when the user has selected an item.
+   */
+  @State() userIsTyping = false;
+
   /*VALIDATION*/
 
   /**
@@ -300,13 +305,14 @@ export class GxgComboBox implements FormComponent {
     let newItem: HTMLGxgComboBoxItemElement;
     if (e.code === ARROW_DOWN) {
       newItem = this.getNewItem("next");
+      console.log("newItem", newItem);
       newItem?.value && (this.value = newItem?.value);
       e.altKey && this.showList();
     } else if (e.code === ARROW_UP) {
       newItem = this.getNewItem("prev");
       newItem?.value && (this.value = newItem?.value);
     } else if (e.code === ENTER) {
-      this.toggleList();
+      this.hideList();
     } else if (e.code === SPACE) {
       /*handled by inputHandler*/
     } else if (e.code === ESCAPE) {
@@ -364,7 +370,18 @@ export class GxgComboBox implements FormComponent {
         const itemText = !this.caseSensitive
           ? item.textContent.toLocaleLowerCase()
           : item.textContent;
-        !item.disabled && itemText.includes(text) && filteredItems.push(item);
+        if (!item.disabled && itemText.includes(text)) {
+          filteredItems.push(item);
+          item.hidden = false;
+        } else {
+          item.hidden = true;
+        }
+        /*exact match*/
+        if (text === item.textContent) {
+          item.exactMatch = true;
+        } else {
+          item.exactMatch = false;
+        }
       });
     }
     if (filteredItems.length >= 1) {
@@ -400,6 +417,15 @@ export class GxgComboBox implements FormComponent {
       !item.disabled && enabledItems.push(item);
     });
     return enabledItems;
+  };
+
+  private getFilteredItems = (): HTMLGxgComboBoxItemElement[] => {
+    const enabledItems: HTMLGxgComboBoxItemElement[] = this.getEnabledItems();
+    const filteredItems: HTMLGxgComboBoxItemElement[] = [];
+    enabledItems.forEach((item) => {
+      !item.hidden && filteredItems.push(item);
+    });
+    return filteredItems;
   };
 
   private getAllItems = (): HTMLGxgComboBoxItemElement[] => {
@@ -441,13 +467,20 @@ export class GxgComboBox implements FormComponent {
   private getNewItem = (
     direction: "prev" | "next"
   ): HTMLGxgComboBoxItemElement => {
+    const filteredItems = this.getFilteredItems();
+    const indexInFiltered = filteredItems?.findIndex((item) => {
+      return item === this.selectedItem;
+    });
     if (direction === "next") {
-      if (!this.selectedItem) {
-        return this.getEnabledItems()[0];
+      if (indexInFiltered === -1) {
+        /*no selectedItem at the time*/
+        return filteredItems[0];
       }
-      return this.getItemByIndex(this.selectedItem?.index + 1);
+      return filteredItems[indexInFiltered + 1];
     } else if (direction === "prev") {
-      return this.getItemByIndex(this.selectedItem?.index - 1);
+      if (indexInFiltered !== -1) {
+        return filteredItems[indexInFiltered - 1];
+      }
     }
   };
 
@@ -473,7 +506,7 @@ export class GxgComboBox implements FormComponent {
   };
 
   private inputTextClickHandler = (e): void => {
-    this.toggleList();
+    this.disableFilter && this.toggleList();
   };
 
   private toggleList = (): void => {

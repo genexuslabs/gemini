@@ -425,6 +425,14 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * True if the text typed on the combo box input is equal to this combo box item text
+     */
+    exactMatch: boolean;
+    /**
+     * This property hides the combo box item
+     */
+    hidden: boolean;
+    /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */
     icon: string;
@@ -2727,6 +2735,14 @@ declare namespace LocalJSX {
      * The presence of this attribute makes this combo-item disabled and not interactive.
      */
     disabled?: boolean;
+    /**
+     * True if the text typed on the combo box input is equal to this combo box item text
+     */
+    exactMatch?: boolean;
+    /**
+     * This property hides the combo box item
+     */
+    hidden?: boolean;
     /**
      * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
      */

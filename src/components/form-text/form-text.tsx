@@ -532,6 +532,7 @@ export class GxgFormText implements FormComponent {
                 "custom-icon": this.icon,
                 "custom-icon--end": this.iconPosition === "end",
                 "input--borderless": this.borderless,
+                "gxg--disabled": this.disabled,
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}

@@ -11,7 +11,6 @@
   font-size: var(--font-size-sm);
   background-color: var(--color-background);
   color: var(--color-on-background);
-  transition: height 0.25s, opacity 0.25s;
   opacity: 1;
   overflow: hidden;
 
@@ -20,8 +19,9 @@
     align-items: center;
     padding: var(--spacing-comp-00) var(--spacing-comp-01);
     width: 100%;
+    min-height: 28px;
+    box-sizing: border-box; /*items with icon are this tall*/
   }
-
   gxg-icon {
     flex-shrink: 0;
   }
@@ -31,7 +31,7 @@
     padding-left: var(--spacing-comp-02);
   }
 }
-:host(.hidden) {
+:host([hidden]) {
   display: none;
 }
 :host(.display-none) {
@@ -46,7 +46,7 @@
   background-color: var(--color-secondary-active);
   color: var(--color-always-white);
 }
-:host(.exact-match) {
+:host([exact-match]) {
   background-color: var(--color-success-light);
   color: var(--color-success-dark);
 }

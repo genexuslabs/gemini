@@ -7,6 +7,7 @@ import {
   EventEmitter,
   Element,
   State,
+  Watch,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import state from "../store";
@@ -51,7 +52,7 @@ export class GxgComboBoxItem {
   /**
    * (This prop is for internal use).
    */
-  @Prop() index: number;
+  @Prop({ reflect: true }) index: number;
 
   /**
    * The presence of this attribute makes this combo-item disabled and not interactive.
@@ -62,6 +63,16 @@ export class GxgComboBoxItem {
    * The presence of this attribute makes this combo-item selected.
    */
   @Prop({ reflect: true }) selected = false;
+
+  /**
+   * True if the text typed on the combo box input is equal to this combo box item text
+   */
+  @Prop({ reflect: true }) exactMatch = false;
+
+  /**
+   * This property hides the combo box item
+   */
+  @Prop({ reflect: true }) hidden = false;
 
   /**
    * The presence of this attribute makes this combo-item selected.
@@ -75,6 +86,15 @@ export class GxgComboBoxItem {
 
   componentDidLoad() {
     this.itemDidLoad.emit();
+  }
+
+  /*********************************
+  WATCH
+  *********************************/
+
+  @Watch("selected")
+  selectedHandler(selected): void {
+    !this.selected ? (this.iconColor = "auto") : (this.iconColor = "negative");
   }
 
   private setup = () => {
