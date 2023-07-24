@@ -447,6 +447,7 @@ export class GxgComboBox implements FormComponent {
   private setup = () => {
     this.setIndexes();
     this.onValueChanged(this.value);
+    this.setInitialValue();
   };
 
   private setIndexes = (): void => {
@@ -581,6 +582,15 @@ export class GxgComboBox implements FormComponent {
       return value.replace(/\s+/g, " ").trim();
     }
     return value;
+  };
+
+  private setInitialValue = () => {
+    if (this.strict && this.disableFilter && !this.value) {
+      const enabledItems = this.getEnabledItems();
+      if (enabledItems.length) {
+        this.value = enabledItems[0].value;
+      }
+    }
   };
 
   private toggleListButtonClickHandler = (): void => {
