@@ -24,8 +24,8 @@ import {
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
+import { LabelPosition, ListPosition } from "./components/combo-box/combo-box";
 import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
-import { ListPosition } from "./components/combo-box/combo-box";
 import {
   ComboBoxItemValue as ComboBoxItemValue1,
   ItemInformation,
@@ -41,7 +41,7 @@ import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
 import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
-  LabelPosition,
+  LabelPosition as LabelPosition1,
   Style,
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
@@ -56,8 +56,8 @@ import {
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
-import { LabelPosition as LabelPosition1 } from "./components/form-select/gxg-select";
-import { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
+import { LabelPosition as LabelPosition2 } from "./components/form-select/gxg-select";
+import { LabelPosition as LabelPosition3 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
 import {
   JustifyContent,
@@ -66,7 +66,7 @@ import {
 } from "./components/spacer-layout/spacer-layout";
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
-import { LabelPosition as LabelPosition3 } from "./components/stepper/stepper";
+import { LabelPosition as LabelPosition4 } from "./components/stepper/stepper";
 import { Height, TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
@@ -334,6 +334,10 @@ export namespace Components {
      * The presence of this attribute with make the filter search for values with case sensitive distinction
      */
     caseSensitive: boolean;
+    /**
+     * Centers the label
+     */
+    centerLabel: boolean;
     close: () => Promise<void>;
     /**
      * The presence of this attribute disables the clear button
@@ -368,6 +372,18 @@ export namespace Components {
      * The combo label
      */
     label: string;
+    /**
+     * The input label
+     */
+    labelPosition: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth: any;
+    /**
+     * The combo list max height
+     */
+    listMaxHeight: string;
     /**
      * The container 'items container' position
      */
@@ -831,6 +847,10 @@ export namespace Components {
      */
     borderless: boolean;
     /**
+     * Centers the label
+     */
+    centerLabel: boolean;
+    /**
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
     clearButton: boolean;
@@ -866,6 +886,10 @@ export namespace Components {
      * The input label
      */
     labelPosition: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth: any;
     /**
      * The input max. length
      */
@@ -934,6 +958,10 @@ export namespace Components {
      * The presence of this attribute gives the component warning styles
      */
     warning: boolean;
+    /**
+     * The input width
+     */
+    width: string;
   }
   interface GxgFormTextarea {
     /**
@@ -1031,12 +1059,14 @@ export namespace Components {
     type: any;
   }
   interface GxgLabel {
+    center: boolean;
     disabled: boolean;
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
     labelPosition: "above" | "end" | "below" | "start";
     noMargin: boolean;
+    width: string;
   }
   interface GxgListBox {
     /**
@@ -2653,6 +2683,10 @@ declare namespace LocalJSX {
      */
     caseSensitive?: boolean;
     /**
+     * Centers the label
+     */
+    centerLabel?: boolean;
+    /**
      * The presence of this attribute disables the clear button
      */
     disableClear?: boolean;
@@ -2684,6 +2718,18 @@ declare namespace LocalJSX {
      * The combo label
      */
     label?: string;
+    /**
+     * The input label
+     */
+    labelPosition?: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth?: any;
+    /**
+     * The combo list max height
+     */
+    listMaxHeight?: string;
     /**
      * The container 'items container' position
      */
@@ -3181,6 +3227,10 @@ declare namespace LocalJSX {
      */
     borderless?: boolean;
     /**
+     * Centers the label
+     */
+    centerLabel?: boolean;
+    /**
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
     clearButton?: boolean;
@@ -3216,6 +3266,10 @@ declare namespace LocalJSX {
      * The input label
      */
     labelPosition?: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth?: any;
     /**
      * The input max. length
      */
@@ -3292,6 +3346,10 @@ declare namespace LocalJSX {
      * The presence of this attribute gives the component warning styles
      */
     warning?: boolean;
+    /**
+     * The input width
+     */
+    width?: string;
   }
   interface GxgFormTextarea {
     /**
@@ -3393,12 +3451,14 @@ declare namespace LocalJSX {
     type?: any;
   }
   interface GxgLabel {
+    center?: boolean;
     disabled?: boolean;
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
     labelPosition?: "above" | "end" | "below" | "start";
     noMargin?: boolean;
+    width?: string;
   }
   interface GxgListBox {
     /**
