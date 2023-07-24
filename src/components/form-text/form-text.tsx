@@ -64,7 +64,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The input label
    */
-  @Prop({ reflect: true }) labelPosition: LabelPosition;
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
 
   /**
    * The presence of this attribute hides the border.
@@ -90,6 +90,18 @@ export class GxgFormText implements FormComponent {
    * The presence of this attribute makes this input required
    */
   @Prop({ reflect: true }) required = false;
+
+  /**
+   * Centers the label
+   */
+  @Prop() centerLabel = false;
+
+  /**
+   * The label width
+   */
+  @Prop() labelWidth;
+
+  /* VALIDATION */
 
   /**
    * The validation status
@@ -151,6 +163,11 @@ export class GxgFormText implements FormComponent {
    * The input max. width
    */
   @Prop() maxWidth = "100%";
+
+  /**
+   * The input width
+   */
+  @Prop() width = "100%";
 
   /**
    * The input pattern attribute specifies a regular expression that the input field's value is checked against
@@ -221,12 +238,14 @@ export class GxgFormText implements FormComponent {
 
   @Method()
   async validate(): Promise<boolean> {
-    this.handleError(formHandleValidation(this, this.textInput));
-    this.handleWarning();
-    if (this.validationStatus === "error") {
-      return false;
-    } else {
-      return true;
+    if (!this.disabled) {
+      this.handleError(formHandleValidation(this, this.textInput));
+      this.handleWarning();
+      if (this.validationStatus === "error") {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
 
@@ -439,18 +458,6 @@ export class GxgFormText implements FormComponent {
     if (dirHtml === "rtl" || dirBody === "rtl") {
       this.rtl = true;
     }
-
-    //Offset error or warning message if label position is "start"
-    if (this.label && this.labelPosition === "start") {
-      //Get label width
-      const label = this.el.shadowRoot.querySelector(".label") as HTMLElement;
-      const labelWidth = label.offsetWidth;
-      //Get messages wrapper
-      const messagesWrapper = this.el.shadowRoot.querySelector(
-        ".messages-wrapper"
-      ) as HTMLElement;
-      messagesWrapper.style.paddingLeft = labelWidth + 5 + "px";
-    }
   }
 
   componentDidUnload(): void {
@@ -482,6 +489,7 @@ export class GxgFormText implements FormComponent {
         aria-label={this.label}
         icon-position={this.iconPositionFunc()}
         style={{
+          width: this.width,
           maxWidth: this.maxWidth,
         }}
         class={{
@@ -501,12 +509,21 @@ export class GxgFormText implements FormComponent {
         }}
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
-        <div class="outer-wrapper">
+        <div
+          class={{
+            "outer-wrapper": true,
+            "label-position--above": this.labelPosition === "above",
+            "label-position--start": this.labelPosition === "start",
+          }}
+        >
           {this.label ? (
             <gxg-label
               class={{
                 label: true,
               }}
+              labelPosition={this.labelPosition}
+              center={this.centerLabel}
+              width={this.labelWidth}
             >
               {this.label}
               {requiredLabel(this)}
@@ -557,9 +574,12 @@ export class GxgFormText implements FormComponent {
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
+            {this.labelPosition === "start"
+              ? this.formMessageLogic(this)
+              : null}
           </div>
         </div>
-        {this.formMessageLogic(this)}
+        {this.labelPosition === "above" ? this.formMessageLogic(this) : null}
       </Host>
     );
   }

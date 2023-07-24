@@ -16,6 +16,10 @@
   @include gxg-scroll;
 
   .main-container {
+    &.label-position--start {
+      display: flex;
+      flex-direction: row;
+    }
     .label {
       font-size: var(--font-size-sm);
       margin-bottom: var(--spacing-lay-xs);
@@ -24,6 +28,7 @@
     position: relative;
 
     .search-container {
+      flex: 1;
       position: relative;
       .buttons-wrapper {
         position: absolute;

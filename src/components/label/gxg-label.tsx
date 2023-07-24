@@ -26,13 +26,27 @@ export class GxgLabel {
    */
   @Prop() noMargin = false;
 
+  /*
+   * Align the text to the middle
+   */
+  @Prop() center = false;
+
+  /*
+   * The label width
+   */
+  @Prop() width = "auto";
+
   render() {
     return (
       <Host
         class={{
           large: state.large,
-          "no-margin": this.noMargin,
+          "gxg-label--no-margin": this.noMargin,
+          "gxg-label--center": this.center,
           [`position-${this.labelPosition}`]: true,
+        }}
+        style={{
+          width: this.width,
         }}
       >
         <label>

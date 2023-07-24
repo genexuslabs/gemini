@@ -6,9 +6,11 @@
 
 | Property        | Attribute        | Description                                                                              | Type                                     | Default   |
 | --------------- | ---------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------- | --------- |
+| `center`        | `center`         |                                                                                          | `boolean`                                | `false`   |
 | `disabled`      | `disabled`       |                                                                                          | `boolean`                                | `false`   |
 | `labelPosition` | `label-position` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"above" \| "below" \| "end" \| "start"` | `"above"` |
 | `noMargin`      | `no-margin`      |                                                                                          | `boolean`                                | `false`   |
+| `width`         | `width`          |                                                                                          | `string`                                 | `"auto"`  |
 
 ## Dependencies
 

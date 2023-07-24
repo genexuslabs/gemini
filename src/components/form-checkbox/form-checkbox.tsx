@@ -143,11 +143,13 @@ export class GxgFormCheckbox implements FormComponent {
 
   @Method()
   async validate(): Promise<boolean> {
-    this.handleValidation();
-    if (this.validationStatus === "error") {
-      return false;
-    } else {
-      return true;
+    if (!this.disabled) {
+      this.handleValidation();
+      if (this.validationStatus === "error") {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
 

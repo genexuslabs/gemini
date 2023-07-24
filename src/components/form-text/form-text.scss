@@ -14,11 +14,16 @@ FORM ELEMENT WRAPPER
 :host {
   .outer-wrapper {
     @include form-element-common-styles-wrapper();
+    &.label-position--start {
+      display: flex;
+      flex-direction: row;
+    }
   }
   .inner-wrapper {
     display: flex;
     flex-direction: column;
     position: relative;
+    flex: 1;
 
     gxg-icon {
       position: absolute;
@@ -39,19 +44,6 @@ LABEL
   input {
     position: relative;
     width: 100%;
-  }
-}
-:host([label-position="start"]) {
-  .outer-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  .inner-wrapper {
-    width: 100%;
-  }
-  .label {
-    margin-bottom: 0;
-    margin-inline-end: var(--spacing-comp-01);
   }
 }
 

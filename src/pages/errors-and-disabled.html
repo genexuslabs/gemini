@@ -221,7 +221,8 @@
         );
         disableComponentsBtn.addEventListener("click", () => {
           formComponents.forEach((component) => {
-            component.disable = true;
+            console.log(component);
+            component.disabled = true;
           });
         });
       </script>

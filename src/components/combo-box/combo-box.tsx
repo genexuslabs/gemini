@@ -51,6 +51,11 @@ export class GxgComboBox implements FormComponent {
   @Prop() label: string = undefined;
 
   /**
+   * The input label
+   */
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
+
+  /**
    * The combo min-width
    */
   @Prop() minWidth = "0";
@@ -105,6 +110,16 @@ export class GxgComboBox implements FormComponent {
    * The visible text on the input (not the same as the value)
    */
   @State() text: string;
+
+  /**
+   * Centers the label
+   */
+  @Prop() centerLabel = false;
+
+  /**
+   * The label width
+   */
+  @Prop() labelWidth;
 
   /*VALIDATION*/
 
@@ -207,11 +222,13 @@ export class GxgComboBox implements FormComponent {
 
   @Method()
   async validate(): Promise<boolean> {
-    this.handleValidation();
-    if (this.validationStatus === "error") {
-      return false;
-    } else {
-      return true;
+    if (!this.disabled) {
+      this.handleValidation();
+      if (this.validationStatus === "error") {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
   handleValidation = (): void => {
@@ -716,11 +733,23 @@ export class GxgComboBox implements FormComponent {
         style={{ maxWidth: this.maxWidth, minWidth: this.minWidth }}
       >
         <div
-          class={{ "main-container": true }}
+          class={{
+            "main-container": true,
+            "outer-wrapper": true,
+            "label-position--above": this.labelPosition === "above",
+            "label-position--start": this.labelPosition === "start",
+          }}
           ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
           {this.label ? (
-            <gxg-label class="label">{this.label}</gxg-label>
+            <gxg-label
+              class="label"
+              labelPosition={this.labelPosition}
+              center={this.centerLabel}
+              width={this.labelWidth}
+            >
+              {this.label}
+            </gxg-label>
           ) : null}
           <div class={{ "search-container": true }}>
             <gxg-form-text
@@ -790,3 +819,4 @@ export class GxgComboBox implements FormComponent {
 }
 
 export type ListPosition = "above" | "below";
+export type LabelPosition = "start" | "above";

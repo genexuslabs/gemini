@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   @include gxg-text();
-  margin: var(--spacing-comp-01) 0;
 
   gxg-icon {
     height: 10px;

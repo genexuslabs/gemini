@@ -1,24 +1,34 @@
 @import "../../globals/mixins";
 :host {
-  display: inline-block;
+  display: flex;
+  align-items: baseline;
   label {
     @include form-element-common-styles-label();
   }
 }
 :host(.position-above) {
-  margin-block-end: var(--spacing-lay-xs);
+  margin-block-end: var(--gxg-label-margin-vertical);
 }
 :host(.position-end) {
-  margin-inline-start: var(--spacing-lay-xs);
+  margin-inline-start: var(--gxg-label-margin-horizontal);
 }
 :host(.position-below) {
-  margin-block-start: var(--spacing-lay-xs);
+  margin-block-start: var(--gxg-label-margin-vertical);
 }
 :host(.position-start) {
-  margin-inline-end: var(--spacing-lay-xs);
+  margin-inline-end: var(--gxg-label-margin-horizontal);
 }
-:host(.no-margin) {
+:host(.gxg-label--no-margin) {
   margin: 0 !important;
+}
+/*alignment*/
+:host(.position-above.gxg-label--center),
+:host(.position-below.gxg-label--center) {
+  justify-content: center;
+}
+:host(.position-start.gxg-label--center),
+:host(.position-end.gxg-label--center) {
+  align-items: center;
 }
 /*DISABLED*/
 :host([disabled]) {

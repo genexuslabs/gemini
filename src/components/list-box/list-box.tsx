@@ -14,6 +14,7 @@ import {
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classes-names";
+import { commonClassesNames } from "../../common/classes-names";
 import state from "../store";
 import { ItemClicked, ItemChecked } from "../list-box-item/list-box-item";
 
@@ -182,11 +183,13 @@ export class GxgListBox implements FormComponent {
 
   @Method()
   async validate(): Promise<boolean> {
-    this.handleValidation();
-    if (this.validationStatus === "error") {
-      return false;
-    } else {
-      return true;
+    if (!this.disabled) {
+      this.handleValidation();
+      if (this.validationStatus === "error") {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
   handleValidation = (): void => {
@@ -344,6 +347,15 @@ export class GxgListBox implements FormComponent {
   @Watch("checkedItems")
   checkedItemsHandler(newArray: Array<ItemsInformation>): void {
     this.checkedChanged.emit(newArray);
+  }
+  @Watch("disabled")
+  disabledHandler(disabled: boolean): void {
+    if (disabled) {
+      const enabledItems = this.getEnabledItems();
+      enabledItems?.forEach((item) => {
+        item.disabled = true;
+      });
+    }
   }
 
   @Watch("hideKeyboardSuggestions")
@@ -912,6 +924,7 @@ export class GxgListBox implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         tabindex={this.disabled ? "-1" : "0"}
         onKeyDown={this.handleKeyDown}

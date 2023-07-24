@@ -460,6 +460,9 @@ FORM ELEMENTS
 }
 @mixin messages-wrapper {
   margin-top: var(--spacing-comp-02);
+  display: flex;
+  gap: var(--spacing-comp-01);
+  flex-direction: column;
 }
 
 @mixin gxg-scroll {
