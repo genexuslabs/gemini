@@ -25,8 +25,6 @@ const ARROW_UP = "ArrowUp";
 const SPACE = "Space";
 const ENTER = "Enter";
 const ESCAPE = "Escape";
-const ALT_LEFT = "AltLeft";
-const ALT_RIGHT = "AltRight";
 const TAB = "Tab";
 @Component({
   tag: "gxg-combo-box",
@@ -60,7 +58,12 @@ export class GxgComboBox implements FormComponent {
   /**
    * The combo max-width
    */
-  @Prop() maxWidth = "none";
+  @Prop() maxWidth = "100%";
+
+  /**
+   * The combo list max height
+   */
+  @Prop() listMaxHeight = "244px";
 
   /**
    * The combo placeholder
@@ -304,14 +307,19 @@ export class GxgComboBox implements FormComponent {
   };
 
   private keyDownHandler = (e: KeyboardEvent): void => {
+    if (e.code === ARROW_DOWN || e.code === ARROW_UP) {
+      e.preventDefault();
+    }
     let newItem: HTMLGxgComboBoxItemElement;
     if (e.code === ARROW_DOWN) {
       newItem = this.getNewItem("next");
       newItem?.value && (this.value = newItem?.value);
+      this.repositionScroll(ARROW_DOWN);
       e.altKey && this.showList();
     } else if (e.code === ARROW_UP) {
       newItem = this.getNewItem("prev");
       newItem?.value && (this.value = newItem?.value);
+      this.repositionScroll(ARROW_UP);
     } else if (e.code === ENTER) {
       this.hideList();
     } else if (e.code === SPACE) {
@@ -329,7 +337,6 @@ export class GxgComboBox implements FormComponent {
 
   @Watch("value")
   onValueChanged(newValue: ComboBoxItemValue): void {
-    console.log("newValue", newValue);
     this.clearSelectedItem();
     let value;
     let newItem: HTMLGxgComboBoxItemElement = undefined;
@@ -586,6 +593,34 @@ export class GxgComboBox implements FormComponent {
     this.inputTextIconPosition = null;
   };
 
+  private repositionScroll = (
+    direction: typeof ARROW_UP | typeof ARROW_DOWN
+  ): void => {
+    const itemsContainer = this.itemsContainer;
+    const hasVerticalScrollbar =
+      itemsContainer?.scrollHeight > itemsContainer?.clientHeight;
+    if (hasVerticalScrollbar && this.selectedItem) {
+      const itemsContainerScrollTop = itemsContainer.scrollTop;
+      if (direction === ARROW_UP) {
+        const itemsContainerTop = itemsContainer.getBoundingClientRect().top;
+        const selectedItemTop = this.selectedItem.getBoundingClientRect().top;
+        if (selectedItemTop < itemsContainerTop) {
+          const offset = itemsContainerTop - selectedItemTop;
+          itemsContainer.scrollTo(0, itemsContainerScrollTop - offset);
+        }
+      } else if (direction === ARROW_DOWN) {
+        const itemsContainerBottom = itemsContainer.getBoundingClientRect()
+          .bottom;
+        const selectedItemBottom = this.selectedItem.getBoundingClientRect()
+          .bottom;
+        if (selectedItemBottom > itemsContainerBottom) {
+          const offset = selectedItemBottom - itemsContainerBottom;
+          itemsContainer.scrollTo(0, itemsContainerScrollTop + offset);
+        }
+      }
+    }
+  };
+
   setIcon(icon: string): void {
     if (icon) {
       this.inputTextIcon = icon;
@@ -678,6 +713,7 @@ export class GxgComboBox implements FormComponent {
           "gxg-combo-box--disabled": this.disableFilter,
           large: state.large,
         }}
+        style={{ maxWidth: this.maxWidth, minWidth: this.minWidth }}
       >
         <div
           class={{ "main-container": true }}
@@ -735,6 +771,7 @@ export class GxgComboBox implements FormComponent {
               "items-container--below": this.listPosition === "below",
               "items-container--above": this.listPosition === "above",
             }}
+            style={{ maxHeight: this.listMaxHeight }}
             ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
           >
             <slot></slot>
