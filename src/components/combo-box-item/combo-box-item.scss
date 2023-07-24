@@ -47,8 +47,8 @@
   color: var(--color-always-white);
 }
 :host([exact-match]) {
-  background-color: var(--color-success-light);
-  color: var(--color-success-dark);
+  // background-color: var(--color-success-light);
+  // color: var(--color-success-dark);
 }
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)

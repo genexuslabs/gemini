@@ -99,9 +99,9 @@ export class GxgComboBox implements FormComponent {
   @Prop() listPosition: ListPosition = "below";
 
   /**
-   * True when the user is typing. False when the user has selected an item.
+   * The visible text on the input (not the same as the value)
    */
-  @State() userIsTyping = false;
+  @State() text: string;
 
   /*VALIDATION*/
 
@@ -162,6 +162,8 @@ export class GxgComboBox implements FormComponent {
    */
   @Prop() warningCondition: Function;
 
+  private userTyped = false;
+
   formMessageLogic = formMessageLogic;
 
   @State() inputTextValue = "";
@@ -171,7 +173,6 @@ export class GxgComboBox implements FormComponent {
   @State() noMatch = false;
   @State() lastAllowedValue = undefined;
   @State() slottedContent: HTMLElement = null;
-  @State() userTyped = false;
   @State() selectionProgramatic = true;
   @State() lastSetValueByUser;
   @State() myObserver = null;
@@ -272,7 +273,7 @@ export class GxgComboBox implements FormComponent {
 
   @Listen("itemDidLoad")
   itemDidLoadHandler(): void {
-    console.log("item did load");
+    this.setup();
   }
 
   @Listen("keyDownComboItem")
@@ -291,6 +292,7 @@ export class GxgComboBox implements FormComponent {
   *********************************/
 
   private inputHandler = (e): void => {
+    this.userTyped = true;
     const value = this.sanitizeString(e.detail);
     const filteredItems = this.filterList(value);
     if (!this.strict) {
@@ -305,7 +307,6 @@ export class GxgComboBox implements FormComponent {
     let newItem: HTMLGxgComboBoxItemElement;
     if (e.code === ARROW_DOWN) {
       newItem = this.getNewItem("next");
-      console.log("newItem", newItem);
       newItem?.value && (this.value = newItem?.value);
       e.altKey && this.showList();
     } else if (e.code === ARROW_UP) {
@@ -328,13 +329,33 @@ export class GxgComboBox implements FormComponent {
 
   @Watch("value")
   onValueChanged(newValue: ComboBoxItemValue): void {
-    const newItem = this.getItemByValue(newValue);
+    console.log("newValue", newValue);
+    this.clearSelectedItem();
+    let value;
+    let newItem: HTMLGxgComboBoxItemElement = undefined;
+    if (this.userTyped) {
+      value = this.getValueByText(newValue);
+    } else {
+      this.showAllItems();
+      value = newValue;
+    }
+    newItem = this.getItemByValue(value);
     if (newItem) {
       this.setSelectedItem(newItem);
       this.setIcon(newItem.icon);
+      newItem?.textContent && (this.text = newItem.textContent);
     } else {
-      this.setIcon(undefined);
+      //this.setIcon(undefined);
+      if (this.strict) {
+        this.text = undefined;
+        this.value = undefined;
+      } else {
+        if (!this.userTyped) {
+          this.text = undefined;
+        }
+      }
     }
+    this.userTyped = false;
   }
 
   @Watch("listIsOpen")
@@ -376,12 +397,6 @@ export class GxgComboBox implements FormComponent {
         } else {
           item.hidden = true;
         }
-        /*exact match*/
-        if (text === item.textContent) {
-          item.exactMatch = true;
-        } else {
-          item.exactMatch = false;
-        }
       });
     }
     if (filteredItems.length >= 1) {
@@ -392,6 +407,13 @@ export class GxgComboBox implements FormComponent {
     return filteredItems;
   };
 
+  private showAllItems = () => {
+    const enabledItems = this.getEnabledItems();
+    enabledItems?.forEach((item) => {
+      item?.hidden && (item.hidden = false);
+    });
+  };
+
   private cleanup = () => {
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
@@ -400,7 +422,7 @@ export class GxgComboBox implements FormComponent {
 
   private setup = () => {
     this.setIndexes();
-    this.value && (this.selectedItem = this.getItemByValue(this.value));
+    this.onValueChanged(this.value);
   };
 
   private setIndexes = (): void => {
@@ -450,6 +472,30 @@ export class GxgComboBox implements FormComponent {
     return item;
   };
 
+  private getItemByText = (text: string): HTMLGxgComboBoxItemElement => {
+    text = !this.caseSensitive && text.toLocaleLowerCase();
+    let item: HTMLGxgComboBoxItemElement;
+    if (text) {
+      const enabledItems: HTMLGxgComboBoxItemElement[] = this.getEnabledItems();
+      item = enabledItems.find((item) => {
+        const textContent = !this.caseSensitive
+          ? item.textContent.toLocaleLowerCase()
+          : item.textContent;
+        return !item.disabled && textContent === text;
+      });
+    }
+    return item;
+  };
+
+  private clearSelectedItem = () => {
+    const enabledItems = this.getEnabledItems();
+    enabledItems?.forEach((item) => {
+      item.selected && (item.selected = false);
+    });
+    this.selectedItem = undefined;
+    this.clearIcon();
+  };
+
   private getItemByIndex = (index: number): HTMLGxgComboBoxItemElement => {
     let item: HTMLGxgComboBoxItemElement;
     if (index >= 0) {
@@ -461,6 +507,18 @@ export class GxgComboBox implements FormComponent {
   private getValueByItem = (
     item: HTMLGxgComboBoxItemElement
   ): ComboBoxItemValue => {
+    return item?.value;
+  };
+
+  private getValueByText = (text: string): ComboBoxItemValue => {
+    !this.caseSensitive && (text = text.toLowerCase());
+    const enabledItems = this.getEnabledItems();
+    const item = enabledItems?.find((item) => {
+      const itemText = !this.caseSensitive
+        ? item.textContent.toLocaleLowerCase()
+        : item.textContent;
+      return !item.disabled && itemText === text;
+    });
     return item?.value;
   };
 
@@ -502,7 +560,9 @@ export class GxgComboBox implements FormComponent {
   };
 
   private toggleListButtonClickHandler = (): void => {
+    this.showAllItems();
     this.toggleList();
+    this.focus();
   };
 
   private inputTextClickHandler = (e): void => {
@@ -519,6 +579,11 @@ export class GxgComboBox implements FormComponent {
 
   private hideList = (): void => {
     this.listIsOpen = false;
+  };
+
+  private clearIcon = (): void => {
+    this.inputTextIcon = null;
+    this.inputTextIconPosition = null;
   };
 
   setIcon(icon: string): void {
@@ -627,7 +692,7 @@ export class GxgComboBox implements FormComponent {
               onInput={this.inputHandler.bind(this)}
               onKeyDown={this.keyDownHandler}
               onClick={this.inputTextClickHandler}
-              value={this.value}
+              value={this.text}
               icon={this.inputTextIcon}
               iconPosition={this.inputTextIconPosition}
               readonly={this.disableFilter}
