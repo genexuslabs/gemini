@@ -46,6 +46,7 @@
 - [gxg-demo](../demo)
 - [gxg-drag-box](../drag-box)
 - [gxg-drop-down](../drop-down)
+- [gxg-entity-selector](../entity-selector)
 - [gxg-filter](../filter)
 - [gxg-list-box](../list-box)
 - [gxg-modal](../modal)
@@ -68,6 +69,7 @@ graph TD;
   gxg-demo --> gxg-button
   gxg-drag-box --> gxg-button
   gxg-drop-down --> gxg-button
+  gxg-entity-selector --> gxg-button
   gxg-filter --> gxg-button
   gxg-list-box --> gxg-button
   gxg-modal --> gxg-button

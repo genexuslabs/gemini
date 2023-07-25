@@ -746,14 +746,11 @@ export class GxgComboBox implements FormComponent {
           class={{
             "main-container": true,
             "outer-wrapper": true,
-            "label-position--above": this.labelPosition === "above",
-            "label-position--start": this.labelPosition === "start",
           }}
           ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
           {this.label ? (
             <gxg-label
-              class="label"
               labelPosition={this.labelPosition}
               center={this.centerLabel}
               width={this.labelWidth}

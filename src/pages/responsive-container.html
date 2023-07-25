@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Responsive Container | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      .wrapper {
+        padding: 32px;
+        max-width: 800px;
+        container-type: inline-size;
+        margin-top: 100px;
+      }
+      .container {
+        padding: 16px;
+        background-color: yellow;
+      }
+      @container (max-width: 700px) {
+        .container {
+          background-color: yellowgreen;
+        }
+      }
+      p {
+        font-family: "open sans";
+      }
+    </style>
+  </head>
+  <body>
+    <p>combo-box fuera de @container</p>
+    <gxg-combo-box
+      id="combo-common-functions"
+      placeholder="Select item"
+      max-width="100%"
+      center-label
+    >
+      <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+      <gxg-combo-box-item disabled value="bpm" icon="">BPM</gxg-combo-box-item>
+      <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+        >Chatbots</gxg-combo-box-item
+      >
+      <gxg-combo-box-item disabled value="bpm2" icon=""
+        >BPM2</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="chatbots2" icon="objects/conversational-flows"
+        >Chatbots2</gxg-combo-box-item
+      >
+    </gxg-combo-box>
+    <div class="wrapper">
+      <p>combo-box dentro de @container</p>
+      <div class="container">
+        <gxg-combo-box
+          id="combo-common-functions"
+          placeholder="Select item"
+          max-width="100%"
+          center-label
+        >
+          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+          <gxg-combo-box-item disabled value="bpm" icon=""
+            >BPM</gxg-combo-box-item
+          >
+          <gxg-combo-box-item
+            value="chatbots"
+            icon="objects/conversational-flows"
+            >Chatbots</gxg-combo-box-item
+          >
+          <gxg-combo-box-item disabled value="bpm2" icon=""
+            >BPM2</gxg-combo-box-item
+          >
+          <gxg-combo-box-item
+            value="chatbots2"
+            icon="objects/conversational-flows"
+            >Chatbots2</gxg-combo-box-item
+          >
+        </gxg-combo-box>
+      </div>
+    </div>
+  </body>
+</html>

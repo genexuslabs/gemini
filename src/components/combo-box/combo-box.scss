@@ -16,10 +16,6 @@
   @include gxg-scroll;
 
   .main-container {
-    &.label-position--start {
-      display: flex;
-      flex-direction: row;
-    }
     .label {
       font-size: var(--font-size-sm);
       margin-bottom: var(--spacing-lay-xs);
@@ -96,6 +92,13 @@
         border-bottom-left-radius: 0;
       }
     }
+  }
+}
+/*label position*/
+:host([label-position="start"]) {
+  .main-container {
+    display: flex;
+    flex-direction: row;
   }
 }
 

@@ -1,25 +1,74 @@
-@import "../../globals/mixins";
+@import "../mixins.scss";
 
 /*ch-suggest*/
 ch-suggest {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);
   color: var(--color-on-background);
-}
-ch-suggest:focus {
-}
-ch-suggest::part(label) {
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-ch-suggest::part(input) {
-  height: var(--spacing-comp-05);
-  border: var(--border-width-sm) solid var(--gxg-border-color--regular);
-  padding: var(--spacing-comp-01) var(--spacing-comp-02);
-  box-sizing: border-box;
-}
-ch-suggest::part(input):focus {
-  @include form-element-common-styles-focus-type-1();
+  @include gxg-scroll();
+  // Scroll bar
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: var(--gray-02);
+    border-radius: 10px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray-05);
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-04);
+    cursor: pointer;
+  }
+
+  &::part(label) {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  &::part(input) {
+    height: var(--spacing-comp-05);
+    border: var(--border-width-sm) solid var(--gxg-border-color--regular);
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    box-sizing: border-box;
+  }
+  &::part(input):focus {
+    @include form-element-common-styles-focus-type-1();
+  }
+  /*window*/
+  &::part(ch-window-window) {
+    /*mixin shadow*/
+    background-color: var(--color-background);
+    margin-top: var(--spacing-comp-01);
+    padding: var(--spacing-comp-02);
+    box-shadow: var(--box-shadow-02);
+    @include gxg-scroll();
+    // Scroll bar
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background-color: var(--gray-02);
+      border-radius: 10px;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: var(--gray-05);
+      border-radius: 10px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gray-04);
+      cursor: pointer;
+    }
+  }
 }
 /*ch-suggest-list*/
 ch-suggest-list {
@@ -32,12 +81,12 @@ ch-suggest-list {
   &:last-child {
     margin-bottom: 0;
   }
-}
-ch-suggest-list::part(title) {
-  text-transform: uppercase;
-  font-weight: var(--font-weight-semibold);
-  margin: var(--spacing-comp-01) 0 0 0;
-  padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  &::part(title) {
+    text-transform: uppercase;
+    font-weight: var(--font-weight-semibold);
+    margin: var(--spacing-comp-01) 0 0 0;
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  }
 }
 /*ch-suggest-list-item*/
 ch-suggest-list-item {
@@ -45,37 +94,27 @@ ch-suggest-list-item {
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-ch-suggest-list-item gxg-icon::part(ch-icon) {
-  --icon-size: 16px;
-  --icon-color: var(--color-on-background);
-  margin-right: 2px;
-}
-ch-suggest-list-item:hover {
-  background-color: var(--gxg-form-item-bgcolor-hover);
-  color: var(--color-on-primary);
 
   gxg-icon::part(ch-icon) {
-    --icon-color: var(--color-on-primary);
+    --icon-size: 16px;
+    --icon-color: var(--color-on-background);
+    margin-right: 2px;
+  }
+
+  &:hover {
+    background-color: var(--gxg-form-item-bgcolor-hover);
+    color: var(--color-on-primary);
+
+    gxg-icon::part(ch-icon) {
+      --icon-color: var(--color-on-primary);
+    }
+  }
+  &:focus,
+  &[selected]:focus {
+    @include form-element-common-styles-focus-type-1();
   }
 }
-ch-suggest-list-item:focus,
-ch-suggest-list-item[selected]:focus {
-  @include form-element-common-styles-focus-type-1();
-}
-ch-suggest-list-item[selected] {
-}
-/*ch-window*/
-ch-suggest {
-  @include gxg-scroll();
-}
-ch-suggest::part(ch-window-window) {
-  /*mixin shadow*/
-  background-color: var(--color-background);
-  margin-top: var(--spacing-comp-01);
-  padding: var(--spacing-comp-02);
-  box-shadow: var(--box-shadow-02);
-}
+
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/

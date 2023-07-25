@@ -2,7 +2,13 @@
   --gxg-border-color--regular: var(--gray-02);
   --gxg-border-color--disabled: var(--gray-04);
   --gxg-text-color-on-primary--disabled: var(--gray-04);
+  --gxg-form-text-height: 20px;
   --gxg-form-item-bgcolor-hover: var(--color-secondary-hover);
   --gxg-label-margin-horizontal: var(--spacing-lay-s);
   --gxg-label-margin-vertical: var(--spacing-lay-xs);
+  --gxg-border-common-styles: var(--border-width-sm) solid
+    var(--gxg-border-color--regular);
+}
+:root.gxg-large {
+  --gxg-form-text-height: var(--spacing-comp-05);
 }

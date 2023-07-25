@@ -62,7 +62,7 @@ export class GxgFormText implements FormComponent {
   @Prop() label: string;
 
   /**
-   * The input label
+   * The label position
    */
   @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
 
@@ -512,15 +512,10 @@ export class GxgFormText implements FormComponent {
         <div
           class={{
             "outer-wrapper": true,
-            "label-position--above": this.labelPosition === "above",
-            "label-position--start": this.labelPosition === "start",
           }}
         >
           {this.label ? (
             <gxg-label
-              class={{
-                label: true,
-              }}
               labelPosition={this.labelPosition}
               center={this.centerLabel}
               width={this.labelWidth}

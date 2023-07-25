@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Entity Selector | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      span {
+        font-family: "open sans", arial, sans-serif;
+        font-weight: bold;
+        margin: 8px 0;
+        display: block;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    </style>
+  </head>
+  <body class="styles">
+    <div class="container">
+      <span>label above</span>
+      <gxg-entity-selector
+        label="My label"
+        label-position="above"
+      ></gxg-entity-selector>
+      <span>label start</span>
+      <gxg-entity-selector
+        label="My label"
+        label-position="start"
+        center-label
+      ></gxg-entity-selector>
+      <gxg-form-text
+        id="first-form-text-1"
+        id="first-form-text"
+        label="Full name"
+        placeholder="John Smith"
+        value="hola"
+        min-length="2"
+      ></gxg-form-text>
+    </div>
+
+    <script>
+      const entitySelector = document.querySelector("gxg-entity-selector");
+      /*icon css variables*/
+      entitySelector.style.setProperty("--icon-color", "blue");
+      entitySelector.style.setProperty("--icon-size", "20px");
+      /*value*/
+      entitySelector.value = {
+        id: "value-id",
+        name: "Some value",
+        iconSrc: "general/generator",
+        iconColor: "auto",
+      };
+      /*default value*/
+      entitySelector.defaultValue = {
+        id: "default-value-id",
+        name: "Some default value",
+        iconSrc: "general/knowledge-base",
+        iconColor: "auto",
+      };
+      /*onSelectEntity*/
+      entitySelector.onSelectEntity = () => {
+        return new Promise((resolve, reject) => {
+          resolve({
+            id: "promise-value-id",
+            name: "Promise value",
+            iconSrc: "general/knowledge-base",
+            iconAutocolor: true,
+          });
+          reject("some error has happened");
+        });
+      };
+    </script>
+  </body>
+</html>

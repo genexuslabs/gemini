@@ -14,10 +14,6 @@ FORM ELEMENT WRAPPER
 :host {
   .outer-wrapper {
     @include form-element-common-styles-wrapper();
-    &.label-position--start {
-      display: flex;
-      flex-direction: row;
-    }
   }
   .inner-wrapper {
     display: flex;
@@ -46,7 +42,13 @@ LABEL
     width: 100%;
   }
 }
-
+/*label position*/
+:host([label-position="start"]) {
+  .outer-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+}
 /*****************************************************
 TEXT
 *****************************************************/
@@ -54,7 +56,7 @@ TEXT
   input[type="text"],
   input[type="password"] {
     @include form-element-common-styles();
-    height: 20px;
+    height: var(--gxg-form-text-height);
     box-sizing: border-box;
 
     &:focus {
@@ -238,7 +240,6 @@ LARGE VERSION (html tag has 'gxg-large' class)
     @include form-element-common-styles-label-large();
   }
   input {
-    height: var(--spacing-comp-05);
     font-size: var(--font-size-lg);
   }
   input[type="text"],

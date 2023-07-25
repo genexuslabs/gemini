@@ -37,11 +37,16 @@ import {
 } from "./components/container/container";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
+import {
+  EntityData,
+  EntitySelectorLabels,
+  LabelPosition as LabelPosition1,
+} from "./components/entity-selector/gxg-entity-selector";
 import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
 import { Message } from "./components/form-message/form-message";
 import {
   IconPosition,
-  LabelPosition as LabelPosition1,
+  LabelPosition as LabelPosition2,
   Style,
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
@@ -56,8 +61,8 @@ import {
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PillType } from "./components/pill/pill";
-import { LabelPosition as LabelPosition2 } from "./components/form-select/gxg-select";
-import { LabelPosition as LabelPosition3 } from "./components/form-select-v2/gxg-select-v2";
+import { LabelPosition as LabelPosition3 } from "./components/form-select/gxg-select";
+import { LabelPosition as LabelPosition4 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
 import {
   JustifyContent,
@@ -66,7 +71,7 @@ import {
 } from "./components/spacer-layout/spacer-layout";
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
-import { LabelPosition as LabelPosition4 } from "./components/stepper/stepper";
+import { LabelPosition as LabelPosition5 } from "./components/stepper/stepper";
 import { Height, TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
@@ -653,6 +658,40 @@ export namespace Components {
      */
     width: string;
   }
+  interface GxgEntitySelector {
+    /**
+     * This property provides the user a way to define custom aria-label descriptions.
+     */
+    accessibilityLabels?: EntitySelectorLabels;
+    /**
+     * Centers the label
+     */
+    centerLabel: boolean;
+    /**
+     * Default value to be assigned as the component's value. This value should always be used when the 'X' button is pressed.
+     */
+    defaultValue?: EntityData | null | undefined;
+    /**
+     * Optional label (same as the label of an input).
+     */
+    label: string;
+    /**
+     * The label position
+     */
+    labelPosition: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth: any;
+    /**
+     * Callback that will be called when the user presses the action button. Returns the new value assigned to the component.
+     */
+    onSelectEntity: () => Promise<EntityData>;
+    /**
+     * Value currently assigned.
+     */
+    value: EntityData | null | undefined;
+  }
   interface GxgFilter {
     /**
      * The left position of the filter, relative to the closest parent with relative position. (optional)
@@ -883,7 +922,7 @@ export namespace Components {
      */
     label: string;
     /**
-     * The input label
+     * The label position
      */
     labelPosition: LabelPosition;
     /**
@@ -1982,6 +2021,13 @@ declare global {
     prototype: HTMLGxgDropDownElement;
     new (): HTMLGxgDropDownElement;
   };
+  interface HTMLGxgEntitySelectorElement
+    extends Components.GxgEntitySelector,
+      HTMLStencilElement {}
+  var HTMLGxgEntitySelectorElement: {
+    prototype: HTMLGxgEntitySelectorElement;
+    new (): HTMLGxgEntitySelectorElement;
+  };
   interface HTMLGxgFilterElement
     extends Components.GxgFilter,
       HTMLStencilElement {}
@@ -2345,6 +2391,7 @@ declare global {
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
     "gxg-drop-down": HTMLGxgDropDownElement;
+    "gxg-entity-selector": HTMLGxgEntitySelectorElement;
     "gxg-filter": HTMLGxgFilterElement;
     "gxg-filter-item": HTMLGxgFilterItemElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
@@ -3024,6 +3071,40 @@ declare namespace LocalJSX {
      */
     width?: string;
   }
+  interface GxgEntitySelector {
+    /**
+     * This property provides the user a way to define custom aria-label descriptions.
+     */
+    accessibilityLabels?: EntitySelectorLabels;
+    /**
+     * Centers the label
+     */
+    centerLabel?: boolean;
+    /**
+     * Default value to be assigned as the component's value. This value should always be used when the 'X' button is pressed.
+     */
+    defaultValue?: EntityData | null | undefined;
+    /**
+     * Optional label (same as the label of an input).
+     */
+    label?: string;
+    /**
+     * The label position
+     */
+    labelPosition?: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth?: any;
+    /**
+     * Callback that will be called when the user presses the action button. Returns the new value assigned to the component.
+     */
+    onSelectEntity?: () => Promise<EntityData>;
+    /**
+     * Value currently assigned.
+     */
+    value?: EntityData | null | undefined;
+  }
   interface GxgFilter {
     /**
      * The left position of the filter, relative to the closest parent with relative position. (optional)
@@ -3263,7 +3344,7 @@ declare namespace LocalJSX {
      */
     label?: string;
     /**
-     * The input label
+     * The label position
      */
     labelPosition?: LabelPosition;
     /**
@@ -4284,6 +4365,7 @@ declare namespace LocalJSX {
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
     "gxg-drop-down": GxgDropDown;
+    "gxg-entity-selector": GxgEntitySelector;
     "gxg-filter": GxgFilter;
     "gxg-filter-item": GxgFilterItem;
     "gxg-form-checkbox": GxgFormCheckbox;
@@ -4384,6 +4466,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgDragContainerElement>;
       "gxg-drop-down": LocalJSX.GxgDropDown &
         JSXBase.HTMLAttributes<HTMLGxgDropDownElement>;
+      "gxg-entity-selector": LocalJSX.GxgEntitySelector &
+        JSXBase.HTMLAttributes<HTMLGxgEntitySelectorElement>;
       "gxg-filter": LocalJSX.GxgFilter &
         JSXBase.HTMLAttributes<HTMLGxgFilterElement>;
       "gxg-filter-item": LocalJSX.GxgFilterItem &
