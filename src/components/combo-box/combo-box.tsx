@@ -39,6 +39,7 @@ export class GxgComboBox implements FormComponent {
   @Element() el: HTMLElement;
   mainContainer!: HTMLDivElement;
   itemsContainer!: HTMLDivElement;
+  searchItemsContainer!: HTMLDivElement;
 
   /**
    * The presence of this attribute makes the input disabled
@@ -324,7 +325,7 @@ export class GxgComboBox implements FormComponent {
   };
 
   private keyDownHandler = (e: KeyboardEvent): void => {
-    if (e.code === ARROW_DOWN || e.code === ARROW_UP) {
+    if (e.code === ARROW_DOWN || e.code === ARROW_UP || e.code === SPACE) {
       e.preventDefault();
     }
     let newItem: HTMLGxgComboBoxItemElement;
@@ -340,7 +341,7 @@ export class GxgComboBox implements FormComponent {
     } else if (e.code === ENTER) {
       this.hideList();
     } else if (e.code === SPACE) {
-      /*handled by inputHandler*/
+      this.showList();
     } else if (e.code === ESCAPE) {
       this.hideList();
     } else if (e.code === TAB && this.showList) {
@@ -407,6 +408,7 @@ export class GxgComboBox implements FormComponent {
 
   private filterList = (text: string): HTMLGxgComboBoxItemElement[] => {
     text = this.sanitizeString(text);
+    console.log(text);
     !this.caseSensitive && (text = text.toLowerCase());
     const enabledItems = this.getEnabledItems();
     const filteredItems: HTMLGxgComboBoxItemElement[] = [];
@@ -711,15 +713,14 @@ export class GxgComboBox implements FormComponent {
 
   repositionItemsContainer(): void {
     //redefine .main-container width
-    const gxgComboWidth = this.el.clientWidth;
-    this.itemsContainer.style.width = gxgComboWidth + "px";
+    const inputText = this.inputText;
+    const inputTextWidth = inputText.clientWidth;
+    this.itemsContainer.style.width = inputTextWidth + "px";
     //redefine .items-container "top" value
-    const gxgComboTextInput = (this
-      .inputText as HTMLGxgFormTextElement).getBoundingClientRect();
-    const gxgComboTextInputY = gxgComboTextInput.y;
-    const gxgComboTextInputHeight = gxgComboTextInput.height;
-    this.itemsContainer.style.top =
-      gxgComboTextInputY + gxgComboTextInputHeight + "px";
+    const inputTextBoundingClient = inputText.getBoundingClientRect();
+    const inputTextY = inputTextBoundingClient.y;
+    const inputTextHeight = inputTextBoundingClient.height;
+    this.itemsContainer.style.top = inputTextY + inputTextHeight + "px";
   }
 
   itemsContainerBottomOverflows(): boolean {
@@ -745,7 +746,6 @@ export class GxgComboBox implements FormComponent {
         <div
           class={{
             "main-container": true,
-            "outer-wrapper": true,
           }}
           ref={(el) => (this.mainContainer = el as HTMLDivElement)}
         >
@@ -758,65 +758,69 @@ export class GxgComboBox implements FormComponent {
               {this.label}
             </gxg-label>
           ) : null}
-          <div class={{ "search-container": true }}>
-            <gxg-form-text
-              placeholder={this.placeholder}
-              onInput={this.inputHandler.bind(this)}
-              onKeyDown={this.keyDownHandler}
-              onClick={this.inputTextClickHandler}
-              value={this.text}
-              icon={this.inputTextIcon}
-              iconPosition={this.inputTextIconPosition}
-              readonly={this.disableFilter}
-              ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
-              displayValidationStyles={this.displayValidationStyles}
-              validationStatus={this.validationStatus}
-              disabled={this.disabled}
-              class={{ "clear-icon": clearIcon }}
-            ></gxg-form-text>
-            <div class="buttons-wrapper">
-              {clearIcon ? (
+          <div
+            class="search-and-items-container"
+            ref={(el) => (this.searchItemsContainer = el as HTMLDivElement)}
+          >
+            <div class={{ "search-container": true }}>
+              <gxg-form-text
+                placeholder={this.placeholder}
+                onInput={this.inputHandler.bind(this)}
+                onKeyDown={this.keyDownHandler}
+                onClick={this.inputTextClickHandler}
+                value={this.text}
+                icon={this.inputTextIcon}
+                iconPosition={this.inputTextIconPosition}
+                readonly={this.disableFilter}
+                ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
+                displayValidationStyles={this.displayValidationStyles}
+                validationStatus={this.validationStatus}
+                disabled={this.disabled}
+                class={{ "clear-icon": clearIcon }}
+              ></gxg-form-text>
+              <div class="buttons-wrapper">
+                {clearIcon ? (
+                  <gxg-button
+                    class={{ "button-icon delete-icon": true }}
+                    icon="menus/delete"
+                    type="tertiary"
+                    onClick={() => this.clearCombo()}
+                    tabindex="-1"
+                    fit
+                    disabled={this.disabled}
+                  ></gxg-button>
+                ) : null}
+
                 <gxg-button
-                  class={{ "button-icon delete-icon": true }}
-                  icon="menus/delete"
-                  type="tertiary"
-                  onClick={() => this.clearCombo()}
-                  tabindex="-1"
+                  class={{ "button-icon": true }}
+                  icon="navigation/arrow-down"
+                  type="secondary-icon-only"
+                  onClick={this.toggleListButtonClickHandler}
                   fit
                   disabled={this.disabled}
+                  tabindex="-1"
                 ></gxg-button>
-              ) : null}
-
-              <gxg-button
-                class={{ "button-icon": true }}
-                icon="navigation/arrow-down"
-                type="secondary-icon-only"
-                onClick={this.toggleListButtonClickHandler}
-                fit
-                disabled={this.disabled}
-                tabindex="-1"
-              ></gxg-button>
-            </div>
-          </div>
-
-          <div
-            class={{
-              "items-container": true,
-              "items-container--show": this.listIsOpen,
-              "items-container--no-match": this.noMatch,
-              "items-container--below": this.listPosition === "below",
-              "items-container--above": this.listPosition === "above",
-            }}
-            style={{ maxHeight: this.listMaxHeight }}
-            ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
-          >
-            <slot></slot>
-            {this.noMatch && this.strict ? (
-              <div class="no-ocurrences-found">
-                No occurrences found
-                <span>ctrl/cmd + backspace to erase</span>
               </div>
-            ) : null}
+            </div>
+            <div
+              class={{
+                "items-container": true,
+                "items-container--show": this.listIsOpen,
+                "items-container--no-match": this.noMatch,
+                "items-container--below": this.listPosition === "below",
+                "items-container--above": this.listPosition === "above",
+              }}
+              style={{ maxHeight: this.listMaxHeight }}
+              ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
+            >
+              <slot></slot>
+              {this.noMatch && this.strict ? (
+                <div class="no-ocurrences-found">
+                  No occurrences found
+                  <span>ctrl/cmd + backspace to erase</span>
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
         {this.formMessageLogic(this)}

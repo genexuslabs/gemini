@@ -93,6 +93,9 @@
       }
     }
   }
+  .search-and-items-container {
+    flex: 1;
+  }
 }
 /*label position*/
 :host([label-position="start"]) {
