@@ -5,7 +5,7 @@ ch-suggest {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);
   color: var(--color-on-background);
-  @include gxg-scroll();
+  @include gxg-scrollbar();
   // Scroll bar
   ::-webkit-scrollbar {
     width: 6px;
@@ -47,7 +47,7 @@ ch-suggest {
     margin-top: var(--spacing-comp-01);
     padding: var(--spacing-comp-02);
     box-shadow: var(--box-shadow-02);
-    @include gxg-scroll();
+    @include gxg-scrollbar();
     // Scroll bar
     ::-webkit-scrollbar {
       width: 6px;

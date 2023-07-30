@@ -5,7 +5,6 @@
   display: block;
   box-shadow: var(--box-shadow-01);
   width: 200px;
-  @include gxg-scroll;
   opacity: 0;
   margin-top: var(--spacing-lay-s);
   animation: in 0.5s forwards;
@@ -34,6 +33,7 @@
   #main {
     max-height: 144px;
     overflow-y: auto;
+    @include gxg-scrollbar();
 
     #no-match {
       transition: all 0.25s;

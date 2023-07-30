@@ -14,13 +14,34 @@
 
     <style>
       html.dark {
-        background-color: #1D1E22;
+        background-color: #1d1e22;
       }
     </style>
   </head>
   <body>
-    <gxg-window>
-      content
-    </gxg-window>
+    <gxg-window
+      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed unde nulla
+      natus aliquam tenetur cumque corporis odio! Eaque quidem iste ad repellat
+      enim obcaecati unde expedita veniam accusantium aliquam. Quis.Lorem ipsum
+      dolor sit amet, consectetur adipisicing elit. Sed unde nulla natus aliquam
+      tenetur cumque corporis odio! Eaque quidem iste ad repellat enim obcaecati
+      unde expedita veniam accusantium aliquam. Quis.Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit. Sed unde nulla natus aliquam tenetur cumque
+      corporis odio! Eaque quidem iste ad repellat enim obcaecati unde expedita
+      veniam accusantium aliquam. Quis.Lorem ipsum dolor sit amet, consectetur
+      adipisicing elit. Sed unde nulla natus aliquam tenetur cumque corporis
+      odio! Eaque quidem iste ad repellat enim obcaecati unde expedita veniam
+      accusantium aliquam. Quis.</gxg-window
+    >
+    <gxg-button>Show window</gxg-button>
+
+    <script>
+      const gxgButton = document.querySelector("gxg-button");
+      const gxgWindow = document.querySelector("gxg-window");
+
+      gxgButton.addEventListener("click", function () {
+        gxgWindow.displayWindow = true;
+      });
+    </script>
   </body>
 </html>

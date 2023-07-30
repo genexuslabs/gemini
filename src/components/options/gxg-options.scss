@@ -5,7 +5,7 @@
   color: var(--color-on-background);
   position: relative;
   line-height: 0;
-  @include gxg-scroll;
+  @include gxg-scrollbar();
 }
 
 :host .options {
@@ -25,6 +25,7 @@
     font-size: var(--font-size-sm);
     line-height: 14px;
     margin-top: var(--spacing-comp-01);
+    @include gxg-scrollbar();
   }
 }
 :host(.options--visible) .options__items-container {

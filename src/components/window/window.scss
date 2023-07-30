@@ -4,8 +4,6 @@
 :host {
   font-family: var(--font-family-primary);
 
-  @include gxg-scrollbar();
-
   #draggable-resizable-div {
     position: absolute;
     background-color: var(--gray-01);
@@ -78,6 +76,7 @@
     height: calc(100% - 48px);
     overflow-y: auto;
     line-height: var(--line-height-regular);
+    @include gxg-scrollbar();
   }
 }
 :host(.display) {
