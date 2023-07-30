@@ -465,24 +465,24 @@ FORM ELEMENTS
   flex-direction: column;
 }
 
-@mixin gxg-scroll {
+@mixin gxg-scrollbar {
   // Scroll bar
-  ::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   /* Track */
-  ::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background-color: var(--gray-02);
     border-radius: 10px;
   }
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background: var(--gray-05);
     border-radius: 10px;
   }
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+  &::-webkit-scrollbar-thumb:hover {
     background: var(--gray-04);
     cursor: pointer;
   }

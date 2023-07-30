@@ -7,7 +7,7 @@
   padding: var(--spacing-comp-02);
   overflow: hidden;
   @include gxg-text();
-  @include gxg-scroll();
+  @include gxg-scrollbar();
 }
 :host([background="white"]) {
   background: var(--color-background);

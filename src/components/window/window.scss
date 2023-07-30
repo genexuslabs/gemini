@@ -4,7 +4,7 @@
 :host {
   font-family: var(--font-family-primary);
 
-  @include gxg-scroll();
+  @include gxg-scrollbar();
 
   #draggable-resizable-div {
     position: absolute;

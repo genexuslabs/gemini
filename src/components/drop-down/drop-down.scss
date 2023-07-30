@@ -3,7 +3,6 @@
 
 :host {
   display: block;
-  @include gxg-scroll();
 
   .main-container {
     position: relative;
@@ -65,6 +64,7 @@
     z-index: 999;
     background-color: var(--color-background);
     display: none;
+    @include gxg-scrollbar();
 
     &--show {
       display: block;

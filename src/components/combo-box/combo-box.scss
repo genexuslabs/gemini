@@ -13,8 +13,6 @@
     padding-inline-end: calc(var(--spacing-comp-05) * 2);
   }
 
-  @include gxg-scroll;
-
   .main-container {
     .label {
       font-size: var(--font-size-sm);
@@ -55,6 +53,7 @@
       box-sizing: border-box;
       z-index: 999;
       display: none;
+      @include gxg-scrollbar();
 
       &--show {
         display: block;

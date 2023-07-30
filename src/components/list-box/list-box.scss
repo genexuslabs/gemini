@@ -6,7 +6,6 @@
   font-size: var(--font-size-sm);
   font-family: var(--font-family-primary);
   background-color: var(--color-background);
-  @include gxg-scroll();
   .container {
     height: 100%;
   }
@@ -29,6 +28,7 @@
     border-width: var(--border-radius-xs);
     border-color: var(--gray-02);
     overflow-y: auto;
+    @include gxg-scrollbar();
 
     &--no-border {
       border: none;
