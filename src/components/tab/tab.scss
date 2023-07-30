@@ -4,16 +4,11 @@
   height: 100%;
   display: block;
 
-  @include gxg-scrollbar();
-
   .container {
     @include gxg-text();
     height: 100%;
     box-sizing: border-box;
     padding: var(--spacing-comp-03);
-
-    overflow-x: auto;
-    overflow-y: auto;
   }
 }
 :host(.not-selected) {

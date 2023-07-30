@@ -72,7 +72,7 @@ import {
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition5 } from "./components/stepper/stepper";
-import { Height, TabsPosition } from "./components/tabs/tabs";
+import { TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
@@ -1650,7 +1650,9 @@ export namespace Components {
     tabLabel: string;
   }
   interface GxgTabs {
-    height: Height;
+    height: string;
+    maxHeight: string;
+    minWidth: string;
     /**
      * The presence of this attribute removes each tab .container padding
      */
@@ -4105,7 +4107,9 @@ declare namespace LocalJSX {
     tabLabel?: string;
   }
   interface GxgTabs {
-    height?: Height;
+    height?: string;
+    maxHeight?: string;
+    minWidth?: string;
     /**
      * The presence of this attribute removes each tab .container padding
      */

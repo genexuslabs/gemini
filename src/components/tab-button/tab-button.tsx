@@ -14,7 +14,7 @@ import state from "../store";
 @Component({
   tag: "gxg-tab-button",
   styleUrl: "tab-button.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgTabButton {
   @Element() el: HTMLElement;
@@ -80,6 +80,8 @@ export class GxgTabButton {
         originTab: this.tab,
         arrowPressed: e.key,
       });
+    } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+      e.preventDefault();
     }
   }
   printIcon() {
@@ -104,7 +106,6 @@ export class GxgTabButton {
         class={{
           large: state.large,
         }}
-        tabindex={!this.isSelected ? "-1" : null}
       >
         <li class="tab-item">
           <button

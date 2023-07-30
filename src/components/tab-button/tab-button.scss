@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-
   //flex: 1 1 auto !important;
   align-self: center !important;
   line-height: 0;
@@ -41,6 +40,9 @@
     transition: box-shadow 0.2s ease-in-out;
     background: transparent;
     @include ui-animation(box-shadow);
+    &:focus {
+      @include form-element-common-styles-focus-type-1;
+    }
 
     &:after {
       content: "";
@@ -64,9 +66,6 @@
         background-color: var(--color-primary-active);
       }
     }
-    &:focus {
-      @include form-element-common-styles-focus-type-1;
-    }
     &[disabled] {
       color: var(--color-primary-disabled);
       pointer-events: none;
@@ -85,10 +84,20 @@
   }
 }
 
+:host([slot="tab-menu"]) {
+  .tab-button {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 //is button is inside menu
 :host(.menu-button) {
   width: 100%;
-  margin: 0 var(--spacing-comp-04);
+  box-sizing: border-box;
+  .tab-button {
+    padding: 0 var(--spacing-comp-04);
+  }
   @include ui-animation(background-color);
 
   .tab-button {

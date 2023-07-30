@@ -2,6 +2,7 @@
 
 :host {
   --tabBarMenuHeight: 0;
+  --tabBarMenuWidth: 0;
   display: inline-flex;
   text-align: right;
   position: relative;
@@ -43,15 +44,23 @@
     overflow: hidden;
     @include ui-animation(height);
 
-    &--collapsed {
-      height: 0;
-    }
-
     &.bottom {
       bottom: 0;
     }
     &.right {
       bottom: 0;
+      rotate: 90deg;
+      transform-origin: top right;
+      transform: translateX(100%);
+      height: auto !important;
+      width: var(--tabBarMenuHeight);
+    }
+
+    &--collapsed {
+      height: 0;
+      &.right {
+        width: 0;
+      }
     }
   }
 }

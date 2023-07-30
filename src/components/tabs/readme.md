@@ -113,11 +113,13 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                                                        | Type                                     | Default  |
-| ----------- | ------------ | ------------------------------------------------------------------ | ---------------------------------------- | -------- |
-| `height`    | `height`     |                                                                    | `"100%" \| "auto"`                       | `"auto"` |
-| `noPadding` | `no-padding` | The presence of this attribute removes each tab .container padding | `boolean`                                | `false`  |
-| `position`  | `position`   |                                                                    | `"bottom" \| "left" \| "right" \| "top"` | `"top"`  |
+| Property    | Attribute    | Description                                                        | Type                                     | Default   |
+| ----------- | ------------ | ------------------------------------------------------------------ | ---------------------------------------- | --------- |
+| `height`    | `height`     |                                                                    | `string`                                 | `"100%"`  |
+| `maxHeight` | `max-height` |                                                                    | `string`                                 | `"100%"`  |
+| `minWidth`  | `min-width`  |                                                                    | `string`                                 | `"200px"` |
+| `noPadding` | `no-padding` | The presence of this attribute removes each tab .container padding | `boolean`                                | `false`   |
+| `position`  | `position`   |                                                                    | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
 
 ---
 

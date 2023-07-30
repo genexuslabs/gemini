@@ -1,12 +1,16 @@
+@import "../../globals/mixins";
+
 :host {
   display: block;
   height: auto;
   background: var(--color-background);
   border-radius: var(--border-width-md);
   box-shadow: var(--box-shadow-01);
+  position: relative;
 }
 .main-container {
   height: 100%;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -14,8 +18,8 @@
 
 .tabs-container {
   height: calc(100% - 32px); //32 pixels is the height of the tab-bar
+  @include gxg-scrollbar();
   overflow-y: auto;
-  // Scroll bar
 }
 
 //Tab bar left positioned
