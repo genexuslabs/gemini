@@ -1,4 +1,13 @@
-import { Component, Prop, h, Element, Host, State } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Element,
+  Host,
+  State,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import datepicker from "js-datepicker";
 import state from "../store";
 
@@ -18,7 +27,7 @@ export class GxgDatePicker {
   /**
    * initial date
    */
-  @Prop() defaultDate: string;
+  @Prop() value: DatePickerDate;
 
   /**
    * The datepicker label
@@ -33,12 +42,12 @@ export class GxgDatePicker {
   /**
    * The min. date
    */
-  @Prop() minDate = "1000, 1, 1";
+  @Prop() minDate: DatePickerDate;
 
   /**
    * The max. date
    */
-  @Prop() maxDate = "3000, 1, 1";
+  @Prop() maxDate: DatePickerDate;
 
   /**
    * The max. width
@@ -49,6 +58,11 @@ export class GxgDatePicker {
    * Reading direction
    */
   @State() rtl = false;
+
+  /**
+   * Emits the new selected date
+   */
+  @Event() valueChanged: EventEmitter<DatePickerDate>;
 
   componentDidLoad() {
     //Reading Direction
@@ -63,11 +77,11 @@ export class GxgDatePicker {
     }
 
     //Datepicker Options
-    let defaultDate = new Date();
+    let value = new Date();
 
-    if (this.defaultDate !== undefined && this.defaultDate !== "") {
+    if (this.value !== undefined && this.value !== "") {
       //default/initial date
-      const d = new Date(this.defaultDate);
+      const d = new Date(this.value);
       if (Object.prototype.toString.call(d) === "[object Date]") {
         // it is a date
         if (isNaN(d.getTime())) {
@@ -75,7 +89,7 @@ export class GxgDatePicker {
           // date is not valid
         } else {
           // date is valid
-          defaultDate = new Date(this.defaultDate);
+          value = new Date(this.value);
         }
       } else {
         // not a date
@@ -83,9 +97,9 @@ export class GxgDatePicker {
     }
 
     //default date
-    const defaultDateYear = defaultDate.getFullYear();
-    const defaultDateMonth = defaultDate.getMonth();
-    const defaultDateDay = defaultDate.getDate();
+    const valueYear = value.getFullYear();
+    const valueMonth = value.getMonth();
+    const valueDay = value.getDate();
 
     //min date
     const minDate = new Date(this.minDate);
@@ -101,9 +115,11 @@ export class GxgDatePicker {
     const pickerSelector = this.el.shadowRoot.querySelector("#date-picker");
     const picker = datepicker(pickerSelector, {
       // Event callbacks.
-      // onSelect: instance => {
-
-      // },
+      onSelect: (instance) => {
+        const newValue = instance.dateSelected;
+        this.valueChanged.emit(newValue);
+        this.value = newValue;
+      },
       // onShow: instance => {
 
       // },
@@ -155,10 +171,10 @@ export class GxgDatePicker {
 
       // Settings.
       alwaysShow: this.alwaysShow, // Never hide the calendar.
-      dateSelected: new Date(defaultDateYear, defaultDateMonth, defaultDateDay),
+      dateSelected: new Date(valueYear, valueMonth, valueDay),
       maxDate: new Date(maxDateYear, maxDateMonth, maxDateDay), // Jan 1st, 2099.
       minDate: new Date(minDateYear, minDateMonth, minDateDay), // June 1st, 2016.
-      startDate: new Date(), // This month.
+      startDate: this.value, // This month.
       showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
 
       // Disabling things.
@@ -187,8 +203,10 @@ export class GxgDatePicker {
         }}
       >
         {this.label ? <gxg-label class="label">{this.label}</gxg-label> : null}
-        <input type="text" id="date-picker"></input>
+        <input type="text" id="date-picker" readOnly></input>
       </Host>
     );
   }
 }
+
+export type DatePickerDate = string | Date;

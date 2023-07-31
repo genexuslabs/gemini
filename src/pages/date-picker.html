@@ -12,18 +12,23 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style>
-      
-    </style>
+    <style></style>
   </head>
   <body>
-    <gxg-date-picker  
-    default-date="2020, 12, 20"
-    label="Set your birthday:"
-    max-width="240px"
-    max-date="2023, 12, 20"
-    min-date="2019, 12, 20"
-    no-weekends
-  ></gxg-date-picker>
+    <gxg-date-picker
+      label="Set your birthday:"
+      max-width="240px"
+      max-date="2028, 12, 20"
+      min-date="2019, 12, 20"
+      no-weekends
+    ></gxg-date-picker>
+    <script>
+      const date = new Date("2024-03-25");
+      const datePicker = document.querySelector("gxg-date-picker");
+      datePicker.value = date;
+      datePicker.addEventListener("valueChanged", (e) => {
+        console.log(e.detail);
+      });
+    </script>
   </body>
 </html>

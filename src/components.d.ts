@@ -35,6 +35,7 @@ import {
   headingJustify,
   sectionsPadding,
 } from "./components/container/container";
+import { DatePickerDate } from "./components/date-picker/date-picker";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
@@ -550,17 +551,13 @@ export namespace Components {
      */
     alwaysShow: boolean;
     /**
-     * initial date
-     */
-    defaultDate: string;
-    /**
      * The datepicker label
      */
     label: string;
     /**
      * The max. date
      */
-    maxDate: string;
+    maxDate: DatePickerDate;
     /**
      * The max. width
      */
@@ -568,11 +565,15 @@ export namespace Components {
     /**
      * The min. date
      */
-    minDate: string;
+    minDate: DatePickerDate;
     /**
      * no weekends available
      */
     noWeekends: boolean;
+    /**
+     * initial date
+     */
+    value: DatePickerDate;
   }
   interface GxgDemo {
     initiateDemo: boolean;
@@ -2891,17 +2892,13 @@ declare namespace LocalJSX {
      */
     alwaysShow?: boolean;
     /**
-     * initial date
-     */
-    defaultDate?: string;
-    /**
      * The datepicker label
      */
     label?: string;
     /**
      * The max. date
      */
-    maxDate?: string;
+    maxDate?: DatePickerDate;
     /**
      * The max. width
      */
@@ -2909,11 +2906,19 @@ declare namespace LocalJSX {
     /**
      * The min. date
      */
-    minDate?: string;
+    minDate?: DatePickerDate;
     /**
      * no weekends available
      */
     noWeekends?: boolean;
+    /**
+     * Emits the new selected date
+     */
+    onValueChanged?: (event: CustomEvent<DatePickerDate>) => void;
+    /**
+     * initial date
+     */
+    value?: DatePickerDate;
   }
   interface GxgDemo {
     initiateDemo?: boolean;
