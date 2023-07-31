@@ -141,7 +141,7 @@
 
       <!-- STANDARD ABC123-->
       <section class="section">
-        <span>standard abc123</span>
+        <span>standard abc123 + listen valueChanged</span>
         <gxg-combo-box
           id="combo-standard-abc123"
           placeholder="Select item"
@@ -158,6 +158,14 @@
           <gxg-combo-box-item>c2</gxg-combo-box-item>
           <gxg-combo-box-item>c3</gxg-combo-box-item>
         </gxg-combo-box>
+        <script>
+          const comboStandard123 = document.getElementById(
+            "combo-standard-abc123"
+          );
+          comboStandard123.addEventListener("valueChanged", (e) => {
+            console.log("standard abc123 value changed", e.detail);
+          });
+        </script>
       </section>
 
       <!-- STANDARD -->

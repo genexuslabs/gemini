@@ -2730,7 +2730,10 @@ declare namespace LocalJSX {
      * The combo min-width
      */
     minWidth?: string;
-    onKeyDown?: (event: CustomEvent<string>) => void;
+    /**
+     * This event is triggered when the combo box value changes.
+     */
+    onValueChanged?: (event: CustomEvent<ComboBoxItemValue>) => void;
     /**
      * The combo placeholder
      */

@@ -32,7 +32,10 @@ const TAB = "Tab";
   shadow: { delegatesFocus: true },
 })
 export class GxgComboBox implements FormComponent {
-  @Event() keyDown: EventEmitter<string>;
+  /**
+   * This event is triggered when the combo box value changes.
+   */
+  @Event() valueChanged: EventEmitter<ComboBoxItemValue>;
 
   inputText!: HTMLGxgFormTextElement;
 
@@ -355,6 +358,7 @@ export class GxgComboBox implements FormComponent {
 
   @Watch("value")
   onValueChanged(newValue: ComboBoxItemValue): void {
+    this.valueChanged.emit(newValue);
     this.clearSelectedItem();
     let value;
     let newItem: HTMLGxgComboBoxItemElement = undefined;

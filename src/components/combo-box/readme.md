@@ -48,9 +48,9 @@
 
 ## Events
 
-| Event     | Description | Type                  |
-| --------- | ----------- | --------------------- |
-| `keyDown` |             | `CustomEvent<string>` |
+| Event          | Description                                               | Type               |
+| -------------- | --------------------------------------------------------- | ------------------ |
+| `valueChanged` | This event is triggered when the combo box value changes. | `CustomEvent<any>` |
 
 ## Methods
 
