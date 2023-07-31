@@ -28,7 +28,6 @@
 - [gxg-contextual-menu-item](../contextual-menu-item)
 - [gxg-drag-box](../drag-box)
 - [gxg-drop-down](../drop-down)
-- [gxg-entity-selector](../entity-selector)
 - [gxg-filter-item](../filter-item)
 - [gxg-form-checkbox](../form-checkbox)
 - [gxg-form-message](../form-message)
@@ -62,7 +61,6 @@ graph TD;
   gxg-contextual-menu-item --> gxg-icon
   gxg-drag-box --> gxg-icon
   gxg-drop-down --> gxg-icon
-  gxg-entity-selector --> gxg-icon
   gxg-filter-item --> gxg-icon
   gxg-form-checkbox --> gxg-icon
   gxg-form-message --> gxg-icon
