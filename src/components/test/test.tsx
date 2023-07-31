@@ -23,17 +23,12 @@ export class GxgTest {
   @Prop() show = false;
   @Prop() showValidationMessage = false;
   @State() comboListArray = [];
-  private formText!: HTMLGxgFormTextElement;
 
   @Method()
   async validate(): Promise<boolean> {
     //const isValid = this.validateData();
     return true;
   }
-
-  private validateText = () => {
-    this.formText.validate();
-  };
 
   componentDidLoad() {
     const radioGroup = this.el.shadowRoot.querySelector("gxg-form-radio-group");

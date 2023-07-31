@@ -141,7 +141,7 @@ export class GxgFormRadioGroup implements FormComponent {
   };
 
   @Watch("value")
-  watchValueHandler(newValue: string): void {
+  watchValueHandler(): void {
     this.uncheckAll();
     this.setNewRadio();
   }

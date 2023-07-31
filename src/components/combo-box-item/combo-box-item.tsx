@@ -12,9 +12,6 @@ import {
 import { Color } from "../icon/icon";
 import state from "../store";
 
-const ARROW_DOWN = "ArrowDown";
-const ARROW_UP = "ArrowUp";
-
 @Component({
   tag: "gxg-combo-box-item",
   styleUrl: "combo-box-item.scss",
@@ -94,7 +91,7 @@ export class GxgComboBoxItem {
 
   @Watch("selected")
   selectedHandler(selected): void {
-    !this.selected ? (this.iconColor = "auto") : (this.iconColor = "negative");
+    selected ? (this.iconColor = "auto") : (this.iconColor = "negative");
   }
 
   private setup = () => {

@@ -7,6 +7,7 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
+      copy: [{ src: "globals/mixins.scss" }],
     },
     {
       type: "docs-readme",

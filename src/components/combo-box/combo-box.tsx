@@ -499,21 +499,6 @@ export class GxgComboBox implements FormComponent {
     return item;
   };
 
-  private getItemByText = (text: string): HTMLGxgComboBoxItemElement => {
-    text = !this.caseSensitive && text.toLocaleLowerCase();
-    let item: HTMLGxgComboBoxItemElement;
-    if (text) {
-      const enabledItems: HTMLGxgComboBoxItemElement[] = this.getEnabledItems();
-      item = enabledItems.find((item) => {
-        const textContent = !this.caseSensitive
-          ? item.textContent.toLocaleLowerCase()
-          : item.textContent;
-        return !item.disabled && textContent === text;
-      });
-    }
-    return item;
-  };
-
   private clearSelectedItem = () => {
     const enabledItems = this.getEnabledItems();
     enabledItems?.forEach((item) => {
@@ -521,20 +506,6 @@ export class GxgComboBox implements FormComponent {
     });
     this.selectedItem = undefined;
     this.clearIcon();
-  };
-
-  private getItemByIndex = (index: number): HTMLGxgComboBoxItemElement => {
-    let item: HTMLGxgComboBoxItemElement;
-    if (index >= 0) {
-      item = this.getEnabledItems()[index];
-    }
-    return item;
-  };
-
-  private getValueByItem = (
-    item: HTMLGxgComboBoxItemElement
-  ): ComboBoxItemValue => {
-    return item?.value;
   };
 
   private getValueByText = (text: string): ComboBoxItemValue => {
@@ -601,7 +572,7 @@ export class GxgComboBox implements FormComponent {
     this.focus();
   };
 
-  private inputTextClickHandler = (e): void => {
+  private inputTextClickHandler = (): void => {
     this.disableFilter && this.toggleList();
   };
 

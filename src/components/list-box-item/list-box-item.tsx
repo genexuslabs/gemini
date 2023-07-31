@@ -11,7 +11,7 @@ import {
 } from "@stencil/core";
 import state from "../store";
 import { commonClassesNames } from "../../common/classes-names";
-import { GxgFormCheckbox, CheckboxInfo } from "../form-checkbox/form-checkbox";
+import { CheckboxInfo } from "../form-checkbox/form-checkbox";
 
 @Component({
   tag: "gxg-list-box-item",

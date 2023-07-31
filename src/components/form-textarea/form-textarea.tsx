@@ -6,11 +6,9 @@ import {
   Event,
   EventEmitter,
   Method,
-  Element,
 } from "@stencil/core";
 import {
   requiredLabel,
-  formMessage,
   //formHandleValidation,
   //FormComponent,
 } from "../../common/form";
