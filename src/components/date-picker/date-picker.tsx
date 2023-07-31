@@ -102,15 +102,15 @@ export class GxgDatePicker {
     const valueDay = value.getDate();
 
     //min date
-    const minDate = new Date(this.minDate);
-    const minDateYear = minDate.getFullYear();
-    const minDateMonth = minDate.getMonth();
-    const minDateDay = minDate.getDate();
+    const minDate = this.minDate ? new Date(this.minDate) : undefined;
+    const minDateYear = minDate?.getFullYear();
+    const minDateMonth = minDate?.getMonth();
+    const minDateDay = minDate?.getDate();
     //max date
-    const maxDate = new Date(this.maxDate);
-    const maxDateYear = maxDate.getFullYear();
-    const maxDateMonth = maxDate.getMonth();
-    const maxDateDay = maxDate.getDate();
+    const maxDate = this.maxDate ? new Date(this.maxDate) : undefined;
+    const maxDateYear = maxDate?.getFullYear();
+    const maxDateMonth = maxDate?.getMonth();
+    const maxDateDay = maxDate?.getDate();
 
     const pickerSelector = this.el.shadowRoot.querySelector("#date-picker");
     const picker = datepicker(pickerSelector, {
@@ -172,8 +172,8 @@ export class GxgDatePicker {
       // Settings.
       alwaysShow: this.alwaysShow, // Never hide the calendar.
       dateSelected: new Date(valueYear, valueMonth, valueDay),
-      maxDate: new Date(maxDateYear, maxDateMonth, maxDateDay), // Jan 1st, 2099.
-      minDate: new Date(minDateYear, minDateMonth, minDateDay), // June 1st, 2016.
+      maxDate: maxDate && new Date(maxDateYear, maxDateMonth, maxDateDay), // Jan 1st, 2099.
+      minDate: minDate && new Date(minDateYear, minDateMonth, minDateDay), // June 1st, 2016.
       startDate: this.value, // This month.
       showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
 
