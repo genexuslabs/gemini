@@ -13,8 +13,10 @@ import {
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
-import { formClasses } from "../../common/classes-names";
-import { commonClassesNames } from "../../common/classes-names";
+import { formClasses } from "../../common/classesNames";
+import { commonClassesNames } from "../../common/classesNames";
+import { repositionScroll } from "../../common/repositionScroll";
+import { KeyboardKeys as KK } from "../../common/types";
 import state from "../store";
 import { ItemClicked, ItemChecked } from "../list-box-item/list-box-item";
 
@@ -31,6 +33,7 @@ export class GxgListBox implements FormComponent {
   @Event() checkedChanged: EventEmitter;
   @Element() el: HTMLElement;
   header!: HTMLElement;
+  main!: HTMLElement;
 
   /*********************************
   PROPERTIES & STATE
@@ -516,6 +519,7 @@ export class GxgListBox implements FormComponent {
         this.selectItems(newElement);
       } else if (this.singleSelection) {
       }
+      repositionScroll(this.main, newElement, direction);
     }
   };
 
@@ -951,6 +955,7 @@ export class GxgListBox implements FormComponent {
             style={{
               height: `calc(100% - ${this.headerHeight}px)`,
             }}
+            ref={(el) => (this.main = el as HTMLElement)}
           >
             <slot></slot>
           </main>
@@ -961,7 +966,7 @@ export class GxgListBox implements FormComponent {
   }
 }
 
-type HandleArrow = "ArrowUp" | "ArrowDown";
+type HandleArrow = typeof KK.ARROW_UP | typeof KK.ARROW_DOWN;
 
 export type ItemsInformation = {
   active: boolean;

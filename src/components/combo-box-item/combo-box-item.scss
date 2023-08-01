@@ -42,7 +42,7 @@
   background-color: var(--color-secondary-hover);
   color: var(--color-always-white);
 }
-:host([selected]) {
+:host([selected]:not(:hover)) {
   background-color: var(--color-secondary-active);
   color: var(--color-always-white);
 }

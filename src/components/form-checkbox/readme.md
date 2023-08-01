@@ -65,7 +65,6 @@ Type: `Promise<boolean>`
 ### Used by
 
 - [gxg-list-box-item](../list-box-item)
-- [gxg-tree-item](../tree-item)
 
 ### Depends on
 
@@ -83,7 +82,6 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-list-box-item --> gxg-form-checkbox
-  gxg-tree-item --> gxg-form-checkbox
   style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -10,7 +10,7 @@ import {
 } from "@stencil/core";
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
-import { formClasses } from "../../common/classes-names";
+import { formClasses } from "../../common/classesNames";
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",

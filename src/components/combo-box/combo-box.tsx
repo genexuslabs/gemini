@@ -18,14 +18,9 @@ import {
 import { IconPosition } from "../form-text/form-text";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
+import { repositionScroll } from "../../common/repositionScroll";
+import { KeyboardKeys as KK } from "../../common/types";
 import state from "../store";
-
-const ARROW_DOWN = "ArrowDown";
-const ARROW_UP = "ArrowUp";
-const SPACE = "Space";
-const ENTER = "Enter";
-const ESCAPE = "Escape";
-const TAB = "Tab";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
@@ -328,26 +323,30 @@ export class GxgComboBox implements FormComponent {
   };
 
   private keyDownHandler = (e: KeyboardEvent): void => {
-    if (e.code === ARROW_DOWN || e.code === ARROW_UP || e.code === SPACE) {
+    if (
+      e.code === KK.ARROW_DOWN ||
+      e.code === KK.ARROW_UP ||
+      e.code === KK.SPACE
+    ) {
       e.preventDefault();
     }
     let newItem: HTMLGxgComboBoxItemElement;
-    if (e.code === ARROW_DOWN) {
+    if (e.code === KK.ARROW_DOWN) {
       newItem = this.getNewItem("next");
       newItem?.value && (this.value = newItem?.value);
-      this.repositionScroll(ARROW_DOWN);
+      repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_DOWN);
       e.altKey && this.showList();
-    } else if (e.code === ARROW_UP) {
+    } else if (e.code === KK.ARROW_UP) {
       newItem = this.getNewItem("prev");
       newItem?.value && (this.value = newItem?.value);
-      this.repositionScroll(ARROW_UP);
-    } else if (e.code === ENTER) {
+      repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_UP);
+    } else if (e.code === KK.ENTER) {
       this.hideList();
-    } else if (e.code === SPACE) {
+    } else if (e.code === KK.SPACE) {
       this.showList();
-    } else if (e.code === ESCAPE) {
+    } else if (e.code === KK.ESCAPE) {
       this.hideList();
-    } else if (e.code === TAB && this.showList) {
+    } else if (e.code === KK.TAB && this.showList) {
       this.hideList();
     }
   };
@@ -595,34 +594,6 @@ export class GxgComboBox implements FormComponent {
   private clearIcon = (): void => {
     this.inputTextIcon = null;
     this.inputTextIconPosition = null;
-  };
-
-  private repositionScroll = (
-    direction: typeof ARROW_UP | typeof ARROW_DOWN
-  ): void => {
-    const itemsContainer = this.itemsContainer;
-    const hasVerticalScrollbar =
-      itemsContainer?.scrollHeight > itemsContainer?.clientHeight;
-    if (hasVerticalScrollbar && this.selectedItem) {
-      const itemsContainerScrollTop = itemsContainer.scrollTop;
-      if (direction === ARROW_UP) {
-        const itemsContainerTop = itemsContainer.getBoundingClientRect().top;
-        const selectedItemTop = this.selectedItem.getBoundingClientRect().top;
-        if (selectedItemTop < itemsContainerTop) {
-          const offset = itemsContainerTop - selectedItemTop;
-          itemsContainer.scrollTo(0, itemsContainerScrollTop - offset);
-        }
-      } else if (direction === ARROW_DOWN) {
-        const itemsContainerBottom = itemsContainer.getBoundingClientRect()
-          .bottom;
-        const selectedItemBottom = this.selectedItem.getBoundingClientRect()
-          .bottom;
-        if (selectedItemBottom > itemsContainerBottom) {
-          const offset = selectedItemBottom - itemsContainerBottom;
-          itemsContainer.scrollTo(0, itemsContainerScrollTop + offset);
-        }
-      }
-    }
   };
 
   setIcon(icon: string): void {
