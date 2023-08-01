@@ -15,7 +15,7 @@ import {
 import state from "../store";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
-import { formClasses } from "../../common/classes-names";
+import { formClasses } from "../../common/classesNames";
 
 @Component({
   tag: "gxg-form-textarea",

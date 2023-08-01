@@ -10,7 +10,7 @@ import {
   Listen,
 } from "@stencil/core";
 import state from "../store";
-import { commonClassesNames } from "../../common/classes-names";
+import { commonClassesNames } from "../../common/classesNames";
 import { CheckboxInfo } from "../form-checkbox/form-checkbox";
 
 @Component({

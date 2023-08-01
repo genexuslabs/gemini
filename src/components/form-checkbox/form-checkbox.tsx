@@ -11,7 +11,7 @@ import {
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
-import { formClasses } from "../../common/classes-names";
+import { formClasses } from "../../common/classesNames";
 import state from "../store";
 import { JSXElement } from "@babel/types";
 

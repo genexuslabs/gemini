@@ -91,7 +91,7 @@ export class GxgComboBoxItem {
 
   @Watch("selected")
   selectedHandler(selected): void {
-    selected ? (this.iconColor = "auto") : (this.iconColor = "negative");
+    selected ? (this.iconColor = "negative") : (this.iconColor = "auto");
   }
 
   private setup = () => {
