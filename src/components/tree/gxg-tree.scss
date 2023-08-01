@@ -2,6 +2,7 @@
 
 /*CH-TREE*/
 ch-tree {
+  --gxg-tree-item-inner-spacing: var(--spacing-comp-01);
   overflow: auto;
   @include gxg-scrollbar();
   height: 100%;
@@ -23,11 +24,15 @@ ch-tree-item {
     height: var(--gxg-icon-size);
     background-color: var(--color-on-secondary);
     padding: 0;
+    margin-right: var(--gxg-tree-item-inner-spacing);
   }
   &::part(expand-icon) {
     -webkit-mask-image: url("../build/icon-assets/gemini-tools/add.svg");
   }
   &::part(collapse-icon) {
     -webkit-mask-image: url("../build/icon-assets/gemini-tools/minus.svg");
+  }
+  &::part(checkbox) {
+    margin: 0 var(--gxg-tree-item-inner-spacing) 0 0;
   }
 }

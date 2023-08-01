@@ -1,98 +1,62 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>2 - SASS - Night Mode with Class</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>2 - SASS - Night Mode with Class</title>
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
 
-  <script type="module" src="/build/gemini.esm.js"></script>
-  <script nomodule src="/build/gemini.js"></script>
-  <link href="/build/gemini.css" rel="stylesheet" />
-
-  <style>
-    html {
-      background: var(--color-background);
-      transition: background 0.2s ease-in-out;
-      font-family: arial;
-      color: var(--color-text);
-    }
-
-    li:hover {
-      background-color: gray;
-    }
-    body {
-      padding: 20px;
-    }
-    .trees-main-container {
-      width: 400px;
-    }
-  </style>
-</head>
-
-<body>
-
-<html dir="ltr" lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>2 - SASS - Night Mode with Class</title>
-
-  <script type="module" src="/build/gemini.esm.js"></script>
-  <script nomodule src="/build/gemini.js"></script>
-  <link href="/build/gemini.css" rel="stylesheet" />
-
-  <style>
-    html {
-      background: var(--color-background);
-      transition: background 0.2s ease-in-out;
-      font-family: arial;
-      color: var(--color-text);
-    }
-
-    li:hover {
-      background-color: gray;
-    }
-    body {
-      padding: 20px;
-    }
-    .trees-main-container {
-      width: 400px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <h3>Small tree</h3>
-  <gxg-tree>
-    <gxg-tree-item opened left-icon="general/knowledge-base">
-      Meats
-      <gxg-tree slot="tree">
-        <gxg-tree-item left-icon="general/knowledge-base">
-          Cow
-        </gxg-tree-item>
-        <gxg-tree-item opened left-icon="general/knowledge-base">
-          Goat
-          <gxg-tree slot="tree">
-            <gxg-tree-item left-icon="general/knowledge-base">
-              dura
-            </gxg-tree-item>
-            <gxg-tree-item left-icon="general/knowledge-base">
-              blanda
-            </gxg-tree-item>
-          </gxg-tree>
-        </gxg-tree-item>
-      </gxg-tree>
-    </gxg-tree-item>
-    <gxg-tree-item left-icon="general/knowledge-base">
-      Fish
-    </gxg-tree-item>
-    <gxg-tree-item left-icon="general/knowledge-base">
-      Nuts
-    </gxg-tree-item>
-  </gxg-tree>
-
-</body>
+  <body>
+    <gxg-tree>
+      <ch-tree
+        id="ch-treeview"
+        toggle-checkboxes="false"
+        single-selection="true"
+        checkbox
+      >
+        <ch-tree-item
+          opened
+          left-icon="/build/icon-assets/general/generator.svg"
+        >
+          Meats
+          <ch-tree slot="tree">
+            <ch-tree-item left-icon="/build/icon-assets/general/patterns.svg">
+              Cow
+            </ch-tree-item>
+            <ch-tree-item
+              opened
+              left-icon="/build/icon-assets/general/knowledge-base.svg"
+            >
+              Goat
+              <ch-tree slot="tree">
+                <ch-tree-item
+                  left-icon="/build/icon-assets/general/generator.svg"
+                >
+                  dura
+                </ch-tree-item>
+                <ch-tree-item
+                  left-icon="/build/icon-assets/general/patterns.svg"
+                >
+                  blanda
+                </ch-tree-item>
+              </ch-tree>
+            </ch-tree-item>
+          </ch-tree>
+        </ch-tree-item>
+        <ch-tree-item left-icon="/build/icon-assets/general/generator.svg">
+          Fish
+        </ch-tree-item>
+        <ch-tree-item left-icon="/build/icon-assets/general/knowledge-base.svg">
+          Nuts
+        </ch-tree-item>
+      </ch-tree>
+    </gxg-tree>
+  </body>
 </html>
