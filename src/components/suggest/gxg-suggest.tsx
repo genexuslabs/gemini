@@ -1,11 +1,11 @@
 import { Component, Host, h } from "@stencil/core";
 
 @Component({
-  tag: "gxg-tree",
-  styleUrl: "gxg-tree.scss",
+  tag: "gxg-suggest",
+  styleUrl: "gxg-suggest.scss",
   shadow: false,
 })
-export class GxgTree {
+export class GxgSuggest {
   render() {
     return (
       <Host>

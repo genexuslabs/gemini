@@ -1573,6 +1573,7 @@ export namespace Components {
      */
     value: number;
   }
+  interface GxgSuggest {}
   interface GxgTab {
     /**
      * The selected tab
@@ -2156,6 +2157,13 @@ declare global {
     prototype: HTMLGxgStepperElement;
     new (): HTMLGxgStepperElement;
   };
+  interface HTMLGxgSuggestElement
+    extends Components.GxgSuggest,
+      HTMLStencilElement {}
+  var HTMLGxgSuggestElement: {
+    prototype: HTMLGxgSuggestElement;
+    new (): HTMLGxgSuggestElement;
+  };
   interface HTMLGxgTabElement extends Components.GxgTab, HTMLStencilElement {}
   var HTMLGxgTabElement: {
     prototype: HTMLGxgTabElement;
@@ -2303,6 +2311,7 @@ declare global {
     "gxg-splitter": HTMLGxgSplitterElement;
     "gxg-stack": HTMLGxgStackElement;
     "gxg-stepper": HTMLGxgStepperElement;
+    "gxg-suggest": HTMLGxgSuggestElement;
     "gxg-tab": HTMLGxgTabElement;
     "gxg-tab-bar": HTMLGxgTabBarElement;
     "gxg-tab-button": HTMLGxgTabButtonElement;
@@ -3926,6 +3935,7 @@ declare namespace LocalJSX {
      */
     value?: number;
   }
+  interface GxgSuggest {}
   interface GxgTab {
     /**
      * The selected tab
@@ -4181,6 +4191,7 @@ declare namespace LocalJSX {
     "gxg-splitter": GxgSplitter;
     "gxg-stack": GxgStack;
     "gxg-stepper": GxgStepper;
+    "gxg-suggest": GxgSuggest;
     "gxg-tab": GxgTab;
     "gxg-tab-bar": GxgTabBar;
     "gxg-tab-button": GxgTabButton;
@@ -4310,6 +4321,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgStackElement>;
       "gxg-stepper": LocalJSX.GxgStepper &
         JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
+      "gxg-suggest": LocalJSX.GxgSuggest &
+        JSXBase.HTMLAttributes<HTMLGxgSuggestElement>;
       "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;
       "gxg-tab-bar": LocalJSX.GxgTabBar &
         JSXBase.HTMLAttributes<HTMLGxgTabBarElement>;
