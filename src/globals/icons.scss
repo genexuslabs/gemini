@@ -1,0 +1,9 @@
+$gxgIconsPath: "/build/icon-assets/";
+
+$bpm: arrows, cancel-2;
+
+@each $iconName in $bpm {
+  .#{$bpm}_#{$iconName} {
+    background-image: url("#{$gxgIconsPath}bpm/#{$iconName}");
+  }
+}

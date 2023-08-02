@@ -35,4 +35,12 @@ ch-tree-item {
   &::part(checkbox) {
     margin: 0 var(--gxg-tree-item-inner-spacing) 0 0;
   }
+  &::part(left-icon),
+  &::part(right-icon) {
+    width: var(--gxg-icon-size);
+    height: var(--gxg-icon-size);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: var(--gxg-icon-mask-size);
+    -webkit-mask-position: center;
+  }
 }
