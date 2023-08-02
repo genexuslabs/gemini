@@ -1,9 +1,24 @@
 $gxgIconsPath: "/build/icon-assets/";
 
-$bpm: arrows, cancel-2;
+$bpm: arrows, cancel-2, cancel-2, compensation-1, compensation-2;
+$controls: action-group-item, action-group, button-group, button, call-target;
 
-@each $iconName in $bpm {
-  .#{$bpm}_#{$iconName} {
-    background-image: url("#{$gxgIconsPath}bpm/#{$iconName}");
+$iconCategories: (
+  "bpm": $bpm,
+  "controls": $controls,
+);
+
+@each $name, $category in $iconCategories {
+  @each $iconName in $category {
+    .gxg-icon_#{$name}_#{$iconName}::part(left-icon) {
+      -webkit-mask-image: url("#{$gxgIconsPath}#{$name}/#{$iconName}.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: var(--gxg-icon-mask-size);
+      -webkit-mask-position: center;
+      width: var(--gxg-icon-size);
+      height: var(--gxg-icon-size);
+    }
   }
 }
+
+/*example output: .bpm_cancel-2::part(left-icon) */
