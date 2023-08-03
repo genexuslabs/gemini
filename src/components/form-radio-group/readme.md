@@ -35,10 +35,6 @@ Type: `Promise<boolean>`
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-label](../label)
@@ -52,7 +48,6 @@ graph TD;
   gxg-form-radio-group --> gxg-form-message
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-test --> gxg-form-radio-group
   style gxg-form-radio-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

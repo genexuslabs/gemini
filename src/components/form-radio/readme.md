@@ -39,10 +39,6 @@
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-label](../label)
@@ -52,7 +48,6 @@
 ```mermaid
 graph TD;
   gxg-form-radio --> gxg-label
-  gxg-test --> gxg-form-radio
   style gxg-form-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

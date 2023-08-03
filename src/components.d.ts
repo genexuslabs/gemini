@@ -1624,10 +1624,7 @@ export namespace Components {
     position: TabsPosition;
   }
   interface GxgTest {
-    name: string;
-    show: boolean;
-    showValidationMessage: boolean;
-    validate: () => Promise<boolean>;
+    model: any;
   }
   interface GxgText {
     /**
@@ -4000,9 +3997,7 @@ declare namespace LocalJSX {
     position?: TabsPosition;
   }
   interface GxgTest {
-    name?: string;
-    show?: boolean;
-    showValidationMessage?: boolean;
+    model?: any;
   }
   interface GxgText {
     /**

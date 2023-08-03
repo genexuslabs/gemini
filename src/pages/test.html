@@ -13,7 +13,65 @@
     <link href="/build/gemini.css" rel="stylesheet" />
   </head>
   <body>
-    <input type="text" minlength="10" />
-    <gxg-test></gxg-test>
+    <gxg-test id="gxg-test"></gxg-test>
+    <hr />
+    <gxg-tree id="gxg-tree"></gxg-tree>
+    <script>
+      const model = [
+        {
+          id: "apple123",
+          name: "IOS",
+          icon: "general/apple",
+          checkbox: true,
+          items: [
+            {
+              id: "subApple",
+              name: "subApple",
+              icon: "general/apple",
+              checkbox: false,
+              items: [
+                {
+                  id: "subSubApple1",
+                  name: "subSubApple1",
+                  icon: "general/apple",
+                },
+                {
+                  id: "subSubApple2",
+                  name: "subSubApple2",
+                  icon: "general/apple",
+                },
+              ],
+            },
+            {
+              id: "subApple2",
+              name: "subApple2",
+              icon: "general/apple",
+            },
+          ],
+        },
+        {
+          id: "java",
+          name: "JAVA",
+          icon: "general/java",
+          items: [
+            {
+              id: "subJava1",
+              name: "subJava1",
+              icon: "general/apple",
+            },
+            {
+              id: "subJava2",
+              name: "subAJava2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const gxgTest = document.getElementById("gxg-test");
+      const gxgTree = document.getElementById("gxg-tree");
+      gxgTest.model = model;
+      gxgTree.model = model;
+      gxgTree.basePath = "/build/icon-assets/";
+    </script>
   </body>
 </html>

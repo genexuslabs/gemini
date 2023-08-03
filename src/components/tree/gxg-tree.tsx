@@ -32,14 +32,10 @@ export class GxgTree {
     if (isFirstCall) {
       return (
         <ch-tree
-          checkbox={this.config?.checkbox ? this.config.checkbox : true}
-          checked={this.config?.checked ? this.config.checked : false}
-          singleSelection={
-            this.config?.singleSelection ? this.config.singleSelection : true
-          }
-          toggleCheckboxes={
-            this.config?.toggleCheckboxes ? this.config.toggleCheckboxes : true
-          }
+          checkbox={this.config?.checkbox ?? true}
+          checked={this.config?.checked ?? false}
+          singleSelection={this.config?.singleSelection ?? true}
+          toggleCheckboxes={this.config?.toggleCheckboxes ?? true}
         >
           {model.map((item: GxgTreeItem) => {
             return this.renderTreeItem(item);
@@ -59,21 +55,22 @@ export class GxgTree {
 
   renderTreeItem = (item: GxgTreeItem): HTMLChTreeItemElement => {
     let opened = true;
-    if (!item["opened"] && !item["items"]) {
+    if (!item.opened && !item.items) {
       opened = false;
-    } else if (item["opened"] && item["items"]) {
-      opened = item["opened"];
+    } else if (item.opened && item.items) {
+      opened = item.opened;
     }
+    console.log(item);
     return (
       <ch-tree-item
         id={item["id"]}
-        leftIcon={this.getIcon(item["icon"])}
-        checkbox={item["checkbox"]}
-        checked={item["checked"]}
-        disabled={item["disabled"]}
-        indeterminate={item["indeterminate"]}
+        leftIcon={this.getIcon(item.icon)}
+        checkbox={item.checkbox}
+        checked={item.checked}
+        disabled={item.disabled}
+        indeterminate={item.indeterminate}
         opened={opened}
-        selected={item["selected"]}
+        selected={item.selected}
       >
         {[item.name, item.items && this.renderTree(item.items, false)]}
       </ch-tree-item>

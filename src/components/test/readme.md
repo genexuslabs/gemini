@@ -4,38 +4,25 @@
 
 ## Properties
 
-| Property                | Attribute                 | Description | Type      | Default    |
-| ----------------------- | ------------------------- | ----------- | --------- | ---------- |
-| `name`                  | `name`                    |             | `string`  | `"Andres"` |
-| `show`                  | `show`                    |             | `boolean` | `false`    |
-| `showValidationMessage` | `show-validation-message` |             | `boolean` | `false`    |
-
-## Methods
-
-### `validate() => Promise<boolean>`
-
-#### Returns
-
-Type: `Promise<boolean>`
+| Property | Attribute | Description | Type  | Default     |
+| -------- | --------- | ----------- | ----- | ----------- |
+| `model`  | `model`   |             | `any` | `undefined` |
 
 ## Dependencies
 
 ### Depends on
 
-- [gxg-form-radio-group](../form-radio-group)
-- [gxg-form-radio](../form-radio)
+- [gxg-tree](../tree)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-form-radio-group
-  gxg-test --> gxg-form-radio
-  gxg-form-radio-group --> gxg-label
-  gxg-form-radio-group --> gxg-form-message
-  gxg-form-message --> gxg-icon
-  gxg-icon --> ch-icon
-  gxg-form-radio --> gxg-label
+  gxg-test --> gxg-tree
+  gxg-tree --> ch-tree
+  gxg-tree --> ch-tree-item
+  ch-tree-item --> ch-form-checkbox
+  ch-tree-item --> ch-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
