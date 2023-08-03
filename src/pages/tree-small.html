@@ -128,29 +128,16 @@
         },
       ];
       const gxgTree = document.getElementById("gxg-tree");
-      gxgTree.model = model;
       gxgTree.basePath = "/build/icon-assets/";
     </script>
-
+    <br />
+    <gxg-button id="load-model">Load model</gxg-button>
+    <script>
+      const loadModel = document.getElementById("load-model");
+      loadModel.addEventListener("click", () => {
+        gxgTree.model = model;
+      });
+    </script>
     <hr />
-
-    <span>with markup tiny</span>
-    <gxg-tree>
-      <ch-tree checked single-selection toggle-checkboxes>
-        <ch-tree-item
-          checked
-          opened
-          selected
-          left-icon="/build/icon-assets/general/generator.svg"
-        >
-          Meats
-          <ch-tree slot="tree">
-            <ch-tree-item left-icon="/build/icon-assets/general/generator.svg">
-              subMeats
-            </ch-tree-item>
-          </ch-tree>
-        </ch-tree-item>
-      </ch-tree>
-    </gxg-tree>
   </body>
 </html>

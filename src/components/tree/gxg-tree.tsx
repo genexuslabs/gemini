@@ -25,10 +25,7 @@ export class GxgTree {
    */
   @Prop() basePath = "/build/icon-assets/";
 
-  renderTree = (
-    model: GxgTreeItem[],
-    isFirstCall = true
-  ): HTMLChTreeElement => {
+  renderTree = (model: GxgTreeItem[], isFirstCall = true): HTMLElement => {
     if (isFirstCall) {
       return (
         <ch-tree
@@ -53,17 +50,16 @@ export class GxgTree {
     }
   };
 
-  renderTreeItem = (item: GxgTreeItem): HTMLChTreeItemElement => {
+  renderTreeItem = (item: GxgTreeItem): HTMLElement => {
     let opened = true;
     if (!item.opened && !item.items) {
       opened = false;
     } else if (item.opened && item.items) {
       opened = item.opened;
     }
-    console.log(item);
     return (
       <ch-tree-item
-        id={item["id"]}
+        id={item.id}
         leftIcon={this.getIcon(item.icon)}
         checkbox={item.checkbox}
         checked={item.checked}
