@@ -15,23 +15,31 @@
       body {
         background-color: var(--color-background);
       }
+      span {
+        font-family: var(--font-family-primary);
+        font-size: 14px;
+        display: block;
+        margin-bottom: 16px;
+      }
+      hr {
+        margin: 16px 0;
+      }
     </style>
   </head>
 
   <body>
+    <!-- with markup -->
+    <span>with markup</span>
     <gxg-tree>
-      <ch-tree
-        id="ch-treeview"
-        toggle-checkboxes="false"
-        single-selection="true"
-        checkbox
-      >
+      <ch-tree checked single-selection toggle-checkboxes>
         <ch-tree-item
+          checked
           opened
+          selected
           left-icon="/build/icon-assets/general/generator.svg"
         >
           Meats
-          <ch-tree slot="tree">
+          <ch-tree checkbox slot="tree">
             <ch-tree-item left-icon="/build/icon-assets/general/patterns.svg">
               Cow
             </ch-tree-item>
@@ -63,5 +71,69 @@
         </ch-tree-item>
       </ch-tree>
     </gxg-tree>
+
+    <hr />
+
+    <!-- with data model -->
+    <span>with data model</span>
+    <gxg-tree id="gxg-tree"></gxg-tree>
+    <script>
+      const gxgTree = document.getElementById("gxg-tree");
+      gxgTree.config = {
+        checkbox: true,
+        checked: true,
+        singleSelection: false,
+        toggleCheckboxes: true,
+      };
+      gxgTree.basePath = "/build/icon-assets/";
+      gxgTree.model = [
+        {
+          id: "apple",
+          name: "IOS",
+          icon: "general/apple",
+          items: [
+            {
+              id: "subApple",
+              name: "subApple",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "subSubApple1",
+                  name: "subSubApple1",
+                  icon: "general/apple",
+                },
+                {
+                  id: "subSubApple2",
+                  name: "subSubApple2",
+                  icon: "general/apple",
+                },
+              ],
+            },
+            {
+              id: "subApple2",
+              name: "subApple2",
+              icon: "general/apple",
+            },
+          ],
+        },
+        {
+          id: "java",
+          name: "JAVA",
+          icon: "general/java",
+          items: [
+            {
+              id: "subJava1",
+              name: "subJava1",
+              icon: "general/apple",
+            },
+            {
+              id: "subJava2",
+              name: "subAJava2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+    </script>
   </body>
 </html>

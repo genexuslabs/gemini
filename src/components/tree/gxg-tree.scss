@@ -1,5 +1,8 @@
 @import "../../globals/mixins.scss";
 
+gxg-tree {
+  display: contents;
+}
 /*CH-TREE*/
 ch-tree {
   --gxg-tree-item-inner-spacing: var(--spacing-comp-01);

@@ -73,6 +73,7 @@ import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
+import { GxgTreeConfig, GxgTreeItem } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export namespace Components {
   interface GxgAccordion {
@@ -1708,7 +1709,20 @@ export namespace Components {
      */
     position: position;
   }
-  interface GxgTree {}
+  interface GxgTree {
+    /**
+     * The base path for Gemini icon assets.
+     */
+    basePath: string;
+    /**
+     * The base/parent tree configuration.
+     */
+    config: GxgTreeConfig;
+    /**
+     * The tree model (optional). An array of GxgTreeItem's items.
+     */
+    model: GxgTreeItem[];
+  }
   interface GxgTreeGridDivs {
     columns: Array<object>;
     displayChildren: DisplayChildren;
@@ -4074,7 +4088,20 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
-  interface GxgTree {}
+  interface GxgTree {
+    /**
+     * The base path for Gemini icon assets.
+     */
+    basePath?: string;
+    /**
+     * The base/parent tree configuration.
+     */
+    config?: GxgTreeConfig;
+    /**
+     * The tree model (optional). An array of GxgTreeItem's items.
+     */
+    model?: GxgTreeItem[];
+  }
   interface GxgTreeGridDivs {
     columns?: Array<object>;
     displayChildren?: DisplayChildren;

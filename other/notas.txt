@@ -1,5 +1,0 @@
-
-Intersection observer 2 para determinar si se esta viendo cortado o no.
-Si se esta viendo cortado lo paso a fixed.
-
-- ponerle mas z index al combo
