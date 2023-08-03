@@ -13,7 +13,12 @@ export class GxgTree {
   /**
    * The base/parent tree configuration.
    */
-  @Prop() config: GxgTreeConfig;
+  @Prop() config: GxgTreeConfig = {
+    checkbox: true,
+    checked: false,
+    singleSelection: true,
+    toggleCheckboxes: true,
+  };
 
   /**
    * The base path for Gemini icon assets.
@@ -27,10 +32,14 @@ export class GxgTree {
     if (isFirstCall) {
       return (
         <ch-tree
-          checkbox={this.config?.checkbox}
-          checked={this.config?.checked}
-          singleSelection={this.config?.singleSelection}
-          toggleCheckboxes={this.config?.toggleCheckboxes}
+          checkbox={this.config?.checkbox ? this.config.checkbox : true}
+          checked={this.config?.checked ? this.config.checked : false}
+          singleSelection={
+            this.config?.singleSelection ? this.config.singleSelection : true
+          }
+          toggleCheckboxes={
+            this.config?.toggleCheckboxes ? this.config.toggleCheckboxes : true
+          }
         >
           {model.map((item: GxgTreeItem) => {
             return this.renderTreeItem(item);
@@ -49,7 +58,13 @@ export class GxgTree {
   };
 
   renderTreeItem = (item: GxgTreeItem): HTMLChTreeItemElement => {
-    return item.items ? (
+    let opened = true;
+    if (!item["opened"] && !item["items"]) {
+      opened = false;
+    } else if (item["opened"] && item["items"]) {
+      opened = item["opened"];
+    }
+    return (
       <ch-tree-item
         id={item["id"]}
         leftIcon={this.getIcon(item["icon"])}
@@ -57,23 +72,10 @@ export class GxgTree {
         checked={item["checked"]}
         disabled={item["disabled"]}
         indeterminate={item["indeterminate"]}
+        opened={opened}
         selected={item["selected"]}
       >
-        {item.name}
-        {this.renderTree(item.items, false)}
-      </ch-tree-item>
-    ) : (
-      <ch-tree-item
-        checkbox={item["checkbox"]}
-        checked={item["checked"]}
-        disabled={item["disabled"]}
-        leftIcon={this.getIcon(item["icon"])}
-        id={item["id"]}
-        indeterminate={item["indeterminate"]}
-        opened={item["opened"]}
-        selected={item["selected"]}
-      >
-        {item.name}
+        {[item.name, item.items && this.renderTree(item.items, false)]}
       </ch-tree-item>
     );
   };
