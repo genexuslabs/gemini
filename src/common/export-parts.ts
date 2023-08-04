@@ -1,20 +1,24 @@
-export const exportParts = (el: HTMLElement) => {
-  const allChildren = el.shadowRoot.querySelectorAll("*");
-  allChildren.forEach((child) => {
-    const nodeName = child.nodeName;
-    if (nodeName.includes("GXG")) {
-      const gxgElementsWithParts = child.shadowRoot.querySelectorAll("[part]");
-      if (gxgElementsWithParts) {
-        const exportParts = [];
-        gxgElementsWithParts.forEach((el) => {
-          const part = el.getAttribute("part");
-          part.split(" ").forEach((part) => {
-            const composedPartName = `${part}:${nodeName.toLocaleLowerCase()}-${part}`;
-            exportParts.push(composedPartName);
-          });
+export const exportParts = (
+  comp: any,
+  el: HTMLElement,
+  part: string,
+  exportparts: string
+): void => {
+  if (el && part && !exportparts) {
+    console.log("part", part);
+    const elementsWithParts = el.shadowRoot.querySelectorAll("[part]");
+    if (elementsWithParts) {
+      const exportParts = [];
+      elementsWithParts.forEach((el) => {
+        const innerParts = el.getAttribute("part");
+        innerParts.split(" ").forEach((innerPart) => {
+          const composedPartName = `${innerPart}:${part}-${innerPart}`;
+          console.log("composedPartName", composedPartName);
+          exportParts.push(composedPartName);
         });
-        child.setAttribute("exportparts", exportParts.join(","));
-      }
+      });
+      console.log("exportParts", exportParts);
+      comp.exportparts = exportParts.join(",");
     }
-  });
+  }
 };

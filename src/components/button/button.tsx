@@ -10,13 +10,23 @@ import { exportParts } from "../../common/export-parts";
   shadow: { delegatesFocus: true },
 })
 export class GxgButton {
-  @Element() el: HTMLGxgButtonElement;
+  @Element() el: HTMLElement;
 
   button!: HTMLButtonElement;
 
   /*********************************
   PROPERTIES & STATE
   *********************************/
+
+  /**
+   * The prefix used for auto-generation of exportparts. (exportparts = partPrefix + part-name)
+   */
+  @Prop({ reflect: true }) part: string;
+
+  /**
+   * The exportparts definition
+   */
+  @Prop({ reflect: true }) exportparts: string;
 
   /**
    * The presence of this attribute makes the icon always black
@@ -72,6 +82,7 @@ export class GxgButton {
     if (tabIndex === "-1") {
       this.noTabIndex = true;
     }
+    console.log("typeof this", typeof this);
   }
 
   componentDidLoad() {
@@ -96,6 +107,7 @@ export class GxgButton {
         .querySelector("button")
         .setAttribute("part", "native-button");
     }
+    exportParts(this, this.el, this.part, this.exportparts);
   }
 
   emptyDiv() {

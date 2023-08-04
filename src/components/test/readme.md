@@ -8,6 +8,12 @@
 | -------- | --------- | ----------- | --------- | ------- |
 | `active` | `active`  |             | `boolean` | `true`  |
 
+## Shadow Parts
+
+| Part            | Description |
+| --------------- | ----------- |
+| `"button-user"` |             |
+
 ## Dependencies
 
 ### Depends on

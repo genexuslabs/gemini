@@ -3,7 +3,6 @@ import { Component, h, Host, Prop, Element } from "@stencil/core";
 //import { GxgFormSelect } from "../form-select/gxg-select";
 //import { GxgModal } from "../modal/modal";
 import state from "../store";
-import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-test",
@@ -15,14 +14,10 @@ export class GxgTest {
   @Element() el: HTMLElement;
   @Prop() active = true;
 
-  componentDidLoad() {
-    exportParts(this.el);
-  }
-
   render() {
     return (
       <Host>
-        <gxg-button>Primary Button</gxg-button>
+        <gxg-button part="button-user">User Button</gxg-button>
       </Host>
     );
   }

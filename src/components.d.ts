@@ -229,6 +229,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The exportparts definition
+     */
+    exportparts: string;
+    /**
      * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
      */
     fit: boolean;
@@ -244,6 +248,10 @@ export namespace Components {
      * The prescence of this attribute turns the icon white
      */
     negative: boolean;
+    /**
+     * The prefix used for auto-generation of exportparts. (exportparts = partPrefix + part-name)
+     */
+    part: string;
     /**
      * The kind of button
      */
@@ -2513,6 +2521,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * The exportparts definition
+     */
+    exportparts?: string;
+    /**
      * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
      */
     fit?: boolean;
@@ -2528,6 +2540,10 @@ declare namespace LocalJSX {
      * The prescence of this attribute turns the icon white
      */
     negative?: boolean;
+    /**
+     * The prefix used for auto-generation of exportparts. (exportparts = partPrefix + part-name)
+     */
+    part?: string;
     /**
      * The kind of button
      */
