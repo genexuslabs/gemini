@@ -1,8 +1,9 @@
-import { Component, h, Host, Prop } from "@stencil/core";
+import { Component, h, Host, Prop, Element } from "@stencil/core";
 //import { GxgComboBox } from "../combo-box/combo-box";
 //import { GxgFormSelect } from "../form-select/gxg-select";
 //import { GxgModal } from "../modal/modal";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-test",
@@ -11,12 +12,17 @@ import state from "../store";
 })
 export class GxgTest {
   gxgTree: HTMLGxgTreeElement;
-  @Prop() model;
+  @Element() el: HTMLElement;
+  @Prop() active = true;
+
+  componentDidLoad() {
+    exportParts(this.el);
+  }
 
   render() {
     return (
       <Host>
-        <gxg-tree model={this.model}></gxg-tree>
+        <gxg-button>Primary Button</gxg-button>
       </Host>
     );
   }

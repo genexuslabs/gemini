@@ -2,6 +2,7 @@ import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { Size } from "../icon/icon";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-button",
@@ -225,6 +226,7 @@ export class GxgButton {
           }}
           disabled={this.disabled === true}
           ref={(el) => (this.button = el as HTMLButtonElement)}
+          part="button-part-1 button-part-2"
         >
           {this.emptyDiv()}
           {this.regularIcon()}

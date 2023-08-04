@@ -4,25 +4,23 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type  | Default     |
-| -------- | --------- | ----------- | ----- | ----------- |
-| `model`  | `model`   |             | `any` | `undefined` |
+| Property | Attribute | Description | Type      | Default |
+| -------- | --------- | ----------- | --------- | ------- |
+| `active` | `active`  |             | `boolean` | `true`  |
 
 ## Dependencies
 
 ### Depends on
 
-- [gxg-tree](../tree)
+- [gxg-button](../button)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-tree
-  gxg-tree --> ch-tree
-  gxg-tree --> ch-tree-item
-  ch-tree-item --> ch-form-checkbox
-  ch-tree-item --> ch-icon
+  gxg-test --> gxg-button
+  gxg-button --> gxg-icon
+  gxg-icon --> ch-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

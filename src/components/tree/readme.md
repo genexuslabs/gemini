@@ -12,10 +12,6 @@
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - ch-tree
@@ -29,7 +25,6 @@ graph TD;
   gxg-tree --> ch-tree-item
   ch-tree-item --> ch-form-checkbox
   ch-tree-item --> ch-icon
-  gxg-test --> gxg-tree
   style gxg-tree fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

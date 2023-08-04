@@ -37,6 +37,13 @@
 | `negative`             | `negative`               | The prescence of this attribute turns the icon white                                                                                     | `boolean`                                                                                                                                                                                          | `false`               |
 | `type`                 | `type`                   | The kind of button                                                                                                                       | `"outlined" \| "outlined-text-icon" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
 
+## Shadow Parts
+
+| Part              | Description |
+| ----------------- | ----------- |
+| `"button-part-1"` |             |
+| `"button-part-2"` |             |
+
 ## Dependencies
 
 ### Used by
@@ -51,6 +58,7 @@
 - [gxg-modal](../modal)
 - [gxg-options](../options)
 - [gxg-tab-bar](../tab-bar)
+- [gxg-test](../test)
 - [gxg-window](../window)
 
 ### Depends on
@@ -73,6 +81,7 @@ graph TD;
   gxg-modal --> gxg-button
   gxg-options --> gxg-button
   gxg-tab-bar --> gxg-button
+  gxg-test --> gxg-button
   gxg-window --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1624,7 +1624,7 @@ export namespace Components {
     position: TabsPosition;
   }
   interface GxgTest {
-    model: any;
+    active: boolean;
   }
   interface GxgText {
     /**
@@ -3997,7 +3997,7 @@ declare namespace LocalJSX {
     position?: TabsPosition;
   }
   interface GxgTest {
-    model?: any;
+    active?: boolean;
   }
   interface GxgText {
     /**
