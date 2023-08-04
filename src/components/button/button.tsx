@@ -231,7 +231,7 @@ export class GxgButton {
           {this.emptyDiv()}
           {this.regularIcon()}
           {this.type.includes("text") || this.type === "outlined" ? (
-            <span class="text">
+            <span part="caption" class="text">
               <slot />
             </span>
           ) : null}

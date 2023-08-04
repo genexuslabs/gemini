@@ -43,6 +43,7 @@
 | ----------------- | ----------- |
 | `"button-part-1"` |             |
 | `"button-part-2"` |             |
+| `"caption"`       |             |
 
 ## Dependencies
 
