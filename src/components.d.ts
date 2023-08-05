@@ -1716,6 +1716,10 @@ export namespace Components {
      */
     config: GxgTreeConfig;
     /**
+     * @returns an array of the ch-tree-items that are checked. Each array item is an object with "id" and "innerText".
+     */
+    getChecked: () => Promise<any[]>;
+    /**
      * The tree model (optional). An array of GxgTreeItem's items.
      */
     model: GxgTreeItem[];

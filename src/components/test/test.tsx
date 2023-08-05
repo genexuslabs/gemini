@@ -2,7 +2,7 @@ import { Component, h, Host, Prop, Listen } from "@stencil/core";
 //import { GxgComboBox } from "../combo-box/combo-box";
 //import { GxgFormSelect } from "../form-select/gxg-select";
 //import { GxgModal } from "../modal/modal";
-import state from "../store";
+//import state from "../store";
 
 @Component({
   tag: "gxg-test",
