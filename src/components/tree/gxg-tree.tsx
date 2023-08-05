@@ -5,7 +5,7 @@ import { Component, Host, Prop, h, Method } from "@stencil/core";
   shadow: false,
 })
 export class GxgTree {
-  chTree!: HTMLChTreeElement;
+  chTree!: HTMLGxgchTreeElement;
 
   /**
    * The tree model (optional). An array of GxgTreeItem's items.
@@ -25,44 +25,49 @@ export class GxgTree {
   @Prop() basePath = "/build/icon-assets/";
 
   /**
-   * @returns an array of the ch-tree-items that are checked. Each array item is an object with "id" and "innerText".
+   * @returns an array of the gxgch-tree-items that are checked. Each array item is an object with "id" and "innerText".
    */
   @Method()
   async getChecked(): Promise<any[]> {
     return await this.chTree.getChecked();
   }
 
-  renderTree = (model: GxgTreeItem[], isFirstCall = true): HTMLElement => {
-    console.log("config", this.config);
+  renderTree = (
+    model: GxgTreeItem[],
+    isFirstCall = true
+  ): HTMLGxgchTreeElement => {
     if (isFirstCall) {
       return (
-        <ch-tree
+        <gxgch-tree
           checkbox={this.config?.checkbox ?? true}
           checked={this.config?.checked ?? false}
           toggleCheckboxes={this.config?.toggleCheckboxes ?? true}
-          ref={(el) => (this.chTree = el as HTMLChTreeElement)}
+          ref={(el) => (this.chTree = el as HTMLGxgchTreeElement)}
         >
           {model.map((item: GxgTreeItem) => {
             return this.renderTreeItem(item, this.config);
           })}
-        </ch-tree>
+        </gxgch-tree>
       );
     } else {
       return (
-        <ch-tree slot="tree">
+        <gxgch-tree slot="tree">
           {model.map((item: GxgTreeItem) => {
             return this.renderTreeItem(item, this.config);
           })}
-        </ch-tree>
+        </gxgch-tree>
       );
     }
   };
 
-  renderTreeItem = (item: GxgTreeItem, config: GxgTreeConfig): HTMLElement => {
+  renderTreeItem = (
+    item: GxgTreeItem,
+    config: GxgTreeConfig
+  ): HTMLGxgchTreeItemElement => {
     let opened;
     const masterTreeOpened = config?.opened ?? true;
     return (
-      <ch-tree-item
+      <gxgch-tree-item
         id={item.id}
         leftIcon={this.getIcon(item.icon)}
         checkbox={item.checkbox}
@@ -73,7 +78,7 @@ export class GxgTree {
         selected={item.selected}
       >
         {[item.name, item.items && this.renderTree(item.items, false)]}
-      </ch-tree-item>
+      </gxgch-tree-item>
     );
   };
 

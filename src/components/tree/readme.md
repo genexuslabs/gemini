@@ -26,17 +26,17 @@ Type: `Promise<any[]>`
 
 ### Depends on
 
-- ch-tree
-- ch-tree-item
+- [gxgch-tree](../gxgch-tree)
+- [gxgch-tree-item](../gxgch-tree-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-tree --> ch-tree
-  gxg-tree --> ch-tree-item
-  ch-tree-item --> ch-form-checkbox
-  ch-tree-item --> ch-icon
+  gxg-tree --> gxgch-tree
+  gxg-tree --> gxgch-tree-item
+  gxgch-tree-item --> ch-form-checkbox
+  gxgch-tree-item --> ch-icon
   gxg-test --> gxg-tree
   style gxg-tree fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -15,6 +15,7 @@ export class GxgTest {
 
   tree1!: HTMLGxgTreeElement;
   tree2!: HTMLGxgTreeElement;
+  private ChTree!: HTMLChTreeElement;
 
   componentDidLoad() {
     this.tree1.addEventListener(

@@ -75,6 +75,8 @@ import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { GxgTreeConfig, GxgTreeItem } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
+import { checkedChTreeItem } from "./components/gxgch-tree/gxgch-tree";
+import { chTreeItemData } from "./components/gxgch-tree-item/gxgch-tree-item";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -1716,7 +1718,7 @@ export namespace Components {
      */
     config: GxgTreeConfig;
     /**
-     * @returns an array of the ch-tree-items that are checked. Each array item is an object with "id" and "innerText".
+     * @returns an array of the gxgch-tree-items that are checked. Each array item is an object with "id" and "innerText".
      */
     getChecked: () => Promise<any[]>;
     /**
@@ -1777,6 +1779,71 @@ export namespace Components {
      * The window title
      */
     windowTitle: string;
+  }
+  interface GxgchTree {
+    /**
+     * Set this attribute if you want all this tree tree-items to have a checkbox
+     */
+    checkbox: boolean;
+    /**
+     * Set this attribute if you want all this tree tree-items to have the checkbox checked
+     */
+    checked: boolean;
+    /**
+     * @returns an array of the gxgch-tree-items that are checked. Each array item is an object with "id" and "innerText".
+     */
+    getChecked: () => Promise<checkedChTreeItem[]>;
+    /**
+     * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
+     */
+    toggleCheckboxes: boolean;
+  }
+  interface GxgchTreeItem {
+    /**
+     * Set this attribute if you want the gxgch-tree-item to display a checkbox
+     */
+    checkbox: boolean;
+    /**
+     * Set this attribute if you want the gxgch-tree-item checkbox to be checked by default
+     */
+    checked: boolean;
+    disabled: boolean;
+    /**
+     * Set this attribute if this tree-item has a resource to be downloaded;
+     */
+    download: boolean;
+    /**
+     * Set this attribute when you have downloaded the resource
+     */
+    downloaded: boolean;
+    /**
+     * Set this attribute when you are downloading a resource
+     */
+    downloading: boolean;
+    firstTreeItem: boolean;
+    hasChildTree: boolean;
+    indeterminate: boolean;
+    /**
+     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     */
+    isLeaf: boolean;
+    /**
+     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    leftIcon: string;
+    /**
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
+    opened: boolean;
+    /**
+     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    rightIcon: string;
+    /**
+     * The presence of this attribute sets the tree-item as selected
+     */
+    selected: boolean;
+    updateTreeVerticalLineHeight: () => Promise<void>;
   }
 }
 declare global {
@@ -2267,6 +2334,20 @@ declare global {
     prototype: HTMLGxgWindowElement;
     new (): HTMLGxgWindowElement;
   };
+  interface HTMLGxgchTreeElement
+    extends Components.GxgchTree,
+      HTMLStencilElement {}
+  var HTMLGxgchTreeElement: {
+    prototype: HTMLGxgchTreeElement;
+    new (): HTMLGxgchTreeElement;
+  };
+  interface HTMLGxgchTreeItemElement
+    extends Components.GxgchTreeItem,
+      HTMLStencilElement {}
+  var HTMLGxgchTreeItemElement: {
+    prototype: HTMLGxgchTreeItemElement;
+    new (): HTMLGxgchTreeItemElement;
+  };
   interface HTMLElementTagNameMap {
     "gxg-accordion": HTMLGxgAccordionElement;
     "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -2341,6 +2422,8 @@ declare global {
     "gxg-tree": HTMLGxgTreeElement;
     "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
     "gxg-window": HTMLGxgWindowElement;
+    "gxgch-tree": HTMLGxgchTreeElement;
+    "gxgch-tree-item": HTMLGxgchTreeItemElement;
   }
 }
 declare namespace LocalJSX {
@@ -4158,6 +4241,72 @@ declare namespace LocalJSX {
      */
     windowTitle?: string;
   }
+  interface GxgchTree {
+    /**
+     * Set this attribute if you want all this tree tree-items to have a checkbox
+     */
+    checkbox?: boolean;
+    /**
+     * Set this attribute if you want all this tree tree-items to have the checkbox checked
+     */
+    checked?: boolean;
+    /**
+     * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
+     */
+    toggleCheckboxes?: boolean;
+  }
+  interface GxgchTreeItem {
+    /**
+     * Set this attribute if you want the gxgch-tree-item to display a checkbox
+     */
+    checkbox?: boolean;
+    /**
+     * Set this attribute if you want the gxgch-tree-item checkbox to be checked by default
+     */
+    checked?: boolean;
+    disabled?: boolean;
+    /**
+     * Set this attribute if this tree-item has a resource to be downloaded;
+     */
+    download?: boolean;
+    /**
+     * Set this attribute when you have downloaded the resource
+     */
+    downloaded?: boolean;
+    /**
+     * Set this attribute when you are downloading a resource
+     */
+    downloading?: boolean;
+    firstTreeItem?: boolean;
+    hasChildTree?: boolean;
+    indeterminate?: boolean;
+    /**
+     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     */
+    isLeaf?: boolean;
+    /**
+     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    leftIcon?: string;
+    /**
+     * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
+     */
+    onCheckboxClickedEvent?: (event: CustomEvent<chTreeItemData>) => void;
+    onLiItemClicked?: (event: CustomEvent<any>) => void;
+    onToggleIconClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * If this tree-item has a nested tree, set this attribute to make the tree open by default
+     */
+    opened?: boolean;
+    /**
+     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     */
+    rightIcon?: string;
+    /**
+     * The presence of this attribute sets the tree-item as selected
+     */
+    selected?: boolean;
+  }
   interface IntrinsicElements {
     "gxg-accordion": GxgAccordion;
     "gxg-accordion-item": GxgAccordionItem;
@@ -4232,6 +4381,8 @@ declare namespace LocalJSX {
     "gxg-tree": GxgTree;
     "gxg-tree-grid-divs": GxgTreeGridDivs;
     "gxg-window": GxgWindow;
+    "gxgch-tree": GxgchTree;
+    "gxgch-tree-item": GxgchTreeItem;
   }
 }
 export { LocalJSX as JSX };
@@ -4372,6 +4523,10 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
       "gxg-window": LocalJSX.GxgWindow &
         JSXBase.HTMLAttributes<HTMLGxgWindowElement>;
+      "gxgch-tree": LocalJSX.GxgchTree &
+        JSXBase.HTMLAttributes<HTMLGxgchTreeElement>;
+      "gxgch-tree-item": LocalJSX.GxgchTreeItem &
+        JSXBase.HTMLAttributes<HTMLGxgchTreeItemElement>;
     }
   }
 }

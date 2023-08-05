@@ -19,10 +19,10 @@
 ```mermaid
 graph TD;
   gxg-test --> gxg-tree
-  gxg-tree --> ch-tree
-  gxg-tree --> ch-tree-item
-  ch-tree-item --> ch-form-checkbox
-  ch-tree-item --> ch-icon
+  gxg-tree --> gxgch-tree
+  gxg-tree --> gxgch-tree-item
+  gxgch-tree-item --> ch-form-checkbox
+  gxgch-tree-item --> ch-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
