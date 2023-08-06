@@ -30,46 +30,130 @@
   <body>
     <!-- with markup -->
     <span>with markup</span>
-    <!-- <gxg-tree>
-      <ch-tree checkbox toggle-checkboxes>
-        <ch-tree-item
-          opened
-          selected
-          left-icon="/build/icon-assets/general/generator.svg"
-        >
-          Meats
-          <ch-tree slot="tree">
-            <ch-tree-item left-icon="/build/icon-assets/general/patterns.svg">
-              Cow
-            </ch-tree-item>
-            <ch-tree-item
-              opened
-              left-icon="/build/icon-assets/general/knowledge-base.svg"
-            >
-              Goat
-              <ch-tree slot="tree">
-                <ch-tree-item
-                  left-icon="/build/icon-assets/general/generator.svg"
-                >
-                  dura
-                </ch-tree-item>
-                <ch-tree-item
-                  left-icon="/build/icon-assets/general/patterns.svg"
-                >
-                  blanda
-                </ch-tree-item>
-              </ch-tree>
-            </ch-tree-item>
-          </ch-tree>
-        </ch-tree-item>
-        <ch-tree-item left-icon="/build/icon-assets/general/generator.svg">
-          Fish
-        </ch-tree-item>
-        <ch-tree-item left-icon="/build/icon-assets/general/knowledge-base.svg">
-          Nuts
-        </ch-tree-item>
-      </ch-tree>
+
+    <!-- <gxg-tree checkbox toggle-checkboxes>
+      <gxg-tree-item
+        opened
+        selected
+        left-icon="/build/icon-assets/general/generator.svg"
+      >
+        Meats
+        <gxg-tree slot="tree">
+          <gxg-tree-item left-icon="/build/icon-assets/general/patterns.svg">
+            Cow
+          </gxg-tree-item>
+          <gxg-tree-item
+            opened
+            left-icon="/build/icon-assets/general/knowledge-base.svg"
+          >
+            Goat
+            <gxg-tree slot="tree">
+              <gxg-tree-item
+                left-icon="/build/icon-assets/general/generator.svg"
+              >
+                dura
+              </gxg-tree-item>
+              <gxg-tree-item
+                left-icon="/build/icon-assets/general/patterns.svg"
+              >
+                blanda
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item left-icon="/build/icon-assets/general/generator.svg">
+        Fish
+      </gxg-tree-item>
+      <gxg-tree-item left-icon="/build/icon-assets/general/knowledge-base.svg">
+        Nuts
+      </gxg-tree-item>
     </gxg-tree> -->
+
+    <!-- <gxg-tree >
+      <gxg-tree-item
+        left-icon="/build/icon-assets/general/generator.svg"
+        opened
+      >
+        Meats
+        <gxg-tree slot="tree">
+          <gxg-tree-item left-icon="/build/icon-assets/general/patterns.svg">
+            Cow
+          </gxg-tree-item>
+          <gxg-tree-item
+            opened
+            left-icon="/build/icon-assets/general/knowledge-base.svg"
+          >
+            Goat
+            <gxg-tree slot="tree">
+              <gxg-tree-item
+                left-icon="/build/icon-assets/general/generator.svg"
+              >
+                dura
+              </gxg-tree-item>
+              <gxg-tree-item
+                left-icon="/build/icon-assets/general/patterns.svg"
+              >
+                blanda
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item left-icon="/build/icon-assets/general/generator.svg">
+        Fish
+      </gxg-tree-item>
+      <gxg-tree-item left-icon="/build/icon-assets/general/knowledge-base.svg">
+        Nuts
+      </gxg-tree-item>
+    </gxg-tree> -->
+
+    <hr />
+
+    <!-- <gxg-tree>
+      <gxg-tree-item left-icon="/build/icon-assets/general/generator.svg">
+        Meats
+      </gxg-tree-item>
+      <gxg-tree-item> Fish </gxg-tree-item>
+      <gxg-tree-item> Nuts </gxg-tree-item>
+    </gxg-tree> -->
+
+    <hr />
+
+    <gxg-tree id="tree-master">
+      <gxg-tree-item
+        id="meats"
+        checkbox
+        left-icon="/build/icon-assets/general/generator.svg"
+        toggle-checkboxes
+      >
+        Meats
+        <gxg-tree id="tree-meats" slot="tree">
+          <gxg-tree-item
+            id="cow-1"
+            left-icon="/build/icon-assets/general/generator.svg"
+          >
+            Cow 1
+          </gxg-tree-item>
+          <gxg-tree-item id="cow-2" checkbox="false">
+            Cow 2
+            <gxg-tree id="tree-cow-2" slot="tree">
+              <gxg-tree-item
+                id="cow-2-small"
+                left-icon="/build/icon-assets/general/generator.svg"
+              >
+                Cow 2 small
+              </gxg-tree-item>
+              <gxg-tree-item id="cow-2-medium"> Cow 2 medium </gxg-tree-item>
+              <gxg-tree-item id="cow-2-big"> Cow 2 big </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+          <gxg-tree-item id="cow-3"> Cow 3 </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item id="fish"> Fish </gxg-tree-item>
+      <gxg-tree-item id="nuts"> Nuts </gxg-tree-item>
+    </gxg-tree>
 
     <hr />
 

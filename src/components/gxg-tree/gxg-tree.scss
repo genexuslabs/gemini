@@ -1,5 +1,11 @@
+@import "../../globals/mixins.scss";
+
 :host {
   display: flex;
+  --gxg-tree-item-inner-spacing: var(--spacing-comp-01);
+  overflow: auto;
+  @include gxg-scrollbar();
+  height: 100%;
   ul {
     margin: 0;
     padding-left: 0;

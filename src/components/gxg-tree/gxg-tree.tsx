@@ -7,32 +7,16 @@ import {
   Listen,
   Method,
 } from "@stencil/core";
-import { GxgChTreeItem } from "../gxgch-tree-item/gxgch-tree-item";
+import { GxgTreeItem } from "../gxg-tree-item/gxg-tree-item";
 
 @Component({
-  tag: "gxgch-tree",
-  styleUrl: "gxgch-tree.scss",
+  tag: "gxg-tree",
+  styleUrl: "gxg-tree.scss",
   shadow: true,
 })
-export class GxgChTree {
-  @Element() el: HTMLGxgchTreeElement;
+export class GxgTree {
+  @Element() el: HTMLGxgTreeElement;
   ulTree!: HTMLElement;
-
-  //PROPS
-  /**
-   * Set this attribute if you want all this tree tree-items to have a checkbox
-   */
-  @Prop() readonly checkbox: boolean = false;
-
-  /**
-   * Set this attribute if you want all this tree tree-items to have the checkbox checked
-   */
-  @Prop() readonly checked: boolean = false;
-
-  /**
-   * Set this attribute if you want all the childen item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unckecked.
-   */
-  @Prop({ mutable: true }) toggleCheckboxes = false;
 
   //STATE
   @State() nestedTree = false;
@@ -41,12 +25,12 @@ export class GxgChTree {
   componentWillLoad() {
     //Check if this tree is nested
     const parentElementTagName = this.el.parentElement.tagName;
-    if (parentElementTagName === "GXGCH-TREE-ITEM") {
+    if (parentElementTagName === "GXG-TREE-ITEM") {
       this.nestedTree = true;
     }
     //if this is the main tree...
     const parentTreeTagName = this.el.parentElement.tagName;
-    if (parentTreeTagName !== "GXGCH-TREE-ITEM") {
+    if (parentTreeTagName !== "GXG-TREE-ITEM") {
       this.mainTree = true;
     }
   }
@@ -54,28 +38,28 @@ export class GxgChTree {
   @Listen("liItemClicked")
   liItemClickedHandler() {
     //Remove 'selected' state from previous selected item
-    const chTreeItems = this.el.querySelectorAll("gxgch-tree-item");
-    chTreeItems.forEach((chTreeItem) => {
-      ((chTreeItem as unknown) as GxgChTreeItem).selected = false;
+    const gxgTreeItems = this.el.querySelectorAll("gxg-tree-item");
+    gxgTreeItems.forEach((gxgTreeItem) => {
+      ((gxgTreeItem as unknown) as GxgTreeItem).selected = false;
     });
   }
 
   @Listen("toggleIconClicked")
   toggleIconClickedHandler() {
     //Update not leaf tree items vertical line height
-    const treeItems = this.el.querySelectorAll("gxgch-tree-item.not-leaf");
+    const treeItems = this.el.querySelectorAll("gxg-tree-item.not-leaf");
     treeItems.forEach((treeItem) => {
-      ((treeItem as unknown) as GxgChTreeItem).updateTreeVerticalLineHeight();
+      ((treeItem as unknown) as GxgTreeItem).updateTreeVerticalLineHeight();
     });
   }
 
   /**
-   * @returns an array of the gxgch-tree-items that are checked. Each array item is an object with "id" and "innerText".
+   * @returns an array of the gxg-tree-items that are checked. Each array item is an object with "id" and "innerText".
    */
   @Method()
-  async getChecked(): Promise<checkedChTreeItem[]> {
-    const allTreeItems = this.el.querySelectorAll("gxgch-tree-item");
-    const checkedTreeItems: checkedChTreeItem[] = [];
+  async getChecked(): Promise<CheckedGxgTreeItem[]> {
+    const allTreeItems = this.el.querySelectorAll("gxg-tree-item");
+    const checkedTreeItems: CheckedGxgTreeItem[] = [];
     if (allTreeItems.length) {
       allTreeItems.forEach((treeItem) => {
         if (treeItem.checked) {
@@ -115,6 +99,6 @@ export class GxgChTree {
   }
 }
 
-export type checkedChTreeItem = {
+export type CheckedGxgTreeItem = {
   id: string;
 };

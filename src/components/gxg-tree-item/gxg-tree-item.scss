@@ -5,7 +5,7 @@
   /**
   * @prop --text-color: The color of the text
   */
-  --text-color: var(--black);
+  --text-color: var(--color-on-background);
   /**
   * @prop --font-family: The text font family
   */
@@ -21,19 +21,17 @@
   /**
   * @prop --guide-color: The color of the tree guides
   */
-  --guide-color: var(--darkGray);
+  --guide-color: var(--gray-06);
   /**
   * @prop --item-hover-color: The color of the item on hover
   */
-  --item-hover-color: var(--lightGray);
+  --item-hover-color: var(--gray-01);
   /**
   * @prop --item-active-color: The color of the active item
   */
   --item-active-color: var(--silverGray);
 
-  .text {
-    padding-left: var(--spacing-comp-01);
-  }
+  color: var(--color-on-background);
 
   display: block;
   li {
@@ -56,14 +54,11 @@
 
     .li-text {
       height: 100%;
-      padding: 0 var(--spacing-comp-02);
       cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
-      //overflow: hidden;
-      &--focused {
-      }
+      padding-inline-end: var(--spacing-comp-01);
       &:hover {
         background-color: var(--item-hover-color);
       }
@@ -71,22 +66,13 @@
         background-color: var(--item-active-color);
       }
       &:focus {
-        outline: none;
-        box-shadow: inset 0px 0px 0px 2px var(--color-primary-active);
-      }
-      &--not-leaf {
-        .horizontal-line {
-          //margin-left: -18px;
-        }
+        @include form-element-common-styles-focus-type-1();
       }
       &--selected {
         background-color: var(--item-active-color);
         &:hover {
           background-color: var(--item-hover-color);
         }
-      }
-
-      &--only-one-parent-tree {
       }
     }
     .vertical-line {
@@ -107,7 +93,6 @@
     }
     .horizontal-line {
       position: absolute;
-      width: 16px;
       height: 1px;
       top: 11px;
       z-index: 1;
@@ -134,21 +119,21 @@
     .toggle-icon {
       position: relative;
       z-index: 2;
-      padding-left: 3px;
-      padding-right: 3px;
+      transform: scale(0.75, 0.75);
+      margin-inline-end: var(--spacing-comp-00);
       @include ui-animation-slow(opacity);
+      &:hover {
+        background-color: var(--color-hover);
+      }
     }
   }
   .checkbox {
-    margin-right: var(--spacing-comp-01);
+    margin-inline-end: var(--spacing-comp-01);
   }
-
   .icon {
-    height: 20px;
-    justify-content: center;
-    align-items: center;
-    padding-left: 2px;
-    padding-right: 2px;
+    &--left {
+      margin: 0 var(--spacing-comp-01) 0 var(--spacing-comp-00);
+    }
   }
 
   .right-icon {
@@ -195,7 +180,6 @@
 }
 
 .label input[disabled] {
-  color: red;
 }
 
 :host([disabled]) {

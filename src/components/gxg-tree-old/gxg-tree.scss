@@ -4,14 +4,14 @@ gxg-tree {
   display: contents;
 }
 /*CH-TREE*/
-gxgch-tree {
+ch-tree {
   --gxg-tree-item-inner-spacing: var(--spacing-comp-01);
   overflow: auto;
   @include gxg-scrollbar();
   height: 100%;
 }
 /*CH-TREE-ITEM*/
-gxgch-tree-item {
+ch-tree-item {
   --guide-color: var(--gray-04);
   color: var(--color-on-background);
 

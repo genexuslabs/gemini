@@ -298,7 +298,7 @@ $gxg-label--disabled-color: var(--color-primary-disabled);
   &:hover {
     @include gxg-label--hover;
   }
-  &:focud {
+  &:focus {
     @include gxg-label--focus;
   }
   &:active {

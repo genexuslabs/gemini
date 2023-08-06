@@ -15,7 +15,7 @@ export class GxgTest {
 
   tree1!: HTMLGxgTreeElement;
   tree2!: HTMLGxgTreeElement;
-  private ChTree!: HTMLChTreeElement;
+  private ChTree!: HTMLGxgTreeElement;
 
   componentDidLoad() {
     this.tree1.addEventListener(
@@ -35,7 +35,7 @@ export class GxgTest {
   render() {
     return (
       <Host>
-        <gxg-tree
+        {/* <gxg-tree
           model={this.model}
           ref={(el) => (this.tree1 = el as HTMLGxgTreeElement)}
         ></gxg-tree>
@@ -43,7 +43,7 @@ export class GxgTest {
         <gxg-tree
           model={this.model}
           ref={(el) => (this.tree2 = el as HTMLGxgTreeElement)}
-        ></gxg-tree>
+        ></gxg-tree> */}
       </Host>
     );
   }
