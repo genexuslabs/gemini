@@ -31,101 +31,10 @@
     <!-- with markup -->
     <span>with markup</span>
 
-    <!-- <gxg-tree checkbox toggle-checkboxes>
-      <gxg-tree-item
-        opened
-        selected
-        left-icon="/build/icon-assets/general/generator.svg"
-      >
-        Meats
-        <gxg-tree slot="tree">
-          <gxg-tree-item left-icon="/build/icon-assets/general/patterns.svg">
-            Cow
-          </gxg-tree-item>
-          <gxg-tree-item
-            opened
-            left-icon="/build/icon-assets/general/knowledge-base.svg"
-          >
-            Goat
-            <gxg-tree slot="tree">
-              <gxg-tree-item
-                left-icon="/build/icon-assets/general/generator.svg"
-              >
-                dura
-              </gxg-tree-item>
-              <gxg-tree-item
-                left-icon="/build/icon-assets/general/patterns.svg"
-              >
-                blanda
-              </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item left-icon="/build/icon-assets/general/generator.svg">
-        Fish
-      </gxg-tree-item>
-      <gxg-tree-item left-icon="/build/icon-assets/general/knowledge-base.svg">
-        Nuts
-      </gxg-tree-item>
-    </gxg-tree> -->
-
-    <!-- <gxg-tree >
-      <gxg-tree-item
-        left-icon="/build/icon-assets/general/generator.svg"
-        opened
-      >
-        Meats
-        <gxg-tree slot="tree">
-          <gxg-tree-item left-icon="/build/icon-assets/general/patterns.svg">
-            Cow
-          </gxg-tree-item>
-          <gxg-tree-item
-            opened
-            left-icon="/build/icon-assets/general/knowledge-base.svg"
-          >
-            Goat
-            <gxg-tree slot="tree">
-              <gxg-tree-item
-                left-icon="/build/icon-assets/general/generator.svg"
-              >
-                dura
-              </gxg-tree-item>
-              <gxg-tree-item
-                left-icon="/build/icon-assets/general/patterns.svg"
-              >
-                blanda
-              </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item left-icon="/build/icon-assets/general/generator.svg">
-        Fish
-      </gxg-tree-item>
-      <gxg-tree-item left-icon="/build/icon-assets/general/knowledge-base.svg">
-        Nuts
-      </gxg-tree-item>
-    </gxg-tree> -->
-
-    <hr />
-
-    <!-- <gxg-tree>
-      <gxg-tree-item left-icon="/build/icon-assets/general/generator.svg">
-        Meats
-      </gxg-tree-item>
-      <gxg-tree-item> Fish </gxg-tree-item>
-      <gxg-tree-item> Nuts </gxg-tree-item>
-    </gxg-tree> -->
-
-    <hr />
-
-    <gxg-tree id="tree-master">
+    <gxg-tree id="gxg-tree-markup" checked toggle-checkboxes>
       <gxg-tree-item
         id="meats"
-        checkbox
         left-icon="/build/icon-assets/general/generator.svg"
-        toggle-checkboxes
       >
         Meats
         <gxg-tree id="tree-meats" slot="tree">
@@ -135,7 +44,7 @@
           >
             Cow 1
           </gxg-tree-item>
-          <gxg-tree-item id="cow-2" checkbox="false">
+          <gxg-tree-item id="cow-2">
             Cow 2
             <gxg-tree id="tree-cow-2" slot="tree">
               <gxg-tree-item
@@ -154,12 +63,20 @@
       <gxg-tree-item id="fish"> Fish </gxg-tree-item>
       <gxg-tree-item id="nuts"> Nuts </gxg-tree-item>
     </gxg-tree>
+    <br />
+    <gxg-button class="get-checked-btn markup">Get checked</gxg-button>
+    <gxg-button class="get-checked-by-id-btn markup"
+      >Get checked by id</gxg-button
+    >
+    <gxg-button class="open-cow-2-btn markup">Open Cow-2</gxg-button>
+    <gxg-button class="close-cow-2-btn markup">Close Cow-2</gxg-button>
+    <gxg-button class="toggle-cow-2-btn markup">Toggle Cow-2</gxg-button>
 
     <hr />
 
     <!-- with data model -->
     <span>with data model</span>
-    <gxg-tree id="gxg-tree"></gxg-tree>
+    <gxg-tree id="gxg-tree-model"></gxg-tree>
     <script>
       const model = [
         {
@@ -211,33 +128,112 @@
           ],
         },
       ];
-      const gxgTree = document.getElementById("gxg-tree");
-      gxgTree.basePath = "/build/icon-assets/";
     </script>
     <br />
-    <gxg-button id="load-model-btn">Load model</gxg-button>
-    <gxg-button id="get-checked-btn">Get checked</gxg-button>
-    <gxg-button id="count-btn">Count</gxg-button>
+    <gxg-button class="load-model-btn model">Load model</gxg-button>
+    <gxg-button class="get-checked-btn model">Get checked</gxg-button>
+    <gxg-button class="get-checked-by-id-btn model"
+      >Get checked by id</gxg-button
+    >
+    <gxg-button class="open-cow-2-btn model">Open Cow-2</gxg-button>
+    <gxg-button class="close-cow-2-btn model">Close Cow-2</gxg-button>
+    <gxg-button class="toggle-cow-2-btn model">Toggle Cow-2</gxg-button>
+
     <script>
-      const loadModelButton = document.getElementById("load-model-btn");
-      loadModelButton.addEventListener("click", () => {
-        gxgTree.model = model;
+      const gxgTreeMarkup = document.getElementById("gxg-tree-markup");
+      const gxgTreeModel = document.getElementById("gxg-tree-model");
+      gxgTreeMarkup.basePath = "/build/icon-assets/";
+      /*Load model*/
+      const loadModelButton = document.getElementsByClassName("load-model-btn");
+      loadModelButton[0].addEventListener("click", () => {
+        gxgTreeModel.model = model;
       });
-      const getCheckedButton = document.getElementById("get-checked-btn");
-      getCheckedButton.addEventListener("click", () => {
+
+      /*Get checked*/
+      const getCheckedButton = document.getElementsByClassName(
+        "get-checked-btn"
+      );
+      getCheckedButton[0].addEventListener("click", (button) => {
         (async () => {
-          const checkedItems = await gxgTree.getChecked();
+          let tree;
+          if (button.srcElement.classList.contains("markup")) {
+            tree = gxgTreeMarkup;
+          } else if (button.srcElement.classList.contains("model")) {
+            tree = gxgTreeModel;
+          }
+          const checkedItems = await tree.getChecked();
           console.log("checkedItems", checkedItems);
         })();
       });
-      const countButton = document.getElementById("count-btn");
-      const meats = document.getElementById("meats");
-      countButton.addEventListener("click", () => {
+
+      /*Get checked by id*/
+      const getCheckedButtonById = document.getElementsByClassName(
+        "get-checked-by-id-btn"
+      );
+      getCheckedButtonById[0].addEventListener("click", (button) => {
         (async () => {
-          await meats.updateTreeVerticalLineHeight();
+          let tree;
+          if (button.srcElement.classList.contains("markup")) {
+            tree = gxgTreeMarkup;
+          } else if (button.srcElement.classList.contains("model")) {
+            tree = gxgTreeModel;
+          }
+          const checkedItems = await tree.getChecked([
+            "fish",
+            "nuts",
+            "cow-2-small",
+          ]);
+          console.log("checkedItems", checkedItems);
         })();
       });
-      gxgTree.addEventListener("checkboxClickedEvent", function (e) {
+
+      /*Open Cow 2*/
+      const openCow2Btn = document.getElementsByClassName("open-cow-2-btn");
+      openCow2Btn[0].addEventListener("click", (button) => {
+        (async () => {
+          let tree;
+          if (button.srcElement.classList.contains("markup")) {
+            tree = gxgTreeMarkup;
+          } else if (button.srcElement.classList.contains("model")) {
+            tree = gxgTreeModel;
+          }
+          const openedItems = await tree.toggleItems(["cow-2"], true);
+          console.log("opened items", openedItems);
+        })();
+      });
+
+      /*Close Cow 2*/
+      const closeCow2Btn = document.getElementsByClassName("close-cow-2-btn");
+      closeCow2Btn[0].addEventListener("click", (button) => {
+        (async () => {
+          let tree;
+          if (button.srcElement.classList.contains("markup")) {
+            tree = gxgTreeMarkup;
+          } else if (button.srcElement.classList.contains("model")) {
+            tree = gxgTreeModel;
+          }
+          const closedItems = await tree.toggleItems(["cow-2"], false);
+          console.log("closedItems", closedItems);
+        })();
+      });
+
+      /*Toggle Cow 2*/
+      const toggleCow2Btn = document.getElementsByClassName("toggle-cow-2-btn");
+      toggleCow2Btn[0].addEventListener("click", (button) => {
+        (async () => {
+          let tree;
+          if (button.srcElement.classList.contains("markup")) {
+            tree = gxgTreeMarkup;
+          } else if (button.srcElement.classList.contains("model")) {
+            tree = gxgTreeModel;
+          }
+          const toggledItems = await tree.toggleItems(["cow-2"]);
+          console.log("toggledItems", toggledItems);
+        })();
+      });
+
+      /*Listen to checkboxClicked event*/
+      gxgTreeMarkup.addEventListener("checkboxClickedEvent", function (e) {
         console.log(e.detail);
       });
     </script>

@@ -108,7 +108,7 @@ export class GxgTreeItem {
   @Element() el: HTMLGxgTreeItemElement;
 
   componentWillLoad() {
-    //Count number of parent trees in order to set the apporpiate padding-left
+    //Count number of parent trees in order to set the appropriate padding-left
     this.numberOfParentTrees = this.getParents(this.el);
 
     //If tree item has not a tree-item inside, is leaf
@@ -158,6 +158,8 @@ export class GxgTreeItem {
       this.isLeaf = false;
       this.opened = false;
     }
+
+    this.cascadeConfig();
   }
 
   getNumberOfVisibleDescendantItems() {
@@ -188,7 +190,6 @@ export class GxgTreeItem {
     if (length) {
       Array.from(directItemsNodelist).forEach(
         (item: HTMLGxgTreeItemElement, i) => {
-          console.log(item);
           count += this.countNumberOfVisibleDescendantItems(item, false);
         }
       );
@@ -220,13 +221,19 @@ export class GxgTreeItem {
 
   componentDidLoad() {
     this.setVisibleTreeItems();
-    this.cascadeConfig();
     this.getNumberOfVisibleDescendantItems();
   }
 
   private cascadeConfig = () => {
     //Cascade configuration (set some properties based on the parent tree-item configuration, unless this item has this properties already set.
     const parentTree = this.el.parentElement;
+    const parentTreeParent = parentTree.parentElement;
+    let masterTree = false;
+    if (parentTreeParent.nodeName !== "GXG-TREE") {
+      //The parent-tree of this tree-item is the master-tree
+      masterTree = true;
+    }
+
     let parentTreeParentItem: HTMLGxgTreeItemElement;
     if (parentTree) {
       const parentTreeParentElement = parentTree.parentElement;
@@ -235,9 +242,20 @@ export class GxgTreeItem {
       }
     }
 
+    let reference;
     if (parentTreeParentItem) {
-      this.opened = !this.checkbox ? null : parentTreeParentItem.opened;
+      reference = parentTreeParentItem;
+    } else {
+      //This tree-item is on the first level. Check the parent tree for configurations.
+      reference = parentTree;
     }
+
+    this.checkbox = !reference.checkbox ? reference.checkbox : this.checkbox;
+    this.checked = reference.checked ? reference.checked : this.checked;
+    this.opened = !reference.opened ? reference.opened : this.opened;
+    this.toggleCheckboxes = reference.toggleCheckboxes
+      ? reference.toggleCheckboxes
+      : this.toggleCheckboxes;
   };
 
   @Watch("downloaded")

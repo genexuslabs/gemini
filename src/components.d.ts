@@ -73,7 +73,10 @@ import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
-import { CheckedGxgTreeItem } from "./components/gxg-tree/gxg-tree";
+import {
+  CheckedGxgTreeItem,
+  ToggledGxgTreeItem,
+} from "./components/gxg-tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { chTreeItemData } from "./components/gxg-tree-item/gxg-tree-item";
 export namespace Components {
@@ -1709,9 +1712,37 @@ export namespace Components {
   }
   interface GxgTree {
     /**
-     * @returns an array of the gxg-tree-items that are checked. Each array item is an object with "id" and "innerText".
+     * Set this attribute if you want all the items to have a checkbox.
      */
-    getChecked: () => Promise<CheckedGxgTreeItem[]>;
+    checkbox: boolean;
+    /**
+     * Set this attribute if you want all the items to be checked by default.
+     */
+    checked: boolean;
+    /**
+     * @returns an array of the gxg-tree-items that are checked. Each array item is an object with "id" and "innerText". Optional array of ids can be passed to get the status of a particular set of items.
+     */
+    getChecked: (
+      idsArray?: (string | number)[]
+    ) => Promise<CheckedGxgTreeItem[]>;
+    /**
+     * Set this attribute if you want all the items to be opened by default.
+     */
+    opened: boolean;
+    /**
+     * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
+     */
+    toggleCheckboxes: boolean;
+    /**
+     * @param ids : An array id the tree items to be toggled.
+     * @param open : A boolean indicating that the tree item should be opened or closed. (optional)
+     * @description This method is used to toggle a tree-item by the tree-item id/ids.
+     * @returns a boolean value indicating if the selected tree-item is open or not, after the method was called.
+     */
+    toggleItems: (
+      ids: string[],
+      open?: boolean
+    ) => Promise<ToggledGxgTreeItem[]>;
   }
   interface GxgTreeGridDivs {
     columns: Array<object>;
@@ -4135,7 +4166,24 @@ declare namespace LocalJSX {
      */
     position?: position;
   }
-  interface GxgTree {}
+  interface GxgTree {
+    /**
+     * Set this attribute if you want all the items to have a checkbox.
+     */
+    checkbox?: boolean;
+    /**
+     * Set this attribute if you want all the items to be checked by default.
+     */
+    checked?: boolean;
+    /**
+     * Set this attribute if you want all the items to be opened by default.
+     */
+    opened?: boolean;
+    /**
+     * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
+     */
+    toggleCheckboxes?: boolean;
+  }
   interface GxgTreeGridDivs {
     columns?: Array<object>;
     displayChildren?: DisplayChildren;

@@ -33,8 +33,6 @@
 
   color: var(--color-on-background);
 
-  min-height: 20px;
-
   display: block;
   li {
     list-style: none;
@@ -46,15 +44,10 @@
     overflow: hidden;
 
     &.tree-open {
-      height: auto;
+      height: 100%;
     }
-    // &.disabled {
-    //   .text {
-    //     color: var(--gray-05);
-    //   }
-    // }
-
     .li-text {
+      min-height: 20px;
       height: 100%;
       cursor: pointer;
       display: flex;
