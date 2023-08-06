@@ -49,7 +49,7 @@ export class GxgTree {
     //Update not leaf tree items vertical line height
     const treeItems = this.el.querySelectorAll("gxg-tree-item.not-leaf");
     treeItems.forEach((treeItem) => {
-      ((treeItem as unknown) as GxgTreeItem).updateTreeVerticalLineHeight();
+      //((treeItem as unknown) as GxgTreeItem).updateTreeVerticalLineHeight();
     });
   }
 

@@ -217,6 +217,7 @@
     <br />
     <gxg-button id="load-model-btn">Load model</gxg-button>
     <gxg-button id="get-checked-btn">Get checked</gxg-button>
+    <gxg-button id="count-btn">Count</gxg-button>
     <script>
       const loadModelButton = document.getElementById("load-model-btn");
       loadModelButton.addEventListener("click", () => {
@@ -227,6 +228,13 @@
         (async () => {
           const checkedItems = await gxgTree.getChecked();
           console.log("checkedItems", checkedItems);
+        })();
+      });
+      const countButton = document.getElementById("count-btn");
+      const meats = document.getElementById("meats");
+      countButton.addEventListener("click", () => {
+        (async () => {
+          await meats.updateTreeVerticalLineHeight();
         })();
       });
       gxgTree.addEventListener("checkboxClickedEvent", function (e) {
