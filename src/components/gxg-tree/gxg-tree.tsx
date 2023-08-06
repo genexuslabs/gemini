@@ -8,6 +8,7 @@ import {
   Method,
 } from "@stencil/core";
 import { GxgTreeItem } from "../gxg-tree-item/gxg-tree-item";
+import { renderTree } from "./renderTree";
 
 @Component({
   tag: "gxg-tree",
