@@ -53,6 +53,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+- [gxg-tree](../tree)
+
 ### Depends on
 
 - [gxg-icon](../icon)
@@ -65,6 +69,7 @@ graph TD;
   gxg-tree-item --> gxg-icon
   gxg-tree-item --> ch-form-checkbox
   gxg-icon --> ch-icon
+  gxg-tree --> gxg-tree-item
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

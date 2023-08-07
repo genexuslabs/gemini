@@ -56,6 +56,7 @@ import {
 } from "./components/list-box-item/list-box-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
+import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
 import { PillType } from "./components/pill/pill";
 import { LabelPosition as LabelPosition2 } from "./components/form-select/gxg-select";
 import { LabelPosition as LabelPosition3 } from "./components/form-select-v2/gxg-select-v2";
@@ -1335,8 +1336,10 @@ export namespace Components {
     disabled: boolean;
   }
   interface GxgPaginator {
-    activePage: number;
-    totalPages: number;
+    /**
+     * The paginator alignment:
+     */
+    alignment: PaginatorAlignment;
   }
   interface GxgPill {
     /**
@@ -3795,8 +3798,10 @@ declare namespace LocalJSX {
     onOptionSelected?: (event: CustomEvent<any>) => void;
   }
   interface GxgPaginator {
-    activePage?: number;
-    totalPages?: number;
+    /**
+     * The paginator alignment:
+     */
+    alignment?: PaginatorAlignment;
   }
   interface GxgPill {
     /**

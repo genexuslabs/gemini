@@ -7,8 +7,11 @@ import { Component, Host, h, Prop, getAssetPath, Element } from "@stencil/core";
 })
 export class GxgPaginator {
   @Element() el!: HTMLElement;
-  @Prop() activePage: number;
-  @Prop() totalPages: number;
+
+  /**
+   * The paginator alignment:
+   */
+  @Prop({ reflect: true }) alignment: PaginatorAlignment = "center";
 
   componentWillLoad() {
     const iconsUrl = getAssetPath("./icon-assets/");
@@ -38,3 +41,5 @@ export class GxgPaginator {
     );
   }
 }
+
+export type PaginatorAlignment = "start" | "center" | "end";

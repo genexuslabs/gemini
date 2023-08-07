@@ -157,7 +157,11 @@ export class GxgTree {
         >
           <div class="main-tree-container">
             <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
-              <slot></slot>
+              {this.model ? (
+                renderTree(this.model, true, this.el)
+              ) : (
+                <slot></slot>
+              )}
             </ul>
           </div>
         </div>

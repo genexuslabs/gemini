@@ -4,16 +4,31 @@ $color: var(--gray-04);
 $colorHover: var(--color-primary-hover);
 
 gxg-paginator {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding-top: var(--spacing-comp-01);
   padding-bottom: var(--spacing-comp-01);
+
+  /*Alignment*/
+  &[alignment="start"] {
+    align-items: flex-start;
+  }
+  &[alignment="center"] {
+    align-items: center;
+  }
+  &[alignment="end"] {
+    align-items: flex-end;
+  }
+}
+
+gxg-paginator[alignment="end"] {
+  align-items: flex-end;
 }
 
 ch-paginator {
+  display: inline-block;
   background-color: var(--color-background);
-  display: flex;
   gap: var(--spacing-comp-01);
-
   justify-content: center;
 }
 

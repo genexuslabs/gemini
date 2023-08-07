@@ -4,10 +4,9 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type     | Default     |
-| ------------ | ------------- | ----------- | -------- | ----------- |
-| `activePage` | `active-page` |             | `number` | `undefined` |
-| `totalPages` | `total-pages` |             | `number` | `undefined` |
+| Property    | Attribute   | Description              | Type                           | Default    |
+| ----------- | ----------- | ------------------------ | ------------------------------ | ---------- |
+| `alignment` | `alignment` | The paginator alignment: | `"center" \| "end" \| "start"` | `"center"` |
 
 ---
 

@@ -26,6 +26,28 @@ Type: `Promise<CheckedGxgTreeItem[]>`
 
 Type: `Promise<ToggledGxgTreeItem[]>`
 
+## Dependencies
+
+### Used by
+
+- [gxg-tree](.)
+
+### Depends on
+
+- [gxg-tree](.)
+- [gxg-tree-item](../tree-item)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-tree --> gxg-tree
+  gxg-tree-item --> gxg-icon
+  gxg-tree-item --> ch-form-checkbox
+  gxg-icon --> ch-icon
+  style gxg-tree fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_
