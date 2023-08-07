@@ -10,7 +10,16 @@ import { Component, h, Host, Prop, Listen, Element } from "@stencil/core";
   shadow: true,
 })
 export class GxgTest {
+  @Element() el: HTMLElement;
   @Prop() slottedContentList: JSX.Element = (<gxg-button>Hola</gxg-button>);
+
+  componentDidLoad() {
+    this.el.innerHTML = this.returnButton();
+  }
+
+  returnButton = () => {
+    return `<gxg-button>Hey handsome</gxg-button>`;
+  };
 
   render() {
     return (

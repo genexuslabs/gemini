@@ -7,6 +7,7 @@ import {
   Listen,
   Method,
   Host,
+  Watch,
 } from "@stencil/core";
 import { GxgTreeItem } from "../tree-item/gxg-tree-item";
 import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
@@ -77,6 +78,11 @@ export class GxgTree {
     notLeafTreeItems.forEach((treeItem) => {
       treeItem.updateTreeVerticalLineHeight();
     });
+  }
+
+  @Watch("model")
+  watchModelHandler(newValue) {
+    console.log(this.model);
   }
 
   /**

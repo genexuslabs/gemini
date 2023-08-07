@@ -161,11 +161,7 @@ ch-grid-row[focused] {
 }
 ch-grid-row[selected] {
   ch-grid-cell:not([selected]) {
-    background-color: var(--color-secondary-hover);
-    color: var(--color-on-primary);
-  }
-  ch-grid-cell[selected] {
-    background-color: var(--color-secondary-hover);
+    background-color: var(--color-secondary-enabled);
   }
 }
 ch-grid-cell[selected] {
@@ -173,6 +169,9 @@ ch-grid-cell[selected] {
   background-color: var(--color-secondary-enabled) !important;
 }
 ch-grid-row[selected] {
+  ch-grid-cell {
+    color: var(--color-on-secondary);
+  }
   + ch-grid-row[selected] {
     ch-grid-cell {
       border-top-color: var(--color-secondary-hover);
