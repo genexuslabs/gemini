@@ -14,7 +14,7 @@ export class GxgLabel {
   /*
    * The label position (This will not position the label itself, just the margin).
    */
-  @Prop() labelPosition: "above" | "end" | "below" | "start" = "above";
+  @Prop() labelPosition: "above" | "end" | "below" | "start" = "start";
 
   /*
    * The presence of this attribute styles the label as disabled
@@ -29,7 +29,7 @@ export class GxgLabel {
   /*
    * Align the text to the middle
    */
-  @Prop() center = false;
+  @Prop() center: boolean = undefined;
 
   /*
    * The name for the target element
@@ -45,6 +45,15 @@ export class GxgLabel {
    * An optional label tooltip (Useful if the label is too long).
    */
   @Prop() tooltip: string;
+
+  componentWillLoad() {
+    if (
+      (this.center === undefined && this.labelPosition === "start") ||
+      (this.center === undefined && this.labelPosition === "end")
+    ) {
+      this.center = true;
+    }
+  }
 
   render() {
     return (

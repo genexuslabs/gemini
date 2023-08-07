@@ -6,10 +6,10 @@
 
 | Property        | Attribute        | Description                                                                              | Type                                     | Default     |
 | --------------- | ---------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- |
-| `center`        | `center`         |                                                                                          | `boolean`                                | `false`     |
+| `center`        | `center`         |                                                                                          | `boolean`                                | `undefined` |
 | `disabled`      | `disabled`       |                                                                                          | `boolean`                                | `false`     |
 | `for`           | `for`            |                                                                                          | `string`                                 | `undefined` |
-| `labelPosition` | `label-position` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"above" \| "below" \| "end" \| "start"` | `"above"`   |
+| `labelPosition` | `label-position` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"above" \| "below" \| "end" \| "start"` | `"start"`   |
 | `noMargin`      | `no-margin`      |                                                                                          | `boolean`                                | `false`     |
 | `tooltip`       | `tooltip`        |                                                                                          | `string`                                 | `undefined` |
 | `width`         | `width`          |                                                                                          | `string`                                 | `"auto"`    |
