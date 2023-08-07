@@ -11,7 +11,7 @@ import { exportParts } from "../../common/export-parts";
 })
 export class GxgButton {
   private parts = {
-    button: "button-part-1 button-part-2",
+    button: "button",
     caption: "caption",
   };
   private exportparts: string;

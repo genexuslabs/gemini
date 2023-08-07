@@ -11,16 +11,32 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./pages/dev-styles.css" />
+    <link rel="stylesheet" href="./pages/assets/dev-styles.css" />
     <script>
       //Components
-      const inProgress = [];
+      const tests = [
+        "tree-small",
+        "buttons-alignment",
+        "ch-grid-full",
+        "ch-grid-german",
+        "chameleon",
+        "combo-box-dialog",
+        "combo-box-overflow",
+        "combo-box-inside-modal",
+        "combo-box-debug",
+        "drop-down-overflow",
+        "errors-and-disabled",
+        "list-box-two",
+        "modal-color-picker",
+        "parts",
+        "responsive-container",
+        "test",
+        "tree-small",
+      ];
 
       const completed = [
-        "parts",
         "entity-selector",
         "suggest",
-        "errors-and-disabled",
         "container",
         "toggle",
         "stepper",
@@ -34,33 +50,23 @@
         "box",
         "breadcrumbs",
         "button-group",
-        "buttons-alignment",
         "buttons",
         "card",
-        "ch-grid-full",
-        "ch-grid-german",
         "ch-grid",
         "ch-icon",
         "ch-qr",
-        "chameleon",
         "checkbox",
         "color-picker",
-        "combo-box-dialog",
-        "combo-box-overflow",
         "combo-box",
-        "combo-box-inside-modal",
         "date-picker",
         "demo",
         "drag-box",
-        "drop-down-overflow",
         "drop-down",
         "filter",
         "form-select",
         "form-text",
         "form-textarea",
-        "list-box-two",
         "list-box",
-        "modal-color-picker",
         "modal",
         "more-info",
         "options",
@@ -68,11 +74,9 @@
         "spacer-layout",
         "splitter",
         "tabs",
-        "test",
         "text",
         "titles",
         "tree-grid",
-        "tree-small",
         "tree",
         "window",
       ];
@@ -81,16 +85,18 @@
   <body class="dark" style="text-align: center">
     <div class="container">
       <h1 class="title h2">Gemini</h1>
-      <p>Web Components</p>
-      <h2 class="title h4">Completed:</h2>
+      <p style="max-width: 300px; margin: 16px auto 0 auto; line-height: 1.6em">
+        A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
+      </p>
+      <h2 class="title h4 align-left">🧬 Components:</h2>
       <ul class="list unstyled" id="completedUl">
         <!-- populated dinamically with javascript -->
       </ul>
     </div>
 
     <div class="container">
-      <h2 class="title h4">In progress:</h2>
-      <ul class="list unstyled in-progress" id="inProgressUl">
+      <h2 class="title h4 align-left">🧪 Tests:</h2>
+      <ul class="list unstyled in-progress" id="testsUl">
         <!-- populated dinamically with javascript -->
       </ul>
     </div>
@@ -102,21 +108,21 @@
     completed.sort().forEach((el) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.setAttribute("href", `/pages/${el}.html`);
+      a.setAttribute("href", `/pages/components/${el}.html`);
       a.innerText = el;
       li.appendChild(a);
       completedUl.appendChild(li);
     });
 
     //In Progress
-    const inProgressUl = document.getElementById("inProgressUl");
-    inProgress.sort().forEach((el) => {
+    const testsUl = document.getElementById("testsUl");
+    tests.sort().forEach((el) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.setAttribute("href", `/pages/${el}.html`);
+      a.setAttribute("href", `/pages/tests/${el}.html`);
       a.innerText = el;
       li.appendChild(a);
-      inProgressUl.appendChild(li);
+      testsUl.appendChild(li);
     });
   </script>
 </html>
