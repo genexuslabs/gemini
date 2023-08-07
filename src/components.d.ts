@@ -73,12 +73,13 @@ import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
+import { GxgTreeItemData } from "./components/tree-item/gxg-tree-item";
 import {
   CheckedGxgTreeItem,
   ToggledGxgTreeItem,
-} from "./components/gxg-tree/gxg-tree";
+} from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
-import { chTreeItemData } from "./components/gxg-tree-item/gxg-tree-item";
+import { GxgTreeItemDataEmmited } from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -1627,9 +1628,7 @@ export namespace Components {
     noPadding: boolean;
     position: TabsPosition;
   }
-  interface GxgTest {
-    model: any;
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -1726,6 +1725,10 @@ export namespace Components {
       idsArray?: (string | number)[]
     ) => Promise<CheckedGxgTreeItem[]>;
     /**
+     * A model of the tree. Use this if you prefer to use a model instead of markup directly.
+     */
+    model: GxgTreeItemData[];
+    /**
      * Set this attribute if you want all the items to be opened by default.
      */
     opened: boolean;
@@ -1785,6 +1788,10 @@ export namespace Components {
      * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     leftIcon: string;
+    /**
+     * A reference for the master tree (the first tree). This is only needed if using the model, instead of using common markup.
+     */
+    masterTree: HTMLGxgTreeElement;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
@@ -4079,9 +4086,7 @@ declare namespace LocalJSX {
     noPadding?: boolean;
     position?: TabsPosition;
   }
-  interface GxgTest {
-    model?: any;
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -4176,6 +4181,10 @@ declare namespace LocalJSX {
      */
     checked?: boolean;
     /**
+     * A model of the tree. Use this if you prefer to use a model instead of markup directly.
+     */
+    model?: GxgTreeItemData[];
+    /**
      * Set this attribute if you want all the items to be opened by default.
      */
     opened?: boolean;
@@ -4229,9 +4238,15 @@ declare namespace LocalJSX {
      */
     leftIcon?: string;
     /**
+     * A reference for the master tree (the first tree). This is only needed if using the model, instead of using common markup.
+     */
+    masterTree?: HTMLGxgTreeElement;
+    /**
      * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
      */
-    onCheckboxClickedEvent?: (event: CustomEvent<chTreeItemData>) => void;
+    onCheckboxClickedEvent?: (
+      event: CustomEvent<GxgTreeItemDataEmmited>
+    ) => void;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
     /**
