@@ -107,6 +107,7 @@ graph TD;
   gxg-combo-box --> gxg-form-text
   gxg-combo-box --> gxg-button
   gxg-combo-box --> gxg-form-message
+  gxg-label --> gxg-tooltip
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message

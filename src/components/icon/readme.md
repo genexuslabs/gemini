@@ -41,7 +41,7 @@
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
 - [gxg-tree-grid-divs](../tree-grid-divs)
-- [gxg-tree-item](../gxg-tree-item)
+- [gxg-tree-item](../tree-item)
 - [gxg-window](../window)
 
 ### Depends on

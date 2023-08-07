@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Listen } from "@stencil/core";
+import { Component, h, Host, Prop, Listen, Element } from "@stencil/core";
 //import { GxgComboBox } from "../combo-box/combo-box";
 //import { GxgFormSelect } from "../form-select/gxg-select";
 //import { GxgModal } from "../modal/modal";
@@ -10,40 +10,21 @@ import { Component, h, Host, Prop, Listen } from "@stencil/core";
   shadow: true,
 })
 export class GxgTest {
-  gxgTree: HTMLGxgTreeElement;
-  @Prop() model;
-
-  tree1!: HTMLGxgTreeElement;
-  tree2!: HTMLGxgTreeElement;
-  private ChTree!: HTMLGxgTreeElement;
-
-  componentDidLoad() {
-    this.tree1.addEventListener(
-      "checkboxClickedEvent",
-      function (e: CustomEvent) {
-        console.log("tree1 received the checkboxClickedEvent event", e.detail);
-      }
-    );
-    this.tree2.addEventListener(
-      "checkboxClickedEvent",
-      function (e: CustomEvent) {
-        console.log("tree1 received the checkboxClickedEvent event", e.detail);
-      }
-    );
-  }
+  @Element() el: HTMLElement;
+  private updateSlot = () => {
+    // Update the content based on the fetched data
+    const button = <gxg-button></gxg-button>;
+    console.log(button);
+    //this.el.innerHTML = "<gxg-button>Bomba</gxg-button>";
+  };
 
   render() {
     return (
       <Host>
-        {/* <gxg-tree
-          model={this.model}
-          ref={(el) => (this.tree1 = el as HTMLGxgTreeElement)}
-        ></gxg-tree>
-        <hr />
-        <gxg-tree
-          model={this.model}
-          ref={(el) => (this.tree2 = el as HTMLGxgTreeElement)}
-        ></gxg-tree> */}
+        <slot></slot>
+        <gxg-button onClick={this.updateSlot.bind(this)}>
+          update slot
+        </gxg-button>
       </Host>
     );
   }

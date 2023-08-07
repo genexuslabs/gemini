@@ -89,6 +89,7 @@ Type: `Promise<boolean>`
 graph TD;
   gxg-form-textarea --> gxg-label
   gxg-form-textarea --> gxg-form-message
+  gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
   style gxg-form-textarea fill:#f9f,stroke:#333,stroke-width:4px

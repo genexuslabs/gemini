@@ -51,6 +51,7 @@ no-weekends>
 ```mermaid
 graph TD;
   gxg-date-picker --> gxg-label
+  gxg-label --> gxg-tooltip
   style gxg-date-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

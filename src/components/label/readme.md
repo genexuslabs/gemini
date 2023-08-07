@@ -4,13 +4,15 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                              | Type                                     | Default   |
-| --------------- | ---------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------- | --------- |
-| `center`        | `center`         |                                                                                          | `boolean`                                | `false`   |
-| `disabled`      | `disabled`       |                                                                                          | `boolean`                                | `false`   |
-| `labelPosition` | `label-position` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"above" \| "below" \| "end" \| "start"` | `"above"` |
-| `noMargin`      | `no-margin`      |                                                                                          | `boolean`                                | `false`   |
-| `width`         | `width`          |                                                                                          | `string`                                 | `"auto"`  |
+| Property        | Attribute        | Description                                                                              | Type                                     | Default     |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- |
+| `center`        | `center`         |                                                                                          | `boolean`                                | `false`     |
+| `disabled`      | `disabled`       |                                                                                          | `boolean`                                | `false`     |
+| `for`           | `for`            |                                                                                          | `string`                                 | `undefined` |
+| `labelPosition` | `label-position` | **************\*\*\*************** PROPERTIES & STATE **************\*\*\*************** | `"above" \| "below" \| "end" \| "start"` | `"above"`   |
+| `noMargin`      | `no-margin`      |                                                                                          | `boolean`                                | `false`     |
+| `tooltip`       | `tooltip`        |                                                                                          | `string`                                 | `undefined` |
+| `width`         | `width`          |                                                                                          | `string`                                 | `"auto"`    |
 
 ## Dependencies
 
@@ -32,10 +34,15 @@
 - [gxg-stepper](../stepper)
 - [gxg-toggle](../toggle)
 
+### Depends on
+
+- [gxg-tooltip](../tooltip)
+
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-label --> gxg-tooltip
   gxg-button-group --> gxg-label
   gxg-color-picker --> gxg-label
   gxg-combo-box --> gxg-label

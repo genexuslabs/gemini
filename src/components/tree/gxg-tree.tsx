@@ -6,8 +6,11 @@ import {
   Prop,
   Listen,
   Method,
+  Host,
 } from "@stencil/core";
-import { GxgTreeItem } from "../gxg-tree-item/gxg-tree-item";
+import { GxgTreeItem } from "../tree-item/gxg-tree-item";
+import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
+import { renderTree } from "./renderTree";
 
 @Component({
   tag: "gxg-tree",
@@ -32,27 +35,26 @@ export class GxgTree {
   /**
    * Set this attribute if you want all the items to be checked by default.
    */
-  @Prop({ mutable: true }) checked = false;
+  @Prop({ mutable: true, reflect: true }) checked = false;
 
   /**
    * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
    */
   @Prop() toggleCheckboxes = false;
 
+  /**
+   * A model of the tree. Use this if you prefer to use a model instead of markup directly.
+   */
+  @Prop() model: GxgTreeItemData[];
+
   //STATE
   @State() nestedTree = false;
-  @State() mainTree = false;
 
   componentWillLoad() {
     //Check if this tree is nested
     const parentElementTagName = this.el.parentElement.tagName;
     if (parentElementTagName === "GXG-TREE-ITEM") {
       this.nestedTree = true;
-    }
-    //if this is the main tree...
-    const parentTreeTagName = this.el.parentElement.tagName;
-    if (parentTreeTagName !== "GXG-TREE-ITEM") {
-      this.mainTree = true;
     }
   }
 
@@ -139,30 +141,21 @@ export class GxgTree {
   }
 
   render() {
-    return this.mainTree ? (
-      <div
-        class={{
-          tree: true,
-          "main-tree": true,
-        }}
-      >
-        <div class="main-tree-container">
-          <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
-            <slot></slot>
-          </ul>
+    return (
+      <Host>
+        <div
+          class={{
+            tree: true,
+            "main-tree": true,
+          }}
+        >
+          <div class="main-tree-container">
+            <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
+              <slot></slot>
+            </ul>
+          </div>
         </div>
-      </div>
-    ) : (
-      <div
-        class={{
-          tree: true,
-          "nested-tree": true,
-        }}
-      >
-        <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
-          <slot></slot>
-        </ul>
-      </div>
+      </Host>
     );
   }
 }

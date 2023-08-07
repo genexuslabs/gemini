@@ -27,6 +27,7 @@
 ```mermaid
 graph TD;
   gxg-toggle --> gxg-label
+  gxg-label --> gxg-tooltip
   style gxg-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

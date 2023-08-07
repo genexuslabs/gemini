@@ -2,11 +2,21 @@
 
 <!-- Auto Generated Below -->
 
-## Properties
+## Dependencies
 
-| Property | Attribute | Description | Type  | Default     |
-| -------- | --------- | ----------- | ----- | ----------- |
-| `model`  | `model`   |             | `any` | `undefined` |
+### Depends on
+
+- [gxg-button](../button)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-test --> gxg-button
+  gxg-button --> gxg-icon
+  gxg-icon --> ch-icon
+  style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ---
 

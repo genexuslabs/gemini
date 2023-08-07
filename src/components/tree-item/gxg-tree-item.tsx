@@ -11,7 +11,7 @@ import {
   Method,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
-import { GxgTree } from "../gxg-tree/gxg-tree";
+import { GxgTree } from "../tree/gxg-tree";
 
 @Component({
   tag: "gxg-tree-item",
@@ -23,6 +23,11 @@ export class GxgTreeItem {
   checkboxInput!: HTMLInputElement;
 
   //PROPS
+
+  /**
+   * A reference for the master tree (the first tree). This is only needed if using the model, instead of using common markup.
+   */
+  @Prop() masterTree: HTMLGxgTreeElement;
 
   /**
    * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
@@ -103,11 +108,12 @@ export class GxgTreeItem {
   /**
    * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
    */
-  @Event() checkboxClickedEvent: EventEmitter<chTreeItemData>;
+  @Event() checkboxClickedEvent: EventEmitter<GxgTreeItemDataEmmited>;
 
   @Element() el: HTMLGxgTreeItemElement;
 
   componentWillLoad() {
+    //console.log("tree-item will load", this.el);
     //Count number of parent trees in order to set the appropriate padding-left
     this.numberOfParentTrees = this.getParents(this.el);
 
@@ -226,10 +232,11 @@ export class GxgTreeItem {
 
   private cascadeConfig = () => {
     //Cascade configuration (set some properties based on the parent tree-item configuration, unless this item has this properties already set.
+
     const parentTree = this.el.parentElement;
-    const parentTreeParent = parentTree.parentElement;
+    const parentTreeParent = parentTree.closest("gxg-tree");
     let masterTree = false;
-    if (parentTreeParent.nodeName !== "GXG-TREE") {
+    if (parentTreeParent) {
       //The parent-tree of this tree-item is the master-tree
       masterTree = true;
     }
@@ -247,7 +254,13 @@ export class GxgTreeItem {
       reference = parentTreeParentItem;
     } else {
       //This tree-item is on the first level. Check the parent tree for configurations.
-      reference = parentTree;
+      if (this.masterTree) {
+        /*Used for custom markup (This works with slotted content)*/
+        reference = this.masterTree;
+      } else {
+        /*Used when using a model (no markup) (Model method does not works with slotted content)*/
+        reference = parentTree;
+      }
     }
 
     this.checkbox = !reference.checkbox ? reference.checkbox : this.checkbox;
@@ -666,6 +679,7 @@ export class GxgTreeItem {
                     <gxg-icon
                       onClick={this.toggleTreeIconClicked.bind(this)}
                       type={this.returnToggleIconType()}
+                      color="auto"
                       class="icon toggle-icon"
                     ></gxg-icon>
                   </div>,
@@ -692,27 +706,27 @@ export class GxgTreeItem {
               ></ch-form-checkbox>
             ) : null}
             {this.leftIcon ? (
-              <ch-icon
-                src={this.resolveLeftIcon()}
-                auto-color={this.disabled ? "disabled" : "auto"}
+              <gxg-icon
+                type={this.resolveLeftIcon()}
+                color="auto"
                 class="icon icon--left"
                 style={{
                   "--icon-size": "14px",
                 }}
-              ></ch-icon>
+              ></gxg-icon>
             ) : null}
             <span class="text">
               <slot></slot>
             </span>
             {this.rightIcon ? (
-              <ch-icon
-                src={this.resolveRightIcon()}
+              <gxg-icon
+                type={this.resolveRightIcon()}
                 color={this.rightIconColor}
                 class="icon icon--right"
                 style={{
                   "--icon-size": "14px",
                 }}
-              ></ch-icon>
+              ></gxg-icon>
             ) : null}
             {this.download ? <span class={{ loading: true }}></span> : null}
           </div>
@@ -723,7 +737,20 @@ export class GxgTreeItem {
   }
 }
 
-export type chTreeItemData = {
+export type GxgTreeItemDataEmmited = {
   checked: boolean;
   id: string;
+};
+
+export type GxgTreeItemData = {
+  id: string;
+  name: string;
+  checkbox?: boolean;
+  checked?: boolean;
+  disabled?: boolean;
+  icon?: string;
+  indeterminate?: boolean;
+  items?: GxgTreeItemData[];
+  opened?: boolean;
+  selected?: boolean;
 };

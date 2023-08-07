@@ -31,38 +31,22 @@
     <!-- with markup -->
     <span>with markup</span>
 
-    <gxg-tree id="gxg-tree-markup" checked toggle-checkboxes>
-      <gxg-tree-item
-        id="meats"
-        left-icon="/build/icon-assets/general/generator.svg"
-      >
-        Meats
-        <gxg-tree id="tree-meats" slot="tree">
-          <gxg-tree-item
-            id="cow-1"
-            left-icon="/build/icon-assets/general/generator.svg"
-          >
-            Cow 1
+    <gxg-tree id="gxg-tree-markup" toggle-checkboxes>
+      <gxg-tree-item id="a" left-icon="general/generator">
+        A
+        <gxg-tree id="a" slot="tree">
+          <gxg-tree-item id="a1" left-icon="general/generator">
+            A1
           </gxg-tree-item>
-          <gxg-tree-item id="cow-2">
-            Cow 2
-            <gxg-tree id="tree-cow-2" slot="tree">
-              <gxg-tree-item
-                id="cow-2-small"
-                left-icon="/build/icon-assets/general/generator.svg"
-              >
-                Cow 2 small
-              </gxg-tree-item>
-              <gxg-tree-item id="cow-2-medium"> Cow 2 medium </gxg-tree-item>
-              <gxg-tree-item id="cow-2-big"> Cow 2 big </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-          <gxg-tree-item id="cow-3"> Cow 3 </gxg-tree-item>
+          <gxg-tree-item id="a2"> A2 </gxg-tree-item>
+          <gxg-tree-item id="a3"> A3 </gxg-tree-item>
         </gxg-tree>
       </gxg-tree-item>
-      <gxg-tree-item id="fish"> Fish </gxg-tree-item>
-      <gxg-tree-item id="nuts"> Nuts </gxg-tree-item>
+      <gxg-tree-item id="b"> B </gxg-tree-item>
+      <gxg-tree-item id="c"> C </gxg-tree-item>
+      <p slot="model">hola</p>
     </gxg-tree>
+
     <br />
     <gxg-button class="get-checked-btn markup">Get checked</gxg-button>
     <gxg-button class="get-checked-by-id-btn markup"
@@ -74,56 +58,47 @@
 
     <hr />
 
+    <!-- gxg-tree-model -->
+
+    <hr />
+
     <!-- with data model -->
     <span>with data model</span>
-    <gxg-tree id="gxg-tree-model" checked checkbox="false"></gxg-tree>
+    <gxg-tree id="gxg-tree-model"></gxg-tree>
     <script>
       const model = [
         {
-          id: "apple123",
-          name: "IOS",
+          id: "a",
+          name: "A",
           icon: "general/apple",
+          checkbox: true,
           items: [
             {
-              id: "subApple",
-              name: "subApple",
+              id: "a1",
+              name: "A1",
               icon: "general/apple",
-              items: [
-                {
-                  id: "subSubApple1",
-                  name: "subSubApple1",
-                  icon: "general/apple",
-                },
-                {
-                  id: "subSubApple2",
-                  name: "subSubApple2",
-                  icon: "general/apple",
-                },
-              ],
             },
             {
-              id: "subApple2",
-              name: "subApple2",
+              id: "a2",
+              name: "A2",
+              icon: "general/apple",
+            },
+            {
+              id: "a3",
+              name: "A3",
               icon: "general/apple",
             },
           ],
         },
         {
-          id: "java",
-          name: "JAVA",
-          icon: "general/java",
-          items: [
-            {
-              id: "subJava1",
-              name: "subJava1",
-              icon: "general/apple",
-            },
-            {
-              id: "subJava2",
-              name: "subAJava2",
-              icon: "general/apple",
-            },
-          ],
+          id: "b",
+          name: "B",
+          icon: "general/apple",
+        },
+        {
+          id: "c",
+          name: "C",
+          icon: "general/apple",
         },
       ];
     </script>
@@ -140,11 +115,14 @@
     <script>
       const gxgTreeMarkup = document.getElementById("gxg-tree-markup");
       const gxgTreeModel = document.getElementById("gxg-tree-model");
-      gxgTreeMarkup.basePath = "/build/icon-assets/";
+      const gxgTreeModelComp = document.querySelector("gxg-tree-model");
+      if (gxgTreeMarkup) {
+        gxgTreeMarkup.basePath = "";
+      }
       /*Load model*/
       const loadModelButton = document.getElementsByClassName("load-model-btn");
       loadModelButton[0].addEventListener("click", () => {
-        console.log("hola");
+        //gxgTreeModelComp.model = model;
         gxgTreeModel.model = model;
       });
 
@@ -232,9 +210,11 @@
       });
 
       /*Listen to checkboxClicked event*/
-      gxgTreeMarkup.addEventListener("checkboxClickedEvent", function (e) {
-        console.log(e.detail);
-      });
+      if (gxgTreeMarkup) {
+        gxgTreeMarkup.addEventListener("checkboxClickedEvent", function (e) {
+          console.log(e.detail);
+        });
+      }
     </script>
     <hr />
   </body>

@@ -54,6 +54,7 @@
 ```mermaid
 graph TD;
   gxg-button-group --> gxg-label
+  gxg-label --> gxg-tooltip
   gxg-color-picker --> gxg-button-group
   style gxg-button-group fill:#f9f,stroke:#333,stroke-width:4px
 ```

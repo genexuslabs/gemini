@@ -42,6 +42,7 @@ graph TD;
   gxg-drop-down --> gxg-label
   gxg-drop-down --> gxg-icon
   gxg-drop-down --> gxg-button
+  gxg-label --> gxg-tooltip
   gxg-icon --> ch-icon
   gxg-button --> gxg-icon
   style gxg-drop-down fill:#f9f,stroke:#333,stroke-width:4px

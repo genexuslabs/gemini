@@ -97,6 +97,7 @@ Type: `Promise<boolean>`
 ```mermaid
 graph TD;
   gxg-select --> gxg-label
+  gxg-label --> gxg-tooltip
   style gxg-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

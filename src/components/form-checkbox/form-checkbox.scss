@@ -7,6 +7,12 @@
   .gxg-form-checkbox__wrapper {
     display: flex;
     align-items: center;
+    &--align-top {
+      align-items: flex-start;
+      .checkbox {
+        margin-top: var(--spacing-comp-00);
+      }
+    }
   }
   .label:last-child {
     margin-bottom: 0;

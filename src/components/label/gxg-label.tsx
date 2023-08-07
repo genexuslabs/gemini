@@ -32,9 +32,19 @@ export class GxgLabel {
   @Prop() center = false;
 
   /*
+   * The name for the target element
+   */
+  @Prop() for: string;
+
+  /*
    * The label width
    */
   @Prop() width = "auto";
+
+  /*
+   * An optional label tooltip (Useful if the label is too long).
+   */
+  @Prop() tooltip: string;
 
   render() {
     return (
@@ -49,7 +59,12 @@ export class GxgLabel {
           width: this.width,
         }}
       >
-        <label>
+        <label htmlFor={this.for}>
+          {this.tooltip ? (
+            <gxg-tooltip label={this.tooltip}>
+              <slot></slot>
+            </gxg-tooltip>
+          ) : null}
           <slot></slot>
         </label>
       </Host>
