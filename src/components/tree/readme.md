@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description                                                 | Type                                                                                                | Default                                                                              |
-| ---------- | ----------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `basePath` | `base-path` | The base path for Gemini icon assets.                       | `string`                                                                                            | `"/build/icon-assets/"`                                                              |
-| `config`   | --          | The base/parent tree configuration.                         | `{ checkbox?: boolean; checked?: boolean; singleSelection?: boolean; toggleCheckboxes?: boolean; }` | `{ checkbox: true, checked: false, singleSelection: true, toggleCheckboxes: true, }` |
-| `model`    | --          | The tree model (optional). An array of GxgTreeItem's items. | `GxgTreeItem[]`                                                                                     | `undefined`                                                                          |
+| Property   | Attribute   | Description                                                 | Type                                                                     | Default                                                       |
+| ---------- | ----------- | ----------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| `basePath` | `base-path` | The base path for Gemini icon assets.                       | `string`                                                                 | `"/build/icon-assets/"`                                       |
+| `config`   | --          | The base/parent tree configuration.                         | `{ checkbox?: boolean; checked?: boolean; toggleCheckboxes?: boolean; }` | `{ checkbox: true, checked: false, toggleCheckboxes: true, }` |
+| `model`    | --          | The tree model (optional). An array of GxgTreeItem's items. | `GxgTreeItem[]`                                                          | `undefined`                                                   |
 
 ## Dependencies
 

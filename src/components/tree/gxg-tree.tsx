@@ -16,7 +16,6 @@ export class GxgTree {
   @Prop() config: GxgTreeConfig = {
     checkbox: true,
     checked: false,
-    singleSelection: true,
     toggleCheckboxes: true,
   };
 
@@ -31,7 +30,6 @@ export class GxgTree {
         <ch-tree
           checkbox={this.config?.checkbox ?? true}
           checked={this.config?.checked ?? false}
-          singleSelection={this.config?.singleSelection ?? true}
           toggleCheckboxes={this.config?.toggleCheckboxes ?? true}
         >
           {model.map((item: GxgTreeItem) => {
@@ -87,7 +85,6 @@ export class GxgTree {
 export type GxgTreeConfig = {
   checkbox?: boolean;
   checked?: boolean;
-  singleSelection?: boolean;
   toggleCheckboxes?: boolean;
 };
 
