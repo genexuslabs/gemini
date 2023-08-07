@@ -686,6 +686,10 @@ export namespace Components {
   }
   interface GxgFormCheckbox {
     /**
+     * Aligns the checkbox to the top of the label (useful when the label is too long)
+     */
+    alignTop: boolean;
+    /**
      * The checkbox id
      */
     checkboxId: string;
@@ -733,6 +737,7 @@ export namespace Components {
      * The presence of this attribute makes the commbo required
      */
     required: boolean;
+    tooltip: string;
     /**
      * ******************************* METHODS *******************************
      */
@@ -1068,11 +1073,13 @@ export namespace Components {
   interface GxgLabel {
     center: boolean;
     disabled: boolean;
+    for: string;
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
     labelPosition: "above" | "end" | "below" | "start";
     noMargin: boolean;
+    tooltip: string;
     width: string;
   }
   interface GxgListBox {
@@ -3092,6 +3099,10 @@ declare namespace LocalJSX {
   }
   interface GxgFormCheckbox {
     /**
+     * Aligns the checkbox to the top of the label (useful when the label is too long)
+     */
+    alignTop?: boolean;
+    /**
      * The checkbox id
      */
     checkboxId?: string;
@@ -3140,6 +3151,7 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the commbo required
      */
     required?: boolean;
+    tooltip?: string;
     /**
      * The presence of this attribute will check the input validity on every user input
      */
@@ -3491,11 +3503,13 @@ declare namespace LocalJSX {
   interface GxgLabel {
     center?: boolean;
     disabled?: boolean;
+    for?: string;
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
     labelPosition?: "above" | "end" | "below" | "start";
     noMargin?: boolean;
+    tooltip?: string;
     width?: string;
   }
   interface GxgListBox {

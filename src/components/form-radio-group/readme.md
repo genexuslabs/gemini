@@ -46,6 +46,7 @@ Type: `Promise<boolean>`
 graph TD;
   gxg-form-radio-group --> gxg-label
   gxg-form-radio-group --> gxg-form-message
+  gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
   style gxg-form-radio-group fill:#f9f,stroke:#333,stroke-width:4px

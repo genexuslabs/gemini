@@ -43,6 +43,7 @@ graph TD;
   gxg-form-checkbox --> gxg-label
   gxg-form-checkbox --> gxg-form-message
   gxg-icon --> ch-icon
+  gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   style gxg-list-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```

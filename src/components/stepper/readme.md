@@ -30,6 +30,7 @@
 ```mermaid
 graph TD;
   gxg-stepper --> gxg-label
+  gxg-label --> gxg-tooltip
   style gxg-stepper fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

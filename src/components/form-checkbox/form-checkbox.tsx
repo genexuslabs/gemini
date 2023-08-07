@@ -70,6 +70,11 @@ export class GxgFormCheckbox implements FormComponent {
    */
   @Prop() iconName: string = undefined;
 
+  /**
+   * Aligns the checkbox to the top of the label (useful when the label is too long)
+   */
+  @Prop() alignTop = false;
+
   @Event() change: EventEmitter<CheckboxInfo>;
 
   /*VALIDATION*/
@@ -130,6 +135,11 @@ export class GxgFormCheckbox implements FormComponent {
    * warning condition is met or not
    */
   @Prop() warningCondition: Function;
+
+  /*
+   * An optional label tooltip (Useful if the label is too long).
+   */
+  @Prop() tooltip: string;
 
   /**
    * The logic for displaying or hidding the validation messages
@@ -251,11 +261,11 @@ export class GxgFormCheckbox implements FormComponent {
           "no-label": !this.label,
           "has-icon": !!this.iconName,
           "form-element": true,
+          checkbox: true,
         }}
         role="checkbox"
       ></span>,
       this.icon(),
-      this.label,
     ];
   };
 
@@ -280,15 +290,26 @@ export class GxgFormCheckbox implements FormComponent {
             this.validationStatus === "success",
         }}
       >
-        <div class="gxg-form-checkbox__wrapper">
+        <div
+          class={{
+            "gxg-form-checkbox__wrapper": true,
+            "gxg-form-checkbox__wrapper--align-top": this.alignTop,
+          }}
+        >
           {this.label ? (
-            <gxg-label
-              class="label"
-              onClick={this.handleGxgLabelClick}
-              disabled={this.disabled}
-            >
-              {this.renderCheckbox()}
-            </gxg-label>
+            [
+              this.renderCheckbox(),
+              <gxg-label
+                class="label"
+                onClick={this.handleGxgLabelClick}
+                disabled={this.disabled}
+                labelPosition="end"
+                noMargin
+                tooltip={this.tooltip}
+              >
+                {this.label}
+              </gxg-label>,
+            ]
           ) : (
             <div class="wrapper" onClick={this.handleGxgLabelClick}>
               {this.renderCheckbox()}

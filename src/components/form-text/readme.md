@@ -149,6 +149,7 @@ graph TD;
   gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
   gxg-icon --> ch-icon
+  gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   gxg-accordion-item --> gxg-form-text
   gxg-combo-box --> gxg-form-text

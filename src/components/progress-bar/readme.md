@@ -23,6 +23,7 @@
 ```mermaid
 graph TD;
   gxg-progress-bar --> gxg-label
+  gxg-label --> gxg-tooltip
   style gxg-progress-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

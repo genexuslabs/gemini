@@ -30,6 +30,7 @@
 graph TD;
   gxg-color-picker --> gxg-label
   gxg-color-picker --> gxg-button-group
+  gxg-label --> gxg-tooltip
   gxg-button-group --> gxg-label
   style gxg-color-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
