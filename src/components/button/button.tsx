@@ -10,6 +10,12 @@ import { exportParts } from "../../common/export-parts";
   shadow: { delegatesFocus: true },
 })
 export class GxgButton {
+  private parts = {
+    button: "button-part-1 button-part-2",
+    caption: "caption",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLElement;
 
   button!: HTMLButtonElement;
@@ -17,16 +23,6 @@ export class GxgButton {
   /*********************************
   PROPERTIES & STATE
   *********************************/
-
-  /**
-   * The prefix used for auto-generation of exportparts. (exportparts = partPrefix + part-name)
-   */
-  @Prop({ reflect: true }) part: string;
-
-  /**
-   * The exportparts definition
-   */
-  @Prop({ reflect: true }) exportparts: string;
 
   /**
    * The presence of this attribute makes the icon always black
@@ -82,8 +78,15 @@ export class GxgButton {
     if (tabIndex === "-1") {
       this.noTabIndex = true;
     }
-    console.log("typeof this", typeof this);
+    this.attachExportParts();
   }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
 
   componentDidLoad() {
     // Set aria-label to host
@@ -107,7 +110,6 @@ export class GxgButton {
         .querySelector("button")
         .setAttribute("part", "native-button");
     }
-    exportParts(this, this.el, this.part, this.exportparts);
   }
 
   emptyDiv() {
@@ -228,6 +230,7 @@ export class GxgButton {
         onMouseLeave={this.onMouseLeave.bind(this)}
         onfocusin={this.onFocusIn.bind(this)}
         onfocusout={this.onFocusOut.bind(this)}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
@@ -238,12 +241,12 @@ export class GxgButton {
           }}
           disabled={this.disabled === true}
           ref={(el) => (this.button = el as HTMLButtonElement)}
-          part="button-part-1 button-part-2"
+          part={this.parts.button}
         >
           {this.emptyDiv()}
           {this.regularIcon()}
           {this.type.includes("text") || this.type === "outlined" ? (
-            <span part="caption" class="text">
+            <span part={this.parts.caption} class="text">
               <slot />
             </span>
           ) : null}
