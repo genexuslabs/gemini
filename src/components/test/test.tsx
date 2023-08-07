@@ -10,22 +10,14 @@ import { Component, h, Host, Prop, Listen, Element } from "@stencil/core";
   shadow: true,
 })
 export class GxgTest {
-  @Element() el: HTMLElement;
-  private updateSlot = () => {
-    // Update the content based on the fetched data
-    const button = <gxg-button></gxg-button>;
-    console.log(button);
-    //this.el.innerHTML = "<gxg-button>Bomba</gxg-button>";
-  };
+  @Prop() slottedContentList: JSX.Element = (<gxg-button>Hola</gxg-button>);
 
   render() {
     return (
-      <Host>
+      <div>
         <slot></slot>
-        <gxg-button onClick={this.updateSlot.bind(this)}>
-          update slot
-        </gxg-button>
-      </Host>
+        {this.slottedContentList}
+      </div>
     );
   }
 }

@@ -6,6 +6,7 @@
 *****************************************************/
 
 :host {
+  --gxg-button-icon-size: 24px;
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -16,10 +17,10 @@
 }
 
 :host(.button) .button-native {
+  width: 100%;
   --svg-icon-regular-scale: var(
     --svg-icon-small-scale
   ); // Force Icon size inside button to always be small size.
-
   height: 20px;
   position: relative;
 
@@ -32,8 +33,7 @@
   }
   &:focus:not([disabled]):not(.no-tab-index) {
     background: var(--color-primary-enabled);
-    box-shadow: var(--box-shadow-values) var(--color-primary-active);
-    outline: none;
+    @include form-element-common-styles-focus-type-1();
   }
   &:active:not([disabled]) {
     background: var(--color-primary-active);
@@ -81,10 +81,6 @@ PRIMARY 'TEXT + ICON' BUTTON TYPE
 :host(.button--primary-icon-only) .button-native {
   background: var(--color-primary-enabled);
   color: var(--color-on-primary);
-  width: 20px;
-  height: 20px;
-  padding-left: 0;
-  padding-right: 0;
 
   &:hover:not([disabled]) {
     background: var(--color-primary-hover);
@@ -180,10 +176,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 *********************************/
 :host(.button--secondary-icon-only) .button-native {
   background: transparent;
-  padding-inline-end: 0;
-  padding-inline-start: 0;
-  width: 20px;
-  height: 20px;
 
   &:hover:not([disabled]) {
     background: transparent;
@@ -251,7 +243,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   padding-inline-end: 0;
   padding-inline-start: 0;
   height: 20px;
-  width: 20px;
 
   &:hover:not([disabled]) {
     background: transparent;
@@ -320,6 +311,17 @@ ICON TOOLTIP (ONLY FOR PRIMARY-ICON-ONLY & SECONDARY-ICON-ONLY TYPES)
   }
 }
 
+/*********************************
+ICON ONLY
+*********************************/
+:host(.button--icon-only) {
+  width: var(--gxg-button-icon-size);
+  height: var(--gxg-button-icon-size);
+  .button-native {
+    padding: 0;
+  }
+}
+
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
@@ -334,7 +336,6 @@ LARGE VERSION (html tag has 'gxg-large' class)
 }
 //'PRIMARY ICON ONLY' BUTTON TYPE
 :host(.button--primary-icon-only.large) .button-native {
-  width: var(--spacing-comp-05);
   height: var(--spacing-comp-05);
 }
 //SECONDARY 'TEXT ICON' BUTTON TYPE
@@ -344,11 +345,9 @@ LARGE VERSION (html tag has 'gxg-large' class)
 }
 //'SECONDARY ICON ONLY' BUTTON TYPE
 :host(.button--secondary-icon-only.large) .button-native {
-  width: var(--spacing-comp-05);
   height: var(--spacing-comp-05);
 }
 //'TERTIARY' BUTTON TYPE
 :host(.button--tertiary.large) .button-native {
   height: var(--spacing-comp-05);
-  width: var(--spacing-comp-05);
 }

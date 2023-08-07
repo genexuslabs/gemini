@@ -2,6 +2,12 @@
 
 <!-- Auto Generated Below -->
 
+## Properties
+
+| Property             | Attribute | Description | Type      | Default                           |
+| -------------------- | --------- | ----------- | --------- | --------------------------------- |
+| `slottedContentList` | --        |             | `Element` | `(<gxg-button>Hola</gxg-button>)` |
+
 ## Dependencies
 
 ### Depends on

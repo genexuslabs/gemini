@@ -208,6 +208,10 @@ export class GxgButton {
           "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true,
           "button--fit": this.fit,
+          "button--icon-only":
+            this.type === "primary-icon-only" ||
+            this.type === "secondary-icon-only" ||
+            this.type === "tertiary",
           large: state.large,
         }}
         onClick={this.clickHandler.bind(this)}

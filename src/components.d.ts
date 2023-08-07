@@ -1635,7 +1635,9 @@ export namespace Components {
     noPadding: boolean;
     position: TabsPosition;
   }
-  interface GxgTest {}
+  interface GxgTest {
+    slottedContentList: JSX.Element;
+  }
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
@@ -4100,7 +4102,9 @@ declare namespace LocalJSX {
     noPadding?: boolean;
     position?: TabsPosition;
   }
-  interface GxgTest {}
+  interface GxgTest {
+    slottedContentList?: JSX.Element;
+  }
   interface GxgText {
     /**
      * The href (for "link" or "link-gray" types
