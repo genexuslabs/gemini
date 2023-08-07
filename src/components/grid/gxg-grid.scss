@@ -158,6 +158,12 @@ ch-grid-row[dragging] {
 }
 ch-grid-row[focused] {
   border-color: var(--color-primary-active);
+  // > ch-grid-cell:first-child {
+  //   border-inline-start: 2px solid var(--color-primary-active);
+  // }
+  // > ch-grid-cell:last-child {
+  //   border-inline-end: 2px solid var(--color-primary-active);
+  // }
 }
 ch-grid-row[selected] {
   ch-grid-cell:not([selected]) {
