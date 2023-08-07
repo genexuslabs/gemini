@@ -83,7 +83,6 @@ export class GxgButton {
 
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const exportPartsResult = exportParts(part, this.parts);
     exportPartsResult.length && (this.exportparts = exportPartsResult);
   };
