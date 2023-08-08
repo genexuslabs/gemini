@@ -235,6 +235,8 @@ export class GxgDropDown {
           minWidth: this.minWidth,
           maxWidth: this.maxWidth,
         }}
+        onClick={this.toggleContent.bind(this)}
+        onKeyDown={this.onKeyDown.bind(this)}
       >
         <div
           class={{ "main-container": true }}
@@ -249,8 +251,6 @@ export class GxgDropDown {
               "select-container": true,
               "nothing-selected": this.initialButtonText === "Select item",
             }}
-            onClick={this.toggleContent.bind(this)}
-            onKeyDown={this.onKeyDown.bind(this)}
           >
             {this.icon !== "" ? (
               <gxg-icon

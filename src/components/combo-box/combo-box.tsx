@@ -20,6 +20,7 @@ import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { repositionScroll } from "../../common/repositionScroll";
 import { KeyboardKeys as KK } from "../../common/types";
+import { exportParts } from "../../common/export-parts";
 import state from "../store";
 @Component({
   tag: "gxg-combo-box",
@@ -27,6 +28,13 @@ import state from "../store";
   shadow: { delegatesFocus: true },
 })
 export class GxgComboBox implements FormComponent {
+  private parts = {
+    input: "input",
+    clearButton: "clear-button",
+    toggleButton: "toggle-button",
+  };
+  private exportparts: string;
+
   /**
    * This event is triggered when the combo box value changes.
    */
@@ -207,7 +215,15 @@ export class GxgComboBox implements FormComponent {
 
   componentWillLoad(): void {
     this.setup();
+    this.attachExportParts();
   }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   componentDidLoad(): void {
     this.resizeObserver();
   }
@@ -411,7 +427,6 @@ export class GxgComboBox implements FormComponent {
 
   private filterList = (text: string): HTMLGxgComboBoxItemElement[] => {
     text = this.sanitizeString(text);
-    console.log(text);
     !this.caseSensitive && (text = text.toLowerCase());
     const enabledItems = this.getEnabledItems();
     const filteredItems: HTMLGxgComboBoxItemElement[] = [];
@@ -576,6 +591,7 @@ export class GxgComboBox implements FormComponent {
   };
 
   private inputTextClickHandler = (): void => {
+    console.log("click handler");
     this.disableFilter && this.toggleList();
   };
 
@@ -688,6 +704,7 @@ export class GxgComboBox implements FormComponent {
           large: state.large,
         }}
         style={{ maxWidth: this.maxWidth, minWidth: this.minWidth }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <div
           class={{
@@ -723,6 +740,7 @@ export class GxgComboBox implements FormComponent {
                 validationStatus={this.validationStatus}
                 disabled={this.disabled}
                 class={{ "clear-icon": clearIcon }}
+                part={this.parts.input}
               ></gxg-form-text>
               <div class="buttons-wrapper">
                 {clearIcon ? (
@@ -734,6 +752,7 @@ export class GxgComboBox implements FormComponent {
                     tabindex="-1"
                     fit
                     disabled={this.disabled}
+                    part={this.parts.clearButton}
                   ></gxg-button>
                 ) : null}
 
@@ -745,6 +764,7 @@ export class GxgComboBox implements FormComponent {
                   fit
                   disabled={this.disabled}
                   tabindex="-1"
+                  part={this.parts.toggleButton}
                 ></gxg-button>
               </div>
             </div>

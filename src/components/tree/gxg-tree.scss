@@ -1,7 +1,7 @@
 @import "../../globals/mixins.scss";
 
 :host {
-  display: flex;
+  display: block;
   --gxg-tree-item-inner-spacing: var(--spacing-comp-01);
   overflow: auto;
   @include gxg-scrollbar();
@@ -11,8 +11,4 @@
     padding-left: 0;
     width: 100%;
   }
-}
-.main-tree-container {
-  position: relative;
-  width: 100%;
 }

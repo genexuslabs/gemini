@@ -4,23 +4,38 @@
 
 ## Properties
 
-| Property             | Attribute | Description | Type      | Default                           |
-| -------------------- | --------- | ----------- | --------- | --------------------------------- |
-| `slottedContentList` | --        |             | `Element` | `(<gxg-button>Hola</gxg-button>)` |
+| Property                | Attribute                  | Description | Type      | Default |
+| ----------------------- | -------------------------- | ----------- | --------- | ------- |
+| `buttonTestExportParts` | `button-test-export-parts` |             | `boolean` | `false` |
+
+## Shadow Parts
+
+| Part        | Description |
+| ----------- | ----------- |
+| `"tab"`     |             |
+| `"tab-bar"` |             |
 
 ## Dependencies
 
 ### Depends on
 
-- [gxg-button](../button)
+- [gxg-tabs](../tabs)
+- [gxg-tab-bar](../tab-bar)
+- [gxg-tab-button](../tab-button)
+- [gxg-tab](../tab)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-button
+  gxg-test --> gxg-tabs
+  gxg-test --> gxg-tab-bar
+  gxg-test --> gxg-tab-button
+  gxg-test --> gxg-tab
+  gxg-tab-bar --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-tab-button --> gxg-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

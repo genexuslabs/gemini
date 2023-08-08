@@ -1,6 +1,7 @@
 import {
   Component,
   Host,
+  Element,
   Prop,
   h,
   Event,
@@ -16,6 +17,7 @@ import state from "../store";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-form-textarea",
@@ -23,6 +25,12 @@ import { formClasses } from "../../common/classesNames";
   shadow: true,
 })
 export class GxgFormTextarea implements FormComponent {
+  private parts = {
+    textarea: "textarea",
+  };
+  private exportparts: string;
+
+  @Element() el: HTMLElement;
   //A reference to the input
   textArea!: HTMLTextAreaElement;
 
@@ -152,6 +160,17 @@ export class GxgFormTextarea implements FormComponent {
   /*********************************
   METHODS
   *********************************/
+
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   @Method()
   async validate(): Promise<boolean> {
     if (!this.disabled) {
@@ -222,6 +241,7 @@ export class GxgFormTextarea implements FormComponent {
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.label ? (
           <gxg-label
@@ -252,6 +272,7 @@ export class GxgFormTextarea implements FormComponent {
           rows={this.rows}
           required={this.required}
           style={{ height: this.height }}
+          part={this.parts.textarea}
         ></textarea>
 
         {formMessageLogic(this)}

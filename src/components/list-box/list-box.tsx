@@ -387,6 +387,7 @@ export class GxgListBox implements FormComponent {
         if (item && checked) {
           checkedItemsArray.push({
             active: item.active,
+            selected: item.selected,
             checked: checked,
             highlighted: item.highlighted,
             index: item.index,
@@ -761,6 +762,7 @@ export class GxgListBox implements FormComponent {
     selectedItems.forEach((item) => {
       selectedItemsArray.push({
         active: item.active,
+        selected: item.selected,
         checked: item.checked,
         highlighted: item.highlighted,
         index: item.index,
@@ -970,6 +972,7 @@ type HandleArrow = typeof KK.ARROW_UP | typeof KK.ARROW_DOWN;
 
 export type ItemsInformation = {
   active: boolean;
+  selected: boolean;
   checked: boolean;
   highlighted: boolean;
   index: number;

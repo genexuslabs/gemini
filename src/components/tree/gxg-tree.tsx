@@ -152,18 +152,11 @@ export class GxgTree {
         <div
           class={{
             tree: true,
-            "main-tree": true,
           }}
         >
-          <div class="main-tree-container">
-            <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
-              {this.model ? (
-                renderTree(this.model, true, this.el)
-              ) : (
-                <slot></slot>
-              )}
-            </ul>
-          </div>
+          <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
+            {this.model ? renderTree(this.model, true, this.el) : <slot></slot>}
+          </ul>
         </div>
       </Host>
     );

@@ -15,12 +15,19 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                       | Type                                                                   | Default     |
-| ------------ | ------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------- |
-| `disabled`   | `disabled`    | The presence of this attribute disables the pillgit a                             | `boolean`                                                              | `false`     |
-| `heightAuto` | `height-auto` | The presence of this attribute sets auto-height. Usefull when the text overflows. | `boolean`                                                              | `false`     |
-| `icon`       | `icon`        | The icon                                                                          | `string`                                                               | `undefined` |
-| `type`       | `type`        | The type of pill                                                                  | `"button" \| "button-with-action" \| "static" \| "static-with-action"` | `"static"`  |
+| Property          | Attribute     | Description                                                                       | Type                                                                   | Default     |
+| ----------------- | ------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ----------- |
+| `disabled`        | `disabled`    | The presence of this attribute disables the pillgit a                             | `boolean`                                                              | `false`     |
+| `heightAuto`      | `height-auto` | The presence of this attribute sets auto-height. Usefull when the text overflows. | `boolean`                                                              | `false`     |
+| `icon`            | `icon`        | The icon                                                                          | `string`                                                               | `undefined` |
+| `id` _(required)_ | `id`          | The pill id                                                                       | `string`                                                               | `undefined` |
+| `type`            | `type`        | The type of pill                                                                  | `"button" \| "button-with-action" \| "static" \| "static-with-action"` | `"static"`  |
+
+## Events
+
+| Event         | Description | Type                  |
+| ------------- | ----------- | --------------------- |
+| `pillRemoved` |             | `CustomEvent<string>` |
 
 ## Dependencies
 

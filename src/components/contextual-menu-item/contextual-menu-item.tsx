@@ -1,4 +1,12 @@
-import { Component, Prop, h, Host, Element } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Element,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-contextual-menu-item",
@@ -7,11 +15,17 @@ import { Component, Prop, h, Host, Element } from "@stencil/core";
 })
 export class ContextualMenuItem {
   @Element() el: HTMLElement;
+  @Event() contextualMenuItemSelected: EventEmitter<string>;
 
   /**
    * Optional icon
    */
   @Prop() icon: string = null;
+
+  /**
+   * The id
+   */
+  @Prop() id: string;
 
   printIcon() {
     if (this.icon !== null) {
@@ -37,9 +51,13 @@ export class ContextualMenuItem {
     }
   }
 
+  private clickHandler = () => {
+    this.contextualMenuItemSelected.emit(this.id);
+  };
+
   render() {
     return (
-      <Host>
+      <Host onClick={this.clickHandler}>
         <li
           class={{
             "contextual-menu-item": true,

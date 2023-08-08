@@ -9,6 +9,7 @@ import {
 } from "@stencil/core";
 import { GxgTabButton } from "../tab-button/tab-button";
 import { TabsPosition } from "../tabs/tabs";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-tab-bar",
@@ -16,6 +17,11 @@ import { TabsPosition } from "../tabs/tabs";
   shadow: true,
 })
 export class GxgTabBar {
+  private parts = {
+    buttonMenu: "button-menu",
+  };
+  private exportparts: string;
+
   constructor() {
     this.detectClickOutsideTabBarMenu = this.detectClickOutsideTabBarMenu.bind(
       this
@@ -147,6 +153,15 @@ export class GxgTabBar {
     this.evaluateMenuButtonsTabIndex(this.tabBarMenuCollapsed);
   }
 
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   componentDidLoad() {
     //Reading Direction
     const dirHtml = document
@@ -205,6 +220,7 @@ export class GxgTabBar {
             ref={(el) =>
               (this.tabBarMenuToggleButton = el as HTMLGxgButtonElement)
             }
+            part={this.parts.buttonMenu}
           ></gxg-button>
         </div>
       );
@@ -255,6 +271,7 @@ export class GxgTabBar {
         class={{
           rtl: this.rtl,
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <nav
           class={{

@@ -219,6 +219,10 @@ export namespace Components {
      * The breadcrumb icon (optional)
      */
     icon: string;
+    /**
+     * The breadcrumb id
+     */
+    id: string;
   }
   interface GxgBreadcrumbs {}
   interface GxgButton {
@@ -550,6 +554,10 @@ export namespace Components {
      * Optional icon
      */
     icon: string;
+    /**
+     * The id
+     */
+    id: string;
   }
   interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
@@ -1029,9 +1037,6 @@ export namespace Components {
      * The number of rows
      */
     rows: number;
-    /**
-     * ******************************* METHODS *******************************
-     */
     validate: () => Promise<boolean>;
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
@@ -1235,6 +1240,7 @@ export namespace Components {
   interface GxgMenuItem {
     active: boolean;
     icon: string;
+    id: string;
     label: string;
   }
   interface GxgModal {
@@ -1354,6 +1360,10 @@ export namespace Components {
      * The icon
      */
     icon: string;
+    /**
+     * The pill id
+     */
+    id: string;
     /**
      * The type of pill
      */
@@ -1639,7 +1649,7 @@ export namespace Components {
     position: TabsPosition;
   }
   interface GxgTest {
-    slottedContentList: JSX.Element;
+    buttonTestExportParts: boolean;
   }
   interface GxgText {
     /**
@@ -1809,7 +1819,7 @@ export namespace Components {
      */
     opened: boolean;
     /**
-     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * Set the right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon: string;
     /**
@@ -2596,6 +2606,10 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
+     * The breadcrumb id
+     */
+    id: string;
+    /**
      * This event emmits the breadcrumb index
      */
     onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
@@ -2938,6 +2952,11 @@ declare namespace LocalJSX {
      * Optional icon
      */
     icon?: string;
+    /**
+     * The id
+     */
+    id?: string;
+    onContextualMenuItemSelected?: (event: CustomEvent<string>) => void;
   }
   interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
@@ -3685,8 +3704,9 @@ declare namespace LocalJSX {
   interface GxgMenuItem {
     active?: boolean;
     icon?: string;
+    id?: string;
     label?: string;
-    onMenuItemActive?: (event: CustomEvent<any>) => void;
+    onMenuItemActive?: (event: CustomEvent<string>) => void;
   }
   interface GxgModal {
     flavor?: "classic" | "alternate";
@@ -3816,6 +3836,11 @@ declare namespace LocalJSX {
      * The icon
      */
     icon?: string;
+    /**
+     * The pill id
+     */
+    id: string;
+    onPillRemoved?: (event: CustomEvent<string>) => void;
     /**
      * The type of pill
      */
@@ -4108,7 +4133,7 @@ declare namespace LocalJSX {
     position?: TabsPosition;
   }
   interface GxgTest {
-    slottedContentList?: JSX.Element;
+    buttonTestExportParts?: boolean;
   }
   interface GxgText {
     /**
@@ -4277,7 +4302,7 @@ declare namespace LocalJSX {
      */
     opened?: boolean;
     /**
-     * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * Set the right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
      */
     rightIcon?: string;
     /**

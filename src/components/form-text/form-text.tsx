@@ -18,6 +18,7 @@ import {
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-form-text",
@@ -25,6 +26,11 @@ import state from "../store";
   shadow: { delegatesFocus: true },
 })
 export class GxgFormText implements FormComponent {
+  private parts = {
+    input: "input",
+  };
+  private exportparts: string;
+  @Element() el: HTMLElement;
   textInput!: HTMLInputElement;
 
   /*********************************
@@ -194,8 +200,6 @@ export class GxgFormText implements FormComponent {
    */
   @Prop() minLength: string = undefined;
 
-  @Element() el: HTMLElement;
-
   /**
    * Returns the input value
    */
@@ -232,6 +236,14 @@ export class GxgFormText implements FormComponent {
     }
   }
 
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
   /*********************************
   METHODS
   *********************************/
@@ -507,6 +519,7 @@ export class GxgFormText implements FormComponent {
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div
@@ -533,7 +546,7 @@ export class GxgFormText implements FormComponent {
             }}
           >
             <input
-              part="input"
+              part={this.parts.input}
               type={this.type()}
               value={this.value}
               class={{

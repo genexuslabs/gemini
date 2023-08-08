@@ -4,9 +4,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                    | Type     | Default     |
-| -------- | --------- | ------------------------------ | -------- | ----------- |
-| `icon`   | `icon`    | The breadcrumb icon (optional) | `string` | `undefined` |
+| Property          | Attribute | Description                    | Type     | Default     |
+| ----------------- | --------- | ------------------------------ | -------- | ----------- |
+| `icon`            | `icon`    | The breadcrumb icon (optional) | `string` | `undefined` |
+| `id` _(required)_ | `id`      | The breadcrumb id              | `string` | `undefined` |
 
 ## Events
 

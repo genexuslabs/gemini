@@ -7,6 +7,7 @@ import {
   State,
   Listen,
 } from "@stencil/core";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-filter",
@@ -14,6 +15,11 @@ import {
   shadow: true,
 })
 export class GxgFilter {
+  private parts = {
+    input: "input",
+    buttonClose: "button-close",
+  };
+  private exportparts: string;
   @Element() el: HTMLElement;
 
   /**
@@ -37,7 +43,13 @@ export class GxgFilter {
       this.el.style.left = this.left;
       this.el.style.position = "absolute";
     }
+    this.attachExportParts();
   }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
 
   onInputGxgformText(e) {
     const noMatchSpan = this.el.shadowRoot.getElementById("no-match");
@@ -87,13 +99,14 @@ export class GxgFilter {
 
   render() {
     return (
-      <Host>
+      <Host exportParts={this.exportparts ? this.exportparts : null}>
         <header id="header">
           <div class="search-container">
             <gxg-form-text
               icon="gemini-tools/search"
               icon-position="start"
               onInput={this.onInputGxgformText.bind(this)}
+              part={this.parts.input}
             ></gxg-form-text>
           </div>
           <gxg-button
@@ -101,6 +114,7 @@ export class GxgFilter {
             icon="gemini-tools/close"
             type="tertiary"
             onClick={this.closeFilter.bind(this)}
+            part={this.parts.buttonClose}
           ></gxg-button>
         </header>
         <main id="main">

@@ -10,6 +10,7 @@ import {
 } from "@stencil/core";
 import datepicker from "js-datepicker";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-date-picker",
@@ -17,6 +18,11 @@ import state from "../store";
   shadow: true,
 })
 export class GxgDatePicker {
+  private parts = {
+    input: "input",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLElement;
 
   /**
@@ -63,6 +69,16 @@ export class GxgDatePicker {
    * Emits the new selected date
    */
   @Event() valueChanged: EventEmitter<DatePickerDate>;
+
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
 
   componentDidLoad() {
     //Reading Direction
@@ -201,9 +217,15 @@ export class GxgDatePicker {
         style={{
           maxWidth: this.maxWidth,
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.label ? <gxg-label class="label">{this.label}</gxg-label> : null}
-        <input type="text" id="date-picker" readOnly></input>
+        <input
+          type="text"
+          id="date-picker"
+          part={this.parts.input}
+          readOnly
+        ></input>
       </Host>
     );
   }
