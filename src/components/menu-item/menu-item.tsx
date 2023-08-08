@@ -25,6 +25,7 @@ export class GxgMenuItem {
   }
 
   setActive() {
+    this.active = true;
     this.menuItemActive.emit(this.id);
   }
 
