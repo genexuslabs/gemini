@@ -33,6 +33,8 @@
 
   color: var(--color-on-background);
 
+  width: 100%;
+
   display: block;
   li {
     list-style: none;
@@ -40,7 +42,7 @@
     font-size: var(--font-size);
     font-weight: var(--font-weight);
     color: var(--text-color);
-    height: 20px;
+    height: 24px;
     overflow: hidden;
 
     &.tree-open {
@@ -68,6 +70,9 @@
         &:hover {
           background-color: var(--item-hover-color);
         }
+      }
+      > * {
+        flex-shrink: 0;
       }
     }
     .vertical-line {
@@ -121,6 +126,11 @@
         background-color: var(--color-hover);
       }
     }
+    // .text {
+    //   white-space: nowrap;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    // }
   }
   .checkbox {
     margin-inline-end: var(--spacing-comp-01);

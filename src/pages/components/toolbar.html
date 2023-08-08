@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>toolbar | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <gxg-toolbar toolbar-title="The title" subtitle="The subtitle">
+      <gxg-toolbar-item
+        slot
+        icon="gemini-tools/settings"
+        toolbar-item-title="${valueFirstIconTitle}"
+        subtitle="${valueFirstIconSubtitle}"
+      ></gxg-toolbar-item>
+      <gxg-toolbar-item
+        slot
+        icon="gemini-tools/settings"
+        toolbar-item-title="Title"
+        subtitle="Subtitle"
+      ></gxg-toolbar-item>
+      <gxg-toolbar-item
+        slot
+        icon="gemini-tools/settings"
+        toolbar-item-title="Title"
+        subtitle="Subtitle"
+      ></gxg-toolbar-item>
+    </gxg-toolbar>
+  </body>
+</html>

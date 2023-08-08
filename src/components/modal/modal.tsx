@@ -11,6 +11,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-modal",
@@ -18,6 +19,11 @@ import state from "../store";
   shadow: true,
 })
 export class GxgModal {
+  private parts = {
+    closeButton: "close-button",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLElement;
 
   /*The modal flavor*/
@@ -79,6 +85,15 @@ export class GxgModal {
   @State() layerVisible = false;
   @State() modalVisible = false;
   @State() modalTransition = false;
+
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
 
   componentDidLoad() {
     this.el.style.display = "block";
@@ -145,6 +160,7 @@ export class GxgModal {
           large: state.large,
           "flavor-alternate": this.flavor === "alternate",
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <div class="modal-container">
           <div
@@ -165,6 +181,7 @@ export class GxgModal {
                 icon="gemini-tools/close"
                 type="tertiary"
                 onClick={this.closeModal.bind(this)}
+                part={this.parts.closeButton}
               ></gxg-button>
             </header>
             <div class="modal__container">

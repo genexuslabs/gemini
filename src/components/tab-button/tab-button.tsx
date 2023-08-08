@@ -10,13 +10,18 @@ import {
   Watch,
 } from "@stencil/core";
 import state from "../store";
-
+import { exportParts } from "../../common/export-parts";
 @Component({
   tag: "gxg-tab-button",
   styleUrl: "tab-button.scss",
   shadow: { delegatesFocus: true },
 })
 export class GxgTabButton {
+  private parts = {
+    button: "button",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLElement;
   tabButton!: HTMLButtonElement;
 
@@ -93,6 +98,15 @@ export class GxgTabButton {
     }
   }
 
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   componentDidLoad() {
     //Set the active tab for this tab-button if this is selected by default
     if (this.isSelected) {
@@ -106,6 +120,7 @@ export class GxgTabButton {
         class={{
           large: state.large,
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <li class="tab-item">
           <button
@@ -120,6 +135,7 @@ export class GxgTabButton {
             onClick={this.buttonClickHandler.bind(this)}
             onKeyDown={this.buttonKeyDownHandler.bind(this)}
             ref={(el) => (this.tabButton = el as HTMLButtonElement)}
+            part={this.parts.button}
           >
             {this.printIcon()}
             <span class="tab-button__text">{this.tabLabel}</span>

@@ -12,6 +12,7 @@ import {
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { GxgTree } from "../tree/gxg-tree";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-tree-item",
@@ -20,6 +21,12 @@ import { GxgTree } from "../tree/gxg-tree";
   assetsDirs: ["tree-item-assets"],
 })
 export class GxgTreeItem {
+  private parts = {
+    item: "item",
+    checkbox: "checkbox",
+    toggleButton: "toggle-button",
+  };
+  private exportparts: string;
   checkboxInput!: HTMLInputElement;
 
   //PROPS
@@ -43,6 +50,11 @@ export class GxgTreeItem {
    * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
    */
   @Prop({ mutable: true }) checked = false;
+
+  /**
+   * The presence of this attribute sets the tree-item as selected
+   */
+  @Prop({ mutable: true }) selected = false;
 
   /**
    * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
@@ -70,19 +82,14 @@ export class GxgTreeItem {
   @Prop() readonly leftIcon: string;
 
   /**
-   * Set thhe right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+   * Set the right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
    */
   @Prop() readonly rightIcon: string;
 
   /**
-   * The presence of this attribute sets the tree-item as selected
-   */
-  @Prop({ mutable: true }) selected = false;
-
-  /**
    * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
    */
-  @Prop({ mutable: true }) isLeaf: boolean = undefined;
+  @Prop({ mutable: true }) isLeaf = true;
 
   //PROPS
   @Prop({ mutable: true }) hasChildTree = false;
@@ -100,6 +107,7 @@ export class GxgTreeItem {
   @State() lastTreeItemOfParentTree = false;
   @State() rightIconColor: Color = "auto";
   @State() numberOfVisibleDescendantItems = 0;
+  private directNumberOfVisibleDescendantItems = 0;
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
@@ -119,12 +127,8 @@ export class GxgTreeItem {
 
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
-    if (this.isLeaf === undefined) {
-      if (treeItemHasTree === null) {
-        this.isLeaf = true;
-      } else {
-        this.hasChildTree = true;
-      }
+    if (treeItemHasTree) {
+      this.isLeaf = false;
     }
     //If is first item of tree
     const prevItem = this.el.previousElementSibling;
@@ -166,13 +170,28 @@ export class GxgTreeItem {
     }
 
     this.cascadeConfig();
+    this.attachExportParts();
   }
 
-  getNumberOfVisibleDescendantItems() {
-    const visibleChildrenItems = this.countNumberOfVisibleDescendantItems(
-      this.el
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
+  getNumberOfVisibleDescendantItems(item: HTMLGxgTreeItemElement) {
+    return this.countNumberOfVisibleDescendantItems(item);
+  }
+
+  getNumberOfDirectVisibleDescendantItems() {
+    const directTree = this.el.querySelector(":scope > gxg-tree");
+    const directVisibleChildrenItems = directTree?.querySelectorAll(
+      ":scope > gxg-tree-item"
     );
-    this.numberOfVisibleDescendantItems = visibleChildrenItems;
+    if (directTree && directVisibleChildrenItems) {
+      this.directNumberOfVisibleDescendantItems =
+        directVisibleChildrenItems.length;
+    }
   }
 
   private countNumberOfVisibleDescendantItems = (
@@ -227,7 +246,10 @@ export class GxgTreeItem {
 
   componentDidLoad() {
     this.setVisibleTreeItems();
-    this.getNumberOfVisibleDescendantItems();
+    const numberOfVisibleDescendants = this.getNumberOfVisibleDescendantItems(
+      this.el
+    );
+    this.numberOfVisibleDescendantItems = numberOfVisibleDescendants;
   }
 
   private cascadeConfig = () => {
@@ -308,7 +330,7 @@ export class GxgTreeItem {
 
   @Method()
   async updateTreeVerticalLineHeight() {
-    this.getNumberOfVisibleDescendantItems();
+    this.getNumberOfVisibleDescendantItems(this.el);
   }
 
   liTextClicked() {
@@ -558,7 +580,24 @@ export class GxgTreeItem {
 
   returnVerticalLineHeight() {
     //Returns the vertical line height, that associates the chid-items with the parent item
-    return `${this.numberOfVisibleDescendantItems * 20 - 10}px`;
+    let lastDirectItemItemsLength = 0;
+    const directTree = this.el.querySelector(":scope > gxg-tree");
+    if (directTree) {
+      const directItems = directTree.querySelectorAll(":scope > gxg-tree-item");
+      if (directItems) {
+        const lastDirectItem: HTMLGxgTreeItemElement = directItems[
+          directItems.length - 1
+        ] as HTMLGxgTreeItemElement;
+        if (!lastDirectItem.isLeaf) {
+          lastDirectItemItemsLength = this.getNumberOfVisibleDescendantItems(
+            lastDirectItem
+          );
+        }
+      }
+    }
+
+    const childrenItemsLength = this.getNumberOfVisibleDescendantItems(this.el);
+    return `${(childrenItemsLength - lastDirectItemItemsLength) * 22.5 - 10}px`;
   }
 
   returnHorizontalLineLeftPosition() {
@@ -644,10 +683,13 @@ export class GxgTreeItem {
 
   render() {
     return (
-      <Host class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}>
+      <Host
+        class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}
+        exportParts={this.exportparts ? this.exportparts : null}
+      >
         <li
           class={{
-            "tree-open": this.opened,
+            "tree-open": this.opened && !this.isLeaf,
             disabled: this.disabled,
           }}
         >
@@ -665,6 +707,7 @@ export class GxgTreeItem {
             onDblClick={this.liTextDoubleClicked.bind(this)}
             onKeyDown={this.liTextKeyDownPressed.bind(this)}
             tabIndex={this.liTextTabIndex()}
+            part={this.parts.item}
           >
             {!this.isLeaf || this.download
               ? [
@@ -681,6 +724,7 @@ export class GxgTreeItem {
                       type={this.returnToggleIconType()}
                       color="auto"
                       class="icon toggle-icon"
+                      part={this.parts.toggleButton}
                     ></gxg-icon>
                   </div>,
                 ]
@@ -703,6 +747,7 @@ export class GxgTreeItem {
                 indeterminate={this.setIndeterminate()}
                 disabled={this.disabled}
                 onClick={this.checkboxClicked.bind(this)}
+                part={this.parts.checkbox}
               ></ch-form-checkbox>
             ) : null}
             {this.leftIcon ? (

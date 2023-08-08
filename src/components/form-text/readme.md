@@ -121,12 +121,6 @@ METHODS
 
 Type: `Promise<boolean>`
 
-## Shadow Parts
-
-| Part      | Description |
-| --------- | ----------- |
-| `"input"` |             |
-
 ## Dependencies
 
 ### Used by

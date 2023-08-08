@@ -14,6 +14,7 @@ import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import state from "../store";
 import { JSXElement } from "@babel/types";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-form-checkbox",
@@ -21,6 +22,10 @@ import { JSXElement } from "@babel/types";
   shadow: { delegatesFocus: true },
 })
 export class GxgFormCheckbox implements FormComponent {
+  private parts = {
+    input: "input",
+  };
+  private exportparts: string;
   @Element() el: HTMLElement;
 
   //A reference to the input
@@ -186,6 +191,16 @@ export class GxgFormCheckbox implements FormComponent {
     }
   };
 
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   compontentDidLoad() {
     if (this.checked && this.disabled) {
       this.checked = false;
@@ -253,6 +268,7 @@ export class GxgFormCheckbox implements FormComponent {
         onKeyUp={this.handlerOnKeyUp.bind(this)}
         tabindex="0"
         onClick={this.handleInputClick}
+        part={this.parts.input}
       ></input>,
       <span
         part="box"
@@ -289,6 +305,7 @@ export class GxgFormCheckbox implements FormComponent {
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <div
           class={{

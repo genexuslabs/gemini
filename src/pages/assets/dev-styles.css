@@ -34,9 +34,14 @@ body.dark {
 }
 .container {
 }
-
 hr {
   opacity: 0.1;
+}
+.align-center {
+  text-align: center;
+}
+.align-left {
+  text-align: left;
 }
 
 /*!
@@ -312,7 +317,8 @@ body {
   display: none;
 }
 .h4 {
-  color: var(--gwds__color--dark-800);
+  color: var(--gwds__color--dark-300);
+  font-size: 18px;
 }
 /*responsive*/
 @media screen and (max-width: 1200px) {

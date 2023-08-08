@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,26 +11,64 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: var(--color-background);
+      }
+      span {
+        font-family: var(--font-family-primary);
+        font-size: 14px;
+        display: block;
+        margin-bottom: 16px;
+      }
+      hr {
+        margin: 16px 0;
+      }
+    </style>
   </head>
+
   <body>
-    <gxg-test id="gxg-test">
-      <p>Hola!</p>
-    </gxg-test>
+    <!-- with markup -->
+    <span>with markup</span>
+    <gxg-tree>
+      <gxg-tree-item checked opened selected left-icon="general/generator">
+        Meats
+        <ch-tree checkbox slot="tree">
+          <gxg-tree-item left-icon="general/patterns"> Cow </gxg-tree-item>
+          <gxg-tree-item opened left-icon="general/knowledge-base">
+            Goat
+            <ch-tree slot="tree">
+              <gxg-tree-item left-icon="general/generator">
+                dura
+              </gxg-tree-item>
+              <gxg-tree-item left-icon="general/patterns">
+                blanda
+              </gxg-tree-item>
+            </ch-tree>
+          </gxg-tree-item>
+        </ch-tree>
+      </gxg-tree-item>
+      <gxg-tree-item left-icon="general/generator"> Fish </gxg-tree-item>
+      <gxg-tree-item left-icon="general/knowledge-base"> Nuts </gxg-tree-item>
+    </gxg-tree>
+
     <hr />
+
+    <!-- with data model -->
+    <span>with data model</span>
     <gxg-tree id="gxg-tree"></gxg-tree>
     <script>
       const model = [
         {
           id: "apple123",
+          checkbox: true,
           name: "IOS",
           icon: "general/apple",
-          checkbox: true,
           items: [
             {
               id: "subApple",
               name: "subApple",
               icon: "general/apple",
-              checkbox: false,
               items: [
                 {
                   id: "subSubApple1",
@@ -69,11 +107,17 @@
           ],
         },
       ];
-      const gxgTest = document.getElementById("gxg-test");
       const gxgTree = document.getElementById("gxg-tree");
-      gxgTest.model = model;
-      gxgTree.model = model;
       gxgTree.basePath = "/build/icon-assets/";
     </script>
+    <br />
+    <gxg-button id="load-model">Load model</gxg-button>
+    <script>
+      const loadModel = document.getElementById("load-model");
+      loadModel.addEventListener("click", () => {
+        gxgTree.model = model;
+      });
+    </script>
+    <hr />
   </body>
 </html>

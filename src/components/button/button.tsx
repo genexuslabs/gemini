@@ -2,6 +2,7 @@ import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { Size } from "../icon/icon";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-button",
@@ -9,6 +10,12 @@ import state from "../store";
   shadow: { delegatesFocus: true },
 })
 export class GxgButton {
+  private parts = {
+    button: "button",
+    caption: "caption",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLGxgButtonElement;
 
   button!: HTMLButtonElement;
@@ -71,7 +78,14 @@ export class GxgButton {
     if (tabIndex === "-1") {
       this.noTabIndex = true;
     }
+    this.attachExportParts();
   }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
 
   componentDidLoad() {
     // Set aria-label to host
@@ -219,6 +233,7 @@ export class GxgButton {
         onMouseLeave={this.onMouseLeave.bind(this)}
         onfocusin={this.onFocusIn.bind(this)}
         onfocusout={this.onFocusOut.bind(this)}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
         <button
@@ -229,11 +244,12 @@ export class GxgButton {
           }}
           disabled={this.disabled === true}
           ref={(el) => (this.button = el as HTMLButtonElement)}
+          part={this.parts.button}
         >
           {this.emptyDiv()}
           {this.regularIcon()}
           {this.type.includes("text") || this.type === "outlined" ? (
-            <span class="text">
+            <span part={this.parts.caption} class="text">
               <slot />
             </span>
           ) : null}

@@ -8,13 +8,14 @@
 | -------- | --------- | ----------- | --------- | ----------- |
 | `active` | `active`  |             | `boolean` | `false`     |
 | `icon`   | `icon`    |             | `string`  | `null`      |
+| `id`     | `id`      |             | `string`  | `undefined` |
 | `label`  | `label`   |             | `string`  | `undefined` |
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `menuItemActive` |             | `CustomEvent<any>` |
+| Event            | Description | Type                  |
+| ---------------- | ----------- | --------------------- |
+| `menuItemActive` |             | `CustomEvent<string>` |
 
 ## Dependencies
 

@@ -4,9 +4,16 @@
 
 ## Properties
 
-| Property | Attribute | Description   | Type     | Default |
-| -------- | --------- | ------------- | -------- | ------- |
-| `icon`   | `icon`    | Optional icon | `string` | `null`  |
+| Property | Attribute | Description   | Type     | Default     |
+| -------- | --------- | ------------- | -------- | ----------- |
+| `icon`   | `icon`    | Optional icon | `string` | `null`      |
+| `id`     | `id`      | The id        | `string` | `undefined` |
+
+## Events
+
+| Event                        | Description | Type                  |
+| ---------------------------- | ----------- | --------------------- |
+| `contextualMenuItemSelected` |             | `CustomEvent<string>` |
 
 ## Dependencies
 

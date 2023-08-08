@@ -12,6 +12,7 @@ import {
 import state from "../store";
 import { commonClassesNames } from "../../common/classesNames";
 import { CheckboxInfo } from "../form-checkbox/form-checkbox";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-list-box-item",
@@ -19,6 +20,11 @@ import { CheckboxInfo } from "../form-checkbox/form-checkbox";
   shadow: true,
 })
 export class GxgListboxItem {
+  private parts = {
+    checkbox: "checkbox",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLElement;
 
   /**
@@ -120,6 +126,15 @@ export class GxgListboxItem {
     }
   }
 
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   componentDidLoad() {
     this.itemLoaded.emit();
   }
@@ -154,6 +169,7 @@ export class GxgListboxItem {
         onClick={this.itemClickedFunc.bind(this)}
         onMouseOver={this.onMouseOver.bind(this)}
         onMouseOut={this.onMouseOut.bind(this)}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <div class="container disabled-element">
           {this.checkbox && !this.disabled ? (
@@ -162,6 +178,7 @@ export class GxgListboxItem {
               checked={this.checked}
               onClick={this.handleCheckboxClick}
               disabled={this.disabled}
+              part={this.parts.checkbox}
             ></gxg-form-checkbox>
           ) : null}
           {this.icon !== undefined ? (

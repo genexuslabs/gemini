@@ -11,6 +11,7 @@ import {
 import { Color } from "../icon/icon";
 import { mode } from "../accordion/accordion";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-accordion-item",
@@ -18,6 +19,11 @@ import state from "../store";
   shadow: true,
 })
 export class GxgAccordionItem {
+  private parts = {
+    header: "header",
+  };
+  private exportparts: string;
+
   @Element() el: HTMLElement;
 
   /**
@@ -164,7 +170,14 @@ export class GxgAccordionItem {
     if (slottedMeta !== null) {
       this.hasSlottedMeta = true;
     }
+    this.attachExportParts();
   }
+
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
 
   componentDidLoad() {
     //Get accordion mode
@@ -242,6 +255,7 @@ export class GxgAccordionItem {
           "has-subtitle": this.itemSubtitle !== null,
           large: state.large,
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         {
           //disabled layer prevents interacting with the component and enables to use "not-allowed" cursor
@@ -263,6 +277,7 @@ export class GxgAccordionItem {
               aria-controls={this.itemId}
               aria-disabled={this.ariaDisabled()}
               onKeyDown={this.keyDownHandler.bind(this)}
+              part={this.parts.header}
             >
               {this.editableTitle &&
               (this.mode === "classical" || this.mode === "boxed") ? (

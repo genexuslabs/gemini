@@ -1,13 +1,27 @@
-import { Component, Element, Prop, h, Host } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 import state from "../store";
+import { exportParts } from "../../common/export-parts";
 @Component({
   tag: "gxg-pill",
   styleUrl: "pill.scss",
   shadow: true,
 })
 export class GxgPill {
-  @Element() el: HTMLElement;
+  private parts = {
+    removeButton: "remove-button",
+  };
+  private exportparts: string;
 
+  @Element() el: HTMLElement;
+  @Event() pillRemoved: EventEmitter<string>;
   /**
    * The presence of this attribute disables the pillgit a
    */
@@ -24,11 +38,26 @@ export class GxgPill {
   @Prop() heightAuto = false;
 
   /**
+   * The pill id
+   */
+  @Prop() id!: string;
+
+  /**
    * The type of pill
    */
   @Prop({ reflect: true }) type: PillType = "static";
 
+  componentWillLoad() {
+    this.attachExportParts();
+  }
+  private attachExportParts = (): void => {
+    const part = this.el.getAttribute("part");
+    const exportPartsResult = exportParts(part, this.parts);
+    exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
   removeButtonFunc() {
+    this.pillRemoved.emit(this.id);
     this.el.classList.add("hide");
     setTimeout(() => {
       this.el.remove();
@@ -59,6 +88,7 @@ export class GxgPill {
           "has-icon": this.icon !== undefined,
           large: state.large,
         }}
+        exportParts={this.exportparts ? this.exportparts : null}
       >
         <gxg-icon
           class="custom"
@@ -78,6 +108,7 @@ export class GxgPill {
             size="small"
             color="onbackground"
             onClick={this.removeButtonFunc.bind(this)}
+            part={this.parts.removeButton}
           ></gxg-icon>
         ) : null}
       </Host>

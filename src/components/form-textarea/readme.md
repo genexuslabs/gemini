@@ -66,12 +66,6 @@ btnShowErrors.addEventListener("click", function(){
 
 ### `validate() => Promise<boolean>`
 
----
-
-METHODS
-
----
-
 #### Returns
 
 Type: `Promise<boolean>`

@@ -4,6 +4,10 @@
 
 ## Dependencies
 
+### Used by
+
+- [gxg-test](../test)
+
 ### Depends on
 
 - [gxg-button](../button)
@@ -15,6 +19,7 @@ graph TD;
   gxg-tab-bar --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-test --> gxg-tab-bar
   style gxg-tab-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

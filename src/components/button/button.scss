@@ -6,7 +6,7 @@
 *****************************************************/
 
 :host {
-  --gxg-button-icon-size: 24px;
+  --gxg-button-icon-size: 20px;
   display: inline-block;
   line-height: 0;
   position: relative;
@@ -18,10 +18,10 @@
 
 :host(.button) .button-native {
   width: 100%;
+  height: 100%;
   --svg-icon-regular-scale: var(
     --svg-icon-small-scale
   ); // Force Icon size inside button to always be small size.
-  height: 20px;
   position: relative;
 
   @include gxg-button-styles;
@@ -242,7 +242,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   background: transparent;
   padding-inline-end: 0;
   padding-inline-start: 0;
-  height: 20px;
 
   &:hover:not([disabled]) {
     background: transparent;
@@ -325,6 +324,9 @@ ICON ONLY
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
+:host(.large) {
+  --gxg-button-icon-size: 24px;
+}
 :host(.large) .button-native {
   height: var(--spacing-comp-05);
   font-size: var(--font-size-lg) !important;
