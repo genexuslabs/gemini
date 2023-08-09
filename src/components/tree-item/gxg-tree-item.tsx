@@ -108,7 +108,7 @@ export class GxgTreeItem {
   @State() lastTreeItemOfParentTree = false;
   @State() rightIconColor: Color = "auto";
   @State() numberOfVisibleDescendantItems = 0;
-  private directNumberOfVisibleDescendantItems = 0;
+  private directVisibleItemsLength = 0;
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
@@ -124,7 +124,7 @@ export class GxgTreeItem {
   componentWillLoad() {
     //Count number of parent trees in order to set the appropriate padding-left
     this.numberOfParentTrees = this.getParentsNumber(this.el);
-
+    this.directVisibleItemsLength = this.getNumberOfDirectVisibleDescendantItems();
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
     if (treeItemHasTree) {
@@ -174,14 +174,15 @@ export class GxgTreeItem {
   }
 
   getNumberOfDirectVisibleDescendantItems() {
+    let count = 0;
     const directTree = this.el.querySelector(":scope > gxg-tree");
     const directVisibleChildrenItems = directTree?.querySelectorAll(
       ":scope > gxg-tree-item"
     );
     if (directTree && directVisibleChildrenItems) {
-      this.directNumberOfVisibleDescendantItems =
-        directVisibleChildrenItems.length;
+      count = directVisibleChildrenItems.length;
     }
+    return count;
   }
 
   private countNumberOfVisibleDescendantItems = (
@@ -575,10 +576,15 @@ export class GxgTreeItem {
 
   returnVerticalLineHeightV2() {
     //Returns the vertical line height, that associates the chid-items with the parent item
+    let total = 0;
     const numberOfChildItemsLength = this.el.querySelectorAll("gxg-tree-item")
       .length;
     const siblingsLength = getSiblings(this.el, "after").length;
-    const total = numberOfChildItemsLength + siblingsLength;
+    if (this.numberOfParentTrees > 1) {
+      total = this.getNumberOfDirectVisibleDescendantItems();
+    } else {
+      total = numberOfChildItemsLength + siblingsLength;
+    }
     const itemHeight = 24;
     const offSet = 9;
     return `${total * itemHeight - offSet}px`;
@@ -665,6 +671,9 @@ export class GxgTreeItem {
   }
 
   render() {
+    console.log("el", this.el);
+    console.log("this.numberOfParentTrees", this.numberOfParentTrees);
+    console.log("-----------");
     return (
       <Host
         class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}
