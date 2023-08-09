@@ -13,11 +13,23 @@
 
 ## Methods
 
+### `deleteNode(nodeId: string) => Promise<boolean>`
+
+#### Returns
+
+Type: `Promise<boolean>`
+
 ### `getChecked(idsArray?: (string | number)[]) => Promise<CheckedGxgTreeItem[]>`
 
 #### Returns
 
 Type: `Promise<CheckedGxgTreeItem[]>`
+
+### `insertTreeItems(nodeId: string, treeItemsModel: GxgTreeItemData[], mode?: TreeItemsInsertionMode) => Promise<boolean>`
+
+#### Returns
+
+Type: `Promise<boolean>`
 
 ### `toggleItems(ids: string[], open?: boolean) => Promise<ToggledGxgTreeItem[]>`
 
@@ -30,11 +42,21 @@ Type: `Promise<ToggledGxgTreeItem[]>`
 ### Used by
 
 - [gxg-test](../test)
+- [gxg-tree](.)
+
+### Depends on
+
+- [gxg-tree](.)
+- [gxg-tree-item](../tree-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-tree --> gxg-tree
+  gxg-tree-item --> gxg-icon
+  gxg-tree-item --> ch-form-checkbox
+  gxg-icon --> ch-icon
   gxg-test --> gxg-tree
   style gxg-tree fill:#f9f,stroke:#333,stroke-width:4px
 ```

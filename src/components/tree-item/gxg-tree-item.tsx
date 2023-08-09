@@ -92,6 +92,11 @@ export class GxgTreeItem {
    */
   @Prop({ mutable: true }) isLeaf = true;
 
+  /**
+   * This property is for passing a tree structure from the tree.
+   */
+  @Prop() treeModel: HTMLGxgTreeElement;
+
   //PROPS
   @Prop({ mutable: true }) hasChildTree = false;
   @Prop({ mutable: true }) firstTreeItem = false;
@@ -671,9 +676,6 @@ export class GxgTreeItem {
   }
 
   render() {
-    console.log("el", this.el);
-    console.log("this.numberOfParentTrees", this.numberOfParentTrees);
-    console.log("-----------");
     return (
       <Host
         class={{ leaf: this.isLeaf, "not-leaf": !this.isLeaf }}
@@ -769,6 +771,7 @@ export class GxgTreeItem {
             {this.download ? <span class={{ loading: true }}></span> : null}
           </div>
           <slot name="tree"></slot>
+          {this.treeModel ? this.treeModel : null}
         </li>
       </Host>
     );

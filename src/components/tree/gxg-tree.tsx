@@ -8,7 +8,8 @@ import {
   Method,
   Host,
 } from "@stencil/core";
-import { GxgTreeItem } from "../tree-item/gxg-tree-item";
+import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
+import { renderTreeItems } from "../tree/renderTreeItems";
 @Component({
   tag: "gxg-tree",
   styleUrl: "gxg-tree.scss",
@@ -72,7 +73,7 @@ export class GxgTree {
   }
 
   /**
-   * @returns an array of the gxg-tree-items that are checked. Each array item is an object with "id" and "innerText". Optional array of ids can be passed to get the status of a particular set of items.
+   *
    */
   @Method()
   async getChecked(
@@ -95,6 +96,44 @@ export class GxgTree {
       });
     }
     return checkedTreeItems;
+  }
+
+  /**
+   * @description Inserts a new tree set of items.
+   * @returns A boolean, indicating if the tree items could be inserted or not, because the 'nodeId' was found or not.
+   */
+  @Method()
+  async insertTreeItems(
+    nodeId: string,
+    treeItemsModel: GxgTreeItemData[],
+    mode: TreeItemsInsertionMode = "after"
+  ): Promise<boolean> {
+    if (treeItemsModel?.length && nodeId) {
+      const node = this.el.querySelector(`#${nodeId}`);
+      if (!node) {
+        return false;
+      }
+      const renderedItems = renderTreeItems(treeItemsModel, false);
+      if (renderedItems) {
+        (node as HTMLGxgTreeItemElement).treeModel = renderedItems as HTMLGxgTreeElement;
+        /*Como inserto en el nodo renderedItems ?*/
+      }
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * @description Deletes a node, along will all the children nodes de node contains.
+   * @returns A boolean, indicating if the node could be deleted or not, because the 'nodeId' was found or not.
+   */
+  @Method()
+  async deleteNode(nodeId: string): Promise<boolean> {
+    if (nodeId) {
+      const node = this.el.querySelector(`#${nodeId}`);
+      console.log(node);
+    }
+    return true;
   }
 
   /**
@@ -157,3 +196,4 @@ export type ToggledGxgTreeItem = {
   id: string;
   opened: boolean;
 };
+export type TreeItemsInsertionMode = "before" | "after" | "inside";

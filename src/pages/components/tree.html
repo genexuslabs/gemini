@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,181 +11,219 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-
-    <style></style>
+    <style>
+      gxg-test::part(tab-bar-button-menu) {
+        background-color: red;
+      }
+      body {
+        font-family: sans-serif;
+      }
+      span {
+        display: inline-block;
+        margin-bottom: 16px;
+      }
+      body > gxg-tree {
+        margin-bottom: 32px;
+      }
+    </style>
   </head>
-
   <body>
-    <html dir="ltr" lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-        />
-        <title>2 - SASS - Night Mode with Class</title>
+    <span>Markup Tree</span>
+    <gxg-tree toggle-checkboxes>
+      <gxg-tree-item checked opened selected left-icon="general/generator">
+        Meats
+        <gxg-tree checkbox slot="tree">
+          <gxg-tree-item left-icon="general/patterns"> Cow </gxg-tree-item>
+          <gxg-tree-item opened left-icon="general/knowledge-base">
+            Goat
+            <gxg-tree slot="tree">
+              <gxg-tree-item left-icon="general/generator">
+                dura
+              </gxg-tree-item>
+              <gxg-tree-item left-icon="general/patterns">
+                blanda
+              </gxg-tree-item>
+            </gxg-tree>
+          </gxg-tree-item>
+        </gxg-tree>
+      </gxg-tree-item>
+      <gxg-tree-item left-icon="general/generator"> Fish </gxg-tree-item>
+      <gxg-tree-item left-icon="general/knowledge-base"> Nuts </gxg-tree-item>
+    </gxg-tree>
 
-        <script type="module" src="/build/gemini.esm.js"></script>
-        <script nomodule src="/build/gemini.js"></script>
-        <link href="/build/gemini.css" rel="stylesheet" />
+    <br />
 
-        <style>
-          html {
-            background: var(--color-background);
-            transition: background 0.2s ease-in-out;
-            font-family: arial;
-            color: var(--color-text);
-          }
+    <span>Model Tree</span>
+    <gxg-test key="model-tree"></gxg-test>
+    <br />
+    <gxg-button id="load-model-btn">Load model (click first)</gxg-button>
+    <gxg-button id="update-model-btn">Update model (click second)</gxg-button>
 
-          li:hover {
-            background-color: gray;
-          }
-          body {
-            padding: 20px;
-          }
-          .trees-main-container {
-            width: 400px;
-          }
-          span {
-            display: block;
-            margin-bottom: 16px;
-          }
-          .container {
-            background-color: beige;
-            height: 300px;
-            width: 300px;
-          }
-        </style>
-      </head>
+    <script>
+      const modelTiny = [
+        {
+          id: "apple123",
+          checkbox: true,
+          name: "IOS",
+          icon: "general/apple",
+        },
+        {
+          id: "apple123",
+          checkbox: true,
+          name: "IOS",
+          icon: "general/apple",
+        },
+      ];
+      const model = [
+        {
+          id: "number-1",
+          name: "number-1",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-1-1",
+              name: "number-1-1",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-1-1-1",
+                  name: "number-1-1-1",
+                  icon: "general/apple",
+                },
+                {
+                  id: "number-1-1-2",
+                  name: "number-1-1-2",
+                  icon: "general/apple",
+                  items: [
+                    {
+                      id: "number-1-1-2-1",
+                      name: "number-1-1-2-1",
+                      icon: "general/apple",
+                    },
+                    {
+                      id: "number-1-1-2-2",
+                      name: "number-1-1-2-2",
+                      icon: "general/apple",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              id: "number-1-2",
+              name: "number-1-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          name: "number-2",
+          icon: "general/java",
+          items: [
+            {
+              id: "number-2-1",
+              name: "number-2-1",
+              icon: "general/apple",
+            },
+            {
+              id: "number-2-2",
+              name: "number-2-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const updatedModel = [
+        {
+          id: "number-1",
+          name: "number-1",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-1-1",
+              name: "number-1-1",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-1-1-1",
+                  name: "number-1-1-1",
+                  icon: "general/apple",
+                },
+                {
+                  id: "number-1-1-2",
+                  name: "number-1-1-2",
+                  icon: "general/apple",
+                  items: [
+                    {
+                      id: "number-1-1-2-1",
+                      name: "number-1-1-2-1",
+                      icon: "general/apple",
+                    },
+                    {
+                      id: "number-1-1-2-2",
+                      name: "number-1-1-2-2",
+                      icon: "general/apple",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              id: "number-1-2",
+              name: "number-1-2",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-1-2-1",
+                  name: "number-1-2-1",
+                  icon: "controls/file-upload",
+                },
+                {
+                  id: "number-1-2-2",
+                  name: "number-1-2-2",
+                  icon: "controls/media-player",
+                },
+                {
+                  id: "number-1-2-3",
+                  name: "number-1-2-3",
+                  icon: "controls/component",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          name: "number-2",
+          icon: "general/java",
+          items: [
+            {
+              id: "number-2-1",
+              name: "number-2-1",
+              icon: "general/apple",
+            },
+            {
+              id: "number-2-2",
+              name: "number-2-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const gxgTest = document.querySelector("gxg-test");
+    </script>
+    <br />
 
-      <body>
-        <div class="container">
-          <gxg-tree>
-            <gxg-tree-item opened left-icon="general/generator">
-              Meats
-              <gxg-tree checkbox slot="tree">
-                <gxg-tree-item left-icon="general/generator">
-                  White meats
-                  <gxg-tree checkbox slot="tree">
-                    <gxg-tree-item left-icon="general/generator">
-                      Chicken
-                    </gxg-tree-item>
-                    <gxg-tree-item left-icon="general/generator">
-                      Turkey
-                    </gxg-tree-item>
-                    <gxg-tree-item left-icon="general/knowledge-base">
-                      Duck
-                    </gxg-tree-item>
-                  </gxg-tree>
-                </gxg-tree-item>
-                <gxg-tree-item left-icon="general/generator">
-                  Red meats
-                  <gxg-tree checkbox slot="tree">
-                    <gxg-tree-item left-icon="general/knowledge-base">
-                      Beef
-                    </gxg-tree-item>
-                    <gxg-tree-item left-icon="general/knowledge-base">
-                      Lamb and mutto
-                    </gxg-tree-item>
-                    <gxg-tree-item left-icon="general/knowledge-base">
-                      Pork
-                    </gxg-tree-item>
-                  </gxg-tree>
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-            <gxg-tree-item
-              id="fish"
-              left-icon="general/patterns"
-              checkbox
-              opened
-              disabled
-            >
-              Fish
-            </gxg-tree-item>
-            <gxg-tree-item checkbox opened left-icon="objects/module">
-              Fruits
-              <gxg-tree slot="tree">
-                <gxg-tree-item checkbox left-icon="objects/module">
-                  Orange
-                </gxg-tree-item>
-                <gxg-tree-item checkbox left-icon="objects/module" opened>
-                  Banana
-                  <gxg-tree slot="tree">
-                    <gxg-tree-item left-icon="objects/module" checkbox>
-                      Pisang
-                    </gxg-tree-item>
-                    <gxg-tree-item checkbox left-icon="objects/module">
-                      Red Banana
-                    </gxg-tree-item>
-                    <gxg-tree-item left-icon="objects/module" checkbox>
-                      Cavendish
-                      <gxg-tree slot="tree">
-                        <gxg-tree-item left-icon="objects/module" checkbox>
-                          Big
-                        </gxg-tree-item>
-                        <gxg-tree-item left-icon="objects/module" checkbox>
-                          Small
-                        </gxg-tree-item>
-                        <gxg-tree-item checkbox left-icon="objects/module">
-                          Mini
-                        </gxg-tree-item>
-                      </gxg-tree>
-                    </gxg-tree-item>
-                  </gxg-tree>
-                </gxg-tree-item>
-                <gxg-tree-item checkbox opened left-icon="objects/module">
-                  Strawberry
-                  <gxg-tree slot="tree">
-                    <gxg-tree-item checkbox left-icon="objects/module">
-                      Albion
-                    </gxg-tree-item>
-                    <gxg-tree-item checkbox left-icon="objects/module" opened>
-                      Tillamook
-                    </gxg-tree-item>
-                    <gxg-tree-item checkbox left-icon="objects/module">
-                      Northeaster
-                    </gxg-tree-item>
-                  </gxg-tree>
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-            <gxg-tree-item
-              opened
-              checkbox
-              left-icon="objects/document"
-              empty-tree
-            >
-              Nuts
-              <gxg-tree slot="tree">
-                <gxg-tree-item opened checkbox left-icon="objects/document">
-                  Almonds
-                  <gxg-tree slot="tree">
-                    <gxg-tree-item checkbox left-icon="objects/document" opened>
-                      Mollar de Tarragona
-                    </gxg-tree-item>
-                    <gxg-tree-item checkbox left-icon="objects/document">
-                      Ferragnès
-                    </gxg-tree-item>
-                    <gxg-tree-item checkbox left-icon="objects/document">
-                      Verdal
-                    </gxg-tree-item>
-                  </gxg-tree>
-                </gxg-tree-item>
-                <gxg-tree-item checkbox left-icon="objects/document" opened>
-                  Brazil nuts
-                </gxg-tree-item>
-                <gxg-tree-item checkbox left-icon="objects/document">
-                  Cashews
-                </gxg-tree-item>
-                <gxg-tree-item checkbox left-icon="objects/document">
-                  Chestnuts
-                </gxg-tree-item>
-              </gxg-tree>
-            </gxg-tree-item>
-          </gxg-tree>
-        </div>
-      </body>
-    </html>
+    <script>
+      const loadModelBtn = document.getElementById("load-model-btn");
+      loadModelBtn.addEventListener("click", () => {
+        gxgTest.treeItemsModel = model;
+      });
+      const updateModelBtn = document.getElementById("update-model-btn");
+      updateModelBtn.addEventListener("click", () => {
+        gxgTest.treeItemsModel = updatedModel;
+      });
+    </script>
   </body>
 </html>

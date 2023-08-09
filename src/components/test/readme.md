@@ -7,7 +7,7 @@
 | Property                | Attribute                  | Description | Type                | Default     |
 | ----------------------- | -------------------------- | ----------- | ------------------- | ----------- |
 | `buttonTestExportParts` | `button-test-export-parts` |             | `boolean`           | `false`     |
-| `model`                 | --                         |             | `GxgTreeItemData[]` | `undefined` |
+| `treeItemsModel`        | --                         |             | `GxgTreeItemData[]` | `undefined` |
 
 ## Shadow Parts
 
@@ -32,6 +32,8 @@ graph TD;
   gxg-test --> gxg-tree-item
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-tree --> gxg-tree
+  gxg-tree --> gxg-tree-item
   gxg-tree-item --> gxg-icon
   gxg-tree-item --> ch-form-checkbox
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px

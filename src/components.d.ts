@@ -78,6 +78,7 @@ import { position as position2 } from "./components/tooltip/tooltip";
 import {
   CheckedGxgTreeItem,
   ToggledGxgTreeItem,
+  TreeItemsInsertionMode,
 } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemDataEmmited } from "./components/tree-item/gxg-tree-item";
@@ -1650,7 +1651,7 @@ export namespace Components {
   }
   interface GxgTest {
     buttonTestExportParts: boolean;
-    model: GxgTreeItemData[];
+    treeItemsModel: GxgTreeItemData[];
   }
   interface GxgText {
     /**
@@ -1742,11 +1743,22 @@ export namespace Components {
      */
     checked: boolean;
     /**
-     * @returns an array of the gxg-tree-items that are checked. Each array item is an object with "id" and "innerText". Optional array of ids can be passed to get the status of a particular set of items.
+     * @description Deletes a node, along will all the children nodes de node contains.
+     * @returns A boolean, indicating if the node could be deleted or not, because the 'nodeId' was found or not.
      */
+    deleteNode: (nodeId: string) => Promise<boolean>;
     getChecked: (
       idsArray?: (string | number)[]
     ) => Promise<CheckedGxgTreeItem[]>;
+    /**
+     * @description Inserts a new tree set of items.
+     * @returns A boolean, indicating if the tree items could be inserted or not, because the 'nodeId' was found or not.
+     */
+    insertTreeItems: (
+      nodeId: string,
+      treeItemsModel: GxgTreeItemData[],
+      mode?: TreeItemsInsertionMode
+    ) => Promise<boolean>;
     /**
      * Set this attribute if you want all the items to be opened by default.
      */
@@ -1827,6 +1839,10 @@ export namespace Components {
      * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
      */
     toggleCheckboxes: boolean;
+    /**
+     * This property is for passing a tree structure from the tree.
+     */
+    treeModel: HTMLGxgTreeElement;
     updateTreeVerticalLineHeight: () => Promise<void>;
   }
   interface GxgWindow {
@@ -4131,7 +4147,7 @@ declare namespace LocalJSX {
   }
   interface GxgTest {
     buttonTestExportParts?: boolean;
-    model?: GxgTreeItemData[];
+    treeItemsModel?: GxgTreeItemData[];
   }
   interface GxgText {
     /**
@@ -4307,6 +4323,10 @@ declare namespace LocalJSX {
      * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
      */
     toggleCheckboxes?: boolean;
+    /**
+     * This property is for passing a tree structure from the tree.
+     */
+    treeModel?: HTMLGxgTreeElement;
   }
   interface GxgWindow {
     /**

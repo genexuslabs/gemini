@@ -1,7 +1,6 @@
-:host {
-}
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) {
+.tree-buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
