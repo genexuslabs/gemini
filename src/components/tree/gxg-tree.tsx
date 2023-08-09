@@ -21,11 +21,6 @@ export class GxgTree {
 
   //PROPS
   /**
-   * Set this attribute if you want all the items to be opened by default.
-   */
-  @Prop() opened = true;
-
-  /**
    * Set this attribute if you want all the items to have a checkbox.
    */
   @Prop({ mutable: true }) checkbox = true;
@@ -34,6 +29,11 @@ export class GxgTree {
    * Set this attribute if you want all the items to be checked by default.
    */
   @Prop({ mutable: true, reflect: true }) checked = false;
+
+  /**
+   * Set this attribute if you want all the items to be opened by default.
+   */
+  @Prop() opened = true;
 
   /**
    * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
@@ -49,7 +49,25 @@ export class GxgTree {
     if (parentElementTagName === "GXG-TREE-ITEM") {
       this.nestedTree = true;
     }
+    //this.initialConfig();
+    this.initialConfig();
   }
+  private initialConfig = () => {
+    const parent = this.el.parentElement;
+    if (parent?.tagName === "GXG-TREE-ITEM") {
+      const treeItem = parent as HTMLGxgTreeItemElement;
+      this.checkbox =
+        treeItem.checkbox !== undefined ? treeItem.checkbox : this.checkbox;
+      this.checked =
+        treeItem.checked !== undefined ? treeItem.checked : this.checked;
+      this.opened =
+        treeItem.opened !== undefined ? treeItem.opened : this.opened;
+      this.toggleCheckboxes =
+        treeItem.toggleCheckboxes !== undefined
+          ? treeItem.toggleCheckboxes
+          : this.toggleCheckboxes;
+    }
+  };
 
   @Listen("liItemClicked")
   liItemClickedHandler() {
@@ -113,7 +131,7 @@ export class GxgTree {
       if (!node) {
         return false;
       }
-      const renderedItems = renderTreeItems(treeItemsModel, false);
+      const renderedItems = renderTreeItems(treeItemsModel, false, true);
       if (renderedItems) {
         (node as HTMLGxgTreeItemElement).treeModel = renderedItems as HTMLGxgTreeElement;
         /*Como inserto en el nodo renderedItems ?*/
@@ -131,7 +149,6 @@ export class GxgTree {
   async deleteNode(nodeId: string): Promise<boolean> {
     if (nodeId) {
       const node = this.el.querySelector(`#${nodeId}`);
-      console.log(node);
     }
     return true;
   }

@@ -29,12 +29,12 @@
   </head>
   <body>
     <span>Markup Tree</span>
-    <gxg-tree toggle-checkboxes>
-      <gxg-tree-item checked opened selected left-icon="general/generator">
+    <gxg-tree>
+      <gxg-tree-item left-icon="general/generator">
         Meats
-        <gxg-tree checkbox slot="tree">
+        <gxg-tree slot="tree">
           <gxg-tree-item left-icon="general/patterns"> Cow </gxg-tree-item>
-          <gxg-tree-item opened left-icon="general/knowledge-base">
+          <gxg-tree-item left-icon="general/knowledge-base">
             Goat
             <gxg-tree slot="tree">
               <gxg-tree-item left-icon="general/generator">
@@ -58,20 +58,128 @@
     <br />
     <gxg-button id="load-model-btn">Load model (click first)</gxg-button>
     <gxg-button id="update-model-btn">Update model (click second)</gxg-button>
+    <gxg-button id="update-model-again-btn"
+      >Update model again (click third)</gxg-button
+    >
+    <button id="clear-console-btn">Clear console</button>
 
     <script>
       const modelTiny = [
         {
-          id: "apple123",
+          id: "number-1",
           checkbox: true,
-          name: "IOS",
+          name: "number-1",
           icon: "general/apple",
         },
         {
-          id: "apple123",
+          id: "number-2",
           checkbox: true,
-          name: "IOS",
+          name: "number-2",
           icon: "general/apple",
+          items: [
+            {
+              id: "number-2.1",
+              checkbox: true,
+              name: "number-2.1",
+              icon: "general/apple",
+            },
+          ],
+        },
+        {
+          id: "number-3",
+          checkbox: true,
+          name: "number-3",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-3.1",
+              checkbox: true,
+              name: "number-3.1",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const modelTinyUpdated = [
+        {
+          id: "number-1",
+          checkbox: true,
+          name: "number-1",
+          icon: "general/apple",
+        },
+        {
+          id: "number-2",
+          checkbox: true,
+          name: "number-2",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-2.1",
+              checkbox: true,
+              name: "number-2.1",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-2.1.1",
+                  checkbox: true,
+                  name: "number-2.1.1",
+                  icon: "general/apple",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: "number-3",
+          checkbox: true,
+          name: "number-3",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-3.1",
+              checkbox: true,
+              name: "number-3.1",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const modelTinyUpdatedAgain = [
+        {
+          id: "number-1",
+          checkbox: true,
+          name: "number-1",
+          icon: "general/apple",
+        },
+        {
+          id: "number-2",
+          checkbox: true,
+          name: "number-2",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-2.1",
+              checkbox: true,
+              name: "number-2.1",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-2.1.1",
+                  checkbox: true,
+                  name: "number-2.1.1",
+                  icon: "general/apple",
+                  items: [
+                    {
+                      id: "number-2.1.1.1",
+                      checkbox: true,
+                      name: "number-2.1.1.1",
+                      icon: "general/apple",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
       ];
       const model = [
@@ -216,13 +324,35 @@
     <br />
 
     <script>
+      const modelMinimal = [
+        {
+          id: "number-2-2",
+          name: "number-2-2",
+          icon: "general/apple",
+        },
+      ];
+
       const loadModelBtn = document.getElementById("load-model-btn");
+      const clearConsoleBtn = document.getElementById("clear-console-btn");
+      clearConsoleBtn.addEventListener("click", function () {
+        console.clear();
+      });
       loadModelBtn.addEventListener("click", () => {
-        gxgTest.treeItemsModel = model;
+        //gxgTest.treeItemsModel = model;
+        gxgTest.treeItemsModel = modelTiny;
+        //gxgTest.treeItemsModel = modelMinimal;
       });
       const updateModelBtn = document.getElementById("update-model-btn");
       updateModelBtn.addEventListener("click", () => {
-        gxgTest.treeItemsModel = updatedModel;
+        //gxgTest.treeItemsModel = updatedModel;
+        gxgTest.treeItemsModel = modelTinyUpdated;
+      });
+      const updateModelAgainBtn = document.getElementById(
+        "update-model-again-btn"
+      );
+      updateModelAgainBtn.addEventListener("click", () => {
+        //gxgTest.treeItemsModel = updatedModel;
+        gxgTest.treeItemsModel = modelTinyUpdatedAgain;
       });
     </script>
   </body>

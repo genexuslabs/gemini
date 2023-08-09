@@ -38,29 +38,29 @@ export class GxgTreeItem {
   @Prop() masterTree: HTMLGxgTreeElement;
 
   /**
-   * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
-   */
-  @Prop() opened = true;
-
-  /**
    * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
    */
-  @Prop({ mutable: true }) checkbox = true;
+  @Prop({ mutable: true }) checkbox: boolean = undefined;
 
   /**
    * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
    */
-  @Prop({ mutable: true }) checked = false;
+  @Prop({ mutable: true }) checked: boolean = undefined;
+
+  /**
+   * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
+   */
+  @Prop() opened: boolean = undefined;
+
+  /**
+   * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
+   */
+  @Prop() toggleCheckboxes: boolean = undefined;
 
   /**
    * The presence of this attribute sets the tree-item as selected
    */
   @Prop({ mutable: true }) selected = false;
-
-  /**
-   * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
-   */
-  @Prop() toggleCheckboxes = false;
 
   /**
    * Set this attribute if this tree-item has a resource to be downloaded;
@@ -168,6 +168,22 @@ export class GxgTreeItem {
     this.attachExportParts();
   }
 
+  private cascadeConfig = () => {
+    //Cascade configuration (set some properties based on the parent tree configuration, unless this item has this properties already set.
+    const parentTree: HTMLGxgTreeElement = this.el
+      .parentElement as HTMLGxgTreeElement;
+
+    this.checkbox =
+      this.checkbox !== undefined ? this.checkbox : parentTree.checkbox;
+    this.checked =
+      this.checked !== undefined ? this.checked : parentTree.checked;
+    this.opened = this.opened !== undefined ? this.opened : parentTree.opened;
+    this.toggleCheckboxes =
+      this.toggleCheckboxes !== undefined
+        ? this.toggleCheckboxes
+        : parentTree.checkbox;
+  };
+
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
     const exportPartsResult = exportParts(part, this.parts);
@@ -247,35 +263,6 @@ export class GxgTreeItem {
     );
     this.numberOfVisibleDescendantItems = numberOfVisibleDescendants;
   }
-
-  private cascadeConfig = () => {
-    //Cascade configuration (set some properties based on the parent tree configuration, unless this item has this properties already set.
-
-    const parentTree: HTMLGxgTreeElement = this.el
-      .parentElement as HTMLGxgTreeElement;
-
-    const checkbox = !parentTree.checkbox ? parentTree.checkbox : this.checkbox;
-    const checked = parentTree.checked ? parentTree.checked : this.checked;
-    const opened = !parentTree.opened ? parentTree.opened : this.opened;
-    const toggleCheckboxes = parentTree.toggleCheckboxes
-      ? parentTree.toggleCheckboxes
-      : this.toggleCheckboxes;
-
-    const childTree: HTMLGxgTreeElement = this.el.querySelector(
-      ":scope > gxg-tree"
-    );
-    if (childTree) {
-      /*If has tree child, pass configuration*/
-      childTree.checkbox = checkbox;
-      childTree.checked = checked;
-      childTree.opened = opened;
-      childTree.toggleCheckboxes = toggleCheckboxes;
-    }
-    this.checkbox = checkbox;
-    this.checked = checked;
-    this.opened = opened;
-    this.toggleCheckboxes = toggleCheckboxes;
-  };
 
   @Watch("downloaded")
   watchHandler(newValue: boolean) {
@@ -683,7 +670,7 @@ export class GxgTreeItem {
       >
         <li
           class={{
-            "tree-open": this.opened && !this.isLeaf,
+            "tree-open": this.opened,
             disabled: this.disabled,
           }}
         >

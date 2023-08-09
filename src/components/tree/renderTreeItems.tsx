@@ -5,20 +5,23 @@ import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
 export const renderTreeItems = (
   treeItemsModel: GxgTreeItemData[],
   firstCall = true,
-  key: string = undefined
+  id
 ): HTMLGxgTreeItemElement[] | HTMLGxgTreeElement => {
-  if (firstCall) {
-    return treeItemsModel.map((item: GxgTreeItemData) => {
-      return renderTreeItem(item);
-    });
-  } else {
-    return (
-      <gxg-tree slot="tree" key={`tree-${key}`}>
-        {treeItemsModel.map((item: GxgTreeItemData) => {
-          return renderTreeItem(item);
-        })}
-      </gxg-tree>
-    );
+  if (treeItemsModel?.length) {
+    if (firstCall) {
+      console.log("first call");
+      return treeItemsModel.map((item: GxgTreeItemData) => {
+        return renderTreeItem(item);
+      });
+    } else {
+      return (
+        <gxg-tree slot="tree" data-id={id} key={`tree-${id}`}>
+          {treeItemsModel.map((item: GxgTreeItemData) => {
+            return renderTreeItem(item);
+          })}
+        </gxg-tree>
+      );
+    }
   }
 };
 
@@ -35,7 +38,10 @@ const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
       opened={item.opened}
       selected={item.selected}
     >
-      {[item.name, item.items && renderTreeItems(item.items, false, item.id)]}
+      {[
+        item.name,
+        item.items?.length && renderTreeItems(item.items, false, item.id),
+      ]}
     </gxg-tree-item>
   );
 };
