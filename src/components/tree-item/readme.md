@@ -39,23 +39,11 @@
 
 Type: `Promise<void>`
 
-## CSS Custom Properties
-
-| Name                  | Description                    |
-| --------------------- | ------------------------------ |
-| `--font-family`       | The text font family           |
-| `--font-size`         | The text font size             |
-| `--font-weight`       | The text font weight           |
-| `--guide-color`       | The color of the tree guides   |
-| `--item-active-color` | The color of the active item   |
-| `--item-hover-color`  | The color of the item on hover |
-| `--text-color`        | The color of the text          |
-
 ## Dependencies
 
 ### Used by
 
-- [gxg-tree](../tree)
+- [gxg-test](../test)
 
 ### Depends on
 
@@ -69,7 +57,7 @@ graph TD;
   gxg-tree-item --> gxg-icon
   gxg-tree-item --> ch-form-checkbox
   gxg-icon --> ch-icon
-  gxg-tree --> gxg-tree-item
+  gxg-test --> gxg-tree-item
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

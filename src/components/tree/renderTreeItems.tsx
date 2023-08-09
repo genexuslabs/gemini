@@ -2,34 +2,26 @@
 import { h } from "@stencil/core";
 import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
 
-export const renderTree = (
+export const renderTreeItems = (
   model: GxgTreeItemData[],
-  firstCall = true,
-  masterTree: HTMLGxgTreeElement
+  firstCall = true
 ): HTMLGxgTreeItemElement[] | HTMLGxgTreeElement => {
   if (firstCall) {
-    return (
-      <gxg-tree>
-        {model.map((item: GxgTreeItemData) => {
-          return renderTreeItem(item, masterTree);
-        })}
-      </gxg-tree>
-    );
+    return model.map((item: GxgTreeItemData) => {
+      return renderTreeItem(item);
+    });
   } else {
     return (
       <gxg-tree slot="tree">
         {model.map((item: GxgTreeItemData) => {
-          return renderTreeItem(item, masterTree);
+          return renderTreeItem(item);
         })}
       </gxg-tree>
     );
   }
 };
 
-const renderTreeItem = (
-  item: GxgTreeItemData,
-  masterTree
-): HTMLGxgTreeItemElement => {
+const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
   return (
     <gxg-tree-item
       id={item.id}
@@ -40,9 +32,8 @@ const renderTreeItem = (
       indeterminate={item.indeterminate}
       opened={item.opened}
       selected={item.selected}
-      masterTree={masterTree}
     >
-      {[item.name, item.items && renderTree(item.items, false, masterTree)]}
+      {[item.name, item.items && renderTreeItems(item.items, false)]}
     </gxg-tree-item>
   );
 };

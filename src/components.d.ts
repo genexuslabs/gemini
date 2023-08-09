@@ -70,11 +70,11 @@ import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition4 } from "./components/stepper/stepper";
 import { TabsPosition } from "./components/tabs/tabs";
+import { GxgTreeItemData } from "./components/tree-item/gxg-tree-item";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
-import { GxgTreeItemData } from "./components/tree-item/gxg-tree-item";
 import {
   CheckedGxgTreeItem,
   ToggledGxgTreeItem,
@@ -1650,6 +1650,7 @@ export namespace Components {
   }
   interface GxgTest {
     buttonTestExportParts: boolean;
+    model: GxgTreeItemData[];
   }
   interface GxgText {
     /**
@@ -1746,10 +1747,6 @@ export namespace Components {
     getChecked: (
       idsArray?: (string | number)[]
     ) => Promise<CheckedGxgTreeItem[]>;
-    /**
-     * A model of the tree. Use this if you prefer to use a model instead of markup directly.
-     */
-    model: GxgTreeItemData[];
     /**
      * Set this attribute if you want all the items to be opened by default.
      */
@@ -4134,6 +4131,7 @@ declare namespace LocalJSX {
   }
   interface GxgTest {
     buttonTestExportParts?: boolean;
+    model?: GxgTreeItemData[];
   }
   interface GxgText {
     /**
@@ -4228,10 +4226,6 @@ declare namespace LocalJSX {
      * Set this attribute if you want all the items to be checked by default.
      */
     checked?: boolean;
-    /**
-     * A model of the tree. Use this if you prefer to use a model instead of markup directly.
-     */
-    model?: GxgTreeItemData[];
     /**
      * Set this attribute if you want all the items to be opened by default.
      */

@@ -30,23 +30,23 @@
   <body>
     <!-- with markup -->
     <span>with markup</span>
-    <gxg-tree>
+    <gxg-tree toggle-checkboxes>
       <gxg-tree-item checked opened selected left-icon="general/generator">
         Meats
-        <ch-tree checkbox slot="tree">
+        <gxg-tree checkbox slot="tree">
           <gxg-tree-item left-icon="general/patterns"> Cow </gxg-tree-item>
           <gxg-tree-item opened left-icon="general/knowledge-base">
             Goat
-            <ch-tree slot="tree">
+            <gxg-tree slot="tree">
               <gxg-tree-item left-icon="general/generator">
                 dura
               </gxg-tree-item>
               <gxg-tree-item left-icon="general/patterns">
                 blanda
               </gxg-tree-item>
-            </ch-tree>
+            </gxg-tree>
           </gxg-tree-item>
-        </ch-tree>
+        </gxg-tree>
       </gxg-tree-item>
       <gxg-tree-item left-icon="general/generator"> Fish </gxg-tree-item>
       <gxg-tree-item left-icon="general/knowledge-base"> Nuts </gxg-tree-item>

@@ -4,38 +4,36 @@
 
 ## Properties
 
-| Property                | Attribute                  | Description | Type      | Default |
-| ----------------------- | -------------------------- | ----------- | --------- | ------- |
-| `buttonTestExportParts` | `button-test-export-parts` |             | `boolean` | `false` |
+| Property                | Attribute                  | Description | Type                | Default     |
+| ----------------------- | -------------------------- | ----------- | ------------------- | ----------- |
+| `buttonTestExportParts` | `button-test-export-parts` |             | `boolean`           | `false`     |
+| `model`                 | --                         |             | `GxgTreeItemData[]` | `undefined` |
 
 ## Shadow Parts
 
-| Part        | Description |
-| ----------- | ----------- |
-| `"tab"`     |             |
-| `"tab-bar"` |             |
+| Part              | Description |
+| ----------------- | ----------- |
+| `"exterior-part"` |             |
 
 ## Dependencies
 
 ### Depends on
 
-- [gxg-tabs](../tabs)
-- [gxg-tab-bar](../tab-bar)
-- [gxg-tab-button](../tab-button)
-- [gxg-tab](../tab)
+- [gxg-button](../button)
+- [gxg-tree](../tree)
+- [gxg-tree-item](../tree-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-tabs
-  gxg-test --> gxg-tab-bar
-  gxg-test --> gxg-tab-button
-  gxg-test --> gxg-tab
-  gxg-tab-bar --> gxg-button
+  gxg-test --> gxg-button
+  gxg-test --> gxg-tree
+  gxg-test --> gxg-tree-item
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-tab-button --> gxg-icon
+  gxg-tree-item --> gxg-icon
+  gxg-tree-item --> ch-form-checkbox
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

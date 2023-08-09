@@ -42,15 +42,19 @@
     font-size: var(--font-size);
     font-weight: var(--font-weight);
     color: var(--text-color);
-    height: 24px;
     overflow: hidden;
 
+    > ::slotted(gxg-tree) {
+      display: none;
+    }
+
     &.tree-open {
-      height: 100%;
+      > ::slotted(gxg-tree) {
+        display: block;
+      }
     }
     .li-text {
-      min-height: 20px;
-      height: 100%;
+      min-height: 24px;
       cursor: pointer;
       display: flex;
       align-items: center;

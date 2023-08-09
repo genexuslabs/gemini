@@ -29,10 +29,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-icon](../icon)
@@ -43,7 +39,6 @@ Type: `Promise<void>`
 graph TD;
   gxg-tab-button --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-test --> gxg-tab-button
   style gxg-tab-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

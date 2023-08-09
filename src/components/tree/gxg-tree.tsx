@@ -7,12 +7,8 @@ import {
   Listen,
   Method,
   Host,
-  Watch,
 } from "@stencil/core";
 import { GxgTreeItem } from "../tree-item/gxg-tree-item";
-import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
-import { renderTree } from "./renderTree";
-
 @Component({
   tag: "gxg-tree",
   styleUrl: "gxg-tree.scss",
@@ -43,17 +39,12 @@ export class GxgTree {
    */
   @Prop() toggleCheckboxes = false;
 
-  /**
-   * A model of the tree. Use this if you prefer to use a model instead of markup directly.
-   */
-  @Prop() model: GxgTreeItemData[];
-
   //STATE
   @State() nestedTree = false;
 
   componentWillLoad() {
     //Check if this tree is nested
-    const parentElementTagName = this.el.parentElement.tagName;
+    const parentElementTagName = this.el.parentElement?.tagName;
     if (parentElementTagName === "GXG-TREE-ITEM") {
       this.nestedTree = true;
     }
@@ -63,8 +54,8 @@ export class GxgTree {
   liItemClickedHandler() {
     //Remove 'selected' state from previous selected item
     const gxgTreeItems = this.el.querySelectorAll("gxg-tree-item");
-    gxgTreeItems.forEach((gxgTreeItem) => {
-      ((gxgTreeItem as unknown) as GxgTreeItem).selected = false;
+    gxgTreeItems.forEach((item) => {
+      item.selected = false;
     });
   }
 
@@ -78,11 +69,6 @@ export class GxgTree {
     notLeafTreeItems.forEach((treeItem) => {
       treeItem.updateTreeVerticalLineHeight();
     });
-  }
-
-  @Watch("model")
-  watchModelHandler(newValue) {
-    console.log(this.model);
   }
 
   /**
@@ -155,7 +141,7 @@ export class GxgTree {
           }}
         >
           <ul ref={(el) => (this.ulTree = el as HTMLElement)}>
-            {this.model ? renderTree(this.model, true, this.el) : <slot></slot>}
+            <slot></slot>
           </ul>
         </div>
       </Host>

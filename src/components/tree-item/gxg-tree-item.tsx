@@ -13,6 +13,7 @@ import {
 import { Color } from "../icon/icon";
 import { GxgTree } from "../tree/gxg-tree";
 import { exportParts } from "../../common/export-parts";
+import { getSiblings } from "../../common/get-siblings";
 
 @Component({
   tag: "gxg-tree-item",
@@ -121,9 +122,8 @@ export class GxgTreeItem {
   @Element() el: HTMLGxgTreeItemElement;
 
   componentWillLoad() {
-    //console.log("tree-item will load", this.el);
     //Count number of parent trees in order to set the appropriate padding-left
-    this.numberOfParentTrees = this.getParents(this.el);
+    this.numberOfParentTrees = this.getParentsNumber(this.el);
 
     //If tree item has not a tree-item inside, is leaf
     const treeItemHasTree = this.el.querySelector('[slot="tree"]');
@@ -147,28 +147,18 @@ export class GxgTreeItem {
         this.firstTreeItemOfParentTree = true;
       }
     }
-    //If is last item of parent Tree
-    if (this.numberOfParentTrees === 1) {
-      const nextItem = this.el.nextElementSibling;
-      if (nextItem === null) {
-        this.lastTreeItemOfParentTree = true;
-      }
-    }
-
     //Set right icon color
     if (this.download && this.rightIcon.includes("download")) {
       this.rightIconColor = "primary-enabled";
     } else if (this.disabled) {
       this.rightIconColor = "disabled";
     }
-
     //If this tree item has a source to download, this item has child tree, and is not leaf. Also, set the tree as not open
     if (this.download) {
       this.hasChildTree = true;
       this.isLeaf = false;
       this.opened = false;
     }
-
     this.cascadeConfig();
     this.attachExportParts();
   }
@@ -253,44 +243,32 @@ export class GxgTreeItem {
   }
 
   private cascadeConfig = () => {
-    //Cascade configuration (set some properties based on the parent tree-item configuration, unless this item has this properties already set.
+    //Cascade configuration (set some properties based on the parent tree configuration, unless this item has this properties already set.
 
-    const parentTree = this.el.parentElement;
-    const parentTreeParent = parentTree.closest("gxg-tree");
-    let masterTree = false;
-    if (parentTreeParent) {
-      //The parent-tree of this tree-item is the master-tree
-      masterTree = true;
-    }
+    const parentTree: HTMLGxgTreeElement = this.el
+      .parentElement as HTMLGxgTreeElement;
 
-    let parentTreeParentItem: HTMLGxgTreeItemElement;
-    if (parentTree) {
-      const parentTreeParentElement = parentTree.parentElement;
-      if (parentTreeParentElement.nodeName === "GXG-TREE-ITEM") {
-        parentTreeParentItem = parentTreeParentElement as HTMLGxgTreeItemElement;
-      }
-    }
-
-    let reference;
-    if (parentTreeParentItem) {
-      reference = parentTreeParentItem;
-    } else {
-      //This tree-item is on the first level. Check the parent tree for configurations.
-      if (this.masterTree) {
-        /*Used for custom markup (This works with slotted content)*/
-        reference = this.masterTree;
-      } else {
-        /*Used when using a model (no markup) (Model method does not works with slotted content)*/
-        reference = parentTree;
-      }
-    }
-
-    this.checkbox = !reference.checkbox ? reference.checkbox : this.checkbox;
-    this.checked = reference.checked ? reference.checked : this.checked;
-    this.opened = !reference.opened ? reference.opened : this.opened;
-    this.toggleCheckboxes = reference.toggleCheckboxes
-      ? reference.toggleCheckboxes
+    const checkbox = !parentTree.checkbox ? parentTree.checkbox : this.checkbox;
+    const checked = parentTree.checked ? parentTree.checked : this.checked;
+    const opened = !parentTree.opened ? parentTree.opened : this.opened;
+    const toggleCheckboxes = parentTree.toggleCheckboxes
+      ? parentTree.toggleCheckboxes
       : this.toggleCheckboxes;
+
+    const childTree: HTMLGxgTreeElement = this.el.querySelector(
+      ":scope > gxg-tree"
+    );
+    if (childTree) {
+      /*If has tree child, pass configuration*/
+      childTree.checkbox = checkbox;
+      childTree.checked = checked;
+      childTree.opened = opened;
+      childTree.toggleCheckboxes = toggleCheckboxes;
+    }
+    this.checkbox = checkbox;
+    this.checked = checked;
+    this.opened = opened;
+    this.toggleCheckboxes = toggleCheckboxes;
   };
 
   @Watch("downloaded")
@@ -300,19 +278,15 @@ export class GxgTreeItem {
     }
   }
 
-  getParents(elem) {
-    // Returns the number of parent tree items in order to set the appropriate paddding-left
-    // Set up a parent array
-    const numberOfTreeParents = [];
+  getParentsNumber(elem) {
+    let count = 0;
+    let parentElement = elem.parentElement;
 
-    // Push each parent element to the array
-    for (; elem && elem !== document; elem = elem.parentNode) {
-      const elemTagNAme = elem.tagName;
-      if (elemTagNAme === "GXG-TREE") {
-        numberOfTreeParents.push(elem);
-      }
+    while (parentElement?.nodeName === "GXG-TREE") {
+      count++;
+      parentElement = parentElement.parentElement?.parentElement;
     }
-    return numberOfTreeParents.length;
+    return count;
   }
 
   toggleTreeIconClicked() {
@@ -595,9 +569,19 @@ export class GxgTreeItem {
         }
       }
     }
-
     const childrenItemsLength = this.getNumberOfVisibleDescendantItems(this.el);
-    return `${(childrenItemsLength - lastDirectItemItemsLength) * 22.5 - 10}px`;
+    return `${(childrenItemsLength - lastDirectItemItemsLength) * 24 - 10}px`;
+  }
+
+  returnVerticalLineHeightV2() {
+    //Returns the vertical line height, that associates the chid-items with the parent item
+    const numberOfChildItemsLength = this.el.querySelectorAll("gxg-tree-item")
+      .length;
+    const siblingsLength = getSiblings(this.el, "after").length;
+    const total = numberOfChildItemsLength + siblingsLength;
+    const itemHeight = 24;
+    const offSet = 9;
+    return `${total * itemHeight - offSet}px`;
   }
 
   returnHorizontalLineLeftPosition() {
@@ -613,7 +597,6 @@ export class GxgTreeItem {
   returnHorizontalLineLeftWidth() {
     //Returns the width of the horizontal line that associates the chid-items with the parent item
     let width = 24;
-
     if (this.numberOfParentTrees > 2) {
       width += 5;
     }
@@ -714,7 +697,7 @@ export class GxgTreeItem {
                   <span
                     class={{ "vertical-line": true }}
                     style={{
-                      height: this.returnVerticalLineHeight(),
+                      height: this.returnVerticalLineHeightV2(),
                       left: this.returnVerticalLineLeftPosition(),
                     }}
                   ></span>,
@@ -729,16 +712,17 @@ export class GxgTreeItem {
                   </div>,
                 ]
               : null}
-            <span
-              class={{
-                "horizontal-line": true,
-                "display-none": this.numberOfParentTrees === 1,
-              }}
-              style={{
-                left: this.returnHorizontalLineLeftPosition(),
-                width: this.returnHorizontalLineLeftWidth(),
-              }}
-            ></span>
+            {this.numberOfParentTrees !== 1 ? (
+              <span
+                class={{
+                  "horizontal-line": true,
+                }}
+                style={{
+                  left: this.returnHorizontalLineLeftPosition(),
+                  width: this.returnHorizontalLineLeftWidth(),
+                }}
+              ></span>
+            ) : null}
             {this.checkbox ? (
               <ch-form-checkbox
                 checked={this.checked}
