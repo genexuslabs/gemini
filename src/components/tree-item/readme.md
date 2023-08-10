@@ -26,11 +26,12 @@
 
 ## Events
 
-| Event                  | Description                                                                                                | Type                                             |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| `checkboxClickedEvent` | Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value. | `CustomEvent<{ checked: boolean; id: string; }>` |
-| `liItemClicked`        |                                                                                                            | `CustomEvent<any>`                               |
-| `toggleIconClicked`    |                                                                                                            | `CustomEvent<any>`                               |
+| Event                  | Description                                                                                                                                                                 | Type                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `checkboxClickedEvent` | Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.                                                                  | `CustomEvent<{ checked: boolean; id: string; }>` |
+| `liItemClicked`        |                                                                                                                                                                             | `CustomEvent<any>`                               |
+| `toggleIconClicked`    |                                                                                                                                                                             | `CustomEvent<any>`                               |
+| `treeItemLoaded`       | This events emits the id when it has been loaded. IT is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height. | `CustomEvent<string>`                            |
 
 ## Methods
 
@@ -39,6 +40,12 @@
 #### Returns
 
 Type: `Promise<void>`
+
+### `visibleDescendantsNumber() => Promise<number>`
+
+#### Returns
+
+Type: `Promise<number>`
 
 ## Dependencies
 

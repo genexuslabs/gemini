@@ -47,7 +47,7 @@ export class GxgTest {
     ]);
   };
   private deleteNodeHandler = () => {
-    this.tree.deleteNode("number-1-2");
+    this.treeItemsModel = [];
   };
 
   render() {
@@ -56,6 +56,7 @@ export class GxgTest {
     } else if (this.treeItemsModel) {
       return [
         <gxg-tree
+          checked
           data-test="hola"
           ref={(el) => (this.tree = el as HTMLGxgTreeElement)}
         >
@@ -75,10 +76,10 @@ export class GxgTest {
             Get checked
           </gxg-button>
           <gxg-button type="outlined" onClick={this.insertNewItemHandler}>
-            Insert new node (item) under number-1-2
+            Insert new node (item) under number-2.1
           </gxg-button>
-          <gxg-button disabled type="outlined" onClick={this.deleteNodeHandler}>
-            Delete node
+          <gxg-button type="outlined" onClick={this.deleteNodeHandler}>
+            Delete tree
           </gxg-button>
         </div>,
       ];

@@ -1844,6 +1844,7 @@ export namespace Components {
      */
     treeModel: HTMLGxgTreeElement;
     updateTreeVerticalLineHeight: () => Promise<void>;
+    visibleDescendantsNumber: () => Promise<number>;
   }
   interface GxgWindow {
     /**
@@ -4307,6 +4308,10 @@ declare namespace LocalJSX {
     ) => void;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
+    /**
+     * This events emits the id when it has been loaded. IT is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
+     */
+    onTreeItemLoaded?: (event: CustomEvent<string>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */

@@ -9,7 +9,6 @@ export const renderTreeItems = (
 ): HTMLGxgTreeItemElement[] | HTMLGxgTreeElement => {
   if (treeItemsModel?.length) {
     if (firstCall) {
-      console.log("first call");
       return treeItemsModel.map((item: GxgTreeItemData) => {
         return renderTreeItem(item);
       });

@@ -9,6 +9,7 @@ import {
   h,
   Watch,
   Method,
+  Listen,
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import { GxgTree } from "../tree/gxg-tree";
@@ -124,17 +125,35 @@ export class GxgTreeItem {
    */
   @Event() checkboxClickedEvent: EventEmitter<GxgTreeItemDataEmmited>;
 
+  /**
+   * This events emits the id when it has been loaded. IT is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
+   */
+  @Event() treeItemLoaded: EventEmitter<string>;
+
   @Element() el: HTMLGxgTreeItemElement;
+
+  @Listen("treeItemLoaded")
+  treeItemLoadedHandler(treeItemId) {
+    /*A children item has been added to the dom. Evaluate if a toggle icon needs to be added, and update vertical line height*/
+    this.isLeaf = this.evaluateIsLeaf();
+    this.updateTreeVerticalLineHeight();
+  }
+
+  private evaluateIsLeaf = (): boolean => {
+    let isLeaf = true;
+    const treeItemHasTree = this.el.querySelector('[slot="tree"]');
+    if (treeItemHasTree) {
+      isLeaf = false;
+    }
+    return isLeaf;
+  };
 
   componentWillLoad() {
     //Count number of parent trees in order to set the appropriate padding-left
     this.numberOfParentTrees = this.getParentsNumber(this.el);
     this.directVisibleItemsLength = this.getNumberOfDirectVisibleDescendantItems();
     //If tree item has not a tree-item inside, is leaf
-    const treeItemHasTree = this.el.querySelector('[slot="tree"]');
-    if (treeItemHasTree) {
-      this.isLeaf = false;
-    }
+    this.isLeaf = this.evaluateIsLeaf();
     //If is first item of tree
     const prevItem = this.el.previousElementSibling;
     if (prevItem === null) {
@@ -214,6 +233,7 @@ export class GxgTreeItem {
       return 1;
     }
     const directTree = item.querySelector(":scope > gxg-tree");
+
     let directItemsNodelist: NodeList;
     if (directTree) {
       directItemsNodelist = directTree.querySelectorAll(
@@ -262,6 +282,8 @@ export class GxgTreeItem {
       this.el
     );
     this.numberOfVisibleDescendantItems = numberOfVisibleDescendants;
+
+    this.treeItemLoaded.emit(this.el.getAttribute("id"));
   }
 
   @Watch("downloaded")
@@ -269,6 +291,11 @@ export class GxgTreeItem {
     if (newValue) {
       //this.updateTreeVerticalLineHeight();
     }
+  }
+
+  @Watch("opened")
+  openedHandler(newValue: boolean) {
+    this.updateTreeVerticalLineHeight();
   }
 
   getParentsNumber(elem) {
@@ -297,7 +324,32 @@ export class GxgTreeItem {
 
   @Method()
   async updateTreeVerticalLineHeight() {
-    this.getNumberOfVisibleDescendantItems(this.el);
+    const numberOfVisibleDescendants = this.countVisibleDescendants(this.el);
+    this.numberOfVisibleDescendantItems = numberOfVisibleDescendants;
+  }
+
+  @Method()
+  async visibleDescendantsNumber(): Promise<number> {
+    return this.countVisibleDescendants(this.el);
+  }
+
+  private countVisibleDescendants(item: HTMLGxgTreeItemElement): number {
+    const isClosed = !item.opened;
+    if (isClosed) {
+      return 1;
+    }
+
+    let count = 1; // Count the item itself
+
+    // Recursively count children
+    const treeSlot = item.querySelector(":scope > gxg-tree");
+    if (treeSlot) {
+      const treeItems = treeSlot.querySelectorAll("gxg-tree-item");
+      treeItems.forEach((childItem) => {
+        count += this.countVisibleDescendants(childItem);
+      });
+    }
+    return count;
   }
 
   liTextClicked() {
@@ -577,7 +629,7 @@ export class GxgTreeItem {
     } else {
       total = numberOfChildItemsLength + siblingsLength;
     }
-    const itemHeight = 24;
+    const itemHeight = 23;
     const offSet = 9;
     return `${total * itemHeight - offSet}px`;
   }
@@ -600,6 +652,19 @@ export class GxgTreeItem {
     }
     return `${width}px`;
   }
+
+  private getAncestorsTreeItems = (item: HTMLElement = this.el) => {
+    const ancestorsTreeItems = [];
+    while (
+      item?.nodeName === "GXG-TREE-ITEM" ||
+      item?.nodeName === "GXG-TREE"
+    ) {
+      if (item.nodeName === "GXG-TREE-ITEM") {
+        ancestorsTreeItems.push(item);
+      }
+      item = item.parentElement;
+    }
+  };
 
   checkboxTabIndex() {
     return -1;
