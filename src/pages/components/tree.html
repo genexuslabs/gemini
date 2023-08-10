@@ -255,6 +255,18 @@
                       id: "number-1-1-2-1",
                       name: "number-1-1-2-1",
                       icon: "general/apple",
+                      items: [
+                        {
+                          id: "new-item-added-1",
+                          name: "new-item-added-1",
+                          icon: "general/apple",
+                        },
+                        {
+                          id: "new-item-added-2",
+                          name: "new-item-added-2",
+                          icon: "general/apple",
+                        },
+                      ],
                     },
                     {
                       id: "number-1-1-2-2",
@@ -269,23 +281,6 @@
               id: "number-1-2",
               name: "number-1-2",
               icon: "general/apple",
-              items: [
-                {
-                  id: "number-1-2-1",
-                  name: "number-1-2-1",
-                  icon: "controls/file-upload",
-                },
-                {
-                  id: "number-1-2-2",
-                  name: "number-1-2-2",
-                  icon: "controls/media-player",
-                },
-                {
-                  id: "number-1-2-3",
-                  name: "number-1-2-3",
-                  icon: "controls/component",
-                },
-              ],
             },
           ],
         },
@@ -323,13 +318,13 @@
       const loadModelBtn = document.getElementById("load-model-btn");
       loadModelBtn.addEventListener("click", () => {
         //gxgTest.treeItemsModel = model;
-        gxgTest.treeItemsModel = modelTiny;
+        gxgTest.treeItemsModel = model;
         //gxgTest.treeItemsModel = modelMinimal;
       });
       const updateModelBtn = document.getElementById("update-model-btn");
       updateModelBtn.addEventListener("click", () => {
         //gxgTest.treeItemsModel = updatedModel;
-        gxgTest.treeItemsModel = modelTinyUpdated;
+        gxgTest.treeItemsModel = updatedModel;
       });
       const updateModelAgainBtn = document.getElementById(
         "update-model-again-btn"

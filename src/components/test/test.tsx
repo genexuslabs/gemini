@@ -75,9 +75,6 @@ export class GxgTest {
           <gxg-button type="outlined" onClick={this.getCheckedItemsHandler}>
             Get checked
           </gxg-button>
-          <gxg-button type="outlined" onClick={this.insertNewItemHandler}>
-            Insert new node (item) under number-2.1
-          </gxg-button>
           <gxg-button type="outlined" onClick={this.deleteNodeHandler}>
             Delete tree
           </gxg-button>
