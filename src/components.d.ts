@@ -78,10 +78,9 @@ import { position as position2 } from "./components/tooltip/tooltip";
 import {
   CheckedGxgTreeItem,
   ToggledGxgTreeItem,
-  TreeItemsInsertionMode,
 } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
-import { GxgTreeItemDataEmmited } from "./components/tree-item/gxg-tree-item";
+import { GxgTreeItemDataEmitted } from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -1743,22 +1742,11 @@ export namespace Components {
      */
     checked: boolean;
     /**
-     * @description Deletes a node, along will all the children nodes de node contains.
-     * @returns A boolean, indicating if the node could be deleted or not, because the 'nodeId' was found or not.
+     * Returns an array of the checked tree-items, providing the id and the checked status (true or false)
      */
-    deleteNode: (nodeId: string) => Promise<boolean>;
     getChecked: (
       idsArray?: (string | number)[]
     ) => Promise<CheckedGxgTreeItem[]>;
-    /**
-     * @description Inserts a new tree set of items.
-     * @returns A boolean, indicating if the tree items could be inserted or not, because the 'nodeId' was found or not.
-     */
-    insertTreeItems: (
-      nodeId: string,
-      treeItemsModel: GxgTreeItemData[],
-      mode?: TreeItemsInsertionMode
-    ) => Promise<boolean>;
     /**
      * Set this attribute if you want all the items to be opened by default.
      */
@@ -1795,42 +1783,29 @@ export namespace Components {
      * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
      */
     checked: boolean;
+    /**
+     * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+     */
     disabled: boolean;
-    /**
-     * Set this attribute if this tree-item has a resource to be downloaded;
-     */
-    download: boolean;
-    /**
-     * Set this attribute when you have downloaded the resource
-     */
-    downloaded: boolean;
-    /**
-     * Set this attribute when you are downloading a resource
-     */
-    downloading: boolean;
     firstTreeItem: boolean;
     hasChildTree: boolean;
+    /**
+     * Sets the tree item icon
+     */
+    icon: string;
     indeterminate: boolean;
     /**
-     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
      */
     isLeaf: boolean;
     /**
-     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * The tree item label.
      */
-    leftIcon: string;
-    /**
-     * A reference for the master tree (the first tree). This is only needed if using the model, instead of using common markup.
-     */
-    masterTree: HTMLGxgTreeElement;
+    label: string;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
     opened: boolean;
-    /**
-     * Set the right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
-     */
-    rightIcon: string;
     /**
      * The presence of this attribute sets the tree-item as selected
      */
@@ -1843,6 +1818,10 @@ export namespace Components {
      * This property is for passing a tree structure from the tree.
      */
     treeModel: HTMLGxgTreeElement;
+    /**
+     * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+     */
+    type: string;
     updateTreeVerticalLineHeight: () => Promise<void>;
     visibleDescendantsNumber: () => Promise<number>;
   }
@@ -4272,54 +4251,39 @@ declare namespace LocalJSX {
      * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
      */
     checked?: boolean;
+    /**
+     * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+     */
     disabled?: boolean;
-    /**
-     * Set this attribute if this tree-item has a resource to be downloaded;
-     */
-    download?: boolean;
-    /**
-     * Set this attribute when you have downloaded the resource
-     */
-    downloaded?: boolean;
-    /**
-     * Set this attribute when you are downloading a resource
-     */
-    downloading?: boolean;
     firstTreeItem?: boolean;
     hasChildTree?: boolean;
+    /**
+     * Sets the tree item icon
+     */
+    icon?: string;
     indeterminate?: boolean;
     /**
-     * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
+     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
      */
     isLeaf?: boolean;
     /**
-     * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
+     * The tree item label.
      */
-    leftIcon?: string;
-    /**
-     * A reference for the master tree (the first tree). This is only needed if using the model, instead of using common markup.
-     */
-    masterTree?: HTMLGxgTreeElement;
+    label?: string;
     /**
      * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
      */
-    onCheckboxClickedEvent?: (
-      event: CustomEvent<GxgTreeItemDataEmmited>
-    ) => void;
+    onCheckboxClicked?: (event: CustomEvent<GxgTreeItemDataEmitted>) => void;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
     /**
-     * This events emits the id when it has been loaded. IT is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
+     * This events emits the id when it has been loaded. It is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
      */
     onTreeItemLoaded?: (event: CustomEvent<string>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
     opened?: boolean;
-    /**
-     * Set the right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
-     */
-    rightIcon?: string;
     /**
      * The presence of this attribute sets the tree-item as selected
      */
@@ -4332,6 +4296,10 @@ declare namespace LocalJSX {
      * This property is for passing a tree structure from the tree.
      */
     treeModel?: HTMLGxgTreeElement;
+    /**
+     * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+     */
+    type?: string;
   }
   interface GxgWindow {
     /**

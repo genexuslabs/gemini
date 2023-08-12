@@ -5,6 +5,7 @@
 :host {
   --box-border-color: var(--color-primary-active);
   display: block;
+  line-height: 0;
   .gxg-form-checkbox__wrapper {
     display: inline-flex;
     align-items: center;

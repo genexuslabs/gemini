@@ -34,11 +34,6 @@ export class GxgTreeItem {
   //PROPS
 
   /**
-   * A reference for the master tree (the first tree). This is only needed if using the model, instead of using common markup.
-   */
-  @Prop() masterTree: HTMLGxgTreeElement;
-
-  /**
    * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
    */
   @Prop({ mutable: true }) checkbox: boolean = undefined;
@@ -59,39 +54,34 @@ export class GxgTreeItem {
   @Prop() toggleCheckboxes: boolean = undefined;
 
   /**
+   * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+   */
+  @Prop() type: string;
+
+  /**
+   * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+   */
+  @Prop() disabled: boolean = undefined;
+
+  /**
+   * The tree item label.
+   */
+  @Prop() label: string;
+
+  /**
+   * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
+   */
+  @Prop({ mutable: true }) isLeaf = true;
+
+  /**
    * The presence of this attribute sets the tree-item as selected
    */
   @Prop({ mutable: true }) selected = false;
 
   /**
-   * Set this attribute if this tree-item has a resource to be downloaded;
+   * Sets the tree item icon
    */
-  @Prop() readonly download: boolean = false;
-
-  /**
-   * Set this attribute when you are downloading a resource
-   */
-  @Prop() readonly downloading: boolean = false;
-
-  /**
-   * Set this attribute when you have downloaded the resource
-   */
-  @Prop() readonly downloaded: boolean = false;
-
-  /**
-   * Set the left side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
-   */
-  @Prop() readonly leftIcon: string;
-
-  /**
-   * Set the right side icon from the available Gemini icon set : https://gx-gemini.netlify.app/?path=/story/icons-icons--controls
-   */
-  @Prop() readonly rightIcon: string;
-
-  /**
-   * The presence of this attribute displays a +/- icon to toggle/untoggle the tree
-   */
-  @Prop({ mutable: true }) isLeaf = true;
+  @Prop() readonly icon: string;
 
   /**
    * This property is for passing a tree structure from the tree.
@@ -102,7 +92,6 @@ export class GxgTreeItem {
   @Prop({ mutable: true }) hasChildTree = false;
   @Prop({ mutable: true }) firstTreeItem = false;
   @Prop({ mutable: true }) indeterminate: boolean;
-  @Prop() readonly disabled: boolean = false;
 
   //STATE
   @State() numberOfParentTrees = 1;
@@ -112,7 +101,6 @@ export class GxgTreeItem {
   @State() lastTreeItem = false;
   @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
-  @State() rightIconColor: Color = "auto";
   @State() numberOfVisibleDescendantItems = 0;
   private directVisibleItemsLength = 0;
 
@@ -123,10 +111,10 @@ export class GxgTreeItem {
   /**
    * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
    */
-  @Event() checkboxClickedEvent: EventEmitter<GxgTreeItemDataEmmited>;
+  @Event() checkboxClicked: EventEmitter<GxgTreeItemDataEmitted>;
 
   /**
-   * This events emits the id when it has been loaded. IT is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
+   * This events emits the id when it has been loaded. It is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
    */
   @Event() treeItemLoaded: EventEmitter<string>;
 
@@ -170,18 +158,6 @@ export class GxgTreeItem {
       if (prevItem === null) {
         this.firstTreeItemOfParentTree = true;
       }
-    }
-    //Set right icon color
-    if (this.download && this.rightIcon.includes("download")) {
-      this.rightIconColor = "primary-enabled";
-    } else if (this.disabled) {
-      this.rightIconColor = "disabled";
-    }
-    //If this tree item has a source to download, this item has child tree, and is not leaf. Also, set the tree as not open
-    if (this.download) {
-      this.hasChildTree = true;
-      this.isLeaf = false;
-      this.opened = false;
     }
     this.cascadeConfig();
     this.attachExportParts();
@@ -368,11 +344,7 @@ export class GxgTreeItem {
     //ENTER
     if (e.key === "Enter") {
       //Enter should check/uncheck the checkbox (if present)
-      this.checkboxClicked();
-      if (this.download) {
-        //If the item has a resource to be downloaded, download.
-        this.el.click();
-      }
+      this.checkboxClickedHandler();
     }
     //LEFT/RIGHT NAVIGATION
     if (e.key === "ArrowRight" && !this.isLeaf) {
@@ -452,7 +424,7 @@ export class GxgTreeItem {
               if (prevElementSiblingHasChildTree) {
                 const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
                   .opened;
-                if (prevElementSiblingHasOpenTree && !this.download) {
+                if (prevElementSiblingHasOpenTree) {
                   //If preceding tree-item tree is opened, then the prev item is the last item of that tree
                   const prevElemSiblingTreeItem = this.el
                     .previousElementSibling;
@@ -540,7 +512,7 @@ export class GxgTreeItem {
               }
             }
           } else {
-            if (this.hasChildTree && this.opened && !this.download) {
+            if (this.hasChildTree && this.opened) {
               nextItem = this.el
                 .querySelector("gxg-tree gxg-tree-item")
                 .shadowRoot.querySelector("li .li-text");
@@ -571,7 +543,7 @@ export class GxgTreeItem {
 
   returnToggleIconType() {
     //Returns the type of icon : expand or collapse
-    if (!this.opened || this.download) {
+    if (!this.opened) {
       return "gemini-tools/add";
     } else {
       return "gemini-tools/minus";
@@ -681,16 +653,17 @@ export class GxgTreeItem {
     }
   }
 
-  checkboxClicked() {
+  private checkboxClickedHandler = () => {
     if (this.checkbox) {
       this.checked = !this.checked;
       this.toggleTreeItemsCheckboxes(this.checked);
-      this.checkboxClickedEvent.emit({
-        checked: this.checked,
+      this.checkboxClicked.emit({
         id: this.el.id,
+        checked: this.checked,
+        selected: this.selected,
       });
     }
-  }
+  };
 
   toggleTreeItemsCheckboxes(checked) {
     //Only do if toggleCheckboxes property exists in parent tree
@@ -708,22 +681,6 @@ export class GxgTreeItem {
           }
         });
       }
-    }
-  }
-
-  resolveLeftIcon() {
-    if (this.leftIcon !== undefined) {
-      return this.leftIcon;
-    } else {
-      return "";
-    }
-  }
-
-  resolveRightIcon() {
-    if (this.rightIcon !== undefined) {
-      return this.rightIcon;
-    } else {
-      return "";
     }
   }
 
@@ -755,7 +712,7 @@ export class GxgTreeItem {
             tabIndex={this.liTextTabIndex()}
             part={this.parts.item}
           >
-            {!this.isLeaf || this.download
+            {!this.isLeaf
               ? [
                   <span
                     class={{ "vertical-line": true }}
@@ -787,19 +744,19 @@ export class GxgTreeItem {
               ></span>
             ) : null}
             {this.checkbox ? (
-              <ch-form-checkbox
+              <gxg-form-checkbox
                 checked={this.checked}
                 class={{ checkbox: true }}
                 tabIndex={this.checkboxTabIndex()}
                 indeterminate={this.setIndeterminate()}
                 disabled={this.disabled}
-                onClick={this.checkboxClicked.bind(this)}
+                onClick={this.checkboxClickedHandler}
                 part={this.parts.checkbox}
-              ></ch-form-checkbox>
+              ></gxg-form-checkbox>
             ) : null}
-            {this.leftIcon ? (
+            {this.icon ? (
               <gxg-icon
-                type={this.resolveLeftIcon()}
+                type={this.icon}
                 color="auto"
                 class="icon icon--left"
                 style={{
@@ -810,17 +767,6 @@ export class GxgTreeItem {
             <span class="text">
               <slot></slot>
             </span>
-            {this.rightIcon ? (
-              <gxg-icon
-                type={this.resolveRightIcon()}
-                color={this.rightIconColor}
-                class="icon icon--right"
-                style={{
-                  "--icon-size": "14px",
-                }}
-              ></gxg-icon>
-            ) : null}
-            {this.download ? <span class={{ loading: true }}></span> : null}
           </div>
           <slot name="tree"></slot>
           {this.treeModel ? this.treeModel : null}
@@ -830,14 +776,9 @@ export class GxgTreeItem {
   }
 }
 
-export type GxgTreeItemDataEmmited = {
-  checked: boolean;
-  id: string;
-};
-
 export type GxgTreeItemData = {
   id: string;
-  name: string;
+  label: string;
   checkbox?: boolean;
   checked?: boolean;
   disabled?: boolean;
@@ -846,4 +787,10 @@ export type GxgTreeItemData = {
   items?: GxgTreeItemData[];
   opened?: boolean;
   selected?: boolean;
+};
+
+export type GxgTreeItemDataEmitted = {
+  id: string;
+  checked: boolean;
+  selected: boolean;
 };

@@ -12,9 +12,6 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
     <style>
-      gxg-test::part(tab-bar-button-menu) {
-        background-color: red;
-      }
       body {
         font-family: sans-serif;
       }
@@ -30,25 +27,21 @@
   <body>
     <span>Markup Tree</span>
     <gxg-tree>
-      <gxg-tree-item left-icon="general/generator">
+      <gxg-tree-item icon="general/generator">
         Meats
         <gxg-tree slot="tree">
-          <gxg-tree-item left-icon="general/patterns"> Cow </gxg-tree-item>
-          <gxg-tree-item left-icon="general/knowledge-base">
+          <gxg-tree-item icon="general/patterns"> Cow </gxg-tree-item>
+          <gxg-tree-item icon="general/knowledge-base" disabled>
             Goat
             <gxg-tree slot="tree">
-              <gxg-tree-item left-icon="general/generator">
-                dura
-              </gxg-tree-item>
-              <gxg-tree-item left-icon="general/patterns">
-                blanda
-              </gxg-tree-item>
+              <gxg-tree-item icon="general/generator"> dura </gxg-tree-item>
+              <gxg-tree-item icon="general/patterns"> blanda </gxg-tree-item>
             </gxg-tree>
           </gxg-tree-item>
         </gxg-tree>
       </gxg-tree-item>
-      <gxg-tree-item left-icon="general/generator"> Fish </gxg-tree-item>
-      <gxg-tree-item left-icon="general/knowledge-base"> Nuts </gxg-tree-item>
+      <gxg-tree-item icon="general/generator"> Fish </gxg-tree-item>
+      <gxg-tree-item icon="general/knowledge-base"> Nuts </gxg-tree-item>
     </gxg-tree>
 
     <br />

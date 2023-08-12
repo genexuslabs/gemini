@@ -1,15 +1,12 @@
 import {
   Component,
   Element,
-  State,
   h,
   Prop,
   Listen,
   Method,
   Host,
 } from "@stencil/core";
-import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
-import { renderTreeItems } from "../tree/renderTreeItems";
 @Component({
   tag: "gxg-tree",
   styleUrl: "gxg-tree.scss",
@@ -40,15 +37,7 @@ export class GxgTree {
    */
   @Prop() toggleCheckboxes = false;
 
-  //STATE
-  @State() nestedTree = false;
-
-  componentWillLoad() {
-    //Check if this tree is nested
-    const parentElementTagName = this.el.parentElement?.tagName;
-    if (parentElementTagName === "GXG-TREE-ITEM") {
-      this.nestedTree = true;
-    }
+  componentWillLoad(): void {
     //this.initialConfig();
     this.initialConfig();
   }
@@ -70,7 +59,7 @@ export class GxgTree {
   };
 
   @Listen("liItemClicked")
-  liItemClickedHandler() {
+  liItemClickedHandler(): void {
     //Remove 'selected' state from previous selected item
     const gxgTreeItems = this.el.querySelectorAll("gxg-tree-item");
     gxgTreeItems.forEach((item) => {
@@ -79,7 +68,7 @@ export class GxgTree {
   }
 
   @Listen("toggleIconClicked")
-  toggleIconClickedHandler() {
+  toggleIconClickedHandler(): void {
     //Update not leaf tree items vertical line height
     const treeItems = this.el.querySelectorAll("gxg-tree-item");
     const notLeafTreeItems = Array.from(treeItems).filter((item) => {
@@ -91,7 +80,7 @@ export class GxgTree {
   }
 
   /**
-   *
+   * Returns an array of the checked tree-items, providing the id and the checked status (true or false)
    */
   @Method()
   async getChecked(
@@ -114,43 +103,6 @@ export class GxgTree {
       });
     }
     return checkedTreeItems;
-  }
-
-  /**
-   * @description Inserts a new tree set of items.
-   * @returns A boolean, indicating if the tree items could be inserted or not, because the 'nodeId' was found or not.
-   */
-  @Method()
-  async insertTreeItems(
-    nodeId: string,
-    treeItemsModel: GxgTreeItemData[],
-    mode: TreeItemsInsertionMode = "after"
-  ): Promise<boolean> {
-    if (treeItemsModel?.length && nodeId) {
-      const node = this.el.querySelector(`#${nodeId}`);
-      if (!node) {
-        return false;
-      }
-      const renderedItems = renderTreeItems(treeItemsModel, false, true);
-      if (renderedItems) {
-        (node as HTMLGxgTreeItemElement).treeModel = renderedItems as HTMLGxgTreeElement;
-        /*Como inserto en el nodo renderedItems ?*/
-      }
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * @description Deletes a node, along will all the children nodes de node contains.
-   * @returns A boolean, indicating if the node could be deleted or not, because the 'nodeId' was found or not.
-   */
-  @Method()
-  async deleteNode(nodeId: string): Promise<boolean> {
-    if (nodeId) {
-      const node = this.el.querySelector(`#${nodeId}`);
-    }
-    return true;
   }
 
   /**

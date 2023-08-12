@@ -32,20 +32,6 @@ export class GxgTest {
       console.log(checked);
     })();
   };
-  private insertNewItemHandler = () => {
-    this.tree.insertTreeItems("number-1-2", [
-      {
-        id: "number-1-2-1",
-        name: "number-1-2-1",
-        icon: "general/java",
-      },
-      {
-        id: "number-1-2-2",
-        name: "number-1-2-1",
-        icon: "general/launchpad",
-      },
-    ]);
-  };
   private deleteNodeHandler = () => {
     this.treeItemsModel = [];
   };

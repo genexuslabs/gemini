@@ -32,10 +32,13 @@ graph TD;
   gxg-test --> gxg-tree-item
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-tree --> gxg-tree
-  gxg-tree --> gxg-tree-item
   gxg-tree-item --> gxg-icon
-  gxg-tree-item --> ch-form-checkbox
+  gxg-tree-item --> gxg-form-checkbox
+  gxg-form-checkbox --> gxg-icon
+  gxg-form-checkbox --> gxg-label
+  gxg-form-checkbox --> gxg-form-message
+  gxg-label --> gxg-tooltip
+  gxg-form-message --> gxg-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

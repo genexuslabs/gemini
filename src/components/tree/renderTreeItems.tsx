@@ -29,7 +29,7 @@ const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
     <gxg-tree-item
       key={`tree-item-${item.id}`}
       id={item.id}
-      leftIcon={item.icon}
+      icon={item.icon}
       checkbox={item.checkbox}
       checked={item.checked}
       disabled={item.disabled}
@@ -38,7 +38,7 @@ const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
       selected={item.selected}
     >
       {[
-        item.name,
+        item.label,
         item.items?.length && renderTreeItems(item.items, false, item.id),
       ]}
     </gxg-tree-item>
