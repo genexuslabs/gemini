@@ -312,13 +312,13 @@ export class GxgFormCheckbox implements FormComponent {
             "gxg-form-checkbox__wrapper": true,
             "gxg-form-checkbox__wrapper--align-top": this.alignTop,
           }}
+          onClick={this.handleGxgLabelClick}
         >
           {this.label ? (
             [
               this.renderCheckbox(),
               <gxg-label
                 class="label"
-                onClick={this.handleGxgLabelClick}
                 disabled={this.disabled}
                 labelPosition="end"
                 noMargin
@@ -328,9 +328,7 @@ export class GxgFormCheckbox implements FormComponent {
               </gxg-label>,
             ]
           ) : (
-            <div class="wrapper" onClick={this.handleGxgLabelClick}>
-              {this.renderCheckbox()}
-            </div>
+            <div class="wrapper">{this.renderCheckbox()}</div>
           )}
         </div>
         {this.formMessageLogic(this)}
