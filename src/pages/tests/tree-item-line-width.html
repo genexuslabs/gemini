@@ -59,7 +59,7 @@
         let total = 0;
         const allItemsLength = item.querySelectorAll("li").length;
         if (isFirstItem) {
-          const afterSiblingsLength = getAfterSiblingsAmount(item);
+          const afterSiblingsLength = getAfterSiblingsCount(item);
           total = allItemsLength + afterSiblingsLength;
         } else {
           const directUl = item.querySelector(":scope > ul");
@@ -73,7 +73,7 @@
         return total;
       };
 
-      const getAfterSiblingsAmount = (item) => {
+      const getAfterSiblingsCount = (item) => {
         count = 0;
         while (item && item.nodeName === "LI") {
           count++;

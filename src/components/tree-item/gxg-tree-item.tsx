@@ -91,23 +91,25 @@ export class GxgTreeItem {
    * This property is for internal use, when using the treeModel.
    */
   @Prop() numberOfChildren = 0;
-
-  //PROPS
   @Prop({ mutable: true }) hasChildTree = false;
-  @Prop({ mutable: true }) firstTreeItem = false;
   @Prop({ mutable: true }) indeterminate: boolean;
 
   //STATE
-  @State() numberOfParentTrees = 1;
-  private itemPaddingLeftValue = 0;
-  //@State() verticalLineHeight: string;
   @State() horizontalLinePaddingLeft = 0;
   @State() lastTreeItem = false;
-  @State() firstTreeItemOfParentTree = false;
   @State() lastTreeItemOfParentTree = false;
   @State() numberOfVisibleDescendantItems = 0;
   @State() time = 0;
-  private directVisibleItemsLength = 0;
+
+  private itemPaddingLeftValue = 0;
+  private parentTreeIsMasterTree = false;
+  private numberOfParentTrees = 1;
+  private firstItem = false;
+  private lineHeight = "0px";
+  private leftPadding = "0px";
+  private verticalLineStartPosition = "0px";
+  private horizontalLineWidth = "24px";
+  private horizontalLineStartPosition = "0px";
 
   //EVENTS
   @Event() liItemClicked: EventEmitter;
@@ -122,42 +124,28 @@ export class GxgTreeItem {
 
   componentWillLoad() {
     //Count number of parent trees in order to set the appropriate padding-left
-    this.numberOfParentTrees = this.getParentsNumber(this.el);
-    this.directVisibleItemsLength = this.getNumberOfDirectVisibleDescendantItems();
-    //If is first item of tree
-    const prevItem = this.el.previousElementSibling;
-    if (prevItem === null) {
-      this.firstTreeItem = true;
-    }
+    this.numberOfParentTrees = this.getParentsNumber();
+
     //If is last item of tree
     const nextItem = this.el.nextElementSibling;
     if (nextItem === null) {
       this.lastTreeItem = true;
     }
-    //If is first item of parent Tree
     if (this.numberOfParentTrees === 1) {
+      this.parentTreeIsMasterTree = true;
       const prevItem = this.el.previousElementSibling;
       if (prevItem === null) {
-        this.firstTreeItemOfParentTree = true;
+        //If is first item of parent tree...
+        this.firstItem = true;
       }
     }
+    this.defineLineHeight();
+    this.defineStartPosition();
     this.cascadeConfig();
     this.attachExportParts();
-
-    // const calculateVerticalLineHeight = this.calculateVerticalLineHeight(
-    //   this.el
-    // );
-    // console.log("calculateVerticalLineHeight", calculateVerticalLineHeight);
-    if (!this.leaf) {
-      //const count = this.countChildren(this.el);
-      //console.log("count", count);
-    }
-
-    const treeItems = this.el.querySelectorAll("gxg-tree-item");
-    console.log(this.el);
-    console.log("treeItems", treeItems);
-    console.log("---------");
   }
+
+  // componentDidUpdate() {}
 
   /**
    * @description Set some properties based on the parent tree configuration, unless this item has this properties already set.
@@ -183,85 +171,49 @@ export class GxgTreeItem {
     exportPartsResult.length && (this.exportparts = exportPartsResult);
   };
 
-  getNumberOfVisibleDescendantItems(item: HTMLGxgTreeItemElement) {
-    return this.countNumberOfVisibleDescendantItems(item);
-  }
-
-  getNumberOfDirectVisibleDescendantItems() {
-    let count = 0;
-    const directTree = this.el.querySelector(":scope > gxg-tree");
-    const directVisibleChildrenItems = directTree?.querySelectorAll(
-      ":scope > gxg-tree-item"
-    );
-    if (directTree && directVisibleChildrenItems) {
-      count = directVisibleChildrenItems.length;
+  private defineLineHeight = (): void => {
+    let offset = 11.5;
+    if (this.parentTreeIsMasterTree) {
+      offset = 0;
     }
-    return count;
-  }
-
-  private countNumberOfVisibleDescendantItems = (
-    item: HTMLGxgTreeItemElement,
-    firstItem = true
-  ): number => {
-    if (item.leaf || !item.opened) {
-      return 1;
-    }
-    const directTree = item.querySelector(":scope > gxg-tree");
-
-    let directItemsNodelist: NodeList;
-    if (directTree) {
-      directItemsNodelist = directTree.querySelectorAll(
-        ":scope > gxg-tree-item.visible"
+    let total = 0;
+    if (!this.leaf) {
+      const allItemsLength = this.el.querySelectorAll("gxg-tree-item").length;
+      const directGxgTree = this.el.querySelector(":scope > gxg-tree");
+      const directTreeItems = directGxgTree.querySelectorAll(
+        ":scope > gxg-tree-item"
       );
-    } else {
-      return 1;
+      if (!this.parentTreeIsMasterTree) {
+        const lastDirectTreeItem = directTreeItems[directTreeItems.length - 1];
+        const lastDirectItemItemsLength = lastDirectTreeItem.querySelectorAll(
+          "gxg-tree-item"
+        ).length;
+        total = allItemsLength - lastDirectItemItemsLength;
+      } else {
+        total = allItemsLength;
+      }
     }
-    const length = directItemsNodelist?.length;
-    let count = firstItem ? 0 : 1;
-    if (length) {
-      Array.from(directItemsNodelist).forEach(
-        (item: HTMLGxgTreeItemElement, i) => {
-          count += this.countNumberOfVisibleDescendantItems(item, false);
-        }
-      );
-    } else {
-      return 1;
-    }
-    return count;
+    this.lineHeight = `${total * 24 - offset}px`;
   };
 
-  // setVisibleTreeItems() {
-  //   const directTree = this.el.querySelector(":scope > gxg-tree");
-  //   if (directTree !== null) {
-  //     const directTreeDirectTreeItems = directTree.querySelectorAll(
-  //       ":scope > gxg-tree-item"
-  //     );
-  //     if (this.opened) {
-  //       directTreeDirectTreeItems.forEach((item) => {
-  //         item.classList.remove("not-visible");
-  //         item.classList.add("visible");
-  //       });
-  //     } else {
-  //       directTreeDirectTreeItems.forEach((item) => {
-  //         item.classList.remove("visible");
-  //         item.classList.add("not-visible");
-  //       });
-  //     }
-  //   }
-  // }
-
-  componentDidLoad() {
-    //this.setVisibleTreeItems();
-    // const numberOfVisibleDescendants = this.getNumberOfVisibleDescendantItems(
-    //   this.el
-    // );
-    // this.numberOfVisibleDescendantItems = numberOfVisibleDescendants;
-  }
-
-  @Watch("opened")
-  openedHandler(newValue: boolean) {
-    //this.updateTreeVerticalLineHeight();
-  }
+  /**
+   * @description returns the appropriate start padding and start position for the item, horizontal line, and vertical line.
+   */
+  private defineStartPosition = (): void => {
+    let value = 0;
+    let horizontalLineStartPosition = 13;
+    if (this.numberOfParentTrees > 1) {
+      value = (this.numberOfParentTrees - 1) * 45;
+      if (this.numberOfParentTrees > 2) {
+        horizontalLineStartPosition = value - 36;
+      }
+    } else {
+      value = 5;
+    }
+    this.verticalLineStartPosition = `${value + 7}px`;
+    this.leftPadding = `${value}px`;
+    this.horizontalLineStartPosition = `${horizontalLineStartPosition}px`;
+  };
 
   @Watch("numberOfChildren")
   numberOfChildrenHandler(numberOfChildren: number) {
@@ -275,9 +227,9 @@ export class GxgTreeItem {
     }
   }
 
-  getParentsNumber(elem) {
+  getParentsNumber() {
     let count = 0;
-    let parentElement = elem.parentElement;
+    let parentElement = this.el.parentElement;
 
     while (parentElement?.nodeName === "GXG-TREE") {
       count++;
@@ -371,7 +323,7 @@ export class GxgTreeItem {
     // UP/DOWN NAVIGATION
     if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
       e.preventDefault();
-      if (!this.firstTreeItemOfParentTree) {
+      if (!this.firstItem) {
         //Is not the first element of the parent
         //Set focus on the prev item
         let prevItem;
@@ -523,7 +475,7 @@ export class GxgTreeItem {
     }
   }
 
-  returnPaddingLeft() {
+  evaluateVerticalLineLeftFactor() {
     //returns the appropriate padding left to the .li-text element
     let paddingLeftValue = 0;
 
@@ -534,82 +486,6 @@ export class GxgTreeItem {
     }
     this.itemPaddingLeftValue = paddingLeftValue;
     return `${this.itemPaddingLeftValue}px`;
-  }
-
-  returnVerticalLineLeftPosition() {
-    //Returns the left position of the vertical line that associates the chid-items with the parent item
-    const paddingLeftValue = this.itemPaddingLeftValue + 7;
-    return `${paddingLeftValue}px`;
-  }
-
-  calculateVerticalLineHeight = (
-    item: HTMLGxgTreeItemElement,
-    count = 0
-  ): number => {
-    if (this.leaf) {
-      console.log("is fucking leaf");
-      return count + 1;
-    } else {
-      const directTree = this.el.querySelector(":scope > gxg-tree");
-      if (directTree) {
-        const directTreeItems = directTree.querySelectorAll(
-          ":scope > gxg-tree-item"
-        );
-        const directTreeItemsArray = Array.from(directTreeItems);
-        if (directTreeItemsArray.length) {
-          directTreeItemsArray.forEach((item, i) => {
-            if (i + 1 === directTreeItemsArray.length) {
-              return count + 1;
-            }
-            return (
-              count +
-              this.calculateVerticalLineHeight(
-                item as HTMLGxgTreeItemElement,
-                count
-              )
-            );
-          });
-        }
-      }
-    }
-  };
-
-  private countChildren = (item: HTMLGxgTreeItemElement) => {
-    if (item.leaf) {
-      return 0;
-    }
-    const directTree = this.el.querySelector(":scope > gxg-tree");
-    const directTreeItemsArray = Array.from(
-      directTree.querySelectorAll(":scope > gxg-tree-item")
-    );
-    let count = directTreeItemsArray.length;
-    for (const child of directTreeItemsArray) {
-      count += this.countChildren(child as HTMLGxgTreeItemElement);
-    }
-    return count;
-  };
-
-  returnVerticalLineHeight() {
-    //console.log("returnVerticalLineHeight");
-    //Returns the vertical line height.
-    let total = 0;
-    const numberOfChildItemsLength = this.el.querySelectorAll("gxg-tree-item")
-      .length;
-    const siblingsLength = getSiblings(this.el, "after").length;
-    // if (this.numberOfParentTrees > 1) {
-    //   total = this.getNumberOfDirectVisibleDescendantItems();
-    // } else {
-    //   total = numberOfChildItemsLength + siblingsLength;
-    // }
-    //total = numberOfChildItemsLength + siblingsLength;
-    total = numberOfChildItemsLength;
-    // console.log(this.el);
-    // console.log("numberOfChildItemsLength", numberOfChildItemsLength);
-    // console.log("siblingsLength", siblingsLength);
-    // console.log("------------");
-    const itemHeight = 23;
-    const offSet = 9;
-    return `${total * itemHeight - offSet}px`;
   }
 
   returnHorizontalLineLeftPosition() {
@@ -692,8 +568,6 @@ export class GxgTreeItem {
   }
 
   render() {
-    // console.log("render");
-    // console.log(this.el);
     return (
       <Host
         class={{ leaf: this.leaf, "not-leaf": !this.leaf }}
@@ -711,11 +585,11 @@ export class GxgTreeItem {
               "li-text": true,
               "li-text--not-leaf": !this.leaf,
               "li-text--leaf": this.leaf,
-              "li-text--first-tree-item": this.firstTreeItem,
+              "li-text--first-tree-item": this.firstItem,
               "li-text--has-child-tree": this.hasChildTree,
               "li-text--selected": this.selected,
             }}
-            style={{ paddingLeft: this.returnPaddingLeft() }}
+            style={{ paddingLeft: this.leftPadding }}
             onClick={this.liTextClicked.bind(this)}
             onDblClick={this.liTextDoubleClicked.bind(this)}
             onKeyDown={this.liTextKeyDownPressed.bind(this)}
@@ -727,8 +601,8 @@ export class GxgTreeItem {
                   <span
                     class={{ "vertical-line": true }}
                     style={{
-                      height: this.returnVerticalLineHeight(),
-                      left: this.returnVerticalLineLeftPosition(),
+                      height: this.lineHeight,
+                      left: this.verticalLineStartPosition,
                     }}
                   ></span>,
                   <div class={{ "closed-opened-icons": true }}>
@@ -742,14 +616,14 @@ export class GxgTreeItem {
                   </div>,
                 ]
               : null}
-            {this.numberOfParentTrees !== 1 ? (
+            {this.numberOfParentTrees > 1 ? (
               <span
                 class={{
                   "horizontal-line": true,
                 }}
                 style={{
-                  left: this.returnHorizontalLineLeftPosition(),
-                  width: this.returnHorizontalLineLeftWidth(),
+                  left: this.horizontalLineStartPosition,
+                  width: this.horizontalLineWidth,
                 }}
               ></span>
             ) : null}

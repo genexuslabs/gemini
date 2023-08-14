@@ -68,39 +68,28 @@
       }
       */
       
-      const countLineHeightItems = (item, isFirstItem) => {
+      const lineHeightFactor = (item, firstLevel) => {
         let total = 0;
         const allItemsLength = item.querySelectorAll("li").length;
-        if (isFirstItem) {
-          const afterSiblingsLength = getAfterSiblingsAmount(item);
-          total = allItemsLength + afterSiblingsLength;
-        } else {
-          const directUl = item.querySelector(":scope > ul");
-          const directItems = directUl.querySelectorAll(":scope > li");
+        const directUl = item.querySelector(":scope > ul");
+        const directItems = directUl.querySelectorAll(":scope > li");
+        if (!firstLevel) {
           const lastDirectItem = directItems[directItems.length - 1];
-          const lastDirectItemItemsLength = lastDirectItem.querySelectorAll(
-            "li"
-          ).length;
-          total = allItemsLength - lastDirectItemItemsLength;
+          const lastDirectItemItemsLength = lastDirectItem.querySelectorAll("li").length;
+          total = allItemsLength - lastDirectItemItemsLength; 
+        } else { 
+          total = allItemsLength;
         }
         return total;
       }
 
-      const getAfterSiblingsAmount = (item) => {
-        count = 0;
-        while (item && item.nodeName === "LI") {
-          count++;
-          item = item.nextElementSibling;
-        }
-        return count - 1;
-      }
     </script>
   </head>
   <body>
     <div class="container">
       <h1>Calcular altura de línea para nodo con hijos</h1>
       <ul>
-        <li id="fruits">
+        <li id="fruits" first-level>
           <span class="line"></span>
           Fruits
           <ul>
@@ -149,8 +138,19 @@
             </li>
           </ul>
         </li>
-        <li id="vegetables" leaf>Vegetables</li>
-        <li id="grains" leaf>Grains</li>
+        <li id="vegetables" first-level>
+          <span class="line"></span>
+          Vegetables
+          <ul>
+            <li leaf>carrot</li>
+            <li leaf>broccoli</li>
+            <li leaf>spinach</li>
+            <li leaf>tomatoes</li>
+            <li leaf>bell pepper</li>
+          </ul>
+        </li>
+        <li id="grains" leaf first-level>
+          Grains</li>
       </ul>
       
 
@@ -165,13 +165,8 @@
         utilizaría clamp si el texto del nodo excede el ancho disponible.
       </p>
       <p>
-        <p><strong>Primer nodo:</strong></p>
-        Hay un caso excepcional, que es el primer nodo (Fruits). En este caso sí
-        nos interesa calcular todos los nodos hijos, sin excluir a los hijos del
-        último nodo directo (Mango). Para eso se le pasa a la función un
-        parámetro (firstItem), que solo será true para el primer nodo del master-tree. Además,
-        también nos interesa en este caso sumar la cantidad de nodos hermanos, para que la
-        línea llegue hasta el final (Grains).
+        <p><strong>Primer nivel:</strong></p>
+        Si el nodo es de primer nivel, se calculan todos los hijos, sino se calculan todos, excepto los hijos del ultimo nodo directo, como es el caso de "Grapefruit" en este ejemplo.
       </p>
 
       <p>Las líneas horizontales también son necesarias para visualizar la pertenencia, pero eso es responsabilidad de otra función. Esta solo se encarga de la altura.</p>
@@ -186,11 +181,11 @@
       const itemsNotLeaf = document.querySelectorAll("li:not([leaf])");
       countBtn.addEventListener("click", () => {
         Array.from(itemsNotLeaf).forEach((item, i) => {
-          let firstItem = false;
-          if (i === 0) {
-            firstItem = true;
+          let firstLevel = true;
+          if(item.getAttribute('first-level') === null) {
+            firstLevel = false;
           }
-          totalItems = countLineHeightItems(item, firstItem);
+          totalItems = lineHeightFactor(item, firstLevel);
           const line = item.querySelector(".line");
           line.style.height = `${totalItems * listItemMinHeight - offset}px`;
         });

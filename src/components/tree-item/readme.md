@@ -9,7 +9,6 @@
 | `checkbox`         | `checkbox`           | Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.                                                             | `boolean`            | `undefined` |
 | `checked`          | `checked`            | Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.                                                           | `boolean`            | `undefined` |
 | `disabled`         | `disabled`           | The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.                                                                        | `boolean`            | `undefined` |
-| `firstTreeItem`    | `first-tree-item`    |                                                                                                                                                                                                                                   | `boolean`            | `false`     |
 | `hasChildTree`     | `has-child-tree`     |                                                                                                                                                                                                                                   | `boolean`            | `false`     |
 | `icon`             | `icon`               | Sets the tree item icon                                                                                                                                                                                                           | `string`             | `undefined` |
 | `indeterminate`    | `indeterminate`      |                                                                                                                                                                                                                                   | `boolean`            | `undefined` |
@@ -37,18 +36,6 @@
 #### Returns
 
 Type: `Promise<void>`
-
-## CSS Custom Properties
-
-| Name                  | Description                    |
-| --------------------- | ------------------------------ |
-| `--font-family`       | The text font family           |
-| `--font-size`         | The text font size             |
-| `--font-weight`       | The text font weight           |
-| `--guide-color`       | The color of the tree guides   |
-| `--item-active-color` | The color of the active item   |
-| `--item-hover-color`  | The color of the item on hover |
-| `--text-color`        | The color of the text          |
 
 ## Dependencies
 

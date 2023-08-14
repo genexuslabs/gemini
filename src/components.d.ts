@@ -1787,7 +1787,6 @@ export namespace Components {
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     disabled: boolean;
-    firstTreeItem: boolean;
     hasChildTree: boolean;
     /**
      * Sets the tree item icon
@@ -4258,7 +4257,6 @@ declare namespace LocalJSX {
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     disabled?: boolean;
-    firstTreeItem?: boolean;
     hasChildTree?: boolean;
     /**
      * Sets the tree item icon
