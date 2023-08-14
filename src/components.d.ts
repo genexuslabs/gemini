@@ -70,17 +70,20 @@ import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition4 } from "./components/stepper/stepper";
 import { TabsPosition } from "./components/tabs/tabs";
-import { GxgTreeItemData } from "./components/tree-item/gxg-tree-item";
+import {
+  GxgTreeItemData,
+  GxgTreeItemSelectedData,
+} from "./components/tree-item/gxg-tree-item";
 import { TargetType, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
-import {
-  CheckedGxgTreeItem,
-  ToggledGxgTreeItem,
-} from "./components/tree/gxg-tree";
+import { ToggledGxgTreeItem } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
-import { GxgTreeItemDataEmitted } from "./components/tree-item/gxg-tree-item";
+import {
+  GxgTreeItemData as GxgTreeItemData1,
+  GxgTreeItemSelectedData as GxgTreeItemSelectedData1,
+} from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -1742,11 +1745,19 @@ export namespace Components {
      */
     checked: boolean;
     /**
-     * Returns an array of the checked tree-items, providing the id and the checked status (true or false)
+     * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
      */
-    getChecked: (
+    getCheckedItems: (
       idsArray?: (string | number)[]
-    ) => Promise<CheckedGxgTreeItem[]>;
+    ) => Promise<GxgTreeItemSelectedData[]>;
+    /**
+     * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
+     */
+    getSelectedItems: () => Promise<GxgTreeItemData[]>;
+    /**
+     * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
+     */
+    multiSelection: boolean;
     /**
      * Set this attribute if you want all the items to be opened by default.
      */
@@ -4225,6 +4236,10 @@ declare namespace LocalJSX {
      */
     checked?: boolean;
     /**
+     * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
+     */
+    multiSelection?: boolean;
+    /**
      * Set this attribute if you want all the items to be opened by default.
      */
     opened?: boolean;
@@ -4275,11 +4290,8 @@ declare namespace LocalJSX {
      * This property is for internal use, when using the treeModel.
      */
     numberOfChildren?: number;
-    /**
-     * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
-     */
-    onCheckboxClicked?: (event: CustomEvent<GxgTreeItemDataEmitted>) => void;
-    onLiItemClicked?: (event: CustomEvent<any>) => void;
+    onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.

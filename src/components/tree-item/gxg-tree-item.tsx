@@ -65,7 +65,7 @@ export class GxgTreeItem {
   /**
    * The tree item label.
    */
-  @Prop() label: string;
+  @Prop() label: string = null;
 
   /**
    * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
@@ -92,7 +92,7 @@ export class GxgTreeItem {
    */
   @Prop() numberOfChildren = 0;
   @Prop({ mutable: true }) hasChildTree = false;
-  @Prop({ mutable: true }) indeterminate: boolean;
+  @Prop({ mutable: true }) indeterminate = false;
 
   //STATE
   @State() horizontalLinePaddingLeft = 0;
@@ -100,27 +100,28 @@ export class GxgTreeItem {
   @State() lastTreeItemOfParentTree = false;
   @State() numberOfVisibleDescendantItems = 0;
   @State() time = 0;
+  @State() lineHeight: string;
 
   private itemPaddingLeftValue = 0;
   private parentTreeIsMasterTree = false;
   private numberOfParentTrees = 1;
   private firstItem = false;
-  private lineHeight = "0px";
   private leftPadding = "0px";
   private verticalLineStartPosition = "0px";
   private horizontalLineWidth = "24px";
   private horizontalLineStartPosition = "0px";
 
   //EVENTS
-  @Event() liItemClicked: EventEmitter;
   @Event() toggleIconClicked: EventEmitter;
-
-  /**
-   * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
-   */
-  @Event() checkboxClicked: EventEmitter<GxgTreeItemDataEmitted>;
+  @Event() selectionChanged: EventEmitter<GxgTreeItemSelectedData>;
+  @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
 
   @Element() el: HTMLGxgTreeItemElement;
+
+  @Listen("checkboxToggled")
+  checkboxToggledHandler() {
+    this.evaluateCheckboxStatus();
+  }
 
   componentWillLoad() {
     //Count number of parent trees in order to set the appropriate padding-left
@@ -143,9 +144,32 @@ export class GxgTreeItem {
     this.defineStartPosition();
     this.cascadeConfig();
     this.attachExportParts();
+    this.evaluateCheckboxStatus();
   }
 
-  // componentDidUpdate() {}
+  private evaluateCheckboxStatus = () => {
+    const allChildren = this.el.querySelectorAll("gxg-tree-item");
+    let checked = 0;
+    if (allChildren?.length) {
+      Array.from(allChildren).forEach((item) => {
+        if (item.checked) {
+          checked++;
+        }
+      });
+      if (allChildren.length === checked) {
+        //all checked
+        this.checked = true;
+        this.indeterminate = false;
+      } else if (checked === 0) {
+        //all unchecked
+        this.checked = false;
+        this.indeterminate = false;
+      } else {
+        //indeterminate
+        this.indeterminate = true;
+      }
+    }
+  };
 
   /**
    * @description Set some properties based on the parent tree configuration, unless this item has this properties already set.
@@ -221,7 +245,6 @@ export class GxgTreeItem {
     const ancestors = this.getAncestorsTreeItems(this.el);
     if (ancestors.length) {
       ancestors.forEach((ancestor) => {
-        //console.log("ancestor", ancestor);
         ancestor.reRender();
       });
     }
@@ -244,21 +267,28 @@ export class GxgTreeItem {
     } else {
       this.opened = true;
     }
-    //this.setVisibleTreeItems();
-    //this.toggleIconClicked.emit();
-    const event = this.toggleIconClicked.emit();
-    event.stopPropagation();
-    event.preventDefault();
   }
 
   @Method()
   async reRender() {
-    this.time = new Date().getTime();
+    this.defineLineHeight();
   }
 
-  liTextClicked() {
-    this.liItemClicked.emit();
-    this.selected = true;
+  liTextClickedHandler(e) {
+    if (e.ctrlKey || !this.selected) {
+      this.selectionChanged.emit({
+        id: this.el.id,
+        label: this.el.label,
+        checked: this.el.checked,
+        selected: this.selected,
+        ctrlKey: e.ctrlKey,
+      });
+    }
+    if (e.ctrlKey) {
+      this.selected = !this.selected;
+    } else if (!this.selected) {
+      this.selected = true;
+    }
   }
 
   liTextDoubleClicked() {
@@ -287,7 +317,6 @@ export class GxgTreeItem {
         );
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
-      //this.setVisibleTreeItems();
       this.toggleIconClicked.emit(); //this recalculates the vertical line height
     }
 
@@ -521,49 +550,29 @@ export class GxgTreeItem {
     return ancestorsTreeItems;
   };
 
-  checkboxTabIndex() {
-    return -1;
-  }
-  liTextTabIndex() {
-    return 1;
-  }
-
-  setIndeterminate() {
-    if (this.indeterminate) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   private checkboxClickedHandler = () => {
     if (this.checkbox) {
       this.checked = !this.checked;
-      this.toggleTreeItemsCheckboxes(this.checked);
-      this.checkboxClicked.emit({
+      if (!this.leaf) {
+        this.toggleChildrenCheckboxes(this.checked);
+      }
+      this.checkboxToggled.emit({
         id: this.el.id,
+        label: this.el.label,
         checked: this.checked,
         selected: this.selected,
       });
     }
   };
 
-  toggleTreeItemsCheckboxes(checked) {
-    //Only do if toggleCheckboxes property exists in parent tree
-    const parentTree = (this.el.parentElement as unknown) as GxgTree;
-    if (this.toggleCheckboxes) {
-      this.indeterminate = false;
-      const childTree = this.el.querySelector("gxg-tree");
-      if (childTree !== null) {
-        const childTreeItems = childTree.querySelectorAll("gxg-tree-item");
-        childTreeItems.forEach(function (treeItem) {
-          if (checked) {
-            treeItem.checked = true;
-          } else {
-            treeItem.checked = false;
-          }
-        });
-      }
+  toggleChildrenCheckboxes(checked) {
+    this.indeterminate = false;
+    const allChildren = this.el.querySelectorAll("gxg-tree-item");
+    if (allChildren?.length) {
+      Array.from(allChildren).forEach((item) => {
+        item.indeterminate = false;
+        item.checked = checked;
+      });
     }
   }
 
@@ -590,10 +599,10 @@ export class GxgTreeItem {
               "li-text--selected": this.selected,
             }}
             style={{ paddingLeft: this.leftPadding }}
-            onClick={this.liTextClicked.bind(this)}
+            onClick={this.liTextClickedHandler.bind(this)}
             onDblClick={this.liTextDoubleClicked.bind(this)}
             onKeyDown={this.liTextKeyDownPressed.bind(this)}
-            tabIndex={this.liTextTabIndex()}
+            tabIndex={-1}
             part={this.parts.item}
           >
             {!this.leaf
@@ -631,8 +640,8 @@ export class GxgTreeItem {
               <gxg-form-checkbox
                 checked={this.checked}
                 class={{ checkbox: true }}
-                tabIndex={this.checkboxTabIndex()}
-                indeterminate={this.setIndeterminate()}
+                tabIndex={-1}
+                indeterminate={this.indeterminate}
                 disabled={this.disabled}
                 onClick={this.checkboxClickedHandler}
                 part={this.parts.checkbox}
@@ -661,21 +670,23 @@ export class GxgTreeItem {
 }
 
 export type GxgTreeItemData = {
-  id: string;
-  label: string;
   checkbox?: boolean;
   checked?: boolean;
   disabled?: boolean;
   icon?: string;
+  id: string;
   indeterminate?: boolean;
   items?: GxgTreeItemData[];
+  label: string;
+  leaf?: boolean;
   opened?: boolean;
   selected?: boolean;
-  leaf?: boolean;
 };
 
-export type GxgTreeItemDataEmitted = {
-  id: string;
+export type GxgTreeItemSelectedData = {
   checked: boolean;
+  ctrlKey?: boolean;
+  id: string;
+  label: string;
   selected: boolean;
 };

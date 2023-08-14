@@ -26,9 +26,15 @@ export class GxgTest {
   private toggleTreeNodeHandler = () => {
     this.tree.toggleItems(["number-1-1-2"]);
   };
+  private getSelectedItemsHandler = () => {
+    (async () => {
+      const selected = await this.tree.getSelectedItems();
+      console.log(selected);
+    })();
+  };
   private getCheckedItemsHandler = () => {
     (async () => {
-      const checked = await this.tree.getChecked();
+      const checked = await this.tree.getCheckedItems();
       console.log(checked);
     })();
   };
@@ -42,8 +48,8 @@ export class GxgTest {
     } else if (this.treeItemsModel) {
       return [
         <gxg-tree
+          id="masterTree"
           checked
-          data-test="hola"
           ref={(el) => (this.tree = el as HTMLGxgTreeElement)}
         >
           {renderTreeItems(this.treeItemsModel, true, "master")}
@@ -58,11 +64,14 @@ export class GxgTest {
           <gxg-button type="outlined" onClick={this.toggleTreeNodeHandler}>
             Toggle 1-1-2
           </gxg-button>
+          <gxg-button type="outlined" onClick={this.getSelectedItemsHandler}>
+            Get Selected Items
+          </gxg-button>
           <gxg-button type="outlined" onClick={this.getCheckedItemsHandler}>
-            Get checked
+            Get Checked Items
           </gxg-button>
           <gxg-button type="outlined" onClick={this.deleteNodeHandler}>
-            Delete tree
+            Delete Tree
           </gxg-button>
         </div>,
       ];

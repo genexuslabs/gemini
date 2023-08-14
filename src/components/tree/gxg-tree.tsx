@@ -8,6 +8,10 @@ import {
   Host,
   State,
 } from "@stencil/core";
+import {
+  GxgTreeItemData,
+  GxgTreeItemSelectedData,
+} from "../tree-item/gxg-tree-item";
 @Component({
   tag: "gxg-tree",
   styleUrl: "gxg-tree.scss",
@@ -38,11 +42,33 @@ export class GxgTree {
    */
   @Prop() toggleCheckboxes = false;
 
+  /**
+   * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
+   */
+  @Prop() multiSelection = false;
+
+  /**
+   * Indicates if this the is master tree
+   */
+  private masterTree = false;
+
   componentWillLoad(): void {
     //this.initialConfig();
     this.initialConfig();
     this.getNumberOfParentTrees();
+    this.evaluateIsMasterTree();
   }
+
+  /**
+   * This method evaluates if this tree is the master tree
+   */
+  private evaluateIsMasterTree = () => {
+    const grandFather = this.el.parentElement?.parentElement;
+    if (grandFather === undefined || grandFather.nodeName !== "GXG-TREE") {
+      this.masterTree = true;
+    }
+  };
+
   private initialConfig = () => {
     const parent = this.el.parentElement;
     if (parent?.tagName === "GXG-TREE-ITEM") {
@@ -60,25 +86,20 @@ export class GxgTree {
     }
   };
 
-  @Listen("liItemClicked")
-  liItemClickedHandler(): void {
-    //Remove 'selected' state from previous selected item
-    const gxgTreeItems = this.el.querySelectorAll("gxg-tree-item");
-    gxgTreeItems.forEach((item) => {
-      item.selected = false;
-    });
-  }
-
-  @Listen("toggleIconClicked")
-  toggleIconClickedHandler(): void {
-    //Update not leaf tree items vertical line height
-    const treeItems = this.el.querySelectorAll("gxg-tree-item");
-    const notLeafTreeItems = Array.from(treeItems).filter((item) => {
-      return !item.leaf;
-    });
-    notLeafTreeItems.forEach((treeItem) => {
-      //treeItem.updateTreeVerticalLineHeight();
-    });
+  @Listen("selectionChanged")
+  selectionChangedHandler(e: CustomEvent<GxgTreeItemSelectedData>): void {
+    //Unselect all items, except the one that triggered this event. This action should be done once, by the master tree.
+    if (
+      (this.masterTree && !this.multiSelection) ||
+      (this.masterTree && this.multiSelection && !e.detail.ctrlKey)
+    ) {
+      const allChildren = this.el.querySelectorAll("gxg-tree-item");
+      if (allChildren?.length) {
+        Array.from(allChildren).forEach((item) => {
+          item.selected = false;
+        });
+      }
+    }
   }
 
   private getNumberOfParentTrees = () => {
@@ -91,29 +112,59 @@ export class GxgTree {
   };
 
   /**
-   * Returns an array of the checked tree-items, providing the id and the checked status (true or false)
+   * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
    */
   @Method()
-  async getChecked(
+  async getCheckedItems(
     idsArray?: (string | number)[]
-  ): Promise<CheckedGxgTreeItem[]> {
+  ): Promise<GxgTreeItemSelectedData[]> {
     const allTreeItems = Array.from(this.el.querySelectorAll("gxg-tree-item"));
-    const checkedTreeItems: CheckedGxgTreeItem[] = [];
+    const checkedTreeItems: GxgTreeItemSelectedData[] = [];
     if (idsArray?.length) {
       idsArray.forEach((id) => {
         const found = allTreeItems.find((item) => id === item.id);
         found &&
           checkedTreeItems.push({
             id: found.id,
+            label: found.label,
             checked: found.checked,
+            selected: found.selected,
           });
       });
     } else {
       allTreeItems.forEach((item) => {
-        item.checked && checkedTreeItems.push({ id: item.id });
+        item.checked &&
+          checkedTreeItems.push({
+            id: item.id,
+            label: item.label,
+            checked: item.checked,
+            selected: item.selected,
+          });
       });
     }
     return checkedTreeItems;
+  }
+
+  /**
+   * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
+   */
+  @Method()
+  async getSelectedItems(): Promise<GxgTreeItemData[]> {
+    const selectedItems: GxgTreeItemData[] = [];
+    const allItems = this.el.querySelectorAll("gxg-tree-item");
+    if (allItems?.length) {
+      Array.from(allItems).forEach((item) => {
+        if (item.selected) {
+          selectedItems.push({
+            id: item.id,
+            label: item.label,
+            checked: item.checked,
+            selected: item.selected,
+          });
+        }
+      });
+    }
+    return selectedItems;
   }
 
   /**
@@ -168,10 +219,6 @@ export class GxgTree {
   }
 }
 
-export type CheckedGxgTreeItem = {
-  id: string;
-  checked?: boolean;
-};
 export type ToggledGxgTreeItem = {
   id: string;
   opened: boolean;

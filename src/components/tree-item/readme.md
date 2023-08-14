@@ -11,8 +11,8 @@
 | `disabled`         | `disabled`           | The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.                                                                        | `boolean`            | `undefined` |
 | `hasChildTree`     | `has-child-tree`     |                                                                                                                                                                                                                                   | `boolean`            | `false`     |
 | `icon`             | `icon`               | Sets the tree item icon                                                                                                                                                                                                           | `string`             | `undefined` |
-| `indeterminate`    | `indeterminate`      |                                                                                                                                                                                                                                   | `boolean`            | `undefined` |
-| `label`            | `label`              | The tree item label.                                                                                                                                                                                                              | `string`             | `undefined` |
+| `indeterminate`    | `indeterminate`      |                                                                                                                                                                                                                                   | `boolean`            | `false`     |
+| `label`            | `label`              | The tree item label.                                                                                                                                                                                                              | `string`             | `null`      |
 | `leaf`             | `leaf`               | The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree                                       | `boolean`            | `false`     |
 | `numberOfChildren` | `number-of-children` | This property is for internal use, when using the treeModel.                                                                                                                                                                      | `number`             | `0`         |
 | `opened`           | `opened`             | Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.                                                 | `boolean`            | `undefined` |
@@ -23,11 +23,11 @@
 
 ## Events
 
-| Event               | Description                                                                                                | Type                                                                |
-| ------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `checkboxClicked`   | Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value. | `CustomEvent<{ id: string; checked: boolean; selected: boolean; }>` |
-| `liItemClicked`     |                                                                                                            | `CustomEvent<any>`                                                  |
-| `toggleIconClicked` |                                                                                                            | `CustomEvent<any>`                                                  |
+| Event               | Description | Type                                                                                                                                                                                                                              |
+| ------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checkboxToggled`   |             | `CustomEvent<{ checkbox?: boolean; checked?: boolean; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| `selectionChanged`  |             | `CustomEvent<{ checked: boolean; ctrlKey?: boolean; id: string; label: string; selected: boolean; }>`                                                                                                                             |
+| `toggleIconClicked` |             | `CustomEvent<any>`                                                                                                                                                                                                                |
 
 ## Methods
 

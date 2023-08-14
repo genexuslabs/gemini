@@ -10,6 +10,7 @@
     var(--gxg-border-color--regular);
   --gxg-icon-size: var(--spacing-comp-04);
   --gxg-icon-mask-size: 100%;
+  --gxg-color-selected: var(--color-secondary-enabled);
 }
 :root.gxg-large {
   --gxg-form-text-height: var(--spacing-comp-05);

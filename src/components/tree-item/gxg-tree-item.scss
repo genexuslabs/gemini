@@ -75,10 +75,7 @@
         @include form-element-common-styles-focus-type-1();
       }
       &--selected {
-        background-color: var(--item-active-color);
-        &:hover {
-          background-color: var(--item-hover-color);
-        }
+        background-color: var(--gxg-color-selected);
       }
       > * {
         flex-shrink: 0;

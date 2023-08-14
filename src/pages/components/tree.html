@@ -22,11 +22,20 @@
       body > gxg-tree {
         margin-bottom: 32px;
       }
+      .buttons-wrapper {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
     </style>
   </head>
   <body>
     <span>Markup Tree</span>
-    <gxg-tree>
+
+    <!-- Markup Tree -->
+
+    <gxg-tree multi-selection id="markup-tree">
       <gxg-tree-item icon="general/generator">
         Meats
         <gxg-tree slot="tree">
@@ -40,16 +49,16 @@
               <gxg-tree-item icon="general/patterns">
                 Goat B
                 <gxg-tree slot="tree">
-                  <gxg-tree-item icon="general/generator" leaf>
+                  <gxg-tree-item icon="general/generator" leaf checked>
                     Goat B1
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf>
+                  <gxg-tree-item icon="general/patterns" leaf checked>
                     Goat B2
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf>
+                  <gxg-tree-item icon="general/patterns" leaf checked>
                     Goat B3
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf>
+                  <gxg-tree-item icon="general/patterns" leaf checked>
                     Goat B4
                   </gxg-tree-item>
                 </gxg-tree>
@@ -85,14 +94,58 @@
 
     <br />
 
+    <p>Open the console to see the selected or checked items</p>
+    <div class="buttons-wrapper">
+      <gxg-button type="outlined" id="get-selected-markup"
+        >Get Selected Items</gxg-button
+      >
+      <gxg-button type="outlined" id="get-checked-markup"
+        >Get Checked Items</gxg-button
+      >
+      <gxg-button type="outlined" id="open-goat-b">Open Goat B</gxg-button>
+      <gxg-button type="outlined" id="close-goat-b">Close Goat B</gxg-button>
+      <gxg-button type="outlined" id="toggle-goat-b">Toggle Goat B</gxg-button>
+
+      <script>
+        const markUpTree = document.getElementById("markup-tree");
+        /*Selected items*/
+        const getSelectedMarkup = document.getElementById(
+          "get-selected-markup"
+        );
+        getSelectedMarkup.addEventListener("click", () => {
+          const selectedPromise = markUpTree.getSelectedItems();
+          selectedPromise.then(function (value) {
+            console.log(value);
+          });
+        });
+
+        /*Checked items*/
+        const getCheckedMarkup = document.getElementById("get-checked-markup");
+        getCheckedMarkup.addEventListener("click", () => {
+          const checkedPromise = markUpTree.getCheckedItems();
+          checkedPromise.then(function (value) {
+            console.log(value);
+          });
+        });
+        const openGoatB = document.getElementById("open-goat-b");
+        const closeGoatB = document.getElementById("close-goat-b");
+        const toggleGoatB = document.getElementById("toggle-goat-b");
+      </script>
+    </div>
+
+    <br />
+    <!-- Model Tree -->
+
     <span>Model Tree</span>
     <gxg-test key="model-tree"></gxg-test>
-    <br />
-    <gxg-button id="load-model-btn">Load model (click first)</gxg-button>
-    <gxg-button id="update-model-btn">Update model (click second)</gxg-button>
-    <gxg-button id="update-model-again-btn"
-      >Update model again (click third)</gxg-button
-    ><br />
+
+    <div class="buttons-wrapper">
+      <gxg-button id="load-model-btn">Load model (click first)</gxg-button>
+      <gxg-button id="update-model-btn">Update model (click second)</gxg-button>
+      <gxg-button id="update-model-again-btn"
+        >Update model again (click third)</gxg-button
+      >
+    </div>
 
     <script>
       const modelTiny = [

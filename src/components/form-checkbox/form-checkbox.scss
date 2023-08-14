@@ -93,6 +93,17 @@
     &.has-icon {
       margin-inline-end: var(--spacing-comp-01);
     }
+    &.indeterminate:after {
+      left: 50%;
+      top: 50%;
+      width: 8px;
+      height: 1.5px;
+      border: 0;
+      background-color: var(--color-primary-active);
+      -webkit-transform: rotate(0) translateY(-50%) translateX(-50%);
+      -ms-transform: rotate(0) translateY(-50%) translateX(-50%);
+      transform: rotate(0) translateY(-50%) translateX(-50%);
+    }
   }
 
   /* When the checkbox is checked, add a blue background */

@@ -277,6 +277,7 @@ export class GxgFormCheckbox implements FormComponent {
           "no-label": !this.label,
           "has-icon": !!this.iconName,
           "form-element": true,
+          indeterminate: this.indeterminate,
           checkbox: true,
         }}
         role="checkbox"
