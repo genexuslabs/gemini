@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Tree item line width | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: var(--font-family-primary);
+        font-size: 14px;
+        background-color: rgb(236, 236, 236);
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 36px;
+        border-radius: 8px;
+        background-color: white;
+      }
+      h1 {
+        font-size: 16px;
+      }
+      .master-tree > li > .line {
+        display: none;
+      }
+      ul {
+        padding-left: 0;
+        list-style-type: none;
+      }
+      ul li {
+        position: relative;
+        min-height: 20px;
+      }
+      .label {
+        display: block;
+      }
+      .label:hover {
+        background-color: rgb(207, 255, 247);
+        cursor: default;
+      }
+      .line {
+        display: inline-block;
+        width: 0;
+        height: 1px;
+        border-top: 1px solid blue;
+        position: absolute;
+        top: 10px;
+      }
+    </style>
+    <script>
+      const countLineHeightItems = (item, isFirstItem) => {
+        let total = 0;
+        const allItemsLength = item.querySelectorAll("li").length;
+        if (isFirstItem) {
+          const afterSiblingsLength = getAfterSiblingsAmount(item);
+          total = allItemsLength + afterSiblingsLength;
+        } else {
+          const directUl = item.querySelector(":scope > ul");
+          const directItems = directUl.querySelectorAll(":scope > li");
+          const lastDirectItem = directItems[directItems.length - 1];
+          const lastDirectItemItemsLength = lastDirectItem.querySelectorAll(
+            "li"
+          ).length;
+          total = allItemsLength - lastDirectItemItemsLength;
+        }
+        return total;
+      };
+
+      const getAfterSiblingsAmount = (item) => {
+        count = 0;
+        while (item && item.nodeName === "LI") {
+          count++;
+          item = item.nextElementSibling;
+        }
+        return count - 1;
+      };
+
+      const countAncestorsItems = (item) => {
+        console.log(item);
+        count = 0;
+        let go = true;
+        while (go) {
+          item = item.parentElement.parentElement;
+          if (item.nodeName !== "LI") {
+            go = false;
+          } else {
+            count++;
+          }
+        }
+        return count;
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calcular desplazamiento lateral de nodo y línea horizontal</h1>
+      <ul class="master-tree">
+        <li id="fruits">
+          <span class="line"></span>
+          <span class="label">Fruits</span>
+          <ul>
+            <li id="apple" leaf>
+              <span class="line"></span>
+              <span class="label">Apple</span>
+            </li>
+            <li id="citrus">
+              <span class="line"></span>
+              <span class="label">Citrus</span>
+              <ul>
+                <li id="orange" leaf>
+                  <span class="line"></span>
+                  <span class="label">Orange</span>
+                </li>
+                <li id="lemon">
+                  <span class="line"></span>
+                  <span class="label">Lemon</span>
+                  <ul>
+                    <li id="yellow-lemon" leaf>
+                      <span class="line"></span>
+                      <span class="label">Yellow Lemon</span>
+                    </li>
+                    <li id="green-lemon" leaf>
+                      <span class="line"></span>
+                      <span class="label">Green Lemon</span>
+                    </li>
+                    <li id="sweet-lemon" leaf>
+                      <span class="line"></span>
+                      <span class="label">Sweet Lemon</span>
+                    </li>
+                  </ul>
+                </li>
+                <li id="grapefruit">
+                  <span class="line"></span>
+                  <span class="label">Grapefruit</span>
+                  <ul>
+                    <li id="red-grapefruit" leaf>
+                      <span class="line"></span>
+                      <span class="label">Red Grapefruit</span>
+                    </li>
+                    <li id="pink-grapefruit" leaf>
+                      <span class="line"></span>
+                      <span class="label">Pink Grapefruit</span>
+                    </li>
+                    <li id="white-grapefruit" leaf>
+                      <span class="line"></span>
+                      <span class="label">White Grapefruit</span>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li id="berry">
+              <span class="line"></span>
+              <span class="label">Berry</span>
+              <ul>
+                <li id="strawberry" leaf>
+                  <span class="line"></span>
+                  <span class="label">Strawberry</span>
+                </li>
+                <li id="blueberry" leaf>
+                  <span class="line"></span>
+                  <span class="label">Blueberry</span>
+                </li>
+                <li id="raspberry" leaf>
+                  <span class="line"></span>
+                  <span class="label">Raspberry</span>
+                </li>
+              </ul>
+            </li>
+            <li id="mango">
+              <span class="line"></span>
+              <span class="label">Mango</span>
+              <ul>
+                <li leaf>
+                  <span class="line"></span>
+                  <span class="label">Red Mango</span>
+                </li>
+                <li leaf>
+                  <span class="line"></span>
+                  <span class="label">Green Mango</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li id="vegetables" leaf>
+          <span class="line"></span>
+          <span class="label">Vegetables</span>
+        </li>
+        <li id="grains" leaf>
+          <span class="line"></span>
+          <span class="label">Grains</span>
+        </li>
+      </ul>
+
+      <p>
+        El objetivo de esta función, es calcular el desplazamiento lateral de
+        cada nodo, y de la línea horizontal lo asocia con la línea vertical de
+        su nodo padre.
+      </p>
+      <p>
+        La línea vertical no es visible en este caso, porque es responsabilidad
+        de otra función dibujarla.
+        <a href="/pages/tests/tree-item-line-height.html">Puede verla aquí</a>.
+      </p>
+      <p>
+        Esta función es necesaria si se desea que los nodos tengan todos un
+        ancho de 100% con respecto al master-tree. Esto permite que el área de
+        interacción de los nodos ocupe el 100% del ancho disponible.
+      </p>
+
+      <button id="count-btn">Calcular desplazamiento lateral</button>
+    </div>
+    <script>
+      const countBtn = document.getElementById("count-btn");
+      //calculate line width
+      const offset = 36;
+      const items = document.querySelectorAll("li");
+      countBtn.addEventListener("click", () => {
+        if (items && items.length) {
+          items.forEach((item) => {
+            //list item
+            const count = countAncestorsItems(item);
+            const label = item.querySelector(".label");
+            label.style.paddingInlineStart = `${count * offset}px`;
+            //list item line
+            const line = item.querySelector(".line");
+            line.style.left = `${(count - 1) * offset}px`;
+            line.style.width = `${offset}px`;
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

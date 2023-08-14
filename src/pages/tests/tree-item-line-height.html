@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Tree item line height | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: var(--font-family-primary);
+        font-size: 14px;
+        background-color: rgb(236, 236, 236);
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 36px;
+        border-radius: 8px;
+        background-color: white;
+      }
+      h1 {
+        font-size: 16px;
+      }
+      li {
+        position: relative;
+        min-height: 20px;
+      }
+      .line {
+        display: inline-block;
+        width: 1px;
+        height: 0;
+        border-right: 1px solid blue;
+        position: absolute;
+        left: -14px;
+        top: 17px;
+      }
+    </style>
+    <script>
+      /*Esta función recursiva resultó no ser necesaria, ya que se puede resolver el problema con querySelectoAll. Pero la dejo acá por las dudas de que se necesite a futuro.
+      function recursiveCountItems(item) {
+        let isLeaf = false;
+        if (item.hasAttribute("leaf")) {
+          isLeaf = true;
+        }
+        if (isLeaf) {
+          return 0;
+        }
+        const directUl = item.querySelector(":scope > ul");
+        const directUlItemsArray = Array.from(
+          directUl.querySelectorAll(":scope > li")
+        );
+        let count = directUlItemsArray.length;
+        var i = 1;
+        for (const item of directUlItemsArray) {
+          if (i === directUlItemsArray.length) {
+            count += 1;
+          }
+          count += this.countChildren(item);
+          i++;
+        }
+        return count;
+      }
+      */
+      
+      const countLineHeightItems = (item, isFirstItem) => {
+        let total = 0;
+        const allItemsLength = item.querySelectorAll("li").length;
+        if (isFirstItem) {
+          const afterSiblingsLength = getAfterSiblingsAmount(item);
+          total = allItemsLength + afterSiblingsLength;
+        } else {
+          const directUl = item.querySelector(":scope > ul");
+          const directItems = directUl.querySelectorAll(":scope > li");
+          const lastDirectItem = directItems[directItems.length - 1];
+          const lastDirectItemItemsLength = lastDirectItem.querySelectorAll(
+            "li"
+          ).length;
+          total = allItemsLength - lastDirectItemItemsLength;
+        }
+        return total;
+      }
+
+      const getAfterSiblingsAmount = (item) => {
+        count = 0;
+        while (item && item.nodeName === "LI") {
+          count++;
+          item = item.nextElementSibling;
+        }
+        return count - 1;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calcular altura de línea para nodo con hijos</h1>
+      <ul>
+        <li id="fruits">
+          <span class="line"></span>
+          Fruits
+          <ul>
+            <li id="apple" leaf>Apple</li>
+            <li id="citrus">
+              <span class="line"></span>
+              Citrus
+              <ul>
+                <li id="orange" leaf>Orange</li>
+                <li id="lemon">
+                  <span class="line"></span>
+                  Lemon
+                  <ul>
+                    <li id="yellow-lemon" leaf>Yellow Lemon</li>
+                    <li id="green-lemon" leaf>Green Lemon</li>
+                    <li id="sweet-lemon" leaf>Sweet Lemon</li>
+                  </ul>
+                </li>
+                <li id="grapefruit">
+                  <span class="line"></span>
+                  Grapefruit
+                  <ul>
+                    <li id="red-grapefruit" leaf>Red Grapefruit</li>
+                    <li id="pink-grapefruit" leaf>Pink Grapefruit</li>
+                    <li id="white-grapefruit" leaf>White Grapefruit</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li id="berry">
+              <span class="line"></span>
+              Berry
+              <ul>
+                <li id="strawberry" leaf>Strawberry</li>
+                <li id="blueberry" leaf>Blueberry</li>
+                <li id="raspberry" leaf>Raspberry</li>
+              </ul>
+            </li>
+            <li id="mango">
+              <span class="line"></span>
+              Mango
+              <ul>
+                <li leaf>Red Mango</li>
+                <li leaf>Green Mango</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li id="vegetables" leaf>Vegetables</li>
+        <li id="grains" leaf>Grains</li>
+      </ul>
+      
+
+      <p>
+        El objetivo de esta función, es calcular la cantidad de items que
+        deberían ser contados para calcular la altura de la línea de un nodo que
+        no es leaf. Esta línea ayuda a visualizar la pertenencia de los nodos
+        hijos, con el nodo padre.
+      </p>
+      <p>
+        Se considera como requisito que la altura de cada item es fija, y que se
+        utilizaría clamp si el texto del nodo excede el ancho disponible.
+      </p>
+      <p>
+        <p><strong>Primer nodo:</strong></p>
+        Hay un caso excepcional, que es el primer nodo (Fruits). En este caso sí
+        nos interesa calcular todos los nodos hijos, sin excluir a los hijos del
+        último nodo directo (Mango). Para eso se le pasa a la función un
+        parámetro (firstItem), que solo será true para el primer nodo del master-tree. Además,
+        también nos interesa en este caso sumar la cantidad de nodos hermanos, para que la
+        línea llegue hasta el final (Grains).
+      </p>
+
+      <p>Las líneas horizontales también son necesarias para visualizar la pertenencia, pero eso es responsabilidad de otra función. Esta solo se encarga de la altura.</p>
+
+      <button id="count-btn">Calcular altura de líneas</button>
+    </div>
+    <script>
+      //constants
+      const offset = 5;
+      const listItemMinHeight = 20;
+      const countBtn = document.getElementById("count-btn");
+      const itemsNotLeaf = document.querySelectorAll("li:not([leaf])");
+      countBtn.addEventListener("click", () => {
+        Array.from(itemsNotLeaf).forEach((item, i) => {
+          let firstItem = false;
+          if (i === 0) {
+            firstItem = true;
+          }
+          totalItems = countLineHeightItems(item, firstItem);
+          const line = item.querySelector(".line");
+          line.style.height = `${totalItems * listItemMinHeight - offset}px`;
+        });
+      });
+    </script>
+  </body>
+</html>

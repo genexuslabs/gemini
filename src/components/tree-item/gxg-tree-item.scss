@@ -53,6 +53,11 @@
         display: block;
       }
     }
+    &.tree-closed {
+      .vertical-line {
+        display: none;
+      }
+    }
     .li-text {
       min-height: 24px;
       cursor: pointer;

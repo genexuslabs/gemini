@@ -6,6 +6,7 @@ import {
   Listen,
   Method,
   Host,
+  State,
 } from "@stencil/core";
 @Component({
   tag: "gxg-tree",
@@ -40,6 +41,7 @@ export class GxgTree {
   componentWillLoad(): void {
     //this.initialConfig();
     this.initialConfig();
+    this.getNumberOfParentTrees();
   }
   private initialConfig = () => {
     const parent = this.el.parentElement;
@@ -72,12 +74,21 @@ export class GxgTree {
     //Update not leaf tree items vertical line height
     const treeItems = this.el.querySelectorAll("gxg-tree-item");
     const notLeafTreeItems = Array.from(treeItems).filter((item) => {
-      return !item.isLeaf;
+      return !item.leaf;
     });
     notLeafTreeItems.forEach((treeItem) => {
-      treeItem.updateTreeVerticalLineHeight();
+      //treeItem.updateTreeVerticalLineHeight();
     });
   }
+
+  private getNumberOfParentTrees = () => {
+    let parent = this.el.parentElement?.parentElement;
+    let numberOfParentTrees = 0;
+    while (parent && parent.nodeName === "GXG-TREE") {
+      numberOfParentTrees++;
+      parent = parent.parentElement?.parentElement;
+    }
+  };
 
   /**
    * Returns an array of the checked tree-items, providing the id and the checked status (true or false)

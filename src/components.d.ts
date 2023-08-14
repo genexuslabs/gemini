@@ -1795,17 +1795,22 @@ export namespace Components {
     icon: string;
     indeterminate: boolean;
     /**
-     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
-     */
-    isLeaf: boolean;
-    /**
      * The tree item label.
      */
     label: string;
     /**
+     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
+     */
+    leaf: boolean;
+    /**
+     * This property is for internal use, when using the treeModel.
+     */
+    numberOfChildren: number;
+    /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
     opened: boolean;
+    reRender: () => Promise<void>;
     /**
      * The presence of this attribute sets the tree-item as selected
      */
@@ -1822,8 +1827,6 @@ export namespace Components {
      * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     type: string;
-    updateTreeVerticalLineHeight: () => Promise<void>;
-    visibleDescendantsNumber: () => Promise<number>;
   }
   interface GxgWindow {
     /**
@@ -4263,23 +4266,23 @@ declare namespace LocalJSX {
     icon?: string;
     indeterminate?: boolean;
     /**
-     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
-     */
-    isLeaf?: boolean;
-    /**
      * The tree item label.
      */
     label?: string;
+    /**
+     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
+     */
+    leaf?: boolean;
+    /**
+     * This property is for internal use, when using the treeModel.
+     */
+    numberOfChildren?: number;
     /**
      * Emits the checkbox information (chTreeItemData) that includes: the id, name(innerText) and checkbox value.
      */
     onCheckboxClicked?: (event: CustomEvent<GxgTreeItemDataEmitted>) => void;
     onLiItemClicked?: (event: CustomEvent<any>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
-    /**
-     * This events emits the id when it has been loaded. It is useful for the parent tree-items to update, in order to display a toggler icon, or update the vertical line height.
-     */
-    onTreeItemLoaded?: (event: CustomEvent<string>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
