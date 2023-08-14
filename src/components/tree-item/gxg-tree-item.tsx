@@ -11,9 +11,7 @@ import {
   Method,
   Listen,
 } from "@stencil/core";
-import { GxgTree } from "../tree/gxg-tree";
 import { exportParts } from "../../common/export-parts";
-import { getSiblings } from "../../common/get-siblings";
 
 @Component({
   tag: "gxg-tree-item",
@@ -106,6 +104,7 @@ export class GxgTreeItem {
   private parentTreeIsMasterTree = false;
   private numberOfParentTrees = 1;
   private firstItem = false;
+  private lastItem = false;
   private leftPadding = "0px";
   private verticalLineStartPosition = "0px";
   private horizontalLineWidth = "24px";
@@ -139,6 +138,9 @@ export class GxgTreeItem {
         //If is first item of parent tree...
         this.firstItem = true;
       }
+    }
+    if (!this.el.nextElementSibling) {
+      this.lastItem = true;
     }
     this.defineLineHeight();
     this.defineStartPosition();
@@ -199,6 +201,9 @@ export class GxgTreeItem {
     let offset = 11.5;
     if (this.parentTreeIsMasterTree) {
       offset = 0;
+      if (this.lastItem) {
+        offset = 11;
+      }
     }
     let total = 0;
     if (!this.leaf) {
@@ -345,7 +350,6 @@ export class GxgTreeItem {
           }
         }
       }
-      //this.setVisibleTreeItems();
       this.toggleIconClicked.emit(); //this recalculates the vertical line height
     }
 
