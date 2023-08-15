@@ -2811,6 +2811,18 @@ declare namespace LocalJSX {
      */
     minWidth?: string;
     /**
+     * This event is triggered when the combo dropdown has closed
+     */
+    onClosed?: (event: CustomEvent<any>) => void;
+    /**
+     * This event is triggered when the combo dropdown is opened
+     */
+    onOpened?: (event: CustomEvent<any>) => void;
+    /**
+     * This event is triggered when the combo dropdown has toggled (opened/closeds)
+     */
+    onToggled?: (event: CustomEvent<boolean>) => void;
+    /**
      * This event is triggered when the combo box value changes.
      */
     onValueChanged?: (event: CustomEvent<ComboBoxItemValue>) => void;

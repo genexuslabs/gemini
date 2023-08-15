@@ -48,9 +48,12 @@
 
 ## Events
 
-| Event          | Description                                               | Type               |
-| -------------- | --------------------------------------------------------- | ------------------ |
-| `valueChanged` | This event is triggered when the combo box value changes. | `CustomEvent<any>` |
+| Event          | Description                                                                  | Type                   |
+| -------------- | ---------------------------------------------------------------------------- | ---------------------- |
+| `closed`       | This event is triggered when the combo dropdown has closed                   | `CustomEvent<any>`     |
+| `opened`       | This event is triggered when the combo dropdown is opened                    | `CustomEvent<any>`     |
+| `toggled`      | This event is triggered when the combo dropdown has toggled (opened/closeds) | `CustomEvent<boolean>` |
+| `valueChanged` | This event is triggered when the combo box value changes.                    | `CustomEvent<any>`     |
 
 ## Methods
 
