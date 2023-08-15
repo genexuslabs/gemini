@@ -105,6 +105,16 @@
               "display-validation-message",
               true
             );
+            /*Events*/
+            comboCommonFunctions.addEventListener("opened", () => {
+              console.log("combo opened");
+            });
+            comboCommonFunctions.addEventListener("closed", () => {
+              console.log("combo closed");
+            });
+            comboCommonFunctions.addEventListener("toggled", (e) => {
+              console.log("combo toggled", e.detail);
+            });
           </script>
           <gxg-button tabindex="-1" id="validate-btn">Validate</gxg-button>
           <gxg-button tabindex="-1" id="disable-combo-box"
@@ -163,7 +173,7 @@
             "combo-standard-abc123"
           );
           comboStandard123.addEventListener("valueChanged", (e) => {
-            console.log("standard abc123 value changed", e.detail);
+            //console.log("standard abc123 value changed", e.detail);
           });
         </script>
       </section>

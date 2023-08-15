@@ -40,6 +40,21 @@ export class GxgComboBox implements FormComponent {
    */
   @Event() valueChanged: EventEmitter<ComboBoxItemValue>;
 
+  /**
+   * This event is triggered when the combo dropdown is opened
+   */
+  @Event() opened: EventEmitter;
+
+  /**
+   * This event is triggered when the combo dropdown has closed
+   */
+  @Event() closed: EventEmitter;
+
+  /**
+   * This event is triggered when the combo dropdown has toggled (opened/closeds)
+   */
+  @Event() toggled: EventEmitter<boolean>;
+
   inputText!: HTMLGxgFormTextElement;
 
   @Element() el: HTMLElement;
@@ -246,10 +261,12 @@ export class GxgComboBox implements FormComponent {
       }
     }
   }
+
   handleValidation = (): void => {
     this.handleError();
     this.handleWarning();
   };
+
   handleError = (): void => {
     const hasError =
       (this.required && !this.value) ||
@@ -260,6 +277,7 @@ export class GxgComboBox implements FormComponent {
       this.validationStatus = "indeterminate";
     }
   };
+
   handleWarning = (): void => {
     const hasWarning = this.warningCondition && this.warningCondition();
     if (hasWarning) {
@@ -404,16 +422,23 @@ export class GxgComboBox implements FormComponent {
 
   @Watch("listIsOpen")
   listIsOpenHandler(newValue: boolean): void {
+    let isOpen = false;
     if (newValue) {
+      //list is open
+      isOpen = true;
       document.addEventListener("click", this.detectClickOutsideCombo, true);
       document.addEventListener("scroll", this.detectMouseScroll, true);
+      this.opened.emit();
 
       //Reposition .items-container, since it has fixed position
       this.repositionItemsContainer();
     } else {
+      //list is closed
       document.removeEventListener("click", this.detectClickOutsideCombo, true);
       document.removeEventListener("scroll", this.detectMouseScroll, true);
+      this.closed.emit();
     }
+    this.toggled.emit(isOpen);
   }
 
   @Watch("selectedItem")
@@ -591,7 +616,6 @@ export class GxgComboBox implements FormComponent {
   };
 
   private inputTextClickHandler = (): void => {
-    console.log("click handler");
     this.disableFilter && this.toggleList();
   };
 
