@@ -184,7 +184,7 @@ export class GxgTree {
     const allTreeItems = Array.from(this.el.querySelectorAll("gxg-tree-item"));
     const toggledTreeItems: ToggledGxgTreeItem[] = [];
     ids.forEach((id) => {
-      const found = allTreeItems.find((item) => id === item.id);
+      const found = allTreeItems.find((item) => id === item.itemId);
       if (found && open === undefined) {
         found.opened = !found.opened;
       } else if (found && open && !found.opened) {

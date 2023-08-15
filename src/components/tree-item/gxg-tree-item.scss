@@ -69,7 +69,7 @@
         background-color: var(--item-hover-color);
       }
       &:active {
-        background-color: var(--item-active-color);
+        background-color: var(--gxg-color-selected);
       }
       &:focus {
         @include form-element-common-styles-focus-type-1();
@@ -126,15 +126,11 @@
       transform: scale(0.75, 0.75);
       margin-inline-end: var(--spacing-comp-00);
       @include ui-animation-slow(opacity);
+      background-color: var(--color-hover);
       &:hover {
-        background-color: var(--color-hover);
+        background-color: var(--color-background);
       }
     }
-    // .text {
-    //   white-space: nowrap;
-    //   overflow: hidden;
-    //   text-overflow: ellipsis;
-    // }
   }
   .checkbox {
     margin-inline-end: var(--spacing-comp-01);
@@ -160,11 +156,8 @@
     $off-white: var(--gray-04);
     $spin-duration: 1s;
     $pulse-duration: 750ms;
-    right: 11px;
-    top: -20px;
-    position: absolute;
     z-index: 1;
-    @include ui-animation-slow(all);
+    margin-inline-end: var(--spacing-comp-01);
 
     //The loading animation
     border-radius: 50%;
@@ -199,20 +192,5 @@
   }
   .toggle-icon {
     pointer-events: none;
-  }
-}
-:host([downloading]) {
-  .right-icon {
-    top: 20px;
-  }
-  .loading {
-    top: 3px;
-  }
-  pointer-events: none;
-}
-:host([downloaded]) {
-  .loading,
-  .right-icon {
-    opacity: 0;
   }
 }

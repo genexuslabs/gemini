@@ -20,59 +20,88 @@
         margin-bottom: 16px;
       }
       body > gxg-tree {
-        margin-bottom: 32px;
       }
       .buttons-wrapper {
         display: flex;
         gap: 8px;
         margin-top: 8px;
         flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+      h2 {
+        font-size: 16px;
       }
     </style>
   </head>
   <body>
-    <span>Markup Tree</span>
+    <h2>Markup Tree</h2>
 
     <!-- Markup Tree -->
 
     <gxg-tree multi-selection id="markup-tree">
-      <gxg-tree-item icon="general/generator">
+      <gxg-tree-item icon="general/generator" item-id="meats">
         Meats
         <gxg-tree slot="tree">
-          <gxg-tree-item icon="general/patterns" leaf> Cow </gxg-tree-item>
-          <gxg-tree-item icon="general/knowledge-base">
+          <gxg-tree-item icon="general/patterns" leaf item-id="cow">
+            Cow
+          </gxg-tree-item>
+          <gxg-tree-item icon="general/knowledge-base" item-id="goat">
             Goat
             <gxg-tree slot="tree">
-              <gxg-tree-item icon="general/generator" leaf>
+              <gxg-tree-item icon="general/generator" leaf item-id="goat-a">
                 Goat A
               </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns">
+              <gxg-tree-item icon="general/patterns" item-id="goat-b">
                 Goat B
                 <gxg-tree slot="tree">
-                  <gxg-tree-item icon="general/generator" leaf checked>
+                  <gxg-tree-item
+                    icon="general/generator"
+                    leaf
+                    checked
+                    item-id="goat-b1"
+                  >
                     Goat B1
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf checked>
+                  <gxg-tree-item
+                    icon="general/patterns"
+                    leaf
+                    checked
+                    item-id="goat-b2"
+                  >
                     Goat B2
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf checked>
+                  <gxg-tree-item
+                    icon="general/patterns"
+                    leaf
+                    checked
+                    item-id="goat-b3"
+                  >
                     Goat B3
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf checked>
+                  <gxg-tree-item
+                    icon="general/patterns"
+                    leaf
+                    checked
+                    item-id="goat-b4"
+                  >
                     Goat B4
                   </gxg-tree-item>
                 </gxg-tree>
               </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns">
+              <gxg-tree-item icon="general/patterns" item-id="goat-c">
                 Goat C
                 <gxg-tree slot="tree">
-                  <gxg-tree-item icon="general/generator" leaf>
+                  <gxg-tree-item
+                    icon="general/generator"
+                    leaf
+                    item-id="goat-c1"
+                  >
                     Goat C1
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf>
-                    Goat C2
+                  <gxg-tree-item icon="general/patterns" item-id="goat-c2">
+                    Goat C2 (Lazy Load)
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf>
+                  <gxg-tree-item icon="general/patterns" leaf item-id="goat-c3">
                     Goat C3
                   </gxg-tree-item>
                 </gxg-tree>
@@ -81,31 +110,35 @@
           </gxg-tree-item>
         </gxg-tree>
       </gxg-tree-item>
-      <gxg-tree-item icon="general/generator">
+      <gxg-tree-item icon="general/generator" item-id="fish">
         Fish
         <gxg-tree slot="tree">
-          <gxg-tree-item icon="general/generator">
+          <gxg-tree-item icon="general/generator" item-id="tune">
             Tune
             <gxg-tree slot="tree">
-              <gxg-tree-item icon="general/generator" leaf>
+              <gxg-tree-item icon="general/generator" leaf item-id="tune-small">
                 Tune Small
               </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns" leaf>
+              <gxg-tree-item icon="general/patterns" leaf item-id="tune-medium">
                 Tune Medium
               </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns" leaf>
+              <gxg-tree-item icon="general/patterns" leaf item-id="tune-big">
                 Tune Big
               </gxg-tree-item>
             </gxg-tree>
           </gxg-tree-item>
-          <gxg-tree-item icon="general/patterns" leaf> Salmon </gxg-tree-item>
-          <gxg-tree-item icon="general/patterns" leaf> Cod </gxg-tree-item>
+          <gxg-tree-item icon="general/patterns" leaf item-id="salmon">
+            Salmon
+          </gxg-tree-item>
+          <gxg-tree-item icon="general/patterns" leaf item-id="cod">
+            Cod
+          </gxg-tree-item>
         </gxg-tree>
       </gxg-tree-item>
-      <gxg-tree-item icon="general/knowledge-base">
+      <gxg-tree-item icon="general/knowledge-base" item-id="nuts">
         Nuts
         <gxg-tree slot="tree">
-          <gxg-tree-item icon="general/generator" leaf>
+          <gxg-tree-item icon="general/generator" leaf item-id="nuts-salty">
             Nuts Salty
           </gxg-tree-item>
         </gxg-tree>
@@ -147,16 +180,55 @@
             console.log(value);
           });
         });
+        /*Open Goat B*/
         const openGoatB = document.getElementById("open-goat-b");
+        openGoatB.addEventListener("click", () => {
+          markUpTree.toggleItems(["goat-b"], true);
+        });
+        /*Close Goat B*/
         const closeGoatB = document.getElementById("close-goat-b");
+        closeGoatB.addEventListener("click", () => {
+          markUpTree.toggleItems(["goat-b"], false);
+        });
+        /*Toggle Goat B*/
         const toggleGoatB = document.getElementById("toggle-goat-b");
+        toggleGoatB.addEventListener("click", () => {
+          markUpTree.toggleItems(["goat-b"]);
+        });
+        /*Lazy Load*/
+        const lazyLoadGoatC2 = document.getElementById("toggle-goat-b");
+        markUpTree.addEventListener("loadLazyChildren", (e) => {
+          const itemId = e.detail.id;
+          appendLazyLoadItems(itemId);
+        });
+
+        const appendLazyLoadItems = (itemId) => {
+          const item = document.querySelector(
+            `gxg-tree-item[item-id='${itemId}']`
+          );
+          console.log(item);
+          const lazyLoadedItems = `
+            <gxg-tree slot="tree">
+              <gxg-tree-item icon="general/generator" leaf item-id="goat-c2.1">
+                Goat C2.1
+              </gxg-tree-item>
+              <gxg-tree-item icon="general/patterns" leaf item-id="goat-c2.2">
+                Goat C2.2
+              </gxg-tree-item>
+              <gxg-tree-item icon="general/patterns" leaf item-id="goat-c2.3">
+                Goat C2.3
+            </gxg-tree-item>
+          `;
+          item.innerHTML = lazyLoadedItems;
+        };
       </script>
     </div>
 
     <br />
     <!-- Model Tree -->
 
-    <span>Model Tree</span>
+    <hr />
+    <h2>Model Tree</h2>
     <gxg-test key="model-tree"></gxg-test>
 
     <div class="buttons-wrapper">

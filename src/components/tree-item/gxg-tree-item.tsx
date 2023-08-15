@@ -76,6 +76,11 @@ export class GxgTreeItem {
   @Prop({ mutable: true }) selected = false;
 
   /**
+   * The item identifier
+   */
+  @Prop() itemId!: string;
+
+  /**
    * Sets the tree item icon
    */
   @Prop() readonly icon: string;
@@ -99,8 +104,9 @@ export class GxgTreeItem {
   @State() numberOfVisibleDescendantItems = 0;
   @State() time = 0;
   @State() lineHeight: string;
+  @State() downloading = false;
 
-  private itemPaddingLeftValue = 0;
+  private lazy = false; //True if not leaf but no children.
   private parentTreeIsMasterTree = false;
   private numberOfParentTrees = 1;
   private firstItem = false;
@@ -114,6 +120,7 @@ export class GxgTreeItem {
   @Event() toggleIconClicked: EventEmitter;
   @Event() selectionChanged: EventEmitter<GxgTreeItemSelectedData>;
   @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
+  @Event() loadLazyChildren: EventEmitter<lazyLoadedInfo>;
 
   @Element() el: HTMLGxgTreeItemElement;
 
@@ -125,6 +132,7 @@ export class GxgTreeItem {
   componentWillLoad() {
     //Count number of parent trees in order to set the appropriate padding-left
     this.numberOfParentTrees = this.getParentsNumber();
+    this.numberOfChildren = this.getChildrenNumber();
 
     //If is last item of tree
     const nextItem = this.el.nextElementSibling;
@@ -142,12 +150,32 @@ export class GxgTreeItem {
     if (!this.el.nextElementSibling) {
       this.lastItem = true;
     }
+    this.evaluateLazy();
     this.defineLineHeight();
     this.defineStartPosition();
     this.cascadeConfig();
     this.attachExportParts();
     this.evaluateCheckboxStatus();
+    this.initiateMutationObserver();
   }
+
+  private evaluateLazy = () => {
+    if (!this.leaf && this.numberOfChildren === 0) {
+      this.lazy = true;
+    }
+  };
+
+  private observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        this.reRender();
+      }
+    }
+  });
+
+  private initiateMutationObserver = () => {
+    this.observer.observe(this.el, { childList: true, subtree: true });
+  };
 
   private evaluateCheckboxStatus = () => {
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
@@ -206,7 +234,7 @@ export class GxgTreeItem {
       }
     }
     let total = 0;
-    if (!this.leaf) {
+    if (!this.leaf && !this.lazy) {
       const allItemsLength = this.el.querySelectorAll("gxg-tree-item").length;
       const directGxgTree = this.el.querySelector(":scope > gxg-tree");
       const directTreeItems = directGxgTree.querySelectorAll(
@@ -222,7 +250,7 @@ export class GxgTreeItem {
         total = allItemsLength;
       }
     }
-    this.lineHeight = `${total * 24 - offset}px`;
+    this.lineHeight = `${total * 24.2 - offset}px`;
   };
 
   /**
@@ -245,12 +273,12 @@ export class GxgTreeItem {
   };
 
   @Watch("numberOfChildren")
-  numberOfChildrenHandler(numberOfChildren: number) {
+  numberOfChildrenHandler() {
     /*If number of children changed, we should update the vertical line height of all the ancestors*/
     const ancestors = this.getAncestorsTreeItems(this.el);
     if (ancestors.length) {
       ancestors.forEach((ancestor) => {
-        ancestor.reRender();
+        //ancestor.reRender();
       });
     }
   }
@@ -266,11 +294,19 @@ export class GxgTreeItem {
     return count;
   }
 
+  getChildrenNumber() {
+    if (this.numberOfChildren === 0) {
+      //If this.numberOfChildren === 0 it might be because the whole tree was created with markup, and not by passing a model. In that case, count the children with querySelectorAll.
+      return this.el.querySelectorAll("gxg-tree-item").length;
+    }
+  }
+
   toggleTreeIconClicked() {
-    if (this.opened) {
-      this.opened = false;
+    if (this.lazy) {
+      this.downloading = true;
+      this.loadLazyChildren.emit({ id: this.itemId });
     } else {
-      this.opened = true;
+      this.opened = !this.opened;
     }
   }
 
@@ -501,43 +537,11 @@ export class GxgTreeItem {
 
   returnToggleIconType() {
     //Returns the type of icon : expand or collapse
-    if (!this.opened) {
+    if (!this.opened || this.lazy) {
       return "gemini-tools/add";
     } else {
       return "gemini-tools/minus";
     }
-  }
-
-  evaluateVerticalLineLeftFactor() {
-    //returns the appropriate padding left to the .li-text element
-    let paddingLeftValue = 0;
-
-    if (this.numberOfParentTrees !== 1) {
-      paddingLeftValue = (this.numberOfParentTrees - 1) * 45;
-    } else {
-      paddingLeftValue = 5;
-    }
-    this.itemPaddingLeftValue = paddingLeftValue;
-    return `${this.itemPaddingLeftValue}px`;
-  }
-
-  returnHorizontalLineLeftPosition() {
-    //Returns the left position of the horizontal line that associates the chid-items with the parent item
-    let paddingLeftValue = this.itemPaddingLeftValue - 8;
-
-    if (this.numberOfParentTrees > 2) {
-      paddingLeftValue -= 5;
-    }
-    return `${paddingLeftValue}px`;
-  }
-
-  returnHorizontalLineLeftWidth() {
-    //Returns the width of the horizontal line that associates the chid-items with the parent item
-    let width = 24;
-    if (this.numberOfParentTrees > 2) {
-      width += 5;
-    }
-    return `${width}px`;
   }
 
   private getAncestorsTreeItems = (item: HTMLElement = this.el) => {
@@ -661,6 +665,7 @@ export class GxgTreeItem {
                 }}
               ></gxg-icon>
             ) : null}
+            {this.downloading ? <span class="loading"></span> : null}
             <span class="text">
               <slot></slot>
             </span>
@@ -693,4 +698,8 @@ export type GxgTreeItemSelectedData = {
   id: string;
   label: string;
   selected: boolean;
+};
+
+export type lazyLoadedInfo = {
+  id: string;
 };

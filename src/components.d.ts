@@ -83,6 +83,7 @@ import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs"
 import {
   GxgTreeItemData as GxgTreeItemData1,
   GxgTreeItemSelectedData as GxgTreeItemSelectedData1,
+  lazyLoadedInfo,
 } from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
@@ -1804,6 +1805,10 @@ export namespace Components {
      */
     icon: string;
     indeterminate: boolean;
+    /**
+     * The item identifier
+     */
+    itemId: string;
     /**
      * The tree item label.
      */
@@ -4279,6 +4284,10 @@ declare namespace LocalJSX {
     icon?: string;
     indeterminate?: boolean;
     /**
+     * The item identifier
+     */
+    itemId: string;
+    /**
      * The tree item label.
      */
     label?: string;
@@ -4291,6 +4300,7 @@ declare namespace LocalJSX {
      */
     numberOfChildren?: number;
     onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onLoadLazyChildren?: (event: CustomEvent<lazyLoadedInfo>) => void;
     onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;
     onToggleIconClicked?: (event: CustomEvent<any>) => void;
     /**
