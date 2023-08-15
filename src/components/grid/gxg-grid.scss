@@ -166,7 +166,7 @@ ch-grid-row[focused] {
   // }
 }
 ch-grid-row[selected] {
-  ch-grid-cell:not([selected]) {
+  > ch-grid-cell:not([selected]) {
     background-color: var(--color-secondary-enabled);
   }
 }
