@@ -1,5 +1,6 @@
 @import "../../globals/common-css-classes";
 @import "../../globals/mixins";
+@import "../../globals/form-validation";
 
 :host {
   display: block;
@@ -8,6 +9,7 @@
   background-color: var(--color-background);
   .container {
     height: 100%;
+    border: var(--border-radius-xs) var(--border-style-regular) var(--gray-02);
   }
   .header {
     width: 100%;
@@ -24,9 +26,6 @@
   }
 
   .main {
-    border-style: var(--border-style-regular);
-    border-width: var(--border-radius-xs);
-    border-color: var(--gray-02);
     overflow-y: auto;
     @include gxg-scrollbar();
 
@@ -47,7 +46,7 @@
   }
 }
 
-:host(:focus) {
+.container:focus-within {
   @include form-element-common-styles-focus-type-1($direction: "outside");
 }
 

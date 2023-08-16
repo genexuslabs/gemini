@@ -19,6 +19,7 @@ import { repositionScroll } from "../../common/repositionScroll";
 import { KeyboardKeys as KK } from "../../common/types";
 import state from "../store";
 import { ItemClicked, ItemChecked } from "../list-box-item/list-box-item";
+import { ValidationStatus } from "../../common/types";
 
 @Component({
   tag: "gxg-list-box",
@@ -138,35 +139,7 @@ export class GxgListBox implements FormComponent {
    * The validation status
    *
    */
-  @Prop({ mutable: true }) validationStatus:
-    | "indeterminate"
-    | "warning"
-    | "error"
-    | "success";
-
-  /**
-   * A function that will return true or false depending on wether the
-   * error condition is met or not
-   */
-  @Prop() errorCondition: Function;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * warning condition is met or not
-   */
-  @Prop() warningCondition: Function;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationStyles = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationMessage = false;
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
@@ -185,41 +158,10 @@ export class GxgListBox implements FormComponent {
   *********************************/
 
   @Method()
-  async validate(): Promise<boolean> {
-    if (!this.disabled) {
-      this.handleValidation();
-      if (this.validationStatus === "error") {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  }
-  handleValidation = (): void => {
-    this.handleError();
-    this.handleWarning();
-  };
-  handleError = (): void => {
-    const hasError =
-      (this.required && this.selectedItemsLength() === 0) ||
-      (this.errorCondition && this.errorCondition());
-    if (hasError) {
-      this.validationStatus = "error";
-    } else {
-      this.validationStatus = "indeterminate";
-    }
-  };
-  handleWarning = (): void => {
-    const hasWarning = this.warningCondition && this.warningCondition();
-    if (hasWarning) {
-      this.validationStatus === "warning";
-    } else {
-      this.validationStatus === "indeterminate";
-    }
-  };
-
-  @Method()
   async getSelectedItems(): Promise<ItemsInformation[]> {
+    if (this.disabled) {
+      return null;
+    }
     return this.selectedItems;
   }
 
@@ -920,8 +862,6 @@ export class GxgListBox implements FormComponent {
       <Host
         class={{
           large: state.large,
-          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-            .displayValidationStyles,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -932,7 +872,6 @@ export class GxgListBox implements FormComponent {
             this.validationStatus === "success",
           [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
-        tabindex={this.disabled ? "-1" : "0"}
         onKeyDown={this.handleKeyDown}
         style={{
           minHeight: this.minHeight,
@@ -940,7 +879,10 @@ export class GxgListBox implements FormComponent {
           maxHeight: this.maxHeight,
         }}
       >
-        <div class={{ container: true }}>
+        <div
+          class={{ container: true, "form-element": true }}
+          tabindex={this.disabled ? "-1" : "0"}
+        >
           {this.theTitle ? (
             <header
               class={{ header: true }}
@@ -953,7 +895,10 @@ export class GxgListBox implements FormComponent {
             ? this.renderKeyboardSuggestions()
             : null}
           <main
-            class={{ main: true, "main--no-border": this.noBorder }}
+            class={{
+              main: true,
+              "main--no-border": this.noBorder,
+            }}
             style={{
               height: `calc(100% - ${this.headerHeight}px)`,
             }}

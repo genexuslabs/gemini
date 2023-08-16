@@ -42,18 +42,20 @@ function formHandleValidation(
 function formMessageLogic(comp: FormComponent): JSX.Element {
   {
     return comp.informationMessage ||
-      (comp.displayValidationMessage &&
+      (!comp.disabled &&
+        comp.validationMessage &&
         (comp.validationStatus === "error" ||
-          comp.validationStatus === "warning"))
+          comp.validationStatus === "warning" ||
+          comp.validationStatus === "success"))
       ? formMessage([
           comp.informationMessage ? (
             <gxg-form-message type="indeterminate">
               {comp.informationMessage}
             </gxg-form-message>
           ) : null,
-          comp.displayValidationMessage &&
-          (comp.validationStatus === "error" ||
-            comp.validationStatus === "warning") ? (
+          comp.validationStatus === "error" ||
+          comp.validationStatus === "warning" ||
+          comp.validationStatus === "success" ? (
             <gxg-form-message type={comp.validationStatus}>
               {comp.validationMessage}
             </gxg-form-message>

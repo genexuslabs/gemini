@@ -22,12 +22,15 @@ import { repositionScroll } from "../../common/repositionScroll";
 import { KeyboardKeys as KK } from "../../common/types";
 import { exportParts } from "../../common/export-parts";
 import state from "../store";
+import { ValidationStatus } from "../../common/types";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
   shadow: { delegatesFocus: true },
 })
 export class GxgComboBox implements FormComponent {
+  private valueBeforeDisabled;
+  private textBeforeDisabled;
   private parts = {
     input: "input",
     clearButton: "clear-button",
@@ -154,29 +157,7 @@ export class GxgComboBox implements FormComponent {
    * The validation status
    *
    */
-  @Prop({ mutable: true }) validationStatus:
-    | "indeterminate"
-    | "warning"
-    | "error"
-    | "success";
-
-  /**
-   * The presence of this attribute will check the input validity on every user input
-   *
-   */
-  @Prop() validateOnChange = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationStyles = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationMessage = false;
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * The message to display when validation fails (error)
@@ -189,18 +170,6 @@ export class GxgComboBox implements FormComponent {
    *
    */
   @Prop() informationMessage: string;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * error condition is met or not
-   */
-  @Prop() errorCondition: Function;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * warning condition is met or not
-   */
-  @Prop() warningCondition: Function;
 
   private userTyped = false;
 
@@ -249,43 +218,6 @@ export class GxgComboBox implements FormComponent {
   /*********************************
   METHODS
   *********************************/
-
-  @Method()
-  async validate(): Promise<boolean> {
-    if (!this.disabled) {
-      this.handleValidation();
-      if (this.validationStatus === "error") {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  }
-
-  handleValidation = (): void => {
-    this.handleError();
-    this.handleWarning();
-  };
-
-  handleError = (): void => {
-    const hasError =
-      (this.required && !this.value) ||
-      (this.errorCondition && this.errorCondition());
-    if (hasError) {
-      this.validationStatus = "error";
-    } else {
-      this.validationStatus = "indeterminate";
-    }
-  };
-
-  handleWarning = (): void => {
-    const hasWarning = this.warningCondition && this.warningCondition();
-    if (hasWarning) {
-      this.validationStatus === "warning";
-    } else {
-      this.validationStatus === "indeterminate";
-    }
-  };
 
   @Method()
   async open(): Promise<void> {
@@ -385,6 +317,10 @@ export class GxgComboBox implements FormComponent {
     }
   };
 
+  private handleValueChangeFormText = (e) => {
+    this.value = e.detail;
+  };
+
   /*********************************
   WATCH
   *********************************/
@@ -393,32 +329,49 @@ export class GxgComboBox implements FormComponent {
   onValueChanged(newValue: ComboBoxItemValue): void {
     this.valueChanged.emit(newValue);
     this.clearSelectedItem();
-    let value;
-    let newItem: HTMLGxgComboBoxItemElement = undefined;
-    if (this.userTyped) {
-      value = this.getValueByText(newValue);
+    const item = this.getItemByValue(newValue);
+    if (item === undefined) {
+      //Value was set programmatically.
+      this.text = newValue;
     } else {
-      this.showAllItems();
-      value = newValue;
-    }
-    newItem = this.getItemByValue(value);
-    if (newItem) {
-      this.setSelectedItem(newItem);
-      this.setIcon(newItem.icon);
-      newItem?.textContent && (this.text = newItem.textContent);
-    } else {
-      //this.setIcon(undefined);
-      if (this.strict) {
-        this.text = undefined;
-        this.value = undefined;
+      let value;
+      let newItem: HTMLGxgComboBoxItemElement = undefined;
+      if (this.userTyped) {
+        value = this.getValueByText(newValue);
       } else {
-        if (!this.userTyped) {
+        this.showAllItems();
+        value = newValue;
+      }
+      newItem = this.getItemByValue(value);
+      if (newItem) {
+        this.setSelectedItem(newItem);
+        this.setIcon(newItem.icon);
+        newItem?.textContent && (this.text = newItem.textContent);
+      } else {
+        //this.setIcon(undefined);
+        if (this.strict) {
           this.text = undefined;
+          this.value = undefined;
+        } else {
+          if (!this.userTyped) {
+            this.text = undefined;
+          }
         }
       }
     }
     this.userTyped = false;
   }
+
+  // @Watch("disabled")
+  // disabledHandler(newValue): void {
+  //   if (newValue === true) {
+  //     this.valueBeforeDisabled = this.value;
+  //     this.textBeforeDisabled = this.text;
+  //     this.value = null;
+  //   } else {
+  //     this.value = this.valueBeforeDisabled;
+  //   }
+  // }
 
   @Watch("listIsOpen")
   listIsOpenHandler(newValue: boolean): void {
@@ -760,9 +713,9 @@ export class GxgComboBox implements FormComponent {
                 iconPosition={this.inputTextIconPosition}
                 readonly={this.disableFilter}
                 ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
-                displayValidationStyles={this.displayValidationStyles}
                 validationStatus={this.validationStatus}
                 disabled={this.disabled}
+                onValueChanged={this.handleValueChangeFormText}
                 class={{ "clear-icon": clearIcon }}
                 part={this.parts.input}
               ></gxg-form-text>

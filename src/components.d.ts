@@ -26,6 +26,7 @@ import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { LabelPosition, ListPosition } from "./components/combo-box/combo-box";
 import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
+import { ValidationStatus } from "./common/types";
 import {
   ComboBoxItemValue as ComboBoxItemValue1,
   ItemInformation,
@@ -367,18 +368,6 @@ export namespace Components {
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition: Function;
     getValueByIndex: (index: number) => Promise<string>;
     /**
      * An informative message to help the user filling the information
@@ -412,6 +401,9 @@ export namespace Components {
      * The combo min-width
      */
     minWidth: string;
+    /**
+     * ******************************* METHODS *******************************
+     */
     open: () => Promise<void>;
     /**
      * The combo placeholder
@@ -427,29 +419,17 @@ export namespace Components {
      */
     strict: boolean;
     /**
-     * ******************************* METHODS *******************************
-     */
-    validate: () => Promise<boolean>;
-    /**
-     * The presence of this attribute will check the input validity on every user input
-     */
-    validateOnChange: boolean;
-    /**
      * The message to display when validation fails (error)
      */
     validationMessage: string;
     /**
      * The validation status
      */
-    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    validationStatus: ValidationStatus;
     /**
      * The current combo box item value
      */
     value: ComboBoxItemValue;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition: Function;
   }
   interface GxgComboBoxItem {
     /**
@@ -715,18 +695,6 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition: Function;
-    /**
      * The checkbox icon
      */
     iconName: string;
@@ -752,29 +720,17 @@ export namespace Components {
     required: boolean;
     tooltip: string;
     /**
-     * ******************************* METHODS *******************************
-     */
-    validate: () => Promise<boolean>;
-    /**
-     * The presence of this attribute will check the input validity on every user input
-     */
-    validateOnChange: boolean;
-    /**
      * The message to display when validation fails (error)
      */
     validationMessage: string;
     /**
      * The validation status
      */
-    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    validationStatus: ValidationStatus;
     /**
      * The checkbox value
      */
     value: string;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition: Function;
   }
   interface GxgFormMessage {
     /**
@@ -818,18 +774,6 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition: Function;
-    /**
      * An informative message to help the user filling the information
      */
     informationMessage: string;
@@ -846,25 +790,17 @@ export namespace Components {
      */
     row: boolean;
     /**
-     * ******************************* METHODS *******************************
-     */
-    validate: () => Promise<boolean>;
-    /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     validationMessage: string;
     /**
      * The validation status
      */
-    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    validationStatus: ValidationStatus;
     /**
      * The radio group checked radio value
      */
     value: string;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition: Function;
   }
   interface GxgFormText {
     /**
@@ -883,14 +819,6 @@ export namespace Components {
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles: boolean;
     /**
      * The input icon (optional)
      */
@@ -940,10 +868,6 @@ export namespace Components {
      */
     password: boolean;
     /**
-     * The input pattern attribute specifies a regular expression that the input field's value is checked against
-     */
-    pattern: string;
-    /**
      * The input placeholder
      */
     placeholder: string;
@@ -960,29 +884,17 @@ export namespace Components {
      */
     textStyle: Style;
     /**
-     * ******************************* METHODS *******************************
-     */
-    validate: () => Promise<boolean>;
-    /**
-     * The presence of this attribute will check the input validity on every user input
-     */
-    validateOnInput: boolean;
-    /**
      * The message to display when validation fails (error)
      */
     validationMessage: string;
     /**
      * The validation status
      */
-    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    validationStatus: ValidationStatus;
     /**
      * The input value
      */
     value: string;
-    /**
-     * The presence of this attribute gives the component warning styles
-     */
-    warning: boolean;
     /**
      * The input width
      */
@@ -994,21 +906,9 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles: boolean;
-    /**
      * The presence of this attribute gives the component error styles
      */
     error: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition: Function;
     /**
      * The textarea height
      */
@@ -1041,7 +941,6 @@ export namespace Components {
      * The number of rows
      */
     rows: number;
-    validate: () => Promise<boolean>;
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
@@ -1049,7 +948,7 @@ export namespace Components {
     /**
      * The validation status
      */
-    validationStatus: "indeterminate" | "warning" | "error" | "success";
+    validationStatus: ValidationStatus;
     /**
      * The textarea value
      */
@@ -1058,10 +957,6 @@ export namespace Components {
      * The presence of this attribute gives the component warning styles
      */
     warning: boolean;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition: Function;
   }
   interface GxgGrid {
     noBorder: boolean;
@@ -1110,17 +1005,8 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
+     * ******************************* METHODS *******************************
      */
-    displayValidationMessage: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition: Function;
     getSelectedItems: () => Promise<ItemsInformation[]>;
     /**
      * The list-box height
@@ -1159,21 +1045,13 @@ export namespace Components {
      */
     theTitle: string;
     /**
-     * ******************************* METHODS *******************************
-     */
-    validate: () => Promise<boolean>;
-    /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
     validationMessage: string;
     /**
      * The validation status
      */
-    validationStatus: "indeterminate" | "warning" | "error" | "success";
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition: Function;
+    validationStatus: ValidationStatus;
   }
   interface GxgListBoxItem {
     /**
@@ -2767,18 +2645,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles?: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition?: Function;
-    /**
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
@@ -2839,25 +2705,17 @@ declare namespace LocalJSX {
      */
     strict?: boolean;
     /**
-     * The presence of this attribute will check the input validity on every user input
-     */
-    validateOnChange?: boolean;
-    /**
      * The message to display when validation fails (error)
      */
     validationMessage?: string;
     /**
      * The validation status
      */
-    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    validationStatus?: ValidationStatus;
     /**
      * The current combo box item value
      */
     value?: ComboBoxItemValue;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition?: Function;
   }
   interface GxgComboBoxItem {
     /**
@@ -3162,18 +3020,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles?: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition?: Function;
-    /**
      * The checkbox icon
      */
     iconName?: string;
@@ -3200,25 +3046,17 @@ declare namespace LocalJSX {
     required?: boolean;
     tooltip?: string;
     /**
-     * The presence of this attribute will check the input validity on every user input
-     */
-    validateOnChange?: boolean;
-    /**
      * The message to display when validation fails (error)
      */
     validationMessage?: string;
     /**
      * The validation status
      */
-    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    validationStatus?: ValidationStatus;
     /**
      * The checkbox value
      */
     value?: string;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition?: Function;
   }
   interface GxgFormMessage {
     /**
@@ -3274,18 +3112,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles?: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition?: Function;
-    /**
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
@@ -3308,15 +3134,11 @@ declare namespace LocalJSX {
     /**
      * The validation status
      */
-    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    validationStatus?: ValidationStatus;
     /**
      * The radio group checked radio value
      */
     value?: string;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition?: Function;
   }
   interface GxgFormText {
     /**
@@ -3335,14 +3157,6 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the input disabled
      */
     disabled?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles?: boolean;
     /**
      * The input icon (optional)
      */
@@ -3396,6 +3210,10 @@ declare namespace LocalJSX {
      */
     onInput?: (event: CustomEvent<any>) => void;
     /**
+     * The clear button was clicked
+     */
+    onValueChanged?: (event: CustomEvent<string>) => void;
+    /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground?: boolean;
@@ -3403,10 +3221,6 @@ declare namespace LocalJSX {
      * The presence of this attribute sets the input type as password
      */
     password?: boolean;
-    /**
-     * The input pattern attribute specifies a regular expression that the input field's value is checked against
-     */
-    pattern?: string;
     /**
      * The input placeholder
      */
@@ -3424,25 +3238,17 @@ declare namespace LocalJSX {
      */
     textStyle?: Style;
     /**
-     * The presence of this attribute will check the input validity on every user input
-     */
-    validateOnInput?: boolean;
-    /**
      * The message to display when validation fails (error)
      */
     validationMessage?: string;
     /**
      * The validation status
      */
-    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    validationStatus?: ValidationStatus;
     /**
      * The input value
      */
     value?: string;
-    /**
-     * The presence of this attribute gives the component warning styles
-     */
-    warning?: boolean;
     /**
      * The input width
      */
@@ -3454,21 +3260,9 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles?: boolean;
-    /**
      * The presence of this attribute gives the component error styles
      */
     error?: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition?: Function;
     /**
      * The textarea height
      */
@@ -3516,7 +3310,7 @@ declare namespace LocalJSX {
     /**
      * The validation status
      */
-    validationStatus?: "indeterminate" | "warning" | "error" | "success";
+    validationStatus?: ValidationStatus;
     /**
      * The textarea value
      */
@@ -3525,10 +3319,6 @@ declare namespace LocalJSX {
      * The presence of this attribute gives the component warning styles
      */
     warning?: boolean;
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition?: Function;
   }
   interface GxgGrid {
     noBorder?: boolean;
@@ -3577,18 +3367,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationMessage?: boolean;
-    /**
-     * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-     */
-    displayValidationStyles?: boolean;
-    /**
-     * A function that will return true or false depending on wether the error condition is met or not
-     */
-    errorCondition?: Function;
-    /**
      * The list-box height
      */
     height?: string;
@@ -3636,11 +3414,7 @@ declare namespace LocalJSX {
     /**
      * The validation status
      */
-    validationStatus?: "indeterminate" | "warning" | "error" | "success";
-    /**
-     * A function that will return true or false depending on wether the warning condition is met or not
-     */
-    warningCondition?: Function;
+    validationStatus?: ValidationStatus;
   }
   interface GxgListBoxItem {
     /**

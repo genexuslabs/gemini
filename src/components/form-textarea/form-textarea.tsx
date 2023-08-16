@@ -6,7 +6,7 @@ import {
   h,
   Event,
   EventEmitter,
-  Method,
+  Watch,
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -18,7 +18,8 @@ import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { exportParts } from "../../common/export-parts";
-
+import { ValidationStatus } from "../../common/types";
+import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-form-textarea",
   styleUrl: "form-textarea.scss",
@@ -28,6 +29,7 @@ export class GxgFormTextarea implements FormComponent {
   private parts = {
     textarea: "textarea",
   };
+  private valueBeforeDisabled;
   private exportparts: string;
 
   @Element() el: HTMLElement;
@@ -113,37 +115,8 @@ export class GxgFormTextarea implements FormComponent {
 
   /**
    * The validation status
-   *
    */
-  @Prop({ mutable: true }) validationStatus:
-    | "indeterminate"
-    | "warning"
-    | "error"
-    | "success";
-
-  /**
-   * A function that will return true or false depending on wether the
-   * error condition is met or not
-   */
-  @Prop() errorCondition: Function;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * warning condition is met or not
-   */
-  @Prop() warningCondition: Function;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationStyles = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationMessage = false;
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
@@ -161,6 +134,16 @@ export class GxgFormTextarea implements FormComponent {
   METHODS
   *********************************/
 
+  @Watch("disabled")
+  disabledHandler(newValue): void {
+    if (newValue === true) {
+      this.valueBeforeDisabled = this.value;
+      this.value = null;
+    } else {
+      this.value = this.valueBeforeDisabled;
+    }
+  }
+
   componentWillLoad() {
     this.attachExportParts();
   }
@@ -169,40 +152,6 @@ export class GxgFormTextarea implements FormComponent {
     const part = this.el.getAttribute("part");
     const exportPartsResult = exportParts(part, this.parts);
     exportPartsResult.length && (this.exportparts = exportPartsResult);
-  };
-
-  @Method()
-  async validate(): Promise<boolean> {
-    if (!this.disabled) {
-      this.handleValidation();
-      if (this.validationStatus === "error") {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  }
-  handleValidation = (): void => {
-    this.handleError();
-    this.handleWarning();
-  };
-  handleError = (): void => {
-    const hasError =
-      (this.required && !this.textArea.value.length) ||
-      (this.errorCondition && this.errorCondition());
-    if (hasError) {
-      this.validationStatus = "error";
-    } else {
-      this.validationStatus = "indeterminate";
-    }
-  };
-  handleWarning = (): void => {
-    const hasWarning = this.warningCondition && this.warningCondition();
-    if (hasWarning) {
-      this.validationStatus === "warning";
-    } else {
-      this.validationStatus === "indeterminate";
-    }
   };
 
   updateTextareaValue(): void {
@@ -230,8 +179,6 @@ export class GxgFormTextarea implements FormComponent {
         class={{
           textarea: true,
           large: state.large,
-          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-            .displayValidationStyles,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -240,6 +187,7 @@ export class GxgFormTextarea implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
@@ -261,14 +209,12 @@ export class GxgFormTextarea implements FormComponent {
           class={{
             "form-element": true,
             textarea: true,
-            "textarea--error": this.error === true,
-            "textarea--warning": this.warning === true,
           }}
           placeholder={this.placeholder}
           disabled={this.disabled}
           onInput={this.handleInput.bind(this)}
           onChange={this.handleChange.bind(this)}
-          value={this.value}
+          value={this.disabled ? null : this.value}
           rows={this.rows}
           required={this.required}
           style={{ height: this.height }}

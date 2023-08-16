@@ -428,7 +428,7 @@ FORM ELEMENTS
 //VALIDATION
 @mixin form-element-validation($status) {
   border-color: var(--color-#{$status}-dark);
-  background-color: var(--color-#{$status}-light);
+  //background-color: var(--color-#{$status}-light);
 }
 @mixin form-element-validation-focus($status) {
   outline-color: var(--color-#{$status}-dark);

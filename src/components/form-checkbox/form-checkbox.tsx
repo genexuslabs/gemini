@@ -7,7 +7,6 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Method,
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -15,6 +14,7 @@ import { formClasses } from "../../common/classesNames";
 import state from "../store";
 import { JSXElement } from "@babel/types";
 import { exportParts } from "../../common/export-parts";
+import { ValidationStatus } from "../../common/types";
 
 @Component({
   tag: "gxg-form-checkbox",
@@ -22,6 +22,7 @@ import { exportParts } from "../../common/export-parts";
   shadow: { delegatesFocus: true },
 })
 export class GxgFormCheckbox implements FormComponent {
+  private valueBeforeDisabled;
   private parts = {
     input: "input",
   };
@@ -93,29 +94,7 @@ export class GxgFormCheckbox implements FormComponent {
    * The validation status
    *
    */
-  @Prop({ mutable: true }) validationStatus:
-    | "indeterminate"
-    | "warning"
-    | "error"
-    | "success";
-
-  /**
-   * The presence of this attribute will check the input validity on every user input
-   *
-   */
-  @Prop() validateOnChange = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationStyles = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationMessage = false;
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * The message to display when validation fails (error)
@@ -128,18 +107,6 @@ export class GxgFormCheckbox implements FormComponent {
    *
    */
   @Prop() informationMessage: string;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * error condition is met or not
-   */
-  @Prop() errorCondition: Function;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * warning condition is met or not
-   */
-  @Prop() warningCondition: Function;
 
   /*
    * An optional label tooltip (Useful if the label is too long).
@@ -155,41 +122,6 @@ export class GxgFormCheckbox implements FormComponent {
   /*********************************
   METHODS
   *********************************/
-
-  @Method()
-  async validate(): Promise<boolean> {
-    if (!this.disabled) {
-      this.handleValidation();
-      if (this.validationStatus === "error") {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  }
-
-  handleValidation = (): void => {
-    this.handleError();
-    this.handleWarning();
-  };
-  handleError = (): void => {
-    const hasError =
-      (this.required && !this.checked) ||
-      (this.errorCondition && this.errorCondition());
-    if (hasError) {
-      this.validationStatus = "error";
-    } else {
-      this.validationStatus = "indeterminate";
-    }
-  };
-  handleWarning = (): void => {
-    const hasWarning = this.warningCondition && this.warningCondition();
-    if (hasWarning) {
-      this.validationStatus === "warning";
-    } else {
-      this.validationStatus === "indeterminate";
-    }
-  };
 
   componentWillLoad() {
     this.attachExportParts();
@@ -218,8 +150,15 @@ export class GxgFormCheckbox implements FormComponent {
       id: this.checkboxId,
       value: this.checked,
     });
-    if (this.validateOnChange) {
-      this.handleValidation();
+  }
+
+  @Watch("disabled")
+  disabledHandler(newValue): void {
+    if (newValue === true) {
+      this.valueBeforeDisabled = this.checked;
+      this.checked = null;
+    } else {
+      this.checked = this.valueBeforeDisabled;
     }
   }
 
@@ -295,8 +234,6 @@ export class GxgFormCheckbox implements FormComponent {
         aria-label={this.label}
         class={{
           large: state.large,
-          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-            .displayValidationStyles,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:

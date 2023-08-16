@@ -38,6 +38,9 @@
         font-size: 12px;
         line-height: 1.6em;
       }
+      gxg-button {
+        margin-top: 16px;
+      }
     </style>
   </head>
   <body>
@@ -58,6 +61,7 @@
         the-title="listbox single-selection"
         height="100%"
         class="form-component"
+        validation-message="This is a validation message."
       >
         <gxg-list-box-item>0.Common</gxg-list-box-item>
         <gxg-list-box-item icon="objects/business-process-diagram"
@@ -86,11 +90,16 @@
           >9.Structured Data Type</gxg-list-box-item
         >
       </gxg-list-box>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <span class="separator"></span>
 
       <!-- gxg-form-text -->
       <span>form-text</span>
-      <gxg-form-text class="form-component"></gxg-form-text>
+      <gxg-form-text
+        class="form-component"
+        value="This is a text"
+      ></gxg-form-text>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <span class="separator"></span>
 
       <!-- gxg-form-text-area -->
@@ -103,6 +112,7 @@
         rows="4"
         class="form-component"
       ></gxg-form-textarea>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <span class="separator"></span>
 
       <!-- gxg-form-radio -->
@@ -140,6 +150,7 @@
           radio-id="yellow"
         ></gxg-form-radio>
       </gxg-form-radio-group>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <span class="separator"></span>
 
       <!-- gxg-form-checkbox -->
@@ -149,6 +160,7 @@
         label="this is the label"
         class="form-component"
       ></gxg-form-checkbox>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <span class="separator"></span>
 
       <!-- gxg-combo-box -->
@@ -167,16 +179,45 @@
           >Chatbots</gxg-combo-box-item
         >
       </gxg-combo-box>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <span class="separator"></span>
 
-      <gxg-button id="validate-components-btn"
-        >Validate All Components</gxg-button
+      <gxg-button id="success-components-btn"
+        >Success All Components</gxg-button
       >
+      <gxg-button id="warning-components-btn"
+        >Warning All Components</gxg-button
+      >
+      <gxg-button id="error-components-btn">Error All Components</gxg-button>
       <gxg-button id="disable-components-btn"
         >Disable All Components</gxg-button
       >
 
       <script>
+        const getValueButtons = document.querySelectorAll(".get-value");
+        getValueButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const formComponent = button.previousElementSibling;
+            const value = formComponent.value;
+            const nodeName = formComponent.nodeName;
+            if (nodeName === "GXG-LIST-BOX") {
+              formComponent.getSelectedItems().then(function (value) {
+                console.log(value);
+              });
+            }
+            if (
+              nodeName === "GXG-FORM-TEXT" ||
+              nodeName === "GXG-FORM-TEXTAREA" ||
+              nodeName === "GXG-FORM-RADIO-GROUP" ||
+              nodeName === "GXG-COMBO-BOX"
+            ) {
+              console.log(formComponent.value);
+            }
+            if (nodeName === "GXG-FORM-CHECKBOX") {
+              console.log(formComponent.checked);
+            }
+          });
+        });
         const formComponents = document.querySelectorAll(".form-component");
         /*General Validation Settings*/
         formComponents.forEach((formComponent) => {
@@ -191,7 +232,6 @@
 
         /*Specific validation settings for gxg-form-radio-group*/
         const radioGroup = document.querySelector("gxg-form-radio-group");
-        console.log("radioGroup", radioGroup);
         radioGroup.errorCondition = function () {
           if (this.value !== "red") {
             return true;
@@ -206,13 +246,31 @@
           }
         };
 
-        /*Button Errors*/
-        const validateComponentsBtn = document.getElementById(
-          "validate-components-btn"
+        /*Success Components Button*/
+        const successComponentsBtn = document.getElementById(
+          "success-components-btn"
         );
-        validateComponentsBtn.addEventListener("click", () => {
+        successComponentsBtn.addEventListener("click", () => {
           formComponents.forEach((component) => {
-            component.validate();
+            component.validationStatus = "success";
+          });
+        });
+        /*Warning Components Button*/
+        const warningComponentsBtn = document.getElementById(
+          "warning-components-btn"
+        );
+        warningComponentsBtn.addEventListener("click", () => {
+          formComponents.forEach((component) => {
+            component.validationStatus = "warning";
+          });
+        });
+        /*Error Components Button*/
+        const errorComponentsBtn = document.getElementById(
+          "error-components-btn"
+        );
+        errorComponentsBtn.addEventListener("click", () => {
+          formComponents.forEach((component) => {
+            component.validationStatus = "error";
           });
         });
         /*Button Disable*/
@@ -221,7 +279,6 @@
         );
         disableComponentsBtn.addEventListener("click", () => {
           formComponents.forEach((component) => {
-            console.log(component);
             component.disabled = true;
           });
         });

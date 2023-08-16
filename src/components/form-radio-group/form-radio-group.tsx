@@ -11,6 +11,7 @@ import {
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
+import { ValidationStatus } from "../../common/types";
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",
@@ -18,6 +19,7 @@ import { formClasses } from "../../common/classesNames";
 })
 export class GxgFormRadioGroup implements FormComponent {
   showValidationMessage = false;
+  private valueBeforeDisabled;
 
   @Element() el: HTMLElement;
 
@@ -64,35 +66,7 @@ export class GxgFormRadioGroup implements FormComponent {
    * The validation status
    *
    */
-  @Prop({ mutable: true }) validationStatus:
-    | "indeterminate"
-    | "warning"
-    | "error"
-    | "success";
-
-  /**
-   * A function that will return true or false depending on wether the
-   * error condition is met or not
-   */
-  @Prop() errorCondition: Function;
-
-  /**
-   * A function that will return true or false depending on wether the
-   * warning condition is met or not
-   */
-  @Prop() warningCondition: Function;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationStyles = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationMessage = false;
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * An informative message to help the user filling the information
@@ -104,53 +78,22 @@ export class GxgFormRadioGroup implements FormComponent {
   METHODS
   *********************************/
 
-  @Method()
-  async validate(): Promise<boolean> {
-    if (!this.disabled) {
-      this.handleValidation();
-      if (this.validationStatus === "error") {
-        return false;
-      } else {
-        return true;
-      }
+  @Watch("disabled")
+  disabledHandler(newValue): void {
+    if (newValue === true) {
+      this.disableAllRadios();
+      this.valueBeforeDisabled = this.value;
+      this.value = null;
+    } else {
+      this.value = this.valueBeforeDisabled;
+      this.enableAllRadios();
     }
   }
-
-  handleValidation = (): void => {
-    this.handleError();
-    this.handleWarning();
-  };
-  handleError = (): void => {
-    console.log("this.errorCondition()", this.errorCondition);
-    const hasError =
-      (this.required && !this.value) ||
-      (this.errorCondition && this.errorCondition());
-    if (hasError) {
-      this.validationStatus = "error";
-    } else {
-      this.validationStatus = "indeterminate";
-    }
-  };
-  handleWarning = (): void => {
-    const hasWarning = this.warningCondition && this.warningCondition();
-    if (hasWarning) {
-      this.validationStatus === "warning";
-    } else {
-      this.validationStatus === "indeterminate";
-    }
-  };
 
   @Watch("value")
   watchValueHandler(): void {
     this.uncheckAll();
     this.setNewRadio();
-  }
-
-  @Watch("disabled")
-  watchDisabledHandler(newValue: boolean): void {
-    if (newValue) {
-      this.disableAllRadios();
-    }
   }
 
   @Listen("keyPressed")
@@ -191,7 +134,9 @@ export class GxgFormRadioGroup implements FormComponent {
   }
 
   componentWillLoad(): void {
-    this.disableAllRadios();
+    if (this.disabled) {
+      this.disableAllRadios();
+    }
   }
 
   componentDidLoad(): void {
@@ -237,7 +182,6 @@ export class GxgFormRadioGroup implements FormComponent {
     } else {
       let newRadio = null;
       if (checkedRadios.length === 0) {
-        console.log("no checked radios");
         newRadio = this.el.querySelector(
           "gxg-form-radio:not([disabled]"
         ) as HTMLGxgFormRadioElement;
@@ -261,14 +205,26 @@ export class GxgFormRadioGroup implements FormComponent {
     }
   };
 
+  private enableAllRadios = (): void => {
+    if (!this.disabled) {
+      const radios: NodeListOf<HTMLGxgFormRadioElement> = this.el.querySelectorAll(
+        "gxg-form-radio"
+      );
+      radios.forEach((radio) => {
+        radio.disabled = false;
+        if (radio.value === this.value) {
+          radio.checked = true;
+        }
+      });
+    }
+  };
+
   render(): void {
     return (
       <Host
         class={{
           "gxg-form-radio-group": true,
           "gxg-form-radio-group--row": this.row,
-          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-            .displayValidationStyles,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
