@@ -13,8 +13,25 @@ export class GxgTest {
 
   //Do not delete buttonTestExportParts property as this is for a specific purpose
   @Prop() buttonTestExportParts = false;
-  //Do not delete treeModel property as this is for a specific purpose
+  //Do not delete treeItemsModel property as this is for a specific purpose
   @Prop() treeItemsModel: GxgTreeItemData[];
+  //Do not delete lazyLoadTreeItems property as this is for a specific purpose
+  @Prop() lazyLoadTreeItemsCallback: (
+    treeItemId: string
+  ) => Promise<GxgTreeItemData[]>;
+
+  @Listen("loadLazyChildren")
+  loadLazyChildrenHandler(e) {
+    const treeItemId = e.detail;
+    if (this.lazyLoadTreeItemsCallback) {
+      const promise = this.lazyLoadTreeItemsCallback(treeItemId);
+      setTimeout(() => {
+        promise.then((result) => {
+          this.treeItemsModel = result;
+        });
+      }, 1000);
+    }
+  }
 
   /*Gxg-Tree Methods*/
   private closeTreeNodeHandler = () => {

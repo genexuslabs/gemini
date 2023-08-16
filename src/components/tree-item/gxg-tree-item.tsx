@@ -94,6 +94,7 @@ export class GxgTreeItem {
    * This property is for internal use, when using the treeModel.
    */
   @Prop() numberOfChildren = 0;
+
   @Prop({ mutable: true }) hasChildTree = false;
   @Prop({ mutable: true }) indeterminate = false;
 
@@ -168,6 +169,7 @@ export class GxgTreeItem {
   private observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
+        this.lazy = false;
         this.reRender();
       }
     }
@@ -665,7 +667,9 @@ export class GxgTreeItem {
                 }}
               ></gxg-icon>
             ) : null}
-            {this.downloading ? <span class="loading"></span> : null}
+            {this.downloading && this.lazy ? (
+              <span class="loading"></span>
+            ) : null}
             <span class="text">
               <slot></slot>
             </span>
@@ -687,6 +691,7 @@ export type GxgTreeItemData = {
   indeterminate?: boolean;
   items?: GxgTreeItemData[];
   label: string;
+  lazy?: boolean;
   leaf?: boolean;
   opened?: boolean;
   selected?: boolean;

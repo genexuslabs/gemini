@@ -4,10 +4,11 @@
 
 ## Properties
 
-| Property                | Attribute                  | Description | Type                | Default     |
-| ----------------------- | -------------------------- | ----------- | ------------------- | ----------- |
-| `buttonTestExportParts` | `button-test-export-parts` |             | `boolean`           | `false`     |
-| `treeItemsModel`        | --                         |             | `GxgTreeItemData[]` | `undefined` |
+| Property                    | Attribute                  | Description | Type                                                 | Default     |
+| --------------------------- | -------------------------- | ----------- | ---------------------------------------------------- | ----------- |
+| `buttonTestExportParts`     | `button-test-export-parts` |             | `boolean`                                            | `false`     |
+| `lazyLoadTreeItemsCallback` | --                         |             | `(treeItemId: string) => Promise<GxgTreeItemData[]>` | `undefined` |
+| `treeItemsModel`            | --                         |             | `GxgTreeItemData[]`                                  | `undefined` |
 
 ## Shadow Parts
 

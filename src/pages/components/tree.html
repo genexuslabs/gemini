@@ -206,7 +206,6 @@
           const item = document.querySelector(
             `gxg-tree-item[item-id='${itemId}']`
           );
-          console.log(item);
           const lazyLoadedItems = `
             <gxg-tree slot="tree">
               <gxg-tree-item icon="general/generator" leaf item-id="goat-c2.1">
@@ -372,6 +371,7 @@
                       id: "number-1-1-2-1",
                       label: "number-1-1-2-1",
                       icon: "general/apple",
+                      lazy: true,
                     },
                     {
                       id: "number-1-1-2-2",
@@ -479,6 +479,78 @@
           ],
         },
       ];
+      const modelLazyUpdated = [
+        {
+          id: "number-1",
+          label: "number-1",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-1-1",
+              label: "number-1-1",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-1-1-1",
+                  label: "number-1-1-1",
+                  icon: "general/apple",
+                },
+                {
+                  id: "number-1-1-2",
+                  label: "number-1-1-2",
+                  icon: "general/apple",
+                  items: [
+                    {
+                      id: "number-1-1-2-1",
+                      label: "number-1-1-2-1",
+                      icon: "general/apple",
+                      items: [
+                        {
+                          id: "lazy-loaded-1",
+                          label: "Lazy Loaded 1",
+                          icon: "general/apple",
+                        },
+                        {
+                          id: "lazy-loaded-2",
+                          label: "Lazy Loaded 2",
+                          icon: "general/apple",
+                        },
+                      ],
+                    },
+                    {
+                      id: "number-1-1-2-2",
+                      label: "number-1-1-2-2",
+                      icon: "general/apple",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              id: "number-1-2",
+              label: "number-1-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          label: "number-2",
+          icon: "general/java",
+          items: [
+            {
+              id: "number-2-1",
+              label: "number-2-1",
+              icon: "general/apple",
+            },
+            {
+              id: "number-2-2",
+              label: "number-2-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
       const gxgTest = document.querySelector("gxg-test");
     </script>
     <br />
@@ -510,6 +582,15 @@
         //gxgTest.treeItemsModel = updatedModel;
         gxgTest.treeItemsModel = modelTinyUpdatedAgain;
       });
+      /*Lazy Load Promise*/
+      const lazyLoadedItemsPromise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(modelLazyUpdated);
+        }, 1000); // Resolves or rejects after 1 second
+      });
+      gxgTest.lazyLoadTreeItemsCallback = () => {
+        return lazyLoadedItemsPromise;
+      };
     </script>
   </body>
 </html>

@@ -938,6 +938,10 @@ export namespace Components {
      */
     required: boolean;
     /**
+     * Allow or not text area resize
+     */
+    resize: boolean;
+    /**
      * The number of rows
      */
     rows: number;
@@ -1532,6 +1536,9 @@ export namespace Components {
   }
   interface GxgTest {
     buttonTestExportParts: boolean;
+    lazyLoadTreeItemsCallback: (
+      treeItemId: string
+    ) => Promise<GxgTreeItemData[]>;
     treeItemsModel: GxgTreeItemData[];
   }
   interface GxgText {
@@ -3300,6 +3307,10 @@ declare namespace LocalJSX {
      */
     required?: boolean;
     /**
+     * Allow or not text area resize
+     */
+    resize?: boolean;
+    /**
      * The number of rows
      */
     rows?: number;
@@ -3931,6 +3942,9 @@ declare namespace LocalJSX {
   }
   interface GxgTest {
     buttonTestExportParts?: boolean;
+    lazyLoadTreeItemsCallback?: (
+      treeItemId: string
+    ) => Promise<GxgTreeItemData[]>;
     treeItemsModel?: GxgTreeItemData[];
   }
   interface GxgText {

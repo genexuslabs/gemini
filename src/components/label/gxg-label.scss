@@ -33,7 +33,7 @@
 /*DISABLED*/
 :host([disabled]) {
   label {
-    color: var(--gxg-text-color-on-primary--disabled);
+    color: var(--gxg-text-color--disabled);
   }
 }
 /*********************************************

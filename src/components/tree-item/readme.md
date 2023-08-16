@@ -24,12 +24,12 @@
 
 ## Events
 
-| Event               | Description | Type                                                                                                                                                                                                                              |
-| ------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `checkboxToggled`   |             | `CustomEvent<{ checkbox?: boolean; checked?: boolean; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
-| `loadLazyChildren`  |             | `CustomEvent<{ id: string; }>`                                                                                                                                                                                                    |
-| `selectionChanged`  |             | `CustomEvent<{ checked: boolean; ctrlKey?: boolean; id: string; label: string; selected: boolean; }>`                                                                                                                             |
-| `toggleIconClicked` |             | `CustomEvent<any>`                                                                                                                                                                                                                |
+| Event               | Description | Type                                                                                                                                                                                                                                              |
+| ------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checkboxToggled`   |             | `CustomEvent<{ checkbox?: boolean; checked?: boolean; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| `loadLazyChildren`  |             | `CustomEvent<{ id: string; }>`                                                                                                                                                                                                                    |
+| `selectionChanged`  |             | `CustomEvent<{ checked: boolean; ctrlKey?: boolean; id: string; label: string; selected: boolean; }>`                                                                                                                                             |
+| `toggleIconClicked` |             | `CustomEvent<any>`                                                                                                                                                                                                                                |
 
 ## Methods
 

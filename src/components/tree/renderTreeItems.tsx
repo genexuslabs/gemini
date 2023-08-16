@@ -27,17 +27,18 @@ export const renderTreeItems = (
 const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
   const childrenLength = item.items ? item.items.length : 0;
   const isLeaf = childrenLength === 0 || item.leaf ? true : false;
+  const lazy = !item.lazy ? false : true;
   return (
     <gxg-tree-item
       checkbox={item.checkbox}
       checked={item.checked}
       disabled={item.disabled}
       icon={item.icon}
-      itemId={item.id}
       indeterminate={item.indeterminate}
+      itemId={item.id}
       key={`tree-item-${item.id}`}
       label={item.label}
-      leaf={isLeaf}
+      leaf={isLeaf && !lazy}
       numberOfChildren={childrenLength}
       opened={item.opened}
       selected={item.selected}

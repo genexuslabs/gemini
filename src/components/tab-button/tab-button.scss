@@ -56,6 +56,9 @@
     }
 
     &:hover {
+      &:focus {
+        outline-color: var(--color-primary-hover);
+      }
       cursor: pointer;
       &:after {
         background-color: var(--color-primary-hover);
@@ -69,6 +72,9 @@
     &[disabled] {
       color: var(--color-primary-disabled);
       pointer-events: none;
+      &:after {
+        background-color: var(--gxg-border-color--disabled);
+      }
     }
     &--selected {
       &:after {

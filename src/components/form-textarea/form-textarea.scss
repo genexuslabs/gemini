@@ -39,10 +39,14 @@ TEXTAREA
 *****************************************************/
 :host {
   textarea {
+    resize: none;
     @include form-element-common-styles();
 
     &:focus {
       @include form-element-common-styles-focus-type-1();
+    }
+    &--resize {
+      resize: both;
     }
   }
 

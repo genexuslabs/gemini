@@ -130,6 +130,12 @@ export class GxgFormTextarea implements FormComponent {
    */
   @Prop() informationMessage: string;
 
+  /**
+   * Allow or not text area resize
+   *
+   */
+  @Prop() resize = false;
+
   /*********************************
   METHODS
   *********************************/
@@ -209,6 +215,7 @@ export class GxgFormTextarea implements FormComponent {
           class={{
             "form-element": true,
             textarea: true,
+            "textarea--resize": this.resize,
           }}
           placeholder={this.placeholder}
           disabled={this.disabled}

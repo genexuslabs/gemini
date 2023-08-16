@@ -411,7 +411,7 @@ FORM ELEMENTS
 
 @mixin form-element-common-styles-focus-type-1($direction: "inside") {
   outline-style: solid;
-  outline-color: var(--color-primary-active);
+  outline-color: var(--color-primary-enabled);
   outline-width: var(--border-width-md);
   @if $direction == "inside" {
     outline-offset: -2px;
