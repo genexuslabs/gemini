@@ -52,6 +52,22 @@
     </style>
   </head>
   <body>
+    <gxg-combo-box
+      id="gxg-combo-validate"
+      placeholder="Select item"
+      value="bpm"
+      label="The title:"
+      class="form-component"
+      disable-filter
+      disabled
+    >
+      <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+      <gxg-combo-box-item value="bpm" icon=""> BPM </gxg-combo-box-item>
+      <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows">
+        Chatbots
+      </gxg-combo-box-item>
+    </gxg-combo-box>
+
     <div class="container">
       <p>Open the console to see the values.</p>
       <!-- VALIDATE + DISABLED -->
@@ -64,6 +80,9 @@
           max-width="100%"
           label-position="start"
           center-label
+          disabled
+          disable-filter
+          value="bpm"
         >
           <gxg-combo-box-item value="common-elements"
             >Common Elements</gxg-combo-box-item

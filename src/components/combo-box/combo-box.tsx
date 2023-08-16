@@ -362,17 +362,6 @@ export class GxgComboBox implements FormComponent {
     this.userTyped = false;
   }
 
-  // @Watch("disabled")
-  // disabledHandler(newValue): void {
-  //   if (newValue === true) {
-  //     this.valueBeforeDisabled = this.value;
-  //     this.textBeforeDisabled = this.text;
-  //     this.value = null;
-  //   } else {
-  //     this.value = this.valueBeforeDisabled;
-  //   }
-  // }
-
   @Watch("listIsOpen")
   listIsOpenHandler(newValue: boolean): void {
     let isOpen = false;
@@ -563,13 +552,17 @@ export class GxgComboBox implements FormComponent {
   };
 
   private toggleListButtonClickHandler = (): void => {
-    this.showAllItems();
-    this.toggleList();
-    this.focus();
+    if (!this.disabled) {
+      this.showAllItems();
+      this.toggleList();
+      this.focus();
+    }
   };
 
   private inputTextClickHandler = (): void => {
-    this.disableFilter && this.toggleList();
+    if (!this.disabled) {
+      this.disableFilter && this.toggleList();
+    }
   };
 
   private toggleList = (): void => {
@@ -635,9 +628,11 @@ export class GxgComboBox implements FormComponent {
   }
 
   clearCombo(): void {
-    this.value = undefined;
-    this.listIsOpen = true;
-    this.focus();
+    if (!this.disabled) {
+      this.value = undefined;
+      this.listIsOpen = true;
+      this.focus();
+    }
   }
 
   resizeObserver(): void {
