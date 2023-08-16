@@ -8,17 +8,14 @@ import {
   EventEmitter,
   State,
   Watch,
-  Method,
 } from "@stencil/core";
-import {
-  requiredLabel,
-  formHandleValidation,
-  formMessageLogic,
-} from "../../common/form";
+import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
+import { commonClassesNames } from "../../common/classesNames";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
+import { ValidationStatus } from "../../common/types";
 
 @Component({
   tag: "gxg-form-text",
@@ -29,6 +26,7 @@ export class GxgFormText implements FormComponent {
   private parts = {
     input: "input",
   };
+  private valueBeforeDisabled;
   private exportparts: string;
   @Element() el: HTMLElement;
   textInput!: HTMLInputElement;
@@ -113,29 +111,7 @@ export class GxgFormText implements FormComponent {
    * The validation status
    *
    */
-  @Prop({ mutable: true }) validationStatus:
-    | "indeterminate"
-    | "warning"
-    | "error"
-    | "success";
-
-  /**
-   * The presence of this attribute will check the input validity on every user input
-   *
-   */
-  @Prop() validateOnInput = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationStyles = false;
-
-  /**
-   * The presence of this attribute will display validation styles, such as a red, orange, or green border dependening on the validation status
-   *
-   */
-  @Prop() displayValidationMessage = false;
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * The message to display when validation fails (error)
@@ -150,20 +126,9 @@ export class GxgFormText implements FormComponent {
   @Prop() informationMessage: string;
 
   /**
-   * The logic for displaying or hidding the validation messages
-   *
-   */
-  formMessageLogic = formMessageLogic;
-
-  /**
    * The input value
    */
   @Prop({ reflect: true }) value: string;
-
-  /**
-   * The presence of this attribute gives the component warning styles
-   */
-  @Prop() warning = false;
 
   /**
    * The input max. width
@@ -174,11 +139,6 @@ export class GxgFormText implements FormComponent {
    * The input width
    */
   @Prop() width = "100%";
-
-  /**
-   * The input pattern attribute specifies a regular expression that the input field's value is checked against
-   */
-  @Prop() pattern: string = undefined;
 
   /**
    * The text style
@@ -215,6 +175,11 @@ export class GxgFormText implements FormComponent {
    */
   @Event() clearButtonClicked: EventEmitter;
 
+  /**
+   * The clear button was clicked
+   */
+  @Event() valueChanged: EventEmitter<string>;
+
   @State() cursorInside = false;
   @State() inputSize = "auto";
   @State() mouseCoordinates: object = {
@@ -230,9 +195,20 @@ export class GxgFormText implements FormComponent {
   @Watch("value")
   watchHandler(newValue, oldValue): void {
     if (newValue !== oldValue) {
+      this.valueChanged.emit(this.value);
       if (this.minimal) {
         this.updateGhostSpan();
       }
+    }
+  }
+
+  @Watch("disabled")
+  disabledHandler(newValue): void {
+    if (newValue === true) {
+      this.valueBeforeDisabled = this.value;
+      this.value = null;
+    } else {
+      this.value = this.valueBeforeDisabled;
     }
   }
 
@@ -247,19 +223,6 @@ export class GxgFormText implements FormComponent {
   /*********************************
   METHODS
   *********************************/
-
-  @Method()
-  async validate(): Promise<boolean> {
-    if (!this.disabled) {
-      this.handleError(formHandleValidation(this, this.textInput));
-      this.handleWarning();
-      if (this.validationStatus === "error") {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  }
 
   iconPositionFunc(): IconPosition {
     if (this.iconPosition !== null && this.icon !== null) {
@@ -306,21 +269,6 @@ export class GxgFormText implements FormComponent {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(target.value);
-    if (this.validateOnInput) {
-      this.handleError(formHandleValidation(this, target));
-    }
-  }
-
-  handleError(hasError: boolean): void {
-    if (hasError) {
-      this.validationStatus = "error";
-    } else {
-      this.validationStatus = "indeterminate";
-    }
-  }
-
-  handleWarning(): boolean {
-    return false;
   }
 
   handleChange(e): void {
@@ -508,8 +456,6 @@ export class GxgFormText implements FormComponent {
           rtl: this.rtl,
           large: state.large,
           borderless: this.borderless,
-          [formClasses["DISPLAY_VALIDATION_STYLES_CLASS"]]: this
-            .displayValidationStyles,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -518,6 +464,7 @@ export class GxgFormText implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
@@ -557,7 +504,6 @@ export class GxgFormText implements FormComponent {
                 "custom-icon": this.icon,
                 "custom-icon--end": this.iconPosition === "end",
                 "input--borderless": this.borderless,
-                "gxg--disabled": this.disabled,
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
@@ -570,7 +516,6 @@ export class GxgFormText implements FormComponent {
               ref={(el) => (this.textInput = el as HTMLInputElement)}
               maxLength={this.maxLength ? parseInt(this.maxLength) : null}
               minLength={this.minLength ? parseInt(this.minLength) : null}
-              pattern={this.pattern ? this.pattern : null}
             ></input>
             {this.inputIcon()}
             {this.clearButton ? (
@@ -582,12 +527,10 @@ export class GxgFormText implements FormComponent {
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
-            {this.labelPosition === "start"
-              ? this.formMessageLogic(this)
-              : null}
+            {this.labelPosition === "start" ? formMessageLogic(this) : null}
           </div>
         </div>
-        {this.labelPosition === "above" ? this.formMessageLogic(this) : null}
+        {this.labelPosition === "above" ? formMessageLogic(this) : null}
       </Host>
     );
   }

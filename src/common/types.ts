@@ -6,3 +6,9 @@ export const KeyboardKeys = {
   ESCAPE: "Escape",
   TAB: "Tab",
 };
+
+export type ValidationStatus =
+  | "indeterminate"
+  | "warning"
+  | "error"
+  | "success";

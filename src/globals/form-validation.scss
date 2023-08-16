@@ -1,5 +1,5 @@
 /*Warning*/
-:host(.gxg-display-validation-styles.gxg-validation--warning) {
+:host(.gxg-validation--warning) {
   .form-element {
     @include form-element-validation("warning");
     &:focus {
@@ -8,7 +8,7 @@
   }
 }
 /*Error*/
-:host(.gxg-display-validation-styles.gxg-validation--error) {
+:host(.gxg-validation--error) {
   .form-element {
     @include form-element-validation("error");
     &:focus {
@@ -17,7 +17,7 @@
   }
 }
 /*Success*/
-:host(.gxg-display-validation-styles.gxg-validation--success) {
+:host(.gxg-validation--success) {
   .form-element {
     @include form-element-validation("success");
     &:focus {
