@@ -52,48 +52,33 @@
     </style>
   </head>
   <body>
-    <gxg-combo-box
-      id="gxg-combo-validate"
-      placeholder="Select item"
-      value="bpm"
-      label="The title:"
-      class="form-component"
-      disable-filter
-      disabled
-    >
-      <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-      <gxg-combo-box-item value="bpm" icon=""> BPM </gxg-combo-box-item>
-      <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows">
-        Chatbots
-      </gxg-combo-box-item>
-    </gxg-combo-box>
-
     <div class="container">
       <p>Open the console to see the values.</p>
-      <!-- VALIDATE + DISABLED -->
       <section class="section" tabindex="0">
-        <span>common functions</span>
+        <span>common functions #1</span>
         <gxg-combo-box
           id="combo-common-functions"
           placeholder="Select item"
-          label="Test validation | disabled"
+          label="Test disabled"
           max-width="100%"
           label-position="start"
           center-label
-          disabled
           disable-filter
           value="bpm"
         >
           <gxg-combo-box-item value="common-elements"
-            >Common Elements</gxg-combo-box-item
+            >Common Elements Common Elements Common Elements</gxg-combo-box-item
           >
-          <gxg-combo-box-item disabled value="bpm" icon=""
+          <gxg-combo-box-item
+            disabled
+            value="bpm"
+            icon="objects/conversational-flows"
             >BPM</gxg-combo-box-item
           >
           <gxg-combo-box-item
             value="chatbots"
             icon="objects/conversational-flows"
-            >Chatbots</gxg-combo-box-item
+            >Chatbots Chatbots Chatbots ChatbotsChatbots</gxg-combo-box-item
           >
           <gxg-combo-box-item disabled value="bpm2" icon=""
             >BPM2</gxg-combo-box-item
@@ -109,23 +94,6 @@
             const comboCommonFunctions = document.getElementById(
               "combo-common-functions"
             );
-            comboCommonFunctions.errorCondition = function () {
-              if (this.value !== "bpm") {
-                return true;
-              }
-            };
-            comboCommonFunctions.setAttribute(
-              "validation-message",
-              "This is an error message"
-            );
-            comboCommonFunctions.setAttribute(
-              "display-validation-styles",
-              true
-            );
-            comboCommonFunctions.setAttribute(
-              "display-validation-message",
-              true
-            );
             /*Events*/
             comboCommonFunctions.addEventListener("opened", () => {
               console.log("combo opened");
@@ -137,7 +105,6 @@
               console.log("combo toggled", e.detail);
             });
           </script>
-          <gxg-button tabindex="-1" id="validate-btn">Validate</gxg-button>
           <gxg-button tabindex="-1" id="disable-combo-box"
             >Disable Combo Box</gxg-button
           >
@@ -158,10 +125,6 @@
           >
           <script>
             /*buttons*/
-            const validateBtn = document.getElementById("validate-btn");
-            validateBtn.addEventListener("click", function () {
-              comboCommonFunctions.validate();
-            });
             const disableBtn = document.getElementById("disable-combo-box");
             disableBtn.addEventListener("click", function () {
               comboCommonFunctions.disabled = true;
@@ -172,36 +135,36 @@
 
       <!-- STANDARD ABC123-->
       <section class="section">
-        <span>standard abc123 + listen valueChanged</span>
+        <span>standard abc123 + listen valueChanged #2</span>
         <gxg-combo-box
           id="combo-standard-abc123"
           placeholder="Select item"
           label="Standard combo (abc123):"
         >
-          <gxg-combo-box-item>a1</gxg-combo-box-item>
-          <gxg-combo-box-item>a12</gxg-combo-box-item>
-          <gxg-combo-box-item>a2</gxg-combo-box-item>
-          <gxg-combo-box-item>a3</gxg-combo-box-item>
-          <gxg-combo-box-item>b1</gxg-combo-box-item>
-          <gxg-combo-box-item>b2</gxg-combo-box-item>
-          <gxg-combo-box-item>b3</gxg-combo-box-item>
-          <gxg-combo-box-item>c1</gxg-combo-box-item>
-          <gxg-combo-box-item>c2</gxg-combo-box-item>
-          <gxg-combo-box-item>c3</gxg-combo-box-item>
+          <gxg-combo-box-item value="a1 value">a1</gxg-combo-box-item>
+          <gxg-combo-box-item value="a12 value">a12</gxg-combo-box-item>
+          <gxg-combo-box-item value="a2 value">a2</gxg-combo-box-item>
+          <gxg-combo-box-item value="a3 value">a3</gxg-combo-box-item>
+          <gxg-combo-box-item value="b1 value">b1</gxg-combo-box-item>
+          <gxg-combo-box-item value="b2 value">b2</gxg-combo-box-item>
+          <gxg-combo-box-item value="b3 value">b3</gxg-combo-box-item>
+          <gxg-combo-box-item value="c1 value">c1</gxg-combo-box-item>
+          <gxg-combo-box-item value="c2 value">c2</gxg-combo-box-item>
+          <gxg-combo-box-item value="c3 value">c3</gxg-combo-box-item>
         </gxg-combo-box>
         <script>
           const comboStandard123 = document.getElementById(
             "combo-standard-abc123"
           );
           comboStandard123.addEventListener("valueChanged", (e) => {
-            //console.log("standard abc123 value changed", e.detail);
+            console.log("standard abc123 value changed", e.detail);
           });
         </script>
       </section>
 
       <!-- STANDARD -->
       <section class="section">
-        <span>standard</span>
+        <span>standard #3</span>
         <gxg-combo-box
           id="combo-standard"
           placeholder="Select item"
@@ -284,7 +247,7 @@
 
       <!-- STANDARD CASE SENSITIVE -->
       <section class="section">
-        <span>standard case sensitive</span>
+        <span>standard case sensitive #4</span>
         <gxg-combo-box
           placeholder="Select item"
           label="Standard combo (case sensitive):"
@@ -335,7 +298,7 @@
 
       <!--DISABLED FILTER-->
       <section class="section">
-        <span>disabled-filter</span>
+        <span>disabled-filter #5</span>
         <gxg-combo-box
           id="combo-disabled"
           placeholder="Select item"
@@ -422,7 +385,7 @@
 
       <!-- STRICT -->
       <section class="section">
-        <span>strict</span>
+        <span>strict #6</span>
         <gxg-combo-box
           id="combo-strict"
           label="Strict combo (only existing values allowed)"
@@ -510,7 +473,7 @@
 
       <!-- DISABLED-FILTER + STRICT -->
       <section class="section">
-        <span>disabled-filter + strict</span>
+        <span>disabled-filter + strict #7</span>
         <gxg-combo-box
           value="bpm"
           id="combo-disabled-strict"
@@ -569,7 +532,9 @@
               "combo-disabled-strict"
             );
           </script>
-          <gxg-button type="primary-text-only" onclick="setBPMValue"
+          <gxg-button
+            type="primary-text-only"
+            onclick="setBPMValue(comboDisabledStrict)"
             >Set BPM value</gxg-button
           >
           <gxg-button

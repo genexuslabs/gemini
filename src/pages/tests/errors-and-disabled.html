@@ -192,6 +192,7 @@
       <gxg-button id="disable-components-btn"
         >Disable All Components</gxg-button
       >
+      <gxg-button id="enable-components-btn">Enable All Components</gxg-button>
 
       <script>
         const getValueButtons = document.querySelectorAll(".get-value");
@@ -280,6 +281,15 @@
         disableComponentsBtn.addEventListener("click", () => {
           formComponents.forEach((component) => {
             component.disabled = true;
+          });
+        });
+        /*Button Enable*/
+        const enableComponentsBtn = document.getElementById(
+          "enable-components-btn"
+        );
+        enableComponentsBtn.addEventListener("click", () => {
+          formComponents.forEach((component) => {
+            component.disabled = false;
           });
         });
       </script>

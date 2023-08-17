@@ -35,7 +35,7 @@ const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
       disabled={item.disabled}
       icon={item.icon}
       indeterminate={item.indeterminate}
-      itemId={item.id}
+      id={item.id}
       key={`tree-item-${item.id}`}
       label={item.label}
       leaf={isLeaf && !lazy}

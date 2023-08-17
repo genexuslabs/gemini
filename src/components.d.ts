@@ -872,6 +872,14 @@ export namespace Components {
      */
     placeholder: string;
     /**
+     * Prevent "value" from being changed when the input is disabled (helpful for cases where this component is used inside another component and this behavior causes conflicts. )
+     */
+    preventValueChangeOnDisabled: boolean;
+    /**
+     * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
+     */
+    preventValueChangedEmit: boolean;
+    /**
      * The presence of this attribute makes the input readonly
      */
     readonly: boolean;
@@ -1690,10 +1698,6 @@ export namespace Components {
      */
     icon: string;
     indeterminate: boolean;
-    /**
-     * The item identifier
-     */
-    itemId: string;
     /**
      * The tree item label.
      */
@@ -3233,6 +3237,14 @@ declare namespace LocalJSX {
      */
     placeholder?: string;
     /**
+     * Prevent "value" from being changed when the input is disabled (helpful for cases where this component is used inside another component and this behavior causes conflicts. )
+     */
+    preventValueChangeOnDisabled?: boolean;
+    /**
+     * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
+     */
+    preventValueChangedEmit?: boolean;
+    /**
      * The presence of this attribute makes the input readonly
      */
     readonly?: boolean;
@@ -4083,10 +4095,6 @@ declare namespace LocalJSX {
      */
     icon?: string;
     indeterminate?: boolean;
-    /**
-     * The item identifier
-     */
-    itemId: string;
     /**
      * The tree item label.
      */

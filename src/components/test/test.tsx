@@ -46,11 +46,13 @@ export class GxgTest {
   private getSelectedItemsHandler = () => {
     (async () => {
       const selected = await this.tree.getSelectedItems();
+      console.log(selected);
     })();
   };
   private getCheckedItemsHandler = () => {
     (async () => {
       const checked = await this.tree.getCheckedItems();
+      console.log(checked);
     })();
   };
   private deleteNodeHandler = () => {

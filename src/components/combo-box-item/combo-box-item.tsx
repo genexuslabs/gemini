@@ -11,6 +11,7 @@ import {
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import state from "../store";
+import { commonClassesNames } from "../../common/classesNames";
 
 @Component({
   tag: "gxg-combo-box-item",
@@ -89,11 +90,6 @@ export class GxgComboBoxItem {
   WATCH
   *********************************/
 
-  @Watch("selected")
-  selectedHandler(selected): void {
-    selected ? (this.iconColor = "negative") : (this.iconColor = "auto");
-  }
-
   private setup = () => {
     if (!this.value) {
       this.value = this.el.innerHTML;
@@ -109,30 +105,30 @@ export class GxgComboBoxItem {
     });
   };
 
-  private onMouseOverHandler = () => {
-    this.iconColor = "negative";
-  };
-
-  private onMouseOutHandler = () => {
-    !this.selected && (this.iconColor = "auto");
-  };
+  iconColorHandler(): Color {
+    if (this.disabled) {
+      return "disabled";
+    } else if (this.selected) {
+      return "negative";
+    } else {
+      return "auto";
+    }
+  }
 
   render() {
     return (
       <Host
         onClick={this.clickHandler}
-        onMouseOver={this.onMouseOverHandler}
-        onMouseOut={this.onMouseOutHandler}
         class={{
           large: state.large,
           "no-icon": !this.icon,
-          "gxg--disabled": this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
       >
-        <div class={{ container: true }}>
+        <div class={{ container: true, "form-element": true }}>
           {this.icon ? (
             <gxg-icon
-              color={this.iconColor}
+              color={this.iconColorHandler()}
               size={state.large ? "regular" : "small"}
               type={this.icon}
             ></gxg-icon>

@@ -7,7 +7,6 @@
   font-size: inherit;
   //min-height: var(--spacing-comp-05);
   color: inherit;
-  cursor: pointer;
   display: flex;
   box-sizing: border-box;
   align-items: center;
@@ -23,6 +22,8 @@
     align-items: center;
     padding: var(--spacing-comp-00) var(--spacing-comp-02);
     width: 100%;
+    height: var(--gxg-list-item-height--spaced);
+    box-sizing: border-box;
   }
 
   .icon {
@@ -37,10 +38,11 @@
     outline: none;
   }
 }
-:host(:hover),
-:host([selected]:hover) {
-  background-color: var(--gxg-form-item-bgcolor-hover);
-  color: var(--color-always-white);
+:host(:not([disabled])) {
+  cursor: pointer !important;
+}
+:host(:hover:not([selected])) {
+  background-color: var(--gxg-background-color-item-hover);
 }
 :host(.has-icon.no-checkbox) {
   .container {
@@ -49,12 +51,12 @@
 }
 /*SELECTED*/
 :host([selected]) {
-  background-color: var(--color-secondary-active);
-  color: var(--color-always-white);
+  background-color: var(--gxg-background-color-item-selected);
+  color: var(--gxg-color-item-active);
 }
 /*HIGHLIGHTED*/
 :host([highlighted]) {
-  background-color: var(--gxg-form-item-bgcolor-hover);
+  background-color: var(--gxg-background-color-item-active);
   color: var(--color-always-white);
 }
 /*ACTIVE*/

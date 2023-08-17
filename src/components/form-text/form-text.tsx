@@ -105,6 +105,16 @@ export class GxgFormText implements FormComponent {
    */
   @Prop() labelWidth;
 
+  /**
+   * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
+   */
+  @Prop() preventValueChangedEmit = false;
+
+  /**
+   * Prevent "value" from being changed when the input is disabled (helpful for cases where this component is used inside another component and this behavior causes conflicts. )
+   */
+  @Prop() preventValueChangeOnDisabled = false;
+
   /* VALIDATION */
 
   /**
@@ -193,22 +203,24 @@ export class GxgFormText implements FormComponent {
   @State() rtl = false;
 
   @Watch("value")
-  watchHandler(newValue, oldValue): void {
-    if (newValue !== oldValue) {
-      this.valueChanged.emit(this.value);
-      if (this.minimal) {
-        this.updateGhostSpan();
-      }
+  watchHandler(newValue): void {
+    if (!this.preventValueChangedEmit) {
+      this.valueChanged.emit(newValue);
+    }
+    if (this.minimal) {
+      this.updateGhostSpan();
     }
   }
 
   @Watch("disabled")
   disabledHandler(newValue): void {
-    if (newValue === true) {
-      this.valueBeforeDisabled = this.value;
-      this.value = null;
-    } else {
-      this.value = this.valueBeforeDisabled;
+    if (!this.preventValueChangeOnDisabled) {
+      if (newValue === true) {
+        this.valueBeforeDisabled = this.value;
+        this.value = null;
+      } else {
+        this.value = this.valueBeforeDisabled;
+      }
     }
   }
 

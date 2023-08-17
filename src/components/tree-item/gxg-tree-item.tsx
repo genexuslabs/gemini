@@ -76,11 +76,6 @@ export class GxgTreeItem {
   @Prop({ mutable: true }) selected = false;
 
   /**
-   * The item identifier
-   */
-  @Prop() itemId!: string;
-
-  /**
    * Sets the tree item icon
    */
   @Prop() readonly icon: string;
@@ -107,6 +102,7 @@ export class GxgTreeItem {
   @State() lineHeight: string;
   @State() downloading = false;
 
+  private id;
   private lazy = false; //True if not leaf but no children.
   private parentTreeIsMasterTree = false;
   private numberOfParentTrees = 1;
@@ -306,7 +302,7 @@ export class GxgTreeItem {
   toggleTreeIconClicked() {
     if (this.lazy) {
       this.downloading = true;
-      this.loadLazyChildren.emit({ id: this.itemId });
+      this.loadLazyChildren.emit({ id: this.id });
     } else {
       this.opened = !this.opened;
     }

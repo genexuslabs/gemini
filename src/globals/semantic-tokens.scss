@@ -1,16 +1,27 @@
 :root {
-  --gxg-border-color--regular: var(--gray-02);
-  --gxg-border-color--disabled: var(--gray-04);
-  --gxg-text-color--disabled: var(--gray-04);
   --gxg-form-text-height: 20px;
-  --gxg-form-item-bgcolor-hover: var(--color-secondary-hover);
   --gxg-label-margin-horizontal: var(--spacing-lay-s);
   --gxg-label-margin-vertical: var(--spacing-lay-xs);
   --gxg-border-common-styles: var(--border-width-sm) solid
     var(--gxg-border-color--regular);
   --gxg-icon-size: var(--spacing-comp-04);
   --gxg-icon-mask-size: 100%;
+  --gxg-list-item-height: var(--spacing-comp-05);
+  --gxg-list-item-height--spaced: calc(var(--spacing-comp-05) + 2px);
+  /*COLORS*/
+  --gxg-border-color--regular: var(--gray-02);
+  /*hover*/
+  --gxg-background-color-item-hover: var(--gray-01);
+  --gxg-form-item-bgcolor-hover: var(--color-secondary-hover);
+  /*selected*/
   --gxg-color-selected: var(--color-secondary-enabled);
+  --gxg-background-color-item-selected: var(--color-secondary-active);
+  /*active*/
+  --gxg-color-item-active: var(--color-on-primary);
+  --gxg-background-color-item-active: var(--color-secondary-active);
+  /*disabled*/
+  --gxg-border-color--disabled: var(--gray-04);
+  --gxg-text-color--disabled: var(--gray-04);
 }
 :root.gxg-large {
   --gxg-form-text-height: var(--spacing-comp-05);

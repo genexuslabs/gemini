@@ -167,11 +167,11 @@ export class GxgListboxItem {
           [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         onClick={this.itemClickedFunc.bind(this)}
-        onMouseOver={this.onMouseOver.bind(this)}
-        onMouseOut={this.onMouseOut.bind(this)}
+        // onMouseOver={this.onMouseOver.bind(this)}
+        // onMouseOut={this.onMouseOut.bind(this)}
         exportParts={this.exportparts ? this.exportparts : null}
       >
-        <div class="container disabled-element">
+        <div class={{ container: true, "form-element": true }}>
           {this.checkbox && !this.disabled ? (
             <gxg-form-checkbox
               tabindex="-1"

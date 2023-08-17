@@ -3,7 +3,6 @@
 :host {
   display: block;
   cursor: pointer;
-  min-height: var(--spacing-comp-05);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -19,12 +18,18 @@
     align-items: center;
     padding: var(--spacing-comp-00) var(--spacing-comp-01);
     width: 100%;
-    min-height: 28px;
+    height: var(--gxg-list-item-height);
     box-sizing: border-box; /*items with icon are this tall*/
   }
   gxg-icon {
     flex-shrink: 0;
   }
+}
+.description {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 :host(.no-icon) {
   .container {
@@ -37,14 +42,12 @@
 :host(.display-none) {
   display: none;
 }
-:host(:hover),
-:host(.selected:hover) {
-  background-color: var(--color-secondary-hover);
-  color: var(--color-always-white);
+:host(:hover) {
+  background-color: var(--gxg-background-color-item-hover);
 }
-:host([selected]:not(:hover)) {
-  background-color: var(--color-secondary-active);
-  color: var(--color-always-white);
+:host([selected]) {
+  background-color: var(--gxg-background-color-item-selected);
+  color: var(--gxg-color-item-active);
 }
 :host([exact-match]) {
   // background-color: var(--color-success-light);
@@ -57,10 +60,6 @@ LARGE VERSION (html tag has 'gxg-large' class)
 :host(.large) {
   font-size: var(--font-size-lg);
   min-height: auto;
-  .container {
-    padding-top: var(--spacing-comp-01);
-    padding-bottom: var(--spacing-comp-01);
-  }
   gxg-icon {
     margin-right: var(--spacing-comp-01);
   }
