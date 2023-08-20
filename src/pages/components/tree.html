@@ -31,6 +31,14 @@
       h2 {
         font-size: 16px;
       }
+      #markup-tree {
+        border: 1px solid black;
+        max-width: 100%;
+        max-height: 300px;
+      }
+      .tree-container {
+        max-width: 200px;
+      }
     </style>
   </head>
   <body>
@@ -38,112 +46,114 @@
 
     <!-- Markup Tree -->
 
-    <gxg-tree multi-selection id="markup-tree">
-      <gxg-tree-item icon="general/generator" id="meats">
-        Meats
-        <gxg-tree slot="tree">
-          <gxg-tree-item icon="general/patterns" leaf id="cow">
-            Cow
-          </gxg-tree-item>
-          <gxg-tree-item icon="general/knowledge-base" id="goat">
-            Goat
-            <gxg-tree slot="tree">
-              <gxg-tree-item icon="general/generator" leaf id="goat-a">
-                Goat A
-              </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns" id="goat-b">
-                Goat B
-                <gxg-tree slot="tree">
-                  <gxg-tree-item
-                    icon="general/generator"
-                    leaf
-                    checked
-                    id="goat-b1"
-                  >
-                    Goat B1
-                  </gxg-tree-item>
-                  <gxg-tree-item
-                    icon="general/patterns"
-                    leaf
-                    checked
-                    id="goat-b2"
-                  >
-                    Goat B2
-                  </gxg-tree-item>
-                  <gxg-tree-item
-                    icon="general/patterns"
-                    leaf
-                    checked
-                    id="goat-b3"
-                  >
-                    Goat B3
-                  </gxg-tree-item>
-                  <gxg-tree-item
-                    icon="general/patterns"
-                    leaf
-                    checked
-                    id="goat-b4"
-                  >
-                    Goat B4
-                  </gxg-tree-item>
-                </gxg-tree>
-              </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns" id="goat-c">
-                Goat C
-                <gxg-tree slot="tree">
-                  <gxg-tree-item icon="general/generator" leaf id="goat-c1">
-                    Goat C1
-                  </gxg-tree-item>
-                  <gxg-tree-item
-                    icon="general/patterns"
-                    id="goat-c2"
-                    label="Goat C2"
-                  >
-                    Goat C2 (Lazy Load)
-                  </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" leaf id="goat-c3">
-                    Goat C3
-                  </gxg-tree-item>
-                </gxg-tree>
-              </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item icon="general/generator" id="fish">
-        Fish
-        <gxg-tree slot="tree">
-          <gxg-tree-item icon="general/generator" id="tune">
-            Tune
-            <gxg-tree slot="tree">
-              <gxg-tree-item icon="general/generator" leaf id="tune-small">
-                Tune Small
-              </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns" leaf id="tune-medium">
-                Tune Medium
-              </gxg-tree-item>
-              <gxg-tree-item icon="general/patterns" leaf id="tune-big">
-                Tune Big
-              </gxg-tree-item>
-            </gxg-tree>
-          </gxg-tree-item>
-          <gxg-tree-item icon="general/patterns" leaf id="salmon">
-            Salmon
-          </gxg-tree-item>
-          <gxg-tree-item icon="general/patterns" leaf id="cod">
-            Cod
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-      <gxg-tree-item icon="general/knowledge-base" id="nuts">
-        Nuts
-        <gxg-tree slot="tree">
-          <gxg-tree-item icon="general/generator" leaf id="nuts-salty">
-            Nuts Salty
-          </gxg-tree-item>
-        </gxg-tree>
-      </gxg-tree-item>
-    </gxg-tree>
+    <div class="tree-container">
+      <gxg-tree multi-selection id="markup-tree">
+        <gxg-tree-item icon="general/generator" id="meats">
+          Meats
+          <gxg-tree slot="tree">
+            <gxg-tree-item icon="general/patterns" leaf id="cow">
+              Cow
+            </gxg-tree-item>
+            <gxg-tree-item icon="general/knowledge-base" id="goat">
+              Goat
+              <gxg-tree slot="tree">
+                <gxg-tree-item icon="general/generator" leaf id="goat-a">
+                  Goat A
+                </gxg-tree-item>
+                <gxg-tree-item icon="general/patterns" id="goat-b">
+                  Goat B
+                  <gxg-tree slot="tree">
+                    <gxg-tree-item
+                      icon="general/generator"
+                      leaf
+                      checked
+                      id="goat-b1"
+                    >
+                      Goat B1
+                    </gxg-tree-item>
+                    <gxg-tree-item
+                      icon="general/patterns"
+                      leaf
+                      checked
+                      id="goat-b2"
+                    >
+                      Goat B2
+                    </gxg-tree-item>
+                    <gxg-tree-item
+                      icon="general/patterns"
+                      leaf
+                      checked
+                      id="goat-b3"
+                    >
+                      Goat B3
+                    </gxg-tree-item>
+                    <gxg-tree-item
+                      icon="general/patterns"
+                      leaf
+                      checked
+                      id="goat-b4"
+                    >
+                      Goat B4
+                    </gxg-tree-item>
+                  </gxg-tree>
+                </gxg-tree-item>
+                <gxg-tree-item icon="general/patterns" id="goat-c">
+                  Goat C
+                  <gxg-tree slot="tree">
+                    <gxg-tree-item icon="general/generator" leaf id="goat-c1">
+                      Goat C1
+                    </gxg-tree-item>
+                    <gxg-tree-item
+                      icon="general/patterns"
+                      id="goat-c2"
+                      label="Goat C2"
+                    >
+                      Goat C2 (Lazy Load)
+                    </gxg-tree-item>
+                    <gxg-tree-item icon="general/patterns" leaf id="goat-c3">
+                      Goat C3
+                    </gxg-tree-item>
+                  </gxg-tree>
+                </gxg-tree-item>
+              </gxg-tree>
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item icon="general/generator" id="fish">
+          Fish
+          <gxg-tree slot="tree">
+            <gxg-tree-item icon="general/generator" id="tune">
+              Tune
+              <gxg-tree slot="tree">
+                <gxg-tree-item icon="general/generator" leaf id="tune-small">
+                  Tune Small
+                </gxg-tree-item>
+                <gxg-tree-item icon="general/patterns" leaf id="tune-medium">
+                  Tune Medium
+                </gxg-tree-item>
+                <gxg-tree-item icon="general/patterns" leaf id="tune-big">
+                  Tune Big
+                </gxg-tree-item>
+              </gxg-tree>
+            </gxg-tree-item>
+            <gxg-tree-item icon="general/patterns" leaf id="salmon">
+              Salmon
+            </gxg-tree-item>
+            <gxg-tree-item icon="general/patterns" leaf id="cod">
+              Cod
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+        <gxg-tree-item icon="general/knowledge-base" id="nuts">
+          Nuts
+          <gxg-tree slot="tree">
+            <gxg-tree-item icon="general/generator" leaf id="nuts-salty">
+              Nuts Salty
+            </gxg-tree-item>
+          </gxg-tree>
+        </gxg-tree-item>
+      </gxg-tree>
+    </div>
 
     <br />
 
