@@ -110,6 +110,9 @@
           chSuggest.innerHTML = "<p style='margin:0'>No hay coincidencias</p>";
         }
       });
+      chSuggest.addEventListener("inputChanged", (e) => {
+        console.log(e);
+      });
     </script>
 
     <script>

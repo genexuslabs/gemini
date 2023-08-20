@@ -94,7 +94,11 @@
                   <gxg-tree-item icon="general/generator" leaf id="goat-c1">
                     Goat C1
                   </gxg-tree-item>
-                  <gxg-tree-item icon="general/patterns" id="goat-c2">
+                  <gxg-tree-item
+                    icon="general/patterns"
+                    id="goat-c2"
+                    label="Goat C2"
+                  >
                     Goat C2 (Lazy Load)
                   </gxg-tree-item>
                   <gxg-tree-item icon="general/patterns" leaf id="goat-c3">
@@ -168,6 +172,14 @@
           console.log(e.detail);
         });
 
+        /*loadLazyChildren event*/
+        markUpTree.addEventListener("loadLazyChildren", (e) => {
+          const itemId = e.detail.id;
+          setTimeout(() => {
+            appendLazyLoadItems(itemId);
+          }, 1000);
+        });
+
         /*Selected items*/
         const getSelectedMarkup = document.getElementById(
           "get-selected-markup"
@@ -209,16 +221,12 @@
         toggleGoatB.addEventListener("click", () => {
           markUpTree.toggleItems(["goat-b"]);
         });
-        /*Lazy Load*/
-        const lazyLoadGoatC2 = document.getElementById("toggle-goat-b");
-        markUpTree.addEventListener("loadLazyChildren", (e) => {
-          const itemId = e.detail.id;
-          appendLazyLoadItems(itemId);
-        });
 
         const appendLazyLoadItems = (itemId) => {
           const item = document.querySelector(`gxg-tree-item[id='${itemId}']`);
+          const innerText = item.innerText;
           const lazyLoadedItems = `
+            ${innerText}
             <gxg-tree slot="tree">
               <gxg-tree-item icon="general/generator" leaf id="goat-c2.1">
                 Goat C2.1

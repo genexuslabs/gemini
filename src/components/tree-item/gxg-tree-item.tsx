@@ -63,7 +63,12 @@ export class GxgTreeItem {
   /**
    * The tree item label.
    */
-  @Prop() label: string = null;
+  @Prop() label: string;
+
+  /**
+   * The tree item description.
+   */
+  @Prop() description: string;
 
   /**
    * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
@@ -120,6 +125,7 @@ export class GxgTreeItem {
   @Event() loadLazyChildren: EventEmitter<lazyLoadedInfo>;
 
   @Element() el: HTMLGxgTreeItemElement;
+  private slot!: HTMLSlotElement;
 
   @Listen("checkboxToggled")
   checkboxToggledHandler() {
@@ -147,6 +153,8 @@ export class GxgTreeItem {
     if (!this.el.nextElementSibling) {
       this.lastItem = true;
     }
+
+    this.evaluateId();
     this.evaluateLazy();
     this.defineLineHeight();
     this.defineStartPosition();
@@ -156,9 +164,16 @@ export class GxgTreeItem {
     this.initiateMutationObserver();
   }
 
+  private evaluateId = () => {
+    if (!this.id) {
+      this.id = this.el.getAttribute("id");
+    }
+  };
+
   private evaluateLazy = () => {
     if (!this.leaf && this.numberOfChildren === 0) {
       this.lazy = true;
+      this.opened = false;
     }
   };
 
@@ -166,6 +181,7 @@ export class GxgTreeItem {
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
         this.lazy = false;
+        this.opened = true;
         this.reRender();
       }
     }
@@ -300,7 +316,7 @@ export class GxgTreeItem {
   }
 
   toggleTreeIconClicked() {
-    if (this.lazy) {
+    if (this.lazy && !this.opened) {
       this.downloading = true;
       this.loadLazyChildren.emit({ id: this.id });
     } else {
@@ -316,10 +332,10 @@ export class GxgTreeItem {
   liTextClickedHandler(e) {
     if (e.ctrlKey || !this.selected) {
       this.selectionChanged.emit({
-        id: this.el.id,
-        label: this.el.label,
-        checked: this.el.checked,
-        selected: this.selected,
+        id: this.id,
+        label: this.label,
+        checked: this.checked,
+        selected: !this.selected,
         ctrlKey: e.ctrlKey,
       });
     }
@@ -681,6 +697,7 @@ export class GxgTreeItem {
 export type GxgTreeItemData = {
   checkbox?: boolean;
   checked?: boolean;
+  description?: string;
   disabled?: boolean;
   icon?: string;
   id: string;

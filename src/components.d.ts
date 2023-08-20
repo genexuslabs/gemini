@@ -1689,6 +1689,10 @@ export namespace Components {
      */
     checked: boolean;
     /**
+     * The tree item description.
+     */
+    description: string;
+    /**
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     disabled: boolean;
@@ -4085,6 +4089,10 @@ declare namespace LocalJSX {
      * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
      */
     checked?: boolean;
+    /**
+     * The tree item description.
+     */
+    description?: string;
     /**
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
