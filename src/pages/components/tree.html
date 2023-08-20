@@ -91,11 +91,7 @@
               <gxg-tree-item icon="general/patterns" id="goat-c">
                 Goat C
                 <gxg-tree slot="tree">
-                  <gxg-tree-item
-                    icon="general/generator"
-                    leaf
-                    id="goat-c1"
-                  >
+                  <gxg-tree-item icon="general/generator" leaf id="goat-c1">
                     Goat C1
                   </gxg-tree-item>
                   <gxg-tree-item icon="general/patterns" id="goat-c2">
@@ -161,10 +157,28 @@
 
       <script>
         const markUpTree = document.getElementById("markup-tree");
+
+        /*selectionChanged event*/
+        markUpTree.addEventListener("selectionChanged", (e) => {
+          console.log(e.detail);
+        });
+
+        /*checkboxToggled event*/
+        markUpTree.addEventListener("checkboxToggled", (e) => {
+          console.log(e.detail);
+        });
+
         /*Selected items*/
         const getSelectedMarkup = document.getElementById(
           "get-selected-markup"
         );
+        getSelectedMarkup.addEventListener("click", () => {
+          const selectedPromise = markUpTree.getSelectedItems();
+          selectedPromise.then(function (value) {
+            console.log(value);
+          });
+        });
+
         getSelectedMarkup.addEventListener("click", () => {
           const selectedPromise = markUpTree.getSelectedItems();
           selectedPromise.then(function (value) {
@@ -203,9 +217,7 @@
         });
 
         const appendLazyLoadItems = (itemId) => {
-          const item = document.querySelector(
-            `gxg-tree-item[id='${itemId}']`
-          );
+          const item = document.querySelector(`gxg-tree-item[id='${itemId}']`);
           const lazyLoadedItems = `
             <gxg-tree slot="tree">
               <gxg-tree-item icon="general/generator" leaf id="goat-c2.1">

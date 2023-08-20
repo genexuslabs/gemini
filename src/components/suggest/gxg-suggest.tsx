@@ -1,4 +1,5 @@
 import { Component, Host, h } from "@stencil/core";
+import state from "../store";
 
 @Component({
   tag: "gxg-suggest",
@@ -8,7 +9,7 @@ import { Component, Host, h } from "@stencil/core";
 export class GxgSuggest {
   render() {
     return (
-      <Host>
+      <Host class={{ large: state.large }}>
         <slot></slot>
       </Host>
     );

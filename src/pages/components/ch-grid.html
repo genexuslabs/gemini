@@ -19,22 +19,6 @@
     </style>
   </head>
   <body>
-    <gxg-combo-box
-      id="gxg-combo-validate"
-      placeholder="Select item"
-      value="bpm"
-      width="100%"
-      label="The title:"
-    >
-      <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-      <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
-      <gxg-combo-box-item
-        value="chatbots"
-        icon="objects/conversational-flows"
-        disabled
-        >Chatbots</gxg-combo-box-item
-      >
-    </gxg-combo-box>
     <gxg-grid>
       <ch-grid>
         <ch-grid-actionbar slot="header">
@@ -102,12 +86,12 @@
           <ch-grid-cell> Buenos Aires </ch-grid-cell>
         </ch-grid-row>
         <ch-grid-row>
-          <ch-grid-cell> Code 1 </ch-grid-cell>
+          <ch-grid-cell> <gxg-button>A Button</gxg-button> </ch-grid-cell>
           <ch-grid-cell> 100 </ch-grid-cell>
           <ch-grid-cell> Montevideo </ch-grid-cell>
         </ch-grid-row>
         <ch-grid-row>
-          <ch-grid-cell> Code 2 </ch-grid-cell>
+          <ch-grid-cell> <gxg-button>A Button</gxg-button> </ch-grid-cell>
           <ch-grid-cell> 200 </ch-grid-cell>
           <ch-grid-cell> Buenos Aires </ch-grid-cell>
         </ch-grid-row>
@@ -484,42 +468,28 @@
         </ch-grid-row>
       </ch-grid>
     </gxg-grid>
-    <br />
-    Ejemplo German
-    <br /><br />
-    <gxg-grid>
-      <ch-grid>
-        <ch-grid-columnset>
-          <ch-grid-column
-            settingable
-            column-name="Codigo"
-            column-name-position="text"
-            column-type="tree"
-          >
-            <div slot="settings">settings</div>
-          </ch-grid-column>
-          <ch-grid-column
-            column-name="Poblacion"
-            column-name-position="text"
-          ></ch-grid-column>
-          <ch-grid-column
-            column-name="City"
-            column-name-position="text"
-          ></ch-grid-column>
-        </ch-grid-columnset>
-        <ch-grid-row>
-          <ch-grid-cell> AAAAA </ch-grid-cell>
-          <ch-grid-cell> BBBB </ch-grid-cell>
-          <ch-grid-cell> CCCC </ch-grid-cell>
-          <ch-grid-rowset>
-            <ch-grid-row>
-              <ch-grid-cell> Code 2 </ch-grid-cell>
-              <ch-grid-cell> 100 </ch-grid-cell>
-              <ch-grid-cell> Montevideo </ch-grid-cell>
-            </ch-grid-row>
-          </ch-grid-rowset>
-        </ch-grid-row>
-      </ch-grid>
-    </gxg-grid>
   </body>
 </html>
+
+<!-- 
+
+columnset, contenedor de todas las columnas
+ch-grid-column
+ch-grid-rowset -> agrupador, quivalente al fieldset (categorias)
+ch-grid-rowset-legend -> ocupa todo el ancho (cabezal)
+
+simple
+simple con group (group)
+simple con seleccion multiple (row-selection-multiple)
+(seleccionado/activo)
+---
+tree-grid
+property grid (mezcla de los dos anteriores)
+<ch-grid-rowset>
+  
+</ch-grid-rowset>
+
+tree-grid
+property-grid
+
+-->

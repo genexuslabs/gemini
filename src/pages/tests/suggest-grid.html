@@ -6,26 +6,48 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>Suggest | Gemini</title>
+    <title>Suggest Grid | Gemini</title>
 
-    <script src=""></script>
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-    <style>
-      body {
-        font-family: var(--font-family-primary);
-        font-size: var(--font-size-lg);
-        background-color: var(--color-background);
-      }
-      :focus {
-        outline-style: none !important;
-      }
-    </style>
   </head>
   <body>
+    <button id="set-focus">Set focus on suggest</button> <br /><br />
+
     <div class="container">
-      <button id="set-focus">Set focus on suggest</button> <br /><br />
+      <gxg-grid>
+        <ch-grid>
+          <ch-grid-actionbar slot="header">
+            <ch-grid-action-refresh></ch-grid-action-refresh>
+            <ch-grid-action-settings></ch-grid-action-settings>
+          </ch-grid-actionbar>
+          <ch-grid-columnset>
+            <ch-grid-column column-name="Codigo" column-name-position="text">
+              <div slot="settings">settings</div>
+            </ch-grid-column>
+            <ch-grid-column
+              column-name="Poblacion"
+              column-name-position="text"
+            ></ch-grid-column>
+            <ch-grid-column
+              column-name="City"
+              column-name-position="text"
+            ></ch-grid-column>
+          </ch-grid-columnset>
+          <ch-grid-row>
+            <ch-grid-cell>
+              <gxg-suggest>
+                <ch-suggest label="nombre" show-label></ch-suggest>
+              </gxg-suggest>
+            </ch-grid-cell>
+            <ch-grid-cell> 200 </ch-grid-cell>
+            <ch-grid-cell> Buenos Aires </ch-grid-cell>
+          </ch-grid-row>
+        </ch-grid>
+      </gxg-grid>
+
+      <br />
 
       <!-- frutas -->
       <span><strong>frutas</strong></span>
@@ -55,11 +77,6 @@
       </ul>
 
       <!-- ch-suggest -->
-      <section class="section-dev" data-title="ch-suggest">
-        <gxg-suggest>
-          <ch-suggest label="nombre" show-label></ch-suggest>
-        </gxg-suggest>
-      </section>
     </div>
 
     <script>

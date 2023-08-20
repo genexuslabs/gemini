@@ -28,14 +28,14 @@ ch-suggest {
   }
 
   &::part(label) {
-    font-weight: 700;
-    margin-bottom: 4px;
+    @include form-element-common-styles-label();
   }
   &::part(input) {
     height: var(--spacing-comp-05);
     border: var(--border-width-sm) solid var(--gxg-border-color--regular);
     padding: var(--spacing-comp-01) var(--spacing-comp-02);
     box-sizing: border-box;
+    background-color: var(--color-background);
   }
   &::part(input):focus {
     @include form-element-common-styles-focus-type-1();
@@ -121,5 +121,10 @@ LARGE VERSION (html tag has 'gxg-large' class)
 html.gxg-large {
   ch-suggest {
     font-size: var(--font-size-lg);
+  }
+}
+html.gxg-large {
+  ch-suggest::part(label) {
+    @include form-element-common-styles-label-large();
   }
 }
