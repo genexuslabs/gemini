@@ -20,6 +20,7 @@
       }
       :focus {
         outline-style: none !important;
+        background-color: none !important;
       }
     </style>
   </head>
@@ -30,7 +31,9 @@
       <!-- frutas -->
       <span><strong>frutas</strong></span>
       <ul data-category="frutas" class="data-list">
-        <li data-icon="editing-structures/attribute-formula">manzanas</li>
+        <li data-icon="objects/conversational-flows" data-value="manzanas-123">
+          manzanas
+        </li>
         <li data-icon="editing-structures/attribute-formula">bananas</li>
         <li>naranjas</li>
         <li>uvas</li>
@@ -57,9 +60,30 @@
       <!-- ch-suggest -->
       <section class="section-dev" data-title="ch-suggest">
         <gxg-suggest>
-          <ch-suggest label="nombre" show-label></ch-suggest>
+          <ch-suggest
+            label="nombre"
+            show-label
+            label-position="above"
+          ></ch-suggest>
         </gxg-suggest>
       </section>
+      <br />
+      <gxg-combo-box
+        id="combo-standard-abc123"
+        placeholder="Select item"
+        label="Standard combo (abc123):"
+      >
+        <gxg-combo-box-item value="a1 value">a1</gxg-combo-box-item>
+        <gxg-combo-box-item value="a12 value">a12</gxg-combo-box-item>
+        <gxg-combo-box-item value="a2 value">a2</gxg-combo-box-item>
+        <gxg-combo-box-item value="a3 value">a3</gxg-combo-box-item>
+        <gxg-combo-box-item value="b1 value">b1</gxg-combo-box-item>
+        <gxg-combo-box-item value="b2 value">b2</gxg-combo-box-item>
+        <gxg-combo-box-item value="b3 value">b3</gxg-combo-box-item>
+        <gxg-combo-box-item value="c1 value">c1</gxg-combo-box-item>
+        <gxg-combo-box-item value="c2 value">c2</gxg-combo-box-item>
+        <gxg-combo-box-item value="c3 value">c3</gxg-combo-box-item>
+      </gxg-combo-box>
     </div>
 
     <script>
@@ -84,6 +108,7 @@
                 "ch-suggest-list-item"
               );
               chSuggestListItem.innerText = item.innerText;
+              chSuggestListItem.value = item.getAttribute("data-value");
               if (category) {
                 chSuggestList.appendChild(chSuggestListItem);
                 counter++;
@@ -97,6 +122,7 @@
                 gxgIcon.setAttribute("type", dataIcon);
                 gxgIcon.setAttribute("size", "small");
                 gxgIcon.setAttribute("slot", "icon");
+                gxgIcon.setAttribute("color", "auto");
                 chSuggestListItem.appendChild(gxgIcon);
               }
             });
@@ -107,7 +133,7 @@
         });
         if (e.detail !== "" && counter === 0) {
           /*no hay coincidencias*/
-          chSuggest.innerHTML = "<p style='margin:0'>No hay coincidencias</p>";
+          // chSuggest.innerHTML = "<p style='margin:0'>No hay coincidencias</p>";
         }
       });
       chSuggest.addEventListener("inputChanged", (e) => {

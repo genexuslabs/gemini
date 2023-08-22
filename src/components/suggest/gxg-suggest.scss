@@ -26,11 +26,18 @@ ch-suggest {
     background: var(--gray-04);
     cursor: pointer;
   }
-
+  /* Label */
   &::part(label) {
     @include form-element-common-styles-label();
     font-size: inherit;
   }
+  &[label-position="start"]::part(label) {
+    margin-inline-end: var(--gxg-label-margin-horizontal);
+  }
+  &[label-position="above"]::part(label) {
+    margin-block-end: var(--gxg-label-margin-vertical);
+  }
+  /*Input*/
   &::part(input) {
     height: var(--spacing-comp-05);
     border: var(--border-width-sm) solid var(--gxg-border-color--regular);
@@ -42,7 +49,7 @@ ch-suggest {
     @include form-element-common-styles-focus-type-1();
   }
   /*window*/
-  &::part(ch-window-window) {
+  &::part(dropdown) {
     /*mixin shadow*/
     background-color: var(--color-background);
     margin-top: var(--spacing-comp-01);
@@ -91,27 +98,23 @@ ch-suggest-list {
 }
 /*ch-suggest-list-item*/
 ch-suggest-list-item {
-  padding: var(--spacing-comp-01) var(--spacing-comp-02);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+  /*button*/
+  &::part(button) {
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    align-items: center;
+    gap: var(--spacing-comp-01);
+    box-sizing: border-box;
+  }
+  &::part(button):focus {
+    @include form-element-common-styles-focus-type-1();
+  }
 
   gxg-icon::part(ch-icon) {
     --icon-size: 16px;
-    --icon-color: var(--color-on-background);
     margin-right: 2px;
   }
 
   &:hover {
-    background-color: var(--gxg-form-item-bgcolor-hover);
-    color: var(--color-on-primary);
-
-    gxg-icon::part(ch-icon) {
-      --icon-color: var(--color-on-primary);
-    }
-  }
-  &:focus,
-  &[selected]:focus {
-    @include form-element-common-styles-focus-type-1();
+    background-color: var(--gxg-background-color-item-hover);
   }
 }
