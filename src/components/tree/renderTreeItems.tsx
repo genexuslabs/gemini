@@ -4,8 +4,7 @@ import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
 
 export const renderTreeItems = (
   treeItemsModel: GxgTreeItemData[],
-  firstCall = true,
-  id
+  firstCall = true
 ): HTMLGxgTreeItemElement[] | HTMLGxgTreeElement => {
   if (treeItemsModel?.length) {
     if (firstCall) {
@@ -14,7 +13,7 @@ export const renderTreeItems = (
       });
     } else {
       return (
-        <gxg-tree slot="tree" data-id={id} key={`tree-${id}`}>
+        <gxg-tree slot="tree">
           {treeItemsModel.map((item: GxgTreeItemData) => {
             return renderTreeItem(item);
           })}
@@ -44,10 +43,7 @@ const renderTreeItem = (item: GxgTreeItemData): HTMLGxgTreeItemElement => {
       opened={item.opened}
       selected={item.selected}
     >
-      {[
-        item.label,
-        item.items?.length && renderTreeItems(item.items, false, item.id),
-      ]}
+      {[item.label, item.items?.length && renderTreeItems(item.items, false)]}
     </gxg-tree-item>
   );
 };

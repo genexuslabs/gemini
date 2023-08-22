@@ -69,7 +69,7 @@ export class GxgTest {
           checked
           ref={(el) => (this.tree = el as HTMLGxgTreeElement)}
         >
-          {renderTreeItems(this.treeItemsModel, true, "master")}
+          {renderTreeItems(this.treeItemsModel)}
         </gxg-tree>,
         <div class="tree-buttons">
           <gxg-button type="outlined" onClick={this.closeTreeNodeHandler}>
