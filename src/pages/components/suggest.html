@@ -31,7 +31,11 @@
       <!-- frutas -->
       <span><strong>frutas</strong></span>
       <ul data-category="frutas" class="data-list">
-        <li data-icon="objects/conversational-flows" data-value="manzanas-123">
+        <li
+          data-icon="objects/conversational-flows"
+          data-value="manzanas-123"
+          data-description="esta es la description de la manzana"
+        >
           manzanas
         </li>
         <li data-icon="editing-structures/attribute-formula">bananas</li>
@@ -147,6 +151,9 @@
               );
               chSuggestListItem.innerText = item.innerText;
               chSuggestListItem.value = item.getAttribute("data-value");
+              chSuggestListItem.description = item.getAttribute(
+                "data-description"
+              );
               if (category) {
                 chSuggestList.appendChild(chSuggestListItem);
                 counter++;

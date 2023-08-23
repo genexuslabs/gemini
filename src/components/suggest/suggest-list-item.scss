@@ -9,7 +9,9 @@ ch-suggest-list-item {
   &::part(button):focus {
     @include form-element-common-styles-focus-type-1();
   }
-
+  &::part(description)::before {
+    content: " - ";
+  }
   gxg-icon::part(ch-icon) {
     --icon-size: 16px;
     margin-right: 2px;
