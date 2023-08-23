@@ -68,18 +68,28 @@
           validation-message="Some success message"
         >
           <ch-suggest
-            label="Label"
+            label="Label Success"
             show-label
             label-position="above"
+            id="ch-suggest"
           ></ch-suggest>
         </gxg-suggest>
+        <button id="select-text-btn" style="margin: 8px 0">Select text</button>
+        <script>
+          const chSuggest = document.querySelector("ch-suggest");
+          chSuggest.cursorEnd = false;
+          const selectTextBtn = document.getElementById("select-text-btn");
+          selectTextBtn.addEventListener("click", async function () {
+            await chSuggest.selectInputText();
+          });
+        </script>
         <br />
         <gxg-suggest
           validation-status="warning"
           validation-message="Some warning message"
         >
           <ch-suggest
-            label="Label"
+            label="Label Warning"
             show-label
             label-position="above"
           ></ch-suggest>
@@ -90,7 +100,7 @@
           validation-message="Some error message"
         >
           <ch-suggest
-            label="Label"
+            label="Label Error"
             show-label
             label-position="above"
             disabled
@@ -129,7 +139,6 @@
     </div>
 
     <script>
-      const chSuggest = document.querySelector("ch-suggest");
       const lists = document.querySelectorAll(".data-list");
       chSuggest.addEventListener("valueChanged", (e) => {
         let counter = 0;
