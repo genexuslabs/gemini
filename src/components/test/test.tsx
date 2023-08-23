@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Listen, Element } from "@stencil/core";
+import { Component, h, Prop, Listen, Element } from "@stencil/core";
 import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
 import { renderTreeItems } from "../tree/renderTreeItems";
 @Component({
@@ -9,7 +9,6 @@ import { renderTreeItems } from "../tree/renderTreeItems";
 export class GxgTest {
   @Element() el: HTMLElement;
   tree!: HTMLGxgTreeElement;
-  private previousTree;
 
   //Do not delete buttonTestExportParts property as this is for a specific purpose
   @Prop() buttonTestExportParts = false;
@@ -64,7 +63,7 @@ export class GxgTest {
       return <gxg-button part="exterior-part">Export parts tests</gxg-button>;
     } else if (this.treeItemsModel) {
       return [
-        <gxg-tree checkbox checked opened={false}>
+        <gxg-tree checkbox checked>
           {renderTreeItems(this.treeItemsModel)}
         </gxg-tree>,
 

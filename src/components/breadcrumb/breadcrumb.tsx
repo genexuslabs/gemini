@@ -32,7 +32,6 @@ export class GxgBreadcrumb {
   @Prop() id!: string;
 
   breadcrumbClickedFunc() {
-    const index = parseInt(this.el.getAttribute("data-index"), 10);
     this.breadcrumbClicked.emit({
       id: this.id,
     });

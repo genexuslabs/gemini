@@ -6,7 +6,6 @@ import {
   Element,
   Host,
   Watch,
-  Method,
 } from "@stencil/core";
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";

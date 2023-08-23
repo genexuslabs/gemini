@@ -54,7 +54,6 @@ export class GxgTree {
   componentWillLoad(): void {
     //this.initialConfig();
     this.initialConfig();
-    this.getNumberOfParentTrees();
     this.evaluateIsMasterTree();
   }
 
@@ -100,15 +99,6 @@ export class GxgTree {
       }
     }
   }
-
-  private getNumberOfParentTrees = () => {
-    let parent = this.el.parentElement?.parentElement;
-    let numberOfParentTrees = 0;
-    while (parent && parent.nodeName === "GXG-TREE") {
-      numberOfParentTrees++;
-      parent = parent.parentElement?.parentElement;
-    }
-  };
 
   /**
    * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
