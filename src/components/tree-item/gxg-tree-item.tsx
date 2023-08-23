@@ -219,10 +219,6 @@ export class GxgTreeItem {
     const parentTree: HTMLGxgTreeElement = this.el
       .parentElement as HTMLGxgTreeElement;
 
-    console.log(this.el);
-    console.log(parentTree.checked);
-    console.log("this.checked", this.checked);
-
     this.checkbox =
       this.checkbox !== undefined ? this.checkbox : parentTree.checkbox;
     this.checked =
@@ -232,9 +228,6 @@ export class GxgTreeItem {
       this.toggleCheckboxes !== undefined
         ? this.toggleCheckboxes
         : parentTree.checkbox;
-
-    console.log(this.checked);
-    console.log("===========");
   };
 
   private attachExportParts = (): void => {
@@ -592,9 +585,6 @@ export class GxgTreeItem {
   }
 
   render() {
-    console.log("checked", this.checked);
-    console.log("this.el", this.el);
-    console.log("==============");
     return (
       <Host
         class={{ leaf: this.leaf, "not-leaf": !this.leaf }}

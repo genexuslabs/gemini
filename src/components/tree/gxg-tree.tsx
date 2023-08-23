@@ -153,7 +153,6 @@ export class GxgTree {
     const allItems = this.el.querySelectorAll("gxg-tree-item");
     if (allItems?.length) {
       Array.from(allItems).forEach((item) => {
-        console.log(item);
         if (item.selected) {
           selectedItems.push({
             id: item.id,
@@ -203,7 +202,6 @@ export class GxgTree {
   }
 
   render() {
-    console.log("masterTree", this.masterTree);
     return (
       <Host>
         <div

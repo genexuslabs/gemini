@@ -64,7 +64,7 @@ export class GxgTest {
       return <gxg-button part="exterior-part">Export parts tests</gxg-button>;
     } else if (this.treeItemsModel) {
       return [
-        <gxg-tree checkbox checked>
+        <gxg-tree checkbox checked opened={false}>
           {renderTreeItems(this.treeItemsModel)}
         </gxg-tree>,
 
