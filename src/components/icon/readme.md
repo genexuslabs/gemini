@@ -38,6 +38,7 @@
 - [gxg-option-v2](../form-option-v2)
 - [gxg-pill](../pill)
 - [gxg-tab-button](../tab-button)
+- [gxg-test](../test)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
 - [gxg-tree-grid-divs](../tree-grid-divs)
@@ -71,6 +72,7 @@ graph TD;
   gxg-option-v2 --> gxg-icon
   gxg-pill --> gxg-icon
   gxg-tab-button --> gxg-icon
+  gxg-test --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
   gxg-tree-grid-divs --> gxg-icon

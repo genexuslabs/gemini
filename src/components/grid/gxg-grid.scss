@@ -15,7 +15,6 @@ ch-grid {
   --focus-style: 2px solid var(--color-primary-active);
 }
 ch-grid::part(main) {
-  background-color: yellow;
   @include gxg-scrollbar();
 }
 gxg-grid.no-border {

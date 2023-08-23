@@ -19,6 +19,10 @@ export class GxgTest {
     treeItemId: string
   ) => Promise<GxgTreeItemData[]>;
 
+  //Grid tests
+  @Prop() showGrid = false;
+  @Prop() showGridData = false;
+
   @Listen("loadLazyChildren")
   loadLazyChildrenHandler(e) {
     const treeItemId = e.detail;
@@ -58,6 +62,30 @@ export class GxgTest {
     this.treeItemsModel = [];
   };
 
+  private getIconState = (state: ObjectState): Element => {
+    let icon = <gxg-icon type="gx-server/private"></gxg-icon>;
+    switch (state) {
+      case "inserted":
+        icon = <gxg-icon type="gx-server/new" color="success"></gxg-icon>;
+        break;
+      case "modified":
+        icon = (
+          <gxg-icon
+            type="gx-server/changes-commit-pending"
+            color="primary-active"
+          ></gxg-icon>
+        );
+        break;
+      case "deleted":
+        icon = <gxg-icon type="gx-server/delete" color="error"></gxg-icon>;
+        break;
+      case "conflicted":
+        icon = <gxg-icon type="gx-server/conflict" color="warning"></gxg-icon>;
+        break;
+    }
+    return icon;
+  };
+
   render() {
     if (this.buttonTestExportParts) {
       return <gxg-button part="exterior-part">Export parts tests</gxg-button>;
@@ -88,8 +116,67 @@ export class GxgTest {
           </gxg-button>
         </div>,
       ];
+    } else if (this.showGrid) {
+      return (
+        <gxg-grid>
+          <ch-grid
+            row-selection-mode="none"
+            part="ch-grid-pending-for-updates"
+            class="no-border"
+          >
+            <ch-grid-columnset>
+              <ch-grid-column
+                settingable={false}
+                sortable={false}
+                column-type="rich"
+                rich-row-selector
+                rich-row-selector-mode="mark"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-name="name"
+                column-name-position="text"
+                settingable={false}
+              ></ch-grid-column>
+              <ch-grid-column
+                column-name="productos"
+                column-name-position="text"
+                settingable={false}
+              ></ch-grid-column>
+            </ch-grid-columnset>
+
+            {this.showGridData && [
+              <ch-grid-row rowid="123">
+                <ch-grid-cell></ch-grid-cell>
+                <ch-grid-cell>Nombre</ch-grid-cell>
+                <ch-grid-cell>Productos</ch-grid-cell>
+              </ch-grid-row>,
+              <ch-grid-rowset>
+                <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
+
+                <ch-grid-row>
+                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell>Nombre</ch-grid-cell>
+                  <ch-grid-cell>Productos</ch-grid-cell>
+                </ch-grid-row>
+                <ch-grid-row>
+                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell>English</ch-grid-cell>
+                  <ch-grid-cell>Products</ch-grid-cell>
+                </ch-grid-row>
+                <ch-grid-row>
+                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell>Português</ch-grid-cell>
+                  <ch-grid-cell>Produtos</ch-grid-cell>
+                </ch-grid-row>
+              </ch-grid-rowset>,
+            ]}
+          </ch-grid>
+        </gxg-grid>
+      );
     } else {
       return <slot></slot>;
     }
   }
 }
+
+export type ObjectState = "inserted" | "modified" | "deleted" | "conflicted";

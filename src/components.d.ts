@@ -1570,6 +1570,8 @@ export namespace Components {
     lazyLoadTreeItemsCallback: (
       treeItemId: string
     ) => Promise<GxgTreeItemData[]>;
+    showGrid: boolean;
+    showGridData: boolean;
     treeItemsModel: GxgTreeItemData[];
   }
   interface GxgText {
@@ -4005,6 +4007,8 @@ declare namespace LocalJSX {
     lazyLoadTreeItemsCallback?: (
       treeItemId: string
     ) => Promise<GxgTreeItemData[]>;
+    showGrid?: boolean;
+    showGridData?: boolean;
     treeItemsModel?: GxgTreeItemData[];
   }
   interface GxgText {
