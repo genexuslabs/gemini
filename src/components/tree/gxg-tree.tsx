@@ -6,7 +6,6 @@ import {
   Listen,
   Method,
   Host,
-  State,
 } from "@stencil/core";
 import {
   GxgTreeItemData,
@@ -204,6 +203,7 @@ export class GxgTree {
   }
 
   render() {
+    console.log("masterTree", this.masterTree);
     return (
       <Host>
         <div

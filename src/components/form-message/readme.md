@@ -23,6 +23,7 @@
 - [gxg-form-text](../form-text)
 - [gxg-form-textarea](../form-textarea)
 - [gxg-list-box](../list-box)
+- [gxg-suggest](../suggest)
 
 ### Depends on
 
@@ -40,6 +41,7 @@ graph TD;
   gxg-form-text --> gxg-form-message
   gxg-form-textarea --> gxg-form-message
   gxg-list-box --> gxg-form-message
+  gxg-suggest --> gxg-form-message
   style gxg-form-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

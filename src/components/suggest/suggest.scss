@@ -1,6 +1,5 @@
-@import "../../globals/mixins.scss";
+@import "../../globals/form-validation";
 
-/*ch-suggest*/
 ch-suggest {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
@@ -48,6 +47,30 @@ ch-suggest {
   &::part(input):focus {
     @include form-element-common-styles-focus-type-1();
   }
+  &::part(input):focus {
+    @include form-element-common-styles-focus-type-1();
+  }
+  /*header*/
+  &::part(header) {
+    display: block;
+    padding-block-end: var(--spacing-comp-02);
+    display: flex;
+    justify-content: flex-end;
+  }
+  &::part(close-button) {
+    @include gxg-button-icon-outlined();
+    display: block;
+  }
+  &::part(close-button)::after {
+    content: "✖";
+    width: 100%;
+    display: block;
+    line-height: 24px;
+    text-align: center;
+  }
+  &::part(close-button):focus {
+    @include form-element-common-styles-focus-type-1();
+  }
   /*window*/
   &::part(dropdown) {
     /*mixin shadow*/
@@ -78,43 +101,32 @@ ch-suggest {
     }
   }
 }
-/*ch-suggest-list*/
-ch-suggest-list {
-  margin: var(--spacing-comp-01) 0;
-  font-family: inherit;
-  border: var(--border-width-sm) solid var(--gxg-border-color--regular);
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
-  &::part(title) {
-    text-transform: uppercase;
-    font-weight: var(--font-weight-semibold);
-    margin: var(--spacing-comp-01) 0 0 0;
-    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+/*Validation*/
+.messages-wrapper {
+  @include messages-wrapper();
+}
+gxg-suggest.gxg-validation--success {
+  ch-suggest::part(input) {
+    @include form-element-validation-focus("success");
   }
 }
-/*ch-suggest-list-item*/
-ch-suggest-list-item {
-  /*button*/
-  &::part(button) {
-    padding: var(--spacing-comp-01) var(--spacing-comp-02);
-    align-items: center;
-    gap: var(--spacing-comp-01);
-    box-sizing: border-box;
+gxg-suggest.gxg-validation--warning {
+  ch-suggest::part(input) {
+    @include form-element-validation-focus("warning");
   }
-  &::part(button):focus {
-    @include form-element-common-styles-focus-type-1();
-  }
+}
 
-  gxg-icon::part(ch-icon) {
-    --icon-size: 16px;
-    margin-right: 2px;
+gxg-suggest.gxg-validation--error {
+  ch-suggest::part(input) {
+    @include form-element-validation-focus("error");
   }
-
-  &:hover {
-    background-color: var(--gxg-background-color-item-hover);
+}
+/*Disabled*/
+gxg-suggest.gxg--disabled {
+  ch-suggest {
+    pointer-events: none;
+  }
+  ch-suggest::part(input) {
+    @include form-element-common-styles-disabled();
   }
 }

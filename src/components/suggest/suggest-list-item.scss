@@ -1,0 +1,21 @@
+ch-suggest-list-item {
+  /*button*/
+  &::part(button) {
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    align-items: center;
+    gap: var(--spacing-comp-01);
+    box-sizing: border-box;
+  }
+  &::part(button):focus {
+    @include form-element-common-styles-focus-type-1();
+  }
+
+  gxg-icon::part(ch-icon) {
+    --icon-size: 16px;
+    margin-right: 2px;
+  }
+
+  &:hover {
+    background-color: var(--gxg-background-color-item-hover);
+  }
+}

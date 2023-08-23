@@ -1,11 +1,7 @@
 import { ValidationStatus } from "./types";
-
-export interface DisableableComponent {
+export interface FormComponent {
   disabled: boolean;
-}
-export interface FormComponent extends DisableableComponent {
-  required: boolean;
   validationStatus: ValidationStatus;
   validationMessage: string;
-  informationMessage: string;
+  informationMessage?: string;
 }

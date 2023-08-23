@@ -59,19 +59,57 @@
 
       <!-- ch-suggest -->
       <section class="section-dev" data-title="ch-suggest">
-        <gxg-suggest>
+        <gxg-suggest
+          validation-status="success"
+          validation-message="Some success message"
+        >
           <ch-suggest
-            label="nombre"
+            label="Label"
             show-label
             label-position="above"
           ></ch-suggest>
         </gxg-suggest>
+        <br />
+        <gxg-suggest
+          validation-status="warning"
+          validation-message="Some warning message"
+        >
+          <ch-suggest
+            label="Label"
+            show-label
+            label-position="above"
+          ></ch-suggest>
+        </gxg-suggest>
+        <br />
+        <gxg-suggest
+          validation-status="error"
+          validation-message="Some error message"
+        >
+          <ch-suggest
+            label="Label"
+            show-label
+            label-position="above"
+            disabled
+          ></ch-suggest>
+        </gxg-suggest>
+        <br />
+        <gxg-suggest disabled>
+          <ch-suggest
+            label="Label (disabled)"
+            show-label
+            label-position="above"
+            value="hola"
+          ></ch-suggest>
+        </gxg-suggest>
       </section>
       <br />
+
       <gxg-combo-box
         id="combo-standard-abc123"
         placeholder="Select item"
         label="Standard combo (abc123):"
+        validation-status="warning"
+        validation-message="Some message"
       >
         <gxg-combo-box-item value="a1 value">a1</gxg-combo-box-item>
         <gxg-combo-box-item value="a12 value">a12</gxg-combo-box-item>
@@ -89,7 +127,7 @@
     <script>
       const chSuggest = document.querySelector("ch-suggest");
       const lists = document.querySelectorAll(".data-list");
-      chSuggest.addEventListener("inputChanged", (e) => {
+      chSuggest.addEventListener("valueChanged", (e) => {
         let counter = 0;
         chSuggest.innerHTML = "";
         lists.forEach((list) => {
@@ -136,7 +174,7 @@
           // chSuggest.innerHTML = "<p style='margin:0'>No hay coincidencias</p>";
         }
       });
-      chSuggest.addEventListener("inputChanged", (e) => {
+      chSuggest.addEventListener("valueChanged", (e) => {
         console.log(e);
       });
     </script>

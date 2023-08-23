@@ -1,3 +1,5 @@
+@import "../../globals/mixins";
+
 $borderColor: var(--gray-02);
 $iconSize: 70%;
 
@@ -11,6 +13,10 @@ $iconSize: 70%;
 ch-grid {
   border: 1px solid $borderColor;
   --focus-style: 2px solid var(--color-primary-active);
+}
+ch-grid::part(main) {
+  background-color: yellow;
+  @include gxg-scrollbar();
 }
 gxg-grid.no-border {
   ch-grid {
@@ -181,10 +187,9 @@ ch-grid-cell {
   box-sizing: border-box;
   padding-inline-start: var(--spacing-comp-02) !important;
   padding-inline-end: var(--spacing-comp-02) !important;
-  // padding-block-start: var(--spacing-comp-01);
-  // padding-block-end: var(--spacing-comp-01);
+  padding-block-start: var(--spacing-comp-01);
+  padding-block-end: var(--spacing-comp-01);
   align-items: center;
-  min-height: var(--spacing-comp-04);
 }
 ch-grid-cell:first-child {
 }

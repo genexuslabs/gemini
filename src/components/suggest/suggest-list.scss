@@ -1,0 +1,17 @@
+ch-suggest-list {
+  margin: var(--spacing-comp-01) 0;
+  font-family: inherit;
+  border: var(--border-width-sm) solid var(--gxg-border-color--regular);
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &::part(title) {
+    text-transform: uppercase;
+    font-weight: var(--font-weight-semibold);
+    margin: var(--spacing-comp-01) 0 0 0;
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  }
+}

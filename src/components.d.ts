@@ -1493,7 +1493,20 @@ export namespace Components {
      */
     value: number;
   }
-  interface GxgSuggest {}
+  interface GxgSuggest {
+    /**
+     * The presence of this attribute makes the suggest disabled.
+     */
+    disabled: boolean;
+    /**
+     * The message to display for the validation result.
+     */
+    validationMessage: string;
+    /**
+     * The validation status
+     */
+    validationStatus: ValidationStatus;
+  }
   interface GxgTab {
     /**
      * The selected tab
@@ -3906,7 +3919,20 @@ declare namespace LocalJSX {
      */
     value?: number;
   }
-  interface GxgSuggest {}
+  interface GxgSuggest {
+    /**
+     * The presence of this attribute makes the suggest disabled.
+     */
+    disabled?: boolean;
+    /**
+     * The message to display for the validation result.
+     */
+    validationMessage?: string;
+    /**
+     * The validation status
+     */
+    validationStatus?: ValidationStatus;
+  }
   interface GxgTab {
     /**
      * The selected tab

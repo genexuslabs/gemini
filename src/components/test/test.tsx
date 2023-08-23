@@ -64,13 +64,10 @@ export class GxgTest {
       return <gxg-button part="exterior-part">Export parts tests</gxg-button>;
     } else if (this.treeItemsModel) {
       return [
-        <gxg-tree
-          id="masterTree"
-          checked
-          ref={(el) => (this.tree = el as HTMLGxgTreeElement)}
-        >
+        <gxg-tree checkbox checked>
           {renderTreeItems(this.treeItemsModel)}
         </gxg-tree>,
+
         <div class="tree-buttons">
           <gxg-button type="outlined" onClick={this.closeTreeNodeHandler}>
             Close 1-1-2

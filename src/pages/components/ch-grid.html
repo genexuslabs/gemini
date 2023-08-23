@@ -16,9 +16,111 @@
       body {
         font-family: sans-serif;
       }
+      .group.scroll ch-grid {
+        height: 150px;
+      }
     </style>
   </head>
   <body>
+    <gxg-grid>
+      <div class="group scroll">
+        <ch-grid id="virtual-scroller" row-selection-mode="multiple">
+          <ch-grid-columnset>
+            <ch-grid-column
+              column-name=""
+              settingable="false"
+              column-type="rich"
+              rich-row-drag
+              size="min-content"
+            ></ch-grid-column>
+            <ch-grid-column
+              column-name=""
+              settingable="false"
+              column-type="rich"
+              rich-row-selector
+              size="min-content"
+            ></ch-grid-column>
+            <ch-grid-column
+              column-name="Property"
+              settingable="false"
+            ></ch-grid-column>
+            <ch-grid-column
+              column-name="Value"
+              settingable="false"
+            ></ch-grid-column>
+          </ch-grid-columnset>
+
+          <ch-grid-row selected>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Nombre</ch-grid-cell>
+            <ch-grid-cell>Productos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>English</ch-grid-cell>
+            <ch-grid-cell>Products</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Português</ch-grid-cell>
+            <ch-grid-cell>Produtos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Redireccionar a</ch-grid-cell>
+            <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+            <ch-grid-cell>Found</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Url amigable</ch-grid-cell>
+            <ch-grid-cell>productos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>English</ch-grid-cell>
+            <ch-grid-cell>products</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Português</ch-grid-cell>
+            <ch-grid-cell>produtos</ch-grid-cell>
+          </ch-grid-row>
+          <ch-grid-row>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell></ch-grid-cell>
+            <ch-grid-cell>Id</ch-grid-cell>
+            <ch-grid-cell>7867</ch-grid-cell>
+          </ch-grid-row>
+
+          <div class="header" slot="header">
+            <span>HEADER</span>
+          </div>
+          <div class="footer" slot="footer">
+            <span>FOOTER</span>
+          </div>
+          <div slot="row-actions">
+            <button>Action A</button>
+            <button>Action B</button>
+          </div>
+        </ch-grid>
+      </div>
+    </gxg-grid>
+
+    <br />
+
     <gxg-grid>
       <ch-grid>
         <ch-grid-actionbar slot="header">
@@ -151,13 +253,8 @@
         </div>
       </ch-grid>
     </gxg-grid>
+
     <br />
-    <!-- <gxg-form-checkbox
-      label="orange"
-      id="orange"
-      name="orange"
-      value="orange"
-    ></gxg-form-checkbox> -->
 
     <!-- seleccion multiple -->
     <gxg-grid>
