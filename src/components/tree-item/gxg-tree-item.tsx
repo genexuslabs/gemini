@@ -544,20 +544,6 @@ export class GxgTreeItem {
     }
   }
 
-  private getAncestorsTreeItems = (item: HTMLElement = this.el) => {
-    const ancestorsTreeItems = [];
-    while (
-      item?.nodeName === "GXG-TREE-ITEM" ||
-      item?.nodeName === "GXG-TREE"
-    ) {
-      if (item.nodeName === "GXG-TREE-ITEM") {
-        ancestorsTreeItems.push(item);
-      }
-      item = item.parentElement;
-    }
-    return ancestorsTreeItems;
-  };
-
   private checkboxClickedHandler = () => {
     if (this.checkbox) {
       this.checked = !this.checked;
