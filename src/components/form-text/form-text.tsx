@@ -8,6 +8,7 @@ import {
   EventEmitter,
   State,
   Watch,
+  Method,
 } from "@stencil/core";
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -54,6 +55,11 @@ export class GxgFormText implements FormComponent {
    * The input icon (optional)
    */
   @Prop() icon = null;
+
+  /**
+   * If true, it will position the cursor at the end when the input is focused.
+   */
+  @Prop() cursorEnd = false;
 
   /**
    * The input icon side
@@ -224,6 +230,12 @@ export class GxgFormText implements FormComponent {
     }
   }
 
+  @Method()
+  async selectInputText() {
+    this.textInput.focus();
+    this.textInput.select();
+  }
+
   componentWillLoad() {
     this.attachExportParts();
   }
@@ -288,6 +300,15 @@ export class GxgFormText implements FormComponent {
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.change.emit(target.value);
+  }
+
+  onFocusHandler(e): void {
+    if (this.cursorEnd) {
+      this.textInput.setSelectionRange(
+        this.textInput.value.length,
+        this.textInput.value.length
+      );
+    }
   }
 
   clearButtonFunc(): void {
@@ -522,6 +543,7 @@ export class GxgFormText implements FormComponent {
               readonly={"readonly" ? this.readonly : null}
               onInput={this.handleInput.bind(this)}
               onChange={this.handleChange.bind(this)}
+              onFocus={this.onFocusHandler.bind(this)}
               required={this.required}
               onMouseEnter={this.mouseEnterHandler.bind(this)}
               onMouseOut={this.mouseOutHandler.bind(this)}

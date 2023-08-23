@@ -168,6 +168,11 @@ export class GxgComboBox implements FormComponent {
   @Prop() validationMessage: string;
 
   /**
+   * If true, it will position the cursor at the end when the input is focused.
+   */
+  @Prop() cursorEnd = false;
+
+  /**
    * An informative message to help the user filling the information
    *
    */
@@ -265,6 +270,11 @@ export class GxgComboBox implements FormComponent {
       return true;
     }
     return false;
+  }
+
+  @Method()
+  async selectInputText() {
+    this.inputText.selectInputText();
   }
 
   /*********************************
@@ -727,6 +737,7 @@ export class GxgComboBox implements FormComponent {
                 validationStatus={this.validationStatus}
                 disabled={this.disabled}
                 onValueChanged={this.handleValueChangeFormText}
+                cursorEnd={this.cursorEnd}
                 preventValueChangedEmit
                 preventValueChangeOnDisabled
                 class={{ "clear-icon": clearIcon }}

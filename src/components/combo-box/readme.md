@@ -23,6 +23,7 @@
 | -------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------- |
 | `caseSensitive`      | `case-sensitive`      | The presence of this attribute with make the filter search for values with case sensitive distinction                                                                                                                                                         | `boolean`                                              | `false`           |
 | `centerLabel`        | `center-label`        | Centers the label                                                                                                                                                                                                                                             | `boolean`                                              | `false`           |
+| `cursorEnd`          | `cursor-end`          | If true, it will position the cursor at the end when the input is focused.                                                                                                                                                                                    | `boolean`                                              | `false`           |
 | `disableClear`       | `disable-clear`       | The presence of this attribute disables the clear button                                                                                                                                                                                                      | `boolean`                                              | `false`           |
 | `disableFilter`      | `disable-filter`      | The presence of this attribute disables the filter                                                                                                                                                                                                            | `boolean`                                              | `false`           |
 | `disabled`           | `disabled`            | The presence of this attribute makes the input disabled                                                                                                                                                                                                       | `boolean`                                              | `false`           |
@@ -71,6 +72,12 @@ Type: `Promise<string>`
 METHODS
 
 ---
+
+#### Returns
+
+Type: `Promise<void>`
+
+### `selectInputText() => Promise<void>`
 
 #### Returns
 

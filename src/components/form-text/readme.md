@@ -72,6 +72,7 @@
 | `borderless`                   | `borderless`                       | The presence of this attribute hides the border.                                                                                                                             | `boolean`                                                                                    | `false`           |
 | `centerLabel`                  | `center-label`                     | Centers the label                                                                                                                                                            | `boolean`                                                                                    | `false`           |
 | `clearButton`                  | `clear-button`                     | The presence of this attribute displays a clear (cross) button-icon on the right side                                                                                        | `boolean`                                                                                    | `false`           |
+| `cursorEnd`                    | `cursor-end`                       | If true, it will position the cursor at the end when the input is focused.                                                                                                   | `boolean`                                                                                    | `false`           |
 | `disabled`                     | `disabled`                         | The presence of this attribute makes the input disabled                                                                                                                      | `boolean`                                                                                    | `false`           |
 | `icon`                         | `icon`                             | The input icon (optional)                                                                                                                                                    | `any`                                                                                        | `null`            |
 | `iconPosition`                 | `icon-position`                    | The input icon side                                                                                                                                                          | `"end" \| "start"`                                                                           | `null`            |
@@ -104,6 +105,14 @@
 | `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>`    |
 | `input`              | Returns the input value      | `CustomEvent<any>`    |
 | `valueChanged`       | The clear button was clicked | `CustomEvent<string>` |
+
+## Methods
+
+### `selectInputText() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Dependencies
 

@@ -357,6 +357,10 @@ export namespace Components {
     centerLabel: boolean;
     close: () => Promise<void>;
     /**
+     * If true, it will position the cursor at the end when the input is focused.
+     */
+    cursorEnd: boolean;
+    /**
      * The presence of this attribute disables the clear button
      */
     disableClear: boolean;
@@ -413,6 +417,7 @@ export namespace Components {
      * The presence of this attribute makes the commbo required
      */
     required: boolean;
+    selectInputText: () => Promise<void>;
     setValueByIndex: (index: number) => Promise<boolean>;
     /**
      * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
@@ -816,6 +821,10 @@ export namespace Components {
      */
     clearButton: boolean;
     /**
+     * If true, it will position the cursor at the end when the input is focused.
+     */
+    cursorEnd: boolean;
+    /**
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
@@ -887,6 +896,7 @@ export namespace Components {
      * The presence of this attribute makes this input required
      */
     required: boolean;
+    selectInputText: () => Promise<void>;
     /**
      * The text style
      */
@@ -2661,6 +2671,10 @@ declare namespace LocalJSX {
      */
     centerLabel?: boolean;
     /**
+     * If true, it will position the cursor at the end when the input is focused.
+     */
+    cursorEnd?: boolean;
+    /**
      * The presence of this attribute disables the clear button
      */
     disableClear?: boolean;
@@ -3181,6 +3195,10 @@ declare namespace LocalJSX {
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
     clearButton?: boolean;
+    /**
+     * If true, it will position the cursor at the end when the input is focused.
+     */
+    cursorEnd?: boolean;
     /**
      * The presence of this attribute makes the input disabled
      */

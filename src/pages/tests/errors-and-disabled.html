@@ -180,6 +180,9 @@
         >
       </gxg-combo-box>
       <gxg-button type="outlined" class="get-value">Get value</gxg-button>
+      <gxg-button type="outlined" id="select-combo-text"
+        >Select text</gxg-button
+      >
       <span class="separator"></span>
 
       <gxg-button id="success-components-btn"
@@ -241,11 +244,19 @@
 
         /*Specific validation settings for gxg-combo-box*/
         const comboBox = document.querySelector("gxg-combo-box");
+        comboBox.cursorEnd = true;
         comboBox.errorCondition = function () {
           if (this.value !== "green") {
             return true;
           }
         };
+        /*Select combo box text*/
+        const selectComboBoxTextBtn = document.getElementById(
+          "select-combo-text"
+        );
+        selectComboBoxTextBtn.addEventListener("click", async () => {
+          await comboBox.selectInputText();
+        });
 
         /*Success Components Button*/
         const successComponentsBtn = document.getElementById(
