@@ -302,7 +302,7 @@ export class GxgFormText implements FormComponent {
     this.change.emit(target.value);
   }
 
-  onFocusHandler(e): void {
+  onFocusHandler(): void {
     if (this.cursorEnd) {
       this.textInput.setSelectionRange(
         this.textInput.value.length,
