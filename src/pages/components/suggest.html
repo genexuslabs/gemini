@@ -34,7 +34,7 @@
         <li
           data-icon="objects/conversational-flows"
           data-value="manzanas-123"
-          data-description="esta es la description de la manzana"
+          data-description="esta es la description de la manzana esta es la description de la manzana"
         >
           manzanas
         </li>
@@ -64,6 +64,7 @@
       <!-- ch-suggest -->
       <section class="section-dev" data-title="ch-suggest">
         <gxg-suggest
+          elipsis
           validation-status="success"
           validation-message="Some success message"
         >
@@ -191,7 +192,10 @@
         }
       });
       chSuggest.addEventListener("valueChanged", (e) => {
-        console.log(e);
+        console.log("valueChanged", e);
+      });
+      chSuggest.addEventListener("enterPressed", (e) => {
+        console.log("enterPressed", e);
       });
     </script>
 

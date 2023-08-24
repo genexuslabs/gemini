@@ -1509,6 +1509,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
+     */
+    ellipsis: boolean;
+    /**
      * The message to display for the validation result.
      */
     validationMessage: string;
@@ -3944,6 +3948,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the suggest disabled.
      */
     disabled?: boolean;
+    /**
+     * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
+     */
+    ellipsis?: boolean;
     /**
      * The message to display for the validation result.
      */

@@ -101,6 +101,7 @@ ch-suggest {
     }
   }
 }
+
 /*Validation*/
 .messages-wrapper {
   @include messages-wrapper();
@@ -128,5 +129,14 @@ gxg-suggest.gxg--disabled {
   }
   ch-suggest::part(input) {
     @include form-element-common-styles-disabled();
+  }
+}
+
+gxg-suggest[ellipsis]:not([ellipsis="false"]) {
+  ch-suggest-list-item::part(content-wrapper) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
   }
 }

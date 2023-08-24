@@ -28,6 +28,11 @@ export class GxgSuggest implements FormComponent {
    */
   @Prop() disabled = false;
 
+  /**
+   * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
+   */
+  @Prop({ reflect: true }) ellipsis = true;
+
   render() {
     return (
       <Host
