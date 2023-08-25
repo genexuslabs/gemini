@@ -1589,6 +1589,10 @@ export namespace Components {
      */
     href: string;
     /**
+     * Max. width
+     */
+    maxWidth: string;
+    /**
      * Text padding
      */
     padding: TextPadding;
@@ -4037,6 +4041,10 @@ declare namespace LocalJSX {
      * The href (for "link" or "link-gray" types
      */
     href?: string;
+    /**
+     * Max. width
+     */
+    maxWidth?: string;
     /**
      * Text padding
      */
