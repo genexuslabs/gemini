@@ -301,7 +301,8 @@ export class GxgTreeItem {
     }
   }
 
-  toggleTreeIconClicked() {
+  toggleTreeIconClicked(e: MouseEvent) {
+    e.stopPropagation();
     if (this.lazy && !this.opened) {
       this.downloading = true;
       this.loadLazyChildren.emit({ id: this.id });
@@ -332,8 +333,8 @@ export class GxgTreeItem {
     }
   }
 
-  liTextDoubleClicked() {
-    this.toggleTreeIconClicked();
+  liTextDoubleClicked(e) {
+    this.toggleTreeIconClicked(e);
   }
 
   liTextKeyDownPressed(e) {
