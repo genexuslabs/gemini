@@ -13,12 +13,21 @@
 
 :host([text-align="start"]) {
   text-align: start;
+  * {
+    text-align: start;
+  }
 }
 :host([text-align="center"]) {
   text-align: center;
+  * {
+    text-align: center;
+  }
 }
 :host([text-align="end"]) {
   text-align: end;
+  * {
+    text-align: end;
+  }
 }
 :host([padding="s"]) {
   padding: var(--spacing-comp-01);

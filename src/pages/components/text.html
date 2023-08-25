@@ -43,6 +43,10 @@
     <gxg-text type="text-alert-error">An error message</gxg-text>
     <gxg-text type="text-alert-warning" padding="s">A warning message</gxg-text>
     <gxg-text type="text-alert-success" padding="m">A sucess message</gxg-text>
+    <gxg-text text-align="center" padding="m" type="text-gray">
+      {this.referencedBy?.length === 0 ? "No hay trees para mostrar" : "Hubo un
+      error"}
+    </gxg-text>
 
     (gray borders are not part of the gxg-text)
   </body>
