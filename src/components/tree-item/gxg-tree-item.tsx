@@ -118,10 +118,9 @@ export class GxgTreeItem {
   private horizontalLineStartPosition = "0px";
 
   //EVENTS
-  @Event() toggleIconClicked: EventEmitter;
+  @Event() toggleIconClicked: EventEmitter<ToggleIconClicked>;
   @Event() selectionChanged: EventEmitter<GxgTreeItemSelectedData>;
   @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
-  @Event() loadLazyChildren: EventEmitter<lazyLoadedInfo>;
 
   @Element() el: HTMLGxgTreeItemElement;
 
@@ -301,12 +300,12 @@ export class GxgTreeItem {
     }
   }
 
-  toggleTreeIconClicked(e: MouseEvent) {
-    e.stopPropagation();
+  toggleClickedHandler(e: CustomEvent<ToggleIconClicked>) {
+    this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
     if (this.lazy && !this.opened) {
       this.downloading = true;
-      this.loadLazyChildren.emit({ id: this.id });
-    } else {
+    }
+    if (!this.lazy) {
       this.opened = !this.opened;
     }
   }
@@ -317,6 +316,10 @@ export class GxgTreeItem {
   }
 
   liTextClickedHandler(e) {
+    const toggleWasClicked = (e.target as HTMLElement).classList.contains(
+      "toggle-icon"
+    );
+    if (toggleWasClicked) return;
     if (e.ctrlKey || !this.selected) {
       this.selectionChanged.emit({
         id: this.id,
@@ -334,7 +337,8 @@ export class GxgTreeItem {
   }
 
   liTextDoubleClicked(e) {
-    this.toggleTreeIconClicked(e);
+    console.log("liTextDoubleClicked");
+    this.toggleClickedHandler(e);
   }
 
   liTextKeyDownPressed(e) {
@@ -359,7 +363,7 @@ export class GxgTreeItem {
         );
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
-      this.toggleIconClicked.emit(); //this recalculates the vertical line height
+      this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
     }
 
     if (e.key === "ArrowLeft") {
@@ -387,7 +391,7 @@ export class GxgTreeItem {
           }
         }
       }
-      this.toggleIconClicked.emit(); //this recalculates the vertical line height
+      this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
     }
 
     // UP/DOWN NAVIGATION
@@ -611,7 +615,7 @@ export class GxgTreeItem {
                   ></span>,
                   <div class={{ "closed-opened-icons": true }}>
                     <gxg-icon
-                      onClick={this.toggleTreeIconClicked.bind(this)}
+                      onClick={this.toggleClickedHandler.bind(this)}
                       type={this.returnToggleIconType()}
                       color="auto"
                       class="icon toggle-icon"
@@ -691,6 +695,7 @@ export type GxgTreeItemSelectedData = {
   selected: boolean;
 };
 
-export type lazyLoadedInfo = {
+export type ToggleIconClicked = {
   id: string;
+  lazy?: boolean;
 };

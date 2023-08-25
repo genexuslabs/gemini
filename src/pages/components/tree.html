@@ -183,11 +183,15 @@
         });
 
         /*loadLazyChildren event*/
-        markUpTree.addEventListener("loadLazyChildren", (e) => {
+        markUpTree.addEventListener("toggleIconClicked", (e) => {
+          console.log("toggleIconClicked");
+          const isLazy = e.detail.lazy;
           const itemId = e.detail.id;
-          setTimeout(() => {
-            appendLazyLoadItems(itemId);
-          }, 1000);
+          if (isLazy) {
+            setTimeout(() => {
+              appendLazyLoadItems(itemId);
+            }, 1000);
+          }
         });
 
         /*Selected items*/

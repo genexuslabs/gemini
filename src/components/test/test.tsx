@@ -1,5 +1,5 @@
 import { Component, h, Prop, Listen, Element } from "@stencil/core";
-import { GxgTreeItemData } from "../tree-item/gxg-tree-item";
+import { GxgTreeItemData, ToggleIconClicked } from "../tree-item/gxg-tree-item";
 import { renderTreeItems } from "../tree/renderTreeItems";
 @Component({
   tag: "gxg-test",
@@ -23,10 +23,12 @@ export class GxgTest {
   @Prop() showGrid = false;
   @Prop() showGridData = false;
 
-  @Listen("loadLazyChildren")
-  loadLazyChildrenHandler(e) {
-    const treeItemId = e.detail;
-    if (this.lazyLoadTreeItemsCallback) {
+  @Listen("toggleIconClicked")
+  toggleIconClickedHandler(e: CustomEvent<ToggleIconClicked>) {
+    console.log("hola");
+    const treeItemId = e.detail.id;
+    const isLazy = e.detail.lazy;
+    if (this.lazyLoadTreeItemsCallback && isLazy) {
       const promise = this.lazyLoadTreeItemsCallback(treeItemId);
       setTimeout(() => {
         promise.then((result) => {

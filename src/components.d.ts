@@ -89,7 +89,7 @@ import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs"
 import {
   GxgTreeItemData as GxgTreeItemData1,
   GxgTreeItemSelectedData as GxgTreeItemSelectedData1,
-  lazyLoadedInfo,
+  ToggleIconClicked,
 } from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
@@ -4201,9 +4201,8 @@ declare namespace LocalJSX {
      */
     numberOfChildren?: number;
     onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
-    onLoadLazyChildren?: (event: CustomEvent<lazyLoadedInfo>) => void;
     onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;
-    onToggleIconClicked?: (event: CustomEvent<any>) => void;
+    onToggleIconClicked?: (event: CustomEvent<ToggleIconClicked>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
