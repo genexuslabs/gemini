@@ -87,6 +87,7 @@ import { position as position2 } from "./components/tooltip/tooltip";
 import { ToggledGxgTreeItem } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import {
+  DoubleClicked,
   GxgTreeItemData as GxgTreeItemData1,
   GxgTreeItemSelectedData as GxgTreeItemSelectedData1,
   ToggleIconClicked,
@@ -4201,6 +4202,7 @@ declare namespace LocalJSX {
      */
     numberOfChildren?: number;
     onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onDoubleClicked?: (event: CustomEvent<DoubleClicked>) => void;
     onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;
     onToggleIconClicked?: (event: CustomEvent<ToggleIconClicked>) => void;
     /**

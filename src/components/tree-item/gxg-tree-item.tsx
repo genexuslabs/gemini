@@ -120,6 +120,7 @@ export class GxgTreeItem {
   //EVENTS
   @Event() toggleIconClicked: EventEmitter<ToggleIconClicked>;
   @Event() selectionChanged: EventEmitter<GxgTreeItemSelectedData>;
+  @Event() doubleClicked: EventEmitter<DoubleClicked>;
   @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
 
   @Element() el: HTMLGxgTreeItemElement;
@@ -337,8 +338,10 @@ export class GxgTreeItem {
   }
 
   liTextDoubleClicked(e) {
-    console.log("liTextDoubleClicked");
-    this.toggleClickedHandler(e);
+    this.doubleClicked.emit({
+      id: this.id,
+    });
+    !this.leaf && this.toggleClickedHandler(e);
   }
 
   liTextKeyDownPressed(e) {
@@ -698,4 +701,8 @@ export type GxgTreeItemSelectedData = {
 export type ToggleIconClicked = {
   id: string;
   lazy?: boolean;
+};
+
+export type DoubleClicked = {
+  id: string;
 };
