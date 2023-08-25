@@ -320,7 +320,9 @@ export class GxgTreeItem {
     const toggleWasClicked = (e.target as HTMLElement).classList.contains(
       "toggle-icon"
     );
-    if (toggleWasClicked) return;
+    const checkboxClicked =
+      (e.target as HTMLElement).nodeName === "GXG-FORM-CHECKBOX";
+    if (toggleWasClicked || checkboxClicked) return;
     if (e.ctrlKey || !this.selected) {
       this.selectionChanged.emit({
         id: this.id,
