@@ -75,7 +75,12 @@ import {
   GxgTreeItemData,
   GxgTreeItemSelectedData,
 } from "./components/tree-item/gxg-tree-item";
-import { TargetType, TextType } from "./components/text/text";
+import {
+  TargetType,
+  TextAlign,
+  TextPadding,
+  TextType,
+} from "./components/text/text";
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
@@ -1584,11 +1589,19 @@ export namespace Components {
      */
     href: string;
     /**
+     * Text padding
+     */
+    padding: TextPadding;
+    /**
      * The target (for "link" or "link-gray" types
      */
     target: TargetType;
     /**
-     * Title type
+     * Text alignment
+     */
+    textAlign: TextAlign;
+    /**
+     * Text type
      */
     type: TextType;
   }
@@ -4025,11 +4038,19 @@ declare namespace LocalJSX {
      */
     href?: string;
     /**
+     * Text padding
+     */
+    padding?: TextPadding;
+    /**
      * The target (for "link" or "link-gray" types
      */
     target?: TargetType;
     /**
-     * Title type
+     * Text alignment
+     */
+    textAlign?: TextAlign;
+    /**
+     * Text type
      */
     type?: TextType;
   }

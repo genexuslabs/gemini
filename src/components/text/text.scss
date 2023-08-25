@@ -1,19 +1,30 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
-:host([type="link"]),
-:host([type="link-gray"]),
-:host([type="alert-error"]),
-:host([type="alert-warning"]),
-:host([type="alert-success"]) {
-  display: inline-block;
-}
 :host {
+  display: block;
   font-size: 14px;
   p,
   q {
     margin: 0;
+    padding: 0;
   }
+}
+
+:host([text-align="start"]) {
+  text-align: start;
+}
+:host([text-align="center"]) {
+  text-align: center;
+}
+:host([text-align="end"]) {
+  text-align: end;
+}
+:host([padding="s"]) {
+  padding: var(--spacing-comp-01);
+}
+:host([padding="m"]) {
+  padding: var(--spacing-comp-02);
 }
 
 /*********************************************

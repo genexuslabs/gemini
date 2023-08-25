@@ -18,9 +18,19 @@ export class GxgText {
   @Prop() target: TargetType = "_self";
 
   /**
-   * Title type
+   * Text type
    */
   @Prop() type: TextType = "text-regular";
+
+  /**
+   * Text alignment
+   */
+  @Prop({ reflect: true }) textAlign: TextAlign = "start";
+
+  /**
+   * Text padding
+   */
+  @Prop({ reflect: true }) padding: TextPadding = "none";
 
   textType() {
     let text;
@@ -79,3 +89,5 @@ export type TextType =
   | "text-alert-success";
 
 export type TargetType = "_self" | "_blank";
+export type TextAlign = "start" | "center" | "end";
+export type TextPadding = "none" | "s" | "m";
