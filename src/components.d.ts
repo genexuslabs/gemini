@@ -55,6 +55,7 @@ import {
   ItemChecked,
   ItemClicked,
 } from "./components/list-box-item/list-box-item";
+import { MenuItemData } from "./components/menu-item/menu-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
@@ -1139,6 +1140,18 @@ export namespace Components {
   }
   interface GxgMenu {
     /**
+     * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
+     */
+    ellipsis: boolean;
+    /**
+     * Hides or show the menu with an animation
+     */
+    hidden: boolean;
+    /**
+     * Hides the menu when an item is selected.
+     */
+    hideOnSelect: boolean;
+    /**
      * The menu title
      */
     menuTitle: string;
@@ -1148,10 +1161,36 @@ export namespace Components {
     tabs: boolean;
   }
   interface GxgMenuItem {
+    /**
+     * Sets the item as active or not
+     */
     active: boolean;
-    icon: string;
-    id: string;
+    /**
+     * Disables the item
+     */
+    disabled: boolean;
+    /**
+     * Prevents the the text from wrapping into more than one line, adding an ellipsis at the end. This property is set and inherited one the menu.
+     */
+    ellipsis: boolean;
+    /**
+     * The item iconType
+     */
+    iconType: string;
+    /**
+     * The item identifier
+     */
+    itemId: string;
+    /**
+     * The item label
+     */
     label: string;
+  }
+  interface GxgMenuList {
+    /**
+     * The menu-list title
+     */
+    listTitle: string;
   }
   interface GxgModal {
     close: () => Promise<void>;
@@ -2092,6 +2131,13 @@ declare global {
     prototype: HTMLGxgMenuItemElement;
     new (): HTMLGxgMenuItemElement;
   };
+  interface HTMLGxgMenuListElement
+    extends Components.GxgMenuList,
+      HTMLStencilElement {}
+  var HTMLGxgMenuListElement: {
+    prototype: HTMLGxgMenuListElement;
+    new (): HTMLGxgMenuListElement;
+  };
   interface HTMLGxgModalElement
     extends Components.GxgModal,
       HTMLStencilElement {}
@@ -2365,6 +2411,7 @@ declare global {
     "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
+    "gxg-menu-list": HTMLGxgMenuListElement;
     "gxg-modal": HTMLGxgModalElement;
     "gxg-more-info": HTMLGxgMoreInfoElement;
     "gxg-option": HTMLGxgOptionElement;
@@ -3572,6 +3619,18 @@ declare namespace LocalJSX {
   }
   interface GxgMenu {
     /**
+     * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
+     */
+    ellipsis?: boolean;
+    /**
+     * Hides or show the menu with an animation
+     */
+    hidden?: boolean;
+    /**
+     * Hides the menu when an item is selected.
+     */
+    hideOnSelect?: boolean;
+    /**
      * The menu title
      */
     menuTitle?: string;
@@ -3581,11 +3640,40 @@ declare namespace LocalJSX {
     tabs?: boolean;
   }
   interface GxgMenuItem {
+    /**
+     * Sets the item as active or not
+     */
     active?: boolean;
-    icon?: string;
-    id?: string;
+    /**
+     * Disables the item
+     */
+    disabled?: boolean;
+    /**
+     * Prevents the the text from wrapping into more than one line, adding an ellipsis at the end. This property is set and inherited one the menu.
+     */
+    ellipsis?: boolean;
+    /**
+     * The item iconType
+     */
+    iconType?: string;
+    /**
+     * The item identifier
+     */
+    itemId?: string;
+    /**
+     * The item label
+     */
     label?: string;
-    onMenuItemActive?: (event: CustomEvent<string>) => void;
+    /**
+     * This events emits the item id, label, iconType, and a reference to itself
+     */
+    onItemSelected?: (event: CustomEvent<MenuItemData>) => void;
+  }
+  interface GxgMenuList {
+    /**
+     * The menu-list title
+     */
+    listTitle?: string;
   }
   interface GxgModal {
     flavor?: "classic" | "alternate";
@@ -4312,6 +4400,7 @@ declare namespace LocalJSX {
     "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
+    "gxg-menu-list": GxgMenuList;
     "gxg-modal": GxgModal;
     "gxg-more-info": GxgMoreInfo;
     "gxg-option": GxgOption;
@@ -4425,6 +4514,8 @@ declare module "@stencil/core" {
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
+      "gxg-menu-list": LocalJSX.GxgMenuList &
+        JSXBase.HTMLAttributes<HTMLGxgMenuListElement>;
       "gxg-modal": LocalJSX.GxgModal &
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
       "gxg-more-info": LocalJSX.GxgMoreInfo &

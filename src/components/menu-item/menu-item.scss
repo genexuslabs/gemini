@@ -3,8 +3,6 @@
 
 :host {
   .menu-item {
-    color: var(--color-on-background);
-
     &:before {
       content: "";
       display: block;
@@ -14,28 +12,37 @@
       position: absolute;
     }
 
-    position: relative;
-
-    &__container {
-      height: var(--spacing-comp-06);
-      background-color: transparent;
-      //@include ui-animation(background);
-      cursor: pointer;
-      padding: 0 var(--spacing-comp-05) 0 var(--spacing-comp-05);
-      display: flex;
-      align-items: center;
-
-      &:hover {
-        background-color: var(--gray-02);
-
-        gxg-icon {
-          //filter: invert(100%);
-        }
+    &--ellipsis {
+      .menu-item__label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
       }
     }
 
-    gxg-icon {
-      margin-right: var(--spacing-comp-01);
+    position: relative;
+
+    &__button {
+      all: unset;
+      color: var(--color-on-background);
+      padding: 0 var(--spacing-comp-01);
+      min-height: var(--gxg-list-item-height);
+      width: 100%;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-comp-02);
+      border-radius: var(--border-width-md);
+      overflow: hidden;
+
+      &:hover {
+        background-color: var(--gxg-background-color-item-hover);
+      }
+      &:focus {
+        @include form-element-common-styles-focus-type-1();
+      }
     }
   }
   :menu-item--tab {
@@ -43,7 +50,10 @@
   }
 }
 :host([active]) {
-  .menu-item:before {
-    background-color: var(--gray-03);
+  .menu-item {
+    &__button {
+      color: var(--gxg-color-selected);
+      background-color: var(--gxg-background-color-item-selected);
+    }
   }
 }

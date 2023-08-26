@@ -11,12 +11,38 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      gxg-menu {
+        max-width: 100px;
+      }
+    </style>
   </head>
   <body>
-    <gxg-menu menu-title="foods">
-      <gxg-menu-item label="fruits"></gxg-menu-item>
-      <gxg-menu-item label="vegetables"> ></gxg-menu-item>
-      <gxg-menu-item label="meats"></gxg-menu-item>
+    <gxg-menu menu-title="foods" ellipsis>
+      <gxg-menu-list>
+        <gxg-menu-item
+          label="fruits some fruits, large fruits"
+          icon-type="objects/module"
+        ></gxg-menu-item>
+        <gxg-menu-item label="vegetables"> ></gxg-menu-item>
+        <gxg-menu-item label="meats"></gxg-menu-item>
+      </gxg-menu-list>
+      <gxg-menu-list list-title="my fruits">
+        <gxg-menu-item
+          label="fruits some fruits, large fruits"
+          icon-type="objects/module"
+        ></gxg-menu-item>
+        <gxg-menu-item label="vegetables"> ></gxg-menu-item>
+        <gxg-menu-item label="meats"></gxg-menu-item>
+      </gxg-menu-list>
     </gxg-menu>
+    <button>Show menu</button>
+    <script>
+      const menu = document.querySelector("gxg-menu");
+      const showMenuBtn = document.querySelector("button");
+      showMenuBtn.addEventListener("click", () => {
+        menu.hidden = false;
+      });
+    </script>
   </body>
 </html>

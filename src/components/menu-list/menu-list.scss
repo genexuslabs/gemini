@@ -1,0 +1,18 @@
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+}
+.title-wrapper {
+  display: block;
+  padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  box-sizing: border-box;
+}
+ul {
+  padding-left: 0;
+  list-style-type: none;
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  @include gxg-text();
+}

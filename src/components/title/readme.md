@@ -25,12 +25,14 @@
 ### Used by
 
 - [gxg-container](../container)
+- [gxg-menu-list](../menu-list)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-container --> gxg-title
+  gxg-menu-list --> gxg-title
   style gxg-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

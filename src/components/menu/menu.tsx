@@ -1,12 +1,65 @@
-import { Component, Prop, h, Host, Element, Listen } from "@stencil/core";
+/* STENCIL IMPORTS */
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Element,
+  Listen,
+  Watch,
+} from "@stencil/core";
+/* OTHER LIBRARIES IMPORTS */
+/* CUSTOM IMPORTS */
+import { detectClickOutside } from "../../common/detect-click-outside";
+import { MenuItemData } from "../menu-item/menu-item";
 
 @Component({
   tag: "gxg-menu",
   styleUrl: "menu.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgMenu {
+  /*
+INDEX:
+1.OWN PROPERTIES 
+2.REFERENCE TO ELEMENTS
+3.STATE() VARIABLES
+4.PUBLIC PROPERTY API | WATCH'S
+5.EVENTS (EMIT)
+6.COMPONENT LIFECYCLE EVENTS
+7.LISTENERS
+8.PUBLIC METHODS API
+9.LOCAL METHODS
+10.RENDER() FUNCTION
+*/
+
+  // 1.OWN PROPERTIES //
+
+  private _menuHeight = "0px";
+
+  /**
+   * The delay in milliseconds that the menu will remain visible after mouseout event fires.
+   */
+  private _mouseOutDelay = 1000;
+
+  /**
+   * It holds a reference to the 'mouseOutTimeout' timeout set using the setTimeout function
+   */
+  private mouseOutTimeout: ReturnType<typeof setTimeout>;
+
+  /**
+   * The menu height transition timing.
+   */
+  private _transitionDuration = 200;
+
+  // 2.REFERENCE TO ELEMENTS //
+
   @Element() el: HTMLElement;
+  innerWrapper!: HTMLDivElement;
+
+  // 3.STATE() VARIABLES //
+
+  // 4.PUBLIC PROPERTY API | WATCH'S //
 
   /**
    * The menu title
@@ -18,38 +71,189 @@ export class GxgMenu {
    */
   @Prop({ reflect: true }) tabs: boolean;
 
-  @Listen("menuItemActive")
-  menuItemActiveHandler(event: CustomEvent) {
-    const children = Array.from(this.el.querySelectorAll("gxg-menu-item"));
+  /**
+   * Hides or show the menu with an animation
+   */
+  @Prop() hidden = true;
 
-    children.forEach(element => {
-      element.removeAttribute("active");
-      if (event.detail === element.getAttribute("label")) {
-        element.setAttribute("active", "active");
-      }
-    });
-  }
+  /**
+   * Hides the menu when an item is selected.
+   */
+  @Prop() hideOnSelect = true;
 
-  printTitle() {
-    if (
-      this.menuTitle !== "undefined" &&
-      this.menuTitle.replace(/\s/g, "") !== ""
-    ) {
-      return (
-        <header class="menu__header">
-          <h1 class="menu__header__title">{this.menuTitle}</h1>
-        </header>
-      );
+  @Watch("hidden")
+  hiddenHandler(hidden): void {
+    if (hidden) {
+      this._menuHeight = "0px";
+      this.el.setAttribute("tabindex", "-1");
+      this.removeDetectClickOutside();
+      this.removeMouseOut();
+      this.removeMouseEnter();
+    } else {
+      this._menuHeight = this.innerWrapper.offsetHeight + "px";
+      this.el.removeAttribute("tabindex");
+      setTimeout(() => {
+        this.attachDetectClickOutside();
+        this.attachMouseOut();
+        this.attachMouseEnter();
+      }, this._transitionDuration);
     }
   }
 
+  /**
+   * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
+   */
+  @Prop() ellipsis = true;
+
+  // 5.EVENTS (EMIT) //
+
+  // 6.COMPONENT LIFECYCLE EVENTS //
+
+  componentWillLoad(): void {
+    this.assignEllipsis();
+    /*Prevent this.mouseOutTimeout firing on page load*/
+    clearTimeout(this.mouseOutTimeout);
+  }
+
+  componentDidUnload(): void {
+    this.removeDetectClickOutside();
+    this.removeMouseOut();
+    this.removeMouseEnter();
+  }
+
+  // 7.LISTENERS //
+
+  @Listen("itemSelected")
+  itemSelectedHandler(itemSelected: CustomEvent<MenuItemData>): void {
+    /*Remove 'active' from every item, except from the clicked one*/
+    const menuItems: HTMLGxgMenuItemElement[] = Array.from(
+      this.el.querySelectorAll("gxg-menu-item")
+    );
+    menuItems.forEach((menuItem) => {
+      if (itemSelected.detail.ref !== menuItem) {
+        menuItem.active = false;
+      }
+    });
+    /*Hide menu*/
+    console.log("this.hideOnSelect", this.hideOnSelect);
+    if (this.hideOnSelect) {
+      this.hidden = true;
+    }
+  }
+
+  // 8.PUBLIC METHODS API //
+
+  // 9.LOCAL METHODS //
+
+  private assignEllipsis = (): void => {
+    if (this.ellipsis) {
+      const items = this.el.querySelectorAll("gxg-menu-item");
+      items &&
+        items.forEach((item: HTMLGxgMenuItemElement) => {
+          item.ellipsis = true;
+        });
+    }
+  };
+
+  /*Mouse out handlers*/
+  private attachMouseOut = (): void => {
+    this.el.addEventListener("mouseout", this.detectMouseOut);
+  };
+  private removeMouseOut = (): void => {
+    this.el.removeEventListener("mouseout", this.detectMouseOut);
+  };
+  private detectMouseOut = (e: MouseEvent): void => {
+    const nodeName = (e.relatedTarget as HTMLElement).nodeName;
+    if (
+      nodeName !== "GXG-MENU" &&
+      nodeName !== "GXG-MENU-LIST" &&
+      nodeName !== "GXG-MENU-ITEM"
+    ) {
+      //Mouse out
+      this.startMouseOutTimeout();
+    }
+  };
+
+  /*Mouse enter handlers*/
+  private attachMouseEnter = (): void => {
+    this.el.addEventListener("mouseenter", this.detectMouseEnter);
+  };
+  private removeMouseEnter = (): void => {
+    this.el.removeEventListener("mouseenter", this.detectMouseEnter);
+  };
+  private detectMouseEnter = (e: MouseEvent): void => {
+    //Mouse enter
+    this.clearMouseOutTimeout();
+  };
+
+  /**
+   * @description
+   */
+  private startMouseOutTimeout(): void {
+    this.mouseOutTimeout = setTimeout(() => {
+      this.hidden = true;
+    }, this._mouseOutDelay);
+  }
+  private clearMouseOutTimeout(): void {
+    clearTimeout(this.mouseOutTimeout);
+  }
+
+  /*Detect click outside*/
+  private attachDetectClickOutside = () => {
+    document.addEventListener("click", this.detectClickOutside);
+  };
+  private removeDetectClickOutside = () => {
+    document.removeEventListener("click", this.detectClickOutside);
+  };
+  /*Detect click outside*/
+  private detectClickOutside = (e): void => {
+    const clickedOutside = detectClickOutside(e, this.el);
+    if (clickedOutside) {
+      this.hidden = true;
+    } else {
+      this.hidden = false;
+    }
+  };
+
+  /**
+   * @description It renders the menu title, which is optional.
+   */
+  private renderTitle(): HTMLElement {
+    return this.menuTitle ? (
+      <header class="menu__header" part="header">
+        <h1 class="menu__header__title" part="title">
+          {this.menuTitle}
+        </h1>
+      </header>
+    ) : null;
+  }
+
+  // 10.RENDER() FUNCTION //
+
   render() {
     return (
-      <Host>
-        {this.printTitle()}
-        <ul class="menuList">
-          <slot></slot>
-        </ul>
+      <Host tabindex="-1">
+        <div
+          class={{
+            "outer-wrapper": true,
+          }}
+          style={{
+            height: this._menuHeight,
+            transitionDuration: `${this._transitionDuration}ms`,
+          }}
+          part="outer-wrapper"
+        >
+          <div
+            class="inner-wrapper"
+            ref={(el) => (this.innerWrapper = el as HTMLDivElement)}
+            part="inner-wrapper"
+          >
+            {this.renderTitle()}
+            <div class="lists-wrapper" part="lists-wrapper">
+              <slot></slot>
+            </div>
+          </div>
+        </div>
       </Host>
     );
   }
