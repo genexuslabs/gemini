@@ -15,9 +15,10 @@
 
 ## Events
 
-| Event          | Description                                                               | Type                                                                                          |
-| -------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `itemSelected` | This events emits the item id, label, iconType, and a reference to itself | `CustomEvent<{ iconType?: string; id: string; label: string; ref: HTMLGxgMenuItemElement; }>` |
+| Event                | Description                                                               | Type                                                                                          |
+| -------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `itemSelected`       | This events emits the item id, label, iconType, and a reference to itself | `CustomEvent<{ iconType?: string; id: string; label: string; ref: HTMLGxgMenuItemElement; }>` |
+| `keyboardNavigation` | This events fires when the user presses up or down keys.                  | `CustomEvent<{ ref: HTMLGxgMenuItemElement; key: string; }>`                                  |
 
 ## Shadow Parts
 

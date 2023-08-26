@@ -11,10 +11,11 @@ import {
 /* CUSTOM IMPORTS */
 import { commonClassesNames } from "../../common/classesNames";
 import { Color as IconTypeColor } from "../icon/icon";
+import { KeyboardKeys as KK } from "../../common/types";
 @Component({
   tag: "gxg-menu-item",
   styleUrl: "menu-item.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgMenuItem {
   /*
@@ -75,9 +76,14 @@ INDEX:
   // 5.EVENTS (EMIT) //
 
   /**
+   * This events fires when the user presses up or down keys.
+   */
+  @Event() keyboardNavigation: EventEmitter<MenuItemFocusChange>;
+
+  /**
    * This events emits the item id, label, iconType, and a reference to itself
    */
-  @Event() itemSelected: EventEmitter<MenuItemData>;
+  @Event() itemSelected: EventEmitter<MenuItemSelected>;
 
   // 6.METHODS //
 
@@ -121,9 +127,18 @@ INDEX:
     });
   };
 
+  private buttonKeyDownHandler = (e: KeyboardEvent): void => {
+    if (e.key === KK.ARROW_DOWN || e.key === KK.ARROW_UP) {
+      this.keyboardNavigation.emit({
+        ref: this.el,
+        key: e.key,
+      });
+    }
+  };
+
   render(): void {
     return (
-      <Host>
+      <Host class={{ [commonClassesNames["DISABLED_CLASS"]]: this.disabled }}>
         <li
           class={{
             "menu-item": true,
@@ -135,8 +150,9 @@ INDEX:
           part="item"
         >
           <button
-            class="menu-item__button"
+            class="menu-item__button form-element"
             onClick={this.buttonClickedHandler}
+            onKeyDown={this.buttonKeyDownHandler}
             part="button"
           >
             {this.renderIcon()}
@@ -150,9 +166,14 @@ INDEX:
   }
 }
 
-export type MenuItemData = {
+export type MenuItemSelected = {
   iconType?: string;
   id: string;
   label: string;
   ref: HTMLGxgMenuItemElement;
+};
+
+export type MenuItemFocusChange = {
+  ref: HTMLGxgMenuItemElement;
+  key: typeof KK.ARROW_DOWN | typeof KK.ARROW_UP;
 };

@@ -55,7 +55,10 @@ import {
   ItemChecked,
   ItemClicked,
 } from "./components/list-box-item/list-box-item";
-import { MenuItemData } from "./components/menu-item/menu-item";
+import {
+  MenuItemFocusChange,
+  MenuItemSelected,
+} from "./components/menu-item/menu-item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
@@ -3667,7 +3670,11 @@ declare namespace LocalJSX {
     /**
      * This events emits the item id, label, iconType, and a reference to itself
      */
-    onItemSelected?: (event: CustomEvent<MenuItemData>) => void;
+    onItemSelected?: (event: CustomEvent<MenuItemSelected>) => void;
+    /**
+     * This events fires when the user presses up or down keys.
+     */
+    onKeyboardNavigation?: (event: CustomEvent<MenuItemFocusChange>) => void;
   }
   interface GxgMenuList {
     /**

@@ -23,17 +23,25 @@
         <gxg-menu-item
           label="fruits some fruits, large fruits"
           icon-type="objects/module"
+          item-id="fruiots-1"
         ></gxg-menu-item>
-        <gxg-menu-item label="vegetables"> ></gxg-menu-item>
-        <gxg-menu-item label="meats"></gxg-menu-item>
+        <gxg-menu-item label="vegetables" item-id="vegetables-1">
+          ></gxg-menu-item
+        >
+        <gxg-menu-item label="meats" item-id="meats-1"></gxg-menu-item>
       </gxg-menu-list>
       <gxg-menu-list list-title="my fruits">
         <gxg-menu-item
+          disabled
           label="fruits some fruits, large fruits"
           icon-type="objects/module"
+          item-id="fruits-2"
         ></gxg-menu-item>
-        <gxg-menu-item label="vegetables"> ></gxg-menu-item>
-        <gxg-menu-item label="meats"></gxg-menu-item>
+        <gxg-menu-item
+          label="vegetables"
+          item-id="vegetables-2"
+        ></gxg-menu-item>
+        <gxg-menu-item label="meats" item-id="meats-2"></gxg-menu-item>
       </gxg-menu-list>
     </gxg-menu>
     <button>Show menu</button>
@@ -42,6 +50,9 @@
       const showMenuBtn = document.querySelector("button");
       showMenuBtn.addEventListener("click", () => {
         menu.hidden = false;
+      });
+      menu.addEventListener("itemSelected", (e) => {
+        console.log(e.detail);
       });
     </script>
   </body>

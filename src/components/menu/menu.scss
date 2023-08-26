@@ -49,7 +49,7 @@
     border-bottom-width: var(--border-width-sm);
     border-bottom-color: var(--gray-03);
   }
-  ::slotted(gxg-menu-list:last-child) {
+  ::slotted(gxg-menu-list) {
     border-bottom: none;
   }
 }

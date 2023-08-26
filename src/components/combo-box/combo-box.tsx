@@ -451,8 +451,8 @@ export class GxgComboBox implements FormComponent {
 
   private setup = () => {
     this.setIndexes();
-    this.onValueChanged(this.value);
-    this.setInitialValue();
+    //this.onValueChanged(this.value);
+    //this.setInitialValue();
   };
 
   private setIndexes = (): void => {

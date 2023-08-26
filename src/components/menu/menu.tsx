@@ -11,7 +11,8 @@ import {
 /* OTHER LIBRARIES IMPORTS */
 /* CUSTOM IMPORTS */
 import { detectClickOutside } from "../../common/detect-click-outside";
-import { MenuItemData } from "../menu-item/menu-item";
+import { MenuItemSelected, MenuItemFocusChange } from "../menu-item/menu-item";
+import { KeyboardKeys as KK } from "../../common/types";
 
 @Component({
   tag: "gxg-menu",
@@ -51,6 +52,11 @@ INDEX:
    * The menu height transition timing.
    */
   private _transitionDuration = 200;
+
+  /**
+   * The enabled (not disabled) menu items
+   */
+  private _enabledItems: HTMLGxgMenuItemElement[] = [];
 
   // 2.REFERENCE TO ELEMENTS //
 
@@ -93,6 +99,7 @@ INDEX:
       this._menuHeight = this.innerWrapper.offsetHeight + "px";
       this.el.removeAttribute("tabindex");
       setTimeout(() => {
+        this.setFocusFirstItem();
         this.attachDetectClickOutside();
         this.attachMouseOut();
         this.attachMouseEnter();
@@ -113,6 +120,7 @@ INDEX:
     this.assignEllipsis();
     /*Prevent this.mouseOutTimeout firing on page load*/
     clearTimeout(this.mouseOutTimeout);
+    this.getEnabledItems();
   }
 
   componentDidUnload(): void {
@@ -124,7 +132,7 @@ INDEX:
   // 7.LISTENERS //
 
   @Listen("itemSelected")
-  itemSelectedHandler(itemSelected: CustomEvent<MenuItemData>): void {
+  itemSelectedHandler(itemSelected: CustomEvent<MenuItemSelected>): void {
     /*Remove 'active' from every item, except from the clicked one*/
     const menuItems: HTMLGxgMenuItemElement[] = Array.from(
       this.el.querySelectorAll("gxg-menu-item")
@@ -135,15 +143,55 @@ INDEX:
       }
     });
     /*Hide menu*/
-    console.log("this.hideOnSelect", this.hideOnSelect);
     if (this.hideOnSelect) {
       this.hidden = true;
+    }
+  }
+
+  @Listen("keyboardNavigation")
+  keyboardNavigationHandler(
+    triggeredItem: CustomEvent<MenuItemFocusChange>
+  ): void {
+    const triggeringItem: HTMLGxgMenuItemElement = triggeredItem.detail.ref;
+    const triggeringItemIndex = this._enabledItems.findIndex((item, i) => {
+      return item === triggeringItem;
+    });
+
+    let newFocusedItem: HTMLGxgMenuItemElement;
+    if (
+      triggeringItemIndex !== -1 &&
+      triggeredItem.detail.key === KK.ARROW_UP
+    ) {
+      const prevItem = this._enabledItems[triggeringItemIndex - 1];
+      if (prevItem?.active && prevItem.previousElementSibling) {
+        newFocusedItem = prevItem.previousElementSibling as HTMLGxgMenuItemElement;
+      } else if (prevItem) {
+        newFocusedItem = prevItem;
+      }
+    } else if (
+      triggeringItemIndex !== -1 &&
+      triggeredItem.detail.key === KK.ARROW_DOWN
+    ) {
+      const nextItem = this._enabledItems[triggeringItemIndex + 1];
+      if (nextItem?.active && nextItem.nextElementSibling) {
+        newFocusedItem = nextItem.nextElementSibling as HTMLGxgMenuItemElement;
+      } else if (nextItem) {
+        newFocusedItem = nextItem;
+      }
+    }
+    if (newFocusedItem) {
+      newFocusedItem.focus();
     }
   }
 
   // 8.PUBLIC METHODS API //
 
   // 9.LOCAL METHODS //
+
+  private setFocusFirstItem = (): void => {
+    const firstItem = this.el.querySelector("gxg-menu-item");
+    firstItem.focus();
+  };
 
   private assignEllipsis = (): void => {
     if (this.ellipsis) {
@@ -227,6 +275,15 @@ INDEX:
       </header>
     ) : null;
   }
+
+  private getEnabledItems = () => {
+    const enabledItems = this.el.querySelectorAll("gxg-menu-item");
+    enabledItems.forEach((menuItem: HTMLGxgMenuItemElement) => {
+      if (!menuItem.disabled) {
+        this._enabledItems.push(menuItem);
+      }
+    });
+  };
 
   // 10.RENDER() FUNCTION //
 
