@@ -26,9 +26,9 @@ export class GxgComboBoxItem {
   @Event() itemSelected: EventEmitter<ItemInformation>;
 
   /**
-   *
+   * This event is fired when the item has loaded
    */
-  @Event() itemDidLoad: EventEmitter;
+  @Event() itemDidLoad: EventEmitter<ItemInformation>;
 
   /**
    * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component
@@ -82,7 +82,12 @@ export class GxgComboBoxItem {
   }
 
   componentDidLoad() {
-    this.itemDidLoad.emit();
+    this.itemDidLoad.emit({
+      el: this.el as HTMLGxgComboBoxItemElement,
+      index: this.index,
+      value: this.value,
+      icon: this.icon,
+    });
   }
 
   /*********************************
@@ -145,7 +150,7 @@ export type ItemInformation = {
   el: HTMLGxgComboBoxItemElement;
   index: number;
   value: any;
-  icon: string;
+  icon?: string;
 };
 
 export type ComboBoxItemValue = any;

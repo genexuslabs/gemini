@@ -69,7 +69,10 @@
           <gxg-combo-box-item value="common-elements"
             >Common Elements Common Elements Common Elements</gxg-combo-box-item
           >
-          <gxg-combo-box-item value="bpm" icon="objects/conversational-flows"
+          <gxg-combo-box-item
+            disabled
+            value="bpm"
+            icon="objects/conversational-flows"
             >BPM</gxg-combo-box-item
           >
           <gxg-combo-box-item
@@ -98,6 +101,10 @@
             });
             comboCommonFunctions.addEventListener("toggled", (e) => {
               console.log("combo toggled", e.detail);
+            });
+            /*listen to changes*/
+            comboCommonFunctions.addEventListener("valueChanged", (e) => {
+              console.log(e.detail);
             });
           </script>
           <gxg-button tabindex="-1" id="disable-combo-box"
@@ -132,9 +139,10 @@
       <section class="section">
         <span>standard abc123 + listen valueChanged #2</span>
         <gxg-combo-box
-          id="combo-standard-abc123"
+          id="standard abc123 + listen valueChanged #2"
           placeholder="Select item"
           label="Standard combo (abc123):"
+          value="c3 value"
         >
           <gxg-combo-box-item value="a1 value">a1</gxg-combo-box-item>
           <gxg-combo-box-item value="a12 value">a12</gxg-combo-box-item>
@@ -149,10 +157,14 @@
         </gxg-combo-box>
         <script>
           const comboStandard123 = document.getElementById(
-            "combo-standard-abc123"
+            "standard abc123 + listen valueChanged #2"
           );
           comboStandard123.addEventListener("valueChanged", (e) => {
             console.log("standard abc123 value changed", e.detail);
+          });
+          /*listen to changes*/
+          comboStandard123.addEventListener("valueChanged", (e) => {
+            console.log(e.detail);
           });
         </script>
       </section>
@@ -161,9 +173,10 @@
       <section class="section">
         <span>standard #3</span>
         <gxg-combo-box
-          id="combo-standard #3"
+          id="standard #3"
           placeholder="Select item"
           label="Standard combo (filter | unstrict):"
+          value="che"
         >
           <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
           <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
@@ -207,7 +220,11 @@
 
         <div class="buttons-container">
           <script>
-            const comboStandard = document.getElementById("combo-standard");
+            const comboStandard = document.getElementById("standard #3");
+            /*listen to changes*/
+            comboStandard.addEventListener("valueChanged", (e) => {
+              console.log(e.detail);
+            });
           </script>
           <gxg-button
             type="primary-text-only"
@@ -346,7 +363,11 @@
 
         <div class="buttons-container">
           <script>
-            const comboDisabled = document.getElementById("combo-disabled");
+            const comboDisabled = document.getElementById("disabled-filter #5");
+            /*listen to changes*/
+            comboDisabled.addEventListener("valueChanged", (e) => {
+              console.log(e.detail);
+            });
           </script>
           <gxg-button
             type="primary-text-only"
@@ -434,7 +455,11 @@
 
         <div class="buttons-container">
           <script>
-            const comboStrict = document.getElementById("combo-strict");
+            const comboStrict = document.getElementById("strict #6");
+            /*listen to changes*/
+            comboStrict.addEventListener("valueChanged", (e) => {
+              console.log(e.detail);
+            });
           </script>
           <gxg-button
             type="primary-text-only"
@@ -525,7 +550,7 @@
         <div class="buttons-container">
           <script>
             const comboDisabledStrict = document.getElementById(
-              "combo-disabled-strict"
+              "disabled-filter + strict #7"
             );
           </script>
           <gxg-button
@@ -577,7 +602,7 @@
         }
         function updateItems(combo) {
           combo.innerHTML = `
-        <gxg-combo-box-item>Hamburguesa</gxg-combo-box-item>
+        <gxg-combo-box-item value="hamburguesa">Hamburguesa</gxg-combo-box-item>
         <gxg-combo-box-item value="pancho" icon="objects/business-process-diagram">Pancho</gxg-combo-box-item>
         <gxg-combo-box-item>Shawarma</gxg-combo-box-item>
         `;

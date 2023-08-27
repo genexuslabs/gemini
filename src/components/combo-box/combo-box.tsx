@@ -23,6 +23,7 @@ import { KeyboardKeys as KK } from "../../common/types";
 import { exportParts } from "../../common/export-parts";
 import state from "../store";
 import { ValidationStatus } from "../../common/types";
+import { mutationObserverRemoved } from "../../common/mo-removed";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
@@ -39,6 +40,7 @@ export class GxgComboBox implements FormComponent {
   private textBeforeDisabled;
   private iconBeforeDisabled;
   private iconPositionBeforeDisabled;
+  private _mo;
 
   /**
    * This event is triggered when the combo box value changes.
@@ -211,6 +213,7 @@ export class GxgComboBox implements FormComponent {
   @State() lastSetValueByUser;
   @State() myObserver = null;
   @State() selectedItem: HTMLGxgComboBoxItemElement;
+  @State() removedItem: HTMLGxgComboBoxItemElement;
 
   private detectClickOutsideCombo = this.detectClickOutsideComboFunc.bind(this);
   private detectMouseScroll = this.detectMouseScrollFunc.bind(this);
@@ -223,15 +226,19 @@ export class GxgComboBox implements FormComponent {
   }
 
   componentWillLoad(): void {
-    console.log("id", this.el.getAttribute("id"));
     this.setup();
     this.attachExportParts();
+    this.mutationRemoveObserver();
   }
 
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
     const exportPartsResult = exportParts(part, this.parts);
     exportPartsResult.length && (this.exportparts = exportPartsResult);
+  };
+
+  private mutationRemoveObserver = (): void => {
+    this._mo = mutationObserverRemoved(this.el, this);
   };
 
   componentDidLoad(): void {
@@ -288,9 +295,9 @@ export class GxgComboBox implements FormComponent {
   }
 
   @Listen("itemDidLoad")
-  itemDidLoadHandler(): void {
-    // this.setup();
+  itemDidLoadHandler(itemLoaded: CustomEvent<ItemInformation>): void {
     this.setIndexes();
+    this.setInitialValue();
   }
 
   @Listen("keyDownComboItem")
@@ -408,6 +415,15 @@ export class GxgComboBox implements FormComponent {
     newItem && (newItem.selected = true);
   }
 
+  @Watch("removedItem")
+  removedItemHandler(removedItem: HTMLGxgComboBoxItemElement): void {
+    const value = removedItem.value;
+    if (value === this.value) {
+      /*The removed item was the one selected on the combo. Re-evaluation of new value is needed*/
+      this.setup();
+    }
+  }
+
   /*********************************
   PRIVATE METHODS
   *********************************/
@@ -449,11 +465,11 @@ export class GxgComboBox implements FormComponent {
     this.myObserver.unobserve(document.body);
     document.removeEventListener("click", this.detectClickOutsideCombo, true);
     document.removeEventListener("scroll", this.detectMouseScroll, true);
+    this._mo.disconnect();
   };
 
   private setup = () => {
     this.setIndexes();
-    //this.onValueChanged(this.value);
     this.setInitialValue();
   };
 
@@ -563,11 +579,8 @@ export class GxgComboBox implements FormComponent {
   };
 
   private setInitialValue = () => {
-    console.log("set initial value");
-    console.log(this.value);
-
     const firstItem = this.getEnabledItems()[0];
-    if (!this.value) {
+    if (!this.value || this.removedItem !== undefined) {
       if (firstItem) {
         this.value = firstItem.value;
         this.text = firstItem.innerText;
@@ -578,18 +591,16 @@ export class GxgComboBox implements FormComponent {
       }
     } else {
       const item = this.getItemByValue(this.value);
-      console.log(item);
       if (item) {
-        console.log("item", item);
         this.text = item.innerText;
       } else {
-        if (firstItem) {
-          this.value = firstItem.value;
-          this.text = firstItem.innerText;
+        if (this.strict) {
+          this.value = undefined;
+        } else {
+          this.text = this.value.toString();
         }
       }
     }
-    console.log("--------------");
   };
 
   private toggleListButtonClickHandler = (): void => {

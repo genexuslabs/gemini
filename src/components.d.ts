@@ -2854,7 +2854,10 @@ declare namespace LocalJSX {
      * (This prop is for internal use).
      */
     index?: number;
-    onItemDidLoad?: (event: CustomEvent<any>) => void;
+    /**
+     * This event is fired when the item has loaded
+     */
+    onItemDidLoad?: (event: CustomEvent<ItemInformation>) => void;
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */

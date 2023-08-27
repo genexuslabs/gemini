@@ -16,11 +16,11 @@
 
 ## Events
 
-| Event            | Description                                                                                                                                                                                               | Type                                                                                        |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `itemDidLoad`    |                                                                                                                                                                                                           | `CustomEvent<any>`                                                                          |
-| `itemSelected`   | This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.                                                                                 | `CustomEvent<{ el: HTMLGxgComboBoxItemElement; index: number; value: any; icon: string; }>` |
-| `keyDownPressed` | This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input. | `CustomEvent<any>`                                                                          |
+| Event            | Description                                                                                                                                                                                               | Type                                                                                         |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `itemDidLoad`    | This event is fired when the item has loaded                                                                                                                                                              | `CustomEvent<{ el: HTMLGxgComboBoxItemElement; index: number; value: any; icon?: string; }>` |
+| `itemSelected`   | This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.                                                                                 | `CustomEvent<{ el: HTMLGxgComboBoxItemElement; index: number; value: any; icon?: string; }>` |
+| `keyDownPressed` | This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input. | `CustomEvent<any>`                                                                           |
 
 ## Dependencies
 

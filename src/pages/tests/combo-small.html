@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>xxx | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <gxg-combo-box id="combo" label="Combo test" value="a">
+      <gxg-combo-box-item value="a" id="a">A</gxg-combo-box-item>
+      <gxg-combo-box-item value="b" id="b">B</gxg-combo-box-item>
+      <gxg-combo-box-item value="c" id="c">C</gxg-combo-box-item>
+    </gxg-combo-box>
+    <br />
+    <gxg-button id="add-item">Add one item</gxg-button>
+    <gxg-button id="remove-item-b">Remove item B</gxg-button>
+    <gxg-button id="remove-item-c">Remove item C</gxg-button>
+    <gxg-button id="remove-selected">Remove selected A</gxg-button>
+    <script>
+      /*combo*/
+      const combo = document.getElementById("combo");
+      /*add new item*/
+      const addOneItem = document.getElementById("add-item");
+      addOneItem.addEventListener("click", () => {
+        const gxgItem = document.createElement("gxg-combo-box-item");
+        gxgItem.setAttribute("value", "d");
+        gxgItem.innerText = "D";
+        combo.appendChild(gxgItem);
+      });
+      /*remove one random item (b)*/
+      const removeItemB = document.getElementById("remove-item-b");
+      removeItemB.addEventListener("click", () => {
+        const b = document.getElementById("b");
+        b.remove();
+      });
+      /*remove one random item (c)*/
+      const removeItemC = document.getElementById("remove-item-c");
+      removeItemC.addEventListener("click", () => {
+        const c = document.getElementById("c");
+        c.remove();
+      });
+      /*remove selected item (a)*/
+      const removeSelectedItem = document.getElementById("remove-selected");
+      removeSelectedItem.addEventListener("click", () => {
+        const a = document.getElementById("a");
+        a.remove();
+      });
+
+      combo.addEventListener("valueChanged", (e) => {
+        console.log(e.detail);
+      });
+    </script>
+  </body>
+</html>
