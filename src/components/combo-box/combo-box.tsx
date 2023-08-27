@@ -223,6 +223,7 @@ export class GxgComboBox implements FormComponent {
   }
 
   componentWillLoad(): void {
+    console.log("id", this.el.getAttribute("id"));
     this.setup();
     this.attachExportParts();
   }
@@ -288,7 +289,8 @@ export class GxgComboBox implements FormComponent {
 
   @Listen("itemDidLoad")
   itemDidLoadHandler(): void {
-    this.setup();
+    // this.setup();
+    this.setIndexes();
   }
 
   @Listen("keyDownComboItem")
@@ -452,7 +454,7 @@ export class GxgComboBox implements FormComponent {
   private setup = () => {
     this.setIndexes();
     //this.onValueChanged(this.value);
-    //this.setInitialValue();
+    this.setInitialValue();
   };
 
   private setIndexes = (): void => {
@@ -561,12 +563,33 @@ export class GxgComboBox implements FormComponent {
   };
 
   private setInitialValue = () => {
-    if (this.strict && this.disableFilter && !this.value) {
-      const enabledItems = this.getEnabledItems();
-      if (enabledItems.length) {
-        this.value = enabledItems[0].value;
+    console.log("set initial value");
+    console.log(this.value);
+
+    const firstItem = this.getEnabledItems()[0];
+    if (!this.value) {
+      if (firstItem) {
+        this.value = firstItem.value;
+        this.text = firstItem.innerText;
+      } else {
+        if (this.strict) {
+          this.value = undefined;
+        }
+      }
+    } else {
+      const item = this.getItemByValue(this.value);
+      console.log(item);
+      if (item) {
+        console.log("item", item);
+        this.text = item.innerText;
+      } else {
+        if (firstItem) {
+          this.value = firstItem.value;
+          this.text = firstItem.innerText;
+        }
       }
     }
+    console.log("--------------");
   };
 
   private toggleListButtonClickHandler = (): void => {

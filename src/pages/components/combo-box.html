@@ -57,7 +57,7 @@
       <section class="section" tabindex="0">
         <span>common functions #1</span>
         <gxg-combo-box
-          id="combo-common-functions"
+          id="common functions #1"
           placeholder="Select item"
           label="Test disabled"
           max-width="100%"
@@ -69,10 +69,7 @@
           <gxg-combo-box-item value="common-elements"
             >Common Elements Common Elements Common Elements</gxg-combo-box-item
           >
-          <gxg-combo-box-item
-            disabled
-            value="bpm"
-            icon="objects/conversational-flows"
+          <gxg-combo-box-item value="bpm" icon="objects/conversational-flows"
             >BPM</gxg-combo-box-item
           >
           <gxg-combo-box-item
@@ -80,9 +77,7 @@
             icon="objects/conversational-flows"
             >Chatbots Chatbots Chatbots ChatbotsChatbots</gxg-combo-box-item
           >
-          <gxg-combo-box-item disabled value="bpm2" icon=""
-            >BPM2</gxg-combo-box-item
-          >
+          <gxg-combo-box-item value="bpm2" icon="">BPM2</gxg-combo-box-item>
           <gxg-combo-box-item
             value="chatbots2"
             icon="objects/conversational-flows"
@@ -92,7 +87,7 @@
         <div class="buttons-container">
           <script>
             const comboCommonFunctions = document.getElementById(
-              "combo-common-functions"
+              "common functions #1"
             );
             /*Events*/
             comboCommonFunctions.addEventListener("opened", () => {
@@ -166,7 +161,7 @@
       <section class="section">
         <span>standard #3</span>
         <gxg-combo-box
-          id="combo-standard"
+          id="combo-standard #3"
           placeholder="Select item"
           label="Standard combo (filter | unstrict):"
         >
@@ -252,6 +247,7 @@
           placeholder="Select item"
           label="Standard combo (case sensitive):"
           case-sensitive
+          id="standard case sensitive #4"
         >
           <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
           <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
@@ -300,7 +296,7 @@
       <section class="section">
         <span>disabled-filter #5</span>
         <gxg-combo-box
-          id="combo-disabled"
+          id="disabled-filter #5"
           placeholder="Select item"
           label="Combo with no filter"
           disable-filter
@@ -387,7 +383,7 @@
       <section class="section">
         <span>strict #6</span>
         <gxg-combo-box
-          id="combo-strict"
+          id="strict #6"
           label="Strict combo (only existing values allowed)"
           strict
           value="chatbots"
@@ -476,7 +472,7 @@
         <span>disabled-filter + strict #7</span>
         <gxg-combo-box
           value="bpm"
-          id="combo-disabled-strict"
+          id="disabled-filter + strict #7"
           label="Strict combo with no filter"
           disable-filter
           strict
