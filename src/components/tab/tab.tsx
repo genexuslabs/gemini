@@ -20,6 +20,16 @@ export class GxgTab {
   @Prop() noPadding = false;
 
   /**
+   * The presence of this attribute makes the container display flex
+   */
+  @Prop() flexContainer = false;
+
+  /**
+   * The container flex-direction, if container is flex.
+   */
+  @Prop() flexDirection: TabContainerFlexDirection = "column";
+
+  /**
    * The selected tab
    */
   @Prop({ reflect: true }) isSelected = false;
@@ -34,10 +44,20 @@ export class GxgTab {
           large: state.large,
         }}
       >
-        <div class="container">
+        <div
+          class={{
+            container: true,
+            "container--flex": this.flexContainer,
+            "flex-column": this.flexDirection === "column",
+            "flex-row": this.flexDirection === "row",
+          }}
+          part="container"
+        >
           <slot></slot>
         </div>
       </Host>
     );
   }
 }
+
+export type TabContainerFlexDirection = "column" | "row";

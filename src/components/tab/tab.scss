@@ -19,6 +19,15 @@
     padding: 0;
   }
 }
+.container--flex {
+  display: flex;
+  &.flex-column {
+    flex-direction: column;
+  }
+  &.flex-row {
+    flex-direction: row;
+  }
+}
 
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
