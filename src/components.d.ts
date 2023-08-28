@@ -751,9 +751,29 @@ export namespace Components {
   }
   interface GxgFormCheckboxGroup {
     /**
+     * The presence of this attribute makes all the checkboxes disabled
+     */
+    disabled: boolean;
+    /**
+     * Returns CheckboxesGroupValues = CheckboxInfo[];
+     */
+    getValues: () => Promise<CheckboxesGroupValues>;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage: string;
+    /**
      * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
      */
     row: boolean;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage: string;
+    /**
+     * The validation status
+     */
+    validationStatus: ValidationStatus;
   }
   interface GxgFormMessage {
     /**
@@ -3198,11 +3218,27 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgFormCheckboxGroup {
+    /**
+     * The presence of this attribute makes all the checkboxes disabled
+     */
+    disabled?: boolean;
+    /**
+     * An informative message to help the user filling the information
+     */
+    informationMessage?: string;
     onGroupValuesChanged?: (event: CustomEvent<CheckboxesGroupValues>) => void;
     /**
      * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
      */
     row?: boolean;
+    /**
+     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+     */
+    validationMessage?: string;
+    /**
+     * The validation status
+     */
+    validationStatus?: ValidationStatus;
   }
   interface GxgFormMessage {
     /**

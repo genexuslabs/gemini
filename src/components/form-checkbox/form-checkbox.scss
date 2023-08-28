@@ -1,6 +1,7 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 @import "../../globals/form-validation";
+@import "../../globals/common-css-classes";
 
 :host {
   --box-border-color: var(--color-primary-active);
@@ -152,6 +153,9 @@
   top: 6px;
 }
 :host([disabled="true"]) label {
+  cursor: not-allowed;
+}
+:host(.disabled) {
   cursor: not-allowed;
 }
 

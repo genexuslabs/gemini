@@ -185,8 +185,37 @@
       ></gxg-form-checkbox>
     </gxg-form-checkbox-group>
 
+    <div class="buttons-group">
+      <gxg-button id="btn-show-error"> Show Error </gxg-button>
+      <gxg-button id="btn-disable-group"> Disable Group </gxg-button>
+      <gxg-button id="btn-enable-group"> Enable Group </gxg-button>
+      <gxg-button id="btn-get-values"> Get Values </gxg-button>
+    </div>
+
     <script>
       const radioGroup = document.querySelector("gxg-form-checkbox-group");
+      const showErrorBtn = document.getElementById("btn-show-error");
+      const disableGroupBtn = document.getElementById("btn-disable-group");
+      const enableGroupBtn = document.getElementById("btn-enable-group");
+      const getValues = document.getElementById("btn-get-values");
+
+      showErrorBtn.addEventListener("click", (e) => {
+        radioGroup.validationStatus = "error";
+        radioGroup.validationMessage = "This is an error validation message";
+      });
+      disableGroupBtn.addEventListener("click", (e) => {
+        radioGroup.disabled = true;
+      });
+      enableGroupBtn.addEventListener("click", (e) => {
+        radioGroup.disabled = false;
+      });
+      getValues.addEventListener("click", async (e) => {
+        const result = await radioGroup.getValues();
+        console.log(result);
+      });
+    </script>
+
+    <script>
       radioGroup.addEventListener("groupValuesChanged", (e) => {
         console.log(e.detail);
       });

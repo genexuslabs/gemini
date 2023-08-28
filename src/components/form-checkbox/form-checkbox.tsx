@@ -11,6 +11,7 @@ import {
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
+import { commonClassesNames } from "../../common/classesNames";
 import state from "../store";
 import { JSXElement } from "@babel/types";
 import { exportParts } from "../../common/export-parts";
@@ -243,6 +244,7 @@ export class GxgFormCheckbox implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >

@@ -8,6 +8,7 @@ import {
   Event,
   EventEmitter,
   Watch,
+  Method,
 } from "@stencil/core";
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -73,7 +74,6 @@ export class GxgFormRadioGroup implements FormComponent {
 
   /**
    * An informative message to help the user filling the information
-   *
    */
   @Prop() informationMessage: string;
 

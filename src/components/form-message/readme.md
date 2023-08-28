@@ -19,6 +19,7 @@
 
 - [gxg-combo-box](../combo-box)
 - [gxg-form-checkbox](../form-checkbox)
+- [gxg-form-checkbox-group](../form-checkbox-group)
 - [gxg-form-radio-group](../form-radio-group)
 - [gxg-form-text](../form-text)
 - [gxg-form-textarea](../form-textarea)
@@ -37,6 +38,7 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-combo-box --> gxg-form-message
   gxg-form-checkbox --> gxg-form-message
+  gxg-form-checkbox-group --> gxg-form-message
   gxg-form-radio-group --> gxg-form-message
   gxg-form-text --> gxg-form-message
   gxg-form-textarea --> gxg-form-message
