@@ -127,6 +127,7 @@ export class GxgButton {
           type={this.icon}
           color={this.iconColor()}
           size={this.iconSize()}
+          part="icon"
         ></gxg-icon>
       );
     }
