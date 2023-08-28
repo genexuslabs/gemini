@@ -41,6 +41,8 @@ import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
 import { Message } from "./components/form-message/form-message";
+import { RadioData } from "./components/form-radio/form-radio";
+import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
 import {
   IconPosition,
   LabelPosition as LabelPosition1,
@@ -755,10 +757,6 @@ export namespace Components {
   }
   interface GxgFormRadio {
     /**
-     * The radio id
-     */
-    RadioId: string;
-    /**
      * The presence of this attribute makes the radio selected by default
      */
     checked: boolean;
@@ -778,6 +776,10 @@ export namespace Components {
      * The radio name (should be the same for every radio of the same radio-group)
      */
     name: string;
+    /**
+     * The radio id
+     */
+    radioId: string;
     /**
      * The radio value
      */
@@ -3185,10 +3187,6 @@ declare namespace LocalJSX {
   }
   interface GxgFormRadio {
     /**
-     * The radio id
-     */
-    RadioId?: string;
-    /**
      * The presence of this attribute makes the radio selected by default
      */
     checked?: boolean;
@@ -3209,17 +3207,17 @@ declare namespace LocalJSX {
      */
     name?: string;
     /**
-     * Returns an object with the radio value, and radio id
-     */
-    onChange?: (event: CustomEvent<any>) => void;
-    /**
      * (This event is for internal use)
      */
     onKeyPressed?: (event: CustomEvent<any>) => void;
     /**
-     * (This event is for internal use)
+     * Emits the id and value of the radio when is checked.
      */
-    onRadioClicked?: (event: CustomEvent<any>) => void;
+    onRadioChecked?: (event: CustomEvent<RadioData>) => void;
+    /**
+     * The radio id
+     */
+    radioId?: string;
     /**
      * The radio value
      */
@@ -3238,6 +3236,10 @@ declare namespace LocalJSX {
      * The radio group label
      */
     label?: string;
+    /**
+     * Emits the value when is changed, and the radio id.
+     */
+    onChange?: (event: CustomEvent<RadioData>) => void;
     /**
      * Make the radio-buttons required
      */

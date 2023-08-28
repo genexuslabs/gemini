@@ -27,22 +27,28 @@
     <!-- as column -->
     <span><strong>as column</strong></span
     ><br />
-    <gxg-form-radio-group label="my favorite color" id="first-radio-group">
-      <gxg-form-radio label="red" value="red" disabled></gxg-form-radio>
-      <gxg-form-radio
-        label="blue"
-        value="blue"
-        id="radio-blue"
-      ></gxg-form-radio>
-      <gxg-form-radio label="green" value="green"></gxg-form-radio>
-      <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
-    </gxg-form-radio-group>
+    <div id="radio-group-wrapper">
+      <gxg-form-radio-group
+        value="green"
+        label="my favorite color"
+        id="first-radio-group"
+      >
+        <gxg-form-radio label="red" value="red" disabled></gxg-form-radio>
+        <gxg-form-radio
+          label="blue"
+          value="blue"
+          id="radio-blue"
+        ></gxg-form-radio>
+        <gxg-form-radio label="green" value="green"></gxg-form-radio>
+        <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
+      </gxg-form-radio-group>
+    </div>
 
     <!-- as row -->
     <span><strong>as row</strong></span
     ><br />
 
-    <gxg-form-radio-group row label="my favorite color">
+    <!-- <gxg-form-radio-group row label="my favorite color">
       <gxg-form-radio
         label="red"
         name="colors"
@@ -54,7 +60,6 @@
         name="colors"
         value="blue"
         radio-id="blue"
-        checked
         disabled
       ></gxg-form-radio>
       <gxg-form-radio
@@ -70,7 +75,7 @@
         value="yellow"
         radio-id="yellow"
       ></gxg-form-radio>
-    </gxg-form-radio-group>
+    </gxg-form-radio-group> -->
 
     <gxg-button id="error-btn">Show Error</gxg-button>
     <gxg-button id="warning-btn">Show Warning</gxg-button>
@@ -97,6 +102,11 @@
           "This is a warning message"
         );
         firstRadioGroup.setAttribute("validation-status", "warning");
+      });
+
+      /*Listen to change event*/
+      firstRadioGroup.addEventListener("change", (e) => {
+        console.log("console external", e.detail);
       });
     </script>
   </body>

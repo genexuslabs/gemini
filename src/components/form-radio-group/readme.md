@@ -15,6 +15,12 @@
 | `validationStatus`   | `validation-status`   | The validation status                                                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`              | `value`               | The radio group checked radio value                                                                                                                            | `string`                                               | `undefined`       |
 
+## Events
+
+| Event    | Description                                        | Type                                           |
+| -------- | -------------------------------------------------- | ---------------------------------------------- |
+| `change` | Emits the value when is changed, and the radio id. | `CustomEvent<{ value: string; id?: string; }>` |
+
 ## Dependencies
 
 ### Depends on

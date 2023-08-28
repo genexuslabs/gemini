@@ -15,27 +15,24 @@ import {
   shadow: { delegatesFocus: true },
 })
 export class GxgFormRadio {
+  radioInput!: HTMLInputElement;
+
   /**
    * Styles the radio-button with error attributes
    */
   @Prop() error = false;
 
   /**
-   * Returns an object with the radio value, and radio id
+   * Emits the id and value of the radio when is checked.
    */
-  @Event() change: EventEmitter;
-  /**
-   * (This event is for internal use)
-   */
-  @Event() radioClicked: EventEmitter;
+  @Event() radioChecked: EventEmitter<RadioData>;
+
   /**
    * (This event is for internal use)
    */
   @Event() keyPressed: EventEmitter;
-  @Element() el: HTMLElement;
 
-  //A reference to the input
-  radioInput!: HTMLInputElement;
+  @Element() el: HTMLElement;
 
   /*********************************
   PROPERTIES & STATE
@@ -44,7 +41,7 @@ export class GxgFormRadio {
   /**
    * The radio id
    */
-  @Prop() RadioId: string;
+  @Prop() radioId: string;
 
   /**
    * The presence of this attribute makes the radio selected by default
@@ -76,53 +73,47 @@ export class GxgFormRadio {
   *********************************/
 
   componentDidLoad() {
-    if (this.checked) {
-      this.radioInput.setAttribute("checked", "checked");
-    }
-
-    if (this.disabled && this.checked) {
-      this.radioInput.removeAttribute("checked");
-      this.checked = false;
-    }
+    this.radioInput.addEventListener("change", (e) => {
+      console.log("changed", e);
+    });
   }
 
   @Watch("checked")
-  watchHandler(newValue: boolean) {
-    if (newValue === false) {
-      this.radioInput.removeAttribute("checked");
-    }
-    if (newValue === true) {
-      this.radioInput.setAttribute("checked", "checked");
-      this.change.emit({
-        id: this.RadioId,
+  checkedHandler(newValue: boolean): void {
+    if (newValue) {
+      this.radioChecked.emit({
+        id: this.radioId,
         value: this.value,
       });
     }
   }
 
-  private clickedHandler = () => {
-    this.radioClicked.emit();
+  private clickedHandler = (): void => {
+    this.checked = true;
   };
 
-  handlerOnKeyDown(event) {
+  private handlerOnKeyDown(event): void {
     this.keyPressed.emit(event.key);
   }
 
-  render() {
+  render(): void {
     return (
-      <Host
-        onClick={this.clickedHandler}
-        class={{ "gxg-form-radio--disabled": this.disabled }}
-      >
-        <gxg-label noMargin class="label" disabled={this.disabled}>
+      <Host class={{ "gxg-form-radio--disabled": this.disabled }}>
+        <gxg-label
+          noMargin
+          class="label"
+          disabled={this.disabled}
+          onClick={this.clickedHandler}
+        >
           <input
             ref={(el) => (this.radioInput = el as HTMLInputElement)}
             type="radio"
             name={this.name}
-            id={this.RadioId}
             value={this.value}
             disabled={this.disabled}
             onKeyDown={this.handlerOnKeyDown.bind(this)}
+            checked={this.checked}
+            class={{ checked: this.checked && !this.disabled }}
           ></input>
           <span
             class={{ radiobtn: true, "radiobtn--error": this.error }}
@@ -133,3 +124,8 @@ export class GxgFormRadio {
     );
   }
 }
+
+export type RadioData = {
+  value: string;
+  id?: string;
+};

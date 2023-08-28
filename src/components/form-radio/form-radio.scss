@@ -119,7 +119,7 @@
   }
 
   /* Show the indicator (dot/circle) when checked */
-  .label input[checked] ~ .radiobtn:after {
+  .label input.checked ~ .radiobtn:after {
     display: block;
     transform: translateY(-50%) translateX(-50%);
     width: 8px;
@@ -139,7 +139,7 @@
 :host([disabled]) {
   pointer-events: none;
   .radiobtn,
-  .label input[checked] ~ .radiobtn {
+  .label input.checked ~ .radiobtn {
     border-color: var(--gxg-border-color--disabled);
   }
   .radiobtn:after {
