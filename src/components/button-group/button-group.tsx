@@ -1,5 +1,6 @@
 import { Component, Element, h, Host, Prop, State } from "@stencil/core";
 import state from "../store";
+import { TitleAlignment } from "../../common/types";
 
 @Component({
   tag: "gxg-button-group",
@@ -200,5 +201,3 @@ export class GxgButtonGroup {
     );
   }
 }
-
-export type TitleAlignment = "left" | "center" | "right";

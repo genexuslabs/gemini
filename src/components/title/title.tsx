@@ -1,5 +1,6 @@
 import { Component, Host, Prop, h } from "@stencil/core";
 import state from "../store";
+import { TitleAlignment } from "../../common/types";
 
 @Component({
   tag: "gxg-title",
@@ -52,5 +53,3 @@ export type TitleType =
   | "title-03"
   | "title-04"
   | "title-05";
-
-export type TitleAlignment = "start" | "center" | "end";

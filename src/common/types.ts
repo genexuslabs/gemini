@@ -12,3 +12,5 @@ export type ValidationStatus =
   | "warning"
   | "error"
   | "success";
+
+export type TitleAlignment = "start" | "center" | "end";
