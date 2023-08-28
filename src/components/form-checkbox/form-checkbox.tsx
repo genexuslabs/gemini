@@ -149,6 +149,7 @@ export class GxgFormCheckbox implements FormComponent {
     this.change.emit({
       id: this.checkboxId,
       value: this.checked,
+      disabled: this.disabled,
     });
   }
 
@@ -278,4 +279,5 @@ export class GxgFormCheckbox implements FormComponent {
 export type CheckboxInfo = {
   id: string;
   value: boolean;
+  disabled?: boolean;
 };

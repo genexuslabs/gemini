@@ -30,14 +30,14 @@
 
 ## Properties
 
-| Property               | Attribute                 | Description                                                      | Type                            | Default     |
-| ---------------------- | ------------------------- | ---------------------------------------------------------------- | ------------------------------- | ----------- |
-| `buttonGroupTitle`     | `button-group-title`      | The button-group title                                           | `string`                        | `undefined` |
-| `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to be active by default | `string`                        | `undefined` |
-| `disabled`             | `disabled`                | Wether the button group is disabled or not                       | `boolean`                       | `false`     |
-| `fullWidth`            | `full-width`              | The presence of this attribute makes the component full-width    | `boolean`                       | `false`     |
-| `outlined`             | `outlined`                | The presence of this attribute makes the button group outlined   | `boolean`                       | `false`     |
-| `titleAlignment`       | `title-alignment`         | The button group title alignment                                 | `"center" \| "left" \| "right"` | `"left"`    |
+| Property               | Attribute                 | Description                                                      | Type                           | Default     |
+| ---------------------- | ------------------------- | ---------------------------------------------------------------- | ------------------------------ | ----------- |
+| `buttonGroupTitle`     | `button-group-title`      | The button-group title                                           | `string`                       | `undefined` |
+| `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to be active by default | `string`                       | `undefined` |
+| `disabled`             | `disabled`                | Wether the button group is disabled or not                       | `boolean`                      | `false`     |
+| `fullWidth`            | `full-width`              | The presence of this attribute makes the component full-width    | `boolean`                      | `false`     |
+| `outlined`             | `outlined`                | The presence of this attribute makes the button group outlined   | `boolean`                      | `false`     |
+| `titleAlignment`       | `title-alignment`         | The button group title alignment                                 | `"center" \| "end" \| "start"` | `"start"`   |
 
 ## Dependencies
 

@@ -33,9 +33,9 @@
 
 ## Events
 
-| Event    | Description | Type                                           |
-| -------- | ----------- | ---------------------------------------------- |
-| `change` |             | `CustomEvent<{ id: string; value: boolean; }>` |
+| Event    | Description | Type                                                               |
+| -------- | ----------- | ------------------------------------------------------------------ |
+| `change` |             | `CustomEvent<{ id: string; value: boolean; disabled?: boolean; }>` |
 
 ## Shadow Parts
 

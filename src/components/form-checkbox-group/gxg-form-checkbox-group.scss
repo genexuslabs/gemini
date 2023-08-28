@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+.checkboxes-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gxg-form-control-gap--vertical);
+
+  &--row {
+    flex-direction: row;
+    gap: var(--gxg-form-control-gap--horizontal);
+  }
+}

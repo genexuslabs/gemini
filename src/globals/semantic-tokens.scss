@@ -1,5 +1,7 @@
 :root {
   --gxg-form-text-height: 20px;
+  --gxg-form-control-gap--vertical: var(--spacing-comp-03);
+  --gxg-form-control-gap--horizontal: var(--spacing-comp-03);
   --gxg-label-margin-horizontal: var(--spacing-lay-s);
   --gxg-label-margin-vertical: var(--spacing-lay-xs);
   --gxg-border-common-styles: var(--border-width-sm) solid

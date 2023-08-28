@@ -16,7 +16,7 @@ import {
 } from "./components/alert/alert";
 import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
-import { TitleAlignment } from "./components/button-group/button-group";
+import { TitleAlignment, ValidationStatus } from "./common/types";
 import {
   background as background1,
   elevation,
@@ -26,7 +26,6 @@ import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { LabelPosition, ListPosition } from "./components/combo-box/combo-box";
 import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
-import { ValidationStatus } from "./common/types";
 import {
   ComboBoxItemValue as ComboBoxItemValue1,
   ItemInformation,
@@ -40,6 +39,7 @@ import { DatePickerDate } from "./components/date-picker/date-picker";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
+import { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form-checkbox-group";
 import { Message } from "./components/form-message/form-message";
 import { RadioData } from "./components/form-radio/form-radio";
 import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
@@ -87,10 +87,7 @@ import {
   TextPadding,
   TextType,
 } from "./components/text/text";
-import {
-  TitleAlignment as TitleAlignment1,
-  TitleType,
-} from "./components/title/title";
+import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { ToggledGxgTreeItem } from "./components/tree/gxg-tree";
@@ -751,6 +748,12 @@ export namespace Components {
      * The checkbox value
      */
     value: string;
+  }
+  interface GxgFormCheckboxGroup {
+    /**
+     * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
+     */
+    row: boolean;
   }
   interface GxgFormMessage {
     /**
@@ -2058,6 +2061,13 @@ declare global {
     prototype: HTMLGxgFormCheckboxElement;
     new (): HTMLGxgFormCheckboxElement;
   };
+  interface HTMLGxgFormCheckboxGroupElement
+    extends Components.GxgFormCheckboxGroup,
+      HTMLStencilElement {}
+  var HTMLGxgFormCheckboxGroupElement: {
+    prototype: HTMLGxgFormCheckboxGroupElement;
+    new (): HTMLGxgFormCheckboxGroupElement;
+  };
   interface HTMLGxgFormMessageElement
     extends Components.GxgFormMessage,
       HTMLStencilElement {}
@@ -2410,6 +2420,7 @@ declare global {
     "gxg-filter": HTMLGxgFilterElement;
     "gxg-filter-item": HTMLGxgFilterItemElement;
     "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
+    "gxg-form-checkbox-group": HTMLGxgFormCheckboxGroupElement;
     "gxg-form-message": HTMLGxgFormMessageElement;
     "gxg-form-radio": HTMLGxgFormRadioElement;
     "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
@@ -3185,6 +3196,13 @@ declare namespace LocalJSX {
      * The checkbox value
      */
     value?: string;
+  }
+  interface GxgFormCheckboxGroup {
+    onGroupValuesChanged?: (event: CustomEvent<CheckboxesGroupValues>) => void;
+    /**
+     * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
+     */
+    row?: boolean;
   }
   interface GxgFormMessage {
     /**
@@ -4410,6 +4428,7 @@ declare namespace LocalJSX {
     "gxg-filter": GxgFilter;
     "gxg-filter-item": GxgFilterItem;
     "gxg-form-checkbox": GxgFormCheckbox;
+    "gxg-form-checkbox-group": GxgFormCheckboxGroup;
     "gxg-form-message": GxgFormMessage;
     "gxg-form-radio": GxgFormRadio;
     "gxg-form-radio-group": GxgFormRadioGroup;
@@ -4514,6 +4533,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFilterItemElement>;
       "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
         JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
+      "gxg-form-checkbox-group": LocalJSX.GxgFormCheckboxGroup &
+        JSXBase.HTMLAttributes<HTMLGxgFormCheckboxGroupElement>;
       "gxg-form-message": LocalJSX.GxgFormMessage &
         JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
       "gxg-form-radio": LocalJSX.GxgFormRadio &

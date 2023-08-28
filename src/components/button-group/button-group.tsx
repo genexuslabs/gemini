@@ -22,7 +22,7 @@ export class GxgButtonGroup {
   /**
   The button group title alignment
   */
-  @Prop({ reflect: true }) titleAlignment: TitleAlignment = "left";
+  @Prop({ reflect: true }) titleAlignment: TitleAlignment = "start";
 
   /**
   The id of the button that you would like to be active by default

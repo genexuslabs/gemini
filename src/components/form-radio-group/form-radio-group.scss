@@ -11,7 +11,7 @@
   .radios-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-comp-02);
+    gap: var(--gxg-form-control-gap--vertical);
   }
 }
 .messages-wrapper {
@@ -20,7 +20,7 @@
 :host(.gxg-form-radio-group--row) {
   .radios-wrapper {
     flex-direction: row;
-    gap: var(--spacing-comp-04);
+    gap: var(--gxg-form-control-gap--horizontal);
     align-items: center;
   }
 }

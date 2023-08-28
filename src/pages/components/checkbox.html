@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -22,10 +22,16 @@
       span {
         font-size: 12px;
         font-weight: bold;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
         display: inline-block;
+        color: rgb(59, 41, 181);
       }
-      gxg-form-checkbox {
+      .buttons-group {
+        display: flex;
+        gap: 8px;
+        margin: 16px 0;
+      }
+      gxg-form-checkbox-group {
         margin-bottom: 16px;
       }
     </style>
@@ -40,6 +46,8 @@
       display-validation-styles
     ></gxg-form-checkbox>
 
+    <hr />
+
     <!-- no label enabled -->
     <span>no label enabled</span>
     <gxg-form-checkbox
@@ -49,6 +57,8 @@
       information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
       display-validation-styles
     ></gxg-form-checkbox>
+
+    <hr />
 
     <!-- no label disabled -->
     <span>no label disabled</span>
@@ -62,6 +72,8 @@
       disabled
     ></gxg-form-checkbox>
 
+    <hr />
+
     <!-- disabled -->
     <span>disabled</span>
     <gxg-form-checkbox
@@ -74,6 +86,8 @@
       display-validation-message
       disabled
     ></gxg-form-checkbox>
+
+    <hr />
 
     <!-- disabled checked-->
     <span>disabled checked</span>
@@ -89,6 +103,8 @@
       checked
     ></gxg-form-checkbox>
 
+    <hr />
+
     <!-- enabled -->
     <span>enabled</span>
     <gxg-form-checkbox
@@ -100,6 +116,8 @@
       display-validation-styles
       display-validation-message
     ></gxg-form-checkbox>
+
+    <hr />
 
     <!-- enabled checked -->
     <span>enabled checked</span>
@@ -114,6 +132,8 @@
       checked
     ></gxg-form-checkbox>
 
+    <hr />
+
     <!-- indeterminate -->
     <span>indeterminate</span>
     <gxg-form-checkbox
@@ -127,10 +147,82 @@
       indeterminate
     ></gxg-form-checkbox>
 
-    <br />
-    <gxg-button id="validate-btn">Validate</gxg-button>
-    <br />
-    <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
+    <hr />
+
+    <div class="buttons-group">
+      <gxg-button id="validate-btn">Validate</gxg-button>
+      <gxg-button type="primary-text-only" id="button"> focus </gxg-button>
+    </div>
+
+    <hr />
+
+    <!-- as group (column) -->
+    <span>checkboxs group (column)</span>
+    <gxg-form-checkbox-group
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+    >
+      <gxg-form-checkbox id="red" value="Red" label="Red"></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="blue"
+        value="Blue"
+        label="Blue"
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="green"
+        value="Green"
+        label="Green"
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="yellow"
+        value="Yellow"
+        label="Yellow"
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="purple"
+        value="Purple"
+        label="Purple"
+      ></gxg-form-checkbox>
+    </gxg-form-checkbox-group>
+
+    <script>
+      const radioGroup = document.querySelector("gxg-form-checkbox-group");
+      radioGroup.addEventListener("groupValuesChanged", (e) => {
+        console.log(e.detail);
+      });
+    </script>
+
+    <!-- as group (row) -->
+    <span>checkboxs group (row)</span>
+    <gxg-form-checkbox-group
+      row
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+    >
+      <gxg-form-checkbox id="red" value="Red" label="Red"></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="blue"
+        value="Blue"
+        label="Blue"
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="green"
+        value="Green"
+        label="Green"
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="yellow"
+        value="Yellow"
+        label="Yellow"
+      ></gxg-form-checkbox>
+      <gxg-form-checkbox
+        checkbox-id="purple"
+        value="Purple"
+        label="Purple"
+      ></gxg-form-checkbox>
+    </gxg-form-checkbox-group>
+
+    <!-- script -->
     <script>
       const button = document.getElementById("button");
       const checkbox = document.getElementById("show-inherited-classes");
