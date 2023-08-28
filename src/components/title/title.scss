@@ -8,8 +8,8 @@
   h4,
   h5 {
     margin: 0;
-    color: var(--color-on-background);
-    background-color: var(--color-background);
+    color: inherit;
+    background-color: transparent;
   }
 }
 
