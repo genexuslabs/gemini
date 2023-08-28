@@ -22,6 +22,7 @@ import { RadioData } from "../form-radio/form-radio";
 export class GxgFormRadioGroup implements FormComponent {
   showValidationMessage = false;
   private valueBeforeDisabled;
+  private _componentDidLoad = false;
 
   @Element() el: HTMLElement;
 
@@ -87,7 +88,6 @@ export class GxgFormRadioGroup implements FormComponent {
 
   @Watch("disabled")
   disabledHandler(newValue): void {
-    console.log("newValue", newValue);
     if (newValue === true) {
       this.disableAllRadios();
       this.valueBeforeDisabled = this.value;
@@ -104,10 +104,13 @@ export class GxgFormRadioGroup implements FormComponent {
       newValue
     );
     this.uncheckAll(newCheckedRadio);
-    this.change.emit({
-      id: newCheckedRadio.radioId,
-      value: this.value,
-    });
+    if (this._componentDidLoad) {
+      //_componentDidLoad prevents change event being emitted the first time.
+      this.change.emit({
+        id: newCheckedRadio.radioId,
+        value: this.value,
+      });
+    }
   }
 
   @Listen("radioChecked")
@@ -152,6 +155,10 @@ export class GxgFormRadioGroup implements FormComponent {
       this.disableAllRadios();
     }
     this.setValue();
+  }
+
+  componentDidLoad() {
+    this._componentDidLoad = true;
   }
 
   renderLabel(): void {
