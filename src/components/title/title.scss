@@ -11,6 +11,35 @@
   }
 }
 
+/*Aligment*/
+:host([alignment="start"]) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: start;
+  }
+}
+:host([alignment="center"]) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: center;
+  }
+}
+:host([alignment="end"]) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: end;
+  }
+}
+
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/

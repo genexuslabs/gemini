@@ -12,6 +12,11 @@ export class GxgTitle {
    */
   @Prop() type: TitleType = "title-01";
 
+  /**
+   * Title type
+   */
+  @Prop({ reflect: true }) alignment: TitleAlignment = "start";
+
   titleType() {
     let title;
     switch (this.type) {
@@ -31,7 +36,7 @@ export class GxgTitle {
         title = <h5 class="gxg-title-05">{<slot></slot>}</h5>;
         break;
       default:
-        title = <h1 class="gxg-title-01">{<slot></slot>}</h1>;
+        title = <h1 class="gxg-title-06">{<slot></slot>}</h1>;
     }
     return title;
   }
@@ -47,3 +52,5 @@ export type TitleType =
   | "title-03"
   | "title-04"
   | "title-05";
+
+export type TitleAlignment = "start" | "center" | "end";

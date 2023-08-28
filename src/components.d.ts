@@ -87,7 +87,10 @@ import {
   TextPadding,
   TextType,
 } from "./components/text/text";
-import { TitleType } from "./components/title/title";
+import {
+  TitleAlignment as TitleAlignment1,
+  TitleType,
+} from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import { ToggledGxgTreeItem } from "./components/tree/gxg-tree";
@@ -1655,6 +1658,10 @@ export namespace Components {
     type: TextType;
   }
   interface GxgTitle {
+    /**
+     * Title type
+     */
+    alignment: TitleAlignment;
     /**
      * Title type
      */
@@ -4164,6 +4171,10 @@ declare namespace LocalJSX {
     type?: TextType;
   }
   interface GxgTitle {
+    /**
+     * Title type
+     */
+    alignment?: TitleAlignment;
     /**
      * Title type
      */

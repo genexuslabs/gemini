@@ -16,9 +16,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                                 | Default      |
-| -------- | --------- | ----------- | -------------------------------------------------------------------- | ------------ |
-| `type`   | `type`    | Title type  | `"title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"title-01"` |
+| Property    | Attribute   | Description | Type                                                                 | Default      |
+| ----------- | ----------- | ----------- | -------------------------------------------------------------------- | ------------ |
+| `alignment` | `alignment` | Title type  | `"center" \| "end" \| "start"`                                       | `"start"`    |
+| `type`      | `type`      | Title type  | `"title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"title-01"` |
 
 ## Dependencies
 
