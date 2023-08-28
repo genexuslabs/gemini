@@ -72,12 +72,18 @@
             label="Label Success"
             show-label
             label-position="above"
-            id="ch-suggest"
+            id="ch-suggest-success"
           ></ch-suggest>
         </gxg-suggest>
         <button id="select-text-btn" style="margin: 8px 0">Select text</button>
         <script>
           const chSuggest = document.querySelector("ch-suggest");
+
+          /*Listen to selectionChanged*/
+          chSuggest.addEventListener("itemSelected", (e) => {
+            console.log("itemSelected", e.detail);
+          });
+
           chSuggest.cursorEnd = false;
           const selectTextBtn = document.getElementById("select-text-btn");
           selectTextBtn.addEventListener("click", async function () {

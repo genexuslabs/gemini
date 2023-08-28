@@ -312,9 +312,8 @@ export class GxgFormText implements FormComponent {
   }
 
   clearButtonFunc(): void {
-    const value = (this.el.shadowRoot.querySelector("input").value = "");
-    this.change.emit(value);
-    this.clearButtonClicked.emit("clear button was clicked");
+    this.clearButtonClicked.emit({ prevValue: this.value });
+    this.value = "";
   }
 
   updateGhostSpan(): void {

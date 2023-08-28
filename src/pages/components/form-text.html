@@ -28,7 +28,7 @@
     <gxg-form-text
       id="first-form-text-1"
       id="first-form-text"
-      label="Full name"
+      label="Full name 1"
       placeholder="John Smith"
       value="hola"
       min-length="2"
@@ -48,7 +48,7 @@
     <br />
     <gxg-form-text
       id="first-form-text-2"
-      label="Full name"
+      label="Full name 2"
       placeholder="John Smith"
       value="hola"
       min-length="2"
@@ -85,7 +85,7 @@
     <gxg-form-text
       icon="gemini-tools/edit"
       icon-position="start"
-      label="Full name"
+      label="Full name 4"
       placeholder="John Smith"
       id="gxg-form-text"
       error
@@ -94,7 +94,7 @@
     <gxg-form-text
       icon="gemini-tools/edit"
       icon-position="start"
-      label="Full name"
+      label="Full name 5"
       placeholder="John Smith"
       id="gxg-form-text"
       disabled
@@ -103,7 +103,7 @@
     <gxg-form-text
       icon="gemini-tools/edit"
       icon-position="end"
-      label="Full name"
+      label="Full name 6"
       placeholder="John Smith"
       id="gxg-form-text"
     ></gxg-form-text>
@@ -112,16 +112,16 @@
       clear-button
       icon="gemini-tools/edit"
       icon-position="start"
-      label="Full name"
+      label="Full name 7"
       placeholder="John Smith"
-      id="gxg-form-text"
+      id="gxg-form-text-7"
     ></gxg-form-text>
     <br />
     <gxg-form-text
       clear-button
       icon="gemini-tools/edit"
       icon-position="end"
-      label="Full name"
+      label="Full name 8"
       placeholder="John Smith"
       id="gxg-form-text"
     ></gxg-form-text>
@@ -162,6 +162,14 @@
       });
       validateBtn2.addEventListener("click", function () {
         firstFormText2.validate();
+      });
+
+      const inputText7 = document.getElementById("gxg-form-text-7");
+      inputText7.addEventListener("clearButtonClicked", (e) => {
+        console.log("clearButtonClicked", e.detail);
+      });
+      inputText7.addEventListener("valueChanged", (e) => {
+        console.log("valueChanged", e.detail);
       });
     </script>
   </body>

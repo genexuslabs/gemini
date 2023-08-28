@@ -5,10 +5,6 @@ export const repositionScroll = (
   activeItem: HTMLElement,
   direction: typeof KK.ARROW_UP | typeof KK.ARROW_DOWN
 ): void => {
-  console.log("scrollableElement", scollableElementRef);
-  console.log("activeItem", activeItem);
-  console.log("direction", direction);
-  console.log("=================");
   const scrollableElement = scollableElementRef;
   const hasVerticalScrollbar =
     scrollableElement?.scrollHeight > scrollableElement?.clientHeight;

@@ -18,7 +18,7 @@ import {
 import { IconPosition } from "../form-text/form-text";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
-import { repositionScroll } from "../../common/repositionScroll";
+import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
 import { exportParts } from "../../common/export-parts";
 import state from "../store";

@@ -15,7 +15,7 @@ import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { commonClassesNames } from "../../common/classesNames";
-import { repositionScroll } from "../../common/repositionScroll";
+import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
 import state from "../store";
 import { ItemClicked, ItemChecked } from "../list-box-item/list-box-item";
