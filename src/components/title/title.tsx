@@ -22,22 +22,46 @@ export class GxgTitle {
     let title;
     switch (this.type) {
       case "title-01":
-        title = <h1 class="gxg-title-01">{<slot></slot>}</h1>;
+        title = (
+          <h1 class="gxg-title-01" part="title">
+            {<slot></slot>}
+          </h1>
+        );
         break;
       case "title-02":
-        title = <h2 class="gxg-title-02">{<slot></slot>}</h2>;
+        title = (
+          <h2 class="gxg-title-02" part="title">
+            {<slot></slot>}
+          </h2>
+        );
         break;
       case "title-03":
-        title = <h3 class="gxg-title-03">{<slot></slot>}</h3>;
+        title = (
+          <h3 class="gxg-title-03" part="title">
+            {<slot></slot>}
+          </h3>
+        );
         break;
       case "title-04":
-        title = <h4 class="gxg-title-04">{<slot></slot>}</h4>;
+        title = (
+          <h4 class="gxg-title-04" part="title">
+            {<slot></slot>}
+          </h4>
+        );
         break;
       case "title-05":
-        title = <h5 class="gxg-title-05">{<slot></slot>}</h5>;
+        title = (
+          <h5 class="gxg-title-05" part="title">
+            {<slot></slot>}
+          </h5>
+        );
         break;
       default:
-        title = <h1 class="gxg-title-06">{<slot></slot>}</h1>;
+        title = (
+          <h1 class="gxg-title-06" part="title">
+            {<slot></slot>}
+          </h1>
+        );
     }
     return title;
   }

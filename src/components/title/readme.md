@@ -21,6 +21,12 @@
 | `alignment` | `alignment` | Title type  | `"center" \| "end" \| "start"`                                       | `"start"`    |
 | `type`      | `type`      | Title type  | `"title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"title-01"` |
 
+## Shadow Parts
+
+| Part      | Description |
+| --------- | ----------- |
+| `"title"` |             |
+
 ## Dependencies
 
 ### Used by
