@@ -28,7 +28,7 @@
   <body>
     <button>hello</button>
     <div class="tabs-container">
-      <gxg-tabs id="gxgTabs" position="right">
+      <gxg-tabs id="gxgTabs" position="top">
         <gxg-tab-bar slot="tab-bar-container" id="tab-bar">
           <gxg-tab-button
             slot="tab-bar"
@@ -36,7 +36,6 @@
             tab="apples"
             key="apples"
             is-selected
-            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
@@ -50,6 +49,7 @@
             tab="cherries"
             key="cherries"
             icon="gemini-tools/settings"
+            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
@@ -57,64 +57,72 @@
             tab="strawberries"
             key="strawberries"
             icon="gemini-tools/settings"
+            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
             tab-label="tomatoes"
             tab="tomatoes"
             key="tomatoes"
+            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
             tab-label="potatoes"
             tab="potatoes"
             key="potatoes"
+            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
             tab-label="garlic"
             tab="garlic"
             key="garlic"
+            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
             tab-label="onion"
             tab="onion"
             key="onion"
+            hidden
           ></gxg-tab-button>
         </gxg-tab-bar>
-        <gxg-tab tab="apples" key="apples" isSelected="true">
-          An apple is a sweet, edible fruit produced by an apple tree. Apple
-          trees are cultivated worldwide and are the most widely grown species
-          in the genus Malus. The tree originated in Central Asia, where its
-          wild ancestor, Malus sieversii, is still found today. An apple is a
-          sweet, edible fruit produced by an apple tree. Apple trees are
-          cultivated worldwide and are the most widely grown species in the
-          genus Malus. The tree originated in Central Asia, where its wild
-          ancestor, Malus sieversii, is still found today. An apple is a sweet,
-          edible fruit produced by an apple tree. Apple trees are cultivated
-          worldwide and are the most widely grown species in the genus Malus.
-          The tree originated in Central Asia, where its wild ancestor, Malus
-          sieversii, is still found today. An apple is a sweet, edible fruit
-          produced by an apple tree. Apple trees are cultivated worldwide and
-          are the most widely grown species in the genus Malus. The tree
-          originated in Central Asia, where its wild ancestor, Malus sieversii,
-          is still found today. An apple is a sweet, edible fruit produced by an
-          apple tree. Apple trees are cultivated worldwide and are the most
-          widely grown species in the genus Malus. The tree originated in
-          Central Asia, where its wild ancestor, Malus sieversii, is still found
-          today. An apple is a sweet, edible fruit produced by an apple tree.
-          Apple trees are cultivated worldwide and are the most widely grown
-          species in the genus Malus. The tree originated in Central Asia, where
-          its wild ancestor, Malus sieversii, is still found today. An apple is
-          a sweet, edible fruit produced by an apple tree. Apple trees are
-          cultivated worldwide and are the most widely grown species in the
-          genus Malus. The tree originated in Central Asia, where its wild
-          ancestor, Malus sieversii, is still found today. An apple is a sweet,
-          edible fruit produced by an apple tree. Apple trees are cultivated
-          worldwide and are the most widely grown species in the genus Malus.
-          The tree originated in Central Asia, where its wild ancestor, Malus
-          sieversii, is still found today.
+        <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
+          <p>
+            An apple is a sweet, edible fruit produced by an apple tree. Apple
+            trees are cultivated worldwide and are the most widely grown species
+            in the genus Malus. The tree originated in Central Asia, where its
+            wild ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today. An apple is a
+            sweet, edible fruit produced by an apple tree. Apple trees are
+            cultivated worldwide and are the most widely grown species in the
+            genus Malus. The tree originated in Central Asia, where its wild
+            ancestor, Malus sieversii, is still found today.
+          </p>
         </gxg-tab>
         <gxg-tab tab="bananas" key="bananas" isSelected="false">
           A banana is an elongated, edible fruit – botanically a berry –
