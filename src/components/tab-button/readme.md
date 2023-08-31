@@ -7,6 +7,7 @@
 | Property     | Attribute     | Description                                                                                | Type      | Default |
 | ------------ | ------------- | ------------------------------------------------------------------------------------------ | --------- | ------- |
 | `disabled`   | `disabled`    | Provide this attribute to make this button disabled                                        | `boolean` | `false` |
+| `hidden`     | `hidden`      | Hides the tab button                                                                       | `boolean` | `false` |
 | `icon`       | `icon`        | (Optional) provide an icon to this button                                                  | `string`  | `null`  |
 | `isSelected` | `is-selected` | Provide this attribute to make this button selected by default                             | `boolean` | `false` |
 | `tab`        | `tab`         | The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element | `string`  | `null`  |

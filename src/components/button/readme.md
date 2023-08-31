@@ -37,6 +37,12 @@
 | `negative`             | `negative`               | The prescence of this attribute turns the icon white                                                                                     | `boolean`                                                                                                                                                                                          | `false`               |
 | `type`                 | `type`                   | The kind of button                                                                                                                       | `"outlined" \| "outlined-text-icon" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
 
+## Shadow Parts
+
+| Part     | Description |
+| -------- | ----------- |
+| `"icon"` |             |
+
 ## Dependencies
 
 ### Used by

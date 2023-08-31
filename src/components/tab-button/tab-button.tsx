@@ -26,6 +26,11 @@ export class GxgTabButton {
   tabButton!: HTMLButtonElement;
 
   /**
+   * Hides the tab button
+   */
+  @Prop() hidden = false;
+
+  /**
    * The button label
    */
   @Prop() tabLabel: string = null;
@@ -71,6 +76,15 @@ export class GxgTabButton {
     }
   }
 
+  @Watch("hidden")
+  hiddenHandler(hidden: boolean) {
+    if (hidden) {
+      this.el.setAttribute("tabindex", "-1");
+    } else {
+      this.el.removeAttribute("tabindex");
+    }
+  }
+
   buttonClickHandler() {
     this.isSelected = true;
     const index = parseInt(this.el.getAttribute("data-index"), 10);
@@ -79,6 +93,7 @@ export class GxgTabButton {
       index: index,
     });
   }
+
   buttonKeyDownHandler(e) {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
       this.PrevOrNextTab.emit({
@@ -89,6 +104,7 @@ export class GxgTabButton {
       e.preventDefault();
     }
   }
+
   printIcon() {
     if (this.icon !== null) {
       if (this.disabled) {
@@ -100,6 +116,7 @@ export class GxgTabButton {
 
   componentWillLoad() {
     this.attachExportParts();
+    this.hiddenHandler(this.hidden);
   }
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
@@ -127,6 +144,7 @@ export class GxgTabButton {
             disabled={this.disabled}
             class={{
               "tab-button": true,
+              "tab-button--hidden": this.hidden,
               "tab-button--selected": this.isSelected === true,
               "tab-button--text-icon":
                 this.tabLabel !== null && this.icon !== null,

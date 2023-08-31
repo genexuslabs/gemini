@@ -86,21 +86,28 @@ export class GxgTabBar {
 
   @Listen("PrevOrNextTab")
   PrevOrNextTabHandler(e) {
-    const originTab = this.el.querySelector(
-      `gxg-tab-button[tab='${e.detail["originTab"]}']`
-    );
-    let destinationTab: GxgTabButton = null;
+    const tabEnabledButtons: HTMLGxgTabButtonElement[] = [];
+    const allTabButtons = this.el.querySelectorAll("gxg-tab-button");
 
-    if (e.detail["arrowPressed"] === "ArrowRight") {
-      const nextTabButton = (originTab.nextElementSibling as unknown) as GxgTabButton;
-      if (nextTabButton) {
-        destinationTab = nextTabButton;
-      }
-    } else if (e.detail["arrowPressed"] === "ArrowLeft") {
-      const prevTabButton = (originTab.previousElementSibling as unknown) as GxgTabButton;
-      if (prevTabButton) {
-        destinationTab = prevTabButton;
-      }
+    if (allTabButtons) {
+      allTabButtons.forEach((tabButton) => {
+        if (!tabButton.disabled && !tabButton.hidden) {
+          tabEnabledButtons.push(tabButton);
+        }
+      });
+    }
+
+    const arrowPressed: string = e.detail["arrowPressed"];
+    const targetButton: HTMLGxgTabButtonElement = e.target;
+    const clickedButtonIndex = tabEnabledButtons.findIndex((button) => {
+      return button === targetButton;
+    });
+
+    let destinationTab: HTMLGxgTabButtonElement;
+    if (arrowPressed === "ArrowLeft" && clickedButtonIndex !== -1) {
+      destinationTab = tabEnabledButtons[clickedButtonIndex - 1];
+    } else if (arrowPressed === "ArrowRight" && clickedButtonIndex !== -1) {
+      destinationTab = tabEnabledButtons[clickedButtonIndex + 1];
     }
     if (destinationTab) {
       destinationTab.tabButtonClick();

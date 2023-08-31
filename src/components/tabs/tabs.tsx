@@ -6,6 +6,7 @@ import {
   h,
   State,
   Prop,
+  Method,
 } from "@stencil/core";
 import { GxgTab } from "../tab/tab";
 
@@ -58,6 +59,21 @@ export class GxgTabs {
       });
     }
   }
+
+  @Method()
+  async setActiveTab(tab: string) {
+    if (tab) {
+      const tabEl = this.getTab(tab);
+      if (!tabEl?.disabled) {
+        this.updateActiveChildren(tab, "gxg-tab-button");
+        this.updateActiveChildren(tab, "gxg-tab");
+      }
+    }
+  }
+
+  private getTab = (tab: string): HTMLGxgTabButtonElement => {
+    return this.el.querySelector(`gxg-tab-button[key=${tab}]`);
+  };
 
   render() {
     return (

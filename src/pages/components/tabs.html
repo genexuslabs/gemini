@@ -21,7 +21,7 @@
       .tabs-container {
         margin-right: 200px;
         background-color: beige;
-        height: 100vh;
+        height: 50vh;
       }
     </style>
   </head>
@@ -35,7 +35,7 @@
             tab="apples"
             key="apples"
             is-selected
-            disabled
+            hidden
           ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
@@ -55,7 +55,6 @@
             tab-label="strawberries"
             tab="strawberries"
             key="strawberries"
-            disabled
             icon="gemini-tools/settings"
           ></gxg-tab-button>
           <gxg-tab-button
@@ -163,11 +162,16 @@
         </gxg-tab>
       </gxg-tabs>
     </div>
-
+    <br />
+    <gxg-button id="activate-tomatoes">Activate Tomatoes</gxg-button>
     <script>
       gxgTabs = document.getElementById("gxgTabs");
       gxgTabs.addEventListener("tabActivated", function (e) {
         //console.log(e.detail);
+      });
+      const activateTomatoes = document.getElementById("activate-tomatoes");
+      activateTomatoes.addEventListener("click", () => {
+        gxgTabs.setActiveTab("tomatoes");
       });
     </script>
   </body>

@@ -148,15 +148,15 @@ export class GxgTest {
 
             {this.showGridData && [
               <ch-grid-row rowid="123">
-                <ch-grid-cell></ch-grid-cell>
+                <ch-grid-cell ref={(el) => (el.type = "rich")}></ch-grid-cell>
                 <ch-grid-cell>Nombre</ch-grid-cell>
                 <ch-grid-cell>Productos</ch-grid-cell>
               </ch-grid-row>,
               <ch-grid-rowset>
                 <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
 
-                <ch-grid-row>
-                  <ch-grid-cell></ch-grid-cell>
+                <ch-grid-row rowSelector={true}>
+                  <ch-grid-cell rowSelector={true}></ch-grid-cell>
                   <ch-grid-cell>Nombre</ch-grid-cell>
                   <ch-grid-cell>Productos</ch-grid-cell>
                 </ch-grid-row>

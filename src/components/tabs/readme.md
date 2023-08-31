@@ -121,6 +121,14 @@
 | `noPadding` | `no-padding` | The presence of this attribute removes each tab .container padding | `boolean`                                | `false`   |
 | `position`  | `position`   |                                                                    | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
 
+## Methods
+
+### `setActiveTab(tab: string) => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

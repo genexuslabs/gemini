@@ -84,6 +84,9 @@
     &--text-icon gxg-icon {
       margin-right: var(--spacing-comp-02);
     }
+    &--hidden {
+      display: none;
+    }
   }
   .tab-button__text {
     display: inline-block;

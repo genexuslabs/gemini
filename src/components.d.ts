@@ -76,6 +76,7 @@ import {
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
 import { LabelPosition as LabelPosition4 } from "./components/stepper/stepper";
+import { TabContainerFlexDirection } from "./components/tab/tab";
 import { TabsPosition } from "./components/tabs/tabs";
 import {
   GxgTreeItemData,
@@ -1599,6 +1600,14 @@ export namespace Components {
   }
   interface GxgTab {
     /**
+     * The presence of this attribute makes the container display flex
+     */
+    flexContainer: boolean;
+    /**
+     * The container flex-direction, if container is flex.
+     */
+    flexDirection: TabContainerFlexDirection;
+    /**
      * The selected tab
      */
     isSelected: boolean;
@@ -1617,6 +1626,10 @@ export namespace Components {
      * Provide this attribute to make this button disabled
      */
     disabled: boolean;
+    /**
+     * Hides the tab button
+     */
+    hidden: boolean;
     /**
      * (Optional) provide an icon to this button
      */
@@ -1644,6 +1657,7 @@ export namespace Components {
      */
     noPadding: boolean;
     position: TabsPosition;
+    setActiveTab: (tab: string) => Promise<void>;
   }
   interface GxgTest {
     buttonTestExportParts: boolean;
@@ -4142,6 +4156,14 @@ declare namespace LocalJSX {
   }
   interface GxgTab {
     /**
+     * The presence of this attribute makes the container display flex
+     */
+    flexContainer?: boolean;
+    /**
+     * The container flex-direction, if container is flex.
+     */
+    flexDirection?: TabContainerFlexDirection;
+    /**
      * The selected tab
      */
     isSelected?: boolean;
@@ -4160,6 +4182,10 @@ declare namespace LocalJSX {
      * Provide this attribute to make this button disabled
      */
     disabled?: boolean;
+    /**
+     * Hides the tab button
+     */
+    hidden?: boolean;
     /**
      * (Optional) provide an icon to this button
      */
