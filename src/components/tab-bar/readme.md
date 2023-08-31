@@ -2,6 +2,12 @@
 
 <!-- Auto Generated Below -->
 
+## Properties
+
+| Property | Attribute | Description       | Type      | Default |
+| -------- | --------- | ----------------- | --------- | ------- |
+| `hidden` | `hidden`  | Hides the tab-bar | `boolean` | `false` |
+
 ## Dependencies
 
 ### Depends on

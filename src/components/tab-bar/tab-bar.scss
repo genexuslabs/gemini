@@ -64,6 +64,9 @@
     }
   }
 }
+:host(.gxg-tab-bar--hidden) {
+  display: none;
+}
 :host(.rtl) {
   .tab-bar-menu {
     left: 0;

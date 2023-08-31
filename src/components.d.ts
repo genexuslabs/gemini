@@ -1620,7 +1620,12 @@ export namespace Components {
      */
     tab: string;
   }
-  interface GxgTabBar {}
+  interface GxgTabBar {
+    /**
+     * Hides the tab-bar
+     */
+    hidden: boolean;
+  }
   interface GxgTabButton {
     /**
      * Provide this attribute to make this button disabled
@@ -4176,7 +4181,12 @@ declare namespace LocalJSX {
      */
     tab?: string;
   }
-  interface GxgTabBar {}
+  interface GxgTabBar {
+    /**
+     * Hides the tab-bar
+     */
+    hidden?: boolean;
+  }
   interface GxgTabButton {
     /**
      * Provide this attribute to make this button disabled

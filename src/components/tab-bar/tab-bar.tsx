@@ -6,6 +6,7 @@ import {
   State,
   Listen,
   Watch,
+  Prop,
 } from "@stencil/core";
 import { GxgTabButton } from "../tab-button/tab-button";
 import { TabsPosition } from "../tabs/tabs";
@@ -29,6 +30,11 @@ export class GxgTabBar {
   }
   // Indicate that name should be a public property on the component
   // @Prop() name: string;
+
+  /**
+   * Hides the tab-bar
+   */
+  @Prop() hidden = false;
 
   @Element() el: HTMLGxgTabBarElement;
   tabBar!: HTMLUListElement;
@@ -277,6 +283,8 @@ export class GxgTabBar {
       <Host
         class={{
           rtl: this.rtl,
+          "gxg-tab-bar": true,
+          "gxg-tab-bar--hidden": this.hidden,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >

@@ -26,9 +26,10 @@
     </style>
   </head>
   <body>
+    <button>hello</button>
     <div class="tabs-container">
-      <gxg-tabs id="gxgTabs" position="top">
-        <gxg-tab-bar slot="tab-bar-container">
+      <gxg-tabs id="gxgTabs" position="right">
+        <gxg-tab-bar slot="tab-bar-container" id="tab-bar">
           <gxg-tab-button
             slot="tab-bar"
             tab-label="apples"
@@ -164,11 +165,20 @@
     </div>
     <br />
     <gxg-button id="activate-tomatoes">Activate Tomatoes</gxg-button>
+    <gxg-button id="hide-tab-bar">Hide tab-bar</gxg-button>
     <script>
+      /*gxg tabs*/
       gxgTabs = document.getElementById("gxgTabs");
       gxgTabs.addEventListener("tabActivated", function (e) {
         //console.log(e.detail);
       });
+      /*hide tab-bar*/
+      const tabBar = document.getElementById("tab-bar");
+      const hideTabBarButton = document.getElementById("hide-tab-bar");
+      hideTabBarButton.addEventListener("click", () => {
+        tabBar.hidden = true;
+      });
+      /*activate tomatoes*/
       const activateTomatoes = document.getElementById("activate-tomatoes");
       activateTomatoes.addEventListener("click", () => {
         gxgTabs.setActiveTab("tomatoes");
