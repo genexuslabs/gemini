@@ -70,6 +70,11 @@ export class GxgComboBox implements FormComponent {
   searchItemsContainer!: HTMLDivElement;
 
   /**
+   * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
+   */
+  @Prop() fixedIcon: string;
+
+  /**
    * The presence of this attribute makes the input disabled
    */
   @Prop() disabled = false;
@@ -764,8 +769,10 @@ export class GxgComboBox implements FormComponent {
                 onKeyDown={this.keyDownHandler}
                 onClick={this.inputTextClickHandler}
                 value={this.text}
-                icon={this.inputTextIcon}
-                iconPosition={this.inputTextIconPosition}
+                icon={this.fixedIcon || this.inputTextIcon}
+                iconPosition={
+                  this.fixedIcon ? "start" : this.inputTextIconPosition
+                }
                 readonly={this.disableFilter}
                 ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
                 validationStatus={this.validationStatus}

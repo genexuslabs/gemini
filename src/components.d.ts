@@ -385,6 +385,10 @@ export namespace Components {
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
+    /**
+     * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
+     */
+    fixedIcon: string;
     getValueByIndex: (index: number) => Promise<string>;
     /**
      * An informative message to help the user filling the information
@@ -2819,6 +2823,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the input disabled
      */
     disabled?: boolean;
+    /**
+     * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
+     */
+    fixedIcon?: string;
     /**
      * An informative message to help the user filling the information
      */
