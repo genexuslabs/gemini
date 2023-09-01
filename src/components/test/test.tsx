@@ -148,7 +148,7 @@ export class GxgTest {
 
             {this.showGridData && [
               <ch-grid-row rowid="123">
-                <ch-grid-cell type="rich" row-selector></ch-grid-cell>
+                <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                 <ch-grid-cell>Nombre</ch-grid-cell>
                 <ch-grid-cell>Productos</ch-grid-cell>
               </ch-grid-row>,
@@ -156,17 +156,17 @@ export class GxgTest {
                 <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
 
                 <ch-grid-row>
-                  <ch-grid-cell type="rich" row-selector></ch-grid-cell>
+                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                   <ch-grid-cell>Nombre</ch-grid-cell>
                   <ch-grid-cell>Productos</ch-grid-cell>
                 </ch-grid-row>
                 <ch-grid-row>
-                  <ch-grid-cell type="rich" row-selector></ch-grid-cell>
+                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                   <ch-grid-cell>English</ch-grid-cell>
                   <ch-grid-cell>Products</ch-grid-cell>
                 </ch-grid-row>
                 <ch-grid-row>
-                  <ch-grid-cell type="rich" row-selector></ch-grid-cell>
+                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                   <ch-grid-cell>Português</ch-grid-cell>
                   <ch-grid-cell>Produtos</ch-grid-cell>
                 </ch-grid-row>
