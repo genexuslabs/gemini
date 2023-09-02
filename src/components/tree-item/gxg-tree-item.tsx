@@ -8,7 +8,7 @@ import {
   State,
   h,
   Method,
-  Listen,
+  Watch,
 } from "@stencil/core";
 import { exportParts } from "../../common/export-parts";
 
@@ -77,6 +77,21 @@ INDEX:
    * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
    */
   @Prop({ mutable: true }) checked: boolean = undefined;
+  @Watch("checked")
+  checkedHandler(newValue: boolean) {
+    this.checkboxToggled.emit({
+      checked: newValue,
+      description: this.description,
+      icon: this.icon,
+      id: this.id,
+      indeterminate: this.indeterminate,
+      label: this.label,
+      lazy: this.lazy,
+      leaf: this.leaf,
+      opened: this.opened,
+      selected: this.selected,
+    });
+  }
 
   /**
    * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
