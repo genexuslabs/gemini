@@ -204,6 +204,11 @@
           }
         });
 
+        /*treeItemStateChanged event*/
+        markUpTree.addEventListener("treeItemStateChanged", (e) => {
+          console.log("treeItemStateChanged", e.detail);
+        });
+
         /*Selected items*/
         const getSelectedMarkup = document.getElementById(
           "get-selected-markup"
