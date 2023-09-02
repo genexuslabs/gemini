@@ -122,7 +122,7 @@ export class GxgTest {
       return (
         <gxg-grid>
           <ch-grid
-            row-selection-mode="none"
+            row-selection-mode="multiple"
             part="ch-grid-pending-for-updates"
             class="no-border"
           >
@@ -148,25 +148,25 @@ export class GxgTest {
 
             {this.showGridData && [
               <ch-grid-row rowid="123">
-                <ch-grid-cell ref={(el) => (el.type = "rich")}></ch-grid-cell>
+                <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                 <ch-grid-cell>Nombre</ch-grid-cell>
                 <ch-grid-cell>Productos</ch-grid-cell>
               </ch-grid-row>,
               <ch-grid-rowset>
                 <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
 
-                <ch-grid-row rowSelector={true}>
-                  <ch-grid-cell rowSelector={true}></ch-grid-cell>
+                <ch-grid-row>
+                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                   <ch-grid-cell>Nombre</ch-grid-cell>
                   <ch-grid-cell>Productos</ch-grid-cell>
                 </ch-grid-row>
                 <ch-grid-row>
-                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                   <ch-grid-cell>English</ch-grid-cell>
                   <ch-grid-cell>Products</ch-grid-cell>
                 </ch-grid-row>
                 <ch-grid-row>
-                  <ch-grid-cell></ch-grid-cell>
+                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
                   <ch-grid-cell>Português</ch-grid-cell>
                   <ch-grid-cell>Produtos</ch-grid-cell>
                 </ch-grid-row>

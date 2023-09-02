@@ -69,13 +69,13 @@
         background-color: var(--item-hover-color);
       }
       &:active {
-        background-color: var(--gxg-color-selected);
+        background-color: var(--gxg-background-color-item-selected);
       }
       &:focus {
         @include form-element-common-styles-focus-type-1();
       }
       &--selected {
-        background-color: var(--gxg-color-selected);
+        background-color: var(--gxg-background-color-item-selected);
       }
       > * {
         flex-shrink: 0;
