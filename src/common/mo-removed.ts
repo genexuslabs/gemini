@@ -1,5 +1,5 @@
 export function mutationObserverRemoved(target, ref) {
-  const observer = new MutationObserver((mutationsList, observer) => {
+  const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
         const removedNodesArray = Array.from(mutation.removedNodes);

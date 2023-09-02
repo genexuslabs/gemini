@@ -29,7 +29,7 @@
 | `checkboxToggled`   | Emitted when the checkbox was toggled       | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
 | `doubleClicked`     | Emitted when the item was double-clicked    | `CustomEvent<{ id: string; }>`                                                                                                                                                                                                                                          |
 | `selectionChanged`  | Emitted when the icon selection was changes | `CustomEvent<{ checked: boolean; ctrlKey?: boolean; id: string; label: string; selected: boolean; }>`                                                                                                                                                                   |
-| `toggleIconClicked` | Emitted when the toggle icon was clicked    | `CustomEvent<{ id: string; lazy?: boolean; }>`                                                                                                                                                                                                                          |
+| `toggleIconClicked` | Emitted when the toggle icon was clicked    | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
 
 ## Methods
 

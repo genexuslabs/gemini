@@ -300,7 +300,7 @@ export class GxgComboBox implements FormComponent {
   }
 
   @Listen("itemDidLoad")
-  itemDidLoadHandler(itemLoaded: CustomEvent<ItemInformation>): void {
+  itemDidLoadHandler(): void {
     this.setIndexes();
     this.setInitialValue();
   }

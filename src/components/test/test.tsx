@@ -64,30 +64,6 @@ export class GxgTest {
     this.treeItemsModel = [];
   };
 
-  private getIconState = (state: ObjectState): Element => {
-    let icon = <gxg-icon type="gx-server/private"></gxg-icon>;
-    switch (state) {
-      case "inserted":
-        icon = <gxg-icon type="gx-server/new" color="success"></gxg-icon>;
-        break;
-      case "modified":
-        icon = (
-          <gxg-icon
-            type="gx-server/changes-commit-pending"
-            color="primary-active"
-          ></gxg-icon>
-        );
-        break;
-      case "deleted":
-        icon = <gxg-icon type="gx-server/delete" color="error"></gxg-icon>;
-        break;
-      case "conflicted":
-        icon = <gxg-icon type="gx-server/conflict" color="warning"></gxg-icon>;
-        break;
-    }
-    return icon;
-  };
-
   render() {
     if (this.buttonTestExportParts) {
       return <gxg-button part="exterior-part">Export parts tests</gxg-button>;

@@ -97,7 +97,6 @@ import {
   DoubleClicked,
   GxgTreeItemData as GxgTreeItemData1,
   GxgTreeItemSelectedData as GxgTreeItemSelectedData1,
-  ToggleIconClicked,
 } from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
@@ -4439,7 +4438,7 @@ declare namespace LocalJSX {
     /**
      * Emitted when the toggle icon was clicked
      */
-    onToggleIconClicked?: (event: CustomEvent<ToggleIconClicked>) => void;
+    onToggleIconClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */

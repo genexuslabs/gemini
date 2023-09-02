@@ -8,7 +8,6 @@ import {
   Watch,
   Prop,
 } from "@stencil/core";
-import { GxgTabButton } from "../tab-button/tab-button";
 import { TabsPosition } from "../tabs/tabs";
 import { exportParts } from "../../common/export-parts";
 

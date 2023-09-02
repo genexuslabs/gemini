@@ -8,7 +8,6 @@ import {
   Event,
   EventEmitter,
   Watch,
-  Method,
 } from "@stencil/core";
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";

@@ -99,6 +99,23 @@ INDEX:
    * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
    */
   @Prop() opened: boolean = undefined;
+  @Watch("opened")
+  openedHandler(newValue: boolean, oldValue: boolean): void {
+    if (oldValue !== undefined) {
+      this.toggleIconClicked.emit({
+        checked: this.checked,
+        description: this.description,
+        icon: this.icon,
+        id: this.id,
+        indeterminate: this.indeterminate,
+        label: this.label,
+        lazy: this.lazy,
+        leaf: this.leaf,
+        opened: newValue,
+        selected: this.selected,
+      });
+    }
+  }
 
   /**
    * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
@@ -165,7 +182,7 @@ INDEX:
   /**
    * Emitted when the toggle icon was clicked
    */
-  @Event() toggleIconClicked: EventEmitter<ToggleIconClicked>;
+  @Event() toggleIconClicked: EventEmitter<GxgTreeItemData>;
 
   /**
    * Emitted when the icon selection was changes
@@ -399,7 +416,7 @@ INDEX:
         );
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
-      this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
+      //this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
     }
 
     if (e.key === "ArrowLeft") {
@@ -427,7 +444,7 @@ INDEX:
           }
         }
       }
-      this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
+      //this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
     }
 
     // UP/DOWN NAVIGATION
@@ -643,7 +660,7 @@ INDEX:
   };
 
   private toggleClickedHandler = (): void => {
-    this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
+    //this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
     if (this.lazy && !this.opened) {
       this.downloading = true;
     }
@@ -655,7 +672,7 @@ INDEX:
   // 10.RENDER() FUNCTION //
 
   render(): void {
-    // console.log("checked", this.checked);
+    // console.log("opened", this.opened);
     // console.log("this.el", this.el);
     // console.log("-------------------");
     return (

@@ -23,7 +23,6 @@
 
 ### Depends on
 
-- [gxg-icon](../icon)
 - [gxg-button](../button)
 - [gxg-tree](../tree)
 - [gxg-grid](../grid)
@@ -37,7 +36,6 @@
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-icon
   gxg-test --> gxg-button
   gxg-test --> gxg-tree
   gxg-test --> gxg-grid
@@ -46,8 +44,8 @@ graph TD;
   gxg-test --> ch-grid-column
   gxg-test --> ch-grid-rowset-legend
   gxg-test --> gxg-tree-item
-  gxg-icon --> ch-icon
   gxg-button --> gxg-icon
+  gxg-icon --> ch-icon
   ch-grid --> ch-grid-settings
   ch-grid --> ch-grid-settings-columns
   ch-grid-settings --> ch-window

@@ -153,7 +153,7 @@ INDEX:
     triggeredItem: CustomEvent<MenuItemFocusChange>
   ): void {
     const triggeringItem: HTMLGxgMenuItemElement = triggeredItem.detail.ref;
-    const triggeringItemIndex = this._enabledItems.findIndex((item, i) => {
+    const triggeringItemIndex = this._enabledItems.findIndex((item) => {
       return item === triggeringItem;
     });
 
@@ -229,7 +229,7 @@ INDEX:
   private removeMouseEnter = (): void => {
     this.el.removeEventListener("mouseenter", this.detectMouseEnter);
   };
-  private detectMouseEnter = (e: MouseEvent): void => {
+  private detectMouseEnter = (): void => {
     //Mouse enter
     this.clearMouseOutTimeout();
   };
