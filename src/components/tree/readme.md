@@ -12,6 +12,12 @@
 | `opened`           | `opened`            | Set this attribute if you want all the items to be opened by default.                                                      | `boolean` | `true`  |
 | `toggleCheckboxes` | `toggle-checkboxes` | Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.       | `boolean` | `false` |
 
+## Events
+
+| Event                  | Description | Type                                                                                                                                                                                                                                                                    |
+| ---------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `treeItemStateChanged` |             | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+
 ## Methods
 
 ### `getCheckedItems(idsArray?: (string | number)[]) => Promise<GxgTreeItemSelectedData[]>`

@@ -78,19 +78,21 @@ INDEX:
    */
   @Prop({ mutable: true }) checked: boolean = undefined;
   @Watch("checked")
-  checkedHandler(newValue: boolean) {
-    this.checkboxToggled.emit({
-      checked: newValue,
-      description: this.description,
-      icon: this.icon,
-      id: this.id,
-      indeterminate: this.indeterminate,
-      label: this.label,
-      lazy: this.lazy,
-      leaf: this.leaf,
-      opened: this.opened,
-      selected: this.selected,
-    });
+  checkedHandler(newValue: boolean, oldValue: boolean) {
+    if (oldValue !== undefined) {
+      this.checkboxToggled.emit({
+        checked: newValue,
+        description: this.description,
+        icon: this.icon,
+        id: this.id,
+        indeterminate: this.indeterminate,
+        label: this.label,
+        lazy: this.lazy,
+        leaf: this.leaf,
+        opened: this.opened,
+        selected: this.selected,
+      });
+    }
   }
 
   /**
@@ -222,6 +224,29 @@ INDEX:
     this.defineLineHeight();
   }
 
+  @Method() evaluateCheckboxStatus() {
+    const allChildren = this.el.querySelectorAll("gxg-tree-item");
+    let checked = 0;
+    if (allChildren?.length) {
+      Array.from(allChildren).forEach((item) => {
+        if (item.checked) {
+          checked++;
+        }
+      });
+      if (allChildren.length === checked) {
+        //all checked
+        this.checked = true;
+        this.indeterminate = false;
+      } else if (checked === 0) {
+        //all unchecked
+        this.checked = false;
+        this.indeterminate = false;
+      } else {
+        //indeterminate
+        this.indeterminate = true;
+      }
+    }
+  }
   // 9.LOCAL METHODS //
 
   private evaluateId = () => {
@@ -249,30 +274,6 @@ INDEX:
 
   private initiateMutationObserver = () => {
     this.observer.observe(this.el, { childList: true, subtree: true });
-  };
-
-  private evaluateCheckboxStatus = () => {
-    const allChildren = this.el.querySelectorAll("gxg-tree-item");
-    let checked = 0;
-    if (allChildren?.length) {
-      Array.from(allChildren).forEach((item) => {
-        if (item.checked) {
-          checked++;
-        }
-      });
-      if (allChildren.length === checked) {
-        //all checked
-        this.checked = true;
-        this.indeterminate = false;
-      } else if (checked === 0) {
-        //all unchecked
-        this.checked = false;
-        this.indeterminate = false;
-      } else {
-        //indeterminate
-        this.indeterminate = true;
-      }
-    }
   };
 
   /**
@@ -575,7 +576,7 @@ INDEX:
     }
   };
 
-  private returnToggleIconType = () => {
+  private returnToggleIconType = (): string => {
     //Returns the type of icon : expand or collapse
     if (!this.opened || this.lazy) {
       return "gemini-tools/add";
@@ -584,16 +585,24 @@ INDEX:
     }
   };
 
+  /**
+   * When a checkbox is clicked, it state changes and so it's children, and parent items do.
+   * First evaluate the children, and then the parent items.
+   */
   private checkboxClickedHandler = () => {
     if (this.checkbox) {
       this.checked = !this.checked;
       if (!this.leaf) {
         this.toggleChildrenCheckboxes(this.checked);
       }
+      const parentItems = this.getParentItems();
+      parentItems.forEach((parentItem) => {
+        parentItem.evaluateCheckboxStatus();
+      });
     }
   };
 
-  private toggleChildrenCheckboxes = (checked) => {
+  private toggleChildrenCheckboxes = (checked): void => {
     this.indeterminate = false;
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
     if (allChildren?.length) {
@@ -604,7 +613,18 @@ INDEX:
     }
   };
 
-  private getParentsNumber = () => {
+  private getParentItems = (): HTMLGxgTreeItemElement[] => {
+    const parentItems: HTMLGxgTreeItemElement[] = [];
+    let parentItem = this.el.parentElement.parentElement;
+
+    while (parentItem?.nodeName === "GXG-TREE-ITEM") {
+      parentItems.push(parentItem as HTMLGxgTreeItemElement);
+      parentItem = parentItem.parentElement?.parentElement;
+    }
+    return parentItems;
+  };
+
+  private getParentsNumber = (): number => {
     let count = 0;
     let parentElement = this.el.parentElement;
 
@@ -615,14 +635,14 @@ INDEX:
     return count;
   };
 
-  private getChildrenNumber = () => {
+  private getChildrenNumber = (): number => {
     if (this.numberOfChildren === 0) {
       //If this.numberOfChildren === 0 it might be because the whole tree was created with markup, and not by passing a model. In that case, count the children with querySelectorAll.
       return this.el.querySelectorAll("gxg-tree-item").length;
     }
   };
 
-  private toggleClickedHandler = (e: CustomEvent<ToggleIconClicked>) => {
+  private toggleClickedHandler = (e: CustomEvent<ToggleIconClicked>): void => {
     this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
     if (this.lazy && !this.opened) {
       this.downloading = true;
@@ -635,6 +655,9 @@ INDEX:
   // 10.RENDER() FUNCTION //
 
   render() {
+    // console.log("checked", this.checked);
+    // console.log("this.el", this.el);
+    // console.log("-------------------");
     return (
       <Host
         class={{ leaf: this.leaf, "not-leaf": !this.leaf }}

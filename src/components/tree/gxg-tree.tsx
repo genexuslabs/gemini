@@ -6,6 +6,8 @@ import {
   Listen,
   Method,
   Host,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 import {
   GxgTreeItemData,
@@ -71,6 +73,8 @@ INDEX:
 
   // 5.EVENTS (EMIT) //
 
+  @Event() treeItemStateChanged: EventEmitter<GxgTreeItemData>;
+
   // 6.COMPONENT LIFECYCLE METHODS //
 
   componentWillLoad(): void {
@@ -97,8 +101,9 @@ INDEX:
   }
 
   @Listen("checkboxToggled")
-  checkboxToggledHandler() {
-    console.log("checkbox toggled");
+  checkboxToggledHandler(e) {
+    if (this.masterTree) {
+    }
     //this.evaluateCheckboxStatus();
   }
 
@@ -222,6 +227,10 @@ INDEX:
           ? treeItem.toggleCheckboxes
           : this.toggleCheckboxes;
     }
+  };
+
+  private emitTreeItemNewState = () => {
+    // this.treeItemStateChanged.emit({ console.log("hola")});
   };
 
   // 10.RENDER() FUNCTION //

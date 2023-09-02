@@ -1840,6 +1840,7 @@ export namespace Components {
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     disabled: boolean;
+    evaluateCheckboxStatus: () => Promise<void>;
     /**
      * This property is for internal use. It indicates that the item has children.
      */
@@ -4361,6 +4362,7 @@ declare namespace LocalJSX {
      * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
      */
     multiSelection?: boolean;
+    onTreeItemStateChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
     /**
      * Set this attribute if you want all the items to be opened by default.
      */

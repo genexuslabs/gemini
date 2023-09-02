@@ -33,6 +33,12 @@
 
 ## Methods
 
+### `evaluateCheckboxStatus() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
 ### `reRender() => Promise<void>`
 
 #### Returns
