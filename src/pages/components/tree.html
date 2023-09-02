@@ -174,29 +174,29 @@
 
         /*selectionChanged event*/
         markUpTree.addEventListener("selectionChanged", (e) => {
-          console.log("selectionChanged");
-          console.log(e.detail);
+          //console.log("selectionChanged");
+          //console.log(e.detail);
         });
 
         /*checkboxToggled event*/
         markUpTree.addEventListener("checkboxToggled", (e) => {
-          console.log("checkboxToggled");
-          console.log(e.detail);
+          //console.log("checkboxToggled");
+          //console.log(e.detail);
         });
 
         /*doubleclicked event*/
         markUpTree.addEventListener("doubleClicked", (e) => {
-          console.log("doubleClicked");
-          console.log(e.detail);
+          //console.log("doubleClicked");
+          //console.log(e.detail);
         });
 
         /*loadLazyChildren event*/
         markUpTree.addEventListener("toggleIconClicked", (e) => {
-          console.log("toggleIconClicked");
+          //console.log("toggleIconClicked");
           const isLazy = e.detail.lazy;
           const itemId = e.detail.id;
           if (isLazy) {
-            console.log("lazy loading");
+            //console.log("lazy loading");
             setTimeout(() => {
               appendLazyLoadItems(itemId);
             }, 1000);

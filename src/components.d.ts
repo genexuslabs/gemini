@@ -1840,11 +1840,17 @@ export namespace Components {
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     disabled: boolean;
+    /**
+     * This property is for internal use. It indicates that the item has children.
+     */
     hasChildTree: boolean;
     /**
      * Sets the tree item icon
      */
     icon: string;
+    /**
+     * This property is for internal use. It indicates that the checkbox has an indeterminate state.
+     */
     indeterminate: boolean;
     /**
      * The tree item label.
@@ -4392,11 +4398,17 @@ declare namespace LocalJSX {
      * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     disabled?: boolean;
+    /**
+     * This property is for internal use. It indicates that the item has children.
+     */
     hasChildTree?: boolean;
     /**
      * Sets the tree item icon
      */
     icon?: string;
+    /**
+     * This property is for internal use. It indicates that the checkbox has an indeterminate state.
+     */
     indeterminate?: boolean;
     /**
      * The tree item label.
@@ -4410,9 +4422,21 @@ declare namespace LocalJSX {
      * This property is for internal use, when using the treeModel.
      */
     numberOfChildren?: number;
+    /**
+     * Emitted when the checkbox was toggled
+     */
     onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
+    /**
+     * Emitted when the item was double-clicked
+     */
     onDoubleClicked?: (event: CustomEvent<DoubleClicked>) => void;
+    /**
+     * Emitted when the icon selection was changes
+     */
     onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;
+    /**
+     * Emitted when the toggle icon was clicked
+     */
     onToggleIconClicked?: (event: CustomEvent<ToggleIconClicked>) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.

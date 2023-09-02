@@ -19,15 +19,54 @@ import { exportParts } from "../../common/export-parts";
   assetsDirs: ["tree-item-assets"],
 })
 export class GxgTreeItem {
+  /*
+INDEX:
+1.OWN PROPERTIES 
+2.REFERENCE TO ELEMENTS
+3.STATE() VARIABLES
+4.PUBLIC PROPERTY API | WATCH'S
+5.EVENTS (EMIT)
+6.COMPONENT LIFECYCLE METHODS
+7.LISTENERS
+8.PUBLIC METHODS API
+9.LOCAL METHODS
+10.RENDER() FUNCTION
+*/
+
+  // 1.OWN PROPERTIES //
+
+  private id;
+  private lazy = false; //True if not leaf but no children.
+  private parentTreeIsMasterTree = false;
+  private numberOfParentTrees = 1;
+  private firstItem = false;
+  private lastItem = false;
+  private leftPadding = "0px";
+  private verticalLineStartPosition = "0px";
+  private horizontalLineWidth = "24px";
+  private horizontalLineStartPosition = "0px";
   private parts = {
     item: "item",
     checkbox: "checkbox",
     toggleButton: "toggle-button",
   };
   private exportparts: string;
-  checkboxInput!: HTMLInputElement;
 
-  //PROPS
+  // 2. REFERENCE TO ELEMENTS //
+
+  @Element() el: HTMLGxgTreeItemElement;
+
+  // 3.STATE() VARIABLES //
+
+  @State() horizontalLinePaddingLeft = 0;
+  @State() lastTreeItem = false;
+  @State() lastTreeItemOfParentTree = false;
+  @State() numberOfVisibleDescendantItems = 0;
+  @State() time = 0;
+  @State() lineHeight: string;
+  @State() downloading = false;
+
+  // 4.PUBLIC PROPERTY API | WATCH'S //
 
   /**
    * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
@@ -94,41 +133,39 @@ export class GxgTreeItem {
    */
   @Prop() numberOfChildren = 0;
 
+  /**
+   * This property is for internal use. It indicates that the item has children.
+   */
   @Prop({ mutable: true }) hasChildTree = false;
+
+  /**
+   * This property is for internal use. It indicates that the checkbox has an indeterminate state.
+   */
   @Prop({ mutable: true }) indeterminate = false;
 
-  //STATE
-  @State() horizontalLinePaddingLeft = 0;
-  @State() lastTreeItem = false;
-  @State() lastTreeItemOfParentTree = false;
-  @State() numberOfVisibleDescendantItems = 0;
-  @State() time = 0;
-  @State() lineHeight: string;
-  @State() downloading = false;
+  // 5.EVENTS (EMIT) //
 
-  private id;
-  private lazy = false; //True if not leaf but no children.
-  private parentTreeIsMasterTree = false;
-  private numberOfParentTrees = 1;
-  private firstItem = false;
-  private lastItem = false;
-  private leftPadding = "0px";
-  private verticalLineStartPosition = "0px";
-  private horizontalLineWidth = "24px";
-  private horizontalLineStartPosition = "0px";
-
-  //EVENTS
+  /**
+   * Emitted when the toggle icon was clicked
+   */
   @Event() toggleIconClicked: EventEmitter<ToggleIconClicked>;
+
+  /**
+   * Emitted when the icon selection was changes
+   */
   @Event() selectionChanged: EventEmitter<GxgTreeItemSelectedData>;
+
+  /**
+   * Emitted when the item was double-clicked
+   */
   @Event() doubleClicked: EventEmitter<DoubleClicked>;
+
+  /**
+   * Emitted when the checkbox was toggled
+   */
   @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
 
-  @Element() el: HTMLGxgTreeItemElement;
-
-  @Listen("checkboxToggled")
-  checkboxToggledHandler() {
-    this.evaluateCheckboxStatus();
-  }
+  // 6.COMPONENT LIFECYCLE METHODS //
 
   componentWillLoad() {
     //Count number of parent trees in order to set the appropriate padding-left
@@ -160,6 +197,17 @@ export class GxgTreeItem {
     this.attachExportParts();
     this.initiateMutationObserver();
   }
+
+  // 7.LISTENERS //
+
+  // 8.PUBLIC METHODS API //
+
+  @Method()
+  async reRender() {
+    this.defineLineHeight();
+  }
+
+  // 9.LOCAL METHODS //
 
   private evaluateId = () => {
     if (!this.id) {
@@ -283,40 +331,7 @@ export class GxgTreeItem {
     this.horizontalLineStartPosition = `${horizontalLineStartPosition}px`;
   };
 
-  getParentsNumber() {
-    let count = 0;
-    let parentElement = this.el.parentElement;
-
-    while (parentElement?.nodeName === "GXG-TREE") {
-      count++;
-      parentElement = parentElement.parentElement?.parentElement;
-    }
-    return count;
-  }
-
-  getChildrenNumber() {
-    if (this.numberOfChildren === 0) {
-      //If this.numberOfChildren === 0 it might be because the whole tree was created with markup, and not by passing a model. In that case, count the children with querySelectorAll.
-      return this.el.querySelectorAll("gxg-tree-item").length;
-    }
-  }
-
-  toggleClickedHandler(e: CustomEvent<ToggleIconClicked>) {
-    this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
-    if (this.lazy && !this.opened) {
-      this.downloading = true;
-    }
-    if (!this.lazy) {
-      this.opened = !this.opened;
-    }
-  }
-
-  @Method()
-  async reRender() {
-    this.defineLineHeight();
-  }
-
-  liTextClickedHandler(e) {
+  private liTextClickedHandler = (e) => {
     const toggleWasClicked = (e.target as HTMLElement).classList.contains(
       "toggle-icon"
     );
@@ -337,16 +352,16 @@ export class GxgTreeItem {
     } else if (!this.selected) {
       this.selected = true;
     }
-  }
+  };
 
-  liTextDoubleClicked(e) {
+  private liTextDoubleClicked = (e) => {
     this.doubleClicked.emit({
       id: this.id,
     });
     !this.leaf && this.toggleClickedHandler(e);
-  }
+  };
 
-  liTextKeyDownPressed(e) {
+  private liTextKeyDownPressed = (e) => {
     if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault(); //prevents scrolling
     }
@@ -543,16 +558,16 @@ export class GxgTreeItem {
         }
       }
     }
-  }
+  };
 
-  returnToggleIconType() {
+  private returnToggleIconType = () => {
     //Returns the type of icon : expand or collapse
     if (!this.opened || this.lazy) {
       return "gemini-tools/add";
     } else {
       return "gemini-tools/minus";
     }
-  }
+  };
 
   private checkboxClickedHandler = () => {
     if (this.checkbox) {
@@ -560,16 +575,10 @@ export class GxgTreeItem {
       if (!this.leaf) {
         this.toggleChildrenCheckboxes(this.checked);
       }
-      this.checkboxToggled.emit({
-        id: this.el.id,
-        label: this.el.label,
-        checked: this.checked,
-        selected: this.selected,
-      });
     }
   };
 
-  toggleChildrenCheckboxes(checked) {
+  private toggleChildrenCheckboxes = (checked) => {
     this.indeterminate = false;
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
     if (allChildren?.length) {
@@ -578,7 +587,37 @@ export class GxgTreeItem {
         item.checked = checked;
       });
     }
-  }
+  };
+
+  private getParentsNumber = () => {
+    let count = 0;
+    let parentElement = this.el.parentElement;
+
+    while (parentElement?.nodeName === "GXG-TREE") {
+      count++;
+      parentElement = parentElement.parentElement?.parentElement;
+    }
+    return count;
+  };
+
+  private getChildrenNumber = () => {
+    if (this.numberOfChildren === 0) {
+      //If this.numberOfChildren === 0 it might be because the whole tree was created with markup, and not by passing a model. In that case, count the children with querySelectorAll.
+      return this.el.querySelectorAll("gxg-tree-item").length;
+    }
+  };
+
+  private toggleClickedHandler = (e: CustomEvent<ToggleIconClicked>) => {
+    this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
+    if (this.lazy && !this.opened) {
+      this.downloading = true;
+    }
+    if (!this.lazy) {
+      this.opened = !this.opened;
+    }
+  };
+
+  // 10.RENDER() FUNCTION //
 
   render() {
     return (

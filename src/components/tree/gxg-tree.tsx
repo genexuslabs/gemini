@@ -17,10 +17,33 @@ import {
   shadow: true,
 })
 export class GxgTree {
+  /*
+INDEX:
+1.OWN PROPERTIES 
+2.REFERENCE TO ELEMENTS
+3.STATE() VARIABLES
+4.PUBLIC PROPERTY API | WATCH'S
+5.EVENTS (EMIT)
+6.COMPONENT LIFECYCLE METHODS
+7.LISTENERS
+8.PUBLIC METHODS API
+9.LOCAL METHODS
+10.RENDER() FUNCTION
+*/
+
+  // 1.OWN PROPERTIES //
+
+  private masterTree = false;
+
+  // 2. REFERENCE TO ELEMENTS //
+
   @Element() el: HTMLGxgTreeElement;
   ulTree!: HTMLElement;
 
-  //PROPS
+  // 3.STATE() VARIABLES //
+
+  // 4.PUBLIC PROPERTY API | WATCH'S //
+
   /**
    * Set this attribute if you want all the items to have a checkbox.
    */
@@ -46,43 +69,16 @@ export class GxgTree {
    */
   @Prop() multiSelection = false;
 
-  /**
-   * Indicates if this the is master tree
-   */
-  private masterTree = false;
+  // 5.EVENTS (EMIT) //
+
+  // 6.COMPONENT LIFECYCLE METHODS //
 
   componentWillLoad(): void {
-    //this.initialConfig();
     this.initialConfig();
     this.evaluateIsMasterTree();
   }
 
-  /**
-   * This method evaluates if this tree is the master tree
-   */
-  private evaluateIsMasterTree = () => {
-    const grandFather = this.el.parentElement?.parentElement;
-    if (grandFather === undefined || grandFather.nodeName !== "GXG-TREE") {
-      this.masterTree = true;
-    }
-  };
-
-  private initialConfig = () => {
-    const parent = this.el.parentElement;
-    if (parent?.tagName === "GXG-TREE-ITEM") {
-      const treeItem = parent as HTMLGxgTreeItemElement;
-      this.checkbox =
-        treeItem.checkbox !== undefined ? treeItem.checkbox : this.checkbox;
-      this.checked =
-        treeItem.checked !== undefined ? treeItem.checked : this.checked;
-      this.opened =
-        treeItem.opened !== undefined ? treeItem.opened : this.opened;
-      this.toggleCheckboxes =
-        treeItem.toggleCheckboxes !== undefined
-          ? treeItem.toggleCheckboxes
-          : this.toggleCheckboxes;
-    }
-  };
+  // 7.LISTENERS //
 
   @Listen("selectionChanged")
   selectionChangedHandler(e: CustomEvent<GxgTreeItemSelectedData>): void {
@@ -99,6 +95,14 @@ export class GxgTree {
       }
     }
   }
+
+  @Listen("checkboxToggled")
+  checkboxToggledHandler() {
+    console.log("checkbox toggled");
+    //this.evaluateCheckboxStatus();
+  }
+
+  // 8.PUBLIC METHODS API //
 
   /**
    * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
@@ -190,6 +194,37 @@ export class GxgTree {
     });
     return toggledTreeItems;
   }
+
+  // 9.LOCAL METHODS //
+
+  /**
+   * This method evaluates if this tree is the master tree
+   */
+  private evaluateIsMasterTree = () => {
+    const grandFather = this.el.parentElement?.parentElement;
+    if (grandFather === undefined || grandFather.nodeName !== "GXG-TREE") {
+      this.masterTree = true;
+    }
+  };
+
+  private initialConfig = () => {
+    const parent = this.el.parentElement;
+    if (parent?.tagName === "GXG-TREE-ITEM") {
+      const treeItem = parent as HTMLGxgTreeItemElement;
+      this.checkbox =
+        treeItem.checkbox !== undefined ? treeItem.checkbox : this.checkbox;
+      this.checked =
+        treeItem.checked !== undefined ? treeItem.checked : this.checked;
+      this.opened =
+        treeItem.opened !== undefined ? treeItem.opened : this.opened;
+      this.toggleCheckboxes =
+        treeItem.toggleCheckboxes !== undefined
+          ? treeItem.toggleCheckboxes
+          : this.toggleCheckboxes;
+    }
+  };
+
+  // 10.RENDER() FUNCTION //
 
   render() {
     return (
