@@ -78,7 +78,7 @@ INDEX:
    */
   @Prop({ mutable: true }) checked: boolean = undefined;
   @Watch("checked")
-  checkedHandler(newValue: boolean, oldValue: boolean) {
+  checkedHandler(newValue: boolean, oldValue: boolean): void {
     if (oldValue !== undefined) {
       this.checkboxToggled.emit({
         checked: newValue,
@@ -184,7 +184,7 @@ INDEX:
 
   // 6.COMPONENT LIFECYCLE METHODS //
 
-  componentWillLoad() {
+  componentWillLoad(): void {
     //Count number of parent trees in order to set the appropriate padding-left
     this.numberOfParentTrees = this.getParentsNumber();
     this.numberOfChildren = this.getChildrenNumber();
@@ -220,11 +220,11 @@ INDEX:
   // 8.PUBLIC METHODS API //
 
   @Method()
-  async reRender() {
+  async reRender(): Promise<void> {
     this.defineLineHeight();
   }
 
-  @Method() evaluateCheckboxStatus() {
+  @Method() evaluateCheckboxStatus(): void {
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
     let checked = 0;
     if (allChildren?.length) {
@@ -249,13 +249,13 @@ INDEX:
   }
   // 9.LOCAL METHODS //
 
-  private evaluateId = () => {
+  private evaluateId = (): void => {
     if (!this.id) {
       this.id = this.el.getAttribute("id");
     }
   };
 
-  private evaluateLazy = () => {
+  private evaluateLazy = (): void => {
     if (!this.leaf && this.numberOfChildren === 0) {
       this.lazy = true;
       this.opened = false;
@@ -272,14 +272,14 @@ INDEX:
     }
   });
 
-  private initiateMutationObserver = () => {
+  private initiateMutationObserver = (): void => {
     this.observer.observe(this.el, { childList: true, subtree: true });
   };
 
   /**
    * @description Set some properties based on the parent tree configuration, unless this item has this properties already set.
    */
-  private cascadeConfig = () => {
+  private cascadeConfig = (): void => {
     const parentTree: HTMLGxgTreeElement = this.el
       .parentElement as HTMLGxgTreeElement;
 
@@ -347,7 +347,7 @@ INDEX:
     this.horizontalLineStartPosition = `${horizontalLineStartPosition}px`;
   };
 
-  private liTextClickedHandler = (e) => {
+  private liTextClickedHandler = (e: MouseEvent): void => {
     const toggleWasClicked = (e.target as HTMLElement).classList.contains(
       "toggle-icon"
     );
@@ -370,14 +370,14 @@ INDEX:
     }
   };
 
-  private liTextDoubleClicked = (e) => {
+  private liTextDoubleClicked = (): void => {
     this.doubleClicked.emit({
       id: this.id,
     });
-    !this.leaf && this.toggleClickedHandler(e);
+    !this.leaf && this.toggleClickedHandler();
   };
 
-  private liTextKeyDownPressed = (e) => {
+  private liTextKeyDownPressed = (e: KeyboardEvent): void => {
     if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault(); //prevents scrolling
     }
@@ -589,7 +589,7 @@ INDEX:
    * When a checkbox is clicked, it state changes and so it's children, and parent items do.
    * First evaluate the children, and then the parent items.
    */
-  private checkboxClickedHandler = () => {
+  private checkboxClickedHandler = (): void => {
     if (this.checkbox) {
       this.checked = !this.checked;
       if (!this.leaf) {
@@ -642,7 +642,7 @@ INDEX:
     }
   };
 
-  private toggleClickedHandler = (e: CustomEvent<ToggleIconClicked>): void => {
+  private toggleClickedHandler = (): void => {
     this.toggleIconClicked.emit({ id: this.id, lazy: this.lazy });
     if (this.lazy && !this.opened) {
       this.downloading = true;
@@ -654,7 +654,7 @@ INDEX:
 
   // 10.RENDER() FUNCTION //
 
-  render() {
+  render(): void {
     // console.log("checked", this.checked);
     // console.log("this.el", this.el);
     // console.log("-------------------");

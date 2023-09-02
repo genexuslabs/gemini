@@ -101,7 +101,7 @@ INDEX:
   }
 
   @Listen("checkboxToggled")
-  checkboxToggledHandler(e) {
+  checkboxToggledHandler(e): void {
     if (this.masterTree) {
     }
     //this.evaluateCheckboxStatus();
@@ -205,14 +205,14 @@ INDEX:
   /**
    * This method evaluates if this tree is the master tree
    */
-  private evaluateIsMasterTree = () => {
+  private evaluateIsMasterTree = (): void => {
     const grandFather = this.el.parentElement?.parentElement;
     if (grandFather === undefined || grandFather.nodeName !== "GXG-TREE") {
       this.masterTree = true;
     }
   };
 
-  private initialConfig = () => {
+  private initialConfig = (): void => {
     const parent = this.el.parentElement;
     if (parent?.tagName === "GXG-TREE-ITEM") {
       const treeItem = parent as HTMLGxgTreeItemElement;
@@ -229,13 +229,13 @@ INDEX:
     }
   };
 
-  private emitTreeItemNewState = () => {
+  private emitTreeItemNewState = (): void => {
     // this.treeItemStateChanged.emit({ console.log("hola")});
   };
 
   // 10.RENDER() FUNCTION //
 
-  render() {
+  render(): void {
     return (
       <Host>
         <div
