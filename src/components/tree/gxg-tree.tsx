@@ -73,7 +73,7 @@ INDEX:
 
   // 5.EVENTS (EMIT) //
 
-  @Event() treeItemStateChanged: EventEmitter<GxgTreeItemData>;
+  @Event() treeItemStateChanged: EventEmitter<TreeItemNewStateEmitted>;
 
   // 6.COMPONENT LIFECYCLE METHODS //
 
@@ -249,7 +249,7 @@ INDEX:
     itemData: GxgTreeItemData,
     emittedBy: string
   ): void => {
-    this.treeItemStateChanged.emit(itemData);
+    this.treeItemStateChanged.emit({ itemData, emittedBy: emittedBy });
   };
 
   // 10.RENDER() FUNCTION //
@@ -275,4 +275,10 @@ export type ToggledGxgTreeItem = {
   id: string;
   opened: boolean;
 };
+
 export type TreeItemsInsertionMode = "before" | "after" | "inside";
+
+export type TreeItemNewStateEmitted = {
+  itemData: GxgTreeItemData;
+  emittedBy: string;
+};
