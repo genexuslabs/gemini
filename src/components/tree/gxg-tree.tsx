@@ -100,7 +100,7 @@ INDEX:
     }
     const itemData = e.detail;
     if (this.masterTree) {
-      this.emitTreeItemNewState(itemData);
+      this.emitTreeItemNewState(itemData, "selectionChanged");
     }
   }
 
@@ -108,7 +108,7 @@ INDEX:
   checkboxToggledHandler(e): void {
     const itemData = e.detail;
     if (this.masterTree) {
-      this.emitTreeItemNewState(itemData);
+      this.emitTreeItemNewState(itemData, "checkboxToggled");
     }
   }
 
@@ -123,10 +123,9 @@ INDEX:
 
   @Listen("toggleIconClicked")
   toggleIconClickedHandler(e): void {
-    console.log("toggleIconClicked");
     const itemData = e.detail;
     if (this.masterTree) {
-      this.emitTreeItemNewState(itemData);
+      this.emitTreeItemNewState(itemData, "toggleIconClicked");
     }
   }
 
@@ -255,7 +254,10 @@ INDEX:
   /**
    * @description This functions is supposed to be called from any of the listeners that are attached to the tree-item events that are emitted when the state changes (toggleIconClicked, selectionChanged, checkboxToggled). When an item state is changed, this function emits the update item data, so that the host can update the tree model, if any, if desired.
    */
-  private emitTreeItemNewState = (itemData: GxgTreeItemData): void => {
+  private emitTreeItemNewState = (
+    itemData: GxgTreeItemData,
+    emittedBy: string
+  ): void => {
     this.treeItemStateChanged.emit(itemData);
   };
 
