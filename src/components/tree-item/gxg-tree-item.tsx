@@ -288,6 +288,8 @@ INDEX:
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
         this.lazy = false;
+        this.opened = true;
+        this.reRender();
         this.lazyChanged.emit({
           checked: this.checked,
           description: this.description,
@@ -300,8 +302,6 @@ INDEX:
           opened: this.opened,
           selected: this.selected,
         });
-        this.opened = true;
-        this.reRender();
       }
     }
   });
