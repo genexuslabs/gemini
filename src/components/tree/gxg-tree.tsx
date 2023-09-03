@@ -112,16 +112,18 @@ INDEX:
     }
   }
 
-  @Listen("lazyChanged")
-  lazyChangedHandler(e): void {
-    const itemData = e.detail;
-    if (this.masterTree) {
-      this.emitTreeItemNewState(itemData);
-    }
-  }
+  // @Listen("lazyChanged")
+  // lazyChangedHandler(e): void {
+  //   console.log("lazyChanged");
+  //   const itemData = e.detail;
+  //   if (this.masterTree) {
+  //     this.emitTreeItemNewState(itemData);
+  //   }
+  // }
 
   @Listen("toggleIconClicked")
   toggleIconClickedHandler(e): void {
+    console.log("toggleIconClicked");
     const itemData = e.detail;
     if (this.masterTree) {
       this.emitTreeItemNewState(itemData);

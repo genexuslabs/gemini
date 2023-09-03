@@ -4432,6 +4432,10 @@ declare namespace LocalJSX {
      */
     onDoubleClicked?: (event: CustomEvent<DoubleClicked>) => void;
     /**
+     * Emitted when the item is not lazy anymore
+     */
+    onLazyChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
+    /**
      * Emitted when the icon selection was changes
      */
     onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;

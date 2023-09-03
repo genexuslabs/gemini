@@ -99,23 +99,23 @@ INDEX:
    * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
    */
   @Prop() opened: boolean = undefined;
-  @Watch("opened")
-  openedHandler(newValue: boolean, oldValue: boolean): void {
-    if (oldValue !== undefined) {
-      this.toggleIconClicked.emit({
-        checked: this.checked,
-        description: this.description,
-        icon: this.icon,
-        id: this.id,
-        indeterminate: this.indeterminate,
-        label: this.label,
-        lazy: this.lazy,
-        leaf: this.leaf,
-        opened: newValue,
-        selected: this.selected,
-      });
-    }
-  }
+  // @Watch("opened")
+  // openedHandler(newValue: boolean, oldValue: boolean): void {
+  //   if (oldValue !== undefined) {
+  //     this.toggleIconClicked.emit({
+  //       checked: this.checked,
+  //       description: this.description,
+  //       icon: this.icon,
+  //       id: this.id,
+  //       indeterminate: this.indeterminate,
+  //       label: this.label,
+  //       lazy: this.lazy,
+  //       leaf: this.leaf,
+  //       opened: newValue,
+  //       selected: this.selected,
+  //     });
+  //   }
+  // }
 
   /**
    * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
@@ -682,14 +682,23 @@ INDEX:
     if (!this.lazy) {
       this.opened = !this.opened;
     }
+    this.toggleIconClicked.emit({
+      checked: this.checked,
+      description: this.description,
+      icon: this.icon,
+      id: this.id,
+      indeterminate: this.indeterminate,
+      label: this.label,
+      lazy: this.lazy,
+      leaf: this.leaf,
+      opened: this.opened,
+      selected: this.selected,
+    });
   };
 
   // 10.RENDER() FUNCTION //
 
   render(): void {
-    // console.log("opened", this.opened);
-    console.log("this.el", this.el);
-    console.log("-------------------");
     return (
       <Host
         class={{ leaf: this.leaf, "not-leaf": !this.leaf }}

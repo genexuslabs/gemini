@@ -25,7 +25,6 @@ export class GxgTest {
 
   @Listen("toggleIconClicked")
   toggleIconClickedHandler(e: CustomEvent<ToggleIconClicked>) {
-    console.log("hola");
     const treeItemId = e.detail.id;
     const isLazy = e.detail.lazy;
     if (this.lazyLoadTreeItemsCallback && isLazy) {
