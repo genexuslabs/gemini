@@ -199,6 +199,11 @@ INDEX:
    */
   @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
 
+  /**
+   * Emitted when the item is not lazy anymore
+   */
+  @Event() lazyChanged: EventEmitter<GxgTreeItemData>;
+
   // 6.COMPONENT LIFECYCLE METHODS //
 
   componentWillLoad(): void {
@@ -283,6 +288,18 @@ INDEX:
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
         this.lazy = false;
+        this.lazyChanged.emit({
+          checked: this.checked,
+          description: this.description,
+          icon: this.icon,
+          id: this.id,
+          indeterminate: this.indeterminate,
+          label: this.label,
+          lazy: this.lazy,
+          leaf: this.leaf,
+          opened: this.opened,
+          selected: this.selected,
+        });
         this.opened = true;
         this.reRender();
       }
@@ -416,7 +433,6 @@ INDEX:
         );
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
-      //this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
     }
 
     if (e.key === "ArrowLeft") {
@@ -444,7 +460,6 @@ INDEX:
           }
         }
       }
-      //this.toggleIconClicked.emit({ id: this.id }); //this recalculates the vertical line height
     }
 
     // UP/DOWN NAVIGATION
@@ -673,8 +688,8 @@ INDEX:
 
   render(): void {
     // console.log("opened", this.opened);
-    // console.log("this.el", this.el);
-    // console.log("-------------------");
+    console.log("this.el", this.el);
+    console.log("-------------------");
     return (
       <Host
         class={{ leaf: this.leaf, "not-leaf": !this.leaf }}

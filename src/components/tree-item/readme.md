@@ -45,18 +45,6 @@ Type: `Promise<void>`
 
 Type: `Promise<void>`
 
-## CSS Custom Properties
-
-| Name                  | Description                    |
-| --------------------- | ------------------------------ |
-| `--font-family`       | The text font family           |
-| `--font-size`         | The text font size             |
-| `--font-weight`       | The text font weight           |
-| `--guide-color`       | The color of the tree guides   |
-| `--item-active-color` | The color of the active item   |
-| `--item-hover-color`  | The color of the item on hover |
-| `--text-color`        | The color of the text          |
-
 ## Dependencies
 
 ### Used by

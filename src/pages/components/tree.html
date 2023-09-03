@@ -600,6 +600,63 @@
           ],
         },
       ];
+      const tinyModel1 = [
+        {
+          id: "number-1",
+          label: "number-1",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-1-1-2-1",
+              label: "number-1-1-2-1",
+              icon: "general/apple",
+            },
+            {
+              id: "number-1-1-2-2",
+              label: "number-1-1-2-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const tinyModel2 = [
+        {
+          id: "number-1",
+          label: "number-1",
+          icon: "general/apple",
+          items: [
+            {
+              id: "number-1-1-2-1",
+              label: "number-1-1-2-1",
+              icon: "general/apple",
+              items: [
+                {
+                  id: "number-1-1-2-1",
+                  label: "number-1-1-2-1",
+                  icon: "general/apple",
+                },
+                {
+                  id: "number-1-1-2-2",
+                  label: "number-1-1-2-2",
+                  icon: "general/apple",
+                },
+              ],
+            },
+            {
+              id: "number-1-1-2-2",
+              label: "number-1-1-2-2",
+              icon: "general/apple",
+            },
+          ],
+        },
+      ];
+      const tinyModel3 = [
+        {
+          id: "number-1",
+          label: "number-1",
+          icon: "general/apple",
+        },
+      ];
       const gxgTest = document.querySelector("gxg-test");
     </script>
     <br />
@@ -616,20 +673,20 @@
       const loadModelBtn = document.getElementById("load-model-btn");
       loadModelBtn.addEventListener("click", () => {
         //gxgTest.treeItemsModel = model;
-        gxgTest.treeItemsModel = model;
+        gxgTest.treeItemsModel = tinyModel1;
         //gxgTest.treeItemsModel = modelMinimal;
       });
       const updateModelBtn = document.getElementById("update-model-btn");
       updateModelBtn.addEventListener("click", () => {
         //gxgTest.treeItemsModel = updatedModel;
-        gxgTest.treeItemsModel = updatedModel;
+        gxgTest.treeItemsModel = tinyModel2;
       });
       const updateModelAgainBtn = document.getElementById(
         "update-model-again-btn"
       );
       updateModelAgainBtn.addEventListener("click", () => {
         //gxgTest.treeItemsModel = updatedModel;
-        gxgTest.treeItemsModel = modelTinyUpdatedAgain;
+        gxgTest.treeItemsModel = tinyModel3;
       });
       /*Lazy Load Promise*/
       const lazyLoadedItemsPromise = new Promise((resolve, reject) => {
