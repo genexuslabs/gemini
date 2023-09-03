@@ -72,12 +72,6 @@ export class GxgFormRadio {
   METHODS
   *********************************/
 
-  componentDidLoad() {
-    this.radioInput.addEventListener("change", (e) => {
-      console.log("changed", e);
-    });
-  }
-
   @Watch("checked")
   checkedHandler(newValue: boolean): void {
     if (newValue) {
