@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event                  | Description | Type                                                                                                                                                                                                                                                                    |
-| ---------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `treeItemStateChanged` |             | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| Event                  | Description | Type                                                             |
+| ---------------------- | ----------- | ---------------------------------------------------------------- |
+| `treeItemStateChanged` |             | `CustomEvent<{ itemData: GxgTreeItemData; emittedBy: string; }>` |
 
 ## Methods
 

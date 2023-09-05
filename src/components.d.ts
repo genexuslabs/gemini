@@ -91,7 +91,10 @@ import {
 import { TitleType } from "./components/title/title";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
-import { ToggledGxgTreeItem } from "./components/tree/gxg-tree";
+import {
+  ToggledGxgTreeItem,
+  TreeItemNewStateEmitted,
+} from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import {
   DoubleClicked,
@@ -4361,7 +4364,9 @@ declare namespace LocalJSX {
      * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
      */
     multiSelection?: boolean;
-    onTreeItemStateChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onTreeItemStateChanged?: (
+      event: CustomEvent<TreeItemNewStateEmitted>
+    ) => void;
     /**
      * Set this attribute if you want all the items to be opened by default.
      */
