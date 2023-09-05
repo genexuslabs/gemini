@@ -80,18 +80,7 @@ INDEX:
   @Watch("checked")
   checkedHandler(newValue: boolean, oldValue: boolean): void {
     if (oldValue !== undefined) {
-      this.checkboxToggled.emit({
-        checked: newValue,
-        description: this.description,
-        icon: this.icon,
-        id: this.id,
-        indeterminate: this.indeterminate,
-        label: this.label,
-        lazy: this.lazy,
-        leaf: this.leaf,
-        opened: this.opened,
-        selected: this.selected,
-      });
+      this.checkboxToggled.emit(this.getItemData(false));
     }
   }
 
@@ -102,18 +91,7 @@ INDEX:
   @Watch("opened")
   openedHandler(newValue: boolean, oldValue: boolean): void {
     if (oldValue !== undefined) {
-      this.toggleIconClicked.emit({
-        checked: this.checked,
-        description: this.description,
-        icon: this.icon,
-        id: this.id,
-        indeterminate: this.indeterminate,
-        label: this.label,
-        lazy: this.lazy,
-        leaf: this.leaf,
-        opened: newValue,
-        selected: this.selected,
-      });
+      this.toggleIconClicked.emit(this.getItemData(false));
     }
   }
 
@@ -180,29 +158,29 @@ INDEX:
   // 5.EVENTS (EMIT) //
 
   /**
-   * Emitted when the toggle icon was clicked
-   */
-  @Event() toggleIconClicked: EventEmitter<GxgTreeItemData>;
-
-  /**
-   * Emitted when the icon selection was changes
-   */
-  @Event() selectionChanged: EventEmitter<GxgTreeItemSelectedData>;
-
-  /**
-   * Emitted when the item was double-clicked
-   */
-  @Event() doubleClicked: EventEmitter<DoubleClicked>;
-
-  /**
    * Emitted when the checkbox was toggled
    */
   @Event() checkboxToggled: EventEmitter<GxgTreeItemData>;
 
   /**
+   * Emitted when the item was double-clicked
+   */
+  @Event() doubleClicked: EventEmitter<GxgTreeItemData>;
+
+  /**
    * Emitted when the item is not lazy anymore
    */
   @Event() lazyChanged: EventEmitter<GxgTreeItemData>;
+
+  /**
+   * Emitted when the icon selection was changes
+   */
+  @Event() selectionChanged: EventEmitter<GxgTreeItemData>;
+
+  /**
+   * Emitted when the toggle icon was clicked
+   */
+  @Event() toggleIconClicked: EventEmitter<GxgTreeItemData>;
 
   // 6.COMPONENT LIFECYCLE METHODS //
 
@@ -378,13 +356,7 @@ INDEX:
       (e.target as HTMLElement).nodeName === "GXG-FORM-CHECKBOX";
     if (toggleWasClicked || checkboxClicked) return;
     if (e.ctrlKey || !this.selected) {
-      this.selectionChanged.emit({
-        id: this.id,
-        label: this.label,
-        checked: this.checked,
-        selected: !this.selected,
-        ctrlKey: e.ctrlKey,
-      });
+      this.selectionChanged.emit(this.getItemData(e.ctrlKey));
     }
     if (e.ctrlKey) {
       this.selected = !this.selected;
@@ -394,9 +366,7 @@ INDEX:
   };
 
   private liTextDoubleClicked = (): void => {
-    this.doubleClicked.emit({
-      id: this.id,
-    });
+    this.doubleClicked.emit(this.getItemData(false));
     !this.leaf && this.toggleClickedHandler();
   };
 
@@ -666,22 +636,29 @@ INDEX:
   private toggleClickedHandler = (): void => {
     if (this.lazy && !this.opened) {
       this.downloading = true;
-      this.toggleIconClicked.emit({
-        checked: this.checked,
-        description: this.description,
-        icon: this.icon,
-        id: this.id,
-        indeterminate: this.indeterminate,
-        label: this.label,
-        lazy: this.lazy,
-        leaf: this.leaf,
-        opened: this.opened,
-        selected: this.selected,
-      });
+      this.toggleIconClicked.emit(this.getItemData());
     }
     if (!this.lazy) {
       this.opened = !this.opened;
     }
+  };
+
+  private getItemData = (ctrl = false) => {
+    return {
+      checkbox: this.checkbox,
+      checked: this.checked,
+      ctrl: ctrl,
+      description: this.description,
+      disabled: this.disabled,
+      icon: this.icon,
+      id: this.id,
+      indeterminate: this.indeterminate,
+      label: this.label,
+      lazy: this.lazy,
+      leaf: this.leaf,
+      opened: this.opened,
+      selected: this.selected,
+    };
   };
 
   // 10.RENDER() FUNCTION //
@@ -785,6 +762,7 @@ INDEX:
 export type GxgTreeItemData = {
   checkbox?: boolean;
   checked?: boolean;
+  ctrl?: boolean;
   description?: string;
   disabled?: boolean;
   icon?: string;

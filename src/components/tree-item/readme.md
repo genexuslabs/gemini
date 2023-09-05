@@ -24,13 +24,13 @@
 
 ## Events
 
-| Event               | Description                                 | Type                                                                                                                                                                                                                                                                    |
-| ------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `checkboxToggled`   | Emitted when the checkbox was toggled       | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
-| `doubleClicked`     | Emitted when the item was double-clicked    | `CustomEvent<{ id: string; }>`                                                                                                                                                                                                                                          |
-| `lazyChanged`       | Emitted when the item is not lazy anymore   | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
-| `selectionChanged`  | Emitted when the icon selection was changes | `CustomEvent<{ checked: boolean; ctrlKey?: boolean; id: string; label: string; selected: boolean; }>`                                                                                                                                                                   |
-| `toggleIconClicked` | Emitted when the toggle icon was clicked    | `CustomEvent<{ checkbox?: boolean; checked?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| Event               | Description                                 | Type                                                                                                                                                                                                                                                                                    |
+| ------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checkboxToggled`   | Emitted when the checkbox was toggled       | `CustomEvent<{ checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| `doubleClicked`     | Emitted when the item was double-clicked    | `CustomEvent<{ checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| `lazyChanged`       | Emitted when the item is not lazy anymore   | `CustomEvent<{ checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| `selectionChanged`  | Emitted when the icon selection was changes | `CustomEvent<{ checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
+| `toggleIconClicked` | Emitted when the toggle icon was clicked    | `CustomEvent<{ checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
 
 ## Methods
 
@@ -45,18 +45,6 @@ Type: `Promise<void>`
 #### Returns
 
 Type: `Promise<void>`
-
-## CSS Custom Properties
-
-| Name                  | Description                    |
-| --------------------- | ------------------------------ |
-| `--font-family`       | The text font family           |
-| `--font-size`         | The text font size             |
-| `--font-weight`       | The text font weight           |
-| `--guide-color`       | The color of the tree guides   |
-| `--item-active-color` | The color of the active item   |
-| `--item-hover-color`  | The color of the item on hover |
-| `--text-color`        | The color of the text          |
 
 ## Dependencies
 

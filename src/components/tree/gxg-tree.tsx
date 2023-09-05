@@ -84,6 +84,22 @@ INDEX:
 
   // 7.LISTENERS //
 
+  @Listen("checkboxToggled")
+  checkboxToggledHandler(e): void {
+    const itemData = e.detail;
+    if (this.masterTree) {
+      this.emitTreeItemNewState(itemData, "checkboxToggled");
+    }
+  }
+
+  @Listen("doubleClicked")
+  doubleClickedHandler(e): void {
+    const itemData = e.detail;
+    if (this.masterTree) {
+      this.emitTreeItemNewState(itemData, "doubleClicked");
+    }
+  }
+
   @Listen("selectionChanged")
   selectionChangedHandler(e: CustomEvent<GxgTreeItemSelectedData>): void {
     //Unselect all items, except the one that triggered this event. This action should be done once, by the master tree.
@@ -101,14 +117,6 @@ INDEX:
     const itemData = e.detail;
     if (this.masterTree) {
       this.emitTreeItemNewState(itemData, "selectionChanged");
-    }
-  }
-
-  @Listen("checkboxToggled")
-  checkboxToggledHandler(e): void {
-    const itemData = e.detail;
-    if (this.masterTree) {
-      this.emitTreeItemNewState(itemData, "checkboxToggled");
     }
   }
 

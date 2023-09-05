@@ -96,11 +96,7 @@ import {
   TreeItemNewStateEmitted,
 } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
-import {
-  DoubleClicked,
-  GxgTreeItemData as GxgTreeItemData1,
-  GxgTreeItemSelectedData as GxgTreeItemSelectedData1,
-} from "./components/tree-item/gxg-tree-item";
+import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -4435,7 +4431,7 @@ declare namespace LocalJSX {
     /**
      * Emitted when the item was double-clicked
      */
-    onDoubleClicked?: (event: CustomEvent<DoubleClicked>) => void;
+    onDoubleClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
     /**
      * Emitted when the item is not lazy anymore
      */
@@ -4443,7 +4439,7 @@ declare namespace LocalJSX {
     /**
      * Emitted when the icon selection was changes
      */
-    onSelectionChanged?: (event: CustomEvent<GxgTreeItemSelectedData>) => void;
+    onSelectionChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
     /**
      * Emitted when the toggle icon was clicked
      */
