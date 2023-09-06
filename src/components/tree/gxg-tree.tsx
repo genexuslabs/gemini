@@ -85,7 +85,7 @@ INDEX:
   // 7.LISTENERS //
 
   @Listen("checkboxToggled")
-  checkboxToggledHandler(e): void {
+  checkboxToggledHandler(e: CustomEvent<GxgTreeItemData>): void {
     const itemData = e.detail;
     if (this.masterTree) {
       this.emitTreeItemNewState(itemData, "checkboxToggled");
@@ -93,7 +93,7 @@ INDEX:
   }
 
   @Listen("doubleClicked")
-  doubleClickedHandler(e): void {
+  doubleClickedHandler(e: CustomEvent<GxgTreeItemData>): void {
     const itemData = e.detail;
     if (this.masterTree) {
       this.emitTreeItemNewState(itemData, "doubleClicked");
@@ -101,18 +101,18 @@ INDEX:
   }
 
   @Listen("selectionChanged")
-  selectionChangedHandler(e: CustomEvent<GxgTreeItemSelectedData>): void {
+  selectionChangedHandler(e: CustomEvent<GxgTreeItemData>): void {
     //Unselect all items, except the one that triggered this event. This action should be done once, by the master tree.
+    const allChildren = this.el.querySelectorAll("gxg-tree-item");
     if (
-      (this.masterTree && !this.multiSelection) ||
-      (this.masterTree && this.multiSelection && !e.detail.ctrlKey)
+      (this.masterTree && this.multiSelection && !e.detail.ctrl) ||
+      (this.masterTree && !this.multiSelection)
     ) {
-      const allChildren = this.el.querySelectorAll("gxg-tree-item");
-      if (allChildren?.length) {
-        Array.from(allChildren).forEach((item) => {
+      Array.from(allChildren).forEach((item) => {
+        if (item !== e.detail.ref) {
           item.selected = false;
-        });
-      }
+        }
+      });
     }
     const itemData = e.detail;
     if (this.masterTree) {
@@ -121,7 +121,7 @@ INDEX:
   }
 
   @Listen("toggleIconClicked")
-  toggleIconClickedHandler(e): void {
+  toggleIconClickedHandler(e: CustomEvent<GxgTreeItemData>): void {
     const itemData = e.detail;
     if (this.masterTree) {
       this.emitTreeItemNewState(itemData, "toggleIconClicked");
@@ -283,8 +283,6 @@ export type ToggledGxgTreeItem = {
   id: string;
   opened: boolean;
 };
-
-export type TreeItemsInsertionMode = "before" | "after" | "inside";
 
 export type TreeItemNewStateEmitted = {
   itemData: GxgTreeItemData;

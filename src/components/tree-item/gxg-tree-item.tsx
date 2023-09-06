@@ -355,14 +355,12 @@ INDEX:
     const checkboxClicked =
       (e.target as HTMLElement).nodeName === "GXG-FORM-CHECKBOX";
     if (toggleWasClicked || checkboxClicked) return;
-    if (e.ctrlKey || !this.selected) {
-      this.selectionChanged.emit(this.getItemData(e.ctrlKey));
-    }
     if (e.ctrlKey) {
       this.selected = !this.selected;
-    } else if (!this.selected) {
+    } else {
       this.selected = true;
     }
+    this.selectionChanged.emit(this.getItemData(e.ctrlKey));
   };
 
   private liTextDoubleClicked = (): void => {
@@ -645,6 +643,7 @@ INDEX:
 
   private getItemData = (ctrl = false) => {
     return {
+      ref: this.el,
       checkbox: this.checkbox,
       checked: this.checked,
       ctrl: ctrl,
@@ -760,6 +759,7 @@ INDEX:
 }
 
 export type GxgTreeItemData = {
+  ref?: HTMLGxgTreeItemElement;
   checkbox?: boolean;
   checked?: boolean;
   ctrl?: boolean;
