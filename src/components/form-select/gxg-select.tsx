@@ -12,6 +12,7 @@ import {
   Listen,
 } from "@stencil/core";
 import { requiredLabel, formMessage } from "../../common/form.js";
+import { LabelPosition } from "../../common/types";
 import state from "../store";
 
 @Component({
@@ -436,5 +437,3 @@ export class GxgFormSelect {
     );
   }
 }
-
-export type LabelPosition = "start" | "above";

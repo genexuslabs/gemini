@@ -53,6 +53,10 @@
     <div class="container">
       <!-- AUTO HEIGHT -->
       <h2>max-height</h2>
+
+      <button>button before focus</button>
+      <br /><br />
+
       <div
         class="list-box-container"
         style="
@@ -72,7 +76,10 @@
           min-height="50%"
           no-border
         >
-          <gxg-list-box-item>0.Common</gxg-list-box-item>
+          <gxg-list-box-item
+            >0.Common this is a large, very large list
+            description</gxg-list-box-item
+          >
           <gxg-list-box-item icon="objects/business-process-diagram" disabled
             >1.BPM</gxg-list-box-item
           >
@@ -473,10 +480,10 @@
       /*max-height*/
       let listBoxMaxHeight = document.getElementById("max-height");
       listBoxMaxHeight.addEventListener("selectionChanged", (e) => {
-        console.table("selectionChanged", e.detail);
+        //console.table("selectionChanged", e.detail);
       });
       listBoxMaxHeight.addEventListener("checkedChanged", (e) => {
-        console.table("checkedChanged", e.detail);
+        //console.table("checkedChanged", e.detail);
       });
       let btnMaxHeight = document.getElementById("btn-max-height");
       btnMaxHeight.addEventListener("click", (e) => {
@@ -488,18 +495,18 @@
       /*show errors*/
       let listBoxErrors = document.getElementById("list-box-errors");
       listBoxErrors.addEventListener("selectionChanged", (e) => {
-        /*console.log("list-box-1", e.detail);*/
+        //console.log("list-box-1", e.detail);
       });
       let btnShowErrors = document.getElementById("btn-show-errors");
       btnShowErrors.addEventListener("click", (e) => {
         const valid = listBoxErrors.validate();
-        console.log(valid);
+        //console.log(valid);
       });
 
       /*(1)*/
       let listBox1 = document.getElementById("list-box-1");
       listBox1.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-1", e.detail);
+        //console.log("list-box-1", e.detail);
       });
       let btn1 = document.getElementById("btn-1");
       btn1.addEventListener("click", (e) => {
@@ -511,7 +518,7 @@
       /*(2)*/
       let listBox2 = document.getElementById("list-box-2");
       listBox2.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-2", e.detail);
+        //console.log("list-box-2", e.detail);
       });
       let btn2 = document.getElementById("btn-2");
       btn2.addEventListener("click", (e) => {
@@ -523,7 +530,7 @@
       /*(3)*/
       let listBox3 = document.getElementById("list-box-3");
       listBox3.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-3", e.detail);
+        //console.log("list-box-3", e.detail);
       });
       let btn3 = document.getElementById("btn-3");
       btn3.addEventListener("click", (e) => {
@@ -535,7 +542,7 @@
       /*(4)*/
       let listBox4 = document.getElementById("list-box-4");
       listBox4.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-4", e.detail);
+        //console.log("list-box-4", e.detail);
       });
       let btn4 = document.getElementById("btn-4");
       btn4.addEventListener("click", (e) => {
@@ -547,7 +554,7 @@
       /*(5)*/
       let listBox5 = document.getElementById("list-box-5");
       listBox5.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-5", e.detail);
+        //console.log("list-box-5", e.detail);
       });
       let btn5 = document.getElementById("btn-5");
       btn5.addEventListener("click", (e) => {
@@ -559,7 +566,7 @@
       /*(6)*/
       let listBox6 = document.getElementById("list-box-6");
       listBox6.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-6", e.detail);
+        //console.log("list-box-6", e.detail);
       });
       let btn6 = document.getElementById("btn-6");
       btn6.addEventListener("click", (e) => {
@@ -571,7 +578,7 @@
       /*(7)*/
       let listBox7 = document.getElementById("list-box-7");
       listBox7.addEventListener("selectionChanged", (e) => {
-        console.log("list-box-7", e.detail);
+        //console.log("list-box-7", e.detail);
       });
       let btn7 = document.getElementById("btn-7");
       btn7.addEventListener("click", (e) => {
@@ -583,7 +590,7 @@
       /*(8)*/
       let listBox8 = document.getElementById("list-box-8");
       listBox6.addEventListener("selectionChanged", (e) => {
-        // console.log("list-box-8", e.detail);
+        //console.log("list-box-8", e.detail);
       });
       let btn8 = document.getElementById("btn-8");
       btn8.addEventListener("click", (e) => {

@@ -1,5 +1,6 @@
 import { Component, Host, h, Prop } from "@stencil/core";
 import state from "../store";
+import { LabelPosition } from "../../common/types";
 
 @Component({
   tag: "gxg-label",
@@ -14,7 +15,7 @@ export class GxgLabel {
   /*
    * The label position (This will not position the label itself, just the margin).
    */
-  @Prop() labelPosition: "above" | "end" | "below" | "start" = "start";
+  @Prop() labelPosition: LabelPosition = "start";
 
   /*
    * The presence of this attribute styles the label as disabled

@@ -22,7 +22,7 @@ import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
 import { exportParts } from "../../common/export-parts";
 import state from "../store";
-import { ValidationStatus } from "../../common/types";
+import { ValidationStatus, LabelPosition } from "../../common/types";
 import { mutationObserverRemoved } from "../../common/mo-removed";
 @Component({
   tag: "gxg-combo-box",
@@ -838,4 +838,3 @@ export class GxgComboBox implements FormComponent {
 }
 
 export type ListPosition = "above" | "below";
-export type LabelPosition = "start" | "above";

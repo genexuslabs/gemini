@@ -20,6 +20,14 @@ $ui-animation-timing-function: ease;
   }
 }
 
+/*Ellipsis*/
+@mixin gxg-ellipsis {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /*****************************************************
 TYPOGRAPHY
 *****************************************************/

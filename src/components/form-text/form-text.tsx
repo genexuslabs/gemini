@@ -16,7 +16,7 @@ import { formClasses } from "../../common/classesNames";
 import { commonClassesNames } from "../../common/classesNames";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
-import { ValidationStatus } from "../../common/types";
+import { ValidationStatus, LabelPosition } from "../../common/types";
 
 @Component({
   tag: "gxg-form-text",
@@ -570,7 +570,6 @@ export class GxgFormText implements FormComponent {
 }
 
 export type IconPosition = "start" | "end";
-export type LabelPosition = "start" | "above";
 export type Style =
   | "regular"
   | "quote"

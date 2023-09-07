@@ -14,3 +14,5 @@ export type ValidationStatus =
   | "success";
 
 export type TitleAlignment = "start" | "center" | "end";
+
+export type LabelPosition = "start" | "above" | "below" | "end";

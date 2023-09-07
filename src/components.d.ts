@@ -16,7 +16,11 @@ import {
 } from "./components/alert/alert";
 import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
-import { TitleAlignment, ValidationStatus } from "./common/types";
+import {
+  LabelPosition,
+  TitleAlignment,
+  ValidationStatus,
+} from "./common/types";
 import {
   background as background1,
   elevation,
@@ -24,8 +28,8 @@ import {
 } from "./components/card/card";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
-import { LabelPosition, ListPosition } from "./components/combo-box/combo-box";
 import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
+import { ListPosition } from "./components/combo-box/combo-box";
 import {
   ComboBoxItemValue as ComboBoxItemValue1,
   ItemInformation,
@@ -43,11 +47,7 @@ import { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form
 import { Message } from "./components/form-message/form-message";
 import { RadioData } from "./components/form-radio/form-radio";
 import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
-import {
-  IconPosition,
-  LabelPosition as LabelPosition1,
-  Style,
-} from "./components/form-text/form-text";
+import { IconPosition, Style } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import {
   ItemsInformation,
@@ -65,8 +65,7 @@ import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
 import { PillType } from "./components/pill/pill";
-import { LabelPosition as LabelPosition2 } from "./components/form-select/gxg-select";
-import { LabelPosition as LabelPosition3 } from "./components/form-select-v2/gxg-select-v2";
+import { LabelPosition as LabelPosition1 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
 import {
   JustifyContent,
@@ -75,7 +74,6 @@ import {
 } from "./components/spacer-layout/spacer-layout";
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
-import { LabelPosition as LabelPosition4 } from "./components/stepper/stepper";
 import { TabContainerFlexDirection } from "./components/tab/tab";
 import { TabsPosition } from "./components/tabs/tabs";
 import {
@@ -961,6 +959,10 @@ export namespace Components {
   }
   interface GxgFormTextarea {
     /**
+     * Centers the label
+     */
+    centerLabel: boolean;
+    /**
      * The presence of this attribute makes the component disabled
      */
     disabled: boolean;
@@ -984,6 +986,14 @@ export namespace Components {
      * The textarea label
      */
     label: string;
+    /**
+     * The label position
+     */
+    labelPosition: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth: any;
     /**
      * The max-width
      */
@@ -1045,7 +1055,7 @@ export namespace Components {
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
-    labelPosition: "above" | "end" | "below" | "start";
+    labelPosition: LabelPosition;
     noMargin: boolean;
     tooltip: string;
     width: string;
@@ -3482,6 +3492,10 @@ declare namespace LocalJSX {
   }
   interface GxgFormTextarea {
     /**
+     * Centers the label
+     */
+    centerLabel?: boolean;
+    /**
      * The presence of this attribute makes the component disabled
      */
     disabled?: boolean;
@@ -3505,6 +3519,14 @@ declare namespace LocalJSX {
      * The textarea label
      */
     label?: string;
+    /**
+     * The label position
+     */
+    labelPosition?: LabelPosition;
+    /**
+     * The label width
+     */
+    labelWidth?: any;
     /**
      * The max-width
      */
@@ -3574,7 +3596,7 @@ declare namespace LocalJSX {
     /**
      * ******************************* PROPERTIES & STATE *******************************
      */
-    labelPosition?: "above" | "end" | "below" | "start";
+    labelPosition?: LabelPosition;
     noMargin?: boolean;
     tooltip?: string;
     width?: string;

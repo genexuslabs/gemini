@@ -9,6 +9,7 @@ import {
   Watch,
   State,
 } from "@stencil/core";
+import { LabelPosition } from "../../common/types";
 
 @Component({
   tag: "gxg-stepper",
@@ -159,5 +160,3 @@ export class GxgStepper {
     );
   }
 }
-
-export type LabelPosition = "start" | "above";

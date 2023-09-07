@@ -18,7 +18,7 @@ import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { exportParts } from "../../common/export-parts";
-import { ValidationStatus } from "../../common/types";
+import { ValidationStatus, LabelPosition } from "../../common/types";
 import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-form-textarea",
@@ -49,6 +49,21 @@ export class GxgFormTextarea implements FormComponent {
    * The textarea label
    */
   @Prop({ reflect: true }) label: string;
+
+  /**
+   * The label position
+   */
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
+
+  /**
+   * The label width
+   */
+  @Prop() labelWidth;
+
+  /**
+   * Centers the label
+   */
+  @Prop() centerLabel = false;
 
   /**
    * The max-width
@@ -199,16 +214,14 @@ export class GxgFormTextarea implements FormComponent {
       >
         {this.label ? (
           <gxg-label
-            class={{
-              label: true,
-            }}
+            labelPosition={this.labelPosition}
+            center={this.centerLabel}
+            width={this.labelWidth}
           >
             {this.label}
             {requiredLabel(this)}
           </gxg-label>
-        ) : (
-          ""
-        )}
+        ) : null}
 
         <textarea
           ref={(el) => (this.textArea = el as HTMLTextAreaElement)}
