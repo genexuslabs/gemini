@@ -393,7 +393,7 @@
               ></ch-grid-column>
             </ch-grid-columnset>
 
-            <ch-grid-row rowid="ar">
+            <ch-grid-row rowiid="ar">
               <ch-grid-cell></ch-grid-cell>
               <ch-grid-cell>AR</ch-grid-cell>
               <ch-grid-cell>Argentina</ch-grid-cell>
@@ -458,16 +458,18 @@
             </ch-grid-row>
           </ch-grid>
         </gxg-grid>
+        <br>
       </section>
 
       <!--row-mark-->
       <section class="section-dev row-mark" data-title="row-mark">
         <gxg-grid>
-          <ch-grid row-selection-mode="multiple">
+          <ch-grid row-selection-mode="multiple" id="grid-selection-multiple">
             <ch-grid-columnset>
               <ch-grid-column
                 column-type="rich"
                 rich-row-selector
+                rich-row-selector-mode="mark"
                 settingable="false"
                 size="auto"
               ></ch-grid-column>
@@ -562,6 +564,16 @@
             </ch-grid-row>
           </ch-grid>
         </gxg-grid>
+        <br>
+        <button id="get-marked-rows-btn">getMarkedRows</button>
+        <script>
+          const gridSelectionMultiple = document.getElementById("grid-selection-multiple");
+          const getMarkedRowsBtn = document.getElementById("get-marked-rows-btn");
+          getMarkedRowsBtn.addEventListener("click", async ()=> {
+            const markedRows = await gridSelectionMultiple.getMarkedRows();
+            console.log("markedRows", markedRows);
+          })
+        </script>
       </section>
 
       <!--row-reorder-->
