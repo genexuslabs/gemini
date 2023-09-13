@@ -507,9 +507,8 @@ FORM ELEMENTS
     background: var(--gray-04);
     cursor: pointer;
   }
-  .gxg-scroll {
-    display: block;
-    overflow-y: auto;
-    padding-right: 2px;
-  }
+}
+
+.gxg-scrollbar {
+  @include gxg-scrollbar;
 }

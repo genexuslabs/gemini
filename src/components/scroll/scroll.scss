@@ -1,0 +1,7 @@
+@import "../../globals/normalize.scss";
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+  overflow-y: auto;
+}

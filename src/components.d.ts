@@ -1384,6 +1384,7 @@ export namespace Components {
      */
     value: number;
   }
+  interface GxgScroll {}
   interface GxgSelect {
     /**
      * The presence of this attribute disables the component
@@ -2279,6 +2280,13 @@ declare global {
     prototype: HTMLGxgProgressBarElement;
     new (): HTMLGxgProgressBarElement;
   };
+  interface HTMLGxgScrollElement
+    extends Components.GxgScroll,
+      HTMLStencilElement {}
+  var HTMLGxgScrollElement: {
+    prototype: HTMLGxgScrollElement;
+    new (): HTMLGxgScrollElement;
+  };
   interface HTMLGxgSelectElement
     extends Components.GxgSelect,
       HTMLStencilElement {}
@@ -2502,6 +2510,7 @@ declare global {
     "gxg-paginator": HTMLGxgPaginatorElement;
     "gxg-pill": HTMLGxgPillElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
+    "gxg-scroll": HTMLGxgScrollElement;
     "gxg-select": HTMLGxgSelectElement;
     "gxg-select-v2": HTMLGxgSelectV2Element;
     "gxg-separator": HTMLGxgSeparatorElement;
@@ -3962,6 +3971,7 @@ declare namespace LocalJSX {
      */
     value?: number;
   }
+  interface GxgScroll {}
   interface GxgSelect {
     /**
      * The presence of this attribute disables the component
@@ -4584,6 +4594,7 @@ declare namespace LocalJSX {
     "gxg-paginator": GxgPaginator;
     "gxg-pill": GxgPill;
     "gxg-progress-bar": GxgProgressBar;
+    "gxg-scroll": GxgScroll;
     "gxg-select": GxgSelect;
     "gxg-select-v2": GxgSelectV2;
     "gxg-separator": GxgSeparator;
@@ -4709,6 +4720,8 @@ declare module "@stencil/core" {
       "gxg-pill": LocalJSX.GxgPill & JSXBase.HTMLAttributes<HTMLGxgPillElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
+      "gxg-scroll": LocalJSX.GxgScroll &
+        JSXBase.HTMLAttributes<HTMLGxgScrollElement>;
       "gxg-select": LocalJSX.GxgSelect &
         JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
       "gxg-select-v2": LocalJSX.GxgSelectV2 &
