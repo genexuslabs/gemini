@@ -32,6 +32,7 @@ export class GxgTabs {
 
   @Listen("tabActivated")
   tabActivatedHandler(event) {
+    event.stopPropagation();
     this.updateActiveChildren(event.target.tab, "gxg-tab-button");
     this.updateActiveChildren(event.target.tab, "gxg-tab");
   }
