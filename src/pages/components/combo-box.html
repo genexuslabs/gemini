@@ -63,9 +63,9 @@
           max-width="100%"
           label-position="start"
           center-label
-          value="bpm"
           cursor-end
           fixed-icon="objects/category"
+          value="common-elements"
         >
           <gxg-combo-box-item value="common-elements"
             >Common Elements Common Elements Common Elements</gxg-combo-box-item
@@ -105,7 +105,7 @@
             });
             /*listen to changes*/
             comboCommonFunctions.addEventListener("valueChanged", (e) => {
-              console.log(e.detail);
+              console.log("valueChanged", e.detail);
             });
           </script>
           <gxg-button tabindex="-1" id="disable-combo-box"

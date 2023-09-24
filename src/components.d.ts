@@ -39,7 +39,6 @@ import {
   headingJustify,
   sectionsPadding,
 } from "./components/container/container";
-import { DatePickerDate } from "./components/date-picker/date-picker";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
 import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
@@ -562,36 +561,6 @@ export namespace Components {
     id: string;
   }
   interface GxgContextualMenuSubmenu {}
-  interface GxgDatePicker {
-    /**
-     * The presence of this attribute makes the date-picker always visible
-     */
-    alwaysShow: boolean;
-    /**
-     * The datepicker label
-     */
-    label: string;
-    /**
-     * The max. date
-     */
-    maxDate: DatePickerDate;
-    /**
-     * The max. width
-     */
-    maxWidth: string;
-    /**
-     * The min. date
-     */
-    minDate: DatePickerDate;
-    /**
-     * no weekends available
-     */
-    noWeekends: boolean;
-    /**
-     * initial date
-     */
-    value: DatePickerDate;
-  }
   interface GxgDemo {
     initiateDemo: boolean;
     layerZIndex: number;
@@ -2066,13 +2035,6 @@ declare global {
     prototype: HTMLGxgContextualMenuSubmenuElement;
     new (): HTMLGxgContextualMenuSubmenuElement;
   };
-  interface HTMLGxgDatePickerElement
-    extends Components.GxgDatePicker,
-      HTMLStencilElement {}
-  var HTMLGxgDatePickerElement: {
-    prototype: HTMLGxgDatePickerElement;
-    new (): HTMLGxgDatePickerElement;
-  };
   interface HTMLGxgDemoElement extends Components.GxgDemo, HTMLStencilElement {}
   var HTMLGxgDemoElement: {
     prototype: HTMLGxgDemoElement;
@@ -2478,7 +2440,6 @@ declare global {
     "gxg-contextual-menu": HTMLGxgContextualMenuElement;
     "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
     "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
-    "gxg-date-picker": HTMLGxgDatePickerElement;
     "gxg-demo": HTMLGxgDemoElement;
     "gxg-drag-box": HTMLGxgDragBoxElement;
     "gxg-drag-container": HTMLGxgDragContainerElement;
@@ -3050,40 +3011,6 @@ declare namespace LocalJSX {
     onContextualMenuItemSelected?: (event: CustomEvent<string>) => void;
   }
   interface GxgContextualMenuSubmenu {}
-  interface GxgDatePicker {
-    /**
-     * The presence of this attribute makes the date-picker always visible
-     */
-    alwaysShow?: boolean;
-    /**
-     * The datepicker label
-     */
-    label?: string;
-    /**
-     * The max. date
-     */
-    maxDate?: DatePickerDate;
-    /**
-     * The max. width
-     */
-    maxWidth?: string;
-    /**
-     * The min. date
-     */
-    minDate?: DatePickerDate;
-    /**
-     * no weekends available
-     */
-    noWeekends?: boolean;
-    /**
-     * Emits the new selected date
-     */
-    onValueChanged?: (event: CustomEvent<DatePickerDate>) => void;
-    /**
-     * initial date
-     */
-    value?: DatePickerDate;
-  }
   interface GxgDemo {
     initiateDemo?: boolean;
     layerZIndex?: number;
@@ -4562,7 +4489,6 @@ declare namespace LocalJSX {
     "gxg-contextual-menu": GxgContextualMenu;
     "gxg-contextual-menu-item": GxgContextualMenuItem;
     "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
-    "gxg-date-picker": GxgDatePicker;
     "gxg-demo": GxgDemo;
     "gxg-drag-box": GxgDragBox;
     "gxg-drag-container": GxgDragContainer;
@@ -4661,8 +4587,6 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuItemElement>;
       "gxg-contextual-menu-submenu": LocalJSX.GxgContextualMenuSubmenu &
         JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
-      "gxg-date-picker": LocalJSX.GxgDatePicker &
-        JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
       "gxg-demo": LocalJSX.GxgDemo & JSXBase.HTMLAttributes<HTMLGxgDemoElement>;
       "gxg-drag-box": LocalJSX.GxgDragBox &
         JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
