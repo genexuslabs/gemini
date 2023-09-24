@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Nested Tabs | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <gxg-tabs id="gxgTabsFruits" position="top">
+      <gxg-tab-bar slot="tab-bar-container" id="tab-bar">
+        <gxg-tab-button
+          slot="tab-bar"
+          tab-label="apples"
+          tab="apples"
+          key="apples"
+          is-selected
+        ></gxg-tab-button>
+        <gxg-tab-button
+          slot="tab-bar"
+          tab-label="bananas"
+          tab="bananas"
+          key="bananas"
+          icon="gemini-tools/settings"
+        ></gxg-tab-button>
+        <gxg-tab-button
+        slot="tab-bar"
+        tab-label="nested"
+        tab="nested"
+        key="nested"
+        icon="gemini-tools/settings"
+        ></gxg-tab-button>
+      </gxg-tab-bar>
+      <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
+        <p>
+          An apple is a sweet, edible fruit produced by an apple tree. Apple
+          trees are cultivated worldwide and are the most widely grown species
+          in the genus Malus. The tree originated in Central Asia, where its
+          wild ancestor, Malus sieversii, is still found today. An apple is a
+          sweet, edible fruit produced by an apple tree. Apple trees are
+          cultivated worldwide and are the most widely grown species in the
+          genus Malus.
+        </p>
+      </gxg-tab>
+      <gxg-tab tab="bananas" key="bananas" isSelected="false">
+        A banana is an elongated, edible fruit – botanically a berry –
+        produced by several kinds of large herbaceous flowering plants in the
+        genus Musa. In some countries, bananas used for cooking may be called
+        "plantains", distinguishing them from dessert bananas.
+      </gxg-tab>
+      <gxg-tab tab="nested" key="nested" isSelected="false">
+        Here lies a nested tabs
+
+        <!--Nested Tabs-->
+        <gxg-tabs id="gxgTabsColours" position="top">
+          <gxg-tab-bar slot="tab-bar-container" id="tab-bar">
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="blue"
+              tab="blue"
+              key="blue"
+              is-selected
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="red"
+              tab="red"
+              key="red"
+              icon="gemini-tools/settings"
+            ></gxg-tab-button>
+          </gxg-tab-bar>
+          <gxg-tab tab="blue" key="blue" isSelected="true" flex-container>
+            <p>
+              This is the content of the blue tab
+            </p>
+          </gxg-tab>
+          <gxg-tab tab="red" key="red" isSelected="true" flex-container>
+            <p>
+              This is the content of the red tab
+            </p>
+          </gxg-tab>
+        </gxg-tabs>
+
+      </gxg-tab>
+    </gxg-tabs>
+  </body>
+</html>
