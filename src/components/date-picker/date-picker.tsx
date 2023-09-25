@@ -187,7 +187,7 @@ export class GxgDatePicker {
 
       // Settings.
       alwaysShow: this.alwaysShow, // Never hide the calendar.
-      dateSelected: new Date(valueYear, valueMonth, valueDay),
+      //dateSelected: new Date(valueYear, valueMonth, valueDay),
       maxDate: maxDate && new Date(maxDateYear, maxDateMonth, maxDateDay), // Jan 1st, 2099.
       minDate: minDate && new Date(minDateYear, minDateMonth, minDateDay), // June 1st, 2016.
       startDate: this.value, // This month.
