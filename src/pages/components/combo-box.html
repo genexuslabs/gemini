@@ -56,7 +56,7 @@
       <section class="section" tabindex="0">
         <span>test frutas</span>
         <gxg-combo-box
-          id="common functions #1"
+          id="combo-fruits"
           placeholder="Select item"
           label="Test disabled"
           max-width="100%"
@@ -64,6 +64,7 @@
           center-label
           cursor-end
           fixed-icon="objects/category"
+          value="uva"
         >
           <gxg-combo-box-item value="manzana">Manzana</gxg-combo-box-item>
           <gxg-combo-box-item value="banana" icon="objects/conversational-flows"
@@ -76,6 +77,12 @@
           >
           <gxg-combo-box-item value="uva" icon="">Uvas</gxg-combo-box-item>
         </gxg-combo-box>
+        <script>
+          const comboFruits = document.getElementById("combo-fruits");
+          comboFruits.addEventListener("valueChanged", (e) => {
+            console.log("valueChanged", e.detail);
+          });
+        </script>
       </section>
 
       <p>Open the console to see the values.</p>

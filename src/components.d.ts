@@ -2892,7 +2892,7 @@ declare namespace LocalJSX {
      */
     onOpened?: (event: CustomEvent<any>) => void;
     /**
-     * This event is triggered when the combo dropdown has toggled (opened/closeds)
+     * This event is triggered when the combo dropdown has toggled (opened/closed)
      */
     onToggled?: (event: CustomEvent<boolean>) => void;
     /**
