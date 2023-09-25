@@ -348,9 +348,11 @@ export class GxgComboBox implements FormComponent {
       repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_UP);
     } else if (e.code === KK.ENTER) {
       this.hideList();
+      this.showAllItems();
     } else if (e.code === KK.SPACE) {
       this.showList();
     } else if (e.code === KK.ESCAPE) {
+      this.showAllItems();
       this.hideList();
     } else if (e.code === KK.TAB && this.showList) {
       this.hideList();
@@ -374,7 +376,7 @@ export class GxgComboBox implements FormComponent {
     if (this.userTyped) {
       value = this.getValueByText(newValue);
     } else {
-      this.showAllItems();
+      !this.listIsOpen && this.showAllItems();
       value = newValue;
     }
     newItem = this.getItemByValue(value);
