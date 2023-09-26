@@ -32,33 +32,33 @@
       <span><strong>frutas</strong></span>
       <ul data-category="frutas" class="data-list">
         <li
-          data-icon="objects/conversational-flows"
-          data-value="manzanas-123"
-          data-description="esta es la description de la manzana esta es la description de la manzana"
+          data-value="manzana-123"
+          data-icon="./assets/icons/apple.svg"
+          data-id="my-manzana-id"
         >
-          Manzanas
+          zManzanas Label
         </li>
-        <li data-icon="editing-structures/attribute-formula">bananas</li>
-        <li>naranjas</li>
-        <li>uvas</li>
-        <li>frutillas</li>
+        <li>zbananas</li>
+        <li>znaranjas</li>
+        <li>zuvas</li>
+        <li>zfrutillas</li>
       </ul>
       <!-- granos -->
       <span><strong>(sin categoría)</strong></span>
-      <!-- <ul class="data-list">
-        <li>porotos</li>
-        <li>garbanzos</li>
-        <li>lentejas</li>
-        <li>chia</li>
-      </ul> -->
+      <ul class="data-list">
+        <li>zporotos</li>
+        <li>zgarbanzos</li>
+        <li>zlentejas</li>
+        <li>zchia</li>
+      </ul>
       <!-- verduras -->
       <span><strong>verduras</strong></span>
       <ul data-category="verduras" class="data-list">
-        <li>lecuhgas</li>
-        <li>tomates</li>
-        <li>cebollas</li>
-        <li>apio</li>
-        <li>papas</li>
+        <li>zlecuhgas</li>
+        <li>ztomates</li>
+        <li>zcebollas</li>
+        <li>zapio</li>
+        <li>zpapas</li>
       </ul>
 
       <!-- ch-suggest -->
@@ -69,146 +69,174 @@
           validation-message="Some success message"
         >
           <ch-suggest
-            label="Label Success"
-            show-label
-            label-position="above"
-            id="ch-suggest-success"
-          ></ch-suggest>
-        </gxg-suggest>
-        <button id="select-text-btn" style="margin: 8px 0">Select text</button>
-        <script>
-          const chSuggest = document.querySelector("ch-suggest");
-
-          /*Listen to selectionChanged*/
-          chSuggest.addEventListener("itemSelected", (e) => {
-            console.log("itemSelected", e.detail);
-          });
-
-          chSuggest.cursorEnd = false;
-          const selectTextBtn = document.getElementById("select-text-btn");
-          selectTextBtn.addEventListener("click", async function () {
-            await chSuggest.selectInputText();
-          });
-        </script>
-        <br />
-        <gxg-suggest
-          validation-status="warning"
-          validation-message="Some warning message"
-        >
-          <ch-suggest
-            label="Label Warning"
-            show-label
-            label-position="above"
-          ></ch-suggest>
-        </gxg-suggest>
-        <br />
-        <gxg-suggest
-          validation-status="error"
-          validation-message="Some error message"
-        >
-          <ch-suggest
-            label="Label Error"
-            show-label
-            label-position="above"
-            disabled
-          ></ch-suggest>
-        </gxg-suggest>
-        <br />
-        <gxg-suggest disabled>
-          <ch-suggest
-            label="Label (disabled)"
-            show-label
-            label-position="above"
-            value="hola"
-          ></ch-suggest>
+            label="This is the label"
+            suggest-title="Select your food"
+            label-position="start"
+            suggest-value="una-descripción-inicial"
+            input-value="Una descripción inicial"
+          >
+          </ch-suggest>
         </gxg-suggest>
       </section>
-      <br />
+      <button id="select-text-button">Select text</button>
+      <button id="focus-button">Focus</button>
 
-      <gxg-combo-box
-        id="combo-standard-abc123"
-        placeholder="Select item"
-        label="Standard combo (abc123):"
-        validation-status="warning"
-        validation-message="Some message"
-      >
-        <gxg-combo-box-item value="a1 value">a1</gxg-combo-box-item>
-        <gxg-combo-box-item value="a12 value">a12</gxg-combo-box-item>
-        <gxg-combo-box-item value="a2 value">a2</gxg-combo-box-item>
-        <gxg-combo-box-item value="a3 value">a3</gxg-combo-box-item>
-        <gxg-combo-box-item value="b1 value">b1</gxg-combo-box-item>
-        <gxg-combo-box-item value="b2 value">b2</gxg-combo-box-item>
-        <gxg-combo-box-item value="b3 value">b3</gxg-combo-box-item>
-        <gxg-combo-box-item value="c1 value">c1</gxg-combo-box-item>
-        <gxg-combo-box-item value="c2 value">c2</gxg-combo-box-item>
-        <gxg-combo-box-item value="c3 value">c3</gxg-combo-box-item>
-      </gxg-combo-box>
+      <script>
+        const chSuggest = document.querySelector("ch-suggest");
+        chSuggest.cursorEnd = true;
+        /*Select text button*/
+        const selectTextButton = document.getElementById("select-text-button");
+        selectTextButton.addEventListener("click", async (e) => {
+          await chSuggest.selectInputText();
+        });
+        /*Focus button*/
+        const focusButton = document.getElementById("focus-button");
+        focusButton.addEventListener("click", (e) => {
+          chSuggest.focus();
+        });
+      </script>
+
+      <!-- ch-suggest-list -->
+      <section class="section-dev" data-title="ch-suggest-list">
+        <ch-suggest-list label="fruits">
+          <ch-suggest-list-item>
+            <ch-icon
+              auto-color
+              src="./assets/icons/apple.svg"
+              slot="icon"
+            ></ch-icon>
+            apple
+          </ch-suggest-list-item>
+          <ch-suggest-list-item>
+            <ch-icon
+              auto-color
+              src="./assets/icons/apple.svg"
+              slot="icon"
+            ></ch-icon>
+            banana
+          </ch-suggest-list-item>
+          <ch-suggest-list-item>
+            <ch-icon
+              auto-color
+              src="./assets/icons/apple.svg"
+              slot="icon"
+            ></ch-icon>
+            orange
+          </ch-suggest-list-item>
+        </ch-suggest-list>
+      </section>
+
+      <!-- ch-suggest-list-item -->
+      <section class="section-dev" data-title="ch-suggest-list-item">
+        <ch-suggest-list-item>
+          <ch-icon
+            auto-color
+            src="./assets/icons/apple.svg"
+            slot="icon"
+          ></ch-icon>
+          apple
+        </ch-suggest-list-item>
+      </section>
     </div>
 
     <script>
       let fragment;
       const lists = document.querySelectorAll(".data-list");
-      chSuggest.addEventListener("inputChanged", (e) => {
-        let filteredItems = [];
-        fragment = document.createDocumentFragment();
-        lists.forEach((list) => {
-          const category = list.getAttribute("data-category");
-          const items = list.querySelectorAll("li");
-          filteredItems = Array.from(items).filter((item) => {
-            return item.innerText.toLowerCase().includes(e.detail);
-          });
-          if (filteredItems.length > 0) {
-            const chSuggestList = document.createElement("ch-suggest-list");
-            if (category) {
-              chSuggestList.setAttribute("label", category);
-            }
-            filteredItems.forEach((item) => {
-              const chSuggestListItem = document.createElement(
-                "ch-suggest-list-item"
-              );
-              chSuggestListItem.innerText = item.innerText;
-              chSuggestListItem.value = item.getAttribute("data-value");
-              chSuggestListItem.itemId = item.getAttribute("data-id");
-              chSuggestListItem.description = item.getAttribute(
-                "data-description"
-              );
-              if (category) {
-                chSuggestList.appendChild(chSuggestListItem);
-              } else {
-                //chSuggest.appendChild(chSuggestListItem);
-                fragment.appendChild(chSuggestListItem);
-              }
-              const dataIcon = item.getAttribute("data-icon");
-              if (dataIcon) {
-                const gxgIcon = document.createElement("gxg-icon");
-                gxgIcon.setAttribute("type", dataIcon);
-                gxgIcon.setAttribute("size", "small");
-                gxgIcon.setAttribute("slot", "icon");
-                gxgIcon.setAttribute("color", "auto");
-                chSuggestListItem.appendChild(gxgIcon);
-              }
+      chSuggest.addEventListener("valueChanged", (e) => {
+        const inputValue = e.detail.trim();
+        if (inputValue) {
+          let filteredItems = [];
+          fragment = document.createDocumentFragment();
+          lists.forEach((list) => {
+            const category = list.getAttribute("data-category");
+            const items = list.querySelectorAll("li");
+            filteredItems = Array.from(items).filter((item) => {
+              return item.innerText.toLowerCase().includes(e.detail);
             });
-            if (category) {
-              //chSuggest.appendChild(chSuggestList);
-              fragment.appendChild(chSuggestList);
+            if (filteredItems.length > 0) {
+              const chSuggestList = document.createElement("ch-suggest-list");
+              if (category) {
+                chSuggestList.setAttribute("label", category);
+              }
+              filteredItems.forEach((item) => {
+                const chSuggestListItem = document.createElement(
+                  "ch-suggest-list-item"
+                );
+                chSuggestListItem.innerText = item.innerText;
+                chSuggestListItem.value = item.getAttribute("data-value");
+                chSuggestListItem.itemId = item.getAttribute("data-id");
+                if (category) {
+                  chSuggestList.appendChild(chSuggestListItem);
+                } else {
+                  //chSuggest.appendChild(chSuggestListItem);
+                  fragment.appendChild(chSuggestListItem);
+                }
+                const iconSrc = item.getAttribute("data-icon");
+                if (iconSrc) {
+                  const icon = document.createElement("ch-icon");
+                  icon.setAttribute("src", iconSrc);
+                  icon.setAttribute("slot", "icon");
+                  chSuggestListItem.appendChild(icon);
+                }
+              });
+              if (category) {
+                //chSuggest.appendChild(chSuggestList);
+                fragment.appendChild(chSuggestList);
+              }
             }
-          }
-        });
-        setTimeout(() => {
+          });
+          setTimeout(() => {
+            chSuggest.innerHTML = "";
+            chSuggest.appendChild(fragment);
+            fragment = null;
+          }, 200);
+        } else {
           chSuggest.innerHTML = "";
-          chSuggest.appendChild(fragment);
-          fragment = null;
-        }, 1000);
+        }
       });
     </script>
+
+    <br />
+    <gxg-suggest
+      validation-status="warning"
+      validation-message="Some warning message"
+    >
+      <ch-suggest
+        label="Label Warning"
+        show-label
+        label-position="above"
+      ></ch-suggest>
+    </gxg-suggest>
+    <br />
+    <gxg-suggest
+      validation-status="error"
+      validation-message="Some error message"
+    >
+      <ch-suggest
+        label="Label Error"
+        show-label
+        label-position="above"
+        disabled
+      ></ch-suggest>
+    </gxg-suggest>
+    <br />
+    <gxg-suggest disabled>
+      <ch-suggest
+        label="Label (disabled)"
+        show-label
+        label-position="above"
+        value="hola"
+      ></ch-suggest>
+    </gxg-suggest>
+    <br />
 
     <script>
       const setFocusBtn = document.getElementById("set-focus");
       setFocusBtn.addEventListener("click", function () {
         chSuggest.focus();
       });
-      chSuggest.addEventListener("inputChanged", (e) => {
-        console.log("inputChanged event:", e.detail);
+      chSuggest.addEventListener("valueChanged", (e) => {
+        console.log("valueChanged event:", e.detail);
       });
 
       chSuggest.addEventListener("itemSelected", (e) => {
