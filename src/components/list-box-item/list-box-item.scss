@@ -49,15 +49,22 @@
     padding-inline-start: var(--spacing-comp-01);
   }
 }
-/*SELECTED*/
-:host([selected]) {
-  background-color: var(--gxg-background-color-item-selected);
-  color: var(--gxg-color-item-active);
+.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%; /* Adjust as needed */
 }
+
 /*HIGHLIGHTED*/
 :host([highlighted]) {
+  background-color: var(--gxg-background-color-item-selected);
+  color: var(--color-on-background);
+}
+/*SELECTED*/
+:host([selected]) {
   background-color: var(--gxg-background-color-item-active);
-  color: var(--color-always-white);
+  color: var(--gxg-color-item-active);
 }
 /*ACTIVE*/
 :host([active]) {

@@ -189,7 +189,9 @@ export class GxgListboxItem {
               type={this.icon}
             ></gxg-icon>
           ) : null}
-          <slot></slot>
+          <div class="description">
+            <slot></slot>
+          </div>
         </div>
       </Host>
     );
