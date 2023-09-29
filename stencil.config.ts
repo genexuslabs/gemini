@@ -7,7 +7,7 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
-      copy: [{ src: "globals/mixins.scss" }],
+      copy: [{ src: "globals/mixins.scss" }, { src: "globals/ch-styles.css" }],
     },
     {
       type: "docs-readme",
@@ -15,9 +15,14 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null, // disable service workers
-      copy: [{ src: "assets" }, { src: "pages" }],
+      copy: [
+        { src: "assets" },
+        { src: "pages" },
+        { src: "globals/ch-styles.css" },
+      ],
     },
   ],
   globalStyle: "src/globals/global.scss",
+  globalScript: "src/globals/global.js",
   plugins: [sass()],
 };

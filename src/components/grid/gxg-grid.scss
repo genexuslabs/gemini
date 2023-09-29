@@ -9,7 +9,9 @@ $iconSize: 70%;
 :host {
   display: block;
 }
-
+gxg-grid {
+  display: block;
+}
 ch-grid {
   border: 1px solid $borderColor;
   --focus-style: 2px solid var(--color-primary-active);
@@ -29,7 +31,7 @@ ch-grid:focus-visible {
 
 ch-grid::part(header),
 ch-grid::part(footer) {
-  padding: var(--spacing-comp-01);
+  /*padding: var(--spacing-comp-01);*/
   background-color: var(--color-background);
 }
 
@@ -189,6 +191,8 @@ ch-grid-cell {
   padding-block-start: var(--spacing-comp-01);
   padding-block-end: var(--spacing-comp-01);
   align-items: center;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-regular);
 }
 ch-grid-cell:first-child {
 }
@@ -396,6 +400,25 @@ ch-grid-rowset[collapsed] ch-grid-rowset-legend {
 ch-grid gxg-paginator {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+/*Full-height*/
+gxg-grid[full-height] {
+  height: 100%;
+  ch-grid {
+    height: 100%;
+  }
+}
+
+/*ellipsis*/
+gxg-grid[ellipsis] {
+  ch-grid-cell {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-width: 0;
+    display: block;
+  }
 }
 
 /*********************************************

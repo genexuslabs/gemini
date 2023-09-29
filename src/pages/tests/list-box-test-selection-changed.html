@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>xxx | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <gxg-list-box
+      single-selection
+      id="list-box-errors"
+      the-title="listbox single-selection"
+      height="100%"
+      display-validation-message
+      validation-message="This is the validation message"
+      required
+    >
+      <gxg-list-box-item>0.Common</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/business-process-diagram"
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider"
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+    <script>
+      const listBox = document.querySelector("gxg-list-box");
+      listBox.addEventListener("selectionChanged", (e) => {
+        console.table("selectionChanged", e.detail);
+      });
+      listBox.addEventListener("checkedChanged", (e) => {
+        console.table("checkedChanged", e.detail);
+      });
+    </script>
+  </body>
+</html>
