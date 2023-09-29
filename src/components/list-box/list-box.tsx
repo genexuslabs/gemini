@@ -30,7 +30,7 @@ export class GxgListBox implements FormComponent {
   /**
    * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
    */
-  @Event() selectionChanged: EventEmitter;
+  @Event() selectionChanged: EventEmitter<SelectionChangedEvent>;
   @Event() checkedChanged: EventEmitter;
   @Element() el: HTMLElement;
   header!: HTMLElement;
@@ -287,9 +287,9 @@ export class GxgListBox implements FormComponent {
   }
 
   @Watch("selectedItems")
-  selectedItemsHandler(newArray: Array<ItemsInformation>): void {
+  selectedItemsHandler(newArray: ItemsInformation[]): void {
     if (!this.firstChange) {
-      this.selectionChanged.emit(newArray);
+      this.selectionChanged.emit({ items: newArray });
     }
     this.firstChange = false;
   }
@@ -931,4 +931,8 @@ export type ItemsInformation = {
 export type KeyboardSuggestions = {
   checkCheckbox: string;
   uncheckCheckbox: string;
+};
+
+export type SelectionChangedEvent = {
+  items: ItemsInformation[];
 };
