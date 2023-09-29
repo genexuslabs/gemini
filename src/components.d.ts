@@ -52,6 +52,7 @@ import { Color, Size } from "./components/icon/icon";
 import {
   ItemsInformation,
   KeyboardSuggestions,
+  SelectionChangedEvent,
 } from "./components/list-box/list-box";
 import {
   ItemChecked,
@@ -3655,7 +3656,7 @@ declare namespace LocalJSX {
     /**
      * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
      */
-    onSelectionChanged?: (event: CustomEvent<any>) => void;
+    onSelectionChanged?: (event: CustomEvent<SelectionChangedEvent>) => void;
     /**
      * Make the radio-buttons required
      */

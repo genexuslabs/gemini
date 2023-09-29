@@ -24,10 +24,10 @@
 
 ## Events
 
-| Event              | Description                                                                                                                                                                                                                          | Type               |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `checkedChanged`   |                                                                                                                                                                                                                                      | `CustomEvent<any>` |
-| `selectionChanged` | This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText. | `CustomEvent<any>` |
+| Event              | Description                                                                                                                                                                                                                          | Type                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| `checkedChanged`   |                                                                                                                                                                                                                                      | `CustomEvent<any>`                            |
+| `selectionChanged` | This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText. | `CustomEvent<{ items: ItemsInformation[]; }>` |
 
 ## Methods
 

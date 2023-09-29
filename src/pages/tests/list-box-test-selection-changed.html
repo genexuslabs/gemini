@@ -50,7 +50,9 @@
     <script>
       const listBox = document.querySelector("gxg-list-box");
       listBox.addEventListener("selectionChanged", (e) => {
-        console.table("selectionChanged", e.detail);
+        if (e.detail.items.length > 0) {
+          console.table("selectionChanged", e.detail.items);
+        }
       });
       listBox.addEventListener("checkedChanged", (e) => {
         console.table("checkedChanged", e.detail);

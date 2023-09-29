@@ -177,12 +177,6 @@ export class GxgListBox implements FormComponent {
   }
 
   initialSetup = (): void => {
-    /*set index to every item*/
-    const allItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
-    if (allItems?.length)
-      allItems.forEach((item, i) => {
-        item.index = i;
-      });
     /*conditions to do setup*/
     const selectItem = !this.allowsEmpty && this.selectedItemsLength() === 0;
     const unselectItems =
@@ -706,16 +700,27 @@ export class GxgListBox implements FormComponent {
     const selectedItemsArray: ItemsInformation[] = [];
     const selectedItems = this.getSelectedItemsFunc();
     selectedItems.forEach((item) => {
+      const index = this.getItemIndex(item);
       selectedItemsArray.push({
         active: item.active,
         selected: item.selected,
         checked: item.checked,
         highlighted: item.highlighted,
-        index: item.index,
+        index: index,
         value: item.value || item.textContent,
       });
     });
     this.selectedItems = [...selectedItemsArray];
+  };
+
+  private getItemIndex = (itemEl: HTMLGxgListBoxItemElement): number => {
+    if (itemEl) {
+      const allListBoxItems = this.el.querySelectorAll("gxg-list-box-item");
+      const index = Array.from(allListBoxItems).findIndex((item) => {
+        return item === itemEl;
+      });
+      return index;
+    }
   };
 
   /* ACTIVE */
