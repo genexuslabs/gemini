@@ -865,6 +865,14 @@ export namespace Components {
      */
     cursorEnd: boolean;
     /**
+     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+     */
+    debounce: boolean;
+    /**
+     * The debounce delay value. Only applies if 'debounce' is true.
+     */
+    debounceDelay: number;
+    /**
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
@@ -3391,6 +3399,14 @@ declare namespace LocalJSX {
      * If true, it will position the cursor at the end when the input is focused.
      */
     cursorEnd?: boolean;
+    /**
+     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+     */
+    debounce?: boolean;
+    /**
+     * The debounce delay value. Only applies if 'debounce' is true.
+     */
+    debounceDelay?: number;
     /**
      * The presence of this attribute makes the input disabled
      */

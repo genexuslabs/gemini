@@ -36,10 +36,22 @@ export class GxgFormText implements FormComponent {
   PROPERTIES & STATE
   *********************************/
 
+  private timeoutReference;
+
   /**
    * The presence of this attribute displays a clear (cross) button-icon on the right side
    */
   @Prop() clearButton = false;
+
+  /**
+   * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+   */
+  @Prop() debounce = false;
+
+  /**
+   * The debounce delay value. Only applies if 'debounce' is true.
+   */
+  @Prop() debounceDelay = 800;
 
   /**
    * The presence of this attribute makes the input disabled
@@ -210,7 +222,13 @@ export class GxgFormText implements FormComponent {
 
   @Watch("value")
   watchHandler(newValue): void {
-    if (!this.preventValueChangedEmit) {
+    this.input.emit(newValue);
+    if (!this.preventValueChangedEmit && this.debounce) {
+      clearTimeout(this.timeoutReference);
+      this.timeoutReference = setTimeout(() => {
+        this.valueChanged.emit(newValue);
+      }, this.debounceDelay);
+    } else if (!this.preventValueChangedEmit && !this.debounce) {
       this.valueChanged.emit(newValue);
     }
     if (this.minimal) {
@@ -292,7 +310,6 @@ export class GxgFormText implements FormComponent {
     e.stopPropagation();
     const target = e.target as HTMLInputElement;
     this.value = target.value;
-    this.input.emit(target.value);
   }
 
   handleChange(e): void {

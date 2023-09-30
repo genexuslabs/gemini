@@ -22,6 +22,14 @@
         bottom: 0;
         right: 0;
       }
+      body {
+        font-family: var(--font-family-primary);
+      }
+      h2 {
+        font-size: 16px;
+        margin-bottom: 0;
+        margin-top: 16px;
+      }
     </style>
   </head>
   <body>
@@ -125,6 +133,29 @@
       placeholder="John Smith"
       id="gxg-form-text"
     ></gxg-form-text>
+
+    <h2>with debounce</h2>
+    <br />
+    <gxg-form-text
+      clear-button
+      icon="gemini-tools/edit"
+      icon-position="end"
+      label="Input with debounce"
+      placeholder="John Smith"
+      id="gxg-form-text-debounce"
+      debounce
+    ></gxg-form-text>
+    <script>
+      const formTextDebounce = document.getElementById(
+        "gxg-form-text-debounce"
+      );
+      formTextDebounce.addEventListener("valueChanged", (e) => {
+        console.log("debounce valueChanged event", e.detail);
+      });
+      formTextDebounce.addEventListener("input", (e) => {
+        console.log("input event", e.detail);
+      });
+    </script>
 
     <script>
       const gxgFormText = document.getElementById("gxg-form-text");
