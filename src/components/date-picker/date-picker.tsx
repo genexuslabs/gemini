@@ -7,6 +7,7 @@ import {
   State,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 import datepicker from "js-datepicker";
 import state from "../store";
@@ -69,6 +70,12 @@ export class GxgDatePicker {
    * Emits the new selected date
    */
   @Event() valueChanged: EventEmitter<DatePickerDate>;
+
+  // Whenever `busy` changes, this method will fire.
+  @Watch("value")
+  watchStateHandler(newValue: DatePickerDate) {
+    this.valueChanged.emit(newValue);
+  }
 
   componentWillLoad() {
     this.attachExportParts();
@@ -133,7 +140,6 @@ export class GxgDatePicker {
       // Event callbacks.
       onSelect: (instance) => {
         const newValue = instance.dateSelected;
-        this.valueChanged.emit(newValue);
         this.value = newValue;
       },
       // onShow: instance => {
