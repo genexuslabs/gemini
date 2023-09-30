@@ -16,7 +16,7 @@ import { formClasses } from "../../common/classesNames";
 import { commonClassesNames } from "../../common/classesNames";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
-import { ValidationStatus, LabelPosition } from "../../common/types";
+import { ValidationStatus } from "../../common/types";
 
 @Component({
   tag: "gxg-form-text",
@@ -222,7 +222,6 @@ export class GxgFormText implements FormComponent {
 
   @Watch("value")
   watchHandler(newValue): void {
-    this.input.emit(newValue);
     if (!this.preventValueChangedEmit && this.debounce) {
       clearTimeout(this.timeoutReference);
       this.timeoutReference = setTimeout(() => {
@@ -230,6 +229,9 @@ export class GxgFormText implements FormComponent {
       }, this.debounceDelay);
     } else if (!this.preventValueChangedEmit && !this.debounce) {
       this.valueChanged.emit(newValue);
+    }
+    if (this.minimal) {
+      this.updateGhostSpan();
     }
     if (this.minimal) {
       this.updateGhostSpan();
@@ -310,6 +312,7 @@ export class GxgFormText implements FormComponent {
     e.stopPropagation();
     const target = e.target as HTMLInputElement;
     this.value = target.value;
+    this.input.emit(target.value);
   }
 
   handleChange(e): void {
@@ -587,6 +590,7 @@ export class GxgFormText implements FormComponent {
 }
 
 export type IconPosition = "start" | "end";
+export type LabelPosition = "start" | "above";
 export type Style =
   | "regular"
   | "quote"

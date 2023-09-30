@@ -47,7 +47,11 @@ import { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form
 import { Message } from "./components/form-message/form-message";
 import { RadioData } from "./components/form-radio/form-radio";
 import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
-import { IconPosition, Style } from "./components/form-text/form-text";
+import {
+  IconPosition,
+  LabelPosition as LabelPosition1,
+  Style,
+} from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
 import {
   ItemsInformation,
@@ -66,7 +70,7 @@ import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
 import { PillType } from "./components/pill/pill";
-import { LabelPosition as LabelPosition1 } from "./components/form-select-v2/gxg-select-v2";
+import { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
 import {
   JustifyContent,
