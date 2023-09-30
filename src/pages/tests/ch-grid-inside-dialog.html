@@ -12,20 +12,26 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
     <style>
+      body {
+        font-family: var(--font-family-primary);
+      }
       .container {
         width: 800px;
         margin: 0 auto;
       }
       .dialog {
         border: 3px solid black;
-
         height: 300px;
-        margin-bottom: 32px;
-        margin-top: 32px;
+        margin-bottom: 40px;
+        margin-top: 16px;
       }
       h2 {
-        font-family: var(--font-family-primary);
         font-size: 16px;
+        margin-bottom: 8px;
+      }
+      p {
+        margin: 0;
+        font-size: 14px;
       }
       /* gxg-grid {
         height: 100%;
@@ -53,16 +59,19 @@
                 column-id="name"
                 column-name="Country Name"
                 settingable="false"
+                size="minmax(0, 1fr)"
               ></ch-grid-column>
               <ch-grid-column
                 column-id="population"
                 column-name="Country Population"
                 settingable="false"
+                size="minmax(0, 1fr)"
               ></ch-grid-column>
               <ch-grid-column
                 column-id="language"
                 column-name="Country Language"
                 settingable="false"
+                size="minmax(0, 1fr)"
               ></ch-grid-column>
             </ch-grid-columnset>
 
@@ -276,6 +285,232 @@
                   <ch-grid-cell>Uruguay</ch-grid-cell>
                   <ch-grid-cell>3.500.000</ch-grid-cell>
                   <ch-grid-cell>Español</ch-grid-cell>
+                </ch-grid-row>
+              </ch-grid-rowset>
+            </ch-grid-rowset>
+          </ch-grid>
+        </gxg-grid>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>full-height + ellipsis-cell-wrapper</h2>
+      <p>ch-grid-column size: minmax(100px, 1fr)</p>
+      <div class="dialog">
+        <!--group-->
+        <gxg-grid full-height ellipsis-cell-wrapper>
+          <ch-grid row-selection-mode="none" id="3">
+            <ch-grid-columnset>
+              <ch-grid-column
+                column-id="code"
+                column-name="Country Code"
+                settingable="false"
+                size="min-content"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-id="name"
+                column-name="Country Name"
+                settingable="false"
+                size="minmax(100px, 2fr)"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-id="population"
+                column-name="Country Population"
+                settingable="false"
+                size="minmax(100px, 1fr)"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-id="language"
+                column-name="Country Language"
+                settingable="false"
+                size="minmax(100px, 1fr)"
+              ></ch-grid-column>
+            </ch-grid-columnset>
+
+            <ch-grid-rowset>
+              <ch-grid-rowset-legend>América del Norte</ch-grid-rowset-legend>
+              <ch-grid-row rowid="ca">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">CA</span></ch-grid-cell
+                >
+                <ch-grid-cell>
+                  <span class="cell-wrapper">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Omnis incidunt optio nulla nihil minima corrupti neque
+                    sapiente tempora laboriosam consectetur quo magnam, repellat
+                    modi eveniet perspiciatis sed assumenda soluta molestiae.
+                  </span>
+                  <!-- <span class="cell-wrapper"> Lorem ipsum dolor sit </span> -->
+                </ch-grid-cell>
+                <ch-grid-cell
+                  ><span class="cell-wrapper">38.000.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">English</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="mx">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">MX</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">México</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">126.000.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="us">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">US</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper"
+                    >Estados Unidos</span
+                  ></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">331.000.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">English</span></ch-grid-cell
+                >
+              </ch-grid-row>
+            </ch-grid-rowset>
+            <ch-grid-rowset>
+              <ch-grid-rowset-legend>América del Sur</ch-grid-rowset-legend>
+              <ch-grid-row rowid="bo">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">BO</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Bolivia</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">11.800.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="cl">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">CL</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Chile</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">19.500.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="ec">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">EC</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Ecuador</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">17.600.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="py">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">PY</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Paraguay</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">7.500.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="pe">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">PE</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Perú</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">32.800.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-row rowid="ve">
+                <ch-grid-cell
+                  ><span class="cell-wrapper">VE</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Venezuela</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">28.500.000</span></ch-grid-cell
+                >
+                <ch-grid-cell
+                  ><span class="cell-wrapper">Español</span></ch-grid-cell
+                >
+              </ch-grid-row>
+              <ch-grid-rowset>
+                <ch-grid-rowset-legend
+                  >Campeones del mundo</ch-grid-rowset-legend
+                >
+                <ch-grid-row rowid="ar">
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">AR</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">Argentina</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">45.400.000</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">Español</span></ch-grid-cell
+                  >
+                </ch-grid-row>
+                <ch-grid-row rowid="br">
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">BR</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">Brasil</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">212.600.000</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">Português</span></ch-grid-cell
+                  >
+                </ch-grid-row>
+                <ch-grid-row rowid="uy">
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">UY</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">Uruguay</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">3.500.000</span></ch-grid-cell
+                  >
+                  <ch-grid-cell
+                    ><span class="cell-wrapper">Español</span></ch-grid-cell
+                  >
                 </ch-grid-row>
               </ch-grid-rowset>
             </ch-grid-rowset>

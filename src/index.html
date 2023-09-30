@@ -67,6 +67,7 @@
 
       //Tests
       const tests = [
+        "ch-grid-inside-dialog",
         "nested-tabs",
         "grid-full-showcase",
         "combo-small",
@@ -96,7 +97,6 @@
         "native-label",
         "combo-container-responsive",
         "ch-styles",
-        "ch-grid-inside-dialog",
         "list-box-test-selection-changed",
       ];
     </script>
@@ -135,7 +135,7 @@
 
     //In Progress
     const testsUl = document.getElementById("testsUl");
-    tests.sort().forEach((el) => {
+    tests.forEach((el) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.setAttribute("href", `/pages/tests/${el}.html`);

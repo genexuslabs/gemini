@@ -416,9 +416,24 @@ gxg-grid[ellipsis] {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    min-width: 0;
     display: block;
   }
+}
+
+/*ellipsis-cell-wrapper*/
+gxg-grid[ellipsis-cell-wrapper] ch-grid-cell {
+  width: 1fr;
+}
+gxg-grid[ellipsis-cell-wrapper] {
+  .cell-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: inherit;
+  }
+}
+gxg-grid[ellipsis-cell-wrapper] ch-grid-column::part(bar-resize-split) {
+  display: none;
 }
 
 /*********************************************
