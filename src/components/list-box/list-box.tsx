@@ -115,7 +115,6 @@ export class GxgListBox implements FormComponent {
 
   @State() headerHeight = 0;
 
-  private firstChange = true;
   private activeItem: HTMLGxgListBoxItemElement;
 
   /*********************************
@@ -282,10 +281,7 @@ export class GxgListBox implements FormComponent {
 
   @Watch("selectedItems")
   selectedItemsHandler(newArray: ItemsInformation[]): void {
-    if (!this.firstChange) {
-      this.selectionChanged.emit({ items: newArray });
-    }
-    this.firstChange = false;
+    this.selectionChanged.emit({ items: newArray });
   }
   @Watch("checkedItems")
   checkedItemsHandler(newArray: Array<ItemsInformation>): void {
