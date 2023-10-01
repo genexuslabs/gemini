@@ -154,7 +154,6 @@ export class GxgListboxItem {
 
   itemClickedFunc(e) {
     const index = this.getIndex();
-    //console.log("index", index);
     this.itemClicked.emit({
       clickedItem: this.el as HTMLGxgListBoxItemElement,
       ctrlKey: e.ctrlKey,

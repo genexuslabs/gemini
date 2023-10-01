@@ -78,7 +78,13 @@
             <ch-grid-rowset>
               <ch-grid-rowset-legend>América del Norte</ch-grid-rowset-legend>
               <ch-grid-row rowid="ca">
-                <ch-grid-cell>CA</ch-grid-cell>
+                <ch-grid-cell
+                  ><gxg-icon
+                    type="objects/data-provider"
+                    color="auto"
+                  ></gxg-icon
+                  >CA</ch-grid-cell
+                >
                 <ch-grid-cell
                   >Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Omnis incidunt optio nulla nihil minima corrupti neque
@@ -299,7 +305,7 @@
       <div class="dialog">
         <!--group-->
         <gxg-grid full-height ellipsis-cell-wrapper>
-          <ch-grid row-selection-mode="none" id="3">
+          <ch-grid row-selection-mode="multiple" id="3">
             <ch-grid-columnset>
               <ch-grid-column
                 column-id="code"
@@ -331,8 +337,12 @@
               <ch-grid-rowset-legend>América del Norte</ch-grid-rowset-legend>
               <ch-grid-row rowid="ca">
                 <ch-grid-cell
-                  ><span class="cell-wrapper">CA</span></ch-grid-cell
-                >
+                  ><span class="cell-wrapper"
+                    ><gxg-icon
+                      type="objects/data-provider"
+                      color="auto"
+                    ></gxg-icon></span
+                ></ch-grid-cell>
                 <ch-grid-cell>
                   <span class="cell-wrapper">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
