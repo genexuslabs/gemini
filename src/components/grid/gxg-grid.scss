@@ -420,6 +420,13 @@ gxg-grid[ellipsis] {
   }
 }
 
+/*no border*/
+gxg-grid[borderless] {
+  ch-grid {
+    border: none;
+  }
+}
+
 /*ellipsis-cell-wrapper*/
 gxg-grid[ellipsis-cell-wrapper] ch-grid-cell {
   width: 1fr;
