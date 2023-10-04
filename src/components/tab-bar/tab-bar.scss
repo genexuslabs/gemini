@@ -13,6 +13,10 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    &--border {
+      border-bottom: 1px solid var(--gxg-border-color--regular);
+    }
   }
 
   .tab-bar {

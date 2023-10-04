@@ -22,6 +22,7 @@ export class GxgTabs {
   @Prop({ reflect: true }) height = "100%";
   @Prop() maxHeight = "100%";
   @Prop() minWidth = "200px";
+  @Prop() tabBarBorder = false;
 
   /**
    * The presence of this attribute removes each tab .container padding

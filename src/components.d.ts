@@ -1663,6 +1663,10 @@ export namespace Components {
   }
   interface GxgTabBar {
     /**
+     * The presence of this attribute displays a border-bottom line on the tab bar
+     */
+    displayBorder: boolean;
+    /**
      * Hides the tab-bar
      */
     hidden: boolean;
@@ -1704,6 +1708,7 @@ export namespace Components {
     noPadding: boolean;
     position: TabsPosition;
     setActiveTab: (tab: string) => Promise<void>;
+    tabBarBorder: boolean;
   }
   interface GxgTest {
     buttonTestExportParts: boolean;
@@ -4296,6 +4301,10 @@ declare namespace LocalJSX {
   }
   interface GxgTabBar {
     /**
+     * The presence of this attribute displays a border-bottom line on the tab bar
+     */
+    displayBorder?: boolean;
+    /**
      * Hides the tab-bar
      */
     hidden?: boolean;
@@ -4337,6 +4346,7 @@ declare namespace LocalJSX {
      */
     noPadding?: boolean;
     position?: TabsPosition;
+    tabBarBorder?: boolean;
   }
   interface GxgTest {
     buttonTestExportParts?: boolean;

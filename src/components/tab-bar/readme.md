@@ -4,9 +4,10 @@
 
 ## Properties
 
-| Property | Attribute | Description       | Type      | Default |
-| -------- | --------- | ----------------- | --------- | ------- |
-| `hidden` | `hidden`  | Hides the tab-bar | `boolean` | `false` |
+| Property        | Attribute        | Description                                                                 | Type      | Default |
+| --------------- | ---------------- | --------------------------------------------------------------------------- | --------- | ------- |
+| `displayBorder` | `display-border` | The presence of this attribute displays a border-bottom line on the tab bar | `boolean` | `false` |
+| `hidden`        | `hidden`         | Hides the tab-bar                                                           | `boolean` | `false` |
 
 ## Dependencies
 

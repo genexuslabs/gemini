@@ -49,6 +49,11 @@ export class GxgTabBar {
   private lastAddedOrRemovedTabBarButtonWidth = 0;
 
   /**
+   * The presence of this attribute displays a border-bottom line on the tab bar
+   */
+  @Prop() displayBorder = false;
+
+  /**
    * Reading direction
    */
   @State() rtl = false;
@@ -290,6 +295,7 @@ export class GxgTabBar {
         <nav
           class={{
             nav: true,
+            "nav--border": this.displayBorder,
           }}
         >
           <ul
