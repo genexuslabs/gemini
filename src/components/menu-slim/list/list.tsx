@@ -1,13 +1,13 @@
 import { Component, Host, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: "gxg-menu-list",
-  styleUrl: "menu-list.scss",
+  tag: "gxg-menu-slim-list",
+  styleUrl: "list.scss",
   shadow: true,
 })
 /* OTHER LIBRARIES IMPORTS */
 /* CUSTOM IMPORTS */
-export class GxgMenuList {
+export class GxgMenuSlimList {
   /*
 INDEX:
 1.OWN PROPERTIES 

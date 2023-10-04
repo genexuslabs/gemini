@@ -9,15 +9,15 @@ import {
 } from "@stencil/core";
 /* OTHER LIBRARIES IMPORTS */
 /* CUSTOM IMPORTS */
-import { commonClassesNames } from "../../common/classesNames";
-import { Color as IconTypeColor } from "../icon/icon";
-import { KeyboardKeys as KK } from "../../common/types";
+import { commonClassesNames } from "../../../common/classesNames";
+import { Color as IconTypeColor } from "../../icon/icon";
+import { KeyboardKeys as KK } from "../../../common/types";
 @Component({
-  tag: "gxg-menu-item",
-  styleUrl: "menu-item.scss",
+  tag: "gxg-menu-slim-item",
+  styleUrl: "item.scss",
   shadow: { delegatesFocus: true },
 })
-export class GxgMenuItem {
+export class GxgMenuSlimItem {
   /*
 INDEX:
 1.OWN PROPERTIES 
@@ -66,7 +66,7 @@ INDEX:
 
   // 2. REFERENCE TO ELEMENTS //
 
-  @Element() el: HTMLGxgMenuItemElement;
+  @Element() el: HTMLGxgMenuSlimItemElement;
   listItem!: HTMLElement;
 
   // 3.STATE() VARIABLES //
@@ -170,10 +170,10 @@ export type MenuItemSelected = {
   iconType?: string;
   id: string;
   label: string;
-  ref: HTMLGxgMenuItemElement;
+  ref: HTMLGxgMenuSlimItemElement;
 };
 
 export type MenuItemFocusChange = {
-  ref: HTMLGxgMenuItemElement;
+  ref: HTMLGxgMenuSlimItemElement;
   key: typeof KK.ARROW_DOWN | typeof KK.ARROW_UP;
 };

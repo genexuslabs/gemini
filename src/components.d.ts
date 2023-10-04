@@ -65,7 +65,7 @@ import {
 import {
   MenuItemFocusChange,
   MenuItemSelected,
-} from "./components/menu-item/menu-item";
+} from "./components/menu-slim/item/item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
@@ -1197,6 +1197,21 @@ export namespace Components {
   }
   interface GxgMenu {
     /**
+     * The menu title
+     */
+    menuTitle: string;
+    /**
+     * Provide this attribute if you are using this menu on the tabs component
+     */
+    tabs: boolean;
+  }
+  interface GxgMenuItem {
+    active: boolean;
+    icon: string;
+    label: string;
+  }
+  interface GxgMenuSlim {
+    /**
      * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
      */
     ellipsis: boolean;
@@ -1217,7 +1232,7 @@ export namespace Components {
      */
     tabs: boolean;
   }
-  interface GxgMenuItem {
+  interface GxgMenuSlimItem {
     /**
      * Sets the item as active or not
      */
@@ -1243,7 +1258,7 @@ export namespace Components {
      */
     label: string;
   }
-  interface GxgMenuList {
+  interface GxgMenuSlimList {
     /**
      * The menu-list title
      */
@@ -2225,12 +2240,26 @@ declare global {
     prototype: HTMLGxgMenuItemElement;
     new (): HTMLGxgMenuItemElement;
   };
-  interface HTMLGxgMenuListElement
-    extends Components.GxgMenuList,
+  interface HTMLGxgMenuSlimElement
+    extends Components.GxgMenuSlim,
       HTMLStencilElement {}
-  var HTMLGxgMenuListElement: {
-    prototype: HTMLGxgMenuListElement;
-    new (): HTMLGxgMenuListElement;
+  var HTMLGxgMenuSlimElement: {
+    prototype: HTMLGxgMenuSlimElement;
+    new (): HTMLGxgMenuSlimElement;
+  };
+  interface HTMLGxgMenuSlimItemElement
+    extends Components.GxgMenuSlimItem,
+      HTMLStencilElement {}
+  var HTMLGxgMenuSlimItemElement: {
+    prototype: HTMLGxgMenuSlimItemElement;
+    new (): HTMLGxgMenuSlimItemElement;
+  };
+  interface HTMLGxgMenuSlimListElement
+    extends Components.GxgMenuSlimList,
+      HTMLStencilElement {}
+  var HTMLGxgMenuSlimListElement: {
+    prototype: HTMLGxgMenuSlimListElement;
+    new (): HTMLGxgMenuSlimListElement;
   };
   interface HTMLGxgModalElement
     extends Components.GxgModal,
@@ -2513,7 +2542,9 @@ declare global {
     "gxg-loader": HTMLGxgLoaderElement;
     "gxg-menu": HTMLGxgMenuElement;
     "gxg-menu-item": HTMLGxgMenuItemElement;
-    "gxg-menu-list": HTMLGxgMenuListElement;
+    "gxg-menu-slim": HTMLGxgMenuSlimElement;
+    "gxg-menu-slim-item": HTMLGxgMenuSlimItemElement;
+    "gxg-menu-slim-list": HTMLGxgMenuSlimListElement;
     "gxg-modal": HTMLGxgModalElement;
     "gxg-more-info": HTMLGxgMoreInfoElement;
     "gxg-option": HTMLGxgOptionElement;
@@ -3772,6 +3803,22 @@ declare namespace LocalJSX {
   }
   interface GxgMenu {
     /**
+     * The menu title
+     */
+    menuTitle?: string;
+    /**
+     * Provide this attribute if you are using this menu on the tabs component
+     */
+    tabs?: boolean;
+  }
+  interface GxgMenuItem {
+    active?: boolean;
+    icon?: string;
+    label?: string;
+    onMenuItemActive?: (event: CustomEvent<any>) => void;
+  }
+  interface GxgMenuSlim {
+    /**
      * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
      */
     ellipsis?: boolean;
@@ -3792,7 +3839,7 @@ declare namespace LocalJSX {
      */
     tabs?: boolean;
   }
-  interface GxgMenuItem {
+  interface GxgMenuSlimItem {
     /**
      * Sets the item as active or not
      */
@@ -3826,7 +3873,7 @@ declare namespace LocalJSX {
      */
     onKeyboardNavigation?: (event: CustomEvent<MenuItemFocusChange>) => void;
   }
-  interface GxgMenuList {
+  interface GxgMenuSlimList {
     /**
      * The menu-list title
      */
@@ -4605,7 +4652,9 @@ declare namespace LocalJSX {
     "gxg-loader": GxgLoader;
     "gxg-menu": GxgMenu;
     "gxg-menu-item": GxgMenuItem;
-    "gxg-menu-list": GxgMenuList;
+    "gxg-menu-slim": GxgMenuSlim;
+    "gxg-menu-slim-item": GxgMenuSlimItem;
+    "gxg-menu-slim-list": GxgMenuSlimList;
     "gxg-modal": GxgModal;
     "gxg-more-info": GxgMoreInfo;
     "gxg-option": GxgOption;
@@ -4722,8 +4771,12 @@ declare module "@stencil/core" {
       "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
       "gxg-menu-item": LocalJSX.GxgMenuItem &
         JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
-      "gxg-menu-list": LocalJSX.GxgMenuList &
-        JSXBase.HTMLAttributes<HTMLGxgMenuListElement>;
+      "gxg-menu-slim": LocalJSX.GxgMenuSlim &
+        JSXBase.HTMLAttributes<HTMLGxgMenuSlimElement>;
+      "gxg-menu-slim-item": LocalJSX.GxgMenuSlimItem &
+        JSXBase.HTMLAttributes<HTMLGxgMenuSlimItemElement>;
+      "gxg-menu-slim-list": LocalJSX.GxgMenuSlimList &
+        JSXBase.HTMLAttributes<HTMLGxgMenuSlimListElement>;
       "gxg-modal": LocalJSX.GxgModal &
         JSXBase.HTMLAttributes<HTMLGxgModalElement>;
       "gxg-more-info": LocalJSX.GxgMoreInfo &

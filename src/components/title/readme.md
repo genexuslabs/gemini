@@ -32,14 +32,14 @@
 ### Used by
 
 - [gxg-container](../container)
-- [gxg-menu-list](../menu-list)
+- [gxg-menu-slim-list](../menu-slim/list)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-container --> gxg-title
-  gxg-menu-list --> gxg-title
+  gxg-menu-slim-list --> gxg-title
   style gxg-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

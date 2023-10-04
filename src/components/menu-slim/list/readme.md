@@ -21,14 +21,14 @@
 
 ### Depends on
 
-- [gxg-title](../title)
+- [gxg-title](../../title)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-menu-list --> gxg-title
-  style gxg-menu-list fill:#f9f,stroke:#333,stroke-width:4px
+  gxg-menu-slim-list --> gxg-title
+  style gxg-menu-slim-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---

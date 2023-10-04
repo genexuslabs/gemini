@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>menu | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      gxg-menu-slim {
+        max-width: 100px;
+      }
+      h3 {
+        font-family: "Open Sans";
+      }
+    </style>
+  </head>
+  <body>
+    <gxg-menu-slim menu-title="foods" ellipsis>
+      <gxg-menu-slim-list>
+        <gxg-menu-slim-item
+          label="fruits some fruits, large fruits"
+          icon-type="objects/module"
+          item-id="fruiots-1"
+        ></gxg-menu-slim-item>
+        <gxg-menu-slim-item label="vegetables" item-id="vegetables-1">
+        </gxg-menu-slim-item>
+        <gxg-menu-slim-item
+          label="meats"
+          item-id="meats-1"
+        ></gxg-menu-slim-item>
+      </gxg-menu-slim-list>
+      <gxg-menu-slim-list list-title="my fruits">
+        <gxg-menu-slim-item
+          disabled
+          label="fruits some fruits, large fruits"
+          icon-type="objects/module"
+          item-id="fruits-2"
+        ></gxg-menu-slim-item>
+        <gxg-menu-slim-item
+          label="vegetables"
+          item-id="vegetables-2"
+        ></gxg-menu-slim-item>
+        <gxg-menu-slim-item
+          label="meats"
+          item-id="meats-2"
+        ></gxg-menu-slim-item>
+      </gxg-menu-slim-list>
+    </gxg-menu-slim>
+    <button>Show menu</button>
+    <script>
+      const menu = document.querySelector("gxg-menu-slim");
+      const showMenuBtn = document.querySelector("button");
+      showMenuBtn.addEventListener("click", () => {
+        menu.hidden = false;
+      });
+      menu.addEventListener("itemSelected", (e) => {
+        console.log(e.detail);
+      });
+    </script>
+  </body>
+</html>

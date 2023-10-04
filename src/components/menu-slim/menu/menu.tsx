@@ -10,16 +10,16 @@ import {
 } from "@stencil/core";
 /* OTHER LIBRARIES IMPORTS */
 /* CUSTOM IMPORTS */
-import { detectClickOutside } from "../../common/detect-click-outside";
-import { MenuItemSelected, MenuItemFocusChange } from "../menu-item/menu-item";
-import { KeyboardKeys as KK } from "../../common/types";
+import { detectClickOutside } from "../../../common/detect-click-outside";
+import { MenuItemSelected, MenuItemFocusChange } from "../item/item";
+import { KeyboardKeys as KK } from "../../../common/types";
 
 @Component({
-  tag: "gxg-menu",
+  tag: "gxg-menu-slim",
   styleUrl: "menu.scss",
   shadow: true,
 })
-export class GxgMenu {
+export class GxgMenuSlim {
   /*
 INDEX:
 1.OWN PROPERTIES 
@@ -56,7 +56,7 @@ INDEX:
   /**
    * The enabled (not disabled) menu items
    */
-  private _enabledItems: HTMLGxgMenuItemElement[] = [];
+  private _enabledItems: HTMLGxgMenuSlimItemElement[] = [];
 
   // 2.REFERENCE TO ELEMENTS //
 
@@ -134,8 +134,8 @@ INDEX:
   @Listen("itemSelected")
   itemSelectedHandler(itemSelected: CustomEvent<MenuItemSelected>): void {
     /*Remove 'active' from every item, except from the clicked one*/
-    const menuItems: HTMLGxgMenuItemElement[] = Array.from(
-      this.el.querySelectorAll("gxg-menu-item")
+    const menuItems: HTMLGxgMenuSlimItemElement[] = Array.from(
+      this.el.querySelectorAll("gxg-menu-slim-item")
     );
     menuItems.forEach((menuItem) => {
       if (itemSelected.detail.ref !== menuItem) {
@@ -152,19 +152,19 @@ INDEX:
   keyboardNavigationHandler(
     triggeredItem: CustomEvent<MenuItemFocusChange>
   ): void {
-    const triggeringItem: HTMLGxgMenuItemElement = triggeredItem.detail.ref;
+    const triggeringItem: HTMLGxgMenuSlimItemElement = triggeredItem.detail.ref;
     const triggeringItemIndex = this._enabledItems.findIndex((item) => {
       return item === triggeringItem;
     });
 
-    let newFocusedItem: HTMLGxgMenuItemElement;
+    let newFocusedItem: HTMLGxgMenuSlimItemElement;
     if (
       triggeringItemIndex !== -1 &&
       triggeredItem.detail.key === KK.ARROW_UP
     ) {
       const prevItem = this._enabledItems[triggeringItemIndex - 1];
       if (prevItem?.active && prevItem.previousElementSibling) {
-        newFocusedItem = prevItem.previousElementSibling as HTMLGxgMenuItemElement;
+        newFocusedItem = prevItem.previousElementSibling as HTMLGxgMenuSlimItemElement;
       } else if (prevItem) {
         newFocusedItem = prevItem;
       }
@@ -174,7 +174,7 @@ INDEX:
     ) {
       const nextItem = this._enabledItems[triggeringItemIndex + 1];
       if (nextItem?.active && nextItem.nextElementSibling) {
-        newFocusedItem = nextItem.nextElementSibling as HTMLGxgMenuItemElement;
+        newFocusedItem = nextItem.nextElementSibling as HTMLGxgMenuSlimItemElement;
       } else if (nextItem) {
         newFocusedItem = nextItem;
       }
@@ -189,15 +189,15 @@ INDEX:
   // 9.LOCAL METHODS //
 
   private setFocusFirstItem = (): void => {
-    const firstItem = this.el.querySelector("gxg-menu-item");
+    const firstItem = this.el.querySelector("gxg-menu-slim-item");
     firstItem.focus();
   };
 
   private assignEllipsis = (): void => {
     if (this.ellipsis) {
-      const items = this.el.querySelectorAll("gxg-menu-item");
+      const items = this.el.querySelectorAll("gxg-menu-slim-item");
       items &&
-        items.forEach((item: HTMLGxgMenuItemElement) => {
+        items.forEach((item: HTMLGxgMenuSlimItemElement) => {
           item.ellipsis = true;
         });
     }
@@ -215,7 +215,7 @@ INDEX:
     if (
       nodeName !== "GXG-MENU" &&
       nodeName !== "GXG-MENU-LIST" &&
-      nodeName !== "GXG-MENU-ITEM"
+      nodeName !== "GXG-MENU-slim-ITEM"
     ) {
       //Mouse out
       this.startMouseOutTimeout();
@@ -277,8 +277,8 @@ INDEX:
   }
 
   private getEnabledItems = () => {
-    const enabledItems = this.el.querySelectorAll("gxg-menu-item");
-    enabledItems.forEach((menuItem: HTMLGxgMenuItemElement) => {
+    const enabledItems = this.el.querySelectorAll("gxg-menu-slim-item");
+    enabledItems.forEach((menuItem: HTMLGxgMenuSlimItemElement) => {
       if (!menuItem.disabled) {
         this._enabledItems.push(menuItem);
       }

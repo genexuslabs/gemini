@@ -15,10 +15,10 @@
 
 ## Events
 
-| Event                | Description                                                               | Type                                                                                          |
-| -------------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `itemSelected`       | This events emits the item id, label, iconType, and a reference to itself | `CustomEvent<{ iconType?: string; id: string; label: string; ref: HTMLGxgMenuItemElement; }>` |
-| `keyboardNavigation` | This events fires when the user presses up or down keys.                  | `CustomEvent<{ ref: HTMLGxgMenuItemElement; key: string; }>`                                  |
+| Event                | Description                                                               | Type                                                                                              |
+| -------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `itemSelected`       | This events emits the item id, label, iconType, and a reference to itself | `CustomEvent<{ iconType?: string; id: string; label: string; ref: HTMLGxgMenuSlimItemElement; }>` |
+| `keyboardNavigation` | This events fires when the user presses up or down keys.                  | `CustomEvent<{ ref: HTMLGxgMenuSlimItemElement; key: string; }>`                                  |
 
 ## Shadow Parts
 
@@ -33,15 +33,15 @@
 
 ### Depends on
 
-- [gxg-icon](../icon)
+- [gxg-icon](../../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-menu-item --> gxg-icon
+  gxg-menu-slim-item --> gxg-icon
   gxg-icon --> ch-icon
-  style gxg-menu-item fill:#f9f,stroke:#333,stroke-width:4px
+  style gxg-menu-slim-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ---
