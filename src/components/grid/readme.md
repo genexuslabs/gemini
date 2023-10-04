@@ -4,9 +4,10 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type      | Default |
-| ---------- | ----------- | ----------- | --------- | ------- |
-| `noBorder` | `no-border` |             | `boolean` | `false` |
+| Property     | Attribute     | Description | Type      | Default |
+| ------------ | ------------- | ----------- | --------- | ------- |
+| `fullHeight` | `full-height` |             | `boolean` | `false` |
+| `noBorder`   | `no-border`   |             | `boolean` | `false` |
 
 ## Dependencies
 

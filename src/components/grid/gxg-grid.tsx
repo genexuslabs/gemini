@@ -7,7 +7,8 @@ import state from "../store";
   shadow: false,
 })
 export class GxgGrid {
-  @Prop() noBorder = false;
+  @Prop({ reflect: true }) noBorder = false;
+  @Prop({ reflect: true }) fullHeight = false;
   @Element() el!: HTMLElement;
 
   componentWillLoad() {
