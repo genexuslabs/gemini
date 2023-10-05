@@ -22,6 +22,9 @@
 :host(.flex) {
   display: flex;
 }
+:host(.overflow-auto) {
+  overflow: auto;
+}
 .container--flex {
   display: flex;
   &.flex-column {

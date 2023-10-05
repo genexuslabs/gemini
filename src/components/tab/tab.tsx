@@ -48,6 +48,7 @@ export class GxgTab {
     return (
       <Host
         class={{
+          "overflow-auto": this.overflowAuto,
           flex: this.flex && this.isSelected,
           open: this.isSelected,
           "not-selected": !this.isSelected,
