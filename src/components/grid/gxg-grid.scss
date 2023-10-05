@@ -6,11 +6,8 @@ $iconSize: 70%;
 :root {
   --indent: var(--spacing-comp-02);
 }
-:host {
-  display: block;
-}
 gxg-grid {
-  display: block;
+  display: contents;
 }
 ch-grid {
   border: 1px solid $borderColor;
