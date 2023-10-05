@@ -25,6 +25,11 @@ export class GxgTab {
   @Prop() flexContainer = false;
 
   /**
+   * The presence of this attribute makes the display of the tab 'flex' only when is open
+   */
+  @Prop() flex = false;
+
+  /**
    * The container flex-direction, if container is flex.
    */
   @Prop() flexDirection: TabContainerFlexDirection = "column";
@@ -38,6 +43,7 @@ export class GxgTab {
     return (
       <Host
         class={{
+          flex: this.flex && this.isSelected,
           open: this.isSelected,
           "not-selected": !this.isSelected,
           "no-padding": this.noPadding,

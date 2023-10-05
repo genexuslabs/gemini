@@ -12,18 +12,26 @@
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
 
-    <style></style>
+    <style>
+      .container {
+        border: 2px solid black;
+        width: 400px;
+      }
+    </style>
   </head>
   <body>
-    <gxg-button-group
-      title-alignment="left"
-      button-group-title="Buttons title"
-      default-selected-btn-id="button1"
-    >
-      <button id="button1">Button 1</button>
-      <button id="button2">Button 2</button>
-      <button id="button3">Button 3</button>
-    </gxg-button-group>
+    <div class="container">
+      <gxg-button-group
+        title-alignment="left"
+        button-group-title="Buttons title"
+        default-selected-btn-id="button1"
+        full-width
+      >
+        <button id="button1">Button 1</button>
+        <button id="button2">Button 2</button>
+        <button id="button3">Button 3</button>
+      </gxg-button-group>
+    </div>
     <gxg-button>A Button</gxg-button>
   </body>
 </html>

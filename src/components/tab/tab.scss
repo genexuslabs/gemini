@@ -19,6 +19,9 @@
     padding: 0;
   }
 }
+:host(.flex) {
+  display: flex;
+}
 .container--flex {
   display: flex;
   &.flex-column {

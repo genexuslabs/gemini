@@ -1642,6 +1642,10 @@ export namespace Components {
   }
   interface GxgTab {
     /**
+     * The presence of this attribute makes the display of the tab 'flex' only when is open
+     */
+    flex: boolean;
+    /**
      * The presence of this attribute makes the container display flex
      */
     flexContainer: boolean;
@@ -4280,6 +4284,10 @@ declare namespace LocalJSX {
     validationStatus?: ValidationStatus;
   }
   interface GxgTab {
+    /**
+     * The presence of this attribute makes the display of the tab 'flex' only when is open
+     */
+    flex?: boolean;
     /**
      * The presence of this attribute makes the container display flex
      */
