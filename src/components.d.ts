@@ -100,6 +100,14 @@ import {
 } from "./components/tree/gxg-tree";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
+import {
+  TreeXDataTransferInfo,
+  TreeXItemModel,
+  TreeXLines,
+  TreeXListItemExpandedInfo,
+  TreeXModel,
+} from "@genexus/chameleon-controls-library/dist/types/components/tree-x/types";
+import { TreeXOperationStatusModifyCaption } from "./components/tree-view/types";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -1662,6 +1670,10 @@ export namespace Components {
      */
     noPadding: boolean;
     /**
+     * The presence of this attribute makes the .container overflow property set to 'auto'
+     */
+    overflowAuto: boolean;
+    /**
      * The tab id. Should match the "tab" value of the correlative "gxg-tab"
      */
     tab: string;
@@ -1933,6 +1945,77 @@ export namespace Components {
      * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
      */
     type: string;
+  }
+  interface GxgTreeView {
+    /**
+     * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
+     */
+    checkDroppableZoneCallback: (
+      dropInformation: TreeXDataTransferInfo
+    ) => Promise<boolean>;
+    /**
+     * Callback that is executed when a list of items request to be dropped into another item.
+     */
+    dropItemsCallback: (
+      dataTransferInfo: TreeXDataTransferInfo
+    ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+    /**
+     * Callback that is executed when a item request to load its subitems.
+     */
+    lazyLoadTreeItemsCallback: (
+      treeItemId: string
+    ) => Promise<TreeXItemModel[]>;
+    /**
+     * Callback that is executed when a item request to modify its caption.
+     */
+    modifyItemCaptionCallback: (
+      treeItemId: string,
+      newCaption: string
+    ) => Promise<TreeXOperationStatusModifyCaption>;
+    /**
+     * Set this attribute if you want to allow multi selection of the items.
+     */
+    multiSelection: boolean;
+    /**
+     * Given an item id, it displays and scrolls into the item view.
+     */
+    scrollIntoVisible: (treeItemId: string) => Promise<void>;
+    /**
+     * `true` to display the relation between tree items and tree lists using lines.
+     */
+    showLines: TreeXLines;
+    /**
+     * Callback that is executed when the treeModel is changed to order its items.
+     */
+    sortItemsCallback: (subModel: TreeXItemModel[]) => void;
+    /**
+     * This method is used to toggle a tree item by the tree item id/ids.
+     * @param treeItemIds An array id the tree items to be toggled.
+     * @param expand A boolean indicating that the tree item should be expanded or collapsed. (optional)
+     * @returns The modified items after the method was called.
+     */
+    toggleItems: (
+      treeItemIds: string[],
+      expand?: boolean
+    ) => Promise<TreeXListItemExpandedInfo[]>;
+    /**
+     * This property lets you define the model of the ch-tree-x control.
+     */
+    treeModel: TreeXModel;
+    /**
+     * Given a subset of item's properties, it updates all item UI models.
+     */
+    updateAllItemsProperties: (properties: {
+      expanded?: boolean;
+      checked?: boolean;
+    }) => Promise<void>;
+    /**
+     * Given a item list and the properties to update, it updates the properties of the items in the list.
+     */
+    updateItemsProperties: (
+      items: string[],
+      properties: TreeXItemModel
+    ) => Promise<void>;
   }
   interface GxgWindow {
     /**
@@ -2504,6 +2587,13 @@ declare global {
     prototype: HTMLGxgTreeItemElement;
     new (): HTMLGxgTreeItemElement;
   };
+  interface HTMLGxgTreeViewElement
+    extends Components.GxgTreeView,
+      HTMLStencilElement {}
+  var HTMLGxgTreeViewElement: {
+    prototype: HTMLGxgTreeViewElement;
+    new (): HTMLGxgTreeViewElement;
+  };
   interface HTMLGxgWindowElement
     extends Components.GxgWindow,
       HTMLStencilElement {}
@@ -2590,6 +2680,7 @@ declare global {
     "gxg-tree": HTMLGxgTreeElement;
     "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
     "gxg-tree-item": HTMLGxgTreeItemElement;
+    "gxg-tree-view": HTMLGxgTreeViewElement;
     "gxg-window": HTMLGxgWindowElement;
   }
 }
@@ -4305,6 +4396,10 @@ declare namespace LocalJSX {
      */
     noPadding?: boolean;
     /**
+     * The presence of this attribute makes the .container overflow property set to 'auto'
+     */
+    overflowAuto?: boolean;
+    /**
      * The tab id. Should match the "tab" value of the correlative "gxg-tab"
      */
     tab?: string;
@@ -4585,6 +4680,49 @@ declare namespace LocalJSX {
      */
     type?: string;
   }
+  interface GxgTreeView {
+    /**
+     * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
+     */
+    checkDroppableZoneCallback?: (
+      dropInformation: TreeXDataTransferInfo
+    ) => Promise<boolean>;
+    /**
+     * Callback that is executed when a list of items request to be dropped into another item.
+     */
+    dropItemsCallback?: (
+      dataTransferInfo: TreeXDataTransferInfo
+    ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+    /**
+     * Callback that is executed when a item request to load its subitems.
+     */
+    lazyLoadTreeItemsCallback?: (
+      treeItemId: string
+    ) => Promise<TreeXItemModel[]>;
+    /**
+     * Callback that is executed when a item request to modify its caption.
+     */
+    modifyItemCaptionCallback?: (
+      treeItemId: string,
+      newCaption: string
+    ) => Promise<TreeXOperationStatusModifyCaption>;
+    /**
+     * Set this attribute if you want to allow multi selection of the items.
+     */
+    multiSelection?: boolean;
+    /**
+     * `true` to display the relation between tree items and tree lists using lines.
+     */
+    showLines?: TreeXLines;
+    /**
+     * Callback that is executed when the treeModel is changed to order its items.
+     */
+    sortItemsCallback?: (subModel: TreeXItemModel[]) => void;
+    /**
+     * This property lets you define the model of the ch-tree-x control.
+     */
+    treeModel?: TreeXModel;
+  }
   interface GxgWindow {
     /**
      * Displays the window
@@ -4710,6 +4848,7 @@ declare namespace LocalJSX {
     "gxg-tree": GxgTree;
     "gxg-tree-grid-divs": GxgTreeGridDivs;
     "gxg-tree-item": GxgTreeItem;
+    "gxg-tree-view": GxgTreeView;
     "gxg-window": GxgWindow;
   }
 }
@@ -4861,6 +5000,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
       "gxg-tree-item": LocalJSX.GxgTreeItem &
         JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
+      "gxg-tree-view": LocalJSX.GxgTreeView &
+        JSXBase.HTMLAttributes<HTMLGxgTreeViewElement>;
       "gxg-window": LocalJSX.GxgWindow &
         JSXBase.HTMLAttributes<HTMLGxgWindowElement>;
     }
