@@ -30,6 +30,11 @@ export class GxgTab {
   @Prop() flex = false;
 
   /**
+   * The presence of this attribute makes the .container overflow property set to 'auto'
+   */
+  @Prop() overflowAuto = false;
+
+  /**
    * The container flex-direction, if container is flex.
    */
   @Prop() flexDirection: TabContainerFlexDirection = "column";
