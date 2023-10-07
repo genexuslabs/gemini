@@ -16,6 +16,7 @@
   user-select: none;
   -o-user-select: none;
   outline: none;
+  border-bottom: 1px solid transparent;
 
   .container {
     display: flex;
@@ -40,6 +41,9 @@
 }
 :host(:not([disabled])) {
   cursor: pointer !important;
+}
+:host([disabled]) {
+  pointer-events: none;
 }
 :host(:hover:not([selected])) {
   background-color: var(--gxg-background-color--hover);
@@ -71,6 +75,13 @@
 :host([selected]) {
   background-color: var(--gxg-background-color--selected);
   color: var(--gxg-color--selected);
+  border-bottom-color: var(--color-secondary-hover);
+}
+:host([selected]:hover) {
+  background-color: var(--color-secondary-enabled--hover);
+}
+:host(:not([sibling-is-selected])) {
+  border-bottom-color: transparent;
 }
 
 /*********************************************

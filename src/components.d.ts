@@ -1170,13 +1170,13 @@ export namespace Components {
      */
     index: number;
     /**
-     * This property is for internal use
-     */
-    lastSelected: boolean;
-    /**
      * The presence of this attribute sets this item as selected
      */
     selected: boolean;
+    /**
+     * This property is for internal use
+     */
+    siblingIsSelected: boolean;
     /**
      * The item value. If value is not provided, the value will be the item innerHTML.
      */
@@ -3845,10 +3845,6 @@ declare namespace LocalJSX {
      */
     index?: number;
     /**
-     * This property is for internal use
-     */
-    lastSelected?: boolean;
-    /**
      * (This event is for internal use.)
      */
     onCheckboxStateChanged?: (event: CustomEvent<ItemChecked>) => void;
@@ -3868,6 +3864,10 @@ declare namespace LocalJSX {
      * The presence of this attribute sets this item as selected
      */
     selected?: boolean;
+    /**
+     * This property is for internal use
+     */
+    siblingIsSelected?: boolean;
     /**
      * The item value. If value is not provided, the value will be the item innerHTML.
      */

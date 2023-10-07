@@ -15,12 +15,14 @@
 //Secondary
 :root {
   --color-secondary-enabled: #cfdee6;
+  --color-secondary-enabled--hover: #ddecf4; /*added by Bruno*/
   --color-secondary-active: #6a8c9f;
   --color-secondary-hover: #97b0bf;
   --color-secondary-disabled: #828385;
 }
 :root.dark {
   --color-secondary-enabled: #5d7c8d;
+  --color-secondary-enabled--hover: #6e8d9d; /*added by Bruno*/
   --color-secondary-active: #3f5460;
   --color-secondary-hover: #4d6776;
   --color-secondary-disabled: #828385;
@@ -71,7 +73,6 @@
 //BACKGROUND COLORS
 :root {
   --color-background: #fff;
-  --color-background-disabled: var(--gray-00);
 }
 :root.dark {
   --color-background: #1d1e22;
@@ -95,7 +96,7 @@
 }
 //GRAY COLORS
 :root {
-  --gray-00: #f4f4f4;
+  --gray-00: #f4f4f4; /*added by Bruno*/
   --gray-01: #e8e8e9;
   --gray-02: #c6c6c7;
   --gray-03: #a4a5a6;
@@ -105,7 +106,7 @@
   --gray-07: #28292d;
 }
 :root.dark {
-  --gray-00: #28292d;
+  --gray-00: #232326; /*added by Bruno*/
   --gray-01: #28292d;
   --gray-02: #3e3f42;
   --gray-03: #616164;

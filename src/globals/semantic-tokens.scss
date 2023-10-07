@@ -18,13 +18,14 @@
   --gxg-color--hover: var(--color-on-background);
   /*selected*/
   --gxg-background-color--selected: var(--color-secondary-enabled);
+  --gxg-background-color--selected-hover: var(--color-secondary-hover);
   --gxg-color--selected: var(--color-on-background);
   /*active*/
   --gxg-background-color--active: var(--color-secondary-active);
   --gxg-color--active: var(--color-on-primary);
   /*disabled*/
   --gxg-border-color--disabled: var(--gray-04);
-  // --gxg-background-color--disabled:
+  --gxg-background-color--disabled: var(--gray-00);
   --gxg-color--disabled: var(--gray-04);
 }
 :root.gxg-large {

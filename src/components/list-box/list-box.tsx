@@ -315,7 +315,7 @@ export class GxgListBox implements FormComponent {
 
   @Listen("itemSelected")
   itemSelectedHandler(): void {
-    this.setLastSelected();
+    this.setSiblingSelected();
   }
 
   @Listen("checkboxStateChanged")
@@ -477,15 +477,17 @@ export class GxgListBox implements FormComponent {
 
   /* SELECTED */
 
-  private setLastSelected = async () => {
-    const selectedItems: HTMLGxgListBoxItemElement[] = this.getSelectedItemsFunc();
-    selectedItems.forEach((selectedItem, i) => {
-      const length = selectedItems.length;
-      if (i !== length - 1 && selectedItem.lastSelected) {
-        selectedItem.lastSelected = false;
-      }
-      if (i == length - 1 && !selectedItem.lastSelected) {
-        selectedItem.lastSelected = true;
+  private setSiblingSelected = async () => {
+    const allItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
+    allItems.forEach((item, i) => {
+      if (i === allItems.length - 1) {
+        item.siblingIsSelected = false;
+      } else {
+        if (allItems[i + 1].selected) {
+          item.siblingIsSelected = true;
+        } else {
+          item.siblingIsSelected = false;
+        }
       }
     });
   };

@@ -1,8 +1,8 @@
 :host(.gxg--disabled) .form-element,
 :host(.gxg--disabled.form-element) {
   pointer-events: none;
-  background-color: var(--color-background-disabled) !important;
-  color: var(--color-on-background--disabled) !important;
+  background-color: var(--gxg-background-color--disabled) !important;
+  color: var(--gxg-color--disabled) !important;
   border-color: var(--gxg-border-color--disabled) !important;
   cursor: default !important;
 }

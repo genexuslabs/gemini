@@ -46,7 +46,7 @@ export class GxgListboxItem {
   /**
    * This property is for internal use
    */
-  @Prop({ reflect: true }) lastSelected = false;
+  @Prop({ reflect: true }) siblingIsSelected = false;
 
   /**
    * The presence of this attribute sets this item as highlighted
@@ -130,8 +130,8 @@ export class GxgListboxItem {
   iconColor() {
     if (this.disabled) {
       return "disabled";
-    } else if (this.selected || this.highlighted || this.mouseOver) {
-      return "negative";
+    } else if (this.selected) {
+      return "primary-enabled";
     } else {
       return "auto";
     }
