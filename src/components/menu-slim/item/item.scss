@@ -39,7 +39,7 @@
       overflow: hidden;
 
       &:hover {
-        background-color: var(--gxg-background-color-item-hover);
+        background-color: var(--gxg-background-color--hover);
       }
       &:focus {
         @include form-element-common-styles-focus-type-1();
@@ -53,8 +53,8 @@
 :host([active]) {
   .menu-item {
     &__button {
-      color: var(--gxg-color-selected);
-      background-color: var(--gxg-background-color-item-selected);
+      color: var(--gxg-color--selected);
+      background-color: var(--gxg-background-color--selected);
     }
   }
 }

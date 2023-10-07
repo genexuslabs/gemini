@@ -8,6 +8,8 @@
   font-family: var(--font-family-primary);
   background-color: var(--color-background);
   color: var(--color-on-background);
+  height: 100%;
+
   .container {
     height: 100%;
     border: var(--border-radius-xs) var(--border-style-regular) var(--gray-02);
@@ -45,10 +47,20 @@
     background-color: var(--color-secondary-active);
     color: var(--color-always-white);
   }
+
+  ::slotted([selected]) {
+    border-bottom: 1px solid var(--color-secondary-hover);
+  }
+  ::slotted([selected]:last-of-type) {
+    border-bottom: none;
+  }
 }
 
 .container:focus-within {
-  @include form-element-common-styles-focus-type-1($direction: "outside");
+  outline: none;
+}
+.container:not(:focus-within) {
+  --gxg-border-color--focused: transparent;
 }
 
 /*SUGGESTION LIST*/

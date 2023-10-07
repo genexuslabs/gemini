@@ -545,7 +545,7 @@ export class ChTestTreeX {
       <Host>
         <ch-tree-x
           multiSelection={this.multiSelection}
-          showLines={this.showLines}
+          // showLines={this.showLines}
           waitDropProcessing={this.waitDropProcessing}
           onDroppableZoneEnter={this.handleDroppableZoneEnter}
           onExpandedItemChange={this.handleExpandedItemChange}

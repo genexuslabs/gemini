@@ -1104,10 +1104,6 @@ export namespace Components {
      */
     getSelectedItems: () => Promise<ItemsInformation[]>;
     /**
-     * The list-box height
-     */
-    height: string;
-    /**
      * An informative message to help the user filling the information
      */
     informationMessage: string;
@@ -1115,14 +1111,6 @@ export namespace Components {
      * An object with suggestions about the possible keyboard combinations
      */
     keyboardSuggestions: KeyboardSuggestions;
-    /**
-     * The list-box max-height
-     */
-    maxHeight: string;
-    /**
-     * The list-box min-height
-     */
-    minHeight: string;
     /**
      * The presence of this attribute disables the border
      */
@@ -3782,10 +3770,6 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
-     * The list-box height
-     */
-    height?: string;
-    /**
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
@@ -3793,14 +3777,6 @@ declare namespace LocalJSX {
      * An object with suggestions about the possible keyboard combinations
      */
     keyboardSuggestions?: KeyboardSuggestions;
-    /**
-     * The list-box max-height
-     */
-    maxHeight?: string;
-    /**
-     * The list-box min-height
-     */
-    minHeight?: string;
     /**
      * The presence of this attribute disables the border
      */

@@ -43,11 +43,11 @@
   display: none;
 }
 :host(:hover) {
-  background-color: var(--gxg-background-color-item-hover);
+  background-color: var(--gxg-background-color--hover);
 }
 :host([selected]) {
-  background-color: var(--gxg-background-color-item-selected);
-  color: var(--gxg-color-selected);
+  background-color: var(--gxg-background-color--selected);
+  color: var(--gxg-color--selected);
 }
 :host([exact-match]) {
   // background-color: var(--color-success-light);

@@ -135,31 +135,17 @@ export class GxgListboxItem {
     exportPartsResult.length && (this.exportparts = exportPartsResult);
   };
 
-  private getIndex = () => {
-    const listBox = this.el.parentElement;
-    const listBoxItems = listBox.querySelectorAll("gxg-list-box-item");
-    const itemIndex = Array.from(listBoxItems).findIndex((item) => {
-      return item === this.el;
-    });
-    if (itemIndex !== -1) {
-      return itemIndex;
-    } else {
-      return undefined;
-    }
-  };
-
   componentDidLoad() {
     this.itemLoaded.emit();
   }
 
   itemClickedFunc(e) {
-    const index = this.getIndex();
     this.itemClicked.emit({
       clickedItem: this.el as HTMLGxgListBoxItemElement,
       ctrlKey: e.ctrlKey,
       cmdKey: e.metaKey,
       shiftKey: e.shiftKey,
-      index: index,
+      index: this.index,
     });
   }
 

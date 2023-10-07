@@ -25,7 +25,7 @@
   /**
   * @prop --item-hover-color: The color of the item on hover
   */
-  --item-hover-color: var(--gray-01);
+  --item-hover-color: var(--gxg-background-color--hover);
   /**
   * @prop --item-active-color: The color of the active item
   */
@@ -69,13 +69,13 @@
         background-color: var(--item-hover-color);
       }
       &:active {
-        background-color: var(--gxg-background-color-item-selected);
+        background-color: var(--gxg-background-color--selected);
       }
       &:focus {
         @include form-element-common-styles-focus-type-1();
       }
       &--selected {
-        background-color: var(--gxg-background-color-item-selected);
+        background-color: var(--gxg-background-color--selected);
       }
       > * {
         flex-shrink: 0;

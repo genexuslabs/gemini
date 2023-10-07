@@ -35,6 +35,7 @@ export class GxgListBox implements FormComponent {
   @Element() el: HTMLElement;
   header!: HTMLElement;
   main!: HTMLElement;
+  containerEl!: HTMLDivElement;
 
   /*********************************
   PROPERTIES & STATE
@@ -43,22 +44,7 @@ export class GxgListBox implements FormComponent {
   /**
    * The listbox title that appears on the header
    */
-  @Prop() theTitle = "";
-
-  /**
-   * The list-box min-height
-   */
-  @Prop() minHeight = "0";
-
-  /**
-   * The list-box height
-   */
-  @Prop() height = "100%";
-
-  /**
-   * The list-box max-height
-   */
-  @Prop() maxHeight = "100%";
+  @Prop() theTitle: string;
 
   /**
    * The presence of this attribute will display a checkbox for every item
@@ -115,6 +101,7 @@ export class GxgListBox implements FormComponent {
 
   @State() headerHeight = 0;
 
+  private firstChange = true;
   private activeItem: HTMLGxgListBoxItemElement;
 
   /*********************************
@@ -175,7 +162,17 @@ export class GxgListBox implements FormComponent {
     this.initialSetup();
   }
 
+  componentDidLoad(): void {
+    this.setInitialActive();
+  }
+
   initialSetup = (): void => {
+    /*set index to every item*/
+    const allItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
+    if (allItems?.length)
+      allItems.forEach((item, i) => {
+        item.index = i;
+      });
     /*conditions to do setup*/
     const selectItem = !this.allowsEmpty && this.selectedItemsLength() === 0;
     const unselectItems =
@@ -217,6 +214,13 @@ export class GxgListBox implements FormComponent {
     this.selectedItemsLength() > 0 && this.updateSelectedItems();
   };
 
+  private setInitialActive = () => {
+    const firstSelectedItem = this.getFirstSelectedItem();
+    if (firstSelectedItem) {
+      this.setActiveItem(firstSelectedItem);
+    }
+  };
+
   @Listen("itemLoaded")
   itemLoadedHandler(): void {
     //this.initialSetup();
@@ -224,6 +228,7 @@ export class GxgListBox implements FormComponent {
 
   @Listen("itemClicked")
   itemClickedHandler(event: ItemClicked): void {
+    this.containerEl.focus();
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
     //this.clearActiveItem();
     if (this.singleSelection) {
@@ -281,7 +286,10 @@ export class GxgListBox implements FormComponent {
 
   @Watch("selectedItems")
   selectedItemsHandler(newArray: ItemsInformation[]): void {
-    this.selectionChanged.emit({ items: newArray });
+    if (!this.firstChange) {
+      this.selectionChanged.emit({ items: newArray });
+    }
+    this.firstChange = false;
   }
   @Watch("checkedItems")
   checkedItemsHandler(newArray: Array<ItemsInformation>): void {
@@ -696,27 +704,16 @@ export class GxgListBox implements FormComponent {
     const selectedItemsArray: ItemsInformation[] = [];
     const selectedItems = this.getSelectedItemsFunc();
     selectedItems.forEach((item) => {
-      const index = this.getItemIndex(item);
       selectedItemsArray.push({
         active: item.active,
         selected: item.selected,
         checked: item.checked,
         highlighted: item.highlighted,
-        index: index,
+        index: item.index,
         value: item.value || item.textContent,
       });
     });
     this.selectedItems = [...selectedItemsArray];
-  };
-
-  private getItemIndex = (itemEl: HTMLGxgListBoxItemElement): number => {
-    if (itemEl) {
-      const allListBoxItems = this.el.querySelectorAll("gxg-list-box-item");
-      const index = Array.from(allListBoxItems).findIndex((item) => {
-        return item === itemEl;
-      });
-      return index;
-    }
   };
 
   /* ACTIVE */
@@ -867,6 +864,7 @@ export class GxgListBox implements FormComponent {
       <Host
         class={{
           large: state.large,
+          "has-title": !!this.theTitle,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -878,15 +876,11 @@ export class GxgListBox implements FormComponent {
           [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         onKeyDown={this.handleKeyDown}
-        style={{
-          minHeight: this.minHeight,
-          height: this.height,
-          maxHeight: this.maxHeight,
-        }}
       >
         <div
           class={{ container: true, "form-element": true }}
           tabindex={this.disabled ? "-1" : "0"}
+          ref={(el) => (this.containerEl = el as HTMLDivElement)}
         >
           {this.theTitle ? (
             <header
