@@ -149,7 +149,18 @@ export class GxgListBox implements FormComponent {
     if (this.disabled) {
       return null;
     }
-    return this.selectedItems;
+    const selectedItems: HTMLGxgListBoxItemElement[] = this.getSelectedItemsFunc();
+    const selectedItemsInformation: ItemsInformation[] = [];
+    selectedItems.forEach((selectedItem) => {
+      selectedItemsInformation.push({
+        active: selectedItem.active,
+        selected: selectedItem.selected,
+        checked: selectedItem.checked,
+        index: selectedItem.index,
+        value: selectedItem.value,
+      });
+    });
+    return selectedItemsInformation;
   }
 
   componentDidRender(): void {
@@ -287,6 +298,7 @@ export class GxgListBox implements FormComponent {
 
   @Watch("selectedItems")
   selectedItemsHandler(newArray: ItemsInformation[]): void {
+    console.log("newArray", newArray);
     if (!this.firstChange) {
       this.selectionChanged.emit({ items: newArray });
     }
@@ -340,7 +352,6 @@ export class GxgListBox implements FormComponent {
             active: item.active,
             selected: item.selected,
             checked: checked,
-            highlighted: item.highlighted,
             index: item.index,
             value: item.value || item.textContent,
           });
@@ -730,7 +741,6 @@ export class GxgListBox implements FormComponent {
         active: item.active,
         selected: item.selected,
         checked: item.checked,
-        highlighted: item.highlighted,
         index: item.index,
         value: item.value || item.textContent,
       });
@@ -940,7 +950,6 @@ export type ItemsInformation = {
   active: boolean;
   selected: boolean;
   checked: boolean;
-  highlighted: boolean;
   index: number;
   value: string;
 };

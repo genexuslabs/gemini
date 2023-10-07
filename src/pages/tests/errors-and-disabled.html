@@ -225,13 +225,10 @@
         const formComponents = document.querySelectorAll(".form-component");
         /*General Validation Settings*/
         formComponents.forEach((formComponent) => {
-          formComponent.setAttribute("display-validation-message", true);
-          formComponent.setAttribute("display-validation-styles", true);
           formComponent.setAttribute(
             "validation-message",
             "This is a custom validation message"
           );
-          formComponent.setAttribute("required", true);
         });
 
         /*Specific validation settings for gxg-form-radio-group*/

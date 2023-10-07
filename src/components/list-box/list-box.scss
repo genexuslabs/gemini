@@ -20,11 +20,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     box-sizing: border-box;
-    background-color: var(--gray-02);
+    background-color: var(--gray-01);
+    border-bottom: var(--gxg-border-common-styles);
     padding: var(--spacing-comp-01) var(--spacing-comp-02);
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: inherit;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-on-background);
   }
 
