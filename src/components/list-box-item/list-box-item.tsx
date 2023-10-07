@@ -8,6 +8,7 @@ import {
   EventEmitter,
   State,
   Listen,
+  Watch,
 } from "@stencil/core";
 import state from "../store";
 import { commonClassesNames } from "../../common/classesNames";
@@ -41,6 +42,11 @@ export class GxgListboxItem {
    * The presence of this attribute sets this item as selected
    */
   @Prop({ reflect: true }) selected = false;
+
+  /**
+   * This property is for internal use
+   */
+  @Prop({ reflect: true }) lastSelected = false;
 
   /**
    * The presence of this attribute sets this item as highlighted
@@ -97,6 +103,11 @@ export class GxgListboxItem {
    * The presence of this attribute will make the checkbox checked.
    */
   @Prop() checked = false;
+
+  @Watch("selected")
+  watchPropHandler() {
+    this.itemSelected.emit();
+  }
 
   @State() mouseOver = false;
 

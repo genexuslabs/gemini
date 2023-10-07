@@ -1170,6 +1170,10 @@ export namespace Components {
      */
     index: number;
     /**
+     * This property is for internal use
+     */
+    lastSelected: boolean;
+    /**
      * The presence of this attribute sets this item as selected
      */
     selected: boolean;
@@ -3840,6 +3844,10 @@ declare namespace LocalJSX {
      * This property is set by the list-box item. It should not be set by the user.
      */
     index?: number;
+    /**
+     * This property is for internal use
+     */
+    lastSelected?: boolean;
     /**
      * (This event is for internal use.)
      */

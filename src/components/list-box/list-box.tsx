@@ -228,6 +228,7 @@ export class GxgListBox implements FormComponent {
 
   @Listen("itemClicked")
   itemClickedHandler(event: ItemClicked): void {
+    console.log("clicked");
     this.containerEl.focus();
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
     //this.clearActiveItem();
@@ -311,6 +312,12 @@ export class GxgListBox implements FormComponent {
       oldValue === false &&
       localStorage.setItem("gxg-list-box-hide-keyboard-suggestions", "true");
   }
+
+  @Listen("itemSelected")
+  itemSelectedHandler(): void {
+    this.setLastSelected();
+  }
+
   @Listen("checkboxStateChanged")
   checkboxStateChangedHandler(e: CustomEvent<ItemChecked>): void {
     const checkedItemEl = e.detail.checkedItem;
@@ -469,6 +476,19 @@ export class GxgListBox implements FormComponent {
   };
 
   /* SELECTED */
+
+  private setLastSelected = async () => {
+    const selectedItems: HTMLGxgListBoxItemElement[] = this.getSelectedItemsFunc();
+    selectedItems.forEach((selectedItem, i) => {
+      const length = selectedItems.length;
+      if (i !== length - 1 && selectedItem.lastSelected) {
+        selectedItem.lastSelected = false;
+      }
+      if (i == length - 1 && !selectedItem.lastSelected) {
+        selectedItem.lastSelected = true;
+      }
+    });
+  };
 
   clearSelectedItems(ignoreHighlighted = false): void {
     const actualSelectedItems = ignoreHighlighted

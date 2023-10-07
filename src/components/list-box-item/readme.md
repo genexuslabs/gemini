@@ -14,6 +14,7 @@
 | `highlighted`        | `highlighted`          | The presence of this attribute sets this item as highlighted                                                                   | `boolean` | `false`     |
 | `icon`               | `icon`                 | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons                                 | `string`  | `undefined` |
 | `index`              | `index`                | This property is set by the list-box item. It should not be set by the user.                                                   | `number`  | `null`      |
+| `lastSelected`       | `last-selected`        | This property is for internal use                                                                                              | `boolean` | `false`     |
 | `selected`           | `selected`             | The presence of this attribute sets this item as selected                                                                      | `boolean` | `false`     |
 | `value`              | `value`                | The item value. If value is not provided, the value will be the item innerHTML.                                                | `any`     | `undefined` |
 
