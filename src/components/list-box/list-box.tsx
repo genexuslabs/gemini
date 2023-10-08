@@ -928,7 +928,6 @@ export class GxgListBox implements FormComponent {
           <main
             class={{
               main: true,
-              "main--no-border": this.noBorder,
             }}
             style={{
               height: `calc(100% - ${this.headerHeight}px)`,

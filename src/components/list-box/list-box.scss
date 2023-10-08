@@ -48,13 +48,6 @@
     background-color: var(--color-secondary-active);
     color: var(--color-always-white);
   }
-
-  // ::slotted([selected]) {
-  //   border-bottom: 1px solid var(--color-secondary-hover);
-  // }
-  // ::slotted([selected]:last-of-type) {
-  //   border-bottom: none;
-  // }
 }
 
 .container:focus-within {
@@ -62,6 +55,12 @@
 }
 .container:not(:focus-within) {
   --gxg-border-color--focused: transparent;
+}
+
+:host([no-border]) {
+  .container {
+    border: none;
+  }
 }
 
 /*SUGGESTION LIST*/
