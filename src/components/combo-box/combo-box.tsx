@@ -41,7 +41,7 @@ export class GxgComboBox implements FormComponent {
   private iconBeforeDisabled;
   private iconPositionBeforeDisabled;
   private _mo;
-  private setInitialValueTimes = 0;
+  private componentDidLoadFlag = false;
 
   /**
    * This event is triggered when the combo box value changes.
@@ -249,6 +249,7 @@ export class GxgComboBox implements FormComponent {
 
   componentDidLoad(): void {
     this.resizeObserver();
+    this.componentDidLoadFlag = true;
   }
   disconnectedCallback(): void {
     this.cleanup();
@@ -303,7 +304,7 @@ export class GxgComboBox implements FormComponent {
   @Listen("itemDidLoad")
   itemDidLoadHandler(): void {
     this.setIndexes();
-    this.setInitialValue();
+    //this.setInitialValue();
   }
 
   @Listen("keyDownComboItem")
@@ -369,9 +370,9 @@ export class GxgComboBox implements FormComponent {
   *********************************/
 
   @Watch("value")
-  onValueChanged(newValue: ComboBoxItemValue): void {
+  onValueChanged(newValue: ComboBoxItemValue, oldvalue: any): void {
     setTimeout(() => {
-      if (this.setInitialValueTimes > 1) {
+      if (this.componentDidLoadFlag) {
         this.valueChanged.emit(newValue);
       }
       this.clearSelectedItem();
@@ -591,7 +592,6 @@ export class GxgComboBox implements FormComponent {
   };
 
   private setInitialValue = () => {
-    this.setInitialValueTimes++;
     const firstItem = this.getEnabledItems()[0];
     if (!this.value || this.removedItem !== undefined) {
       if (firstItem) {

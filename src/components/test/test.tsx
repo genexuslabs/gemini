@@ -42,24 +42,24 @@ export class GxgTest {
 
   private updatedComboValues = [
     {
-      id: "web-net-new",
-      label: "Web (.NET) New",
+      id: "1",
+      label: "1",
       iconName: null,
     },
     {
-      id: "android-new",
-      label: "Android New",
+      id: "2",
+      label: "2",
       iconName: "general/android",
     },
     {
-      id: "apple-new",
-      label: "Apple New",
+      id: "3",
+      label: "3",
       iconName: "general/apple",
       selected: true,
     },
     {
-      id: "web-angular-new",
-      label: "Web (Angular) New",
+      id: "4",
+      label: "4",
       iconName: "general/angular",
     },
   ];
@@ -70,7 +70,7 @@ export class GxgTest {
       const iconName = comboBoxItem.iconName || comboBoxItem.icon;
       const value = comboBoxItem.value || comboBoxItem.id;
       comboItemsArray.push(
-        <gxg-combo-box-item value={value} icon={iconName}>
+        <gxg-combo-box-item value={value} icon={iconName} key={comboBoxItem.id}>
           {comboBoxItem.label || comboBoxItem.name}
         </gxg-combo-box-item>
       );
@@ -78,8 +78,8 @@ export class GxgTest {
     return comboItemsArray;
   };
 
-  private getSelectedGxOption = (options): any => {
-    let found = null;
+  private getSelectedGxOption = (options): string | void => {
+    let found;
     if (options?.length) {
       for (let i = 0; i < options.length; i++) {
         if (options[i].selected) {
@@ -90,6 +90,8 @@ export class GxgTest {
     }
     if (found) {
       return found.id;
+    } else {
+      return options[0].id;
     }
   };
 
@@ -110,7 +112,7 @@ export class GxgTest {
         label-position="start"
         center-label
         cursor-end
-        value={this.getSelectedGxOption(this.comboValues)}
+        //value={this.getSelectedGxOption(this.comboValues)}
         onValueChanged={this.valueChangedHandler}
       >
         {this.renderComboBoxItems(this.comboValues)}
