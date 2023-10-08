@@ -370,33 +370,35 @@ export class GxgComboBox implements FormComponent {
 
   @Watch("value")
   onValueChanged(newValue: ComboBoxItemValue): void {
-    if (this.setInitialValueTimes > 1) {
-      this.valueChanged.emit(newValue);
-    }
-    this.clearSelectedItem();
-    let value;
-    let newItem: HTMLGxgComboBoxItemElement = undefined;
-    if (this.userTyped) {
-      value = this.getValueByText(newValue);
-    } else {
-      !this.listIsOpen && this.showAllItems();
-      value = newValue;
-    }
-    newItem = this.getItemByValue(value);
-    if (newItem) {
-      this.setSelectedItem(newItem);
-      this.setIcon(newItem.icon);
-      newItem?.textContent && (this.text = newItem.textContent);
-    } else {
-      //this.setIcon(undefined);
-      if (this.strict) {
-        this.text = undefined;
-        this.value = undefined;
-      } else {
-        this.text = newValue;
+    setTimeout(() => {
+      if (this.setInitialValueTimes > 1) {
+        this.valueChanged.emit(newValue);
       }
-    }
-    this.userTyped = false;
+      this.clearSelectedItem();
+      let value;
+      let newItem: HTMLGxgComboBoxItemElement = undefined;
+      if (this.userTyped) {
+        value = this.getValueByText(newValue);
+      } else {
+        !this.listIsOpen && this.showAllItems();
+        value = newValue;
+      }
+      newItem = this.getItemByValue(value);
+      if (newItem) {
+        this.setSelectedItem(newItem);
+        this.setIcon(newItem.icon);
+        newItem?.textContent && (this.text = newItem.textContent);
+      } else {
+        //this.setIcon(undefined);
+        if (this.strict) {
+          this.text = undefined;
+          this.value = undefined;
+        } else {
+          this.text = newValue;
+        }
+      }
+      this.userTyped = false;
+    }, 20);
   }
 
   @Watch("listIsOpen")
