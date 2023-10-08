@@ -31,6 +31,7 @@ export class GxgFormText implements FormComponent {
   private exportparts: string;
   @Element() el: HTMLElement;
   textInput!: HTMLInputElement;
+  fileInputEl!: HTMLInputElement;
 
   /*********************************
   PROPERTIES & STATE
@@ -122,6 +123,26 @@ export class GxgFormText implements FormComponent {
    * The label width
    */
   @Prop() labelWidth;
+
+  /**
+   * The type of input
+   */
+  @Prop() type: InputType = "text";
+
+  /**
+   * Allows multiple files if type is "file"
+   */
+  @Prop() multiple = false;
+
+  /**
+   * The file list that the user selected (only applies if the input type is "file")
+   */
+  @Prop({ mutable: true }) fileList: FileList;
+
+  /**
+   * The type of files the input accepts
+   */
+  @Prop() acceptFile: string;
 
   /**
    * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
@@ -257,6 +278,7 @@ export class GxgFormText implements FormComponent {
   }
 
   componentWillLoad() {
+    this.evaluateIcon();
     this.attachExportParts();
   }
   private attachExportParts = (): void => {
@@ -264,6 +286,15 @@ export class GxgFormText implements FormComponent {
     const exportPartsResult = exportParts(part, this.parts);
     exportPartsResult.length && (this.exportparts = exportPartsResult);
   };
+
+  private evaluateIcon = () => {
+    if (this.type === "file") {
+      this.icon = "controls/file-upload";
+      this.iconPosition = "start";
+      this.placeholder = "Select a file";
+    }
+  };
+
   /*********************************
   METHODS
   *********************************/
@@ -310,10 +341,23 @@ export class GxgFormText implements FormComponent {
 
   handleInput(e): void {
     e.stopPropagation();
+    console.log(e);
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(target.value);
   }
+
+  private handleClick = () => {
+    if (this.type === "file") {
+      this.fileInputEl.click();
+    }
+  };
+
+  private handleKeyDown = (e) => {
+    if (e.key === "Enter" && this.type === "file") {
+      this.textInput.click();
+    }
+  };
 
   handleChange(e): void {
     e.stopPropagation();
@@ -334,6 +378,10 @@ export class GxgFormText implements FormComponent {
   clearButtonFunc(): void {
     this.clearButtonClicked.emit({ prevValue: this.value });
     this.value = "";
+    if (this.type === "file") {
+      this.fileList = null;
+      this.fileInputEl.value = "";
+    }
   }
 
   updateGhostSpan(): void {
@@ -486,13 +534,39 @@ export class GxgFormText implements FormComponent {
     }
   }
 
-  type(): "password" | "text" {
+  evaluateType(): "password" | "text" {
     if (this.password) {
       return "password";
     } else {
       return "text";
     }
   }
+
+  private inputFileChangedHandler = (e) => {
+    const selectedFiles: FileList = e.target.files;
+    this.fileList = selectedFiles;
+    if (selectedFiles.length > 1) {
+      this.value = `${selectedFiles.length} files chosen`;
+    } else {
+      this.value = selectedFiles[0].name;
+    }
+  };
+
+  private renderInputFile = () => {
+    if (this.type === "file") {
+      return (
+        <input
+          class="input-file"
+          type="file"
+          multiple={this.multiple}
+          accept={this.acceptFile}
+          ref={(el) => (this.fileInputEl = el as HTMLInputElement)}
+          onChange={this.inputFileChangedHandler}
+          style={{ display: "none" }}
+        ></input>
+      );
+    }
+  };
 
   render(): void {
     return (
@@ -508,6 +582,7 @@ export class GxgFormText implements FormComponent {
           rtl: this.rtl,
           large: state.large,
           borderless: this.borderless,
+          file: this.type === "file",
           "has-icon": this.icon,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
@@ -547,7 +622,7 @@ export class GxgFormText implements FormComponent {
           >
             <input
               part={this.parts.input}
-              type={this.type()}
+              type={this.evaluateType()}
               value={this.value}
               class={{
                 input: true,
@@ -560,8 +635,12 @@ export class GxgFormText implements FormComponent {
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
-              readonly={"readonly" ? this.readonly : null}
+              readonly={
+                "readonly" ? this.readonly || this.type === "file" : null
+              }
+              onClick={this.handleClick}
               onInput={this.handleInput.bind(this)}
+              onKeyDown={this.handleKeyDown}
               onChange={this.handleChange.bind(this)}
               onFocus={this.onFocusHandler.bind(this)}
               required={this.required}
@@ -582,6 +661,7 @@ export class GxgFormText implements FormComponent {
               ></gxg-icon>
             ) : null}
             {this.labelPosition === "start" ? formMessageLogic(this) : null}
+            {this.renderInputFile()}
           </div>
         </div>
         {this.labelPosition === "above" ? formMessageLogic(this) : null}
@@ -591,6 +671,7 @@ export class GxgFormText implements FormComponent {
 }
 
 export type IconPosition = "start" | "end";
+export type InputType = "text" | "password" | "file";
 export type LabelPosition = "start" | "above";
 export type Style =
   | "regular"

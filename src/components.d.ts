@@ -49,6 +49,7 @@ import { RadioData } from "./components/form-radio/form-radio";
 import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
 import {
   IconPosition,
+  InputType,
   LabelPosition as LabelPosition1,
   Style,
 } from "./components/form-text/form-text";
@@ -861,6 +862,10 @@ export namespace Components {
   }
   interface GxgFormText {
     /**
+     * The type of files the input accepts
+     */
+    acceptFile: string;
+    /**
      * The presence of this attribute hides the border.
      */
     borderless: boolean;
@@ -888,6 +893,10 @@ export namespace Components {
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
+    /**
+     * The file list that the user selected (only applies if the input type is "file")
+     */
+    fileList: FileList;
     /**
      * The input icon (optional)
      */
@@ -929,6 +938,10 @@ export namespace Components {
      */
     minimal: boolean;
     /**
+     * Allows multiple files if type is "file"
+     */
+    multiple: boolean;
+    /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
     overDarkBackground: boolean;
@@ -961,6 +974,10 @@ export namespace Components {
      * The text style
      */
     textStyle: Style;
+    /**
+     * The type of input
+     */
+    type: InputType;
     /**
      * The message to display when validation fails (error)
      */
@@ -3512,6 +3529,10 @@ declare namespace LocalJSX {
   }
   interface GxgFormText {
     /**
+     * The type of files the input accepts
+     */
+    acceptFile?: string;
+    /**
      * The presence of this attribute hides the border.
      */
     borderless?: boolean;
@@ -3539,6 +3560,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the input disabled
      */
     disabled?: boolean;
+    /**
+     * The file list that the user selected (only applies if the input type is "file")
+     */
+    fileList?: FileList;
     /**
      * The input icon (optional)
      */
@@ -3579,6 +3604,10 @@ declare namespace LocalJSX {
      * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
      */
     minimal?: boolean;
+    /**
+     * Allows multiple files if type is "file"
+     */
+    multiple?: boolean;
     /**
      * Returns the input value
      */
@@ -3627,6 +3656,10 @@ declare namespace LocalJSX {
      * The text style
      */
     textStyle?: Style;
+    /**
+     * The type of input
+     */
+    type?: InputType;
     /**
      * The message to display when validation fails (error)
      */
