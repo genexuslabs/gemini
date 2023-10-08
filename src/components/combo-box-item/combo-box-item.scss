@@ -49,6 +49,9 @@
   background-color: var(--gxg-background-color--selected);
   color: var(--gxg-color--selected);
 }
+:host([selected]:hover) {
+  background-color: var(--gxg-background-color--selected-hover);
+}
 :host([exact-match]) {
   // background-color: var(--color-success-light);
   // color: var(--color-success-dark);

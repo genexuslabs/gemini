@@ -211,7 +211,7 @@ export class GxgComboBox implements FormComponent {
   @State() inputTextValue = "";
   @State() listIsOpen = false;
   @State() inputTextIcon: string = undefined;
-  @State() inputTextIconPosition: IconPosition = null;
+  @State() inputTextIconPosition: IconPosition = "start";
   @State() noMatch = false;
   @State() lastAllowedValue = undefined;
   @State() slottedContent: HTMLElement = null;
@@ -303,7 +303,6 @@ export class GxgComboBox implements FormComponent {
   @Listen("itemDidLoad")
   itemDidLoadHandler(): void {
     this.setIndexes();
-    this.setInitialValue();
   }
 
   @Listen("keyDownComboItem")
@@ -590,11 +589,12 @@ export class GxgComboBox implements FormComponent {
 
   private setInitialValue = () => {
     this.setInitialValueTimes++;
-    const firstItem = this.getEnabledItems()[0];
     if (!this.value || this.removedItem !== undefined) {
+      const firstItem = this.getEnabledItems()[0];
       if (firstItem) {
-        this.value = firstItem.value;
         this.text = firstItem.innerText;
+        this.value = firstItem.value;
+        this.inputTextIcon = firstItem.icon;
       } else {
         if (this.strict) {
           this.value = undefined;
@@ -604,6 +604,7 @@ export class GxgComboBox implements FormComponent {
       const item = this.getItemByValue(this.value);
       if (item) {
         this.text = item.innerText;
+        this.inputTextIcon = item.icon;
         item.selected = true;
       } else {
         if (this.strict) {

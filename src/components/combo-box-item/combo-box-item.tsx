@@ -113,7 +113,7 @@ export class GxgComboBoxItem {
     if (this.disabled) {
       return "disabled";
     } else if (this.selected) {
-      return "auto";
+      return "primary-enabled";
     } else {
       return "auto";
     }

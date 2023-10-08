@@ -78,7 +78,7 @@
   border-bottom-color: var(--color-secondary-hover);
 }
 :host([selected]:hover) {
-  background-color: var(--color-secondary-enabled--hover);
+  background-color: var(--gxg-background-color--selected-hover);
 }
 :host(:not([sibling-is-selected])) {
   border-bottom-color: transparent;

@@ -302,7 +302,7 @@ export class GxgFormText implements FormComponent {
           class="custom-icon"
           type={this.icon}
           size={iconSize}
-          color="auto"
+          color={this.disabled ? "disabled" : "auto"}
         ></gxg-icon>
       );
     }
