@@ -508,6 +508,7 @@ export class GxgFormText implements FormComponent {
           rtl: this.rtl,
           large: state.large,
           borderless: this.borderless,
+          "has-icon": this.icon,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:

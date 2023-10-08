@@ -133,9 +133,10 @@ INPUT TEXT ICON
 }
 
 // Input with icon (on the left, or on the right)
-:host([icon-position="start"]) input {
+:host(.has-icon[icon-position="start"]) input {
   padding-inline-start: 20px;
 }
+
 :host([icon-position="end"]) input {
   padding-inline-end: 20px;
 }
@@ -250,7 +251,7 @@ LARGE VERSION (html tag has 'gxg-large' class)
   }
 }
 // Input with icon (on the left, or on the right)
-:host(.large[icon-position="start"]) input {
+:host(.large.has-icon[icon-position="start"]) input {
   padding-inline-start: var(--spacing-comp-05);
   .inner-wrapper gxg-icon {
     left: 2px;
@@ -280,7 +281,7 @@ LARGE VERSION (html tag has 'gxg-large' class)
     right: 26px;
   }
 }
-:host(.large[icon-position="start"][clear-button]) input {
+:host(.large.has-icon[icon-position="start"][clear-button]) input {
   padding-inline-end: 26px;
 }
 :host(.large[icon-position="end"][clear-button]) input {
