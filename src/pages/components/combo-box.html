@@ -82,30 +82,6 @@
             console.log("valueChanged", e.detail);
           });
         </script>
-        <button id="update-items-fruits">update items</button>
-        <script>
-          const updateItemsFruitsBtn = document.getElementById(
-            "update-items-fruits"
-          );
-          updateItemsFruitsBtn.addEventListener("click", () => {
-            const comboFruits = document.createElement("combo-fruits");
-            comboFruits.innerHTML = "";
-            fragment = document.createDocumentFragment();
-            //item 1
-            const comboBoxItem1 = document.createElement("gxg-combo-box-item");
-            comboBoxItem1.innerText = "Rojo";
-            comboBoxItem1.setAttribute("value", "rojo");
-            //item 2
-            const comboBoxItem2 = document.createElement("gxg-combo-box-item");
-            comboBoxItem2.innerText = "Azul";
-            comboBoxItem2.setAttribute("value", "azul");
-            //append
-            fragment.appendChild(comboBoxItem1);
-            fragment.appendChild(comboBoxItem2);
-
-            comboFruits.appendChild(fragment);
-          });
-        </script>
       </section>
 
       <p>Open the console to see the values.</p>

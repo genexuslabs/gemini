@@ -39,7 +39,9 @@ export class GxgComboBox implements FormComponent {
   private valueBeforeDisabled;
   private textBeforeDisabled;
   private iconBeforeDisabled;
+  private iconPositionBeforeDisabled;
   private _mo;
+  private setInitialValueTimes = 0;
 
   /**
    * This event is triggered when the combo box value changes.
@@ -190,12 +192,15 @@ export class GxgComboBox implements FormComponent {
       this.valueBeforeDisabled = this.value;
       this.textBeforeDisabled = this.text;
       this.iconBeforeDisabled = this.inputTextIcon;
+      this.iconPositionBeforeDisabled = this.inputTextIconPosition;
       this.value = null;
       this.inputTextIcon = null;
+      this.inputTextIconPosition = null;
     } else {
       this.value = this.valueBeforeDisabled;
       this.text = this.textBeforeDisabled;
       this.inputTextIcon = this.iconBeforeDisabled;
+      this.inputTextIconPosition = this.iconPositionBeforeDisabled;
     }
   }
 
@@ -206,7 +211,7 @@ export class GxgComboBox implements FormComponent {
   @State() inputTextValue = "";
   @State() listIsOpen = false;
   @State() inputTextIcon: string = undefined;
-  @State() inputTextIconPosition: IconPosition = "start";
+  @State() inputTextIconPosition: IconPosition = null;
   @State() noMatch = false;
   @State() lastAllowedValue = undefined;
   @State() slottedContent: HTMLElement = null;
@@ -298,6 +303,7 @@ export class GxgComboBox implements FormComponent {
   @Listen("itemDidLoad")
   itemDidLoadHandler(): void {
     this.setIndexes();
+    this.setInitialValue();
   }
 
   @Listen("keyDownComboItem")
@@ -364,7 +370,9 @@ export class GxgComboBox implements FormComponent {
 
   @Watch("value")
   onValueChanged(newValue: ComboBoxItemValue): void {
-    this.valueChanged.emit(newValue);
+    if (this.setInitialValueTimes > 1) {
+      this.valueChanged.emit(newValue);
+    }
     this.clearSelectedItem();
     let value;
     let newItem: HTMLGxgComboBoxItemElement = undefined;
@@ -374,9 +382,7 @@ export class GxgComboBox implements FormComponent {
       !this.listIsOpen && this.showAllItems();
       value = newValue;
     }
-    console.log("value", value);
     newItem = this.getItemByValue(value);
-    console.log("newItem", newItem);
     if (newItem) {
       this.setSelectedItem(newItem);
       this.setIcon(newItem.icon);
@@ -460,7 +466,6 @@ export class GxgComboBox implements FormComponent {
 
   private showAllItems = () => {
     const enabledItems = this.getEnabledItems();
-    console.log("enabledItems", enabledItems);
     enabledItems?.forEach((item) => {
       item?.hidden && (item.hidden = false);
     });
@@ -584,12 +589,12 @@ export class GxgComboBox implements FormComponent {
   };
 
   private setInitialValue = () => {
+    this.setInitialValueTimes++;
+    const firstItem = this.getEnabledItems()[0];
     if (!this.value || this.removedItem !== undefined) {
-      const firstItem = this.getEnabledItems()[0];
       if (firstItem) {
-        this.text = firstItem.innerText;
         this.value = firstItem.value;
-        this.inputTextIcon = firstItem.icon;
+        this.text = firstItem.innerText;
       } else {
         if (this.strict) {
           this.value = undefined;
@@ -599,7 +604,6 @@ export class GxgComboBox implements FormComponent {
       const item = this.getItemByValue(this.value);
       if (item) {
         this.text = item.innerText;
-        this.inputTextIcon = item.icon;
         item.selected = true;
       } else {
         if (this.strict) {
@@ -646,14 +650,17 @@ export class GxgComboBox implements FormComponent {
   private clearIcon = (): void => {
     if (!this.disabled) {
       this.inputTextIcon = null;
+      this.inputTextIconPosition = null;
     }
   };
 
   setIcon(icon: string): void {
     if (icon) {
       this.inputTextIcon = icon;
+      this.inputTextIconPosition = "start";
     } else {
       this.inputTextIcon = null;
+      this.inputTextIconPosition = null;
     }
   }
 
@@ -770,7 +777,9 @@ export class GxgComboBox implements FormComponent {
                 onClick={this.inputTextClickHandler}
                 value={this.text}
                 icon={this.fixedIcon || this.inputTextIcon}
-                iconPosition="start"
+                iconPosition={
+                  this.fixedIcon ? "start" : this.inputTextIconPosition
+                }
                 readonly={this.disableFilter}
                 ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
                 validationStatus={this.validationStatus}

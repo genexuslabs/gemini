@@ -239,7 +239,6 @@ export class GxgListBox implements FormComponent {
 
   @Listen("itemClicked")
   itemClickedHandler(event: ItemClicked): void {
-    console.log("clicked");
     this.containerEl.focus();
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
     //this.clearActiveItem();
@@ -298,7 +297,6 @@ export class GxgListBox implements FormComponent {
 
   @Watch("selectedItems")
   selectedItemsHandler(newArray: ItemsInformation[]): void {
-    console.log("newArray", newArray);
     if (!this.firstChange) {
       this.selectionChanged.emit({ items: newArray });
     }
