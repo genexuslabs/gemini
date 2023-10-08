@@ -553,10 +553,10 @@ export class GxgComboBox implements FormComponent {
 
   private getNewItem = (
     direction: "prev" | "next"
-  ): HTMLGxgComboBoxItemElement => {
+  ): HTMLGxgComboBoxItemElement | null => {
     const filteredItems = this.getFilteredItems();
     const indexInFiltered = filteredItems?.findIndex((item) => {
-      return item === this.selectedItem;
+      return item.selected;
     });
     if (direction === "next") {
       if (indexInFiltered === -1) {
@@ -604,6 +604,7 @@ export class GxgComboBox implements FormComponent {
       const item = this.getItemByValue(this.value);
       if (item) {
         this.text = item.innerText;
+        item.selected = true;
       } else {
         if (this.strict) {
           this.value = undefined;
