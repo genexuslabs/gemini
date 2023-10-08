@@ -112,7 +112,7 @@ export class GxgTest {
         label-position="start"
         center-label
         cursor-end
-        //value={this.getSelectedGxOption(this.comboValues)}
+        value={this.getSelectedGxOption(this.comboValues)}
         onValueChanged={this.valueChangedHandler}
       >
         {this.renderComboBoxItems(this.comboValues)}
