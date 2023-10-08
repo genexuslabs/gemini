@@ -1,6 +1,5 @@
 import { Component, h, Prop, Listen, Element } from "@stencil/core";
-import { GxgTreeItemData, ToggleIconClicked } from "../tree-item/gxg-tree-item";
-import { renderTreeItems } from "../tree/renderTreeItems";
+import { button } from "@storybook/addon-knobs";
 @Component({
   tag: "gxg-test",
   styleUrl: "test.scss",
@@ -8,152 +7,115 @@ import { renderTreeItems } from "../tree/renderTreeItems";
 })
 export class GxgTest {
   @Element() el: HTMLElement;
-  tree!: HTMLGxgTreeElement;
 
-  //Do not delete buttonTestExportParts property as this is for a specific purpose
-  @Prop() buttonTestExportParts = false;
-  //Do not delete treeItemsModel property as this is for a specific purpose
-  @Prop() treeItemsModel: GxgTreeItemData[];
-  //Do not delete lazyLoadTreeItems property as this is for a specific purpose
-  @Prop() lazyLoadTreeItemsCallback: (
-    treeItemId: string
-  ) => Promise<GxgTreeItemData[]>;
+  /**
+   * The presence of this attribute makes the input disabled
+   */
+  @Prop() comboValues = [
+    {
+      id: "web-net",
+      label: "Web (.NET)",
+      iconName: null,
+    },
+    {
+      id: "android",
+      label: "Android",
+      iconName: "general/android",
+      selected: true,
+    },
+    {
+      id: "apple",
+      label: "Apple",
+      iconName: "general/apple",
+    },
+    {
+      id: "web-angular",
+      label: "Web (Angular)",
+      iconName: "general/angular",
+    },
+    {
+      id: "we-chat-mini-program",
+      label: "We Chat Mini Program",
+      iconName: null,
+    },
+  ];
 
-  //Grid tests
-  @Prop() showGrid = false;
-  @Prop() showGridData = false;
+  private updatedComboValues = [
+    {
+      id: "web-net-new",
+      label: "Web (.NET) New",
+      iconName: null,
+    },
+    {
+      id: "android-new",
+      label: "Android New",
+      iconName: "general/android",
+    },
+    {
+      id: "apple-new",
+      label: "Apple New",
+      iconName: "general/apple",
+      selected: true,
+    },
+    {
+      id: "web-angular-new",
+      label: "Web (Angular) New",
+      iconName: "general/angular",
+    },
+  ];
 
-  @Listen("toggleIconClicked")
-  toggleIconClickedHandler(e: CustomEvent<ToggleIconClicked>) {
-    const treeItemId = e.detail.id;
-    const isLazy = e.detail.lazy;
-    if (this.lazyLoadTreeItemsCallback && isLazy) {
-      const promise = this.lazyLoadTreeItemsCallback(treeItemId);
-      setTimeout(() => {
-        promise.then((result) => {
-          this.treeItemsModel = result;
-        });
-      }, 1000);
+  private renderComboBoxItems = (itemsArray) => {
+    const comboItemsArray: HTMLGxgComboBoxItemElement[] = [];
+    itemsArray.forEach((comboBoxItem) => {
+      const iconName = comboBoxItem.iconName || comboBoxItem.icon;
+      const value = comboBoxItem.value || comboBoxItem.id;
+      comboItemsArray.push(
+        <gxg-combo-box-item value={value} icon={iconName}>
+          {comboBoxItem.label || comboBoxItem.name}
+        </gxg-combo-box-item>
+      );
+    });
+    return comboItemsArray;
+  };
+
+  private getSelectedGxOption = (options): any => {
+    let found = null;
+    if (options?.length) {
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].selected) {
+          found = options[i];
+          break;
+        }
+      }
     }
-  }
+    if (found) {
+      return found.id;
+    }
+  };
 
-  /*Gxg-Tree Methods*/
-  private closeTreeNodeHandler = () => {
-    this.tree.toggleItems(["number-1-1-2"], false);
+  private updateFrontEnds = () => {
+    this.comboValues = this.updatedComboValues;
   };
-  private openTreeNodeHandler = () => {
-    this.tree.toggleItems(["number-1-1-2"], true);
-  };
-  private toggleTreeNodeHandler = () => {
-    this.tree.toggleItems(["number-1-1-2"]);
-  };
-  private getSelectedItemsHandler = () => {
-    (async () => {
-      const selected = await this.tree.getSelectedItems();
-      console.log(selected);
-    })();
-  };
-  private getCheckedItemsHandler = () => {
-    (async () => {
-      const checked = await this.tree.getCheckedItems();
-      console.log(checked);
-    })();
-  };
-  private deleteNodeHandler = () => {
-    this.treeItemsModel = [];
+
+  private valueChangedHandler = (e) => {
+    console.log("value updated", e.detail);
   };
 
   render() {
-    if (this.buttonTestExportParts) {
-      return <gxg-button part="exterior-part">Export parts tests</gxg-button>;
-    } else if (this.treeItemsModel) {
-      return [
-        <gxg-tree checkbox checked>
-          {renderTreeItems(this.treeItemsModel)}
-        </gxg-tree>,
-
-        <div class="tree-buttons">
-          <gxg-button type="outlined" onClick={this.closeTreeNodeHandler}>
-            Close 1-1-2
-          </gxg-button>
-          <gxg-button type="outlined" onClick={this.openTreeNodeHandler}>
-            Open 1-1-2
-          </gxg-button>
-          <gxg-button type="outlined" onClick={this.toggleTreeNodeHandler}>
-            Toggle 1-1-2
-          </gxg-button>
-          <gxg-button type="outlined" onClick={this.getSelectedItemsHandler}>
-            Get Selected Items
-          </gxg-button>
-          <gxg-button type="outlined" onClick={this.getCheckedItemsHandler}>
-            Get Checked Items
-          </gxg-button>
-          <gxg-button type="outlined" onClick={this.deleteNodeHandler}>
-            Delete Tree
-          </gxg-button>
-        </div>,
-      ];
-    } else if (this.showGrid) {
-      return (
-        <gxg-grid>
-          <ch-grid
-            row-selection-mode="multiple"
-            part="ch-grid-pending-for-updates"
-            class="no-border"
-          >
-            <ch-grid-columnset>
-              <ch-grid-column
-                settingable={false}
-                sortable={false}
-                column-type="rich"
-                rich-row-selector
-                rich-row-selector-mode="mark"
-              ></ch-grid-column>
-              <ch-grid-column
-                column-name="name"
-                column-name-position="text"
-                settingable={false}
-              ></ch-grid-column>
-              <ch-grid-column
-                column-name="productos"
-                column-name-position="text"
-                settingable={false}
-              ></ch-grid-column>
-            </ch-grid-columnset>
-
-            {this.showGridData && [
-              <ch-grid-row rowid="123">
-                <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
-                <ch-grid-cell>Nombre</ch-grid-cell>
-                <ch-grid-cell>Productos</ch-grid-cell>
-              </ch-grid-row>,
-              <ch-grid-rowset>
-                <ch-grid-rowset-legend>Identidad</ch-grid-rowset-legend>
-
-                <ch-grid-row>
-                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
-                  <ch-grid-cell>Nombre</ch-grid-cell>
-                  <ch-grid-cell>Productos</ch-grid-cell>
-                </ch-grid-row>
-                <ch-grid-row>
-                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
-                  <ch-grid-cell>English</ch-grid-cell>
-                  <ch-grid-cell>Products</ch-grid-cell>
-                </ch-grid-row>
-                <ch-grid-row>
-                  <ch-grid-cell cell-type="rich" row-selector></ch-grid-cell>
-                  <ch-grid-cell>Português</ch-grid-cell>
-                  <ch-grid-cell>Produtos</ch-grid-cell>
-                </ch-grid-row>
-              </ch-grid-rowset>,
-            ]}
-          </ch-grid>
-        </gxg-grid>
-      );
-    } else {
-      return <slot></slot>;
-    }
+    return [
+      <gxg-combo-box
+        id="combo-fruits"
+        placeholder="Select item"
+        max-width="100%"
+        label-position="start"
+        center-label
+        cursor-end
+        value={this.getSelectedGxOption(this.comboValues)}
+        onValueChanged={this.valueChangedHandler}
+      >
+        {this.renderComboBoxItems(this.comboValues)}
+      </gxg-combo-box>,
+      <button onClick={this.updateFrontEnds}>update</button>,
+    ];
   }
 }
-
-export type ObjectState = "inserted" | "modified" | "deleted" | "conflicted";

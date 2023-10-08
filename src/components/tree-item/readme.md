@@ -60,10 +60,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-icon](../icon)
@@ -81,7 +77,6 @@ graph TD;
   gxg-form-checkbox --> gxg-form-message
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
-  gxg-test --> gxg-tree-item
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

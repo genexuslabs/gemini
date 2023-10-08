@@ -92,6 +92,10 @@ Type: `Promise<boolean>`
 
 ## Dependencies
 
+### Used by
+
+- [gxg-test](../test)
+
 ### Depends on
 
 - [gxg-label](../label)
@@ -114,6 +118,7 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon
+  gxg-test --> gxg-combo-box
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -82,10 +82,6 @@ import { Space as Space2 } from "./components/stack/stack";
 import { TabContainerFlexDirection } from "./components/tab/tab";
 import { TabsPosition } from "./components/tabs/tabs";
 import {
-  GxgTreeItemData,
-  GxgTreeItemSelectedData,
-} from "./components/tree-item/gxg-tree-item";
-import {
   TargetType,
   TextAlign,
   TextPadding,
@@ -98,6 +94,10 @@ import {
   ToggledGxgTreeItem,
   TreeItemNewStateEmitted,
 } from "./components/tree/gxg-tree";
+import {
+  GxgTreeItemData,
+  GxgTreeItemSelectedData,
+} from "./components/tree-item/gxg-tree-item";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
 import {
@@ -1720,13 +1720,13 @@ export namespace Components {
     tabBarBorder: boolean;
   }
   interface GxgTest {
-    buttonTestExportParts: boolean;
-    lazyLoadTreeItemsCallback: (
-      treeItemId: string
-    ) => Promise<GxgTreeItemData[]>;
-    showGrid: boolean;
-    showGridData: boolean;
-    treeItemsModel: GxgTreeItemData[];
+    /**
+     * The presence of this attribute makes the input disabled
+     */
+    comboValues: (
+      | { id: string; label: string; iconName: string; selected: boolean }
+      | { id: string; label: string; iconName: string; selected?: undefined }
+    )[];
   }
   interface GxgText {
     /**
@@ -4438,13 +4438,13 @@ declare namespace LocalJSX {
     tabBarBorder?: boolean;
   }
   interface GxgTest {
-    buttonTestExportParts?: boolean;
-    lazyLoadTreeItemsCallback?: (
-      treeItemId: string
-    ) => Promise<GxgTreeItemData[]>;
-    showGrid?: boolean;
-    showGridData?: boolean;
-    treeItemsModel?: GxgTreeItemData[];
+    /**
+     * The presence of this attribute makes the input disabled
+     */
+    comboValues?: (
+      | { id: string; label: string; iconName: string; selected: boolean }
+      | { id: string; label: string; iconName: string; selected?: undefined }
+    )[];
   }
   interface GxgText {
     /**

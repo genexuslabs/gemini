@@ -57,7 +57,6 @@
 - [gxg-modal](../modal)
 - [gxg-options](../options)
 - [gxg-tab-bar](../tab-bar)
-- [gxg-test](../test)
 - [gxg-window](../window)
 
 ### Depends on
@@ -80,7 +79,6 @@ graph TD;
   gxg-modal --> gxg-button
   gxg-options --> gxg-button
   gxg-tab-bar --> gxg-button
-  gxg-test --> gxg-button
   gxg-window --> gxg-button
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
