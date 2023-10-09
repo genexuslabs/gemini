@@ -67,6 +67,11 @@ export class GxgListBox implements FormComponent {
   @Prop() noBorder = false;
 
   /**
+   * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
+   */
+  @Prop() emitEmptySelection = false;
+
+  /**
    * An object with suggestions about the possible keyboard combinations
    */
   @Prop() keyboardSuggestions: KeyboardSuggestions = {
@@ -297,7 +302,7 @@ export class GxgListBox implements FormComponent {
 
   @Watch("selectedItems")
   selectedItemsHandler(newArray: ItemsInformation[]): void {
-    if (!this.firstChange) {
+    if (!this.firstChange && (newArray.length > 0 || this.emitEmptySelection)) {
       this.selectionChanged.emit({ items: newArray });
     }
     this.firstChange = false;

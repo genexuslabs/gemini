@@ -1131,6 +1131,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
+     */
+    emitEmptySelection: boolean;
+    /**
      * ******************************* METHODS *******************************
      */
     getSelectedItems: () => Promise<ItemsInformation[]>;
@@ -3842,6 +3846,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the component disabled
      */
     disabled?: boolean;
+    /**
+     * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
+     */
+    emitEmptySelection?: boolean;
     /**
      * An informative message to help the user filling the information
      */
