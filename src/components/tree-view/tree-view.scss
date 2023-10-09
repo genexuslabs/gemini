@@ -1,10 +1,18 @@
+@import "../../globals/mixins.scss";
+
+/*---------------------------
+gxg-tree-view
+---------------------------*/
 gxg-tree-view {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   height: 100%;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-on-background);
 }
-
 .tree-buttons {
   display: grid;
   grid-auto-rows: max-content;
@@ -13,44 +21,100 @@ gxg-tree-view {
 
 :not(.ch-tree-x-dragging-item)
   ch-tree-x-list-item:not([selected])::part(header):hover {
-  background-color: rgb(232, 232, 233);
+  //to do
+  // background-color: rgb(232, 232, 233);
 }
 
 .ch-tree-x-list-item--drag-enter {
-  background-color: #eee;
-  box-shadow: inset 0 0 1px 0px black;
+  //to do
+  // background-color: #eee;
+  // box-shadow: inset 0 0 1px 0px black;
 
-  &[selected]::part(header) {
-    background-color: #eee;
-  }
+  // &[selected]::part(header) {
+  //   background-color: #eee;
+  // }
 }
 
+/*---------------------------
+ch-tree-x-list-item
+---------------------------*/
+
 ch-tree-x-list-item {
+  //css variables overrides
+  --expandable-button-width: var(--spacing-comp-04);
+
+  //header
   &::part(header) {
+    padding-inline-start: var(--spacing-comp-01);
+    padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
     border: 1px solid transparent;
-  }
+    height: var(--spacing-comp-05);
 
+    &:focus {
+      @include form-element-common-styles-focus-type-1();
+    }
+  }
   &[selected]::part(header) {
-    background-color: rgb(207, 222, 230);
-    border-color: rgb(2, 102, 160);
+    background-color: var(--gxg-background-color--selected);
+    @include form-element-common-styles-focus-type-1();
+    &:hover {
+      background-color: var(--gxg-background-color--selected-hover);
+    }
   }
-
   &.ch-tree-x-list-item--editing::part(header) {
-    background-color: rgb(207, 222, 230, 0.5);
-    border-color: transparent;
+    //to do
+    // background-color: rgb(207, 222, 230, 0.5);
+    // border-color: transparent;
+  }
+  &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
+    //to do
+    // border-color: black;
+    // z-index: 1; // Place the outline above the content
   }
 
-  &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
-    border-color: black;
-    z-index: 1; // Place the outline above the content
+  //expandable-button
+  &::part(expandable-button) {
+    &::before {
+      background-color: var(--gray-04);
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+    }
+    background-color: var(--color-hover);
+    &:hover {
+      background-color: var(--color-background);
+    }
+    &:focus {
+      @include form-element-common-styles-focus-type-1("outside");
+    }
+  }
+
+  //action
+  &::part(action) {
+    text-transform: capitalize;
+  }
+  //action / left-img
+  &::part(left-img) {
+    width: var(--spacing-comp-04);
+    height: var(--spacing-comp-04);
+  }
+
+  //downloading
+  &::part(downloading) {
+    width: var(--spacing-comp-03);
+    height: var(--spacing-comp-03);
+    //border: var(--border-radius-sm) solid var(--color-primary-enabled);
+    //border-color: var(--color-primary-enabled);
+    border: var(--border-width-md) solid var(--color-primary-enabled);
+    border-inline-start-color: transparent;
   }
 }
 
 .ch-tree-x-drag-info {
-  padding-inline: 6px;
-  padding-block: 2px;
-  background-color: rgb(207, 222, 230);
-  border: 1px solid rgb(2, 102, 160);
-  border-radius: 10px;
-  font-size: 8px;
+  //to do
+  // padding-inline: 6px;
+  // padding-block: 2px;
+  // background-color: rgb(207, 222, 230);
+  // border: 1px solid rgb(2, 102, 160);
+  // border-radius: 10px;
+  // font-size: 8px;
 }

@@ -13,26 +13,14 @@
 ### Depends on
 
 - [gxg-combo-box-item](../combo-box-item)
-- [gxg-combo-box](../combo-box)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-test --> gxg-combo-box-item
-  gxg-test --> gxg-combo-box
   gxg-combo-box-item --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-combo-box --> gxg-label
-  gxg-combo-box --> gxg-form-text
-  gxg-combo-box --> gxg-button
-  gxg-combo-box --> gxg-form-message
-  gxg-label --> gxg-tooltip
-  gxg-form-text --> gxg-icon
-  gxg-form-text --> gxg-label
-  gxg-form-text --> gxg-form-message
-  gxg-form-message --> gxg-icon
-  gxg-button --> gxg-icon
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
