@@ -73,9 +73,11 @@
 //BACKGROUND COLORS
 :root {
   --color-background: #fff;
+  --color-background--rgb: 255, 255, 255; /*added by Bruno for the ide-loader*/
 }
 :root.dark {
   --color-background: #1d1e22;
+  --color-background--rgb: 0, 0, 0; /*added by Bruno for the ide-loader*/
 }
 //ALERT COLORS
 :root {
@@ -99,6 +101,7 @@
   --gray-00: #f4f4f4; /*added by Bruno*/
   --gray-01: #e8e8e9;
   --gray-02: #c6c6c7;
+  --gray-02--rgb: 198, 198, 199; /*added by Bruno for the ide-loader*/
   --gray-03: #a4a5a6;
   --gray-04: #828385;
   --gray-05: #616164;
@@ -109,6 +112,7 @@
   --gray-00: #232326; /*added by Bruno*/
   --gray-01: #28292d;
   --gray-02: #3e3f42;
+  --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
   --gray-03: #616164;
   --gray-04: #828385;
   --gray-05: #a4a5a6;

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>ide-loader | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        text-align: center;
+        padding-top: 100px;
+        background-color: var(--gray-02);
+      }
+      .container {
+        display: inline-block;
+        margin: 0 auto;
+      }
+      img {
+        width: 700px;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .show-loader-btn {
+        width: 125px;
+        margin-top: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container" id="container">
+        <!-- <img src="../assets/new-kb.png" alt="" /> -->
+        <img src="../assets/new-kb-dark.png" alt="" />
+      </div>
+      <gxg-button class="show-loader-btn">show loader</gxg-button>
+      <gxg-ide-loader description="Loading kbs..."></gxg-ide-loader>
+    </div>
+
+    <script>
+      const loader = document.querySelector("gxg-ide-loader");
+      const containerRef = document.getElementById("container");
+      const showLoaderBtn = document.querySelector(".show-loader-btn");
+      showLoaderBtn.addEventListener("click", () => {
+        loader.show = true;
+        setTimeout(() => {
+          loader.show = false;
+        }, 2000);
+      });
+      loader.container = containerRef;
+    </script>
+  </body>
+</html>

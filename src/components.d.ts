@@ -1087,6 +1087,20 @@ export namespace Components {
      */
     type: any;
   }
+  interface GxgIdeLoader {
+    /**
+     * The container element for the loader.
+     */
+    container: HTMLElement;
+    /**
+     * The loader description (optional)
+     */
+    description: string;
+    /**
+     * It shows the loader
+     */
+    show: boolean;
+  }
   interface GxgLabel {
     center: boolean;
     disabled: boolean;
@@ -2302,6 +2316,13 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+  interface HTMLGxgIdeLoaderElement
+    extends Components.GxgIdeLoader,
+      HTMLStencilElement {}
+  var HTMLGxgIdeLoaderElement: {
+    prototype: HTMLGxgIdeLoaderElement;
+    new (): HTMLGxgIdeLoaderElement;
+  };
   interface HTMLGxgLabelElement
     extends Components.GxgLabel,
       HTMLStencilElement {}
@@ -2645,6 +2666,7 @@ declare global {
     "gxg-form-textarea": HTMLGxgFormTextareaElement;
     "gxg-grid": HTMLGxgGridElement;
     "gxg-icon": HTMLGxgIconElement;
+    "gxg-ide-loader": HTMLGxgIdeLoaderElement;
     "gxg-label": HTMLGxgLabelElement;
     "gxg-list-box": HTMLGxgListBoxElement;
     "gxg-list-box-item": HTMLGxgListBoxItemElement;
@@ -3777,6 +3799,20 @@ declare namespace LocalJSX {
      */
     type?: any;
   }
+  interface GxgIdeLoader {
+    /**
+     * The container element for the loader.
+     */
+    container?: HTMLElement;
+    /**
+     * The loader description (optional)
+     */
+    description?: string;
+    /**
+     * It shows the loader
+     */
+    show?: boolean;
+  }
   interface GxgLabel {
     center?: boolean;
     disabled?: boolean;
@@ -4821,6 +4857,7 @@ declare namespace LocalJSX {
     "gxg-form-textarea": GxgFormTextarea;
     "gxg-grid": GxgGrid;
     "gxg-icon": GxgIcon;
+    "gxg-ide-loader": GxgIdeLoader;
     "gxg-label": GxgLabel;
     "gxg-list-box": GxgListBox;
     "gxg-list-box-item": GxgListBoxItem;
@@ -4936,6 +4973,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
       "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
       "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+      "gxg-ide-loader": LocalJSX.GxgIdeLoader &
+        JSXBase.HTMLAttributes<HTMLGxgIdeLoaderElement>;
       "gxg-label": LocalJSX.GxgLabel &
         JSXBase.HTMLAttributes<HTMLGxgLabelElement>;
       "gxg-list-box": LocalJSX.GxgListBox &
