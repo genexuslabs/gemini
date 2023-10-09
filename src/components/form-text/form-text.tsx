@@ -341,7 +341,6 @@ export class GxgFormText implements FormComponent {
 
   handleInput(e): void {
     e.stopPropagation();
-    console.log(e);
     const target = e.target as HTMLInputElement;
     this.value = target.value;
     this.input.emit(target.value);
