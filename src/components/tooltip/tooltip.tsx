@@ -3,7 +3,7 @@ import { Component, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-tooltip",
   styleUrl: "tooltip.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgTooltip {
   /**
@@ -15,6 +15,16 @@ export class GxgTooltip {
    * The label
    */
   @Prop() label: string;
+
+  /**
+   * The alignment
+   */
+  @Prop({ reflect: true }) alignEnd = false;
+
+  /**
+   * Displays the tool-tip as flex
+   */
+  @Prop({ reflect: true }) flex = false;
 
   /**
    * This presence of this property removes the border under the text

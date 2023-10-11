@@ -10,7 +10,11 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
-import { requiredLabel, formMessageLogic } from "../../common/form";
+import {
+  requiredLabel,
+  formMessageLogic,
+  formTooltipLogic,
+} from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { commonClassesNames } from "../../common/classesNames";
@@ -38,6 +42,11 @@ export class GxgFormText implements FormComponent {
   *********************************/
 
   private timeoutReference;
+
+  /**
+   * The presence of this attribute displays a tooltip message, instead of a block message below the control
+   */
+  @Prop() toolTip = false;
 
   /**
    * The presence of this attribute displays a clear (cross) button-icon on the right side
@@ -87,7 +96,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The label position
    */
-  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "start";
 
   /**
    * The presence of this attribute hides the border.
@@ -568,6 +577,7 @@ export class GxgFormText implements FormComponent {
   };
 
   render(): void {
+    console.log(this.validationMessage);
     return (
       <Host
         role="textbox"
@@ -582,6 +592,7 @@ export class GxgFormText implements FormComponent {
           large: state.large,
           borderless: this.borderless,
           file: this.type === "file",
+          tooltip: this.toolTip,
           "has-icon": this.icon,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
@@ -659,11 +670,21 @@ export class GxgFormText implements FormComponent {
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
-            {this.labelPosition === "start" ? formMessageLogic(this) : null}
+            {this.labelPosition === "start" && this.toolTip
+              ? formTooltipLogic(this)
+              : null}
+            {this.labelPosition === "start" && !this.toolTip
+              ? formMessageLogic(this)
+              : null}
             {this.renderInputFile()}
           </div>
         </div>
-        {this.labelPosition === "above" ? formMessageLogic(this) : null}
+        {this.labelPosition === "above" && this.toolTip
+          ? formTooltipLogic(this)
+          : null}
+        {this.labelPosition === "above" && !this.toolTip
+          ? formMessageLogic(this)
+          : null}
       </Host>
     );
   }

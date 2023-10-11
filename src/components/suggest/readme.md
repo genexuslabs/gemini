@@ -16,12 +16,16 @@
 ### Depends on
 
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
+- [gxg-icon](../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-suggest --> gxg-form-message
+  gxg-suggest --> gxg-tooltip
+  gxg-suggest --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
   style gxg-suggest fill:#f9f,stroke:#333,stroke-width:4px

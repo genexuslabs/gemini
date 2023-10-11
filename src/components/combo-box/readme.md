@@ -98,6 +98,8 @@ Type: `Promise<boolean>`
 - [gxg-form-text](../form-text)
 - [gxg-button](../button)
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
+- [gxg-icon](../icon)
 
 ### Graph
 
@@ -107,10 +109,13 @@ graph TD;
   gxg-combo-box --> gxg-form-text
   gxg-combo-box --> gxg-button
   gxg-combo-box --> gxg-form-message
+  gxg-combo-box --> gxg-tooltip
+  gxg-combo-box --> gxg-icon
   gxg-label --> gxg-tooltip
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
+  gxg-form-text --> gxg-tooltip
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
   gxg-button --> gxg-icon

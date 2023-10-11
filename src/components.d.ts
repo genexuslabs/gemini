@@ -103,12 +103,13 @@ import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs"
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
 import {
   TreeXDataTransferInfo,
+  TreeXDropCheckInfo,
   TreeXItemModel,
   TreeXLines,
   TreeXListItemExpandedInfo,
-  TreeXModel,
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-x/types";
 import { TreeXOperationStatusModifyCaption } from "./components/tree-view/types";
+import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -974,6 +975,10 @@ export namespace Components {
      * The text style
      */
     textStyle: Style;
+    /**
+     * The presence of this attribute displays a tooltip message, instead of a block message below the control
+     */
+    toolTip: boolean;
     /**
      * The type of input
      */
@@ -1847,6 +1852,14 @@ export namespace Components {
   }
   interface GxgTooltip {
     /**
+     * The alignment
+     */
+    alignEnd: boolean;
+    /**
+     * Displays the tool-tip as flex
+     */
+    flex: boolean;
+    /**
      * The label
      */
     label: string;
@@ -1978,8 +1991,20 @@ export namespace Components {
      * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
      */
     checkDroppableZoneCallback: (
-      dropInformation: TreeXDataTransferInfo
+      dropInformation: TreeXDropCheckInfo
     ) => Promise<boolean>;
+    /**
+     * A CSS class to set as the `ch-tree-x` element class.
+     */
+    cssClass: string;
+    /**
+     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the control can't be dragged.
+     */
+    dragDisabled: boolean;
+    /**
+     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the control won't accept any drops.
+     */
+    dropDisabled: boolean;
     /**
      * Callback that is executed when a list of items request to be dropped into another item.
      */
@@ -1992,6 +2017,15 @@ export namespace Components {
     lazyLoadTreeItemsCallback: (
       treeItemId: string
     ) => Promise<TreeXItemModel[]>;
+    /**
+     * Given an item id, an array of items to add, the download status and the lazy state, updates the item's UI Model.
+     */
+    loadLazyContent: (
+      itemId: string,
+      items?: TreeXItemModel[],
+      downloading?: boolean,
+      lazy?: boolean
+    ) => Promise<void>;
     /**
      * Callback that is executed when a item request to modify its caption.
      */
@@ -2028,7 +2062,7 @@ export namespace Components {
     /**
      * This property lets you define the model of the ch-tree-x control.
      */
-    treeModel: TreeXModel;
+    treeModel: TreeXItemModel[];
     /**
      * Given a subset of item's properties, it updates all item UI models.
      */
@@ -2042,6 +2076,19 @@ export namespace Components {
     updateItemsProperties: (
       items: string[],
       properties: TreeXItemModel
+    ) => Promise<void>;
+    /**
+     * Update the information about the valid droppable zones.
+     * @param requestTimestamp Time where the request to the server was made. Useful to avoid having old information.
+     * @param newContainerId ID of the container where the drag is trying to be made.
+     * @param draggedItems Information about the dragged items.
+     * @param validDrop Current state of the droppable zone.
+     */
+    updateValidDropZone: (
+      requestTimestamp: number,
+      newContainerId: string,
+      draggedItems: GxDataTransferInfo[],
+      validDrop: boolean
     ) => Promise<void>;
   }
   interface GxgWindow {
@@ -3683,6 +3730,10 @@ declare namespace LocalJSX {
      */
     textStyle?: Style;
     /**
+     * The presence of this attribute displays a tooltip message, instead of a block message below the control
+     */
+    toolTip?: boolean;
+    /**
      * The type of input
      */
     type?: InputType;
@@ -4611,6 +4662,14 @@ declare namespace LocalJSX {
   }
   interface GxgTooltip {
     /**
+     * The alignment
+     */
+    alignEnd?: boolean;
+    /**
+     * Displays the tool-tip as flex
+     */
+    flex?: boolean;
+    /**
      * The label
      */
     label?: string;
@@ -4746,8 +4805,20 @@ declare namespace LocalJSX {
      * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
      */
     checkDroppableZoneCallback?: (
-      dropInformation: TreeXDataTransferInfo
+      dropInformation: TreeXDropCheckInfo
     ) => Promise<boolean>;
+    /**
+     * A CSS class to set as the `ch-tree-x` element class.
+     */
+    cssClass?: string;
+    /**
+     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the control can't be dragged.
+     */
+    dragDisabled?: boolean;
+    /**
+     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the control won't accept any drops.
+     */
+    dropDisabled?: boolean;
     /**
      * Callback that is executed when a list of items request to be dropped into another item.
      */
@@ -4782,7 +4853,7 @@ declare namespace LocalJSX {
     /**
      * This property lets you define the model of the ch-tree-x control.
      */
-    treeModel?: TreeXModel;
+    treeModel?: TreeXItemModel[];
   }
   interface GxgWindow {
     /**

@@ -25,3 +25,23 @@
     }
   }
 }
+/*Tooltip*/
+.tooltip-outer-wrapper {
+  display: grid;
+  grid-template-columns: 0fr;
+  transition: grid-template-columns var(--timing-02);
+}
+:host(.tooltip--visible) {
+  .tooltip-outer-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+.tooltip-inner-wrapper {
+  //overflow: hidden;
+  gxg-icon {
+    display: flex;
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+}

@@ -11,6 +11,7 @@ const COLOR_MAPPINGS = {
   error: "color-error-dark",
   negative: "color-on-primary",
   onbackground: "color-on-background",
+  indeterminate: "color-primary-active",
   "primary-enabled": "color-primary-enabled",
   "primary-active": "color-primary-active",
   "primary-hover": "color-primary-hover",
@@ -93,6 +94,7 @@ export type Color =
   | "primary-active"
   | "primary-hover"
   | "onbackground"
+  | "indeterminate"
   | "negative"
   | "disabled"
   | "ondisabled"

@@ -28,6 +28,27 @@ FORM ELEMENT WRAPPER
   }
 }
 /*****************************************************
+TOOLTIP
+*****************************************************/
+:host(.tooltip) {
+  .inner-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-comp-01);
+  }
+  .tooltip-container {
+    width: 0;
+    overflow: hidden;
+    transition: width (--timing-01);
+  }
+}
+:host(.tooltip--visible) {
+  .tooltip-container {
+    width: 20px;
+  }
+}
+/*****************************************************
 LABEL
 *****************************************************/
 :host {

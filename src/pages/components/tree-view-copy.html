@@ -21,6 +21,7 @@
         display: flex;
         margin: 0;
         min-height: 100vh;
+        background-color: var(--color-background);
       }
 
       .main-container {
@@ -40,7 +41,7 @@
         height: 100%;
       }
 
-      /* .ch-tree-x-list-item--success::part(action)::before {
+      .ch-tree-x-list-item--success::part(action)::before {
         grid-area: first-img;
         content: "";
         width: 12px;
@@ -60,63 +61,6 @@
         grid-template-rows: min-content min-content min-content min-content;
         gap: 12px 24px;
       }
-
-      ch-test-tree-x {
-        display: grid;
-        grid-template-columns: 500px max-content;
-        grid-template-rows: 1fr;
-        height: 100%;
-      }
-
-      .tree-buttons {
-        display: grid;
-        grid-auto-rows: max-content;
-        row-gap: 8px;
-      }
-
-      :not(.ch-tree-x-dragging-item)
-        ch-tree-x-list-item:not([selected])::part(header):hover {
-        background-color: rgb(232, 232, 233);
-      }
-
-      .ch-tree-x-list-item--drag-enter {
-        background-color: #eee;
-        box-shadow: inset 0 0 1px 0px black;
-
-        &[selected]::part(header) {
-          background-color: #eee;
-        }
-      } */
-
-      /* ch-tree-x-list-item {
-        &::part(header) {
-          border: 1px solid transparent;
-        }
-
-        &[selected]::part(header) {
-          background-color: rgb(207, 222, 230);
-          border-color: rgb(2, 102, 160);
-        }
-
-        &.ch-tree-x-list-item--editing::part(header) {
-          background-color: rgb(207, 222, 230, 0.5);
-          border-color: transparent;
-        }
-
-        &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
-          border-color: black;
-          z-index: 1;
-        }
-      }
-
-      .ch-tree-x-drag-info {
-        padding-inline: 6px;
-        padding-block: 2px;
-        background-color: rgb(207, 222, 230);
-        border: 1px solid rgb(2, 102, 160);
-        border-radius: 10px;
-        font-size: 8px;
-      } */
     </style>
   </head>
   <body>
@@ -125,274 +69,36 @@
         class="section-dev"
         style="
           display: grid;
-          grid-template-columns: 250px 500px;
+          grid-template-columns: 200px;
           gap: 32px;
           margin: 50px;
         "
       >
-        <ch-tree-x
-          id="markup-tree"
-          toggle-checkboxes="false"
-          show-lines
-          multi-selection
-        >
-          <ch-tree-x-list>
-            <ch-tree-x-list-item
-              opened
-              left-img-src="/build/ch-icon-assets/generator.svg"
-              caption="Meats"
-              checkbox
-            >
-              <ch-tree-x-list slot="tree">
-                <ch-tree-x-list-item
-                  checkbox
-                  checked
-                  toggle-checkboxes
-                  left-img-src="/build/ch-icon-assets/patterns.svg"
-                  caption="White meats"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="../assets/icons/file.svg"
-                      caption="Chicken"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java.svg"
-                      caption="Turkey"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="../assets/icons/file.svg"
-                      caption="Duck"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  left-img-src="/build/ch-icon-assets/knowledge-base.svg"
-                  caption="Red meats"
-                >
-                  <ch-tree-x-list checkbox slot="tree">
-                    <ch-tree-x-list-item
-                      left-img-src="../assets/icons/file.svg"
-                      caption="Beef"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      left-img-src="../assets/icons/file.svg"
-                      caption="Lamb and mutton"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      left-img-src="/build/tree-item-assets/download.svg"
-                      caption="Pork"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-              </ch-tree-x-list>
-            </ch-tree-x-list-item>
-            <ch-tree-x-list-item
-              id="fish"
-              left-img-src="../assets/icons/file.svg"
-              checkbox
-              checked="false"
-              disabled
-              right-img-src="/build/tree-item-assets/download.svg"
-              caption="Fish"
-            >
-            </ch-tree-x-list-item>
-            <ch-tree-x-list-item
-              left-img-src="/build/tree-item-assets/download.svg"
-              caption="Fruits"
-              checked="false"
-            >
-              <ch-tree-x-list slot="tree">
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="/build/ch-icon-assets/java.svg"
-                  caption="Orange"
-                  leaf
-                >
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="../assets/icons/file.svg"
-                  opened
-                  caption="Banana"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      left-img-src="/build/ch-icon-assets/knowledge-base.svg"
-                      checkbox
-                      caption="Pisang"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java.svg"
-                      caption="Red Banana"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      left-img-src="/build/ch-icon-assets/knowledge-base.svg"
-                      caption="Cavendish"
-                      show-expandable-button="false"
-                    >
-                      <ch-tree-x-list slot="tree">
-                        <ch-tree-x-list-item
-                          caption="Big"
-                          leaf
-                          show-expandable-button="false"
-                        >
-                        </ch-tree-x-list-item>
-                        <ch-tree-x-list-item
-                          left-img-src="assets/icons/patterns.svg"
-                          caption="Small"
-                          leaf
-                        >
-                        </ch-tree-x-list-item>
-                        <ch-tree-x-list-item
-                          left-img-src="/build/ch-icon-assets/knowledge-base.svg"
-                          caption="Mini (empty items)"
-                        >
-                          <ch-tree-x-list> </ch-tree-x-list>
-                        </ch-tree-x-list-item>
-                      </ch-tree-x-list>
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="../assets/icons/file.svg"
-                  caption="Strawberry"
-                  expanded
-                  show-expandable-button="false"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java.svg"
-                      caption="Albion"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java.svg"
-                      opened
-                      caption="Tillamook"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/knowledge-base.svg"
-                      caption="Northeaster"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-              </ch-tree-x-list>
-            </ch-tree-x-list-item>
-            <ch-tree-x-list-item
-              opened
-              expanded
-              left-img-src="/build/ch-icon-assets/java.svg"
-              empty-tree
-              caption="Nuts"
-              show-expandable-button="false"
-            >
-              <ch-tree-x-list slot="tree">
-                <ch-tree-x-list-item
-                  opened
-                  checkbox
-                  left-img-src="assets/icons/patterns.svg"
-                  caption="Almonds"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="assets/icons/patterns.svg"
-                      opened
-                      caption="Mollar de Tarragona"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java.svg"
-                      caption="Ferragnès"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="assets/icons/patterns.svg"
-                      caption="Verdal"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  left-img-src="assets/icons/patterns.svg"
-                  opened
-                  caption="Brazil nuts"
-                  leaf
-                >
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="assets/icons/patterns.svg"
-                  caption="Cashews (lazy)"
-                  lazy-load
-                >
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="assets/icons/patterns.svg"
-                  caption="Chestnuts (lazy)"
-                  lazy-load
-                  drag-enabled="false"
-                >
-                </ch-tree-x-list-item>
-              </ch-tree-x-list>
-            </ch-tree-x-list-item>
-          </ch-tree-x-list>
-        </ch-tree-x>
-
-        <gxg-tree-view></gxg-tree-view>
+        <div class="scroll">
+          <gxg-tree-view></gxg-tree-view>
+        </div>
       </section>
 
       <div class="configuration">
-        <button id="expand-all" type="button">Expand All</button>
+        <div>
+          <input id="input-scroll-into-visible" type="text" />
+          <button id="btn-scroll-into-visible" type="button">
+            Scroll into visible
+          </button>
+        </div>
 
         <ch-checkbox
           id="multi-selection"
-          checked-value="true"
-          un-checked-value="false"
+          checkedValue="true"
+          unCheckedValue="false"
           value="false"
           caption="Multi selection"
         ></ch-checkbox>
 
         <ch-checkbox
           id="check-all"
-          checked-value="true"
-          un-checked-value="false"
+          checkedValue="true"
+          unCheckedValue="false"
           value="false"
           caption="Check / uncheck all"
         ></ch-checkbox>
@@ -406,30 +112,9 @@
           </select>
         </label>
 
+        <button id="expand-all" type="button">Expand All</button>
+
         <button id="collapse-all" type="button">Collapse All</button>
-
-        <ch-checkbox
-          id="drag-enabled"
-          checked-value="true"
-          un-checked-value="false"
-          value="true"
-          caption="Drag Enabled"
-        ></ch-checkbox>
-
-        <ch-checkbox
-          id="drop-enabled"
-          checked-value="true"
-          un-checked-value="false"
-          value="true"
-          caption="Drop Enabled"
-        ></ch-checkbox>
-
-        <div>
-          <input id="input-scroll-into-visible" type="text" />
-          <button id="btn-scroll-into-visible" type="button">
-            Scroll into visible
-          </button>
-        </div>
       </div>
 
       <button type="outlined" id="get-selected-markup">
@@ -593,12 +278,11 @@
                   items: [
                     {
                       id: "number-1-1-2-1",
-                      caption: "number-1-1-2-1 (lazy, drag disabled)",
+                      caption: "number-1-1-2-1 (lazy)",
                       leaf: false,
                       leftImgSrc: "../assets/icons/knowledge-base.svg",
                       lazy: true,
                       checkbox: true,
-                      disabledDrag: true,
                       toggleCheckboxes: true,
                     },
                     {
@@ -832,14 +516,14 @@
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg",
+              leftImgSrc: "../assets/icons/patterns.svg",
             },
             {
               id: "number-2-3",
               caption: "number-2-3",
               disabled: true,
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg",
+              leftImgSrc: "../assets/icons/patterns.svg",
             },
           ],
         },
@@ -862,13 +546,13 @@
               caption: "number-3-2",
               disabled: true,
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg",
+              leftImgSrc: "../assets/icons/patterns.svg",
             },
             {
               id: "number-3-3",
               caption: "number-3-3",
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg",
+              leftImgSrc: "../assets/icons/patterns.svg",
             },
           ],
         },
@@ -876,21 +560,18 @@
       const modelLazyUpdated1 = [
         {
           id: "lazy-loaded-1",
-          caption: "Lazy Loaded 1 (drag disabled)",
+          caption: "Lazy Loaded 1",
           leaf: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "../assets/icons/patterns.svg",
           checkbox: true,
-          disabledDrag: true,
         },
         {
           id: "lazy-loaded-2",
-          caption: "Lazy Loaded 2 (lazy, drag disabled, drop disabled)",
+          caption: "Lazy Loaded 2 (lazy)",
           leaf: false,
           lazy: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "../assets/icons/patterns.svg",
           checkbox: true,
-          disabledDrag: true,
-          disabledDrop: true,
           toggleCheckboxes: true,
         },
       ];
@@ -898,19 +579,17 @@
       const modelLazyUpdated2 = [
         {
           id: "lazy-loaded-3",
-          caption: "Lazy Loaded 3 (drag disabled)",
+          caption: "Lazy Loaded 3",
           leaf: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "../assets/icons/patterns.svg",
           checkbox: true,
-          disabledDrag: true,
         },
         {
           id: "lazy-loaded-4",
-          caption: "Lazy Loaded 4 (drag disabled)",
+          caption: "Lazy Loaded 4",
           leaf: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "../assets/icons/patterns.svg",
           checkbox: true,
-          disabledDrag: true,
         },
       ];
 
@@ -926,7 +605,8 @@
           caption: "item-" + i,
           lazy: true,
           leaf: false,
-          leftImgSrc: "assets/icons/patterns.svg",
+          checkbox: true,
+          leftImgSrc: "../assets/icons/patterns.svg",
           items: [],
         });
       }
@@ -967,7 +647,7 @@
           caption: modelId,
           expanded: true,
           leaf: false,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "../assets/icons/patterns.svg",
           items: subEagerLargeModel,
         });
       }
@@ -995,7 +675,9 @@
 
         const testTreeX = document.querySelector("gxg-tree-view");
 
-        testTreeX.treeModel = model;
+        testTreeX.treeModel = {
+          items: bigModel,
+        };
 
         const multiSelectionCheckbox = document.getElementById(
           "multi-selection"
@@ -1021,20 +703,6 @@
           testTreeX.updateAllItemsProperties({ expanded: false });
         });
 
-        const dragEnabledCheckbox = document.getElementById("drag-enabled");
-        dragEnabledCheckbox.addEventListener("input", (event) => {
-          const checked = event.target.checked;
-
-          testTreeX.dragDisabled = !checked;
-        });
-
-        const dropEnabledCheckbox = document.getElementById("drop-enabled");
-        dropEnabledCheckbox.addEventListener("input", (event) => {
-          const checked = event.target.checked;
-
-          testTreeX.dropDisabled = !checked;
-        });
-
         const linesSelect = document.getElementById("lines");
         linesSelect.addEventListener("input", (event) => {
           const selectedOption = event.target.value;
@@ -1043,26 +711,34 @@
 
         const loadModelBtn = document.getElementById("load-model-btn");
         loadModelBtn.addEventListener("click", () => {
-          testTreeX.treeModel = model;
+          testTreeX.treeModel = {
+            items: model,
+          };
         });
 
         const updateModelBtn = document.getElementById("update-model-btn");
         updateModelBtn.addEventListener("click", () => {
-          testTreeX.treeModel = updatedModel;
+          testTreeX.treeModel = {
+            items: updatedModel,
+          };
         });
 
         const updateModelAgainBtn = document.getElementById(
           "update-model-again-btn"
         );
         updateModelAgainBtn.addEventListener("click", () => {
-          testTreeX.treeModel = modelTinyUpdatedAgain;
+          testTreeX.treeModel = {
+            items: modelTinyUpdatedAgain,
+          };
         });
 
         const updateBigModelBtn = document.getElementById(
           "update-big-model-btn"
         );
         updateBigModelBtn.addEventListener("click", () => {
-          testTreeX.treeModel = bigModel;
+          testTreeX.treeModel = {
+            items: bigModel,
+          };
         });
 
         const scrollIntoVisibleBtn = document.getElementById(
@@ -1167,7 +843,9 @@
         testTreeX.sortItemsCallback = sortItems;
 
         // Eager large model
-        // testTreeX.treeModel = eagerLargeModel;
+        // testTreeX.treeModel = {
+        //   items: eagerLargeModel
+        // };
       });
     </script>
   </body>

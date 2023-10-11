@@ -33,12 +33,16 @@ Type: `Promise<CheckboxesGroupValues>`
 ### Depends on
 
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
+- [gxg-icon](../icon)
 
 ### Graph
 
 ```mermaid
 graph TD;
   gxg-form-checkbox-group --> gxg-form-message
+  gxg-form-checkbox-group --> gxg-tooltip
+  gxg-form-checkbox-group --> gxg-icon
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
   style gxg-form-checkbox-group fill:#f9f,stroke:#333,stroke-width:4px
