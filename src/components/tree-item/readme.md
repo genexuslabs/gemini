@@ -75,6 +75,7 @@ graph TD;
   gxg-form-checkbox --> gxg-icon
   gxg-form-checkbox --> gxg-label
   gxg-form-checkbox --> gxg-form-message
+  gxg-form-checkbox --> gxg-tooltip
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px

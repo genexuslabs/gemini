@@ -82,7 +82,7 @@
 | `iconPosition`                 | `icon-position`                    | The input icon side                                                                                                                                                          | `"end" \| "start"`                                                                           | `null`            |
 | `informationMessage`           | `information-message`              | An informative message to help the user filling the information                                                                                                              | `string`                                                                                     | `undefined`       |
 | `label`                        | `label`                            | The input label                                                                                                                                                              | `string`                                                                                     | `undefined`       |
-| `labelPosition`                | `label-position`                   | The label position                                                                                                                                                           | `"above" \| "start"`                                                                         | `"above"`         |
+| `labelPosition`                | `label-position`                   | The label position                                                                                                                                                           | `"above" \| "start"`                                                                         | `"start"`         |
 | `labelWidth`                   | `label-width`                      | The label width                                                                                                                                                              | `any`                                                                                        | `undefined`       |
 | `maxLength`                    | `max-length`                       | The input max. length                                                                                                                                                        | `string`                                                                                     | `undefined`       |
 | `maxWidth`                     | `max-width`                        | The input max. width                                                                                                                                                         | `string`                                                                                     | `"100%"`          |
@@ -133,6 +133,7 @@ Type: `Promise<void>`
 - [gxg-icon](../icon)
 - [gxg-label](../label)
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
 
 ### Graph
 
@@ -141,6 +142,7 @@ graph TD;
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
+  gxg-form-text --> gxg-tooltip
   gxg-icon --> ch-icon
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon

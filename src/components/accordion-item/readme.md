@@ -90,6 +90,7 @@ graph TD;
   gxg-form-text --> gxg-icon
   gxg-form-text --> gxg-label
   gxg-form-text --> gxg-form-message
+  gxg-form-text --> gxg-tooltip
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   style gxg-accordion-item fill:#f9f,stroke:#333,stroke-width:4px

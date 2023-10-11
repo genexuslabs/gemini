@@ -1,5 +1,6 @@
 import { h } from "@stencil/core";
 import { FormComponent } from "../common/interfaces";
+import { Color } from "../components/icon/icon";
 
 // interface FormComponent {
 //   error: boolean;
@@ -62,6 +63,20 @@ function formMessageLogic(comp: FormComponent): JSX.Element {
           ) : null,
         ])
       : null;
+  }
+}
+
+export function formTooltipLogic(comp: FormComponent): JSX.Element {
+  {
+    const color: Color = comp.validationStatus;
+    return (
+      <gxg-tooltip label={comp.validationMessage}>
+        <gxg-icon
+          color={color}
+          type={`gemini-tools/${comp.validationStatus}`}
+        ></gxg-icon>
+      </gxg-tooltip>
+    );
   }
 }
 

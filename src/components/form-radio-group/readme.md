@@ -27,6 +27,8 @@
 
 - [gxg-label](../label)
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
+- [gxg-icon](../icon)
 
 ### Graph
 
@@ -34,6 +36,8 @@
 graph TD;
   gxg-form-radio-group --> gxg-label
   gxg-form-radio-group --> gxg-form-message
+  gxg-form-radio-group --> gxg-tooltip
+  gxg-form-radio-group --> gxg-icon
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon

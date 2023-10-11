@@ -55,6 +55,7 @@
 - [gxg-icon](../icon)
 - [gxg-label](../label)
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
 
 ### Graph
 
@@ -63,6 +64,7 @@ graph TD;
   gxg-form-checkbox --> gxg-icon
   gxg-form-checkbox --> gxg-label
   gxg-form-checkbox --> gxg-form-message
+  gxg-form-checkbox --> gxg-tooltip
   gxg-icon --> ch-icon
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon

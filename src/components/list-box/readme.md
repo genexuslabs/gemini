@@ -47,6 +47,8 @@ Type: `Promise<ItemsInformation[]>`
 
 - [gxg-button](../button)
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
+- [gxg-icon](../icon)
 
 ### Graph
 
@@ -54,6 +56,8 @@ Type: `Promise<ItemsInformation[]>`
 graph TD;
   gxg-list-box --> gxg-button
   gxg-list-box --> gxg-form-message
+  gxg-list-box --> gxg-tooltip
+  gxg-list-box --> gxg-icon
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon

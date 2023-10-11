@@ -10,7 +10,11 @@ import {
   Watch,
   Method,
 } from "@stencil/core";
-import { requiredLabel, formMessageLogic } from "../../common/form";
+import {
+  requiredLabel,
+  formMessageLogic,
+  formTooltipLogic,
+} from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { commonClassesNames } from "../../common/classesNames";
@@ -87,7 +91,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The label position
    */
-  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "start";
 
   /**
    * The presence of this attribute hides the border.
@@ -659,11 +663,11 @@ export class GxgFormText implements FormComponent {
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
-            {this.labelPosition === "start" ? formMessageLogic(this) : null}
+            {this.labelPosition === "start" ? formTooltipLogic(this) : null}
             {this.renderInputFile()}
           </div>
         </div>
-        {this.labelPosition === "above" ? formMessageLogic(this) : null}
+        {this.labelPosition === "above" ? formTooltipLogic(this) : null}
       </Host>
     );
   }

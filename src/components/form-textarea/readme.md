@@ -68,6 +68,8 @@ btnShowErrors.addEventListener("click", function(){
 
 - [gxg-label](../label)
 - [gxg-form-message](../form-message)
+- [gxg-tooltip](../tooltip)
+- [gxg-icon](../icon)
 
 ### Graph
 
@@ -75,6 +77,8 @@ btnShowErrors.addEventListener("click", function(){
 graph TD;
   gxg-form-textarea --> gxg-label
   gxg-form-textarea --> gxg-form-message
+  gxg-form-textarea --> gxg-tooltip
+  gxg-form-textarea --> gxg-icon
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
   gxg-icon --> ch-icon
