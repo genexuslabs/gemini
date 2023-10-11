@@ -2,11 +2,11 @@
 @import "../../globals/mixins";
 
 :host {
+  display: inline-flex;
   .tooltip {
     cursor: pointer;
     position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted var(--color-on-secondary);
     text-decoration: none;
 
     .tooltiptext {
@@ -54,7 +54,7 @@
 :host([position="top"]) {
   .tooltip {
     .tooltiptext {
-      bottom: 20px;
+      bottom: 27px;
       left: 50%;
       transform: translateX(-50%);
 
@@ -122,4 +122,23 @@
   .tooltip {
     border-bottom: none;
   }
+}
+//align end
+:host([align-end]) {
+  .tooltiptext {
+    transform: none !important;
+    inset-inline-end: 0;
+    left: auto !important;
+    max-width: 180px;
+    width: max-content;
+
+    &:after {
+      inset-inline-end: -1px;
+      left: auto !important;
+    }
+  }
+}
+//display flex
+:host([flex]) {
+  display: flex;
 }

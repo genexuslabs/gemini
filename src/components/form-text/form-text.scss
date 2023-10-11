@@ -17,15 +17,35 @@ FORM ELEMENT WRAPPER
     @include form-element-common-styles-wrapper();
   }
   .inner-wrapper {
+    display: flex;
+    flex-direction: column;
     position: relative;
     flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 
     gxg-icon {
       position: absolute;
     }
+  }
+}
+/*****************************************************
+TOOLTIP
+*****************************************************/
+:host(.tooltip) {
+  .inner-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-comp-01);
+  }
+  .tooltip-container {
+    width: 0;
+    overflow: hidden;
+    transition: width (--timing-01);
+  }
+}
+:host(.tooltip--visible) {
+  .tooltip-container {
+    width: 20px;
   }
 }
 /*****************************************************

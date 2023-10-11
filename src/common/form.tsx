@@ -70,12 +70,19 @@ export function formTooltipLogic(comp: FormComponent): JSX.Element {
   {
     const color: Color = comp.validationStatus;
     return (
-      <gxg-tooltip label={comp.validationMessage}>
-        <gxg-icon
-          color={color}
-          type={`gemini-tools/${comp.validationStatus}`}
-        ></gxg-icon>
-      </gxg-tooltip>
+      // <div class="tooltip-outer-wrapper">
+      comp.validationStatus !== "indeterminate" &&
+        comp.validationMessage.length > 0 ? (
+        <div class="tooltip-inner-wrapper">
+          <gxg-tooltip label={comp.validationMessage} noBorder alignEnd flex>
+            <gxg-icon
+              color={color}
+              type={`gemini-tools/${comp.validationStatus}`}
+            ></gxg-icon>
+          </gxg-tooltip>
+        </div>
+      ) : null
+      // </div>
     );
   }
 }

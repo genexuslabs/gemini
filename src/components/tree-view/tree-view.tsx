@@ -11,12 +11,12 @@ import {
 } from "@stencil/core";
 import {
   TreeXDataTransferInfo,
+  TreeXDropCheckInfo,
   TreeXItemModel,
   TreeXLines,
   TreeXListItemExpandedInfo,
   TreeXListItemNewCaption,
   TreeXListItemSelectedInfo,
-  TreeXModel,
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-x/types";
 import {
   TreeXItemModelExtended,
@@ -28,6 +28,9 @@ import {
 } from "@genexus/chameleon-controls-library";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 
+const DEFAULT_DRAG_DISABLED_VALUE = false;
+const DEFAULT_DROP_DISABLED_VALUE = false;
+const DEFAULT_CLASS_VALUE = "tree-view-item";
 const DEFAULT_EXPANDED_VALUE = false;
 const DEFAULT_INDETERMINATE_VALUE = false;
 const DEFAULT_LAZY_VALUE = false;
@@ -38,7 +41,7 @@ const DEFAULT_SELECTED_VALUE = false;
   styleUrl: "tree-view.scss",
   shadow: false, // Necessary to avoid focus capture
 })
-export class ChTestTreeX {
+export class GxgTreeView {
   // UI Models
   private flattenedTreeModel: Map<string, TreeXItemModelExtended> = new Map();
   private selectedItems: Set<string> = new Set();
@@ -58,8 +61,25 @@ export class ChTestTreeX {
    * the tree. Returns whether the drop is valid.
    */
   @Prop() readonly checkDroppableZoneCallback: (
-    dropInformation: TreeXDataTransferInfo
+    dropInformation: TreeXDropCheckInfo
   ) => Promise<boolean>;
+
+  /**
+   * A CSS class to set as the `ch-tree-x` element class.
+   */
+  @Prop() readonly cssClass: string;
+
+  /**
+   * This attribute lets you specify if the drag operation is disabled in all
+   * items by default. If `true`, the control can't be dragged.
+   */
+  @Prop() readonly dragDisabled: boolean = DEFAULT_DRAG_DISABLED_VALUE;
+
+  /**
+   * This attribute lets you specify if the drop operation is disabled in all
+   * items by default. If `true`, the control won't accept any drops.
+   */
+  @Prop() readonly dropDisabled: boolean = DEFAULT_DROP_DISABLED_VALUE;
 
   /**
    * Callback that is executed when a list of items request to be dropped into
@@ -72,7 +92,7 @@ export class ChTestTreeX {
   /**
    * This property lets you define the model of the ch-tree-x control.
    */
-  @Prop({ mutable: true }) treeModel: TreeXModel = { items: [] };
+  @Prop() readonly treeModel: TreeXItemModel[] = [];
   @Watch("treeModel")
   handleTreeModelChange() {
     this.flattenModel();
@@ -96,18 +116,51 @@ export class ChTestTreeX {
   /**
    * Set this attribute if you want to allow multi selection of the items.
    */
-  @Prop({ mutable: true }) multiSelection = false;
+  @Prop() readonly multiSelection: boolean = false;
 
   /**
    * `true` to display the relation between tree items and tree lists using
    * lines.
    */
-  @Prop({ mutable: true }) showLines: TreeXLines = "none";
+  @Prop() readonly showLines: TreeXLines = "none";
 
   /**
    * Callback that is executed when the treeModel is changed to order its items.
    */
   @Prop() readonly sortItemsCallback: (subModel: TreeXItemModel[]) => void;
+
+  /**
+   * Given an item id, an array of items to add, the download status and the
+   * lazy state, updates the item's UI Model.
+   */
+  @Method()
+  async loadLazyContent(
+    itemId: string,
+    items?: TreeXItemModel[],
+    downloading = false,
+    lazy = false
+  ) {
+    const itemToLazyLoadContent = this.flattenedLazyTreeModel.get(itemId);
+
+    // Establish that the content was lazy loaded
+    this.flattenedLazyTreeModel.delete(itemId);
+    itemToLazyLoadContent.downloading = downloading;
+    itemToLazyLoadContent.lazy = lazy;
+
+    // Check if there is items to add
+    if (items == null) {
+      return;
+    }
+
+    // @todo What happens in the server when dropping items on a lazy node?
+    itemToLazyLoadContent.items = items;
+
+    this.sortItems(itemToLazyLoadContent.items);
+    this.flattenSubModel(itemToLazyLoadContent);
+
+    // Force re-render
+    forceUpdate(this);
+  }
 
   /**
    * Given an item id, it displays and scrolls into the item view.
@@ -212,6 +265,28 @@ export class ChTestTreeX {
     forceUpdate(this);
   }
 
+  /**
+   * Update the information about the valid droppable zones.
+   * @param requestTimestamp Time where the request to the server was made. Useful to avoid having old information.
+   * @param newContainerId ID of the container where the drag is trying to be made.
+   * @param draggedItems Information about the dragged items.
+   * @param validDrop Current state of the droppable zone.
+   */
+  @Method()
+  async updateValidDropZone(
+    requestTimestamp: number,
+    newContainerId: string,
+    draggedItems: GxDataTransferInfo[],
+    validDrop: boolean
+  ) {
+    this.treeRef.updateValidDropZone(
+      requestTimestamp,
+      newContainerId,
+      draggedItems,
+      validDrop
+    );
+  }
+
   private updateItemProperty(
     itemUIModel: TreeXItemModelExtended | undefined,
     properties: TreeXItemModel
@@ -229,50 +304,28 @@ export class ChTestTreeX {
 
   @Listen("loadLazyContent")
   loadLazyChildrenHandler(event: ChTreeXListItemCustomEvent<string>) {
-    event.stopPropagation();
-    const treeItemId = event.detail;
-
-    if (this.lazyLoadTreeItemsCallback) {
-      const promise = this.lazyLoadTreeItemsCallback(treeItemId);
-      const itemRef = event.target;
-      itemRef.downloading = true;
-
-      promise.then((result) => {
-        const itemToLazyLoadContent = this.flattenedLazyTreeModel.get(
-          treeItemId
-        );
-
-        // Establish that the content was lazy loaded
-        this.flattenedLazyTreeModel.delete(treeItemId);
-        itemToLazyLoadContent.lazy = false;
-        itemRef.downloading = false;
-
-        // Check if there is items to add
-        if (result == null) {
-          return;
-        }
-
-        // @todo What happens in the server when dropping items on a lazy node?
-        itemToLazyLoadContent.items = result;
-
-        this.sortItems(itemToLazyLoadContent.items);
-        this.flattenSubModel(itemToLazyLoadContent);
-
-        // Force re-render
-        forceUpdate(this);
-      });
+    if (!this.lazyLoadTreeItemsCallback) {
+      return;
     }
+    event.stopPropagation();
+
+    const treeItemId = event.detail;
+    const promise = this.lazyLoadTreeItemsCallback(treeItemId);
+    event.target.downloading = true;
+
+    promise.then((result) => {
+      this.loadLazyContent(treeItemId, result);
+    });
   }
 
   @Listen("modifyCaption")
   handleCaptionModification(
     event: ChTreeXListItemCustomEvent<TreeXListItemNewCaption>
   ) {
-    event.stopPropagation();
-
     if (!this.modifyItemCaptionCallback) {
       return;
     }
+    event.stopPropagation();
 
     const itemRef = event.target;
     const itemId = event.detail.id;
@@ -307,19 +360,21 @@ export class ChTestTreeX {
   }
 
   private handleDroppableZoneEnter = (
-    event: ChTreeXCustomEvent<TreeXDataTransferInfo>
+    event: ChTreeXCustomEvent<TreeXDropCheckInfo>
   ) => {
-    const dropInformation = event.detail;
-
     if (!this.checkDroppableZoneCallback) {
       return;
     }
+    event.stopPropagation();
 
+    // Suppose the request is made immediately by executing the callback
     const requestTimestamp = new Date().getTime();
+
+    const dropInformation = event.detail;
     const promise = this.checkDroppableZoneCallback(dropInformation);
 
     promise.then((validDrop) => {
-      this.treeRef.updateValidDroppableZone(
+      this.updateValidDropZone(
         requestTimestamp,
         dropInformation.newContainer.id,
         dropInformation.draggedItems,
@@ -371,6 +426,11 @@ export class ChTestTreeX {
   private handleItemsDropped = (
     event: ChTreeXCustomEvent<TreeXDataTransferInfo>
   ) => {
+    if (!this.dropItemsCallback) {
+      return;
+    }
+    event.stopPropagation();
+
     const dataTransferInfo = event.detail;
     const newContainer = dataTransferInfo.newContainer;
     const newParentId = newContainer.id;
@@ -382,14 +442,14 @@ export class ChTestTreeX {
 
     const draggedItems: GxDataTransferInfo[] = dataTransferInfo.draggedItems;
 
-    if (draggedItems.length === 0 || !this.dropItemsCallback) {
+    if (draggedItems.length === 0) {
       return;
     }
 
     const promise = this.dropItemsCallback(dataTransferInfo);
     this.waitDropProcessing = true;
 
-    promise.then((response) => {
+    promise.then(async (response) => {
       this.waitDropProcessing = false;
 
       if (!response.acceptDrop) {
@@ -403,6 +463,12 @@ export class ChTestTreeX {
         // Add the UI models to the new container and remove the UI models from
         // the old containers
         draggedItems.forEach(this.moveItemToNewParent(newParentUIModel));
+
+        // When the selected items are moved, the tree must remove its internal
+        // state to not have undefined references
+        if (dataTransferInfo.draggingSelectedItems) {
+          await this.treeRef.clearSelectedItemsInfo();
+        }
       }
       // Add the new items
       else {
@@ -446,7 +512,11 @@ export class ChTestTreeX {
     itemUIModelExtended.parentItem = newParentUIModel;
   };
 
-  private renderSubModel = (treeSubModel: TreeXItemModel) => (
+  private renderSubModel = (
+    treeSubModel: TreeXItemModel,
+    lastItem: boolean,
+    level: number
+  ) => (
     <ch-tree-x-list-item
       id={treeSubModel.id}
       caption={treeSubModel.caption}
@@ -454,33 +524,45 @@ export class ChTestTreeX {
       checked={treeSubModel.checked}
       class={treeSubModel.class}
       disabled={treeSubModel.disabled}
+      downloading={treeSubModel.downloading}
+      dragDisabled={treeSubModel.dragDisabled ?? this.dragDisabled}
+      dropDisabled={treeSubModel.dropDisabled ?? this.dropDisabled}
       expanded={treeSubModel.expanded}
       indeterminate={treeSubModel.indeterminate}
+      lastItem={lastItem}
       lazyLoad={treeSubModel.lazy}
       leaf={treeSubModel.leaf}
       leftImgSrc={treeSubModel.leftImgSrc}
+      level={level}
       metadata={treeSubModel.metadata}
       rightImgSrc={treeSubModel.rightImgSrc}
       selected={treeSubModel.selected}
       showExpandableButton={treeSubModel.showExpandableButton}
+      showLines={this.showLines}
       toggleCheckboxes={treeSubModel.toggleCheckboxes}
     >
       {!treeSubModel.leaf &&
         treeSubModel.items != null &&
         treeSubModel.items.length !== 0 && (
           <ch-tree-x-list slot="tree">
-            {treeSubModel.items.map(this.renderSubModel)}
+            {treeSubModel.items.map((subModel, index) =>
+              this.renderSubModel(
+                subModel,
+                this.showLines && index === treeSubModel.items.length - 1,
+                level + 1
+              )
+            )}
           </ch-tree-x-list>
         )}
     </ch-tree-x-list-item>
   );
 
-  private flattenSubModel(model: TreeXModel | TreeXItemModel) {
+  private flattenSubModel(model: TreeXItemModel) {
     const items = model.items;
 
     if (!items) {
       // Make sure that subtrees don't have an undefined array
-      if ((model as TreeXItemModel).leaf === false) {
+      if (model.leaf === false) {
         model.items = [];
       }
       return;
@@ -491,7 +573,7 @@ export class ChTestTreeX {
     items.forEach(this.flattenItemUIModel(model));
   }
 
-  private flattenItemUIModel = (parentModel: TreeXModel | TreeXItemModel) => (
+  private flattenItemUIModel = (parentModel: TreeXItemModel) => (
     item: TreeXItemModel
   ) => {
     this.flattenedTreeModel.set(item.id, {
@@ -533,7 +615,7 @@ export class ChTestTreeX {
     this.flattenedTreeModel.clear();
     this.flattenedLazyTreeModel.clear();
 
-    this.flattenSubModel(this.treeModel);
+    this.flattenSubModel({ id: null, caption: null, items: this.treeModel });
   }
 
   componentWillLoad() {
@@ -544,8 +626,8 @@ export class ChTestTreeX {
     return (
       <Host>
         <ch-tree-x
+          class={this.cssClass || null}
           multiSelection={this.multiSelection}
-          // showLines={this.showLines}
           waitDropProcessing={this.waitDropProcessing}
           onDroppableZoneEnter={this.handleDroppableZoneEnter}
           onExpandedItemChange={this.handleExpandedItemChange}
@@ -553,16 +635,14 @@ export class ChTestTreeX {
           onSelectedItemsChange={this.handleSelectedItemsChange}
           ref={(el) => (this.treeRef = el)}
         >
-          <ch-tree-x-list>
-            {this.treeModel.items.map(this.renderSubModel)}
-          </ch-tree-x-list>
+          {this.treeModel.map((subModel, index) =>
+            this.renderSubModel(
+              subModel,
+              this.showLines && index === this.treeModel.length - 1,
+              0
+            )
+          )}
         </ch-tree-x>
-
-        <div class="tree-buttons">
-          {/* <button type="button" onClick={this.deleteNodeHandler}>
-          Delete Tree
-        </button> */}
-        </div>
       </Host>
     );
   }
