@@ -141,4 +141,7 @@
 //display flex
 :host([flex]) {
   display: flex;
+  .tooltip {
+    display: flex;
+  }
 }

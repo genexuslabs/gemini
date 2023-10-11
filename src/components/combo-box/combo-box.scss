@@ -14,6 +14,12 @@
   }
 
   .main-container {
+    .outer-wrapper {
+      display: flex;
+      gap: var(--spacing-comp-01);
+      align-items: center;
+    }
+
     .label {
       font-size: var(--font-size-sm);
       margin-bottom: var(--spacing-lay-xs);

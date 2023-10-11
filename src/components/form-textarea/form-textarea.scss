@@ -38,6 +38,10 @@ LABEL
 TEXTAREA
 *****************************************************/
 :host {
+  .textarea-wrapper {
+    display: flex;
+    gap: var(--spacing-comp-01);
+  }
   textarea {
     resize: none;
     @include form-element-common-styles();

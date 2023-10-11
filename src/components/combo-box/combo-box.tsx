@@ -16,7 +16,11 @@ import {
   ItemInformation,
 } from "../combo-box-item/combo-box-item";
 import { IconPosition } from "../form-text/form-text";
-import { formMessageLogic } from "../../common/form";
+import {
+  requiredLabel,
+  formMessageLogic,
+  formTooltipLogic,
+} from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
@@ -42,6 +46,11 @@ export class GxgComboBox implements FormComponent {
   private iconPositionBeforeDisabled;
   private _mo;
   private componentDidLoadFlag = false;
+
+  /**
+   * The presence of this attribute displays a tooltip message, instead of a block message below the control
+   */
+  @Prop() toolTip = false;
 
   /**
    * This event is triggered when the combo box value changes.
@@ -741,6 +750,7 @@ export class GxgComboBox implements FormComponent {
       <Host
         class={{
           "gxg-combo-box--disabled": this.disableFilter,
+          tooltip: this.toolTip,
           large: state.large,
         }}
         style={{ maxWidth: this.maxWidth, minWidth: this.minWidth }}
@@ -761,78 +771,81 @@ export class GxgComboBox implements FormComponent {
               {this.label}
             </gxg-label>
           ) : null}
-          <div
-            class="search-and-items-container"
-            ref={(el) => (this.searchItemsContainer = el as HTMLDivElement)}
-          >
-            <div class={{ "search-container": true }}>
-              <gxg-form-text
-                placeholder={this.placeholder}
-                onInput={this.inputHandler.bind(this)}
-                onKeyDown={this.keyDownHandler}
-                onClick={this.inputTextClickHandler}
-                value={this.text}
-                icon={this.fixedIcon || this.inputTextIcon}
-                iconPosition="start"
-                readonly={this.disableFilter}
-                ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
-                validationStatus={this.validationStatus}
-                disabled={this.disabled}
-                onValueChanged={this.handleValueChangeFormText}
-                cursorEnd={this.cursorEnd}
-                preventValueChangedEmit
-                preventValueChangeOnDisabled
-                class={{ "clear-icon": clearIcon }}
-                part={this.parts.input}
-              ></gxg-form-text>
-              <div class="buttons-wrapper">
-                {clearIcon ? (
+          <div class="outer-wrapper">
+            <div
+              class="search-and-items-container"
+              ref={(el) => (this.searchItemsContainer = el as HTMLDivElement)}
+            >
+              <div class={{ "search-container": true }}>
+                <gxg-form-text
+                  placeholder={this.placeholder}
+                  onInput={this.inputHandler.bind(this)}
+                  onKeyDown={this.keyDownHandler}
+                  onClick={this.inputTextClickHandler}
+                  value={this.text}
+                  icon={this.fixedIcon || this.inputTextIcon}
+                  iconPosition="start"
+                  readonly={this.disableFilter}
+                  ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
+                  validationStatus={this.validationStatus}
+                  disabled={this.disabled}
+                  onValueChanged={this.handleValueChangeFormText}
+                  cursorEnd={this.cursorEnd}
+                  preventValueChangedEmit
+                  preventValueChangeOnDisabled
+                  class={{ "clear-icon": clearIcon }}
+                  part={this.parts.input}
+                ></gxg-form-text>
+                <div class="buttons-wrapper">
+                  {clearIcon ? (
+                    <gxg-button
+                      class={{ "button-icon delete-icon": true }}
+                      icon="menus/delete"
+                      type="tertiary"
+                      onClick={() => this.clearCombo()}
+                      tabindex="-1"
+                      fit
+                      disabled={this.disabled}
+                      part={this.parts.clearButton}
+                    ></gxg-button>
+                  ) : null}
+
                   <gxg-button
-                    class={{ "button-icon delete-icon": true }}
-                    icon="menus/delete"
-                    type="tertiary"
-                    onClick={() => this.clearCombo()}
-                    tabindex="-1"
+                    class={{ "button-icon": true }}
+                    icon="navigation/arrow-down"
+                    type="secondary-icon-only"
+                    onClick={this.toggleListButtonClickHandler}
                     fit
                     disabled={this.disabled}
-                    part={this.parts.clearButton}
+                    tabindex="-1"
+                    part={this.parts.toggleButton}
                   ></gxg-button>
+                </div>
+              </div>
+              <div
+                class={{
+                  "items-container": true,
+                  "items-container--show": this.listIsOpen,
+                  "items-container--no-match": this.noMatch,
+                  "items-container--below": this.listPosition === "below",
+                  "items-container--above": this.listPosition === "above",
+                }}
+                style={{ maxHeight: this.listMaxHeight }}
+                ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
+              >
+                <slot></slot>
+                {this.noMatch && this.strict ? (
+                  <div class="no-ocurrences-found">
+                    No occurrences found
+                    <span>ctrl/cmd + backspace to erase</span>
+                  </div>
                 ) : null}
-
-                <gxg-button
-                  class={{ "button-icon": true }}
-                  icon="navigation/arrow-down"
-                  type="secondary-icon-only"
-                  onClick={this.toggleListButtonClickHandler}
-                  fit
-                  disabled={this.disabled}
-                  tabindex="-1"
-                  part={this.parts.toggleButton}
-                ></gxg-button>
               </div>
             </div>
-            <div
-              class={{
-                "items-container": true,
-                "items-container--show": this.listIsOpen,
-                "items-container--no-match": this.noMatch,
-                "items-container--below": this.listPosition === "below",
-                "items-container--above": this.listPosition === "above",
-              }}
-              style={{ maxHeight: this.listMaxHeight }}
-              ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
-            >
-              <slot></slot>
-              {this.noMatch && this.strict ? (
-                <div class="no-ocurrences-found">
-                  No occurrences found
-                  <span>ctrl/cmd + backspace to erase</span>
-                </div>
-              ) : null}
-            </div>
+            {this.toolTip ? formTooltipLogic(this) : null}
           </div>
         </div>
-        {this.formMessageLogic(this)}
+        {!this.toolTip ? formMessageLogic(this) : null}
       </Host>
     );
   }

@@ -10,11 +10,10 @@ import {
 } from "@stencil/core";
 import {
   requiredLabel,
-  //formHandleValidation,
-  //FormComponent,
+  formMessageLogic,
+  formTooltipLogic,
 } from "../../common/form";
 import state from "../store";
-import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { exportParts } from "../../common/export-parts";
@@ -39,6 +38,11 @@ export class GxgFormTextarea implements FormComponent {
   /*********************************
   PROPERTIES & STATE
   *********************************/
+
+  /**
+   * The presence of this attribute displays a tooltip message, instead of a block message below the control
+   */
+  @Prop() toolTip = false;
 
   /**
    * The presence of this attribute gives the component error styles
@@ -223,25 +227,27 @@ export class GxgFormTextarea implements FormComponent {
           </gxg-label>
         ) : null}
 
-        <textarea
-          ref={(el) => (this.textArea = el as HTMLTextAreaElement)}
-          class={{
-            "form-element": true,
-            textarea: true,
-            "textarea--resize": this.resize,
-          }}
-          placeholder={this.placeholder}
-          disabled={this.disabled}
-          onInput={this.handleInput.bind(this)}
-          onChange={this.handleChange.bind(this)}
-          value={this.disabled ? null : this.value}
-          rows={this.rows}
-          required={this.required}
-          style={{ height: this.height }}
-          part={this.parts.textarea}
-        ></textarea>
-
-        {formMessageLogic(this)}
+        <div class="textarea-wrapper">
+          <textarea
+            ref={(el) => (this.textArea = el as HTMLTextAreaElement)}
+            class={{
+              "form-element": true,
+              textarea: true,
+              "textarea--resize": this.resize,
+            }}
+            placeholder={this.placeholder}
+            disabled={this.disabled}
+            onInput={this.handleInput.bind(this)}
+            onChange={this.handleChange.bind(this)}
+            value={this.disabled ? null : this.value}
+            rows={this.rows}
+            required={this.required}
+            style={{ height: this.height }}
+            part={this.parts.textarea}
+          ></textarea>
+          {this.toolTip ? formTooltipLogic(this) : null}
+        </div>
+        {!this.toolTip ? formMessageLogic(this) : null}
       </Host>
     );
   }

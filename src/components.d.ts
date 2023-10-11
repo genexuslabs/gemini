@@ -452,6 +452,10 @@ export namespace Components {
      */
     strict: boolean;
     /**
+     * The presence of this attribute displays a tooltip message, instead of a block message below the control
+     */
+    toolTip: boolean;
+    /**
      * The message to display when validation fails (error)
      */
     validationMessage: string;
@@ -1057,6 +1061,10 @@ export namespace Components {
      * The number of rows
      */
     rows: number;
+    /**
+     * The presence of this attribute displays a tooltip message, instead of a block message below the control
+     */
+    toolTip: boolean;
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
@@ -3139,6 +3147,10 @@ declare namespace LocalJSX {
      */
     strict?: boolean;
     /**
+     * The presence of this attribute displays a tooltip message, instead of a block message below the control
+     */
+    toolTip?: boolean;
+    /**
      * The message to display when validation fails (error)
      */
     validationMessage?: string;
@@ -3819,6 +3831,10 @@ declare namespace LocalJSX {
      * The number of rows
      */
     rows?: number;
+    /**
+     * The presence of this attribute displays a tooltip message, instead of a block message below the control
+     */
+    toolTip?: boolean;
     /**
      * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
      */
