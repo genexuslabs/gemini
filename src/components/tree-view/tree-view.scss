@@ -4,14 +4,11 @@
 gxg-tree-view
 ---------------------------*/
 gxg-tree-view {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  height: 100%;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
   color: var(--color-on-background);
+  display: contents;
 }
 .tree-buttons {
   display: grid;

@@ -8,8 +8,11 @@ import {
   State,
   forceUpdate,
   Method,
+  Event,
+  EventEmitter,
 } from "@stencil/core";
 import {
+  TreeXListItemOpenReferenceInfo,
   TreeXDataTransferInfo,
   TreeXDropCheckInfo,
   TreeXItemModel,
@@ -17,7 +20,8 @@ import {
   TreeXListItemExpandedInfo,
   TreeXListItemNewCaption,
   TreeXListItemSelectedInfo,
-} from "@genexus/chameleon-controls-library/dist/types/components/tree-x/types";
+  TreeXItemContextMenu,
+} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-x/types";
 import {
   TreeXItemModelExtended,
   TreeXOperationStatusModifyCaption,
@@ -31,21 +35,22 @@ import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/typ
 const DEFAULT_DRAG_DISABLED_VALUE = false;
 const DEFAULT_DROP_DISABLED_VALUE = false;
 const DEFAULT_CLASS_VALUE = "tree-view-item";
+const DEFAULT_EDITABLE_ITEMS_VALUE = true;
 const DEFAULT_EXPANDED_VALUE = false;
 const DEFAULT_INDETERMINATE_VALUE = false;
 const DEFAULT_LAZY_VALUE = false;
+const DEFAULT_ORDER_VALUE = 0;
 const DEFAULT_SELECTED_VALUE = false;
 
 @Component({
   tag: "gxg-tree-view",
   styleUrl: "tree-view.scss",
-  shadow: false, // Necessary to avoid focus capture
+  shadow: false,
 })
 export class GxgTreeView {
   // UI Models
   private flattenedTreeModel: Map<string, TreeXItemModelExtended> = new Map();
   private selectedItems: Set<string> = new Set();
-  private flattenedLazyTreeModel: Map<string, TreeXItemModel> = new Map();
 
   // Refs
   private treeRef: HTMLChTreeXElement;
@@ -71,13 +76,13 @@ export class GxgTreeView {
 
   /**
    * This attribute lets you specify if the drag operation is disabled in all
-   * items by default. If `true`, the control can't be dragged.
+   * items by default. If `true`, the items can't be dragged.
    */
   @Prop() readonly dragDisabled: boolean = DEFAULT_DRAG_DISABLED_VALUE;
 
   /**
    * This attribute lets you specify if the drop operation is disabled in all
-   * items by default. If `true`, the control won't accept any drops.
+   * items by default. If `true`, the items won't accept any drops.
    */
   @Prop() readonly dropDisabled: boolean = DEFAULT_DROP_DISABLED_VALUE;
 
@@ -119,15 +124,39 @@ export class GxgTreeView {
   @Prop() readonly multiSelection: boolean = false;
 
   /**
+   * This attribute lets you specify if the edit operation is enabled in all
+   * items by default. If `true`, the items can edit its caption in place.
+   */
+  @Prop() readonly editableItems: boolean = DEFAULT_EDITABLE_ITEMS_VALUE;
+
+  /**
    * `true` to display the relation between tree items and tree lists using
    * lines.
    */
-  @Prop() readonly showLines: TreeXLines = "all";
+  @Prop() readonly showLines: TreeXLines = "none";
 
   /**
    * Callback that is executed when the treeModel is changed to order its items.
    */
   @Prop() readonly sortItemsCallback: (subModel: TreeXItemModel[]) => void;
+
+  /**
+   * Fired when an element displays its contextmenu.
+   */
+  @Event() itemContextmenu: EventEmitter<TreeXItemContextMenu>;
+
+  /**
+   * Fired when the user interacts with an item in a way that its reference
+   * must be opened.
+   */
+  @Event() itemOpenReference: EventEmitter<TreeXListItemOpenReferenceInfo>;
+
+  /**
+   * Fired when the selected items change.
+   */
+  @Event() selectedItemsChange: EventEmitter<
+    Map<string, TreeXListItemSelectedInfo>
+  >;
 
   /**
    * Given an item id, an array of items to add, the download status and the
@@ -140,10 +169,9 @@ export class GxgTreeView {
     downloading = false,
     lazy = false
   ) {
-    const itemToLazyLoadContent = this.flattenedLazyTreeModel.get(itemId);
+    const itemToLazyLoadContent = this.flattenedTreeModel.get(itemId).item;
 
     // Establish that the content was lazy loaded
-    this.flattenedLazyTreeModel.delete(itemId);
     itemToLazyLoadContent.downloading = downloading;
     itemToLazyLoadContent.lazy = lazy;
 
@@ -359,6 +387,14 @@ export class GxgTreeView {
     });
   }
 
+  @Listen("openReference", { capture: true })
+  handleOpenReference(
+    event: ChTreeXListItemCustomEvent<TreeXListItemOpenReferenceInfo>
+  ) {
+    event.stopPropagation();
+    this.itemOpenReference.emit(event.detail);
+  }
+
   private handleDroppableZoneEnter = (
     event: ChTreeXCustomEvent<TreeXDropCheckInfo>
   ) => {
@@ -386,6 +422,7 @@ export class GxgTreeView {
   private handleSelectedItemsChange = (
     event: ChTreeXCustomEvent<Map<string, TreeXListItemSelectedInfo>>
   ) => {
+    event.stopPropagation();
     const itemsToProcess = new Map(event.detail);
 
     // Remove no longer selected items
@@ -413,6 +450,8 @@ export class GxgTreeView {
 
       this.selectedItems.add(itemId);
     });
+
+    this.selectedItemsChange.emit(event.detail);
   };
 
   private handleExpandedItemChange = (
@@ -421,6 +460,13 @@ export class GxgTreeView {
     const detail = event.detail;
     const itemInfo = this.flattenedTreeModel.get(detail.id).item;
     itemInfo.expanded = detail.expanded;
+  };
+
+  private handleItemContextmenu = (
+    event: ChTreeXCustomEvent<TreeXItemContextMenu>
+  ) => {
+    event.stopPropagation();
+    this.itemContextmenu.emit(event.detail);
   };
 
   private handleItemsDropped = (
@@ -527,6 +573,7 @@ export class GxgTreeView {
       downloading={treeSubModel.downloading}
       dragDisabled={treeSubModel.dragDisabled ?? this.dragDisabled}
       dropDisabled={treeSubModel.dropDisabled ?? this.dropDisabled}
+      editable={treeSubModel.editable ?? this.editableItems}
       expanded={treeSubModel.expanded}
       indeterminate={treeSubModel.indeterminate}
       lastItem={lastItem}
@@ -543,16 +590,12 @@ export class GxgTreeView {
     >
       {!treeSubModel.leaf &&
         treeSubModel.items != null &&
-        treeSubModel.items.length !== 0 && (
-          <ch-tree-x-list slot="tree">
-            {treeSubModel.items.map((subModel, index) =>
-              this.renderSubModel(
-                subModel,
-                this.showLines && index === treeSubModel.items.length - 1,
-                level + 1
-              )
-            )}
-          </ch-tree-x-list>
+        treeSubModel.items.map((subModel, index) =>
+          this.renderSubModel(
+            subModel,
+            this.showLines && index === treeSubModel.items.length - 1,
+            level + 1
+          )
         )}
     </ch-tree-x-list-item>
   );
@@ -562,7 +605,7 @@ export class GxgTreeView {
 
     if (!items) {
       // Make sure that subtrees don't have an undefined array
-      if (model.leaf === false) {
+      if (model.leaf !== true) {
         model.items = [];
       }
       return;
@@ -583,6 +626,7 @@ export class GxgTreeView {
 
     // Make sure the properties are with their default values to avoid issues
     // when reusing DOM nodes
+    item.class = item.class == null ? DEFAULT_CLASS_VALUE : item.class;
     item.expanded =
       item.expanded == null ? DEFAULT_EXPANDED_VALUE : item.expanded;
     item.indeterminate =
@@ -590,12 +634,9 @@ export class GxgTreeView {
         ? DEFAULT_INDETERMINATE_VALUE
         : item.indeterminate;
     item.lazy = item.lazy == null ? DEFAULT_LAZY_VALUE : item.lazy;
+    item.order = item.order == null ? DEFAULT_ORDER_VALUE : item.order;
     item.selected =
       item.selected == null ? DEFAULT_SELECTED_VALUE : item.selected;
-
-    if (item.lazy) {
-      this.flattenedLazyTreeModel.set(item.id, item);
-    }
 
     if (item.selected) {
       this.selectedItems.add(item.id);
@@ -613,7 +654,6 @@ export class GxgTreeView {
 
   private flattenModel() {
     this.flattenedTreeModel.clear();
-    this.flattenedLazyTreeModel.clear();
 
     this.flattenSubModel({ id: null, caption: null, items: this.treeModel });
   }
@@ -624,26 +664,25 @@ export class GxgTreeView {
 
   render() {
     return (
-      <Host>
-        <ch-tree-x
-          class={this.cssClass || null}
-          multiSelection={this.multiSelection}
-          waitDropProcessing={this.waitDropProcessing}
-          onDroppableZoneEnter={this.handleDroppableZoneEnter}
-          onExpandedItemChange={this.handleExpandedItemChange}
-          onItemsDropped={this.handleItemsDropped}
-          onSelectedItemsChange={this.handleSelectedItemsChange}
-          ref={(el) => (this.treeRef = el)}
-        >
-          {this.treeModel.map((subModel, index) =>
-            this.renderSubModel(
-              subModel,
-              this.showLines && index === this.treeModel.length - 1,
-              0
-            )
-          )}
-        </ch-tree-x>
-      </Host>
+      <ch-tree-x
+        class={this.cssClass || null}
+        multiSelection={this.multiSelection}
+        waitDropProcessing={this.waitDropProcessing}
+        onDroppableZoneEnter={this.handleDroppableZoneEnter}
+        onExpandedItemChange={this.handleExpandedItemChange}
+        onItemContextmenu={this.handleItemContextmenu}
+        onItemsDropped={this.handleItemsDropped}
+        onSelectedItemsChange={this.handleSelectedItemsChange}
+        ref={(el) => (this.treeRef = el)}
+      >
+        {this.treeModel.map((subModel, index) =>
+          this.renderSubModel(
+            subModel,
+            this.showLines && index === this.treeModel.length - 1,
+            0
+          )
+        )}
+      </ch-tree-x>
     );
   }
 }

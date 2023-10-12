@@ -1,4 +1,4 @@
-import { TreeXItemModel } from "@genexus/chameleon-controls-library/dist/types/components/tree-x/types";
+import { TreeXItemModel } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-x/types";
 
 export type TreeXItemModelExtended = {
   parentItem: TreeXItemModel;

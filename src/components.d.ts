@@ -104,10 +104,13 @@ import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-
 import {
   TreeXDataTransferInfo,
   TreeXDropCheckInfo,
+  TreeXItemContextMenu,
   TreeXItemModel,
   TreeXLines,
   TreeXListItemExpandedInfo,
-} from "@genexus/chameleon-controls-library/dist/types/components/tree-x/types";
+  TreeXListItemOpenReferenceInfo,
+  TreeXListItemSelectedInfo,
+} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-x/types";
 import { TreeXOperationStatusModifyCaption } from "./components/tree-view/types";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
@@ -2010,11 +2013,11 @@ export namespace Components {
      */
     cssClass: string;
     /**
-     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the control can't be dragged.
+     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the items can't be dragged.
      */
     dragDisabled: boolean;
     /**
-     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the control won't accept any drops.
+     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the items won't accept any drops.
      */
     dropDisabled: boolean;
     /**
@@ -2023,6 +2026,10 @@ export namespace Components {
     dropItemsCallback: (
       dataTransferInfo: TreeXDataTransferInfo
     ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+    /**
+     * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
+     */
+    editableItems: boolean;
     /**
      * Callback that is executed when a item request to load its subitems.
      */
@@ -4836,11 +4843,11 @@ declare namespace LocalJSX {
      */
     cssClass?: string;
     /**
-     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the control can't be dragged.
+     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the items can't be dragged.
      */
     dragDisabled?: boolean;
     /**
-     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the control won't accept any drops.
+     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the items won't accept any drops.
      */
     dropDisabled?: boolean;
     /**
@@ -4849,6 +4856,10 @@ declare namespace LocalJSX {
     dropItemsCallback?: (
       dataTransferInfo: TreeXDataTransferInfo
     ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+    /**
+     * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
+     */
+    editableItems?: boolean;
     /**
      * Callback that is executed when a item request to load its subitems.
      */
@@ -4866,6 +4877,22 @@ declare namespace LocalJSX {
      * Set this attribute if you want to allow multi selection of the items.
      */
     multiSelection?: boolean;
+    /**
+     * Fired when an element displays its contextmenu.
+     */
+    onItemContextmenu?: (event: CustomEvent<TreeXItemContextMenu>) => void;
+    /**
+     * Fired when the user interacts with an item in a way that its reference must be opened.
+     */
+    onItemOpenReference?: (
+      event: CustomEvent<TreeXListItemOpenReferenceInfo>
+    ) => void;
+    /**
+     * Fired when the selected items change.
+     */
+    onSelectedItemsChange?: (
+      event: CustomEvent<Map<string, TreeXListItemSelectedInfo>>
+    ) => void;
     /**
      * `true` to display the relation between tree items and tree lists using lines.
      */
