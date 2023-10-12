@@ -10,10 +10,9 @@ gxg-tree-view {
   color: var(--color-on-background);
   display: contents;
 }
-.tree-buttons {
-  display: grid;
-  grid-auto-rows: max-content;
-  row-gap: 8px;
+
+ch-tree-x {
+  @include gxg-scrollbar();
 }
 
 :not(.ch-tree-x-dragging-item)
@@ -37,6 +36,45 @@ ch-tree-x-list-item
 ---------------------------*/
 
 ch-tree-x-list-item {
+  //dynamic icons (second state)
+  &.tree-view-item--folder::part(action)::before,
+  &.tree-view-item--module::part(action)::before {
+    grid-area: left-img;
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin-inline-end: 4px;
+    background-repeat: no-repeat;
+  }
+
+  &.tree-view-item--folder::part(action)::before {
+    background-image: url("/build/icon-assets/objects/folder.svg");
+  }
+  &.tree-view-item--folder::part(action expanded)::before {
+    background-image: url("/build/icon-assets/objects/folder-open.svg");
+  }
+  &.tree-view-item--module::part(action)::before {
+    background-image: url("/build/icon-assets/objects/module.svg");
+  }
+  &.tree-view-item--module::part(action expanded)::before {
+    background-image: url("/build/icon-assets/objects/module-open.svg");
+  }
+
+  //pending commit
+  .tree-view-item--pending-commit::part(action)::before {
+    content: "";
+    position: relative;
+    z-index: 1;
+    grid-area: left-img;
+    width: 5px;
+    height: 5px;
+    align-self: end;
+    margin-block-end: 3px;
+    margin-inline-start: 1px;
+    background-color: rgb(44, 59, 146);
+    border-radius: 50%;
+  }
+
   //css variables overrides
   --expandable-button-width: var(--spacing-comp-04);
 

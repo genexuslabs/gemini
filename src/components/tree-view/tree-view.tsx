@@ -31,6 +31,7 @@ import {
   ChTreeXListItemCustomEvent,
 } from "@genexus/chameleon-controls-library";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
+import { resolveImgPath } from "./helpers";
 
 const DEFAULT_DRAG_DISABLED_VALUE = false;
 const DEFAULT_DROP_DISABLED_VALUE = false;
@@ -637,6 +638,9 @@ export class GxgTreeView {
     item.order = item.order == null ? DEFAULT_ORDER_VALUE : item.order;
     item.selected =
       item.selected == null ? DEFAULT_SELECTED_VALUE : item.selected;
+    if (item.leftImgSrc) {
+      item.leftImgSrc = resolveImgPath(item.leftImgSrc);
+    }
 
     if (item.selected) {
       this.selectedItems.add(item.id);
