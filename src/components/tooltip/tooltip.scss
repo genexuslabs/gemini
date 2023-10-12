@@ -145,3 +145,33 @@
     display: flex;
   }
 }
+//fixed
+:host([fixed]) {
+  .tooltip {
+    .tooltiptext {
+      position: fixed;
+      height: 0;
+      &__content {
+        transform: translateY(calc(-100% - 5px));
+
+        &:after {
+          //triangle
+          content: "";
+          width: 0;
+          height: 0;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-bottom: 5px solid var(--gray-07);
+          position: absolute;
+          right: 0;
+          transform: translateX(-3px) rotate(180deg);
+          bottom: -3px;
+        }
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

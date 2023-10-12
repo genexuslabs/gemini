@@ -7,6 +7,7 @@
 | Property   | Attribute   | Description                                                      | Type                                     | Default     |
 | ---------- | ----------- | ---------------------------------------------------------------- | ---------------------------------------- | ----------- |
 | `alignEnd` | `align-end` | The alignment                                                    | `boolean`                                | `false`     |
+| `fixed`    | `fixed`     | Fixed positioned                                                 | `boolean`                                | `false`     |
 | `flex`     | `flex`      | Displays the tool-tip as flex                                    | `boolean`                                | `false`     |
 | `label`    | `label`     | The label                                                        | `string`                                 | `undefined` |
 | `noBorder` | `no-border` | This presence of this property removes the border under the text | `boolean`                                | `false`     |

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Prop, h, Host, Element } from "@stencil/core";
 
 @Component({
   tag: "gxg-tooltip",
@@ -6,6 +6,9 @@ import { Component, Prop, h, Host } from "@stencil/core";
   shadow: true,
 })
 export class GxgTooltip {
+  @Element() el: HTMLGxgTooltipElement;
+  tooltipTextEl!: HTMLDivElement;
+
   /**
    the tooltip position
    */
@@ -22,6 +25,11 @@ export class GxgTooltip {
   @Prop({ reflect: true }) alignEnd = false;
 
   /**
+   * Fixed positioned
+   */
+  @Prop({ reflect: true }) fixed = false;
+
+  /**
    * Displays the tool-tip as flex
    */
   @Prop({ reflect: true }) flex = false;
@@ -31,12 +39,32 @@ export class GxgTooltip {
    */
   @Prop({ reflect: true }) noBorder = false;
 
+  componentWillLoad() {
+    if (this.fixed) {
+      this.el.addEventListener("mouseenter", this.mouseEnterHandler);
+    }
+  }
+
+  private mouseEnterHandler = () => {
+    const tooltipBC = this.el.getBoundingClientRect();
+    const width = tooltipBC.width;
+    const top = tooltipBC.top;
+    const rightPosition =
+      document.body.scrollWidth - tooltipBC.right + width - 3;
+    this.tooltipTextEl.style.top = `${top}px`;
+    this.tooltipTextEl.style.right = `${rightPosition}px`;
+  };
+
   render() {
     return (
       <Host role="tooltip">
         <span class="tooltip">
           <slot></slot>
-          <div class="tooltiptext">
+
+          <div
+            class="tooltiptext"
+            ref={(el) => (this.tooltipTextEl = el as HTMLDivElement)}
+          >
             <span class="tooltiptext__content">{this.label}</span>
           </div>
         </span>

@@ -45,7 +45,7 @@ ch-tree-x-list-item {
 
   //header
   &::part(header) {
-    padding-inline-start: var(--spacing-comp-01);
+    //padding-inline-start: var(--spacing-comp-01);
     padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
     border: 1px solid transparent;
     height: var(--spacing-comp-05);
@@ -74,12 +74,13 @@ ch-tree-x-list-item {
 
   //expandable-button
   &::part(expandable-button) {
+    background-color: var(--color-hover);
+    margin-inline-start: var(--spacing-comp-01);
     &::before {
       background-color: var(--gray-04);
       -webkit-mask-position: center;
       -webkit-mask-repeat: no-repeat;
     }
-    background-color: var(--color-hover);
     &:hover {
       background-color: var(--color-background);
     }
@@ -111,10 +112,10 @@ ch-tree-x-list-item {
 
 .ch-tree-x-drag-info {
   //to do
-  // padding-inline: 6px;
-  // padding-block: 2px;
-  // background-color: rgb(207, 222, 230);
-  // border: 1px solid rgb(2, 102, 160);
-  // border-radius: 10px;
-  // font-size: 8px;
+  padding-inline: 6px;
+  padding-block: 2px;
+  background-color: rgb(207, 222, 230);
+  border: 1px solid rgb(2, 102, 160);
+  border-radius: 10px;
+  font-size: 8px;
 }

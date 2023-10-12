@@ -289,6 +289,7 @@ export class GxgFormText implements FormComponent {
   componentWillLoad() {
     this.evaluateIcon();
     this.attachExportParts();
+    this.evaluateLabelAlignment();
   }
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
@@ -301,6 +302,12 @@ export class GxgFormText implements FormComponent {
       this.icon = "controls/file-upload";
       this.iconPosition = "start";
       this.placeholder = "Select a file";
+    }
+  };
+
+  private evaluateLabelAlignment = () => {
+    if (this.labelPosition === "start") {
+      this.centerLabel = true;
     }
   };
 
@@ -577,7 +584,6 @@ export class GxgFormText implements FormComponent {
   };
 
   render(): void {
-    console.log(this.validationMessage);
     return (
       <Host
         role="textbox"
@@ -670,18 +676,13 @@ export class GxgFormText implements FormComponent {
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
-            {this.labelPosition === "start" && this.toolTip
-              ? formTooltipLogic(this)
-              : null}
+            {this.toolTip ? formTooltipLogic(this) : null}
             {this.labelPosition === "start" && !this.toolTip
               ? formMessageLogic(this)
               : null}
             {this.renderInputFile()}
           </div>
         </div>
-        {this.labelPosition === "above" && this.toolTip
-          ? formTooltipLogic(this)
-          : null}
         {this.labelPosition === "above" && !this.toolTip
           ? formMessageLogic(this)
           : null}

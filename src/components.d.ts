@@ -1864,6 +1864,10 @@ export namespace Components {
      */
     alignEnd: boolean;
     /**
+     * Fixed positioned
+     */
+    fixed: boolean;
+    /**
      * Displays the tool-tip as flex
      */
     flex: boolean;
@@ -4681,6 +4685,10 @@ declare namespace LocalJSX {
      * The alignment
      */
     alignEnd?: boolean;
+    /**
+     * Fixed positioned
+     */
+    fixed?: boolean;
     /**
      * Displays the tool-tip as flex
      */

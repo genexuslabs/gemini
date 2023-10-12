@@ -41,6 +41,11 @@
       gxg-button {
         margin-top: 16px;
       }
+      .form-text-container {
+        border: 1px solid green;
+        overflow: hidden;
+        overflow-y: auto;
+      }
     </style>
   </head>
   <body>
@@ -55,12 +60,24 @@
 
       <!-- gxg-form-text -->
       <span>form-text</span>
-      <gxg-form-text
-        class="form-component"
-        value="This is a text"
-        tool-tip
-        id="form-text"
-      ></gxg-form-text>
+      <div class="form-text-container">
+        <gxg-form-text
+          label="Label above"
+          label-position="above"
+          class="form-component"
+          value="This is a text"
+          tool-tip
+          id="form-text-label-above"
+        ></gxg-form-text>
+        <br />
+        <gxg-form-text
+          label="Label before"
+          class="form-component"
+          value="This is a text"
+          tool-tip
+          id="form-text-label-before"
+        ></gxg-form-text>
+      </div>
       <gxg-button type="outlined" class="get-value">Get value</gxg-button>
       <gxg-button type="outlined" class="get-value" id="form-text-btn-error"
         >Error</gxg-button
@@ -71,29 +88,53 @@
       <gxg-button type="outlined" class="get-value" id="form-text-btn-success"
         >Success</gxg-button
       >
+      <gxg-button type="outlined" class="get-value" id="form-text-btn-clear"
+        >Clear</gxg-button
+      >
       <script>
-        const formText = document.getElementById("form-text");
+        const formTextLabelAbove = document.getElementById(
+          "form-text-label-above"
+        );
+        const formTextLabelBefore = document.getElementById(
+          "form-text-label-before"
+        );
         const formTextErrorBtn = document.getElementById("form-text-btn-error");
         formTextErrorBtn.addEventListener("click", () => {
-          formText.validationStatus = "error";
-          formText.validationMessage =
+          formTextLabelAbove.validationStatus = "error";
+          formTextLabelAbove.validationMessage =
+            "Failed to load module 'module.js'. Try setting another configuration.";
+          formTextLabelBefore.validationStatus = "error";
+          formTextLabelBefore.validationMessage =
             "Failed to load module 'module.js'. Try setting another configuration.";
         });
         const formTextWarningBtn = document.getElementById(
           "form-text-btn-warning"
         );
         formTextWarningBtn.addEventListener("click", () => {
-          formText.validationStatus = "warning";
-          formText.validationMessage =
+          formTextLabelAbove.validationStatus = "warning";
+          formTextLabelAbove.validationMessage =
+            "🚨 Warning: Your spaceship is about to crash! Brace for impact! 🚀💥";
+          formTextLabelBefore.validationStatus = "warning";
+          formTextLabelBefore.validationMessage =
             "🚨 Warning: Your spaceship is about to crash! Brace for impact! 🚀💥";
         });
         const formTextSuccessBtn = document.getElementById(
           "form-text-btn-success"
         );
         formTextSuccessBtn.addEventListener("click", () => {
-          formText.validationStatus = "success";
-          formText.validationMessage =
+          formTextLabelAbove.validationStatus = "success";
+          formTextLabelAbove.validationMessage =
             "Success! Your masterpiece is complete. 🎉👏";
+          formTextLabelBefore.validationStatus = "success";
+          formTextLabelBefore.validationMessage =
+            "Success! Your masterpiece is complete. 🎉👏";
+        });
+        const formTextClearBtn = document.getElementById("form-text-btn-clear");
+        formTextClearBtn.addEventListener("click", () => {
+          formTextLabelAbove.validationStatus = "indeterminate";
+          formTextLabelAbove.validationMessage = "";
+          formTextLabelBefore.validationStatus = "indeterminate";
+          formTextLabelBefore.validationMessage = "";
         });
       </script>
       <span class="separator"></span>

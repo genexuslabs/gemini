@@ -74,7 +74,13 @@ export function formTooltipLogic(comp: FormComponent): JSX.Element {
       comp.validationStatus !== "indeterminate" &&
         comp.validationMessage.length > 0 ? (
         <div class="tooltip-inner-wrapper">
-          <gxg-tooltip label={comp.validationMessage} noBorder alignEnd flex>
+          <gxg-tooltip
+            label={comp.validationMessage}
+            noBorder
+            alignEnd
+            flex
+            fixed
+          >
             <gxg-icon
               color={color}
               type={`gemini-tools/${comp.validationStatus}`}
