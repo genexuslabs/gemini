@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Element } from "@stencil/core";
+import { Component, Prop, h, Host, Element, State } from "@stencil/core";
 
 @Component({
   tag: "gxg-tooltip",
@@ -39,25 +39,40 @@ export class GxgTooltip {
    */
   @Prop({ reflect: true }) noBorder = false;
 
+  /**
+   * Used to show/hide the tooltip (only used if 'fixed' is true) otherwise, it will show on hover.
+   */
+  @State() visible = false;
+
   componentWillLoad() {
     if (this.fixed) {
       this.el.addEventListener("mouseenter", this.mouseEnterHandler);
+      this.el.addEventListener("mouseleave", this.mouseLeaveHandler);
+      document.addEventListener("scroll", this.documentScrollHandler);
     }
   }
 
   private mouseEnterHandler = () => {
     const tooltipBC = this.el.getBoundingClientRect();
-    const width = tooltipBC.width;
     const top = tooltipBC.top;
     const rightPosition = window.innerWidth - tooltipBC.right;
     this.tooltipTextEl.style.top = `${top}px`;
     this.tooltipTextEl.style.right = `${rightPosition}px`;
+    this.visible = true;
+  };
+
+  private mouseLeaveHandler = () => {
+    this.visible = false;
+  };
+
+  private documentScrollHandler = () => {
+    this.visible = false;
   };
 
   render() {
     return (
       <Host role="tooltip">
-        <span class="tooltip">
+        <span class={{ tooltip: true, "tooltip--visible": this.visible }}>
           <slot></slot>
 
           <div

@@ -147,7 +147,14 @@
 }
 //fixed
 :host([fixed]) {
+  border: 1px solid black;
   .tooltip {
+    &:hover {
+      .tooltiptext {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
     .tooltiptext {
       position: fixed;
       height: 0;
@@ -171,6 +178,12 @@
 
       &:after {
         display: none;
+      }
+    }
+    &--visible {
+      .tooltiptext {
+        visibility: visible !important;
+        opacity: 1 !important;
       }
     }
   }
