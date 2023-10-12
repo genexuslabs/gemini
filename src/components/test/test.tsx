@@ -178,21 +178,26 @@ export class GxgTest {
   };
 
   render() {
-    return [
-      // <gxg-combo-box
-      //   id="combo-fruits"
-      //   placeholder="Select item"
-      //   max-width="100%"
-      //   label-position="start"
-      //   center-label
-      //   cursor-end
-      //   value={this.getSelectedGxOption(this.comboValues)}
-      //   onValueChanged={this.valueChangedHandler}
-      // >
-      //   {this.renderComboBoxItems(this.comboValues)}
-      // </gxg-combo-box>,
-      // <button onClick={this.updateFrontEnds}>update</button>,
-      // <gxg-tree-view treeModel={this.model}></gxg-tree-view>,
-    ];
+    return (
+      <div class="form-text-container">
+        <gxg-form-text
+          label="Label above"
+          label-position="above"
+          class="form-component"
+          value="This is a text"
+          tool-tip
+          id="form-text-label-above"
+          validationMessage="Success! Your masterpiece is complete. 🎉👏"
+          validationStatus="error"
+        ></gxg-form-text>
+        <gxg-form-text
+          label="Label before"
+          class="form-component"
+          value="This is a text"
+          tool-tip
+          id="form-text-label-before"
+        ></gxg-form-text>
+      </div>
+    );
   }
 }

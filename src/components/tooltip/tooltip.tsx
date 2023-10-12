@@ -49,8 +49,7 @@ export class GxgTooltip {
     const tooltipBC = this.el.getBoundingClientRect();
     const width = tooltipBC.width;
     const top = tooltipBC.top;
-    const rightPosition =
-      document.body.scrollWidth - tooltipBC.right + width - 3;
+    const rightPosition = window.innerWidth - tooltipBC.right;
     this.tooltipTextEl.style.top = `${top}px`;
     this.tooltipTextEl.style.right = `${rightPosition}px`;
   };

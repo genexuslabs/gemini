@@ -46,9 +46,13 @@
         overflow: hidden;
         overflow-y: auto;
       }
+      .hiden-container {
+        display: none;
+      }
     </style>
   </head>
   <body>
+    <gxg-test></gxg-test>
     <div class="container">
       <h1>Form Components Validation</h1>
       <p>
@@ -139,142 +143,149 @@
       </script>
       <span class="separator"></span>
 
-      <!-- gxg-form-text-area -->
-      <span>form-text-area</span>
-      <gxg-form-textarea
-        id="gxg-textarea"
-        max-width="240px"
-        label="Describe your experience"
-        placeholder="I have experience as a.."
-        rows="4"
-        class="form-component"
-        tool-tip
-      ></gxg-form-textarea>
-      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
-      <gxg-button type="outlined" class="get-value" id="form-textarea-btn-error"
-        >Error</gxg-button
-      >
-      <gxg-button
-        type="outlined"
-        class="get-value"
-        id="form-textarea-btn-warning"
-        >Warning</gxg-button
-      >
-      <gxg-button
-        type="outlined"
-        class="get-value"
-        id="form-textarea-btn-success"
-        >Success</gxg-button
-      >
-      <script>
-        const formTextarea = document.getElementById("gxg-textarea");
-        const formTextareaErrorBtn = document.getElementById(
-          "form-textarea-btn-error"
-        );
-        formTextareaErrorBtn.addEventListener("click", () => {
-          formTextarea.validationStatus = "error";
-          formTextarea.validationMessage =
-            "Failed to load module 'module.js'. Try setting another configuration.";
-        });
-        const formTextareaWarningBtn = document.getElementById(
-          "form-textarea-btn-warning"
-        );
-        formTextareaWarningBtn.addEventListener("click", () => {
-          formTextarea.validationStatus = "warning";
-          formTextarea.validationMessage =
-            "🚨 Warning: Your spaceship is about to crash! Brace for impact! 🚀💥";
-        });
-        const formTextareaSuccessBtn = document.getElementById(
-          "form-textarea-btn-success"
-        );
-        formTextareaSuccessBtn.addEventListener("click", () => {
-          formTextarea.validationStatus = "success";
-          formTextarea.validationMessage =
-            "Success! Your masterpiece is complete. 🎉👏";
-        });
-      </script>
-      <span class="separator"></span>
-
-      <!-- gxg-form-radio -->
-      <span>form-radio-group</span>
-      <gxg-form-radio-group
-        row
-        label="my favorite color"
-        class="form-component"
-        tool-tip
-      >
-        <gxg-form-radio
-          label="red"
-          name="colors"
-          value="red"
-          radio-id="red"
-        ></gxg-form-radio>
-        <gxg-form-radio
-          label="blue"
-          name="colors"
-          value="blue"
-          radio-id="blue"
-          checked
-          disabled
-        ></gxg-form-radio>
-        <gxg-form-radio
-          label="green"
-          name="colors"
-          value="green"
-          radio-id="green"
-          checked
-        ></gxg-form-radio>
-        <gxg-form-radio
-          label="yellow"
-          name="colors"
-          value="yellow"
-          radio-id="yellow"
-        ></gxg-form-radio>
-      </gxg-form-radio-group>
-      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
-      <span class="separator"></span>
-
-      <!-- gxg-form-checkbox -->
-      <span>form-checkbox</span>
-      <gxg-form-checkbox
-        id="show-inherited-classes"
-        label="this is the label"
-        class="form-component"
-        tool-tip
-      ></gxg-form-checkbox>
-      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
-      <span class="separator"></span>
-
-      <!-- gxg-combo-box -->
-      <span>combo-box</span>
-      <gxg-combo-box
-        id="gxg-combo-box"
-        placeholder="Select item"
-        value="bpm"
-        width="100%"
-        label="The title:"
-        class="form-component"
-        tool-tip
-      >
-        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
-        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
-        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
-          >Chatbots</gxg-combo-box-item
+      <div class="hiden-container">
+        <!-- gxg-form-text-area -->
+        <span>form-text-area</span>
+        <gxg-form-textarea
+          id="gxg-textarea"
+          max-width="240px"
+          label="Describe your experience"
+          placeholder="I have experience as a.."
+          rows="4"
+          class="form-component"
+          tool-tip
+        ></gxg-form-textarea>
+        <gxg-button type="outlined" class="get-value">Get value</gxg-button>
+        <gxg-button
+          type="outlined"
+          class="get-value"
+          id="form-textarea-btn-error"
+          >Error</gxg-button
         >
-      </gxg-combo-box>
-      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
-      <gxg-button type="outlined" id="select-combo-text"
-        >Select text</gxg-button
-      >
-      <gxg-button type="outlined" class="get-value" id="combo-box-btn-error"
-        >Error</gxg-button
-      >
-      <gxg-button type="outlined" class="get-value" id="combo-box-btn-warning"
-        >Warning</gxg-button
-      >
-      <gxg-button type="outlined" class="get-value" id="combo-box-btn-success"
-        >Success</gxg-button
-      >
+        <gxg-button
+          type="outlined"
+          class="get-value"
+          id="form-textarea-btn-warning"
+          >Warning</gxg-button
+        >
+        <gxg-button
+          type="outlined"
+          class="get-value"
+          id="form-textarea-btn-success"
+          >Success</gxg-button
+        >
+        <script>
+          const formTextarea = document.getElementById("gxg-textarea");
+          const formTextareaErrorBtn = document.getElementById(
+            "form-textarea-btn-error"
+          );
+          formTextareaErrorBtn.addEventListener("click", () => {
+            formTextarea.validationStatus = "error";
+            formTextarea.validationMessage =
+              "Failed to load module 'module.js'. Try setting another configuration.";
+          });
+          const formTextareaWarningBtn = document.getElementById(
+            "form-textarea-btn-warning"
+          );
+          formTextareaWarningBtn.addEventListener("click", () => {
+            formTextarea.validationStatus = "warning";
+            formTextarea.validationMessage =
+              "🚨 Warning: Your spaceship is about to crash! Brace for impact! 🚀💥";
+          });
+          const formTextareaSuccessBtn = document.getElementById(
+            "form-textarea-btn-success"
+          );
+          formTextareaSuccessBtn.addEventListener("click", () => {
+            formTextarea.validationStatus = "success";
+            formTextarea.validationMessage =
+              "Success! Your masterpiece is complete. 🎉👏";
+          });
+        </script>
+        <span class="separator"></span>
+
+        <!-- gxg-form-radio -->
+        <span>form-radio-group</span>
+        <gxg-form-radio-group
+          row
+          label="my favorite color"
+          class="form-component"
+          tool-tip
+        >
+          <gxg-form-radio
+            label="red"
+            name="colors"
+            value="red"
+            radio-id="red"
+          ></gxg-form-radio>
+          <gxg-form-radio
+            label="blue"
+            name="colors"
+            value="blue"
+            radio-id="blue"
+            checked
+            disabled
+          ></gxg-form-radio>
+          <gxg-form-radio
+            label="green"
+            name="colors"
+            value="green"
+            radio-id="green"
+            checked
+          ></gxg-form-radio>
+          <gxg-form-radio
+            label="yellow"
+            name="colors"
+            value="yellow"
+            radio-id="yellow"
+          ></gxg-form-radio>
+        </gxg-form-radio-group>
+        <gxg-button type="outlined" class="get-value">Get value</gxg-button>
+        <span class="separator"></span>
+
+        <!-- gxg-form-checkbox -->
+        <span>form-checkbox</span>
+        <gxg-form-checkbox
+          id="show-inherited-classes"
+          label="this is the label"
+          class="form-component"
+          tool-tip
+        ></gxg-form-checkbox>
+        <gxg-button type="outlined" class="get-value">Get value</gxg-button>
+        <span class="separator"></span>
+
+        <!-- gxg-combo-box -->
+        <span>combo-box</span>
+        <gxg-combo-box
+          id="gxg-combo-box"
+          placeholder="Select item"
+          value="bpm"
+          width="100%"
+          label="The title:"
+          class="form-component"
+          tool-tip
+        >
+          <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+          <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+          <gxg-combo-box-item
+            value="chatbots"
+            icon="objects/conversational-flows"
+            >Chatbots</gxg-combo-box-item
+          >
+        </gxg-combo-box>
+        <gxg-button type="outlined" class="get-value">Get value</gxg-button>
+        <gxg-button type="outlined" id="select-combo-text"
+          >Select text</gxg-button
+        >
+        <gxg-button type="outlined" class="get-value" id="combo-box-btn-error"
+          >Error</gxg-button
+        >
+        <gxg-button type="outlined" class="get-value" id="combo-box-btn-warning"
+          >Warning</gxg-button
+        >
+        <gxg-button type="outlined" class="get-value" id="combo-box-btn-success"
+          >Success</gxg-button
+        >
+      </div>
       <script>
         const gxgComboBox = document.getElementById("gxg-combo-box");
         const comboBoxErrorBtn = document.getElementById("combo-box-btn-error");
