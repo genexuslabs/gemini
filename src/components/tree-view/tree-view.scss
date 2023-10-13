@@ -13,11 +13,11 @@ gxg-tree-view {
 
 ch-tree-x {
   @include gxg-scrollbar();
-}
 
-ch-tree-x::part(tree-x-container) {
-  position: relative;
-  width: 100%;
+  > div.ch-tree-x-container {
+    position: relative;
+    width: 100%;
+  }
 }
 
 :not(.ch-tree-x-dragging-item)
