@@ -11,15 +11,6 @@ gxg-tree-view {
   display: contents;
 }
 
-ch-tree-x {
-  @include gxg-scrollbar();
-
-  > div.ch-tree-x-container {
-    position: relative;
-    width: 100%;
-  }
-}
-
 :not(.ch-tree-x-dragging-item)
   ch-tree-x-list-item:not([selected])::part(header):hover {
   //to do
@@ -41,6 +32,10 @@ ch-tree-x-list-item
 ---------------------------*/
 
 ch-tree-x-list-item {
+  .tree-view-item::part(dashed-line) {
+    border-color: var(--gray-02);
+  }
+
   //dynamic icons (second state)
   &.tree-view-item--folder::part(action)::before,
   &.tree-view-item--module::part(action)::before {
