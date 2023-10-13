@@ -1571,6 +1571,7 @@
           testTreeX.editableItems = event.target.checked;
         });
 
+        /*(va)*/
         const checkAllCheckbox = document.getElementById("check-all");
         checkAllCheckbox.addEventListener("input", (event) => {
           const checked = event.target.checked;
@@ -1646,9 +1647,9 @@
           "import-objects-model-btn"
         );
         importObjectsBtn.addEventListener("click", () => {
-          testTreeX.checkbox = true;
+          testTreeX.checkbox = true; /*va en el render del tree*/
           testTreeX.checked = true;
-          testTreeX.toggleCheckboxes = true;
+          testTreeX.toggleCheckboxes = true; /*va en el render del tree*/
 
           // It must be the last property updated, since with HTML the
           // properties change won't be queued to be updated in the same lifecycle
@@ -1696,6 +1697,7 @@
           "checked-items-textblock"
         );
 
+        /*checked items*/
         testTreeX.addEventListener("checkedItemsChange", (event) => {
           if (event.detail == null) {
             checkAllCheckbox.checked = false;
@@ -1720,6 +1722,7 @@
           checkAllCheckbox.indeterminate = !allItemsHaveTheSameCheckedValue;
 
           // Dummy way to check if the current treeModel is "Import Objects"
+          /*Este if es innecesario para los dialogos pero el contenido si va (no va)*/
           if (testTreeX.treeModel[0]?.id === "Category") {
             allItemsWithCheckbox.forEach((itemUIModel) => {
               const itemInfo = itemUIModel.item;
@@ -1748,7 +1751,7 @@
             });
           }
 
-          // Print checked items
+          // Print checked items /*Esto se va tambien (no va)*/
           checkedItemsTextBlock.innerHTML = `<br>+ + + + + Checked items + + + + +<br>
           ${allItemsWithCheckbox
             .filter((itemUIModel) => itemUIModel.item.checked)
