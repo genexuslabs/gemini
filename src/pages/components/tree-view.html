@@ -397,7 +397,12 @@
           >
 
           <ch-textblock id="selected-items-textblock"
-            ><br />+ + + + + Selected items + + + + +</ch-textblock
+            ><br />+ + + + + Selected Items + + + + +</ch-textblock
+          >
+
+          <ch-textblock id="checked-items-textblock"
+            ><br />+ + + + + Checked items + + + + +<br /><br />+ + + + +
+            Unchecked items + + + + +</ch-textblock
           >
         </div>
       </div>
@@ -472,6 +477,7 @@
         </button>
         <button id="update-big-model-btn">Set big model</button>
         <button id="kb-explorer-model-btn">KB Explorer</button>
+        <button id="import-objects-model-btn">Import Objects</button>
       </div>
     </div>
 
@@ -509,6 +515,7 @@
           ],
         },
       ];
+
       const modelTinyUpdated = [
         {
           id: "number-1",
@@ -898,6 +905,7 @@
           ],
         },
       ];
+
       const modelLazyUpdated1 = [
         {
           id: "lazy-loaded-1",
@@ -936,6 +944,118 @@
           leftImgSrc: "objects/patterns",
           checkbox: true,
           dragDisabled: true,
+        },
+      ];
+
+      const importObjectsModel = [
+        {
+          id: "Category",
+          caption: "Category (1)",
+          leftImgSrc: "objects/category",
+          items: [
+            {
+              id: "Category.Main_Programs",
+              caption: "Main Programs",
+              leftImgSrc: "objects/category",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "Design System",
+          caption: "Design System (5)",
+          leftImgSrc: "objects/dso",
+          items: [
+            {
+              id: "Design_System.ActionGroup",
+              caption: "ActionGroup",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.DynamicActionGroup",
+              caption: "DynamicActionGroup",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.UserControls",
+              caption: "UserControls",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.Dropdown",
+              caption: "Dropdown",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.UnanimoAngularWithoutUserControls",
+              caption: "UnanimoAngularWithoutUserControls",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "Module",
+          caption: "Module (4/6)",
+          leftImgSrc: "objects/module",
+          indeterminate: true,
+          items: [
+            {
+              id: "Module.General",
+              caption: "General",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.General.UI",
+              caption: "General.UI",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.General.Services",
+              caption: "General.Services",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.GeneralReporting",
+              caption: "GeneralReporting",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.GeneXusUnanimo",
+              caption: "GeneXusUnanimo",
+              checked: false,
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.GeneXus",
+              caption: "GeneXus",
+              checked: false,
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "Data Provider",
+          caption: "Data Provider (1)",
+          leftImgSrc: "objects/data-provider",
+          items: [
+            {
+              id: "Data_Provider.General.UI.SidebarItemsDP",
+              caption: "General.UI.SidebarItemsDP",
+              leftImgSrc: "objects/data-provider",
+              leaf: true,
+            },
+          ],
         },
       ];
 
@@ -1024,7 +1144,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/panel-for-sd",
+          leftImgSrc: "objects/sd-panel",
           order: KB_EXPLORER_ORDER.sdPanel,
         },
         {
@@ -1305,7 +1425,7 @@
           caption: "Login",
           class: "tree-view-item tree-view-item--pending-commit",
           leaf: true,
-          leftImgSrc: "objects/panel-for-sd",
+          leftImgSrc: "objects/sd-panel",
           order: KB_EXPLORER_ORDER.sdPanel,
         },
       ];
@@ -1315,7 +1435,7 @@
           id: "Root_Module.General.UI.Q2.ContactUs",
           caption: "ContactUs",
           leaf: true,
-          leftImgSrc: "objects/panel-for-sd",
+          leftImgSrc: "objects/sd-panel",
           order: KB_EXPLORER_ORDER.sdPanel,
         },
         {
@@ -1323,14 +1443,14 @@
           caption: "ProjectDetail",
           class: "tree-view-item tree-view-item--pending-commit",
           leaf: true,
-          leftImgSrc: "objects/panel-for-sd",
+          leftImgSrc: "objects/sd-panel",
           order: KB_EXPLORER_ORDER.sdPanel,
         },
         {
           id: "Root_Module.General.UI.Q2.MyApps",
           caption: "MyApps",
           leaf: true,
-          leftImgSrc: "objects/panel-for-sd",
+          leftImgSrc: "objects/sd-panel",
           order: KB_EXPLORER_ORDER.sdPanel,
         },
       ];
@@ -1455,6 +1575,7 @@
         checkAllCheckbox.addEventListener("input", (event) => {
           const checked = event.target.checked;
 
+          checkAllCheckbox.indeterminate = false;
           testTreeX.updateAllItemsProperties({ checked: checked });
         });
 
@@ -1514,7 +1635,24 @@
 
         const kbExplorerBtn = document.getElementById("kb-explorer-model-btn");
         kbExplorerBtn.addEventListener("click", () => {
+          testTreeX.checkbox = false;
+          testTreeX.checked = false;
+          testTreeX.toggleCheckboxes = false;
+
           testTreeX.treeModel = kbExplorerModel;
+        });
+
+        const importObjectsBtn = document.getElementById(
+          "import-objects-model-btn"
+        );
+        importObjectsBtn.addEventListener("click", () => {
+          testTreeX.checkbox = true;
+          testTreeX.checked = true;
+          testTreeX.toggleCheckboxes = true;
+
+          // It must be the last property updated, since with HTML the
+          // properties change won't be queued to be updated in the same lifecycle
+          testTreeX.treeModel = importObjectsModel;
         });
 
         const scrollIntoVisibleBtn = document.getElementById(
@@ -1554,12 +1692,83 @@
           Item Metadata: ${!event.detail.metadata}<br>`;
         });
 
+        const checkedItemsTextBlock = document.getElementById(
+          "checked-items-textblock"
+        );
+
+        testTreeX.addEventListener("checkedItemsChange", (event) => {
+          if (event.detail == null) {
+            checkAllCheckbox.checked = false;
+            checkAllCheckbox.indeterminate = false;
+            return;
+          }
+          const allItemsWithCheckbox = [...event.detail.values()];
+
+          if (allItemsWithCheckbox.length === 0) {
+            checkAllCheckbox.checked = false;
+            checkAllCheckbox.indeterminate = false;
+            return;
+          }
+
+          const firstItemCheckedValue = allItemsWithCheckbox[0].item.checked;
+
+          const allItemsHaveTheSameCheckedValue = allItemsWithCheckbox.every(
+            (treeItem) => treeItem.item.checked === firstItemCheckedValue
+          );
+
+          checkAllCheckbox.checked = firstItemCheckedValue;
+          checkAllCheckbox.indeterminate = !allItemsHaveTheSameCheckedValue;
+
+          // Dummy way to check if the current treeModel is "Import Objects"
+          if (testTreeX.treeModel[0]?.id === "Category") {
+            allItemsWithCheckbox.forEach((itemUIModel) => {
+              const itemInfo = itemUIModel.item;
+
+              // Update the amount of checked values
+              if (itemInfo.leaf !== true) {
+                const totalItems = itemInfo.items.length;
+                // console.log(itemInfo.items);
+
+                const totalItemsChecked = itemInfo.items.filter(
+                  (itemUIModel) => itemUIModel.checked
+                ).length;
+
+                const newItemCaption =
+                  totalItems !== totalItemsChecked
+                    ? `${itemInfo.id} (${totalItemsChecked}/${totalItems})`
+                    : `${itemInfo.id} (${totalItems})`;
+
+                // Only update the item caption if needed
+                if (newItemCaption !== itemInfo.caption) {
+                  testTreeX.updateItemsProperties([itemInfo.id], {
+                    caption: newItemCaption,
+                  });
+                }
+              }
+            });
+          }
+
+          // Print checked items
+          checkedItemsTextBlock.innerHTML = `<br>+ + + + + Checked items + + + + +<br>
+          ${allItemsWithCheckbox
+            .filter((itemUIModel) => itemUIModel.item.checked)
+            .map((itemUIModel) => itemUIModel.item.id)
+            .join("<br>")}
+          <br>
+          <br>+ + + + + Unchecked items + + + + +<br>
+          ${allItemsWithCheckbox
+            .filter((itemUIModel) => !itemUIModel.item.checked)
+            .map((itemUIModel) => itemUIModel.item.id)
+            .join("<br>")}
+          `;
+        });
+
         const selectedItemsTextBlock = document.getElementById(
           "selected-items-textblock"
         );
 
         testTreeX.addEventListener("selectedItemsChange", (event) => {
-          selectedItemsTextBlock.innerHTML = `<br>+ + + + + SelectedItems + + + + +<br>
+          selectedItemsTextBlock.innerHTML = `<br>+ + + + + Selected Items + + + + +<br>
           ${[...event.detail.keys()].join("<br>")}`;
         });
 
@@ -1607,7 +1816,7 @@
 
             setTimeout(() => {
               resolve(lazyModel);
-            }, 1000); // Resolves or rejects after 1 second
+            }, 2000); // Resolves or rejects after 1 second
           });
 
         testTreeX.dropItemsCallback = () =>
