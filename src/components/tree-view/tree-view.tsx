@@ -134,7 +134,7 @@ export class GxgTreeView {
    * `true` to display the relation between tree items and tree lists using
    * lines.
    */
-  @Prop() readonly showLines: TreeXLines = "none";
+  @Prop() readonly showLines: TreeXLines = "all";
 
   /**
    * Callback that is executed when the treeModel is changed to order its items.

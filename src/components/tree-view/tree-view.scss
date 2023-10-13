@@ -15,6 +15,11 @@ ch-tree-x {
   @include gxg-scrollbar();
 }
 
+ch-tree-x::part(tree-x-container) {
+  position: relative;
+  width: 100%;
+}
+
 :not(.ch-tree-x-dragging-item)
   ch-tree-x-list-item:not([selected])::part(header):hover {
   //to do
@@ -91,7 +96,6 @@ ch-tree-x-list-item {
   }
   &[selected]::part(header) {
     background-color: var(--gxg-background-color--selected);
-    @include form-element-common-styles-focus-type-1();
     &:hover {
       background-color: var(--gxg-background-color--selected-hover);
     }
