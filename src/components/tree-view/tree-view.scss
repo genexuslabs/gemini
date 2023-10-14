@@ -129,7 +129,7 @@ ch-tree-x-list-item {
   &::part(expandable-button) {
     background-color: var(--color-hover);
     margin-inline-start: var(--spacing-comp-01);
-    margin-inline-end: 0;
+    margin-inline-end: var(--spacing-comp-01);
     &::before {
       background-color: var(--gray-04);
       -webkit-mask-position: center;
@@ -146,7 +146,7 @@ ch-tree-x-list-item {
   //action
   &::part(action) {
     text-transform: capitalize;
-    margin-inline-start: var(--spacing-comp-02);
+    margin-inline-start: var(--spacing-comp-01);
   }
   //action / left-img
   &::part(left-img) {
