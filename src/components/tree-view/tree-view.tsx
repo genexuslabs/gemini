@@ -68,6 +68,11 @@ export class GxgTreeView {
   @State() waitDropProcessing = false;
 
   /**
+   * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute
+   */
+  @Prop({ reflect: true }) positionRelative = false;
+
+  /**
    * Set this attribute if you want display a checkbox in all items by default.
    */
   @Prop() readonly checkbox: boolean = false;
@@ -142,7 +147,7 @@ export class GxgTreeView {
    * `true` to display the relation between tree items and tree lists using
    * lines.
    */
-  @Prop() readonly showLines: TreeXLines = "none";
+  @Prop() readonly showLines: TreeXLines = "all";
 
   /**
    * Callback that is executed when the treeModel is changed to order its items.

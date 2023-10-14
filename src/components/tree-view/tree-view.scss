@@ -11,6 +11,14 @@ gxg-tree-view {
   display: contents;
 }
 
+gxg-tree-view[position-relative] {
+  ch-tree-x .ch-tree-x-container {
+    position: relative;
+    width: 100%;
+    padding: var(--spacing-comp-01) 0;
+  }
+}
+
 :not(.ch-tree-x-dragging-item)
   ch-tree-x-list-item:not([selected])::part(header):hover {
   //to do

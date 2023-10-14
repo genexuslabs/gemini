@@ -321,6 +321,28 @@ ICON ONLY
   }
 }
 
+/*********************************
+GRAB ATTENTION ANIMATION
+*********************************/
+:host(.button--primary-text-only[grab-attention]:not([disabled])),
+:host(.button--primary-text-icon[grab-attention]:not([disabled])),
+:host(.button--primary-icon-only[grab-attention]:not([disabled])) {
+  .button-native:not(:hover) {
+    animation-name: grabAttentionPrimary;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+}
+@keyframes grabAttentionPrimary {
+  from {
+    background-color: var(--color-primary-enabled);
+  }
+  to {
+    background-color: var(--color-primary-hover);
+  }
+}
+
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/

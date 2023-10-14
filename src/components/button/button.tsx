@@ -25,6 +25,11 @@ export class GxgButton {
   *********************************/
 
   /**
+   * The presence of this attribute with make the icon do a background color animation that will grab user attention
+   */
+  @Prop({ reflect: true }) grabAttention = false;
+
+  /**
    * The presence of this attribute makes the icon always black
    */
   @Prop() alwaysBlack = false;

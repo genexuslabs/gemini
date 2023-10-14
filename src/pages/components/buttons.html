@@ -15,6 +15,7 @@
     <style>
       body {
         background-color: var(--color-background);
+        font-family: var(--font-family-primary);
       }
     </style>
   </head>
@@ -131,6 +132,36 @@
 
     <div>
       <gxg-button type="primary-text-only" full-width>Full width</gxg-button>
+    </div>
+
+    <p>grab attention</p>
+    <div>
+      <gxg-button type="primary-text-only" grab-attention
+        >Grab attention</gxg-button
+      >
+      <gxg-button
+        grab-attention
+        type="primary-text-icon"
+        icon="gemini-tools/folder"
+        >Label</gxg-button
+      >
+      <gxg-button
+        type="primary-icon-only"
+        grab-attention
+        icon="gemini-tools/folder"
+        >Label</gxg-button
+      >
+      <!--disabled -->
+      <gxg-button disabled type="primary-text-only" grab-attention
+        >Grab attention</gxg-button
+      >
+      <gxg-button
+        disabled
+        grab-attention
+        type="primary-text-icon"
+        icon="gemini-tools/folder"
+        >Label</gxg-button
+      >
     </div>
 
     <button id="set-focus-button">Set focus</button>
