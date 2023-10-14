@@ -106,6 +106,9 @@ ch-tree-x-list-item {
     &:focus {
       @include form-element-common-styles-focus-type-1();
     }
+
+    display: flex;
+    gap: var(--spacing-comp-01);
   }
   &[selected]::part(header) {
     background-color: var(--gxg-background-color--selected);
@@ -127,8 +130,9 @@ ch-tree-x-list-item {
   //expandable-button
   &::part(expandable-button) {
     background-color: var(--color-hover);
-    margin-inline-start: var(--spacing-comp-01);
-    margin-inline-end: var(--spacing-comp-01);
+    // margin-inline-start: var(--spacing-comp-01);
+    // margin-inline-end: var(--spacing-comp-01);
+    margin-inline-end: 0;
     &::before {
       background-color: var(--gray-04);
       -webkit-mask-position: center;
@@ -142,15 +146,23 @@ ch-tree-x-list-item {
     }
   }
 
+  //checkbox
+  &::part(checkbox) {
+    margin-inline-end: 0;
+  }
+
   //action
   &::part(action) {
     text-transform: capitalize;
-    margin-inline-start: var(--spacing-comp-01);
+    display: flex;
+    gap: var(--spacing-comp-01);
+    //margin-inline-start: var(--spacing-comp-01);
   }
   //action / left-img
   &::part(left-img) {
     width: var(--spacing-comp-04);
     height: var(--spacing-comp-04);
+    margin-inline-end: 0;
   }
 
   //downloading
