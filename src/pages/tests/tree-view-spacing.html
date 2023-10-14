@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="darks">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Tree View</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 16px;
+      }
+
+      .trees-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        gap: 16px;
+      }
+
+      .trees-container > *:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+      .trees-container > *:nth-child(2) {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+      .trees-container > *:nth-child(3) {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+      .trees-container > *:nth-child(4) {
+        grid-area: 1 / 4 / 2 / 5;
+      }
+      .trees-container > *:nth-child(5) {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+      .trees-container > *:nth-child(6) {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      .trees-container > *:nth-child(7) {
+        grid-area: 2 / 3 / 3 / 4;
+      }
+      .trees-container > *:nth-child(8) {
+        grid-area: 2 / 4 / 3 / 5;
+      }
+
+      h3 {
+        font-size: 12px;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .tree-container {
+        display: flex;
+      }
+      body {
+        padding: 18px;
+      }
+      .ch-tree-x-container {
+        border: 1px solid gray;
+      }
+      .ch-tree-x-container {
+        position: relative !important;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /*model minimal*/
+      const minimal = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: true,
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: true,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: true,
+        },
+      ];
+
+      /*only checkbox*/
+      const onlyCheckbox = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          checkbox: true,
+          leaf: true,
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          checkbox: true,
+          leaf: true,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          checkbox: true,
+          leaf: true,
+        },
+      ];
+
+      /*only toggle*/
+      const onlyToggle = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+      ];
+
+      /*only icon*/
+      const onlyIcon = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leftImgSrc: "ch-icon-assets/java",
+          leaf: true,
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          checkbox: true,
+          leftImgSrc: "ch-icon-assets/java",
+          leaf: true,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          checkbox: true,
+          leftImgSrc: "ch-icon-assets/java",
+          leaf: true,
+        },
+      ];
+
+      /*toggle + icon*/
+      const toggleIcon = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leftImgSrc: "ch-icon-assets/java",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+      ];
+
+      /*toggle + checkbox*/
+      const toggleCheckbox = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          checkbox: true,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          checkbox: true,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+      ];
+
+      /* (toggle + icon + checkbox) */
+      const complete = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leftImgSrc: "ch-icon-assets/java",
+          leaf: false,
+          checkbox: true,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+      ];
+    </script>
+
+    <!--trees container 1-->
+    <div class="trees-container">
+      <!-- minimal -->
+      <div class="flex-container">
+        <h3>minimal</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="minimal"></gxg-tree-view>
+        </div>
+      </div>
+
+      <!-- only checkbox -->
+      <div class="flex-container">
+        <h3>only checkbox</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="only-checkbox"></gxg-tree-view>
+        </div>
+      </div>
+
+      <!-- only toggle -->
+      <div class="flex-container">
+        <h3>only toggle</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="only-toggle"></gxg-tree-view>
+        </div>
+      </div>
+
+      <!-- only icon -->
+      <div class="flex-container">
+        <h3>only icon</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="only-icon"></gxg-tree-view>
+        </div>
+      </div>
+
+      <!-- toggle + icon -->
+      <div class="flex-container">
+        <h3>toggle + icon</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="toggle-icon"></gxg-tree-view>
+        </div>
+      </div>
+
+      <!-- toggle + checkbox -->
+      <div class="flex-container">
+        <h3>toggle + checkbox</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="toggle-checkbox"></gxg-tree-view>
+        </div>
+      </div>
+
+      <!-- complete (toggle + icon + checkbox) -->
+      <div class="flex-container">
+        <h3>complete: (toggle + icon + checkbox)</h3>
+        <div class="tree-container">
+          <gxg-tree-view id="complete"></gxg-tree-view>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /*minimal*/
+      const minimalTree = document.getElementById("minimal");
+      const onlyCheckboxTree = document.getElementById("only-checkbox");
+
+      /*only checkbox*/
+      minimalTree.treeModel = minimal;
+      onlyCheckboxTree.treeModel = onlyCheckbox;
+
+      /*only toggle*/
+      const onlyToggleTree = document.getElementById("only-toggle");
+      onlyToggleTree.treeModel = onlyToggle;
+
+      /*only icon*/
+      const onlyIconTree = document.getElementById("only-icon");
+      onlyIconTree.treeModel = onlyIcon;
+
+      /*toggle + icon*/
+      const toggleIconTree = document.getElementById("toggle-icon");
+      toggleIconTree.treeModel = toggleIcon;
+
+      /*toggle + checkbox*/
+      const toggleCheckboxTree = document.getElementById("toggle-checkbox");
+      toggleCheckboxTree.treeModel = toggleCheckbox;
+
+      /*complete: toggle + icon + checkbox*/
+      const completeTree = document.getElementById("complete");
+      completeTree.treeModel = complete;
+    </script>
+  </body>
+</html>
