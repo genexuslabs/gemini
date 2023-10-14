@@ -9,13 +9,24 @@ gxg-tree-view {
   font-weight: var(--font-weight-regular);
   color: var(--color-on-background);
   display: contents;
+
+  ch-tree-x .ch-tree-x-container {
+    padding: var(--spacing-comp-01);
+    padding-inline-start: 0;
+  }
 }
 
 gxg-tree-view[position-relative] {
   ch-tree-x .ch-tree-x-container {
     position: relative;
     width: 100%;
-    padding: var(--spacing-comp-01) 0;
+  }
+}
+
+/*padding (added by Gemini)*/
+gxg-tree-view[no-padding] {
+  ch-tree-x .ch-tree-x-container {
+    padding: 0;
   }
 }
 
@@ -118,6 +129,7 @@ ch-tree-x-list-item {
   &::part(expandable-button) {
     background-color: var(--color-hover);
     margin-inline-start: var(--spacing-comp-01);
+    margin-inline-end: 0;
     &::before {
       background-color: var(--gray-04);
       -webkit-mask-position: center;
@@ -134,6 +146,7 @@ ch-tree-x-list-item {
   //action
   &::part(action) {
     text-transform: capitalize;
+    margin-inline-start: var(--spacing-comp-02);
   }
   //action / left-img
   &::part(left-img) {

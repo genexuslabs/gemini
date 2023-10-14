@@ -2072,7 +2072,11 @@ export namespace Components {
      */
     multiSelection: boolean;
     /**
-     * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute
+     * Removes the default padding on '.ch-tree-x-container' (Added by Gemini)
+     */
+    noPadding: boolean;
+    /**
+     * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)
      */
     positionRelative: boolean;
     /**
@@ -4913,6 +4917,10 @@ declare namespace LocalJSX {
      */
     multiSelection?: boolean;
     /**
+     * Removes the default padding on '.ch-tree-x-container' (Added by Gemini)
+     */
+    noPadding?: boolean;
+    /**
      * Fired when the checked items change.
      */
     onCheckedItemsChange?: (
@@ -4935,7 +4943,7 @@ declare namespace LocalJSX {
       event: CustomEvent<Map<string, TreeXListItemSelectedInfo>>
     ) => void;
     /**
-     * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute
+     * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)
      */
     positionRelative?: boolean;
     /**

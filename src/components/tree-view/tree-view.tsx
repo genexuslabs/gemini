@@ -68,7 +68,12 @@ export class GxgTreeView {
   @State() waitDropProcessing = false;
 
   /**
-   * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute
+   * Removes the default padding on '.ch-tree-x-container' (Added by Gemini)
+   */
+  @Prop({ reflect: true }) noPadding = false;
+
+  /**
+   * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)
    */
   @Prop({ reflect: true }) positionRelative = false;
 
