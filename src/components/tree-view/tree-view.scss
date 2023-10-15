@@ -97,7 +97,7 @@ ch-tree-x-list-item {
   //css variables overrides
   --expandable-button-width: var(--spacing-comp-04);
 
-  //header
+  //header (no)
   &::part(header):first-child {
     margin-inline-start: var(--spacing-comp-01);
   }
@@ -106,6 +106,11 @@ ch-tree-x-list-item {
     padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
     border: 1px solid transparent;
     height: var(--spacing-comp-05);
+
+    &:hover {
+      background-color: var(--gxg-background-color--hover);
+      color: var(--gxg-color--hover);
+    }
 
     &:focus {
       @include form-element-common-styles-focus-type-1();
