@@ -210,11 +210,13 @@
             {
               id: "number-1.1",
               caption: "number-1.1 label",
+              checkbox: true,
               leaf: true,
             },
             {
               id: "number-1.1",
               caption: "number-1.1 label",
+              checkbox: true,
               leaf: true,
             },
           ],
@@ -321,6 +323,14 @@
         </div>
       </div>
     </div>
+
+    <gxg-form-checkbox
+      id="show-inherited-classes"
+      required
+      validation-message="This is an error message"
+      information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+      display-validation-styles
+    ></gxg-form-checkbox>
 
     <script>
       /*minimal*/

@@ -45,6 +45,7 @@ TYPOGRAPHY
 .gxg-title-01 {
   @include gxg-title-01;
 }
+
 /*Title 01 (Negative)*/
 @mixin gxg-title-01--negative {
   @include gxg-title-01;
@@ -75,6 +76,7 @@ TYPOGRAPHY
 .gxg-title-02--negative {
   @include gxg-title-02--negative;
 }
+
 /*Title 03*/
 @mixin gxg-title-03 {
   font-family: var(--font-family-primary);
@@ -96,6 +98,7 @@ TYPOGRAPHY
 .gxg-title-03--negative {
   @include gxg-title-03--negative;
 }
+
 /*Title 04*/
 @mixin gxg-title-04 {
   font-family: var(--font-family-primary);
@@ -116,6 +119,7 @@ TYPOGRAPHY
 .gxg-title-04--negative {
   @include gxg-title-04--negative;
 }
+
 /*Title 05*/
 @mixin gxg-title-05 {
   font-family: var(--font-family-primary);
@@ -243,6 +247,7 @@ TYPOGRAPHY
 .gxg-alert-success {
   @include gxg-alert-success;
 }
+
 /*Tab*/
 @mixin gxg-tab--active {
   font-weight: var(--font-weight-bold);
@@ -270,6 +275,7 @@ TYPOGRAPHY
     @include gxg-tab--disabled;
   }
 }
+
 /*Label*/
 $gxg-label-color: var(--color-primary-enabled);
 @mixin gxg-label {
@@ -441,6 +447,7 @@ FORM ELEMENTS
     outline-offset: 0;
   }
 }
+
 @mixin form-element-common-styles-focus-type-2 {
   border-color: var(--color-on-primary);
   box-shadow: 0px 0px 0px 1px var(--color-primary-enabled);
@@ -459,6 +466,7 @@ FORM ELEMENTS
     --checkmark-border-color: var(--color-#{$status}-dark);
   }
 }
+
 //Warning (remove)
 @mixin form-element-common-styles-warning {
   border-color: var(--color-warning-dark);
@@ -469,6 +477,7 @@ FORM ELEMENTS
   outline-color: var(--color-warning-dark);
   border-color: var(--color-warning-dark);
 }
+
 //Error (remove)
 @mixin form-element-common-styles-error {
   border-color: var(--color-error-dark);
@@ -511,4 +520,92 @@ FORM ELEMENTS
 
 .gxg-scrollbar {
   @include gxg-scrollbar;
+}
+
+//CHECKBOX
+@mixin checkbox($part) {
+  //enabled
+  @if $part == "container" {
+    display: block;
+    width: var(--gxg-checkbox-size);
+    height: var(--gxg-checkbox-size);
+    border: none;
+    position: relative;
+    // override chameleon styles
+    box-shadow: none !important;
+    // end override chameleon styles
+  }
+  @if $part == "input" {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+  @if $part == "option" {
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-width: var(--border-width-sm);
+    border-style: var(--border-style-regular);
+    border-radius: var(--border-radius-md);
+    border-color: var(--gray-04);
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background: var(--color-background);
+    // override chameleon styles
+    opacity: 1;
+    left: 0;
+    top: 0;
+    transform: none;
+    -webkit-mask: none;
+    // end override chameleon styles
+    &:after {
+      position: absolute;
+      display: block;
+      content: "";
+      border: solid;
+      border-color: transparent;
+    }
+  }
+  //focus
+  @if $part == "option--focus" {
+    outline-style: solid;
+    outline-color: var(--gxg-border-color--focused);
+    outline-width: var(--border-width-md);
+    outline-offset: -2px;
+  }
+  //checked
+  @if $part == "option--checked" {
+    &:after {
+      left: 5.5px;
+      top: 3px;
+      width: 4px;
+      height: 7px;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      border-color: var(--color-primary-active);
+      transition-property: border-color;
+      transition-duration: var(--ui-animaton-speed);
+      transition-timing-function: ease;
+    }
+  }
+  //indeterminate
+  @if $part == "option--indeterminate" {
+    &:after {
+      left: 50%;
+      top: 50%;
+      width: 8px;
+      height: 1.5px;
+      border: 0;
+      background-color: var(--color-primary-active);
+      -webkit-transform: rotate(0) translateY(-50%) translateX(-50%);
+      -ms-transform: rotate(0) translateY(-50%) translateX(-50%);
+      transform: rotate(0) translateY(-50%) translateX(-50%);
+    }
+  }
 }

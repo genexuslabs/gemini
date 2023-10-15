@@ -50,6 +50,7 @@ ch-tree-x-list-item
 ---------------------------*/
 
 ch-tree-x-list-item {
+  --checkbox-size: var(--gxg-checkbox-size);
   .tree-view-item::part(dashed-line) {
     border-color: var(--gray-02);
   }
@@ -97,6 +98,9 @@ ch-tree-x-list-item {
   --expandable-button-width: var(--spacing-comp-04);
 
   //header
+  &::part(header):first-child {
+    margin-inline-start: var(--spacing-comp-01);
+  }
   &::part(header) {
     //padding-inline-start: var(--spacing-comp-01);
     padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
@@ -149,6 +153,19 @@ ch-tree-x-list-item {
   //checkbox
   &::part(checkbox) {
     margin-inline-end: 0;
+  }
+  &::part(checkbox__container) {
+    @include checkbox("container");
+  }
+  &::part(checkbox__input) {
+    @include checkbox("input");
+  }
+  &::part(checkbox__option) {
+    @include checkbox("option");
+  }
+  //checked
+  &::part(checkbox__option checkbox__checked) {
+    @include checkbox("option--checked");
   }
 
   //action
