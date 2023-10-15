@@ -167,6 +167,10 @@ ch-tree-x-list-item {
   &::part(checkbox__option checkbox__checked) {
     @include checkbox("option--checked");
   }
+  //indeterminate
+  &::part(checkbox__option checkbox__indeterminate) {
+    @include checkbox("option--indeterminate");
+  }
 
   //action
   &::part(action) {
