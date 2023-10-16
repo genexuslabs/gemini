@@ -11,6 +11,10 @@
     margin: 0;
     padding: 0;
     margin: 0 auto;
+
+    &.no-line {
+      text-decoration: none;
+    }
   }
 }
 
@@ -42,6 +46,19 @@
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
+:host(.large) {
+  .gxg-text,
+  .gxg-text--gray,
+  .gxg-quote,
+  .gxg-link,
+  .gxg-link-gray,
+  .gxg-alert-error,
+  .gxg-alert-warning,
+  .gxg-alert-success {
+    font-size: var(--font-size-lg);
+  }
+}
+
 :host(.large) {
   .gxg-text,
   .gxg-text--gray,

@@ -73,6 +73,18 @@ export class GxgText {
           </a>
         );
         break;
+      case "text-link-no-line":
+        text = (
+          <a
+            style={{ maxWidth: this.maxWidth }}
+            href={this.href}
+            target={this.target}
+            class={{ "gxg-link": true, "no-line": true }}
+          >
+            {<slot></slot>}
+          </a>
+        );
+        break;
       case "text-link-gray":
         text = (
           <a
@@ -80,6 +92,18 @@ export class GxgText {
             href={this.href}
             target={this.target}
             class="gxg-link-gray"
+          >
+            {<slot></slot>}
+          </a>
+        );
+        break;
+      case "text-link-gray-no-line":
+        text = (
+          <a
+            style={{ maxWidth: this.maxWidth }}
+            href={this.href}
+            target={this.target}
+            class={{ "gxg-link-gray": true, "no-line": true }}
           >
             {<slot></slot>}
           </a>
@@ -126,7 +150,9 @@ export type TextType =
   | "text-gray"
   | "text-quote"
   | "text-link"
+  | "text-link-no-line"
   | "text-link-gray"
+  | "text-link-gray-no-line"
   | "text-alert-error"
   | "text-alert-warning"
   | "text-alert-success";
