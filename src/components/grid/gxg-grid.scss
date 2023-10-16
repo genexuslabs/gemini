@@ -149,7 +149,9 @@ ch-grid-row {
   background-color: var(--color-background);
   color: var(--gray-04);
   border: 2px solid transparent;
-
+  ch-grid-cell {
+    border-top-width: 1px;
+  }
   &:nth-of-type(odd) {
     background-color: var(--gray-00);
   }
@@ -177,7 +179,7 @@ ch-grid-row[selected] {
   }
   + ch-grid-row[selected] {
     ch-grid-cell {
-      border-top-color: var(--color-secondary-hover);
+      border-top-color: var(--gxg-border-color--selected);
     }
   }
 }
