@@ -108,9 +108,11 @@ export class GxgTabButton {
   printIcon() {
     if (this.icon !== null) {
       if (this.disabled) {
-        return <gxg-icon color="disabled" type={this.icon}></gxg-icon>;
+        return (
+          <gxg-icon color="disabled" type={this.icon} part="icon"></gxg-icon>
+        );
       }
-      return <gxg-icon type={this.icon}></gxg-icon>;
+      return <gxg-icon type={this.icon} part="icon"></gxg-icon>;
     }
   }
 
@@ -156,7 +158,9 @@ export class GxgTabButton {
             part={this.parts.button}
           >
             {this.printIcon()}
-            <span class="tab-button__text">{this.tabLabel}</span>
+            <span class="tab-button__text" part="button-text">
+              {this.tabLabel}
+            </span>
           </button>
           <slot></slot>
         </li>

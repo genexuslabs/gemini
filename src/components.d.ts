@@ -1730,6 +1730,7 @@ export namespace Components {
     tab: string;
   }
   interface GxgTabBar {
+    appendTabButtons: () => Promise<void>;
     /**
      * The presence of this attribute displays a border-bottom line on the tab bar
      */
@@ -1738,6 +1739,10 @@ export namespace Components {
      * Hides the tab-bar
      */
     hidden: boolean;
+    /**
+     * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
+     */
+    scrollable: boolean;
   }
   interface GxgTabButton {
     /**
@@ -4584,6 +4589,10 @@ declare namespace LocalJSX {
      * Hides the tab-bar
      */
     hidden?: boolean;
+    /**
+     * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
+     */
+    scrollable?: boolean;
   }
   interface GxgTabButton {
     /**

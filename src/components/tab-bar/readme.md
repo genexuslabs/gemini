@@ -4,10 +4,19 @@
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                 | Type      | Default |
-| --------------- | ---------------- | --------------------------------------------------------------------------- | --------- | ------- |
-| `displayBorder` | `display-border` | The presence of this attribute displays a border-bottom line on the tab bar | `boolean` | `false` |
-| `hidden`        | `hidden`         | Hides the tab-bar                                                           | `boolean` | `false` |
+| Property        | Attribute        | Description                                                                                                           | Type      | Default |
+| --------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `displayBorder` | `display-border` | The presence of this attribute displays a border-bottom line on the tab bar                                           | `boolean` | `false` |
+| `hidden`        | `hidden`         | Hides the tab-bar                                                                                                     | `boolean` | `false` |
+| `scrollable`    | `scrollable`     | The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width. | `boolean` | `false` |
+
+## Methods
+
+### `appendTabButtons() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
 
 ## Dependencies
 

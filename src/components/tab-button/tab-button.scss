@@ -105,14 +105,22 @@
   width: 100%;
   box-sizing: border-box;
   .tab-button {
-    padding: 0 var(--spacing-comp-04);
+    padding: 0 var(--spacing-comp-02);
+    min-height: calc(var(--spacing-comp-06) * 0.85);
+    justify-content: flex-start;
   }
   @include ui-animation(background-color);
-
   .tab-button {
     &:after {
       display: none;
     }
+  }
+  .tab-button__text {
+    font-size: var(--font-size-md);
+  }
+  gxg-icon {
+    //display: none;
+    transform: scale(0.85);
   }
 }
 :host(.menu-button:hover) {

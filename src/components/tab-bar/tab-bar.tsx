@@ -7,6 +7,7 @@ import {
   Listen,
   Watch,
   Prop,
+  Method,
 } from "@stencil/core";
 import { TabsPosition } from "../tabs/tabs";
 import { exportParts } from "../../common/export-parts";
@@ -54,6 +55,11 @@ export class GxgTabBar {
   @Prop() displayBorder = false;
 
   /**
+   * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
+   */
+  @Prop({ reflect: true }) scrollable = false;
+
+  /**
    * Reading direction
    */
   @State() rtl = false;
@@ -88,6 +94,16 @@ export class GxgTabBar {
       }
     }
   };
+
+  @Method()
+  async appendTabButtons() {
+    if (!this.scrollable) {
+      const numberOfButtons = this.el.querySelectorAll("gxg-tab-button").length;
+      for (let i = 0; i <= numberOfButtons; i++) {
+        this.appendTabItemsToMenu();
+      }
+    }
+  }
 
   @Listen("tabActivated")
   tabActivatedHandler() {
@@ -125,6 +141,7 @@ export class GxgTabBar {
   }
 
   appendTabItemsToMenu() {
+    console.log("append");
     //This function appends tab-buttons into a tab-menu, as long as the tab-buttons are too tight
     const gxgTabsPosition = (this.el.parentElement as HTMLGxgTabsElement)
       .position;
@@ -191,19 +208,21 @@ export class GxgTabBar {
       this.rtl = true;
     }
 
-    const myObserver = new ResizeObserver((entries) => {
-      entries.forEach(() => {
-        //get any button space between text and button border
-        this.appendTabItemsToMenu();
+    if (!this.scrollable) {
+      const myObserver = new ResizeObserver((entries) => {
+        entries.forEach(() => {
+          //get any button space between text and button border
+          this.appendTabItemsToMenu();
+        });
       });
-    });
-    myObserver.observe(this.el.parentElement);
+      myObserver.observe(this.el.parentElement);
 
-    //Collapse buttons if they dont't fit in the available space already
+      //Collapse buttons if they dont't fit in the available space already
 
-    const numberOfButtons = this.el.querySelectorAll("gxg-tab-button").length;
-    for (let i = 0; i <= numberOfButtons; i++) {
-      this.appendTabItemsToMenu();
+      const numberOfButtons = this.el.querySelectorAll("gxg-tab-button").length;
+      for (let i = 0; i <= numberOfButtons; i++) {
+        this.appendTabItemsToMenu();
+      }
     }
 
     //Tabbar menu on bottom

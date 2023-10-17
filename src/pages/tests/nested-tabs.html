@@ -22,7 +22,91 @@
   <body>
     <div class="container">
       <gxg-tabs id="gxgTabsFruits" position="top">
-        <gxg-tab-bar slot="tab-bar-container" id="tab-bar">
+        <gxg-tab-bar slot="tab-bar-container" id="tab-bar-fruits" scrollable>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="apples"
+            tab="apples"
+            key="apples"
+            is-selected
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="bananas"
+            tab="bananas"
+            key="bananas"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="nested"
+            tab="nested"
+            key="nested"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="apples"
+            tab="apples"
+            key="apples"
+            is-selected
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="bananas"
+            tab="bananas"
+            key="bananas"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="nested"
+            tab="nested"
+            key="nested"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="apples"
+            tab="apples"
+            key="apples"
+            is-selected
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="bananas"
+            tab="bananas"
+            key="bananas"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="nested"
+            tab="nested"
+            key="nested"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="apples"
+            tab="apples"
+            key="apples"
+            is-selected
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="bananas"
+            tab="bananas"
+            key="bananas"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
+          <gxg-tab-button
+            slot="tab-bar"
+            tab-label="nested"
+            tab="nested"
+            key="nested"
+            icon="gemini-tools/settings"
+          ></gxg-tab-button>
           <gxg-tab-button
             slot="tab-bar"
             tab-label="apples"
@@ -48,7 +132,7 @@
         <gxg-tab tab="apples" key="apples" no-padding flex>
           <!--Nested Tabs-->
           <gxg-tabs id="gxgTabsColours" position="bottom">
-            <gxg-tab-bar slot="tab-bar-container" id="tab-bar">
+            <gxg-tab-bar slot="tab-bar-container" id="tab-bar-colors">
               <gxg-tab-button
                 slot="tab-bar"
                 tab-label="blue"
@@ -80,6 +164,18 @@
         </gxg-tab>
         <gxg-tab tab="nested" key="nested"> Here lies a nested tabs </gxg-tab>
       </gxg-tabs>
+      <br />
+      <button id="append-buttons-btn" style="width: 150px">
+        Append Buttons
+      </button>
     </div>
+
+    <script>
+      const tabBarFruits = document.getElementById("tab-bar-fruits");
+      const appendButtonsBtn = document.getElementById("append-buttons-btn");
+      appendButtonsBtn.addEventListener("click", () => {
+        tabBarFruits.appendTabButtons();
+      });
+    </script>
   </body>
 </html>

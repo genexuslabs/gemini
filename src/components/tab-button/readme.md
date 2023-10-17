@@ -28,6 +28,13 @@
 
 Type: `Promise<void>`
 
+## Shadow Parts
+
+| Part            | Description |
+| --------------- | ----------- |
+| `"button-text"` |             |
+| `"icon"`        |             |
+
 ## Dependencies
 
 ### Depends on
