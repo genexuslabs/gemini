@@ -313,7 +313,7 @@ export class GxgFormText implements FormComponent {
     if (this.type === "file") {
       this.icon = "controls/file-upload";
       this.iconPosition = "start";
-      this.placeholder = "Select a file";
+      this.placeholder = this.placeholder || "Select a file";
     }
   };
 
