@@ -76,10 +76,12 @@
 :root {
   --color-background: #fff;
   --color-background--rgb: 255, 255, 255; /*added by Bruno for the ide-loader*/
+  --color-shadow--rgb: 0, 0, 0; /*added by Bruno for gx-ide-ui shadows*/
 }
 :root.dark {
   --color-background: #1d1e22;
   --color-background--rgb: 0, 0, 0; /*added by Bruno for the ide-loader*/
+  --color-shadow--rgb: 255, 255, 255; /*added by Bruno for gx-ide-ui shadows*/
 }
 //ALERT COLORS
 :root {
