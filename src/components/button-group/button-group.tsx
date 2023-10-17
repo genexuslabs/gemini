@@ -96,14 +96,20 @@ export class GxgButtonGroup {
   }
 
   setActiveButton(event: MouseEvent) {
-    const buttonsHtmlCollection = this.el.children;
-    Array.from(buttonsHtmlCollection).forEach(function (button) {
-      button.removeAttribute("data-active");
-      button.setAttribute("aria-pressed", "false");
-    });
-    (event.target as HTMLElement).setAttribute("data-active", "");
-    (event.target as HTMLElement).setAttribute("aria-pressed", "true");
-    this.value = (event.target as HTMLButtonElement).value;
+    const tagName = (event.target as HTMLElement).tagName;
+    console.log(tagName);
+    if (tagName !== "BUTTON") {
+      //clicked button is disabled
+    } else {
+      const buttonsHtmlCollection = this.el.children;
+      Array.from(buttonsHtmlCollection).forEach(function (button) {
+        button.removeAttribute("data-active");
+        button.setAttribute("aria-pressed", "false");
+      });
+      (event.target as HTMLElement).setAttribute("data-active", "");
+      (event.target as HTMLElement).setAttribute("aria-pressed", "true");
+      this.value = (event.target as HTMLButtonElement).value;
+    }
   }
 
   setInitialActiveValue() {
@@ -199,7 +205,6 @@ export class GxgButtonGroup {
           class="button-group-container"
           onClick={this.setActiveButton.bind(this)}
         >
-          {this.disabled ? <div class="disabled-layer"></div> : null}
           <slot />
         </div>
       </Host>

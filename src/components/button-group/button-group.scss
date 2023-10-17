@@ -49,15 +49,6 @@
     background-color: var(--color-primary-enabled);
     border-right-color: var(--color-primary-enabled);
   }
-
-  //disabled layer
-  .disabled-layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: not-allowed;
-    z-index: 10;
-  }
 }
 /*Disabled*/
 :host(:not([outlined])) {
@@ -72,7 +63,6 @@
     color: var(--gxg-color--disabled);
     border-inline-end-color: var(--gxg-border-color--disabled);
     pointer-events: none;
-    cursor: initial;
   }
 }
 :host([outlined]) {
@@ -82,7 +72,7 @@
     color: var(--gxg-color--disabled);
     border-color: var(--gxg-border-color--disabled);
     pointer-events: none;
-    cursor: initial;
+    cursor: cell;
   }
 }
 :host(.button-group:not([disabled])) {
