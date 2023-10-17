@@ -152,12 +152,20 @@
       clear-button
       icon="gemini-tools/edit"
       icon-position="end"
-      label="Input with debounce"
+      label="select a file"
       placeholder="John Smith"
-      id="gxg-form-text-debounce"
+      id="gxg-form-text-file"
       type="file"
       multiple
     ></gxg-form-text>
+    <button id="open-file-btn">open file</button>
+    <script>
+      const openFileBtn = document.getElementById("open-file-btn");
+      const inputFile = document.getElementById("gxg-form-text-file");
+      openFileBtn.addEventListener("click", () => {
+        inputFile.openFile();
+      });
+    </script>
 
     <script>
       const formTextDebounce = document.getElementById(

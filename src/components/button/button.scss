@@ -49,6 +49,13 @@
 }
 
 /*********************************
+PRIMARY
+*********************************/
+:host(.button--primary) {
+  --gxg-border-color--focused: var(--color-primary-active--inverted);
+}
+
+/*********************************
 PRIMARY 'TEXT ONLY' BUTTON TYPE
 *********************************/
 :host(.button--primary-text-only) .button-native {
@@ -117,7 +124,6 @@ SECONDARY 'TEXT ONLY' BUTTON TYPE
   &:focus:not([disabled]):not(.no-tab-index) {
     @include gxg-label--focus;
     background: transparent;
-    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
   }
   &:active:not([disabled]) {
     @include gxg-label--active;
@@ -155,7 +161,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   &:focus:not([disabled]):not(.no-tab-index) {
     @include gxg-label--focus;
     background: transparent;
-    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
   }
   &:active:not([disabled]) {
     @include gxg-label--active;
@@ -199,8 +204,6 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 :host(.button--outlined-text-icon) .button-native {
   // This are the styles for 'outlined button' type.
 
-  box-shadow: inset 0px 0px 0px 1px $gxg-label-color;
-
   //Enabled
   background: var(--color-background);
   padding-inline-start: var(--spacing-comp-04);
@@ -209,12 +212,11 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   &:hover:not([disabled]) {
     @include gxg-label--hover;
     background: var(--color-primary-hover-opacity-01);
-    box-shadow: inset 0px 0px 0px 1px $gxg-label--hover-color;
   }
   &:focus:not([disabled]):not(.no-tab-index) {
     @include gxg-label--focus;
     background: transparent;
-    box-shadow: inset 0px 0px 0px 2px $gxg-label--focus-color;
+    @include form-element-common-styles-focus-type-1();
   }
   &:active:not([disabled]) {
     @include gxg-label--active;
@@ -252,7 +254,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
   }
   &:focus:not([disabled]):not(.no-tab-index) {
     background: transparent;
-    box-shadow: var(--box-shadow-values) $gxg-label--focus-color;
+    @include form-element-common-styles-focus-type-1();
   }
   &:active:not([disabled]) {
     background: transparent;

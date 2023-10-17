@@ -5,12 +5,14 @@
   --color-primary-active: #005688;
   --color-primary-hover: #0077de;
   --color-primary-disabled: #828385;
+  --color-primary-active--inverted: #4ba3d4; /*Added by Bruno (improve button primary focus contrast)*/
 }
 :root.dark {
   --color-primary-enabled: #91c8e4;
   --color-primary-active: #4ba3d4;
   --color-primary-hover: #8dcbff;
   --color-primary-disabled: #828385;
+  --color-primary-active--inverted: #005688; /*Added by Bruno (improve button primary focus contrast)*/
 }
 //Secondary
 :root {

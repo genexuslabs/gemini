@@ -68,26 +68,31 @@ function formMessageLogic(comp: FormComponent): JSX.Element {
 
 export function formTooltipLogic(comp: FormComponent): JSX.Element {
   {
+    const show =
+      comp.validationStatus !== "indeterminate" &&
+      comp.validationMessage.length > 0;
     const color: Color = comp.validationStatus;
     return (
       // <div class="tooltip-outer-wrapper">
-      comp.validationStatus !== "indeterminate" &&
-        comp.validationMessage.length > 0 ? (
-        <div class="tooltip-inner-wrapper">
-          <gxg-tooltip
-            label={comp.validationMessage}
-            noBorder
-            alignEnd
-            flex
-            fixed
-          >
-            <gxg-icon
-              color={color}
-              type={`gemini-tools/${comp.validationStatus}`}
-            ></gxg-icon>
-          </gxg-tooltip>
-        </div>
-      ) : null
+      <div
+        class={{
+          "tooltip-inner-wrapper": true,
+          "tooltip-inner-wrapper--visible": show,
+        }}
+      >
+        <gxg-tooltip
+          label={comp.validationMessage}
+          noBorder
+          alignEnd
+          flex
+          fixed
+        >
+          <gxg-icon
+            color={color}
+            type={`gemini-tools/${comp.validationStatus}`}
+          ></gxg-icon>
+        </gxg-tooltip>
+      </div>
       // </div>
     );
   }

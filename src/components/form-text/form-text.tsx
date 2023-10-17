@@ -286,6 +286,13 @@ export class GxgFormText implements FormComponent {
     this.textInput.select();
   }
 
+  @Method()
+  async openFile() {
+    if (this.type === "file") {
+      this.fileInputEl.click();
+    }
+  }
+
   componentWillLoad() {
     this.evaluateIcon();
     this.attachExportParts();
@@ -363,9 +370,7 @@ export class GxgFormText implements FormComponent {
   }
 
   private handleClick = () => {
-    if (this.type === "file") {
-      this.fileInputEl.click();
-    }
+    this.openFile();
   };
 
   private handleKeyDown = (e) => {

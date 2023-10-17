@@ -956,6 +956,7 @@ export namespace Components {
      * Allows multiple files if type is "file"
      */
     multiple: boolean;
+    openFile: () => Promise<void>;
     /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */

@@ -37,11 +37,17 @@
   }
 }
 .tooltip-inner-wrapper {
-  //overflow: hidden;
+  overflow: hidden;
+  transition: 150ms width;
+  width: 0;
   gxg-icon {
     display: flex;
     position: relative !important;
     top: 0 !important;
     transform: none !important;
+    margin-inline-start: var(--spacing-comp-01);
+  }
+  &--visible {
+    width: 24px;
   }
 }

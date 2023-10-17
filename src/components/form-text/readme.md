@@ -115,6 +115,12 @@
 
 ## Methods
 
+### `openFile() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
 ### `selectInputText() => Promise<void>`
 
 #### Returns

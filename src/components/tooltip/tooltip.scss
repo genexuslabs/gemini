@@ -126,9 +126,8 @@
 //align end
 :host([align-end]) {
   .tooltiptext {
-    transform: none !important;
+    transform: translateY(calc(-100% - 5px)) translateX(-100%) !important;
     inset-inline-end: 0;
-    left: auto !important;
     max-width: 180px;
     width: max-content;
 
@@ -147,7 +146,6 @@
 }
 //fixed
 :host([fixed]) {
-  border: 1px solid black;
   .tooltip {
     &:hover {
       .tooltiptext {

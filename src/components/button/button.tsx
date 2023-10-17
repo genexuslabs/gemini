@@ -216,6 +216,7 @@ export class GxgButton {
         role="button"
         class={{
           button: true,
+          "button--primary": this.type.includes("primary"),
           "button--primary-text-only": this.type === "primary-text-only",
           "button--primary-text-icon": this.type === "primary-text-icon",
           "button--primary-icon-only": this.type === "primary-icon-only",

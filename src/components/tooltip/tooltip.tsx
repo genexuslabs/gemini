@@ -55,9 +55,12 @@ export class GxgTooltip {
   private mouseEnterHandler = () => {
     const tooltipBC = this.el.getBoundingClientRect();
     const top = tooltipBC.top;
-    const rightPosition = window.innerWidth - tooltipBC.right;
+    const leftPosition = tooltipBC.left;
+    const width = tooltipBC.width;
+    console.log("width", width);
+    console.log("leftPosition", leftPosition);
     this.tooltipTextEl.style.top = `${top}px`;
-    this.tooltipTextEl.style.right = `${rightPosition}px`;
+    this.tooltipTextEl.style.left = `${leftPosition + width}px`;
     this.visible = true;
   };
 

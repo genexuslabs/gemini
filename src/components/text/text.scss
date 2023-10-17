@@ -17,7 +17,7 @@
     }
   }
 }
-
+/*text align*/
 :host([text-align="start"]) {
   text-align: start;
   * {
@@ -36,11 +36,28 @@
     text-align: end;
   }
 }
+/*padding*/
 :host([padding="s"]) {
   padding: var(--spacing-comp-01);
 }
 :host([padding="m"]) {
   padding: var(--spacing-comp-02);
+}
+/*button like*/
+:host([type="button-like"]) {
+  button {
+    background-color: transparent;
+    border: none;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary-enabled);
+    letter-spacing: var(--letter-spacing-xs);
+    cursor: pointer;
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
 }
 
 /*********************************************

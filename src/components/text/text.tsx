@@ -130,6 +130,9 @@ export class GxgText {
           </p>
         );
         break;
+      case "button-like":
+        text = <button class="gxg-button-like">{<slot></slot>}</button>;
+        break;
       default:
         text = (
           <p style={{ maxWidth: this.maxWidth }} class="gxg-text">
@@ -155,7 +158,8 @@ export type TextType =
   | "text-link-gray-no-line"
   | "text-alert-error"
   | "text-alert-warning"
-  | "text-alert-success";
+  | "text-alert-success"
+  | "button-like";
 
 export type TargetType = "_self" | "_blank";
 export type TextAlign = "start" | "center" | "end";
