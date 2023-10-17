@@ -20,7 +20,7 @@ export class GxgText {
   /**
    * Text type
    */
-  @Prop() type: TextType = "text-regular";
+  @Prop({ reflect: true }) type: TextType = "text-regular";
 
   /**
    * Text alignment

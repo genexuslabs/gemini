@@ -38,6 +38,7 @@
 | `fullWidth`            | `full-width`              | The presence of this attribute makes the component full-width    | `boolean`                      | `false`     |
 | `outlined`             | `outlined`                | The presence of this attribute makes the button group outlined   | `boolean`                      | `false`     |
 | `titleAlignment`       | `title-alignment`         | The button group title alignment                                 | `"center" \| "end" \| "start"` | `"start"`   |
+| `type`                 | `type`                    | The buttons style                                                | `"primary" \| "secondary"`     | `"primary"` |
 
 ## Dependencies
 

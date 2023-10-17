@@ -323,6 +323,10 @@ export namespace Components {
      * The button group title alignment
      */
     titleAlignment: TitleAlignment;
+    /**
+     * The buttons style
+     */
+    type: "primary" | "secondary";
   }
   interface GxgCard {
     /**
@@ -3045,6 +3049,10 @@ declare namespace LocalJSX {
      * The button group title alignment
      */
     titleAlignment?: TitleAlignment;
+    /**
+     * The buttons style
+     */
+    type?: "primary" | "secondary";
   }
   interface GxgCard {
     /**

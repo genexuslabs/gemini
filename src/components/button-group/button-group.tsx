@@ -45,6 +45,11 @@ export class GxgButtonGroup {
   @Prop({ reflect: true }) outlined = false;
 
   /**
+  The buttons style
+  */
+  @Prop() type: "primary" | "secondary" = "primary";
+
+  /**
   The value of the current selected button
   */
   @State() value = "";

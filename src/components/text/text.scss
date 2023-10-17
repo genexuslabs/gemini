@@ -57,6 +57,10 @@
     &:hover {
       color: var(--color-primary-hover);
     }
+    &:focus {
+      outline: none;
+      text-decoration: underline;
+    }
   }
 }
 

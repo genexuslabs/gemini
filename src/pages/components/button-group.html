@@ -13,25 +13,47 @@
     <link href="/build/gemini.css" rel="stylesheet" />
 
     <style>
-      .container {
-        border: 2px solid black;
-        width: 400px;
+      body {
+        font-family: sans-serif;
+        font-size: 14px;
+        background: var(--color-background);
+      }
+      gxg-button-group {
+        max-width: 300px;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <gxg-button-group
-        title-alignment="left"
-        button-group-title="Buttons title"
-        default-selected-btn-id="button1"
-        full-width
-      >
-        <button id="button1">Button 1</button>
-        <button id="button2">Button 2</button>
-        <button id="button3">Button 3</button>
-      </gxg-button-group>
-    </div>
-    <gxg-button>A Button</gxg-button>
+    <p>primary</p>
+    <gxg-button-group
+      title-alignment="left"
+      button-group-title="Buttons title"
+      default-selected-btn-id="button1"
+      full-width
+    >
+      <button id="button1">Button 1</button>
+      <button id="button2">Button 2</button>
+      <button id="button3">Button 3</button>
+    </gxg-button-group>
+
+    <br />
+
+    <p>secondary</p>
+    <gxg-button-group
+      title-alignment="left"
+      button-group-title="Buttons title"
+      default-selected-btn-id="button1"
+      full-width
+      outlined
+    >
+      <button id="button1">Button 1</button>
+      <button id="button2">Button 2</button>
+      <button id="button3">Button 3</button>
+    </gxg-button-group>
+
+    <br />
+
+    <gxg-button type="primary-text-only">A Primary Type Button</gxg-button>
+    <gxg-button type="outlined">A Secondary Type Button</gxg-button>
   </body>
 </html>
