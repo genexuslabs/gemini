@@ -165,6 +165,9 @@
       openFileBtn.addEventListener("click", () => {
         inputFile.openFile();
       });
+      inputFile.addEventListener("fileSelected", (e) => {
+        console.log("file selected", e);
+      });
     </script>
 
     <script>

@@ -238,6 +238,11 @@ export class GxgFormText implements FormComponent {
    */
   @Event() valueChanged: EventEmitter<string>;
 
+  /**
+   * File Selected
+   */
+  @Event() fileSelected: EventEmitter<FileList>;
+
   @State() cursorInside = false;
   @State() inputSize = "auto";
   @State() mouseCoordinates: object = {
@@ -565,6 +570,7 @@ export class GxgFormText implements FormComponent {
   private inputFileChangedHandler = (e) => {
     const selectedFiles: FileList = e.target.files;
     this.fileList = selectedFiles;
+    this.fileSelected.emit(selectedFiles);
     if (selectedFiles.length > 1) {
       this.value = `${selectedFiles.length} files chosen`;
     } else {

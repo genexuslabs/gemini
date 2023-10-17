@@ -106,12 +106,13 @@
 
 ## Events
 
-| Event                | Description                  | Type                  |
-| -------------------- | ---------------------------- | --------------------- |
-| `change`             | Returns the input value      | `CustomEvent<any>`    |
-| `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>`    |
-| `input`              | Returns the input value      | `CustomEvent<any>`    |
-| `valueChanged`       | The clear button was clicked | `CustomEvent<string>` |
+| Event                | Description                  | Type                    |
+| -------------------- | ---------------------------- | ----------------------- |
+| `change`             | Returns the input value      | `CustomEvent<any>`      |
+| `clearButtonClicked` | The clear button was clicked | `CustomEvent<any>`      |
+| `fileSelected`       | File Selected                | `CustomEvent<FileList>` |
+| `input`              | Returns the input value      | `CustomEvent<any>`      |
+| `valueChanged`       | The clear button was clicked | `CustomEvent<string>`   |
 
 ## Methods
 

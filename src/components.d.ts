@@ -3758,6 +3758,10 @@ declare namespace LocalJSX {
      */
     onClearButtonClicked?: (event: CustomEvent<any>) => void;
     /**
+     * File Selected
+     */
+    onFileSelected?: (event: CustomEvent<FileList>) => void;
+    /**
      * Returns the input value
      */
     onInput?: (event: CustomEvent<any>) => void;
