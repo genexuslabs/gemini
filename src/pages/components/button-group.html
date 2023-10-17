@@ -34,7 +34,7 @@
       active-button-id="button-1"
     >
       <button id="button1">Button 1</button>
-      <button id="button2">Button 2</button>
+      <button id="button2" disabled>Button 2</button>
       <button id="button3">Button 3</button>
     </gxg-button-group>
 
@@ -47,7 +47,7 @@
       );
       const activateButton2 = document.getElementById("activate-button-2");
       activateButton2.addEventListener("click", () => {
-        primaryButtonsGroup.activeButtonId = "button3";
+        primaryButtonsGroup.activeButtonId = "button2";
       });
     </script>
 

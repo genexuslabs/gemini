@@ -65,6 +65,7 @@ export class GxgButtonGroup {
       button.setAttribute("aria-pressed", "false");
     });
     if (newActiveButton) {
+      newActiveButton.disabled = false;
       newActiveButton.click();
     }
   }
