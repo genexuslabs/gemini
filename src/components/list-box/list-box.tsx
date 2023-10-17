@@ -62,11 +62,6 @@ export class GxgListBox implements FormComponent {
   @Prop() allowsEmpty = false;
 
   /**
-   * The presence of this attribute disables the border
-   */
-  @Prop() noBorder = false;
-
-  /**
    * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
    */
   @Prop() emitEmptySelection = false;
@@ -83,6 +78,33 @@ export class GxgListBox implements FormComponent {
    * Disable suggestions about keyboard combinations
    */
   @Prop() disableSuggestions = false;
+
+  /*BORDERS*/
+
+  /**
+   * The presence of this attribute disables the border all around
+   */
+  @Prop({ reflect: true }) noBorder = false;
+
+  /**
+   * The presence of this attribute adds a border to the top
+   */
+  @Prop({ reflect: true }) borderTop = false;
+
+  /**
+   * The presence of this attribute adds a border to the end
+   */
+  @Prop({ reflect: true }) borderEnd = false;
+
+  /**
+   * The presence of this attribute adds a border to the bottom
+   */
+  @Prop({ reflect: true }) borderBottom = false;
+
+  /**
+   * The presence of this attribute adds a border to the start
+   */
+  @Prop({ reflect: true }) borderStart = false;
 
   /**
    * this variable keeps an array of the selected items.

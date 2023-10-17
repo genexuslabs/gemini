@@ -12,7 +12,8 @@
 
   .container {
     height: 100%;
-    border: var(--border-radius-xs) var(--border-style-regular) var(--gray-02);
+    border: var(--border-radius-xs) var(--border-style-regular)
+      var(--gxg-border-color--regular);
   }
   .header {
     width: 100%;
@@ -84,6 +85,33 @@
   &__item {
   }
   &__button {
+  }
+}
+
+/*BORDERS*/
+:host([no-border]) {
+  .container {
+    border: none;
+  }
+}
+:host([border-top]) {
+  .container {
+    border-top: 1px solid var(--gxg-border-color--regular);
+  }
+}
+:host([border-end]) {
+  .container {
+    border-inline-end: 1px solid var(--gxg-border-color--regular);
+  }
+}
+:host([border-bottom]) {
+  .container {
+    border-bottom: 1px solid var(--gxg-border-color--regular);
+  }
+}
+:host([border-start]) {
+  .container {
+    border-inline-start: 1px solid var(--gxg-border-color--regular);
   }
 }
 /*********************************************

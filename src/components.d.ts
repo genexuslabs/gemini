@@ -1155,6 +1155,22 @@ export namespace Components {
      */
     allowsEmpty: boolean;
     /**
+     * The presence of this attribute adds a border to the bottom
+     */
+    borderBottom: boolean;
+    /**
+     * The presence of this attribute adds a border to the end
+     */
+    borderEnd: boolean;
+    /**
+     * The presence of this attribute adds a border to the start
+     */
+    borderStart: boolean;
+    /**
+     * The presence of this attribute adds a border to the top
+     */
+    borderTop: boolean;
+    /**
      * The presence of this attribute will display a checkbox for every item
      */
     checkboxes: boolean;
@@ -1183,7 +1199,7 @@ export namespace Components {
      */
     keyboardSuggestions: KeyboardSuggestions;
     /**
-     * The presence of this attribute disables the border
+     * The presence of this attribute disables the border all around
      */
     noBorder: boolean;
     /**
@@ -3982,6 +3998,22 @@ declare namespace LocalJSX {
      */
     allowsEmpty?: boolean;
     /**
+     * The presence of this attribute adds a border to the bottom
+     */
+    borderBottom?: boolean;
+    /**
+     * The presence of this attribute adds a border to the end
+     */
+    borderEnd?: boolean;
+    /**
+     * The presence of this attribute adds a border to the start
+     */
+    borderStart?: boolean;
+    /**
+     * The presence of this attribute adds a border to the top
+     */
+    borderTop?: boolean;
+    /**
      * The presence of this attribute will display a checkbox for every item
      */
     checkboxes?: boolean;
@@ -4006,7 +4038,7 @@ declare namespace LocalJSX {
      */
     keyboardSuggestions?: KeyboardSuggestions;
     /**
-     * The presence of this attribute disables the border
+     * The presence of this attribute disables the border all around
      */
     noBorder?: boolean;
     onCheckedChanged?: (event: CustomEvent<any>) => void;
