@@ -18,6 +18,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -56,6 +57,8 @@
   </script>
 ```
 
+
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                                                           | Type                                     | Default     |
@@ -72,19 +75,26 @@
 | `value`         | `value`          | This holds the value of the selected option                                                                           | `string`                                 | `undefined` |
 | `warning`       | `warning`        | The presence of this attribute stylizes the component with warning attributes                                         | `boolean`                                | `false`     |
 
+
 ## Events
 
 | Event    | Description                              | Type               |
 | -------- | ---------------------------------------- | ------------------ |
 | `change` | Returns the value of the selected option | `CustomEvent<any>` |
 
+
 ## Methods
 
 ### `isOpen() => Promise<boolean>`
 
+
+
 #### Returns
 
 Type: `Promise<boolean>`
+
+
+
 
 ## Dependencies
 
@@ -93,7 +103,6 @@ Type: `Promise<boolean>`
 - [gxg-label](../label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-select --> gxg-label
@@ -101,6 +110,6 @@ graph TD;
   style gxg-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

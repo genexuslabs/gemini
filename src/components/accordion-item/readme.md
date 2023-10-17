@@ -26,6 +26,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -50,6 +51,8 @@
 </gxg-accordion>
 ```
 
+
+
 ## Properties
 
 | Property              | Attribute        | Description                                                                                                          | Type                                            | Default       |
@@ -64,6 +67,7 @@
 | `status`              | `status`         | Set the status to "open" if you want the accordion-item open by default                                              | `"closed" \| "open"`                            | `"closed"`    |
 | `titleIcon`           | `title-icon`     | The accordion title icon                                                                                             | `string`                                        | `null`        |
 
+
 ## Events
 
 | Event                   | Description                                                                                     | Type               |
@@ -73,6 +77,7 @@
 | `accordionTitleClicked` | Subscribe to this event to know when the "title" was clicked                                    | `CustomEvent<any>` |
 | `titleChanged`          | If "editable-title" attribute is present, this event emmits the title value when it has changed | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -81,7 +86,6 @@
 - [gxg-form-text](../form-text)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-accordion-item --> gxg-icon
@@ -96,6 +100,6 @@ graph TD;
   style gxg-accordion-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

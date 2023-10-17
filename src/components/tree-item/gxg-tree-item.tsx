@@ -78,7 +78,7 @@ INDEX:
    */
   @Prop({ mutable: true }) checked: boolean = undefined;
   @Watch("checked")
-  checkedHandler(newValue: boolean, oldValue: boolean): void {
+  checkedHandler(_newValue: boolean, oldValue: boolean): void {
     if (oldValue !== undefined) {
       this.checkboxToggled.emit(this.getItemData(false));
     }
@@ -87,9 +87,9 @@ INDEX:
   /**
    * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
    */
-  @Prop() opened: boolean = undefined;
+  @Prop({ mutable: true }) opened: boolean = undefined;
   @Watch("opened")
-  openedHandler(newValue: boolean, oldValue: boolean): void {
+  openedHandler(_newValue: boolean, oldValue: boolean): void {
     if (oldValue !== undefined) {
       this.toggleIconClicked.emit(this.getItemData(false));
     }
@@ -98,27 +98,27 @@ INDEX:
   /**
    * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
    */
-  @Prop() toggleCheckboxes: boolean = undefined;
+  @Prop({ mutable: true }) toggleCheckboxes: boolean = undefined;
 
   /**
    * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
    */
-  @Prop() type: string;
+  @Prop() readonly type: string;
 
   /**
    * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
    */
-  @Prop() disabled: boolean = undefined;
+  @Prop() readonly disabled: boolean = undefined;
 
   /**
    * The tree item label.
    */
-  @Prop() label: string;
+  @Prop() readonly label: string;
 
   /**
    * The tree item description.
    */
-  @Prop() description: string;
+  @Prop() readonly description: string;
 
   /**
    * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
@@ -138,12 +138,12 @@ INDEX:
   /**
    * This property is for passing a tree structure from the tree.
    */
-  @Prop() treeModel: HTMLGxgTreeElement;
+  @Prop() readonly treeModel: HTMLGxgTreeElement;
 
   /**
    * This property is for internal use, when using the treeModel.
    */
-  @Prop() numberOfChildren = 0;
+  @Prop({ mutable: true }) numberOfChildren = 0;
 
   /**
    * This property is for internal use. It indicates that the item has children.
@@ -215,16 +215,13 @@ INDEX:
     this.initiateMutationObserver();
   }
 
-  // 7.LISTENERS //
-
-  // 8.PUBLIC METHODS API //
-
   @Method()
   async reRender(): Promise<void> {
     this.defineLineHeight();
   }
 
-  @Method() evaluateCheckboxStatus(): void {
+  @Method()
+  async evaluateCheckboxStatus() {
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
     let checked = 0;
     if (allChildren?.length) {
@@ -318,9 +315,8 @@ INDEX:
       );
       if (!this.parentTreeIsMasterTree) {
         const lastDirectTreeItem = directTreeItems[directTreeItems.length - 1];
-        const lastDirectItemItemsLength = lastDirectTreeItem.querySelectorAll(
-          "gxg-tree-item"
-        ).length;
+        const lastDirectItemItemsLength =
+          lastDirectTreeItem.querySelectorAll("gxg-tree-item").length;
         total = allItemsLength - lastDirectItemItemsLength;
       } else {
         total = allItemsLength;
@@ -385,9 +381,8 @@ INDEX:
       } else {
         const childTree = this.el.querySelector("gxg-tree");
         const childTreeFirstChildren = childTree.querySelector("gxg-tree-item");
-        const childTreeFirstChildrenLiText = childTreeFirstChildren.shadowRoot.querySelector(
-          ".li-text"
-        );
+        const childTreeFirstChildrenLiText =
+          childTreeFirstChildren.shadowRoot.querySelector(".li-text");
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
     }
@@ -431,9 +426,8 @@ INDEX:
         if (e.shiftKey && e.key !== "Tab") {
           //if shift key was pressed, navigate to the previous sibling
           if (prevElementSibling !== null) {
-            prevItem = prevElementSibling.shadowRoot.querySelector(
-              "li .li-text"
-            );
+            prevItem =
+              prevElementSibling.shadowRoot.querySelector("li .li-text");
           }
         } else {
           if (prevElementSibling === null) {
@@ -441,27 +435,28 @@ INDEX:
             const parentParentItem = parentItem.parentElement;
             prevItem = parentParentItem.shadowRoot.querySelector("li .li-text");
           } else {
-            prevItem = prevElementSibling.shadowRoot.querySelector(
-              "li .li-text"
-            );
+            prevItem =
+              prevElementSibling.shadowRoot.querySelector("li .li-text");
             if (prevElementSibling !== null) {
               //If the preceding tree-item has tree inside...
-              const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
-                .hasChildTree;
+              const prevElementSiblingHasChildTree = (
+                prevElementSibling as unknown as GxgTreeItem
+              ).hasChildTree;
               if (prevElementSiblingHasChildTree) {
-                const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
-                  .opened;
+                const prevElementSiblingHasOpenTree = (
+                  prevElementSibling as unknown as GxgTreeItem
+                ).opened;
                 if (prevElementSiblingHasOpenTree) {
                   //If preceding tree-item tree is opened, then the prev item is the last item of that tree
-                  const prevElemSiblingTreeItem = this.el
-                    .previousElementSibling;
-                  const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
-                    "gxg-tree"
-                  );
+                  const prevElemSiblingTreeItem =
+                    this.el.previousElementSibling;
+                  const prevElemSiblingTreeItemTree =
+                    prevElemSiblingTreeItem.querySelector("gxg-tree");
                   //
                   if (
-                    ((prevElemSiblingTreeItemTree.lastElementChild as unknown) as GxgTreeItem)
-                      .hasChildTree
+                    (
+                      prevElemSiblingTreeItemTree.lastElementChild as unknown as GxgTreeItem
+                    ).hasChildTree
                   ) {
                     if (
                       prevElemSiblingTreeItemTree.lastElementChild.shadowRoot
@@ -474,21 +469,24 @@ INDEX:
                           "li .li-text"
                         );
                     } else {
-                      prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-                        "li .li-text"
-                      );
+                      prevItem =
+                        prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                          "li .li-text"
+                        );
                     }
                   } else {
-                    prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-                      "li .li-text"
-                    );
+                    prevItem =
+                      prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                        "li .li-text"
+                      );
                   }
                   //
                 } else {
                   //The preciding item has a tree, but it is closed
-                  prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
-                    "li .li-text"
-                  );
+                  prevItem =
+                    this.el.previousElementSibling.shadowRoot.querySelector(
+                      "li .li-text"
+                    );
                 }
               }
             }
@@ -509,16 +507,18 @@ INDEX:
         if (e.shiftKey) {
           //if shift key was pressed, navigate to the next sibling
           if (this.el.nextElementSibling !== null) {
-            nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
-              "li .li-text"
-            );
+            nextItem =
+              this.el.nextElementSibling.shadowRoot.querySelector(
+                "li .li-text"
+              );
           }
         } else {
           if (this.lastTreeItem) {
             if (this.hasChildTree && this.opened) {
-              nextItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
-                ".li-text"
-              );
+              nextItem =
+                this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
+                  ".li-text"
+                );
             } else {
               const thisTree = this.el.parentElement;
               const thisTreeParent = thisTree.parentElement;
@@ -528,14 +528,15 @@ INDEX:
                   thisTreeParent.parentElement.parentElement
                     .nextElementSibling !== null
                 ) {
-                  nextItem = thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
-                    ".li-text"
-                  );
+                  nextItem =
+                    thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
+                      ".li-text"
+                    );
                 }
               } else {
-                nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
-                  ".li-text"
-                );
+                nextItem = (
+                  thisTreeParentNextTree as HTMLElement
+                ).shadowRoot.querySelector(".li-text");
               }
             }
           } else {
@@ -544,9 +545,8 @@ INDEX:
                 .querySelector("gxg-tree gxg-tree-item")
                 .shadowRoot.querySelector("li .li-text");
             } else {
-              nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
-                ".li-text"
-              );
+              nextItem =
+                this.el.nextElementSibling.shadowRoot.querySelector(".li-text");
             }
           }
         }
@@ -556,9 +556,10 @@ INDEX:
       } else {
         //Last element of parent tree
         if (!this.leaf && this.opened) {
-          const childTreeFirstTreeItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
-            "li .li-text"
-          );
+          const childTreeFirstTreeItem =
+            this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
+              "li .li-text"
+            );
           (childTreeFirstTreeItem as HTMLElement).focus();
         }
       }

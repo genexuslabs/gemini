@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property           | Attribute            | Description                                                                                                                                                                                                                       | Type                 | Default     |
@@ -22,6 +23,7 @@
 | `treeModel`        | --                   | This property is for passing a tree structure from the tree.                                                                                                                                                                      | `HTMLGxgTreeElement` | `undefined` |
 | `type`             | `type`               | This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.                                                                                                 | `string`             | `undefined` |
 
+
 ## Events
 
 | Event               | Description                                 | Type                                                                                                                                                                                                                                                                                                                  |
@@ -32,19 +34,29 @@
 | `selectionChanged`  | Emitted when the icon selection was changes | `CustomEvent<{ ref?: HTMLGxgTreeItemElement; checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
 | `toggleIconClicked` | Emitted when the toggle icon was clicked    | `CustomEvent<{ ref?: HTMLGxgTreeItemElement; checkbox?: boolean; checked?: boolean; ctrl?: boolean; description?: string; disabled?: boolean; icon?: string; id: string; indeterminate?: boolean; items?: GxgTreeItemData[]; label: string; lazy?: boolean; leaf?: boolean; opened?: boolean; selected?: boolean; }>` |
 
+
 ## Methods
 
 ### `evaluateCheckboxStatus() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `reRender() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ## CSS Custom Properties
 
@@ -58,6 +70,7 @@ Type: `Promise<void>`
 | `--item-hover-color`  | The color of the item on hover |
 | `--text-color`        | The color of the text          |
 
+
 ## Dependencies
 
 ### Depends on
@@ -66,7 +79,6 @@ Type: `Promise<void>`
 - [gxg-form-checkbox](../form-checkbox)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-tree-item --> gxg-icon
@@ -81,6 +93,6 @@ graph TD;
   style gxg-tree-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

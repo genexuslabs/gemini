@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute   | Description                                                                                                                                  | Type      | Default     |
@@ -13,12 +14,14 @@
 | `itemId`   | `item-id`   | The item identifier                                                                                                                          | `string`  | `undefined` |
 | `label`    | `label`     | The item label                                                                                                                               | `string`  | `undefined` |
 
+
 ## Events
 
 | Event                | Description                                                               | Type                                                                                              |
 | -------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `itemSelected`       | This events emits the item id, label, iconType, and a reference to itself | `CustomEvent<{ iconType?: string; id: string; label: string; ref: HTMLGxgMenuSlimItemElement; }>` |
 | `keyboardNavigation` | This events fires when the user presses up or down keys.                  | `CustomEvent<{ ref: HTMLGxgMenuSlimItemElement; key: string; }>`                                  |
+
 
 ## Shadow Parts
 
@@ -29,6 +32,7 @@
 | `"item"`   |             |
 | `"label"`  |             |
 
+
 ## Dependencies
 
 ### Depends on
@@ -36,7 +40,6 @@
 - [gxg-icon](../../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-menu-slim-item --> gxg-icon
@@ -44,6 +47,6 @@ graph TD;
   style gxg-menu-slim-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -17,6 +18,8 @@
 <gxg-text type="text-alert-success">A sucess message</gxg-text>
 ```
 
+
+
 ## Properties
 
 | Property    | Attribute    | Description                                 | Type                                                                                                                                                                                                                         | Default          |
@@ -29,6 +32,7 @@
 | `textAlign` | `text-align` | Text alignment                              | `"center" \| "end" \| "start"`                                                                                                                                                                                               | `"start"`        |
 | `type`      | `type`       | Text type                                   | `"button-like" \| "text-alert-error" \| "text-alert-success" \| "text-alert-warning" \| "text-gray" \| "text-link" \| "text-link-gray" \| "text-link-gray-no-line" \| "text-link-no-line" \| "text-quote" \| "text-regular"` | `"text-regular"` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

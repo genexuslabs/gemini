@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                           | Type                                     | Default     |
@@ -13,11 +14,13 @@
 | `min`           | `min`            | The min. value                                        | `number`                                 | `0`         |
 | `value`         | `value`          | The initial vaule                                     | `number`                                 | `0`         |
 
+
 ## Events
 
 | Event          | Description | Type               |
 | -------------- | ----------- | ------------------ |
 | `stepperInput` |             | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -26,7 +29,6 @@
 - [gxg-label](../label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-stepper --> gxg-label
@@ -34,6 +36,6 @@ graph TD;
   style gxg-stepper fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

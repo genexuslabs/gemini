@@ -17,6 +17,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                                                                 | Type      | Default     |
@@ -29,12 +30,14 @@
 | `radioId`  | `radio-id` | The radio id                                                                | `string`  | `undefined` |
 | `value`    | `value`    | The radio value                                                             | `string`  | `undefined` |
 
+
 ## Events
 
 | Event          | Description                                          | Type                                           |
 | -------------- | ---------------------------------------------------- | ---------------------------------------------- |
 | `keyPressed`   | (This event is for internal use)                     | `CustomEvent<any>`                             |
 | `radioChecked` | Emits the id and value of the radio when is checked. | `CustomEvent<{ value: string; id?: string; }>` |
+
 
 ## Dependencies
 
@@ -43,7 +46,6 @@
 - [gxg-label](../label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-radio --> gxg-label
@@ -51,6 +53,6 @@ graph TD;
   style gxg-form-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

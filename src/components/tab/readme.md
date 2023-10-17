@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                          | Type                | Default     |
@@ -14,12 +15,14 @@
 | `overflowAuto`  | `overflow-auto`  | The presence of this attribute makes the .container overflow property set to 'auto'  | `boolean`           | `false`     |
 | `tab`           | `tab`            | The tab id. Should match the "tab" value of the correlative "gxg-tab"                | `string`            | `undefined` |
 
+
 ## Shadow Parts
 
 | Part          | Description |
 | ------------- | ----------- |
 | `"container"` |             |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute         | Description                                                                     | Type                                     | Default       |
@@ -12,6 +13,7 @@
 | `target`        | `target`          | The url target                                                                  | `"_blank" \| "self"`                     | `"_blank"`    |
 | `url`           | `url`             | (Optional) The "more-info" url.                                                 | `string`                                 | `null`        |
 
+
 ## Dependencies
 
 ### Depends on
@@ -19,7 +21,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-more-info --> gxg-icon
@@ -27,6 +28,6 @@ graph TD;
   style gxg-more-info fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

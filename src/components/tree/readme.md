@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property           | Attribute           | Description                                                                                                                | Type      | Default |
@@ -12,11 +13,13 @@
 | `opened`           | `opened`            | Set this attribute if you want all the items to be opened by default.                                                      | `boolean` | `true`  |
 | `toggleCheckboxes` | `toggle-checkboxes` | Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.       | `boolean` | `false` |
 
+
 ## Events
 
 | Event                  | Description | Type                                                             |
 | ---------------------- | ----------- | ---------------------------------------------------------------- |
 | `treeItemStateChanged` |             | `CustomEvent<{ itemData: GxgTreeItemData; emittedBy: string; }>` |
+
 
 ## Methods
 
@@ -28,6 +31,8 @@ Returns an array of the selected tree-items, providing the id, checked status, s
 
 Type: `Promise<GxgTreeItemSelectedData[]>`
 
+
+
 ### `getSelectedItems() => Promise<GxgTreeItemData[]>`
 
 Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
@@ -36,12 +41,19 @@ Returns an array of the selected tree-items, providing the id, checked status, s
 
 Type: `Promise<GxgTreeItemData[]>`
 
+
+
 ### `toggleItems(ids: string[], open?: boolean) => Promise<ToggledGxgTreeItem[]>`
+
+
 
 #### Returns
 
 Type: `Promise<ToggledGxgTreeItem[]>`
 
----
+a boolean value indicating if the selected tree-item is open or not, after the method was called.
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

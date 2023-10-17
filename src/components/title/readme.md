@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -14,6 +15,8 @@
 <gxg-title type="title-05">This is a title type 05</gxg-title>
 ```
 
+
+
 ## Properties
 
 | Property    | Attribute   | Description | Type                                                                 | Default      |
@@ -21,22 +24,23 @@
 | `alignment` | `alignment` | Title type  | `"center" \| "end" \| "start"`                                       | `"start"`    |
 | `type`      | `type`      | Title type  | `"title-01" \| "title-02" \| "title-03" \| "title-04" \| "title-05"` | `"title-01"` |
 
+
 ## Shadow Parts
 
 | Part      | Description |
 | --------- | ----------- |
 | `"title"` |             |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-container](../container)
-- [gxg-ide-loader](../ide-loader)
-- [gxg-menu-slim-list](../menu-slim/list)
+ - [gxg-container](../container)
+ - [gxg-ide-loader](../ide-loader)
+ - [gxg-menu-slim-list](../menu-slim/list)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-container --> gxg-title
@@ -45,6 +49,6 @@ graph TD;
   style gxg-title fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                    | Type                                                   | Default           |
@@ -12,11 +13,13 @@
 | `validationMessage`  | `validation-message`  | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`                                               | `undefined`       |
 | `validationStatus`   | `validation-status`   | The validation status                                                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 
+
 ## Events
 
 | Event                | Description | Type                          |
 | -------------------- | ----------- | ----------------------------- |
 | `groupValuesChanged` |             | `CustomEvent<CheckboxInfo[]>` |
+
 
 ## Methods
 
@@ -28,6 +31,9 @@ Returns CheckboxesGroupValues = CheckboxInfo[];
 
 Type: `Promise<CheckboxesGroupValues>`
 
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -37,7 +43,6 @@ Type: `Promise<CheckboxesGroupValues>`
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-checkbox-group --> gxg-form-message
@@ -48,6 +53,6 @@ graph TD;
   style gxg-form-checkbox-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

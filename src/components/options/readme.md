@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute             | Description | Type                         | Default      |
@@ -13,6 +14,7 @@
 | `width`             | `width`               |             | `string`                     | `"100%"`     |
 | `zIndex`            | `z-index`             |             | `string`                     | `"10"`       |
 
+
 ## Dependencies
 
 ### Depends on
@@ -20,7 +22,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-options --> gxg-button
@@ -29,6 +30,6 @@ graph TD;
   style gxg-options fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

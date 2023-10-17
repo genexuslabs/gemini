@@ -24,12 +24,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute | Description                                           | Type      | Default |
 | --------- | --------- | ----------------------------------------------------- | --------- | ------- |
 | `visible` | `visible` | The presence of this attribute makes the menu visible | `boolean` | `false` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

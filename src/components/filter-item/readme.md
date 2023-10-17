@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                                                                                    | Type     | Default     |
@@ -10,11 +11,13 @@
 | `itemId` | `item-id` | The item-id (required if you want to know that this item was clicked)                          | `any`    | `undefined` |
 | `type`   | `type`    | The type (optional)                                                                            | `any`    | `undefined` |
 
+
 ## Events
 
 | Event              | Description                                                                                            | Type               |
 | ------------------ | ------------------------------------------------------------------------------------------------------ | ------------------ |
 | `itemClickedEvent` | This event is fired when the user clicks on an item. event.detail carries the item id, type, and text. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -23,7 +26,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-filter-item --> gxg-icon
@@ -31,6 +33,6 @@ graph TD;
   style gxg-filter-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

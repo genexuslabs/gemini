@@ -7,12 +7,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description       | Type                                | Default |
 | -------- | --------- | ----------------- | ----------------------------------- | ------- |
 | `space`  | `space`   | The spacing value | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`  |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

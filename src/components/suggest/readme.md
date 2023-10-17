@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute            | Description                                                                                                                    | Type                                                   | Default           |
@@ -10,6 +11,7 @@
 | `ellipsis`          | `ellipsis`           | The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...) | `boolean`                                              | `true`            |
 | `validationMessage` | `validation-message` | The message to display for the validation result.                                                                              | `string`                                               | `undefined`       |
 | `validationStatus`  | `validation-status`  | The validation status                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
+
 
 ## Dependencies
 
@@ -20,7 +22,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-suggest --> gxg-form-message
@@ -31,6 +32,6 @@ graph TD;
   style gxg-suggest fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

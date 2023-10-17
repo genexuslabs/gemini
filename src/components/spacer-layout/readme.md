@@ -13,6 +13,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute         | Description                                                     | Type                                                                | Default        |
@@ -22,6 +23,7 @@
 | `orientation`    | `orientation`     | The orientation                                                 | `"horizontal" \| "vertical"`                                        | `"horizontal"` |
 | `space`          | `space`           | The spacing value, taken from the "token-spacing" global values | `"l" \| "m" \| "s" \| "xl" \| "xs"`                                 | `"xs"`         |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

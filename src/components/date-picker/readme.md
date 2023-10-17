@@ -7,6 +7,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -22,6 +23,8 @@ no-weekends>
 </gxg-date-picker>
 ```
 
+
+
 ## Properties
 
 | Property     | Attribute     | Description                                                         | Type             | Default     |
@@ -29,16 +32,18 @@ no-weekends>
 | `alwaysShow` | `always-show` | The presence of this attribute makes the date-picker always visible | `boolean`        | `false`     |
 | `label`      | `label`       | The datepicker label                                                | `string`         | `undefined` |
 | `maxDate`    | `max-date`    | The max. date                                                       | `Date \| string` | `undefined` |
-| `maxWidth`   | `max-width`   | The max. width                                                      | `string`         | `"100%"`    |
+| `maxWidth`   | `max-width`   | The max. width                                                      | `"100%"`         | `"100%"`    |
 | `minDate`    | `min-date`    | The min. date                                                       | `Date \| string` | `undefined` |
 | `noWeekends` | `no-weekends` | no weekends available                                               | `boolean`        | `false`     |
 | `value`      | `value`       | initial date                                                        | `Date \| string` | `undefined` |
+
 
 ## Events
 
 | Event          | Description                 | Type                          |
 | -------------- | --------------------------- | ----------------------------- |
 | `valueChanged` | Emits the new selected date | `CustomEvent<Date \| string>` |
+
 
 ## Dependencies
 
@@ -47,7 +52,6 @@ no-weekends>
 - [gxg-label](../label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-date-picker --> gxg-label
@@ -55,6 +59,6 @@ graph TD;
   style gxg-date-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

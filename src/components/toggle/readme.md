@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute  | Description                                          | Type      | Default     |
@@ -10,11 +11,13 @@
 | `label`    | `label`    | The label                                            | `string`  | `undefined` |
 | `on`       | `on`       | If the toggle is active or not                       | `boolean` | `false`     |
 
+
 ## Events
 
 | Event            | Description                                                                                                                                   | Type               |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `toggleSwitched` | This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -23,7 +26,6 @@
 - [gxg-label](../label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-toggle --> gxg-label
@@ -31,6 +33,6 @@ graph TD;
   style gxg-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

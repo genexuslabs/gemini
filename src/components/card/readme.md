@@ -14,6 +14,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -28,6 +29,8 @@
 </gxg-card>
 ```
 
+
+
 ## Properties
 
 | Property     | Attribute    | Description               | Type                                                          | Default   |
@@ -39,6 +42,7 @@
 | `minHeight`  | `min-height` | The component min. height | `string`                                                      | `"auto"`  |
 | `padding`    | `padding`    | The card padding          | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`    |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute   | Description                                                         | Type      | Default     |
@@ -10,11 +11,13 @@
 | `selected` | `selected`  | The presence of this attribute makes the option selected by default | `boolean` | `undefined` |
 | `value`    | `value`     | The value                                                           | `string`  | `undefined` |
 
+
 ## Events
 
 | Event              | Description | Type               |
 | ------------------ | ----------- | ------------------ |
 | `optionIsSelected` |             | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -23,7 +26,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-option-v2 --> gxg-icon
@@ -31,6 +33,6 @@ graph TD;
   style gxg-option-v2 fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

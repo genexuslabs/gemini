@@ -21,6 +21,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute       | Description               | Type                           | Default     |
@@ -29,6 +30,7 @@
 | `subtitle`     | `subtitle`      | The toolbar title         | `string`                       | `undefined` |
 | `toolbarTitle` | `toolbar-title` | The toolbar subtitle      | `string`                       | `undefined` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -36,7 +38,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-toolbar --> gxg-icon
@@ -44,6 +45,6 @@ graph TD;
   style gxg-toolbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

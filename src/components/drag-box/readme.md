@@ -20,6 +20,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute   | Description                                                                                                                              | Type                                                          | Default     |
@@ -30,12 +31,14 @@
 | `padding`   | `padding`   | The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items) | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"s"`       |
 | `title`     | `title`     | The title                                                                                                                                | `string`                                                      | `undefined` |
 
+
 ## Events
 
 | Event     | Description                                          | Type               |
 | --------- | ---------------------------------------------------- | ------------------ |
 | `clicked` | This event is for internal use                       | `CustomEvent<any>` |
 | `deleted` | This event fires when the "delete" button is pressed | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -45,7 +48,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-drag-box --> gxg-icon
@@ -55,6 +57,6 @@ graph TD;
   style gxg-drag-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -24,9 +24,8 @@ export class GxgTabBar {
   private exportparts: string;
 
   constructor() {
-    this.detectClickOutsideTabBarMenu = this.detectClickOutsideTabBarMenu.bind(
-      this
-    );
+    this.detectClickOutsideTabBarMenu =
+      this.detectClickOutsideTabBarMenu.bind(this);
   }
   // Indicate that name should be a public property on the component
   // @Prop() name: string;
@@ -34,7 +33,7 @@ export class GxgTabBar {
   /**
    * Hides the tab-bar
    */
-  @Prop() hidden = false;
+  @Prop() readonly hidden = false;
 
   @Element() el: HTMLGxgTabBarElement;
   tabBar!: HTMLUListElement;
@@ -52,19 +51,19 @@ export class GxgTabBar {
   /**
    * The presence of this attribute displays a border-bottom line on the tab bar
    */
-  @Prop() displayBorder = false;
+  @Prop() readonly displayBorder = false;
 
   /**
    * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
    */
-  @Prop({ reflect: true }) scrollable = false;
+  @Prop({ reflect: true }) readonly scrollable = false;
 
   /**
    * Reading direction
    */
   @State() rtl = false;
 
-  openMenu(event) {
+  private openMenu(event) {
     event.stopPropagation();
     this.tabBarMenuCollapsed = false;
     document.addEventListener("click", this.detectClickOutsideTabBarMenu);
@@ -159,7 +158,9 @@ export class GxgTabBar {
       //get the last item of the nodeList
       const lastTabButton = tabButtons[tabButtons.length - 1];
       if (lastTabButton) {
-        this.lastAddedOrRemovedTabBarButtonWidth = (lastTabButton as HTMLElement).offsetWidth;
+        this.lastAddedOrRemovedTabBarButtonWidth = (
+          lastTabButton as HTMLElement
+        ).offsetWidth;
         //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
         lastTabButton.classList.add("menu-button");
         lastTabButton.setAttribute("slot", "tab-menu");
@@ -175,7 +176,9 @@ export class GxgTabBar {
       if (menuFirstButton) {
         menuFirstButton.classList.remove("menu-button");
         menuFirstButton.setAttribute("slot", "tab-bar");
-        this.lastAddedOrRemovedTabBarButtonWidth = (menuFirstButton as HTMLElement).offsetWidth;
+        this.lastAddedOrRemovedTabBarButtonWidth = (
+          menuFirstButton as HTMLElement
+        ).offsetWidth;
 
         this.appendedButtons--;
       }
@@ -282,7 +285,7 @@ export class GxgTabBar {
     }
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     document.removeEventListener("click", this.detectClickOutsideTabBarMenu);
   }
 

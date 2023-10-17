@@ -24,42 +24,42 @@ export class GxgDatePicker {
   };
   private exportparts: string;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLGxgDatePickerElement;
 
   /**
    * The presence of this attribute makes the date-picker always visible
    */
-  @Prop() alwaysShow = false;
+  @Prop() readonly alwaysShow = false;
 
   /**
    * initial date
    */
-  @Prop() value: DatePickerDate;
+  @Prop({ mutable: true }) value: DatePickerDate;
 
   /**
    * The datepicker label
    */
-  @Prop() label: string = undefined;
+  @Prop() readonly label: string = undefined;
 
   /**
    * no weekends available
    */
-  @Prop() noWeekends = false;
+  @Prop() readonly noWeekends = false;
 
   /**
    * The min. date
    */
-  @Prop() minDate: DatePickerDate;
+  @Prop() readonly minDate: DatePickerDate;
 
   /**
    * The max. date
    */
-  @Prop() maxDate: DatePickerDate;
+  @Prop() readonly maxDate: DatePickerDate;
 
   /**
    * The max. width
    */
-  @Prop() maxWidth = "100%";
+  @Prop() readonly maxWidth = "100%";
 
   /**
    * Reading direction
@@ -120,9 +120,9 @@ export class GxgDatePicker {
     }
 
     //default date
-    const valueYear = value.getFullYear();
-    const valueMonth = value.getMonth();
-    const valueDay = value.getDate();
+    // const valueYear = value.getFullYear();
+    // const valueMonth = value.getMonth();
+    // const valueDay = value.getDate();
 
     //min date
     const minDate = this.minDate ? new Date(this.minDate) : undefined;

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -13,6 +14,8 @@
 <gxg-pill icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
 ```
 
+
+
 ## Properties
 
 | Property          | Attribute     | Description                                                                       | Type                                                                   | Default     |
@@ -23,11 +26,13 @@
 | `id` _(required)_ | `id`          | The pill id                                                                       | `string`                                                               | `undefined` |
 | `type`            | `type`        | The type of pill                                                                  | `"button" \| "button-with-action" \| "static" \| "static-with-action"` | `"static"`  |
 
+
 ## Events
 
 | Event         | Description | Type                  |
 | ------------- | ----------- | --------------------- |
 | `pillRemoved` |             | `CustomEvent<string>` |
+
 
 ## Dependencies
 
@@ -36,7 +41,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-pill --> gxg-icon
@@ -44,6 +48,6 @@ graph TD;
   style gxg-pill fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

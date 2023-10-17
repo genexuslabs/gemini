@@ -17,7 +17,7 @@ import Pickr from "@simonwep/pickr";
   shadow: true,
 })
 export class GxgColorPicker {
-  @Element() element: HTMLElement;
+  @Element() element: HTMLGxgColorPickerElement;
   private pickr: Pickr;
 
   /**
@@ -111,7 +111,7 @@ export class GxgColorPicker {
     observer.observe(this.element);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.pickr.destroy();
   }
 

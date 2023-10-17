@@ -12,6 +12,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute             | Description                                                                     | Type                                                   | Default           |
@@ -31,11 +32,13 @@
 | `validationStatus`   | `validation-status`   | The validation status                                                           | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`              | `value`               | The checkbox value                                                              | `string`                                               | `undefined`       |
 
+
 ## Events
 
 | Event    | Description | Type                                                               |
 | -------- | ----------- | ------------------------------------------------------------------ |
 | `change` |             | `CustomEvent<{ id: string; value: boolean; disabled?: boolean; }>` |
+
 
 ## Shadow Parts
 
@@ -43,12 +46,13 @@
 | ------- | ----------- |
 | `"box"` |             |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-list-box-item](../list-box-item)
-- [gxg-tree-item](../tree-item)
+ - [gxg-list-box-item](../list-box-item)
+ - [gxg-tree-item](../tree-item)
 
 ### Depends on
 
@@ -58,7 +62,6 @@
 - [gxg-tooltip](../tooltip)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-checkbox --> gxg-icon
@@ -73,6 +76,6 @@ graph TD;
   style gxg-form-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

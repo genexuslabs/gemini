@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute        | Description                                                                                         | Type      | Default     |
@@ -11,6 +12,7 @@
 | `hideOnSelect` | `hide-on-select` | Hides the menu when an item is selected.                                                            | `boolean` | `true`      |
 | `menuTitle`    | `menu-title`     | The menu title                                                                                      | `string`  | `undefined` |
 | `tabs`         | `tabs`           | Provide this attribute if you are using this menu on the tabs component                             | `boolean` | `undefined` |
+
 
 ## Shadow Parts
 
@@ -22,6 +24,7 @@
 | `"outer-wrapper"` |             |
 | `"title"`         |             |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

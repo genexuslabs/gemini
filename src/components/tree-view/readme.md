@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                     | Attribute           | Description                                                                                                                                                                                                                                   | Type                                                                                                       | Default                        |
@@ -24,6 +25,7 @@
 | `toggleCheckboxes`           | `toggle-checkboxes` | Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default. | `boolean`                                                                                                  | `false`                        |
 | `treeModel`                  | --                  | This property lets you define the model of the ch-tree-x control.                                                                                                                                                                             | `TreeXItemModel[]`                                                                                         | `[]`                           |
 
+
 ## Events
 
 | Event                 | Description                                                                            | Type                                                                                                                  |
@@ -32,6 +34,7 @@
 | `itemContextmenu`     | Fired when an element displays its contextmenu.                                        | `CustomEvent<{ id: string; itemRef: HTMLChTreeXListItemElement; metadata: string; contextmenuEvent: PointerEvent; }>` |
 | `itemOpenReference`   | Fired when the user interacts with an item in a way that its reference must be opened. | `CustomEvent<{ id: string; leaf: boolean; metadata: string; }>`                                                       |
 | `selectedItemsChange` | Fired when the selected items change.                                                  | `CustomEvent<Map<string, TreeXListItemSelectedInfo>>`                                                                 |
+
 
 ## Methods
 
@@ -44,6 +47,8 @@ lazy state, updates the item's UI Model.
 
 Type: `Promise<void>`
 
+
+
 ### `scrollIntoVisible(treeItemId: string) => Promise<void>`
 
 Given an item id, it displays and scrolls into the item view.
@@ -51,6 +56,8 @@ Given an item id, it displays and scrolls into the item view.
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `toggleItems(treeItemIds: string[], expand?: boolean) => Promise<TreeXListItemExpandedInfo[]>`
 
@@ -60,6 +67,8 @@ This method is used to toggle a tree item by the tree item id/ids.
 
 Type: `Promise<TreeXListItemExpandedInfo[]>`
 
+The modified items after the method was called.
+
 ### `updateAllItemsProperties(properties: { expanded?: boolean; checked?: boolean; }) => Promise<void>`
 
 Given a subset of item's properties, it updates all item UI models.
@@ -67,6 +76,8 @@ Given a subset of item's properties, it updates all item UI models.
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `updateItemsProperties(items: string[], properties: TreeXItemModel) => Promise<void>`
 
@@ -77,6 +88,8 @@ of the items in the list.
 
 Type: `Promise<void>`
 
+
+
 ### `updateValidDropZone(requestTimestamp: number, newContainerId: string, draggedItems: GxDataTransferInfo[], validDrop: boolean) => Promise<void>`
 
 Update the information about the valid droppable zones.
@@ -84,6 +97,9 @@ Update the information about the valid droppable zones.
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 
@@ -93,7 +109,6 @@ Type: `Promise<void>`
 - ch-tree-x
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-tree-view --> ch-tree-x-list-item
@@ -102,6 +117,6 @@ graph TD;
   style gxg-tree-view fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

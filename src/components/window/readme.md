@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                                              | Type      | Default   |
@@ -18,6 +19,7 @@
 | `topPosition`   | `top-position`   | The window top position. By default the window is vertically centered    | `string`  | `"0px"`   |
 | `windowTitle`   | `window-title`   | The window title                                                         | `string`  | `""`      |
 
+
 ## Dependencies
 
 ### Depends on
@@ -26,7 +28,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-window --> gxg-icon
@@ -36,6 +37,6 @@ graph TD;
   style gxg-window fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
