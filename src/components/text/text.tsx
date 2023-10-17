@@ -13,6 +13,11 @@ export class GxgText {
   @Prop() href: string;
 
   /**
+   * Disables the interactive types of text
+   */
+  @Prop() disabled = false;
+
+  /**
    * The target (for "link" or "link-gray" types
    * */
   @Prop() target: TargetType = "_self";
@@ -67,7 +72,7 @@ export class GxgText {
             style={{ maxWidth: this.maxWidth }}
             href={this.href}
             target={this.target}
-            class="gxg-link"
+            class={{ "gxg-link": true, disabled: this.disabled }}
           >
             {<slot></slot>}
           </a>
@@ -79,7 +84,11 @@ export class GxgText {
             style={{ maxWidth: this.maxWidth }}
             href={this.href}
             target={this.target}
-            class={{ "gxg-link": true, "no-line": true }}
+            class={{
+              "gxg-link": true,
+              "no-line": true,
+              disabled: this.disabled,
+            }}
           >
             {<slot></slot>}
           </a>
@@ -91,7 +100,7 @@ export class GxgText {
             style={{ maxWidth: this.maxWidth }}
             href={this.href}
             target={this.target}
-            class="gxg-link-gray"
+            class={{ "gxg-link-gray": true, disabled: this.disabled }}
           >
             {<slot></slot>}
           </a>
@@ -103,7 +112,11 @@ export class GxgText {
             style={{ maxWidth: this.maxWidth }}
             href={this.href}
             target={this.target}
-            class={{ "gxg-link-gray": true, "no-line": true }}
+            class={{
+              "gxg-link-gray": true,
+              "no-line": true,
+              disabled: this.disabled,
+            }}
           >
             {<slot></slot>}
           </a>
@@ -131,11 +144,18 @@ export class GxgText {
         );
         break;
       case "button-like":
-        text = <button class="gxg-button-like">{<slot></slot>}</button>;
+        text = (
+          <button class={{ "gxg-button-like": true, disabled: this.disabled }}>
+            {<slot></slot>}
+          </button>
+        );
         break;
       default:
         text = (
-          <p style={{ maxWidth: this.maxWidth }} class="gxg-text">
+          <p
+            style={{ maxWidth: this.maxWidth }}
+            class={{ "gxg-text": true, disabled: this.disabled }}
+          >
             {<slot></slot>}
           </p>
         );

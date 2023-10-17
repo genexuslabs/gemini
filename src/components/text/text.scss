@@ -16,6 +16,10 @@
       text-decoration: none;
     }
   }
+  .disabled {
+    pointer-events: none;
+    color: var(--gxg-color--disabled) !important;
+  }
 }
 /*text align*/
 :host([text-align="start"]) {
@@ -67,19 +71,6 @@
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
-:host(.large) {
-  .gxg-text,
-  .gxg-text--gray,
-  .gxg-quote,
-  .gxg-link,
-  .gxg-link-gray,
-  .gxg-alert-error,
-  .gxg-alert-warning,
-  .gxg-alert-success {
-    font-size: var(--font-size-lg);
-  }
-}
-
 :host(.large) {
   .gxg-text,
   .gxg-text--gray,

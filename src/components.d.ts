@@ -1798,6 +1798,10 @@ export namespace Components {
   }
   interface GxgText {
     /**
+     * Disables the interactive types of text
+     */
+    disabled: boolean;
+    /**
      * The href (for "link" or "link-gray" types
      */
     href: string;
@@ -4655,6 +4659,10 @@ declare namespace LocalJSX {
     )[];
   }
   interface GxgText {
+    /**
+     * Disables the interactive types of text
+     */
+    disabled?: boolean;
     /**
      * The href (for "link" or "link-gray" types
      */
