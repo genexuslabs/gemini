@@ -57,8 +57,6 @@ export class GxgTooltip {
     const top = tooltipBC.top;
     const leftPosition = tooltipBC.left;
     const width = tooltipBC.width;
-    console.log("width", width);
-    console.log("leftPosition", leftPosition);
     this.tooltipTextEl.style.top = `${top}px`;
     this.tooltipTextEl.style.left = `${leftPosition + width}px`;
     this.visible = true;

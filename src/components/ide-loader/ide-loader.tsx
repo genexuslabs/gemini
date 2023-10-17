@@ -89,7 +89,6 @@ INDEX:
   //  10.RENDER() FUNCTION //
 
   render() {
-    console.log(this.showTransition);
     return (
       <Host>
         <ch-window

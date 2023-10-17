@@ -141,7 +141,6 @@ export class GxgTabBar {
   }
 
   appendTabItemsToMenu() {
-    console.log("append");
     //This function appends tab-buttons into a tab-menu, as long as the tab-buttons are too tight
     const gxgTabsPosition = (this.el.parentElement as HTMLGxgTabsElement)
       .position;

@@ -97,7 +97,6 @@ export class GxgButtonGroup {
 
   setActiveButton(event: MouseEvent) {
     const tagName = (event.target as HTMLElement).tagName;
-    console.log(tagName);
     if (tagName !== "BUTTON") {
       //clicked button is disabled
     } else {
