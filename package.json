@@ -24,7 +24,7 @@
     "story": "npm-run-all --parallel start storybook",
     "svgo": "svgo --folder=./src/components/icon/assets --enable removeDimensions",
     "validate": "npm run test && npm run build",
-    "validate.ci": "npm run test && npm run build -- --max-workers 1 --debug",
+    "validate.ci": "npm install && npm run test && npm run build -- --max-workers 1 --debug",
     "build-storybook": "build-storybook -c .storybook",
     "lint": "eslint src/**/*{.ts,.tsx} --fix --rule \"{no-console: [\"warn\", { allow: [\"warn\", \"error\"] }]}\""
   },
