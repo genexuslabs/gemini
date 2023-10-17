@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute              | Description                                                                                                                    | Type      | Default     |
@@ -18,6 +19,7 @@
 | `siblingIsSelected`  | `sibling-is-selected`  | This property is for internal use                                                                                              | `boolean` | `false`     |
 | `value`              | `value`                | The item value. If value is not provided, the value will be the item innerHTML.                                                | `any`     | `undefined` |
 
+
 ## Events
 
 | Event                  | Description                       | Type                                                                                                                            |
@@ -27,6 +29,7 @@
 | `itemLoaded`           | (This event is for internal use.) | `CustomEvent<any>`                                                                                                              |
 | `itemSelected`         | (This event is for internal use.) | `CustomEvent<any>`                                                                                                              |
 
+
 ## Dependencies
 
 ### Depends on
@@ -35,7 +38,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-list-box-item --> gxg-form-checkbox
@@ -50,6 +52,6 @@ graph TD;
   style gxg-list-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

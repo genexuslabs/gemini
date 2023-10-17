@@ -16,6 +16,7 @@
 </ul>
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute       | Description | Type      | Default                  |
@@ -24,6 +25,7 @@
 | `layerZIndex`  | `layer-z-index` |             | `number`  | `100`                    |
 | `modalMessage` | `modal-message` |             | `string`  | `"Welcome to the demo!"` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -31,7 +33,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-demo --> gxg-button
@@ -40,6 +41,6 @@ graph TD;
   style gxg-demo fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -21,11 +21,13 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description            | Type                                                                                                    | Default   |
 | -------- | --------- | ---------------------- | ------------------------------------------------------------------------------------------------------- | --------- |
 | `width`  | `width`   | The column width value | `"1/2" \| "1/3" \| "1/4" \| "1/5" \| "2/3" \| "2/5" \| "3/4" \| "3/5" \| "4/5" \| "content" \| "fluid"` | `"fluid"` |
+
 
 ## Shadow Parts
 
@@ -33,6 +35,7 @@
 | ------------------- | ----------- |
 | `"inner-container"` |             |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

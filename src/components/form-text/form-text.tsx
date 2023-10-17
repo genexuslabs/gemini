@@ -46,22 +46,22 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute disables the tooltip. Useful for the combo-box.
    */
-  @Prop() readonly hideTooltip = false;
+  @Prop() readonly hideTooltip: boolean = false;
 
   /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
    */
-  @Prop() readonly toolTip = false;
+  @Prop() readonly toolTip: boolean = false;
 
   /**
    * The presence of this attribute displays a clear (cross) button-icon on the right side
    */
-  @Prop() readonly clearButton = false;
+  @Prop() readonly clearButton: boolean = false;
 
   /**
    * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
    */
-  @Prop() readonly debounce = false;
+  @Prop() readonly debounce: boolean = false;
 
   /**
    * The debounce delay value. Only applies if 'debounce' is true.
@@ -71,27 +71,27 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute makes the input disabled
    */
-  @Prop() readonly disabled = false;
+  @Prop() readonly disabled: boolean = false;
 
   /**
    * The presence of this attribute makes the input readonly
    */
-  @Prop() readonly readonly = false;
+  @Prop() readonly readonly: boolean = false;
 
   /**
    * The input icon (optional)
    */
-  @Prop() readonly icon = null;
+  @Prop({ mutable: true }) icon = null;
 
   /**
    * If true, it will position the cursor at the end when the input is focused.
    */
-  @Prop() readonly cursorEnd = false;
+  @Prop() readonly cursorEnd: boolean = false;
 
   /**
    * The input icon side
    */
-  @Prop({ reflect: true }) readonly iconPosition: IconPosition = null;
+  @Prop({ reflect: true, mutable: true }) iconPosition: IconPosition = null;
 
   /**
    * The input label
@@ -106,32 +106,32 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute hides the border.
    */
-  @Prop() readonly borderless = false;
+  @Prop() readonly borderless: boolean = false;
 
   /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
-  @Prop({ reflect: true }) readonly minimal = false;
+  @Prop({ reflect: true }) readonly minimal: boolean = false;
 
   /**
    * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
    */
-  @Prop({ reflect: true }) readonly overDarkBackground = false;
+  @Prop({ reflect: true }) readonly overDarkBackground: boolean = false;
 
   /**
    * The input placeholder
    */
-  @Prop() readonly placeholder: string;
+  @Prop({ mutable: true }) placeholder: string;
 
   /**
    * The presence of this attribute makes this input required
    */
-  @Prop({ reflect: true }) readonly required = false;
+  @Prop({ reflect: true }) readonly required: boolean = false;
 
   /**
    * Centers the label
    */
-  @Prop() readonly centerLabel = false;
+  @Prop({ mutable: true }) centerLabel = false;
 
   /**
    * The label width
@@ -146,7 +146,7 @@ export class GxgFormText implements FormComponent {
   /**
    * Allows multiple files if type is "file"
    */
-  @Prop() readonly multiple = false;
+  @Prop() readonly multiple: boolean = false;
 
   /**
    * The file list that the user selected (only applies if the input type is "file")
@@ -161,12 +161,12 @@ export class GxgFormText implements FormComponent {
   /**
    * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
    */
-  @Prop() readonly preventValueChangedEmit = false;
+  @Prop() readonly preventValueChangedEmit: boolean = false;
 
   /**
    * Prevent "value" from being changed when the input is disabled (helpful for cases where this component is used inside another component and this behavior causes conflicts. )
    */
-  @Prop() readonly preventValueChangeOnDisabled = false;
+  @Prop() readonly preventValueChangeOnDisabled: boolean = false;
 
   /* VALIDATION */
 
@@ -191,7 +191,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The input value
    */
-  @Prop({ reflect: true }) readonly value: string;
+  @Prop({ mutable: true, reflect: true }) value: string;
 
   /**
    * The input max. width
@@ -211,7 +211,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute sets the input type as password
    */
-  @Prop() readonly password = false;
+  @Prop() readonly password: boolean = false;
 
   /**
    * The input max. length
@@ -291,13 +291,13 @@ export class GxgFormText implements FormComponent {
   }
 
   @Method()
-  async async async async async async async async async async async selectInputText() {
+  async selectInputText() {
     this.textInput.focus();
     this.textInput.select();
   }
 
   @Method()
-  async async async async async async async async async async async openFile() {
+  async openFile() {
     if (this.type === "file") {
       this.fileInputEl.click();
     }

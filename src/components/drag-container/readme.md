@@ -9,6 +9,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute   | Description                                                                                                               | Type                                                          | Default     |
@@ -17,6 +18,7 @@
 | `disable`   | `disable`   | The presence of this attribute disables the drag and drop functionality.                                                  | `boolean`                                                     | `true`      |
 | `maxWidth`  | `max-width` | The max-width of the box container                                                                                        | `string`                                                      | `"100%"`    |
 | `padding`   | `padding`   | The padding (internal spacing) of the gxg-drag-boxes                                                                      | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `undefined` |
+
 
 ## Events
 
@@ -28,6 +30,7 @@
 | `itemDragStart` |             | `CustomEvent<any>` |
 | `itemDrop`      |             | `CustomEvent<any>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

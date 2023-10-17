@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute           | Description | Type                                     | Default     |
@@ -13,6 +14,7 @@
 | `selectedRowsIds` | `selected-rows-ids` |             | `number`                                 | `undefined` |
 | `width`           | `width`             |             | `string`                                 | `"100%"`    |
 
+
 ## Events
 
 | Event          | Description | Type               |
@@ -21,6 +23,7 @@
 | `removeRow`    |             | `CustomEvent<any>` |
 | `selectedRows` |             | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -28,7 +31,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-tree-grid-divs --> gxg-icon
@@ -36,6 +38,6 @@ graph TD;
   style gxg-tree-grid-divs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -13,7 +13,7 @@ export class GxgContextualMenu {
   /**
    * The presence of this attribute makes the menu visible
    */
-  @Prop({ reflect: true }) readonly visible = false;
+  @Prop({ reflect: true, mutable: true }) visible = false;
 
   @State() widthOverflow: boolean;
   @State() heightOverflow: boolean;

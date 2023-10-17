@@ -95,7 +95,7 @@ export class GxgTabBar {
   };
 
   @Method()
-  async async async async async async async async async async async appendTabButtons() {
+  async appendTabButtons() {
     if (!this.scrollable) {
       const numberOfButtons = this.el.querySelectorAll("gxg-tab-button").length;
       for (let i = 0; i <= numberOfButtons; i++) {

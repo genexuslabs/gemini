@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description | Type      | Default     |
@@ -10,11 +11,13 @@
 | `icon`   | `icon`    |             | `string`  | `null`      |
 | `label`  | `label`   |             | `string`  | `undefined` |
 
+
 ## Events
 
 | Event            | Description | Type               |
 | ---------------- | ----------- | ------------------ |
 | `menuItemActive` |             | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -23,7 +26,6 @@
 - [gxg-icon](../../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-menu-item --> gxg-icon
@@ -31,6 +33,6 @@ graph TD;
   style gxg-menu-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -80,7 +80,7 @@ INDEX:
   /**
    * Hides or show the menu with an animation
    */
-  @Prop() readonly hidden = true;
+  @Prop({ mutable: true }) hidden = true;
 
   /**
    * Hides the menu when an item is selected.

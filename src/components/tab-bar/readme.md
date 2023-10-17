@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                                                           | Type      | Default |
@@ -10,13 +11,19 @@
 | `hidden`        | `hidden`         | Hides the tab-bar                                                                                                     | `boolean` | `false` |
 | `scrollable`    | `scrollable`     | The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width. | `boolean` | `false` |
 
+
 ## Methods
 
 ### `appendTabButtons() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 
@@ -25,7 +32,6 @@ Type: `Promise<void>`
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-tab-bar --> gxg-button
@@ -34,6 +40,6 @@ graph TD;
   style gxg-tab-bar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

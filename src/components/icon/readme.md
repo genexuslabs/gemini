@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                                            | Type                                                                                                                                                                                                        | Default     |
@@ -10,53 +11,54 @@
 | `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                                                                                      | `"regular"` |
 | `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                                                                                       | `undefined` |
 
+
 ## Shadow Parts
 
 | Part        | Description |
 | ----------- | ----------- |
 | `"ch-icon"` |             |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-accordion-item](../accordion-item)
-- [gxg-alert](../alert)
-- [gxg-breadcrumb](../breadcrumb)
-- [gxg-button](../button)
-- [gxg-combo-box](../combo-box)
-- [gxg-combo-box-item](../combo-box-item)
-- [gxg-contextual-menu-item](../contextual-menu-item)
-- [gxg-drag-box](../drag-box)
-- [gxg-drop-down](../drop-down)
-- [gxg-filter-item](../filter-item)
-- [gxg-form-checkbox](../form-checkbox)
-- [gxg-form-checkbox-group](../form-checkbox-group)
-- [gxg-form-message](../form-message)
-- [gxg-form-radio-group](../form-radio-group)
-- [gxg-form-text](../form-text)
-- [gxg-form-textarea](../form-textarea)
-- [gxg-list-box](../list-box)
-- [gxg-list-box-item](../list-box-item)
-- [gxg-menu-item](../menu/menu-item)
-- [gxg-menu-slim-item](../menu-slim/item)
-- [gxg-more-info](../more-info)
-- [gxg-option-v2](../form-option-v2)
-- [gxg-pill](../pill)
-- [gxg-suggest](../suggest)
-- [gxg-tab-button](../tab-button)
-- [gxg-toolbar](../toolbar)
-- [gxg-toolbar-item](../toolbar-item)
-- [gxg-tree-grid-divs](../tree-grid-divs)
-- [gxg-tree-item](../tree-item)
-- [gxg-window](../window)
+ - [gxg-accordion-item](../accordion-item)
+ - [gxg-alert](../alert)
+ - [gxg-breadcrumb](../breadcrumb)
+ - [gxg-button](../button)
+ - [gxg-combo-box](../combo-box)
+ - [gxg-combo-box-item](../combo-box-item)
+ - [gxg-contextual-menu-item](../contextual-menu-item)
+ - [gxg-drag-box](../drag-box)
+ - [gxg-drop-down](../drop-down)
+ - [gxg-filter-item](../filter-item)
+ - [gxg-form-checkbox](../form-checkbox)
+ - [gxg-form-checkbox-group](../form-checkbox-group)
+ - [gxg-form-message](../form-message)
+ - [gxg-form-radio-group](../form-radio-group)
+ - [gxg-form-text](../form-text)
+ - [gxg-form-textarea](../form-textarea)
+ - [gxg-list-box](../list-box)
+ - [gxg-list-box-item](../list-box-item)
+ - [gxg-menu-item](../menu/menu-item)
+ - [gxg-menu-slim-item](../menu-slim/item)
+ - [gxg-more-info](../more-info)
+ - [gxg-option-v2](../form-option-v2)
+ - [gxg-pill](../pill)
+ - [gxg-suggest](../suggest)
+ - [gxg-tab-button](../tab-button)
+ - [gxg-toolbar](../toolbar)
+ - [gxg-toolbar-item](../toolbar-item)
+ - [gxg-tree-grid-divs](../tree-grid-divs)
+ - [gxg-tree-item](../tree-item)
+ - [gxg-window](../window)
 
 ### Depends on
 
 - ch-icon
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-icon --> ch-icon
@@ -93,6 +95,6 @@ graph TD;
   style gxg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

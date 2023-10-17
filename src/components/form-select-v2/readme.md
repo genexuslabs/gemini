@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                   | Type                 | Default     |
@@ -18,12 +19,14 @@
 | `warning`       | `warning`        | The presence of this attribute stylizes the component with warning attributes | `boolean`            | `false`     |
 | `width`         | `width`          | The select width                                                              | `string`             | `"100%"`    |
 
+
 ## Events
 
 | Event    | Description                              | Type               |
 | -------- | ---------------------------------------- | ------------------ |
 | `change` | Returns the value of the selected option | `CustomEvent<any>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

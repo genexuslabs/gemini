@@ -7,6 +7,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property               | Attribute                | Description                                                                        | Type                                                          | Default      |
@@ -22,6 +23,7 @@
 | `width`                | `width`                  | The modal width                                                                    | `string`                                                      | `"100%"`     |
 | `zIndex`               | `z-index`                | The z-index value of the modal                                                     | `string`                                                      | `"100"`      |
 
+
 ## Events
 
 | Event         | Description                       | Type               |
@@ -29,13 +31,19 @@
 | `modalClosed` | Emmited when the modal was closed | `CustomEvent<any>` |
 | `modalOpened` | Emmited when the modal was opened | `CustomEvent<any>` |
 
+
 ## Methods
 
 ### `close() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 
@@ -44,7 +52,6 @@ Type: `Promise<void>`
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-modal --> gxg-button
@@ -53,6 +60,6 @@ graph TD;
   style gxg-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

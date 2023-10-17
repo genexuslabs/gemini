@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                    | Type                                                   | Default           |
@@ -15,11 +16,13 @@
 | `validationStatus`   | `validation-status`   | The validation status                                                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`              | `value`               | The radio group checked radio value                                                                                                                            | `string`                                               | `undefined`       |
 
+
 ## Events
 
 | Event    | Description                                        | Type                                           |
 | -------- | -------------------------------------------------- | ---------------------------------------------- |
 | `change` | Emits the value when is changed, and the radio id. | `CustomEvent<{ value: string; id?: string; }>` |
+
 
 ## Dependencies
 
@@ -31,7 +34,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-radio-group --> gxg-label
@@ -44,6 +46,6 @@ graph TD;
   style gxg-form-radio-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

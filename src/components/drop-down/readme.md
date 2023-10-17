@@ -7,6 +7,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute          | Description                              | Type                | Default     |
@@ -20,12 +21,14 @@
 | `showContent`    | `show-content`     | Displays the dropdown content            | `boolean`           | `false`     |
 | `width`          | `width`            | The dropdown width                       | `string`            | `"240px"`   |
 
+
 ## Events
 
 | Event    | Description                                        | Type               |
 | -------- | -------------------------------------------------- | ------------------ |
 | `closed` | This events gets fired when the dropdown is closed | `CustomEvent<any>` |
 | `opened` | This events gets fired when the dropdown is opened | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -36,7 +39,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-drop-down --> gxg-label
@@ -48,6 +50,6 @@ graph TD;
   style gxg-drop-down fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

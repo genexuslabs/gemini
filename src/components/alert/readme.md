@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute     | Description                                                                        | Type                                                                          | Default     |
@@ -17,6 +18,7 @@
 | `type`       | `type`        | The alert flavor                                                                   | `"error" \| "notice" \| "success" \| "warning"`                               | `"notice"`  |
 | `width`      | `width`       | The alert width                                                                    | `string`                                                                      | `"350px"`   |
 
+
 ## Dependencies
 
 ### Depends on
@@ -25,7 +27,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-alert --> gxg-icon
@@ -35,6 +36,6 @@ graph TD;
   style gxg-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property              | Attribute               | Description                                                                | Type                           | Default     |
@@ -23,6 +24,7 @@
 | `noHeadingPadding`    | `no-heading-padding`    | Removes the padding from the heading                                       | `boolean`                      | `false`     |
 | `sectionsPadding`     | `sections-padding`      | The container general padding (applies to .heading, .content, and .footer) | `"l" \| "m" \| "s"`            | `"m"`       |
 
+
 ## Dependencies
 
 ### Depends on
@@ -30,13 +32,12 @@
 - [gxg-title](../title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-container --> gxg-title
   style gxg-container fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

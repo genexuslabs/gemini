@@ -2,12 +2,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                                                     | Type     | Default     |
 | -------- | --------- | --------------------------------------------------------------- | -------- | ----------- |
 | `label`  | `label`   | The label of the color picker (optional)                        | `any`    | `undefined` |
 | `value`  | `value`   | The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5) | `string` | `"white"`   |
+
 
 ## Events
 
@@ -17,6 +19,7 @@
 | `nameInputEvent` |             | `CustomEvent<any>` |
 | `save`           |             | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -25,7 +28,6 @@
 - [gxg-button-group](../button-group)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-color-picker --> gxg-label
@@ -35,6 +37,6 @@ graph TD;
   style gxg-color-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

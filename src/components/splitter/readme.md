@@ -7,6 +7,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -18,6 +19,8 @@
 </gxg-splitter>
 ```
 
+
+
 ## Properties
 
 | Property            | Attribute             | Description                                                                                                 | Type                          | Default           |
@@ -28,12 +31,14 @@
 | `minSize`           | `min-size`            | The splitter min. sizes in pixels                                                                           | `string`                      | `"0,0"`           |
 | `sizes`             | `sizes`               | The splitter initial sizes, in percentages. The sum should equal 100                                        | `string`                      | `"50,50"`         |
 
+
 ## Events
 
 | Event       | Description | Type               |
 | ----------- | ----------- | ------------------ |
 | `dragEnded` |             | `CustomEvent<any>` |
 | `dragging`  |             | `CustomEvent<any>` |
+
 
 ## Methods
 
@@ -45,6 +50,9 @@ This method allows to collapse the split passsed as argument
 
 Type: `Promise<void>`
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                                                 | Type                                            | Default       |
@@ -13,6 +14,7 @@
 | `noPadding`      | `no-padding`       | The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes. | `boolean`                                       | `false`       |
 | `singleItemOpen` | `single-item-open` | If this attribute is present, only one accordion-item can be open at the same time                                                                                          | `boolean`                                       | `false`       |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -30,6 +30,7 @@ graph TD;
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -49,6 +50,8 @@ graph TD;
 </script>
 ```
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

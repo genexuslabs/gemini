@@ -20,12 +20,14 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                                                                                        | Type  | Default     |
 | -------- | --------- | -------------------------------------------------------------------------------------------------- | ----- | ----------- |
 | `left`   | `left`    | The left position of the filter, relative to the closest parent with relative position. (optional) | `any` | `undefined` |
 | `top`    | `top`     | The top position of the filter, relative to the closest parent with relative position. (optional)  | `any` | `undefined` |
+
 
 ## Dependencies
 
@@ -35,7 +37,6 @@
 - [gxg-button](../button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-filter --> gxg-form-text
@@ -51,6 +52,6 @@ graph TD;
   style gxg-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

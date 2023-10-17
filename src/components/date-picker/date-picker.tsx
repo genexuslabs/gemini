@@ -34,7 +34,7 @@ export class GxgDatePicker {
   /**
    * initial date
    */
-  @Prop() readonly value: DatePickerDate;
+  @Prop({ mutable: true }) value: DatePickerDate;
 
   /**
    * The datepicker label
