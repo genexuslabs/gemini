@@ -43,11 +43,13 @@ export class GxgTabs {
   }
 
   updateActiveChildren(activeTab: string, tagName: string) {
-    const children = Array.from(
-      this.el.querySelectorAll(tagName) as NodeListOf<
-        HTMLGxgTabButtonElement | HTMLGxgTabElement
-      >
-    );
+    let children;
+    if (tagName === "gxg-tab") {
+      children = this.el.querySelectorAll(":scope > gxg-tab");
+    } else if (tagName === "gxg-tab-button") {
+      const tabBar = this.el.querySelector(":scope > gxg-tab-bar");
+      children = tabBar.querySelectorAll(":scope > gxg-tab-button");
+    }
     for (const child of children) {
       child.isSelected = activeTab === child.tab;
     }
