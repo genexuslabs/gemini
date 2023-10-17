@@ -57,6 +57,8 @@
 
 ### `close() => Promise<void>`
 
+closes the combo
+
 #### Returns
 
 Type: `Promise<void>`

@@ -171,7 +171,7 @@ export namespace Components {
     /**
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
-    mode: mode;
+    mode: mode1;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
@@ -397,6 +397,9 @@ export namespace Components {
      * Centers the label
      */
     centerLabel: boolean;
+    /**
+     * closes the combo
+     */
     close: () => Promise<void>;
     /**
      * If true, it will position the cursor at the end when the input is focused.
@@ -672,7 +675,7 @@ export namespace Components {
     /**
      * The padding (internal spacing) of the gxg-drag-boxes
      */
-    padding: Padding;
+    padding: Padding1;
   }
   interface GxgDropDown {
     /**
@@ -1811,15 +1814,7 @@ export namespace Components {
     setActiveTab: (tab: string) => Promise<void>;
     tabBarBorder: boolean;
   }
-  interface GxgTest {
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    comboValues: (
-      | { id: string; label: string; iconName: string; selected: boolean }
-      | { id: string; label: string; iconName: string; selected?: undefined }
-    )[];
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * Disables the interactive types of text
@@ -2221,6 +2216,150 @@ export namespace Components {
      */
     windowTitle: string;
   }
+}
+export interface GxgAccordionItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgAccordionItemElement;
+}
+export interface GxgBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgBreadcrumbElement;
+}
+export interface GxgColorPickerCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgColorPickerElement;
+}
+export interface GxgComboBoxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgComboBoxElement;
+}
+export interface GxgComboBoxItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgComboBoxItemElement;
+}
+export interface GxgContextualMenuItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgContextualMenuItemElement;
+}
+export interface GxgDatePickerCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDatePickerElement;
+}
+export interface GxgDragBoxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDragBoxElement;
+}
+export interface GxgDragContainerCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDragContainerElement;
+}
+export interface GxgDropDownCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDropDownElement;
+}
+export interface GxgFilterItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFilterItemElement;
+}
+export interface GxgFormCheckboxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormCheckboxElement;
+}
+export interface GxgFormCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormCheckboxGroupElement;
+}
+export interface GxgFormRadioCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormRadioElement;
+}
+export interface GxgFormRadioGroupCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormRadioGroupElement;
+}
+export interface GxgFormTextCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormTextElement;
+}
+export interface GxgFormTextareaCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormTextareaElement;
+}
+export interface GxgListBoxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgListBoxElement;
+}
+export interface GxgListBoxItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgListBoxItemElement;
+}
+export interface GxgMenuItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgMenuItemElement;
+}
+export interface GxgMenuSlimItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgMenuSlimItemElement;
+}
+export interface GxgModalCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgModalElement;
+}
+export interface GxgOptionCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgOptionElement;
+}
+export interface GxgOptionV2CustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgOptionV2Element;
+}
+export interface GxgOptionsItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgOptionsItemElement;
+}
+export interface GxgPillCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgPillElement;
+}
+export interface GxgSelectCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgSelectElement;
+}
+export interface GxgSelectV2CustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgSelectV2Element;
+}
+export interface GxgSplitterCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgSplitterElement;
+}
+export interface GxgStepperCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgStepperElement;
+}
+export interface GxgTabButtonCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTabButtonElement;
+}
+export interface GxgToggleCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgToggleElement;
+}
+export interface GxgTreeCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeElement;
+}
+export interface GxgTreeGridDivsCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeGridDivsElement;
+}
+export interface GxgTreeItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeItemElement;
+}
+export interface GxgTreeViewCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeViewElement;
 }
 declare global {
   interface HTMLGxgAccordionElement
@@ -2905,23 +3044,23 @@ declare namespace LocalJSX {
     /**
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
-    mode?: mode;
+    mode?: mode1;
     /**
      * This event is for internal use
      */
-    onAccordionItemClicked?: (event: CustomEvent<any>) => void;
+    onAccordionItemClicked?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * This event is for internal use
      */
-    onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
+    onAccordionItemLoaded?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * Subscribe to this event to know when the "title" was clicked
      */
-    onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
+    onAccordionTitleClicked?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * If "editable-title" attribute is present, this event emmits the title value when it has changed
      */
-    onTitleChanged?: (event: CustomEvent<any>) => void;
+    onTitleChanged?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
@@ -3011,7 +3150,7 @@ declare namespace LocalJSX {
     /**
      * This event emmits the breadcrumb index
      */
-    onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
+    onBreadcrumbClicked?: (event: GxgBreadcrumbCustomEvent<any>) => void;
   }
   interface GxgBreadcrumbs {}
   interface GxgButton {
@@ -3117,9 +3256,9 @@ declare namespace LocalJSX {
      * The label of the color picker (optional)
      */
     label?: any;
-    onChange?: (event: CustomEvent<any>) => void;
-    onNameInputEvent?: (event: CustomEvent<any>) => void;
-    onSave?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgColorPickerCustomEvent<any>) => void;
+    onNameInputEvent?: (event: GxgColorPickerCustomEvent<any>) => void;
+    onSave?: (event: GxgColorPickerCustomEvent<any>) => void;
     /**
      * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
      */
@@ -3209,19 +3348,19 @@ declare namespace LocalJSX {
     /**
      * This event is triggered when the combo dropdown has closed
      */
-    onClosed?: (event: CustomEvent<any>) => void;
+    onClosed?: (event: GxgComboBoxCustomEvent<any>) => void;
     /**
      * This event is triggered when the combo dropdown is opened
      */
-    onOpened?: (event: CustomEvent<any>) => void;
+    onOpened?: (event: GxgComboBoxCustomEvent<any>) => void;
     /**
      * This event is triggered when the combo dropdown has toggled (opened/closed)
      */
-    onToggled?: (event: CustomEvent<boolean>) => void;
+    onToggled?: (event: GxgComboBoxCustomEvent<boolean>) => void;
     /**
      * This event is triggered when the combo box value changes.
      */
-    onValueChanged?: (event: CustomEvent<ComboBoxItemValue>) => void;
+    onValueChanged?: (event: GxgComboBoxCustomEvent<ComboBoxItemValue>) => void;
     /**
      * The combo placeholder
      */
@@ -3275,15 +3414,19 @@ declare namespace LocalJSX {
     /**
      * This event is fired when the item has loaded
      */
-    onItemDidLoad?: (event: CustomEvent<ItemInformation>) => void;
+    onItemDidLoad?: (
+      event: GxgComboBoxItemCustomEvent<ItemInformation>
+    ) => void;
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */
-    onItemSelected?: (event: CustomEvent<ItemInformation>) => void;
+    onItemSelected?: (
+      event: GxgComboBoxItemCustomEvent<ItemInformation>
+    ) => void;
     /**
      * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input.
      */
-    onKeyDownPressed?: (event: CustomEvent<any>) => void;
+    onKeyDownPressed?: (event: GxgComboBoxItemCustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this combo-item selected.
      */
@@ -3374,7 +3517,9 @@ declare namespace LocalJSX {
      * The id
      */
     id?: string;
-    onContextualMenuItemSelected?: (event: CustomEvent<string>) => void;
+    onContextualMenuItemSelected?: (
+      event: GxgContextualMenuItemCustomEvent<string>
+    ) => void;
   }
   interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
@@ -3405,7 +3550,7 @@ declare namespace LocalJSX {
     /**
      * Emits the new selected date
      */
-    onValueChanged?: (event: CustomEvent<DatePickerDate>) => void;
+    onValueChanged?: (event: GxgDatePickerCustomEvent<DatePickerDate>) => void;
     /**
      * initial date
      */
@@ -3432,11 +3577,11 @@ declare namespace LocalJSX {
     /**
      * This event is for internal use
      */
-    onClicked?: (event: CustomEvent<any>) => void;
+    onClicked?: (event: GxgDragBoxCustomEvent<any>) => void;
     /**
      * This event fires when the "delete" button is pressed
      */
-    onDeleted?: (event: CustomEvent<any>) => void;
+    onDeleted?: (event: GxgDragBoxCustomEvent<any>) => void;
     /**
      * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
      */
@@ -3459,15 +3604,15 @@ declare namespace LocalJSX {
      * The max-width of the box container
      */
     maxWidth?: string;
-    onItemDragEnter?: (event: CustomEvent<any>) => void;
-    onItemDragLeave?: (event: CustomEvent<any>) => void;
-    onItemDragOver?: (event: CustomEvent<any>) => void;
-    onItemDragStart?: (event: CustomEvent<any>) => void;
-    onItemDrop?: (event: CustomEvent<any>) => void;
+    onItemDragEnter?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDragLeave?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDragOver?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDragStart?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDrop?: (event: GxgDragContainerCustomEvent<any>) => void;
     /**
      * The padding (internal spacing) of the gxg-drag-boxes
      */
-    padding?: Padding;
+    padding?: Padding1;
   }
   interface GxgDropDown {
     /**
@@ -3493,11 +3638,11 @@ declare namespace LocalJSX {
     /**
      * This events gets fired when the dropdown is closed
      */
-    onClosed?: (event: CustomEvent<any>) => void;
+    onClosed?: (event: GxgDropDownCustomEvent<any>) => void;
     /**
      * This events gets fired when the dropdown is opened
      */
-    onOpened?: (event: CustomEvent<any>) => void;
+    onOpened?: (event: GxgDropDownCustomEvent<any>) => void;
     /**
      * The container 'items container' position
      */
@@ -3533,7 +3678,7 @@ declare namespace LocalJSX {
     /**
      * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
      */
-    onItemClickedEvent?: (event: CustomEvent<any>) => void;
+    onItemClickedEvent?: (event: GxgFilterItemCustomEvent<any>) => void;
     /**
      * The type (optional)
      */
@@ -3576,7 +3721,7 @@ declare namespace LocalJSX {
      * The checkbox name
      */
     name?: string;
-    onChange?: (event: CustomEvent<CheckboxInfo>) => void;
+    onChange?: (event: GxgFormCheckboxCustomEvent<CheckboxInfo>) => void;
     /**
      * The presence of this attribute makes the commbo required
      */
@@ -3604,7 +3749,9 @@ declare namespace LocalJSX {
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
-    onGroupValuesChanged?: (event: CustomEvent<CheckboxesGroupValues>) => void;
+    onGroupValuesChanged?: (
+      event: GxgFormCheckboxGroupCustomEvent<CheckboxesGroupValues>
+    ) => void;
     /**
      * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
      */
@@ -3648,11 +3795,11 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use)
      */
-    onKeyPressed?: (event: CustomEvent<any>) => void;
+    onKeyPressed?: (event: GxgFormRadioCustomEvent<any>) => void;
     /**
      * Emits the id and value of the radio when is checked.
      */
-    onRadioChecked?: (event: CustomEvent<RadioData>) => void;
+    onRadioChecked?: (event: GxgFormRadioCustomEvent<RadioData>) => void;
     /**
      * The radio id
      */
@@ -3678,7 +3825,7 @@ declare namespace LocalJSX {
     /**
      * Emits the value when is changed, and the radio id.
      */
-    onChange?: (event: CustomEvent<RadioData>) => void;
+    onChange?: (event: GxgFormRadioGroupCustomEvent<RadioData1>) => void;
     /**
      * Make the radio-buttons required
      */
@@ -3788,23 +3935,23 @@ declare namespace LocalJSX {
     /**
      * Returns the input value
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgFormTextCustomEvent<any>) => void;
     /**
      * The clear button was clicked
      */
-    onClearButtonClicked?: (event: CustomEvent<any>) => void;
+    onClearButtonClicked?: (event: GxgFormTextCustomEvent<any>) => void;
     /**
      * File Selected
      */
-    onFileSelected?: (event: CustomEvent<FileList>) => void;
+    onFileSelected?: (event: GxgFormTextCustomEvent<FileList>) => void;
     /**
      * Returns the input value
      */
-    onInput?: (event: CustomEvent<any>) => void;
+    onInput?: (event: GxgFormTextCustomEvent<any>) => void;
     /**
      * The clear button was clicked
      */
-    onValueChanged?: (event: CustomEvent<string>) => void;
+    onValueChanged?: (event: GxgFormTextCustomEvent<string>) => void;
     /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
@@ -3906,11 +4053,11 @@ declare namespace LocalJSX {
     /**
      * Returns the textarea value
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgFormTextareaCustomEvent<any>) => void;
     /**
      * Returns the textarea value
      */
-    onInput?: (event: CustomEvent<any>) => void;
+    onInput?: (event: GxgFormTextareaCustomEvent<any>) => void;
     /**
      * The textarea placeholder
      */
@@ -4041,11 +4188,13 @@ declare namespace LocalJSX {
      * The presence of this attribute disables the border all around
      */
     noBorder?: boolean;
-    onCheckedChanged?: (event: CustomEvent<any>) => void;
+    onCheckedChanged?: (event: GxgListBoxCustomEvent<any>) => void;
     /**
      * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
      */
-    onSelectionChanged?: (event: CustomEvent<SelectionChangedEvent>) => void;
+    onSelectionChanged?: (
+      event: GxgListBoxCustomEvent<SelectionChangedEvent>
+    ) => void;
     /**
      * Make the radio-buttons required
      */
@@ -4103,19 +4252,21 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use.)
      */
-    onCheckboxStateChanged?: (event: CustomEvent<ItemChecked>) => void;
+    onCheckboxStateChanged?: (
+      event: GxgListBoxItemCustomEvent<ItemChecked>
+    ) => void;
     /**
      * (This event is for internal use.)
      */
-    onItemClicked?: (event: CustomEvent<ItemClicked>) => void;
+    onItemClicked?: (event: GxgListBoxItemCustomEvent<ItemClicked>) => void;
     /**
      * (This event is for internal use.)
      */
-    onItemLoaded?: (event: CustomEvent<any>) => void;
+    onItemLoaded?: (event: GxgListBoxItemCustomEvent<any>) => void;
     /**
      * (This event is for internal use.)
      */
-    onItemSelected?: (event: CustomEvent<any>) => void;
+    onItemSelected?: (event: GxgListBoxItemCustomEvent<any>) => void;
     /**
      * The presence of this attribute sets this item as selected
      */
@@ -4157,7 +4308,7 @@ declare namespace LocalJSX {
     active?: boolean;
     icon?: string;
     label?: string;
-    onMenuItemActive?: (event: CustomEvent<any>) => void;
+    onMenuItemActive?: (event: GxgMenuItemCustomEvent<any>) => void;
   }
   interface GxgMenuSlim {
     /**
@@ -4209,11 +4360,15 @@ declare namespace LocalJSX {
     /**
      * This events emits the item id, label, iconType, and a reference to itself
      */
-    onItemSelected?: (event: CustomEvent<MenuItemSelected>) => void;
+    onItemSelected?: (
+      event: GxgMenuSlimItemCustomEvent<MenuItemSelected>
+    ) => void;
     /**
      * This events fires when the user presses up or down keys.
      */
-    onKeyboardNavigation?: (event: CustomEvent<MenuItemFocusChange>) => void;
+    onKeyboardNavigation?: (
+      event: GxgMenuSlimItemCustomEvent<MenuItemFocusChange>
+    ) => void;
   }
   interface GxgMenuSlimList {
     /**
@@ -4242,11 +4397,11 @@ declare namespace LocalJSX {
     /**
      * Emmited when the modal was closed
      */
-    onModalClosed?: (event: CustomEvent<any>) => void;
+    onModalClosed?: (event: GxgModalCustomEvent<any>) => void;
     /**
      * Emmited when the modal was opened
      */
-    onModalOpened?: (event: CustomEvent<any>) => void;
+    onModalOpened?: (event: GxgModalCustomEvent<any>) => void;
     padding?: padding;
     /**
      * The presence of this attribute removes the sound that plays when the modal appears
@@ -4292,7 +4447,7 @@ declare namespace LocalJSX {
      * The icon name (optional)
      */
     iconName?: string;
-    onOptionIsSelected?: (event: CustomEvent<any>) => void;
+    onOptionIsSelected?: (event: GxgOptionCustomEvent<any>) => void;
     /**
      * The presence of this attribute makes the option selected by default
      */
@@ -4307,7 +4462,7 @@ declare namespace LocalJSX {
      * The icon name (optional)
      */
     iconName?: string;
-    onOptionIsSelected?: (event: CustomEvent<any>) => void;
+    onOptionIsSelected?: (event: GxgOptionV2CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes the option selected by default
      */
@@ -4327,8 +4482,8 @@ declare namespace LocalJSX {
   }
   interface GxgOptionsItem {
     disabled?: boolean;
-    onKeyDown?: (event: CustomEvent<any>) => void;
-    onOptionSelected?: (event: CustomEvent<any>) => void;
+    onKeyDown?: (event: GxgOptionsItemCustomEvent<any>) => void;
+    onOptionSelected?: (event: GxgOptionsItemCustomEvent<any>) => void;
   }
   interface GxgPaginator {
     /**
@@ -4353,7 +4508,7 @@ declare namespace LocalJSX {
      * The pill id
      */
     id: string;
-    onPillRemoved?: (event: CustomEvent<string>) => void;
+    onPillRemoved?: (event: GxgPillCustomEvent<string>) => void;
     /**
      * The type of pill
      */
@@ -4414,7 +4569,7 @@ declare namespace LocalJSX {
     /**
      * Returns the value of the selected option
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgSelectCustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this input required
      */
@@ -4460,7 +4615,7 @@ declare namespace LocalJSX {
     /**
      * Returns the value of the selected option
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgSelectV2CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this input required
      */
@@ -4556,8 +4711,8 @@ declare namespace LocalJSX {
      * The splitter min. sizes in pixels
      */
     minSize?: string;
-    onDragEnded?: (event: CustomEvent<any>) => void;
-    onDragging?: (event: CustomEvent<any>) => void;
+    onDragEnded?: (event: GxgSplitterCustomEvent<any>) => void;
+    onDragging?: (event: GxgSplitterCustomEvent<any>) => void;
     /**
      * The splitter initial sizes, in percentages. The sum should equal 100
      */
@@ -4590,7 +4745,7 @@ declare namespace LocalJSX {
      * The min. value
      */
     min?: number;
-    onStepperInput?: (event: CustomEvent<any>) => void;
+    onStepperInput?: (event: GxgStepperCustomEvent<any>) => void;
     /**
      * The initial vaule
      */
@@ -4675,8 +4830,8 @@ declare namespace LocalJSX {
      * Provide this attribute to make this button selected by default
      */
     isSelected?: boolean;
-    onPrevOrNextTab?: (event: CustomEvent<any>) => void;
-    onTabActivated?: (event: CustomEvent<any>) => void;
+    onPrevOrNextTab?: (event: GxgTabButtonCustomEvent<any>) => void;
+    onTabActivated?: (event: GxgTabButtonCustomEvent<any>) => void;
     /**
      * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
      */
@@ -4697,15 +4852,7 @@ declare namespace LocalJSX {
     position?: TabsPosition;
     tabBarBorder?: boolean;
   }
-  interface GxgTest {
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    comboValues?: (
-      | { id: string; label: string; iconName: string; selected: boolean }
-      | { id: string; label: string; iconName: string; selected?: undefined }
-    )[];
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * Disables the interactive types of text
@@ -4762,7 +4909,7 @@ declare namespace LocalJSX {
     /**
      * This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off.
      */
-    onToggleSwitched?: (event: CustomEvent<any>) => void;
+    onToggleSwitched?: (event: GxgToggleCustomEvent<any>) => void;
   }
   interface GxgToolbar {
     /**
@@ -4836,7 +4983,7 @@ declare namespace LocalJSX {
      */
     multiSelection?: boolean;
     onTreeItemStateChanged?: (
-      event: CustomEvent<TreeItemNewStateEmitted>
+      event: GxgTreeCustomEvent<TreeItemNewStateEmitted>
     ) => void;
     /**
      * Set this attribute if you want all the items to be opened by default.
@@ -4851,9 +4998,9 @@ declare namespace LocalJSX {
     columns?: Array<object>;
     displayChildren?: DisplayChildren;
     editCell?: { rowId: number; columnName: string };
-    onAddRow?: (event: CustomEvent<any>) => void;
-    onRemoveRow?: (event: CustomEvent<any>) => void;
-    onSelectedRows?: (event: CustomEvent<any>) => void;
+    onAddRow?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+    onRemoveRow?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+    onSelectedRows?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
     rows?: Array<object>;
     selectedRowsIds?: number;
     width?: string;
@@ -4902,23 +5049,29 @@ declare namespace LocalJSX {
     /**
      * Emitted when the checkbox was toggled
      */
-    onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onCheckboxToggled?: (
+      event: GxgTreeItemCustomEvent<GxgTreeItemData>
+    ) => void;
     /**
      * Emitted when the item was double-clicked
      */
-    onDoubleClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onDoubleClicked?: (event: GxgTreeItemCustomEvent<GxgTreeItemData>) => void;
     /**
      * Emitted when the item is not lazy anymore
      */
-    onLazyChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onLazyChanged?: (event: GxgTreeItemCustomEvent<GxgTreeItemData>) => void;
     /**
      * Emitted when the icon selection was changes
      */
-    onSelectionChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onSelectionChanged?: (
+      event: GxgTreeItemCustomEvent<GxgTreeItemData>
+    ) => void;
     /**
      * Emitted when the toggle icon was clicked
      */
-    onToggleIconClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onToggleIconClicked?: (
+      event: GxgTreeItemCustomEvent<GxgTreeItemData>
+    ) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
@@ -5002,23 +5155,25 @@ declare namespace LocalJSX {
      * Fired when the checked items change.
      */
     onCheckedItemsChange?: (
-      event: CustomEvent<Map<string, TreeXItemModelExtended>>
+      event: GxgTreeViewCustomEvent<Map<string, TreeXItemModelExtended>>
     ) => void;
     /**
      * Fired when an element displays its contextmenu.
      */
-    onItemContextmenu?: (event: CustomEvent<TreeXItemContextMenu>) => void;
+    onItemContextmenu?: (
+      event: GxgTreeViewCustomEvent<TreeXItemContextMenu>
+    ) => void;
     /**
      * Fired when the user interacts with an item in a way that its reference must be opened.
      */
     onItemOpenReference?: (
-      event: CustomEvent<TreeXListItemOpenReferenceInfo>
+      event: GxgTreeViewCustomEvent<TreeXListItemOpenReferenceInfo>
     ) => void;
     /**
      * Fired when the selected items change.
      */
     onSelectedItemsChange?: (
-      event: CustomEvent<Map<string, TreeXListItemSelectedInfo>>
+      event: GxgTreeViewCustomEvent<Map<string, TreeXListItemSelectedInfo>>
     ) => void;
     /**
      * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)

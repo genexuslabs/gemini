@@ -60,6 +60,8 @@ This method is used to toggle a tree item by the tree item id/ids.
 
 Type: `Promise<TreeXListItemExpandedInfo[]>`
 
+The modified items after the method was called.
+
 ### `updateAllItemsProperties(properties: { expanded?: boolean; checked?: boolean; }) => Promise<void>`
 
 Given a subset of item's properties, it updates all item UI models.

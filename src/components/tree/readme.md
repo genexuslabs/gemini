@@ -42,6 +42,8 @@ Type: `Promise<GxgTreeItemData[]>`
 
 Type: `Promise<ToggledGxgTreeItem[]>`
 
+a boolean value indicating if the selected tree-item is open or not, after the method was called.
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

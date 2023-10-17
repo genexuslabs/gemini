@@ -136,7 +136,6 @@ Type: `Promise<void>`
 - [gxg-accordion-item](../accordion-item)
 - [gxg-combo-box](../combo-box)
 - [gxg-filter](../filter)
-- [gxg-test](../test)
 
 ### Depends on
 
@@ -159,7 +158,6 @@ graph TD;
   gxg-accordion-item --> gxg-form-text
   gxg-combo-box --> gxg-form-text
   gxg-filter --> gxg-form-text
-  gxg-test --> gxg-form-text
   style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

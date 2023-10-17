@@ -3,7 +3,7 @@ import { Component, Prop, h, Host, Element, Watch, State } from "@stencil/core";
 @Component({
   tag: "gxg-contextual-menu",
   styleUrl: "contextual-menu.scss",
-  shadow: true
+  shadow: true,
 })
 export class GxgContextualMenu {
   constructor() {
@@ -13,7 +13,7 @@ export class GxgContextualMenu {
   /**
    * The presence of this attribute makes the menu visible
    */
-  @Prop({ reflect: true }) visible = false;
+  @Prop({ reflect: true }) readonly visible = false;
 
   @State() widthOverflow: boolean;
   @State() heightOverflow: boolean;
@@ -23,17 +23,19 @@ export class GxgContextualMenu {
 
   private contextualMenuSizes = {
     width: 0,
-    height: 0
+    height: 0,
   };
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLGxgContextualMenuElement;
 
   @Watch("visible")
   watchHandler(newValue: boolean) {
     if (newValue) {
       //Get contextualMenu height and width
-      const contextualMenuWidth = (this.contextualMenuSizes.width = this.el.offsetWidth);
-      const contextualMenuHeight = (this.contextualMenuSizes.height = this.el.offsetHeight);
+      const contextualMenuWidth = (this.contextualMenuSizes.width =
+        this.el.offsetWidth);
+      const contextualMenuHeight = (this.contextualMenuSizes.height =
+        this.el.offsetHeight);
 
       //Get available height and width from the mouse pointer to the right and bottom side of the document body, respectively.
       const availableWidth = window.innerWidth - this.leftPosition;
@@ -87,7 +89,7 @@ export class GxgContextualMenu {
     document.addEventListener("contextmenu", this.detectClickOutsideMenu);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     document.removeEventListener("click", this.detectClickOutsideMenu);
     document.removeEventListener("contextmenu", this.detectClickOutsideMenu);
   }
@@ -98,11 +100,11 @@ export class GxgContextualMenu {
         visible={this.visible}
         class={{
           "width-overflow": this.widthOverflow,
-          "height-overflow": this.heightOverflow
+          "height-overflow": this.heightOverflow,
         }}
         style={{
           top: `${this.topPosition}px`,
-          left: `${this.leftPosition}px`
+          left: `${this.leftPosition}px`,
         }}
       >
         <ul class="contextual-menu-list">
