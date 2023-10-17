@@ -1,5 +1,6 @@
 @import "../../globals/normalize";
 @import "../../globals/mixins";
+@import "../../globals/form-validation";
 
 :host {
   $itemsContainerBorderRadius: var(--border-radius-md);
@@ -16,7 +17,7 @@
   .main-container {
     .outer-wrapper {
       display: flex;
-      gap: var(--spacing-comp-01);
+      //gap: var(--spacing-comp-01);
       align-items: center;
     }
 

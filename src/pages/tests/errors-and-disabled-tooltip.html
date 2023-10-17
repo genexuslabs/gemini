@@ -146,6 +146,37 @@
       </script>
       <span class="separator"></span>
 
+      <!-- gxg-combo-box -->
+      <span>combo-box</span>
+      <gxg-combo-box
+        id="gxg-combo-box"
+        placeholder="Select item"
+        value="bpm"
+        width="100%"
+        label="The title:"
+        class="form-component"
+        tool-tip
+      >
+        <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+        <gxg-combo-box-item value="bpm" icon="">BPM</gxg-combo-box-item>
+        <gxg-combo-box-item value="chatbots" icon="objects/conversational-flows"
+          >Chatbots</gxg-combo-box-item
+        >
+      </gxg-combo-box>
+      <gxg-button type="outlined" class="get-value">Get value</gxg-button>
+      <gxg-button type="outlined" id="select-combo-text"
+        >Select text</gxg-button
+      >
+      <gxg-button type="outlined" class="get-value" id="combo-box-btn-error"
+        >Error</gxg-button
+      >
+      <gxg-button type="outlined" class="get-value" id="combo-box-btn-warning"
+        >Warning</gxg-button
+      >
+      <gxg-button type="outlined" class="get-value" id="combo-box-btn-success"
+        >Success</gxg-button
+      >
+
       <div class="hiden-container">
         <!-- gxg-form-text-area -->
         <span>form-text-area</span>

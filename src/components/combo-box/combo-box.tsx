@@ -842,7 +842,7 @@ export class GxgComboBox implements FormComponent {
                 ) : null}
               </div>
             </div>
-            {this.toolTip ? formTooltipLogic(this) : null}
+            {this.toolTip ? formTooltipLogic(this, false) : null}
           </div>
         </div>
         {!this.toolTip ? formMessageLogic(this) : null}

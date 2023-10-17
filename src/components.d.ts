@@ -921,6 +921,10 @@ export namespace Components {
      */
     fileList: FileList;
     /**
+     * The presence of this attribute disables the tooltip. Useful for the combo-box.
+     */
+    hideTooltip: boolean;
+    /**
      * The input icon (optional)
      */
     icon: any;
@@ -3717,6 +3721,10 @@ declare namespace LocalJSX {
      * The file list that the user selected (only applies if the input type is "file")
      */
     fileList?: FileList;
+    /**
+     * The presence of this attribute disables the tooltip. Useful for the combo-box.
+     */
+    hideTooltip?: boolean;
     /**
      * The input icon (optional)
      */

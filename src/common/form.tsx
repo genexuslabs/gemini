@@ -66,7 +66,10 @@ function formMessageLogic(comp: FormComponent): JSX.Element {
   }
 }
 
-export function formTooltipLogic(comp: FormComponent): JSX.Element {
+export function formTooltipLogic(
+  comp: FormComponent,
+  hideTooltip: boolean
+): JSX.Element {
   {
     const show =
       comp.validationStatus !== "indeterminate" &&
@@ -78,6 +81,7 @@ export function formTooltipLogic(comp: FormComponent): JSX.Element {
         class={{
           "tooltip-inner-wrapper": true,
           "tooltip-inner-wrapper--visible": show,
+          "tooltip--hidden": hideTooltip,
         }}
       >
         <gxg-tooltip

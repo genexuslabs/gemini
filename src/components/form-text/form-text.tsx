@@ -44,6 +44,11 @@ export class GxgFormText implements FormComponent {
   private timeoutReference;
 
   /**
+   * The presence of this attribute disables the tooltip. Useful for the combo-box.
+   */
+  @Prop() hideTooltip = false;
+
+  /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
    */
   @Prop() toolTip = false;
@@ -687,7 +692,7 @@ export class GxgFormText implements FormComponent {
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>
             ) : null}
-            {this.toolTip ? formTooltipLogic(this) : null}
+            {this.toolTip ? formTooltipLogic(this, this.hideTooltip) : null}
             {this.labelPosition === "start" && !this.toolTip
               ? formMessageLogic(this)
               : null}

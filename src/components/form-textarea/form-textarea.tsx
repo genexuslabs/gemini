@@ -245,7 +245,7 @@ export class GxgFormTextarea implements FormComponent {
             style={{ height: this.height }}
             part={this.parts.textarea}
           ></textarea>
-          {this.toolTip ? formTooltipLogic(this) : null}
+          {this.toolTip ? formTooltipLogic(this, true) : null}
         </div>
         {!this.toolTip ? formMessageLogic(this) : null}
       </Host>
