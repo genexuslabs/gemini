@@ -26,15 +26,30 @@
   <body>
     <p>primary</p>
     <gxg-button-group
+      id="primary-buttons-group"
       title-alignment="left"
       button-group-title="Buttons title"
       default-selected-btn-id="button1"
       full-width
+      active-button-id="button-1"
     >
       <button id="button1">Button 1</button>
       <button id="button2">Button 2</button>
       <button id="button3">Button 3</button>
     </gxg-button-group>
+
+    <br />
+
+    <button id="activate-button-2">set "Button 2" as active</button>
+    <script>
+      const primaryButtonsGroup = document.getElementById(
+        "primary-buttons-group"
+      );
+      const activateButton2 = document.getElementById("activate-button-2");
+      activateButton2.addEventListener("click", () => {
+        primaryButtonsGroup.activeButtonId = "button3";
+      });
+    </script>
 
     <br />
 

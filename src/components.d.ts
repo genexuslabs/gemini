@@ -300,6 +300,10 @@ export namespace Components {
   }
   interface GxgButtonGroup {
     /**
+     * The buttons style
+     */
+    activeButtonId: string;
+    /**
      * The button-group title
      */
     buttonGroupTitle: string;
@@ -3029,6 +3033,10 @@ declare namespace LocalJSX {
     type?: ButtonType;
   }
   interface GxgButtonGroup {
+    /**
+     * The buttons style
+     */
+    activeButtonId?: string;
     /**
      * The button-group title
      */

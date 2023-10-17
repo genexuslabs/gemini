@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, State } from "@stencil/core";
+import { Component, Element, h, Host, Prop, State, Watch } from "@stencil/core";
 import state from "../store";
 import { TitleAlignment } from "../../common/types";
 
@@ -48,6 +48,26 @@ export class GxgButtonGroup {
   The buttons style
   */
   @Prop() type: "primary" | "secondary" = "primary";
+
+  /**
+  The buttons style
+  */
+  @Prop() activeButtonId: string;
+  @Watch("activeButtonId")
+  watchActiveButtonIdHandler(newValue: string) {
+    const allButtons = this.el.querySelectorAll("button");
+    let newActiveButton: HTMLButtonElement;
+    allButtons.forEach((button) => {
+      if (button.id === newValue) {
+        newActiveButton = button;
+      }
+      button.removeAttribute("data-active");
+      button.setAttribute("aria-pressed", "false");
+    });
+    if (newActiveButton) {
+      newActiveButton.click();
+    }
+  }
 
   /**
   The value of the current selected button

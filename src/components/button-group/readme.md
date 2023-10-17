@@ -32,6 +32,7 @@
 
 | Property               | Attribute                 | Description                                                      | Type                           | Default     |
 | ---------------------- | ------------------------- | ---------------------------------------------------------------- | ------------------------------ | ----------- |
+| `activeButtonId`       | `active-button-id`        | The buttons style                                                | `string`                       | `undefined` |
 | `buttonGroupTitle`     | `button-group-title`      | The button-group title                                           | `string`                       | `undefined` |
 | `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to be active by default | `string`                       | `undefined` |
 | `disabled`             | `disabled`                | Wether the button group is disabled or not                       | `boolean`                      | `false`     |
