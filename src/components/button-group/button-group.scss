@@ -59,12 +59,30 @@
     z-index: 10;
   }
 }
+/*Disabled*/
 :host(:not([outlined])) {
   ::slotted(button[data-active]) {
     --gxg-border-color--focused: var(--color-primary-active--inverted);
     color: var(--color-on-primary);
     background-color: var(--color-primary-enabled);
     border-right-color: var(--color-primary-enabled);
+  }
+  ::slotted(button[disabled]) {
+    background-color: var(--gxg-background-color--disabled);
+    color: var(--gxg-color--disabled);
+    border-inline-end-color: var(--gxg-border-color--disabled);
+    pointer-events: none;
+    cursor: initial;
+  }
+}
+:host([outlined]) {
+  ::slotted(button[disabled]),
+  ::slotted(button[data-active][disabled]) {
+    background-color: var(--color-background);
+    color: var(--gxg-color--disabled);
+    border-color: var(--gxg-border-color--disabled);
+    pointer-events: none;
+    cursor: initial;
   }
 }
 :host(.button-group:not([disabled])) {
@@ -105,7 +123,7 @@
   background: var(--color-background);
   border-width: var(--border-width-sm);
   border-style: var(--border-style-regular);
-  border-color: var(--color-primary-hover);
+  border-color: var(--color-primary-enabled);
 }
 :host([outlined]) ::slotted(button[data-active]) {
   color: var(--color-primary-hover);
@@ -123,11 +141,6 @@
     border-right: none;
   }
 }
-:host([outlined][disabled]) ::slotted(button) {
-  border-color: var(--color-primary-disabled);
-  color: var(--color-primary-disabled);
-  background-color: transparent;
-}
 /*CENTER*/
 :host([title-alignment="center"]) {
   /*Title alignment*/
@@ -139,16 +152,6 @@
   /*Title alignment*/
   .button-group-header-title {
     justify-content: flex-end;
-  }
-}
-:host([disabled]) {
-  ::slotted(button),
-  ::slotted(button[data-active]) {
-    background-color: var(--color-primary-disabled);
-    color: var(--color-on-disabled);
-  }
-  ::slotted(button) {
-    border-right-color: var(--color-on-disabled);
   }
 }
 

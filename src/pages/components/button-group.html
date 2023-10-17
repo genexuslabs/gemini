@@ -38,6 +38,19 @@
 
     <br />
 
+    <p>primary disabled</p>
+    <gxg-button-group
+      title-alignment="left"
+      button-group-title="Buttons title"
+      default-selected-btn-id="button1"
+      full-width
+    >
+      <button id="button1" disabled>Button 1</button>
+      <button id="button2" disabled>Button 2</button>
+    </gxg-button-group>
+
+    <br />
+
     <p>secondary</p>
     <gxg-button-group
       title-alignment="left"
@@ -53,7 +66,31 @@
 
     <br />
 
+    <p>secondary disabled</p>
+    <gxg-button-group
+      title-alignment="left"
+      button-group-title="Buttons title"
+      default-selected-btn-id="button1"
+      full-width
+      outlined
+    >
+      <button id="button1" disabled>Button 1</button>
+      <button id="button2" disabled>Button 2</button>
+      <button id="button3" disabled>Button 3</button>
+    </gxg-button-group>
+
+    <br />
+
+    <p>gxg-buttons</p>
     <gxg-button type="primary-text-only">A Primary Type Button</gxg-button>
     <gxg-button type="outlined">A Secondary Type Button</gxg-button>
+
+    <br />
+
+    <p>gxg-buttons disabled</p>
+    <gxg-button type="primary-text-only" disabled
+      >A Primary Type Button</gxg-button
+    >
+    <gxg-button type="outlined" disabled>A Secondary Type Button</gxg-button>
   </body>
 </html>

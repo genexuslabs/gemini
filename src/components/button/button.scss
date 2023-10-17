@@ -41,7 +41,7 @@
   }
 }
 :host(.button.button--disabled) .button-native {
-  background: var(--color-primary-disabled);
+  background: var(--gxg-background-color--disabled);
   @include gxg-label--disabled;
   pointer-events: none;
 }
@@ -231,6 +231,7 @@ SECONDARY 'TEXT ICON' BUTTON TYPE
 }
 :host(.button--outlined.button--disabled) .button-native,
 :host(.button--outlined-text-icon.button--disabled) .button-native {
+  border-color: var(--gxg-border-color--disabled);
   background: var(--color-transparent);
   @include gxg-label--disabled;
 }
