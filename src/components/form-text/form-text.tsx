@@ -33,7 +33,7 @@ export class GxgFormText implements FormComponent {
   };
   private valueBeforeDisabled;
   private exportparts: string;
-  @Element() el: HTMLGxgFormTextElement;
+  @Element() el: HTMLElement;
   textInput!: HTMLInputElement;
   fileInputEl!: HTMLInputElement;
 
@@ -46,107 +46,107 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute disables the tooltip. Useful for the combo-box.
    */
-  @Prop() readonly hideTooltip: boolean = false;
+  @Prop() hideTooltip = false;
 
   /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
    */
-  @Prop() readonly toolTip: boolean = false;
+  @Prop() toolTip = false;
 
   /**
    * The presence of this attribute displays a clear (cross) button-icon on the right side
    */
-  @Prop() readonly clearButton: boolean = false;
+  @Prop() clearButton = false;
 
   /**
    * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
    */
-  @Prop() readonly debounce: boolean = false;
+  @Prop() debounce = false;
 
   /**
    * The debounce delay value. Only applies if 'debounce' is true.
    */
-  @Prop() readonly debounceDelay = 800;
+  @Prop() debounceDelay = 800;
 
   /**
    * The presence of this attribute makes the input disabled
    */
-  @Prop() readonly disabled: boolean = false;
+  @Prop() disabled = false;
 
   /**
    * The presence of this attribute makes the input readonly
    */
-  @Prop() readonly readonly: boolean = false;
+  @Prop() readonly = false;
 
   /**
    * The input icon (optional)
    */
-  @Prop({ mutable: true }) icon = null;
+  @Prop() icon = null;
 
   /**
    * If true, it will position the cursor at the end when the input is focused.
    */
-  @Prop() readonly cursorEnd: boolean = false;
+  @Prop() cursorEnd = false;
 
   /**
    * The input icon side
    */
-  @Prop({ reflect: true, mutable: true }) iconPosition: IconPosition = null;
+  @Prop({ reflect: true }) iconPosition: IconPosition = null;
 
   /**
    * The input label
    */
-  @Prop() readonly label: string;
+  @Prop() label: string;
 
   /**
    * The label position
    */
-  @Prop({ reflect: true }) readonly labelPosition: LabelPosition = "start";
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "start";
 
   /**
    * The presence of this attribute hides the border.
    */
-  @Prop() readonly borderless: boolean = false;
+  @Prop() borderless = false;
 
   /**
    * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
    */
-  @Prop({ reflect: true }) readonly minimal: boolean = false;
+  @Prop({ reflect: true }) minimal = false;
 
   /**
    * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
    */
-  @Prop({ reflect: true }) readonly overDarkBackground: boolean = false;
+  @Prop({ reflect: true }) overDarkBackground = false;
 
   /**
    * The input placeholder
    */
-  @Prop({ mutable: true }) placeholder: string;
+  @Prop() placeholder: string;
 
   /**
    * The presence of this attribute makes this input required
    */
-  @Prop({ reflect: true }) readonly required: boolean = false;
+  @Prop({ reflect: true }) required = false;
 
   /**
    * Centers the label
    */
-  @Prop({ mutable: true }) centerLabel = false;
+  @Prop() centerLabel = false;
 
   /**
    * The label width
    */
-  @Prop() readonly labelWidth;
+  @Prop() labelWidth;
 
   /**
    * The type of input
    */
-  @Prop() readonly type: InputType = "text";
+  @Prop() type: InputType = "text";
 
   /**
    * Allows multiple files if type is "file"
    */
-  @Prop() readonly multiple: boolean = false;
+  @Prop() multiple = false;
 
   /**
    * The file list that the user selected (only applies if the input type is "file")
@@ -156,17 +156,17 @@ export class GxgFormText implements FormComponent {
   /**
    * The type of files the input accepts
    */
-  @Prop() readonly acceptFile: string;
+  @Prop() acceptFile: string;
 
   /**
    * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
    */
-  @Prop() readonly preventValueChangedEmit: boolean = false;
+  @Prop() preventValueChangedEmit = false;
 
   /**
    * Prevent "value" from being changed when the input is disabled (helpful for cases where this component is used inside another component and this behavior causes conflicts. )
    */
-  @Prop() readonly preventValueChangeOnDisabled: boolean = false;
+  @Prop() preventValueChangeOnDisabled = false;
 
   /* VALIDATION */
 
@@ -180,48 +180,48 @@ export class GxgFormText implements FormComponent {
    * The message to display when validation fails (error)
    *
    */
-  @Prop() readonly validationMessage: string;
+  @Prop() validationMessage: string;
 
   /**
    * An informative message to help the user filling the information
    *
    */
-  @Prop() readonly informationMessage: string;
+  @Prop() informationMessage: string;
 
   /**
    * The input value
    */
-  @Prop({ mutable: true, reflect: true }) value: string;
+  @Prop({ reflect: true }) value: string;
 
   /**
    * The input max. width
    */
-  @Prop() readonly maxWidth = "100%";
+  @Prop() maxWidth = "100%";
 
   /**
    * The input width
    */
-  @Prop() readonly width = "100%";
+  @Prop() width = "100%";
 
   /**
    * The text style
    */
-  @Prop({ reflect: true }) readonly textStyle: Style = "regular";
+  @Prop({ reflect: true }) textStyle: Style = "regular";
 
   /**
    * The presence of this attribute sets the input type as password
    */
-  @Prop() readonly password: boolean = false;
+  @Prop() password = false;
 
   /**
    * The input max. length
    */
-  @Prop() readonly maxLength: string = undefined;
+  @Prop() maxLength: string = undefined;
 
   /**
    * The input min. length
    */
-  @Prop() readonly minLength: string = undefined;
+  @Prop() minLength: string = undefined;
 
   /**
    * Returns the input value
@@ -521,17 +521,16 @@ export class GxgFormText implements FormComponent {
           const resizeObserver = new ResizeObserver(() => {
             input.style.width = "0px";
             const innerWrapperWidth =
-              (
-                this.el.shadowRoot.querySelector(
-                  ".inner-wrapper"
-                ) as HTMLElement
-              ).offsetWidth - 5;
+              (this.el.shadowRoot.querySelector(
+                ".inner-wrapper"
+              ) as HTMLElement).offsetWidth - 5;
 
             input.style.maxWidth = innerWrapperWidth + "px";
             input.style.width = ghostSpanWidth + "px";
           });
-          const innerWrapper =
-            this.el.shadowRoot.querySelector(".inner-wrapper");
+          const innerWrapper = this.el.shadowRoot.querySelector(
+            ".inner-wrapper"
+          );
           resizeObserver.observe(innerWrapper);
         }.bind(this)
       );
@@ -551,7 +550,7 @@ export class GxgFormText implements FormComponent {
     }
   }
 
-  disconnectedCallback(): void {
+  componentDidUnload(): void {
     if (this.minimal) {
       document.removeEventListener("mousemove", this.mouseMoveHandler);
     }

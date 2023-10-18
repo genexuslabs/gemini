@@ -24,7 +24,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Usage
 
 ### Usage
@@ -66,8 +65,6 @@
   </script>
 ```
 
-
-
 ## Properties
 
 | Property                       | Attribute                          | Description                                                                                                                                                                  | Type                                                                                         | Default           |
@@ -78,7 +75,7 @@
 | `clearButton`                  | `clear-button`                     | The presence of this attribute displays a clear (cross) button-icon on the right side                                                                                        | `boolean`                                                                                    | `false`           |
 | `cursorEnd`                    | `cursor-end`                       | If true, it will position the cursor at the end when the input is focused.                                                                                                   | `boolean`                                                                                    | `false`           |
 | `debounce`                     | `debounce`                         | The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.                          | `boolean`                                                                                    | `false`           |
-| `debounceDelay`                | `debounce-delay`                   | The debounce delay value. Only applies if 'debounce' is true.                                                                                                                | `800`                                                                                        | `800`             |
+| `debounceDelay`                | `debounce-delay`                   | The debounce delay value. Only applies if 'debounce' is true.                                                                                                                | `number`                                                                                     | `800`             |
 | `disabled`                     | `disabled`                         | The presence of this attribute makes the input disabled                                                                                                                      | `boolean`                                                                                    | `false`           |
 | `fileList`                     | --                                 | The file list that the user selected (only applies if the input type is "file")                                                                                              | `FileList`                                                                                   | `undefined`       |
 | `hideTooltip`                  | `hide-tooltip`                     | The presence of this attribute disables the tooltip. Useful for the combo-box.                                                                                               | `boolean`                                                                                    | `false`           |
@@ -89,7 +86,7 @@
 | `labelPosition`                | `label-position`                   | The label position                                                                                                                                                           | `"above" \| "start"`                                                                         | `"start"`         |
 | `labelWidth`                   | `label-width`                      | The label width                                                                                                                                                              | `any`                                                                                        | `undefined`       |
 | `maxLength`                    | `max-length`                       | The input max. length                                                                                                                                                        | `string`                                                                                     | `undefined`       |
-| `maxWidth`                     | `max-width`                        | The input max. width                                                                                                                                                         | `"100%"`                                                                                     | `"100%"`          |
+| `maxWidth`                     | `max-width`                        | The input max. width                                                                                                                                                         | `string`                                                                                     | `"100%"`          |
 | `minLength`                    | `min-length`                       | The input min. length                                                                                                                                                        | `string`                                                                                     | `undefined`       |
 | `minimal`                      | `minimal`                          | The presence of this attribute hides the border, and sets the background to transparent when the element has no focus                                                        | `boolean`                                                                                    | `false`           |
 | `multiple`                     | `multiple`                         | Allows multiple files if type is "file"                                                                                                                                      | `boolean`                                                                                    | `false`           |
@@ -106,8 +103,7 @@
 | `validationMessage`            | `validation-message`               | The message to display when validation fails (error)                                                                                                                         | `string`                                                                                     | `undefined`       |
 | `validationStatus`             | `validation-status`                | The validation status                                                                                                                                                        | `"error" \| "indeterminate" \| "success" \| "warning"`                                       | `"indeterminate"` |
 | `value`                        | `value`                            | The input value                                                                                                                                                              | `string`                                                                                     | `undefined`       |
-| `width`                        | `width`                            | The input width                                                                                                                                                              | `"100%"`                                                                                     | `"100%"`          |
-
+| `width`                        | `width`                            | The input width                                                                                                                                                              | `string`                                                                                     | `"100%"`          |
 
 ## Events
 
@@ -119,37 +115,28 @@
 | `input`              | Returns the input value      | `CustomEvent<any>`      |
 | `valueChanged`       | The clear button was clicked | `CustomEvent<string>`   |
 
-
 ## Methods
 
 ### `openFile() => Promise<void>`
 
-
-
 #### Returns
 
 Type: `Promise<void>`
-
-
 
 ### `selectInputText() => Promise<void>`
 
-
-
 #### Returns
 
 Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 
 ### Used by
 
- - [gxg-accordion-item](../accordion-item)
- - [gxg-combo-box](../combo-box)
- - [gxg-filter](../filter)
+- [gxg-accordion-item](../accordion-item)
+- [gxg-combo-box](../combo-box)
+- [gxg-filter](../filter)
+- [gxg-test](../test)
 
 ### Depends on
 
@@ -159,6 +146,7 @@ Type: `Promise<void>`
 - [gxg-tooltip](../tooltip)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-form-text --> gxg-icon
@@ -171,9 +159,10 @@ graph TD;
   gxg-accordion-item --> gxg-form-text
   gxg-combo-box --> gxg-form-text
   gxg-filter --> gxg-form-text
+  gxg-test --> gxg-form-text
   style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

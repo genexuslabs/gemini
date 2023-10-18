@@ -13,7 +13,7 @@ export class GxgContextualMenu {
   /**
    * The presence of this attribute makes the menu visible
    */
-  @Prop({ reflect: true, mutable: true }) visible = false;
+  @Prop({ reflect: true }) visible = false;
 
   @State() widthOverflow: boolean;
   @State() heightOverflow: boolean;
@@ -26,16 +26,14 @@ export class GxgContextualMenu {
     height: 0,
   };
 
-  @Element() el: HTMLGxgContextualMenuElement;
+  @Element() el: HTMLElement;
 
   @Watch("visible")
   watchHandler(newValue: boolean) {
     if (newValue) {
       //Get contextualMenu height and width
-      const contextualMenuWidth = (this.contextualMenuSizes.width =
-        this.el.offsetWidth);
-      const contextualMenuHeight = (this.contextualMenuSizes.height =
-        this.el.offsetHeight);
+      const contextualMenuWidth = (this.contextualMenuSizes.width = this.el.offsetWidth);
+      const contextualMenuHeight = (this.contextualMenuSizes.height = this.el.offsetHeight);
 
       //Get available height and width from the mouse pointer to the right and bottom side of the document body, respectively.
       const availableWidth = window.innerWidth - this.leftPosition;
@@ -89,7 +87,7 @@ export class GxgContextualMenu {
     document.addEventListener("contextmenu", this.detectClickOutsideMenu);
   }
 
-  disconnectedCallback() {
+  componentDidUnload() {
     document.removeEventListener("click", this.detectClickOutsideMenu);
     document.removeEventListener("contextmenu", this.detectClickOutsideMenu);
   }

@@ -1,6 +1,6 @@
 import { EventEmitter } from "@stencil/core";
 
-export function makeDraggable(component: DraggableComponent) {
+export function makeDraggable(component: DraggableComponent): Function {
   const draggableItems = component.getDraggableElements();
   const items = Array.from(draggableItems);
 
@@ -16,7 +16,6 @@ export function makeDraggable(component: DraggableComponent) {
       return;
     }
     this.style.opacity = "0.3";
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     dragSrcEl = this;
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/html", this.innerHTML);

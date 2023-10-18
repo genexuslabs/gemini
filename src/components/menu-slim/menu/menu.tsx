@@ -60,7 +60,7 @@ INDEX:
 
   // 2.REFERENCE TO ELEMENTS //
 
-  @Element() el: HTMLGxgMenuSlimElement;
+  @Element() el: HTMLElement;
   innerWrapper!: HTMLDivElement;
 
   // 3.STATE() VARIABLES //
@@ -70,22 +70,22 @@ INDEX:
   /**
    * The menu title
    */
-  @Prop() readonly menuTitle: string;
+  @Prop() menuTitle: string;
 
   /**
    * Provide this attribute if you are using this menu on the tabs component
    */
-  @Prop({ reflect: true }) readonly tabs: boolean;
+  @Prop({ reflect: true }) tabs: boolean;
 
   /**
    * Hides or show the menu with an animation
    */
-  @Prop({ mutable: true }) hidden = true;
+  @Prop() hidden = true;
 
   /**
    * Hides the menu when an item is selected.
    */
-  @Prop() readonly hideOnSelect = true;
+  @Prop() hideOnSelect = true;
 
   @Watch("hidden")
   hiddenHandler(hidden): void {
@@ -110,7 +110,7 @@ INDEX:
   /**
    * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
    */
-  @Prop() readonly ellipsis = true;
+  @Prop() ellipsis = true;
 
   // 5.EVENTS (EMIT) //
 
@@ -123,7 +123,7 @@ INDEX:
     this.getEnabledItems();
   }
 
-  disconnectedCallback(): void {
+  componentDidUnload(): void {
     this.removeDetectClickOutside();
     this.removeMouseOut();
     this.removeMouseEnter();
@@ -164,8 +164,7 @@ INDEX:
     ) {
       const prevItem = this._enabledItems[triggeringItemIndex - 1];
       if (prevItem?.active && prevItem.previousElementSibling) {
-        newFocusedItem =
-          prevItem.previousElementSibling as HTMLGxgMenuSlimItemElement;
+        newFocusedItem = prevItem.previousElementSibling as HTMLGxgMenuSlimItemElement;
       } else if (prevItem) {
         newFocusedItem = prevItem;
       }
@@ -175,8 +174,7 @@ INDEX:
     ) {
       const nextItem = this._enabledItems[triggeringItemIndex + 1];
       if (nextItem?.active && nextItem.nextElementSibling) {
-        newFocusedItem =
-          nextItem.nextElementSibling as HTMLGxgMenuSlimItemElement;
+        newFocusedItem = nextItem.nextElementSibling as HTMLGxgMenuSlimItemElement;
       } else if (nextItem) {
         newFocusedItem = nextItem;
       }
