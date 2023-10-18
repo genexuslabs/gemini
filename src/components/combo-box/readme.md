@@ -17,7 +17,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                                                                                                                   | Type                                                   | Default           |
@@ -33,18 +32,17 @@
 | `label`              | `label`               | The combo label                                                                                                                                                                                                                                               | `string`                                               | `undefined`       |
 | `labelPosition`      | `label-position`      | The input label                                                                                                                                                                                                                                               | `"above" \| "below" \| "end" \| "start"`               | `"above"`         |
 | `labelWidth`         | `label-width`         | The label width                                                                                                                                                                                                                                               | `any`                                                  | `undefined`       |
-| `listMaxHeight`      | `list-max-height`     | The combo list max height                                                                                                                                                                                                                                     | `"244px"`                                              | `"244px"`         |
+| `listMaxHeight`      | `list-max-height`     | The combo list max height                                                                                                                                                                                                                                     | `string`                                               | `"244px"`         |
 | `listPosition`       | `list-position`       | The container 'items container' position                                                                                                                                                                                                                      | `"above" \| "below"`                                   | `"below"`         |
-| `maxWidth`           | `max-width`           | The combo max-width                                                                                                                                                                                                                                           | `"100%"`                                               | `"100%"`          |
-| `minWidth`           | `min-width`           | The combo min-width                                                                                                                                                                                                                                           | `"0"`                                                  | `"0"`             |
-| `placeholder`        | `placeholder`         | The combo placeholder                                                                                                                                                                                                                                         | `"Search item"`                                        | `"Search item"`   |
+| `maxWidth`           | `max-width`           | The combo max-width                                                                                                                                                                                                                                           | `string`                                               | `"100%"`          |
+| `minWidth`           | `min-width`           | The combo min-width                                                                                                                                                                                                                                           | `string`                                               | `"0"`             |
+| `placeholder`        | `placeholder`         | The combo placeholder                                                                                                                                                                                                                                         | `string`                                               | `"Search item"`   |
 | `required`           | `required`            | The presence of this attribute makes the commbo required                                                                                                                                                                                                      | `boolean`                                              | `false`           |
 | `strict`             | `strict`              | If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has. | `boolean`                                              | `false`           |
 | `toolTip`            | `tool-tip`            | The presence of this attribute displays a tooltip message, instead of a block message below the control                                                                                                                                                       | `boolean`                                              | `false`           |
 | `validationMessage`  | `validation-message`  | The message to display when validation fails (error)                                                                                                                                                                                                          | `string`                                               | `undefined`       |
 | `validationStatus`   | `validation-status`   | The validation status                                                                                                                                                                                                                                         | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`              | `value`               | The current combo box item value                                                                                                                                                                                                                              | `any`                                                  | `undefined`       |
-
 
 ## Events
 
@@ -55,59 +53,43 @@
 | `toggled`      | This event is triggered when the combo dropdown has toggled (opened/closed) | `CustomEvent<boolean>` |
 | `valueChanged` | This event is triggered when the combo box value changes.                   | `CustomEvent<any>`     |
 
-
 ## Methods
 
 ### `close() => Promise<void>`
-
-
 
 #### Returns
 
 Type: `Promise<void>`
 
-
-
 ### `getValueByIndex(index: number) => Promise<string>`
-
-
 
 #### Returns
 
 Type: `Promise<string>`
 
-
-
 ### `open() => Promise<void>`
 
+---
 
+METHODS
+
+---
 
 #### Returns
 
 Type: `Promise<void>`
-
-
 
 ### `selectInputText() => Promise<void>`
 
-
-
 #### Returns
 
 Type: `Promise<void>`
 
-
-
 ### `setValueByIndex(index: number) => Promise<boolean>`
-
-
 
 #### Returns
 
 Type: `Promise<boolean>`
-
-
-
 
 ## Dependencies
 
@@ -121,6 +103,7 @@ Type: `Promise<boolean>`
 - [gxg-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-combo-box --> gxg-label
@@ -140,6 +123,6 @@ graph TD;
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

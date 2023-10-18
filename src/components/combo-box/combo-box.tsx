@@ -15,7 +15,12 @@ import {
   ComboBoxItemValue,
   ItemInformation,
 } from "../combo-box-item/combo-box-item";
-import { formMessageLogic, formTooltipLogic } from "../../common/form";
+import { IconPosition } from "../form-text/form-text";
+import {
+  requiredLabel,
+  formMessageLogic,
+  formTooltipLogic,
+} from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
@@ -38,13 +43,14 @@ export class GxgComboBox implements FormComponent {
   private valueBeforeDisabled;
   private textBeforeDisabled;
   private iconBeforeDisabled;
+  private iconPositionBeforeDisabled;
   private _mo;
   private componentDidLoadFlag = false;
 
   /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
    */
-  @Prop() readonly toolTip = false;
+  @Prop() toolTip = false;
 
   /**
    * This event is triggered when the combo box value changes.
@@ -68,7 +74,7 @@ export class GxgComboBox implements FormComponent {
 
   inputText!: HTMLGxgFormTextElement;
 
-  @Element() el: HTMLGxgComboBoxElement;
+  @Element() el: HTMLElement;
   mainContainer!: HTMLDivElement;
   itemsContainer!: HTMLDivElement;
   searchItemsContainer!: HTMLDivElement;
@@ -76,73 +82,73 @@ export class GxgComboBox implements FormComponent {
   /**
    * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
    */
-  @Prop() readonly fixedIcon: string;
+  @Prop() fixedIcon: string;
 
   /**
    * The presence of this attribute makes the input disabled
    */
-  @Prop() readonly disabled = false;
+  @Prop() disabled = false;
 
   /**
    * The combo label
    */
-  @Prop() readonly label: string = undefined;
+  @Prop() label: string = undefined;
 
   /**
    * The input label
    */
-  @Prop({ reflect: true }) readonly labelPosition: LabelPosition = "above";
+  @Prop({ reflect: true }) labelPosition: LabelPosition = "above";
 
   /**
    * The combo min-width
    */
-  @Prop() readonly minWidth = "0";
+  @Prop() minWidth = "0";
 
   /**
    * The combo max-width
    */
-  @Prop() readonly maxWidth = "100%";
+  @Prop() maxWidth = "100%";
 
   /**
    * The combo list max height
    */
-  @Prop() readonly listMaxHeight = "244px";
+  @Prop() listMaxHeight = "244px";
 
   /**
    * The combo placeholder
    */
-  @Prop() readonly placeholder = "Search item";
+  @Prop() placeholder = "Search item";
 
   /**
    * The presence of this attribute disables the filter
    */
-  @Prop() readonly disableFilter = false;
+  @Prop() disableFilter = false;
 
   /**
    * The presence of this attribute disables the clear button
    */
-  @Prop() readonly disableClear = false;
+  @Prop() disableClear = false;
 
   /**
    * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined.
    * if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
    */
-  @Prop() readonly strict = false;
+  @Prop() strict = false;
 
   /**
    * The current combo box item value
    */
-  @Prop({ mutable: true }) value: ComboBoxItemValue;
+  @Prop() value: ComboBoxItemValue;
 
   /**
    * The presence of this attribute with make the filter search for values with case sensitive distinction
    */
-  @Prop() readonly caseSensitive = false;
+  @Prop() caseSensitive = false;
 
   /**
    * The container 'items container' position
    */
-  @Prop({ mutable: true }) listPosition: ListPosition = "below";
+  @Prop() listPosition: ListPosition = "below";
 
   /**
    * The visible text on the input (not the same as the value)
@@ -152,42 +158,42 @@ export class GxgComboBox implements FormComponent {
   /**
    * Centers the label
    */
-  @Prop() readonly centerLabel = false;
+  @Prop() centerLabel = false;
 
   /**
    * The label width
    */
-  @Prop() readonly labelWidth;
+  @Prop() labelWidth;
 
   /*VALIDATION*/
 
   /**
    * The presence of this attribute makes the commbo required
    */
-  @Prop({ reflect: true }) readonly required = false;
+  @Prop({ reflect: true }) required = false;
 
   /**
    * The validation status
    *
    */
-  @Prop() readonly validationStatus: ValidationStatus = "indeterminate";
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
 
   /**
    * The message to display when validation fails (error)
    *
    */
-  @Prop() readonly validationMessage: string;
+  @Prop() validationMessage: string;
 
   /**
    * If true, it will position the cursor at the end when the input is focused.
    */
-  @Prop() readonly cursorEnd = false;
+  @Prop() cursorEnd = false;
 
   /**
    * An informative message to help the user filling the information
    *
    */
-  @Prop() readonly informationMessage: string;
+  @Prop() informationMessage: string;
 
   @Watch("disabled")
   disabledHandler(newValue): void {
@@ -254,13 +260,17 @@ export class GxgComboBox implements FormComponent {
     this.cleanup();
   }
 
+  /*********************************
+  METHODS
+  *********************************/
+
   @Method()
-  async open() {
+  async open(): Promise<void> {
     this.listIsOpen = true;
   }
 
   @Method()
-  async close() {
+  async close(): Promise<void> {
     this.listIsOpen = false;
   }
 
@@ -306,12 +316,16 @@ export class GxgComboBox implements FormComponent {
   keyDownComboItemHandler(event): void {
     event.stopPropagation();
     if (event.detail === "ArrowUp") {
-      (this.inputText as unknown as HTMLElement).focus();
+      ((this.inputText as unknown) as HTMLElement).focus();
     } else if (event.detail === "Tab" || event.detail === "Escape") {
       this.listIsOpen = false;
-      (this.inputText as unknown as HTMLElement).focus();
+      ((this.inputText as unknown) as HTMLElement).focus();
     }
   }
+
+  /*********************************
+  HANDLERS
+  *********************************/
 
   private inputHandler = (e): void => {
     this.userTyped = true;
@@ -356,8 +370,12 @@ export class GxgComboBox implements FormComponent {
     this.value = e.detail;
   };
 
+  /*********************************
+  WATCH
+  *********************************/
+
   @Watch("value")
-  onValueChanged(newValue: ComboBoxItemValue): void {
+  onValueChanged(newValue: ComboBoxItemValue, oldvalue: any): void {
     setTimeout(() => {
       if (this.componentDidLoadFlag) {
         this.valueChanged.emit(newValue);
@@ -652,7 +670,7 @@ export class GxgComboBox implements FormComponent {
   }
 
   focus(): void {
-    (this.inputText as unknown as HTMLElement).focus();
+    ((this.inputText as unknown) as HTMLElement).focus();
   }
 
   detectClickOutsideComboFunc(event): void {

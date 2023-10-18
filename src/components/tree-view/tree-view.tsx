@@ -3,6 +3,7 @@ import {
   h,
   Prop,
   Listen,
+  Host,
   Watch,
   State,
   forceUpdate,
@@ -51,8 +52,10 @@ const DEFAULT_SELECTED_VALUE = false;
 export class GxgTreeView {
   // UI Models
   private flattenedTreeModel: Map<string, TreeXItemModelExtended> = new Map();
-  private flattenedCheckboxTreeModel: Map<string, TreeXItemModelExtended> =
-    new Map();
+  private flattenedCheckboxTreeModel: Map<
+    string,
+    TreeXItemModelExtended
+  > = new Map();
   private selectedItems: Set<string> = new Set();
 
   // Refs
@@ -622,24 +625,24 @@ export class GxgTreeView {
     });
   };
 
-  private moveItemToNewParent =
-    (newParentUIModel: TreeXItemModel) =>
-    (dataTransferInfo: GxDataTransferInfo) => {
-      const itemUIModelExtended = this.flattenedTreeModel.get(
-        dataTransferInfo.id
-      );
-      const item = itemUIModelExtended.item;
-      const oldParentItem = itemUIModelExtended.parentItem;
+  private moveItemToNewParent = (newParentUIModel: TreeXItemModel) => (
+    dataTransferInfo: GxDataTransferInfo
+  ) => {
+    const itemUIModelExtended = this.flattenedTreeModel.get(
+      dataTransferInfo.id
+    );
+    const item = itemUIModelExtended.item;
+    const oldParentItem = itemUIModelExtended.parentItem;
 
-      // Remove the UI model from the previous parent
-      oldParentItem.items.splice(oldParentItem.items.indexOf(item), 1);
+    // Remove the UI model from the previous parent
+    oldParentItem.items.splice(oldParentItem.items.indexOf(item), 1);
 
-      // Add the UI Model to the new parent
-      newParentUIModel.items.push(item);
+    // Add the UI Model to the new parent
+    newParentUIModel.items.push(item);
 
-      // Reference the new parent in the item
-      itemUIModelExtended.parentItem = newParentUIModel;
-    };
+    // Reference the new parent in the item
+    itemUIModelExtended.parentItem = newParentUIModel;
+  };
 
   private renderSubModel = (
     treeSubModel: TreeXItemModel,
@@ -700,41 +703,42 @@ export class GxgTreeView {
     items.forEach(this.flattenItemUIModel(model));
   }
 
-  private flattenItemUIModel =
-    (parentModel: TreeXItemModel) => (item: TreeXItemModel) => {
-      this.flattenedTreeModel.set(item.id, {
+  private flattenItemUIModel = (parentModel: TreeXItemModel) => (
+    item: TreeXItemModel
+  ) => {
+    this.flattenedTreeModel.set(item.id, {
+      parentItem: parentModel,
+      item: item,
+    });
+
+    // Add the items that have a checkbox in a separate Map
+    if (item.checkbox ?? this.checkbox) {
+      this.flattenedCheckboxTreeModel.set(item.id, {
         parentItem: parentModel,
         item: item,
       });
+    }
 
-      // Add the items that have a checkbox in a separate Map
-      if (item.checkbox ?? this.checkbox) {
-        this.flattenedCheckboxTreeModel.set(item.id, {
-          parentItem: parentModel,
-          item: item,
-        });
-      }
+    // Make sure the properties are with their default values to avoid issues
+    // when reusing DOM nodes
+    item.class = item.class == null ? DEFAULT_CLASS_VALUE : item.class;
+    item.expanded =
+      item.expanded == null ? DEFAULT_EXPANDED_VALUE : item.expanded;
+    item.indeterminate =
+      item.indeterminate == null
+        ? DEFAULT_INDETERMINATE_VALUE
+        : item.indeterminate;
+    item.lazy = item.lazy == null ? DEFAULT_LAZY_VALUE : item.lazy;
+    item.order = item.order == null ? DEFAULT_ORDER_VALUE : item.order;
+    item.selected =
+      item.selected == null ? DEFAULT_SELECTED_VALUE : item.selected;
 
-      // Make sure the properties are with their default values to avoid issues
-      // when reusing DOM nodes
-      item.class = item.class == null ? DEFAULT_CLASS_VALUE : item.class;
-      item.expanded =
-        item.expanded == null ? DEFAULT_EXPANDED_VALUE : item.expanded;
-      item.indeterminate =
-        item.indeterminate == null
-          ? DEFAULT_INDETERMINATE_VALUE
-          : item.indeterminate;
-      item.lazy = item.lazy == null ? DEFAULT_LAZY_VALUE : item.lazy;
-      item.order = item.order == null ? DEFAULT_ORDER_VALUE : item.order;
-      item.selected =
-        item.selected == null ? DEFAULT_SELECTED_VALUE : item.selected;
+    if (item.selected) {
+      this.selectedItems.add(item.id);
+    }
 
-      if (item.selected) {
-        this.selectedItems.add(item.id);
-      }
-
-      this.flattenSubModel(item);
-    };
+    this.flattenSubModel(item);
+  };
 
   private sortItems(items: TreeXItemModel[]) {
     // Ensure that items are sorted
