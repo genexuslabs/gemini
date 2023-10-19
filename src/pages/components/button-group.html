@@ -31,12 +31,17 @@
       button-group-title="Buttons title"
       default-selected-btn-id="button1"
       full-width
-      active-button-id="button-1"
     >
       <button id="button1">Button 1</button>
-      <button id="button2" disabled>Button 2</button>
-      <button id="button3">Button 3</button>
+      <button id="button2">Button 2</button>
     </gxg-button-group>
+
+    <script>
+      const button2 = document.getElementById("button2");
+      button2.addEventListener("click", () => {
+        console.log("button 2 clicked");
+      });
+    </script>
 
     <br />
 

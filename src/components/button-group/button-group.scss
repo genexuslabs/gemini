@@ -48,6 +48,11 @@
     color: var(--color-on-primary);
     background-color: var(--color-primary-enabled);
     border-right-color: var(--color-primary-enabled);
+    pointer-events: none;
+  }
+  ::slotted(button:not([data-active])):hover,
+  ::slotted(button:not([outlined])):hover {
+    background-color: var(--color-primary-hover);
   }
 }
 /*Disabled*/

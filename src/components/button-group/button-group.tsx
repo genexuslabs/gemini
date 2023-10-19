@@ -66,7 +66,7 @@ export class GxgButtonGroup {
     });
     if (newActiveButton) {
       newActiveButton.disabled = false;
-      newActiveButton.click();
+      newActiveButton.setAttribute("data-active", "");
     }
   }
 
