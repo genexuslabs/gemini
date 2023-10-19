@@ -45,6 +45,11 @@ export class GxgButtonGroup {
   @Prop({ reflect: true }) outlined = false;
 
   /**
+   * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
+   */
+  @Prop({ reflect: true }) disableActive = false;
+
+  /**
   The buttons style
   */
   @Prop() type: "primary" | "secondary" = "primary";

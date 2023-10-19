@@ -312,6 +312,10 @@ export namespace Components {
      */
     defaultSelectedBtnId: string;
     /**
+     * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
+     */
+    disableActive: boolean;
+    /**
      * Wether the button group is disabled or not
      */
     disabled: boolean;
@@ -3065,6 +3069,10 @@ declare namespace LocalJSX {
      * The id of the button that you would like to be active by default
      */
     defaultSelectedBtnId?: string;
+    /**
+     * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
+     */
+    disableActive?: boolean;
     /**
      * Wether the button group is disabled or not
      */

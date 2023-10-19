@@ -16,7 +16,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Usage
 
 ### Usage
@@ -29,33 +28,32 @@
 </gxg-button-group>
 ```
 
-
-
 ## Properties
 
-| Property               | Attribute                 | Description                                                      | Type                           | Default     |
-| ---------------------- | ------------------------- | ---------------------------------------------------------------- | ------------------------------ | ----------- |
-| `activeButtonId`       | `active-button-id`        | The buttons style                                                | `string`                       | `undefined` |
-| `buttonGroupTitle`     | `button-group-title`      | The button-group title                                           | `string`                       | `undefined` |
-| `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to be active by default | `string`                       | `undefined` |
-| `disabled`             | `disabled`                | Wether the button group is disabled or not                       | `boolean`                      | `false`     |
-| `fullWidth`            | `full-width`              | The presence of this attribute makes the component full-width    | `boolean`                      | `false`     |
-| `outlined`             | `outlined`                | The presence of this attribute makes the button group outlined   | `boolean`                      | `false`     |
-| `titleAlignment`       | `title-alignment`         | The button group title alignment                                 | `"center" \| "end" \| "start"` | `"start"`   |
-| `type`                 | `type`                    | The buttons style                                                | `"primary" \| "secondary"`     | `"primary"` |
-
+| Property               | Attribute                 | Description                                                                                                         | Type                           | Default     |
+| ---------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ----------- |
+| `activeButtonId`       | `active-button-id`        | The buttons style                                                                                                   | `string`                       | `undefined` |
+| `buttonGroupTitle`     | `button-group-title`      | The button-group title                                                                                              | `string`                       | `undefined` |
+| `defaultSelectedBtnId` | `default-selected-btn-id` | The id of the button that you would like to be active by default                                                    | `string`                       | `undefined` |
+| `disableActive`        | `disable-active`          | The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked. | `boolean`                      | `false`     |
+| `disabled`             | `disabled`                | Wether the button group is disabled or not                                                                          | `boolean`                      | `false`     |
+| `fullWidth`            | `full-width`              | The presence of this attribute makes the component full-width                                                       | `boolean`                      | `false`     |
+| `outlined`             | `outlined`                | The presence of this attribute makes the button group outlined                                                      | `boolean`                      | `false`     |
+| `titleAlignment`       | `title-alignment`         | The button group title alignment                                                                                    | `"center" \| "end" \| "start"` | `"start"`   |
+| `type`                 | `type`                    | The buttons style                                                                                                   | `"primary" \| "secondary"`     | `"primary"` |
 
 ## Dependencies
 
 ### Used by
 
- - [gxg-color-picker](../color-picker)
+- [gxg-color-picker](../color-picker)
 
 ### Depends on
 
 - [gxg-label](../label)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-button-group --> gxg-label
@@ -64,6 +62,6 @@ graph TD;
   style gxg-button-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

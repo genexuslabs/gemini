@@ -100,7 +100,7 @@ export class GxgTreeView {
   /**
    * A CSS class to set as the `ch-tree-x` element class.
    */
-  @Prop() readonly cssClass: string;
+  @Prop() readonly cssClass: string = "tree-view";
 
   /**
    * This attribute lets you specify if the drag operation is disabled in all

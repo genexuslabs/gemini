@@ -35,12 +35,6 @@
     border-top-right-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
   }
-
-  ::slotted(button:hover) {
-    cursor: pointer;
-    color: var(--color-on-primary);
-    background: var(--color-primary-hover);
-  }
   ::slotted(button:focus) {
     outline: none;
   }
@@ -48,11 +42,16 @@
     color: var(--color-on-primary);
     background-color: var(--color-primary-enabled);
     border-right-color: var(--color-primary-enabled);
-    pointer-events: none;
   }
-  ::slotted(button:not([data-active])):hover,
-  ::slotted(button:not([outlined])):hover {
+  ::slotted(button:not([outlined]):hover) {
+    color: var(--color-on-primary);
     background-color: var(--color-primary-hover);
+    cursor: pointer;
+  }
+}
+:host([disable-active]) {
+  ::slotted(button[data-active]) {
+    pointer-events: none;
   }
 }
 /*Disabled*/

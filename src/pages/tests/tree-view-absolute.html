@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="darks">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Tree View</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 16px;
+      }
+      .tree-container-1 {
+      }
+      .tree-container-2 {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /*only toggle*/
+      const model = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+      ];
+    </script>
+
+    <!--trees container 1-->
+    <div class="trees-container">
+      <h3>gxg-tree-view inside a simple div</h3>
+      <div class="tree-container-1">
+        <gxg-tree-view id="tree-view-1"></gxg-tree-view>
+      </div>
+
+      <h3>gxg-tree-view inside div with flex</h3>
+      <div class="tree-container-2">
+        <gxg-tree-view id="tree-view-2"></gxg-tree-view>
+      </div>
+
+      <h3>gxg-tree-view[position-relative]</h3>
+      <code>
+        <pre>
+ch-tree-x .ch-tree-x-container {
+  position: relative;
+  width: 100%;
+}
+        </pre>
+      </code>
+      <div class="tree-container-3">
+        <gxg-tree-view id="tree-view-3" position-relative></gxg-tree-view>
+      </div>
+    </div>
+
+    <script>
+      /*tree view 1*/
+      const treeView1 = document.getElementById("tree-view-1");
+      treeView1.treeModel = model;
+
+      /*tree view 2*/
+      const treeView2 = document.getElementById("tree-view-2");
+      treeView2.treeModel = model;
+
+      /*tree view 3*/
+      const treeView3 = document.getElementById("tree-view-3");
+      treeView3.treeModel = model;
+    </script>
+  </body>
+</html>
