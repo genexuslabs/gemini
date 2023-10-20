@@ -54,11 +54,12 @@ gxg-tree-view[no-padding] {
 ch-tree-x-list-item
 ---------------------------*/
 
+.tree-view-item::part(dashed-line) {
+  border-color: var(--gray-02);
+}
+
 ch-tree-x-list-item {
   --checkbox-size: var(--gxg-checkbox-size);
-  .tree-view-item::part(dashed-line) {
-    border-color: var(--gray-02);
-  }
 
   //dynamic icons (second state)
   &.tree-view-item--folder::part(action)::before,
@@ -107,10 +108,12 @@ ch-tree-x-list-item {
     margin-inline-start: var(--spacing-comp-01);
   }
   &::part(header) {
-    //padding-inline-start: var(--spacing-comp-01);
     padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
-    border: 1px solid transparent;
     height: var(--spacing-comp-05);
+    &:before {
+      content: "";
+      display: block;
+    }
 
     &:hover {
       background-color: var(--gxg-background-color--hover);
@@ -122,7 +125,7 @@ ch-tree-x-list-item {
     }
 
     display: flex;
-    gap: var(--spacing-comp-01);
+    gap: 5px;
   }
   &[selected]::part(header) {
     background-color: var(--gxg-background-color--selected);
@@ -131,6 +134,7 @@ ch-tree-x-list-item {
     }
   }
   &.ch-tree-x-list-item--editing::part(header) {
+    border: 2px solid transparent;
     //to do
     // background-color: rgb(207, 222, 230, 0.5);
     // border-color: transparent;
@@ -160,36 +164,32 @@ ch-tree-x-list-item {
     }
   }
 
-  //focus-within
+  //container
+  &::part(checkbox__container) {
+    @include checkbox("container");
+  }
+  //focus
   &::part(checkbox__container):focus-within {
+    box-shadow: none;
+    @include form-element-common-styles-focus-type-1();
   }
   //checkbox
   &::part(checkbox) {
     margin-inline-end: 0;
   }
-  &::part(checkbox__container) {
-    @include checkbox("container");
-  }
-  &::part(checkbox__input) {
-    @include checkbox("input");
-  }
   &::part(checkbox__option) {
     @include checkbox("option");
   }
-  //focus
-  &::part(checkbox__input) + .option {
-    background-color: red;
+  /*checked*/
+  &::part(checkbox__container checkbox__checked) {
+    @include checkbox("container--checked");
   }
-  &::part(checkbox__container checkbox__option) {
-    @include form-element-common-styles-focus-type-1();
+  /*indeterminate*/
+  &::part(checkbox__container checkbox__indeterminate) {
+    @include checkbox("container--indeterminate");
   }
-  //checked
-  &::part(checkbox__option checkbox__checked) {
-    @include checkbox("option--checked");
-  }
-  //indeterminate
-  &::part(checkbox__option checkbox__indeterminate) {
-    @include checkbox("option--indeterminate");
+  &::part(checkbox__input) {
+    @include checkbox("input");
   }
 
   //action
