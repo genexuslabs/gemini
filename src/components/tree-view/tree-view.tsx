@@ -10,6 +10,7 @@ import {
   Method,
   Event,
   EventEmitter,
+  getAssetPath,
 } from "@stencil/core";
 import {
   TreeXListItemOpenReferenceInfo,
@@ -48,6 +49,7 @@ const DEFAULT_SELECTED_VALUE = false;
   tag: "gxg-tree-view",
   styleUrl: "tree-view.scss",
   shadow: false,
+  assetsDirs: ["assets"],
 })
 export class GxgTreeView {
   // UI Models
@@ -60,6 +62,8 @@ export class GxgTreeView {
 
   // Refs
   private treeRef: HTMLChTreeXElement;
+
+  private iconAssetsPath = getAssetPath(`./icon-assets`);
 
   /**
    * This property lets you specify if the tree is waiting to process the drop
@@ -666,7 +670,9 @@ export class GxgTreeView {
       lazyLoad={treeSubModel.lazy}
       leaf={treeSubModel.leaf}
       leftImgSrc={
-        treeSubModel.leftImgSrc ? resolveImgPath(treeSubModel.leftImgSrc) : null
+        treeSubModel.leftImgSrc
+          ? resolveImgPath(this.iconAssetsPath, treeSubModel.leftImgSrc)
+          : null
       }
       level={level}
       metadata={treeSubModel.metadata}

@@ -1,2 +1,2 @@
-export const resolveImgPath = (img: string): string =>
-  `/build/icon-assets/${img}.svg`;
+export const resolveImgPath = (iconAssetsPath: string, img: string): string =>
+  `${iconAssetsPath}/${img}.svg`;
