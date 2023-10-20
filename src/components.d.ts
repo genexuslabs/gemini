@@ -1683,7 +1683,11 @@ export namespace Components {
   }
   interface GxgStack {
     /**
-     * The spacing value
+     * The spacing value between each gxg-column (if any present)
+     */
+    columnsSpace: Space;
+    /**
+     * The spacing value between each stack row
      */
     space: Space;
   }
@@ -4573,7 +4577,11 @@ declare namespace LocalJSX {
   }
   interface GxgStack {
     /**
-     * The spacing value
+     * The spacing value between each gxg-column (if any present)
+     */
+    columnsSpace?: Space;
+    /**
+     * The spacing value between each stack row
      */
     space?: Space;
   }

@@ -7,14 +7,13 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property | Attribute | Description       | Type                                | Default |
-| -------- | --------- | ----------------- | ----------------------------------- | ------- |
-| `space`  | `space`   | The spacing value | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`  |
+| Property       | Attribute       | Description                                                | Type                                | Default |
+| -------------- | --------------- | ---------------------------------------------------------- | ----------------------------------- | ------- |
+| `columnsSpace` | `columns-space` | The spacing value between each gxg-column (if any present) | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`  |
+| `space`        | `space`         | The spacing value between each stack row                   | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`  |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
