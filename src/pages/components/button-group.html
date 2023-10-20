@@ -30,19 +30,11 @@
       title-alignment="left"
       button-group-title="Buttons title"
       default-selected-btn-id="button1"
-      disable-active
       full-width
     >
       <button id="button1">Button 1</button>
       <button id="button2">Button 2</button>
     </gxg-button-group>
-
-    <script>
-      const button2 = document.getElementById("button2");
-      button2.addEventListener("click", () => {
-        console.log("button 2 clicked");
-      });
-    </script>
 
     <br />
 
@@ -54,6 +46,15 @@
       const activateButton2 = document.getElementById("activate-button-2");
       activateButton2.addEventListener("click", () => {
         primaryButtonsGroup.activeButtonId = "button2";
+      });
+      const button1 = document.getElementById("button1");
+      const button2 = document.getElementById("button2");
+      button1.addEventListener("click", () => {
+        //console.log("button 2 clicked");
+        console.log("hola");
+        setTimeout(() => {
+          primaryButtonsGroup.activeButtonId = "button2";
+        }, 100);
       });
     </script>
 

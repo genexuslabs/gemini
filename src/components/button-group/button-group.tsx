@@ -62,6 +62,7 @@ export class GxgButtonGroup {
   watchActiveButtonIdHandler(newValue: string) {
     const allButtons = this.el.querySelectorAll("button");
     let newActiveButton: HTMLButtonElement;
+    this.removeFocusAll();
     allButtons.forEach((button) => {
       if (button.id === newValue) {
         newActiveButton = button;
@@ -74,6 +75,13 @@ export class GxgButtonGroup {
       newActiveButton.setAttribute("data-active", "");
     }
   }
+
+  private removeFocusAll = () => {
+    const allButtons = this.el.querySelectorAll("button");
+    allButtons.forEach((button) => {
+      button.blur();
+    });
+  };
 
   /**
   The value of the current selected button
