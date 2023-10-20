@@ -1685,7 +1685,7 @@ export namespace Components {
     /**
      * The spacing value between each gxg-column (if any present)
      */
-    columnsSpace: Space;
+    columnsSpace: any;
     /**
      * The spacing value between each stack row
      */
@@ -4579,7 +4579,7 @@ declare namespace LocalJSX {
     /**
      * The spacing value between each gxg-column (if any present)
      */
-    columnsSpace?: Space;
+    columnsSpace?: any;
     /**
      * The spacing value between each stack row
      */

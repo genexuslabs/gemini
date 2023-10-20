@@ -9,10 +9,10 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                | Type                                | Default |
-| -------------- | --------------- | ---------------------------------------------------------- | ----------------------------------- | ------- |
-| `columnsSpace` | `columns-space` | The spacing value between each gxg-column (if any present) | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`  |
-| `space`        | `space`         | The spacing value between each stack row                   | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`  |
+| Property       | Attribute       | Description                                                | Type                                | Default     |
+| -------------- | --------------- | ---------------------------------------------------------- | ----------------------------------- | ----------- |
+| `columnsSpace` | `columns-space` | The spacing value between each gxg-column (if any present) | `any`                               | `undefined` |
+| `space`        | `space`         | The spacing value between each stack row                   | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`      |
 
 ---
 

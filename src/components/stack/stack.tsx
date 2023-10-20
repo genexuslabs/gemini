@@ -16,7 +16,7 @@ export class GxgStack {
   /**
    * The spacing value between each gxg-column (if any present)
    */
-  @Prop({ reflect: true }) columnsSpace: Space = "xs";
+  @Prop({ reflect: true }) columnsSpace;
 
   render() {
     return <slot></slot>;
