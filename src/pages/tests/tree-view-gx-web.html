@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="darks">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Tree View</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <script>
+      /*only toggle*/
+      const model = [
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+        {
+          id: "number-1",
+          caption: "number-1 label",
+          leaf: false,
+          items: [
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+            {
+              id: "number-1.1",
+              caption: "number-1.1 label",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "number-2",
+          caption: "number-2 label",
+          leaf: false,
+        },
+        {
+          id: "number-3",
+          caption: "number-3 label",
+          leaf: false,
+        },
+      ];
+    </script>
+
+    <style>
+      /*styles about the height*/
+      .gx-dialog {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow-y: auto;
+      }
+      main {
+        height: 100%;
+        overflow-y: auto;
+      }
+      .main--flex {
+        display: flex;
+      }
+    </style>
+
+    <div class="container">
+      <!--A gx web dialog with regular content-->
+      <button class="toggle-btn">toggle height ↓</button>
+      <div class="window">
+        <div class="gx-dialog">
+          <div class="header">
+            <h1>1. A gx-web dialog | with regular content</h1>
+          </div>
+          <main>
+            <p>
+              Did you know that space is not completely empty? It contains a
+              very low-density, but ever-present, form of energy and matter
+              known as "dark matter" and "dark energy." Dark matter cannot be
+              seen or detected directly, but its existence is inferred from its
+              gravitational effects on visible matter in the universe. Dark
+              energy, on the other hand, is believed to be responsible for the
+              accelerating expansion of the universe. Together, dark matter and
+              dark energy make up a significant portion of the universe's
+              composition, even though they remain mysterious and largely
+              unexplained by current scientific understanding.
+            </p>
+          </main>
+          <footer>the footer</footer>
+        </div>
+      </div>
+
+      <!--A gx web dialog with a gxg-tree-view -->
+      <button class="toggle-btn">toggle height ↓</button>
+      <div class="window">
+        <div class="gx-dialog">
+          <div class="header">
+            <h1>2. A gx-web dialog | with a gx-tree-view</h1>
+          </div>
+          <main>
+            <gxg-tree-view id="tree-view-1"></gxg-tree-view>
+          </main>
+          <footer>the footer</footer>
+        </div>
+      </div>
+
+      <!--A gx web dialog with a gxg-tree-view[position-relative] -->
+      <button class="toggle-btn">toggle height ↓</button>
+      <div class="window">
+        <div class="gx-dialog">
+          <div class="header">
+            <h1>3. A gx-web dialog | with a gx-tree-view[position-relative]</h1>
+            <p>
+              <code
+                >.ch-tree-x-container { position: relative; width: 100%; }</code
+              >
+            </p>
+          </div>
+          <main class="main--flex">
+            <gxg-tree-view id="tree-view-2" position-relative></gxg-tree-view>
+          </main>
+          <footer>the footer</footer>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /*buttons and height toggling*/
+      heightDifference = 100;
+      const toggleButtons = document.querySelectorAll(".toggle-btn");
+      toggleButtons.forEach((toggleButton) => {
+        const window = toggleButton.nextElementSibling;
+        toggleButton.addEventListener("click", () => {
+          const windowActualHeight = window.clientHeight;
+          if (window.classList.contains("reduced")) {
+            window.style.height = `${windowActualHeight + heightDifference}px`;
+          } else {
+            window.style.height = `${windowActualHeight - heightDifference}px`;
+          }
+          window.classList.toggle("reduced");
+        });
+      });
+
+      /*tree view 1*/
+      const treeView1 = document.getElementById("tree-view-1");
+      treeView1.treeModel = model;
+
+      /*tree view 2*/
+      const treeView2 = document.getElementById("tree-view-2");
+      treeView2.treeModel = model;
+    </script>
+
+    <style>
+      /*This styles doesn't matter for the test. They are just for making the elements look a little better*/
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: 16px;
+      }
+      p {
+        line-height: 1.6em;
+        margin: 0;
+      }
+      body {
+        padding-top: 64px;
+        background-color: aliceblue;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .window {
+        margin-bottom: 64px;
+        background-color: white;
+        outline: 3px solid orange;
+      }
+      .gx-dialog {
+        border: 1px solid black;
+      }
+      .header {
+        border-bottom: 1px solid black;
+      }
+      h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+      main,
+      footer,
+      .header {
+        padding: 24px;
+      }
+      footer {
+        border-top: 1px solid black;
+      }
+      button {
+        margin-bottom: 16px;
+      }
+    </style>
+  </body>
+</html>
