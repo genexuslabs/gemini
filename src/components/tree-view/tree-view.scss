@@ -147,7 +147,7 @@ ch-tree-x-list-item {
 
   //expandable-button
   &::part(expandable-button) {
-    background-color: var(--color-hover);
+    background-color: var(--gxg-background-color--hover);
     // margin-inline-start: var(--spacing-comp-01);
     // margin-inline-end: var(--spacing-comp-01);
     margin-inline-end: 0;

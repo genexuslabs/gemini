@@ -157,7 +157,7 @@ ch-grid-row {
   }
 }
 ch-grid-row[highlighted] {
-  background-color: var(--color-hover);
+  background-color: var(--gxg-background-color--hover);
 }
 ch-grid-row[dragging] {
   box-shadow: var(--box-shadow-03);
