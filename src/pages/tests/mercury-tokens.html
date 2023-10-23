@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large mercury">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Mercury Tokens Test | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      html {
+        --separation-space: 36px;
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 36px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: var(--separation-space);
+      }
+      h2 {
+        margin-block-start: 0;
+        margin-block-end: var(--separation-space);
+        font-size: 16px;
+        font-weight: var(--font-weight-regular);
+      }
+      body {
+        font-family: var(--font-family-primary);
+        background-color: var(--color-background);
+        color: var(--color-on-background);
+      }
+      article {
+        padding: var(--separation-space) 0;
+        border-block-end: 1px solid var(--gray-01);
+      }
+      .pills-container {
+        display: flex;
+        gap: 8px;
+      }
+      .no-margin {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button id="toggle-mercury-btn">toggle dark</button>
+    </header>
+    <div class="container">
+      <h1>Test de tokens para Mercury</h1>
+
+      <!-- button primary-text-only -->
+      <article>
+        <h2>button primary-text-only</h2>
+        <gxg-button type="primary-text-only">Label</gxg-button>
+      </article>
+
+      <!-- button primary-text-icon -->
+      <article>
+        <h2>button primary-text-icon</h2>
+        <gxg-button type="primary-text-icon" icon="navigation/arrow-down"
+          >Label</gxg-button
+        >
+      </article>
+
+      <!-- button primary-icon-only -->
+      <article>
+        <h2>button primary-icon-only</h2>
+        <gxg-button type="primary-icon-only" icon="gemini-tools/folder"
+          >Label</gxg-button
+        >
+      </article>
+
+      <!-- button secondary-text-only -->
+      <article>
+        <h2>button secondary-text-only</h2>
+        <gxg-button type="secondary-text-only">Label</gxg-button>
+      </article>
+
+      <!-- button secondary-text-icon -->
+      <article>
+        <h2>button secondary-text-icon</h2>
+        <gxg-button type="secondary-text-icon" icon="gemini-tools/folder"
+          >Label</gxg-button
+        >
+      </article>
+
+      <!-- button secondary-icon-only -->
+      <article>
+        <h2>button secondary-icon-only</h2>
+        <gxg-button
+          type="secondary-icon-only"
+          icon="gemini-tools/edit"
+        ></gxg-button>
+      </article>
+
+      <!-- button outlined -->
+      <article>
+        <h2>button outlined</h2>
+        <gxg-button type="outlined">Label</gxg-button>
+      </article>
+
+      <!-- pills -->
+      <article>
+        <h2>pills</h2>
+        <div class="pills-container">
+          <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
+          <gxg-pill icon="objects/procedure" type="static-with-action"
+            >Salt</gxg-pill
+          >
+          <gxg-pill icon="gx-server/lock-without-changes" type="button"
+            >Salt</gxg-pill
+          >
+          <gxg-pill
+            icon="gx-server/changes-commit-pending"
+            type="button-with-action"
+            >Salt</gxg-pill
+          >
+        </div>
+      </article>
+
+      <!--tabs -->
+      <article>
+        <h2>tabs</h2>
+        <gxg-tabs id="gxgTabs" position="top">
+          <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="apples"
+              tab="apples"
+              key="apples"
+              is-selected
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="bananas"
+              tab="bananas"
+              key="bananas"
+              icon="gemini-tools/settings"
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab="cherries"
+              key="cherries"
+              icon="gemini-tools/settings"
+              hidden
+            ></gxg-tab-button>
+          </gxg-tab-bar>
+          <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
+            <p class="no-margin">
+              An apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus.
+            </p></gxg-tab
+          >
+
+          <gxg-tab tab="bananas" key="bananas" isSelected="false">
+            A banana is an elongated, edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in
+            the genus Musa. In some countries, bananas used for cooking may be
+            called "plantains", distinguishing them from dessert bananas.
+          </gxg-tab>
+          <gxg-tab tab="cherries" key="cherries" isSelected="false">
+            A cherry is the fruit of many plants of the genus Prunus, and is a
+            fleshy drupe. Commercial cherries are obtained from cultivars of
+            several species, such as the sweet Prunus avium and the sour Prunus
+            cerasus.
+          </gxg-tab>
+        </gxg-tabs>
+      </article>
+
+      <!-- card -->
+      <article>
+        <h2>card</h2>
+        <div style="max-width: 300px">
+          <gxg-card>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+            nostrum mollitia obcaecati possimus a animi nemo ducimus dolorum
+            earum sapiente aliquam amet distinctio maiores, soluta officia
+            quidem! Molestias, officia excepturi.
+          </gxg-card>
+        </div>
+      </article>
+
+      <!-- box -->
+      <article>
+        <h2>box</h2>
+        <div style="max-width: 300px">
+          <gxg-box>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+            nostrum mollitia obcaecati possimus a animi nemo ducimus dolorum
+            earum sapiente aliquam amet distinctio maiores, soluta officia
+            quidem! Molestias, officia excepturi.
+          </gxg-box>
+        </div>
+      </article>
+    </div>
+
+    <script>
+      const toggleMercuryBtn = document.getElementById("toggle-mercury-btn");
+      const html = document.querySelector("html");
+      toggleMercuryBtn.addEventListener("click", () => {
+        html.classList.toggle("dark");
+      });
+    </script>
+  </body>
+</html>
