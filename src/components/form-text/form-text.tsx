@@ -56,7 +56,7 @@ export class GxgFormText implements FormComponent {
   /**
    * The presence of this attribute displays a clear (cross) button-icon on the right side
    */
-  @Prop() clearButton = false;
+  @Prop({ reflect: true }) clearButton = false;
 
   /**
    * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
