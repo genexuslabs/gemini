@@ -126,7 +126,7 @@
       transform: scale(0.75, 0.75);
       margin-inline-end: var(--spacing-comp-00);
       @include ui-animation-slow(opacity);
-      background-color: var(--color-hover);
+      background-color: var(--gxg-background-color--hover);
       &:hover {
         background-color: var(--color-background);
       }

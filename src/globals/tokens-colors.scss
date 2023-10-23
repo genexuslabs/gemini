@@ -59,16 +59,10 @@
 :root {
   --color-primary: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
-  --color-hover: #f4f7f9;
-  --color-highlighted: #487f9d;
-  --color-highlighted-light: #f2f7fa;
 }
 :root.dark {
   --color-primary-rgb: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
-  --color-hover: #25262c;
-  --color-highlighted: #66a6c9;
-  --color-highlighted-light: #34414a;
 }
 //BACKGROUND COLORS
 :root {
