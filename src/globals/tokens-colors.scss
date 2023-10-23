@@ -113,21 +113,35 @@
 :root {
   --color-primary: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
+  &.mercury {
+    --color-primary: #2070ce;
+    //--color-secondary: ; no está definido
+  }
 }
 :root.dark {
   --color-primary-rgb: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
+  &.mercury {
+    --color-primary: #5ba7ff;
+    //--color-secondary: ; no está definido
+  }
 }
 //BACKGROUND COLORS
 :root {
   --color-background: #fff;
   --color-background--rgb: 255, 255, 255; /*added by Bruno for the ide-loader*/
   --color-shadow--rgb: 0, 0, 0; /*added by Bruno for gx-ide-ui shadows*/
+  &.mercury {
+    --color-background: #ffffff;
+  }
 }
 :root.dark {
   --color-background: #1d1e22;
   --color-background--rgb: 0, 0, 0; /*added by Bruno for the ide-loader*/
   --color-shadow--rgb: 255, 255, 255; /*added by Bruno for gx-ide-ui shadows*/
+  &.mercury {
+    --color-background: #1a1d20;
+  }
 }
 //ALERT COLORS
 :root {
@@ -137,6 +151,14 @@
   --color-warning-light: #ffe7e6;
   --color-success-dark: #02a08b;
   --color-success-light: #e1f3f1;
+  &.mercury {
+    --color-error-dark: #e35861;
+    --color-error-light: #fb7c84;
+    --color-warning-dark: #f9bd56;
+    --color-warning-light: #ffc96b;
+    --color-success-dark: #5dc599;
+    --color-success-light: #64d9a8;
+  }
 }
 :root.dark {
   --color-error-dark: #f9464e;
@@ -145,6 +167,14 @@
   --color-warning-light: #292011;
   --color-success-dark: #50beae;
   --color-success-light: #172221;
+  &.mercury {
+    --color-error-dark: #e35861;
+    --color-error-light: #fb7c84;
+    --color-warning-dark: #f9bd56;
+    --color-warning-light: #ffc96b;
+    --color-success-dark: #5dc599;
+    --color-success-light: #64d9a8;
+  }
 }
 //GRAY COLORS
 :root {
@@ -157,9 +187,28 @@
   --gray-05: #616164;
   --gray-06: #3e3f42;
   --gray-07: #28292d;
+
+  &.mercury {
+    --gray-00: #ffffff;
+    --gray-01: #cccccc;
+    --gray-02: #b3b3b3;
+    --gray-02--rgb: 198, 198, 199; /*added by Bruno for the ide-loader*/
+    --gray-03: #999999;
+    --gray-04: #7f7f7f;
+    --gray-05: #666666;
+    --gray-06: #4d4d4d;
+    --gray-07: #333333;
+    /*new (only for mercury)*/
+    --gray-08: #1a1a1a;
+    --gray-09: #000000;
+    --gray-10: #1f2225;
+    --gray-11: #24272a;
+    --gray-12: #2d3032;
+    --gray-13: #3b3e40;
+  }
 }
 :root.dark {
-  --gray-00: #232326; /*added by Bruno*/
+  --gray-00: #232326;
   --gray-01: #28292d;
   --gray-02: #3e3f42;
   --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
@@ -168,6 +217,25 @@
   --gray-05: #a4a5a6;
   --gray-06: #c6c6c7;
   --gray-07: #e8e8e9;
+
+  &.mercury {
+    --gray-00: #232326; /*added by Bruno*/
+    --gray-01: #525151;
+    --gray-02: #616161;
+    --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
+    --gray-03: #696969;
+    --gray-04: #666666;
+    --gray-05: #7f7f7f;
+    --gray-06: #999999;
+    --gray-07: #b3b3b3;
+    /*new (only for mercury)*/
+    --gray-08: #cccccc;
+    --gray-09: #ffffff;
+    --gray-10: #f8f8f8;
+    --gray-11: #f1f1f1;
+    --gray-12: #e4e4e4;
+    --gray-13: #dedede;
+  }
 }
 //ICONS
 :root {

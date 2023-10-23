@@ -1,4 +1,7 @@
+/*gemini*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
+/*mercury*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 /*********************************
 TOKENS FOR FONTS
 *********************************/
@@ -33,6 +36,12 @@ TOKENS FOR FONTS
   --letter-spacing-sm: 0.25px;
   --letter-spacing-md: 0.3px;
   --letter-spacing-lg: 0.6px;
+
+  &.mercury {
+    /*font families*/
+    --font-family-primary: "Inter", sans-serif;
+    --font-family-secondary: sans-serif; /*None, at the time of writing*/
+  }
 }
 
 /*********************************
