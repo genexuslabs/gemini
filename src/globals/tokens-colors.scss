@@ -176,12 +176,12 @@
     --color-success-light: #64d9a8;
   }
 }
+
 //GRAY COLORS
 :root {
   --gray-00: #f4f4f4; /*added by Bruno*/
   --gray-01: #e8e8e9;
   --gray-02: #c6c6c7;
-  --gray-02--rgb: 198, 198, 199; /*added by Bruno for the ide-loader*/
   --gray-03: #a4a5a6;
   --gray-04: #828385;
   --gray-05: #616164;
@@ -189,40 +189,9 @@
   --gray-07: #28292d;
 
   &.mercury {
-    --gray-00: #ffffff;
-    --gray-01: #cccccc;
-    --gray-02: #b3b3b3;
-    --gray-02--rgb: 198, 198, 199; /*added by Bruno for the ide-loader*/
-    --gray-03: #999999;
-    --gray-04: #7f7f7f;
-    --gray-05: #666666;
-    --gray-06: #4d4d4d;
-    --gray-07: #333333;
-    /*new (only for mercury)*/
-    --gray-08: #1a1a1a;
-    --gray-09: #000000;
-    --gray-10: #1f2225;
-    --gray-11: #24272a;
-    --gray-12: #2d3032;
-    --gray-13: #3b3e40;
-  }
-}
-:root.dark {
-  --gray-00: ##232326;
-  --gray-01: #28292d;
-  --gray-02: #3e3f42;
-  --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
-  --gray-03: #616164;
-  --gray-04: #828385;
-  --gray-05: #a4a5a6;
-  --gray-06: #c6c6c7;
-  --gray-07: #e8e8e9;
-
-  &.mercury {
-    --gray-00: #232326; /*added by Bruno*/
+    --gray-00: #363636;
     --gray-01: #525151;
     --gray-02: #616161;
-    --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
     --gray-03: #696969;
     --gray-04: #666666;
     --gray-05: #7f7f7f;
@@ -235,6 +204,37 @@
     --gray-11: #f1f1f1;
     --gray-12: #e4e4e4;
     --gray-13: #dedede;
+  }
+}
+
+:root.dark {
+  --gray-00: #232326; /*added by Bruno*/
+  --gray-01: #28292d;
+  --gray-02: #3e3f42;
+  --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
+  --gray-03: #616164;
+  --gray-04: #828385;
+  --gray-05: #a4a5a6;
+  --gray-06: #c6c6c7;
+  --gray-07: #e8e8e9;
+
+  &.mercury {
+    --gray-00: #ffffff;
+    --gray-01: #cccccc;
+    --gray-02: #b3b3b3;
+    --gray-02--rgb: 62, 63, 66; /*added by Bruno for the ide-loader*/
+    --gray-03: #999999;
+    --gray-04: #7f7f7f;
+    --gray-05: #666666;
+    --gray-06: #4d4d4d;
+    --gray-07: #333333;
+    /*new (only for mercury)*/
+    --gray-08: #1a1a1a;
+    --gray-09: #000000;
+    --gray-10: #1f2225;
+    --gray-11: #24272a;
+    --gray-12: #2d3032;
+    --gray-13: #3b3e40;
   }
 }
 //ICONS
