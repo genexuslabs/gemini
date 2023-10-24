@@ -23,7 +23,7 @@ export class GxgPill {
   @Element() el: HTMLElement;
   @Event() pillRemoved: EventEmitter<string>;
   /**
-   * The presence of this attribute disables the pillgit a
+   * The presence of this attribute disables the pill
    */
   @Prop() disabled = false;
 
@@ -33,7 +33,7 @@ export class GxgPill {
   @Prop() icon: string = undefined;
 
   /**
-   * The presence of this attribute sets auto-height. Usefull when the text overflows.
+   * The presence of this attribute sets auto-height. Useful when the text overflows.
    */
   @Prop() heightAuto = false;
 

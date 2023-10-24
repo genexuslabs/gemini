@@ -70,7 +70,7 @@ import {
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
-import { PillType } from "./components/pill/pill";
+import { PillType } from "./components/pills/pill";
 import { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
 import {
@@ -1463,11 +1463,11 @@ export namespace Components {
   }
   interface GxgPill {
     /**
-     * The presence of this attribute disables the pillgit a
+     * The presence of this attribute disables the pill
      */
     disabled: boolean;
     /**
-     * The presence of this attribute sets auto-height. Usefull when the text overflows.
+     * The presence of this attribute sets auto-height. Useful when the text overflows.
      */
     heightAuto: boolean;
     /**
@@ -1482,6 +1482,12 @@ export namespace Components {
      * The type of pill
      */
     type: PillType;
+  }
+  interface GxgPills {
+    /**
+     * Returns an array with the id's of all the pills
+     */
+    getPills: (onlyEnabled?: boolean) => Promise<string[]>;
   }
   interface GxgProgressBar {
     /**
@@ -2604,6 +2610,13 @@ declare global {
     prototype: HTMLGxgPillElement;
     new (): HTMLGxgPillElement;
   };
+  interface HTMLGxgPillsElement
+    extends Components.GxgPills,
+      HTMLStencilElement {}
+  var HTMLGxgPillsElement: {
+    prototype: HTMLGxgPillsElement;
+    new (): HTMLGxgPillsElement;
+  };
   interface HTMLGxgProgressBarElement
     extends Components.GxgProgressBar,
       HTMLStencilElement {}
@@ -2857,6 +2870,7 @@ declare global {
     "gxg-options-item": HTMLGxgOptionsItemElement;
     "gxg-paginator": HTMLGxgPaginatorElement;
     "gxg-pill": HTMLGxgPillElement;
+    "gxg-pills": HTMLGxgPillsElement;
     "gxg-progress-bar": HTMLGxgProgressBarElement;
     "gxg-scroll": HTMLGxgScrollElement;
     "gxg-select": HTMLGxgSelectElement;
@@ -4381,11 +4395,11 @@ declare namespace LocalJSX {
   }
   interface GxgPill {
     /**
-     * The presence of this attribute disables the pillgit a
+     * The presence of this attribute disables the pill
      */
     disabled?: boolean;
     /**
-     * The presence of this attribute sets auto-height. Usefull when the text overflows.
+     * The presence of this attribute sets auto-height. Useful when the text overflows.
      */
     heightAuto?: boolean;
     /**
@@ -4402,6 +4416,7 @@ declare namespace LocalJSX {
      */
     type?: PillType;
   }
+  interface GxgPills {}
   interface GxgProgressBar {
     /**
      * The state of the progress-bar, whether it is disabled or not.
@@ -5209,6 +5224,7 @@ declare namespace LocalJSX {
     "gxg-options-item": GxgOptionsItem;
     "gxg-paginator": GxgPaginator;
     "gxg-pill": GxgPill;
+    "gxg-pills": GxgPills;
     "gxg-progress-bar": GxgProgressBar;
     "gxg-scroll": GxgScroll;
     "gxg-select": GxgSelect;
@@ -5342,6 +5358,8 @@ declare module "@stencil/core" {
       "gxg-paginator": LocalJSX.GxgPaginator &
         JSXBase.HTMLAttributes<HTMLGxgPaginatorElement>;
       "gxg-pill": LocalJSX.GxgPill & JSXBase.HTMLAttributes<HTMLGxgPillElement>;
+      "gxg-pills": LocalJSX.GxgPills &
+        JSXBase.HTMLAttributes<HTMLGxgPillsElement>;
       "gxg-progress-bar": LocalJSX.GxgProgressBar &
         JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
       "gxg-scroll": LocalJSX.GxgScroll &

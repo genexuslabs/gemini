@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+.pills-wrapper {
+  display: flex;
+  gap: var(--spacing-comp-02);
+  flex-wrap: wrap;
+}

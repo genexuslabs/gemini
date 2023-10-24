@@ -14,39 +14,95 @@
 
     <style>
       html.dark {
-        background-color: #1D1E22;
+        background-color: #1d1e22;
       }
       body {
         font-family: "opens sans", sans-serif;
       }
+      .container {
+        margin: 0 auto;
+        max-width: 600px;
+      }
+      button {
+        margin-top: 16px;
+      }
     </style>
   </head>
   <body>
-    <h4>pills without icon</h4>
-    <gxg-pill type="static">Salt</gxg-pill>
-    <gxg-pill type="static-with-action">Salt</gxg-pill>
-    <gxg-pill type="button">Salt</gxg-pill>
-    <gxg-pill type="button-with-action">Salt</gxg-pill>
-    
-    <h4>pills without icon disabled</h4>
-    <gxg-pill disabled type="static">Salt</gxg-pill>
-    <gxg-pill disabled type="static-with-action">Salt</gxg-pill>
-    <gxg-pill disabled type="button">Salt</gxg-pill>
-    <gxg-pill disabled type="button-with-action">Salt</gxg-pill>
+    <div class="container">
+      <h4>pills without icon</h4>
+      <gxg-pills id="first-pills-group">
+        <gxg-pill id="01" type="static" disabled>Salt</gxg-pill>
+        <gxg-pill id="02" type="static-with-action">Salt</gxg-pill>
+        <gxg-pill id="03" type="button">Salt</gxg-pill>
+        <gxg-pill id="04" type="button-with-action">Salt</gxg-pill>
+        <gxg-pill id="05" type="static">Salt</gxg-pill>
+        <gxg-pill id="06" type="static-with-action">Salt</gxg-pill>
+        <gxg-pill id="07" type="button">Salt</gxg-pill>
+        <gxg-pill id="08" type="static">Salt</gxg-pill>
+        <gxg-pill id="09" type="static-with-action">Salt</gxg-pill>
+        <gxg-pill id="10" type="button" disabled>Salt</gxg-pill>
+        <gxg-pill id="11" type="button-with-action">Salt</gxg-pill>
+        <gxg-pill id="12" type="static">Salt</gxg-pill>
+        <gxg-pill id="13" type="static-with-action" disabled>Salt</gxg-pill>
+        <gxg-pill id="14" type="button">Salt</gxg-pill>
+        <gxg-pill id="15" type="button-with-action">Salt</gxg-pill>
+      </gxg-pills>
 
-    <h4>pills with icon</h4>
-    <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
-    <gxg-pill icon="objects/procedure" type="static-with-action">Salt</gxg-pill>
-    <gxg-pill icon="gx-server/lock-without-changes" type="button">Salt</gxg-pill>
-    <gxg-pill icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
+      <button id="get-all-pills-btn">get all pills</button>
+      <button id="get-enabled-pills-btn">get enabled pills</button>
 
-    <h4>pills with icon disabled</h4>
-    <gxg-pill disabled icon="objects/procedure" type="static">Salt</gxg-pill>
-    <gxg-pill disabled icon="objects/procedure" type="static-with-action">Salt</gxg-pill>
-    <gxg-pill disabled icon="gx-server/lock-without-changes" type="button">Salt</gxg-pill>
-    <gxg-pill disabled icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
+      <h4>pills without icon disabled</h4>
+      <gxg-pill disabled type="static">Salt</gxg-pill>
+      <gxg-pill disabled type="static-with-action">Salt</gxg-pill>
+      <gxg-pill disabled type="button">Salt</gxg-pill>
+      <gxg-pill disabled type="button-with-action">Salt</gxg-pill>
+
+      <h4>pills with icon</h4>
+      <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
+      <gxg-pill icon="objects/procedure" type="static-with-action"
+        >Salt</gxg-pill
+      >
+      <gxg-pill icon="gx-server/lock-without-changes" type="button"
+        >Salt</gxg-pill
+      >
+      <gxg-pill
+        icon="gx-server/changes-commit-pending"
+        type="button-with-action"
+        >Salt</gxg-pill
+      >
+
+      <h4>pills with icon disabled</h4>
+      <gxg-pill disabled icon="objects/procedure" type="static">Salt</gxg-pill>
+      <gxg-pill disabled icon="objects/procedure" type="static-with-action"
+        >Salt</gxg-pill
+      >
+      <gxg-pill disabled icon="gx-server/lock-without-changes" type="button"
+        >Salt</gxg-pill
+      >
+      <gxg-pill
+        disabled
+        icon="gx-server/changes-commit-pending"
+        type="button-with-action"
+        >Salt</gxg-pill
+      >
+    </div>
     <script>
-      
+      const getAllPillsBtn = document.getElementById("get-all-pills-btn");
+      const getEnabledPillsBtn = document.getElementById(
+        "get-enabled-pills-btn"
+      );
+      const firstPillsGroup = document.getElementById("first-pills-group");
+      /*get pills*/
+      getAllPillsBtn.addEventListener("click", async () => {
+        const pills = await firstPillsGroup.getPills(false);
+        console.log("all pills:", pills);
+      });
+      /*get enabled pills*/
+      getEnabledPillsBtn.addEventListener("click", async () => {
+        const pills = await firstPillsGroup.getPills();
+        console.log("enabled pills:", pills);
+      });
     </script>
   </body>
 </html>
