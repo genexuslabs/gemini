@@ -1,0 +1,156 @@
+import { Component, Host, h, Prop, Element, State, Watch } from "@stencil/core";
+import { detectClickOutside } from "../../common/detect-click-outside";
+
+@Component({
+  tag: "gxg-title-editable",
+  styleUrl: "title-editable.scss",
+  shadow: true,
+})
+export class GxgTitleEditable {
+  textInput!: HTMLInputElement;
+  wrapperEl!: HTMLDivElement;
+  editButtonEl!: HTMLGxgButtonElement;
+  ghostDiv!: HTMLDivElement;
+  @Element() el: HTMLElement;
+
+  /*PROPS*/
+
+  /**
+   * The title value
+   */
+  @Prop() value: string = undefined;
+
+  /**
+   * The title type
+   */
+  @Prop({ reflect: true }) titleType: TitleType = "h1";
+
+  /**
+   * If true, it will allow the title to be edited
+   */
+  @Prop({ reflect: true }) editing = false;
+  @Watch("editing")
+  watchEditingHandler(editing: boolean): void {
+    if (editing) {
+      document.addEventListener("click", this.detectClickOutsideFunc);
+    } else {
+      document.removeEventListener("click", this.detectClickOutsideFunc);
+    }
+  }
+
+  /**
+   * If true, it will allow the title to be edited
+   */
+  @Prop({ reflect: true }) clickToEdit = false;
+
+  /**
+   * If true, the width of the title will take only the minimum needed space
+   */
+  @Prop({ reflect: true }) fluid = false;
+
+  /*STATE*/
+
+  @State() currentTime: number = Date.now();
+
+  /*COMPONENT LIFECYCLE METHODS*/
+
+  componentDidLoad() {
+    if (this.fluid) {
+      this.inputInputHandler();
+    }
+  }
+
+  /*PRIVATE METHODS*/
+
+  private edit = (): void => {
+    this.editing = true;
+    this.positionCursorAtTheEnd();
+  };
+
+  private wrapperClickedHandler = (): void => {
+    console.log("hola");
+    this.editing = true;
+  };
+
+  private positionCursorAtTheEnd = (): void => {
+    this.textInput.selectionStart = this.textInput.selectionEnd = this.textInput.value.length;
+    this.textInput.focus();
+  };
+
+  private inputKeyDownHandler = (e: KeyboardEvent): void => {
+    if (this.fluid) {
+      this.setInputWidth();
+    }
+    if (e.key === "Enter" || e.key === "Escape") {
+      e.preventDefault();
+      this.editing = false;
+      this.editButtonEl.focus();
+    }
+  };
+
+  private detectClickOutsideFunc = (e: MouseEvent): void => {
+    const clickedOutside = detectClickOutside(e, this.wrapperEl);
+    if (clickedOutside) {
+      this.editing = false;
+    }
+  };
+
+  private setInputWidth = () => {
+    this.textInput.style.width = this.value.length + 1 + "ch";
+  };
+
+  private inputInputHandler = () => {
+    if (this.fluid) {
+      this.value = this.textInput.value;
+      this.ghostDiv.innerText = this.value;
+      this.updateInputWidth();
+    }
+  };
+
+  private updateInputWidth = () => {
+    if (this.fluid) {
+      const ghostDivWidth = this.ghostDiv.clientWidth;
+      this.textInput.style.width = `${ghostDivWidth}px`;
+    }
+  };
+
+  /*RENDER*/
+
+  render(): void {
+    return (
+      <Host>
+        <div
+          class="wrapper"
+          onMouseUp={
+            this.clickToEdit && !this.editing && this.wrapperClickedHandler
+          }
+          ref={(el) => (this.wrapperEl = el as HTMLDivElement)}
+        >
+          {this.fluid ? (
+            <div
+              class="ghost"
+              ref={(el) => (this.ghostDiv = el as HTMLDivElement)}
+            ></div>
+          ) : null}
+          <input
+            type="text"
+            value={this.value}
+            readOnly={!this.editing}
+            ref={(el) => (this.textInput = el as HTMLInputElement)}
+            onKeyDown={this.inputKeyDownHandler}
+            onInput={this.fluid && this.inputInputHandler}
+            tabIndex={this.editing ? 0 : -1}
+          />
+          <gxg-button
+            type="secondary-icon-only"
+            icon="gemini-tools/edit"
+            onClick={this.edit}
+            ref={(el) => (this.editButtonEl = el as HTMLGxgButtonElement)}
+          ></gxg-button>
+        </div>
+      </Host>
+    );
+  }
+}
+
+export type TitleType = "h1" | "h2" | "h3";

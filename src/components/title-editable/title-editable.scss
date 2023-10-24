@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  .wrapper {
+    font-family: var(--font-family-primary);
+    color: var(--color-on-background);
+    position: relative;
+    max-width: 100%;
+  }
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    flex-grow: 1;
+    cursor: auto;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+/*wrapper*/
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-comp-02);
+}
+/*editing*/
+:host(:not([editing])) {
+  input {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+/*click-to-edit*/
+:host([click-to-edit]) {
+  .wrapper,
+  input {
+    cursor: pointer;
+  }
+}
+/*title types*/
+:host([title-type="h1"]) {
+  .wrapper {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    text-transform: capitalize;
+  }
+}
+:host([title-type="h2"]) {
+  .wrapper {
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+  }
+}
+/*fluid*/
+:host([fluid]) {
+  .wrapper {
+    display: inline-flex;
+  }
+}
+/*ghost div: it helps measuring the text width, to make the input as wide as needed (fluid)*/
+.ghost {
+  font-family: inherit;
+  font-size: inherit;
+  position: fixed;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  white-space: nowrap;
+}

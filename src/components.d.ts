@@ -89,6 +89,7 @@ import {
   TextType,
 } from "./components/text/text";
 import { TitleType } from "./components/title/title";
+import { TitleType as TitleType1 } from "./components/title-editable/title-editable";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import {
@@ -1868,6 +1869,28 @@ export namespace Components {
      */
     type: TitleType;
   }
+  interface GxgTitleEditable {
+    /**
+     * If true, it will allow the title to be edited
+     */
+    clickToEdit: boolean;
+    /**
+     * If true, it will allow the title to be edited
+     */
+    editing: boolean;
+    /**
+     * If true, the width of the title will take only the minimum needed space
+     */
+    fluid: boolean;
+    /**
+     * The title type
+     */
+    titleType: TitleType;
+    /**
+     * The title value
+     */
+    value: string;
+  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -2713,6 +2736,13 @@ declare global {
     prototype: HTMLGxgTitleElement;
     new (): HTMLGxgTitleElement;
   };
+  interface HTMLGxgTitleEditableElement
+    extends Components.GxgTitleEditable,
+      HTMLStencilElement {}
+  var HTMLGxgTitleEditableElement: {
+    prototype: HTMLGxgTitleEditableElement;
+    new (): HTMLGxgTitleEditableElement;
+  };
   interface HTMLGxgToggleElement
     extends Components.GxgToggle,
       HTMLStencilElement {}
@@ -2847,6 +2877,7 @@ declare global {
     "gxg-test": HTMLGxgTestElement;
     "gxg-text": HTMLGxgTextElement;
     "gxg-title": HTMLGxgTitleElement;
+    "gxg-title-editable": HTMLGxgTitleEditableElement;
     "gxg-toggle": HTMLGxgToggleElement;
     "gxg-toolbar": HTMLGxgToolbarElement;
     "gxg-toolbar-item": HTMLGxgToolbarItemElement;
@@ -4762,6 +4793,28 @@ declare namespace LocalJSX {
      */
     type?: TitleType;
   }
+  interface GxgTitleEditable {
+    /**
+     * If true, it will allow the title to be edited
+     */
+    clickToEdit?: boolean;
+    /**
+     * If true, it will allow the title to be edited
+     */
+    editing?: boolean;
+    /**
+     * If true, the width of the title will take only the minimum needed space
+     */
+    fluid?: boolean;
+    /**
+     * The title type
+     */
+    titleType?: TitleType;
+    /**
+     * The title value
+     */
+    value?: string;
+  }
   interface GxgToggle {
     /**
      * The state of the toggle. Whether is disabled or not.
@@ -5176,6 +5229,7 @@ declare namespace LocalJSX {
     "gxg-test": GxgTest;
     "gxg-text": GxgText;
     "gxg-title": GxgTitle;
+    "gxg-title-editable": GxgTitleEditable;
     "gxg-toggle": GxgToggle;
     "gxg-toolbar": GxgToolbar;
     "gxg-toolbar-item": GxgToolbarItem;
@@ -5324,6 +5378,8 @@ declare module "@stencil/core" {
       "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
       "gxg-title": LocalJSX.GxgTitle &
         JSXBase.HTMLAttributes<HTMLGxgTitleElement>;
+      "gxg-title-editable": LocalJSX.GxgTitleEditable &
+        JSXBase.HTMLAttributes<HTMLGxgTitleEditableElement>;
       "gxg-toggle": LocalJSX.GxgToggle &
         JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
       "gxg-toolbar": LocalJSX.GxgToolbar &

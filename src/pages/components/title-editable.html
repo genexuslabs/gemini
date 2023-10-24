@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>xxx | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: var(--font-family-primary);
+        color: var(--color-on-background);
+        background-color: var(--color-background);
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 800px;
+      }
+      article {
+        padding: 36px 0;
+        border-block-end: 1px solid var(--gray-01);
+      }
+      article h2 {
+        font-size: 16px;
+        font-weight: var(--font-weight-regular);
+        display: inline-block;
+      }
+      article:last-child {
+        border-bottom: 0;
+        margin-bottom: 36px;
+      }
+      .container > h2 {
+        font-size: 18px;
+        color: var(--color-primary-enabled);
+        margin-top: 36px;
+        margin-bottom: 0;
+      }
+      code {
+        background-color: var(--gray-01);
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--gray-02);
+      }
+      p {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>H1 Title</h2>
+      <!-- H1 Type -->
+      <article>
+        <h2><code>titleType="h1"</code></h2>
+        <gxg-title-editable
+          title-type="h1"
+          value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex atque sed dolor sint. Perferendis magnam inventore, architecto consequuntur ab fugit modi eius veniam aliquam libero distinctio accusamus earum dignissimos error."
+        >
+        </gxg-title-editable>
+      </article>
+
+      <article>
+        <h2><code>titleType="h1" | clickToEdit</code></h2>
+        <p>
+          Permite editar el texto, también haciendo click en cualquier área del
+          componente.
+        </p>
+        <gxg-title-editable title-type="h1" value="Lorem ipsum" click-to-edit>
+        </gxg-title-editable>
+      </article>
+
+      <article>
+        <h2><code>titleType="h1" | fluid</code></h2>
+        <p>
+          El ancho del componente es fluído. Va creciendo a medida que necesita
+          espacio.
+        </p>
+        <gxg-title-editable
+          title-type="h1"
+          value="Lorem ipsum"
+          fluid
+        ></gxg-title-editable>
+      </article>
+
+      <!-- H2 Type -->
+      <h2>H2 Title</h2>
+      <article>
+        <h2><code>titleType="h2"</code></h2>
+        <gxg-title-editable
+          title-type="h2"
+          value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex atque sed dolor sint. Perferendis magnam inventore, architecto consequuntur ab fugit modi eius veniam aliquam libero distinctio accusamus earum dignissimos error."
+        >
+        </gxg-title-editable>
+      </article>
+    </div>
+  </body>
+</html>
