@@ -38,10 +38,16 @@
   }
 }
 /*click-to-edit*/
-:host([click-to-edit]) {
+:host([click-to-edit]:not[disable-edition]) {
   .wrapper,
   input {
     cursor: pointer;
+  }
+}
+/*disable-edition*/
+:host([disable-edition]) {
+  .wrapper,
+  input {
   }
 }
 /*title types*/

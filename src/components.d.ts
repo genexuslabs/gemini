@@ -1881,9 +1881,9 @@ export namespace Components {
      */
     clickToEdit: boolean;
     /**
-     * If true, it will allow the title to be edited
+     * If true, the title will not be editable
      */
-    editing: boolean;
+    disableEdition: boolean;
     /**
      * If true, the width of the title will take only the minimum needed space
      */
@@ -4814,9 +4814,9 @@ declare namespace LocalJSX {
      */
     clickToEdit?: boolean;
     /**
-     * If true, it will allow the title to be edited
+     * If true, the title will not be editable
      */
-    editing?: boolean;
+    disableEdition?: boolean;
     /**
      * If true, the width of the title will take only the minimum needed space
      */

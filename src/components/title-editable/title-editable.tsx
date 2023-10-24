@@ -26,17 +26,9 @@ export class GxgTitleEditable {
   @Prop({ reflect: true }) titleType: EditableTitleType = "h1";
 
   /**
-   * If true, it will allow the title to be edited
+   * If true, the title will not be editable
    */
-  @Prop({ reflect: true }) editing = false;
-  @Watch("editing")
-  watchEditingHandler(editing: boolean): void {
-    if (editing) {
-      document.addEventListener("click", this.detectClickOutsideFunc);
-    } else {
-      document.removeEventListener("click", this.detectClickOutsideFunc);
-    }
-  }
+  @Prop({ reflect: true }) disableEdition = false;
 
   /**
    * If true, it will allow the title to be edited
@@ -50,7 +42,15 @@ export class GxgTitleEditable {
 
   /*STATE*/
 
-  @State() currentTime: number = Date.now();
+  @State() editing = false;
+  @Watch("editing")
+  watchEditingHandler(editing: boolean): void {
+    if (editing) {
+      document.addEventListener("click", this.detectClickOutsideFunc);
+    } else {
+      document.removeEventListener("click", this.detectClickOutsideFunc);
+    }
+  }
 
   /*COMPONENT LIFECYCLE METHODS*/
 
@@ -68,7 +68,6 @@ export class GxgTitleEditable {
   };
 
   private wrapperClickedHandler = (): void => {
-    console.log("hola");
     this.editing = true;
   };
 
@@ -121,7 +120,10 @@ export class GxgTitleEditable {
         <div
           class="wrapper"
           onMouseUp={
-            this.clickToEdit && !this.editing && this.wrapperClickedHandler
+            this.clickToEdit &&
+            !this.editing &&
+            !this.disableEdition &&
+            this.wrapperClickedHandler
           }
           ref={(el) => (this.wrapperEl = el as HTMLDivElement)}
         >
@@ -140,12 +142,14 @@ export class GxgTitleEditable {
             onInput={this.fluid && this.inputInputHandler}
             tabIndex={this.editing ? 0 : -1}
           />
-          <gxg-button
-            type="secondary-icon-only"
-            icon="gemini-tools/edit"
-            onClick={this.edit}
-            ref={(el) => (this.editButtonEl = el as HTMLGxgButtonElement)}
-          ></gxg-button>
+          {!this.disableEdition ? (
+            <gxg-button
+              type="secondary-icon-only"
+              icon="gemini-tools/edit"
+              onClick={this.edit}
+              ref={(el) => (this.editButtonEl = el as HTMLGxgButtonElement)}
+            ></gxg-button>
+          ) : null}
         </div>
       </Host>
     );
