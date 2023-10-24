@@ -89,7 +89,7 @@ import {
   TextType,
 } from "./components/text/text";
 import { TitleType } from "./components/title/title";
-import { TitleType as TitleType1 } from "./components/title-editable/title-editable";
+import { EditableTitleType } from "./components/title-editable/title-editable";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import {
@@ -1891,7 +1891,7 @@ export namespace Components {
     /**
      * The title type
      */
-    titleType: TitleType;
+    titleType: EditableTitleType;
     /**
      * The title value
      */
@@ -4824,7 +4824,7 @@ declare namespace LocalJSX {
     /**
      * The title type
      */
-    titleType?: TitleType;
+    titleType?: EditableTitleType;
     /**
      * The title value
      */

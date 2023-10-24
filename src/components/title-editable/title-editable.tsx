@@ -23,7 +23,7 @@ export class GxgTitleEditable {
   /**
    * The title type
    */
-  @Prop({ reflect: true }) titleType: TitleType = "h1";
+  @Prop({ reflect: true }) titleType: EditableTitleType = "h1";
 
   /**
    * If true, it will allow the title to be edited
@@ -152,4 +152,4 @@ export class GxgTitleEditable {
   }
 }
 
-export type TitleType = "h1" | "h2" | "h3";
+export type EditableTitleType = "h1" | "h2" | "h3";
