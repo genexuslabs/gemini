@@ -54,7 +54,7 @@ export class GxgTitleEditable {
 
   /*COMPONENT LIFECYCLE METHODS*/
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     if (this.fluid) {
       this.inputInputHandler();
     }
@@ -78,13 +78,12 @@ export class GxgTitleEditable {
   };
 
   private inputKeyDownHandler = (e: KeyboardEvent): void => {
-    if (this.fluid) {
-      this.setInputWidth();
-    }
     if (e.key === "Enter" || e.key === "Escape") {
       e.preventDefault();
       this.editing = false;
       this.editButtonEl.focus();
+    } else if (this.fluid) {
+      this.setInputWidth();
     }
   };
 
@@ -95,11 +94,11 @@ export class GxgTitleEditable {
     }
   };
 
-  private setInputWidth = () => {
+  private setInputWidth = (): void => {
     this.textInput.style.width = this.value.length + 1 + "ch";
   };
 
-  private inputInputHandler = () => {
+  private inputInputHandler = (): void => {
     if (this.fluid) {
       this.value = this.textInput.value;
       this.ghostDiv.innerText = this.value;
@@ -107,7 +106,7 @@ export class GxgTitleEditable {
     }
   };
 
-  private updateInputWidth = () => {
+  private updateInputWidth = (): void => {
     if (this.fluid) {
       const ghostDivWidth = this.ghostDiv.clientWidth;
       this.textInput.style.width = `${ghostDivWidth}px`;
