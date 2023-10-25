@@ -105,5 +105,40 @@
         console.log("console external", e.detail);
       });
     </script>
+
+    <br />
+    <br />
+    <br />
+    <!-- as row -->
+    <span><strong>as row (centered)</strong></span>
+
+    <gxg-form-radio-group row label="my favorite color" center>
+      <gxg-form-radio
+        label="red"
+        name="colors"
+        value="red"
+        radio-id="red"
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="blue"
+        name="colors"
+        value="blue"
+        radio-id="blue"
+        disabled
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="green"
+        name="colors"
+        value="green"
+        radio-id="green"
+        checked
+      ></gxg-form-radio>
+      <gxg-form-radio
+        label="yellow"
+        name="colors"
+        value="yellow"
+        radio-id="yellow"
+      ></gxg-form-radio>
+    </gxg-form-radio-group>
   </body>
 </html>

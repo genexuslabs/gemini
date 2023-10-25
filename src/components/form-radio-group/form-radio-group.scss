@@ -24,6 +24,11 @@
     align-items: center;
   }
 }
+:host(.gxg-form-radio-group--center) {
+  .radios-wrapper {
+    justify-content: center;
+  }
+}
 :host .required {
   padding-left: 2px;
 }

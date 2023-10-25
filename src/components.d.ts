@@ -856,6 +856,10 @@ export namespace Components {
   }
   interface GxgFormRadioGroup {
     /**
+     * Centers the radios if 'row' is true
+     */
+    center: boolean;
+    /**
      * The presence of this attribute makes the input disabled
      */
     disabled: boolean;
@@ -3720,6 +3724,10 @@ declare namespace LocalJSX {
     value?: string;
   }
   interface GxgFormRadioGroup {
+    /**
+     * Centers the radios if 'row' is true
+     */
+    center?: boolean;
     /**
      * The presence of this attribute makes the input disabled
      */

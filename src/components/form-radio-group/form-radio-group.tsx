@@ -31,6 +31,11 @@ export class GxgFormRadioGroup implements FormComponent {
   *********************************/
 
   /**
+   * Centers the radios if 'row' is true
+   */
+  @Prop() center = false;
+
+  /**
    * The presence of this attribute makes the input disabled
    */
   @Prop() disabled = false;
@@ -268,6 +273,7 @@ export class GxgFormRadioGroup implements FormComponent {
         class={{
           "gxg-form-radio-group": true,
           "gxg-form-radio-group--row": this.row,
+          "gxg-form-radio-group--center": this.center && this.row,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
