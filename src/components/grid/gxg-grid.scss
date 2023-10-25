@@ -166,12 +166,12 @@ ch-grid-row[focused] {
 }
 ch-grid-row[selected] {
   > ch-grid-cell:not([selected]) {
-    background-color: var(--color-secondary-enabled);
+    background-color: var(--gxg-background-color--selected);
   }
 }
 ch-grid-cell[selected] {
   z-index: 1;
-  background-color: var(--color-secondary-enabled) !important;
+  background-color: var(--gxg-background-color--selected) !important;
 }
 ch-grid-row[selected] {
   > ch-grid-cell {
@@ -180,6 +180,11 @@ ch-grid-row[selected] {
   + ch-grid-row[selected] {
     ch-grid-cell {
       border-top-color: var(--gxg-border-color--selected);
+    }
+  }
+  &:hover {
+    > ch-grid-cell {
+      background-color: var(--gxg-background-color--selected-hover) !important;
     }
   }
 }
