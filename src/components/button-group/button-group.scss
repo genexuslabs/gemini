@@ -124,8 +124,8 @@
   background-color: var(--color-primary-hover-opacity-01);
 }
 :host([outlined]) ::slotted(button:hover) {
-  color: var(--color-primary-hover);
-  background-color: var(--color-primary-hover-opacity-01);
+  color: var(--color-primary-hover) !important;
+  background-color: var(--color-primary-hover-opacity-01) !important;
 }
 :host([outlined]) ::slotted(button:not(:last-child)) {
   border-right: 0;
