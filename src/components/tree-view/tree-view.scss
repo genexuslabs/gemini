@@ -9,123 +9,49 @@ gxg-tree-view {
   font-weight: var(--font-weight-regular);
   color: var(--color-on-background);
   display: contents;
-
-  ch-tree-x .ch-tree-x-container {
-    padding: var(--spacing-comp-01);
-  }
 }
 
-/*custom styles for the property */
+/*---------------------------
+.tree-view
+---------------------------*/
 .tree-view {
   @include gxg-scrollbar;
 }
 
-gxg-tree-view[position-relative] {
-  ch-tree-x .ch-tree-x-container {
-    position: relative;
-    width: 100%;
-  }
-}
-
-/*padding (added by Gemini)*/
-gxg-tree-view[no-padding] {
-  ch-tree-x .ch-tree-x-container {
-    padding: 0;
-  }
-}
-
-:not(.ch-tree-x-dragging-item)
-  ch-tree-x-list-item:not([selected])::part(header):hover {
-  //to do
-  // background-color: rgb(232, 232, 233);
-}
-
-.ch-tree-x-list-item--drag-enter {
-  //to do
-  // background-color: #eee;
-  // box-shadow: inset 0 0 1px 0px black;
-
-  // &[selected]::part(header) {
-  //   background-color: #eee;
-  // }
-}
-
 /*---------------------------
-ch-tree-x-list-item
+.tree-view-item
 ---------------------------*/
-
-.tree-view-item::part(dashed-line) {
-  border-color: var(--gray-02);
-}
-
-ch-tree-x-list-item {
+.tree-view-item {
+  /*-- Css Variables ---*/
   --checkbox-size: var(--gxg-checkbox-size);
-
-  //dynamic icons (second state)
-  &.tree-view-item--folder::part(action)::before,
-  &.tree-view-item--module::part(action)::before {
-    grid-area: left-img;
-    content: "";
-    width: 14px;
-    height: 14px;
-    margin-inline-end: 4px;
-    background-repeat: no-repeat;
-  }
-
-  &.tree-view-item--folder::part(action)::before {
-    background-image: url("/build/icon-assets/objects/folder.svg");
-  }
-  &.tree-view-item--folder::part(action expanded)::before {
-    background-image: url("/build/icon-assets/objects/folder-open.svg");
-  }
-  &.tree-view-item--module::part(action)::before {
-    background-image: url("/build/icon-assets/objects/module.svg");
-  }
-  &.tree-view-item--module::part(action expanded)::before {
-    background-image: url("/build/icon-assets/objects/module-open.svg");
-  }
-
-  //pending commit
-  .tree-view-item--pending-commit::part(action)::before {
-    content: "";
-    position: relative;
-    z-index: 1;
-    grid-area: left-img;
-    width: 5px;
-    height: 5px;
-    align-self: end;
-    margin-block-end: 3px;
-    margin-inline-start: 1px;
-    background-color: rgb(44, 59, 146);
-    border-radius: 50%;
-  }
-
-  //css variables overrides
   --expandable-button-width: var(--spacing-comp-04);
 
-  //header (no)
-  &::part(header):first-child {
-    margin-inline-start: var(--spacing-comp-01);
+  /*-- Parts ---*/
+  &::part(dashed-line) {
+    border-color: var(--gray-02);
   }
+
+  //header
   &::part(header) {
     padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
     height: var(--spacing-comp-05);
+    display: flex;
+    gap: 5px;
+
+    &:first-child {
+      margin-inline-start: var(--spacing-comp-01);
+    }
     &:before {
       content: "";
       display: block;
     }
-
     &:hover {
       background-color: var(--gxg-background-color--hover);
       color: var(--gxg-color--hover);
     }
-
     &:focus {
       @include form-element-common-styles-focus-type-1();
     }
-
-    display: flex;
-    gap: 5px;
   }
   &[selected]::part(header) {
     background-color: var(--gxg-background-color--selected);
@@ -133,23 +59,10 @@ ch-tree-x-list-item {
       background-color: var(--gxg-background-color--selected-hover);
     }
   }
-  &.ch-tree-x-list-item--editing::part(header) {
-    border: 2px solid transparent;
-    //to do
-    // background-color: rgb(207, 222, 230, 0.5);
-    // border-color: transparent;
-  }
-  &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
-    //to do
-    // border-color: black;
-    // z-index: 1; // Place the outline above the content
-  }
 
   //expandable-button
   &::part(expandable-button) {
-    background-color: var(--gxg-background-color--hover);
-    // margin-inline-start: var(--spacing-comp-01);
-    // margin-inline-end: var(--spacing-comp-01);
+    background-color: var(--gray-00);
     margin-inline-end: 0;
     &::before {
       background-color: var(--gray-04);
@@ -164,6 +77,32 @@ ch-tree-x-list-item {
     }
   }
 
+  //action
+  &::part(action) {
+    text-transform: capitalize;
+    display: flex;
+    gap: var(--spacing-comp-01);
+    //margin-inline-start: var(--spacing-comp-01);
+  }
+
+  //action / left-img
+  &::part(left-img) {
+    width: var(--spacing-comp-04);
+    height: var(--spacing-comp-04);
+    margin-inline-end: 0;
+  }
+
+  //downloading
+  &::part(downloading) {
+    width: var(--spacing-comp-03);
+    height: var(--spacing-comp-03);
+    //border: var(--border-radius-sm) solid var(--color-primary-enabled);
+    //border-color: var(--color-primary-enabled);
+    border: var(--border-width-md) solid var(--color-primary-enabled);
+    border-inline-start-color: transparent;
+  }
+
+  /*-- Parts for checkbox ---*/
   //container
   &::part(checkbox__container) {
     @include checkbox("container");
@@ -192,32 +131,74 @@ ch-tree-x-list-item {
     @include checkbox("input");
   }
 
-  //action
-  &::part(action) {
-    text-transform: capitalize;
-    display: flex;
-    gap: var(--spacing-comp-01);
-    //margin-inline-start: var(--spacing-comp-01);
+  /*-- Dynamic Icons ---*/
+  &--folder::part(action)::before,
+  &--module::part(action)::before {
+    grid-area: left-img;
+    content: "";
+    width: 14px;
+    height: 14px;
+    margin-inline-end: 4px;
+    background-repeat: no-repeat;
   }
-  //action / left-img
-  &::part(left-img) {
-    width: var(--spacing-comp-04);
-    height: var(--spacing-comp-04);
-    margin-inline-end: 0;
+  //folder
+  &--folder::part(action)::before {
+    background-image: url("/build/icon-assets/objects/folder.svg");
+  }
+  &--folder::part(action expanded)::before {
+    background-image: url("/build/icon-assets/objects/folder-open.svg");
+  }
+  //module
+  &--module::part(action)::before {
+    background-image: url("/build/icon-assets/objects/module.svg");
+  }
+  &--module::part(action expanded)::before {
+    background-image: url("/build/icon-assets/objects/module-open.svg");
   }
 
-  //downloading
-  &::part(downloading) {
-    width: var(--spacing-comp-03);
-    height: var(--spacing-comp-03);
-    //border: var(--border-radius-sm) solid var(--color-primary-enabled);
-    //border-color: var(--color-primary-enabled);
-    border: var(--border-width-md) solid var(--color-primary-enabled);
-    border-inline-start-color: transparent;
+  /*-- Other ---*/
+  //pending commit
+  &--pending-commit::part(action)::before {
+    content: "";
+    position: relative;
+    z-index: 1;
+    grid-area: left-img;
+    width: 5px;
+    height: 5px;
+    align-self: end;
+    margin-block-end: 3px;
+    margin-inline-start: 1px;
+    background-color: var(--color-primary-enabled);
+    border-radius: 50%;
   }
 }
 
-.ch-tree-x-drag-info {
+/*-- Other Selectors (these depend on the tag class name)---*/
+.ch-tree-x-list-item {
+  &--editing::part(header) {
+    border: 2px solid transparent;
+    //to do
+    // background-color: rgb(207, 222, 230, 0.5);
+    // border-color: transparent;
+  }
+  &--drag-enter {
+    //to do
+    // background-color: #eee;
+    // box-shadow: inset 0 0 1px 0px black;
+
+    // &[selected]::part(header) {
+    //   background-color: #eee;
+    // }
+  }
+  &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
+    //to do
+    // border-color: black;
+    // z-index: 1; // Place the outline above the content
+  }
+}
+
+/*--- Revisar ---*/
+.ch-tree-x-list-item .ch-tree-x-drag-info {
   //to do
   padding-inline: 6px;
   padding-block: 2px;
@@ -225,4 +206,9 @@ ch-tree-x-list-item {
   border: 1px solid rgb(2, 102, 160);
   border-radius: 10px;
   font-size: 8px;
+}
+:not(.ch-tree-x-dragging-item)
+  ch-tree-x-list-item:not([selected])::part(header):hover {
+  //to do
+  // background-color: rgb(232, 232, 233);
 }

@@ -2155,10 +2155,6 @@ export namespace Components {
      */
     noPadding: boolean;
     /**
-     * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)
-     */
-    positionRelative: boolean;
-    /**
      * Given an item id, it displays and scrolls into the item view.
      */
     scrollIntoVisible: (treeItemId: string) => Promise<void>;
@@ -5112,10 +5108,6 @@ declare namespace LocalJSX {
     onSelectedItemsChange?: (
       event: CustomEvent<Map<string, TreeXListItemSelectedInfo>>
     ) => void;
-    /**
-     * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)
-     */
-    positionRelative?: boolean;
     /**
      * `true` to display the relation between tree items and tree lists using lines.
      */

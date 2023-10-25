@@ -77,11 +77,6 @@ export class GxgTreeView {
   @Prop({ reflect: true }) noPadding = false;
 
   /**
-   * A temporary fix to force the ch-tree-x tree-x-container to be visible without position:absolute (Added by Gemini)
-   */
-  @Prop({ reflect: true }) positionRelative = false;
-
-  /**
    * Set this attribute if you want display a checkbox in all items by default.
    */
   @Prop() readonly checkbox: boolean = false;
