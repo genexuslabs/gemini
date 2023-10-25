@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Watch,
+  State,
 } from "@stencil/core";
 import {
   requiredLabel,
@@ -161,6 +162,11 @@ export class GxgFormTextarea implements FormComponent {
   @Prop() resize = false;
 
   /*********************************
+  STATE
+  *********************************/
+  @State() shrink = false;
+
+  /*********************************
   METHODS
   *********************************/
 
@@ -176,6 +182,9 @@ export class GxgFormTextarea implements FormComponent {
 
   componentWillLoad() {
     this.attachExportParts();
+    if (this.singleLine) {
+      this.blurHandler();
+    }
   }
 
   private attachExportParts = (): void => {
@@ -200,6 +209,18 @@ export class GxgFormTextarea implements FormComponent {
     this.change.emit(this.value);
   }
 
+  private focusHandler = () => {
+    if (this.singleLine) {
+      this.shrink = false;
+    }
+  };
+
+  private blurHandler = () => {
+    if (this.singleLine) {
+      this.shrink = true;
+    }
+  };
+
   render(): void {
     return (
       <Host
@@ -209,6 +230,7 @@ export class GxgFormTextarea implements FormComponent {
         class={{
           textarea: true,
           large: state.large,
+          shrink: this.singleLine && this.shrink,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -249,6 +271,8 @@ export class GxgFormTextarea implements FormComponent {
             required={this.required}
             style={{ height: this.height }}
             part={this.parts.textarea}
+            onFocus={this.focusHandler}
+            onBlur={this.blurHandler}
           ></textarea>
           {this.toolTip ? formTooltipLogic(this, true) : null}
         </div>

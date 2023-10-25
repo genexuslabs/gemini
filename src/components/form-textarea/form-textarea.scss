@@ -30,6 +30,8 @@ LABEL
     }
   }
   textarea {
+    transition: height 200ms;
+    width: 100%;
     @include gxg-text();
   }
 }
@@ -41,6 +43,7 @@ TEXTAREA
   .textarea-wrapper {
     display: flex;
     gap: var(--spacing-comp-01);
+    flex: 1;
   }
   textarea {
     @include gxg-scrollbar();
@@ -72,9 +75,11 @@ TEXTAREA
   }
 }
 /*single line*/
-:host([single-line]) {
+:host(.shrink[single-line]) {
   .textarea {
-    height: 24px;
+    box-sizing: border-box;
+    height: 24px !important;
+    overflow: hidden;
   }
 }
 /*********************************************
