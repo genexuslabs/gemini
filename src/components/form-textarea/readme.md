@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Usage
 
 ### Usage
@@ -33,8 +32,6 @@ btnShowErrors.addEventListener("click", function(){
 </script>
 ```
 
-
-
 ## Properties
 
 | Property                | Attribute                 | Description                                                                                                                                                    | Type                                                   | Default           |
@@ -53,12 +50,12 @@ btnShowErrors.addEventListener("click", function(){
 | `required`              | `required`                | Make the radio-buttons required                                                                                                                                | `boolean`                                              | `false`           |
 | `resize`                | `resize`                  | Allow or not text area resize                                                                                                                                  | `boolean`                                              | `false`           |
 | `rows`                  | `rows`                    | The number of rows                                                                                                                                             | `number`                                               | `4`               |
+| `singleLine`            | `single-line`             | The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.    | `boolean`                                              | `false`           |
 | `toolTip`               | `tool-tip`                | The presence of this attribute displays a tooltip message, instead of a block message below the control                                                        | `boolean`                                              | `false`           |
 | `validationMessage`     | `validation-message`      | The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up | `string`                                               | `undefined`       |
 | `validationStatus`      | `validation-status`       | The validation status                                                                                                                                          | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`                 | `value`                   | The textarea value                                                                                                                                             | `string`                                               | `undefined`       |
 | `warning`               | `warning`                 | The presence of this attribute gives the component warning styles                                                                                              | `boolean`                                              | `false`           |
-
 
 ## Events
 
@@ -66,7 +63,6 @@ btnShowErrors.addEventListener("click", function(){
 | -------- | -------------------------- | ------------------ |
 | `change` | Returns the textarea value | `CustomEvent<any>` |
 | `input`  | Returns the textarea value | `CustomEvent<any>` |
-
 
 ## Dependencies
 
@@ -78,6 +74,7 @@ btnShowErrors.addEventListener("click", function(){
 - [gxg-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-form-textarea --> gxg-label
@@ -90,6 +87,6 @@ graph TD;
   style gxg-form-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

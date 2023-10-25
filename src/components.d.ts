@@ -1094,6 +1094,10 @@ export namespace Components {
      */
     rows: number;
     /**
+     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.
+     */
+    singleLine: boolean;
+    /**
      * The presence of this attribute displays a tooltip message, instead of a block message below the control
      */
     toolTip: boolean;
@@ -3988,6 +3992,10 @@ declare namespace LocalJSX {
      * The number of rows
      */
     rows?: number;
+    /**
+     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.
+     */
+    singleLine?: boolean;
     /**
      * The presence of this attribute displays a tooltip message, instead of a block message below the control
      */

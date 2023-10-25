@@ -43,6 +43,7 @@ TEXTAREA
     gap: var(--spacing-comp-01);
   }
   textarea {
+    @include gxg-scrollbar();
     resize: none;
     @include form-element-common-styles();
 
@@ -70,7 +71,12 @@ TEXTAREA
     }
   }
 }
-
+/*single line*/
+:host([single-line]) {
+  .textarea {
+    height: 24px;
+  }
+}
 /*********************************************
 VALIDATION
 **********************************************/

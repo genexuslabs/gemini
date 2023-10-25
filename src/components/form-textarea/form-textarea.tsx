@@ -40,6 +40,11 @@ export class GxgFormTextarea implements FormComponent {
   *********************************/
 
   /**
+   * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.
+   */
+  @Prop({ reflect: true }) singleLine = false;
+
+  /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
    */
   @Prop() toolTip = false;
