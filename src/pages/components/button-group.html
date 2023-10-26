@@ -103,16 +103,20 @@
 
     <br />
 
-    <p>gxg-buttons</p>
-    <gxg-button type="primary-text-only">A Primary Type Button</gxg-button>
-    <gxg-button type="outlined">A Secondary Type Button</gxg-button>
+    <p>secondary disabled</p>
+    <gxg-button-group outlined gxg-buttons>
+      <gxg-button
+        type="secondary-icon-only"
+        icon="patterns/filters"
+      ></gxg-button>
+      <gxg-button
+        type="secondary-icon-only"
+        icon="gemini-tools/reset"
+      ></gxg-button>
+      <gxg-button type="secondary-text-only">Recent Comments</gxg-button>
+    </gxg-button-group>
 
     <br />
-
-    <p>gxg-buttons disabled</p>
-    <gxg-button type="primary-text-only" disabled
-      >A Primary Type Button</gxg-button
-    >
 
     <gxg-button type="outlined" disabled>A Secondary Type Button</gxg-button>
   </body>

@@ -27,6 +27,7 @@ no-weekends>
 | Property     | Attribute     | Description                                                         | Type             | Default     |
 | ------------ | ------------- | ------------------------------------------------------------------- | ---------------- | ----------- |
 | `alwaysShow` | `always-show` | The presence of this attribute makes the date-picker always visible | `boolean`        | `false`     |
+| `disabled`   | `disabled`    | It disabled the date-picker                                         | `boolean`        | `false`     |
 | `label`      | `label`       | The datepicker label                                                | `string`         | `undefined` |
 | `maxDate`    | `max-date`    | The max. date                                                       | `Date \| string` | `undefined` |
 | `maxWidth`   | `max-width`   | The max. width                                                      | `string`         | `"100%"`    |

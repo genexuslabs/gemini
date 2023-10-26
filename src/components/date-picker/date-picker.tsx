@@ -12,6 +12,7 @@ import {
 import datepicker from "js-datepicker";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
+import { commonClassesNames } from "../../common/classesNames";
 
 @Component({
   tag: "gxg-date-picker",
@@ -23,8 +24,23 @@ export class GxgDatePicker {
     input: "input",
   };
   private exportparts: string;
+  private valueBeforeDisabled;
 
   @Element() el: HTMLElement;
+
+  /**
+   * It disabled the date-picker
+   */
+  @Prop() disabled = false;
+  @Watch("disabled")
+  disabledHandler(newValue): void {
+    if (newValue === true) {
+      this.valueBeforeDisabled = this.value;
+      this.value = null;
+    } else {
+      this.value = this.valueBeforeDisabled;
+    }
+  }
 
   /**
    * The presence of this attribute makes the date-picker always visible
@@ -219,6 +235,7 @@ export class GxgDatePicker {
         class={{
           rtl: this.rtl,
           large: state.large,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
         style={{
           maxWidth: this.maxWidth,
@@ -231,6 +248,7 @@ export class GxgDatePicker {
           id="date-picker"
           part={this.parts.input}
           readOnly
+          class="form-element"
         ></input>
       </Host>
     );

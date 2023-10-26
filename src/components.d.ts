@@ -610,6 +610,10 @@ export namespace Components {
      */
     alwaysShow: boolean;
     /**
+     * It disabled the date-picker
+     */
+    disabled: boolean;
+    /**
      * The datepicker label
      */
     label: string;
@@ -3443,6 +3447,10 @@ declare namespace LocalJSX {
      * The presence of this attribute makes the date-picker always visible
      */
     alwaysShow?: boolean;
+    /**
+     * It disabled the date-picker
+     */
+    disabled?: boolean;
     /**
      * The datepicker label
      */
