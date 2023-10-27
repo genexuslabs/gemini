@@ -103,19 +103,22 @@ import {
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
 import {
-  TreeXDataTransferInfo,
-  TreeXDropCheckInfo,
-  TreeXItemContextMenu,
-  TreeXItemModel,
-  TreeXLines,
-  TreeXListItemExpandedInfo,
-  TreeXListItemOpenReferenceInfo,
-  TreeXListItemSelectedInfo,
-} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-x/types";
+  TreeViewDataTransferInfo,
+  TreeViewDropCheckInfo,
+  TreeViewItemContextMenu,
+  TreeViewItemExpandedInfo,
+  TreeViewItemModel,
+  TreeViewItemOpenReferenceInfo,
+  TreeViewItemSelectedInfo,
+  TreeViewLines,
+} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
 import {
-  TreeXItemModelExtended,
-  TreeXOperationStatusModifyCaption,
-} from "./components/tree-view/types";
+  TreeViewFilterOptions,
+  TreeViewFilterType,
+  TreeViewItemModelExtended,
+  TreeViewOperationStatusModifyCaption,
+} from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
   interface GxgAccordion {
@@ -2100,7 +2103,7 @@ export namespace Components {
      * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
      */
     checkDroppableZoneCallback: (
-      dropInformation: TreeXDropCheckInfo
+      dropInformation: TreeViewDropCheckInfo
     ) => Promise<boolean>;
     /**
      * Set this attribute if you want display a checkbox in all items by default.
@@ -2111,7 +2114,7 @@ export namespace Components {
      */
     checked: boolean;
     /**
-     * A CSS class to set as the `ch-tree-x` element class.
+     * A CSS class to set as the `ch-tree-view` element class.
      */
     cssClass: string;
     /**
@@ -2126,24 +2129,40 @@ export namespace Components {
      * Callback that is executed when a list of items request to be dropped into another item.
      */
     dropItemsCallback: (
-      dataTransferInfo: TreeXDataTransferInfo
-    ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+      dataTransferInfo: TreeViewDataTransferInfo
+    ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
     /**
      * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
      */
     editableItems: boolean;
     /**
+     * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+     */
+    filter: string;
+    /**
+     * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
+     */
+    filterList: string[];
+    /**
+     * This property lets you determine the options that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+     */
+    filterOptions: TreeViewFilterOptions;
+    /**
+     * This attribute lets you define what kind of filter is applied to items. Only items that satisfy the filter predicate will be displayed.  | Value       | Details                                                                                        | | ----------- | ---------------------------------------------------------------------------------------------- | | `checked`   | Show only the items that have a checkbox and are checked.                                      | | `unchecked` | Show only the items that have a checkbox and are not checked.                                  | | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  | | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. | | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  | | `none`      | Show all items.                                                                                |
+     */
+    filterType: TreeViewFilterType;
+    /**
      * Callback that is executed when a item request to load its subitems.
      */
     lazyLoadTreeItemsCallback: (
       treeItemId: string
-    ) => Promise<TreeXItemModel[]>;
+    ) => Promise<TreeViewItemModel[]>;
     /**
      * Given an item id, an array of items to add, the download status and the lazy state, updates the item's UI Model.
      */
     loadLazyContent: (
       itemId: string,
-      items?: TreeXItemModel[],
+      items?: TreeViewItemModel[],
       downloading?: boolean,
       lazy?: boolean
     ) => Promise<void>;
@@ -2153,15 +2172,20 @@ export namespace Components {
     modifyItemCaptionCallback: (
       treeItemId: string,
       newCaption: string
-    ) => Promise<TreeXOperationStatusModifyCaption>;
+    ) => Promise<TreeViewOperationStatusModifyCaption>;
     /**
      * Set this attribute if you want to allow multi selection of the items.
      */
     multiSelection: boolean;
     /**
-     * Removes the default padding on '.ch-tree-x-container' (Added by Gemini)
+     * This property allows us to implement custom rendering of tree items.
      */
-    noPadding: boolean;
+    renderItem: (
+      itemModel: TreeViewItemModel,
+      treeState: ChTreeViewRender,
+      lastItem: boolean,
+      level: number
+    ) => any;
     /**
      * Given an item id, it displays and scrolls into the item view.
      */
@@ -2169,11 +2193,11 @@ export namespace Components {
     /**
      * `true` to display the relation between tree items and tree lists using lines.
      */
-    showLines: TreeXLines;
+    showLines: TreeViewLines;
     /**
      * Callback that is executed when the treeModel is changed to order its items.
      */
-    sortItemsCallback: (subModel: TreeXItemModel[]) => void;
+    sortItemsCallback: (subModel: TreeViewItemModel[]) => void;
     /**
      * Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default.
      */
@@ -2187,11 +2211,11 @@ export namespace Components {
     toggleItems: (
       treeItemIds: string[],
       expand?: boolean
-    ) => Promise<TreeXListItemExpandedInfo[]>;
+    ) => Promise<TreeViewItemExpandedInfo[]>;
     /**
      * This property lets you define the model of the ch-tree-x control.
      */
-    treeModel: TreeXItemModel[];
+    treeModel: TreeViewItemModel[];
     /**
      * Given a subset of item's properties, it updates all item UI models.
      */
@@ -2204,7 +2228,7 @@ export namespace Components {
      */
     updateItemsProperties: (
       items: string[],
-      properties: TreeXItemModel
+      properties: TreeViewItemModel
     ) => Promise<void>;
     /**
      * Update the information about the valid droppable zones.
@@ -5049,7 +5073,7 @@ declare namespace LocalJSX {
      * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
      */
     checkDroppableZoneCallback?: (
-      dropInformation: TreeXDropCheckInfo
+      dropInformation: TreeViewDropCheckInfo
     ) => Promise<boolean>;
     /**
      * Set this attribute if you want display a checkbox in all items by default.
@@ -5060,7 +5084,7 @@ declare namespace LocalJSX {
      */
     checked?: boolean;
     /**
-     * A CSS class to set as the `ch-tree-x` element class.
+     * A CSS class to set as the `ch-tree-view` element class.
      */
     cssClass?: string;
     /**
@@ -5075,63 +5099,84 @@ declare namespace LocalJSX {
      * Callback that is executed when a list of items request to be dropped into another item.
      */
     dropItemsCallback?: (
-      dataTransferInfo: TreeXDataTransferInfo
-    ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+      dataTransferInfo: TreeViewDataTransferInfo
+    ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
     /**
      * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
      */
     editableItems?: boolean;
     /**
+     * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+     */
+    filter?: string;
+    /**
+     * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
+     */
+    filterList?: string[];
+    /**
+     * This property lets you determine the options that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+     */
+    filterOptions?: TreeViewFilterOptions;
+    /**
+     * This attribute lets you define what kind of filter is applied to items. Only items that satisfy the filter predicate will be displayed.  | Value       | Details                                                                                        | | ----------- | ---------------------------------------------------------------------------------------------- | | `checked`   | Show only the items that have a checkbox and are checked.                                      | | `unchecked` | Show only the items that have a checkbox and are not checked.                                  | | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  | | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. | | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  | | `none`      | Show all items.                                                                                |
+     */
+    filterType?: TreeViewFilterType;
+    /**
      * Callback that is executed when a item request to load its subitems.
      */
     lazyLoadTreeItemsCallback?: (
       treeItemId: string
-    ) => Promise<TreeXItemModel[]>;
+    ) => Promise<TreeViewItemModel[]>;
     /**
      * Callback that is executed when a item request to modify its caption.
      */
     modifyItemCaptionCallback?: (
       treeItemId: string,
       newCaption: string
-    ) => Promise<TreeXOperationStatusModifyCaption>;
+    ) => Promise<TreeViewOperationStatusModifyCaption>;
     /**
      * Set this attribute if you want to allow multi selection of the items.
      */
     multiSelection?: boolean;
     /**
-     * Removes the default padding on '.ch-tree-x-container' (Added by Gemini)
-     */
-    noPadding?: boolean;
-    /**
-     * Fired when the checked items change.
+     * Fired when the checked items change. This event does not take into account the currently filtered items.
      */
     onCheckedItemsChange?: (
-      event: CustomEvent<Map<string, TreeXItemModelExtended>>
+      event: CustomEvent<Map<string, TreeViewItemModelExtended>>
     ) => void;
     /**
      * Fired when an element displays its contextmenu.
      */
-    onItemContextmenu?: (event: CustomEvent<TreeXItemContextMenu>) => void;
+    onItemContextmenu?: (event: CustomEvent<TreeViewItemContextMenu>) => void;
     /**
      * Fired when the user interacts with an item in a way that its reference must be opened.
      */
     onItemOpenReference?: (
-      event: CustomEvent<TreeXListItemOpenReferenceInfo>
+      event: CustomEvent<TreeViewItemOpenReferenceInfo>
     ) => void;
     /**
      * Fired when the selected items change.
      */
     onSelectedItemsChange?: (
-      event: CustomEvent<Map<string, TreeXListItemSelectedInfo>>
+      event: CustomEvent<Map<string, TreeViewItemSelectedInfo>>
     ) => void;
+    /**
+     * This property allows us to implement custom rendering of tree items.
+     */
+    renderItem?: (
+      itemModel: TreeViewItemModel,
+      treeState: ChTreeViewRender,
+      lastItem: boolean,
+      level: number
+    ) => any;
     /**
      * `true` to display the relation between tree items and tree lists using lines.
      */
-    showLines?: TreeXLines;
+    showLines?: TreeViewLines;
     /**
      * Callback that is executed when the treeModel is changed to order its items.
      */
-    sortItemsCallback?: (subModel: TreeXItemModel[]) => void;
+    sortItemsCallback?: (subModel: TreeViewItemModel[]) => void;
     /**
      * Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default.
      */
@@ -5139,7 +5184,7 @@ declare namespace LocalJSX {
     /**
      * This property lets you define the model of the ch-tree-x control.
      */
-    treeModel?: TreeXItemModel[];
+    treeModel?: TreeViewItemModel[];
   }
   interface GxgWindow {
     /**
