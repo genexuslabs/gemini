@@ -1,80 +1,98 @@
 import {
   Component,
+  Event,
+  EventEmitter,
   h,
   Prop,
   Listen,
-  Host,
-  Watch,
-  State,
-  forceUpdate,
   Method,
-  Event,
-  EventEmitter,
   getAssetPath,
 } from "@stencil/core";
 import {
-  TreeXListItemOpenReferenceInfo,
-  TreeXDataTransferInfo,
-  TreeXDropCheckInfo,
-  TreeXItemModel,
-  TreeXLines,
-  TreeXListItemExpandedInfo,
-  TreeXListItemNewCaption,
-  TreeXListItemSelectedInfo,
-  TreeXItemContextMenu,
-  TreeXListItemCheckedInfo,
-} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-x/types";
+  TreeViewDataTransferInfo,
+  TreeViewDropCheckInfo,
+  TreeViewItemContextMenu,
+  TreeViewItemModel,
+  TreeViewLines,
+  TreeViewItemExpandedInfo,
+  TreeViewItemOpenReferenceInfo,
+  TreeViewItemSelectedInfo,
+} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
 import {
-  TreeXItemModelExtended,
-  TreeXOperationStatusModifyCaption,
-} from "./types";
-import {
-  ChTreeXCustomEvent,
-  ChTreeXListItemCustomEvent,
-} from "@genexus/chameleon-controls-library";
+  TreeViewFilterOptions,
+  TreeViewFilterType,
+  TreeViewItemModelExtended,
+  TreeViewOperationStatusModifyCaption,
+} from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+import { ChTreeViewRenderCustomEvent } from "@genexus/chameleon-controls-library";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
+import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { resolveImgPath } from "./helpers";
 
 const DEFAULT_DRAG_DISABLED_VALUE = false;
 const DEFAULT_DROP_DISABLED_VALUE = false;
-const DEFAULT_CLASS_VALUE = "tree-view-item";
 const DEFAULT_EDITABLE_ITEMS_VALUE = true;
-const DEFAULT_EXPANDED_VALUE = false;
-const DEFAULT_INDETERMINATE_VALUE = false;
-const DEFAULT_LAZY_VALUE = false;
-const DEFAULT_ORDER_VALUE = 0;
-const DEFAULT_SELECTED_VALUE = false;
+const iconAssetsPath = getAssetPath(`./icon-assets`);
+
+const defaultRenderItem = (
+  itemModel: TreeViewItemModel,
+  treeState: ChTreeViewRender,
+  lastItem: boolean,
+  level: number
+) =>
+  (treeState.filterType === "none" || itemModel.render !== false) && (
+    <ch-tree-view-item
+      id={itemModel.id}
+      caption={itemModel.caption}
+      checkbox={itemModel.checkbox ?? treeState.checkbox}
+      checked={itemModel.checked ?? treeState.checked}
+      class={itemModel.class}
+      disabled={itemModel.disabled}
+      downloading={itemModel.downloading}
+      dragDisabled={itemModel.dragDisabled ?? treeState.dragDisabled}
+      dropDisabled={itemModel.dropDisabled ?? treeState.dropDisabled}
+      editable={itemModel.editable ?? treeState.editableItems}
+      expanded={itemModel.expanded}
+      indeterminate={itemModel.indeterminate}
+      lastItem={lastItem}
+      lazyLoad={itemModel.lazy}
+      leaf={itemModel.leaf}
+      leftImgSrc={
+        itemModel.leftImgSrc
+          ? resolveImgPath(iconAssetsPath, itemModel.leftImgSrc)
+          : null
+      }
+      level={level}
+      metadata={itemModel.metadata}
+      rightImgSrc={itemModel.rightImgSrc}
+      selected={itemModel.selected}
+      showExpandableButton={itemModel.showExpandableButton}
+      showLines={treeState.showLines}
+      toggleCheckboxes={
+        itemModel.toggleCheckboxes ?? treeState.toggleCheckboxes
+      }
+    >
+      {!itemModel.leaf &&
+        itemModel.items != null &&
+        itemModel.items.map((subModel, index) =>
+          defaultRenderItem(
+            subModel,
+            treeState,
+            treeState.showLines && index === itemModel.items.length - 1,
+            level + 1
+          )
+        )}
+    </ch-tree-view-item>
+  );
 
 @Component({
   tag: "gxg-tree-view",
   styleUrl: "tree-view.scss",
   shadow: false,
-  assetsDirs: ["assets"],
 })
-export class GxgTreeView {
-  // UI Models
-  private flattenedTreeModel: Map<string, TreeXItemModelExtended> = new Map();
-  private flattenedCheckboxTreeModel: Map<
-    string,
-    TreeXItemModelExtended
-  > = new Map();
-  private selectedItems: Set<string> = new Set();
-
+export class ChTreeViewRenderWrapper {
   // Refs
-  private treeRef: HTMLChTreeXElement;
-
-  private iconAssetsPath = getAssetPath(`./icon-assets`);
-
-  /**
-   * This property lets you specify if the tree is waiting to process the drop
-   * of items.
-   */
-  @State() waitDropProcessing = false;
-
-  /**
-   * Removes the default padding on '.ch-tree-x-container' (Added by Gemini)
-   */
-  @Prop({ reflect: true }) noPadding = false;
+  private treeRef: HTMLChTreeViewRenderElement;
 
   /**
    * Set this attribute if you want display a checkbox in all items by default.
@@ -93,11 +111,11 @@ export class GxgTreeView {
    * the tree. Returns whether the drop is valid.
    */
   @Prop() readonly checkDroppableZoneCallback: (
-    dropInformation: TreeXDropCheckInfo
+    dropInformation: TreeViewDropCheckInfo
   ) => Promise<boolean>;
 
   /**
-   * A CSS class to set as the `ch-tree-x` element class.
+   * A CSS class to set as the `ch-tree-view` element class.
    */
   @Prop() readonly cssClass: string = "tree-view";
 
@@ -118,8 +136,8 @@ export class GxgTreeView {
    * another item.
    */
   @Prop() readonly dropItemsCallback: (
-    dataTransferInfo: TreeXDataTransferInfo
-  ) => Promise<{ acceptDrop: boolean; items?: TreeXItemModel[] }>;
+    dataTransferInfo: TreeViewDataTransferInfo
+  ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
 
   /**
    * This attribute lets you specify if the edit operation is enabled in all
@@ -128,11 +146,46 @@ export class GxgTreeView {
   @Prop() readonly editableItems: boolean = DEFAULT_EDITABLE_ITEMS_VALUE;
 
   /**
+   * This property lets you determine the expression that will be applied to the
+   * filter.
+   * Only works if `filterType = "caption" | "metadata"`.
+   */
+  @Prop() readonly filter: string;
+
+  /**
+   * This property lets you determine the list of items that will be filtered.
+   * Only works if `filterType = "id-list"`.
+   */
+  @Prop() readonly filterList: string[] = [];
+
+  /**
+   * This property lets you determine the options that will be applied to the
+   * filter.
+   * Only works if `filterType = "caption" | "metadata"`.
+   */
+  @Prop() readonly filterOptions: TreeViewFilterOptions = {};
+
+  /**
+   * This attribute lets you define what kind of filter is applied to items.
+   * Only items that satisfy the filter predicate will be displayed.
+   *
+   * | Value       | Details                                                                                        |
+   * | ----------- | ---------------------------------------------------------------------------------------------- |
+   * | `checked`   | Show only the items that have a checkbox and are checked.                                      |
+   * | `unchecked` | Show only the items that have a checkbox and are not checked.                                  |
+   * | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  |
+   * | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. |
+   * | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  |
+   * | `none`      | Show all items.                                                                                |
+   */
+  @Prop() readonly filterType: TreeViewFilterType = "none";
+
+  /**
    * Callback that is executed when a item request to load its subitems.
    */
   @Prop() readonly lazyLoadTreeItemsCallback: (
     treeItemId: string
-  ) => Promise<TreeXItemModel[]>;
+  ) => Promise<TreeViewItemModel[]>;
 
   /**
    * Callback that is executed when a item request to modify its caption.
@@ -140,7 +193,7 @@ export class GxgTreeView {
   @Prop() readonly modifyItemCaptionCallback: (
     treeItemId: string,
     newCaption: string
-  ) => Promise<TreeXOperationStatusModifyCaption>;
+  ) => Promise<TreeViewOperationStatusModifyCaption>;
 
   /**
    * Set this attribute if you want to allow multi selection of the items.
@@ -148,15 +201,25 @@ export class GxgTreeView {
   @Prop() readonly multiSelection: boolean = false;
 
   /**
+   * This property allows us to implement custom rendering of tree items.
+   */
+  @Prop() readonly renderItem: (
+    itemModel: TreeViewItemModel,
+    treeState: ChTreeViewRender,
+    lastItem: boolean,
+    level: number
+  ) => any = defaultRenderItem;
+
+  /**
    * `true` to display the relation between tree items and tree lists using
    * lines.
    */
-  @Prop() readonly showLines: TreeXLines = "all";
+  @Prop() readonly showLines: TreeViewLines = "none";
 
   /**
    * Callback that is executed when the treeModel is changed to order its items.
    */
-  @Prop() readonly sortItemsCallback: (subModel: TreeXItemModel[]) => void;
+  @Prop() readonly sortItemsCallback: (subModel: TreeViewItemModel[]) => void;
 
   /**
    * Set this attribute if you want all the children item's checkboxes to be
@@ -169,35 +232,32 @@ export class GxgTreeView {
   /**
    * This property lets you define the model of the ch-tree-x control.
    */
-  @Prop() readonly treeModel: TreeXItemModel[] = [];
-  @Watch("treeModel")
-  handleTreeModelChange() {
-    this.flattenModel();
-  }
+  @Prop() readonly treeModel: TreeViewItemModel[] = [];
 
   /**
    * Fired when the checked items change.
+   * This event does not take into account the currently filtered items.
    */
   @Event() checkedItemsChange: EventEmitter<
-    Map<string, TreeXItemModelExtended>
+    Map<string, TreeViewItemModelExtended>
   >;
 
   /**
    * Fired when an element displays its contextmenu.
    */
-  @Event() itemContextmenu: EventEmitter<TreeXItemContextMenu>;
+  @Event() itemContextmenu: EventEmitter<TreeViewItemContextMenu>;
 
   /**
    * Fired when the user interacts with an item in a way that its reference
    * must be opened.
    */
-  @Event() itemOpenReference: EventEmitter<TreeXListItemOpenReferenceInfo>;
+  @Event() itemOpenReference: EventEmitter<TreeViewItemOpenReferenceInfo>;
 
   /**
    * Fired when the selected items change.
    */
   @Event() selectedItemsChange: EventEmitter<
-    Map<string, TreeXListItemSelectedInfo>
+    Map<string, TreeViewItemSelectedInfo>
   >;
 
   /**
@@ -207,32 +267,11 @@ export class GxgTreeView {
   @Method()
   async loadLazyContent(
     itemId: string,
-    items?: TreeXItemModel[],
+    items?: TreeViewItemModel[],
     downloading = false,
     lazy = false
   ) {
-    const itemToLazyLoadContent = this.flattenedTreeModel.get(itemId).item;
-
-    // Establish that the content was lazy loaded
-    itemToLazyLoadContent.downloading = downloading;
-    itemToLazyLoadContent.lazy = lazy;
-
-    // Check if there is items to add
-    if (items == null) {
-      return;
-    }
-
-    // @todo What happens in the server when dropping items on a lazy node?
-    itemToLazyLoadContent.items = items;
-
-    this.sortItems(itemToLazyLoadContent.items);
-    this.flattenSubModel(itemToLazyLoadContent);
-
-    // Re-sync checked items
-    this.emitCheckedItemsChange();
-
-    // Force re-render
-    forceUpdate(this);
+    this.treeRef.loadLazyContent(itemId, items, downloading, lazy);
   }
 
   /**
@@ -240,29 +279,6 @@ export class GxgTreeView {
    */
   @Method()
   async scrollIntoVisible(treeItemId: string) {
-    const itemUIModel = this.flattenedTreeModel.get(treeItemId);
-
-    if (!itemUIModel) {
-      // @todo Check if the item is on the server?
-      return;
-    }
-
-    let visitedNode = itemUIModel.parentItem as TreeXItemModel;
-
-    // While the parent is not the root, update the UI Models
-    while (visitedNode && visitedNode.id != null) {
-      // Expand the item
-      visitedNode.expanded = true;
-
-      const visitedNodeUIModel = this.flattenedTreeModel.get(visitedNode.id);
-      visitedNode = visitedNodeUIModel.parentItem as TreeXItemModel;
-    }
-
-    forceUpdate(this);
-
-    // @todo For some reason, when the model is created using the "big model" option,
-    // this implementation does not work when only the UI Model is updated. So, to
-    // expand the items, we have to delegate the responsibility to the tree-x
     this.treeRef.scrollIntoVisible(treeItemId);
   }
 
@@ -277,29 +293,8 @@ export class GxgTreeView {
   async toggleItems(
     treeItemIds: string[],
     expand?: boolean
-  ): Promise<TreeXListItemExpandedInfo[]> {
-    if (!treeItemIds) {
-      return [];
-    }
-
-    const modifiedTreeItems: TreeXListItemExpandedInfo[] = [];
-
-    treeItemIds.forEach((treeItemId) => {
-      const itemInfo = this.flattenedTreeModel.get(treeItemId).item;
-
-      if (itemInfo) {
-        itemInfo.expanded = expand ?? !itemInfo.expanded;
-
-        modifiedTreeItems.push({
-          id: itemInfo.id,
-          expanded: itemInfo.expanded,
-        });
-      }
-    });
-    // Force re-render
-    forceUpdate(this);
-
-    return modifiedTreeItems;
+  ): Promise<TreeViewItemExpandedInfo[]> {
+    return this.treeRef.toggleItems(treeItemIds, expand);
   }
 
   /**
@@ -310,18 +305,7 @@ export class GxgTreeView {
     expanded?: boolean;
     checked?: boolean;
   }) {
-    [...this.flattenedTreeModel.values()].forEach((itemUIModel) => {
-      if (properties.expanded != null) {
-        itemUIModel.item.expanded = properties.expanded;
-      }
-
-      if (properties.checked != null) {
-        itemUIModel.item.checked = properties.checked;
-        itemUIModel.item.indeterminate = false;
-      }
-    });
-
-    forceUpdate(this);
+    this.treeRef.updateAllItemsProperties(properties);
   }
 
   /**
@@ -329,13 +313,8 @@ export class GxgTreeView {
    * of the items in the list.
    */
   @Method()
-  async updateItemsProperties(items: string[], properties: TreeXItemModel) {
-    items.forEach((item) => {
-      const itemUIModel = this.flattenedTreeModel.get(item);
-      this.updateItemProperty(itemUIModel, properties);
-    });
-
-    forceUpdate(this);
+  async updateItemsProperties(items: string[], properties: TreeViewItemModel) {
+    this.treeRef.updateItemsProperties(items, properties);
   }
 
   /**
@@ -360,435 +339,47 @@ export class GxgTreeView {
     );
   }
 
-  private updateItemProperty(
-    itemUIModel: TreeXItemModelExtended | undefined,
-    properties: TreeXItemModel
-  ) {
-    if (!itemUIModel) {
-      return;
-    }
-
-    const itemInfo = itemUIModel.item;
-
-    Object.keys(properties).forEach((propertyName) => {
-      itemInfo[propertyName] = properties[propertyName];
-    });
-  }
-
-  @Listen("checkboxChange")
-  @Listen("checkboxToggleChange")
+  @Listen("checkedItemsChange")
   updateCheckboxValue(
-    event: ChTreeXListItemCustomEvent<TreeXListItemCheckedInfo>
+    event: ChTreeViewRenderCustomEvent<Map<string, TreeViewItemModelExtended>>
   ) {
     event.stopPropagation();
-
-    const detail = event.detail;
-    const treeItemId = detail.id;
-    const itemUIModel = this.flattenedCheckboxTreeModel.get(treeItemId);
-
-    // In some cases, when the `treeModel` and `checked` properties are updated
-    // outside of the tree control, some events are fired with undefined references
-    if (!itemUIModel) {
-      return;
-    }
-    const itemInfo = itemUIModel.item;
-
-    itemInfo.checked = detail.checked;
-    itemInfo.indeterminate = detail.indeterminate;
-
-    this.emitCheckedItemsChange();
+    this.checkedItemsChange.emit(event.detail);
   }
 
-  @Listen("loadLazyContent")
-  loadLazyChildrenHandler(event: ChTreeXListItemCustomEvent<string>) {
-    if (!this.lazyLoadTreeItemsCallback) {
-      return;
-    }
-    event.stopPropagation();
-
-    const treeItemId = event.detail;
-    const promise = this.lazyLoadTreeItemsCallback(treeItemId);
-    event.target.downloading = true;
-
-    promise.then((result) => {
-      this.loadLazyContent(treeItemId, result);
-    });
-  }
-
-  @Listen("modifyCaption")
-  handleCaptionModification(
-    event: ChTreeXListItemCustomEvent<TreeXListItemNewCaption>
-  ) {
-    if (!this.modifyItemCaptionCallback) {
-      return;
-    }
-    event.stopPropagation();
-
-    const itemRef = event.target;
-    const itemId = event.detail.id;
-    const itemUIModel = this.flattenedTreeModel.get(itemId);
-    const itemInfo = itemUIModel.item;
-    const newCaption = event.detail.caption;
-    const oldCaption = itemInfo.caption;
-
-    // Optimistic UI: Update the caption in the UI Model before the change is
-    // completed in the server
-    itemInfo.caption = newCaption;
-
-    // Due to performance reasons, we don't make a shallow copy of the
-    // treeModel to force a re-render
-    itemRef.caption = newCaption;
-
-    const promise = this.modifyItemCaptionCallback(itemId, newCaption);
-
-    promise.then((status) => {
-      if (status.success) {
-        this.sortItems(itemUIModel.parentItem.items);
-
-        // Force re-render
-        forceUpdate(this);
-      } else {
-        itemRef.caption = oldCaption;
-        itemInfo.caption = oldCaption;
-
-        // Do something with the error message
-      }
-    });
-  }
-
-  @Listen("openReference", { capture: true })
+  @Listen("itemOpenReference")
   handleOpenReference(
-    event: ChTreeXListItemCustomEvent<TreeXListItemOpenReferenceInfo>
+    event: ChTreeViewRenderCustomEvent<TreeViewItemOpenReferenceInfo>
   ) {
     event.stopPropagation();
     this.itemOpenReference.emit(event.detail);
   }
 
-  private handleDroppableZoneEnter = (
-    event: ChTreeXCustomEvent<TreeXDropCheckInfo>
-  ) => {
-    if (!this.checkDroppableZoneCallback) {
-      return;
-    }
-    event.stopPropagation();
-
-    // Suppose the request is made immediately by executing the callback
-    const requestTimestamp = new Date().getTime();
-
-    const dropInformation = event.detail;
-    const promise = this.checkDroppableZoneCallback(dropInformation);
-
-    promise.then((validDrop) => {
-      this.updateValidDropZone(
-        requestTimestamp,
-        dropInformation.newContainer.id,
-        dropInformation.draggedItems,
-        validDrop
-      );
-    });
-  };
-
-  private emitCheckedItemsChange() {
-    // New copy of the checked items
-    const allItemsWithCheckbox: Map<string, TreeXItemModelExtended> = new Map(
-      this.flattenedCheckboxTreeModel
-    );
-
-    // Update the checked value if not defined
-    allItemsWithCheckbox.forEach((itemUIModel) => {
-      if (itemUIModel.item.checked == null) {
-        itemUIModel.item.checked = this.checked;
-      }
-    });
-
-    this.checkedItemsChange.emit(allItemsWithCheckbox);
-  }
-
-  private handleSelectedItemsChange = (
-    event: ChTreeXCustomEvent<Map<string, TreeXListItemSelectedInfo>>
-  ) => {
-    event.stopPropagation();
-    const itemsToProcess = new Map(event.detail);
-
-    // Remove no longer selected items
-    this.selectedItems.forEach((selectedItemId) => {
-      const itemUIModel = this.flattenedTreeModel.get(selectedItemId).item;
-      const itemIsStillSelected = itemsToProcess.get(selectedItemId);
-
-      // The item does not need to be added. Remove it from the processed list
-      if (itemIsStillSelected) {
-        itemUIModel.expanded = itemIsStillSelected.expanded; // Update expanded state
-        itemsToProcess.delete(selectedItemId);
-      }
-      // The item must be un-selected in the UI Model
-      else {
-        itemUIModel.selected = false;
-        this.selectedItems.delete(selectedItemId);
-      }
-    });
-
-    // Add new selected items
-    itemsToProcess.forEach((newSelectedItemInfo, itemId) => {
-      const newSelectedItem = this.flattenedTreeModel.get(itemId).item;
-      newSelectedItem.selected = true;
-      newSelectedItem.expanded = newSelectedItemInfo.expanded;
-
-      this.selectedItems.add(itemId);
-    });
-
-    this.selectedItemsChange.emit(event.detail);
-  };
-
-  private handleExpandedItemChange = (
-    event: ChTreeXCustomEvent<TreeXListItemExpandedInfo>
-  ) => {
-    const detail = event.detail;
-    const itemInfo = this.flattenedTreeModel.get(detail.id).item;
-    itemInfo.expanded = detail.expanded;
-  };
-
-  private handleItemContextmenu = (
-    event: ChTreeXCustomEvent<TreeXItemContextMenu>
-  ) => {
-    event.stopPropagation();
-    this.itemContextmenu.emit(event.detail);
-  };
-
-  private handleItemsDropped = (
-    event: ChTreeXCustomEvent<TreeXDataTransferInfo>
-  ) => {
-    if (!this.dropItemsCallback) {
-      return;
-    }
-    event.stopPropagation();
-
-    const dataTransferInfo = event.detail;
-    const newContainer = dataTransferInfo.newContainer;
-    const newParentId = newContainer.id;
-
-    // Check if the parent exists in the UI Model
-    if (!this.flattenedTreeModel.get(newParentId)) {
-      return;
-    }
-
-    const draggedItems: GxDataTransferInfo[] = dataTransferInfo.draggedItems;
-
-    if (draggedItems.length === 0) {
-      return;
-    }
-
-    const promise = this.dropItemsCallback(dataTransferInfo);
-    this.waitDropProcessing = true;
-
-    promise.then(async (response) => {
-      this.waitDropProcessing = false;
-
-      if (!response.acceptDrop) {
-        return;
-      }
-
-      const newParentUIModel = this.flattenedTreeModel.get(newParentId).item;
-
-      // Only move the items to the new parent, keeping the state
-      if (dataTransferInfo.dropInTheSameTree) {
-        // Add the UI models to the new container and remove the UI models from
-        // the old containers
-        draggedItems.forEach(this.moveItemToNewParent(newParentUIModel));
-
-        // When the selected items are moved, the tree must remove its internal
-        // state to not have undefined references
-        if (dataTransferInfo.draggingSelectedItems) {
-          await this.treeRef.clearSelectedItemsInfo();
-        }
-      }
-      // Add the new items
-      else {
-        if (response.items == null) {
-          return;
-        }
-
-        // Add new items to the parent
-        newParentUIModel.items.push(...response.items);
-
-        // Flatten the new UI models
-        response.items.forEach(this.flattenItemUIModel(newParentUIModel));
-      }
-
-      this.sortItems(newParentUIModel.items);
-
-      // Open the item to visualize the new subitems
-      newParentUIModel.expanded = true;
-
-      // There is no need to force and update, since the waitDropProcessing
-      // prop was modified
-    });
-  };
-
-  private moveItemToNewParent = (newParentUIModel: TreeXItemModel) => (
-    dataTransferInfo: GxDataTransferInfo
-  ) => {
-    const itemUIModelExtended = this.flattenedTreeModel.get(
-      dataTransferInfo.id
-    );
-    const item = itemUIModelExtended.item;
-    const oldParentItem = itemUIModelExtended.parentItem;
-
-    // Remove the UI model from the previous parent
-    oldParentItem.items.splice(oldParentItem.items.indexOf(item), 1);
-
-    // Add the UI Model to the new parent
-    newParentUIModel.items.push(item);
-
-    // Reference the new parent in the item
-    itemUIModelExtended.parentItem = newParentUIModel;
-  };
-
-  private renderSubModel = (
-    treeSubModel: TreeXItemModel,
-    lastItem: boolean,
-    level: number
-  ) => (
-    <ch-tree-x-list-item
-      id={treeSubModel.id}
-      caption={treeSubModel.caption}
-      checkbox={treeSubModel.checkbox ?? this.checkbox}
-      checked={treeSubModel.checked ?? this.checked}
-      class={treeSubModel.class}
-      disabled={treeSubModel.disabled}
-      downloading={treeSubModel.downloading}
-      dragDisabled={treeSubModel.dragDisabled ?? this.dragDisabled}
-      dropDisabled={treeSubModel.dropDisabled ?? this.dropDisabled}
-      editable={treeSubModel.editable ?? this.editableItems}
-      expanded={treeSubModel.expanded}
-      indeterminate={treeSubModel.indeterminate}
-      lastItem={lastItem}
-      lazyLoad={treeSubModel.lazy}
-      leaf={treeSubModel.leaf}
-      leftImgSrc={
-        treeSubModel.leftImgSrc
-          ? resolveImgPath(this.iconAssetsPath, treeSubModel.leftImgSrc)
-          : null
-      }
-      level={level}
-      metadata={treeSubModel.metadata}
-      rightImgSrc={treeSubModel.rightImgSrc}
-      selected={treeSubModel.selected}
-      showExpandableButton={treeSubModel.showExpandableButton}
-      showLines={this.showLines}
-      toggleCheckboxes={treeSubModel.toggleCheckboxes ?? this.toggleCheckboxes}
-    >
-      {!treeSubModel.leaf &&
-        treeSubModel.items != null &&
-        treeSubModel.items.map((subModel, index) =>
-          this.renderSubModel(
-            subModel,
-            this.showLines && index === treeSubModel.items.length - 1,
-            level + 1
-          )
-        )}
-    </ch-tree-x-list-item>
-  );
-
-  private flattenSubModel(model: TreeXItemModel) {
-    const items = model.items;
-
-    if (!items) {
-      // Make sure that subtrees don't have an undefined array
-      if (model.leaf !== true) {
-        model.items = [];
-      }
-      return;
-    }
-    this.sortItems(items);
-
-    items.forEach(this.flattenItemUIModel(model));
-  }
-
-  private flattenItemUIModel = (parentModel: TreeXItemModel) => (
-    item: TreeXItemModel
-  ) => {
-    this.flattenedTreeModel.set(item.id, {
-      parentItem: parentModel,
-      item: item,
-    });
-
-    // Add the items that have a checkbox in a separate Map
-    if (item.checkbox ?? this.checkbox) {
-      this.flattenedCheckboxTreeModel.set(item.id, {
-        parentItem: parentModel,
-        item: item,
-      });
-    }
-
-    // Make sure the properties are with their default values to avoid issues
-    // when reusing DOM nodes
-    item.class = item.class == null ? DEFAULT_CLASS_VALUE : item.class;
-    item.expanded =
-      item.expanded == null ? DEFAULT_EXPANDED_VALUE : item.expanded;
-    item.indeterminate =
-      item.indeterminate == null
-        ? DEFAULT_INDETERMINATE_VALUE
-        : item.indeterminate;
-    item.lazy = item.lazy == null ? DEFAULT_LAZY_VALUE : item.lazy;
-    item.order = item.order == null ? DEFAULT_ORDER_VALUE : item.order;
-    item.selected =
-      item.selected == null ? DEFAULT_SELECTED_VALUE : item.selected;
-
-    if (item.selected) {
-      this.selectedItems.add(item.id);
-    }
-
-    this.flattenSubModel(item);
-  };
-
-  private sortItems(items: TreeXItemModel[]) {
-    // Ensure that items are sorted
-    if (this.sortItemsCallback) {
-      this.sortItemsCallback(items);
-    }
-  }
-
-  private flattenModel() {
-    this.flattenedTreeModel.clear();
-    this.flattenedCheckboxTreeModel.clear();
-    this.selectedItems.clear();
-
-    // The model was updated at runtime, so we need to clear the references
-    if (this.treeRef) {
-      this.treeRef.clearSelectedItemsInfo();
-    }
-
-    this.flattenSubModel({ id: null, caption: null, items: this.treeModel });
-
-    // Re-sync checked items
-    this.emitCheckedItemsChange();
-  }
-
-  componentWillLoad() {
-    this.flattenModel();
-  }
-
   render() {
     return (
-      <ch-tree-x
-        class={this.cssClass || null}
+      <ch-tree-view-render
+        checkbox={this.checkbox}
+        checked={this.checked}
+        checkDroppableZoneCallback={this.checkDroppableZoneCallback}
+        cssClass={this.cssClass}
+        dragDisabled={this.dragDisabled}
+        dropDisabled={this.dropDisabled}
+        dropItemsCallback={this.dropItemsCallback}
+        editableItems={this.editableItems}
+        filter={this.filter}
+        filterList={this.filterList}
+        filterOptions={this.filterOptions}
+        filterType={this.filterType}
+        lazyLoadTreeItemsCallback={this.lazyLoadTreeItemsCallback}
+        modifyItemCaptionCallback={this.modifyItemCaptionCallback}
         multiSelection={this.multiSelection}
-        waitDropProcessing={this.waitDropProcessing}
-        onDroppableZoneEnter={this.handleDroppableZoneEnter}
-        onExpandedItemChange={this.handleExpandedItemChange}
-        onItemContextmenu={this.handleItemContextmenu}
-        onItemsDropped={this.handleItemsDropped}
-        onSelectedItemsChange={this.handleSelectedItemsChange}
+        renderItem={this.renderItem}
+        showLines={this.showLines}
+        sortItemsCallback={this.sortItemsCallback}
+        toggleCheckboxes={this.toggleCheckboxes}
+        treeModel={this.treeModel}
         ref={(el) => (this.treeRef = el)}
-      >
-        {this.treeModel.map((subModel, index) =>
-          this.renderSubModel(
-            subModel,
-            this.showLines && index === this.treeModel.length - 1,
-            0
-          )
-        )}
-      </ch-tree-x>
+      ></ch-tree-view-render>
     );
   }
 }

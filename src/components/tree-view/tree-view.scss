@@ -17,7 +17,7 @@ gxg-tree-view {
 .tree-view {
   @include gxg-scrollbar;
 
-  .ch-tree-x-container {
+  .ch-tree-view-container {
     padding: var(--spacing-comp-02);
   }
 }
@@ -178,7 +178,7 @@ gxg-tree-view {
 }
 
 /*-- Other Selectors (these depend on the tag class name)---*/
-.ch-tree-x-list-item {
+.tree-view-item {
   &--editing::part(header) {
     border: 2px solid transparent;
     //to do
@@ -194,7 +194,7 @@ gxg-tree-view {
     //   background-color: #eee;
     // }
   }
-  &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
+  &:not(.ch-tree-view-item--editing)::part(header):focus-visible {
     //to do
     // border-color: black;
     // z-index: 1; // Place the outline above the content
@@ -202,7 +202,7 @@ gxg-tree-view {
 }
 
 /*--- Revisar ---*/
-.tree-view .ch-tree-x-drag-info {
+.tree-view .ch-tree-view-drag-info {
   //to do
   padding-inline: 6px;
   padding-block: 2px;
@@ -211,8 +211,8 @@ gxg-tree-view {
   border-radius: 10px;
   font-size: 8px;
 }
-:not(.ch-tree-x-dragging-item)
-  ch-tree-x-list-item:not([selected])::part(header):hover {
+:not(.ch-tree-view-dragging-item)
+  ch-tree-view-item:not([selected])::part(header):hover {
   //to do
   // background-color: rgb(232, 232, 233);
 }
