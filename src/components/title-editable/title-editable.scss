@@ -87,4 +87,8 @@
   height: auto;
   width: auto;
   white-space: nowrap;
+  /*remove from viewport*/
+  bottom: 0;
+  left: 0;
+  transform: translate(-100%, -100%);
 }
