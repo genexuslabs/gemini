@@ -18,6 +18,7 @@
     box-sizing: border-box;
     flex-grow: 1;
     cursor: auto;
+    border-bottom: 2px solid transparent;
     &:focus {
       outline: none;
     }
@@ -38,16 +39,10 @@
   }
 }
 /*click-to-edit*/
-:host([click-to-edit]:not[disable-edition]) {
+:host([click-to-edit]:not([disable-edition])) {
   .wrapper,
   input {
     cursor: pointer;
-  }
-}
-/*disable-edition*/
-:host([disable-edition]) {
-  .wrapper,
-  input {
   }
 }
 /*title types*/
@@ -70,6 +65,19 @@
     display: inline-flex;
   }
 }
+/*focus (optional)*/
+:host(.focus--text.editing) {
+  input {
+    color: var(--gxg-editable-title-focus-color);
+  }
+}
+/*focus (optional)*/
+:host(.focus--line.editing) {
+  input {
+    border-bottom-color: var(--gxg-editable-title-focus-color);
+  }
+}
+
 /*ghost div: it helps measuring the text width, to make the input as wide as needed (fluid)*/
 .ghost {
   font-family: inherit;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large dark mercury">
+<html dir="ltr" lang="en" class="gxg-large dark">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -16,7 +16,7 @@
         font-family: var(--font-family-primary);
         color: var(--color-on-background);
         background-color: var(--color-background);
-        background-color: var(--gray-10);
+        /*background-color: var(--gray-10);*/
       }
       .container {
         margin: 0 auto;
@@ -26,20 +26,31 @@
         padding: 36px 0;
         border-block-end: 1px solid var(--gray-01);
       }
+      .titles-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+      h1 {
+        margin: 64px 0;
+        color: var(--color-success-dark);
+        font-family: monospace;
+      }
+      .articles-list > *:first-child {
+        padding-top: 0;
+      }
       article h2 {
         font-size: 16px;
-        font-weight: var(--font-weight-regular);
-        display: inline-block;
+        font-weight: 300;
+        margin-top: 36px;
+        color: var(--color-success-dark);
+        margin-bottom: 8px;
+        margin-top: 0;
       }
       article:last-child {
         border-bottom: 0;
         margin-bottom: 36px;
-      }
-      .container > h2 {
-        font-size: 18px;
-        color: var(--color-primary-enabled);
-        margin-top: 36px;
-        margin-bottom: 0;
       }
       code {
         background-color: var(--gray-01);
@@ -54,63 +65,113 @@
   </head>
   <body>
     <div class="container">
-      <h2>H1 Title</h2>
-      <!-- H1 Type -->
-      <article>
-        <h2><code>titleType="h1"</code></h2>
-        <gxg-title-editable
-          title-type="h1"
-          value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex atque sed dolor sint. Perferendis magnam inventore, architecto consequuntur ab fugit modi eius veniam aliquam libero distinctio accusamus earum dignissimos error."
-        >
-        </gxg-title-editable>
-      </article>
+      <h1>gxg-editable-title</h1>
 
-      <article>
-        <h2><code>titleType="h1" | clickToEdit</code></h2>
-        <p>
-          Permite editar el texto, también haciendo click en cualquier área del
-          componente.
-        </p>
-        <gxg-title-editable title-type="h1" value="Lorem ipsum" click-to-edit>
-        </gxg-title-editable>
-      </article>
+      <div class="articles-list">
+        <!-- H1 -->
+        <article>
+          <p>
+            Estado natural del título, sin ninguna propiedad adicional. 24px de
+            cuerpo.
+          </p>
 
-      <article>
-        <h2><code>titleType="h1" | fluid</code></h2>
-        <p>
-          El ancho del componente es fluído. Va creciendo a medida que necesita
-          espacio.
-        </p>
-        <gxg-title-editable
-          title-type="h1"
-          value="Lorem ipsum"
-          fluid
-        ></gxg-title-editable>
-      </article>
+          <gxg-title-editable
+            value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+          >
+          </gxg-title-editable>
+        </article>
 
-      <!-- H2 Type -->
-      <h2>H2 Title</h2>
-      <article>
-        <h2><code>titleType="h2"</code></h2>
-        <gxg-title-editable
-          title-type="h2"
-          value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex atque sed dolor sint. Perferendis magnam inventore, architecto consequuntur ab fugit modi eius veniam aliquam libero distinctio accusamus earum dignissimos error."
-        >
-        </gxg-title-editable>
-      </article>
+        <!-- H1 | clickToEdit -->
+        <article>
+          <div class="titles-wrapper">
+            <h2><code>clickToEdit</code></h2>
+          </div>
+          <p>
+            Permite editar el texto también haciendo click en cualquier área del
+            componente (no sólo en el lápiz).
+          </p>
+          <gxg-title-editable value="Space is not entirely empty" click-to-edit>
+          </gxg-title-editable>
+        </article>
 
-      <!-- disable-edition -->
-      <h2>H2 Title</h2>
-      <article>
-        <h2><code>disable-edition</code></h2>
-        <gxg-title-editable
-          title-type="h2"
-          disable-edition
-          click-to-edit
-          value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex atque sed dolor sint. Perferendis magnam inventore, architecto consequuntur ab fugit modi eius veniam aliquam libero distinctio accusamus earum dignissimos error."
-        >
-        </gxg-title-editable>
-      </article>
+        <!-- H1 | fluid -->
+        <article>
+          <div class="titles-wrapper">
+            <h2><code>fluid</code></h2>
+          </div>
+          <p>
+            El ancho del título es fluído. Crece a medida que necesita espacio.
+          </p>
+          <gxg-title-editable
+            value="Space is not entirely empty"
+            fluid
+          ></gxg-title-editable>
+        </article>
+
+        <!-- H1 | disable-edition -->
+        <article>
+          <div class="titles-wrapper">
+            <h2><code>disableEdition</code></h2>
+          </div>
+          <p>Deshabilita la edición. Contradictorio, pero...</p>
+          <gxg-title-editable
+            disable-edition
+            click-to-edit
+            value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+          >
+          </gxg-title-editable>
+        </article>
+
+        <!-- H1 | focusType="color" -->
+        <article>
+          <div class="titles-wrapper">
+            <h2><code>focusType="color"</code></h2>
+          </div>
+          <p>
+            Le pone foco al título cuando esta en modo editable, resaltando el
+            color del texto.
+          </p>
+          <gxg-title-editable
+            click-to-edit
+            focus-type="text"
+            value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+          >
+          </gxg-title-editable>
+        </article>
+
+        <!-- H1 | focusType="line" -->
+        <article>
+          <div class="titles-wrapper">
+            <h2><code>focusType="color"</code></h2>
+          </div>
+          <p>
+            Le pone foco al título cuando esta en modo editable, mostrando una
+            línea de color debajo.
+          </p>
+          <gxg-title-editable
+            click-to-edit
+            focus-type="line"
+            value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+          >
+          </gxg-title-editable>
+        </article>
+
+        <!-- H2 -->
+        <article>
+          <div class="titles-wrapper">
+            <h2><code>titleType="h2"</code></h2>
+          </div>
+          <p>
+            Título tipo <em>h2</em>. 16px de cuerpo. Aplican las mismas
+            propiedades que las mencionadas anteriormente.
+          </p>
+          <gxg-title-editable
+            title-type="h2"
+            value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+          >
+          </gxg-title-editable>
+        </article>
+      </div>
     </div>
   </body>
 </html>

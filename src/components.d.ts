@@ -89,7 +89,10 @@ import {
   TextType,
 } from "./components/text/text";
 import { TitleType } from "./components/title/title";
-import { EditableTitleType } from "./components/title-editable/title-editable";
+import {
+  EditableTitleFocusType,
+  EditableTitleType,
+} from "./components/title-editable/title-editable";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
 import {
@@ -1903,6 +1906,10 @@ export namespace Components {
      * If true, the width of the title will take only the minimum needed space
      */
     fluid: boolean;
+    /**
+     * If true, the width of the title will take only the minimum needed space
+     */
+    focusType: EditableTitleFocusType;
     /**
      * The title type
      */
@@ -4865,6 +4872,10 @@ declare namespace LocalJSX {
      * If true, the width of the title will take only the minimum needed space
      */
     fluid?: boolean;
+    /**
+     * If true, the width of the title will take only the minimum needed space
+     */
+    focusType?: EditableTitleFocusType;
     /**
      * The title type
      */

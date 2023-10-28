@@ -37,6 +37,8 @@
   --gxg-scrollbar-track-thumb-background: var(--gray-05);
   --gxg-scrollbar-track-thumb-radius: 10px;
   --gxg-scrollbar-track-thumb-hover-background: var(--gray-04);
+  /*editable title*/
+  --gxg-editable-title-focus-color: var(--color-primary-enabled);
 }
 :root.gxg-large {
   --gxg-form-text-height: var(--spacing-comp-05);

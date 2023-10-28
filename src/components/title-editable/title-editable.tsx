@@ -40,6 +40,11 @@ export class GxgTitleEditable {
    */
   @Prop({ reflect: true }) fluid = false;
 
+  /**
+   * If true, the width of the title will take only the minimum needed space
+   */
+  @Prop({ reflect: true }) focusType: EditableTitleFocusType;
+
   /*STATE*/
 
   @State() editing = false;
@@ -107,7 +112,8 @@ export class GxgTitleEditable {
 
   private updateInputWidth = (): void => {
     if (this.fluid) {
-      const ghostDivWidth = this.ghostDiv.clientWidth;
+      const ghostDivWidth = this.ghostDiv.getBoundingClientRect().width;
+      console.log(ghostDivWidth);
       this.textInput.style.width = `${ghostDivWidth}px`;
     }
   };
@@ -116,15 +122,23 @@ export class GxgTitleEditable {
 
   render(): void {
     return (
-      <Host>
+      <Host
+        class={{
+          editing: this.editing,
+          "focus--text": this.focusType === "text",
+          "focus--line": this.focusType === "line",
+        }}
+      >
         <div
-          class="wrapper"
           onMouseUp={
             this.clickToEdit &&
             !this.editing &&
             !this.disableEdition &&
             this.wrapperClickedHandler
           }
+          class={{
+            wrapper: true,
+          }}
           ref={(el) => (this.wrapperEl = el as HTMLDivElement)}
         >
           {this.fluid ? (
@@ -157,3 +171,5 @@ export class GxgTitleEditable {
 }
 
 export type EditableTitleType = "h1" | "h2" | "h3";
+
+export type EditableTitleFocusType = "text" | "line";
