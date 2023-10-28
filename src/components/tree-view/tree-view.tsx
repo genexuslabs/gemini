@@ -339,14 +339,6 @@ export class ChTreeViewRenderWrapper {
     );
   }
 
-  @Listen("checkedItemsChange")
-  updateCheckboxValue(
-    event: ChTreeViewRenderCustomEvent<Map<string, TreeViewItemModelExtended>>
-  ) {
-    event.stopPropagation();
-    this.checkedItemsChange.emit(event.detail);
-  }
-
   @Listen("itemOpenReference")
   handleOpenReference(
     event: ChTreeViewRenderCustomEvent<TreeViewItemOpenReferenceInfo>
