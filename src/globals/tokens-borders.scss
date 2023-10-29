@@ -24,10 +24,11 @@ TOKENS FOR BORDERS
   --border-radius-lg: 8px;
 
   &.mercury {
-    --border-radius-xs: 1px;
-    --border-radius-sm: 2px;
+    --border-radius-xs: 2px;
+    --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
+    --border-radius-xl: 30px;
   }
 
   // box shadow

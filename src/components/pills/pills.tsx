@@ -1,5 +1,5 @@
 import { Component, Host, h, Method, Element } from "@stencil/core";
-
+import state from "../store";
 @Component({
   tag: "gxg-pills",
   styleUrl: "pills.scss",
@@ -26,7 +26,7 @@ export class GxgPills {
 
   render() {
     return (
-      <Host>
+      <Host class={{ mercury: state.mercury }}>
         <div class="pills-wrapper">
           <slot></slot>
         </div>

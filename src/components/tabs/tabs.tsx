@@ -8,6 +8,7 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
+import state from "../store";
 import { GxgTab } from "../tab/tab";
 
 @Component({
@@ -23,6 +24,11 @@ export class GxgTabs {
   @Prop() maxHeight = "100%";
   @Prop() minWidth = "200px";
   @Prop() tabBarBorder = false;
+
+  /**
+   * The presence of this attribute removes the background color (only for mercury)
+   */
+  @Prop({ reflect: true }) noBackground = false;
 
   /**
    * The presence of this attribute removes each tab .container padding
@@ -87,6 +93,7 @@ export class GxgTabs {
           maxHeight: this.maxHeight,
           minWidth: this.minWidth,
         }}
+        class={{ mercury: state.mercury }}
       >
         <div class="main-container">
           {this.position === "bottom"

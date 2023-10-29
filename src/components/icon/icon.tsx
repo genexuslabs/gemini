@@ -17,6 +17,7 @@ const COLOR_MAPPINGS = {
   "primary-hover": "color-primary-hover",
   success: "color-success-dark",
   warning: "color-warning-dark",
+  mercury: "gray-03",
 };
 
 @Component({
@@ -102,6 +103,7 @@ export type Color =
   | "success"
   | "warning"
   | "alwaysblack"
-  | "auto";
+  | "auto"
+  | "mercury";
 
 export type Size = "regular" | "small";

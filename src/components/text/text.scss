@@ -83,3 +83,14 @@ LARGE VERSION (html tag has 'gxg-large' class)
     font-size: var(--font-size-lg);
   }
 }
+
+@import "./text-mercury";
+:host(.mercury) {
+  .gxg-text {
+    font-size: var(--mc-font-size-xs);
+    color: var(--gray-02);
+  }
+}
+:host(.mercury[italic]) {
+  font-style: italic;
+}

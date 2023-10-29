@@ -26,6 +26,11 @@ export class GxgTabButton {
   tabButton!: HTMLButtonElement;
 
   /**
+   * This is for mercury only
+   */
+  @Prop({ reflect: true }) fontWeightVariation = false;
+
+  /**
    * Hides the tab button
    */
   @Prop() hidden = false;
@@ -138,6 +143,7 @@ export class GxgTabButton {
       <Host
         class={{
           large: state.large,
+          mercury: state.mercury,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >

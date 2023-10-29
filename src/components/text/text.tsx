@@ -42,6 +42,11 @@ export class GxgText {
    */
   @Prop({ reflect: true }) maxWidth = "100%";
 
+  /**
+   * Italic (only for mercury)
+   */
+  @Prop({ reflect: true }) italic = false;
+
   textType() {
     let text;
     switch (this.type) {
@@ -164,7 +169,11 @@ export class GxgText {
   }
 
   render() {
-    return <Host class={{ large: state.large }}>{this.textType()} </Host>;
+    return (
+      <Host class={{ large: state.large, mercury: state.mercury }}>
+        {this.textType()}{" "}
+      </Host>
+    );
   }
 }
 

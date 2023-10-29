@@ -43,6 +43,11 @@ export class GxgPill {
   @Prop() id!: string;
 
   /**
+   * Stylizes the font with italic (only used in mercury)
+   */
+  @Prop() italic = false;
+
+  /**
    * The type of pill
    */
   @Prop({ reflect: true }) type: PillType = "static";
@@ -72,7 +77,9 @@ export class GxgPill {
     }
   }
   iconColor() {
-    if (this.disabled) {
+    if (state.mercury) {
+      return "mercury";
+    } else if (this.disabled) {
       return "disabled";
     } else {
       return "success";
@@ -80,6 +87,7 @@ export class GxgPill {
   }
 
   render() {
+    console.log(state.mercury);
     return (
       <Host
         tabindex="0"
@@ -87,6 +95,7 @@ export class GxgPill {
           "no-icon": this.icon === undefined,
           "has-icon": this.icon !== undefined,
           large: state.large,
+          mercury: state.mercury,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >

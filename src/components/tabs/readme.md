@@ -24,7 +24,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Usage
 
 ### Usage
@@ -112,33 +111,26 @@
 </gxg-tabs>
 ```
 
-
-
 ## Properties
 
-| Property       | Attribute        | Description                                                        | Type                                     | Default   |
-| -------------- | ---------------- | ------------------------------------------------------------------ | ---------------------------------------- | --------- |
-| `height`       | `height`         |                                                                    | `string`                                 | `"100%"`  |
-| `maxHeight`    | `max-height`     |                                                                    | `string`                                 | `"100%"`  |
-| `minWidth`     | `min-width`      |                                                                    | `string`                                 | `"200px"` |
-| `noPadding`    | `no-padding`     | The presence of this attribute removes each tab .container padding | `boolean`                                | `false`   |
-| `position`     | `position`       |                                                                    | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
-| `tabBarBorder` | `tab-bar-border` |                                                                    | `boolean`                                | `false`   |
-
+| Property       | Attribute        | Description                                                                    | Type                                     | Default   |
+| -------------- | ---------------- | ------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
+| `height`       | `height`         |                                                                                | `string`                                 | `"100%"`  |
+| `maxHeight`    | `max-height`     |                                                                                | `string`                                 | `"100%"`  |
+| `minWidth`     | `min-width`      |                                                                                | `string`                                 | `"200px"` |
+| `noBackground` | `no-background`  | The presence of this attribute removes the background color (only for mercury) | `boolean`                                | `false`   |
+| `noPadding`    | `no-padding`     | The presence of this attribute removes each tab .container padding             | `boolean`                                | `false`   |
+| `position`     | `position`       |                                                                                | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
+| `tabBarBorder` | `tab-bar-border` |                                                                                | `boolean`                                | `false`   |
 
 ## Methods
 
 ### `setActiveTab(tab: string) => Promise<void>`
 
-
-
 #### Returns
 
 Type: `Promise<void>`
 
+---
 
-
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

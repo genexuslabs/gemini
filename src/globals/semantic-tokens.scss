@@ -49,3 +49,8 @@
     --color-secondary-enabled--hover
   );
 }
+
+/*--- Mercury ---*/
+:root.mercury {
+  --mc-base-font-size: var(--mc-font-size-xs);
+}

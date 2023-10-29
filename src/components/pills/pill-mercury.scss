@@ -1,0 +1,24 @@
+:host(.mercury) {
+  background-color: var(--gray-10);
+  padding: var(--spacing-comp-01) var(--spacing-comp-04);
+  border-radius: var(--border-radius-xl);
+  height: 34px;
+  border-color: transparent;
+  .title {
+    font-size: var(--font-size--xs);
+    color: var(--gray-07);
+  }
+}
+:host(.mercury[type="static"]),
+:host(.mercury[type="static-with-action"]) {
+  background-color: var(--gray-10);
+  .title {
+    color: var(--gray-03);
+  }
+}
+
+:host(.mercury[italic]) {
+  .title {
+    font-style: italic;
+  }
+}

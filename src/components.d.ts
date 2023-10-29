@@ -23,6 +23,7 @@ import {
 } from "./common/types";
 import {
   background as background1,
+  CardType,
   elevation,
   padding as padding1,
 } from "./components/card/card";
@@ -348,6 +349,10 @@ export namespace Components {
      * The background color
      */
     background: background;
+    /**
+     * The component max. width
+     */
+    cardType: CardType;
     /**
      * The card box-shadow
      */
@@ -1497,6 +1502,10 @@ export namespace Components {
      */
     id: string;
     /**
+     * Stylizes the font with italic (only used in mercury)
+     */
+    italic: boolean;
+    /**
      * The type of pill
      */
     type: PillType;
@@ -1811,6 +1820,10 @@ export namespace Components {
      */
     disabled: boolean;
     /**
+     * This is for mercury only
+     */
+    fontWeightVariation: boolean;
+    /**
      * Hides the tab button
      */
     hidden: boolean;
@@ -1837,6 +1850,10 @@ export namespace Components {
     maxHeight: string;
     minWidth: string;
     /**
+     * The presence of this attribute removes the background color (only for mercury)
+     */
+    noBackground: boolean;
+    /**
      * The presence of this attribute removes each tab .container padding
      */
     noPadding: boolean;
@@ -1862,6 +1879,10 @@ export namespace Components {
      * The href (for "link" or "link-gray" types
      */
     href: string;
+    /**
+     * Italic (only for mercury)
+     */
+    italic: boolean;
     /**
      * Max. width
      */
@@ -3188,6 +3209,10 @@ declare namespace LocalJSX {
      */
     background?: background;
     /**
+     * The component max. width
+     */
+    cardType?: CardType;
+    /**
      * The card box-shadow
      */
     elevation?: elevation;
@@ -4461,6 +4486,10 @@ declare namespace LocalJSX {
      * The pill id
      */
     id: string;
+    /**
+     * Stylizes the font with italic (only used in mercury)
+     */
+    italic?: boolean;
     onPillRemoved?: (event: CustomEvent<string>) => void;
     /**
      * The type of pill
@@ -4777,6 +4806,10 @@ declare namespace LocalJSX {
      */
     disabled?: boolean;
     /**
+     * This is for mercury only
+     */
+    fontWeightVariation?: boolean;
+    /**
      * Hides the tab button
      */
     hidden?: boolean;
@@ -4804,6 +4837,10 @@ declare namespace LocalJSX {
     maxHeight?: string;
     minWidth?: string;
     /**
+     * The presence of this attribute removes the background color (only for mercury)
+     */
+    noBackground?: boolean;
+    /**
      * The presence of this attribute removes each tab .container padding
      */
     noPadding?: boolean;
@@ -4828,6 +4865,10 @@ declare namespace LocalJSX {
      * The href (for "link" or "link-gray" types
      */
     href?: string;
+    /**
+     * Italic (only for mercury)
+     */
+    italic?: boolean;
     /**
      * Max. width
      */

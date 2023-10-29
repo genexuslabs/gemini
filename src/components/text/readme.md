@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Usage
 
 ### Usage
@@ -18,21 +17,19 @@
 <gxg-text type="text-alert-success">A sucess message</gxg-text>
 ```
 
-
-
 ## Properties
 
 | Property    | Attribute    | Description                                 | Type                                                                                                                                                                                                                         | Default          |
 | ----------- | ------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | `disabled`  | `disabled`   | Disables the interactive types of text      | `boolean`                                                                                                                                                                                                                    | `false`          |
 | `href`      | `href`       | The href (for "link" or "link-gray" types   | `string`                                                                                                                                                                                                                     | `undefined`      |
+| `italic`    | `italic`     | Italic (only for mercury)                   | `boolean`                                                                                                                                                                                                                    | `false`          |
 | `maxWidth`  | `max-width`  | Max. width                                  | `string`                                                                                                                                                                                                                     | `"100%"`         |
 | `padding`   | `padding`    | Text padding                                | `"m" \| "none" \| "s"`                                                                                                                                                                                                       | `"none"`         |
 | `target`    | `target`     | The target (for "link" or "link-gray" types | `"_blank" \| "_self"`                                                                                                                                                                                                        | `"_self"`        |
 | `textAlign` | `text-align` | Text alignment                              | `"center" \| "end" \| "start"`                                                                                                                                                                                               | `"start"`        |
 | `type`      | `type`       | Text type                                   | `"button-like" \| "text-alert-error" \| "text-alert-success" \| "text-alert-warning" \| "text-gray" \| "text-link" \| "text-link-gray" \| "text-link-gray-no-line" \| "text-link-no-line" \| "text-quote" \| "text-regular"` | `"text-regular"` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -44,3 +44,11 @@ LARGE VERSION (html tag has 'gxg-large' class)
     font-size: var(--font-size-lg);
   }
 }
+
+:host(.mercury) {
+  .container {
+    padding: var(--spacing-comp-05) var(--spacing-comp-04);
+    line-height: var(--line-height-default);
+    font-size: var(--mc-font-size-xs);
+  }
+}

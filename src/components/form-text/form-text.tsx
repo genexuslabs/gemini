@@ -612,6 +612,7 @@ export class GxgFormText implements FormComponent {
         class={{
           rtl: this.rtl,
           large: state.large,
+          mercury: state.mercury,
           borderless: this.borderless,
           file: this.type === "file",
           tooltip: this.toolTip,

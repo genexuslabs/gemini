@@ -49,3 +49,16 @@
 :host([background="gray-01"]) {
   background: var(--gray-01);
 }
+
+:host(.mercury) {
+  font-size: var(--mc-base-font-size);
+  border-radius: 0;
+  background-color: var(--gray-10);
+  box-shadow: none;
+  padding: var(--spacing-comp-04);
+}
+:host(.mercury.card--article) {
+  border-radius: var(--border-radius-sm);
+  border: var(--border-width-sm) solid var(--gray-00);
+  padding: var(--spacing-comp-04) var(--spacing-comp-03);
+}

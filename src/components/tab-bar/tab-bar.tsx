@@ -9,6 +9,8 @@ import {
   Prop,
   Method,
 } from "@stencil/core";
+import state from "../store";
+
 import { TabsPosition } from "../tabs/tabs";
 import { exportParts } from "../../common/export-parts";
 
@@ -307,6 +309,7 @@ export class GxgTabBar {
           rtl: this.rtl,
           "gxg-tab-bar": true,
           "gxg-tab-bar--hidden": this.hidden,
+          mercury: state.mercury,
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >

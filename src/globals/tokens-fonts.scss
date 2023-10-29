@@ -25,11 +25,20 @@ TOKENS FOR FONTS
   --font-size-lg: 12px;
   --font-size-xl: 13px;
 
+  /*font sizes (mercury only)*/
+  --mc-font-size-xxs: 12px;
+  --mc-font-size-xs: 14px;
+  --mc-font-size-sm: 16px;
+  --mc-font-size-md: 20px;
+  --mc-font-size-lg: 24px;
+  --mc-font-size-xl: 36px;
+
   /*font styles*/
   --font-style-regular: normal;
 
   /*font line heights*/
   --line-height-regular: normal;
+  --line-height-default: 1.6em;
 
   /*font letter spacings*/
   --letter-spacing-xs: 0.2px;

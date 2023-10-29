@@ -54,6 +54,7 @@ export class GxgTab {
           "not-selected": !this.isSelected,
           "no-padding": this.noPadding,
           large: state.large,
+          mercury: state.mercury,
         }}
       >
         <div

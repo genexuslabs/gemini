@@ -1,0 +1,53 @@
+:host(.mercury) {
+  .tab-button {
+    padding: var(--spacing-comp-01) var(--spacing-comp-03);
+    height: 30px;
+    min-height: 0;
+    /*states > focus*/
+    &:focus {
+      @include form-element-common-styles-focus-type-1("outside");
+      outline-width: var(--border-width-sm);
+    }
+    /*states > hover*/
+    &:hover:not(.tab-button--selected) {
+      --color-on-background: var(--gray-07); //color the icon as the text color
+      .tab-button__text {
+        color: var(--gray-07);
+      }
+      &:after {
+        background-color: transparent;
+      }
+    }
+    /*states > selected*/
+    &--selected {
+      pointer-events: none;
+      .tab-button__text {
+        //font-weight: var(--font-weight-semibold);
+      }
+      &:after {
+        background-color: var(--color-primary-enabled);
+      }
+    }
+    /*after (bar line)*/
+    &:after {
+      height: var(--border-width-sm);
+    }
+    /*text*/
+    &__text {
+      color: var(--gray-05);
+      font-size: var(--mc-font-size-xs);
+      font-weight: var(--font-weight-regular);
+      text-transform: capitalize;
+    }
+  }
+}
+/*font weight variation*/
+:host([font-weight-variation]) {
+  .tab-button {
+    &--selected {
+      .tab-button__text {
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+  }
+}

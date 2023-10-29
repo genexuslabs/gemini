@@ -14,7 +14,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Usage
 
 ### Usage
@@ -29,20 +28,18 @@
 </gxg-card>
 ```
 
-
-
 ## Properties
 
-| Property     | Attribute    | Description               | Type                                                          | Default   |
-| ------------ | ------------ | ------------------------- | ------------------------------------------------------------- | --------- |
-| `background` | `background` | The background color      | `"gray-01" \| "white"`                                        | `"white"` |
-| `elevation`  | `elevation`  | The card box-shadow       | `"m" \| "xs"`                                                 | `"xs"`    |
-| `height`     | `height`     | The component height      | `string`                                                      | `"auto"`  |
-| `maxWidth`   | `max-width`  | The component max. width  | `string`                                                      | `"100%"`  |
-| `minHeight`  | `min-height` | The component min. height | `string`                                                      | `"auto"`  |
-| `padding`    | `padding`    | The card padding          | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`    |
+| Property     | Attribute    | Description               | Type                                                          | Default     |
+| ------------ | ------------ | ------------------------- | ------------------------------------------------------------- | ----------- |
+| `background` | `background` | The background color      | `"gray-01" \| "white"`                                        | `"white"`   |
+| `cardType`   | `card-type`  | The component max. width  | `"article" \| "section"`                                      | `"section"` |
+| `elevation`  | `elevation`  | The card box-shadow       | `"m" \| "xs"`                                                 | `"xs"`      |
+| `height`     | `height`     | The component height      | `string`                                                      | `"auto"`    |
+| `maxWidth`   | `max-width`  | The component max. width  | `string`                                                      | `"100%"`    |
+| `minHeight`  | `min-height` | The component min. height | `string`                                                      | `"auto"`    |
+| `padding`    | `padding`    | The card padding          | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`      |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

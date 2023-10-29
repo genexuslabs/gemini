@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large mercury">
+<html dir="ltr" lang="en" class="gxg-large mercury dark">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -110,24 +110,29 @@
       <article>
         <h2>pills</h2>
         <div class="pills-container">
-          <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
-          <gxg-pill icon="objects/procedure" type="static-with-action"
-            >Salt</gxg-pill
-          >
-          <gxg-pill icon="gx-server/lock-without-changes" type="button"
-            >Salt</gxg-pill
-          >
-          <gxg-pill
-            icon="gx-server/changes-commit-pending"
-            type="button-with-action"
-            >Salt</gxg-pill
-          >
+          <gxg-pills>
+            <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
+            <gxg-pill icon="objects/procedure" type="static-with-action"
+              >Salt</gxg-pill
+            >
+            <!--
+            <gxg-pill icon="gx-server/lock-without-changes" type="button"
+              >Salt</gxg-pill
+            >
+            <gxg-pill
+              icon="gx-server/changes-commit-pending"
+              type="button-with-action"
+            
+              >Salt</gxg-pill
+            >
+            -->
+          </gxg-pills>
         </div>
       </article>
 
       <!--tabs -->
       <article>
-        <h2>tabs</h2>
+        <h2>tabs (1)</h2>
         <gxg-tabs id="gxgTabs" position="top">
           <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
             <gxg-tab-button
@@ -183,8 +188,93 @@
         </gxg-tabs>
       </article>
 
-      <!-- card -->
+      <!--tabs -->
       <article>
+        <h2>tabs (2)</h2>
+        <gxg-tabs id="gxgTabs" position="top">
+          <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="apples"
+              tab="apples"
+              key="apples"
+              is-selected
+              font-weight-variation
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="bananas"
+              tab="bananas"
+              key="bananas"
+              icon="gemini-tools/settings"
+              font-weight-variation
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab="cherries"
+              key="cherries"
+              icon="gemini-tools/settings"
+              hidden
+              font-weight-variation
+            ></gxg-tab-button>
+          </gxg-tab-bar>
+          <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
+            <p class="no-margin">
+              An apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus.
+            </p></gxg-tab
+          >
+
+          <gxg-tab tab="bananas" key="bananas" isSelected="false">
+            A banana is an elongated, edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in
+            the genus Musa. In some countries, bananas used for cooking may be
+            called "plantains", distinguishing them from dessert bananas.
+          </gxg-tab>
+          <gxg-tab tab="cherries" key="cherries" isSelected="false">
+            A cherry is the fruit of many plants of the genus Prunus, and is a
+            fleshy drupe. Commercial cherries are obtained from cultivars of
+            several species, such as the sweet Prunus avium and the sour Prunus
+            cerasus.
+          </gxg-tab>
+        </gxg-tabs>
+      </article>
+
+      <!-- text -->
+      <article>
+        <h2>gxg-text <code>type="regular"</code></h2>
+        <gxg-text italic>
+          Created YYYY-MM-DD 12:41 - Last Build YYYY-MM-DD 16:34
+        </gxg-text>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2>gxg-card <code>type="section"</code></h2>
+        <gxg-card>
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth. It's mind-boggling! 🌌🌟
+        </gxg-card>
+      </article>
+
+      <!-- card "article" -->
+      <article>
+        <h2>gxg-card <code>type="article"</code></h2>
+        <gxg-card card-type="article"> Airline provider </gxg-card>
+      </article>
+
+      <!-- card -->
+      <article hidden>
         <h2>card</h2>
         <div style="max-width: 300px">
           <gxg-card>
@@ -197,7 +287,7 @@
       </article>
 
       <!-- box -->
-      <article>
+      <article hidden>
         <h2>box</h2>
         <div style="max-width: 300px">
           <gxg-box>

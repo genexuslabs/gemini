@@ -4,11 +4,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                            | Type                                                                                                                                                                                                        | Default     |
-| -------- | --------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`  | `color`   | The color of the icon.                                 | `"alwaysblack" \| "auto" \| "disabled" \| "error" \| "indeterminate" \| "negative" \| "onbackground" \| "ondisabled" \| "primary-active" \| "primary-enabled" \| "primary-hover" \| "success" \| "warning"` | `undefined` |
-| `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                                                                                      | `"regular"` |
-| `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                                                                                       | `undefined` |
+| Property | Attribute | Description                                            | Type                                                                                                                                                                                                                     | Default     |
+| -------- | --------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `color`  | `color`   | The color of the icon.                                 | `"alwaysblack" \| "auto" \| "disabled" \| "error" \| "indeterminate" \| "mercury" \| "negative" \| "onbackground" \| "ondisabled" \| "primary-active" \| "primary-enabled" \| "primary-hover" \| "success" \| "warning"` | `undefined` |
+| `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                                                                                                   | `"regular"` |
+| `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                                                                                                    | `undefined` |
 
 ## Shadow Parts
 
