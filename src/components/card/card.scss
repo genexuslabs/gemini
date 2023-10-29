@@ -1,5 +1,6 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+@import "../../globals/mercury-mixins";
 
 :host {
   display: block;
@@ -8,7 +9,6 @@
   border-radius: var(--border-radius-md);
   @include gxg-text();
 }
-
 //Box shadow
 :host([elevation="xs"]) {
   box-shadow: var(--box-shadow-01);
@@ -51,14 +51,31 @@
 }
 
 :host(.mercury) {
-  font-size: var(--mc-base-font-size);
   border-radius: 0;
   background-color: var(--gray-10);
   box-shadow: none;
-  padding: var(--spacing-comp-04);
+  @include mc-base-styles();
+  .wrapper {
+    display: grid;
+    height: 100%;
+  }
+  header {
+    margin: var(--spacing-comp-04) var(--spacing-comp-04) 0
+      var(--spacing-comp-04);
+    padding-bottom: var(--spacing-comp-04);
+    border-bottom: 1px solid var(--gray-13);
+    text-transform: capitalize;
+    display: flex;
+    gap: var(--spacing-comp-03);
+    color: var(--gray-06);
+  }
+  .content {
+    padding: var(--spacing-comp-04);
+    @include gxg-scrollbar;
+    overflow: auto;
+  }
 }
 :host(.mercury.card--article) {
   border-radius: var(--border-radius-sm);
   border: var(--border-width-sm) solid var(--gray-00);
-  padding: var(--spacing-comp-04) var(--spacing-comp-03);
 }

@@ -350,17 +350,33 @@ export namespace Components {
      */
     background: background;
     /**
-     * The component max. width
+     * An optional title
+     */
+    cardTitle: string;
+    /**
+     * The card type (only for mercury)
      */
     cardType: CardType;
+    /**
+     * It makes the title editable
+     */
+    editableTitle: boolean;
     /**
      * The card box-shadow
      */
     elevation: elevation;
     /**
+     * filter search input (only for mercury)
+     */
+    filter: boolean;
+    /**
      * The component height
      */
     height: string;
+    /**
+     * The card type (only for mercury)
+     */
+    icon: string;
     /**
      * The component max. width
      */
@@ -3209,17 +3225,33 @@ declare namespace LocalJSX {
      */
     background?: background;
     /**
-     * The component max. width
+     * An optional title
+     */
+    cardTitle?: string;
+    /**
+     * The card type (only for mercury)
      */
     cardType?: CardType;
+    /**
+     * It makes the title editable
+     */
+    editableTitle?: boolean;
     /**
      * The card box-shadow
      */
     elevation?: elevation;
     /**
+     * filter search input (only for mercury)
+     */
+    filter?: boolean;
+    /**
      * The component height
      */
     height?: string;
+    /**
+     * The card type (only for mercury)
+     */
+    icon?: string;
     /**
      * The component max. width
      */

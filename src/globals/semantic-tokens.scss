@@ -53,4 +53,11 @@
 /*--- Mercury ---*/
 :root.mercury {
   --mc-base-font-size: var(--mc-font-size-xs);
+  /*scrollbar*/
+  --gxg-scrollbar-width: var(--spacing-comp-01);
+  --gxg-scrollbar-track-background: transparent;
+  --gxg-scrollbar-track-border-radius: var(--border-radius-xl);
+  --gxg-scrollbar-track-thumb-background: var(--gray-12);
+  --gxg-scrollbar-track-thumb-radius: var(--border-radius-xl);
+  --gxg-scrollbar-track-thumb-hover-background: var(--gray-13);
 }

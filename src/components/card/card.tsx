@@ -8,6 +8,16 @@ import state from "../store";
 })
 export class GxgCard {
   /**
+   * An optional title
+   */
+  @Prop() readonly cardTitle: string;
+
+  /**
+   * It makes the title editable
+   */
+  @Prop() readonly editableTitle: boolean = false;
+
+  /**
    * The card box-shadow
    */
   @Prop({ reflect: true }) elevation: elevation = "xs";
@@ -38,9 +48,19 @@ export class GxgCard {
   @Prop() maxWidth = "100%";
 
   /**
-   * The component max. width
+   * The card type (only for mercury)
    */
   @Prop() cardType: CardType = "section";
+
+  /**
+   * The card type (only for mercury)
+   */
+  @Prop() icon: string;
+
+  /**
+   * filter search input (only for mercury)
+   */
+  @Prop() filter = false;
 
   render() {
     return (
@@ -58,7 +78,29 @@ export class GxgCard {
           height: this.height,
         }}
       >
-        <slot></slot>
+        <div
+          class={{
+            wrapper: true,
+            "wrapper--header": this.cardTitle !== undefined,
+          }}
+        >
+          {this.cardTitle ? (
+            <header>
+              {this.icon ? (
+                <gxg-icon type={this.icon} color="mercury"></gxg-icon>
+              ) : null}
+              <gxg-title-editable
+                titleType="h2"
+                value={this.cardTitle}
+                disableEdition={!this.editableTitle}
+              ></gxg-title-editable>
+              {this.filter ? <gxg-form-text></gxg-form-text> : null}
+            </header>
+          ) : null}
+          <div class="content">
+            <slot></slot>
+          </div>
+        </div>
       </Host>
     );
   }

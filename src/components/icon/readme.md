@@ -24,6 +24,7 @@
 - [gxg-alert](../alert)
 - [gxg-breadcrumb](../breadcrumb)
 - [gxg-button](../button)
+- [gxg-card](../card)
 - [gxg-combo-box](../combo-box)
 - [gxg-combo-box-item](../combo-box-item)
 - [gxg-contextual-menu-item](../contextual-menu-item)
@@ -64,6 +65,7 @@ graph TD;
   gxg-alert --> gxg-icon
   gxg-breadcrumb --> gxg-icon
   gxg-button --> gxg-icon
+  gxg-card --> gxg-icon
   gxg-combo-box --> gxg-icon
   gxg-combo-box-item --> gxg-icon
   gxg-contextual-menu-item --> gxg-icon

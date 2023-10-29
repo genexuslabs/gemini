@@ -15,6 +15,10 @@
 
 ## Dependencies
 
+### Used by
+
+- [gxg-card](../card)
+
 ### Depends on
 
 - [gxg-button](../button)
@@ -26,6 +30,7 @@ graph TD;
   gxg-title-editable --> gxg-button
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-card --> gxg-title-editable
   style gxg-title-editable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

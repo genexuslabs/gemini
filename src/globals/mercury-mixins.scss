@@ -1,0 +1,9 @@
+@mixin mc-base-styles() {
+  /*this is usually a mixing to include in every mercury component*/
+  font-family: var(--font-family-primary);
+  font-size: var(--mc-font-size-xs);
+  color: var(--gray-03);
+  line-height: var(--line-height-default);
+  font-weight: var(--font-weight-regular);
+  box-sizing: border-box;
+}
