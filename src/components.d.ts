@@ -366,10 +366,6 @@ export namespace Components {
      */
     elevation: elevation;
     /**
-     * filter search input (only for mercury)
-     */
-    filter: boolean;
-    /**
      * The component height
      */
     height: string;
@@ -3240,10 +3236,6 @@ declare namespace LocalJSX {
      * The card box-shadow
      */
     elevation?: elevation;
-    /**
-     * filter search input (only for mercury)
-     */
-    filter?: boolean;
     /**
      * The component height
      */

@@ -57,11 +57,6 @@ export class GxgCard {
    */
   @Prop() icon: string;
 
-  /**
-   * filter search input (only for mercury)
-   */
-  @Prop() filter = false;
-
   render() {
     return (
       <Host
@@ -94,7 +89,6 @@ export class GxgCard {
                 value={this.cardTitle}
                 disableEdition={!this.editableTitle}
               ></gxg-title-editable>
-              {this.filter ? <gxg-form-text></gxg-form-text> : null}
             </header>
           ) : null}
           <div class="content">
