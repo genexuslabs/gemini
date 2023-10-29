@@ -53,7 +53,22 @@
 /*--- Mercury ---*/
 :root.mercury {
   --mc-base-font-size: var(--mc-font-size-xs);
-  /*scrollbar*/
+
+  /*--- Editable Title ---*/
+  --mc-editable-title-color: var(--gray-06);
+
+  /*--- Cards ---*/
+  /*type 'section'*/
+  --mc-card-section-padding--v: var(--spacing-comp-04);
+  --mc-card-section-padding--h: var(--spacing-comp-04);
+  /*type 'article'*/
+  --mc-card-article-padding--v: var(--spacing-comp-04);
+  --mc-card-article-padding--h: var(--spacing-comp-03);
+  /*type 'mini'*/
+  --mc-card-mini-padding--v: var(--spacing-comp-02);
+  --mc-card-mini-padding--h: var(--spacing-comp-03);
+
+  /*--- Scrollbar ---*/
   --gxg-scrollbar-width: var(--spacing-comp-01);
   --gxg-scrollbar-track-background: transparent;
   --gxg-scrollbar-track-border-radius: var(--border-radius-xl);

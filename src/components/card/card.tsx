@@ -1,5 +1,6 @@
 import { Component, Prop, h, Host } from "@stencil/core";
 import state from "../store";
+import { EditableTitleType } from "../title-editable/title-editable";
 
 @Component({
   tag: "gxg-card",
@@ -7,16 +8,6 @@ import state from "../store";
   shadow: true,
 })
 export class GxgCard {
-  /**
-   * An optional title
-   */
-  @Prop() readonly cardTitle: string;
-
-  /**
-   * It makes the title editable
-   */
-  @Prop() readonly editableTitle: boolean = false;
-
   /**
    * The card box-shadow
    */
@@ -47,6 +38,15 @@ export class GxgCard {
    */
   @Prop() maxWidth = "100%";
 
+  /*Mercury only properties*/
+
+  private titleType: EditableTitleType = "h2";
+
+  /**
+   * An optional title (only for mercury)
+   */
+  @Prop() readonly cardTitle: string;
+
   /**
    * The card type (only for mercury)
    */
@@ -57,6 +57,19 @@ export class GxgCard {
    */
   @Prop() icon: string;
 
+  /**
+   * It makes the title editable (only for mercury)
+   */
+  @Prop() readonly editableTitle: boolean = false;
+
+  componentWillLoad() {
+    if (this.cardType === "article") {
+      this.titleType = "h2";
+    } else if (this.cardType === "mini") {
+      this.titleType = "h3";
+    }
+  }
+
   render() {
     return (
       <Host
@@ -66,6 +79,8 @@ export class GxgCard {
           mercury: state.mercury,
           "card--section": this.cardType === "section",
           "card--article": this.cardType === "article",
+          "card--mini": this.cardType === "mini",
+          "card--title": this.cardTitle !== undefined,
         }}
         style={{
           maxWidth: this.maxWidth,
@@ -80,12 +95,13 @@ export class GxgCard {
           }}
         >
           {this.cardTitle ? (
-            <header>
+            <header class="card__header">
               {this.icon ? (
                 <gxg-icon type={this.icon} color="mercury"></gxg-icon>
               ) : null}
               <gxg-title-editable
-                titleType="h2"
+                class="card__title"
+                titleType={this.titleType}
                 value={this.cardTitle}
                 disableEdition={!this.editableTitle}
               ></gxg-title-editable>
@@ -106,4 +122,4 @@ export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
 export type background = "white" | "gray-01";
 
-export type CardType = "section" | "article"; /*only for mercury*/
+export type CardType = "section" | "article" | "mini"; /*only for mercury*/

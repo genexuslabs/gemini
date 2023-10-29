@@ -1,6 +1,6 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
-@import "../../globals/mercury-mixins";
+@import "../../globals/mixins-mercury";
 
 :host {
   display: block;
@@ -50,32 +50,72 @@
   background: var(--gray-01);
 }
 
+/*********************************************
+Mercury
+**********************************************/
+@import "./card-mercury";
+
 :host(.mercury) {
+  /*general styles for all type of cards*/
+  @include mc-base-styles();
+  padding: 0;
   border-radius: 0;
   background-color: var(--gray-10);
   box-shadow: none;
-  @include mc-base-styles();
-  .wrapper {
-    display: grid;
-    height: 100%;
-  }
-  header {
-    margin: var(--spacing-comp-04) var(--spacing-comp-04) 0
-      var(--spacing-comp-04);
-    padding-bottom: var(--spacing-comp-04);
-    border-bottom: 1px solid var(--gray-13);
-    text-transform: capitalize;
-    display: flex;
-    gap: var(--spacing-comp-03);
-    color: var(--gray-06);
-  }
+  color: var(--gray-04);
   .content {
-    padding: var(--spacing-comp-04);
     @include gxg-scrollbar;
     overflow: auto;
   }
 }
+/*type "section"*/
+:host(.mercury.card--section) {
+  .content {
+    padding: var(--mc-card-section-padding--v) var(--mc-card-section-padding--h);
+  }
+  .card__header {
+    text-transform: capitalize;
+    display: flex;
+    gap: var(--spacing-comp-03);
+    margin: var(--mc-card-section-padding--v) var(--mc-card-section-padding--h)
+      0 var(--mc-card-section-padding--h);
+    padding-bottom: var(--mc-card-section-padding--v);
+    border-bottom: var(--border-width-sm) solid var(--gray-13);
+  }
+}
+/*type "article"*/
 :host(.mercury.card--article) {
+  color: var(--gray-06);
+  font-size: var(--mc-font-size-xs);
+  .content {
+    padding: var(--mc-card-article-padding--v) var(--mc-card-article-padding--h);
+  }
+}
+/*type "mini"*/
+:host(.mercury.card--mini) {
+  color: var(--gray-05);
+  font-size: var(--mc-font-size-xxs);
+  .card__header {
+    text-transform: capitalize;
+    margin: var(--mc-card-mini-padding--v) var(--mc-card-mini-padding--h) 0
+      var(--mc-card-mini-padding--h);
+    //padding-bottom: var(--mc-card-mini-padding--v);
+  }
+  .content {
+    padding: var(--mc-card-mini-padding--v) var(--mc-card-mini-padding--h);
+  }
+}
+/*type "article" or "mini" shared styles*/
+:host(.mercury.card--article),
+:host(.mercury.card--mini) {
   border-radius: var(--border-radius-sm);
   border: var(--border-width-sm) solid var(--gray-00);
+}
+/*with title*/
+:host(.mercury.card--title) {
+  .wrapper {
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto 1fr;
+  }
 }

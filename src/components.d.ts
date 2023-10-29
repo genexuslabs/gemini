@@ -350,7 +350,7 @@ export namespace Components {
      */
     background: background;
     /**
-     * An optional title
+     * An optional title (only for mercury)
      */
     cardTitle: string;
     /**
@@ -358,7 +358,7 @@ export namespace Components {
      */
     cardType: CardType;
     /**
-     * It makes the title editable
+     * It makes the title editable (only for mercury)
      */
     editableTitle: boolean;
     /**
@@ -3221,7 +3221,7 @@ declare namespace LocalJSX {
      */
     background?: background;
     /**
-     * An optional title
+     * An optional title (only for mercury)
      */
     cardTitle?: string;
     /**
@@ -3229,7 +3229,7 @@ declare namespace LocalJSX {
      */
     cardType?: CardType;
     /**
-     * It makes the title editable
+     * It makes the title editable (only for mercury)
      */
     editableTitle?: boolean;
     /**

@@ -1,5 +1,6 @@
 :host {
   display: block;
+  color: var(--mc-editable-title-color);
   .wrapper {
     font-family: var(--font-family-primary);
     position: relative;
@@ -47,15 +48,21 @@
 /*title types*/
 :host([title-type="h1"]) {
   .wrapper {
-    font-size: 24px;
+    font-size: var(--mc-font-size-lg);
     font-weight: var(--font-weight-bold);
     text-transform: capitalize;
   }
 }
 :host([title-type="h2"]) {
   .wrapper {
-    font-size: 16px;
+    font-size: var(--mc-font-size-sm);
     font-weight: var(--font-weight-bold);
+  }
+}
+:host([title-type="h3"]) {
+  .wrapper {
+    font-size: var(--mc-font-size-xxs);
+    font-weight: var(--font-weight-semibold);
   }
 }
 /*fluid*/
