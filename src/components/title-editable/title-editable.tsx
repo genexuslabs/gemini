@@ -113,7 +113,6 @@ export class GxgTitleEditable {
   private updateInputWidth = (): void => {
     if (this.fluid) {
       const ghostDivWidth = this.ghostDiv.getBoundingClientRect().width;
-      console.log(ghostDivWidth);
       this.textInput.style.width = `${ghostDivWidth}px`;
     }
   };

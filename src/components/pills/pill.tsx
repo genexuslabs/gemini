@@ -87,7 +87,6 @@ export class GxgPill {
   }
 
   render() {
-    console.log(state.mercury);
     return (
       <Host
         tabindex="0"
