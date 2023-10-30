@@ -62,6 +62,11 @@ export class GxgCard {
    */
   @Prop() readonly editableTitle: boolean = false;
 
+  /**
+   * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
+   */
+  @Prop() readonly actionable: boolean = false;
+
   componentWillLoad() {
     if (this.cardType === "article") {
       this.titleType = "h2";
@@ -81,6 +86,9 @@ export class GxgCard {
           "card--article": this.cardType === "article",
           "card--mini": this.cardType === "mini",
           "card--title": this.cardTitle !== undefined,
+          "card--actionable":
+            this.actionable &&
+            (this.cardType === "article" || this.cardType === "mini"),
         }}
         style={{
           maxWidth: this.maxWidth,
@@ -89,6 +97,7 @@ export class GxgCard {
         }}
       >
         <div
+          role={this.actionable ? "button" : "none"}
           class={{
             wrapper: true,
             "wrapper--header": this.cardTitle !== undefined,

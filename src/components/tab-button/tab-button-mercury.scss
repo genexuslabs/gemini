@@ -36,18 +36,8 @@
     &__text {
       color: var(--gray-05);
       font-size: var(--mc-font-size-xs);
-      font-weight: var(--font-weight-regular);
+      font-weight: var(--font-weight-semibold);
       text-transform: capitalize;
-    }
-  }
-}
-/*font weight variation*/
-:host([font-weight-variation]) {
-  .tab-button {
-    &--selected {
-      .tab-button__text {
-        font-weight: var(--font-weight-semibold);
-      }
     }
   }
 }

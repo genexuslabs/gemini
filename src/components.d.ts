@@ -346,6 +346,10 @@ export namespace Components {
   }
   interface GxgCard {
     /**
+     * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
+     */
+    actionable: boolean;
+    /**
      * The background color
      */
     background: background;
@@ -1832,10 +1836,6 @@ export namespace Components {
      */
     disabled: boolean;
     /**
-     * This is for mercury only
-     */
-    fontWeightVariation: boolean;
-    /**
      * Hides the tab button
      */
     hidden: boolean;
@@ -3216,6 +3216,10 @@ declare namespace LocalJSX {
     type?: "primary" | "secondary";
   }
   interface GxgCard {
+    /**
+     * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
+     */
+    actionable?: boolean;
     /**
      * The background color
      */
@@ -4829,10 +4833,6 @@ declare namespace LocalJSX {
      * Provide this attribute to make this button disabled
      */
     disabled?: boolean;
-    /**
-     * This is for mercury only
-     */
-    fontWeightVariation?: boolean;
     /**
      * Hides the tab button
      */

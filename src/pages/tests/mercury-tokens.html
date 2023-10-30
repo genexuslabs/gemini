@@ -129,7 +129,7 @@
 
       <!--tabs -->
       <article>
-        <h2 class="h2">tabs (1)</h2>
+        <h2 class="h2">tabs</h2>
         <gxg-tabs id="gxgTabs" position="top">
           <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
             <gxg-tab-button
@@ -152,67 +152,6 @@
               key="cherries"
               icon="gemini-tools/settings"
               hidden
-            ></gxg-tab-button>
-          </gxg-tab-bar>
-          <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
-            <p class="no-margin">
-              An apple is a sweet, edible fruit produced by an apple tree. Apple
-              trees are cultivated worldwide and are the most widely grown
-              species in the genus Malus. The tree originated in Central Asia,
-              where its wild ancestor, Malus sieversii, is still found today. An
-              apple is a sweet, edible fruit produced by an apple tree. Apple
-              trees are cultivated worldwide and are the most widely grown
-              species in the genus Malus. The tree originated in Central Asia,
-              where its wild ancestor, Malus sieversii, is still found today. An
-              apple is a sweet, edible fruit produced by an apple tree. Apple
-              trees are cultivated worldwide and are the most widely grown
-              species in the genus Malus.
-            </p></gxg-tab
-          >
-
-          <gxg-tab tab="bananas" key="bananas" isSelected="false">
-            A banana is an elongated, edible fruit – botanically a berry –
-            produced by several kinds of large herbaceous flowering plants in
-            the genus Musa. In some countries, bananas used for cooking may be
-            called "plantains", distinguishing them from dessert bananas.
-          </gxg-tab>
-          <gxg-tab tab="cherries" key="cherries" isSelected="false">
-            A cherry is the fruit of many plants of the genus Prunus, and is a
-            fleshy drupe. Commercial cherries are obtained from cultivars of
-            several species, such as the sweet Prunus avium and the sour Prunus
-            cerasus.
-          </gxg-tab>
-        </gxg-tabs>
-      </article>
-
-      <!--tabs -->
-      <article>
-        <h2 class="h2">tabs (2)</h2>
-        <gxg-tabs id="gxgTabs" position="top">
-          <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab-label="apples"
-              tab="apples"
-              key="apples"
-              is-selected
-              font-weight-variation
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab-label="bananas"
-              tab="bananas"
-              key="bananas"
-              icon="gemini-tools/settings"
-              font-weight-variation
-            ></gxg-tab-button>
-            <gxg-tab-button
-              slot="tab-bar"
-              tab="cherries"
-              key="cherries"
-              icon="gemini-tools/settings"
-              hidden
-              font-weight-variation
             ></gxg-tab-button>
           </gxg-tab-bar>
           <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
@@ -407,30 +346,65 @@
         </gxg-card>
       </article>
 
-      <!-- card -->
-      <article hidden>
-        <h2 class="h2">card</h2>
-        <div style="max-width: 300px">
-          <gxg-card>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-            nostrum mollitia obcaecati possimus a animi nemo ducimus dolorum
-            earum sapiente aliquam amet distinctio maiores, soluta officia
-            quidem! Molestias, officia excepturi.
-          </gxg-card>
-        </div>
+      <!-- card type article (without title) -->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="article"</code></h2>
+        <gxg-card card-type="article" class="card-article" actionable>
+          <div class="article-wrapper">
+            <div class="col col--left">
+              <gxg-icon type="gx-test/image" color="auto"></gxg-icon>
+              <span>Event Tweets</span>
+            </div>
+            <div class="col col--right">
+              <span>Modified 27/9/23 15:45</span>
+              <gxg-icon type="gx-test/explorer" color="auto"></gxg-icon>
+            </div>
+          </div>
+        </gxg-card>
       </article>
 
-      <!-- box -->
-      <article hidden>
-        <h2 class="h2">box</h2>
-        <div style="max-width: 300px">
-          <gxg-box>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-            nostrum mollitia obcaecati possimus a animi nemo ducimus dolorum
-            earum sapiente aliquam amet distinctio maiores, soluta officia
-            quidem! Molestias, officia excepturi.
-          </gxg-box>
-        </div>
+      <!-- card type actionable (mini) -->
+      <style>
+        .frontends {
+          display: flex;
+          gap: 16px;
+        }
+        .frontend {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .frontend .label {
+          font-weight: 400;
+          margin: 0;
+        }
+      </style>
+      <article>
+        <h2 class="h2">gxg-card <em>mini</em> | <code>actionable</code></h2>
+        <gxg-card
+          card-type="mini"
+          class="card-article"
+          card-title="frontend languages"
+          actionable
+        >
+          <div class="frontends">
+            <!--Angular-->
+            <div class="frontend">
+              <gxg-icon type="general/angular" color="mercury"></gxg-icon>
+              <span class="label">Web - Angular</span>
+            </div>
+            <!--iOS-->
+            <div class="frontend">
+              <gxg-icon type="general/apple" color="mercury"></gxg-icon>
+              <span class="label">iOS</span>
+            </div>
+            <!--Android-->
+            <div class="frontend">
+              <gxg-icon type="general/android" color="mercury"></gxg-icon>
+              <span class="label">Android</span>
+            </div>
+          </div>
+        </gxg-card>
       </article>
     </div>
 
