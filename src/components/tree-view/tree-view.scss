@@ -35,6 +35,7 @@ gxg-tree-view {
   // --ch-tree-view-item__dashed-line--inset-inline-end: 4px;
   --ch-tree-view-item-gap: var(--spacing-comp-02);
   --ch-tree-view-item-custom-padding-inline-start: var(--spacing-comp-01);
+  --ch-tree-view-item-custom-padding-inline-end: var(--spacing-comp-01);
 
   /*-- Parts ---*/
   &::part(dashed-line) {
@@ -43,8 +44,10 @@ gxg-tree-view {
 
   //header
   &::part(header) {
-    height: var(--spacing-comp-05);
-    display: flex;
+    min-height: var(--spacing-comp-05);
+    padding-top: var(--spacing-comp-00);
+    padding-bottom: var(--spacing-comp-00);
+    padding-inline-end: var(--spacing-comp-02);
 
     &:first-child {
     }
@@ -86,8 +89,6 @@ gxg-tree-view {
 
   //action
   &::part(action) {
-    text-transform: capitalize;
-    display: flex;
   }
 
   //action / left-img
@@ -118,7 +119,6 @@ gxg-tree-view {
   }
   //checkbox
   &::part(checkbox) {
-    margin-inline-end: 0;
   }
   &::part(checkbox__option) {
     @include checkbox("option");

@@ -24,6 +24,10 @@
         background-color: var(--color-background);
       }
 
+      .tree-container {
+        display: flex;
+      }
+
       /* .main-container {
         display: grid;
         grid-auto-rows: min-content;
@@ -385,7 +389,9 @@
           </ch-tree-x-list>
         </ch-tree-x>
 
-        <gxg-tree-view position-relative no-padding></gxg-tree-view>
+        <div class="tree-container">
+          <gxg-tree-view checkbox="true"></gxg-tree-view>
+        </div>
 
         <div>
           <ch-textblock id="contextmenu-textblock"
@@ -1098,7 +1104,8 @@
             },
             {
               id: "Root_Module",
-              caption: "Root Module",
+              caption:
+                "The universe is vast, and one fascinating fact is that it contains more stars than there are grains of sand on all the beaches on Earth.",
               editable: false,
               class: "tree-view-item tree-view-item--module",
               dragDisabled: true,
@@ -1819,7 +1826,7 @@
 
             setTimeout(() => {
               resolve(lazyModel);
-            }, 2000); // Resolves or rejects after 1 second
+            }, 100000); // Resolves or rejects after 1 second
           });
 
         testTreeX.dropItemsCallback = () =>
