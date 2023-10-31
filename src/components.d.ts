@@ -2223,6 +2223,7 @@ export namespace Components {
     renderItem: (
       itemModel: TreeViewItemModel,
       treeState: ChTreeViewRender,
+      treeHasFilter: boolean,
       lastItem: boolean,
       level: number
     ) => any;
@@ -5242,6 +5243,7 @@ declare namespace LocalJSX {
     renderItem?: (
       itemModel: TreeViewItemModel,
       treeState: ChTreeViewRender,
+      treeHasFilter: boolean,
       lastItem: boolean,
       level: number
     ) => any;

@@ -37,6 +37,7 @@ const iconAssetsPath = getAssetPath(`./icon-assets`);
 const defaultRenderItem = (
   itemModel: TreeViewItemModel,
   treeState: ChTreeViewRender,
+  treeHasFilter: boolean,
   lastItem: boolean,
   level: number
 ) =>
@@ -78,7 +79,13 @@ const defaultRenderItem = (
           defaultRenderItem(
             subModel,
             treeState,
-            treeState.showLines && index === itemModel.items.length - 1,
+            treeHasFilter,
+            treeState.showLines !== "none" &&
+              // If there is a filter applied in the current list, use the
+              // lastItemId value to calculate the last item
+              (treeHasFilter && itemModel.lastItemId !== ""
+                ? subModel.id === itemModel.lastItemId
+                : index === itemModel.items.length - 1),
             level + 1
           )
         )}
@@ -206,6 +213,7 @@ export class ChTreeViewRenderWrapper {
   @Prop() readonly renderItem: (
     itemModel: TreeViewItemModel,
     treeState: ChTreeViewRender,
+    treeHasFilter: boolean,
     lastItem: boolean,
     level: number
   ) => any = defaultRenderItem;

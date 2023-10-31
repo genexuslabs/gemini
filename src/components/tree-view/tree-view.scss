@@ -4,6 +4,8 @@
 gxg-tree-view
 ---------------------------*/
 gxg-tree-view {
+  --gxg-tree-view-icon-size: var(--spacing-comp-04);
+
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
@@ -26,9 +28,13 @@ gxg-tree-view {
 .tree-view-item
 ---------------------------*/
 .tree-view-item {
-  /*-- Css Variables ---*/
-  --checkbox-size: var(--gxg-checkbox-size);
-  --expandable-button-width: var(--spacing-comp-04);
+  /*-- Custom vars ---*/
+  --ch-tree-view-view__checkbox-size: var(--gxg-checkbox-size);
+  --ch-tree-view-view__expandable-button-width: var(--gxg-tree-view-icon-size);
+  // --ch-tree-view-item__dashed-line--inset-inline-start: 0px;
+  // --ch-tree-view-item__dashed-line--inset-inline-end: 4px;
+  --ch-tree-view-item-gap: var(--spacing-comp-02);
+  --ch-tree-view-item-custom-padding-inline-start: var(--spacing-comp-01);
 
   /*-- Parts ---*/
   &::part(dashed-line) {
@@ -37,13 +43,10 @@ gxg-tree-view {
 
   //header
   &::part(header) {
-    padding-inline-end: calc(var(--spacing-comp-02) * 0.65);
     height: var(--spacing-comp-05);
     display: flex;
-    gap: 5px;
 
     &:first-child {
-      margin-inline-start: var(--spacing-comp-01);
     }
     &:before {
       content: "";
@@ -67,7 +70,7 @@ gxg-tree-view {
   //expandable-button
   &::part(expandable-button) {
     background-color: var(--gray-00);
-    margin-inline-end: 0;
+    //margin-inline-end: 0;
     &::before {
       background-color: var(--gray-04);
       -webkit-mask-position: center;
@@ -85,15 +88,12 @@ gxg-tree-view {
   &::part(action) {
     text-transform: capitalize;
     display: flex;
-    gap: var(--spacing-comp-01);
-    //margin-inline-start: var(--spacing-comp-01);
   }
 
   //action / left-img
   &::part(left-img) {
     width: var(--spacing-comp-04);
     height: var(--spacing-comp-04);
-    margin-inline-end: 0;
   }
 
   //downloading
@@ -140,9 +140,9 @@ gxg-tree-view {
   &--module::part(action)::before {
     grid-area: left-img;
     content: "";
-    width: 14px;
-    height: 14px;
-    margin-inline-end: 4px;
+    width: var(--gxg-tree-view-icon-size);
+    height: var(--gxg-tree-view-icon-size);
+    margin-inline-end: var(--ch-tree-view-item-gap);
     background-repeat: no-repeat;
   }
   //folder
