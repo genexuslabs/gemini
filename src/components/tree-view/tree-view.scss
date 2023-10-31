@@ -18,7 +18,7 @@ gxg-tree-view {
   @include gxg-scrollbar;
 
   .ch-tree-view-container {
-    padding: var(--spacing-comp-02);
+    padding: 7px; /*although this value does not exists in gemini ds space tokens, it is the value that works best with gx-ide*/
   }
 }
 
