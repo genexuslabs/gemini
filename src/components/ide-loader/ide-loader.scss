@@ -63,7 +63,7 @@ ch-window::part(window) {
     background-color: rgba(var(--color-background--rgb), 0.45);
   }
   to {
-    background-color: rgba(var(--gray-02--rgb), 0.25);
+    background-color: rgba(var(--color-background--rgb), 0.25);
   }
 }
 /*spinner animation*/
