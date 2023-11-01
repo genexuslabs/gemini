@@ -199,4 +199,4 @@ INDEX:
   }
 }
 
-export type IdeLoaderCancelCallback = () => Promise<void>;
+export type IdeLoaderCancelCallback = () => void;
