@@ -154,7 +154,65 @@
               hidden
             ></gxg-tab-button>
           </gxg-tab-bar>
-          <gxg-tab tab="apples" key="apples" isSelected="true" flex-container>
+          <gxg-tab tab="apples" key="apples" isSelected="true">
+            <p class="no-margin">
+              An apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus.
+            </p></gxg-tab
+          >
+
+          <gxg-tab tab="bananas" key="bananas" isSelected="false">
+            A banana is an elongated, edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in
+            the genus Musa. In some countries, bananas used for cooking may be
+            called "plantains", distinguishing them from dessert bananas.
+          </gxg-tab>
+          <gxg-tab tab="cherries" key="cherries" isSelected="false">
+            A cherry is the fruit of many plants of the genus Prunus, and is a
+            fleshy drupe. Commercial cherries are obtained from cultivars of
+            several species, such as the sweet Prunus avium and the sour Prunus
+            cerasus.
+          </gxg-tab>
+        </gxg-tabs>
+      </article>
+
+      <!--tabs -->
+      <article>
+        <h2 class="h2">tabs | <code>noPadding on gxg-tab</code></h2>
+        <gxg-tabs id="gxgTabs" position="top">
+          <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="apples"
+              tab="apples"
+              key="apples"
+              is-selected
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="bananas"
+              tab="bananas"
+              key="bananas"
+              icon="gemini-tools/settings"
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab="cherries"
+              key="cherries"
+              icon="gemini-tools/settings"
+              hidden
+            ></gxg-tab-button>
+          </gxg-tab-bar>
+          <gxg-tab tab="apples" key="apples" isSelected="true" no-padding>
             <p class="no-margin">
               An apple is a sweet, edible fruit produced by an apple tree. Apple
               trees are cultivated worldwide and are the most widely grown
@@ -219,8 +277,8 @@
 
       <!-- text-link -->
       <article>
-        <h2 class="h2">gxg-text | <code>type="link" + icon</code></h2>
-        <gxg-text icon="gemini-tools/edit" type="text-link" max-width="300px">
+        <h2 class="h2">gxg-text | <code>type="text-link" + icon</code></h2>
+        <gxg-text icon="gemini-tools/edit" type="text-link">
           Edit Description
         </gxg-text>
       </article>
@@ -290,6 +348,25 @@
             The Hubble Space Telescope has captured images of galaxies that are
             billions of light-years away, showing us what they looked like in
             the distant past.
+          </p>
+        </gxg-card>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">
+          gxg-card | <code>type="section" + noPaddingTop</code>
+        </h2>
+        <gxg-card
+          card-title="project detail"
+          icon="editing-structures/attribute-formula"
+          no-padding-top
+        >
+          <p style="margin-top: 0">
+            The universe is incredibly vast and mysterious. One interesting fact
+            is that there are more stars in the observable universe than there
+            are grains of sand on all the beaches on Earth. It's mind-boggling!
+            🌌🌟
           </p>
         </gxg-card>
       </article>

@@ -42,6 +42,7 @@
 | `icon`          | `icon`           | The card type (only for mercury)                                                                                       | `string`                                                      | `undefined` |
 | `maxWidth`      | `max-width`      | The component max. width                                                                                               | `string`                                                      | `"100%"`    |
 | `minHeight`     | `min-height`     | The component min. height                                                                                              | `string`                                                      | `"auto"`    |
+| `noPaddingTop`  | `no-padding-top` | Remove padding from the top (applies only for the "section" card type)                                                 | `boolean`                                                     | `false`     |
 | `padding`       | `padding`        | The card padding                                                                                                       | `"0" \| "l" \| "m" \| "s" \| "xl" \| "xs" \| "xxl" \| "xxxl"` | `"xs"`      |
 
 ## Dependencies

@@ -387,6 +387,10 @@ export namespace Components {
      */
     minHeight: string;
     /**
+     * Remove padding from the top (applies only for the "section" card type)
+     */
+    noPaddingTop: false;
+    /**
      * The card padding
      */
     padding: padding;
@@ -3291,6 +3295,10 @@ declare namespace LocalJSX {
      * The component min. height
      */
     minHeight?: string;
+    /**
+     * Remove padding from the top (applies only for the "section" card type)
+     */
+    noPaddingTop?: false;
     /**
      * The card padding
      */

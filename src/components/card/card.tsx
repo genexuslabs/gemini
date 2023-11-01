@@ -38,9 +38,14 @@ export class GxgCard {
    */
   @Prop() maxWidth = "100%";
 
-  /*Mercury only properties*/
+  /*---  Mercury Only Tokens ---*/
 
   private titleType: EditableTitleType = "h2";
+
+  /**
+   * Remove padding from the top (applies only for the "section" card type)
+   */
+  @Prop({ reflect: true }) readonly noPaddingTop = false;
 
   /**
    * An optional title (only for mercury)

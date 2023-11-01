@@ -19,7 +19,6 @@
 .tabs-container {
   height: 100%;
   //height: calc(100% - 32px); //32 pixels is the height of the tab-bar
-  @include gxg-scrollbar();
   overflow-y: auto;
 }
 

@@ -2,6 +2,7 @@
 
 :host {
   height: 100%;
+  overflow-y: auto;
   display: block;
 
   .container {
@@ -10,6 +11,8 @@
     width: 100%;
     box-sizing: border-box;
     padding: var(--spacing-comp-03);
+    overflow-y: auto;
+    @include gxg-scrollbar();
   }
 }
 :host(.not-selected) {
@@ -47,8 +50,12 @@ LARGE VERSION (html tag has 'gxg-large' class)
 
 :host(.mercury) {
   .container {
-    padding: var(--spacing-comp-05) var(--spacing-comp-04);
     line-height: var(--line-height-default);
     font-size: var(--mc-font-size-xs);
+  }
+}
+:host(.mercury:not(.no-padding)) {
+  .container {
+    padding: var(--spacing-comp-05) var(--spacing-comp-04);
   }
 }

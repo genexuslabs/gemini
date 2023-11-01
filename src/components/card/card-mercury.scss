@@ -28,6 +28,12 @@
     border-bottom: var(--border-width-sm) solid var(--gray-13);
   }
 }
+/*no padding top*/
+:host(.mercury.card--section[no-padding-top]) {
+  .content {
+    padding-top: 0;
+  }
+}
 /*type "article"*/
 :host(.mercury.card--article) {
   color: var(--gray-06);
