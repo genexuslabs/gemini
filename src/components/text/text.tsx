@@ -1,6 +1,6 @@
 import { Component, Host, Prop, h } from "@stencil/core";
 import state from "../store";
-
+import { Color as IconColor } from "../icon/icon";
 @Component({
   tag: "gxg-text",
   styleUrl: "text.scss",
@@ -41,6 +41,21 @@ export class GxgText {
    * Max. width
    */
   @Prop({ reflect: true }) maxWidth = "100%";
+
+  /**
+   * The gemini icon type
+   */
+  @Prop() icon: string;
+
+  /**
+   * The icon alignment on the vertical axis.
+   */
+  @Prop() iconAlign: "top" | "center" = "center";
+
+  /**
+   * It will force the icon color to be auto
+   */
+  @Prop() iconAuto = false;
 
   /**
    * Italic (only for mercury)
@@ -168,10 +183,38 @@ export class GxgText {
     return text;
   }
 
+  private evaluateIconColor = (): IconColor => {
+    if (this.iconAuto) {
+      return "auto";
+    }
+    if (state.mercury && this.type === "text-regular") {
+      return "mercury";
+    } else if (state.mercury && this.type === "text-link") {
+      return "primary-enabled";
+    }
+    return "auto";
+  };
+
   render() {
     return (
-      <Host class={{ large: state.large, mercury: state.mercury }}>
-        {this.textType()}{" "}
+      <Host
+        class={{
+          large: state.large,
+          mercury: state.mercury,
+          icon: this.icon !== undefined,
+          "icon--center": this.iconAlign === "center",
+          "icon--top": this.iconAlign === "top",
+        }}
+      >
+        <div class="wrapper">
+          {this.icon ? (
+            <gxg-icon
+              type={this.icon}
+              color={this.evaluateIconColor()}
+            ></gxg-icon>
+          ) : null}
+          {this.textType()}
+        </div>
       </Host>
     );
   }

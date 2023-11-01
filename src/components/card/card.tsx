@@ -71,7 +71,7 @@ export class GxgCard {
     if (this.cardType === "article") {
       this.titleType = "h2";
     } else if (this.cardType === "mini") {
-      this.titleType = "h3";
+      this.titleType = "h4";
     }
   }
 

@@ -31,8 +31,9 @@ graph TD;
   gxg-ide-loader --> gxg-text
   gxg-ide-loader --> gxg-button
   gxg-ide-loader --> ch-window
-  gxg-button --> gxg-icon
+  gxg-text --> gxg-icon
   gxg-icon --> ch-icon
+  gxg-button --> gxg-icon
   ch-window --> ch-window-close
   style gxg-ide-loader fill:#f9f,stroke:#333,stroke-width:4px
 ```

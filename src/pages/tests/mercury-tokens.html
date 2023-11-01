@@ -185,11 +185,43 @@
         </gxg-tabs>
       </article>
 
-      <!-- text -->
+      <!-- text-regular -->
       <article>
         <h2 class="h2">gxg-text | <code>type="regular"</code></h2>
         <gxg-text>
           Created YYYY-MM-DD 12:41 - Last Build YYYY-MM-DD 16:34
+        </gxg-text>
+      </article>
+
+      <!-- text-regular -->
+      <article>
+        <h2 class="h2">
+          gxg-text | <code>type="regular" + icon + iconAlign="center"</code>
+        </h2>
+        <gxg-text icon="gx-server/delete" max-width="300px">
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth.
+        </gxg-text>
+      </article>
+
+      <!-- text-regular -->
+      <article>
+        <h2 class="h2">
+          gxg-text | <code>type="regular" + icon + iconAlign="top"</code>
+        </h2>
+        <gxg-text icon="gemini-tools/edit" icon-align="top" max-width="300px">
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth.
+        </gxg-text>
+      </article>
+
+      <!-- text-link -->
+      <article>
+        <h2 class="h2">gxg-text | <code>type="link" + icon</code></h2>
+        <gxg-text icon="gemini-tools/edit" type="text-link" max-width="300px">
+          Edit Description
         </gxg-text>
       </article>
 
@@ -407,13 +439,5 @@
         </gxg-card>
       </article>
     </div>
-
-    <script>
-      const toggleMercuryBtn = document.getElementById("toggle-mercury-btn");
-      const html = document.querySelector("html");
-      toggleMercuryBtn.addEventListener("click", () => {
-        html.classList.toggle("dark");
-      });
-    </script>
   </body>
 </html>

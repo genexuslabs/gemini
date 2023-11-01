@@ -23,6 +23,9 @@
 | ----------- | ------------ | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | `disabled`  | `disabled`   | Disables the interactive types of text      | `boolean`                                                                                                                                                                                                                    | `false`          |
 | `href`      | `href`       | The href (for "link" or "link-gray" types   | `string`                                                                                                                                                                                                                     | `undefined`      |
+| `icon`      | `icon`       | The gemini icon type                        | `string`                                                                                                                                                                                                                     | `undefined`      |
+| `iconAlign` | `icon-align` | The icon alignment on the vertical axis.    | `"center" \| "top"`                                                                                                                                                                                                          | `"center"`       |
+| `iconAuto`  | `icon-auto`  | It will force the icon color to be auto     | `boolean`                                                                                                                                                                                                                    | `false`          |
 | `italic`    | `italic`     | Italic (only for mercury)                   | `boolean`                                                                                                                                                                                                                    | `false`          |
 | `maxWidth`  | `max-width`  | Max. width                                  | `string`                                                                                                                                                                                                                     | `"100%"`         |
 | `padding`   | `padding`    | Text padding                                | `"m" \| "none" \| "s"`                                                                                                                                                                                                       | `"none"`         |
@@ -36,10 +39,16 @@
 
 - [gxg-ide-loader](../ide-loader)
 
+### Depends on
+
+- [gxg-icon](../icon)
+
 ### Graph
 
 ```mermaid
 graph TD;
+  gxg-text --> gxg-icon
+  gxg-icon --> ch-icon
   gxg-ide-loader --> gxg-text
   style gxg-text fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -160,6 +160,15 @@ export class ChTreeViewRenderWrapper {
   @Prop() readonly filter: string;
 
   /**
+   * This property lets you determine the debounce time (in ms) that the
+   * control waits until it processes the changes to the filter property.
+   * Consecutive changes to the `filter` property between this range, reset the
+   * timeout to process the filter.
+   * Only works if `filterType = "caption" | "metadata"`.
+   */
+  @Prop() readonly filterDebounce: number = 0;
+
+  /**
    * This property lets you determine the list of items that will be filtered.
    * Only works if `filterType = "id-list"`.
    */
@@ -369,6 +378,7 @@ export class ChTreeViewRenderWrapper {
         filter={this.filter}
         filterList={this.filterList}
         filterOptions={this.filterOptions}
+        filterDebounce={this.filterDebounce}
         filterType={this.filterType}
         lazyLoadTreeItemsCallback={this.lazyLoadTreeItemsCallback}
         modifyItemCaptionCallback={this.modifyItemCaptionCallback}

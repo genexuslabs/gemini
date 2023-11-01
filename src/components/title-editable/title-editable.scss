@@ -61,6 +61,12 @@
 }
 :host([title-type="h3"]) {
   .wrapper {
+    font-size: var(--mc-font-size-xs);
+    font-weight: var(--font-weight-semibold);
+  }
+}
+:host([title-type="h4"]) {
+  .wrapper {
     font-size: var(--mc-font-size-xxs);
     font-weight: var(--font-weight-semibold);
   }

@@ -169,6 +169,6 @@ export class GxgTitleEditable {
   }
 }
 
-export type EditableTitleType = "h1" | "h2" | "h3";
+export type EditableTitleType = "h1" | "h2" | "h3" | "h4";
 
 export type EditableTitleFocusType = "text" | "line";

@@ -1910,6 +1910,18 @@ export namespace Components {
      */
     href: string;
     /**
+     * The gemini icon type
+     */
+    icon: string;
+    /**
+     * The icon alignment on the vertical axis.
+     */
+    iconAlign: "top" | "center";
+    /**
+     * It will force the icon color to be auto
+     */
+    iconAuto: boolean;
+    /**
      * Italic (only for mercury)
      */
     italic: boolean;
@@ -2197,6 +2209,10 @@ export namespace Components {
      * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
      */
     filter: string;
+    /**
+     * This property lets you determine the debounce time (in ms) that the control waits until it processes the changes to the filter property. Consecutive changes to the `filter` property between this range, reset the timeout to process the filter. Only works if `filterType = "caption" | "metadata"`.
+     */
+    filterDebounce: number;
     /**
      * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
      */
@@ -4925,6 +4941,18 @@ declare namespace LocalJSX {
      */
     href?: string;
     /**
+     * The gemini icon type
+     */
+    icon?: string;
+    /**
+     * The icon alignment on the vertical axis.
+     */
+    iconAlign?: "top" | "center";
+    /**
+     * It will force the icon color to be auto
+     */
+    iconAuto?: boolean;
+    /**
      * Italic (only for mercury)
      */
     italic?: boolean;
@@ -5220,6 +5248,10 @@ declare namespace LocalJSX {
      * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
      */
     filter?: string;
+    /**
+     * This property lets you determine the debounce time (in ms) that the control waits until it processes the changes to the filter property. Consecutive changes to the `filter` property between this range, reset the timeout to process the filter. Only works if `filterType = "caption" | "metadata"`.
+     */
+    filterDebounce?: number;
     /**
      * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
      */

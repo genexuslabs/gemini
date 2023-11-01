@@ -1,6 +1,9 @@
 :host(.mercury) {
-  .gxg-text {
+  .gxg-text,
+  .gxg-link {
     font-size: var(--mc-font-size-xs);
+  }
+  .gxg-text {
     color: var(--gray-02);
   }
 }

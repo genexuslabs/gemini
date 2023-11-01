@@ -2,15 +2,19 @@
 @import "../../globals/mixins";
 
 :host {
-  display: block;
+  display: flex;
   font-size: 14px;
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-comp-02);
+  }
   p,
   q,
   a {
     display: block;
     margin: 0;
     padding: 0;
-    margin: 0 auto;
     line-height: 1.6em;
 
     &.no-line {
@@ -24,22 +28,16 @@
 }
 /*text align*/
 :host([text-align="start"]) {
-  text-align: start;
-  * {
-    text-align: start;
-  }
+  justify-content: flex-start;
 }
 :host([text-align="center"]) {
-  text-align: center;
-  * {
+  justify-content: center;
+  .wrapper * {
     text-align: center;
   }
 }
 :host([text-align="end"]) {
-  text-align: end;
-  * {
-    text-align: end;
-  }
+  justify-content: flex-end;
 }
 /*padding*/
 :host([padding="s"]) {
@@ -66,6 +64,22 @@
       outline: none;
       text-decoration: underline;
     }
+  }
+}
+
+/*--- With Icon ---*/
+:host(.icon) {
+  display: flex;
+  flex-direction: row;
+}
+:host(.icon--center) {
+  .wrapper {
+    align-items: center;
+  }
+}
+:host(.icon--top) {
+  .wrapper {
+    align-items: flex-start;
   }
 }
 
