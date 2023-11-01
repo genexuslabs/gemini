@@ -55,6 +55,14 @@ ch-window::part(window) {
       display: none;
     }
   }
+
+  &__cancel-button {
+    &--move-up {
+      /*If the loader has title, but no description, the space between the title and the button is a little too much. Move up a little bit*/
+      position: relative;
+      top: -4px;
+    }
+  }
 }
 
 /*background color animation*/

@@ -55,6 +55,7 @@ import {
   Style,
 } from "./components/form-text/form-text";
 import { Color, Size } from "./components/icon/icon";
+import { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
 import {
   ItemsInformation,
   KeyboardSuggestions,
@@ -1172,6 +1173,10 @@ export namespace Components {
      * The time the loader will await before abort.
      */
     abortTime: number;
+    /**
+     * The cancel callback
+     */
+    cancelCallback: IdeLoaderCancelCallback;
     /**
      * The cancel button label (optional)
      */
@@ -4145,6 +4150,10 @@ declare namespace LocalJSX {
      * The time the loader will await before abort.
      */
     abortTime?: number;
+    /**
+     * The cancel callback
+     */
+    cancelCallback?: IdeLoaderCancelCallback;
     /**
      * The cancel button label (optional)
      */

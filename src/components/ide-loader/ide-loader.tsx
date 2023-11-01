@@ -138,7 +138,11 @@ INDEX:
   private renderCancelButton = (): HTMLGxgButtonElement | null => {
     return this.cancelLabel ? (
       <gxg-button
-        class="loader__cancel-button"
+        class={{
+          [`loader__cancel-button`]: true,
+          "loader__cancel-button--move-up":
+            this.loaderTitle && !this.description,
+        }}
         type="secondary-text-icon"
         onClick={this.cancelProcess}
       >
