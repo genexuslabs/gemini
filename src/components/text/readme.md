@@ -30,6 +30,20 @@
 | `textAlign` | `text-align` | Text alignment                              | `"center" \| "end" \| "start"`                                                                                                                                                                                               | `"start"`        |
 | `type`      | `type`       | Text type                                   | `"button-like" \| "text-alert-error" \| "text-alert-success" \| "text-alert-warning" \| "text-gray" \| "text-link" \| "text-link-gray" \| "text-link-gray-no-line" \| "text-link-no-line" \| "text-quote" \| "text-regular"` | `"text-regular"` |
 
+## Dependencies
+
+### Used by
+
+- [gxg-ide-loader](../ide-loader)
+
+### Graph
+
+```mermaid
+graph TD;
+  gxg-ide-loader --> gxg-text
+  style gxg-text fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

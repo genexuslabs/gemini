@@ -42,7 +42,16 @@
         <img src="../assets/new-kb-dark.png" alt="" />
       </div>
       <gxg-button class="show-loader-btn">show loader</gxg-button>
-      <gxg-ide-loader description="Loading kbs..."></gxg-ide-loader>
+      <gxg-ide-loader
+        loader-title="Loading kbs..."
+        cancel-label="Cancel"
+      ></gxg-ide-loader>
+      <!--with description-->
+      <!-- <gxg-ide-loader
+      loader-title="Loading kbs..."
+      description="Preparing the digital canvas, applying the finishing touches, and crafting your web experience with care.."
+      cancel-label="Cancel"
+    ></gxg-ide-loader> -->
     </div>
 
     <script>
@@ -51,9 +60,6 @@
       const showLoaderBtn = document.querySelector(".show-loader-btn");
       showLoaderBtn.addEventListener("click", () => {
         loader.show = true;
-        setTimeout(() => {
-          loader.show = false;
-        }, 2000);
       });
       loader.container = containerRef;
     </script>

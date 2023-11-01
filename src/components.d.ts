@@ -1169,6 +1169,14 @@ export namespace Components {
   }
   interface GxgIdeLoader {
     /**
+     * The time the loader will await before abort.
+     */
+    abortTime: number;
+    /**
+     * The cancel button label (optional)
+     */
+    cancelLabel: string;
+    /**
      * The container element for the loader.
      */
     container: HTMLElement;
@@ -1176,6 +1184,10 @@ export namespace Components {
      * The loader description (optional)
      */
     description: string;
+    /**
+     * The loader title (optional)
+     */
+    loaderTitle: string;
     /**
      * It shows the loader
      */
@@ -4130,6 +4142,14 @@ declare namespace LocalJSX {
   }
   interface GxgIdeLoader {
     /**
+     * The time the loader will await before abort.
+     */
+    abortTime?: number;
+    /**
+     * The cancel button label (optional)
+     */
+    cancelLabel?: string;
+    /**
      * The container element for the loader.
      */
     container?: HTMLElement;
@@ -4137,6 +4157,10 @@ declare namespace LocalJSX {
      * The loader description (optional)
      */
     description?: string;
+    /**
+     * The loader title (optional)
+     */
+    loaderTitle?: string;
     /**
      * It shows the loader
      */

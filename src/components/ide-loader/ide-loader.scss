@@ -13,40 +13,48 @@ ch-window::part(window) {
   width: 100%;
   height: 100%;
 }
-.loader-wrapper {
-  opacity: 0;
-  transition: var(--show-transition) opacity;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  background-color: rgba(var(--color-background--rgb), 0.45);
-  backdrop-filter: blur(15px);
-  padding: var(--spacing-comp-05);
-  flex-direction: column;
-  gap: var(--spacing-comp-04);
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  -webkit-animation: wrapper 0.6s infinite alternate;
-  animation: wrapper 0.6s infinite alternate;
-  color: var(--color-on-secondary);
+.loader {
+  &__wrapper {
+    opacity: 0;
+    transition: var(--show-transition) opacity;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgba(var(--color-background--rgb), 0.45);
+    backdrop-filter: blur(15px);
+    padding: var(--spacing-comp-05);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -webkit-animation: wrapper 0.6s infinite alternate;
+    animation: wrapper 0.6s infinite alternate;
+    color: var(--color-on-secondary);
 
-  &--visible {
-    opacity: 1;
+    &--visible {
+      opacity: 1;
+    }
   }
-}
-.loader-spinner {
-  border: 2px var(--gray-01) solid;
-  border-top: 2px var(--color-primary-enabled) solid;
-  border-radius: 50%;
-  -webkit-animation: spinner 0.6s infinite linear;
-  animation: spinner 0.6s infinite linear;
-  width: 30px;
-  height: 30px;
-}
-.loader-description {
-  max-width: 400px;
-  text-align: center;
+  &__spinner {
+    border: 2px var(--gray-01) solid;
+    border-top: 2px var(--color-primary-enabled) solid;
+    border-radius: 50%;
+    -webkit-animation: spinner 0.6s infinite linear;
+    animation: spinner 0.6s infinite linear;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: var(--spacing-comp-05);
+    gap: var(--spacing-comp-03);
+    max-width: 400px;
+    &--hidden {
+      display: none;
+    }
+  }
 }
 
 /*background color animation*/

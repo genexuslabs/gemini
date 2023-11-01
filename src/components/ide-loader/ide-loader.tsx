@@ -26,6 +26,7 @@ INDEX:
    * The transition speed for displaying/hiding the ch-window
    */
   private showTransition = 200;
+  private timeoutReference;
 
   // 2. REFERENCE TO ELEMENTS //
 
@@ -46,14 +47,29 @@ INDEX:
   // 4.PUBLIC PROPERTY API | WATCH'S //
 
   /**
+   * The loader title (optional)
+   */
+  @Prop() loaderTitle: string;
+
+  /**
    * The loader description (optional)
    */
   @Prop() description: string;
 
   /**
+   * The cancel button label (optional)
+   */
+  @Prop() cancelLabel: string;
+
+  /**
    * It shows the loader
    */
   @Prop() show = false;
+
+  /**
+   * The time the loader will await before abort.
+   */
+  @Prop() abortTime = 5000;
 
   @Watch("show")
   showHandler(show: boolean): void {
@@ -68,6 +84,14 @@ INDEX:
       setTimeout(() => {
         this.showWindow = false;
       }, this.showTransition);
+    }
+    if (show) {
+      if (this.timeoutReference) {
+        clearTimeout(this.timeoutReference);
+      }
+      this.timeoutReference = setTimeout(() => {
+        this.show = false;
+      }, this.abortTime);
     }
   }
 
@@ -86,6 +110,43 @@ INDEX:
 
   // 9.LOCAL METHODS //
 
+  private renderTitle = (): HTMLGxgTitleElement | null => {
+    return this.loaderTitle ? (
+      <gxg-title class="loader__title" type="title-04" alignment="center">
+        {this.loaderTitle}
+      </gxg-title>
+    ) : null;
+  };
+
+  private renderDescription = (): HTMLGxgTextElement | null => {
+    return this.description ? (
+      <gxg-text
+        class="loader__description"
+        type="text-regular"
+        textAlign="center"
+      >
+        {this.description}
+      </gxg-text>
+    ) : null;
+  };
+
+  private renderCancelButton = (): HTMLGxgButtonElement | null => {
+    return this.cancelLabel ? (
+      <gxg-button
+        class="loader__cancel-button"
+        type="secondary-text-icon"
+        onClick={this.cancelProcess}
+      >
+        {this.cancelLabel}
+      </gxg-button>
+    ) : null;
+  };
+
+  private cancelProcess = (): void => {
+    clearTimeout(this.timeoutReference);
+    this.show = false;
+  };
+
   //  10.RENDER() FUNCTION //
 
   render() {
@@ -103,21 +164,22 @@ INDEX:
         >
           <div
             class={{
-              "loader-wrapper": true,
-              "loader-wrapper--visible": this.showWrapper,
+              [`loader__wrapper`]: true,
+              "loader__wrapper--visible": this.showWrapper,
             }}
           >
-            <div class="loader-spinner"></div>
-            {this.description ? (
-              <gxg-title
-                class="loader-description"
-                type="title-04"
-                alignment="center"
-              >
-                {this.description}
-              </gxg-title>
-            ) : // <gxg-title>{this.description}</gxg-title>
-            null}
+            <div class="loader__spinner"></div>
+            <div
+              class={{
+                "loader__content-wrapper": true,
+                "loader__content-wrapper--hidden":
+                  !this.description && !this.loaderTitle && !this.cancelLabel,
+              }}
+            >
+              {this.renderTitle()}
+              {this.renderDescription()}
+              {this.renderCancelButton()}
+            </div>
           </div>
         </ch-window>
       </Host>
