@@ -303,6 +303,11 @@ export class GxgFormText implements FormComponent {
     }
   }
 
+  @Method()
+  async clearInput() {
+    this.clearButtonFunc();
+  }
+
   componentWillLoad() {
     this.evaluateIcon();
     this.attachExportParts();

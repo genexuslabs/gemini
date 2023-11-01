@@ -159,11 +159,16 @@
       multiple
     ></gxg-form-text>
     <button id="open-file-btn">open file</button>
+    <button id="clear-file-btn">clear</button>
     <script>
       const openFileBtn = document.getElementById("open-file-btn");
+      const clearFileBtn = document.getElementById("clear-file-btn");
       const inputFile = document.getElementById("gxg-form-text-file");
       openFileBtn.addEventListener("click", () => {
         inputFile.openFile();
+      });
+      clearFileBtn.addEventListener("click", (e) => {
+        inputFile.clearInput();
       });
       inputFile.addEventListener("fileSelected", (e) => {
         console.log("file selected", e);

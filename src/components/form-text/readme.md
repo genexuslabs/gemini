@@ -117,6 +117,12 @@
 
 ## Methods
 
+### `clearInput() => Promise<void>`
+
+#### Returns
+
+Type: `Promise<void>`
+
 ### `openFile() => Promise<void>`
 
 #### Returns

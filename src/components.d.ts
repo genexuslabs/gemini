@@ -941,6 +941,7 @@ export namespace Components {
      * The presence of this attribute displays a clear (cross) button-icon on the right side
      */
     clearButton: boolean;
+    clearInput: () => Promise<void>;
     /**
      * If true, it will position the cursor at the end when the input is focused.
      */
