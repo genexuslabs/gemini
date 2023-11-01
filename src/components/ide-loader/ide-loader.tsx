@@ -62,6 +62,11 @@ INDEX:
   @Prop() cancelLabel: string;
 
   /**
+   * The cancel callback
+   */
+  @Prop() cancelCallback: IdeLoaderCancelCallback;
+
+  /**
    * It shows the loader
    */
   @Prop() show = false;
@@ -143,6 +148,9 @@ INDEX:
   };
 
   private cancelProcess = (): void => {
+    if (this.cancelCallback) {
+      this.cancelCallback();
+    }
     clearTimeout(this.timeoutReference);
     this.show = false;
   };
@@ -186,3 +194,5 @@ INDEX:
     );
   }
 }
+
+export type IdeLoaderCancelCallback = () => Promise<void>;
