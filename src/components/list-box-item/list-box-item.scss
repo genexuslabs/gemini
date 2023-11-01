@@ -50,7 +50,7 @@
 }
 :host(.has-icon.no-checkbox) {
   .container {
-    padding-inline-start: var(--spacing-comp-01);
+    padding-inline-start: calc(var(--spacing-comp-01) * 1.5);
   }
 }
 .description {
@@ -90,6 +90,6 @@ LARGE VERSION (html tag has 'gxg-large' class)
 
 :host(.large) {
   .container {
-    padding: var(--spacing-comp-01);
+    padding: var(--spacing-comp-01) var(--spacing-comp-02);
   }
 }
