@@ -24,10 +24,6 @@
 
 ## Dependencies
 
-### Used by
-
-- [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-icon](../icon)
@@ -38,7 +34,6 @@
 graph TD;
   gxg-combo-box-item --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-test --> gxg-combo-box-item
   style gxg-combo-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

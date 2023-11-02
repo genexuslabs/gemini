@@ -2,7 +2,6 @@
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property             | Attribute              | Description                                                                                                                    | Type      | Default     |
@@ -11,14 +10,13 @@
 | `checkbox`           | `checkbox`             | The presence of this attribute will add a checkbox to the item.                                                                | `boolean` | `false`     |
 | `checked`            | `checked`              | The presence of this attribute will make the checkbox checked.                                                                 | `boolean` | `false`     |
 | `disabled`           | `disabled`             | The presence of this attribute disabled the list-box-item                                                                      | `boolean` | `undefined` |
-| `emitCheckboxChange` | `emit-checkbox-change` | The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.                       | `boolean` | `false`     |
+| `emitCheckboxChange` | `emit-checkbox-change` | The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.                       | `boolean` | `true`      |
 | `highlighted`        | `highlighted`          | The presence of this attribute sets this item as highlighted                                                                   | `boolean` | `false`     |
 | `icon`               | `icon`                 | Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons                                 | `string`  | `undefined` |
 | `index`              | `index`                | This property is set by the list-box item. It should not be set by the user.                                                   | `number`  | `null`      |
 | `selected`           | `selected`             | The presence of this attribute sets this item as selected                                                                      | `boolean` | `false`     |
 | `siblingIsSelected`  | `sibling-is-selected`  | This property is for internal use                                                                                              | `boolean` | `false`     |
 | `value`              | `value`                | The item value. If value is not provided, the value will be the item innerHTML.                                                | `any`     | `undefined` |
-
 
 ## Events
 
@@ -29,8 +27,11 @@
 | `itemLoaded`           | (This event is for internal use.) | `CustomEvent<any>`                                                                                                              |
 | `itemSelected`         | (This event is for internal use.) | `CustomEvent<any>`                                                                                                              |
 
-
 ## Dependencies
+
+### Used by
+
+- [gxg-test](../test)
 
 ### Depends on
 
@@ -38,6 +39,7 @@
 - [gxg-icon](../icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   gxg-list-box-item --> gxg-form-checkbox
@@ -49,9 +51,10 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
+  gxg-test --> gxg-list-box-item
   style gxg-list-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

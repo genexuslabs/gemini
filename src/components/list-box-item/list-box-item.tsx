@@ -67,7 +67,7 @@ export class GxgListboxItem {
   /**
    * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
    */
-  @Prop() emitCheckboxChange = false;
+  @Prop() emitCheckboxChange = true;
 
   /**
    * (This event is for internal use.)

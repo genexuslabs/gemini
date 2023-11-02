@@ -1895,15 +1895,7 @@ export namespace Components {
     setActiveTab: (tab: string) => Promise<void>;
     tabBarBorder: boolean;
   }
-  interface GxgTest {
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    comboValues: (
-      | { id: string; label: string; iconName: string; selected: boolean }
-      | { id: string; label: string; iconName: string; selected?: undefined }
-    )[];
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * Disables the interactive types of text
@@ -4930,15 +4922,7 @@ declare namespace LocalJSX {
     position?: TabsPosition;
     tabBarBorder?: boolean;
   }
-  interface GxgTest {
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    comboValues?: (
-      | { id: string; label: string; iconName: string; selected: boolean }
-      | { id: string; label: string; iconName: string; selected?: undefined }
-    )[];
-  }
+  interface GxgTest {}
   interface GxgText {
     /**
      * Disables the interactive types of text

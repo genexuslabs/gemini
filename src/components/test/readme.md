@@ -2,33 +2,33 @@
 
 <!-- Auto Generated Below -->
 
-## Properties
-
-| Property      | Attribute | Description                                             | Type                                                                                                                                                | Default                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------- | --------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `comboValues` | --        | The presence of this attribute makes the input disabled | `({ id: string; label: string; iconName: string; selected: boolean; } \| { id: string; label: string; iconName: string; selected?: undefined; })[]` | `[ { id: "web-net", label: "Web (.NET)", iconName: null, }, { id: "android", label: "Android", iconName: "general/android", selected: true, }, { id: "apple", label: "Apple", iconName: "general/apple", }, { id: "web-angular", label: "Web (Angular)", iconName: "general/angular", }, { id: "we-chat-mini-program", label: "We Chat Mini Program", iconName: null, }, ]` |
-
 ## Dependencies
 
 ### Depends on
 
-- [gxg-combo-box-item](../combo-box-item)
-- [gxg-form-text](../form-text)
+- [gxg-list-box](../list-box)
+- [gxg-list-box-item](../list-box-item)
 
 ### Graph
 
 ```mermaid
 graph TD;
-  gxg-test --> gxg-combo-box-item
-  gxg-test --> gxg-form-text
-  gxg-combo-box-item --> gxg-icon
+  gxg-test --> gxg-list-box
+  gxg-test --> gxg-list-box-item
+  gxg-list-box --> gxg-button
+  gxg-list-box --> gxg-form-message
+  gxg-list-box --> gxg-tooltip
+  gxg-list-box --> gxg-icon
+  gxg-button --> gxg-icon
   gxg-icon --> ch-icon
-  gxg-form-text --> gxg-icon
-  gxg-form-text --> gxg-label
-  gxg-form-text --> gxg-form-message
-  gxg-form-text --> gxg-tooltip
-  gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
+  gxg-list-box-item --> gxg-form-checkbox
+  gxg-list-box-item --> gxg-icon
+  gxg-form-checkbox --> gxg-icon
+  gxg-form-checkbox --> gxg-label
+  gxg-form-checkbox --> gxg-form-message
+  gxg-form-checkbox --> gxg-tooltip
+  gxg-label --> gxg-tooltip
   style gxg-test fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
