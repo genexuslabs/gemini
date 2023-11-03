@@ -389,7 +389,7 @@ export namespace Components {
     /**
      * Remove padding from the top (applies only for the "section" card type)
      */
-    noPaddingTop: false;
+    noPaddingTop: boolean;
     /**
      * The card padding
      */
@@ -3286,7 +3286,7 @@ declare namespace LocalJSX {
     /**
      * Remove padding from the top (applies only for the "section" card type)
      */
-    noPaddingTop?: false;
+    noPaddingTop?: boolean;
     /**
      * The card padding
      */

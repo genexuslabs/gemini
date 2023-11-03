@@ -45,7 +45,7 @@ export class GxgCard {
   /**
    * Remove padding from the top (applies only for the "section" card type)
    */
-  @Prop({ reflect: true }) readonly noPaddingTop = false;
+  @Prop({ reflect: true }) readonly noPaddingTop: boolean = false;
 
   /**
    * An optional title (only for mercury)
