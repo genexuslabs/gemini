@@ -107,7 +107,7 @@ export class GxgFormRadio {
             disabled={this.disabled}
             onKeyDown={this.handlerOnKeyDown.bind(this)}
             checked={this.checked}
-            class={{ checked: this.checked && !this.disabled }}
+            class={{ checked: this.checked }}
           ></input>
           <span
             class={{ radiobtn: true, "radiobtn--error": this.error }}

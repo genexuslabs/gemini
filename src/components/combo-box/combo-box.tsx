@@ -15,12 +15,7 @@ import {
   ComboBoxItemValue,
   ItemInformation,
 } from "../combo-box-item/combo-box-item";
-import { IconPosition } from "../form-text/form-text";
-import {
-  requiredLabel,
-  formMessageLogic,
-  formTooltipLogic,
-} from "../../common/form";
+import { formMessageLogic, formTooltipLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
@@ -40,10 +35,6 @@ export class GxgComboBox implements FormComponent {
     toggleButton: "toggle-button",
   };
   private exportparts: string;
-  private valueBeforeDisabled;
-  private textBeforeDisabled;
-  private iconBeforeDisabled;
-  private iconPositionBeforeDisabled;
   private _mo;
   private componentDidLoadFlag = false;
 
@@ -194,21 +185,6 @@ export class GxgComboBox implements FormComponent {
    *
    */
   @Prop() informationMessage: string;
-
-  @Watch("disabled")
-  disabledHandler(newValue): void {
-    if (newValue === true) {
-      this.valueBeforeDisabled = this.value;
-      this.textBeforeDisabled = this.text;
-      this.iconBeforeDisabled = this.inputTextIcon;
-      this.value = null;
-      this.inputTextIcon = null;
-    } else {
-      this.value = this.valueBeforeDisabled;
-      this.text = this.textBeforeDisabled;
-      this.inputTextIcon = this.iconBeforeDisabled;
-    }
-  }
 
   private userTyped = false;
 
@@ -792,7 +768,6 @@ export class GxgComboBox implements FormComponent {
                   onValueChanged={this.handleValueChangeFormText}
                   cursorEnd={this.cursorEnd}
                   preventValueChangedEmit
-                  preventValueChangeOnDisabled
                   class={{ "clear-icon": clearIcon }}
                   part={this.parts.input}
                 ></gxg-form-text>

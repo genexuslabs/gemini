@@ -31,7 +31,6 @@ export class GxgFormText implements FormComponent {
   private parts = {
     input: "input",
   };
-  private valueBeforeDisabled;
   private exportparts: string;
   @Element() el: HTMLElement;
   textInput!: HTMLInputElement;
@@ -163,11 +162,6 @@ export class GxgFormText implements FormComponent {
    */
   @Prop() preventValueChangedEmit = false;
 
-  /**
-   * Prevent "value" from being changed when the input is disabled (helpful for cases where this component is used inside another component and this behavior causes conflicts. )
-   */
-  @Prop() preventValueChangeOnDisabled = false;
-
   /* VALIDATION */
 
   /**
@@ -275,18 +269,6 @@ export class GxgFormText implements FormComponent {
     }
     if (this.minimal) {
       this.updateGhostSpan();
-    }
-  }
-
-  @Watch("disabled")
-  disabledHandler(newValue): void {
-    if (!this.preventValueChangeOnDisabled) {
-      if (newValue === true) {
-        this.valueBeforeDisabled = this.value;
-        this.value = null;
-      } else {
-        this.value = this.valueBeforeDisabled;
-      }
     }
   }
 

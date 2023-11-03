@@ -12,6 +12,8 @@
   --gxg-list-item-height: var(--spacing-comp-05);
   --gxg-list-item-height--spaced: calc(var(--spacing-comp-05) + 2px);
   /*COLORS*/
+  --gxg-row-background-color-even: var(--color-background);
+  --gxg-row-background-color-odd: var(--gray-00);
   --gxg-border-color--regular: var(--gray-02);
   /*hover*/
   --gxg-background-color--hover: var(--gray-01);
@@ -26,7 +28,8 @@
   --gxg-color--active: var(--color-on-primary);
   /*disabled*/
   --gxg-border-color--disabled: var(--gray-04);
-  --gxg-background-color--disabled: var(--gray-00);
+  /*--gxg-background-color--disabled: var(--gray-00);*/
+  --gxg-background-color--disabled: var(--color-background);
   --gxg-color--disabled: var(--gray-04);
   /*checkbox*/
   --gxg-checkbox-size: var(--spacing-comp-04);

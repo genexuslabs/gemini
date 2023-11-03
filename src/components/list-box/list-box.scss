@@ -9,11 +9,12 @@
   background-color: var(--color-background);
   color: var(--color-on-background);
   height: 100%;
-
   .container {
     height: 100%;
     border: var(--border-radius-xs) var(--border-style-regular)
       var(--gxg-border-color--regular);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
   }
   .header {
     width: 100%;

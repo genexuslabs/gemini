@@ -29,7 +29,6 @@ export class GxgFormTextarea implements FormComponent {
   private parts = {
     textarea: "textarea",
   };
-  private valueBeforeDisabled;
   private exportparts: string;
 
   @Element() el: HTMLElement;
@@ -170,16 +169,6 @@ export class GxgFormTextarea implements FormComponent {
   METHODS
   *********************************/
 
-  @Watch("disabled")
-  disabledHandler(newValue): void {
-    if (newValue === true) {
-      this.valueBeforeDisabled = this.value;
-      this.value = null;
-    } else {
-      this.value = this.valueBeforeDisabled;
-    }
-  }
-
   componentWillLoad() {
     this.attachExportParts();
     if (this.singleLine) {
@@ -266,7 +255,7 @@ export class GxgFormTextarea implements FormComponent {
             disabled={this.disabled}
             onInput={this.handleInput.bind(this)}
             onChange={this.handleChange.bind(this)}
-            value={this.disabled ? null : this.value}
+            value={this.value}
             rows={this.rows}
             required={this.required}
             style={{ height: this.height }}

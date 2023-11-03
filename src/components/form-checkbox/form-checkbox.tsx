@@ -23,7 +23,6 @@ import { ValidationStatus } from "../../common/types";
   shadow: { delegatesFocus: true },
 })
 export class GxgFormCheckbox implements FormComponent {
-  private valueBeforeDisabled;
   private parts = {
     input: "input",
   };
@@ -152,16 +151,6 @@ export class GxgFormCheckbox implements FormComponent {
       value: this.checked,
       disabled: this.disabled,
     });
-  }
-
-  @Watch("disabled")
-  disabledHandler(newValue): void {
-    if (newValue === true) {
-      this.valueBeforeDisabled = this.checked;
-      this.checked = null;
-    } else {
-      this.checked = this.valueBeforeDisabled;
-    }
   }
 
   handlerOnKeyUp(event) {

@@ -173,9 +173,6 @@ export class GxgListBox implements FormComponent {
 
   @Method()
   async getSelectedItems(): Promise<ItemsInformation[]> {
-    if (this.disabled) {
-      return null;
-    }
     const selectedItems: HTMLGxgListBoxItemElement[] = this.getSelectedItemsFunc();
     const selectedItemsInformation: ItemsInformation[] = [];
     selectedItems.forEach((selectedItem) => {
@@ -339,6 +336,11 @@ export class GxgListBox implements FormComponent {
       const enabledItems = this.getEnabledItems();
       enabledItems?.forEach((item) => {
         item.disabled = true;
+      });
+    } else {
+      const disabledItems = this.getDisabledItems();
+      disabledItems?.forEach((item) => {
+        item.disabled = false;
       });
     }
   }
@@ -547,10 +549,10 @@ export class GxgListBox implements FormComponent {
 
   getSelectedItemsFunc(): HTMLGxgListBoxItemElement[] {
     const selectedItemsArray: HTMLGxgListBoxItemElement[] = [];
-    const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
+    const enabledItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
     if (enabledItems?.length) {
       enabledItems.forEach((item) => {
-        !item.disabled && item.selected && selectedItemsArray.push(item);
+        item.selected && selectedItemsArray.push(item);
       });
     }
     return selectedItemsArray;
@@ -808,6 +810,17 @@ export class GxgListBox implements FormComponent {
       !item.disabled && enabledItemsArray.push(item);
     });
     return enabledItemsArray;
+  }
+
+  /* DISABLED*/
+
+  getDisabledItems(): HTMLGxgListBoxItemElement[] {
+    const disabledItemsArray: HTMLGxgListBoxItemElement[] = [];
+    const allItems = this.el.querySelectorAll("gxg-list-box-item");
+    allItems.forEach((item) => {
+      item.disabled && disabledItemsArray.push(item);
+    });
+    return disabledItemsArray;
   }
 
   /* CHECKBOX */

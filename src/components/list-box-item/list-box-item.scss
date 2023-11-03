@@ -44,6 +44,7 @@
 }
 :host([disabled]) {
   pointer-events: none;
+  border-bottom: transparent;
 }
 :host(:hover:not([selected])) {
   background-color: var(--gxg-background-color--hover);
@@ -72,9 +73,11 @@
   color: var(--gxg-color--hover);
 }
 /*SELECTED*/
-:host([selected]) {
+:host([selected]:not(.gxg--disabled)) {
   background-color: var(--gxg-background-color--selected);
   color: var(--gxg-color--selected);
+}
+:host([selected][sibling-is-selected]:not(.gxg--disabled)) {
   border-bottom-color: var(--gxg-border-color--selected);
 }
 :host([selected]:hover) {

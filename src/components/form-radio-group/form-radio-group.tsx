@@ -21,7 +21,6 @@ import { RadioData } from "../form-radio/form-radio";
 })
 export class GxgFormRadioGroup implements FormComponent {
   showValidationMessage = false;
-  private valueBeforeDisabled;
   private _componentDidLoad = false;
 
   @Element() el: HTMLElement;
@@ -94,10 +93,7 @@ export class GxgFormRadioGroup implements FormComponent {
   disabledHandler(newValue): void {
     if (newValue === true) {
       this.disableAllRadios();
-      this.valueBeforeDisabled = this.value;
-      this.value = null;
     } else {
-      this.value = this.valueBeforeDisabled;
       this.enableAllRadios();
     }
   }
