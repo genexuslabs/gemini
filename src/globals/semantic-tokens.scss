@@ -40,7 +40,9 @@
   --gxg-scrollbar-track-thumb-background: var(--gray-05);
   --gxg-scrollbar-track-thumb-radius: 10px;
   --gxg-scrollbar-track-thumb-hover-background: var(--gray-04);
-  /*editable title*/
+  /*gxg-button*/
+  --gxg-button-background-color--disabled: var(--gray-00);
+  /*editable title (mercury)*/
   --gxg-editable-title-focus-color: var(--color-primary-enabled);
 }
 :root.gxg-large {

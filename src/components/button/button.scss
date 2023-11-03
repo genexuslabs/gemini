@@ -41,7 +41,7 @@
   }
 }
 :host(.button.button--disabled) .button-native {
-  background: var(--gxg-background-color--disabled);
+  background: var(--gxg-button-background-color--disabled);
   @include gxg-label--disabled;
   pointer-events: none;
 }
