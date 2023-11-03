@@ -356,14 +356,6 @@ export class ChTreeViewRenderWrapper {
     );
   }
 
-  @Listen("itemOpenReference")
-  handleOpenReference(
-    event: ChTreeViewRenderCustomEvent<TreeViewItemOpenReferenceInfo>
-  ) {
-    event.stopPropagation();
-    this.itemOpenReference.emit(event.detail);
-  }
-
   render() {
     return (
       <ch-tree-view-render
