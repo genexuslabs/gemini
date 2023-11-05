@@ -1,6 +1,6 @@
 export interface HTMLPopOverElement extends HTMLElement {
   popover: string;
-  showPopover;
-  hidePopover;
-  togglePopover;
+  showPopover: () => void;
+  hidePopover: () => void;
+  togglePopover: () => void;
 }
