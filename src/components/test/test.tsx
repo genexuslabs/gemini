@@ -16,7 +16,7 @@ export class GxgTest {
           culpa laborum illo, tenetur, quaerat quae eum rem magni voluptatem
           quasi eos repellendus nostrum commodi. Quasi aperiam eveniet dicta id.
         </p>
-        <section>
+        <section class="section section--container">
           <gxg-combo-box>
             <gxg-combo-box-item value="manzana">Manzana</gxg-combo-box-item>
             <gxg-combo-box-item value="banana">Banana</gxg-combo-box-item>
@@ -38,6 +38,13 @@ export class GxgTest {
             <gxg-combo-box-item value="banana">Banana</gxg-combo-box-item>
             <gxg-combo-box-item value="mandarina">Mandarina</gxg-combo-box-item>
             <gxg-combo-box-item value="uva">Uvas</gxg-combo-box-item>
+          </gxg-combo-box>
+        </section>
+        <section class="section">
+          <gxg-combo-box popOver={false}>
+            <gxg-combo-box-item value="manzana">Manzana</gxg-combo-box-item>
+            <gxg-combo-box-item value="banana">Banana</gxg-combo-box-item>
+            <gxg-combo-box-item value="mandarina">Mandarina</gxg-combo-box-item>
           </gxg-combo-box>
         </section>
       </div>

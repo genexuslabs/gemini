@@ -238,6 +238,7 @@ export class GxgComboBox implements FormComponent {
   componentDidLoad(): void {
     this.resizeObserver();
     this.componentDidLoadFlag = true;
+    this.evaluatePopOver();
   }
   disconnectedCallback(): void {
     this.cleanup();
@@ -402,6 +403,7 @@ export class GxgComboBox implements FormComponent {
       //Reposition .items-container, since it has fixed position
       this.repositionItemsContainer();
       if (this.popOver) {
+        console.log("popover");
         this.itemsContainer.showPopover();
       }
     } else {
@@ -433,6 +435,12 @@ export class GxgComboBox implements FormComponent {
   /*********************************
   PRIVATE METHODS
   *********************************/
+
+  private evaluatePopOver = () => {
+    if (this.popOver) {
+      this.itemsContainer.setAttribute("popover", "");
+    }
+  };
 
   private filterList = (text: string): HTMLGxgComboBoxItemElement[] => {
     text = this.sanitizeString(text);
@@ -826,9 +834,6 @@ export class GxgComboBox implements FormComponent {
                   "items-container--below": this.listPosition === "below",
                   "items-container--above": this.listPosition === "above",
                 }}
-                id="my-popover"
-                /*@ts-ignore*/
-                popover={this.popOver}
                 style={{ maxHeight: this.listMaxHeight }}
                 ref={(el) =>
                   (this.itemsContainer = (el as unknown) as HTMLPopOverElement)

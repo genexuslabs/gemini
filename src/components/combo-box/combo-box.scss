@@ -65,9 +65,11 @@
       box-sizing: border-box;
       z-index: 999;
       box-sizing: border-box;
-      margin: 0;
       @include gxg-scrollbar();
 
+      &--not-popover {
+        display: none;
+      }
       &--show {
         display: block;
       }
@@ -93,11 +95,9 @@
       }
 
       /*popover*/
-      &--not-popover {
-        display: none;
-      }
       &--popover {
         padding: 0;
+        margin: 0;
       }
     }
     /*POSITION TOP*/

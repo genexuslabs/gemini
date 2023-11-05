@@ -1,6 +1,10 @@
-section {
+.section {
   border-top: 1px solid #ccc;
   margin-top: 200px;
+  &--container {
+    container-name: section;
+    container-type: inline-size;
+  }
 }
 gxg-combo-box {
   opacity: 1;
