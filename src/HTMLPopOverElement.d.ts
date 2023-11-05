@@ -1,8 +1,6 @@
-declare module "gemini" {
-  interface HTMLPopOverElement extends HTMLElement {
-    popover: string;
-    showPopover;
-    hidePopover;
-    togglePopover;
-  }
+export interface HTMLPopOverElement extends HTMLElement {
+  popover: string;
+  showPopover;
+  hidePopover;
+  togglePopover;
 }
