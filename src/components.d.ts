@@ -497,6 +497,10 @@ export namespace Components {
      */
     placeholder: string;
     /**
+     * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
+     */
+    popOver: boolean;
+    /**
      * The presence of this attribute makes the commbo required
      */
     required: boolean;
@@ -3406,6 +3410,10 @@ declare namespace LocalJSX {
      * The combo placeholder
      */
     placeholder?: string;
+    /**
+     * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
+     */
+    popOver?: boolean;
     /**
      * The presence of this attribute makes the commbo required
      */

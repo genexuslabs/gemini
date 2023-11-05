@@ -27,9 +27,8 @@
   --gxg-background-color--active: var(--color-secondary-active);
   --gxg-color--active: var(--color-on-primary);
   /*disabled*/
-  --gxg-border-color--disabled: var(--gray-04);
-  /*--gxg-background-color--disabled: var(--gray-00);*/
-  --gxg-background-color--disabled: var(--color-background);
+  --gxg-border-color--disabled: var(--gray-01);
+  --gxg-background-color--disabled: var(--gray-00);
   --gxg-color--disabled: var(--gray-04);
   /*checkbox*/
   --gxg-checkbox-size: var(--spacing-comp-04);
@@ -40,8 +39,7 @@
   --gxg-scrollbar-track-thumb-background: var(--gray-05);
   --gxg-scrollbar-track-thumb-radius: 10px;
   --gxg-scrollbar-track-thumb-hover-background: var(--gray-04);
-  /*gxg-button*/
-  --gxg-button-background-color--disabled: var(--gray-00);
+  /*MERCURY*/
   /*editable title (mercury)*/
   --gxg-editable-title-focus-color: var(--color-primary-enabled);
 }

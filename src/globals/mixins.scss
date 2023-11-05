@@ -356,9 +356,9 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
   line-height: var(--line-height-regular);
 
   //Transition
-  transition: background $ui-animaton-speed $ui-animation-timing-function,
-    color $ui-animaton-speed $ui-animation-timing-function,
-    box-shadow $ui-animaton-speed $ui-animation-timing-function;
+  // transition: background $ui-animaton-speed $ui-animation-timing-function,
+  //   color $ui-animaton-speed $ui-animation-timing-function,
+  //   box-shadow $ui-animaton-speed $ui-animation-timing-function;
 }
 .gxg-button-styles {
   @include gxg-label;

@@ -23,9 +23,11 @@ import { exportParts } from "../../common/export-parts";
 import state from "../store";
 import { ValidationStatus, LabelPosition } from "../../common/types";
 import { mutationObserverRemoved } from "../../common/mo-removed";
+import { HTMLPopOverElement } from "gemini";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
+  //shadow: { delegatesFocus: true },
   shadow: { delegatesFocus: true },
 })
 export class GxgComboBox implements FormComponent {
@@ -37,6 +39,11 @@ export class GxgComboBox implements FormComponent {
   private exportparts: string;
   private _mo;
   private componentDidLoadFlag = false;
+
+  /**
+   * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
+   */
+  @Prop() popOver = true;
 
   /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
@@ -67,7 +74,7 @@ export class GxgComboBox implements FormComponent {
 
   @Element() el: HTMLElement;
   mainContainer!: HTMLDivElement;
-  itemsContainer!: HTMLDivElement;
+  itemsContainer!: HTMLPopOverElement;
   searchItemsContainer!: HTMLDivElement;
 
   /**
@@ -351,7 +358,7 @@ export class GxgComboBox implements FormComponent {
   *********************************/
 
   @Watch("value")
-  onValueChanged(newValue: ComboBoxItemValue, oldvalue: any): void {
+  onValueChanged(newValue: ComboBoxItemValue): void {
     setTimeout(() => {
       if (this.componentDidLoadFlag) {
         this.valueChanged.emit(newValue);
@@ -384,22 +391,27 @@ export class GxgComboBox implements FormComponent {
   }
 
   @Watch("listIsOpen")
-  listIsOpenHandler(newValue: boolean): void {
+  listIsOpenHandler(open: boolean): void {
     let isOpen = false;
-    if (newValue) {
+    if (open) {
       //list is open
       isOpen = true;
       document.addEventListener("click", this.detectClickOutsideCombo, true);
       document.addEventListener("scroll", this.detectMouseScroll, true);
       this.opened.emit();
-
       //Reposition .items-container, since it has fixed position
       this.repositionItemsContainer();
+      if (this.popOver) {
+        this.itemsContainer.showPopover();
+      }
     } else {
       //list is closed
       document.removeEventListener("click", this.detectClickOutsideCombo, true);
       document.removeEventListener("scroll", this.detectMouseScroll, true);
       this.closed.emit();
+      if (this.popOver) {
+        this.itemsContainer.hidePopover();
+      }
     }
     this.toggled.emit(isOpen);
   }
@@ -708,6 +720,12 @@ export class GxgComboBox implements FormComponent {
     const inputTextY = inputTextBoundingClient.y;
     const inputTextHeight = inputTextBoundingClient.height;
     this.itemsContainer.style.top = inputTextY + inputTextHeight + "px";
+
+    if (this.popOver) {
+      //redefine .items-container "left" value
+      const inputTextX = inputTextBoundingClient.x;
+      this.itemsContainer.style.left = inputTextX + "px";
+    }
   }
 
   itemsContainerBottomOverflows(): boolean {
@@ -797,16 +815,24 @@ export class GxgComboBox implements FormComponent {
                   ></gxg-button>
                 </div>
               </div>
+
               <div
                 class={{
                   "items-container": true,
-                  "items-container--show": this.listIsOpen,
+                  "items-container--not-popover": !this.popOver,
+                  "items-container--show": this.listIsOpen && !this.popOver,
+                  "items-container--popover": this.popOver,
                   "items-container--no-match": this.noMatch,
                   "items-container--below": this.listPosition === "below",
                   "items-container--above": this.listPosition === "above",
                 }}
+                id="my-popover"
+                /*@ts-ignore*/
+                popover={this.popOver}
                 style={{ maxHeight: this.listMaxHeight }}
-                ref={(el) => (this.itemsContainer = el as HTMLDivElement)}
+                ref={(el) =>
+                  (this.itemsContainer = (el as unknown) as HTMLPopOverElement)
+                }
               >
                 <slot></slot>
                 {this.noMatch && this.strict ? (

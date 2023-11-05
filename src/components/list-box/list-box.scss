@@ -115,6 +115,15 @@
     border-inline-start: 1px solid var(--gxg-border-color--regular);
   }
 }
+
+/*Disabled*/
+:host(.gxg--disabled) {
+  .header {
+    color: var(--gxg-color--disabled);
+    border-bottom-color: var(--gxg-border-color--disabled);
+  }
+}
+
 /*********************************************
 VALIDATION
 **********************************************/

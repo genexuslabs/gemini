@@ -11,8 +11,16 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        padding: 80px;
+        height: 4000px;
+      }
+    </style>
   </head>
   <body>
+    <div class="popover" popover id="my-popover">popover</div>
+    <button popovertarget="my-popover">show popover</button>
     <gxg-test></gxg-test>
   </body>
 </html>

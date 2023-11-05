@@ -2,6 +2,11 @@
 @import "../../globals/mixins";
 @import "../../globals/form-validation";
 
+.popover {
+  margin: 0;
+  top: 435px;
+}
+
 :host {
   $itemsContainerBorderRadius: var(--border-radius-md);
   font-family: var(--font-family-primary);
@@ -59,7 +64,8 @@
       width: inherit;
       box-sizing: border-box;
       z-index: 999;
-      display: none;
+      box-sizing: border-box;
+      margin: 0;
       @include gxg-scrollbar();
 
       &--show {
@@ -84,6 +90,14 @@
 
       &.exact-match {
         overflow-y: hidden;
+      }
+
+      /*popover*/
+      &--not-popover {
+        display: none;
+      }
+      &--popover {
+        padding: 0;
       }
     }
     /*POSITION TOP*/

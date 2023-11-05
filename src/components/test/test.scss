@@ -1,6 +1,12 @@
-.tree-buttons {
-  margin-top: 16px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+section {
+  border-top: 1px solid #ccc;
+  margin-top: 200px;
+}
+gxg-combo-box {
+  opacity: 1;
+}
+@container section (width < 400px) {
+  gxg-combo-box {
+    opacity: 0.5;
+  }
 }

@@ -62,7 +62,7 @@
     border-right-color: var(--color-primary-enabled);
   }
   ::slotted(button[disabled]) {
-    background-color: var(--gxg-button-background-color--disabled);
+    background-color: var(--gxg-background-color--disabled);
     color: var(--gxg-color--disabled);
     border-inline-end-color: var(--gxg-border-color--disabled);
     pointer-events: none;
