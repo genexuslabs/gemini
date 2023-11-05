@@ -23,7 +23,7 @@ import { exportParts } from "../../common/export-parts";
 import state from "../store";
 import { ValidationStatus, LabelPosition } from "../../common/types";
 import { mutationObserverRemoved } from "../../common/mo-removed";
-import { HTMLPopOverElement } from "gemini";
+import { HTMLPopOverElement } from "../../HTMLPopOverElement";
 @Component({
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
