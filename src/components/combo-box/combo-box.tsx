@@ -403,7 +403,6 @@ export class GxgComboBox implements FormComponent {
       //Reposition .items-container, since it has fixed position
       this.repositionItemsContainer();
       if (this.popOver) {
-        console.log("popover");
         this.itemsContainer.showPopover();
       }
     } else {
