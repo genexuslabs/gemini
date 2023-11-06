@@ -40,7 +40,7 @@ export class GxgPill {
   /**
    * The pill id
    */
-  @Prop() id!: string;
+  @Prop() id: string;
 
   /**
    * Stylizes the font with italic (only used in mercury)
