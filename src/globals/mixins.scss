@@ -497,6 +497,7 @@ FORM ELEMENTS
   // Scroll bar
   &::-webkit-scrollbar {
     width: var(--gxg-scrollbar-width, 6px);
+    height: var(--gxg-scrollbar-width, 6px);
   }
   /* Track */
   &::-webkit-scrollbar-track {

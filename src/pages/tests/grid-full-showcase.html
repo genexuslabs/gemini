@@ -1214,40 +1214,6 @@
         </gxg-grid>
       </section>
 
-      <!--empty-->
-      <section class="section-dev empty" data-title="empty">
-        <gxg-grid>
-          <ch-grid>
-            <ch-grid-columnset>
-              <ch-grid-column
-                column-id="code"
-                column-name="Country Code"
-                settingable="false"
-              ></ch-grid-column>
-              <ch-grid-column
-                column-id="name"
-                column-name="Country Name"
-                settingable="false"
-              ></ch-grid-column>
-              <ch-grid-column
-                column-id="population"
-                column-name="Country Population"
-                settingable="false"
-              ></ch-grid-column>
-              <ch-grid-column
-                column-id="language"
-                column-name="Country Language"
-                settingable="false"
-              ></ch-grid-column>
-            </ch-grid-columnset>
-
-            <ch-grid-rowset>
-              <ch-grid-rowset-empty> No hay registros </ch-grid-rowset-empty>
-            </ch-grid-rowset>
-          </ch-grid>
-        </gxg-grid>
-      </section>
-
       <!--group-empty-->
       <section class="section-dev group-empty" data-title="group-empty">
         <gxg-grid>
@@ -1291,6 +1257,115 @@
             </ch-grid-rowset>
           </ch-grid>
         </gxg-grid>
+      </section>
+
+      <!--team dev update -->
+      <section
+        class="section-dev group-empty"
+        data-title="team-dev-update-results"
+      >
+        <gxg-grid ellipsis-cell-wrapper noBorder>
+          <ch-grid row-selection-mode="multiple">
+            <ch-grid-columnset>
+              <ch-grid-column
+                settingable="false"
+                sortable="false"
+                column-type="tree"
+              ></ch-grid-column>
+              <ch-grid-column
+                settingable="false"
+                sortable="false"
+              ></ch-grid-column>
+              <ch-grid-column
+                settingable="false"
+                sortable="false"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-name="Name"
+                settingable="false"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-name="Type"
+                settingable="false"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-name="Description"
+                settingable="false"
+              ></ch-grid-column>
+              <ch-grid-column
+                column-name="Notes"
+                settingable="false"
+              ></ch-grid-column>
+            </ch-grid-columnset>
+
+            <ch-grid-row>
+              <!-- result icon (info, success, etc) -->
+              <ch-grid-cell>
+                <span class="cell-wrapper">
+                  <gxg-icon
+                    type="gemini-tools/notice"
+                    color="primary-active"
+                  ></gxg-icon>
+                </span>
+              </ch-grid-cell>
+
+              <!-- type icon (tipo de objeto) -->
+              <ch-grid-cell>
+                <span class="cell-wrapper">
+                  <gxg-icon
+                    type="objects/data-provider"
+                    color="auto"
+                  ></gxg-icon>
+                </span>
+              </ch-grid-cell>
+
+              <!-- state (nuevo, modificado, etc)-->
+              <ch-grid-cell>
+                <span class="cell-wrapper">
+                  <gxg-icon
+                    type="gx-server/changes-commit-pending"
+                    color="primary-active"
+                  ></gxg-icon>
+                </span>
+              </ch-grid-cell>
+
+              <!-- Name -->
+              <ch-grid-cell>
+                <span class="cell-wrapper"> Object Name </span>
+              </ch-grid-cell>
+
+              <!-- Type -->
+              <ch-grid-cell>
+                <span class="cell-wrapper"> Object Type </span>
+              </ch-grid-cell>
+
+              <!-- Description -->
+              <ch-grid-cell>
+                <span class="cell-wrapper"> Object Description </span>
+              </ch-grid-cell>
+
+              <!-- Notes -->
+              <ch-grid-cell>
+                <span class="cell-wrapper"> Object Notes </span>
+              </ch-grid-cell>
+
+              <!-- ROWSET -->
+              <ch-grid-rowset>
+                <ch-grid-rowset-empty>
+                  <p>Some Info message</p>
+                </ch-grid-rowset-empty>
+              </ch-grid-rowset>
+            </ch-grid-row>
+          </ch-grid>
+        </gxg-grid>
+      </section>
+
+      <!--team dev update -->
+      <section
+        class="section-dev group-empty"
+        data-title="team-dev-update-results on test-component"
+      >
+        <gxg-test></gxg-test>
       </section>
     </div>
 

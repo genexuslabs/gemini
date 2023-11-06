@@ -425,9 +425,6 @@ gxg-grid[ellipsis] {
 }
 
 /*ellipsis-cell-wrapper*/
-gxg-grid[ellipsis-cell-wrapper] ch-grid-cell {
-  width: 1fr;
-}
 gxg-grid[ellipsis-cell-wrapper] {
   .cell-wrapper {
     overflow: hidden;
