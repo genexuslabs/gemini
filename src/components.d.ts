@@ -4564,7 +4564,7 @@ declare namespace LocalJSX {
     /**
      * The pill id
      */
-    id: string;
+    id?: string;
     /**
      * Stylizes the font with italic (only used in mercury)
      */
