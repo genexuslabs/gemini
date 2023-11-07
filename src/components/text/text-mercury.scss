@@ -1,10 +1,11 @@
 :host(.mercury) {
+  color: var(--gray-02);
   .gxg-text,
   .gxg-link {
     font-size: var(--mc-font-size-xs);
   }
-  .gxg-text {
-    color: var(--gray-02);
+  .wrapper {
+    color: inherit;
   }
 }
 :host(.mercury[italic]) {
