@@ -66,6 +66,13 @@ btnShowErrors.addEventListener("click", function(){
 | `change` | Returns the textarea value | `CustomEvent<any>` |
 | `input`  | Returns the textarea value | `CustomEvent<any>` |
 
+## Shadow Parts
+
+| Part                 | Description |
+| -------------------- | ----------- |
+| `"textarea"`         |             |
+| `"textarea-wrapper"` |             |
+
 ## Dependencies
 
 ### Depends on

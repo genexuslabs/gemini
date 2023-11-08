@@ -265,7 +265,7 @@ export class GxgFormTextarea implements FormComponent {
           </gxg-label>
         ) : null}
 
-        <div class="textarea-wrapper">
+        <div class="textarea-wrapper" part="textarea-wrapper">
           <textarea
             ref={(el) => (this.textArea = el as HTMLTextAreaElement)}
             class={{
@@ -281,7 +281,7 @@ export class GxgFormTextarea implements FormComponent {
             rows={state.mercury && this.grow ? 1 : this.rows}
             required={this.required}
             style={{ height: this.height, maxHeight: this.maxHeight }}
-            part={this.parts.textarea}
+            part="textarea"
             onFocus={this.focusHandler}
             onBlur={this.blurHandler}
           ></textarea>
