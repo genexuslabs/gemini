@@ -1,5 +1,6 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
+@import "../../globals/mixins-mercury";
 @import "../../globals/form-validation";
 @import "../../globals/common-css-classes";
 
@@ -96,8 +97,11 @@ LARGE VERSION (html tag has 'gxg-large' class)
   label,
   textarea {
     font-size: var(--font-size-lg);
-  }
-  textarea {
     padding: var(--spacing-comp-01) var(--spacing-comp-02);
   }
 }
+
+/*********************************************
+Mercury
+**********************************************/
+@import "./form-textarea-mercury";

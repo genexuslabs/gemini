@@ -1087,6 +1087,10 @@ export namespace Components {
      */
     error: boolean;
     /**
+     * It will show the textarea with a single line, and grow in height as the text overflows, or the user hits shift + enter. This property will be ignored if "shrink" is true
+     */
+    grow: boolean;
+    /**
      * The textarea height
      */
     height: string;
@@ -1110,6 +1114,10 @@ export namespace Components {
      * The label width
      */
     labelWidth: any;
+    /**
+     * The max-height
+     */
+    maxHeight: string;
     /**
      * The max-width
      */
@@ -4068,6 +4076,10 @@ declare namespace LocalJSX {
      */
     error?: boolean;
     /**
+     * It will show the textarea with a single line, and grow in height as the text overflows, or the user hits shift + enter. This property will be ignored if "shrink" is true
+     */
+    grow?: boolean;
+    /**
      * The textarea height
      */
     height?: string;
@@ -4091,6 +4103,10 @@ declare namespace LocalJSX {
      * The label width
      */
     labelWidth?: any;
+    /**
+     * The max-height
+     */
+    maxHeight?: string;
     /**
      * The max-width
      */

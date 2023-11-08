@@ -45,6 +45,11 @@ export class GxgFormTextarea implements FormComponent {
   @Prop({ reflect: true }) singleLine = false;
 
   /**
+   * It will show the textarea with a single line, and grow in height as the text overflows, or the user hits shift + enter. This property will be ignored if "shrink" is true
+   */
+  @Prop({ reflect: true }) grow = false;
+
+  /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
    */
   @Prop() toolTip = false;
@@ -78,6 +83,11 @@ export class GxgFormTextarea implements FormComponent {
    * The max-width
    */
   @Prop() maxWidth = "100%";
+
+  /**
+   * The max-height
+   */
+  @Prop() maxHeight: string;
 
   /**
    * The textarea height
@@ -186,12 +196,23 @@ export class GxgFormTextarea implements FormComponent {
     this.value = this.textArea.value;
   }
 
-  handleInput(e): void {
+  handleInput = (e: KeyboardEvent): void => {
     //formHandleValidation(this, e.target);
     const target = e.target as HTMLTextAreaElement;
     this.value = target.value;
     this.input.emit(this.value);
-  }
+
+    // if (state.mercury && this.grow) {
+    //   (this.textArea
+    //     .parentNode as HTMLElement).dataset.replicatedValue = this.value;
+    // }
+
+    if (state.mercury && this.grow) {
+      const offset = this.textArea.offsetHeight - this.textArea.clientHeight;
+      this.textArea.style.height = "auto";
+      this.textArea.style.height = this.textArea.scrollHeight + offset + "px";
+    }
+  };
 
   handleChange(): void {
     //formHandleValidation(this, e.target);
@@ -219,6 +240,7 @@ export class GxgFormTextarea implements FormComponent {
         class={{
           textarea: true,
           large: state.large,
+          mercury: state.mercury,
           shrink: this.singleLine && this.shrink,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
@@ -253,12 +275,12 @@ export class GxgFormTextarea implements FormComponent {
             }}
             placeholder={this.placeholder}
             disabled={this.disabled}
-            onInput={this.handleInput.bind(this)}
+            onInput={this.handleInput}
             onChange={this.handleChange.bind(this)}
             value={this.value}
-            rows={this.rows}
+            rows={state.mercury && this.grow ? 1 : this.rows}
             required={this.required}
-            style={{ height: this.height }}
+            style={{ height: this.height, maxHeight: this.maxHeight }}
             part={this.parts.textarea}
             onFocus={this.focusHandler}
             onBlur={this.blurHandler}
