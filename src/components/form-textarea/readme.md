@@ -61,10 +61,11 @@ btnShowErrors.addEventListener("click", function(){
 
 ## Events
 
-| Event    | Description                | Type               |
-| -------- | -------------------------- | ------------------ |
-| `change` | Returns the textarea value | `CustomEvent<any>` |
-| `input`  | Returns the textarea value | `CustomEvent<any>` |
+| Event    | Description                                                                                  | Type               |
+| -------- | -------------------------------------------------------------------------------------------- | ------------------ |
+| `change` | Returns the textarea value                                                                   | `CustomEvent<any>` |
+| `enter`  | Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant | `CustomEvent<any>` |
+| `input`  | Returns the textarea value                                                                   | `CustomEvent<any>` |
 
 ## Shadow Parts
 

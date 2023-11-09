@@ -4116,6 +4116,10 @@ declare namespace LocalJSX {
      */
     onChange?: (event: CustomEvent<any>) => void;
     /**
+     * Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant
+     */
+    onEnter?: (event: CustomEvent<any>) => void;
+    /**
      * Returns the textarea value
      */
     onInput?: (event: CustomEvent<any>) => void;

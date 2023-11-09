@@ -129,6 +129,11 @@ export class GxgFormTextarea implements FormComponent {
    */
   @Event() change: EventEmitter;
 
+  /**
+   * Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant
+   */
+  @Event() enter: EventEmitter;
+
   /*********************************
   PROPERTIES FOR VALIDATION 
   *********************************/
@@ -197,15 +202,10 @@ export class GxgFormTextarea implements FormComponent {
   }
 
   handleInput = (e: KeyboardEvent): void => {
-    //formHandleValidation(this, e.target);
+    e.stopPropagation();
     const target = e.target as HTMLTextAreaElement;
     this.value = target.value;
     this.input.emit(this.value);
-
-    // if (state.mercury && this.grow) {
-    //   (this.textArea
-    //     .parentNode as HTMLElement).dataset.replicatedValue = this.value;
-    // }
 
     if (state.mercury && this.grow) {
       const offset = this.textArea.offsetHeight - this.textArea.clientHeight;
@@ -228,6 +228,15 @@ export class GxgFormTextarea implements FormComponent {
   private blurHandler = () => {
     if (this.singleLine) {
       this.shrink = true;
+    }
+  };
+
+  private keyDownHandler = (e: KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      this.enter.emit(this.textArea.value);
+      this.textArea.style.height = "auto";
+      this.value = "";
     }
   };
 
@@ -284,6 +293,7 @@ export class GxgFormTextarea implements FormComponent {
             part="textarea"
             onFocus={this.focusHandler}
             onBlur={this.blurHandler}
+            onKeyDown={this.keyDownHandler}
           ></textarea>
           {this.toolTip ? formTooltipLogic(this, true) : null}
         </div>
