@@ -1,3 +1,7 @@
+@import "../../globals/mixins";
+@import "../../globals/form-validation";
+@import "../../globals/common-css-classes";
+
 :host {
   display: block;
   color: var(--mc-editable-title-color);

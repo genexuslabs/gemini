@@ -255,7 +255,7 @@ export class GxgFormText implements FormComponent {
   @State() rtl = false;
 
   @Watch("value")
-  watchHandler(newValue): void {
+  watchValueHandler(newValue): void {
     if (!this.preventValueChangedEmit && this.debounce) {
       clearTimeout(this.timeoutReference);
       this.timeoutReference = setTimeout(() => {

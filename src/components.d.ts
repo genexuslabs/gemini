@@ -1966,9 +1966,21 @@ export namespace Components {
      */
     clickToEdit: boolean;
     /**
+     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+     */
+    debounce: boolean;
+    /**
+     * The debounce delay value. Only applies if 'debounce' is true.
+     */
+    debounceDelay: number;
+    /**
      * If true, the title will not be editable
      */
     disableEdition: boolean;
+    /**
+     * The presence of this attribute makes the input disabled
+     */
+    disabled: boolean;
     /**
      * If true, the width of the title will take only the minimum needed space
      */
@@ -1978,9 +1990,21 @@ export namespace Components {
      */
     focusType: EditableTitleFocusType;
     /**
+     * Shows or hides the tooltip
+     */
+    hideTooltip: boolean;
+    /**
      * The title type
      */
     titleType: EditableTitleType;
+    /**
+     * The message to display when validation fails (error)
+     */
+    validationMessage: string;
+    /**
+     * The validation status
+     */
+    validationStatus: ValidationStatus;
     /**
      * The title value
      */
@@ -5005,9 +5029,21 @@ declare namespace LocalJSX {
      */
     clickToEdit?: boolean;
     /**
+     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+     */
+    debounce?: boolean;
+    /**
+     * The debounce delay value. Only applies if 'debounce' is true.
+     */
+    debounceDelay?: number;
+    /**
      * If true, the title will not be editable
      */
     disableEdition?: boolean;
+    /**
+     * The presence of this attribute makes the input disabled
+     */
+    disabled?: boolean;
     /**
      * If true, the width of the title will take only the minimum needed space
      */
@@ -5017,9 +5053,25 @@ declare namespace LocalJSX {
      */
     focusType?: EditableTitleFocusType;
     /**
+     * Shows or hides the tooltip
+     */
+    hideTooltip?: boolean;
+    /**
+     * Emitted when the value changes
+     */
+    onValueChanged?: (event: CustomEvent<string>) => void;
+    /**
      * The title type
      */
     titleType?: EditableTitleType;
+    /**
+     * The message to display when validation fails (error)
+     */
+    validationMessage?: string;
+    /**
+     * The validation status
+     */
+    validationStatus?: ValidationStatus;
     /**
      * The title value
      */
