@@ -1,24 +1,52 @@
-import { Component, Host, h, Prop, Element, State, Watch } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Element,
+  State,
+  Watch,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
+import { formTooltipLogic } from "../../common/form";
+import { formClasses } from "../../common/classesNames";
+import { FormComponent } from "../../common/interfaces";
+import { commonClassesNames } from "../../common/classesNames";
 import { detectClickOutside } from "../../common/detect-click-outside";
+import { ValidationStatus } from "../../common/types";
 
 @Component({
   tag: "gxg-title-editable",
   styleUrl: "title-editable.scss",
   shadow: true,
 })
-export class GxgTitleEditable {
+export class GxgTitleEditable implements FormComponent {
   textInput!: HTMLInputElement;
   wrapperEl!: HTMLDivElement;
   editButtonEl!: HTMLGxgButtonElement;
   ghostDiv!: HTMLDivElement;
   @Element() el: HTMLElement;
 
+  private timeoutReference;
+
   /*PROPS*/
 
   /**
    * The title value
    */
-  @Prop() value: string = undefined;
+  @Prop({ mutable: true }) value: string = undefined;
+  @Watch("value")
+  watchValueHandler(newValue): void {
+    if (this.debounce) {
+      clearTimeout(this.timeoutReference);
+      this.timeoutReference = setTimeout(() => {
+        this.valueChanged.emit(newValue);
+      }, this.debounceDelay);
+    } else {
+      this.valueChanged.emit(newValue);
+    }
+  }
 
   /**
    * The title type
@@ -29,6 +57,21 @@ export class GxgTitleEditable {
    * If true, the title will not be editable
    */
   @Prop({ reflect: true }) disableEdition = false;
+
+  /**
+   * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+   */
+  @Prop() debounce = false;
+
+  /**
+   * The debounce delay value. Only applies if 'debounce' is true.
+   */
+  @Prop() debounceDelay = 800;
+
+  /**
+   * The presence of this attribute makes the input disabled
+   */
+  @Prop() disabled = false;
 
   /**
    * If true, it will allow the title to be edited
@@ -45,6 +88,25 @@ export class GxgTitleEditable {
    */
   @Prop({ reflect: true }) focusType: EditableTitleFocusType;
 
+  /*--- Validation ---*/
+
+  /**
+   * The validation status
+   *
+   */
+  @Prop({ mutable: true }) validationStatus: ValidationStatus = "indeterminate";
+
+  /**
+   * The message to display when validation fails (error)
+   *
+   */
+  @Prop() validationMessage: string;
+
+  /**
+   * Shows or hides the tooltip
+   */
+  @Prop() hideTooltip = false;
+
   /*STATE*/
 
   @State() editing = false;
@@ -56,6 +118,12 @@ export class GxgTitleEditable {
       document.removeEventListener("click", this.detectClickOutsideFunc);
     }
   }
+
+  /* EVENTS */
+  /**
+   * Emitted when the value changes
+   */
+  @Event() valueChanged: EventEmitter<string>;
 
   /*COMPONENT LIFECYCLE METHODS*/
 
@@ -103,8 +171,8 @@ export class GxgTitleEditable {
   };
 
   private inputInputHandler = (): void => {
+    this.value = this.textInput.value;
     if (this.fluid) {
-      this.value = this.textInput.value;
       this.ghostDiv.innerText = this.value;
       this.updateInputWidth();
     }
@@ -126,6 +194,15 @@ export class GxgTitleEditable {
           editing: this.editing,
           "focus--text": this.focusType === "text",
           "focus--line": this.focusType === "line",
+          [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
+            this.validationStatus === "indeterminate",
+          [formClasses["VALIDATION_WARNING_CLASS"]]:
+            this.validationStatus === "warning",
+          [formClasses["VALIDATION_ERROR_CLASS"]]:
+            this.validationStatus === "error",
+          [formClasses["VALIDATION_SUCCESS_CLASS"]]:
+            this.validationStatus === "success",
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
         }}
       >
         <div
@@ -152,7 +229,7 @@ export class GxgTitleEditable {
             readOnly={!this.editing}
             ref={(el) => (this.textInput = el as HTMLInputElement)}
             onKeyDown={this.inputKeyDownHandler}
-            onInput={this.fluid && this.inputInputHandler}
+            onInput={this.inputInputHandler}
             tabIndex={this.editing ? 0 : -1}
           />
           {!this.disableEdition ? (
@@ -163,6 +240,7 @@ export class GxgTitleEditable {
               ref={(el) => (this.editButtonEl = el as HTMLGxgButtonElement)}
             ></gxg-button>
           ) : null}
+          {formTooltipLogic(this, this.hideTooltip)}
         </div>
       </Host>
     );

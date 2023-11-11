@@ -197,6 +197,18 @@
         <h2 class="h2">textarea | <code>grow + max-height="150px"</code></h2>
         <gxg-form-textarea max-width="600px" ai max-height="150px">
         </gxg-form-textarea>
+        <script>
+          const aiTextarea = document.getElementById("ai-textarea");
+          aiTextarea.addEventListener("input", (e) => {
+            //console.log("input", e);
+          });
+          aiTextarea.addEventListener("change", (e) => {
+            //console.log("change", e);
+          });
+          aiTextarea.addEventListener("enter", (e) => {
+            console.log("enter", e.detail);
+          });
+        </script>
       </article>
 
       <!-- button primary-text-only -->

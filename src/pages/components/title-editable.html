@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>xxx | Gemini</title>
+    <title>Title Editable | Gemini</title>
 
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
@@ -76,9 +76,17 @@
           </p>
 
           <gxg-title-editable
+            id="gxg-editable-title"
             value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+            debounce
           >
           </gxg-title-editable>
+          <script>
+            const title = document.getElementById("gxg-editable-title");
+            title.addEventListener("valueChanged", (e) => {
+              console.log(e.detail);
+            });
+          </script>
         </article>
 
         <!-- H1 | clickToEdit -->
@@ -154,6 +162,35 @@
             value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
           >
           </gxg-title-editable>
+        </article>
+
+        <!-- H1 | error -->
+        <article>
+          <div class="titles-wrapper">
+            <h2>
+              <code>validationStatus="error" + validationMessage="..."</code>
+            </h2>
+          </div>
+          <p>Título con mensaje de error</p>
+          <gxg-title-editable
+            id="title-with-error"
+            click-to-edit
+            focus-type="line"
+            value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+          >
+          </gxg-title-editable>
+          <br />
+          <button id="show-error-btn">show error</button>
+          <script>
+            const titleWithError = document.getElementById("title-with-error");
+            const showErrorBtn = document.getElementById("show-error-btn");
+            showErrorBtn.addEventListener("click", () => {
+              titleWithError.validationStatus = "error";
+              titleWithError.validationMessage =
+                "The tile caption is ugly. You better change it.";
+              //titleWithError.hideTooltip = false;
+            });
+          </script>
         </article>
 
         <!-- H2 -->

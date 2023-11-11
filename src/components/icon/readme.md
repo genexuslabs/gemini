@@ -47,6 +47,7 @@
 - [gxg-suggest](../suggest)
 - [gxg-tab-button](../tab-button)
 - [gxg-text](../text)
+- [gxg-title-editable](../title-editable)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
 - [gxg-tree-grid-divs](../tree-grid-divs)
@@ -89,6 +90,7 @@ graph TD;
   gxg-suggest --> gxg-icon
   gxg-tab-button --> gxg-icon
   gxg-text --> gxg-icon
+  gxg-title-editable --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
   gxg-tree-grid-divs --> gxg-icon

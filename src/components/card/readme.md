@@ -60,7 +60,11 @@ graph TD;
   gxg-card --> gxg-title-editable
   gxg-icon --> ch-icon
   gxg-title-editable --> gxg-button
+  gxg-title-editable --> gxg-form-message
+  gxg-title-editable --> gxg-tooltip
+  gxg-title-editable --> gxg-icon
   gxg-button --> gxg-icon
+  gxg-form-message --> gxg-icon
   style gxg-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
