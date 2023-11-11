@@ -1075,6 +1075,10 @@ export namespace Components {
   }
   interface GxgFormTextarea {
     /**
+     * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
+     */
+    ai: boolean;
+    /**
      * Centers the label
      */
     centerLabel: boolean;
@@ -1086,10 +1090,6 @@ export namespace Components {
      * The presence of this attribute gives the component error styles
      */
     error: boolean;
-    /**
-     * It will show the textarea with a single line, and grow in height as the text overflows, or the user hits shift + enter. This property will be ignored if "shrink" is true
-     */
-    grow: boolean;
     /**
      * The textarea height
      */
@@ -1139,7 +1139,7 @@ export namespace Components {
      */
     rows: number;
     /**
-     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.
+     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
      */
     singleLine: boolean;
     /**
@@ -4064,6 +4064,10 @@ declare namespace LocalJSX {
   }
   interface GxgFormTextarea {
     /**
+     * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
+     */
+    ai?: boolean;
+    /**
      * Centers the label
      */
     centerLabel?: boolean;
@@ -4075,10 +4079,6 @@ declare namespace LocalJSX {
      * The presence of this attribute gives the component error styles
      */
     error?: boolean;
-    /**
-     * It will show the textarea with a single line, and grow in height as the text overflows, or the user hits shift + enter. This property will be ignored if "shrink" is true
-     */
-    grow?: boolean;
     /**
      * The textarea height
      */
@@ -4136,7 +4136,7 @@ declare namespace LocalJSX {
      */
     rows?: number;
     /**
-     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.
+     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
      */
     singleLine?: boolean;
     /**

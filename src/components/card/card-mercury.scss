@@ -9,8 +9,8 @@
   box-shadow: none;
   color: var(--gray-04);
   .content {
-    @include gxg-scrollbar;
-    overflow: auto;
+    //@include gxg-scrollbar;
+    //overflow: auto;
   }
 }
 /*type "section"*/

@@ -1,16 +1,7 @@
-.section {
-  border-top: 1px solid #ccc;
-  margin-top: 200px;
-  &--container {
-    container-name: section;
-    container-type: inline-size;
-  }
-}
-gxg-combo-box {
-  opacity: 1;
-}
-@container section (width < 400px) {
-  gxg-combo-box {
-    opacity: 0.5;
-  }
+@import "../../globals/mixins";
+
+.card {
+  overflow: auto;
+  @include gxg-scrollbar();
+  height: 100px;
 }

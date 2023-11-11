@@ -38,6 +38,7 @@
   --gxg-scrollbar-track-border-radius: 10px;
   --gxg-scrollbar-track-thumb-background: var(--gray-05);
   --gxg-scrollbar-track-thumb-radius: 10px;
+  --gxg-scrollbar-track-thumb-border: none;
   --gxg-scrollbar-track-thumb-hover-background: var(--gray-04);
   /*MERCURY*/
   /*editable title (mercury)*/
@@ -72,10 +73,11 @@
   --mc-card-mini-padding--h: var(--spacing-comp-03);
 
   /*--- Scrollbar ---*/
-  --gxg-scrollbar-width: var(--spacing-comp-01);
+  --gxg-scrollbar-width: 14px;
   --gxg-scrollbar-track-background: transparent;
-  --gxg-scrollbar-track-border-radius: var(--border-radius-xl);
+  --gxg-scrollbar-track-border-radius: 99px;
   --gxg-scrollbar-track-thumb-background: var(--gray-12);
-  --gxg-scrollbar-track-thumb-radius: var(--border-radius-xl);
+  --gxg-scrollbar-track-thumb-radius: 99px;
+  --gxg-scrollbar-track-thumb-border: 5px solid transparent;
   --gxg-scrollbar-track-thumb-hover-background: var(--gray-13);
 }

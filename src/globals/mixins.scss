@@ -506,12 +506,17 @@ FORM ELEMENTS
   }
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: var(--gxg-scrollbar-track-thumb-background, --gray-05);
+    background-color: var(--gxg-scrollbar-track-thumb-background, --gray-05);
     border-radius: var(--gxg-scrollbar-track-thumb-radius, 10px);
+    border: var(--gxg-scrollbar-track-thumb-border);
+    background-clip: padding-box;
   }
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background: var(--gxg-scrollbar-track-thumb-hover-background, --gray-04);
+    background-color: var(
+      --gxg-scrollbar-track-thumb-hover-background,
+      --gray-04
+    );
     cursor: pointer;
   }
 }

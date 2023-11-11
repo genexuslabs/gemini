@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large mercury dark">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -46,11 +46,138 @@
       .no-margin {
         margin: 0;
       }
+      .scroll-container {
+        font-size: 14px;
+        line-height: 1.6em;
+        border: 1px solid cadetblue;
+        height: 200px;
+        overflow-y: auto;
+      }
+
+      /* .scroll-container::-webkit-scrollbar {
+        width: 18px;
+        height: 18px;
+      }
+      .scroll-container::-webkit-scrollbar-track {
+        background-color: var(--gxg-scrollbar-track-background, --gray-02);
+        border-radius: var(--gxg-scrollbar-track-border-radius, 10px);
+      }
+      .scroll-container::-webkit-scrollbar-thumb {
+        /* background: var(--gxg-scrollbar-track-thumb-background, --gray-05);
+        border-radius: var(--gxg-scrollbar-track-thumb-radius, 10px);
+        width: var(--gxg-scrollbar-width, 6px); */
+      /*
+        border: 7px solid transparent;
+        background-clip: padding-box;
+        border-radius: 99px;
+        background-color: var(
+          --gxg-scrollbar-track-thumb-background,
+          --gray-05
+        );
+        
+      }*/
+      /* .scroll-container::-webkit-scrollbar-thumb:hover {
+        cursor: pointer;
+        background-color: var(
+          --gxg-scrollbar-track-thumb-hover-background,
+          --gray-04
+        );
+      } */
+
+      /*--- Scrollbar ---*/
+      .scroll-container::-webkit-scrollbar {
+        width: 14px;
+        height: var(--gxg-scrollbar-width, 6px);
+      }
+      /* Track */
+      .scroll-container::-webkit-scrollbar-track {
+        background-color: var(--gxg-scrollbar-track-background, --gray-02);
+        border-radius: var(--gxg-scrollbar-track-border-radius, 10px);
+      }
+      /* Handle */
+      .scroll-container::-webkit-scrollbar-thumb {
+        background-color: var(
+          --gxg-scrollbar-track-thumb-background,
+          --gray-05
+        );
+        border-radius: var(--gxg-scrollbar-track-thumb-radius, 10px);
+        border: none;
+        background-clip: padding-box;
+        /*border-radius: 99px;*/
+      }
+      /* Handle on hover */
+      .scroll-container::-webkit-scrollbar-thumb:hover {
+        background-color: yellow;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Test de componentes para Mercury</h1>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">gxg-card with scroll | <code>type="section"</code></h2>
+        <gxg-card
+          card-title="project detail"
+          icon="editing-structures/attribute-formula"
+          height="200px"
+        >
+          <p>
+            The universe is incredibly vast and mysterious. One interesting fact
+            is that there are more stars in the observable universe than there
+            are grains of sand on all the beaches on Earth. It's mind-boggling!
+            🌌🌟
+          </p>
+          <p>
+            The universe is about 13.8 billion years old, but we can only
+            observe a tiny fraction of it due to the speed of light.
+          </p>
+          <p>
+            Black holes can be both incredibly massive and incredibly small.
+            Some are as tiny as a single atom but contain the mass of a
+            mountain!
+          </p>
+          <p>
+            There's a phenomenon called "dark matter," which makes up about 27%
+            of the universe's mass, yet we can't see or detect it directly. It's
+            a big cosmic mystery.
+          </p>
+          <p>
+            The Hubble Space Telescope has captured images of galaxies that are
+            billions of light-years away, showing us what they looked like in
+            the distant past.
+          </p>
+        </gxg-card>
+      </article>
+
+      <div class="scroll-container gxg-scroll">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor vel
+          dolores vitae placeat molestiae sequi illum iste repudiandae odit
+          fugit ratione sunt accusamus ipsa saepe, voluptatibus eum! Quod, eius
+          et.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor vel
+          dolores vitae placeat molestiae sequi illum iste repudiandae odit
+          fugit ratione sunt accusamus ipsa saepe, voluptatibus eum! Quod, eius
+          et.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor vel
+          dolores vitae placeat molestiae sequi illum iste repudiandae odit
+          fugit ratione sunt accusamus ipsa saepe, voluptatibus eum! Quod, eius
+          et.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor vel
+          dolores vitae placeat molestiae sequi illum iste repudiandae odit
+          fugit ratione sunt accusamus ipsa saepe, voluptatibus eum! Quod, eius
+          et.
+        </p>
+      </div>
 
       <!-- Textarea -->
       <article>
@@ -68,7 +195,7 @@
       <!-- Textarea grow-->
       <article>
         <h2 class="h2">textarea | <code>grow + max-height="150px"</code></h2>
-        <gxg-form-textarea max-width="600px" grow max-height="150px">
+        <gxg-form-textarea max-width="600px" ai max-height="150px">
         </gxg-form-textarea>
       </article>
 

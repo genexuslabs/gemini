@@ -46,7 +46,6 @@
 - [gxg-pill](../pills)
 - [gxg-suggest](../suggest)
 - [gxg-tab-button](../tab-button)
-- [gxg-test](../test)
 - [gxg-text](../text)
 - [gxg-toolbar](../toolbar)
 - [gxg-toolbar-item](../toolbar-item)
@@ -89,7 +88,6 @@ graph TD;
   gxg-pill --> gxg-icon
   gxg-suggest --> gxg-icon
   gxg-tab-button --> gxg-icon
-  gxg-test --> gxg-icon
   gxg-text --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon

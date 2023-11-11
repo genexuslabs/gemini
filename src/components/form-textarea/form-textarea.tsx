@@ -40,14 +40,14 @@ export class GxgFormTextarea implements FormComponent {
   *********************************/
 
   /**
-   * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it grows as tall as the "height: property.
+   * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
    */
   @Prop({ reflect: true }) singleLine = false;
 
   /**
-   * It will show the textarea with a single line, and grow in height as the text overflows, or the user hits shift + enter. This property will be ignored if "shrink" is true
+   * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
    */
-  @Prop({ reflect: true }) grow = false;
+  @Prop({ reflect: true }) ai = false;
 
   /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
@@ -202,12 +202,12 @@ export class GxgFormTextarea implements FormComponent {
     this.value = target.value;
     this.input.emit(this.value);
 
-    // if (state.mercury && this.grow) {
+    // if (state.mercury && this.ai) {
     //   (this.textArea
     //     .parentNode as HTMLElement).dataset.replicatedValue = this.value;
     // }
 
-    if (state.mercury && this.grow) {
+    if (state.mercury && this.ai) {
       const offset = this.textArea.offsetHeight - this.textArea.clientHeight;
       this.textArea.style.height = "auto";
       this.textArea.style.height = this.textArea.scrollHeight + offset + "px";
@@ -278,7 +278,7 @@ export class GxgFormTextarea implements FormComponent {
             onInput={this.handleInput}
             onChange={this.handleChange.bind(this)}
             value={this.value}
-            rows={state.mercury && this.grow ? 1 : this.rows}
+            rows={state.mercury && this.ai ? 1 : this.rows}
             required={this.required}
             style={{ height: this.height, maxHeight: this.maxHeight }}
             part="textarea"
