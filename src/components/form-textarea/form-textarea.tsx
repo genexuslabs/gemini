@@ -134,6 +134,11 @@ export class GxgFormTextarea implements FormComponent {
    */
   @Event() enter: EventEmitter;
 
+  /**
+   * Emits the ArrowUp keydown event. Only available if ai is true.
+   */
+  @Event() arrowUpPressed: EventEmitter;
+
   /*********************************
   PROPERTIES FOR VALIDATION 
   *********************************/
@@ -237,6 +242,8 @@ export class GxgFormTextarea implements FormComponent {
       this.enter.emit(this.textArea.value);
       this.textArea.style.height = "auto";
       this.value = "";
+    } else if (e.key === "ArrowUp" && this.ai) {
+      this.arrowUpPressed.emit();
     }
   };
 

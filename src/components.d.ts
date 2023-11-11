@@ -4136,6 +4136,10 @@ declare namespace LocalJSX {
      */
     maxWidth?: string;
     /**
+     * Emits the ArrowUp keydown event. Only available if ai is true.
+     */
+    onArrowUpPressed?: (event: CustomEvent<any>) => void;
+    /**
      * Returns the textarea value
      */
     onChange?: (event: CustomEvent<any>) => void;
