@@ -58,11 +58,21 @@
           textarea | <code>max-width="600px" + height="300px"</code>
         </h2>
         <gxg-form-textarea
+          id="text-area-focus"
           max-width="600px"
           height="100px"
           value="Sure, Bruno! The universe is mind-blowingly vast. It contains over 100 billion galaxies, each with billions of stars. And it's estimated to be around 13.8 billion years old! 🌌✨ The observable universe is estimated to be about 93 billion light-years in diameter. Neutron stars, which are incredibly dense, can have a mass greater than that of our sun but be only about 12 miles in diameter. The most distant known galaxy, GN-z11, is located 13.4 billion light-years away from Earth. Black holes can be incredibly massive; the one at the center of our Milky Way galaxy, called Sagittarius A*, has a mass equivalent to about 4.1 million suns. 🌌🌟🕳️"
         >
         </gxg-form-textarea>
+        <br />
+        <button id="set-focus-btn">set focus</button>
+        <script>
+          const textAreaFocus = document.getElementById("text-area-focus");
+          const setFocusBtn = document.getElementById("set-focus-btn");
+          setFocusBtn.addEventListener("click", () => {
+            textAreaFocus.focus();
+          });
+        </script>
       </article>
 
       <!-- Textarea grow-->

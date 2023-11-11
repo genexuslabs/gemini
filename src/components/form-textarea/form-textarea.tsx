@@ -23,7 +23,7 @@ import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-form-textarea",
   styleUrl: "form-textarea.scss",
-  shadow: true,
+  shadow: { delegatesFocus: true },
 })
 export class GxgFormTextarea implements FormComponent {
   private parts = {
