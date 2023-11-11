@@ -50,44 +50,12 @@
   background: var(--gray-01);
 }
 
+.content {
+  @include gxg-scrollbar();
+  overflow: auto;
+}
+
 /*********************************************
 Mercury
 **********************************************/
-//@import "./card-mercury";
-
-:host(.mercury) {
-  .wrapper {
-    display: grid;
-    height: 100%;
-    grid-template-rows: auto 1fr;
-  }
-  @include mc-base-styles();
-  .content {
-    // Scroll bar
-    overflow: auto;
-    &::-webkit-scrollbar {
-      width: var(--gxg-scrollbar-width, 6px);
-      height: var(--gxg-scrollbar-width, 6px);
-    }
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background-color: var(--gxg-scrollbar-track-background, --gray-02);
-      border-radius: var(--gxg-scrollbar-track-border-radius, 10px);
-    }
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--gxg-scrollbar-track-thumb-background, --gray-05);
-      border-radius: var(--gxg-scrollbar-track-thumb-radius, 10px);
-      border: 5px solid transparent;
-      border: none;
-      background-clip: padding-box;
-    }
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      --gray-05: yellow;
-      --gxg-scrollbar-track-thumb-background: yellow;
-      background-color: yellow !important;
-      cursor: pointer;
-    }
-  }
-}
+@import "./card-mercury";

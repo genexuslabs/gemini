@@ -11,8 +11,6 @@
     width: 100%;
     box-sizing: border-box;
     padding: var(--spacing-comp-03);
-    overflow-y: auto;
-    @include gxg-scrollbar();
   }
 }
 :host(.not-selected) {
@@ -37,6 +35,12 @@
   &.flex-row {
     flex-direction: row;
   }
+}
+
+/*scrollbar*/
+.container {
+  overflow-y: auto;
+  @include gxg-scrollbar();
 }
 
 /*********************************************

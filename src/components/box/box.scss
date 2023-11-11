@@ -4,10 +4,11 @@
 :host {
   display: block;
   background: var(--color-on-primary);
-  padding: var(--spacing-comp-02);
   overflow: hidden;
   @include gxg-text();
-  @include gxg-scrollbar();
+  .container {
+    padding: var(--spacing-comp-02);
+  }
 }
 :host([background="white"]) {
   background: var(--color-background);
@@ -26,26 +27,49 @@
 
 //Padding
 :host([padding="0"]) {
-  padding: 0;
+  .container {
+    padding: 0;
+  }
 }
 :host([padding="xs"]) {
-  padding: var(--spacing-comp-01);
+  .container {
+    padding: var(--spacing-comp-01);
+  }
 }
 :host([padding="s"]) {
-  padding: var(--spacing-comp-02);
+  .container {
+    padding: var(--spacing-comp-02);
+  }
 }
 :host([padding="m"]) {
-  padding: var(--spacing-comp-03);
+  .container {
+    padding: var(--spacing-comp-03);
+  }
 }
 :host([padding="l"]) {
-  padding: var(--spacing-comp-04);
+  .container {
+    padding: var(--spacing-comp-04);
+  }
 }
 :host([padding="xl"]) {
-  padding: var(--spacing-comp-05);
+  .container {
+    padding: var(--spacing-comp-05);
+  }
 }
 :host([padding="xxl"]) {
-  padding: var(--spacing-comp-06);
+  .container {
+    padding: var(--spacing-comp-06);
+  }
 }
 :host([padding="xxxl"]) {
-  padding: var(--spacing-comp-07);
+  .container {
+    padding: var(--spacing-comp-07);
+  }
+}
+
+.container {
+  @include gxg-scrollbar();
+  overflow: auto;
+  height: 100%;
+  box-sizing: border-box;
 }

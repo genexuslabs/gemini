@@ -232,7 +232,7 @@ export class GxgFormTextarea implements FormComponent {
   };
 
   private keyDownHandler = (e: KeyboardEvent) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === "Enter" && !e.shiftKey && this.ai) {
       e.preventDefault();
       this.enter.emit(this.textArea.value);
       this.textArea.style.height = "auto";

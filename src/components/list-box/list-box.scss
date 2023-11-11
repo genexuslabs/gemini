@@ -31,15 +31,6 @@
     color: var(--color-on-background);
   }
 
-  .main {
-    overflow-y: auto;
-    @include gxg-scrollbar();
-
-    &--no-border {
-      border: none;
-    }
-  }
-
   .icon {
     margin-inline-end: var(--spacing-comp-01);
   }
@@ -49,6 +40,15 @@
   &.selected {
     background-color: var(--color-secondary-active);
     color: var(--color-always-white);
+  }
+}
+
+.main {
+  overflow-y: auto;
+  @include gxg-scrollbar();
+
+  &--no-border {
+    border: none;
   }
 }
 

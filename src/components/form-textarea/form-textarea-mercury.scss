@@ -5,19 +5,18 @@
     font-size: inherit;
     border: var(--border-width-sm) solid var(--gray-05);
     border-radius: var(--border-radius-sm);
-    padding: var(--spacing-comp-02) var(--spacing-comp-03);
 
     &:focus-within {
       @include form-element-common-styles-focus-type-1();
     }
   }
-  textarea {
+  .textarea {
     border: none;
     padding: 0;
+    padding: var(--spacing-comp-02) var(--spacing-comp-03);
     font-size: inherit;
     font-family: inherit;
-    line-height: inherit;
-    padding-inline-end: var(--spacing-comp-02);
+    line-height: 23px;
     background-color: transparent;
     &:focus {
       outline: none;
@@ -26,11 +25,12 @@
 }
 
 /*********************************************
-[grow] Only for Mercury
+[ai] Only for Mercury
 **********************************************/
-:host([grow].mercury) {
+:host([ai].mercury) {
   textarea {
     box-sizing: border-box;
     resize: none;
+    height: auto;
   }
 }

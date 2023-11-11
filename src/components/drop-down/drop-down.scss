@@ -57,14 +57,12 @@
     border-bottom-left-radius: var(--border-radius-sm);
     border-bottom-right-radius: var(--border-radius-sm);
     color: var(--color-on-background);
-    overflow-y: auto;
     position: fixed;
     width: inherit;
     box-sizing: border-box;
     z-index: 999;
     background-color: var(--color-background);
     display: none;
-    @include gxg-scrollbar();
 
     &--show {
       display: block;
@@ -86,6 +84,12 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+}
+
+/*scrollbar*/
+.content-container {
+  @include gxg-scrollbar();
+  overflow-y: auto;
 }
 
 /*********************************************

@@ -32,8 +32,6 @@
   }
   #main {
     max-height: 144px;
-    overflow-y: auto;
-    @include gxg-scrollbar();
 
     #no-match {
       transition: all 0.25s;
@@ -63,6 +61,12 @@
 }
 :host(.hide) {
   animation: out 0.25s forwards;
+}
+
+/*scrollbar*/
+#main {
+  overflow-y: auto;
+  @include gxg-scrollbar();
 }
 
 @keyframes in {

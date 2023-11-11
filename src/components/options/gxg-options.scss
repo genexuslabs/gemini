@@ -20,12 +20,9 @@
     border-radius: var(--border-radius-sm);
     position: absolute;
     text-align: left;
-    overflow: hidden;
-    overflow-y: auto;
     font-size: var(--font-size-sm);
     line-height: 14px;
     margin-top: var(--spacing-comp-01);
-    @include gxg-scrollbar();
   }
 }
 :host(.options--visible) .options__items-container {
@@ -38,6 +35,13 @@
   .options__items-container {
     right: 0;
   }
+}
+
+/*scrollbar*/
+.options__items-container {
+  overflow: hidden;
+  overflow-y: auto;
+  @include gxg-scrollbar();
 }
 
 //large

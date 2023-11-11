@@ -58,7 +58,9 @@ export class GxgBox {
           height: this.height,
         }}
       >
-        <slot></slot>
+        <div class="container">
+          <slot></slot>
+        </div>
       </Host>
     );
   }

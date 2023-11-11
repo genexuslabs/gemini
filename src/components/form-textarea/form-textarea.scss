@@ -41,13 +41,7 @@ LABEL
 TEXTAREA
 *****************************************************/
 :host {
-  .textarea-wrapper {
-    display: flex;
-    gap: var(--spacing-comp-01);
-    flex: 1;
-  }
   textarea {
-    @include gxg-scrollbar();
     resize: none;
     @include form-element-common-styles();
 
@@ -83,6 +77,18 @@ TEXTAREA
     overflow: hidden;
   }
 }
+
+/*scrollbar*/
+.textarea {
+  overflow: auto;
+  height: 100%;
+  @include gxg-scrollbar();
+}
+.textarea-wrapper {
+  display: flex;
+  gap: var(--spacing-comp-01);
+  flex: 1;
+}
 /*********************************************
 VALIDATION
 **********************************************/
@@ -95,8 +101,11 @@ LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/
 :host(.large) {
   label,
-  textarea {
+  .textarea-wrapper {
     font-size: var(--font-size-lg);
+    box-sizing: border-box;
+  }
+  .textarea {
     padding: var(--spacing-comp-01) var(--spacing-comp-02);
   }
 }
