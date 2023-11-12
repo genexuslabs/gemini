@@ -241,7 +241,6 @@ export class GxgFormTextarea implements FormComponent {
       e.preventDefault();
       this.enter.emit(this.textArea.value);
       this.textArea.style.height = "auto";
-      this.value = "";
     } else if (e.key === "ArrowUp" && this.ai) {
       this.arrowUpPressed.emit();
     }
