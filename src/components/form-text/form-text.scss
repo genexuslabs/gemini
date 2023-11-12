@@ -243,7 +243,7 @@ STYLE
 INPUT TYPE FILE
 *****************************************************/
 :host(.file) {
-  .input {
+  .form-element--readonly {
     user-select: none;
     cursor: pointer;
   }

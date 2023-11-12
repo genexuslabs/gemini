@@ -366,10 +366,6 @@ export class GxgFormText implements FormComponent {
     this.input.emit(target.value);
   }
 
-  private handleClick = () => {
-    this.openFile();
-  };
-
   private handleKeyDown = (e) => {
     if (e.key === "Enter" && this.type === "file") {
       this.textInput.click();
@@ -647,6 +643,7 @@ export class GxgFormText implements FormComponent {
               class={{
                 input: true,
                 "form-element": true,
+                "form-element--readonly": this.readonly,
                 "cursor-inside": this.cursorInside,
                 "clear-button": this.clearButton === true,
                 "custom-icon": this.icon,
@@ -655,10 +652,8 @@ export class GxgFormText implements FormComponent {
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
-              readonly={
-                "readonly" ? this.readonly || this.type === "file" : null
-              }
-              onClick={this.handleClick}
+              readonly={"readonly" ? this.readonly : null}
+              onClick={this.type === "file" && this.readonly && this.openFile}
               onInput={this.handleInput.bind(this)}
               onKeyDown={this.handleKeyDown}
               onChange={this.handleChange.bind(this)}
