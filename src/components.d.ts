@@ -1688,6 +1688,13 @@ export namespace Components {
      */
     type: string;
   }
+  interface GxgShortcuts {
+    showKey: "F10";
+    /**
+     * The URL of the shortcut definitions.
+     */
+    src: string;
+  }
   interface GxgSlider {
     /**
      * The state of the slider, whether is disabled or not.
@@ -2787,6 +2794,13 @@ declare global {
     prototype: HTMLGxgSeparatorElement;
     new (): HTMLGxgSeparatorElement;
   };
+  interface HTMLGxgShortcutsElement
+    extends Components.GxgShortcuts,
+      HTMLStencilElement {}
+  var HTMLGxgShortcutsElement: {
+    prototype: HTMLGxgShortcutsElement;
+    new (): HTMLGxgShortcutsElement;
+  };
   interface HTMLGxgSliderElement
     extends Components.GxgSlider,
       HTMLStencilElement {}
@@ -3011,6 +3025,7 @@ declare global {
     "gxg-select": HTMLGxgSelectElement;
     "gxg-select-v2": HTMLGxgSelectV2Element;
     "gxg-separator": HTMLGxgSeparatorElement;
+    "gxg-shortcuts": HTMLGxgShortcutsElement;
     "gxg-slider": HTMLGxgSliderElement;
     "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
     "gxg-spacer-one": HTMLGxgSpacerOneElement;
@@ -4757,6 +4772,13 @@ declare namespace LocalJSX {
      */
     type?: string;
   }
+  interface GxgShortcuts {
+    showKey?: "F10";
+    /**
+     * The URL of the shortcut definitions.
+     */
+    src: string;
+  }
   interface GxgSlider {
     /**
      * The state of the slider, whether is disabled or not.
@@ -5503,6 +5525,7 @@ declare namespace LocalJSX {
     "gxg-select": GxgSelect;
     "gxg-select-v2": GxgSelectV2;
     "gxg-separator": GxgSeparator;
+    "gxg-shortcuts": GxgShortcuts;
     "gxg-slider": GxgSlider;
     "gxg-spacer-layout": GxgSpacerLayout;
     "gxg-spacer-one": GxgSpacerOne;
@@ -5643,6 +5666,8 @@ declare module "@stencil/core" {
         JSXBase.HTMLAttributes<HTMLGxgSelectV2Element>;
       "gxg-separator": LocalJSX.GxgSeparator &
         JSXBase.HTMLAttributes<HTMLGxgSeparatorElement>;
+      "gxg-shortcuts": LocalJSX.GxgShortcuts &
+        JSXBase.HTMLAttributes<HTMLGxgShortcutsElement>;
       "gxg-slider": LocalJSX.GxgSlider &
         JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
       "gxg-spacer-layout": LocalJSX.GxgSpacerLayout &

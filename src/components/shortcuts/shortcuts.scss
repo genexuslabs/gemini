@@ -1,0 +1,20 @@
+@import "../../globals/mixins";
+
+:host {
+  display: block;
+}
+ch-shortcuts::part(tooltip) {
+  //font-family: var(--font-family-primary);
+  font-family: monospace;
+  background-color: var(--color-primary-enabled);
+  color: var(--color-on-primary);
+  padding: var(--spacing-comp-00) var(--spacing-comp-01);
+  font-size: var(--font-size-sm);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  top: -2.5px;
+  right: -2px;
+}
+ch-shortcuts::part(element) {
+  @include form-element-common-styles-focus-type-1();
+}

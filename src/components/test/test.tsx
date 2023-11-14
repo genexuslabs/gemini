@@ -7,33 +7,60 @@ import { Component, h, Prop, Listen, State, Element } from "@stencil/core";
 export class GxgTest {
   @Element() el: HTMLElement;
 
+  private sendClickHandler = () => {
+    console.log("clicked");
+  };
+
   render() {
-    return (
-      <div class="card">
-        <p>
-          The universe is incredibly vast and mysterious. One interesting fact
-          is that there are more stars in the observable universe than there are
-          grains of sand on all the beaches on Earth. It's mind-boggling! 🌌🌟
-        </p>
-        <p>
-          The universe is about 13.8 billion years old, but we can only observe
-          a tiny fraction of it due to the speed of light.
-        </p>
-        <p>
-          Black holes can be both incredibly massive and incredibly small. Some
-          are as tiny as a single atom but contain the mass of a mountain!
-        </p>
-        <p>
-          There's a phenomenon called "dark matter," which makes up about 27% of
-          the universe's mass, yet we can't see or detect it directly. It's a
-          big cosmic mystery.
-        </p>
-        <p>
-          The Hubble Space Telescope has captured images of galaxies that are
-          billions of light-years away, showing us what they looked like in the
-          distant past.
-        </p>
-      </div>
-    );
+    return [
+      <div class="container">
+        <section class="section-dev" data-title="shortcut">
+          <h2>Formulario de Contacto</h2>
+
+          <div>
+            <label htmlFor="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              data-shortcut="Alt+N"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email">Correo Electrónico:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              data-shortcut="Alt+E"
+              data-shortcut-prevent="Enter"
+              aria-keyshortcuts="Alt+E"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              data-shortcut="Alt+M"
+            ></textarea>
+          </div>
+
+          <div>
+            <button
+              id="enviar"
+              data-shortcut="Enter"
+              data-shortcut-action="click"
+              onClick={this.sendClickHandler}
+            >
+              Enviar
+            </button>
+          </div>
+        </section>
+      </div>,
+      <gxg-shortcuts src="../assets/json/shortcuts.json"></gxg-shortcuts>,
+    ];
   }
 }

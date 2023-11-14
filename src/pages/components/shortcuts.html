@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Shortcuts | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="section-dev" data-title="shortcut">
+        <h2>Formulario de Contacto</h2>
+
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" data-shortcut="Alt+N" />
+        </div>
+
+        <div>
+          <label for="email">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            data-shortcut="Alt+E"
+            data-shortcut-prevent="Enter"
+            aria-keyshortcuts="Alt+E"
+          />
+        </div>
+
+        <div>
+          <label for="mensaje">Mensaje:</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            data-shortcut="Alt+M"
+          ></textarea>
+        </div>
+
+        <div>
+          <button
+            id="enviar"
+            data-shortcut="Enter"
+            data-shortcut-action="click"
+            onclick="alert('Enviado...')"
+          >
+            Enviar
+          </button>
+        </div>
+      </section>
+    </div>
+    <gxg-shortcuts src="../assets/json/shortcuts.json"></gxg-shortcuts>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+ch-shortcuts::part(tooltip) {
+  font-family: var(--font-family-primary);
+  background-color: var(--color-primary-enabled);
+  color: var(--color-on-primary);
+  padding: var(--spacing-comp-00) var(--spacing-comp-01);
+  font-size: var(--font-size-sm);
+  border-radius: var(--border-radius-sm);
+}
+ch-shortcuts::part(element) {
+  outline: 1px solid var(--color-primary-enabled);
+}
