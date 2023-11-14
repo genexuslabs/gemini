@@ -52,6 +52,12 @@
     </style>
   </head>
   <body>
+    <script>
+      const body = document.querySelector("body");
+      body.addEventListener("keydown", (e) => {
+        console.log(e);
+      });
+    </script>
     <div class="container">
       <section class="section" tabindex="0">
         <span>test frutas</span>
@@ -64,6 +70,7 @@
           center-label
           cursor-end
           value="manzana"
+          prevent-enter-propagation
         >
           <gxg-combo-box-item value="manzana">Manzana</gxg-combo-box-item>
           <gxg-combo-box-item value="banana" icon="objects/conversational-flows"

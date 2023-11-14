@@ -78,6 +78,11 @@ export class GxgComboBox implements FormComponent {
   searchItemsContainer!: HTMLDivElement;
 
   /**
+   * If true, it will prevent Enter key propagation only when the list is open. This prop. was created to prevent issues with ch-shortcuts, when an Enter key has to fire a callback on another element (such as a button) but it has to be ignored when the list is open, since an Enter key on a list-box-item, has to select the item only.
+   */
+  @Prop() preventEnterPropagation = false;
+
+  /**
    * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
    */
   @Prop() fixedIcon: string;
@@ -338,6 +343,9 @@ export class GxgComboBox implements FormComponent {
       newItem?.value && (this.value = newItem?.value);
       repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_UP);
     } else if (e.code === KK.ENTER) {
+      if (this.preventEnterPropagation && this.listIsOpen) {
+        e.stopPropagation();
+      }
       this.hideList();
       this.showAllItems();
     } else if (e.code === KK.SPACE) {

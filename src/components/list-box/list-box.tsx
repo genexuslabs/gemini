@@ -410,7 +410,6 @@ export class GxgListBox implements FormComponent {
       e.code === "ArrowDown" ||
       e.code === "ArrowUp" ||
       e.code === "Space" ||
-      e.code === "Enter" ||
       e.code === "Backspace" ||
       e.code === "Delete" ||
       e.code === "KeyA"
@@ -420,7 +419,7 @@ export class GxgListBox implements FormComponent {
 
     if (e.code === "ArrowDown" || e.code === "ArrowUp") {
       this.HandleArrow(e.code, shiftKey, activeItemIndex);
-    } else if (e.code === "Space" || e.code === "Enter") {
+    } else if (e.code === "Space") {
       if (shiftKey && ctrlKey) {
         /*uncheck checkbox*/
         const changedLength = this.setCheckboxState(

@@ -154,7 +154,7 @@ export class GxgFormCheckbox implements FormComponent {
   }
 
   handlerOnKeyUp(event) {
-    if (event.code == "Enter") {
+    if (event.code == "Space") {
       this.checked = !this.checked;
     }
   }

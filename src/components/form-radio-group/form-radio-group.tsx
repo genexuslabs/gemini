@@ -138,14 +138,11 @@ export class GxgFormRadioGroup implements FormComponent {
         if (currentRadioIndex - 1 < radiosArray.length) {
           newRadio = radiosArray[currentRadioIndex - 1];
         }
-      } else if (key === "Enter") {
-        const gxgFormRadio = currentRadio as HTMLGxgFormRadioElement;
-        if (!gxgFormRadio.checked) {
-          this.value = gxgFormRadio.value;
-        }
       }
       if (newRadio) {
         newRadio.focus();
+        newRadio.checked = true;
+        this.value = newRadio.value;
       }
     }
   }

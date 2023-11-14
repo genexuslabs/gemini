@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="gxg-large">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>xxx | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+  </head>
+  <body>
+    <gxg-combo-box>
+      <gxg-combo-box-item value="resources" icon="objects/bg-color"
+        >Resources</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="user-interface" icon="objects/webpanel"
+        >User interface</gxg-combo-box-item
+      >
+      <gxg-combo-box-item value="dashboard" icon="objects/dashboard"
+        >Dashboard</gxg-combo-box-item
+      >
+    </gxg-combo-box>
+    <br />
+    <select name="" id="">
+      <option value="red">red</option>
+      <option value="blue">blue</option>
+      <option value="green">green</option>
+    </select>
+
+    <script>
+      const showFocus = () => {
+        var activeElement = document.activeElement;
+        console.log("activeElement", activeElement);
+      };
+      setInterval(showFocus, 2000);
+    </script>
+  </body>
+</html>
