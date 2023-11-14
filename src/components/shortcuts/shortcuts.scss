@@ -6,8 +6,8 @@
 ch-shortcuts::part(tooltip) {
   //font-family: var(--font-family-primary);
   font-family: monospace;
-  background-color: var(--color-primary-enabled);
-  color: var(--color-on-primary);
+  background-color: var(--gray-06);
+  color: var(--gray-01);
   padding: var(--spacing-comp-00) var(--spacing-comp-01);
   font-size: var(--font-size-sm);
   border-radius: var(--border-radius-sm);
@@ -17,4 +17,10 @@ ch-shortcuts::part(tooltip) {
 }
 ch-shortcuts::part(element) {
   @include form-element-common-styles-focus-type-1();
+  outline-color: var(--gray-06);
+}
+:host([show-tooltip]) {
+  ch-shortcuts::part(tooltip) {
+    opacity: 1;
+  }
 }

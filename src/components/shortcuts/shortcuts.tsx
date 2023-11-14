@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from "@stencil/core";
+import { Component, Host, h, Prop, State } from "@stencil/core";
 
 @Component({
   tag: "gxg-shortcuts",
@@ -12,6 +12,14 @@ export class GxgShortcuts {
   @Prop() readonly src!: string;
 
   @Prop() readonly showKey = "F10";
+
+  @Prop({ reflect: true, mutable: true }) showTooltip = false;
+
+  @State() show = false;
+
+  componentDidLoad(): void {
+    this.showTooltip = true;
+  }
 
   render() {
     return (

@@ -4,10 +4,11 @@
 
 ## Properties
 
-| Property           | Attribute  | Description                          | Type     | Default     |
-| ------------------ | ---------- | ------------------------------------ | -------- | ----------- |
-| `showKey`          | `show-key` |                                      | `"F10"`  | `"F10"`     |
-| `src` _(required)_ | `src`      | The URL of the shortcut definitions. | `string` | `undefined` |
+| Property           | Attribute      | Description                          | Type      | Default     |
+| ------------------ | -------------- | ------------------------------------ | --------- | ----------- |
+| `showKey`          | `show-key`     |                                      | `"F10"`   | `"F10"`     |
+| `showTooltip`      | `show-tooltip` |                                      | `boolean` | `false`     |
+| `src` _(required)_ | `src`          | The URL of the shortcut definitions. | `string`  | `undefined` |
 
 ## Dependencies
 

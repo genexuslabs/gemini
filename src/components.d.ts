@@ -1690,6 +1690,7 @@ export namespace Components {
   }
   interface GxgShortcuts {
     showKey: "F10";
+    showTooltip: boolean;
     /**
      * The URL of the shortcut definitions.
      */
@@ -4774,6 +4775,7 @@ declare namespace LocalJSX {
   }
   interface GxgShortcuts {
     showKey?: "F10";
+    showTooltip?: boolean;
     /**
      * The URL of the shortcut definitions.
      */
