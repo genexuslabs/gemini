@@ -90,6 +90,12 @@ export class GxgFormRadio {
     this.keyPressed.emit(event.key);
   }
 
+  private gxgLabelKeyDownHandler = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      this.checked = true;
+    }
+  };
+
   render(): void {
     return (
       <Host class={{ "gxg-form-radio--disabled": this.disabled }}>
@@ -98,6 +104,7 @@ export class GxgFormRadio {
           class="label"
           disabled={this.disabled}
           onClick={this.clickedHandler}
+          onKeyDown={this.gxgLabelKeyDownHandler}
         >
           <input
             ref={(el) => (this.radioInput = el as HTMLInputElement)}
