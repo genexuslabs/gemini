@@ -362,7 +362,7 @@ export class GxgComboBox implements FormComponent {
     this.value = e.detail;
   };
 
-  /*********************************
+  /********************************
   WATCH
   *********************************/
 
