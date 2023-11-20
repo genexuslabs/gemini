@@ -212,7 +212,7 @@ export class GxgFormTextarea implements FormComponent {
     this.value = target.value;
     this.input.emit(this.value);
 
-    if (state.mercury && this.ai) {
+    if (this.ai) {
       const offset = this.textArea.offsetHeight - this.textArea.clientHeight;
       this.textArea.style.height = "auto";
       this.textArea.style.height = this.textArea.scrollHeight + offset + "px";
@@ -293,7 +293,7 @@ export class GxgFormTextarea implements FormComponent {
             onInput={this.handleInput}
             onChange={this.handleChange.bind(this)}
             value={this.value}
-            rows={state.mercury && this.ai ? 1 : this.rows}
+            rows={this.ai ? 1 : this.rows}
             required={this.required}
             style={{ height: this.height, maxHeight: this.maxHeight }}
             part="textarea"

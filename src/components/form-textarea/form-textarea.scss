@@ -34,6 +34,7 @@ LABEL
     transition: height 200ms;
     width: 100%;
     @include gxg-text();
+    font-size: inherit;
   }
 }
 
@@ -110,6 +111,16 @@ LARGE VERSION (html tag has 'gxg-large' class)
   }
 }
 
+/*********************************************
+Ai
+**********************************************/
+:host([ai]) {
+  textarea {
+    box-sizing: border-box;
+    resize: none;
+    height: auto;
+  }
+}
 /*********************************************
 Mercury
 **********************************************/
