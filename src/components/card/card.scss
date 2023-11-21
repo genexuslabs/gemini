@@ -97,6 +97,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: end;
       gap: var(--spacing-comp-03);
       font-size: var(--font-size-xl);
       width: 50%;
@@ -107,6 +108,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       color: var(--color-on-background);
+      padding-inline-end: 3px; /*prevents text cut text if italic, due to ellipsis*/
       a {
         color: var(--gray-06);
       }
