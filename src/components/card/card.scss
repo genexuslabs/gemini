@@ -133,6 +133,7 @@
 
 /*--- Article ---*/
 :host(.card--article) {
+  background-color: var(--gray-01);
   font-size: 12px;
   border: 1px solid var(--gray-02);
   border-radius: var(--border-radius-md);
@@ -168,6 +169,7 @@
 
 /*--- Mini ---*/
 :host(.card--mini) {
+  background-color: var(--gray-01);
   font-size: 12px;
   border: 1px solid var(--gray-02);
   border-radius: var(--border-radius-md);
@@ -205,12 +207,58 @@
 
 /*actionable*/
 :host(.card--actionable:hover) {
+  filter: brightness(1.1);
   background-color: var(--gray-01);
   border-color: var(--gray-03);
-  cursor: pointer;
+  .wrapper {
+    cursor: pointer;
+  }
 }
 
 /*********************************************
 Mercury
 **********************************************/
 @import "./card-mercury";
+
+/*--- General ---*/
+:host(.mercury.card) {
+  color: var(--gray-04);
+  background-color: var(--gray-10);
+  .card__header {
+    border-block-end-color: var(--gray-13);
+  }
+  .content {
+    color: var(--gray-04);
+    font-size: var(--mc-font-size-xs);
+  }
+}
+/*--- Section Type ---*/
+:host(.mercury.card--section) {
+  border-radius: var(--border-radius-md);
+}
+/*--- Article Type ---*/
+:host(.mercury.card--article) {
+  border-color: var(--gray-00);
+  background-color: var(--gray-11);
+  box-shadow: none;
+
+  .subtitle-wrapper {
+    font-size: var(--mc-font-size-xs);
+    color: var(--gray-03);
+  }
+}
+/*--- Mini Type ---*/
+:host(.mercury.card--mini) {
+  border-color: var(--gray-00);
+  box-shadow: none;
+  .content {
+    font-size: var(--mc-font-size-xxs);
+  }
+}
+
+/*actionable*/
+:host(.mercury.card--actionable:hover) {
+  border-color: var(--gray-01);
+  background-color: var(--gray-11);
+  cursor: pointer;
+}
