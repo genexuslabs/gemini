@@ -1,13 +1,15 @@
-import { Component, Prop, h, Host } from "@stencil/core";
+import { Component, Prop, h, Host, Element } from "@stencil/core";
 import state from "../store";
 import { EditableTitleType } from "../title-editable/title-editable";
-
+import { Color } from "../icon/icon";
 @Component({
   tag: "gxg-card",
   styleUrl: "card.scss",
   shadow: true,
 })
 export class GxgCard {
+  @Element() el!: HTMLElement;
+
   /**
    * The card box-shadow
    */
@@ -38,9 +40,15 @@ export class GxgCard {
    */
   @Prop() maxWidth = "100%";
 
+  /**
+   * Disables box-shadow
+   */
+  @Prop() noShadow = false;
+
   /*---  Mercury Only Tokens ---*/
 
   private titleType: EditableTitleType = "h2";
+  private hasSlot = false;
 
   /**
    * Remove padding from the top (applies only for the "section" card type)
@@ -48,9 +56,29 @@ export class GxgCard {
   @Prop({ reflect: true }) readonly noPaddingTop: boolean = false;
 
   /**
-   * An optional title (only for mercury)
+   * An optional title
    */
   @Prop() readonly cardTitle: string;
+
+  /**
+   * Card title semibold
+   */
+  @Prop() readonly titleSemibold: boolean = false;
+
+  /**
+   * An optional subtitle
+   */
+  @Prop() readonly cardSubtitle: string;
+
+  /**
+   * An optional subtitle link
+   */
+  @Prop() readonly subtitleLink: string;
+
+  /**
+   * An optional subtitle icon
+   */
+  @Prop() readonly subtitleIcon: string;
 
   /**
    * The card type (only for mercury)
@@ -61,6 +89,11 @@ export class GxgCard {
    * The card type (only for mercury)
    */
   @Prop() icon: string;
+
+  /**
+   * The icon color
+   */
+  @Prop() iconColor: Color = "mercury";
 
   /**
    * It makes the title editable (only for mercury)
@@ -78,7 +111,23 @@ export class GxgCard {
     } else if (this.cardType === "mini") {
       this.titleType = "h4";
     }
+    const hasSlot = this.el.querySelector("*");
+    if (hasSlot) {
+      this.hasSlot = true;
+    }
   }
+
+  private renderCardSubtitle = () => {
+    if (this.cardSubtitle && this.subtitleLink) {
+      return (
+        <a class="subtitle" href={this.subtitleLink} target="_blank">
+          {this.cardSubtitle}
+        </a>
+      );
+    } else if (this.cardSubtitle && !this.subtitleLink) {
+      return this.cardSubtitle;
+    }
+  };
 
   render() {
     return (
@@ -87,6 +136,7 @@ export class GxgCard {
         class={{
           card: true,
           mercury: state.mercury,
+          "card--no-content": !this.hasSlot,
           "card--section": this.cardType === "section",
           "card--article": this.cardType === "article",
           "card--mini": this.cardType === "mini",
@@ -94,6 +144,8 @@ export class GxgCard {
           "card--actionable":
             this.actionable &&
             (this.cardType === "article" || this.cardType === "mini"),
+          "title-semibold": this.titleSemibold,
+          "card--no-shadow": this.noShadow,
         }}
         style={{
           maxWidth: this.maxWidth,
@@ -110,20 +162,46 @@ export class GxgCard {
         >
           {this.cardTitle ? (
             <header class="card__header">
-              {this.icon ? (
-                <gxg-icon type={this.icon} color="mercury"></gxg-icon>
+              {/*Title*/}
+              <div class="card__header--left">
+                {this.icon ? (
+                  <gxg-icon type={this.icon} color="mercury"></gxg-icon>
+                ) : null}
+                <div class="card-title-wrapper">
+                  {this.cardType === "section" ? (
+                    <gxg-title-editable
+                      class="card__title"
+                      titleType={this.titleType}
+                      value={this.cardTitle}
+                      disableEdition={!this.editableTitle}
+                    ></gxg-title-editable>
+                  ) : (
+                    <h2 class="card__title">{this.cardTitle}</h2>
+                  )}
+                </div>
+              </div>
+              {/*Subtitle*/}
+              {this.cardSubtitle && this.cardType !== "mini" ? (
+                <div class="card__header--right">
+                  <div class="subtitle-wrapper">
+                    {this.renderCardSubtitle()}
+                  </div>
+                  {this.subtitleIcon ? (
+                    <gxg-icon
+                      type={this.subtitleIcon}
+                      color={this.iconColor}
+                    ></gxg-icon>
+                  ) : null}
+                </div>
               ) : null}
-              <gxg-title-editable
-                class="card__title"
-                titleType={this.titleType}
-                value={this.cardTitle}
-                disableEdition={!this.editableTitle}
-              ></gxg-title-editable>
             </header>
           ) : null}
-          <div class="content">
-            <slot></slot>
-          </div>
+
+          {this.hasSlot ? (
+            <div class="content">
+              <slot></slot>
+            </div>
+          ) : null}
         </div>
       </Host>
     );

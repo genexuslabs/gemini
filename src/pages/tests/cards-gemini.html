@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Mercury Components | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      html {
+        --separation-space: 36px;
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 36px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: var(--separation-space);
+      }
+      .h2 {
+        margin-block-start: 0;
+        margin-block-end: var(--separation-space);
+        font-size: 16px;
+        font-weight: var(--font-weight-regular);
+      }
+      body {
+        font-family: var(--font-family-primary);
+        background-color: var(--color-background);
+        color: var(--color-on-background);
+      }
+      article {
+        padding: var(--separation-space) 0;
+        border-block-end: 1px solid var(--gray-01);
+      }
+      .pills-container {
+        display: flex;
+        gap: 8px;
+      }
+      .no-margin {
+        margin: 0;
+      }
+      p:first-child {
+        margin-top: 0;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cards</h1>
+      <button id="toggle-dark-btn">toggle dark</button>
+      <script>
+        const toggleDarkBtn = document.getElementById("toggle-dark-btn");
+        const html = document.querySelector("html");
+
+        toggleDarkBtn.addEventListener("click", () => {
+          html.classList.toggle("dark");
+        });
+      </script>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="section"</code></h2>
+        <div class="card-container" style="height: 300px">
+          <gxg-card
+            card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+            card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+            icon="editing-structures/attribute-formula"
+            subtitle-icon="editing-structures/attribute-formula"
+            subtitle-link="http://www.google.com"
+            height="100%"
+          >
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+          </gxg-card>
+        </div>
+      </article>
+
+      <!-- card "article" -->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="article"</code></h2>
+        <gxg-card
+          card-type="article"
+          card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+          card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+          icon="editing-structures/attribute-formula"
+          subtitle-icon="editing-structures/attribute-formula"
+        >
+        </gxg-card>
+      </article>
+
+      <!-- card "article" with content-->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="article"</code> with content</h2>
+        <gxg-card
+          card-type="article"
+          card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+          card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+          icon="editing-structures/attribute-formula"
+          subtitle-icon="editing-structures/attribute-formula"
+        >
+          <p>
+            The updates include Conversational Development in GeneXus Next, new
+            experiences and interaction capabilities in GeneXus Enterprise AI
+            (code name SAIA), Super App generation, and over 500 enhancements in
+            GeneXus 18.
+          </p>
+        </gxg-card>
+      </article>
+
+      <!-- card no shadow -->
+      <article>
+        <h2 class="h2">gxg-card | <code>no shadow</code></h2>
+        <gxg-card
+          card-type="article"
+          card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+          card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+          icon="editing-structures/attribute-formula"
+          subtitle-icon="editing-structures/attribute-formula"
+          no-shadow
+        >
+        </gxg-card>
+      </article>
+
+      <!-- card "mini"-->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="mini"</code></h2>
+        <gxg-card
+          card-type="mini"
+          card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+          card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+          icon="editing-structures/attribute-formula"
+          subtitle-icon="editing-structures/attribute-formula"
+        >
+          <p>
+            The updates include Conversational Development in GeneXus Next, new
+            experiences and interaction capabilities in GeneXus Enterprise AI
+            (code name SAIA), Super App generation, and over 500 enhancements in
+            GeneXus 18.
+          </p>
+        </gxg-card>
+      </article>
+    </div>
+  </body>
+</html>

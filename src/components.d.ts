@@ -27,6 +27,7 @@ import {
   elevation,
   padding as padding1,
 } from "./components/card/card";
+import { Color } from "./components/icon/icon";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
@@ -54,7 +55,7 @@ import {
   LabelPosition as LabelPosition1,
   Style,
 } from "./components/form-text/form-text";
-import { Color, Size } from "./components/icon/icon";
+import { Color as Color1, Size } from "./components/icon/icon";
 import { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
 import {
   ItemsInformation,
@@ -355,7 +356,11 @@ export namespace Components {
      */
     background: background;
     /**
-     * An optional title (only for mercury)
+     * An optional subtitle
+     */
+    cardSubtitle: string;
+    /**
+     * An optional title
      */
     cardTitle: string;
     /**
@@ -379,6 +384,10 @@ export namespace Components {
      */
     icon: string;
     /**
+     * The icon color
+     */
+    iconColor: Color;
+    /**
      * The component max. width
      */
     maxWidth: string;
@@ -391,9 +400,25 @@ export namespace Components {
      */
     noPaddingTop: boolean;
     /**
+     * Disables box-shadow
+     */
+    noShadow: boolean;
+    /**
      * The card padding
      */
     padding: padding;
+    /**
+     * An optional subtitle icon
+     */
+    subtitleIcon: string;
+    /**
+     * An optional subtitle link
+     */
+    subtitleLink: string;
+    /**
+     * Card title semibold
+     */
+    titleSemibold: boolean;
   }
   interface GxgColorPicker {
     /**
@@ -3308,7 +3333,11 @@ declare namespace LocalJSX {
      */
     background?: background;
     /**
-     * An optional title (only for mercury)
+     * An optional subtitle
+     */
+    cardSubtitle?: string;
+    /**
+     * An optional title
      */
     cardTitle?: string;
     /**
@@ -3332,6 +3361,10 @@ declare namespace LocalJSX {
      */
     icon?: string;
     /**
+     * The icon color
+     */
+    iconColor?: Color;
+    /**
      * The component max. width
      */
     maxWidth?: string;
@@ -3344,9 +3377,25 @@ declare namespace LocalJSX {
      */
     noPaddingTop?: boolean;
     /**
+     * Disables box-shadow
+     */
+    noShadow?: boolean;
+    /**
      * The card padding
      */
     padding?: padding;
+    /**
+     * An optional subtitle icon
+     */
+    subtitleIcon?: string;
+    /**
+     * An optional subtitle link
+     */
+    subtitleLink?: string;
+    /**
+     * Card title semibold
+     */
+    titleSemibold?: boolean;
   }
   interface GxgColorPicker {
     /**
