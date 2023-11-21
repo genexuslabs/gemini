@@ -18,6 +18,7 @@
   /*hover*/
   --gxg-background-color--hover: var(--gray-01);
   --gxg-color--hover: var(--color-on-background);
+  --gxg-filter-brightness--hover: 1.03;
   /*selected*/
   --gxg-background-color--selected: var(--color-secondary-enabled);
   --gxg-background-color--selected-hover: var(--color-secondary-enabled--hover);
@@ -52,6 +53,7 @@
   --gxg-background-color--selected--hover: var(
     --color-secondary-enabled--hover
   );
+  --gxg-filter-brightness--hover: 1.1;
 }
 
 /*--- Mercury ---*/

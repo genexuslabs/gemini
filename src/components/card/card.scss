@@ -209,7 +209,7 @@
 
 /*actionable*/
 :host(.card--actionable:hover) {
-  filter: brightness(1.1);
+  filter: brightness(var(--gxg-filter-brightness--hover));
   background-color: var(--gray-01);
   border-color: var(--gray-03);
   .wrapper {
