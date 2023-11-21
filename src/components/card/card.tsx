@@ -94,7 +94,12 @@ export class GxgCard {
   /**
    * The icon color
    */
-  @Prop() iconColor: Color = "mercury";
+  @Prop() iconColor: Color = "auto";
+
+  /**
+   * The icon color
+   */
+  @Prop() subtitleColor: Color = "auto";
 
   /**
    * It makes the title editable (only for mercury)
@@ -170,7 +175,7 @@ export class GxgCard {
               {/*Title*/}
               <div class="card__header--left">
                 {this.icon ? (
-                  <gxg-icon type={this.icon} color="mercury"></gxg-icon>
+                  <gxg-icon type={this.icon} color={this.iconColor}></gxg-icon>
                 ) : null}
                 <div class="card-title-wrapper">
                   {this.cardType === "section" ? (
@@ -196,7 +201,7 @@ export class GxgCard {
                   {this.subtitleIcon ? (
                     <gxg-icon
                       type={this.subtitleIcon}
-                      color={this.iconColor}
+                      color={this.subtitleColor}
                     ></gxg-icon>
                   ) : null}
                 </div>

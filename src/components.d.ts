@@ -408,6 +408,10 @@ export namespace Components {
      */
     padding: padding;
     /**
+     * The icon color
+     */
+    subtitleColor: Color;
+    /**
      * An optional subtitle icon
      */
     subtitleIcon: string;
@@ -3384,6 +3388,10 @@ declare namespace LocalJSX {
      * The card padding
      */
     padding?: padding;
+    /**
+     * The icon color
+     */
+    subtitleColor?: Color;
     /**
      * An optional subtitle icon
      */
