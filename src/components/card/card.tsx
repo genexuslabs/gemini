@@ -49,6 +49,7 @@ export class GxgCard {
 
   private titleType: EditableTitleType = "h2";
   private hasSlot = false;
+  private hasHeaderSlot = false;
 
   /**
    * Remove padding from the top (applies only for the "section" card type)
@@ -114,6 +115,10 @@ export class GxgCard {
     const hasSlot = this.el.querySelector("*");
     if (hasSlot) {
       this.hasSlot = true;
+    }
+    const headerSlot = this.el.querySelector("[slot='header']");
+    if (headerSlot) {
+      this.hasHeaderSlot = true;
     }
   }
 
@@ -181,7 +186,9 @@ export class GxgCard {
                 </div>
               </div>
               {/*Subtitle*/}
-              {this.cardSubtitle && this.cardType !== "mini" ? (
+              {this.cardSubtitle &&
+              this.cardType !== "mini" &&
+              !this.hasHeaderSlot ? (
                 <div class="card__header--right">
                   <div class="subtitle-wrapper">
                     {this.renderCardSubtitle()}
@@ -192,6 +199,12 @@ export class GxgCard {
                       color={this.iconColor}
                     ></gxg-icon>
                   ) : null}
+                </div>
+              ) : null}
+              {/*Header Slot*/}
+              {this.hasHeaderSlot ? (
+                <div class="card__header--right">
+                  <slot name="header"></slot>
                 </div>
               ) : null}
             </header>

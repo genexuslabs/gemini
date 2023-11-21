@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="dark">
+<html dir="ltr" lang="en" class="dark gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>Mercury Components | Gemini</title>
+    <title>Cards | Gemini</title>
 
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
@@ -69,7 +69,7 @@
 
       <!-- card "section" -->
       <article>
-        <h2 class="h2">gxg-card | <code>type="section"</code></h2>
+        <h2 class="h2"><code>type="section"</code></h2>
         <div class="card-container" style="height: 300px">
           <gxg-card
             card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -113,9 +113,41 @@
         </div>
       </article>
 
+      <!-- card "section" with slotted header -->
+      <article>
+        <h2 class="h2">
+          Slotted Header
+          <code>slot="header"</code>
+        </h2>
+        <div class="card-container" style="height: 300px">
+          <gxg-card
+            card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+            card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+            icon="editing-structures/attribute-formula"
+            subtitle-icon="editing-structures/attribute-formula"
+            subtitle-link="http://www.google.com"
+            height="100%"
+          >
+            <gxg-form-text slot="header"></gxg-form-text>
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+            <p>
+              The universe is incredibly vast and mysterious. One interesting
+              fact is that there are more stars in the observable universe than
+              there are grains of sand on all the beaches on Earth. It's
+              mind-boggling! 🌌🌟
+            </p>
+          </gxg-card>
+        </div>
+      </article>
+
       <!-- card "article" -->
       <article>
-        <h2 class="h2">gxg-card | <code>type="article"</code></h2>
+        <h2 class="h2"><code>type="article"</code></h2>
         <gxg-card
           card-type="article"
           card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -129,7 +161,7 @@
       <!-- card "article" title semibold -->
       <article>
         <h2 class="h2">
-          gxg-card | <code>type="article" title-semibold</code>
+          <code>type="article" title-semibold</code>
         </h2>
         <gxg-card
           card-type="article"
@@ -144,7 +176,7 @@
 
       <!-- card "article" with content-->
       <article>
-        <h2 class="h2">gxg-card | <code>type="article"</code> with content</h2>
+        <h2 class="h2"><code>type="article"</code> with content</h2>
         <gxg-card
           card-type="article"
           card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -163,7 +195,7 @@
 
       <!-- card "article" actionable-->
       <article>
-        <h2 class="h2">gxg-card | <code>type="article"</code> actionable</h2>
+        <h2 class="h2"><code>type="article"</code> actionable</h2>
         <gxg-card
           card-type="article"
           card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -177,7 +209,7 @@
 
       <!-- card no shadow -->
       <article>
-        <h2 class="h2">gxg-card | <code>no shadow</code></h2>
+        <h2 class="h2"><code>no shadow</code></h2>
         <gxg-card
           card-type="article"
           card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -191,7 +223,7 @@
 
       <!-- card "mini"-->
       <article>
-        <h2 class="h2">gxg-card | <code>type="mini"</code></h2>
+        <h2 class="h2"><code>type="mini"</code></h2>
         <gxg-card
           card-type="mini"
           card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -210,7 +242,7 @@
 
       <!-- card "mini" actionable-->
       <article>
-        <h2 class="h2">gxg-card | <code>type="mini"</code> actionable</h2>
+        <h2 class="h2"><code>type="mini"</code> actionable</h2>
         <gxg-card
           card-type="mini"
           card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
