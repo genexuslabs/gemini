@@ -14,6 +14,12 @@
 | `loaderTitle`    | `loader-title` | The loader title (optional)                  | `string`      | `undefined` |
 | `show`           | `show`         | It shows the loader                          | `boolean`     | `false`     |
 
+## Shadow Parts
+
+| Part               | Description |
+| ------------------ | ----------- |
+| `"loader-wrapper"` |             |
+
 ## Dependencies
 
 ### Depends on

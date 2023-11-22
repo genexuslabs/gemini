@@ -53,6 +53,7 @@
 .content {
   @include gxg-scrollbar();
   overflow: auto;
+  height: 100%;
 }
 
 /*No Shadow*/
