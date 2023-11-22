@@ -62,6 +62,10 @@
         loader.show = true;
       });
       loader.container = containerRef;
+      /*event loaderFinished*/
+      loader.addEventListener("loaderFinished", () => {
+        console.log("loaderFinished event");
+      });
     </script>
   </body>
 </html>

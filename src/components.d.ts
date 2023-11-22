@@ -4324,6 +4324,7 @@ declare namespace LocalJSX {
      * The loader title (optional)
      */
     loaderTitle?: string;
+    onLoaderFinished?: (event: CustomEvent<void>) => void;
     /**
      * It shows the loader
      */

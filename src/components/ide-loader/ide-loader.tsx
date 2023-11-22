@@ -1,4 +1,13 @@
-import { Component, Host, h, Prop, Watch, State } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Watch,
+  State,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 
 @Component({
   tag: "gxg-ide-loader",
@@ -88,6 +97,7 @@ INDEX:
       this.showWrapper = false;
       setTimeout(() => {
         this.showWindow = false;
+        this.loaderFinished.emit();
       }, this.showTransition);
     }
     if (show) {
@@ -106,6 +116,8 @@ INDEX:
   @Prop() container: HTMLElement;
 
   // 5.EVENTS (EMIT) //
+
+  @Event() loaderFinished: EventEmitter<void>;
 
   // 6.COMPONENT LIFECYCLE EVENTS //
 
