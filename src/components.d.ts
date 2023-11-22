@@ -398,7 +398,7 @@ export namespace Components {
     /**
      * Removes the header border
      */
-    noHeaderBorder: false;
+    noHeaderBorder: boolean;
     /**
      * Remove padding from the top (applies only for the "section" card type)
      */
@@ -3383,7 +3383,7 @@ declare namespace LocalJSX {
     /**
      * Removes the header border
      */
-    noHeaderBorder?: false;
+    noHeaderBorder?: boolean;
     /**
      * Remove padding from the top (applies only for the "section" card type)
      */

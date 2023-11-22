@@ -64,7 +64,7 @@ export class GxgCard {
   /**
    * Removes the header border
    */
-  @Prop() readonly noHeaderBorder = false;
+  @Prop() readonly noHeaderBorder: boolean = false;
 
   /**
    * Card title semibold
