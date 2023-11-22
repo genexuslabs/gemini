@@ -541,10 +541,6 @@ export namespace Components {
      */
     popOver: boolean;
     /**
-     * If true, it will prevent Enter key propagation only when the list is open. This prop. was created to prevent issues with ch-shortcuts, when an Enter key has to fire a callback on another element (such as a button) but it has to be ignored when the list is open, since an Enter key on a list-box-item, has to select the item only.
-     */
-    preventEnterPropagation: boolean;
-    /**
      * The presence of this attribute makes the commbo required
      */
     required: boolean;
@@ -3546,10 +3542,6 @@ declare namespace LocalJSX {
      * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
      */
     popOver?: boolean;
-    /**
-     * If true, it will prevent Enter key propagation only when the list is open. This prop. was created to prevent issues with ch-shortcuts, when an Enter key has to fire a callback on another element (such as a button) but it has to be ignored when the list is open, since an Enter key on a list-box-item, has to select the item only.
-     */
-    preventEnterPropagation?: boolean;
     /**
      * The presence of this attribute makes the commbo required
      */
