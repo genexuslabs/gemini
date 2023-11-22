@@ -179,6 +179,7 @@ INDEX:
               [`loader__wrapper`]: true,
               "loader__wrapper--visible": this.showWrapper,
             }}
+            part="loader-wrapper"
           >
             <div class="loader__spinner"></div>
             <div
