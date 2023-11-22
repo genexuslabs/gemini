@@ -12,7 +12,6 @@ export const hiChar = function (text: string, filterValue: string) {
     /* this function highlights the character(s) that match(es) the filter value. (hi)light (Char)acters */
     const escapedFilterValue = escapeRegExp(filterValue);
     const re = new RegExp(escapedFilterValue, "gi");
-    console.log("text", text);
     return (
       <span
         innerHTML={text.replace(re, '<span class="hiChar">$&</span>')}
