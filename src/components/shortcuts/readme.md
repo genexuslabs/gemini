@@ -9,6 +9,7 @@
 | `showKey`          | `show-key`     |                                      | `"F10"`   | `"F10"`     |
 | `showTooltip`      | `show-tooltip` |                                      | `boolean` | `false`     |
 | `src` _(required)_ | `src`          | The URL of the shortcut definitions. | `string`  | `undefined` |
+| `suspend`          | `suspend`      |                                      | `boolean` | `false`     |
 
 ## Dependencies
 

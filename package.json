@@ -60,7 +60,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@genexus/chameleon-controls-library": "^3.1.0",
+    "@genexus/chameleon-controls-library": "^3.1.1",
     "@simonwep/pickr": "^1.7.4",
     "@stencil/store": "^1.4.1",
     "@storybook/addon-a11y": "^6.1.21",

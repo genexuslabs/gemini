@@ -13,7 +13,7 @@ export class GxgShortcuts {
 
   @Prop() readonly showKey = "F10";
 
-  @Prop() readonly suspend? = false;
+  @Prop() readonly suspend: boolean = false;
 
   @Prop({ reflect: true, mutable: true }) showTooltip = false;
 

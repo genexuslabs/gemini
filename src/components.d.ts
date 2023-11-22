@@ -1735,6 +1735,7 @@ export namespace Components {
      * The URL of the shortcut definitions.
      */
     src: string;
+    suspend: boolean;
   }
   interface GxgSlider {
     /**
@@ -4861,6 +4862,7 @@ declare namespace LocalJSX {
      * The URL of the shortcut definitions.
      */
     src: string;
+    suspend?: boolean;
   }
   interface GxgSlider {
     /**
