@@ -49,7 +49,7 @@ ch-window::part(window) {
     display: flex;
     flex-direction: column;
     margin-block-start: var(--spacing-comp-05);
-    gap: var(--spacing-comp-03);
+    gap: var(--spacing-comp-02);
     max-width: 400px;
     &--hidden {
       display: none;
