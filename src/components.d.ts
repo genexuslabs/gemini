@@ -115,7 +115,6 @@ import {
   TreeViewItemExpandedInfo,
   TreeViewItemModel,
   TreeViewItemOpenReferenceInfo,
-  TreeViewItemSelectedInfo,
   TreeViewLines,
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
 import {
@@ -5483,7 +5482,7 @@ declare namespace LocalJSX {
      * Fired when the selected items change.
      */
     onSelectedItemsChange?: (
-      event: CustomEvent<Map<string, TreeViewItemSelectedInfo>>
+      event: CustomEvent<TreeViewItemModelExtended[]>
     ) => void;
     /**
      * This property allows us to implement custom rendering of tree items.

@@ -273,9 +273,7 @@ export class ChTreeViewRenderWrapper {
   /**
    * Fired when the selected items change.
    */
-  @Event() selectedItemsChange: EventEmitter<
-    Map<string, TreeViewItemSelectedInfo>
-  >;
+  @Event() selectedItemsChange: EventEmitter<TreeViewItemModelExtended[]>;
 
   /**
    * Given an item id, an array of items to add, the download status and the

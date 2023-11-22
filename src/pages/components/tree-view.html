@@ -1779,7 +1779,7 @@
 
         testTreeX.addEventListener("selectedItemsChange", (event) => {
           selectedItemsTextBlock.innerHTML = `<br>+ + + + + Selected Items + + + + +<br>
-          ${[...event.detail.keys()].join("<br>")}`;
+          ${event.detail.map((el) => el.item.id).join("<br>")}`;
         });
 
         /*Lazy Load Promise*/
