@@ -354,6 +354,38 @@
           </gxg-card>
         </div>
       </article>
+
+      <!-- hiChar -->
+      <article>
+        <h2 class="h2"><code>hiChar</code></h2>
+        <gxg-card
+          id="hi-char-card"
+          card-type="article"
+          card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
+          card-subtitle="Modified 27/9/23 15:45 Modified 27/9/23 15:45 Modified 27/9/23 15:45Modified 27/9/23 15:45Modified 27/9/23 15:45"
+          icon="editing-structures/attribute-formula"
+          subtitle-icon="editing-structures/attribute-formula"
+          no-header-border
+          hi-char
+        >
+          <p>
+            The updates include Conversational Development in GeneXus Next, new
+            experiences and interaction capabilities in GeneXus Enterprise AI
+            (code name SAIA), Super App generation, and over 500 enhancements in
+            GeneXus 18.
+          </p>
+        </gxg-card>
+        <br />
+        <gxg-form-text id="hi-char-form-text"></gxg-form-text>
+        <script>
+          const hiCharCard = document.getElementById("hi-char-card");
+          const hiChardFormText = document.getElementById("hi-char-form-text");
+          hiChardFormText.addEventListener("input", (e) => {
+            const searchValue = e.detail;
+            hiCharCard.filterValue = searchValue;
+          });
+        </script>
+      </article>
     </div>
   </body>
 </html>

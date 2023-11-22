@@ -586,3 +586,10 @@ FORM ELEMENTS
     }
   }
 }
+
+@mixin hiChar {
+  .hiChar {
+    color: var(--gxg-hi-char-color);
+    font-weight: 600;
+  }
+}

@@ -2,6 +2,7 @@ import { Component, Prop, h, Host, Element } from "@stencil/core";
 import state from "../store";
 import { EditableTitleType } from "../title-editable/title-editable";
 import { Color } from "../icon/icon";
+import { hiChar } from "../../common/hiChar";
 @Component({
   tag: "gxg-card",
   styleUrl: "card.scss",
@@ -44,6 +45,16 @@ export class GxgCard {
    * Disables box-shadow
    */
   @Prop() noShadow = false;
+
+  /**
+   * This allows to highlight any character on the card title, or subtitle.
+   */
+  @Prop() hiChar = false;
+
+  /**
+   * This is the filter value needed for hiChar.
+   */
+  @Prop() filterValue: string;
 
   /*---  Mercury Only Tokens ---*/
 
@@ -140,7 +151,11 @@ export class GxgCard {
         </a>
       );
     } else if (this.cardSubtitle && !this.subtitleLink) {
-      return this.cardSubtitle;
+      {
+        return this.hiChar
+          ? hiChar(this.cardSubtitle, this.filterValue)
+          : this.cardSubtitle;
+      }
     }
   };
 
@@ -192,7 +207,11 @@ export class GxgCard {
                       disableEdition={!this.editableTitle}
                     ></gxg-title-editable>
                   ) : (
-                    <h2 class="card__title">{this.cardTitle}</h2>
+                    <h2 class="card__title">
+                      {this.hiChar
+                        ? hiChar(this.cardTitle, this.filterValue)
+                        : this.cardTitle}
+                    </h2>
                   )}
                 </div>
               </div>

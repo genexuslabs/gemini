@@ -376,9 +376,17 @@ export namespace Components {
      */
     elevation: elevation;
     /**
+     * This is the filter value needed for hiChar.
+     */
+    filterValue: string;
+    /**
      * The component height
      */
     height: string;
+    /**
+     * This allows to highlight any character on the card title, or subtitle.
+     */
+    hiChar: boolean;
     /**
      * The card type (only for mercury)
      */
@@ -3361,9 +3369,17 @@ declare namespace LocalJSX {
      */
     elevation?: elevation;
     /**
+     * This is the filter value needed for hiChar.
+     */
+    filterValue?: string;
+    /**
      * The component height
      */
     height?: string;
+    /**
+     * This allows to highlight any character on the card title, or subtitle.
+     */
+    hiChar?: boolean;
     /**
      * The card type (only for mercury)
      */
