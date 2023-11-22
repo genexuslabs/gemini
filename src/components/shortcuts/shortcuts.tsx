@@ -13,6 +13,8 @@ export class GxgShortcuts {
 
   @Prop() readonly showKey = "F10";
 
+  @Prop() readonly suspend? = false;
+
   @Prop({ reflect: true, mutable: true }) showTooltip = false;
 
   @State() show = false;
@@ -24,7 +26,11 @@ export class GxgShortcuts {
   render() {
     return (
       <Host>
-        <ch-shortcuts src={this.src} showKey={this.showKey}></ch-shortcuts>
+        <ch-shortcuts
+          suspend={this.suspend}
+          src={this.src}
+          showKey={this.showKey}
+        ></ch-shortcuts>
       </Host>
     );
   }
