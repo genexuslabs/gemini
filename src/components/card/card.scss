@@ -212,8 +212,17 @@
   filter: brightness(var(--gxg-filter-brightness--hover));
   background-color: var(--gray-01);
   border-color: var(--gray-03);
-  .wrapper {
+  .card__header,
+  .content {
     cursor: pointer;
+  }
+}
+
+/*no header border*/
+:host(.no-header-border) {
+  .card__header {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 }
 

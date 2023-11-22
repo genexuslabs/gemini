@@ -62,6 +62,11 @@ export class GxgCard {
   @Prop() readonly cardTitle: string;
 
   /**
+   * Removes the header border
+   */
+  @Prop() readonly noHeaderBorder = false;
+
+  /**
    * Card title semibold
    */
   @Prop() readonly titleSemibold: boolean = false;
@@ -156,6 +161,7 @@ export class GxgCard {
             (this.cardType === "article" || this.cardType === "mini"),
           "title-semibold": this.titleSemibold,
           "card--no-shadow": this.noShadow,
+          "no-header-border": this.noHeaderBorder,
         }}
         style={{
           maxWidth: this.maxWidth,
