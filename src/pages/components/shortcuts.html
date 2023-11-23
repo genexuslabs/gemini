@@ -54,8 +54,19 @@
             Enviar
           </gxg-button>
         </div>
+        <button id="suspend-shortcuts-btn">suspend-shortcuts</button>
       </section>
     </div>
     <gxg-shortcuts src="../assets/json/shortcuts.json"></gxg-shortcuts>
+    <script>
+      const gxgShortcuts = document.querySelector("gxg-shortcuts");
+      const suspendShortcutsBtn = document.getElementById(
+        "suspend-shortcuts-btn"
+      );
+      suspendShortcutsBtn.addEventListener("click", () => {
+        console.log("suspend shortcuts", gxgShortcuts);
+        gxgShortcuts.suspend = true;
+      });
+    </script>
   </body>
 </html>

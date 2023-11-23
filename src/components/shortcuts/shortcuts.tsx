@@ -24,6 +24,7 @@ export class GxgShortcuts {
   }
 
   render() {
+    console.log("render");
     return (
       <Host>
         <ch-shortcuts
