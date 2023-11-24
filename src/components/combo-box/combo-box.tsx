@@ -43,7 +43,7 @@ export class GxgComboBox implements FormComponent {
   /**
    * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
    */
-  @Prop() popOver = true;
+  @Prop() popOver = false;
 
   /**
    * The presence of this attribute displays a tooltip message, instead of a block message below the control
