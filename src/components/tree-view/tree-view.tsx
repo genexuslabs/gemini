@@ -4,7 +4,6 @@ import {
   EventEmitter,
   h,
   Prop,
-  Listen,
   Method,
   getAssetPath,
 } from "@stencil/core";
@@ -16,7 +15,6 @@ import {
   TreeViewLines,
   TreeViewItemExpandedInfo,
   TreeViewItemOpenReferenceInfo,
-  TreeViewItemSelectedInfo,
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
 import {
   TreeViewFilterOptions,
@@ -24,7 +22,6 @@ import {
   TreeViewItemModelExtended,
   TreeViewOperationStatusModifyCaption,
 } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
-import { ChTreeViewRenderCustomEvent } from "@genexus/chameleon-controls-library";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { resolveImgPath } from "./helpers";
