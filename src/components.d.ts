@@ -2329,6 +2329,14 @@ export namespace Components {
      */
     multiSelection: boolean;
     /**
+     * Given an item id and the additional properties to update before and after reload, it reloads the items of the `itemId` node by using the `lazyLoadTreeItemsCallback` property.
+     */
+    reloadItems: (
+      itemId: string,
+      beforeProperties?: Partial<TreeViewItemModel>,
+      afterProperties?: Partial<TreeViewItemModel>
+    ) => Promise<void>;
+    /**
      * This property allows us to implement custom rendering of tree items.
      */
     renderItem: (
