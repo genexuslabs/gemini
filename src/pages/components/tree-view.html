@@ -390,7 +390,7 @@
         </ch-tree-x>
 
         <div class="tree-container">
-          <gxg-tree-view checkbox="true"></gxg-tree-view>
+          <gxg-tree-view></gxg-tree-view>
         </div>
 
         <div>
@@ -472,6 +472,14 @@
           <button id="btn-scroll-into-visible" type="button">
             Scroll into visible
           </button>
+        </div>
+
+        <div>
+          <label>
+            Item id
+            <input id="item-id-to-reload" type="text" />
+          </label>
+          <button id="button-to-reload-items">Reload items</button>
         </div>
       </div>
 
@@ -1679,6 +1687,16 @@
           "contextmenu-textblock"
         );
 
+        // Reload items
+        const reloadItemsBtn = document.getElementById(
+          "button-to-reload-items"
+        );
+        const reloadItemsInput = document.getElementById("item-id-to-reload");
+        reloadItemsBtn.addEventListener("click", () => {
+          testTreeX.reloadItems(reloadItemsInput.value);
+          reloadItemsInput.value = "";
+        });
+
         testTreeX.addEventListener("itemContextmenu", (event) => {
           contextMenuTextBlock.innerHTML = `+ + + + + + + Context + + + + + + +<br>
           ${event.detail.id}<br>
@@ -1825,8 +1843,8 @@
             }
 
             setTimeout(() => {
-              resolve(lazyModel);
-            }, 2000); // Resolves or rejects after 1 second
+              resolve(structuredClone(lazyModel));
+            }, 250); // Resolves or rejects after 0.25 second
           });
 
         testTreeX.dropItemsCallback = () =>

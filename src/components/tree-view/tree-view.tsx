@@ -4,7 +4,6 @@ import {
   EventEmitter,
   h,
   Prop,
-  Listen,
   Method,
   getAssetPath,
 } from "@stencil/core";
@@ -16,7 +15,6 @@ import {
   TreeViewLines,
   TreeViewItemExpandedInfo,
   TreeViewItemOpenReferenceInfo,
-  TreeViewItemSelectedInfo,
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
 import {
   TreeViewFilterOptions,
@@ -24,7 +22,6 @@ import {
   TreeViewItemModelExtended,
   TreeViewOperationStatusModifyCaption,
 } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
-import { ChTreeViewRenderCustomEvent } from "@genexus/chameleon-controls-library";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { resolveImgPath } from "./helpers";
@@ -289,6 +286,20 @@ export class ChTreeViewRenderWrapper {
     this.treeRef.loadLazyContent(itemId, items, downloading, lazy);
   }
 
+  /**
+   * Given an item id and the additional properties to update before and after
+   * reload, it reloads the items of the `itemId` node by using the
+   * `lazyLoadTreeItemsCallback` property.
+   */
+  @Method()
+  async reloadItems(
+    itemId: string,
+    beforeProperties?: Partial<TreeViewItemModel>,
+    afterProperties?: Partial<TreeViewItemModel>
+  ) {
+    this.treeRef.reloadItems(itemId, beforeProperties, afterProperties);
+  }
+  1;
   /**
    * Given an item id, it displays and scrolls into the item view.
    */
