@@ -2337,6 +2337,10 @@ export namespace Components {
       afterProperties?: Partial<TreeViewItemModel>
     ) => Promise<void>;
     /**
+     * Given a list of ids, removes the items and their children in the tree.
+     */
+    removeItems: (items: string[]) => Promise<void>;
+    /**
      * This property allows us to implement custom rendering of tree items.
      */
     renderItem: (
@@ -2347,9 +2351,12 @@ export namespace Components {
       level: number
     ) => any;
     /**
-     * Given an item id, it displays and scrolls into the item view.
+     * Given the path of the item (represent by a sorted array containing all ids from the root to the item) and the additional properties to update after, it displays and scrolls into the item view. The path can also be a string representing the id of the item to scroll into.
      */
-    scrollIntoVisible: (treeItemId: string) => Promise<void>;
+    scrollIntoVisible: (
+      path: string | string[],
+      afterProperties?: Partial<TreeViewItemModel>
+    ) => Promise<void>;
     /**
      * `true` to display the relation between tree items and tree lists using lines.
      */
