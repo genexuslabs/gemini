@@ -299,13 +299,20 @@ export class ChTreeViewRenderWrapper {
   ) {
     this.treeRef.reloadItems(itemId, beforeProperties, afterProperties);
   }
-  1;
+
   /**
-   * Given an item id, it displays and scrolls into the item view.
+   * Given the path of the item (represent by a sorted array containing all ids
+   * from the root to the item) and the additional properties to update after,
+   * it displays and scrolls into the item view.
+   * The path can also be a string representing the id of the item to scroll
+   * into.
    */
   @Method()
-  async scrollIntoVisible(treeItemId: string) {
-    this.treeRef.scrollIntoVisible(treeItemId);
+  async scrollIntoVisible(
+    path: string | string[],
+    afterProperties?: Partial<TreeViewItemModel>
+  ) {
+    this.treeRef.scrollIntoVisible(path, afterProperties);
   }
 
   /**
