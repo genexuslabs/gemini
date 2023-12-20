@@ -287,6 +287,14 @@ export class ChTreeViewRenderWrapper {
   }
 
   /**
+   * Given a list of ids, removes the items and their children in the tree.
+   */
+  @Method()
+  async removeItems(items: string[]) {
+    this.treeRef.removeItems(items);
+  }
+
+  /**
    * Given an item id and the additional properties to update before and after
    * reload, it reloads the items of the `itemId` node by using the
    * `lazyLoadTreeItemsCallback` property.
