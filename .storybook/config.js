@@ -2,6 +2,11 @@ import { configure } from "@storybook/html";
 import addons from "@storybook/addons";
 import { addDecorator } from "@storybook/html";
 import { initializeRTL } from "storybook-addon-rtl";
+import { defineCustomElements } from '../loader';
+
+defineCustomElements(window, {
+  resourcesUrl: 'gemini/'
+});
 
 initializeRTL();
 
