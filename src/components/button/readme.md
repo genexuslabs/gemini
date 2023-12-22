@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -24,6 +25,8 @@
 <gxg-button class="button-with-action" icon="controls/table-column" type="tertiary"></gxg-button>
 ```
 
+
+
 ## Properties
 
 | Property               | Attribute                | Description                                                                                                                              | Type                                                                                                                                                                                               | Default               |
@@ -38,36 +41,37 @@
 | `negative`             | `negative`               | The prescence of this attribute turns the icon white                                                                                     | `boolean`                                                                                                                                                                                          | `false`               |
 | `type`                 | `type`                   | The kind of button                                                                                                                       | `"outlined" \| "outlined-text-icon" \| "primary-icon-only" \| "primary-text-icon" \| "primary-text-only" \| "secondary-icon-only" \| "secondary-text-icon" \| "secondary-text-only" \| "tertiary"` | `"primary-text-only"` |
 
+
 ## Shadow Parts
 
 | Part     | Description |
 | -------- | ----------- |
 | `"icon"` |             |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-alert](../alert)
-- [gxg-combo-box](../combo-box)
-- [gxg-demo](../demo)
-- [gxg-drag-box](../drag-box)
-- [gxg-drop-down](../drop-down)
-- [gxg-filter](../filter)
-- [gxg-ide-loader](../ide-loader)
-- [gxg-list-box](../list-box)
-- [gxg-modal](../modal)
-- [gxg-options](../options)
-- [gxg-tab-bar](../tab-bar)
-- [gxg-title-editable](../title-editable)
-- [gxg-window](../window)
+ - [gxg-alert](../alert)
+ - [gxg-combo-box](../combo-box)
+ - [gxg-demo](../demo)
+ - [gxg-drag-box](../drag-box)
+ - [gxg-drop-down](../drop-down)
+ - [gxg-filter](../filter)
+ - [gxg-ide-loader](../ide-loader)
+ - [gxg-list-box](../list-box)
+ - [gxg-modal](../modal)
+ - [gxg-options](../options)
+ - [gxg-tab-bar](../tab-bar)
+ - [gxg-title-editable](../title-editable)
+ - [gxg-window](../window)
 
 ### Depends on
 
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-button --> gxg-icon
@@ -88,6 +92,6 @@ graph TD;
   style gxg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

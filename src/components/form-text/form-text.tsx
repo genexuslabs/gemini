@@ -533,7 +533,7 @@ export class GxgFormText implements FormComponent {
     }
   }
 
-  componentDidUnload(): void {
+  disconnectedCallback(): void {
     if (this.minimal) {
       document.removeEventListener("mousemove", this.mouseMoveHandler);
     }

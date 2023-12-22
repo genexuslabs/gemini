@@ -46,6 +46,13 @@
 
 This method allows to collapse the split passsed as argument
 
+#### Parameters
+
+| Name                  | Type      | Description |
+| --------------------- | --------- | ----------- |
+| `split`               | `number`  |             |
+| `forceCollapseToZero` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<void>`

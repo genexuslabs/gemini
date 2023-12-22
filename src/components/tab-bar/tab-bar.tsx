@@ -284,7 +284,7 @@ export class GxgTabBar {
     }
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     document.removeEventListener("click", this.detectClickOutsideTabBarMenu);
   }
 

@@ -123,7 +123,7 @@ INDEX:
     this.getEnabledItems();
   }
 
-  componentDidUnload(): void {
+  disconnectedCallback(): void {
     this.removeDetectClickOutside();
     this.removeMouseOut();
     this.removeMouseEnter();

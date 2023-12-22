@@ -8,39 +8,18 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { mode } from "./components/accordion/accordion";
 import { mode as mode1 } from "./components/accordion/accordion";
 import { status } from "./components/accordion-item/accordion-item";
-import {
-  ActiveTime,
-  AlertPosition,
-  AlertType,
-  Spacing,
-} from "./components/alert/alert";
+import { ActiveTime, AlertPosition, AlertType, Spacing } from "./components/alert/alert";
 import { background, padding } from "./components/box/box";
 import { ButtonType } from "./components/button/button";
-import {
-  LabelPosition,
-  TitleAlignment,
-  ValidationStatus,
-} from "./common/types";
-import {
-  background as background1,
-  CardType,
-  elevation,
-  padding as padding1,
-} from "./components/card/card";
+import { LabelPosition, TitleAlignment, ValidationStatus } from "./common/types";
+import { background as background1, CardType, elevation, padding as padding1 } from "./components/card/card";
 import { Color } from "./components/icon/icon";
 import { WidthType } from "./components/column/column";
 import { AlignY, CollapseBellow, Space } from "./components/columns/columns";
 import { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
 import { ListPosition } from "./components/combo-box/combo-box";
-import {
-  ComboBoxItemValue as ComboBoxItemValue1,
-  ItemInformation,
-} from "./components/combo-box-item/combo-box-item";
-import {
-  footerJustify,
-  headingJustify,
-  sectionsPadding,
-} from "./components/container/container";
+import { ComboBoxItemValue as ComboBoxItemValue1, ItemInformation } from "./components/combo-box-item/combo-box-item";
+import { footerJustify, headingJustify, sectionsPadding } from "./components/container/container";
 import { DatePickerDate } from "./components/date-picker/date-picker";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
@@ -49,5763 +28,6229 @@ import { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form
 import { Message } from "./components/form-message/form-message";
 import { RadioData } from "./components/form-radio/form-radio";
 import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
-import {
-  IconPosition,
-  InputType,
-  LabelPosition as LabelPosition1,
-  Style,
-} from "./components/form-text/form-text";
+import { IconPosition, InputType, LabelPosition as LabelPosition1, Style } from "./components/form-text/form-text";
 import { Color as Color1, Size } from "./components/icon/icon";
 import { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
-import {
-  ItemsInformation,
-  KeyboardSuggestions,
-  SelectionChangedEvent,
-} from "./components/list-box/list-box";
-import {
-  ItemChecked,
-  ItemClicked,
-} from "./components/list-box-item/list-box-item";
-import {
-  MenuItemFocusChange,
-  MenuItemSelected,
-} from "./components/menu-slim/item/item";
+import { ItemsInformation, KeyboardSuggestions, SelectionChangedEvent } from "./components/list-box/list-box";
+import { ItemChecked, ItemClicked } from "./components/list-box-item/list-box-item";
+import { MenuItemFocusChange, MenuItemSelected } from "./components/menu-slim/item/item";
 import { padding as padding2 } from "./components/modal/modal";
 import { position, target } from "./components/more-info/more-info";
 import { PaginatorAlignment } from "./components/paginator/gxg-paginator";
 import { PillType } from "./components/pills/pill";
 import { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
 import { margin } from "./components/separator/separator";
-import {
-  JustifyContent,
-  Orientation,
-  Space as Space1,
-} from "./components/spacer-layout/spacer-layout";
+import { JustifyContent, Orientation, Space as Space1 } from "./components/spacer-layout/spacer-layout";
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
 import { TabContainerFlexDirection } from "./components/tab/tab";
 import { TabsPosition } from "./components/tabs/tabs";
-import {
-  TargetType,
-  TextAlign,
-  TextPadding,
-  TextType,
-} from "./components/text/text";
+import { TargetType, TextAlign, TextPadding, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
-import {
-  EditableTitleFocusType,
-  EditableTitleType,
-} from "./components/title-editable/title-editable";
+import { EditableTitleFocusType, EditableTitleType } from "./components/title-editable/title-editable";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
-import {
-  ToggledGxgTreeItem,
-  TreeItemNewStateEmitted,
-} from "./components/tree/gxg-tree";
-import {
-  GxgTreeItemData,
-  GxgTreeItemSelectedData,
-} from "./components/tree-item/gxg-tree-item";
+import { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/gxg-tree";
+import { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
-import {
-  TreeViewDataTransferInfo,
-  TreeViewDropCheckInfo,
-  TreeViewItemContextMenu,
-  TreeViewItemExpandedInfo,
-  TreeViewItemModel,
-  TreeViewItemOpenReferenceInfo,
-  TreeViewLines,
-} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
-import {
-  TreeViewFilterOptions,
-  TreeViewFilterType,
-  TreeViewItemModelExtended,
-  TreeViewOperationStatusModifyCaption,
-} from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+import { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
+import { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
+export { mode } from "./components/accordion/accordion";
+export { mode as mode1 } from "./components/accordion/accordion";
+export { status } from "./components/accordion-item/accordion-item";
+export { ActiveTime, AlertPosition, AlertType, Spacing } from "./components/alert/alert";
+export { background, padding } from "./components/box/box";
+export { ButtonType } from "./components/button/button";
+export { LabelPosition, TitleAlignment, ValidationStatus } from "./common/types";
+export { background as background1, CardType, elevation, padding as padding1 } from "./components/card/card";
+export { Color } from "./components/icon/icon";
+export { WidthType } from "./components/column/column";
+export { AlignY, CollapseBellow, Space } from "./components/columns/columns";
+export { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
+export { ListPosition } from "./components/combo-box/combo-box";
+export { ComboBoxItemValue as ComboBoxItemValue1, ItemInformation } from "./components/combo-box-item/combo-box-item";
+export { footerJustify, headingJustify, sectionsPadding } from "./components/container/container";
+export { DatePickerDate } from "./components/date-picker/date-picker";
+export { Padding } from "./components/drag-box/drag-box";
+export { Padding as Padding1 } from "./components/drag-box/drag-box";
+export { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
+export { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form-checkbox-group";
+export { Message } from "./components/form-message/form-message";
+export { RadioData } from "./components/form-radio/form-radio";
+export { RadioData as RadioData1 } from "./components/form-radio/form-radio";
+export { IconPosition, InputType, LabelPosition as LabelPosition1, Style } from "./components/form-text/form-text";
+export { Color as Color1, Size } from "./components/icon/icon";
+export { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
+export { ItemsInformation, KeyboardSuggestions, SelectionChangedEvent } from "./components/list-box/list-box";
+export { ItemChecked, ItemClicked } from "./components/list-box-item/list-box-item";
+export { MenuItemFocusChange, MenuItemSelected } from "./components/menu-slim/item/item";
+export { padding as padding2 } from "./components/modal/modal";
+export { position, target } from "./components/more-info/more-info";
+export { PaginatorAlignment } from "./components/paginator/gxg-paginator";
+export { PillType } from "./components/pills/pill";
+export { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
+export { margin } from "./components/separator/separator";
+export { JustifyContent, Orientation, Space as Space1 } from "./components/spacer-layout/spacer-layout";
+export { Direction, Knob } from "./components/splitter/splitter";
+export { Space as Space2 } from "./components/stack/stack";
+export { TabContainerFlexDirection } from "./components/tab/tab";
+export { TabsPosition } from "./components/tabs/tabs";
+export { TargetType, TextAlign, TextPadding, TextType } from "./components/text/text";
+export { TitleType } from "./components/title/title";
+export { EditableTitleFocusType, EditableTitleType } from "./components/title-editable/title-editable";
+export { position as position1 } from "./components/toolbar/toolbar";
+export { position as position2 } from "./components/tooltip/tooltip";
+export { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/gxg-tree";
+export { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
+export { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
+export { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
+export { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
+export { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+export { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
+export { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
-  interface GxgAccordion {
-    /**
-     * The presence of this attribute makes all of the accordion-items disabled and not focusable
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribue adds a border to each accordion item.
-     */
-    hasBorder: boolean;
-    /**
-     * The accordion max-width
-     */
-    maxWidth: string;
-    /**
-     * The accordion flavor
-     */
-    mode: mode;
-    /**
-     * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
-     */
-    noPadding: boolean;
-    /**
-     * If this attribute is present, only one accordion-item can be open at the same time
-     */
-    singleItemOpen: boolean;
-  }
-  interface GxgAccordionItem {
-    /**
-     * The presence of this attribute makes the accordion-item disabled and not focusable
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute makes the accordion title editable
-     */
-    editableTitle: boolean;
-    /**
-     * The presence of this attribue adds a border to the accordion item.
-     */
-    hasBorder: boolean;
-    /**
-     * The accordion id
-     */
-    itemId: string;
-    /**
-     * The accordion subtitle (optional)
-     */
-    itemSubtitle: string;
-    /**
-     * The accordion title
-     */
-    itemTitle: string;
-    /**
-     * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
-     */
-    mode: mode;
-    /**
-     * Set the status to "open" if you want the accordion-item open by default
-     */
-    status: status;
-    /**
-     * The accordion title icon
-     */
-    titleIcon: string;
-  }
-  interface GxgAlert {
-    /**
-     * Wether the alert is active (visible) or hidden
-     */
-    active: boolean;
-    /**
-     * The amount of time the alert is visible before hidding under the document
-     */
-    activeTime: ActiveTime;
-    /**
-     * The spacing between the alert and the bottom side of the document
-     */
-    bottom: Spacing;
-    /**
-     * The presence of this attribute makes the component full-width
-     */
-    fullWidth: boolean;
-    /**
-     * The spacing between the alert, and the left or right side of the document
-     */
-    leftRight: Spacing;
-    /**
-     * The alert position on the X axis
-     */
-    position: AlertPosition;
-    /**
-     * The presence of this attribute removes the sound on the 'warning' or 'error' alert
-     */
-    silent: boolean;
-    /**
-     * The alert title (optional)
-     */
-    title: string;
-    /**
-     * The alert flavor
-     */
-    type: AlertType;
-    /**
-     * The alert width
-     */
-    width: string;
-  }
-  interface GxgBox {
-    /**
-     * The background color
-     */
-    background: background;
-    /**
-     * Wether the box has border or not
-     */
-    border: boolean;
-    /**
-     * The component  height
-     */
-    height: string;
-    /**
-     * The component max. width
-     */
-    maxWidth: string;
-    /**
-     * The component min. height
-     */
-    minHeight: string;
-    /**
-     * The box padding
-     */
-    padding: padding;
-  }
-  interface GxgBreadcrumb {
-    /**
-     * The breadcrumb icon (optional)
-     */
-    icon: string;
-    /**
-     * The breadcrumb id
-     */
-    id: string;
-  }
-  interface GxgBreadcrumbs {}
-  interface GxgButton {
-    /**
-     * The presence of this attribute makes the icon always black
-     */
-    alwaysBlack: boolean;
-    /**
-     * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
-     */
-    buttonStylesEditable: boolean;
-    /**
-     * The state of the button, whether it is disabled or not
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
-     */
-    fit: boolean;
-    /**
-     * The presence of this attribute makes the component full-width
-     */
-    fullWidth: boolean;
-    /**
-     * The presence of this attribute with make the icon do a background color animation that will grab user attention
-     */
-    grabAttention: boolean;
-    /**
-     * The button icon
-     */
-    icon: any;
-    /**
-     * The prescence of this attribute turns the icon white
-     */
-    negative: boolean;
-    /**
-     * The kind of button
-     */
-    type: ButtonType;
-  }
-  interface GxgButtonGroup {
-    /**
-     * The buttons style
-     */
-    activeButtonId: string;
-    /**
-     * The button-group title
-     */
-    buttonGroupTitle: string;
-    /**
-     * The id of the button that you would like to be active by default
-     */
-    defaultSelectedBtnId: string;
-    /**
-     * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
-     */
-    disableActive: boolean;
-    /**
-     * Wether the button group is disabled or not
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute makes the component full-width
-     */
-    fullWidth: boolean;
-    /**
-     * The presence of this attribute makes the button group outlined
-     */
-    outlined: boolean;
-    /**
-     * The button group title alignment
-     */
-    titleAlignment: TitleAlignment;
-    /**
-     * The buttons style
-     */
-    type: "primary" | "secondary";
-  }
-  interface GxgCard {
-    /**
-     * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
-     */
-    actionable: boolean;
-    /**
-     * The background color
-     */
-    background: background;
-    /**
-     * An optional subtitle
-     */
-    cardSubtitle: string;
-    /**
-     * An optional title
-     */
-    cardTitle: string;
-    /**
-     * The card type (only for mercury)
-     */
-    cardType: CardType;
-    /**
-     * It makes the title editable (only for mercury)
-     */
-    editableTitle: boolean;
-    /**
-     * The card box-shadow
-     */
-    elevation: elevation;
-    /**
-     * This is the filter value needed for hiChar.
-     */
-    filterValue: string;
-    /**
-     * The component height
-     */
-    height: string;
-    /**
-     * This allows to highlight any character on the card title, or subtitle.
-     */
-    hiChar: boolean;
-    /**
-     * The card type (only for mercury)
-     */
-    icon: string;
-    /**
-     * The icon color
-     */
-    iconColor: Color;
-    /**
-     * The component max. width
-     */
-    maxWidth: string;
-    /**
-     * The component min. height
-     */
-    minHeight: string;
-    /**
-     * Removes the header border
-     */
-    noHeaderBorder: boolean;
-    /**
-     * Remove padding from the top (applies only for the "section" card type)
-     */
-    noPaddingTop: boolean;
-    /**
-     * Disables box-shadow
-     */
-    noShadow: boolean;
-    /**
-     * The card padding
-     */
-    padding: padding;
-    /**
-     * The icon color
-     */
-    subtitleColor: Color;
-    /**
-     * An optional subtitle icon
-     */
-    subtitleIcon: string;
-    /**
-     * An optional subtitle link
-     */
-    subtitleLink: string;
-    /**
-     * Card title semibold
-     */
-    titleSemibold: boolean;
-  }
-  interface GxgColorPicker {
-    /**
-     * The label of the color picker (optional)
-     */
-    label: any;
-    /**
-     * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
-     */
-    value: string;
-  }
-  interface GxgColumn {
-    /**
-     * The column width value
-     */
-    width: WidthType;
-  }
-  interface GxgColumns {
-    /**
-     * The vertical alignment
-     */
-    alignY: AlignY;
-    /**
-     * The collapse breakpoint
-     */
-    collapseBellow: CollapseBellow;
-    /**
-     * The spacing between columns
-     */
-    space: Space;
-  }
-  interface GxgComboBox {
-    /**
-     * The presence of this attribute with make the filter search for values with case sensitive distinction
-     */
-    caseSensitive: boolean;
-    /**
-     * Centers the label
-     */
-    centerLabel: boolean;
-    close: () => Promise<void>;
-    /**
-     * If true, it will position the cursor at the end when the input is focused.
-     */
-    cursorEnd: boolean;
-    /**
-     * The presence of this attribute disables the clear button
-     */
-    disableClear: boolean;
-    /**
-     * The presence of this attribute disables the filter
-     */
-    disableFilter: boolean;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled: boolean;
-    /**
-     * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
-     */
-    fixedIcon: string;
-    getValueByIndex: (index: number) => Promise<string>;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * The combo label
-     */
-    label: string;
-    /**
-     * The input label
-     */
-    labelPosition: LabelPosition;
-    /**
-     * The label width
-     */
-    labelWidth: any;
-    /**
-     * The combo list max height
-     */
-    listMaxHeight: string;
-    /**
-     * The container 'items container' position
-     */
-    listPosition: ListPosition;
-    /**
-     * The combo max-width
-     */
-    maxWidth: string;
-    /**
-     * The combo min-width
-     */
-    minWidth: string;
-    /**
-     * ******************************* METHODS *******************************
-     */
-    open: () => Promise<void>;
-    /**
-     * The combo placeholder
-     */
-    placeholder: string;
-    /**
-     * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
-     */
-    popOver: boolean;
-    /**
-     * The presence of this attribute makes the commbo required
-     */
-    required: boolean;
-    selectInputText: () => Promise<void>;
-    setValueByIndex: (index: number) => Promise<boolean>;
-    /**
-     * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
-     */
-    strict: boolean;
-    /**
-     * The presence of this attribute displays a tooltip message, instead of a block message below the control
-     */
-    toolTip: boolean;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-    /**
-     * The current combo box item value
-     */
-    value: ComboBoxItemValue;
-  }
-  interface GxgComboBoxItem {
-    /**
-     * The presence of this attribute makes this combo-item disabled and not interactive.
-     */
-    disabled: boolean;
-    /**
-     * True if the text typed on the combo box input is equal to this combo box item text
-     */
-    exactMatch: boolean;
-    /**
-     * This property hides the combo box item
-     */
-    hidden: boolean;
-    /**
-     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
-     */
-    icon: string;
-    /**
-     * (This prop is for internal use).
-     */
-    index: number;
-    /**
-     * The presence of this attribute makes this combo-item selected.
-     */
-    selected: boolean;
-    /**
-     * The item value. If value is not provided, an automatic value will be generated with the innerText.
-     */
-    value: ComboBoxItemValue;
-  }
-  interface GxgContainer {
-    /**
-     * The title of the container
-     */
-    containerTitle: string;
-    /**
-     * Dsiplays a border all around the container
-     */
-    displayBorder: boolean;
-    /**
-     * Removes the component border on the bottom
-     */
-    displayBorderBottom: boolean;
-    /**
-     * Removes the component border on the end
-     */
-    displayBorderEnd: boolean;
-    /**
-     * Removes the component border on the start
-     */
-    displayBorderStart: boolean;
-    /**
-     * Removes the component border on the top
-     */
-    displayBorderTop: boolean;
-    /**
-     * Makes this component content act as a fieldset
-     */
-    fieldset: boolean;
-    /**
-     * The footer justification
-     */
-    footerJustify: footerJustify;
-    /**
-     * The heading justification
-     */
-    headingJustify: headingJustify;
-    /**
-     * Removes the border top from the footer
-     */
-    noBorderFooter: boolean;
-    /**
-     * Removes the gap from the content
-     */
-    noContentGap: boolean;
-    /**
-     * Removes the padding from the content
-     */
-    noContentPadding: boolean;
-    /**
-     * Removes the padding from the footer
-     */
-    noFooterPadding: boolean;
-    /**
-     * Removes the border bottom from the heading
-     */
-    noHeadingBorder: boolean;
-    /**
-     * Removes the padding from the heading
-     */
-    noHeadingPadding: boolean;
-    /**
-     * The container general padding (applies to .heading, .content, and .footer)
-     */
-    sectionsPadding: sectionsPadding;
-  }
-  interface GxgContextualMenu {
-    /**
-     * The presence of this attribute makes the menu visible
-     */
-    visible: boolean;
-  }
-  interface GxgContextualMenuItem {
-    /**
-     * Optional icon
-     */
-    icon: string;
-    /**
-     * The id
-     */
-    id: string;
-  }
-  interface GxgContextualMenuSubmenu {}
-  interface GxgDatePicker {
-    /**
-     * The presence of this attribute makes the date-picker always visible
-     */
-    alwaysShow: boolean;
-    /**
-     * It disabled the date-picker
-     */
-    disabled: boolean;
-    /**
-     * The datepicker label
-     */
-    label: string;
-    /**
-     * The max. date
-     */
-    maxDate: DatePickerDate;
-    /**
-     * The max. width
-     */
-    maxWidth: string;
-    /**
-     * The min. date
-     */
-    minDate: DatePickerDate;
-    /**
-     * no weekends available
-     */
-    noWeekends: boolean;
-    /**
-     * initial date
-     */
-    value: DatePickerDate;
-  }
-  interface GxgDemo {
-    initiateDemo: boolean;
-    layerZIndex: number;
-    modalMessage: string;
-  }
-  interface GxgDragBox {
-    /**
-     * The presence of this attribute makes this box active
-     */
-    active: boolean;
-    /**
-     * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
-     */
-    deletable: boolean;
-    /**
-     * The presence of this attribute disables the box, hidding the drag and drop icon.
-     */
-    disabled: boolean;
-    /**
-     * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
-     */
-    padding: Padding;
-    /**
-     * The title
-     */
-    title: string;
-  }
-  interface GxgDragContainer {
-    /**
-     * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
-     */
-    deletable: boolean;
-    /**
-     * The presence of this attribute disables the drag and drop functionality.
-     */
-    disable: boolean;
-    /**
-     * The max-width of the box container
-     */
-    maxWidth: string;
-    /**
-     * The padding (internal spacing) of the gxg-drag-boxes
-     */
-    padding: Padding;
-  }
-  interface GxgDropDown {
-    /**
-     * the dropdown height
-     */
-    dropDownHeight: string;
-    /**
-     * the dropdown icon (optional)
-     */
-    icon: string;
-    /**
-     * the dropdown label (optional)
-     */
-    label: string | undefined;
-    /**
-     * The codropdownmbo max-width
-     */
-    maxWidth: string;
-    /**
-     * The dropdown min-width
-     */
-    minWidth: string;
-    /**
-     * The container 'items container' position
-     */
-    position: "top" | "bottom";
-    /**
-     * Displays the dropdown content
-     */
-    showContent: boolean;
-    /**
-     * The dropdown width
-     */
-    width: string;
-  }
-  interface GxgFilter {
-    /**
-     * The left position of the filter, relative to the closest parent with relative position. (optional)
-     */
-    left: any;
-    /**
-     * The top position of the filter, relative to the closest parent with relative position. (optional)
-     */
-    top: any;
-  }
-  interface GxgFilterItem {
-    /**
-     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
-     */
-    icon: string;
-    /**
-     * The item-id (required if you want to know that this item was clicked)
-     */
-    itemId: any;
-    /**
-     * The type (optional)
-     */
-    type: any;
-  }
-  interface GxgFormCheckbox {
-    /**
-     * Aligns the checkbox to the top of the label (useful when the label is too long)
-     */
-    alignTop: boolean;
-    /**
-     * The checkbox id
-     */
-    checkboxId: string;
-    /**
-     * The presence of this attribute makes the checkbox checked by default
-     */
-    checked: boolean;
-    /**
-     * The presence of this attribute disables the checkbox
-     */
-    disabled: boolean;
-    /**
-     * The checkbox icon
-     */
-    iconName: string;
-    /**
-     * The presence of this attribute makes the checkbox indeterminate
-     */
-    indeterminate: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * The checkbox label
-     */
-    label: string | undefined;
-    /**
-     * The checkbox name
-     */
-    name: string;
-    /**
-     * The presence of this attribute makes the commbo required
-     */
-    required: boolean;
-    tooltip: string;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-    /**
-     * The checkbox value
-     */
-    value: string;
-  }
-  interface GxgFormCheckboxGroup {
-    /**
-     * The presence of this attribute makes all the checkboxes disabled
-     */
-    disabled: boolean;
-    /**
-     * Returns CheckboxesGroupValues = CheckboxInfo[];
-     */
-    getValues: () => Promise<CheckboxesGroupValues>;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
-     */
-    row: boolean;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-  }
-  interface GxgFormMessage {
-    /**
-     * The type of message
-     */
-    type: Message;
-  }
-  interface GxgFormRadio {
-    /**
-     * The presence of this attribute makes the radio selected by default
-     */
-    checked: boolean;
-    /**
-     * The presence of this attribute disables the radio
-     */
-    disabled: boolean;
-    /**
-     * Styles the radio-button with error attributes
-     */
-    error: boolean;
-    /**
-     * The radio label
-     */
-    label: string;
-    /**
-     * The radio name (should be the same for every radio of the same radio-group)
-     */
-    name: string;
-    /**
-     * The radio id
-     */
-    radioId: string;
-    /**
-     * The radio value
-     */
-    value: string;
-  }
-  interface GxgFormRadioGroup {
-    /**
-     * Centers the radios if 'row' is true
-     */
-    center: boolean;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * The radio group label
-     */
-    label: string;
-    /**
-     * Make the radio-buttons required
-     */
-    required: boolean;
-    /**
-     * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
-     */
-    row: boolean;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-    /**
-     * The radio group checked radio value
-     */
-    value: string;
-  }
-  interface GxgFormText {
-    /**
-     * The type of files the input accepts
-     */
-    acceptFile: string;
-    /**
-     * The presence of this attribute hides the border.
-     */
-    borderless: boolean;
-    /**
-     * Centers the label
-     */
-    centerLabel: boolean;
-    /**
-     * The presence of this attribute displays a clear (cross) button-icon on the right side
-     */
-    clearButton: boolean;
-    clearInput: () => Promise<void>;
-    /**
-     * If true, it will position the cursor at the end when the input is focused.
-     */
-    cursorEnd: boolean;
-    /**
-     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
-     */
-    debounce: boolean;
-    /**
-     * The debounce delay value. Only applies if 'debounce' is true.
-     */
-    debounceDelay: number;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled: boolean;
-    /**
-     * The file list that the user selected (only applies if the input type is "file")
-     */
-    fileList: FileList;
-    /**
-     * The presence of this attribute disables the tooltip. Useful for the combo-box.
-     */
-    hideTooltip: boolean;
-    /**
-     * The input icon (optional)
-     */
-    icon: any;
-    /**
-     * The input icon side
-     */
-    iconPosition: IconPosition;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * The input label
-     */
-    label: string;
-    /**
-     * The label position
-     */
-    labelPosition: LabelPosition;
-    /**
-     * The label width
-     */
-    labelWidth: any;
-    /**
-     * The input max. length
-     */
-    maxLength: string;
-    /**
-     * The input max. width
-     */
-    maxWidth: string;
-    /**
-     * The input min. length
-     */
-    minLength: string;
-    /**
-     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
-     */
-    minimal: boolean;
-    /**
-     * Allows multiple files if type is "file"
-     */
-    multiple: boolean;
-    openFile: () => Promise<void>;
-    /**
-     * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
-     */
-    overDarkBackground: boolean;
-    /**
-     * The presence of this attribute sets the input type as password
-     */
-    password: boolean;
-    /**
-     * The input placeholder
-     */
-    placeholder: string;
-    /**
-     * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
-     */
-    preventValueChangedEmit: boolean;
-    /**
-     * The presence of this attribute makes the input readonly
-     */
-    readonly: boolean;
-    /**
-     * The presence of this attribute makes this input required
-     */
-    required: boolean;
-    selectInputText: () => Promise<void>;
-    /**
-     * The text style
-     */
-    textStyle: Style;
-    /**
-     * The presence of this attribute displays a tooltip message, instead of a block message below the control
-     */
-    toolTip: boolean;
-    /**
-     * The type of input
-     */
-    type: InputType;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-    /**
-     * The input value
-     */
-    value: string;
-    /**
-     * The input width
-     */
-    width: string;
-  }
-  interface GxgFormTextarea {
-    /**
-     * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
-     */
-    ai: boolean;
-    /**
-     * Centers the label
-     */
-    centerLabel: boolean;
-    /**
-     * The presence of this attribute makes the component disabled
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute gives the component error styles
-     */
-    error: boolean;
-    /**
-     * The textarea height
-     */
-    height: string;
-    /**
-     * The presence of this attribute will show a validation message if the input has an error
-     */
-    hideValidationMessage: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * The textarea label
-     */
-    label: string;
-    /**
-     * The label position
-     */
-    labelPosition: LabelPosition;
-    /**
-     * The label width
-     */
-    labelWidth: any;
-    /**
-     * The max-height
-     */
-    maxHeight: string;
-    /**
-     * The max-width
-     */
-    maxWidth: string;
-    /**
-     * The textarea placeholder
-     */
-    placeholder: string;
-    /**
-     * Make the radio-buttons required
-     */
-    required: boolean;
-    /**
-     * Allow or not text area resize
-     */
-    resize: boolean;
-    /**
-     * The number of rows
-     */
-    rows: number;
-    /**
-     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
-     */
-    singleLine: boolean;
-    /**
-     * The presence of this attribute displays a tooltip message, instead of a block message below the control
-     */
-    toolTip: boolean;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-    /**
-     * The textarea value
-     */
-    value: string;
-    /**
-     * The presence of this attribute gives the component warning styles
-     */
-    warning: boolean;
-  }
-  interface GxgGrid {
-    fullHeight: boolean;
-    noBorder: boolean;
-  }
-  interface GxgIcon {
-    /**
-     * The color of the icon.
-     */
-    color: Color;
-    /**
-     * The size of the icon. Possible values: regular, small.
-     */
-    size: Size;
-    /**
-     * The type of icon.
-     */
-    type: any;
-  }
-  interface GxgIdeLoader {
-    /**
-     * The time the loader will await before abort.
-     */
-    abortTime: number;
-    /**
-     * The cancel callback
-     */
-    cancelCallback: IdeLoaderCancelCallback;
-    /**
-     * The cancel button label (optional)
-     */
-    cancelLabel: string;
-    /**
-     * The container element for the loader.
-     */
-    container: HTMLElement;
-    /**
-     * The loader description (optional)
-     */
-    description: string;
-    /**
-     * The loader title (optional)
-     */
-    loaderTitle: string;
-    /**
-     * It shows the loader
-     */
-    show: boolean;
-  }
-  interface GxgLabel {
-    center: boolean;
-    disabled: boolean;
-    for: string;
-    /**
-     * ******************************* PROPERTIES & STATE *******************************
-     */
-    labelPosition: LabelPosition;
-    noMargin: boolean;
-    tooltip: string;
-    width: string;
-  }
-  interface GxgListBox {
-    /**
-     * The presence of this attribute allows the list-box to not have any list-box-item selected
-     */
-    allowsEmpty: boolean;
-    /**
-     * The presence of this attribute adds a border to the bottom
-     */
-    borderBottom: boolean;
-    /**
-     * The presence of this attribute adds a border to the end
-     */
-    borderEnd: boolean;
-    /**
-     * The presence of this attribute adds a border to the start
-     */
-    borderStart: boolean;
-    /**
-     * The presence of this attribute adds a border to the top
-     */
-    borderTop: boolean;
-    /**
-     * The presence of this attribute will display a checkbox for every item
-     */
-    checkboxes: boolean;
-    /**
-     * Disable suggestions about keyboard combinations
-     */
-    disableSuggestions: boolean;
-    /**
-     * The presence of this attribute makes the component disabled
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
-     */
-    emitEmptySelection: boolean;
-    /**
-     * ******************************* METHODS *******************************
-     */
-    getSelectedItems: () => Promise<ItemsInformation[]>;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage: string;
-    /**
-     * An object with suggestions about the possible keyboard combinations
-     */
-    keyboardSuggestions: KeyboardSuggestions;
-    /**
-     * The presence of this attribute disables the border all around
-     */
-    noBorder: boolean;
-    /**
-     * Make the radio-buttons required
-     */
-    required: boolean;
-    /**
-     * The presence of this attribute will deactivate multi-selection
-     */
-    singleSelection: boolean;
-    /**
-     * The listbox title that appears on the header
-     */
-    theTitle: string;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-  }
-  interface GxgListBoxItem {
-    /**
-     * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
-     */
-    active: boolean;
-    /**
-     * The presence of this attribute will add a checkbox to the item.
-     */
-    checkbox: boolean;
-    /**
-     * The presence of this attribute will make the checkbox checked.
-     */
-    checked: boolean;
-    /**
-     * The presence of this attribute disabled the list-box-item
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
-     */
-    emitCheckboxChange: boolean;
-    /**
-     * The presence of this attribute sets this item as highlighted
-     */
-    highlighted: boolean;
-    /**
-     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
-     */
-    icon: string;
-    /**
-     * This property is set by the list-box item. It should not be set by the user.
-     */
-    index: number;
-    /**
-     * The presence of this attribute sets this item as selected
-     */
-    selected: boolean;
-    /**
-     * This property is for internal use
-     */
-    siblingIsSelected: boolean;
-    /**
-     * The item value. If value is not provided, the value will be the item innerHTML.
-     */
-    value: any;
-  }
-  interface GxgLoader {
-    /**
-     * The prescence of this attribute shows the loader
-     */
-    show: boolean;
-    /**
-     * The text you want to show under the loader (optional)
-     */
-    text: string;
-    /**
-     * The z-index positive value you want for the loader when visible (default: 100)
-     */
-    visibleZIndex: string;
-  }
-  interface GxgMenu {
-    /**
-     * The menu title
-     */
-    menuTitle: string;
-    /**
-     * Provide this attribute if you are using this menu on the tabs component
-     */
-    tabs: boolean;
-  }
-  interface GxgMenuItem {
-    active: boolean;
-    icon: string;
-    label: string;
-  }
-  interface GxgMenuSlim {
-    /**
-     * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
-     */
-    ellipsis: boolean;
-    /**
-     * Hides or show the menu with an animation
-     */
-    hidden: boolean;
-    /**
-     * Hides the menu when an item is selected.
-     */
-    hideOnSelect: boolean;
-    /**
-     * The menu title
-     */
-    menuTitle: string;
-    /**
-     * Provide this attribute if you are using this menu on the tabs component
-     */
-    tabs: boolean;
-  }
-  interface GxgMenuSlimItem {
-    /**
-     * Sets the item as active or not
-     */
-    active: boolean;
-    /**
-     * Disables the item
-     */
-    disabled: boolean;
-    /**
-     * Prevents the the text from wrapping into more than one line, adding an ellipsis at the end. This property is set and inherited one the menu.
-     */
-    ellipsis: boolean;
-    /**
-     * The item iconType
-     */
-    iconType: string;
-    /**
-     * The item identifier
-     */
-    itemId: string;
-    /**
-     * The item label
-     */
-    label: string;
-  }
-  interface GxgMenuSlimList {
-    /**
-     * The menu-list title
-     */
-    listTitle: string;
-  }
-  interface GxgModal {
-    close: () => Promise<void>;
-    flavor: "classic" | "alternate";
-    /**
-     * The footer justify content type
-     */
-    footerJustifyContent: string;
-    /**
-     * The presence of this attribute hides the footer.
-     */
-    hideFooter: boolean;
-    /**
-     * The modal max-width
-     */
-    maxWidth: string;
-    /**
-     * The modal title
-     */
-    modalTitle: string;
-    padding: padding;
-    /**
-     * The presence of this attribute removes the sound that plays when the modal appears
-     */
-    silent: boolean;
-    /**
-     * Wether the modal is visible or not
-     */
-    visible: boolean;
-    /**
-     * The modal width
-     */
-    width: string;
-    /**
-     * The z-index value of the modal
-     */
-    zIndex: string;
-  }
-  interface GxgMoreInfo {
-    /**
-     * The label
-     */
-    label: string;
-    /**
-     * (Optional) The "more-info" label. This property goes along with "url" attribute
-     */
-    moreInfoLabel: string;
-    /**
-     * the tooltip position
-     */
-    position: position;
-    /**
-     * The url target
-     */
-    target: target;
-    /**
-     * (Optional) The "more-info" url.
-     */
-    url: string;
-  }
-  interface GxgOption {
-    /**
-     * The icon name (optional)
-     */
-    iconName: string;
-    /**
-     * The presence of this attribute makes the option selected by default
-     */
-    selected: boolean;
-    /**
-     * The value
-     */
-    value: string;
-  }
-  interface GxgOptionV2 {
-    /**
-     * The icon name (optional)
-     */
-    iconName: string;
-    /**
-     * The presence of this attribute makes the option selected by default
-     */
-    selected: boolean;
-    /**
-     * The value
-     */
-    value: string;
-  }
-  interface GxgOptions {
-    iconDirection: "vertical" | "horizontal";
-    maxVisibleOptions: number;
-    maxWidth: string;
-    position: "left" | "right";
-    width: string;
-    zIndex: string;
-  }
-  interface GxgOptionsItem {
-    disabled: boolean;
-  }
-  interface GxgPaginator {
-    /**
-     * The paginator alignment:
-     */
-    alignment: PaginatorAlignment;
-  }
-  interface GxgPill {
-    /**
-     * The presence of this attribute disables the pill
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute sets auto-height. Useful when the text overflows.
-     */
-    heightAuto: boolean;
-    /**
-     * The icon
-     */
-    icon: string;
-    /**
-     * The pill id
-     */
-    id: string;
-    /**
-     * Stylizes the font with italic (only used in mercury)
-     */
-    italic: boolean;
-    /**
-     * The type of pill
-     */
-    type: PillType;
-  }
-  interface GxgPills {
-    /**
-     * Returns an array with the id's of all the pills
-     */
-    getPills: (onlyEnabled?: boolean) => Promise<string[]>;
-  }
-  interface GxgProgressBar {
-    /**
-     * The state of the progress-bar, whether it is disabled or not.
-     */
-    disabled: boolean;
-    /**
-     * The progress-bar label
-     */
-    label: string;
-    /**
-     * The max. width
-     */
-    maxWidth: string;
-    /**
-     * The presence of this attribute removes the sound that plays when the progress-bar finishes
-     */
-    silent: boolean;
-    /**
-     * The progress value (percentage)
-     */
-    value: number;
-  }
-  interface GxgScroll {}
-  interface GxgSelect {
-    /**
-     * The presence of this attribute disables the component
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute stylizes the component with error attributes
-     */
-    error: boolean;
-    /**
-     * This holds the value of the initial selected option
-     */
-    initialValue: string | undefined;
-    isOpen: () => Promise<boolean>;
-    /**
-     * The select label
-     */
-    label: string;
-    /**
-     * The input label
-     */
-    labelPosition: LabelPosition;
-    /**
-     * The select max. width
-     */
-    maxWidth: string;
-    /**
-     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
-     */
-    minimal: boolean;
-    /**
-     * The presence of this attribute makes this input required
-     */
-    required: boolean;
-    /**
-     * The maximum number of visible options
-     */
-    size: string;
-    /**
-     * This holds the value of the selected option
-     */
-    value: string;
-    /**
-     * The presence of this attribute stylizes the component with warning attributes
-     */
-    warning: boolean;
-  }
-  interface GxgSelectV2 {
-    /**
-     * The presence of this attribute disables the component
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute stylizes the component with error attributes
-     */
-    error: boolean;
-    /**
-     * The select label
-     */
-    label: string;
-    /**
-     * The label position
-     */
-    labelPosition: LabelPosition;
-    /**
-     * The select max. width
-     */
-    maxWidth: any;
-    /**
-     * The select min. width
-     */
-    minWidth: any;
-    /**
-     * The presence of this attribute makes this input required
-     */
-    required: boolean;
-    /**
-     * The maximum number of visible options
-     */
-    size: string;
-    /**
-     * This holds the value of the selected option
-     */
-    value: string;
-    /**
-     * The presence of this attribute stylizes the component with warning attributes
-     */
-    warning: boolean;
-    /**
-     * The select width
-     */
-    width: string;
-  }
-  interface GxgSeparator {
-    /**
-     * The hr top and bottom margin
-     */
-    margin: margin;
-    /**
-     * The hr style
-     */
-    type: string;
-  }
-  interface GxgShortcuts {
-    showKey: "F10";
-    showTooltip: boolean;
-    /**
-     * The URL of the shortcut definitions.
-     */
-    src: string;
-    suspend: boolean;
-  }
-  interface GxgSlider {
-    /**
-     * The state of the slider, whether is disabled or not.
-     */
-    disabled: boolean;
-    /**
-     * The label
-     */
-    label: string;
-    /**
-     * The max. value
-     */
-    max: number;
-    /**
-     * The slider max. width
-     */
-    maxWidth: string;
-    /**
-     * The initial value
-     */
-    value: number;
-  }
-  interface GxgSpacerLayout {
-    /**
-     * Add this attribute to make the spacer-layout full height
-     */
-    fullHeight: boolean;
-    /**
-     * Content justify
-     */
-    justifyContent: JustifyContent;
-    /**
-     * The orientation
-     */
-    orientation: Orientation;
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space: Space;
-  }
-  interface GxgSpacerOne {
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space: string;
-  }
-  interface GxgSplit {}
-  interface GxgSplitter {
-    /**
-     * This method allows to collapse the split passsed as argument
-     */
-    collapse: (split: number, forceCollapseToZero?: boolean) => Promise<void>;
-    /**
-     * The splitter direction
-     */
-    direction: Direction;
-    /**
-     * The prescence of this attributes forces the splitter to collapse to zero
-     */
-    forceCollapseZero: boolean;
-    /**
-     * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
-     */
-    knob: Knob;
-    /**
-     * The splitter min. sizes in pixels
-     */
-    minSize: string;
-    /**
-     * The splitter initial sizes, in percentages. The sum should equal 100
-     */
-    sizes: string;
-  }
-  interface GxgStack {
-    /**
-     * The spacing value between each gxg-column (if any present)
-     */
-    columnsSpace: any;
-    /**
-     * The spacing value between each stack row
-     */
-    space: Space;
-  }
-  interface GxgStepper {
-    /**
-     * The state of the stepper, whether is disabled or not.
-     */
-    disabled: boolean;
-    /**
-     * The label
-     */
-    label: string | undefined;
-    /**
-     * The label position
-     */
-    labelPosition: LabelPosition;
-    /**
-     * The max. value
-     */
-    max: number;
-    /**
-     * The min. value
-     */
-    min: number;
-    /**
-     * The initial vaule
-     */
-    value: number;
-  }
-  interface GxgSuggest {
-    /**
-     * The presence of this attribute makes the suggest disabled.
-     */
-    disabled: boolean;
-    /**
-     * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
-     */
-    ellipsis: boolean;
-    /**
-     * The message to display for the validation result.
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-  }
-  interface GxgTab {
-    /**
-     * The presence of this attribute makes the display of the tab 'flex' only when is open
-     */
-    flex: boolean;
-    /**
-     * The presence of this attribute makes the container display flex
-     */
-    flexContainer: boolean;
-    /**
-     * The container flex-direction, if container is flex.
-     */
-    flexDirection: TabContainerFlexDirection;
-    /**
-     * The selected tab
-     */
-    isSelected: boolean;
-    /**
-     * The presence of this attribute removes the tab .container padding
-     */
-    noPadding: boolean;
-    /**
-     * The presence of this attribute makes the .container overflow property set to 'auto'
-     */
-    overflowAuto: boolean;
-    /**
-     * The tab id. Should match the "tab" value of the correlative "gxg-tab"
-     */
-    tab: string;
-  }
-  interface GxgTabBar {
-    appendTabButtons: () => Promise<void>;
-    /**
-     * The presence of this attribute displays a border-bottom line on the tab bar
-     */
-    displayBorder: boolean;
-    /**
-     * Hides the tab-bar
-     */
-    hidden: boolean;
-    /**
-     * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
-     */
-    scrollable: boolean;
-  }
-  interface GxgTabButton {
-    /**
-     * Provide this attribute to make this button disabled
-     */
-    disabled: boolean;
-    /**
-     * Hides the tab button
-     */
-    hidden: boolean;
-    /**
-     * (Optional) provide an icon to this button
-     */
-    icon: string;
-    /**
-     * Provide this attribute to make this button selected by default
-     */
-    isSelected: boolean;
-    /**
-     * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
-     */
-    tab: string;
-    tabButtonClick: () => Promise<void>;
-    /**
-     * The button label
-     */
-    tabLabel: string;
-  }
-  interface GxgTabs {
-    height: string;
-    maxHeight: string;
-    minWidth: string;
-    /**
-     * The presence of this attribute removes the background color (only for mercury)
-     */
-    noBackground: boolean;
-    /**
-     * The presence of this attribute removes each tab .container padding
-     */
-    noPadding: boolean;
-    position: TabsPosition;
-    setActiveTab: (tab: string) => Promise<void>;
-    tabBarBorder: boolean;
-  }
-  interface GxgTest {}
-  interface GxgText {
-    /**
-     * Disables the interactive types of text
-     */
-    disabled: boolean;
-    /**
-     * The href (for "link" or "link-gray" types
-     */
-    href: string;
-    /**
-     * The gemini icon type
-     */
-    icon: string;
-    /**
-     * The icon alignment on the vertical axis.
-     */
-    iconAlign: "top" | "center";
-    /**
-     * It will force the icon color to be auto
-     */
-    iconAuto: boolean;
-    /**
-     * Italic (only for mercury)
-     */
-    italic: boolean;
-    /**
-     * Max. width
-     */
-    maxWidth: string;
-    /**
-     * Text padding
-     */
-    padding: TextPadding;
-    /**
-     * The target (for "link" or "link-gray" types
-     */
-    target: TargetType;
-    /**
-     * Text alignment
-     */
-    textAlign: TextAlign;
-    /**
-     * Text type
-     */
-    type: TextType;
-  }
-  interface GxgTitle {
-    /**
-     * Title type
-     */
-    alignment: TitleAlignment;
-    /**
-     * Title type
-     */
-    type: TitleType;
-  }
-  interface GxgTitleEditable {
-    /**
-     * If true, it will allow the title to be edited
-     */
-    clickToEdit: boolean;
-    /**
-     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
-     */
-    debounce: boolean;
-    /**
-     * The debounce delay value. Only applies if 'debounce' is true.
-     */
-    debounceDelay: number;
-    /**
-     * If true, the title will not be editable
-     */
-    disableEdition: boolean;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled: boolean;
-    /**
-     * If true, the width of the title will take only the minimum needed space
-     */
-    fluid: boolean;
-    /**
-     * If true, the width of the title will take only the minimum needed space
-     */
-    focusType: EditableTitleFocusType;
-    /**
-     * Shows or hides the tooltip
-     */
-    hideTooltip: boolean;
-    /**
-     * The title type
-     */
-    titleType: EditableTitleType;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage: string;
-    /**
-     * The validation status
-     */
-    validationStatus: ValidationStatus;
-    /**
-     * The title value
-     */
-    value: string;
-  }
-  interface GxgToggle {
-    /**
-     * The state of the toggle. Whether is disabled or not.
-     */
-    disabled: boolean;
-    /**
-     * The label
-     */
-    label: string | undefined;
-    /**
-     * If the toggle is active or not
-     */
-    on: boolean;
-  }
-  interface GxgToolbar {
-    /**
-     * The toggle arrow position
-     */
-    position: position;
-    /**
-     * The toolbar title
-     */
-    subtitle: string;
-    /**
-     * The toolbar subtitle
-     */
-    toolbarTitle: string;
-  }
-  interface GxgToolbarItem {
-    /**
-     * The state of the toolbar-item, whether it is disabled or not
-     */
-    disabled: boolean;
-    /**
-     * The toolbar-item icon
-     */
-    icon: string;
-    /**
-     * The toolbar-item subtitle
-     */
-    subtitle: string;
-    /**
-     * The toolbar-item title
-     */
-    toolbarItemTitle: string;
-  }
-  interface GxgTooltip {
-    /**
-     * The alignment
-     */
-    alignEnd: boolean;
-    /**
-     * Fixed positioned
-     */
-    fixed: boolean;
-    /**
-     * Displays the tool-tip as flex
-     */
-    flex: boolean;
-    /**
-     * The label
-     */
-    label: string;
-    /**
-     * This presence of this property removes the border under the text
-     */
-    noBorder: boolean;
-    /**
-     * the tooltip position
-     */
-    position: position;
-  }
-  interface GxgTree {
-    /**
-     * Set this attribute if you want all the items to have a checkbox.
-     */
-    checkbox: boolean;
-    /**
-     * Set this attribute if you want all the items to be checked by default.
-     */
-    checked: boolean;
-    /**
-     * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
-     */
-    getCheckedItems: (
-      idsArray?: (string | number)[]
-    ) => Promise<GxgTreeItemSelectedData[]>;
-    /**
-     * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
-     */
-    getSelectedItems: () => Promise<GxgTreeItemData[]>;
-    /**
-     * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
-     */
-    multiSelection: boolean;
-    /**
-     * Set this attribute if you want all the items to be opened by default.
-     */
-    opened: boolean;
-    /**
-     * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
-     */
-    toggleCheckboxes: boolean;
-    /**
-     * @param ids : An array id the tree items to be toggled.
-     * @param open : A boolean indicating that the tree item should be opened or closed. (optional)
-     * @description This method is used to toggle a tree-item by the tree-item id/ids.
-     * @returns a boolean value indicating if the selected tree-item is open or not, after the method was called.
-     */
-    toggleItems: (
-      ids: string[],
-      open?: boolean
-    ) => Promise<ToggledGxgTreeItem[]>;
-  }
-  interface GxgTreeGridDivs {
-    columns: Array<object>;
-    displayChildren: DisplayChildren;
-    editCell: { rowId: number; columnName: string };
-    rows: Array<object>;
-    selectedRowsIds: number;
-    width: string;
-  }
-  interface GxgTreeItem {
-    /**
-     * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
-     */
-    checkbox: boolean;
-    /**
-     * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
-     */
-    checked: boolean;
-    /**
-     * The tree item description.
-     */
-    description: string;
-    /**
-     * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
-     */
-    disabled: boolean;
-    evaluateCheckboxStatus: () => Promise<void>;
-    /**
-     * This property is for internal use. It indicates that the item has children.
-     */
-    hasChildTree: boolean;
-    /**
-     * Sets the tree item icon
-     */
-    icon: string;
-    /**
-     * This property is for internal use. It indicates that the checkbox has an indeterminate state.
-     */
-    indeterminate: boolean;
-    /**
-     * The tree item label.
-     */
-    label: string;
-    /**
-     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
-     */
-    leaf: boolean;
-    /**
-     * This property is for internal use, when using the treeModel.
-     */
-    numberOfChildren: number;
-    /**
-     * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
-     */
-    opened: boolean;
-    reRender: () => Promise<void>;
-    /**
-     * The presence of this attribute sets the tree-item as selected
-     */
-    selected: boolean;
-    /**
-     * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
-     */
-    toggleCheckboxes: boolean;
-    /**
-     * This property is for passing a tree structure from the tree.
-     */
-    treeModel: HTMLGxgTreeElement;
-    /**
-     * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
-     */
-    type: string;
-  }
-  interface GxgTreeView {
-    /**
-     * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
-     */
-    checkDroppableZoneCallback: (
-      dropInformation: TreeViewDropCheckInfo
-    ) => Promise<boolean>;
-    /**
-     * Set this attribute if you want display a checkbox in all items by default.
-     */
-    checkbox: boolean;
-    /**
-     * Set this attribute if you want the checkbox to be checked in all items by default. Only works if `checkbox = true`
-     */
-    checked: boolean;
-    /**
-     * A CSS class to set as the `ch-tree-view` element class.
-     */
-    cssClass: string;
-    /**
-     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the items can't be dragged.
-     */
-    dragDisabled: boolean;
-    /**
-     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the items won't accept any drops.
-     */
-    dropDisabled: boolean;
-    /**
-     * Callback that is executed when a list of items request to be dropped into another item.
-     */
-    dropItemsCallback: (
-      dataTransferInfo: TreeViewDataTransferInfo
-    ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
-    /**
-     * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
-     */
-    editableItems: boolean;
-    /**
-     * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
-     */
-    filter: string;
-    /**
-     * This property lets you determine the debounce time (in ms) that the control waits until it processes the changes to the filter property. Consecutive changes to the `filter` property between this range, reset the timeout to process the filter. Only works if `filterType = "caption" | "metadata"`.
-     */
-    filterDebounce: number;
-    /**
-     * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
-     */
-    filterList: string[];
-    /**
-     * This property lets you determine the options that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
-     */
-    filterOptions: TreeViewFilterOptions;
-    /**
-     * This attribute lets you define what kind of filter is applied to items. Only items that satisfy the filter predicate will be displayed.  | Value       | Details                                                                                        | | ----------- | ---------------------------------------------------------------------------------------------- | | `checked`   | Show only the items that have a checkbox and are checked.                                      | | `unchecked` | Show only the items that have a checkbox and are not checked.                                  | | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  | | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. | | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  | | `none`      | Show all items.                                                                                |
-     */
-    filterType: TreeViewFilterType;
-    /**
-     * Callback that is executed when a item request to load its subitems.
-     */
-    lazyLoadTreeItemsCallback: (
-      treeItemId: string
-    ) => Promise<TreeViewItemModel[]>;
-    /**
-     * Given an item id, an array of items to add, the download status and the lazy state, updates the item's UI Model.
-     */
-    loadLazyContent: (
-      itemId: string,
-      items?: TreeViewItemModel[],
-      downloading?: boolean,
-      lazy?: boolean
-    ) => Promise<void>;
-    /**
-     * Callback that is executed when a item request to modify its caption.
-     */
-    modifyItemCaptionCallback: (
-      treeItemId: string,
-      newCaption: string
-    ) => Promise<TreeViewOperationStatusModifyCaption>;
-    /**
-     * Set this attribute if you want to allow multi selection of the items.
-     */
-    multiSelection: boolean;
-    /**
-     * Given an item id and the additional properties to update before and after reload, it reloads the items of the `itemId` node by using the `lazyLoadTreeItemsCallback` property.
-     */
-    reloadItems: (
-      itemId: string,
-      beforeProperties?: Partial<TreeViewItemModel>,
-      afterProperties?: Partial<TreeViewItemModel>
-    ) => Promise<void>;
-    /**
-     * This property allows us to implement custom rendering of tree items.
-     */
-    renderItem: (
-      itemModel: TreeViewItemModel,
-      treeState: ChTreeViewRender,
-      treeHasFilter: boolean,
-      lastItem: boolean,
-      level: number
-    ) => any;
-    /**
-     * Given an item id, it displays and scrolls into the item view.
-     */
-    scrollIntoVisible: (treeItemId: string) => Promise<void>;
-    /**
-     * `true` to display the relation between tree items and tree lists using lines.
-     */
-    showLines: TreeViewLines;
-    /**
-     * Callback that is executed when the treeModel is changed to order its items.
-     */
-    sortItemsCallback: (subModel: TreeViewItemModel[]) => void;
-    /**
-     * Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default.
-     */
-    toggleCheckboxes: boolean;
-    /**
-     * This method is used to toggle a tree item by the tree item id/ids.
-     * @param treeItemIds An array id the tree items to be toggled.
-     * @param expand A boolean indicating that the tree item should be expanded or collapsed. (optional)
-     * @returns The modified items after the method was called.
-     */
-    toggleItems: (
-      treeItemIds: string[],
-      expand?: boolean
-    ) => Promise<TreeViewItemExpandedInfo[]>;
-    /**
-     * This property lets you define the model of the ch-tree-x control.
-     */
-    treeModel: TreeViewItemModel[];
-    /**
-     * Given a subset of item's properties, it updates all item UI models.
-     */
-    updateAllItemsProperties: (properties: {
-      expanded?: boolean;
-      checked?: boolean;
-    }) => Promise<void>;
-    /**
-     * Given a item list and the properties to update, it updates the properties of the items in the list.
-     */
-    updateItemsProperties: (
-      items: string[],
-      properties: TreeViewItemModel
-    ) => Promise<void>;
-    /**
-     * Update the information about the valid droppable zones.
-     * @param requestTimestamp Time where the request to the server was made. Useful to avoid having old information.
-     * @param newContainerId ID of the container where the drag is trying to be made.
-     * @param draggedItems Information about the dragged items.
-     * @param validDrop Current state of the droppable zone.
-     */
-    updateValidDropZone: (
-      requestTimestamp: number,
-      newContainerId: string,
-      draggedItems: GxDataTransferInfo[],
-      validDrop: boolean
-    ) => Promise<void>;
-  }
-  interface GxgWindow {
-    /**
-     * Displays the window
-     */
-    displayWindow: boolean;
-    /**
-     * The window starting height
-     */
-    initialHeight: string;
-    /**
-     * The window starting width
-     */
-    initialWidth: string;
-    /**
-     * The window left position. By default the window is horizontally centered
-     */
-    leftPosition: string;
-    /**
-     * The window max. height
-     */
-    maxHeight: string;
-    /**
-     * The window max. width
-     */
-    maxWidth: string;
-    /**
-     * The window min. height
-     */
-    minHeight: string;
-    /**
-     * The window min. width
-     */
-    minWidth: string;
-    /**
-     * The window title icon
-     */
-    titleIcon: string;
-    /**
-     * The window top position. By default the window is vertically centered
-     */
-    topPosition: string;
-    /**
-     * The window title
-     */
-    windowTitle: string;
-  }
+    interface GxgAccordion {
+        /**
+          * The presence of this attribute makes all of the accordion-items disabled and not focusable
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribue adds a border to each accordion item.
+         */
+        "hasBorder": boolean;
+        /**
+          * The accordion max-width
+         */
+        "maxWidth": string;
+        /**
+          * The accordion flavor
+         */
+        "mode": mode;
+        /**
+          * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
+         */
+        "noPadding": boolean;
+        /**
+          * If this attribute is present, only one accordion-item can be open at the same time
+         */
+        "singleItemOpen": boolean;
+    }
+    interface GxgAccordionItem {
+        /**
+          * The presence of this attribute makes the accordion-item disabled and not focusable
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute makes the accordion title editable
+         */
+        "editableTitle": boolean;
+        /**
+          * The presence of this attribue adds a border to the accordion item.
+         */
+        "hasBorder": boolean;
+        /**
+          * The accordion id
+         */
+        "itemId": string;
+        /**
+          * The accordion subtitle (optional)
+         */
+        "itemSubtitle": string;
+        /**
+          * The accordion title
+         */
+        "itemTitle": string;
+        /**
+          * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
+         */
+        "mode": mode1;
+        /**
+          * Set the status to "open" if you want the accordion-item open by default
+         */
+        "status": status;
+        /**
+          * The accordion title icon
+         */
+        "titleIcon": string;
+    }
+    interface GxgAlert {
+        /**
+          * Wether the alert is active (visible) or hidden
+         */
+        "active": boolean;
+        /**
+          * The amount of time the alert is visible before hidding under the document
+         */
+        "activeTime": ActiveTime;
+        /**
+          * The spacing between the alert and the bottom side of the document
+         */
+        "bottom": Spacing;
+        /**
+          * The presence of this attribute makes the component full-width
+         */
+        "fullWidth": boolean;
+        /**
+          * The spacing between the alert, and the left or right side of the document
+         */
+        "leftRight": Spacing;
+        /**
+          * The alert position on the X axis
+         */
+        "position": AlertPosition;
+        /**
+          * The presence of this attribute removes the sound on the 'warning' or 'error' alert
+         */
+        "silent": boolean;
+        /**
+          * The alert title (optional)
+         */
+        "title": string;
+        /**
+          * The alert flavor
+         */
+        "type": AlertType;
+        /**
+          * The alert width
+         */
+        "width": string;
+    }
+    interface GxgBox {
+        /**
+          * The background color
+         */
+        "background": background;
+        /**
+          * Wether the box has border or not
+         */
+        "border": boolean;
+        /**
+          * The component  height
+         */
+        "height": string;
+        /**
+          * The component max. width
+         */
+        "maxWidth": string;
+        /**
+          * The component min. height
+         */
+        "minHeight": string;
+        /**
+          * The box padding
+         */
+        "padding": padding;
+    }
+    interface GxgBreadcrumb {
+        /**
+          * The breadcrumb icon (optional)
+         */
+        "icon": string;
+        /**
+          * The breadcrumb id
+         */
+        "id": string;
+    }
+    interface GxgBreadcrumbs {
+    }
+    interface GxgButton {
+        /**
+          * The presence of this attribute makes the icon always black
+         */
+        "alwaysBlack": boolean;
+        /**
+          * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
+         */
+        "buttonStylesEditable": boolean;
+        /**
+          * The state of the button, whether it is disabled or not
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+         */
+        "fit": boolean;
+        /**
+          * The presence of this attribute makes the component full-width
+         */
+        "fullWidth": boolean;
+        /**
+          * The presence of this attribute with make the icon do a background color animation that will grab user attention
+         */
+        "grabAttention": boolean;
+        /**
+          * The button icon
+         */
+        "icon": any;
+        /**
+          * The prescence of this attribute turns the icon white
+         */
+        "negative": boolean;
+        /**
+          * The kind of button
+         */
+        "type": ButtonType;
+    }
+    interface GxgButtonGroup {
+        /**
+          * The buttons style
+         */
+        "activeButtonId": string;
+        /**
+          * The button-group title
+         */
+        "buttonGroupTitle": string;
+        /**
+          * The id of the button that you would like to be active by default
+         */
+        "defaultSelectedBtnId": string;
+        /**
+          * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
+         */
+        "disableActive": boolean;
+        /**
+          * Wether the button group is disabled or not
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute makes the component full-width
+         */
+        "fullWidth": boolean;
+        /**
+          * The presence of this attribute makes the button group outlined
+         */
+        "outlined": boolean;
+        /**
+          * The button group title alignment
+         */
+        "titleAlignment": TitleAlignment;
+        /**
+          * The buttons style
+         */
+        "type": "primary" | "secondary";
+    }
+    interface GxgCard {
+        /**
+          * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
+         */
+        "actionable": boolean;
+        /**
+          * The background color
+         */
+        "background": background1;
+        /**
+          * An optional subtitle
+         */
+        "cardSubtitle": string;
+        /**
+          * An optional title
+         */
+        "cardTitle": string;
+        /**
+          * The card type (only for mercury)
+         */
+        "cardType": CardType;
+        /**
+          * It makes the title editable (only for mercury)
+         */
+        "editableTitle": boolean;
+        /**
+          * The card box-shadow
+         */
+        "elevation": elevation;
+        /**
+          * This is the filter value needed for hiChar.
+         */
+        "filterValue": string;
+        /**
+          * The component height
+         */
+        "height": string;
+        /**
+          * This allows to highlight any character on the card title, or subtitle.
+         */
+        "hiChar": boolean;
+        /**
+          * The card type (only for mercury)
+         */
+        "icon": string;
+        /**
+          * The icon color
+         */
+        "iconColor": Color;
+        /**
+          * The component max. width
+         */
+        "maxWidth": string;
+        /**
+          * The component min. height
+         */
+        "minHeight": string;
+        /**
+          * Removes the header border
+         */
+        "noHeaderBorder": boolean;
+        /**
+          * Remove padding from the top (applies only for the "section" card type)
+         */
+        "noPaddingTop": boolean;
+        /**
+          * Disables box-shadow
+         */
+        "noShadow": boolean;
+        /**
+          * The card padding
+         */
+        "padding": padding1;
+        /**
+          * The icon color
+         */
+        "subtitleColor": Color;
+        /**
+          * An optional subtitle icon
+         */
+        "subtitleIcon": string;
+        /**
+          * An optional subtitle link
+         */
+        "subtitleLink": string;
+        /**
+          * Card title semibold
+         */
+        "titleSemibold": boolean;
+    }
+    interface GxgColorPicker {
+        /**
+          * The label of the color picker (optional)
+         */
+        "label": any;
+        /**
+          * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
+         */
+        "value": string;
+    }
+    interface GxgColumn {
+        /**
+          * The column width value
+         */
+        "width": WidthType;
+    }
+    interface GxgColumns {
+        /**
+          * The vertical alignment
+         */
+        "alignY": AlignY;
+        /**
+          * The collapse breakpoint
+         */
+        "collapseBellow": CollapseBellow;
+        /**
+          * The spacing between columns
+         */
+        "space": Space;
+    }
+    interface GxgComboBox {
+        /**
+          * The presence of this attribute with make the filter search for values with case sensitive distinction
+         */
+        "caseSensitive": boolean;
+        /**
+          * Centers the label
+         */
+        "centerLabel": boolean;
+        "close": () => Promise<void>;
+        /**
+          * If true, it will position the cursor at the end when the input is focused.
+         */
+        "cursorEnd": boolean;
+        /**
+          * The presence of this attribute disables the clear button
+         */
+        "disableClear": boolean;
+        /**
+          * The presence of this attribute disables the filter
+         */
+        "disableFilter": boolean;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled": boolean;
+        /**
+          * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
+         */
+        "fixedIcon": string;
+        "getValueByIndex": (index: number) => Promise<string>;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * The combo label
+         */
+        "label": string;
+        /**
+          * The input label
+         */
+        "labelPosition": LabelPosition;
+        /**
+          * The label width
+         */
+        "labelWidth": any;
+        /**
+          * The combo list max height
+         */
+        "listMaxHeight": string;
+        /**
+          * The container 'items container' position
+         */
+        "listPosition": ListPosition;
+        /**
+          * The combo max-width
+         */
+        "maxWidth": string;
+        /**
+          * The combo min-width
+         */
+        "minWidth": string;
+        /**
+          * ******************************* METHODS *******************************
+         */
+        "open": () => Promise<void>;
+        /**
+          * The combo placeholder
+         */
+        "placeholder": string;
+        /**
+          * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
+         */
+        "popOver": boolean;
+        /**
+          * The presence of this attribute makes the commbo required
+         */
+        "required": boolean;
+        "selectInputText": () => Promise<void>;
+        "setValueByIndex": (index: number) => Promise<boolean>;
+        /**
+          * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
+         */
+        "strict": boolean;
+        /**
+          * The presence of this attribute displays a tooltip message, instead of a block message below the control
+         */
+        "toolTip": boolean;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+        /**
+          * The current combo box item value
+         */
+        "value": ComboBoxItemValue;
+    }
+    interface GxgComboBoxItem {
+        /**
+          * The presence of this attribute makes this combo-item disabled and not interactive.
+         */
+        "disabled": boolean;
+        /**
+          * True if the text typed on the combo box input is equal to this combo box item text
+         */
+        "exactMatch": boolean;
+        /**
+          * This property hides the combo box item
+         */
+        "hidden": boolean;
+        /**
+          * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+         */
+        "icon": string;
+        /**
+          * (This prop is for internal use).
+         */
+        "index": number;
+        /**
+          * The presence of this attribute makes this combo-item selected.
+         */
+        "selected": boolean;
+        /**
+          * The item value. If value is not provided, an automatic value will be generated with the innerText.
+         */
+        "value": ComboBoxItemValue1;
+    }
+    interface GxgContainer {
+        /**
+          * The title of the container
+         */
+        "containerTitle": string;
+        /**
+          * Dsiplays a border all around the container
+         */
+        "displayBorder": boolean;
+        /**
+          * Removes the component border on the bottom
+         */
+        "displayBorderBottom": boolean;
+        /**
+          * Removes the component border on the end
+         */
+        "displayBorderEnd": boolean;
+        /**
+          * Removes the component border on the start
+         */
+        "displayBorderStart": boolean;
+        /**
+          * Removes the component border on the top
+         */
+        "displayBorderTop": boolean;
+        /**
+          * Makes this component content act as a fieldset
+         */
+        "fieldset": boolean;
+        /**
+          * The footer justification
+         */
+        "footerJustify": footerJustify;
+        /**
+          * The heading justification
+         */
+        "headingJustify": headingJustify;
+        /**
+          * Removes the border top from the footer
+         */
+        "noBorderFooter": boolean;
+        /**
+          * Removes the gap from the content
+         */
+        "noContentGap": boolean;
+        /**
+          * Removes the padding from the content
+         */
+        "noContentPadding": boolean;
+        /**
+          * Removes the padding from the footer
+         */
+        "noFooterPadding": boolean;
+        /**
+          * Removes the border bottom from the heading
+         */
+        "noHeadingBorder": boolean;
+        /**
+          * Removes the padding from the heading
+         */
+        "noHeadingPadding": boolean;
+        /**
+          * The container general padding (applies to .heading, .content, and .footer)
+         */
+        "sectionsPadding": sectionsPadding;
+    }
+    interface GxgContextualMenu {
+        /**
+          * The presence of this attribute makes the menu visible
+         */
+        "visible": boolean;
+    }
+    interface GxgContextualMenuItem {
+        /**
+          * Optional icon
+         */
+        "icon": string;
+        /**
+          * The id
+         */
+        "id": string;
+    }
+    interface GxgContextualMenuSubmenu {
+    }
+    interface GxgDatePicker {
+        /**
+          * The presence of this attribute makes the date-picker always visible
+         */
+        "alwaysShow": boolean;
+        /**
+          * It disabled the date-picker
+         */
+        "disabled": boolean;
+        /**
+          * The datepicker label
+         */
+        "label": string;
+        /**
+          * The max. date
+         */
+        "maxDate": DatePickerDate;
+        /**
+          * The max. width
+         */
+        "maxWidth": string;
+        /**
+          * The min. date
+         */
+        "minDate": DatePickerDate;
+        /**
+          * no weekends available
+         */
+        "noWeekends": boolean;
+        /**
+          * initial date
+         */
+        "value": DatePickerDate;
+    }
+    interface GxgDemo {
+        "initiateDemo": boolean;
+        "layerZIndex": number;
+        "modalMessage": string;
+    }
+    interface GxgDragBox {
+        /**
+          * The presence of this attribute makes this box active
+         */
+        "active": boolean;
+        /**
+          * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
+         */
+        "deletable": boolean;
+        /**
+          * The presence of this attribute disables the box, hidding the drag and drop icon.
+         */
+        "disabled": boolean;
+        /**
+          * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
+         */
+        "padding": Padding;
+        /**
+          * The title
+         */
+        "title": string;
+    }
+    interface GxgDragContainer {
+        /**
+          * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
+         */
+        "deletable": boolean;
+        /**
+          * The presence of this attribute disables the drag and drop functionality.
+         */
+        "disable": boolean;
+        /**
+          * The max-width of the box container
+         */
+        "maxWidth": string;
+        /**
+          * The padding (internal spacing) of the gxg-drag-boxes
+         */
+        "padding": Padding1;
+    }
+    interface GxgDropDown {
+        /**
+          * the dropdown height
+         */
+        "dropDownHeight": string;
+        /**
+          * the dropdown icon (optional)
+         */
+        "icon": string;
+        /**
+          * the dropdown label (optional)
+         */
+        "label": string | undefined;
+        /**
+          * The codropdownmbo max-width
+         */
+        "maxWidth": string;
+        /**
+          * The dropdown min-width
+         */
+        "minWidth": string;
+        /**
+          * The container 'items container' position
+         */
+        "position": "top" | "bottom";
+        /**
+          * Displays the dropdown content
+         */
+        "showContent": boolean;
+        /**
+          * The dropdown width
+         */
+        "width": string;
+    }
+    interface GxgFilter {
+        /**
+          * The left position of the filter, relative to the closest parent with relative position. (optional)
+         */
+        "left": any;
+        /**
+          * The top position of the filter, relative to the closest parent with relative position. (optional)
+         */
+        "top": any;
+    }
+    interface GxgFilterItem {
+        /**
+          * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+         */
+        "icon": string;
+        /**
+          * The item-id (required if you want to know that this item was clicked)
+         */
+        "itemId": any;
+        /**
+          * The type (optional)
+         */
+        "type": any;
+    }
+    interface GxgFormCheckbox {
+        /**
+          * Aligns the checkbox to the top of the label (useful when the label is too long)
+         */
+        "alignTop": boolean;
+        /**
+          * The checkbox id
+         */
+        "checkboxId": string;
+        /**
+          * The presence of this attribute makes the checkbox checked by default
+         */
+        "checked": boolean;
+        /**
+          * The presence of this attribute disables the checkbox
+         */
+        "disabled": boolean;
+        /**
+          * The checkbox icon
+         */
+        "iconName": string;
+        /**
+          * The presence of this attribute makes the checkbox indeterminate
+         */
+        "indeterminate": boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * The checkbox label
+         */
+        "label": string | undefined;
+        /**
+          * The checkbox name
+         */
+        "name": string;
+        /**
+          * The presence of this attribute makes the commbo required
+         */
+        "required": boolean;
+        "tooltip": string;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+        /**
+          * The checkbox value
+         */
+        "value": string;
+    }
+    interface GxgFormCheckboxGroup {
+        /**
+          * The presence of this attribute makes all the checkboxes disabled
+         */
+        "disabled": boolean;
+        /**
+          * Returns CheckboxesGroupValues = CheckboxInfo[];
+         */
+        "getValues": () => Promise<CheckboxesGroupValues>;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
+         */
+        "row": boolean;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+    }
+    interface GxgFormMessage {
+        /**
+          * The type of message
+         */
+        "type": Message;
+    }
+    interface GxgFormRadio {
+        /**
+          * The presence of this attribute makes the radio selected by default
+         */
+        "checked": boolean;
+        /**
+          * The presence of this attribute disables the radio
+         */
+        "disabled": boolean;
+        /**
+          * Styles the radio-button with error attributes
+         */
+        "error": boolean;
+        /**
+          * The radio label
+         */
+        "label": string;
+        /**
+          * The radio name (should be the same for every radio of the same radio-group)
+         */
+        "name": string;
+        /**
+          * The radio id
+         */
+        "radioId": string;
+        /**
+          * The radio value
+         */
+        "value": string;
+    }
+    interface GxgFormRadioGroup {
+        /**
+          * Centers the radios if 'row' is true
+         */
+        "center": boolean;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled": boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * The radio group label
+         */
+        "label": string;
+        /**
+          * Make the radio-buttons required
+         */
+        "required": boolean;
+        /**
+          * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
+         */
+        "row": boolean;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+        /**
+          * The radio group checked radio value
+         */
+        "value": string;
+    }
+    interface GxgFormText {
+        /**
+          * The type of files the input accepts
+         */
+        "acceptFile": string;
+        /**
+          * The presence of this attribute hides the border.
+         */
+        "borderless": boolean;
+        /**
+          * Centers the label
+         */
+        "centerLabel": boolean;
+        /**
+          * The presence of this attribute displays a clear (cross) button-icon on the right side
+         */
+        "clearButton": boolean;
+        "clearInput": () => Promise<void>;
+        /**
+          * If true, it will position the cursor at the end when the input is focused.
+         */
+        "cursorEnd": boolean;
+        /**
+          * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+         */
+        "debounce": boolean;
+        /**
+          * The debounce delay value. Only applies if 'debounce' is true.
+         */
+        "debounceDelay": number;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled": boolean;
+        /**
+          * The file list that the user selected (only applies if the input type is "file")
+         */
+        "fileList": FileList;
+        /**
+          * The presence of this attribute disables the tooltip. Useful for the combo-box.
+         */
+        "hideTooltip": boolean;
+        /**
+          * The input icon (optional)
+         */
+        "icon": any;
+        /**
+          * The input icon side
+         */
+        "iconPosition": IconPosition;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * The input label
+         */
+        "label": string;
+        /**
+          * The label position
+         */
+        "labelPosition": LabelPosition1;
+        /**
+          * The label width
+         */
+        "labelWidth": any;
+        /**
+          * The input max. length
+         */
+        "maxLength": string;
+        /**
+          * The input max. width
+         */
+        "maxWidth": string;
+        /**
+          * The input min. length
+         */
+        "minLength": string;
+        /**
+          * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+         */
+        "minimal": boolean;
+        /**
+          * Allows multiple files if type is "file"
+         */
+        "multiple": boolean;
+        "openFile": () => Promise<void>;
+        /**
+          * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
+         */
+        "overDarkBackground": boolean;
+        /**
+          * The presence of this attribute sets the input type as password
+         */
+        "password": boolean;
+        /**
+          * The input placeholder
+         */
+        "placeholder": string;
+        /**
+          * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
+         */
+        "preventValueChangedEmit": boolean;
+        /**
+          * The presence of this attribute makes the input readonly
+         */
+        "readonly": boolean;
+        /**
+          * The presence of this attribute makes this input required
+         */
+        "required": boolean;
+        "selectInputText": () => Promise<void>;
+        /**
+          * The text style
+         */
+        "textStyle": Style;
+        /**
+          * The presence of this attribute displays a tooltip message, instead of a block message below the control
+         */
+        "toolTip": boolean;
+        /**
+          * The type of input
+         */
+        "type": InputType;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+        /**
+          * The input value
+         */
+        "value": string;
+        /**
+          * The input width
+         */
+        "width": string;
+    }
+    interface GxgFormTextarea {
+        /**
+          * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
+         */
+        "ai": boolean;
+        /**
+          * Centers the label
+         */
+        "centerLabel": boolean;
+        /**
+          * The presence of this attribute makes the component disabled
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute gives the component error styles
+         */
+        "error": boolean;
+        /**
+          * The textarea height
+         */
+        "height": string;
+        /**
+          * The presence of this attribute will show a validation message if the input has an error
+         */
+        "hideValidationMessage": boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * The textarea label
+         */
+        "label": string;
+        /**
+          * The label position
+         */
+        "labelPosition": LabelPosition;
+        /**
+          * The label width
+         */
+        "labelWidth": any;
+        /**
+          * The max-height
+         */
+        "maxHeight": string;
+        /**
+          * The max-width
+         */
+        "maxWidth": string;
+        /**
+          * The textarea placeholder
+         */
+        "placeholder": string;
+        /**
+          * Make the radio-buttons required
+         */
+        "required": boolean;
+        /**
+          * Allow or not text area resize
+         */
+        "resize": boolean;
+        /**
+          * The number of rows
+         */
+        "rows": number;
+        /**
+          * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
+         */
+        "singleLine": boolean;
+        /**
+          * The presence of this attribute displays a tooltip message, instead of a block message below the control
+         */
+        "toolTip": boolean;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+        /**
+          * The textarea value
+         */
+        "value": string;
+        /**
+          * The presence of this attribute gives the component warning styles
+         */
+        "warning": boolean;
+    }
+    interface GxgGrid {
+        "fullHeight": boolean;
+        "noBorder": boolean;
+    }
+    interface GxgIcon {
+        /**
+          * The color of the icon.
+         */
+        "color": Color1;
+        /**
+          * The size of the icon. Possible values: regular, small.
+         */
+        "size": Size;
+        /**
+          * The type of icon.
+         */
+        "type": any;
+    }
+    interface GxgIdeLoader {
+        /**
+          * The time the loader will await before abort.
+         */
+        "abortTime": number;
+        /**
+          * The cancel callback
+         */
+        "cancelCallback": IdeLoaderCancelCallback;
+        /**
+          * The cancel button label (optional)
+         */
+        "cancelLabel": string;
+        /**
+          * The container element for the loader.
+         */
+        "container": HTMLElement;
+        /**
+          * The loader description (optional)
+         */
+        "description": string;
+        /**
+          * The loader title (optional)
+         */
+        "loaderTitle": string;
+        /**
+          * It shows the loader
+         */
+        "show": boolean;
+    }
+    interface GxgLabel {
+        "center": boolean;
+        "disabled": boolean;
+        "for": string;
+        /**
+          * ******************************* PROPERTIES & STATE *******************************
+         */
+        "labelPosition": LabelPosition;
+        "noMargin": boolean;
+        "tooltip": string;
+        "width": string;
+    }
+    interface GxgListBox {
+        /**
+          * The presence of this attribute allows the list-box to not have any list-box-item selected
+         */
+        "allowsEmpty": boolean;
+        /**
+          * The presence of this attribute adds a border to the bottom
+         */
+        "borderBottom": boolean;
+        /**
+          * The presence of this attribute adds a border to the end
+         */
+        "borderEnd": boolean;
+        /**
+          * The presence of this attribute adds a border to the start
+         */
+        "borderStart": boolean;
+        /**
+          * The presence of this attribute adds a border to the top
+         */
+        "borderTop": boolean;
+        /**
+          * The presence of this attribute will display a checkbox for every item
+         */
+        "checkboxes": boolean;
+        /**
+          * Disable suggestions about keyboard combinations
+         */
+        "disableSuggestions": boolean;
+        /**
+          * The presence of this attribute makes the component disabled
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
+         */
+        "emitEmptySelection": boolean;
+        /**
+          * ******************************* METHODS *******************************
+         */
+        "getSelectedItems": () => Promise<ItemsInformation[]>;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage": string;
+        /**
+          * An object with suggestions about the possible keyboard combinations
+         */
+        "keyboardSuggestions": KeyboardSuggestions;
+        /**
+          * The presence of this attribute disables the border all around
+         */
+        "noBorder": boolean;
+        /**
+          * Make the radio-buttons required
+         */
+        "required": boolean;
+        /**
+          * The presence of this attribute will deactivate multi-selection
+         */
+        "singleSelection": boolean;
+        /**
+          * The listbox title that appears on the header
+         */
+        "theTitle": string;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+    }
+    interface GxgListBoxItem {
+        /**
+          * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
+         */
+        "active": boolean;
+        /**
+          * The presence of this attribute will add a checkbox to the item.
+         */
+        "checkbox": boolean;
+        /**
+          * The presence of this attribute will make the checkbox checked.
+         */
+        "checked": boolean;
+        /**
+          * The presence of this attribute disabled the list-box-item
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
+         */
+        "emitCheckboxChange": boolean;
+        /**
+          * The presence of this attribute sets this item as highlighted
+         */
+        "highlighted": boolean;
+        /**
+          * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+         */
+        "icon": string;
+        /**
+          * This property is set by the list-box item. It should not be set by the user.
+         */
+        "index": number;
+        /**
+          * The presence of this attribute sets this item as selected
+         */
+        "selected": boolean;
+        /**
+          * This property is for internal use
+         */
+        "siblingIsSelected": boolean;
+        /**
+          * The item value. If value is not provided, the value will be the item innerHTML.
+         */
+        "value": any;
+    }
+    interface GxgLoader {
+        /**
+          * The prescence of this attribute shows the loader
+         */
+        "show": boolean;
+        /**
+          * The text you want to show under the loader (optional)
+         */
+        "text": string;
+        /**
+          * The z-index positive value you want for the loader when visible (default: 100)
+         */
+        "visibleZIndex": string;
+    }
+    interface GxgMenu {
+        /**
+          * The menu title
+         */
+        "menuTitle": string;
+        /**
+          * Provide this attribute if you are using this menu on the tabs component
+         */
+        "tabs": boolean;
+    }
+    interface GxgMenuItem {
+        "active": boolean;
+        "icon": string;
+        "label": string;
+    }
+    interface GxgMenuSlim {
+        /**
+          * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
+         */
+        "ellipsis": boolean;
+        /**
+          * Hides or show the menu with an animation
+         */
+        "hidden": boolean;
+        /**
+          * Hides the menu when an item is selected.
+         */
+        "hideOnSelect": boolean;
+        /**
+          * The menu title
+         */
+        "menuTitle": string;
+        /**
+          * Provide this attribute if you are using this menu on the tabs component
+         */
+        "tabs": boolean;
+    }
+    interface GxgMenuSlimItem {
+        /**
+          * Sets the item as active or not
+         */
+        "active": boolean;
+        /**
+          * Disables the item
+         */
+        "disabled": boolean;
+        /**
+          * Prevents the the text from wrapping into more than one line, adding an ellipsis at the end. This property is set and inherited one the menu.
+         */
+        "ellipsis": boolean;
+        /**
+          * The item iconType
+         */
+        "iconType": string;
+        /**
+          * The item identifier
+         */
+        "itemId": string;
+        /**
+          * The item label
+         */
+        "label": string;
+    }
+    interface GxgMenuSlimList {
+        /**
+          * The menu-list title
+         */
+        "listTitle": string;
+    }
+    interface GxgModal {
+        "close": () => Promise<void>;
+        "flavor": "classic" | "alternate";
+        /**
+          * The footer justify content type
+         */
+        "footerJustifyContent": string;
+        /**
+          * The presence of this attribute hides the footer.
+         */
+        "hideFooter": boolean;
+        /**
+          * The modal max-width
+         */
+        "maxWidth": string;
+        /**
+          * The modal title
+         */
+        "modalTitle": string;
+        "padding": padding2;
+        /**
+          * The presence of this attribute removes the sound that plays when the modal appears
+         */
+        "silent": boolean;
+        /**
+          * Wether the modal is visible or not
+         */
+        "visible": boolean;
+        /**
+          * The modal width
+         */
+        "width": string;
+        /**
+          * The z-index value of the modal
+         */
+        "zIndex": string;
+    }
+    interface GxgMoreInfo {
+        /**
+          * The label
+         */
+        "label": string;
+        /**
+          * (Optional) The "more-info" label. This property goes along with "url" attribute
+         */
+        "moreInfoLabel": string;
+        /**
+          * the tooltip position
+         */
+        "position": position;
+        /**
+          * The url target
+         */
+        "target": target;
+        /**
+          * (Optional) The "more-info" url.
+         */
+        "url": string;
+    }
+    interface GxgOption {
+        /**
+          * The icon name (optional)
+         */
+        "iconName": string;
+        /**
+          * The presence of this attribute makes the option selected by default
+         */
+        "selected": boolean;
+        /**
+          * The value
+         */
+        "value": string;
+    }
+    interface GxgOptionV2 {
+        /**
+          * The icon name (optional)
+         */
+        "iconName": string;
+        /**
+          * The presence of this attribute makes the option selected by default
+         */
+        "selected": boolean;
+        /**
+          * The value
+         */
+        "value": string;
+    }
+    interface GxgOptions {
+        "iconDirection": "vertical" | "horizontal";
+        "maxVisibleOptions": number;
+        "maxWidth": string;
+        "position": "left" | "right";
+        "width": string;
+        "zIndex": string;
+    }
+    interface GxgOptionsItem {
+        "disabled": boolean;
+    }
+    interface GxgPaginator {
+        /**
+          * The paginator alignment:
+         */
+        "alignment": PaginatorAlignment;
+    }
+    interface GxgPill {
+        /**
+          * The presence of this attribute disables the pill
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute sets auto-height. Useful when the text overflows.
+         */
+        "heightAuto": boolean;
+        /**
+          * The icon
+         */
+        "icon": string;
+        /**
+          * The pill id
+         */
+        "id": string;
+        /**
+          * Stylizes the font with italic (only used in mercury)
+         */
+        "italic": boolean;
+        /**
+          * The type of pill
+         */
+        "type": PillType;
+    }
+    interface GxgPills {
+        /**
+          * Returns an array with the id's of all the pills
+         */
+        "getPills": (onlyEnabled?: boolean) => Promise<string[]>;
+    }
+    interface GxgProgressBar {
+        /**
+          * The state of the progress-bar, whether it is disabled or not.
+         */
+        "disabled": boolean;
+        /**
+          * The progress-bar label
+         */
+        "label": string;
+        /**
+          * The max. width
+         */
+        "maxWidth": string;
+        /**
+          * The presence of this attribute removes the sound that plays when the progress-bar finishes
+         */
+        "silent": boolean;
+        /**
+          * The progress value (percentage)
+         */
+        "value": number;
+    }
+    interface GxgScroll {
+    }
+    interface GxgSelect {
+        /**
+          * The presence of this attribute disables the component
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute stylizes the component with error attributes
+         */
+        "error": boolean;
+        /**
+          * This holds the value of the initial selected option
+         */
+        "initialValue": string | undefined;
+        "isOpen": () => Promise<boolean>;
+        /**
+          * The select label
+         */
+        "label": string;
+        /**
+          * The input label
+         */
+        "labelPosition": LabelPosition;
+        /**
+          * The select max. width
+         */
+        "maxWidth": string;
+        /**
+          * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+         */
+        "minimal": boolean;
+        /**
+          * The presence of this attribute makes this input required
+         */
+        "required": boolean;
+        /**
+          * The maximum number of visible options
+         */
+        "size": string;
+        /**
+          * This holds the value of the selected option
+         */
+        "value": string;
+        /**
+          * The presence of this attribute stylizes the component with warning attributes
+         */
+        "warning": boolean;
+    }
+    interface GxgSelectV2 {
+        /**
+          * The presence of this attribute disables the component
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute stylizes the component with error attributes
+         */
+        "error": boolean;
+        /**
+          * The select label
+         */
+        "label": string;
+        /**
+          * The label position
+         */
+        "labelPosition": LabelPosition2;
+        /**
+          * The select max. width
+         */
+        "maxWidth": any;
+        /**
+          * The select min. width
+         */
+        "minWidth": any;
+        /**
+          * The presence of this attribute makes this input required
+         */
+        "required": boolean;
+        /**
+          * The maximum number of visible options
+         */
+        "size": string;
+        /**
+          * This holds the value of the selected option
+         */
+        "value": string;
+        /**
+          * The presence of this attribute stylizes the component with warning attributes
+         */
+        "warning": boolean;
+        /**
+          * The select width
+         */
+        "width": string;
+    }
+    interface GxgSeparator {
+        /**
+          * The hr top and bottom margin
+         */
+        "margin": margin;
+        /**
+          * The hr style
+         */
+        "type": string;
+    }
+    interface GxgShortcuts {
+        "showKey": "F10";
+        "showTooltip": boolean;
+        /**
+          * The URL of the shortcut definitions.
+         */
+        "src": string;
+        "suspend": boolean;
+    }
+    interface GxgSlider {
+        /**
+          * The state of the slider, whether is disabled or not.
+         */
+        "disabled": boolean;
+        /**
+          * The label
+         */
+        "label": string;
+        /**
+          * The max. value
+         */
+        "max": number;
+        /**
+          * The slider max. width
+         */
+        "maxWidth": string;
+        /**
+          * The initial value
+         */
+        "value": number;
+    }
+    interface GxgSpacerLayout {
+        /**
+          * Add this attribute to make the spacer-layout full height
+         */
+        "fullHeight": boolean;
+        /**
+          * Content justify
+         */
+        "justifyContent": JustifyContent;
+        /**
+          * The orientation
+         */
+        "orientation": Orientation;
+        /**
+          * The spacing value, taken from the "token-spacing" global values
+         */
+        "space": Space1;
+    }
+    interface GxgSpacerOne {
+        /**
+          * The spacing value, taken from the "token-spacing" global values
+         */
+        "space": string;
+    }
+    interface GxgSplit {
+    }
+    interface GxgSplitter {
+        /**
+          * This method allows to collapse the split passsed as argument
+         */
+        "collapse": (split: number, forceCollapseToZero?: boolean) => Promise<void>;
+        /**
+          * The splitter direction
+         */
+        "direction": Direction;
+        /**
+          * The prescence of this attributes forces the splitter to collapse to zero
+         */
+        "forceCollapseZero": boolean;
+        /**
+          * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
+         */
+        "knob": Knob;
+        /**
+          * The splitter min. sizes in pixels
+         */
+        "minSize": string;
+        /**
+          * The splitter initial sizes, in percentages. The sum should equal 100
+         */
+        "sizes": string;
+    }
+    interface GxgStack {
+        /**
+          * The spacing value between each gxg-column (if any present)
+         */
+        "columnsSpace": any;
+        /**
+          * The spacing value between each stack row
+         */
+        "space": Space2;
+    }
+    interface GxgStepper {
+        /**
+          * The state of the stepper, whether is disabled or not.
+         */
+        "disabled": boolean;
+        /**
+          * The label
+         */
+        "label": string | undefined;
+        /**
+          * The label position
+         */
+        "labelPosition": LabelPosition;
+        /**
+          * The max. value
+         */
+        "max": number;
+        /**
+          * The min. value
+         */
+        "min": number;
+        /**
+          * The initial vaule
+         */
+        "value": number;
+    }
+    interface GxgSuggest {
+        /**
+          * The presence of this attribute makes the suggest disabled.
+         */
+        "disabled": boolean;
+        /**
+          * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
+         */
+        "ellipsis": boolean;
+        /**
+          * The message to display for the validation result.
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+    }
+    interface GxgTab {
+        /**
+          * The presence of this attribute makes the display of the tab 'flex' only when is open
+         */
+        "flex": boolean;
+        /**
+          * The presence of this attribute makes the container display flex
+         */
+        "flexContainer": boolean;
+        /**
+          * The container flex-direction, if container is flex.
+         */
+        "flexDirection": TabContainerFlexDirection;
+        /**
+          * The selected tab
+         */
+        "isSelected": boolean;
+        /**
+          * The presence of this attribute removes the tab .container padding
+         */
+        "noPadding": boolean;
+        /**
+          * The presence of this attribute makes the .container overflow property set to 'auto'
+         */
+        "overflowAuto": boolean;
+        /**
+          * The tab id. Should match the "tab" value of the correlative "gxg-tab"
+         */
+        "tab": string;
+    }
+    interface GxgTabBar {
+        "appendTabButtons": () => Promise<void>;
+        /**
+          * The presence of this attribute displays a border-bottom line on the tab bar
+         */
+        "displayBorder": boolean;
+        /**
+          * Hides the tab-bar
+         */
+        "hidden": boolean;
+        /**
+          * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
+         */
+        "scrollable": boolean;
+    }
+    interface GxgTabButton {
+        /**
+          * Provide this attribute to make this button disabled
+         */
+        "disabled": boolean;
+        /**
+          * Hides the tab button
+         */
+        "hidden": boolean;
+        /**
+          * (Optional) provide an icon to this button
+         */
+        "icon": string;
+        /**
+          * Provide this attribute to make this button selected by default
+         */
+        "isSelected": boolean;
+        /**
+          * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
+         */
+        "tab": string;
+        "tabButtonClick": () => Promise<void>;
+        /**
+          * The button label
+         */
+        "tabLabel": string;
+    }
+    interface GxgTabs {
+        "height": string;
+        "maxHeight": string;
+        "minWidth": string;
+        /**
+          * The presence of this attribute removes the background color (only for mercury)
+         */
+        "noBackground": boolean;
+        /**
+          * The presence of this attribute removes each tab .container padding
+         */
+        "noPadding": boolean;
+        "position": TabsPosition;
+        "setActiveTab": (tab: string) => Promise<void>;
+        "tabBarBorder": boolean;
+    }
+    interface GxgTest {
+    }
+    interface GxgText {
+        /**
+          * Disables the interactive types of text
+         */
+        "disabled": boolean;
+        /**
+          * The href (for "link" or "link-gray" types
+         */
+        "href": string;
+        /**
+          * The gemini icon type
+         */
+        "icon": string;
+        /**
+          * The icon alignment on the vertical axis.
+         */
+        "iconAlign": "top" | "center";
+        /**
+          * It will force the icon color to be auto
+         */
+        "iconAuto": boolean;
+        /**
+          * Italic (only for mercury)
+         */
+        "italic": boolean;
+        /**
+          * Max. width
+         */
+        "maxWidth": string;
+        /**
+          * Text padding
+         */
+        "padding": TextPadding;
+        /**
+          * The target (for "link" or "link-gray" types
+         */
+        "target": TargetType;
+        /**
+          * Text alignment
+         */
+        "textAlign": TextAlign;
+        /**
+          * Text type
+         */
+        "type": TextType;
+    }
+    interface GxgTitle {
+        /**
+          * Title type
+         */
+        "alignment": TitleAlignment;
+        /**
+          * Title type
+         */
+        "type": TitleType;
+    }
+    interface GxgTitleEditable {
+        /**
+          * If true, it will allow the title to be edited
+         */
+        "clickToEdit": boolean;
+        /**
+          * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+         */
+        "debounce": boolean;
+        /**
+          * The debounce delay value. Only applies if 'debounce' is true.
+         */
+        "debounceDelay": number;
+        /**
+          * If true, the title will not be editable
+         */
+        "disableEdition": boolean;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled": boolean;
+        /**
+          * If true, the width of the title will take only the minimum needed space
+         */
+        "fluid": boolean;
+        /**
+          * If true, the width of the title will take only the minimum needed space
+         */
+        "focusType": EditableTitleFocusType;
+        /**
+          * Shows or hides the tooltip
+         */
+        "hideTooltip": boolean;
+        /**
+          * The title type
+         */
+        "titleType": EditableTitleType;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage": string;
+        /**
+          * The validation status
+         */
+        "validationStatus": ValidationStatus;
+        /**
+          * The title value
+         */
+        "value": string;
+    }
+    interface GxgToggle {
+        /**
+          * The state of the toggle. Whether is disabled or not.
+         */
+        "disabled": boolean;
+        /**
+          * The label
+         */
+        "label": string | undefined;
+        /**
+          * If the toggle is active or not
+         */
+        "on": boolean;
+    }
+    interface GxgToolbar {
+        /**
+          * The toggle arrow position
+         */
+        "position": position1;
+        /**
+          * The toolbar title
+         */
+        "subtitle": string;
+        /**
+          * The toolbar subtitle
+         */
+        "toolbarTitle": string;
+    }
+    interface GxgToolbarItem {
+        /**
+          * The state of the toolbar-item, whether it is disabled or not
+         */
+        "disabled": boolean;
+        /**
+          * The toolbar-item icon
+         */
+        "icon": string;
+        /**
+          * The toolbar-item subtitle
+         */
+        "subtitle": string;
+        /**
+          * The toolbar-item title
+         */
+        "toolbarItemTitle": string;
+    }
+    interface GxgTooltip {
+        /**
+          * The alignment
+         */
+        "alignEnd": boolean;
+        /**
+          * Fixed positioned
+         */
+        "fixed": boolean;
+        /**
+          * Displays the tool-tip as flex
+         */
+        "flex": boolean;
+        /**
+          * The label
+         */
+        "label": string;
+        /**
+          * This presence of this property removes the border under the text
+         */
+        "noBorder": boolean;
+        /**
+          * the tooltip position
+         */
+        "position": position2;
+    }
+    interface GxgTree {
+        /**
+          * Set this attribute if you want all the items to have a checkbox.
+         */
+        "checkbox": boolean;
+        /**
+          * Set this attribute if you want all the items to be checked by default.
+         */
+        "checked": boolean;
+        /**
+          * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
+         */
+        "getCheckedItems": (idsArray?: (string | number)[]) => Promise<GxgTreeItemSelectedData[]>;
+        /**
+          * Returns an array of the selected tree-items, providing the id, checked status, selected status, and label.
+         */
+        "getSelectedItems": () => Promise<GxgTreeItemData[]>;
+        /**
+          * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
+         */
+        "multiSelection": boolean;
+        /**
+          * Set this attribute if you want all the items to be opened by default.
+         */
+        "opened": boolean;
+        /**
+          * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
+         */
+        "toggleCheckboxes": boolean;
+        /**
+          * @param ids : An array id the tree items to be toggled.
+          * @param open : A boolean indicating that the tree item should be opened or closed. (optional)
+          * @description This method is used to toggle a tree-item by the tree-item id/ids.
+          * @returns a boolean value indicating if the selected tree-item is open or not, after the method was called.
+         */
+        "toggleItems": (ids: string[], open?: boolean) => Promise<ToggledGxgTreeItem[]>;
+    }
+    interface GxgTreeGridDivs {
+        "columns": Array<object>;
+        "displayChildren": DisplayChildren;
+        "editCell": { rowId: number; columnName: string };
+        "rows": Array<object>;
+        "selectedRowsIds": number;
+        "width": string;
+    }
+    interface GxgTreeItem {
+        /**
+          * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
+         */
+        "checkbox": boolean;
+        /**
+          * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
+         */
+        "checked": boolean;
+        /**
+          * The tree item description.
+         */
+        "description": string;
+        /**
+          * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+         */
+        "disabled": boolean;
+        "evaluateCheckboxStatus": () => Promise<void>;
+        /**
+          * This property is for internal use. It indicates that the item has children.
+         */
+        "hasChildTree": boolean;
+        /**
+          * Sets the tree item icon
+         */
+        "icon": string;
+        /**
+          * This property is for internal use. It indicates that the checkbox has an indeterminate state.
+         */
+        "indeterminate": boolean;
+        /**
+          * The tree item label.
+         */
+        "label": string;
+        /**
+          * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
+         */
+        "leaf": boolean;
+        /**
+          * This property is for internal use, when using the treeModel.
+         */
+        "numberOfChildren": number;
+        /**
+          * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
+         */
+        "opened": boolean;
+        "reRender": () => Promise<void>;
+        /**
+          * The presence of this attribute sets the tree-item as selected
+         */
+        "selected": boolean;
+        /**
+          * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
+         */
+        "toggleCheckboxes": boolean;
+        /**
+          * This property is for passing a tree structure from the tree.
+         */
+        "treeModel": HTMLGxgTreeElement;
+        /**
+          * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+         */
+        "type": string;
+    }
+    interface GxgTreeView {
+        /**
+          * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
+         */
+        "checkDroppableZoneCallback": (
+    dropInformation: TreeViewDropCheckInfo
+  ) => Promise<boolean>;
+        /**
+          * Set this attribute if you want display a checkbox in all items by default.
+         */
+        "checkbox": boolean;
+        /**
+          * Set this attribute if you want the checkbox to be checked in all items by default. Only works if `checkbox = true`
+         */
+        "checked": boolean;
+        /**
+          * A CSS class to set as the `ch-tree-view` element class.
+         */
+        "cssClass": string;
+        /**
+          * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the items can't be dragged.
+         */
+        "dragDisabled": boolean;
+        /**
+          * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the items won't accept any drops.
+         */
+        "dropDisabled": boolean;
+        /**
+          * Callback that is executed when a list of items request to be dropped into another item.
+         */
+        "dropItemsCallback": (
+    dataTransferInfo: TreeViewDataTransferInfo
+  ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
+        /**
+          * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
+         */
+        "editableItems": boolean;
+        /**
+          * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+         */
+        "filter": string;
+        /**
+          * This property lets you determine the debounce time (in ms) that the control waits until it processes the changes to the filter property. Consecutive changes to the `filter` property between this range, reset the timeout to process the filter. Only works if `filterType = "caption" | "metadata"`.
+         */
+        "filterDebounce": number;
+        /**
+          * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
+         */
+        "filterList": string[];
+        /**
+          * This property lets you determine the options that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+         */
+        "filterOptions": TreeViewFilterOptions;
+        /**
+          * This attribute lets you define what kind of filter is applied to items. Only items that satisfy the filter predicate will be displayed.  | Value       | Details                                                                                        | | ----------- | ---------------------------------------------------------------------------------------------- | | `checked`   | Show only the items that have a checkbox and are checked.                                      | | `unchecked` | Show only the items that have a checkbox and are not checked.                                  | | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  | | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. | | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  | | `none`      | Show all items.                                                                                |
+         */
+        "filterType": TreeViewFilterType;
+        /**
+          * Callback that is executed when a item request to load its subitems.
+         */
+        "lazyLoadTreeItemsCallback": (
+    treeItemId: string
+  ) => Promise<TreeViewItemModel[]>;
+        /**
+          * Given an item id, an array of items to add, the download status and the lazy state, updates the item's UI Model.
+         */
+        "loadLazyContent": (itemId: string, items?: TreeViewItemModel[], downloading?: boolean, lazy?: boolean) => Promise<void>;
+        /**
+          * Callback that is executed when a item request to modify its caption.
+         */
+        "modifyItemCaptionCallback": (
+    treeItemId: string,
+    newCaption: string
+  ) => Promise<TreeViewOperationStatusModifyCaption>;
+        /**
+          * Set this attribute if you want to allow multi selection of the items.
+         */
+        "multiSelection": boolean;
+        /**
+          * Given an item id and the additional properties to update before and after reload, it reloads the items of the `itemId` node by using the `lazyLoadTreeItemsCallback` property.
+         */
+        "reloadItems": (itemId: string, beforeProperties?: Partial<TreeViewItemModel>, afterProperties?: Partial<TreeViewItemModel>) => Promise<void>;
+        /**
+          * Given a list of ids, removes the items and their children in the tree.
+         */
+        "removeItems": (items: string[]) => Promise<void>;
+        /**
+          * This property allows us to implement custom rendering of tree items.
+         */
+        "renderItem": (
+    itemModel: TreeViewItemModel,
+    treeState: ChTreeViewRender,
+    treeHasFilter: boolean,
+    lastItem: boolean,
+    level: number
+  ) => any;
+        /**
+          * Given the path of the item (represent by a sorted array containing all ids from the root to the item) and the additional properties to update after, it displays and scrolls into the item view. The path can also be a string representing the id of the item to scroll into.
+         */
+        "scrollIntoVisible": (path: string | string[], afterProperties?: Partial<TreeViewItemModel>) => Promise<void>;
+        /**
+          * `true` to display the relation between tree items and tree lists using lines.
+         */
+        "showLines": TreeViewLines;
+        /**
+          * Callback that is executed when the treeModel is changed to order its items.
+         */
+        "sortItemsCallback": (subModel: TreeViewItemModel[]) => void;
+        /**
+          * Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default.
+         */
+        "toggleCheckboxes": boolean;
+        /**
+          * This method is used to toggle a tree item by the tree item id/ids.
+          * @param treeItemIds An array id the tree items to be toggled.
+          * @param expand A boolean indicating that the tree item should be expanded or collapsed. (optional)
+          * @returns The modified items after the method was called.
+         */
+        "toggleItems": (treeItemIds: string[], expand?: boolean) => Promise<TreeViewItemExpandedInfo[]>;
+        /**
+          * This property lets you define the model of the ch-tree-x control.
+         */
+        "treeModel": TreeViewItemModel[];
+        /**
+          * Given a subset of item's properties, it updates all item UI models.
+         */
+        "updateAllItemsProperties": (properties: { expanded?: boolean; checked?: boolean; }) => Promise<void>;
+        /**
+          * Given a item list and the properties to update, it updates the properties of the items in the list.
+         */
+        "updateItemsProperties": (items: string[], properties: TreeViewItemModel) => Promise<void>;
+        /**
+          * Update the information about the valid droppable zones.
+          * @param requestTimestamp Time where the request to the server was made. Useful to avoid having old information.
+          * @param newContainerId ID of the container where the drag is trying to be made.
+          * @param draggedItems Information about the dragged items.
+          * @param validDrop Current state of the droppable zone.
+         */
+        "updateValidDropZone": (requestTimestamp: number, newContainerId: string, draggedItems: GxDataTransferInfo[], validDrop: boolean) => Promise<void>;
+    }
+    interface GxgWindow {
+        /**
+          * Displays the window
+         */
+        "displayWindow": boolean;
+        /**
+          * The window starting height
+         */
+        "initialHeight": string;
+        /**
+          * The window starting width
+         */
+        "initialWidth": string;
+        /**
+          * The window left position. By default the window is horizontally centered
+         */
+        "leftPosition": string;
+        /**
+          * The window max. height
+         */
+        "maxHeight": string;
+        /**
+          * The window max. width
+         */
+        "maxWidth": string;
+        /**
+          * The window min. height
+         */
+        "minHeight": string;
+        /**
+          * The window min. width
+         */
+        "minWidth": string;
+        /**
+          * The window title icon
+         */
+        "titleIcon": string;
+        /**
+          * The window top position. By default the window is vertically centered
+         */
+        "topPosition": string;
+        /**
+          * The window title
+         */
+        "windowTitle": string;
+    }
+}
+export interface GxgAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgAccordionItemElement;
+}
+export interface GxgBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgBreadcrumbElement;
+}
+export interface GxgColorPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgColorPickerElement;
+}
+export interface GxgComboBoxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgComboBoxElement;
+}
+export interface GxgComboBoxItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgComboBoxItemElement;
+}
+export interface GxgContextualMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgContextualMenuItemElement;
+}
+export interface GxgDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgDatePickerElement;
+}
+export interface GxgDragBoxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgDragBoxElement;
+}
+export interface GxgDragContainerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgDragContainerElement;
+}
+export interface GxgDropDownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgDropDownElement;
+}
+export interface GxgFilterItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFilterItemElement;
+}
+export interface GxgFormCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFormCheckboxElement;
+}
+export interface GxgFormCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFormCheckboxGroupElement;
+}
+export interface GxgFormRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFormRadioElement;
+}
+export interface GxgFormRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFormRadioGroupElement;
+}
+export interface GxgFormTextCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFormTextElement;
+}
+export interface GxgFormTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgFormTextareaElement;
+}
+export interface GxgIdeLoaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgIdeLoaderElement;
+}
+export interface GxgListBoxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgListBoxElement;
+}
+export interface GxgListBoxItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgListBoxItemElement;
+}
+export interface GxgMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgMenuItemElement;
+}
+export interface GxgMenuSlimItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgMenuSlimItemElement;
+}
+export interface GxgModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgModalElement;
+}
+export interface GxgOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgOptionElement;
+}
+export interface GxgOptionV2CustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgOptionV2Element;
+}
+export interface GxgOptionsItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgOptionsItemElement;
+}
+export interface GxgPillCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgPillElement;
+}
+export interface GxgSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgSelectElement;
+}
+export interface GxgSelectV2CustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgSelectV2Element;
+}
+export interface GxgSplitterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgSplitterElement;
+}
+export interface GxgStepperCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgStepperElement;
+}
+export interface GxgTabButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgTabButtonElement;
+}
+export interface GxgTitleEditableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgTitleEditableElement;
+}
+export interface GxgToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgToggleElement;
+}
+export interface GxgTreeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgTreeElement;
+}
+export interface GxgTreeGridDivsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgTreeGridDivsElement;
+}
+export interface GxgTreeItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgTreeItemElement;
+}
+export interface GxgTreeViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgTreeViewElement;
 }
 declare global {
-  interface HTMLGxgAccordionElement
-    extends Components.GxgAccordion,
-      HTMLStencilElement {}
-  var HTMLGxgAccordionElement: {
-    prototype: HTMLGxgAccordionElement;
-    new (): HTMLGxgAccordionElement;
-  };
-  interface HTMLGxgAccordionItemElement
-    extends Components.GxgAccordionItem,
-      HTMLStencilElement {}
-  var HTMLGxgAccordionItemElement: {
-    prototype: HTMLGxgAccordionItemElement;
-    new (): HTMLGxgAccordionItemElement;
-  };
-  interface HTMLGxgAlertElement
-    extends Components.GxgAlert,
-      HTMLStencilElement {}
-  var HTMLGxgAlertElement: {
-    prototype: HTMLGxgAlertElement;
-    new (): HTMLGxgAlertElement;
-  };
-  interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {}
-  var HTMLGxgBoxElement: {
-    prototype: HTMLGxgBoxElement;
-    new (): HTMLGxgBoxElement;
-  };
-  interface HTMLGxgBreadcrumbElement
-    extends Components.GxgBreadcrumb,
-      HTMLStencilElement {}
-  var HTMLGxgBreadcrumbElement: {
-    prototype: HTMLGxgBreadcrumbElement;
-    new (): HTMLGxgBreadcrumbElement;
-  };
-  interface HTMLGxgBreadcrumbsElement
-    extends Components.GxgBreadcrumbs,
-      HTMLStencilElement {}
-  var HTMLGxgBreadcrumbsElement: {
-    prototype: HTMLGxgBreadcrumbsElement;
-    new (): HTMLGxgBreadcrumbsElement;
-  };
-  interface HTMLGxgButtonElement
-    extends Components.GxgButton,
-      HTMLStencilElement {}
-  var HTMLGxgButtonElement: {
-    prototype: HTMLGxgButtonElement;
-    new (): HTMLGxgButtonElement;
-  };
-  interface HTMLGxgButtonGroupElement
-    extends Components.GxgButtonGroup,
-      HTMLStencilElement {}
-  var HTMLGxgButtonGroupElement: {
-    prototype: HTMLGxgButtonGroupElement;
-    new (): HTMLGxgButtonGroupElement;
-  };
-  interface HTMLGxgCardElement extends Components.GxgCard, HTMLStencilElement {}
-  var HTMLGxgCardElement: {
-    prototype: HTMLGxgCardElement;
-    new (): HTMLGxgCardElement;
-  };
-  interface HTMLGxgColorPickerElement
-    extends Components.GxgColorPicker,
-      HTMLStencilElement {}
-  var HTMLGxgColorPickerElement: {
-    prototype: HTMLGxgColorPickerElement;
-    new (): HTMLGxgColorPickerElement;
-  };
-  interface HTMLGxgColumnElement
-    extends Components.GxgColumn,
-      HTMLStencilElement {}
-  var HTMLGxgColumnElement: {
-    prototype: HTMLGxgColumnElement;
-    new (): HTMLGxgColumnElement;
-  };
-  interface HTMLGxgColumnsElement
-    extends Components.GxgColumns,
-      HTMLStencilElement {}
-  var HTMLGxgColumnsElement: {
-    prototype: HTMLGxgColumnsElement;
-    new (): HTMLGxgColumnsElement;
-  };
-  interface HTMLGxgComboBoxElement
-    extends Components.GxgComboBox,
-      HTMLStencilElement {}
-  var HTMLGxgComboBoxElement: {
-    prototype: HTMLGxgComboBoxElement;
-    new (): HTMLGxgComboBoxElement;
-  };
-  interface HTMLGxgComboBoxItemElement
-    extends Components.GxgComboBoxItem,
-      HTMLStencilElement {}
-  var HTMLGxgComboBoxItemElement: {
-    prototype: HTMLGxgComboBoxItemElement;
-    new (): HTMLGxgComboBoxItemElement;
-  };
-  interface HTMLGxgContainerElement
-    extends Components.GxgContainer,
-      HTMLStencilElement {}
-  var HTMLGxgContainerElement: {
-    prototype: HTMLGxgContainerElement;
-    new (): HTMLGxgContainerElement;
-  };
-  interface HTMLGxgContextualMenuElement
-    extends Components.GxgContextualMenu,
-      HTMLStencilElement {}
-  var HTMLGxgContextualMenuElement: {
-    prototype: HTMLGxgContextualMenuElement;
-    new (): HTMLGxgContextualMenuElement;
-  };
-  interface HTMLGxgContextualMenuItemElement
-    extends Components.GxgContextualMenuItem,
-      HTMLStencilElement {}
-  var HTMLGxgContextualMenuItemElement: {
-    prototype: HTMLGxgContextualMenuItemElement;
-    new (): HTMLGxgContextualMenuItemElement;
-  };
-  interface HTMLGxgContextualMenuSubmenuElement
-    extends Components.GxgContextualMenuSubmenu,
-      HTMLStencilElement {}
-  var HTMLGxgContextualMenuSubmenuElement: {
-    prototype: HTMLGxgContextualMenuSubmenuElement;
-    new (): HTMLGxgContextualMenuSubmenuElement;
-  };
-  interface HTMLGxgDatePickerElement
-    extends Components.GxgDatePicker,
-      HTMLStencilElement {}
-  var HTMLGxgDatePickerElement: {
-    prototype: HTMLGxgDatePickerElement;
-    new (): HTMLGxgDatePickerElement;
-  };
-  interface HTMLGxgDemoElement extends Components.GxgDemo, HTMLStencilElement {}
-  var HTMLGxgDemoElement: {
-    prototype: HTMLGxgDemoElement;
-    new (): HTMLGxgDemoElement;
-  };
-  interface HTMLGxgDragBoxElement
-    extends Components.GxgDragBox,
-      HTMLStencilElement {}
-  var HTMLGxgDragBoxElement: {
-    prototype: HTMLGxgDragBoxElement;
-    new (): HTMLGxgDragBoxElement;
-  };
-  interface HTMLGxgDragContainerElement
-    extends Components.GxgDragContainer,
-      HTMLStencilElement {}
-  var HTMLGxgDragContainerElement: {
-    prototype: HTMLGxgDragContainerElement;
-    new (): HTMLGxgDragContainerElement;
-  };
-  interface HTMLGxgDropDownElement
-    extends Components.GxgDropDown,
-      HTMLStencilElement {}
-  var HTMLGxgDropDownElement: {
-    prototype: HTMLGxgDropDownElement;
-    new (): HTMLGxgDropDownElement;
-  };
-  interface HTMLGxgFilterElement
-    extends Components.GxgFilter,
-      HTMLStencilElement {}
-  var HTMLGxgFilterElement: {
-    prototype: HTMLGxgFilterElement;
-    new (): HTMLGxgFilterElement;
-  };
-  interface HTMLGxgFilterItemElement
-    extends Components.GxgFilterItem,
-      HTMLStencilElement {}
-  var HTMLGxgFilterItemElement: {
-    prototype: HTMLGxgFilterItemElement;
-    new (): HTMLGxgFilterItemElement;
-  };
-  interface HTMLGxgFormCheckboxElement
-    extends Components.GxgFormCheckbox,
-      HTMLStencilElement {}
-  var HTMLGxgFormCheckboxElement: {
-    prototype: HTMLGxgFormCheckboxElement;
-    new (): HTMLGxgFormCheckboxElement;
-  };
-  interface HTMLGxgFormCheckboxGroupElement
-    extends Components.GxgFormCheckboxGroup,
-      HTMLStencilElement {}
-  var HTMLGxgFormCheckboxGroupElement: {
-    prototype: HTMLGxgFormCheckboxGroupElement;
-    new (): HTMLGxgFormCheckboxGroupElement;
-  };
-  interface HTMLGxgFormMessageElement
-    extends Components.GxgFormMessage,
-      HTMLStencilElement {}
-  var HTMLGxgFormMessageElement: {
-    prototype: HTMLGxgFormMessageElement;
-    new (): HTMLGxgFormMessageElement;
-  };
-  interface HTMLGxgFormRadioElement
-    extends Components.GxgFormRadio,
-      HTMLStencilElement {}
-  var HTMLGxgFormRadioElement: {
-    prototype: HTMLGxgFormRadioElement;
-    new (): HTMLGxgFormRadioElement;
-  };
-  interface HTMLGxgFormRadioGroupElement
-    extends Components.GxgFormRadioGroup,
-      HTMLStencilElement {}
-  var HTMLGxgFormRadioGroupElement: {
-    prototype: HTMLGxgFormRadioGroupElement;
-    new (): HTMLGxgFormRadioGroupElement;
-  };
-  interface HTMLGxgFormTextElement
-    extends Components.GxgFormText,
-      HTMLStencilElement {}
-  var HTMLGxgFormTextElement: {
-    prototype: HTMLGxgFormTextElement;
-    new (): HTMLGxgFormTextElement;
-  };
-  interface HTMLGxgFormTextareaElement
-    extends Components.GxgFormTextarea,
-      HTMLStencilElement {}
-  var HTMLGxgFormTextareaElement: {
-    prototype: HTMLGxgFormTextareaElement;
-    new (): HTMLGxgFormTextareaElement;
-  };
-  interface HTMLGxgGridElement extends Components.GxgGrid, HTMLStencilElement {}
-  var HTMLGxgGridElement: {
-    prototype: HTMLGxgGridElement;
-    new (): HTMLGxgGridElement;
-  };
-  interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {}
-  var HTMLGxgIconElement: {
-    prototype: HTMLGxgIconElement;
-    new (): HTMLGxgIconElement;
-  };
-  interface HTMLGxgIdeLoaderElement
-    extends Components.GxgIdeLoader,
-      HTMLStencilElement {}
-  var HTMLGxgIdeLoaderElement: {
-    prototype: HTMLGxgIdeLoaderElement;
-    new (): HTMLGxgIdeLoaderElement;
-  };
-  interface HTMLGxgLabelElement
-    extends Components.GxgLabel,
-      HTMLStencilElement {}
-  var HTMLGxgLabelElement: {
-    prototype: HTMLGxgLabelElement;
-    new (): HTMLGxgLabelElement;
-  };
-  interface HTMLGxgListBoxElement
-    extends Components.GxgListBox,
-      HTMLStencilElement {}
-  var HTMLGxgListBoxElement: {
-    prototype: HTMLGxgListBoxElement;
-    new (): HTMLGxgListBoxElement;
-  };
-  interface HTMLGxgListBoxItemElement
-    extends Components.GxgListBoxItem,
-      HTMLStencilElement {}
-  var HTMLGxgListBoxItemElement: {
-    prototype: HTMLGxgListBoxItemElement;
-    new (): HTMLGxgListBoxItemElement;
-  };
-  interface HTMLGxgLoaderElement
-    extends Components.GxgLoader,
-      HTMLStencilElement {}
-  var HTMLGxgLoaderElement: {
-    prototype: HTMLGxgLoaderElement;
-    new (): HTMLGxgLoaderElement;
-  };
-  interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {}
-  var HTMLGxgMenuElement: {
-    prototype: HTMLGxgMenuElement;
-    new (): HTMLGxgMenuElement;
-  };
-  interface HTMLGxgMenuItemElement
-    extends Components.GxgMenuItem,
-      HTMLStencilElement {}
-  var HTMLGxgMenuItemElement: {
-    prototype: HTMLGxgMenuItemElement;
-    new (): HTMLGxgMenuItemElement;
-  };
-  interface HTMLGxgMenuSlimElement
-    extends Components.GxgMenuSlim,
-      HTMLStencilElement {}
-  var HTMLGxgMenuSlimElement: {
-    prototype: HTMLGxgMenuSlimElement;
-    new (): HTMLGxgMenuSlimElement;
-  };
-  interface HTMLGxgMenuSlimItemElement
-    extends Components.GxgMenuSlimItem,
-      HTMLStencilElement {}
-  var HTMLGxgMenuSlimItemElement: {
-    prototype: HTMLGxgMenuSlimItemElement;
-    new (): HTMLGxgMenuSlimItemElement;
-  };
-  interface HTMLGxgMenuSlimListElement
-    extends Components.GxgMenuSlimList,
-      HTMLStencilElement {}
-  var HTMLGxgMenuSlimListElement: {
-    prototype: HTMLGxgMenuSlimListElement;
-    new (): HTMLGxgMenuSlimListElement;
-  };
-  interface HTMLGxgModalElement
-    extends Components.GxgModal,
-      HTMLStencilElement {}
-  var HTMLGxgModalElement: {
-    prototype: HTMLGxgModalElement;
-    new (): HTMLGxgModalElement;
-  };
-  interface HTMLGxgMoreInfoElement
-    extends Components.GxgMoreInfo,
-      HTMLStencilElement {}
-  var HTMLGxgMoreInfoElement: {
-    prototype: HTMLGxgMoreInfoElement;
-    new (): HTMLGxgMoreInfoElement;
-  };
-  interface HTMLGxgOptionElement
-    extends Components.GxgOption,
-      HTMLStencilElement {}
-  var HTMLGxgOptionElement: {
-    prototype: HTMLGxgOptionElement;
-    new (): HTMLGxgOptionElement;
-  };
-  interface HTMLGxgOptionV2Element
-    extends Components.GxgOptionV2,
-      HTMLStencilElement {}
-  var HTMLGxgOptionV2Element: {
-    prototype: HTMLGxgOptionV2Element;
-    new (): HTMLGxgOptionV2Element;
-  };
-  interface HTMLGxgOptionsElement
-    extends Components.GxgOptions,
-      HTMLStencilElement {}
-  var HTMLGxgOptionsElement: {
-    prototype: HTMLGxgOptionsElement;
-    new (): HTMLGxgOptionsElement;
-  };
-  interface HTMLGxgOptionsItemElement
-    extends Components.GxgOptionsItem,
-      HTMLStencilElement {}
-  var HTMLGxgOptionsItemElement: {
-    prototype: HTMLGxgOptionsItemElement;
-    new (): HTMLGxgOptionsItemElement;
-  };
-  interface HTMLGxgPaginatorElement
-    extends Components.GxgPaginator,
-      HTMLStencilElement {}
-  var HTMLGxgPaginatorElement: {
-    prototype: HTMLGxgPaginatorElement;
-    new (): HTMLGxgPaginatorElement;
-  };
-  interface HTMLGxgPillElement extends Components.GxgPill, HTMLStencilElement {}
-  var HTMLGxgPillElement: {
-    prototype: HTMLGxgPillElement;
-    new (): HTMLGxgPillElement;
-  };
-  interface HTMLGxgPillsElement
-    extends Components.GxgPills,
-      HTMLStencilElement {}
-  var HTMLGxgPillsElement: {
-    prototype: HTMLGxgPillsElement;
-    new (): HTMLGxgPillsElement;
-  };
-  interface HTMLGxgProgressBarElement
-    extends Components.GxgProgressBar,
-      HTMLStencilElement {}
-  var HTMLGxgProgressBarElement: {
-    prototype: HTMLGxgProgressBarElement;
-    new (): HTMLGxgProgressBarElement;
-  };
-  interface HTMLGxgScrollElement
-    extends Components.GxgScroll,
-      HTMLStencilElement {}
-  var HTMLGxgScrollElement: {
-    prototype: HTMLGxgScrollElement;
-    new (): HTMLGxgScrollElement;
-  };
-  interface HTMLGxgSelectElement
-    extends Components.GxgSelect,
-      HTMLStencilElement {}
-  var HTMLGxgSelectElement: {
-    prototype: HTMLGxgSelectElement;
-    new (): HTMLGxgSelectElement;
-  };
-  interface HTMLGxgSelectV2Element
-    extends Components.GxgSelectV2,
-      HTMLStencilElement {}
-  var HTMLGxgSelectV2Element: {
-    prototype: HTMLGxgSelectV2Element;
-    new (): HTMLGxgSelectV2Element;
-  };
-  interface HTMLGxgSeparatorElement
-    extends Components.GxgSeparator,
-      HTMLStencilElement {}
-  var HTMLGxgSeparatorElement: {
-    prototype: HTMLGxgSeparatorElement;
-    new (): HTMLGxgSeparatorElement;
-  };
-  interface HTMLGxgShortcutsElement
-    extends Components.GxgShortcuts,
-      HTMLStencilElement {}
-  var HTMLGxgShortcutsElement: {
-    prototype: HTMLGxgShortcutsElement;
-    new (): HTMLGxgShortcutsElement;
-  };
-  interface HTMLGxgSliderElement
-    extends Components.GxgSlider,
-      HTMLStencilElement {}
-  var HTMLGxgSliderElement: {
-    prototype: HTMLGxgSliderElement;
-    new (): HTMLGxgSliderElement;
-  };
-  interface HTMLGxgSpacerLayoutElement
-    extends Components.GxgSpacerLayout,
-      HTMLStencilElement {}
-  var HTMLGxgSpacerLayoutElement: {
-    prototype: HTMLGxgSpacerLayoutElement;
-    new (): HTMLGxgSpacerLayoutElement;
-  };
-  interface HTMLGxgSpacerOneElement
-    extends Components.GxgSpacerOne,
-      HTMLStencilElement {}
-  var HTMLGxgSpacerOneElement: {
-    prototype: HTMLGxgSpacerOneElement;
-    new (): HTMLGxgSpacerOneElement;
-  };
-  interface HTMLGxgSplitElement
-    extends Components.GxgSplit,
-      HTMLStencilElement {}
-  var HTMLGxgSplitElement: {
-    prototype: HTMLGxgSplitElement;
-    new (): HTMLGxgSplitElement;
-  };
-  interface HTMLGxgSplitterElement
-    extends Components.GxgSplitter,
-      HTMLStencilElement {}
-  var HTMLGxgSplitterElement: {
-    prototype: HTMLGxgSplitterElement;
-    new (): HTMLGxgSplitterElement;
-  };
-  interface HTMLGxgStackElement
-    extends Components.GxgStack,
-      HTMLStencilElement {}
-  var HTMLGxgStackElement: {
-    prototype: HTMLGxgStackElement;
-    new (): HTMLGxgStackElement;
-  };
-  interface HTMLGxgStepperElement
-    extends Components.GxgStepper,
-      HTMLStencilElement {}
-  var HTMLGxgStepperElement: {
-    prototype: HTMLGxgStepperElement;
-    new (): HTMLGxgStepperElement;
-  };
-  interface HTMLGxgSuggestElement
-    extends Components.GxgSuggest,
-      HTMLStencilElement {}
-  var HTMLGxgSuggestElement: {
-    prototype: HTMLGxgSuggestElement;
-    new (): HTMLGxgSuggestElement;
-  };
-  interface HTMLGxgTabElement extends Components.GxgTab, HTMLStencilElement {}
-  var HTMLGxgTabElement: {
-    prototype: HTMLGxgTabElement;
-    new (): HTMLGxgTabElement;
-  };
-  interface HTMLGxgTabBarElement
-    extends Components.GxgTabBar,
-      HTMLStencilElement {}
-  var HTMLGxgTabBarElement: {
-    prototype: HTMLGxgTabBarElement;
-    new (): HTMLGxgTabBarElement;
-  };
-  interface HTMLGxgTabButtonElement
-    extends Components.GxgTabButton,
-      HTMLStencilElement {}
-  var HTMLGxgTabButtonElement: {
-    prototype: HTMLGxgTabButtonElement;
-    new (): HTMLGxgTabButtonElement;
-  };
-  interface HTMLGxgTabsElement extends Components.GxgTabs, HTMLStencilElement {}
-  var HTMLGxgTabsElement: {
-    prototype: HTMLGxgTabsElement;
-    new (): HTMLGxgTabsElement;
-  };
-  interface HTMLGxgTestElement extends Components.GxgTest, HTMLStencilElement {}
-  var HTMLGxgTestElement: {
-    prototype: HTMLGxgTestElement;
-    new (): HTMLGxgTestElement;
-  };
-  interface HTMLGxgTextElement extends Components.GxgText, HTMLStencilElement {}
-  var HTMLGxgTextElement: {
-    prototype: HTMLGxgTextElement;
-    new (): HTMLGxgTextElement;
-  };
-  interface HTMLGxgTitleElement
-    extends Components.GxgTitle,
-      HTMLStencilElement {}
-  var HTMLGxgTitleElement: {
-    prototype: HTMLGxgTitleElement;
-    new (): HTMLGxgTitleElement;
-  };
-  interface HTMLGxgTitleEditableElement
-    extends Components.GxgTitleEditable,
-      HTMLStencilElement {}
-  var HTMLGxgTitleEditableElement: {
-    prototype: HTMLGxgTitleEditableElement;
-    new (): HTMLGxgTitleEditableElement;
-  };
-  interface HTMLGxgToggleElement
-    extends Components.GxgToggle,
-      HTMLStencilElement {}
-  var HTMLGxgToggleElement: {
-    prototype: HTMLGxgToggleElement;
-    new (): HTMLGxgToggleElement;
-  };
-  interface HTMLGxgToolbarElement
-    extends Components.GxgToolbar,
-      HTMLStencilElement {}
-  var HTMLGxgToolbarElement: {
-    prototype: HTMLGxgToolbarElement;
-    new (): HTMLGxgToolbarElement;
-  };
-  interface HTMLGxgToolbarItemElement
-    extends Components.GxgToolbarItem,
-      HTMLStencilElement {}
-  var HTMLGxgToolbarItemElement: {
-    prototype: HTMLGxgToolbarItemElement;
-    new (): HTMLGxgToolbarItemElement;
-  };
-  interface HTMLGxgTooltipElement
-    extends Components.GxgTooltip,
-      HTMLStencilElement {}
-  var HTMLGxgTooltipElement: {
-    prototype: HTMLGxgTooltipElement;
-    new (): HTMLGxgTooltipElement;
-  };
-  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {}
-  var HTMLGxgTreeElement: {
-    prototype: HTMLGxgTreeElement;
-    new (): HTMLGxgTreeElement;
-  };
-  interface HTMLGxgTreeGridDivsElement
-    extends Components.GxgTreeGridDivs,
-      HTMLStencilElement {}
-  var HTMLGxgTreeGridDivsElement: {
-    prototype: HTMLGxgTreeGridDivsElement;
-    new (): HTMLGxgTreeGridDivsElement;
-  };
-  interface HTMLGxgTreeItemElement
-    extends Components.GxgTreeItem,
-      HTMLStencilElement {}
-  var HTMLGxgTreeItemElement: {
-    prototype: HTMLGxgTreeItemElement;
-    new (): HTMLGxgTreeItemElement;
-  };
-  interface HTMLGxgTreeViewElement
-    extends Components.GxgTreeView,
-      HTMLStencilElement {}
-  var HTMLGxgTreeViewElement: {
-    prototype: HTMLGxgTreeViewElement;
-    new (): HTMLGxgTreeViewElement;
-  };
-  interface HTMLGxgWindowElement
-    extends Components.GxgWindow,
-      HTMLStencilElement {}
-  var HTMLGxgWindowElement: {
-    prototype: HTMLGxgWindowElement;
-    new (): HTMLGxgWindowElement;
-  };
-  interface HTMLElementTagNameMap {
-    "gxg-accordion": HTMLGxgAccordionElement;
-    "gxg-accordion-item": HTMLGxgAccordionItemElement;
-    "gxg-alert": HTMLGxgAlertElement;
-    "gxg-box": HTMLGxgBoxElement;
-    "gxg-breadcrumb": HTMLGxgBreadcrumbElement;
-    "gxg-breadcrumbs": HTMLGxgBreadcrumbsElement;
-    "gxg-button": HTMLGxgButtonElement;
-    "gxg-button-group": HTMLGxgButtonGroupElement;
-    "gxg-card": HTMLGxgCardElement;
-    "gxg-color-picker": HTMLGxgColorPickerElement;
-    "gxg-column": HTMLGxgColumnElement;
-    "gxg-columns": HTMLGxgColumnsElement;
-    "gxg-combo-box": HTMLGxgComboBoxElement;
-    "gxg-combo-box-item": HTMLGxgComboBoxItemElement;
-    "gxg-container": HTMLGxgContainerElement;
-    "gxg-contextual-menu": HTMLGxgContextualMenuElement;
-    "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
-    "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
-    "gxg-date-picker": HTMLGxgDatePickerElement;
-    "gxg-demo": HTMLGxgDemoElement;
-    "gxg-drag-box": HTMLGxgDragBoxElement;
-    "gxg-drag-container": HTMLGxgDragContainerElement;
-    "gxg-drop-down": HTMLGxgDropDownElement;
-    "gxg-filter": HTMLGxgFilterElement;
-    "gxg-filter-item": HTMLGxgFilterItemElement;
-    "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
-    "gxg-form-checkbox-group": HTMLGxgFormCheckboxGroupElement;
-    "gxg-form-message": HTMLGxgFormMessageElement;
-    "gxg-form-radio": HTMLGxgFormRadioElement;
-    "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
-    "gxg-form-text": HTMLGxgFormTextElement;
-    "gxg-form-textarea": HTMLGxgFormTextareaElement;
-    "gxg-grid": HTMLGxgGridElement;
-    "gxg-icon": HTMLGxgIconElement;
-    "gxg-ide-loader": HTMLGxgIdeLoaderElement;
-    "gxg-label": HTMLGxgLabelElement;
-    "gxg-list-box": HTMLGxgListBoxElement;
-    "gxg-list-box-item": HTMLGxgListBoxItemElement;
-    "gxg-loader": HTMLGxgLoaderElement;
-    "gxg-menu": HTMLGxgMenuElement;
-    "gxg-menu-item": HTMLGxgMenuItemElement;
-    "gxg-menu-slim": HTMLGxgMenuSlimElement;
-    "gxg-menu-slim-item": HTMLGxgMenuSlimItemElement;
-    "gxg-menu-slim-list": HTMLGxgMenuSlimListElement;
-    "gxg-modal": HTMLGxgModalElement;
-    "gxg-more-info": HTMLGxgMoreInfoElement;
-    "gxg-option": HTMLGxgOptionElement;
-    "gxg-option-v2": HTMLGxgOptionV2Element;
-    "gxg-options": HTMLGxgOptionsElement;
-    "gxg-options-item": HTMLGxgOptionsItemElement;
-    "gxg-paginator": HTMLGxgPaginatorElement;
-    "gxg-pill": HTMLGxgPillElement;
-    "gxg-pills": HTMLGxgPillsElement;
-    "gxg-progress-bar": HTMLGxgProgressBarElement;
-    "gxg-scroll": HTMLGxgScrollElement;
-    "gxg-select": HTMLGxgSelectElement;
-    "gxg-select-v2": HTMLGxgSelectV2Element;
-    "gxg-separator": HTMLGxgSeparatorElement;
-    "gxg-shortcuts": HTMLGxgShortcutsElement;
-    "gxg-slider": HTMLGxgSliderElement;
-    "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
-    "gxg-spacer-one": HTMLGxgSpacerOneElement;
-    "gxg-split": HTMLGxgSplitElement;
-    "gxg-splitter": HTMLGxgSplitterElement;
-    "gxg-stack": HTMLGxgStackElement;
-    "gxg-stepper": HTMLGxgStepperElement;
-    "gxg-suggest": HTMLGxgSuggestElement;
-    "gxg-tab": HTMLGxgTabElement;
-    "gxg-tab-bar": HTMLGxgTabBarElement;
-    "gxg-tab-button": HTMLGxgTabButtonElement;
-    "gxg-tabs": HTMLGxgTabsElement;
-    "gxg-test": HTMLGxgTestElement;
-    "gxg-text": HTMLGxgTextElement;
-    "gxg-title": HTMLGxgTitleElement;
-    "gxg-title-editable": HTMLGxgTitleEditableElement;
-    "gxg-toggle": HTMLGxgToggleElement;
-    "gxg-toolbar": HTMLGxgToolbarElement;
-    "gxg-toolbar-item": HTMLGxgToolbarItemElement;
-    "gxg-tooltip": HTMLGxgTooltipElement;
-    "gxg-tree": HTMLGxgTreeElement;
-    "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
-    "gxg-tree-item": HTMLGxgTreeItemElement;
-    "gxg-tree-view": HTMLGxgTreeViewElement;
-    "gxg-window": HTMLGxgWindowElement;
-  }
+    interface HTMLGxgAccordionElement extends Components.GxgAccordion, HTMLStencilElement {
+    }
+    var HTMLGxgAccordionElement: {
+        prototype: HTMLGxgAccordionElement;
+        new (): HTMLGxgAccordionElement;
+    };
+    interface HTMLGxgAccordionItemElementEventMap {
+        "accordionItemClicked": any;
+        "accordionItemLoaded": any;
+        "accordionTitleClicked": any;
+        "titleChanged": any;
+    }
+    interface HTMLGxgAccordionItemElement extends Components.GxgAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgAccordionItemElementEventMap>(type: K, listener: (this: HTMLGxgAccordionItemElement, ev: GxgAccordionItemCustomEvent<HTMLGxgAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgAccordionItemElementEventMap>(type: K, listener: (this: HTMLGxgAccordionItemElement, ev: GxgAccordionItemCustomEvent<HTMLGxgAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgAccordionItemElement: {
+        prototype: HTMLGxgAccordionItemElement;
+        new (): HTMLGxgAccordionItemElement;
+    };
+    interface HTMLGxgAlertElement extends Components.GxgAlert, HTMLStencilElement {
+    }
+    var HTMLGxgAlertElement: {
+        prototype: HTMLGxgAlertElement;
+        new (): HTMLGxgAlertElement;
+    };
+    interface HTMLGxgBoxElement extends Components.GxgBox, HTMLStencilElement {
+    }
+    var HTMLGxgBoxElement: {
+        prototype: HTMLGxgBoxElement;
+        new (): HTMLGxgBoxElement;
+    };
+    interface HTMLGxgBreadcrumbElementEventMap {
+        "breadcrumbClicked": any;
+    }
+    interface HTMLGxgBreadcrumbElement extends Components.GxgBreadcrumb, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgBreadcrumbElementEventMap>(type: K, listener: (this: HTMLGxgBreadcrumbElement, ev: GxgBreadcrumbCustomEvent<HTMLGxgBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgBreadcrumbElementEventMap>(type: K, listener: (this: HTMLGxgBreadcrumbElement, ev: GxgBreadcrumbCustomEvent<HTMLGxgBreadcrumbElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgBreadcrumbElement: {
+        prototype: HTMLGxgBreadcrumbElement;
+        new (): HTMLGxgBreadcrumbElement;
+    };
+    interface HTMLGxgBreadcrumbsElement extends Components.GxgBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLGxgBreadcrumbsElement: {
+        prototype: HTMLGxgBreadcrumbsElement;
+        new (): HTMLGxgBreadcrumbsElement;
+    };
+    interface HTMLGxgButtonElement extends Components.GxgButton, HTMLStencilElement {
+    }
+    var HTMLGxgButtonElement: {
+        prototype: HTMLGxgButtonElement;
+        new (): HTMLGxgButtonElement;
+    };
+    interface HTMLGxgButtonGroupElement extends Components.GxgButtonGroup, HTMLStencilElement {
+    }
+    var HTMLGxgButtonGroupElement: {
+        prototype: HTMLGxgButtonGroupElement;
+        new (): HTMLGxgButtonGroupElement;
+    };
+    interface HTMLGxgCardElement extends Components.GxgCard, HTMLStencilElement {
+    }
+    var HTMLGxgCardElement: {
+        prototype: HTMLGxgCardElement;
+        new (): HTMLGxgCardElement;
+    };
+    interface HTMLGxgColorPickerElementEventMap {
+        "save": any;
+        "nameInputEvent": any;
+        "change": any;
+    }
+    interface HTMLGxgColorPickerElement extends Components.GxgColorPicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgColorPickerElementEventMap>(type: K, listener: (this: HTMLGxgColorPickerElement, ev: GxgColorPickerCustomEvent<HTMLGxgColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgColorPickerElementEventMap>(type: K, listener: (this: HTMLGxgColorPickerElement, ev: GxgColorPickerCustomEvent<HTMLGxgColorPickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgColorPickerElement: {
+        prototype: HTMLGxgColorPickerElement;
+        new (): HTMLGxgColorPickerElement;
+    };
+    interface HTMLGxgColumnElement extends Components.GxgColumn, HTMLStencilElement {
+    }
+    var HTMLGxgColumnElement: {
+        prototype: HTMLGxgColumnElement;
+        new (): HTMLGxgColumnElement;
+    };
+    interface HTMLGxgColumnsElement extends Components.GxgColumns, HTMLStencilElement {
+    }
+    var HTMLGxgColumnsElement: {
+        prototype: HTMLGxgColumnsElement;
+        new (): HTMLGxgColumnsElement;
+    };
+    interface HTMLGxgComboBoxElementEventMap {
+        "valueChanged": ComboBoxItemValue;
+        "opened": any;
+        "closed": any;
+        "toggled": boolean;
+    }
+    interface HTMLGxgComboBoxElement extends Components.GxgComboBox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgComboBoxElementEventMap>(type: K, listener: (this: HTMLGxgComboBoxElement, ev: GxgComboBoxCustomEvent<HTMLGxgComboBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgComboBoxElementEventMap>(type: K, listener: (this: HTMLGxgComboBoxElement, ev: GxgComboBoxCustomEvent<HTMLGxgComboBoxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgComboBoxElement: {
+        prototype: HTMLGxgComboBoxElement;
+        new (): HTMLGxgComboBoxElement;
+    };
+    interface HTMLGxgComboBoxItemElementEventMap {
+        "itemSelected": ItemInformation;
+        "itemDidLoad": ItemInformation;
+        "keyDownPressed": any;
+    }
+    interface HTMLGxgComboBoxItemElement extends Components.GxgComboBoxItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgComboBoxItemElementEventMap>(type: K, listener: (this: HTMLGxgComboBoxItemElement, ev: GxgComboBoxItemCustomEvent<HTMLGxgComboBoxItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgComboBoxItemElementEventMap>(type: K, listener: (this: HTMLGxgComboBoxItemElement, ev: GxgComboBoxItemCustomEvent<HTMLGxgComboBoxItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgComboBoxItemElement: {
+        prototype: HTMLGxgComboBoxItemElement;
+        new (): HTMLGxgComboBoxItemElement;
+    };
+    interface HTMLGxgContainerElement extends Components.GxgContainer, HTMLStencilElement {
+    }
+    var HTMLGxgContainerElement: {
+        prototype: HTMLGxgContainerElement;
+        new (): HTMLGxgContainerElement;
+    };
+    interface HTMLGxgContextualMenuElement extends Components.GxgContextualMenu, HTMLStencilElement {
+    }
+    var HTMLGxgContextualMenuElement: {
+        prototype: HTMLGxgContextualMenuElement;
+        new (): HTMLGxgContextualMenuElement;
+    };
+    interface HTMLGxgContextualMenuItemElementEventMap {
+        "contextualMenuItemSelected": string;
+    }
+    interface HTMLGxgContextualMenuItemElement extends Components.GxgContextualMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgContextualMenuItemElementEventMap>(type: K, listener: (this: HTMLGxgContextualMenuItemElement, ev: GxgContextualMenuItemCustomEvent<HTMLGxgContextualMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgContextualMenuItemElementEventMap>(type: K, listener: (this: HTMLGxgContextualMenuItemElement, ev: GxgContextualMenuItemCustomEvent<HTMLGxgContextualMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgContextualMenuItemElement: {
+        prototype: HTMLGxgContextualMenuItemElement;
+        new (): HTMLGxgContextualMenuItemElement;
+    };
+    interface HTMLGxgContextualMenuSubmenuElement extends Components.GxgContextualMenuSubmenu, HTMLStencilElement {
+    }
+    var HTMLGxgContextualMenuSubmenuElement: {
+        prototype: HTMLGxgContextualMenuSubmenuElement;
+        new (): HTMLGxgContextualMenuSubmenuElement;
+    };
+    interface HTMLGxgDatePickerElementEventMap {
+        "valueChanged": DatePickerDate;
+    }
+    interface HTMLGxgDatePickerElement extends Components.GxgDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgDatePickerElementEventMap>(type: K, listener: (this: HTMLGxgDatePickerElement, ev: GxgDatePickerCustomEvent<HTMLGxgDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgDatePickerElementEventMap>(type: K, listener: (this: HTMLGxgDatePickerElement, ev: GxgDatePickerCustomEvent<HTMLGxgDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgDatePickerElement: {
+        prototype: HTMLGxgDatePickerElement;
+        new (): HTMLGxgDatePickerElement;
+    };
+    interface HTMLGxgDemoElement extends Components.GxgDemo, HTMLStencilElement {
+    }
+    var HTMLGxgDemoElement: {
+        prototype: HTMLGxgDemoElement;
+        new (): HTMLGxgDemoElement;
+    };
+    interface HTMLGxgDragBoxElementEventMap {
+        "clicked": any;
+        "deleted": any;
+    }
+    interface HTMLGxgDragBoxElement extends Components.GxgDragBox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgDragBoxElementEventMap>(type: K, listener: (this: HTMLGxgDragBoxElement, ev: GxgDragBoxCustomEvent<HTMLGxgDragBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgDragBoxElementEventMap>(type: K, listener: (this: HTMLGxgDragBoxElement, ev: GxgDragBoxCustomEvent<HTMLGxgDragBoxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgDragBoxElement: {
+        prototype: HTMLGxgDragBoxElement;
+        new (): HTMLGxgDragBoxElement;
+    };
+    interface HTMLGxgDragContainerElementEventMap {
+        "itemDragStart": any;
+        "itemDrop": any;
+        "itemDragOver": any;
+        "itemDragLeave": any;
+        "itemDragEnter": any;
+    }
+    interface HTMLGxgDragContainerElement extends Components.GxgDragContainer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgDragContainerElementEventMap>(type: K, listener: (this: HTMLGxgDragContainerElement, ev: GxgDragContainerCustomEvent<HTMLGxgDragContainerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgDragContainerElementEventMap>(type: K, listener: (this: HTMLGxgDragContainerElement, ev: GxgDragContainerCustomEvent<HTMLGxgDragContainerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgDragContainerElement: {
+        prototype: HTMLGxgDragContainerElement;
+        new (): HTMLGxgDragContainerElement;
+    };
+    interface HTMLGxgDropDownElementEventMap {
+        "opened": any;
+        "closed": any;
+    }
+    interface HTMLGxgDropDownElement extends Components.GxgDropDown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgDropDownElementEventMap>(type: K, listener: (this: HTMLGxgDropDownElement, ev: GxgDropDownCustomEvent<HTMLGxgDropDownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgDropDownElementEventMap>(type: K, listener: (this: HTMLGxgDropDownElement, ev: GxgDropDownCustomEvent<HTMLGxgDropDownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgDropDownElement: {
+        prototype: HTMLGxgDropDownElement;
+        new (): HTMLGxgDropDownElement;
+    };
+    interface HTMLGxgFilterElement extends Components.GxgFilter, HTMLStencilElement {
+    }
+    var HTMLGxgFilterElement: {
+        prototype: HTMLGxgFilterElement;
+        new (): HTMLGxgFilterElement;
+    };
+    interface HTMLGxgFilterItemElementEventMap {
+        "itemClickedEvent": any;
+    }
+    interface HTMLGxgFilterItemElement extends Components.GxgFilterItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFilterItemElementEventMap>(type: K, listener: (this: HTMLGxgFilterItemElement, ev: GxgFilterItemCustomEvent<HTMLGxgFilterItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFilterItemElementEventMap>(type: K, listener: (this: HTMLGxgFilterItemElement, ev: GxgFilterItemCustomEvent<HTMLGxgFilterItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFilterItemElement: {
+        prototype: HTMLGxgFilterItemElement;
+        new (): HTMLGxgFilterItemElement;
+    };
+    interface HTMLGxgFormCheckboxElementEventMap {
+        "change": CheckboxInfo;
+    }
+    interface HTMLGxgFormCheckboxElement extends Components.GxgFormCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFormCheckboxElementEventMap>(type: K, listener: (this: HTMLGxgFormCheckboxElement, ev: GxgFormCheckboxCustomEvent<HTMLGxgFormCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFormCheckboxElementEventMap>(type: K, listener: (this: HTMLGxgFormCheckboxElement, ev: GxgFormCheckboxCustomEvent<HTMLGxgFormCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFormCheckboxElement: {
+        prototype: HTMLGxgFormCheckboxElement;
+        new (): HTMLGxgFormCheckboxElement;
+    };
+    interface HTMLGxgFormCheckboxGroupElementEventMap {
+        "groupValuesChanged": CheckboxesGroupValues;
+    }
+    interface HTMLGxgFormCheckboxGroupElement extends Components.GxgFormCheckboxGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFormCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLGxgFormCheckboxGroupElement, ev: GxgFormCheckboxGroupCustomEvent<HTMLGxgFormCheckboxGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFormCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLGxgFormCheckboxGroupElement, ev: GxgFormCheckboxGroupCustomEvent<HTMLGxgFormCheckboxGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFormCheckboxGroupElement: {
+        prototype: HTMLGxgFormCheckboxGroupElement;
+        new (): HTMLGxgFormCheckboxGroupElement;
+    };
+    interface HTMLGxgFormMessageElement extends Components.GxgFormMessage, HTMLStencilElement {
+    }
+    var HTMLGxgFormMessageElement: {
+        prototype: HTMLGxgFormMessageElement;
+        new (): HTMLGxgFormMessageElement;
+    };
+    interface HTMLGxgFormRadioElementEventMap {
+        "radioChecked": RadioData;
+        "keyPressed": any;
+    }
+    interface HTMLGxgFormRadioElement extends Components.GxgFormRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFormRadioElementEventMap>(type: K, listener: (this: HTMLGxgFormRadioElement, ev: GxgFormRadioCustomEvent<HTMLGxgFormRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFormRadioElementEventMap>(type: K, listener: (this: HTMLGxgFormRadioElement, ev: GxgFormRadioCustomEvent<HTMLGxgFormRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFormRadioElement: {
+        prototype: HTMLGxgFormRadioElement;
+        new (): HTMLGxgFormRadioElement;
+    };
+    interface HTMLGxgFormRadioGroupElementEventMap {
+        "change": RadioData1;
+    }
+    interface HTMLGxgFormRadioGroupElement extends Components.GxgFormRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFormRadioGroupElementEventMap>(type: K, listener: (this: HTMLGxgFormRadioGroupElement, ev: GxgFormRadioGroupCustomEvent<HTMLGxgFormRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFormRadioGroupElementEventMap>(type: K, listener: (this: HTMLGxgFormRadioGroupElement, ev: GxgFormRadioGroupCustomEvent<HTMLGxgFormRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFormRadioGroupElement: {
+        prototype: HTMLGxgFormRadioGroupElement;
+        new (): HTMLGxgFormRadioGroupElement;
+    };
+    interface HTMLGxgFormTextElementEventMap {
+        "input": any;
+        "change": any;
+        "clearButtonClicked": any;
+        "valueChanged": string;
+        "fileSelected": FileList;
+    }
+    interface HTMLGxgFormTextElement extends Components.GxgFormText, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFormTextElementEventMap>(type: K, listener: (this: HTMLGxgFormTextElement, ev: GxgFormTextCustomEvent<HTMLGxgFormTextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFormTextElementEventMap>(type: K, listener: (this: HTMLGxgFormTextElement, ev: GxgFormTextCustomEvent<HTMLGxgFormTextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFormTextElement: {
+        prototype: HTMLGxgFormTextElement;
+        new (): HTMLGxgFormTextElement;
+    };
+    interface HTMLGxgFormTextareaElementEventMap {
+        "input": any;
+        "change": any;
+        "enter": any;
+        "arrowUpPressed": any;
+    }
+    interface HTMLGxgFormTextareaElement extends Components.GxgFormTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgFormTextareaElementEventMap>(type: K, listener: (this: HTMLGxgFormTextareaElement, ev: GxgFormTextareaCustomEvent<HTMLGxgFormTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgFormTextareaElementEventMap>(type: K, listener: (this: HTMLGxgFormTextareaElement, ev: GxgFormTextareaCustomEvent<HTMLGxgFormTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgFormTextareaElement: {
+        prototype: HTMLGxgFormTextareaElement;
+        new (): HTMLGxgFormTextareaElement;
+    };
+    interface HTMLGxgGridElement extends Components.GxgGrid, HTMLStencilElement {
+    }
+    var HTMLGxgGridElement: {
+        prototype: HTMLGxgGridElement;
+        new (): HTMLGxgGridElement;
+    };
+    interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {
+    }
+    var HTMLGxgIconElement: {
+        prototype: HTMLGxgIconElement;
+        new (): HTMLGxgIconElement;
+    };
+    interface HTMLGxgIdeLoaderElementEventMap {
+        "loaderFinished": void;
+    }
+    interface HTMLGxgIdeLoaderElement extends Components.GxgIdeLoader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgIdeLoaderElementEventMap>(type: K, listener: (this: HTMLGxgIdeLoaderElement, ev: GxgIdeLoaderCustomEvent<HTMLGxgIdeLoaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgIdeLoaderElementEventMap>(type: K, listener: (this: HTMLGxgIdeLoaderElement, ev: GxgIdeLoaderCustomEvent<HTMLGxgIdeLoaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgIdeLoaderElement: {
+        prototype: HTMLGxgIdeLoaderElement;
+        new (): HTMLGxgIdeLoaderElement;
+    };
+    interface HTMLGxgLabelElement extends Components.GxgLabel, HTMLStencilElement {
+    }
+    var HTMLGxgLabelElement: {
+        prototype: HTMLGxgLabelElement;
+        new (): HTMLGxgLabelElement;
+    };
+    interface HTMLGxgListBoxElementEventMap {
+        "selectionChanged": SelectionChangedEvent;
+        "checkedChanged": any;
+    }
+    interface HTMLGxgListBoxElement extends Components.GxgListBox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgListBoxElementEventMap>(type: K, listener: (this: HTMLGxgListBoxElement, ev: GxgListBoxCustomEvent<HTMLGxgListBoxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgListBoxElementEventMap>(type: K, listener: (this: HTMLGxgListBoxElement, ev: GxgListBoxCustomEvent<HTMLGxgListBoxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgListBoxElement: {
+        prototype: HTMLGxgListBoxElement;
+        new (): HTMLGxgListBoxElement;
+    };
+    interface HTMLGxgListBoxItemElementEventMap {
+        "itemClicked": ItemClicked;
+        "itemLoaded": any;
+        "itemSelected": any;
+        "checkboxStateChanged": ItemChecked;
+    }
+    interface HTMLGxgListBoxItemElement extends Components.GxgListBoxItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgListBoxItemElementEventMap>(type: K, listener: (this: HTMLGxgListBoxItemElement, ev: GxgListBoxItemCustomEvent<HTMLGxgListBoxItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgListBoxItemElementEventMap>(type: K, listener: (this: HTMLGxgListBoxItemElement, ev: GxgListBoxItemCustomEvent<HTMLGxgListBoxItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgListBoxItemElement: {
+        prototype: HTMLGxgListBoxItemElement;
+        new (): HTMLGxgListBoxItemElement;
+    };
+    interface HTMLGxgLoaderElement extends Components.GxgLoader, HTMLStencilElement {
+    }
+    var HTMLGxgLoaderElement: {
+        prototype: HTMLGxgLoaderElement;
+        new (): HTMLGxgLoaderElement;
+    };
+    interface HTMLGxgMenuElement extends Components.GxgMenu, HTMLStencilElement {
+    }
+    var HTMLGxgMenuElement: {
+        prototype: HTMLGxgMenuElement;
+        new (): HTMLGxgMenuElement;
+    };
+    interface HTMLGxgMenuItemElementEventMap {
+        "menuItemActive": any;
+    }
+    interface HTMLGxgMenuItemElement extends Components.GxgMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgMenuItemElementEventMap>(type: K, listener: (this: HTMLGxgMenuItemElement, ev: GxgMenuItemCustomEvent<HTMLGxgMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgMenuItemElementEventMap>(type: K, listener: (this: HTMLGxgMenuItemElement, ev: GxgMenuItemCustomEvent<HTMLGxgMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgMenuItemElement: {
+        prototype: HTMLGxgMenuItemElement;
+        new (): HTMLGxgMenuItemElement;
+    };
+    interface HTMLGxgMenuSlimElement extends Components.GxgMenuSlim, HTMLStencilElement {
+    }
+    var HTMLGxgMenuSlimElement: {
+        prototype: HTMLGxgMenuSlimElement;
+        new (): HTMLGxgMenuSlimElement;
+    };
+    interface HTMLGxgMenuSlimItemElementEventMap {
+        "keyboardNavigation": MenuItemFocusChange;
+        "itemSelected": MenuItemSelected;
+    }
+    interface HTMLGxgMenuSlimItemElement extends Components.GxgMenuSlimItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgMenuSlimItemElementEventMap>(type: K, listener: (this: HTMLGxgMenuSlimItemElement, ev: GxgMenuSlimItemCustomEvent<HTMLGxgMenuSlimItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgMenuSlimItemElementEventMap>(type: K, listener: (this: HTMLGxgMenuSlimItemElement, ev: GxgMenuSlimItemCustomEvent<HTMLGxgMenuSlimItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgMenuSlimItemElement: {
+        prototype: HTMLGxgMenuSlimItemElement;
+        new (): HTMLGxgMenuSlimItemElement;
+    };
+    interface HTMLGxgMenuSlimListElement extends Components.GxgMenuSlimList, HTMLStencilElement {
+    }
+    var HTMLGxgMenuSlimListElement: {
+        prototype: HTMLGxgMenuSlimListElement;
+        new (): HTMLGxgMenuSlimListElement;
+    };
+    interface HTMLGxgModalElementEventMap {
+        "modalClosed": any;
+        "modalOpened": any;
+    }
+    interface HTMLGxgModalElement extends Components.GxgModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgModalElementEventMap>(type: K, listener: (this: HTMLGxgModalElement, ev: GxgModalCustomEvent<HTMLGxgModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgModalElementEventMap>(type: K, listener: (this: HTMLGxgModalElement, ev: GxgModalCustomEvent<HTMLGxgModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgModalElement: {
+        prototype: HTMLGxgModalElement;
+        new (): HTMLGxgModalElement;
+    };
+    interface HTMLGxgMoreInfoElement extends Components.GxgMoreInfo, HTMLStencilElement {
+    }
+    var HTMLGxgMoreInfoElement: {
+        prototype: HTMLGxgMoreInfoElement;
+        new (): HTMLGxgMoreInfoElement;
+    };
+    interface HTMLGxgOptionElementEventMap {
+        "optionIsSelected": any;
+    }
+    interface HTMLGxgOptionElement extends Components.GxgOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgOptionElementEventMap>(type: K, listener: (this: HTMLGxgOptionElement, ev: GxgOptionCustomEvent<HTMLGxgOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgOptionElementEventMap>(type: K, listener: (this: HTMLGxgOptionElement, ev: GxgOptionCustomEvent<HTMLGxgOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgOptionElement: {
+        prototype: HTMLGxgOptionElement;
+        new (): HTMLGxgOptionElement;
+    };
+    interface HTMLGxgOptionV2ElementEventMap {
+        "optionIsSelected": any;
+    }
+    interface HTMLGxgOptionV2Element extends Components.GxgOptionV2, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgOptionV2ElementEventMap>(type: K, listener: (this: HTMLGxgOptionV2Element, ev: GxgOptionV2CustomEvent<HTMLGxgOptionV2ElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgOptionV2ElementEventMap>(type: K, listener: (this: HTMLGxgOptionV2Element, ev: GxgOptionV2CustomEvent<HTMLGxgOptionV2ElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgOptionV2Element: {
+        prototype: HTMLGxgOptionV2Element;
+        new (): HTMLGxgOptionV2Element;
+    };
+    interface HTMLGxgOptionsElement extends Components.GxgOptions, HTMLStencilElement {
+    }
+    var HTMLGxgOptionsElement: {
+        prototype: HTMLGxgOptionsElement;
+        new (): HTMLGxgOptionsElement;
+    };
+    interface HTMLGxgOptionsItemElementEventMap {
+        "keyDown": any;
+        "optionSelected": any;
+    }
+    interface HTMLGxgOptionsItemElement extends Components.GxgOptionsItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgOptionsItemElementEventMap>(type: K, listener: (this: HTMLGxgOptionsItemElement, ev: GxgOptionsItemCustomEvent<HTMLGxgOptionsItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgOptionsItemElementEventMap>(type: K, listener: (this: HTMLGxgOptionsItemElement, ev: GxgOptionsItemCustomEvent<HTMLGxgOptionsItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgOptionsItemElement: {
+        prototype: HTMLGxgOptionsItemElement;
+        new (): HTMLGxgOptionsItemElement;
+    };
+    interface HTMLGxgPaginatorElement extends Components.GxgPaginator, HTMLStencilElement {
+    }
+    var HTMLGxgPaginatorElement: {
+        prototype: HTMLGxgPaginatorElement;
+        new (): HTMLGxgPaginatorElement;
+    };
+    interface HTMLGxgPillElementEventMap {
+        "pillRemoved": string;
+    }
+    interface HTMLGxgPillElement extends Components.GxgPill, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgPillElementEventMap>(type: K, listener: (this: HTMLGxgPillElement, ev: GxgPillCustomEvent<HTMLGxgPillElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgPillElementEventMap>(type: K, listener: (this: HTMLGxgPillElement, ev: GxgPillCustomEvent<HTMLGxgPillElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgPillElement: {
+        prototype: HTMLGxgPillElement;
+        new (): HTMLGxgPillElement;
+    };
+    interface HTMLGxgPillsElement extends Components.GxgPills, HTMLStencilElement {
+    }
+    var HTMLGxgPillsElement: {
+        prototype: HTMLGxgPillsElement;
+        new (): HTMLGxgPillsElement;
+    };
+    interface HTMLGxgProgressBarElement extends Components.GxgProgressBar, HTMLStencilElement {
+    }
+    var HTMLGxgProgressBarElement: {
+        prototype: HTMLGxgProgressBarElement;
+        new (): HTMLGxgProgressBarElement;
+    };
+    interface HTMLGxgScrollElement extends Components.GxgScroll, HTMLStencilElement {
+    }
+    var HTMLGxgScrollElement: {
+        prototype: HTMLGxgScrollElement;
+        new (): HTMLGxgScrollElement;
+    };
+    interface HTMLGxgSelectElementEventMap {
+        "change": any;
+    }
+    interface HTMLGxgSelectElement extends Components.GxgSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgSelectElementEventMap>(type: K, listener: (this: HTMLGxgSelectElement, ev: GxgSelectCustomEvent<HTMLGxgSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgSelectElementEventMap>(type: K, listener: (this: HTMLGxgSelectElement, ev: GxgSelectCustomEvent<HTMLGxgSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgSelectElement: {
+        prototype: HTMLGxgSelectElement;
+        new (): HTMLGxgSelectElement;
+    };
+    interface HTMLGxgSelectV2ElementEventMap {
+        "change": any;
+    }
+    interface HTMLGxgSelectV2Element extends Components.GxgSelectV2, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgSelectV2ElementEventMap>(type: K, listener: (this: HTMLGxgSelectV2Element, ev: GxgSelectV2CustomEvent<HTMLGxgSelectV2ElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgSelectV2ElementEventMap>(type: K, listener: (this: HTMLGxgSelectV2Element, ev: GxgSelectV2CustomEvent<HTMLGxgSelectV2ElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgSelectV2Element: {
+        prototype: HTMLGxgSelectV2Element;
+        new (): HTMLGxgSelectV2Element;
+    };
+    interface HTMLGxgSeparatorElement extends Components.GxgSeparator, HTMLStencilElement {
+    }
+    var HTMLGxgSeparatorElement: {
+        prototype: HTMLGxgSeparatorElement;
+        new (): HTMLGxgSeparatorElement;
+    };
+    interface HTMLGxgShortcutsElement extends Components.GxgShortcuts, HTMLStencilElement {
+    }
+    var HTMLGxgShortcutsElement: {
+        prototype: HTMLGxgShortcutsElement;
+        new (): HTMLGxgShortcutsElement;
+    };
+    interface HTMLGxgSliderElement extends Components.GxgSlider, HTMLStencilElement {
+    }
+    var HTMLGxgSliderElement: {
+        prototype: HTMLGxgSliderElement;
+        new (): HTMLGxgSliderElement;
+    };
+    interface HTMLGxgSpacerLayoutElement extends Components.GxgSpacerLayout, HTMLStencilElement {
+    }
+    var HTMLGxgSpacerLayoutElement: {
+        prototype: HTMLGxgSpacerLayoutElement;
+        new (): HTMLGxgSpacerLayoutElement;
+    };
+    interface HTMLGxgSpacerOneElement extends Components.GxgSpacerOne, HTMLStencilElement {
+    }
+    var HTMLGxgSpacerOneElement: {
+        prototype: HTMLGxgSpacerOneElement;
+        new (): HTMLGxgSpacerOneElement;
+    };
+    interface HTMLGxgSplitElement extends Components.GxgSplit, HTMLStencilElement {
+    }
+    var HTMLGxgSplitElement: {
+        prototype: HTMLGxgSplitElement;
+        new (): HTMLGxgSplitElement;
+    };
+    interface HTMLGxgSplitterElementEventMap {
+        "dragging": any;
+        "dragEnded": any;
+    }
+    interface HTMLGxgSplitterElement extends Components.GxgSplitter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgSplitterElementEventMap>(type: K, listener: (this: HTMLGxgSplitterElement, ev: GxgSplitterCustomEvent<HTMLGxgSplitterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgSplitterElementEventMap>(type: K, listener: (this: HTMLGxgSplitterElement, ev: GxgSplitterCustomEvent<HTMLGxgSplitterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgSplitterElement: {
+        prototype: HTMLGxgSplitterElement;
+        new (): HTMLGxgSplitterElement;
+    };
+    interface HTMLGxgStackElement extends Components.GxgStack, HTMLStencilElement {
+    }
+    var HTMLGxgStackElement: {
+        prototype: HTMLGxgStackElement;
+        new (): HTMLGxgStackElement;
+    };
+    interface HTMLGxgStepperElementEventMap {
+        "stepperInput": any;
+    }
+    interface HTMLGxgStepperElement extends Components.GxgStepper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgStepperElementEventMap>(type: K, listener: (this: HTMLGxgStepperElement, ev: GxgStepperCustomEvent<HTMLGxgStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgStepperElementEventMap>(type: K, listener: (this: HTMLGxgStepperElement, ev: GxgStepperCustomEvent<HTMLGxgStepperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgStepperElement: {
+        prototype: HTMLGxgStepperElement;
+        new (): HTMLGxgStepperElement;
+    };
+    interface HTMLGxgSuggestElement extends Components.GxgSuggest, HTMLStencilElement {
+    }
+    var HTMLGxgSuggestElement: {
+        prototype: HTMLGxgSuggestElement;
+        new (): HTMLGxgSuggestElement;
+    };
+    interface HTMLGxgTabElement extends Components.GxgTab, HTMLStencilElement {
+    }
+    var HTMLGxgTabElement: {
+        prototype: HTMLGxgTabElement;
+        new (): HTMLGxgTabElement;
+    };
+    interface HTMLGxgTabBarElement extends Components.GxgTabBar, HTMLStencilElement {
+    }
+    var HTMLGxgTabBarElement: {
+        prototype: HTMLGxgTabBarElement;
+        new (): HTMLGxgTabBarElement;
+    };
+    interface HTMLGxgTabButtonElementEventMap {
+        "tabActivated": any;
+        "PrevOrNextTab": any;
+    }
+    interface HTMLGxgTabButtonElement extends Components.GxgTabButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgTabButtonElementEventMap>(type: K, listener: (this: HTMLGxgTabButtonElement, ev: GxgTabButtonCustomEvent<HTMLGxgTabButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgTabButtonElementEventMap>(type: K, listener: (this: HTMLGxgTabButtonElement, ev: GxgTabButtonCustomEvent<HTMLGxgTabButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgTabButtonElement: {
+        prototype: HTMLGxgTabButtonElement;
+        new (): HTMLGxgTabButtonElement;
+    };
+    interface HTMLGxgTabsElement extends Components.GxgTabs, HTMLStencilElement {
+    }
+    var HTMLGxgTabsElement: {
+        prototype: HTMLGxgTabsElement;
+        new (): HTMLGxgTabsElement;
+    };
+    interface HTMLGxgTestElement extends Components.GxgTest, HTMLStencilElement {
+    }
+    var HTMLGxgTestElement: {
+        prototype: HTMLGxgTestElement;
+        new (): HTMLGxgTestElement;
+    };
+    interface HTMLGxgTextElement extends Components.GxgText, HTMLStencilElement {
+    }
+    var HTMLGxgTextElement: {
+        prototype: HTMLGxgTextElement;
+        new (): HTMLGxgTextElement;
+    };
+    interface HTMLGxgTitleElement extends Components.GxgTitle, HTMLStencilElement {
+    }
+    var HTMLGxgTitleElement: {
+        prototype: HTMLGxgTitleElement;
+        new (): HTMLGxgTitleElement;
+    };
+    interface HTMLGxgTitleEditableElementEventMap {
+        "valueChanged": string;
+    }
+    interface HTMLGxgTitleEditableElement extends Components.GxgTitleEditable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgTitleEditableElementEventMap>(type: K, listener: (this: HTMLGxgTitleEditableElement, ev: GxgTitleEditableCustomEvent<HTMLGxgTitleEditableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgTitleEditableElementEventMap>(type: K, listener: (this: HTMLGxgTitleEditableElement, ev: GxgTitleEditableCustomEvent<HTMLGxgTitleEditableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgTitleEditableElement: {
+        prototype: HTMLGxgTitleEditableElement;
+        new (): HTMLGxgTitleEditableElement;
+    };
+    interface HTMLGxgToggleElementEventMap {
+        "toggleSwitched": any;
+    }
+    interface HTMLGxgToggleElement extends Components.GxgToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgToggleElementEventMap>(type: K, listener: (this: HTMLGxgToggleElement, ev: GxgToggleCustomEvent<HTMLGxgToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgToggleElementEventMap>(type: K, listener: (this: HTMLGxgToggleElement, ev: GxgToggleCustomEvent<HTMLGxgToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgToggleElement: {
+        prototype: HTMLGxgToggleElement;
+        new (): HTMLGxgToggleElement;
+    };
+    interface HTMLGxgToolbarElement extends Components.GxgToolbar, HTMLStencilElement {
+    }
+    var HTMLGxgToolbarElement: {
+        prototype: HTMLGxgToolbarElement;
+        new (): HTMLGxgToolbarElement;
+    };
+    interface HTMLGxgToolbarItemElement extends Components.GxgToolbarItem, HTMLStencilElement {
+    }
+    var HTMLGxgToolbarItemElement: {
+        prototype: HTMLGxgToolbarItemElement;
+        new (): HTMLGxgToolbarItemElement;
+    };
+    interface HTMLGxgTooltipElement extends Components.GxgTooltip, HTMLStencilElement {
+    }
+    var HTMLGxgTooltipElement: {
+        prototype: HTMLGxgTooltipElement;
+        new (): HTMLGxgTooltipElement;
+    };
+    interface HTMLGxgTreeElementEventMap {
+        "treeItemStateChanged": TreeItemNewStateEmitted;
+    }
+    interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgTreeElementEventMap>(type: K, listener: (this: HTMLGxgTreeElement, ev: GxgTreeCustomEvent<HTMLGxgTreeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgTreeElementEventMap>(type: K, listener: (this: HTMLGxgTreeElement, ev: GxgTreeCustomEvent<HTMLGxgTreeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgTreeElement: {
+        prototype: HTMLGxgTreeElement;
+        new (): HTMLGxgTreeElement;
+    };
+    interface HTMLGxgTreeGridDivsElementEventMap {
+        "selectedRows": any;
+        "addRow": any;
+        "removeRow": any;
+    }
+    interface HTMLGxgTreeGridDivsElement extends Components.GxgTreeGridDivs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgTreeGridDivsElementEventMap>(type: K, listener: (this: HTMLGxgTreeGridDivsElement, ev: GxgTreeGridDivsCustomEvent<HTMLGxgTreeGridDivsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgTreeGridDivsElementEventMap>(type: K, listener: (this: HTMLGxgTreeGridDivsElement, ev: GxgTreeGridDivsCustomEvent<HTMLGxgTreeGridDivsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgTreeGridDivsElement: {
+        prototype: HTMLGxgTreeGridDivsElement;
+        new (): HTMLGxgTreeGridDivsElement;
+    };
+    interface HTMLGxgTreeItemElementEventMap {
+        "checkboxToggled": GxgTreeItemData1;
+        "doubleClicked": GxgTreeItemData1;
+        "lazyChanged": GxgTreeItemData1;
+        "selectionChanged": GxgTreeItemData1;
+        "toggleIconClicked": GxgTreeItemData1;
+    }
+    interface HTMLGxgTreeItemElement extends Components.GxgTreeItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgTreeItemElementEventMap>(type: K, listener: (this: HTMLGxgTreeItemElement, ev: GxgTreeItemCustomEvent<HTMLGxgTreeItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgTreeItemElementEventMap>(type: K, listener: (this: HTMLGxgTreeItemElement, ev: GxgTreeItemCustomEvent<HTMLGxgTreeItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgTreeItemElement: {
+        prototype: HTMLGxgTreeItemElement;
+        new (): HTMLGxgTreeItemElement;
+    };
+    interface HTMLGxgTreeViewElementEventMap {
+        "checkedItemsChange": Map<string, TreeViewItemModelExtended>;
+        "itemContextmenu": TreeViewItemContextMenu;
+        "itemOpenReference": TreeViewItemOpenReferenceInfo;
+        "selectedItemsChange": TreeViewItemModelExtended[];
+    }
+    interface HTMLGxgTreeViewElement extends Components.GxgTreeView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgTreeViewElementEventMap>(type: K, listener: (this: HTMLGxgTreeViewElement, ev: GxgTreeViewCustomEvent<HTMLGxgTreeViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgTreeViewElementEventMap>(type: K, listener: (this: HTMLGxgTreeViewElement, ev: GxgTreeViewCustomEvent<HTMLGxgTreeViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGxgTreeViewElement: {
+        prototype: HTMLGxgTreeViewElement;
+        new (): HTMLGxgTreeViewElement;
+    };
+    interface HTMLGxgWindowElement extends Components.GxgWindow, HTMLStencilElement {
+    }
+    var HTMLGxgWindowElement: {
+        prototype: HTMLGxgWindowElement;
+        new (): HTMLGxgWindowElement;
+    };
+    interface HTMLElementTagNameMap {
+        "gxg-accordion": HTMLGxgAccordionElement;
+        "gxg-accordion-item": HTMLGxgAccordionItemElement;
+        "gxg-alert": HTMLGxgAlertElement;
+        "gxg-box": HTMLGxgBoxElement;
+        "gxg-breadcrumb": HTMLGxgBreadcrumbElement;
+        "gxg-breadcrumbs": HTMLGxgBreadcrumbsElement;
+        "gxg-button": HTMLGxgButtonElement;
+        "gxg-button-group": HTMLGxgButtonGroupElement;
+        "gxg-card": HTMLGxgCardElement;
+        "gxg-color-picker": HTMLGxgColorPickerElement;
+        "gxg-column": HTMLGxgColumnElement;
+        "gxg-columns": HTMLGxgColumnsElement;
+        "gxg-combo-box": HTMLGxgComboBoxElement;
+        "gxg-combo-box-item": HTMLGxgComboBoxItemElement;
+        "gxg-container": HTMLGxgContainerElement;
+        "gxg-contextual-menu": HTMLGxgContextualMenuElement;
+        "gxg-contextual-menu-item": HTMLGxgContextualMenuItemElement;
+        "gxg-contextual-menu-submenu": HTMLGxgContextualMenuSubmenuElement;
+        "gxg-date-picker": HTMLGxgDatePickerElement;
+        "gxg-demo": HTMLGxgDemoElement;
+        "gxg-drag-box": HTMLGxgDragBoxElement;
+        "gxg-drag-container": HTMLGxgDragContainerElement;
+        "gxg-drop-down": HTMLGxgDropDownElement;
+        "gxg-filter": HTMLGxgFilterElement;
+        "gxg-filter-item": HTMLGxgFilterItemElement;
+        "gxg-form-checkbox": HTMLGxgFormCheckboxElement;
+        "gxg-form-checkbox-group": HTMLGxgFormCheckboxGroupElement;
+        "gxg-form-message": HTMLGxgFormMessageElement;
+        "gxg-form-radio": HTMLGxgFormRadioElement;
+        "gxg-form-radio-group": HTMLGxgFormRadioGroupElement;
+        "gxg-form-text": HTMLGxgFormTextElement;
+        "gxg-form-textarea": HTMLGxgFormTextareaElement;
+        "gxg-grid": HTMLGxgGridElement;
+        "gxg-icon": HTMLGxgIconElement;
+        "gxg-ide-loader": HTMLGxgIdeLoaderElement;
+        "gxg-label": HTMLGxgLabelElement;
+        "gxg-list-box": HTMLGxgListBoxElement;
+        "gxg-list-box-item": HTMLGxgListBoxItemElement;
+        "gxg-loader": HTMLGxgLoaderElement;
+        "gxg-menu": HTMLGxgMenuElement;
+        "gxg-menu-item": HTMLGxgMenuItemElement;
+        "gxg-menu-slim": HTMLGxgMenuSlimElement;
+        "gxg-menu-slim-item": HTMLGxgMenuSlimItemElement;
+        "gxg-menu-slim-list": HTMLGxgMenuSlimListElement;
+        "gxg-modal": HTMLGxgModalElement;
+        "gxg-more-info": HTMLGxgMoreInfoElement;
+        "gxg-option": HTMLGxgOptionElement;
+        "gxg-option-v2": HTMLGxgOptionV2Element;
+        "gxg-options": HTMLGxgOptionsElement;
+        "gxg-options-item": HTMLGxgOptionsItemElement;
+        "gxg-paginator": HTMLGxgPaginatorElement;
+        "gxg-pill": HTMLGxgPillElement;
+        "gxg-pills": HTMLGxgPillsElement;
+        "gxg-progress-bar": HTMLGxgProgressBarElement;
+        "gxg-scroll": HTMLGxgScrollElement;
+        "gxg-select": HTMLGxgSelectElement;
+        "gxg-select-v2": HTMLGxgSelectV2Element;
+        "gxg-separator": HTMLGxgSeparatorElement;
+        "gxg-shortcuts": HTMLGxgShortcutsElement;
+        "gxg-slider": HTMLGxgSliderElement;
+        "gxg-spacer-layout": HTMLGxgSpacerLayoutElement;
+        "gxg-spacer-one": HTMLGxgSpacerOneElement;
+        "gxg-split": HTMLGxgSplitElement;
+        "gxg-splitter": HTMLGxgSplitterElement;
+        "gxg-stack": HTMLGxgStackElement;
+        "gxg-stepper": HTMLGxgStepperElement;
+        "gxg-suggest": HTMLGxgSuggestElement;
+        "gxg-tab": HTMLGxgTabElement;
+        "gxg-tab-bar": HTMLGxgTabBarElement;
+        "gxg-tab-button": HTMLGxgTabButtonElement;
+        "gxg-tabs": HTMLGxgTabsElement;
+        "gxg-test": HTMLGxgTestElement;
+        "gxg-text": HTMLGxgTextElement;
+        "gxg-title": HTMLGxgTitleElement;
+        "gxg-title-editable": HTMLGxgTitleEditableElement;
+        "gxg-toggle": HTMLGxgToggleElement;
+        "gxg-toolbar": HTMLGxgToolbarElement;
+        "gxg-toolbar-item": HTMLGxgToolbarItemElement;
+        "gxg-tooltip": HTMLGxgTooltipElement;
+        "gxg-tree": HTMLGxgTreeElement;
+        "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
+        "gxg-tree-item": HTMLGxgTreeItemElement;
+        "gxg-tree-view": HTMLGxgTreeViewElement;
+        "gxg-window": HTMLGxgWindowElement;
+    }
 }
 declare namespace LocalJSX {
-  interface GxgAccordion {
-    /**
-     * The presence of this attribute makes all of the accordion-items disabled and not focusable
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribue adds a border to each accordion item.
-     */
-    hasBorder?: boolean;
-    /**
-     * The accordion max-width
-     */
-    maxWidth?: string;
-    /**
-     * The accordion flavor
-     */
-    mode?: mode;
-    /**
-     * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
-     */
-    noPadding?: boolean;
-    /**
-     * If this attribute is present, only one accordion-item can be open at the same time
-     */
-    singleItemOpen?: boolean;
-  }
-  interface GxgAccordionItem {
-    /**
-     * The presence of this attribute makes the accordion-item disabled and not focusable
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute makes the accordion title editable
-     */
-    editableTitle?: boolean;
-    /**
-     * The presence of this attribue adds a border to the accordion item.
-     */
-    hasBorder?: boolean;
-    /**
-     * The accordion id
-     */
-    itemId: string;
-    /**
-     * The accordion subtitle (optional)
-     */
-    itemSubtitle?: string;
-    /**
-     * The accordion title
-     */
-    itemTitle?: string;
-    /**
-     * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
-     */
-    mode?: mode;
-    /**
-     * This event is for internal use
-     */
-    onAccordionItemClicked?: (event: CustomEvent<any>) => void;
-    /**
-     * This event is for internal use
-     */
-    onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
-    /**
-     * Subscribe to this event to know when the "title" was clicked
-     */
-    onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
-    /**
-     * If "editable-title" attribute is present, this event emmits the title value when it has changed
-     */
-    onTitleChanged?: (event: CustomEvent<any>) => void;
-    /**
-     * Set the status to "open" if you want the accordion-item open by default
-     */
-    status?: status;
-    /**
-     * The accordion title icon
-     */
-    titleIcon?: string;
-  }
-  interface GxgAlert {
-    /**
-     * Wether the alert is active (visible) or hidden
-     */
-    active?: boolean;
-    /**
-     * The amount of time the alert is visible before hidding under the document
-     */
-    activeTime?: ActiveTime;
-    /**
-     * The spacing between the alert and the bottom side of the document
-     */
-    bottom?: Spacing;
-    /**
-     * The presence of this attribute makes the component full-width
-     */
-    fullWidth?: boolean;
-    /**
-     * The spacing between the alert, and the left or right side of the document
-     */
-    leftRight?: Spacing;
-    /**
-     * The alert position on the X axis
-     */
-    position?: AlertPosition;
-    /**
-     * The presence of this attribute removes the sound on the 'warning' or 'error' alert
-     */
-    silent?: boolean;
-    /**
-     * The alert title (optional)
-     */
-    title?: string;
-    /**
-     * The alert flavor
-     */
-    type?: AlertType;
-    /**
-     * The alert width
-     */
-    width?: string;
-  }
-  interface GxgBox {
-    /**
-     * The background color
-     */
-    background?: background;
-    /**
-     * Wether the box has border or not
-     */
-    border?: boolean;
-    /**
-     * The component  height
-     */
-    height?: string;
-    /**
-     * The component max. width
-     */
-    maxWidth?: string;
-    /**
-     * The component min. height
-     */
-    minHeight?: string;
-    /**
-     * The box padding
-     */
-    padding?: padding;
-  }
-  interface GxgBreadcrumb {
-    /**
-     * The breadcrumb icon (optional)
-     */
-    icon?: string;
-    /**
-     * The breadcrumb id
-     */
-    id: string;
-    /**
-     * This event emmits the breadcrumb index
-     */
-    onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
-  }
-  interface GxgBreadcrumbs {}
-  interface GxgButton {
-    /**
-     * The presence of this attribute makes the icon always black
-     */
-    alwaysBlack?: boolean;
-    /**
-     * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
-     */
-    buttonStylesEditable?: boolean;
-    /**
-     * The state of the button, whether it is disabled or not
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
-     */
-    fit?: boolean;
-    /**
-     * The presence of this attribute makes the component full-width
-     */
-    fullWidth?: boolean;
-    /**
-     * The presence of this attribute with make the icon do a background color animation that will grab user attention
-     */
-    grabAttention?: boolean;
-    /**
-     * The button icon
-     */
-    icon?: any;
-    /**
-     * The prescence of this attribute turns the icon white
-     */
-    negative?: boolean;
-    /**
-     * The kind of button
-     */
-    type?: ButtonType;
-  }
-  interface GxgButtonGroup {
-    /**
-     * The buttons style
-     */
-    activeButtonId?: string;
-    /**
-     * The button-group title
-     */
-    buttonGroupTitle?: string;
-    /**
-     * The id of the button that you would like to be active by default
-     */
-    defaultSelectedBtnId?: string;
-    /**
-     * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
-     */
-    disableActive?: boolean;
-    /**
-     * Wether the button group is disabled or not
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute makes the component full-width
-     */
-    fullWidth?: boolean;
-    /**
-     * The presence of this attribute makes the button group outlined
-     */
-    outlined?: boolean;
-    /**
-     * The button group title alignment
-     */
-    titleAlignment?: TitleAlignment;
-    /**
-     * The buttons style
-     */
-    type?: "primary" | "secondary";
-  }
-  interface GxgCard {
-    /**
-     * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
-     */
-    actionable?: boolean;
-    /**
-     * The background color
-     */
-    background?: background;
-    /**
-     * An optional subtitle
-     */
-    cardSubtitle?: string;
-    /**
-     * An optional title
-     */
-    cardTitle?: string;
-    /**
-     * The card type (only for mercury)
-     */
-    cardType?: CardType;
-    /**
-     * It makes the title editable (only for mercury)
-     */
-    editableTitle?: boolean;
-    /**
-     * The card box-shadow
-     */
-    elevation?: elevation;
-    /**
-     * This is the filter value needed for hiChar.
-     */
-    filterValue?: string;
-    /**
-     * The component height
-     */
-    height?: string;
-    /**
-     * This allows to highlight any character on the card title, or subtitle.
-     */
-    hiChar?: boolean;
-    /**
-     * The card type (only for mercury)
-     */
-    icon?: string;
-    /**
-     * The icon color
-     */
-    iconColor?: Color;
-    /**
-     * The component max. width
-     */
-    maxWidth?: string;
-    /**
-     * The component min. height
-     */
-    minHeight?: string;
-    /**
-     * Removes the header border
-     */
-    noHeaderBorder?: boolean;
-    /**
-     * Remove padding from the top (applies only for the "section" card type)
-     */
-    noPaddingTop?: boolean;
-    /**
-     * Disables box-shadow
-     */
-    noShadow?: boolean;
-    /**
-     * The card padding
-     */
-    padding?: padding;
-    /**
-     * The icon color
-     */
-    subtitleColor?: Color;
-    /**
-     * An optional subtitle icon
-     */
-    subtitleIcon?: string;
-    /**
-     * An optional subtitle link
-     */
-    subtitleLink?: string;
-    /**
-     * Card title semibold
-     */
-    titleSemibold?: boolean;
-  }
-  interface GxgColorPicker {
-    /**
-     * The label of the color picker (optional)
-     */
-    label?: any;
-    onChange?: (event: CustomEvent<any>) => void;
-    onNameInputEvent?: (event: CustomEvent<any>) => void;
-    onSave?: (event: CustomEvent<any>) => void;
-    /**
-     * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
-     */
-    value?: string;
-  }
-  interface GxgColumn {
-    /**
-     * The column width value
-     */
-    width?: WidthType;
-  }
-  interface GxgColumns {
-    /**
-     * The vertical alignment
-     */
-    alignY?: AlignY;
-    /**
-     * The collapse breakpoint
-     */
-    collapseBellow?: CollapseBellow;
-    /**
-     * The spacing between columns
-     */
-    space?: Space;
-  }
-  interface GxgComboBox {
-    /**
-     * The presence of this attribute with make the filter search for values with case sensitive distinction
-     */
-    caseSensitive?: boolean;
-    /**
-     * Centers the label
-     */
-    centerLabel?: boolean;
-    /**
-     * If true, it will position the cursor at the end when the input is focused.
-     */
-    cursorEnd?: boolean;
-    /**
-     * The presence of this attribute disables the clear button
-     */
-    disableClear?: boolean;
-    /**
-     * The presence of this attribute disables the filter
-     */
-    disableFilter?: boolean;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled?: boolean;
-    /**
-     * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
-     */
-    fixedIcon?: string;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    /**
-     * The combo label
-     */
-    label?: string;
-    /**
-     * The input label
-     */
-    labelPosition?: LabelPosition;
-    /**
-     * The label width
-     */
-    labelWidth?: any;
-    /**
-     * The combo list max height
-     */
-    listMaxHeight?: string;
-    /**
-     * The container 'items container' position
-     */
-    listPosition?: ListPosition;
-    /**
-     * The combo max-width
-     */
-    maxWidth?: string;
-    /**
-     * The combo min-width
-     */
-    minWidth?: string;
-    /**
-     * This event is triggered when the combo dropdown has closed
-     */
-    onClosed?: (event: CustomEvent<any>) => void;
-    /**
-     * This event is triggered when the combo dropdown is opened
-     */
-    onOpened?: (event: CustomEvent<any>) => void;
-    /**
-     * This event is triggered when the combo dropdown has toggled (opened/closed)
-     */
-    onToggled?: (event: CustomEvent<boolean>) => void;
-    /**
-     * This event is triggered when the combo box value changes.
-     */
-    onValueChanged?: (event: CustomEvent<ComboBoxItemValue>) => void;
-    /**
-     * The combo placeholder
-     */
-    placeholder?: string;
-    /**
-     * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
-     */
-    popOver?: boolean;
-    /**
-     * The presence of this attribute makes the commbo required
-     */
-    required?: boolean;
-    /**
-     * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
-     */
-    strict?: boolean;
-    /**
-     * The presence of this attribute displays a tooltip message, instead of a block message below the control
-     */
-    toolTip?: boolean;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-    /**
-     * The current combo box item value
-     */
-    value?: ComboBoxItemValue;
-  }
-  interface GxgComboBoxItem {
-    /**
-     * The presence of this attribute makes this combo-item disabled and not interactive.
-     */
-    disabled?: boolean;
-    /**
-     * True if the text typed on the combo box input is equal to this combo box item text
-     */
-    exactMatch?: boolean;
-    /**
-     * This property hides the combo box item
-     */
-    hidden?: boolean;
-    /**
-     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
-     */
-    icon?: string;
-    /**
-     * (This prop is for internal use).
-     */
-    index?: number;
-    /**
-     * This event is fired when the item has loaded
-     */
-    onItemDidLoad?: (event: CustomEvent<ItemInformation>) => void;
-    /**
-     * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
-     */
-    onItemSelected?: (event: CustomEvent<ItemInformation>) => void;
-    /**
-     * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input.
-     */
-    onKeyDownPressed?: (event: CustomEvent<any>) => void;
-    /**
-     * The presence of this attribute makes this combo-item selected.
-     */
-    selected?: boolean;
-    /**
-     * The item value. If value is not provided, an automatic value will be generated with the innerText.
-     */
-    value?: ComboBoxItemValue;
-  }
-  interface GxgContainer {
-    /**
-     * The title of the container
-     */
-    containerTitle?: string;
-    /**
-     * Dsiplays a border all around the container
-     */
-    displayBorder?: boolean;
-    /**
-     * Removes the component border on the bottom
-     */
-    displayBorderBottom?: boolean;
-    /**
-     * Removes the component border on the end
-     */
-    displayBorderEnd?: boolean;
-    /**
-     * Removes the component border on the start
-     */
-    displayBorderStart?: boolean;
-    /**
-     * Removes the component border on the top
-     */
-    displayBorderTop?: boolean;
-    /**
-     * Makes this component content act as a fieldset
-     */
-    fieldset?: boolean;
-    /**
-     * The footer justification
-     */
-    footerJustify?: footerJustify;
-    /**
-     * The heading justification
-     */
-    headingJustify?: headingJustify;
-    /**
-     * Removes the border top from the footer
-     */
-    noBorderFooter?: boolean;
-    /**
-     * Removes the gap from the content
-     */
-    noContentGap?: boolean;
-    /**
-     * Removes the padding from the content
-     */
-    noContentPadding?: boolean;
-    /**
-     * Removes the padding from the footer
-     */
-    noFooterPadding?: boolean;
-    /**
-     * Removes the border bottom from the heading
-     */
-    noHeadingBorder?: boolean;
-    /**
-     * Removes the padding from the heading
-     */
-    noHeadingPadding?: boolean;
-    /**
-     * The container general padding (applies to .heading, .content, and .footer)
-     */
-    sectionsPadding?: sectionsPadding;
-  }
-  interface GxgContextualMenu {
-    /**
-     * The presence of this attribute makes the menu visible
-     */
-    visible?: boolean;
-  }
-  interface GxgContextualMenuItem {
-    /**
-     * Optional icon
-     */
-    icon?: string;
-    /**
-     * The id
-     */
-    id?: string;
-    onContextualMenuItemSelected?: (event: CustomEvent<string>) => void;
-  }
-  interface GxgContextualMenuSubmenu {}
-  interface GxgDatePicker {
-    /**
-     * The presence of this attribute makes the date-picker always visible
-     */
-    alwaysShow?: boolean;
-    /**
-     * It disabled the date-picker
-     */
-    disabled?: boolean;
-    /**
-     * The datepicker label
-     */
-    label?: string;
-    /**
-     * The max. date
-     */
-    maxDate?: DatePickerDate;
-    /**
-     * The max. width
-     */
-    maxWidth?: string;
-    /**
-     * The min. date
-     */
-    minDate?: DatePickerDate;
-    /**
-     * no weekends available
-     */
-    noWeekends?: boolean;
-    /**
-     * Emits the new selected date
-     */
-    onValueChanged?: (event: CustomEvent<DatePickerDate>) => void;
-    /**
-     * initial date
-     */
-    value?: DatePickerDate;
-  }
-  interface GxgDemo {
-    initiateDemo?: boolean;
-    layerZIndex?: number;
-    modalMessage?: string;
-  }
-  interface GxgDragBox {
-    /**
-     * The presence of this attribute makes this box active
-     */
-    active?: boolean;
-    /**
-     * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
-     */
-    deletable?: boolean;
-    /**
-     * The presence of this attribute disables the box, hidding the drag and drop icon.
-     */
-    disabled?: boolean;
-    /**
-     * This event is for internal use
-     */
-    onClicked?: (event: CustomEvent<any>) => void;
-    /**
-     * This event fires when the "delete" button is pressed
-     */
-    onDeleted?: (event: CustomEvent<any>) => void;
-    /**
-     * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
-     */
-    padding?: Padding;
-    /**
-     * The title
-     */
-    title?: string;
-  }
-  interface GxgDragContainer {
-    /**
-     * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
-     */
-    deletable?: boolean;
-    /**
-     * The presence of this attribute disables the drag and drop functionality.
-     */
-    disable?: boolean;
-    /**
-     * The max-width of the box container
-     */
-    maxWidth?: string;
-    onItemDragEnter?: (event: CustomEvent<any>) => void;
-    onItemDragLeave?: (event: CustomEvent<any>) => void;
-    onItemDragOver?: (event: CustomEvent<any>) => void;
-    onItemDragStart?: (event: CustomEvent<any>) => void;
-    onItemDrop?: (event: CustomEvent<any>) => void;
-    /**
-     * The padding (internal spacing) of the gxg-drag-boxes
-     */
-    padding?: Padding;
-  }
-  interface GxgDropDown {
-    /**
-     * the dropdown height
-     */
-    dropDownHeight?: string;
-    /**
-     * the dropdown icon (optional)
-     */
-    icon?: string;
-    /**
-     * the dropdown label (optional)
-     */
-    label?: string | undefined;
-    /**
-     * The codropdownmbo max-width
-     */
-    maxWidth?: string;
-    /**
-     * The dropdown min-width
-     */
-    minWidth?: string;
-    /**
-     * This events gets fired when the dropdown is closed
-     */
-    onClosed?: (event: CustomEvent<any>) => void;
-    /**
-     * This events gets fired when the dropdown is opened
-     */
-    onOpened?: (event: CustomEvent<any>) => void;
-    /**
-     * The container 'items container' position
-     */
-    position?: "top" | "bottom";
-    /**
-     * Displays the dropdown content
-     */
-    showContent?: boolean;
-    /**
-     * The dropdown width
-     */
-    width?: string;
-  }
-  interface GxgFilter {
-    /**
-     * The left position of the filter, relative to the closest parent with relative position. (optional)
-     */
-    left?: any;
-    /**
-     * The top position of the filter, relative to the closest parent with relative position. (optional)
-     */
-    top?: any;
-  }
-  interface GxgFilterItem {
-    /**
-     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
-     */
-    icon?: string;
-    /**
-     * The item-id (required if you want to know that this item was clicked)
-     */
-    itemId?: any;
-    /**
-     * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
-     */
-    onItemClickedEvent?: (event: CustomEvent<any>) => void;
-    /**
-     * The type (optional)
-     */
-    type?: any;
-  }
-  interface GxgFormCheckbox {
-    /**
-     * Aligns the checkbox to the top of the label (useful when the label is too long)
-     */
-    alignTop?: boolean;
-    /**
-     * The checkbox id
-     */
-    checkboxId?: string;
-    /**
-     * The presence of this attribute makes the checkbox checked by default
-     */
-    checked?: boolean;
-    /**
-     * The presence of this attribute disables the checkbox
-     */
-    disabled?: boolean;
-    /**
-     * The checkbox icon
-     */
-    iconName?: string;
-    /**
-     * The presence of this attribute makes the checkbox indeterminate
-     */
-    indeterminate?: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    /**
-     * The checkbox label
-     */
-    label?: string | undefined;
-    /**
-     * The checkbox name
-     */
-    name?: string;
-    onChange?: (event: CustomEvent<CheckboxInfo>) => void;
-    /**
-     * The presence of this attribute makes the commbo required
-     */
-    required?: boolean;
-    tooltip?: string;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-    /**
-     * The checkbox value
-     */
-    value?: string;
-  }
-  interface GxgFormCheckboxGroup {
-    /**
-     * The presence of this attribute makes all the checkboxes disabled
-     */
-    disabled?: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    onGroupValuesChanged?: (event: CustomEvent<CheckboxesGroupValues>) => void;
-    /**
-     * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
-     */
-    row?: boolean;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-  }
-  interface GxgFormMessage {
-    /**
-     * The type of message
-     */
-    type?: Message;
-  }
-  interface GxgFormRadio {
-    /**
-     * The presence of this attribute makes the radio selected by default
-     */
-    checked?: boolean;
-    /**
-     * The presence of this attribute disables the radio
-     */
-    disabled?: boolean;
-    /**
-     * Styles the radio-button with error attributes
-     */
-    error?: boolean;
-    /**
-     * The radio label
-     */
-    label?: string;
-    /**
-     * The radio name (should be the same for every radio of the same radio-group)
-     */
-    name?: string;
-    /**
-     * (This event is for internal use)
-     */
-    onKeyPressed?: (event: CustomEvent<any>) => void;
-    /**
-     * Emits the id and value of the radio when is checked.
-     */
-    onRadioChecked?: (event: CustomEvent<RadioData>) => void;
-    /**
-     * The radio id
-     */
-    radioId?: string;
-    /**
-     * The radio value
-     */
-    value?: string;
-  }
-  interface GxgFormRadioGroup {
-    /**
-     * Centers the radios if 'row' is true
-     */
-    center?: boolean;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled?: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    /**
-     * The radio group label
-     */
-    label?: string;
-    /**
-     * Emits the value when is changed, and the radio id.
-     */
-    onChange?: (event: CustomEvent<RadioData>) => void;
-    /**
-     * Make the radio-buttons required
-     */
-    required?: boolean;
-    /**
-     * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
-     */
-    row?: boolean;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-    /**
-     * The radio group checked radio value
-     */
-    value?: string;
-  }
-  interface GxgFormText {
-    /**
-     * The type of files the input accepts
-     */
-    acceptFile?: string;
-    /**
-     * The presence of this attribute hides the border.
-     */
-    borderless?: boolean;
-    /**
-     * Centers the label
-     */
-    centerLabel?: boolean;
-    /**
-     * The presence of this attribute displays a clear (cross) button-icon on the right side
-     */
-    clearButton?: boolean;
-    /**
-     * If true, it will position the cursor at the end when the input is focused.
-     */
-    cursorEnd?: boolean;
-    /**
-     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
-     */
-    debounce?: boolean;
-    /**
-     * The debounce delay value. Only applies if 'debounce' is true.
-     */
-    debounceDelay?: number;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled?: boolean;
-    /**
-     * The file list that the user selected (only applies if the input type is "file")
-     */
-    fileList?: FileList;
-    /**
-     * The presence of this attribute disables the tooltip. Useful for the combo-box.
-     */
-    hideTooltip?: boolean;
-    /**
-     * The input icon (optional)
-     */
-    icon?: any;
-    /**
-     * The input icon side
-     */
-    iconPosition?: IconPosition;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    /**
-     * The input label
-     */
-    label?: string;
-    /**
-     * The label position
-     */
-    labelPosition?: LabelPosition;
-    /**
-     * The label width
-     */
-    labelWidth?: any;
-    /**
-     * The input max. length
-     */
-    maxLength?: string;
-    /**
-     * The input max. width
-     */
-    maxWidth?: string;
-    /**
-     * The input min. length
-     */
-    minLength?: string;
-    /**
-     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
-     */
-    minimal?: boolean;
-    /**
-     * Allows multiple files if type is "file"
-     */
-    multiple?: boolean;
-    /**
-     * Returns the input value
-     */
-    onChange?: (event: CustomEvent<any>) => void;
-    /**
-     * The clear button was clicked
-     */
-    onClearButtonClicked?: (event: CustomEvent<any>) => void;
-    /**
-     * File Selected
-     */
-    onFileSelected?: (event: CustomEvent<FileList>) => void;
-    /**
-     * Returns the input value
-     */
-    onInput?: (event: CustomEvent<any>) => void;
-    /**
-     * The clear button was clicked
-     */
-    onValueChanged?: (event: CustomEvent<string>) => void;
-    /**
-     * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
-     */
-    overDarkBackground?: boolean;
-    /**
-     * The presence of this attribute sets the input type as password
-     */
-    password?: boolean;
-    /**
-     * The input placeholder
-     */
-    placeholder?: string;
-    /**
-     * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
-     */
-    preventValueChangedEmit?: boolean;
-    /**
-     * The presence of this attribute makes the input readonly
-     */
-    readonly?: boolean;
-    /**
-     * The presence of this attribute makes this input required
-     */
-    required?: boolean;
-    /**
-     * The text style
-     */
-    textStyle?: Style;
-    /**
-     * The presence of this attribute displays a tooltip message, instead of a block message below the control
-     */
-    toolTip?: boolean;
-    /**
-     * The type of input
-     */
-    type?: InputType;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-    /**
-     * The input value
-     */
-    value?: string;
-    /**
-     * The input width
-     */
-    width?: string;
-  }
-  interface GxgFormTextarea {
-    /**
-     * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
-     */
-    ai?: boolean;
-    /**
-     * Centers the label
-     */
-    centerLabel?: boolean;
-    /**
-     * The presence of this attribute makes the component disabled
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute gives the component error styles
-     */
-    error?: boolean;
-    /**
-     * The textarea height
-     */
-    height?: string;
-    /**
-     * The presence of this attribute will show a validation message if the input has an error
-     */
-    hideValidationMessage?: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    /**
-     * The textarea label
-     */
-    label?: string;
-    /**
-     * The label position
-     */
-    labelPosition?: LabelPosition;
-    /**
-     * The label width
-     */
-    labelWidth?: any;
-    /**
-     * The max-height
-     */
-    maxHeight?: string;
-    /**
-     * The max-width
-     */
-    maxWidth?: string;
-    /**
-     * Emits the ArrowUp keydown event. Only available if ai is true.
-     */
-    onArrowUpPressed?: (event: CustomEvent<any>) => void;
-    /**
-     * Returns the textarea value
-     */
-    onChange?: (event: CustomEvent<any>) => void;
-    /**
-     * Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant
-     */
-    onEnter?: (event: CustomEvent<any>) => void;
-    /**
-     * Returns the textarea value
-     */
-    onInput?: (event: CustomEvent<any>) => void;
-    /**
-     * The textarea placeholder
-     */
-    placeholder?: string;
-    /**
-     * Make the radio-buttons required
-     */
-    required?: boolean;
-    /**
-     * Allow or not text area resize
-     */
-    resize?: boolean;
-    /**
-     * The number of rows
-     */
-    rows?: number;
-    /**
-     * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
-     */
-    singleLine?: boolean;
-    /**
-     * The presence of this attribute displays a tooltip message, instead of a block message below the control
-     */
-    toolTip?: boolean;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-    /**
-     * The textarea value
-     */
-    value?: string;
-    /**
-     * The presence of this attribute gives the component warning styles
-     */
-    warning?: boolean;
-  }
-  interface GxgGrid {
-    fullHeight?: boolean;
-    noBorder?: boolean;
-  }
-  interface GxgIcon {
-    /**
-     * The color of the icon.
-     */
-    color?: Color;
-    /**
-     * The size of the icon. Possible values: regular, small.
-     */
-    size?: Size;
-    /**
-     * The type of icon.
-     */
-    type?: any;
-  }
-  interface GxgIdeLoader {
-    /**
-     * The time the loader will await before abort.
-     */
-    abortTime?: number;
-    /**
-     * The cancel callback
-     */
-    cancelCallback?: IdeLoaderCancelCallback;
-    /**
-     * The cancel button label (optional)
-     */
-    cancelLabel?: string;
-    /**
-     * The container element for the loader.
-     */
-    container?: HTMLElement;
-    /**
-     * The loader description (optional)
-     */
-    description?: string;
-    /**
-     * The loader title (optional)
-     */
-    loaderTitle?: string;
-    onLoaderFinished?: (event: CustomEvent<void>) => void;
-    /**
-     * It shows the loader
-     */
-    show?: boolean;
-  }
-  interface GxgLabel {
-    center?: boolean;
-    disabled?: boolean;
-    for?: string;
-    /**
-     * ******************************* PROPERTIES & STATE *******************************
-     */
-    labelPosition?: LabelPosition;
-    noMargin?: boolean;
-    tooltip?: string;
-    width?: string;
-  }
-  interface GxgListBox {
-    /**
-     * The presence of this attribute allows the list-box to not have any list-box-item selected
-     */
-    allowsEmpty?: boolean;
-    /**
-     * The presence of this attribute adds a border to the bottom
-     */
-    borderBottom?: boolean;
-    /**
-     * The presence of this attribute adds a border to the end
-     */
-    borderEnd?: boolean;
-    /**
-     * The presence of this attribute adds a border to the start
-     */
-    borderStart?: boolean;
-    /**
-     * The presence of this attribute adds a border to the top
-     */
-    borderTop?: boolean;
-    /**
-     * The presence of this attribute will display a checkbox for every item
-     */
-    checkboxes?: boolean;
-    /**
-     * Disable suggestions about keyboard combinations
-     */
-    disableSuggestions?: boolean;
-    /**
-     * The presence of this attribute makes the component disabled
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
-     */
-    emitEmptySelection?: boolean;
-    /**
-     * An informative message to help the user filling the information
-     */
-    informationMessage?: string;
-    /**
-     * An object with suggestions about the possible keyboard combinations
-     */
-    keyboardSuggestions?: KeyboardSuggestions;
-    /**
-     * The presence of this attribute disables the border all around
-     */
-    noBorder?: boolean;
-    onCheckedChanged?: (event: CustomEvent<any>) => void;
-    /**
-     * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
-     */
-    onSelectionChanged?: (event: CustomEvent<SelectionChangedEvent>) => void;
-    /**
-     * Make the radio-buttons required
-     */
-    required?: boolean;
-    /**
-     * The presence of this attribute will deactivate multi-selection
-     */
-    singleSelection?: boolean;
-    /**
-     * The listbox title that appears on the header
-     */
-    theTitle?: string;
-    /**
-     * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-  }
-  interface GxgListBoxItem {
-    /**
-     * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
-     */
-    active?: boolean;
-    /**
-     * The presence of this attribute will add a checkbox to the item.
-     */
-    checkbox?: boolean;
-    /**
-     * The presence of this attribute will make the checkbox checked.
-     */
-    checked?: boolean;
-    /**
-     * The presence of this attribute disabled the list-box-item
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
-     */
-    emitCheckboxChange?: boolean;
-    /**
-     * The presence of this attribute sets this item as highlighted
-     */
-    highlighted?: boolean;
-    /**
-     * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
-     */
-    icon?: string;
-    /**
-     * This property is set by the list-box item. It should not be set by the user.
-     */
-    index?: number;
-    /**
-     * (This event is for internal use.)
-     */
-    onCheckboxStateChanged?: (event: CustomEvent<ItemChecked>) => void;
-    /**
-     * (This event is for internal use.)
-     */
-    onItemClicked?: (event: CustomEvent<ItemClicked>) => void;
-    /**
-     * (This event is for internal use.)
-     */
-    onItemLoaded?: (event: CustomEvent<any>) => void;
-    /**
-     * (This event is for internal use.)
-     */
-    onItemSelected?: (event: CustomEvent<any>) => void;
-    /**
-     * The presence of this attribute sets this item as selected
-     */
-    selected?: boolean;
-    /**
-     * This property is for internal use
-     */
-    siblingIsSelected?: boolean;
-    /**
-     * The item value. If value is not provided, the value will be the item innerHTML.
-     */
-    value?: any;
-  }
-  interface GxgLoader {
-    /**
-     * The prescence of this attribute shows the loader
-     */
-    show?: boolean;
-    /**
-     * The text you want to show under the loader (optional)
-     */
-    text?: string;
-    /**
-     * The z-index positive value you want for the loader when visible (default: 100)
-     */
-    visibleZIndex?: string;
-  }
-  interface GxgMenu {
-    /**
-     * The menu title
-     */
-    menuTitle?: string;
-    /**
-     * Provide this attribute if you are using this menu on the tabs component
-     */
-    tabs?: boolean;
-  }
-  interface GxgMenuItem {
-    active?: boolean;
-    icon?: string;
-    label?: string;
-    onMenuItemActive?: (event: CustomEvent<any>) => void;
-  }
-  interface GxgMenuSlim {
-    /**
-     * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
-     */
-    ellipsis?: boolean;
-    /**
-     * Hides or show the menu with an animation
-     */
-    hidden?: boolean;
-    /**
-     * Hides the menu when an item is selected.
-     */
-    hideOnSelect?: boolean;
-    /**
-     * The menu title
-     */
-    menuTitle?: string;
-    /**
-     * Provide this attribute if you are using this menu on the tabs component
-     */
-    tabs?: boolean;
-  }
-  interface GxgMenuSlimItem {
-    /**
-     * Sets the item as active or not
-     */
-    active?: boolean;
-    /**
-     * Disables the item
-     */
-    disabled?: boolean;
-    /**
-     * Prevents the the text from wrapping into more than one line, adding an ellipsis at the end. This property is set and inherited one the menu.
-     */
-    ellipsis?: boolean;
-    /**
-     * The item iconType
-     */
-    iconType?: string;
-    /**
-     * The item identifier
-     */
-    itemId?: string;
-    /**
-     * The item label
-     */
-    label?: string;
-    /**
-     * This events emits the item id, label, iconType, and a reference to itself
-     */
-    onItemSelected?: (event: CustomEvent<MenuItemSelected>) => void;
-    /**
-     * This events fires when the user presses up or down keys.
-     */
-    onKeyboardNavigation?: (event: CustomEvent<MenuItemFocusChange>) => void;
-  }
-  interface GxgMenuSlimList {
-    /**
-     * The menu-list title
-     */
-    listTitle?: string;
-  }
-  interface GxgModal {
-    flavor?: "classic" | "alternate";
-    /**
-     * The footer justify content type
-     */
-    footerJustifyContent?: string;
-    /**
-     * The presence of this attribute hides the footer.
-     */
-    hideFooter?: boolean;
-    /**
-     * The modal max-width
-     */
-    maxWidth?: string;
-    /**
-     * The modal title
-     */
-    modalTitle?: string;
-    /**
-     * Emmited when the modal was closed
-     */
-    onModalClosed?: (event: CustomEvent<any>) => void;
-    /**
-     * Emmited when the modal was opened
-     */
-    onModalOpened?: (event: CustomEvent<any>) => void;
-    padding?: padding;
-    /**
-     * The presence of this attribute removes the sound that plays when the modal appears
-     */
-    silent?: boolean;
-    /**
-     * Wether the modal is visible or not
-     */
-    visible?: boolean;
-    /**
-     * The modal width
-     */
-    width?: string;
-    /**
-     * The z-index value of the modal
-     */
-    zIndex?: string;
-  }
-  interface GxgMoreInfo {
-    /**
-     * The label
-     */
-    label?: string;
-    /**
-     * (Optional) The "more-info" label. This property goes along with "url" attribute
-     */
-    moreInfoLabel?: string;
-    /**
-     * the tooltip position
-     */
-    position?: position;
-    /**
-     * The url target
-     */
-    target?: target;
-    /**
-     * (Optional) The "more-info" url.
-     */
-    url?: string;
-  }
-  interface GxgOption {
-    /**
-     * The icon name (optional)
-     */
-    iconName?: string;
-    onOptionIsSelected?: (event: CustomEvent<any>) => void;
-    /**
-     * The presence of this attribute makes the option selected by default
-     */
-    selected?: boolean;
-    /**
-     * The value
-     */
-    value?: string;
-  }
-  interface GxgOptionV2 {
-    /**
-     * The icon name (optional)
-     */
-    iconName?: string;
-    onOptionIsSelected?: (event: CustomEvent<any>) => void;
-    /**
-     * The presence of this attribute makes the option selected by default
-     */
-    selected?: boolean;
-    /**
-     * The value
-     */
-    value?: string;
-  }
-  interface GxgOptions {
-    iconDirection?: "vertical" | "horizontal";
-    maxVisibleOptions?: number;
-    maxWidth?: string;
-    position?: "left" | "right";
-    width?: string;
-    zIndex?: string;
-  }
-  interface GxgOptionsItem {
-    disabled?: boolean;
-    onKeyDown?: (event: CustomEvent<any>) => void;
-    onOptionSelected?: (event: CustomEvent<any>) => void;
-  }
-  interface GxgPaginator {
-    /**
-     * The paginator alignment:
-     */
-    alignment?: PaginatorAlignment;
-  }
-  interface GxgPill {
-    /**
-     * The presence of this attribute disables the pill
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute sets auto-height. Useful when the text overflows.
-     */
-    heightAuto?: boolean;
-    /**
-     * The icon
-     */
-    icon?: string;
-    /**
-     * The pill id
-     */
-    id?: string;
-    /**
-     * Stylizes the font with italic (only used in mercury)
-     */
-    italic?: boolean;
-    onPillRemoved?: (event: CustomEvent<string>) => void;
-    /**
-     * The type of pill
-     */
-    type?: PillType;
-  }
-  interface GxgPills {}
-  interface GxgProgressBar {
-    /**
-     * The state of the progress-bar, whether it is disabled or not.
-     */
-    disabled?: boolean;
-    /**
-     * The progress-bar label
-     */
-    label?: string;
-    /**
-     * The max. width
-     */
-    maxWidth?: string;
-    /**
-     * The presence of this attribute removes the sound that plays when the progress-bar finishes
-     */
-    silent?: boolean;
-    /**
-     * The progress value (percentage)
-     */
-    value?: number;
-  }
-  interface GxgScroll {}
-  interface GxgSelect {
-    /**
-     * The presence of this attribute disables the component
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute stylizes the component with error attributes
-     */
-    error?: boolean;
-    /**
-     * This holds the value of the initial selected option
-     */
-    initialValue?: string | undefined;
-    /**
-     * The select label
-     */
-    label?: string;
-    /**
-     * The input label
-     */
-    labelPosition?: LabelPosition;
-    /**
-     * The select max. width
-     */
-    maxWidth?: string;
-    /**
-     * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
-     */
-    minimal?: boolean;
-    /**
-     * Returns the value of the selected option
-     */
-    onChange?: (event: CustomEvent<any>) => void;
-    /**
-     * The presence of this attribute makes this input required
-     */
-    required?: boolean;
-    /**
-     * The maximum number of visible options
-     */
-    size?: string;
-    /**
-     * This holds the value of the selected option
-     */
-    value?: string;
-    /**
-     * The presence of this attribute stylizes the component with warning attributes
-     */
-    warning?: boolean;
-  }
-  interface GxgSelectV2 {
-    /**
-     * The presence of this attribute disables the component
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute stylizes the component with error attributes
-     */
-    error?: boolean;
-    /**
-     * The select label
-     */
-    label?: string;
-    /**
-     * The label position
-     */
-    labelPosition?: LabelPosition;
-    /**
-     * The select max. width
-     */
-    maxWidth?: any;
-    /**
-     * The select min. width
-     */
-    minWidth?: any;
-    /**
-     * Returns the value of the selected option
-     */
-    onChange?: (event: CustomEvent<any>) => void;
-    /**
-     * The presence of this attribute makes this input required
-     */
-    required?: boolean;
-    /**
-     * The maximum number of visible options
-     */
-    size?: string;
-    /**
-     * This holds the value of the selected option
-     */
-    value?: string;
-    /**
-     * The presence of this attribute stylizes the component with warning attributes
-     */
-    warning?: boolean;
-    /**
-     * The select width
-     */
-    width?: string;
-  }
-  interface GxgSeparator {
-    /**
-     * The hr top and bottom margin
-     */
-    margin?: margin;
-    /**
-     * The hr style
-     */
-    type?: string;
-  }
-  interface GxgShortcuts {
-    showKey?: "F10";
-    showTooltip?: boolean;
-    /**
-     * The URL of the shortcut definitions.
-     */
-    src: string;
-    suspend?: boolean;
-  }
-  interface GxgSlider {
-    /**
-     * The state of the slider, whether is disabled or not.
-     */
-    disabled?: boolean;
-    /**
-     * The label
-     */
-    label?: string;
-    /**
-     * The max. value
-     */
-    max?: number;
-    /**
-     * The slider max. width
-     */
-    maxWidth?: string;
-    /**
-     * The initial value
-     */
-    value?: number;
-  }
-  interface GxgSpacerLayout {
-    /**
-     * Add this attribute to make the spacer-layout full height
-     */
-    fullHeight?: boolean;
-    /**
-     * Content justify
-     */
-    justifyContent?: JustifyContent;
-    /**
-     * The orientation
-     */
-    orientation?: Orientation;
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space?: Space;
-  }
-  interface GxgSpacerOne {
-    /**
-     * The spacing value, taken from the "token-spacing" global values
-     */
-    space?: string;
-  }
-  interface GxgSplit {}
-  interface GxgSplitter {
-    /**
-     * The splitter direction
-     */
-    direction?: Direction;
-    /**
-     * The prescence of this attributes forces the splitter to collapse to zero
-     */
-    forceCollapseZero?: boolean;
-    /**
-     * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
-     */
-    knob?: Knob;
-    /**
-     * The splitter min. sizes in pixels
-     */
-    minSize?: string;
-    onDragEnded?: (event: CustomEvent<any>) => void;
-    onDragging?: (event: CustomEvent<any>) => void;
-    /**
-     * The splitter initial sizes, in percentages. The sum should equal 100
-     */
-    sizes?: string;
-  }
-  interface GxgStack {
-    /**
-     * The spacing value between each gxg-column (if any present)
-     */
-    columnsSpace?: any;
-    /**
-     * The spacing value between each stack row
-     */
-    space?: Space;
-  }
-  interface GxgStepper {
-    /**
-     * The state of the stepper, whether is disabled or not.
-     */
-    disabled?: boolean;
-    /**
-     * The label
-     */
-    label?: string | undefined;
-    /**
-     * The label position
-     */
-    labelPosition?: LabelPosition;
-    /**
-     * The max. value
-     */
-    max?: number;
-    /**
-     * The min. value
-     */
-    min?: number;
-    onStepperInput?: (event: CustomEvent<any>) => void;
-    /**
-     * The initial vaule
-     */
-    value?: number;
-  }
-  interface GxgSuggest {
-    /**
-     * The presence of this attribute makes the suggest disabled.
-     */
-    disabled?: boolean;
-    /**
-     * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
-     */
-    ellipsis?: boolean;
-    /**
-     * The message to display for the validation result.
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-  }
-  interface GxgTab {
-    /**
-     * The presence of this attribute makes the display of the tab 'flex' only when is open
-     */
-    flex?: boolean;
-    /**
-     * The presence of this attribute makes the container display flex
-     */
-    flexContainer?: boolean;
-    /**
-     * The container flex-direction, if container is flex.
-     */
-    flexDirection?: TabContainerFlexDirection;
-    /**
-     * The selected tab
-     */
-    isSelected?: boolean;
-    /**
-     * The presence of this attribute removes the tab .container padding
-     */
-    noPadding?: boolean;
-    /**
-     * The presence of this attribute makes the .container overflow property set to 'auto'
-     */
-    overflowAuto?: boolean;
-    /**
-     * The tab id. Should match the "tab" value of the correlative "gxg-tab"
-     */
-    tab?: string;
-  }
-  interface GxgTabBar {
-    /**
-     * The presence of this attribute displays a border-bottom line on the tab bar
-     */
-    displayBorder?: boolean;
-    /**
-     * Hides the tab-bar
-     */
-    hidden?: boolean;
-    /**
-     * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
-     */
-    scrollable?: boolean;
-  }
-  interface GxgTabButton {
-    /**
-     * Provide this attribute to make this button disabled
-     */
-    disabled?: boolean;
-    /**
-     * Hides the tab button
-     */
-    hidden?: boolean;
-    /**
-     * (Optional) provide an icon to this button
-     */
-    icon?: string;
-    /**
-     * Provide this attribute to make this button selected by default
-     */
-    isSelected?: boolean;
-    onPrevOrNextTab?: (event: CustomEvent<any>) => void;
-    onTabActivated?: (event: CustomEvent<any>) => void;
-    /**
-     * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
-     */
-    tab?: string;
-    /**
-     * The button label
-     */
-    tabLabel?: string;
-  }
-  interface GxgTabs {
-    height?: string;
-    maxHeight?: string;
-    minWidth?: string;
-    /**
-     * The presence of this attribute removes the background color (only for mercury)
-     */
-    noBackground?: boolean;
-    /**
-     * The presence of this attribute removes each tab .container padding
-     */
-    noPadding?: boolean;
-    position?: TabsPosition;
-    tabBarBorder?: boolean;
-  }
-  interface GxgTest {}
-  interface GxgText {
-    /**
-     * Disables the interactive types of text
-     */
-    disabled?: boolean;
-    /**
-     * The href (for "link" or "link-gray" types
-     */
-    href?: string;
-    /**
-     * The gemini icon type
-     */
-    icon?: string;
-    /**
-     * The icon alignment on the vertical axis.
-     */
-    iconAlign?: "top" | "center";
-    /**
-     * It will force the icon color to be auto
-     */
-    iconAuto?: boolean;
-    /**
-     * Italic (only for mercury)
-     */
-    italic?: boolean;
-    /**
-     * Max. width
-     */
-    maxWidth?: string;
-    /**
-     * Text padding
-     */
-    padding?: TextPadding;
-    /**
-     * The target (for "link" or "link-gray" types
-     */
-    target?: TargetType;
-    /**
-     * Text alignment
-     */
-    textAlign?: TextAlign;
-    /**
-     * Text type
-     */
-    type?: TextType;
-  }
-  interface GxgTitle {
-    /**
-     * Title type
-     */
-    alignment?: TitleAlignment;
-    /**
-     * Title type
-     */
-    type?: TitleType;
-  }
-  interface GxgTitleEditable {
-    /**
-     * If true, it will allow the title to be edited
-     */
-    clickToEdit?: boolean;
-    /**
-     * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
-     */
-    debounce?: boolean;
-    /**
-     * The debounce delay value. Only applies if 'debounce' is true.
-     */
-    debounceDelay?: number;
-    /**
-     * If true, the title will not be editable
-     */
-    disableEdition?: boolean;
-    /**
-     * The presence of this attribute makes the input disabled
-     */
-    disabled?: boolean;
-    /**
-     * If true, the width of the title will take only the minimum needed space
-     */
-    fluid?: boolean;
-    /**
-     * If true, the width of the title will take only the minimum needed space
-     */
-    focusType?: EditableTitleFocusType;
-    /**
-     * Shows or hides the tooltip
-     */
-    hideTooltip?: boolean;
-    /**
-     * Emitted when the value changes
-     */
-    onValueChanged?: (event: CustomEvent<string>) => void;
-    /**
-     * The title type
-     */
-    titleType?: EditableTitleType;
-    /**
-     * The message to display when validation fails (error)
-     */
-    validationMessage?: string;
-    /**
-     * The validation status
-     */
-    validationStatus?: ValidationStatus;
-    /**
-     * The title value
-     */
-    value?: string;
-  }
-  interface GxgToggle {
-    /**
-     * The state of the toggle. Whether is disabled or not.
-     */
-    disabled?: boolean;
-    /**
-     * The label
-     */
-    label?: string | undefined;
-    /**
-     * If the toggle is active or not
-     */
-    on?: boolean;
-    /**
-     * This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off.
-     */
-    onToggleSwitched?: (event: CustomEvent<any>) => void;
-  }
-  interface GxgToolbar {
-    /**
-     * The toggle arrow position
-     */
-    position?: position;
-    /**
-     * The toolbar title
-     */
-    subtitle?: string;
-    /**
-     * The toolbar subtitle
-     */
-    toolbarTitle?: string;
-  }
-  interface GxgToolbarItem {
-    /**
-     * The state of the toolbar-item, whether it is disabled or not
-     */
-    disabled?: boolean;
-    /**
-     * The toolbar-item icon
-     */
-    icon?: string;
-    /**
-     * The toolbar-item subtitle
-     */
-    subtitle?: string;
-    /**
-     * The toolbar-item title
-     */
-    toolbarItemTitle?: string;
-  }
-  interface GxgTooltip {
-    /**
-     * The alignment
-     */
-    alignEnd?: boolean;
-    /**
-     * Fixed positioned
-     */
-    fixed?: boolean;
-    /**
-     * Displays the tool-tip as flex
-     */
-    flex?: boolean;
-    /**
-     * The label
-     */
-    label?: string;
-    /**
-     * This presence of this property removes the border under the text
-     */
-    noBorder?: boolean;
-    /**
-     * the tooltip position
-     */
-    position?: position;
-  }
-  interface GxgTree {
-    /**
-     * Set this attribute if you want all the items to have a checkbox.
-     */
-    checkbox?: boolean;
-    /**
-     * Set this attribute if you want all the items to be checked by default.
-     */
-    checked?: boolean;
-    /**
-     * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
-     */
-    multiSelection?: boolean;
-    onTreeItemStateChanged?: (
-      event: CustomEvent<TreeItemNewStateEmitted>
-    ) => void;
-    /**
-     * Set this attribute if you want all the items to be opened by default.
-     */
-    opened?: boolean;
-    /**
-     * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
-     */
-    toggleCheckboxes?: boolean;
-  }
-  interface GxgTreeGridDivs {
-    columns?: Array<object>;
-    displayChildren?: DisplayChildren;
-    editCell?: { rowId: number; columnName: string };
-    onAddRow?: (event: CustomEvent<any>) => void;
-    onRemoveRow?: (event: CustomEvent<any>) => void;
-    onSelectedRows?: (event: CustomEvent<any>) => void;
-    rows?: Array<object>;
-    selectedRowsIds?: number;
-    width?: string;
-  }
-  interface GxgTreeItem {
-    /**
-     * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
-     */
-    checkbox?: boolean;
-    /**
-     * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
-     */
-    checked?: boolean;
-    /**
-     * The tree item description.
-     */
-    description?: string;
-    /**
-     * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
-     */
-    disabled?: boolean;
-    /**
-     * This property is for internal use. It indicates that the item has children.
-     */
-    hasChildTree?: boolean;
-    /**
-     * Sets the tree item icon
-     */
-    icon?: string;
-    /**
-     * This property is for internal use. It indicates that the checkbox has an indeterminate state.
-     */
-    indeterminate?: boolean;
-    /**
-     * The tree item label.
-     */
-    label?: string;
-    /**
-     * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
-     */
-    leaf?: boolean;
-    /**
-     * This property is for internal use, when using the treeModel.
-     */
-    numberOfChildren?: number;
-    /**
-     * Emitted when the checkbox was toggled
-     */
-    onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
-    /**
-     * Emitted when the item was double-clicked
-     */
-    onDoubleClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
-    /**
-     * Emitted when the item is not lazy anymore
-     */
-    onLazyChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
-    /**
-     * Emitted when the icon selection was changes
-     */
-    onSelectionChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
-    /**
-     * Emitted when the toggle icon was clicked
-     */
-    onToggleIconClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
-    /**
-     * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
-     */
-    opened?: boolean;
-    /**
-     * The presence of this attribute sets the tree-item as selected
-     */
-    selected?: boolean;
-    /**
-     * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
-     */
-    toggleCheckboxes?: boolean;
-    /**
-     * This property is for passing a tree structure from the tree.
-     */
-    treeModel?: HTMLGxgTreeElement;
-    /**
-     * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
-     */
-    type?: string;
-  }
-  interface GxgTreeView {
-    /**
-     * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
-     */
-    checkDroppableZoneCallback?: (
-      dropInformation: TreeViewDropCheckInfo
-    ) => Promise<boolean>;
-    /**
-     * Set this attribute if you want display a checkbox in all items by default.
-     */
-    checkbox?: boolean;
-    /**
-     * Set this attribute if you want the checkbox to be checked in all items by default. Only works if `checkbox = true`
-     */
-    checked?: boolean;
-    /**
-     * A CSS class to set as the `ch-tree-view` element class.
-     */
-    cssClass?: string;
-    /**
-     * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the items can't be dragged.
-     */
-    dragDisabled?: boolean;
-    /**
-     * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the items won't accept any drops.
-     */
-    dropDisabled?: boolean;
-    /**
-     * Callback that is executed when a list of items request to be dropped into another item.
-     */
-    dropItemsCallback?: (
-      dataTransferInfo: TreeViewDataTransferInfo
-    ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
-    /**
-     * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
-     */
-    editableItems?: boolean;
-    /**
-     * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
-     */
-    filter?: string;
-    /**
-     * This property lets you determine the debounce time (in ms) that the control waits until it processes the changes to the filter property. Consecutive changes to the `filter` property between this range, reset the timeout to process the filter. Only works if `filterType = "caption" | "metadata"`.
-     */
-    filterDebounce?: number;
-    /**
-     * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
-     */
-    filterList?: string[];
-    /**
-     * This property lets you determine the options that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
-     */
-    filterOptions?: TreeViewFilterOptions;
-    /**
-     * This attribute lets you define what kind of filter is applied to items. Only items that satisfy the filter predicate will be displayed.  | Value       | Details                                                                                        | | ----------- | ---------------------------------------------------------------------------------------------- | | `checked`   | Show only the items that have a checkbox and are checked.                                      | | `unchecked` | Show only the items that have a checkbox and are not checked.                                  | | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  | | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. | | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  | | `none`      | Show all items.                                                                                |
-     */
-    filterType?: TreeViewFilterType;
-    /**
-     * Callback that is executed when a item request to load its subitems.
-     */
-    lazyLoadTreeItemsCallback?: (
-      treeItemId: string
-    ) => Promise<TreeViewItemModel[]>;
-    /**
-     * Callback that is executed when a item request to modify its caption.
-     */
-    modifyItemCaptionCallback?: (
-      treeItemId: string,
-      newCaption: string
-    ) => Promise<TreeViewOperationStatusModifyCaption>;
-    /**
-     * Set this attribute if you want to allow multi selection of the items.
-     */
-    multiSelection?: boolean;
-    /**
-     * Fired when the checked items change. This event does not take into account the currently filtered items.
-     */
-    onCheckedItemsChange?: (
-      event: CustomEvent<Map<string, TreeViewItemModelExtended>>
-    ) => void;
-    /**
-     * Fired when an element displays its contextmenu.
-     */
-    onItemContextmenu?: (event: CustomEvent<TreeViewItemContextMenu>) => void;
-    /**
-     * Fired when the user interacts with an item in a way that its reference must be opened.
-     */
-    onItemOpenReference?: (
-      event: CustomEvent<TreeViewItemOpenReferenceInfo>
-    ) => void;
-    /**
-     * Fired when the selected items change.
-     */
-    onSelectedItemsChange?: (
-      event: CustomEvent<TreeViewItemModelExtended[]>
-    ) => void;
-    /**
-     * This property allows us to implement custom rendering of tree items.
-     */
-    renderItem?: (
-      itemModel: TreeViewItemModel,
-      treeState: ChTreeViewRender,
-      treeHasFilter: boolean,
-      lastItem: boolean,
-      level: number
-    ) => any;
-    /**
-     * `true` to display the relation between tree items and tree lists using lines.
-     */
-    showLines?: TreeViewLines;
-    /**
-     * Callback that is executed when the treeModel is changed to order its items.
-     */
-    sortItemsCallback?: (subModel: TreeViewItemModel[]) => void;
-    /**
-     * Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default.
-     */
-    toggleCheckboxes?: boolean;
-    /**
-     * This property lets you define the model of the ch-tree-x control.
-     */
-    treeModel?: TreeViewItemModel[];
-  }
-  interface GxgWindow {
-    /**
-     * Displays the window
-     */
-    displayWindow?: boolean;
-    /**
-     * The window starting height
-     */
-    initialHeight?: string;
-    /**
-     * The window starting width
-     */
-    initialWidth?: string;
-    /**
-     * The window left position. By default the window is horizontally centered
-     */
-    leftPosition?: string;
-    /**
-     * The window max. height
-     */
-    maxHeight?: string;
-    /**
-     * The window max. width
-     */
-    maxWidth?: string;
-    /**
-     * The window min. height
-     */
-    minHeight?: string;
-    /**
-     * The window min. width
-     */
-    minWidth?: string;
-    /**
-     * The window title icon
-     */
-    titleIcon?: string;
-    /**
-     * The window top position. By default the window is vertically centered
-     */
-    topPosition?: string;
-    /**
-     * The window title
-     */
-    windowTitle?: string;
-  }
-  interface IntrinsicElements {
-    "gxg-accordion": GxgAccordion;
-    "gxg-accordion-item": GxgAccordionItem;
-    "gxg-alert": GxgAlert;
-    "gxg-box": GxgBox;
-    "gxg-breadcrumb": GxgBreadcrumb;
-    "gxg-breadcrumbs": GxgBreadcrumbs;
-    "gxg-button": GxgButton;
-    "gxg-button-group": GxgButtonGroup;
-    "gxg-card": GxgCard;
-    "gxg-color-picker": GxgColorPicker;
-    "gxg-column": GxgColumn;
-    "gxg-columns": GxgColumns;
-    "gxg-combo-box": GxgComboBox;
-    "gxg-combo-box-item": GxgComboBoxItem;
-    "gxg-container": GxgContainer;
-    "gxg-contextual-menu": GxgContextualMenu;
-    "gxg-contextual-menu-item": GxgContextualMenuItem;
-    "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
-    "gxg-date-picker": GxgDatePicker;
-    "gxg-demo": GxgDemo;
-    "gxg-drag-box": GxgDragBox;
-    "gxg-drag-container": GxgDragContainer;
-    "gxg-drop-down": GxgDropDown;
-    "gxg-filter": GxgFilter;
-    "gxg-filter-item": GxgFilterItem;
-    "gxg-form-checkbox": GxgFormCheckbox;
-    "gxg-form-checkbox-group": GxgFormCheckboxGroup;
-    "gxg-form-message": GxgFormMessage;
-    "gxg-form-radio": GxgFormRadio;
-    "gxg-form-radio-group": GxgFormRadioGroup;
-    "gxg-form-text": GxgFormText;
-    "gxg-form-textarea": GxgFormTextarea;
-    "gxg-grid": GxgGrid;
-    "gxg-icon": GxgIcon;
-    "gxg-ide-loader": GxgIdeLoader;
-    "gxg-label": GxgLabel;
-    "gxg-list-box": GxgListBox;
-    "gxg-list-box-item": GxgListBoxItem;
-    "gxg-loader": GxgLoader;
-    "gxg-menu": GxgMenu;
-    "gxg-menu-item": GxgMenuItem;
-    "gxg-menu-slim": GxgMenuSlim;
-    "gxg-menu-slim-item": GxgMenuSlimItem;
-    "gxg-menu-slim-list": GxgMenuSlimList;
-    "gxg-modal": GxgModal;
-    "gxg-more-info": GxgMoreInfo;
-    "gxg-option": GxgOption;
-    "gxg-option-v2": GxgOptionV2;
-    "gxg-options": GxgOptions;
-    "gxg-options-item": GxgOptionsItem;
-    "gxg-paginator": GxgPaginator;
-    "gxg-pill": GxgPill;
-    "gxg-pills": GxgPills;
-    "gxg-progress-bar": GxgProgressBar;
-    "gxg-scroll": GxgScroll;
-    "gxg-select": GxgSelect;
-    "gxg-select-v2": GxgSelectV2;
-    "gxg-separator": GxgSeparator;
-    "gxg-shortcuts": GxgShortcuts;
-    "gxg-slider": GxgSlider;
-    "gxg-spacer-layout": GxgSpacerLayout;
-    "gxg-spacer-one": GxgSpacerOne;
-    "gxg-split": GxgSplit;
-    "gxg-splitter": GxgSplitter;
-    "gxg-stack": GxgStack;
-    "gxg-stepper": GxgStepper;
-    "gxg-suggest": GxgSuggest;
-    "gxg-tab": GxgTab;
-    "gxg-tab-bar": GxgTabBar;
-    "gxg-tab-button": GxgTabButton;
-    "gxg-tabs": GxgTabs;
-    "gxg-test": GxgTest;
-    "gxg-text": GxgText;
-    "gxg-title": GxgTitle;
-    "gxg-title-editable": GxgTitleEditable;
-    "gxg-toggle": GxgToggle;
-    "gxg-toolbar": GxgToolbar;
-    "gxg-toolbar-item": GxgToolbarItem;
-    "gxg-tooltip": GxgTooltip;
-    "gxg-tree": GxgTree;
-    "gxg-tree-grid-divs": GxgTreeGridDivs;
-    "gxg-tree-item": GxgTreeItem;
-    "gxg-tree-view": GxgTreeView;
-    "gxg-window": GxgWindow;
-  }
+    interface GxgAccordion {
+        /**
+          * The presence of this attribute makes all of the accordion-items disabled and not focusable
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribue adds a border to each accordion item.
+         */
+        "hasBorder"?: boolean;
+        /**
+          * The accordion max-width
+         */
+        "maxWidth"?: string;
+        /**
+          * The accordion flavor
+         */
+        "mode"?: mode;
+        /**
+          * The presence of this attribues removes the padding (internal spacing) from the accordion items containers. This property only applies for the "classical" or "boxed" modes.
+         */
+        "noPadding"?: boolean;
+        /**
+          * If this attribute is present, only one accordion-item can be open at the same time
+         */
+        "singleItemOpen"?: boolean;
+    }
+    interface GxgAccordionItem {
+        /**
+          * The presence of this attribute makes the accordion-item disabled and not focusable
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute makes the accordion title editable
+         */
+        "editableTitle"?: boolean;
+        /**
+          * The presence of this attribue adds a border to the accordion item.
+         */
+        "hasBorder"?: boolean;
+        /**
+          * The accordion id
+         */
+        "itemId": string;
+        /**
+          * The accordion subtitle (optional)
+         */
+        "itemSubtitle"?: string;
+        /**
+          * The accordion title
+         */
+        "itemTitle"?: string;
+        /**
+          * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
+         */
+        "mode"?: mode1;
+        /**
+          * This event is for internal use
+         */
+        "onAccordionItemClicked"?: (event: GxgAccordionItemCustomEvent<any>) => void;
+        /**
+          * This event is for internal use
+         */
+        "onAccordionItemLoaded"?: (event: GxgAccordionItemCustomEvent<any>) => void;
+        /**
+          * Subscribe to this event to know when the "title" was clicked
+         */
+        "onAccordionTitleClicked"?: (event: GxgAccordionItemCustomEvent<any>) => void;
+        /**
+          * If "editable-title" attribute is present, this event emmits the title value when it has changed
+         */
+        "onTitleChanged"?: (event: GxgAccordionItemCustomEvent<any>) => void;
+        /**
+          * Set the status to "open" if you want the accordion-item open by default
+         */
+        "status"?: status;
+        /**
+          * The accordion title icon
+         */
+        "titleIcon"?: string;
+    }
+    interface GxgAlert {
+        /**
+          * Wether the alert is active (visible) or hidden
+         */
+        "active"?: boolean;
+        /**
+          * The amount of time the alert is visible before hidding under the document
+         */
+        "activeTime"?: ActiveTime;
+        /**
+          * The spacing between the alert and the bottom side of the document
+         */
+        "bottom"?: Spacing;
+        /**
+          * The presence of this attribute makes the component full-width
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The spacing between the alert, and the left or right side of the document
+         */
+        "leftRight"?: Spacing;
+        /**
+          * The alert position on the X axis
+         */
+        "position"?: AlertPosition;
+        /**
+          * The presence of this attribute removes the sound on the 'warning' or 'error' alert
+         */
+        "silent"?: boolean;
+        /**
+          * The alert title (optional)
+         */
+        "title"?: string;
+        /**
+          * The alert flavor
+         */
+        "type"?: AlertType;
+        /**
+          * The alert width
+         */
+        "width"?: string;
+    }
+    interface GxgBox {
+        /**
+          * The background color
+         */
+        "background"?: background;
+        /**
+          * Wether the box has border or not
+         */
+        "border"?: boolean;
+        /**
+          * The component  height
+         */
+        "height"?: string;
+        /**
+          * The component max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The component min. height
+         */
+        "minHeight"?: string;
+        /**
+          * The box padding
+         */
+        "padding"?: padding;
+    }
+    interface GxgBreadcrumb {
+        /**
+          * The breadcrumb icon (optional)
+         */
+        "icon"?: string;
+        /**
+          * The breadcrumb id
+         */
+        "id": string;
+        /**
+          * This event emmits the breadcrumb index
+         */
+        "onBreadcrumbClicked"?: (event: GxgBreadcrumbCustomEvent<any>) => void;
+    }
+    interface GxgBreadcrumbs {
+    }
+    interface GxgButton {
+        /**
+          * The presence of this attribute makes the icon always black
+         */
+        "alwaysBlack"?: boolean;
+        /**
+          * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
+         */
+        "buttonStylesEditable"?: boolean;
+        /**
+          * The state of the button, whether it is disabled or not
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute will force the .native-button to be contained within the gxg-button host element
+         */
+        "fit"?: boolean;
+        /**
+          * The presence of this attribute makes the component full-width
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The presence of this attribute with make the icon do a background color animation that will grab user attention
+         */
+        "grabAttention"?: boolean;
+        /**
+          * The button icon
+         */
+        "icon"?: any;
+        /**
+          * The prescence of this attribute turns the icon white
+         */
+        "negative"?: boolean;
+        /**
+          * The kind of button
+         */
+        "type"?: ButtonType;
+    }
+    interface GxgButtonGroup {
+        /**
+          * The buttons style
+         */
+        "activeButtonId"?: string;
+        /**
+          * The button-group title
+         */
+        "buttonGroupTitle"?: string;
+        /**
+          * The id of the button that you would like to be active by default
+         */
+        "defaultSelectedBtnId"?: string;
+        /**
+          * The presence of this attribute disables the currently active button, meaning that it can not be pressed or clicked.
+         */
+        "disableActive"?: boolean;
+        /**
+          * Wether the button group is disabled or not
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute makes the component full-width
+         */
+        "fullWidth"?: boolean;
+        /**
+          * The presence of this attribute makes the button group outlined
+         */
+        "outlined"?: boolean;
+        /**
+          * The button group title alignment
+         */
+        "titleAlignment"?: TitleAlignment;
+        /**
+          * The buttons style
+         */
+        "type"?: "primary" | "secondary";
+    }
+    interface GxgCard {
+        /**
+          * It applies a different style on hover. Useful when the card is actionable (has an action attached to the click event).
+         */
+        "actionable"?: boolean;
+        /**
+          * The background color
+         */
+        "background"?: background1;
+        /**
+          * An optional subtitle
+         */
+        "cardSubtitle"?: string;
+        /**
+          * An optional title
+         */
+        "cardTitle"?: string;
+        /**
+          * The card type (only for mercury)
+         */
+        "cardType"?: CardType;
+        /**
+          * It makes the title editable (only for mercury)
+         */
+        "editableTitle"?: boolean;
+        /**
+          * The card box-shadow
+         */
+        "elevation"?: elevation;
+        /**
+          * This is the filter value needed for hiChar.
+         */
+        "filterValue"?: string;
+        /**
+          * The component height
+         */
+        "height"?: string;
+        /**
+          * This allows to highlight any character on the card title, or subtitle.
+         */
+        "hiChar"?: boolean;
+        /**
+          * The card type (only for mercury)
+         */
+        "icon"?: string;
+        /**
+          * The icon color
+         */
+        "iconColor"?: Color;
+        /**
+          * The component max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The component min. height
+         */
+        "minHeight"?: string;
+        /**
+          * Removes the header border
+         */
+        "noHeaderBorder"?: boolean;
+        /**
+          * Remove padding from the top (applies only for the "section" card type)
+         */
+        "noPaddingTop"?: boolean;
+        /**
+          * Disables box-shadow
+         */
+        "noShadow"?: boolean;
+        /**
+          * The card padding
+         */
+        "padding"?: padding1;
+        /**
+          * The icon color
+         */
+        "subtitleColor"?: Color;
+        /**
+          * An optional subtitle icon
+         */
+        "subtitleIcon"?: string;
+        /**
+          * An optional subtitle link
+         */
+        "subtitleLink"?: string;
+        /**
+          * Card title semibold
+         */
+        "titleSemibold"?: boolean;
+    }
+    interface GxgColorPicker {
+        /**
+          * The label of the color picker (optional)
+         */
+        "label"?: any;
+        "onChange"?: (event: GxgColorPickerCustomEvent<any>) => void;
+        "onNameInputEvent"?: (event: GxgColorPickerCustomEvent<any>) => void;
+        "onSave"?: (event: GxgColorPickerCustomEvent<any>) => void;
+        /**
+          * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
+         */
+        "value"?: string;
+    }
+    interface GxgColumn {
+        /**
+          * The column width value
+         */
+        "width"?: WidthType;
+    }
+    interface GxgColumns {
+        /**
+          * The vertical alignment
+         */
+        "alignY"?: AlignY;
+        /**
+          * The collapse breakpoint
+         */
+        "collapseBellow"?: CollapseBellow;
+        /**
+          * The spacing between columns
+         */
+        "space"?: Space;
+    }
+    interface GxgComboBox {
+        /**
+          * The presence of this attribute with make the filter search for values with case sensitive distinction
+         */
+        "caseSensitive"?: boolean;
+        /**
+          * Centers the label
+         */
+        "centerLabel"?: boolean;
+        /**
+          * If true, it will position the cursor at the end when the input is focused.
+         */
+        "cursorEnd"?: boolean;
+        /**
+          * The presence of this attribute disables the clear button
+         */
+        "disableClear"?: boolean;
+        /**
+          * The presence of this attribute disables the filter
+         */
+        "disableFilter"?: boolean;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
+         */
+        "fixedIcon"?: string;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        /**
+          * The combo label
+         */
+        "label"?: string;
+        /**
+          * The input label
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * The label width
+         */
+        "labelWidth"?: any;
+        /**
+          * The combo list max height
+         */
+        "listMaxHeight"?: string;
+        /**
+          * The container 'items container' position
+         */
+        "listPosition"?: ListPosition;
+        /**
+          * The combo max-width
+         */
+        "maxWidth"?: string;
+        /**
+          * The combo min-width
+         */
+        "minWidth"?: string;
+        /**
+          * This event is triggered when the combo dropdown has closed
+         */
+        "onClosed"?: (event: GxgComboBoxCustomEvent<any>) => void;
+        /**
+          * This event is triggered when the combo dropdown is opened
+         */
+        "onOpened"?: (event: GxgComboBoxCustomEvent<any>) => void;
+        /**
+          * This event is triggered when the combo dropdown has toggled (opened/closed)
+         */
+        "onToggled"?: (event: GxgComboBoxCustomEvent<boolean>) => void;
+        /**
+          * This event is triggered when the combo box value changes.
+         */
+        "onValueChanged"?: (event: GxgComboBoxCustomEvent<ComboBoxItemValue>) => void;
+        /**
+          * The combo placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
+         */
+        "popOver"?: boolean;
+        /**
+          * The presence of this attribute makes the commbo required
+         */
+        "required"?: boolean;
+        /**
+          * If this attribute is present, "value" will only return something if a comboItem is selected, otherwise it will return undefined. if this attribute is not present, "value" will return the value of the actual comboItem, or whatever text the comboItem has.
+         */
+        "strict"?: boolean;
+        /**
+          * The presence of this attribute displays a tooltip message, instead of a block message below the control
+         */
+        "toolTip"?: boolean;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+        /**
+          * The current combo box item value
+         */
+        "value"?: ComboBoxItemValue;
+    }
+    interface GxgComboBoxItem {
+        /**
+          * The presence of this attribute makes this combo-item disabled and not interactive.
+         */
+        "disabled"?: boolean;
+        /**
+          * True if the text typed on the combo box input is equal to this combo box item text
+         */
+        "exactMatch"?: boolean;
+        /**
+          * This property hides the combo box item
+         */
+        "hidden"?: boolean;
+        /**
+          * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+         */
+        "icon"?: string;
+        /**
+          * (This prop is for internal use).
+         */
+        "index"?: number;
+        /**
+          * This event is fired when the item has loaded
+         */
+        "onItemDidLoad"?: (event: GxgComboBoxItemCustomEvent<ItemInformation>) => void;
+        /**
+          * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
+         */
+        "onItemSelected"?: (event: GxgComboBoxItemCustomEvent<ItemInformation>) => void;
+        /**
+          * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input.
+         */
+        "onKeyDownPressed"?: (event: GxgComboBoxItemCustomEvent<any>) => void;
+        /**
+          * The presence of this attribute makes this combo-item selected.
+         */
+        "selected"?: boolean;
+        /**
+          * The item value. If value is not provided, an automatic value will be generated with the innerText.
+         */
+        "value"?: ComboBoxItemValue1;
+    }
+    interface GxgContainer {
+        /**
+          * The title of the container
+         */
+        "containerTitle"?: string;
+        /**
+          * Dsiplays a border all around the container
+         */
+        "displayBorder"?: boolean;
+        /**
+          * Removes the component border on the bottom
+         */
+        "displayBorderBottom"?: boolean;
+        /**
+          * Removes the component border on the end
+         */
+        "displayBorderEnd"?: boolean;
+        /**
+          * Removes the component border on the start
+         */
+        "displayBorderStart"?: boolean;
+        /**
+          * Removes the component border on the top
+         */
+        "displayBorderTop"?: boolean;
+        /**
+          * Makes this component content act as a fieldset
+         */
+        "fieldset"?: boolean;
+        /**
+          * The footer justification
+         */
+        "footerJustify"?: footerJustify;
+        /**
+          * The heading justification
+         */
+        "headingJustify"?: headingJustify;
+        /**
+          * Removes the border top from the footer
+         */
+        "noBorderFooter"?: boolean;
+        /**
+          * Removes the gap from the content
+         */
+        "noContentGap"?: boolean;
+        /**
+          * Removes the padding from the content
+         */
+        "noContentPadding"?: boolean;
+        /**
+          * Removes the padding from the footer
+         */
+        "noFooterPadding"?: boolean;
+        /**
+          * Removes the border bottom from the heading
+         */
+        "noHeadingBorder"?: boolean;
+        /**
+          * Removes the padding from the heading
+         */
+        "noHeadingPadding"?: boolean;
+        /**
+          * The container general padding (applies to .heading, .content, and .footer)
+         */
+        "sectionsPadding"?: sectionsPadding;
+    }
+    interface GxgContextualMenu {
+        /**
+          * The presence of this attribute makes the menu visible
+         */
+        "visible"?: boolean;
+    }
+    interface GxgContextualMenuItem {
+        /**
+          * Optional icon
+         */
+        "icon"?: string;
+        /**
+          * The id
+         */
+        "id"?: string;
+        "onContextualMenuItemSelected"?: (event: GxgContextualMenuItemCustomEvent<string>) => void;
+    }
+    interface GxgContextualMenuSubmenu {
+    }
+    interface GxgDatePicker {
+        /**
+          * The presence of this attribute makes the date-picker always visible
+         */
+        "alwaysShow"?: boolean;
+        /**
+          * It disabled the date-picker
+         */
+        "disabled"?: boolean;
+        /**
+          * The datepicker label
+         */
+        "label"?: string;
+        /**
+          * The max. date
+         */
+        "maxDate"?: DatePickerDate;
+        /**
+          * The max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The min. date
+         */
+        "minDate"?: DatePickerDate;
+        /**
+          * no weekends available
+         */
+        "noWeekends"?: boolean;
+        /**
+          * Emits the new selected date
+         */
+        "onValueChanged"?: (event: GxgDatePickerCustomEvent<DatePickerDate>) => void;
+        /**
+          * initial date
+         */
+        "value"?: DatePickerDate;
+    }
+    interface GxgDemo {
+        "initiateDemo"?: boolean;
+        "layerZIndex"?: number;
+        "modalMessage"?: string;
+    }
+    interface GxgDragBox {
+        /**
+          * The presence of this attribute makes this box active
+         */
+        "active"?: boolean;
+        /**
+          * The presence of this attribute adds a "delete" button that, when pressed, triggers the "deleted" event
+         */
+        "deletable"?: boolean;
+        /**
+          * The presence of this attribute disables the box, hidding the drag and drop icon.
+         */
+        "disabled"?: boolean;
+        /**
+          * This event is for internal use
+         */
+        "onClicked"?: (event: GxgDragBoxCustomEvent<any>) => void;
+        /**
+          * This event fires when the "delete" button is pressed
+         */
+        "onDeleted"?: (event: GxgDragBoxCustomEvent<any>) => void;
+        /**
+          * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
+         */
+        "padding"?: Padding;
+        /**
+          * The title
+         */
+        "title"?: string;
+    }
+    interface GxgDragContainer {
+        /**
+          * The presence of this attribute adds a "delete" button to each gxg-drag-box. When pressed, the "deleted" event is emmited.
+         */
+        "deletable"?: boolean;
+        /**
+          * The presence of this attribute disables the drag and drop functionality.
+         */
+        "disable"?: boolean;
+        /**
+          * The max-width of the box container
+         */
+        "maxWidth"?: string;
+        "onItemDragEnter"?: (event: GxgDragContainerCustomEvent<any>) => void;
+        "onItemDragLeave"?: (event: GxgDragContainerCustomEvent<any>) => void;
+        "onItemDragOver"?: (event: GxgDragContainerCustomEvent<any>) => void;
+        "onItemDragStart"?: (event: GxgDragContainerCustomEvent<any>) => void;
+        "onItemDrop"?: (event: GxgDragContainerCustomEvent<any>) => void;
+        /**
+          * The padding (internal spacing) of the gxg-drag-boxes
+         */
+        "padding"?: Padding1;
+    }
+    interface GxgDropDown {
+        /**
+          * the dropdown height
+         */
+        "dropDownHeight"?: string;
+        /**
+          * the dropdown icon (optional)
+         */
+        "icon"?: string;
+        /**
+          * the dropdown label (optional)
+         */
+        "label"?: string | undefined;
+        /**
+          * The codropdownmbo max-width
+         */
+        "maxWidth"?: string;
+        /**
+          * The dropdown min-width
+         */
+        "minWidth"?: string;
+        /**
+          * This events gets fired when the dropdown is closed
+         */
+        "onClosed"?: (event: GxgDropDownCustomEvent<any>) => void;
+        /**
+          * This events gets fired when the dropdown is opened
+         */
+        "onOpened"?: (event: GxgDropDownCustomEvent<any>) => void;
+        /**
+          * The container 'items container' position
+         */
+        "position"?: "top" | "bottom";
+        /**
+          * Displays the dropdown content
+         */
+        "showContent"?: boolean;
+        /**
+          * The dropdown width
+         */
+        "width"?: string;
+    }
+    interface GxgFilter {
+        /**
+          * The left position of the filter, relative to the closest parent with relative position. (optional)
+         */
+        "left"?: any;
+        /**
+          * The top position of the filter, relative to the closest parent with relative position. (optional)
+         */
+        "top"?: any;
+    }
+    interface GxgFilterItem {
+        /**
+          * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+         */
+        "icon"?: string;
+        /**
+          * The item-id (required if you want to know that this item was clicked)
+         */
+        "itemId"?: any;
+        /**
+          * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
+         */
+        "onItemClickedEvent"?: (event: GxgFilterItemCustomEvent<any>) => void;
+        /**
+          * The type (optional)
+         */
+        "type"?: any;
+    }
+    interface GxgFormCheckbox {
+        /**
+          * Aligns the checkbox to the top of the label (useful when the label is too long)
+         */
+        "alignTop"?: boolean;
+        /**
+          * The checkbox id
+         */
+        "checkboxId"?: string;
+        /**
+          * The presence of this attribute makes the checkbox checked by default
+         */
+        "checked"?: boolean;
+        /**
+          * The presence of this attribute disables the checkbox
+         */
+        "disabled"?: boolean;
+        /**
+          * The checkbox icon
+         */
+        "iconName"?: string;
+        /**
+          * The presence of this attribute makes the checkbox indeterminate
+         */
+        "indeterminate"?: boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        /**
+          * The checkbox label
+         */
+        "label"?: string | undefined;
+        /**
+          * The checkbox name
+         */
+        "name"?: string;
+        "onChange"?: (event: GxgFormCheckboxCustomEvent<CheckboxInfo>) => void;
+        /**
+          * The presence of this attribute makes the commbo required
+         */
+        "required"?: boolean;
+        "tooltip"?: string;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+        /**
+          * The checkbox value
+         */
+        "value"?: string;
+    }
+    interface GxgFormCheckboxGroup {
+        /**
+          * The presence of this attribute makes all the checkboxes disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        "onGroupValuesChanged"?: (event: GxgFormCheckboxGroupCustomEvent<CheckboxesGroupValues>) => void;
+        /**
+          * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
+         */
+        "row"?: boolean;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+    }
+    interface GxgFormMessage {
+        /**
+          * The type of message
+         */
+        "type"?: Message;
+    }
+    interface GxgFormRadio {
+        /**
+          * The presence of this attribute makes the radio selected by default
+         */
+        "checked"?: boolean;
+        /**
+          * The presence of this attribute disables the radio
+         */
+        "disabled"?: boolean;
+        /**
+          * Styles the radio-button with error attributes
+         */
+        "error"?: boolean;
+        /**
+          * The radio label
+         */
+        "label"?: string;
+        /**
+          * The radio name (should be the same for every radio of the same radio-group)
+         */
+        "name"?: string;
+        /**
+          * (This event is for internal use)
+         */
+        "onKeyPressed"?: (event: GxgFormRadioCustomEvent<any>) => void;
+        /**
+          * Emits the id and value of the radio when is checked.
+         */
+        "onRadioChecked"?: (event: GxgFormRadioCustomEvent<RadioData>) => void;
+        /**
+          * The radio id
+         */
+        "radioId"?: string;
+        /**
+          * The radio value
+         */
+        "value"?: string;
+    }
+    interface GxgFormRadioGroup {
+        /**
+          * Centers the radios if 'row' is true
+         */
+        "center"?: boolean;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        /**
+          * The radio group label
+         */
+        "label"?: string;
+        /**
+          * Emits the value when is changed, and the radio id.
+         */
+        "onChange"?: (event: GxgFormRadioGroupCustomEvent<RadioData1>) => void;
+        /**
+          * Make the radio-buttons required
+         */
+        "required"?: boolean;
+        /**
+          * The presence of this attribute makes the radios be displayed with flex "row", instead of flex "column"
+         */
+        "row"?: boolean;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+        /**
+          * The radio group checked radio value
+         */
+        "value"?: string;
+    }
+    interface GxgFormText {
+        /**
+          * The type of files the input accepts
+         */
+        "acceptFile"?: string;
+        /**
+          * The presence of this attribute hides the border.
+         */
+        "borderless"?: boolean;
+        /**
+          * Centers the label
+         */
+        "centerLabel"?: boolean;
+        /**
+          * The presence of this attribute displays a clear (cross) button-icon on the right side
+         */
+        "clearButton"?: boolean;
+        /**
+          * If true, it will position the cursor at the end when the input is focused.
+         */
+        "cursorEnd"?: boolean;
+        /**
+          * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+         */
+        "debounce"?: boolean;
+        /**
+          * The debounce delay value. Only applies if 'debounce' is true.
+         */
+        "debounceDelay"?: number;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * The file list that the user selected (only applies if the input type is "file")
+         */
+        "fileList"?: FileList;
+        /**
+          * The presence of this attribute disables the tooltip. Useful for the combo-box.
+         */
+        "hideTooltip"?: boolean;
+        /**
+          * The input icon (optional)
+         */
+        "icon"?: any;
+        /**
+          * The input icon side
+         */
+        "iconPosition"?: IconPosition;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        /**
+          * The input label
+         */
+        "label"?: string;
+        /**
+          * The label position
+         */
+        "labelPosition"?: LabelPosition1;
+        /**
+          * The label width
+         */
+        "labelWidth"?: any;
+        /**
+          * The input max. length
+         */
+        "maxLength"?: string;
+        /**
+          * The input max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The input min. length
+         */
+        "minLength"?: string;
+        /**
+          * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+         */
+        "minimal"?: boolean;
+        /**
+          * Allows multiple files if type is "file"
+         */
+        "multiple"?: boolean;
+        /**
+          * Returns the input value
+         */
+        "onChange"?: (event: GxgFormTextCustomEvent<any>) => void;
+        /**
+          * The clear button was clicked
+         */
+        "onClearButtonClicked"?: (event: GxgFormTextCustomEvent<any>) => void;
+        /**
+          * File Selected
+         */
+        "onFileSelected"?: (event: GxgFormTextCustomEvent<FileList>) => void;
+        /**
+          * Returns the input value
+         */
+        "onInput"?: (event: GxgFormTextCustomEvent<any>) => void;
+        /**
+          * The clear button was clicked
+         */
+        "onValueChanged"?: (event: GxgFormTextCustomEvent<string>) => void;
+        /**
+          * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
+         */
+        "overDarkBackground"?: boolean;
+        /**
+          * The presence of this attribute sets the input type as password
+         */
+        "password"?: boolean;
+        /**
+          * The input placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Prevent "valueChanged" event from being emitted (helpful for cases where the event causes a conflict )
+         */
+        "preventValueChangedEmit"?: boolean;
+        /**
+          * The presence of this attribute makes the input readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * The presence of this attribute makes this input required
+         */
+        "required"?: boolean;
+        /**
+          * The text style
+         */
+        "textStyle"?: Style;
+        /**
+          * The presence of this attribute displays a tooltip message, instead of a block message below the control
+         */
+        "toolTip"?: boolean;
+        /**
+          * The type of input
+         */
+        "type"?: InputType;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+        /**
+          * The input value
+         */
+        "value"?: string;
+        /**
+          * The input width
+         */
+        "width"?: string;
+    }
+    interface GxgFormTextarea {
+        /**
+          * This property it is for using the textarea for the ai-assistant in ide-web (Mercury).
+         */
+        "ai"?: boolean;
+        /**
+          * Centers the label
+         */
+        "centerLabel"?: boolean;
+        /**
+          * The presence of this attribute makes the component disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute gives the component error styles
+         */
+        "error"?: boolean;
+        /**
+          * The textarea height
+         */
+        "height"?: string;
+        /**
+          * The presence of this attribute will show a validation message if the input has an error
+         */
+        "hideValidationMessage"?: boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        /**
+          * The textarea label
+         */
+        "label"?: string;
+        /**
+          * The label position
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * The label width
+         */
+        "labelWidth"?: any;
+        /**
+          * The max-height
+         */
+        "maxHeight"?: string;
+        /**
+          * The max-width
+         */
+        "maxWidth"?: string;
+        /**
+          * Emits the ArrowUp keydown event. Only available if ai is true.
+         */
+        "onArrowUpPressed"?: (event: GxgFormTextareaCustomEvent<any>) => void;
+        /**
+          * Returns the textarea value
+         */
+        "onChange"?: (event: GxgFormTextareaCustomEvent<any>) => void;
+        /**
+          * Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant
+         */
+        "onEnter"?: (event: GxgFormTextareaCustomEvent<any>) => void;
+        /**
+          * Returns the textarea value
+         */
+        "onInput"?: (event: GxgFormTextareaCustomEvent<any>) => void;
+        /**
+          * The textarea placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Make the radio-buttons required
+         */
+        "required"?: boolean;
+        /**
+          * Allow or not text area resize
+         */
+        "resize"?: boolean;
+        /**
+          * The number of rows
+         */
+        "rows"?: number;
+        /**
+          * The presence of this attribute forces the textarea to be as tall as an input text. When the textarea gets focus, it ais as tall as the "height: property.
+         */
+        "singleLine"?: boolean;
+        /**
+          * The presence of this attribute displays a tooltip message, instead of a block message below the control
+         */
+        "toolTip"?: boolean;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+        /**
+          * The textarea value
+         */
+        "value"?: string;
+        /**
+          * The presence of this attribute gives the component warning styles
+         */
+        "warning"?: boolean;
+    }
+    interface GxgGrid {
+        "fullHeight"?: boolean;
+        "noBorder"?: boolean;
+    }
+    interface GxgIcon {
+        /**
+          * The color of the icon.
+         */
+        "color"?: Color1;
+        /**
+          * The size of the icon. Possible values: regular, small.
+         */
+        "size"?: Size;
+        /**
+          * The type of icon.
+         */
+        "type"?: any;
+    }
+    interface GxgIdeLoader {
+        /**
+          * The time the loader will await before abort.
+         */
+        "abortTime"?: number;
+        /**
+          * The cancel callback
+         */
+        "cancelCallback"?: IdeLoaderCancelCallback;
+        /**
+          * The cancel button label (optional)
+         */
+        "cancelLabel"?: string;
+        /**
+          * The container element for the loader.
+         */
+        "container"?: HTMLElement;
+        /**
+          * The loader description (optional)
+         */
+        "description"?: string;
+        /**
+          * The loader title (optional)
+         */
+        "loaderTitle"?: string;
+        "onLoaderFinished"?: (event: GxgIdeLoaderCustomEvent<void>) => void;
+        /**
+          * It shows the loader
+         */
+        "show"?: boolean;
+    }
+    interface GxgLabel {
+        "center"?: boolean;
+        "disabled"?: boolean;
+        "for"?: string;
+        /**
+          * ******************************* PROPERTIES & STATE *******************************
+         */
+        "labelPosition"?: LabelPosition;
+        "noMargin"?: boolean;
+        "tooltip"?: string;
+        "width"?: string;
+    }
+    interface GxgListBox {
+        /**
+          * The presence of this attribute allows the list-box to not have any list-box-item selected
+         */
+        "allowsEmpty"?: boolean;
+        /**
+          * The presence of this attribute adds a border to the bottom
+         */
+        "borderBottom"?: boolean;
+        /**
+          * The presence of this attribute adds a border to the end
+         */
+        "borderEnd"?: boolean;
+        /**
+          * The presence of this attribute adds a border to the start
+         */
+        "borderStart"?: boolean;
+        /**
+          * The presence of this attribute adds a border to the top
+         */
+        "borderTop"?: boolean;
+        /**
+          * The presence of this attribute will display a checkbox for every item
+         */
+        "checkboxes"?: boolean;
+        /**
+          * Disable suggestions about keyboard combinations
+         */
+        "disableSuggestions"?: boolean;
+        /**
+          * The presence of this attribute makes the component disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute prevents 'selectionChanged' event from being emitted if the selection is empty.
+         */
+        "emitEmptySelection"?: boolean;
+        /**
+          * An informative message to help the user filling the information
+         */
+        "informationMessage"?: string;
+        /**
+          * An object with suggestions about the possible keyboard combinations
+         */
+        "keyboardSuggestions"?: KeyboardSuggestions;
+        /**
+          * The presence of this attribute disables the border all around
+         */
+        "noBorder"?: boolean;
+        "onCheckedChanged"?: (event: GxgListBoxCustomEvent<any>) => void;
+        /**
+          * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
+         */
+        "onSelectionChanged"?: (event: GxgListBoxCustomEvent<SelectionChangedEvent>) => void;
+        /**
+          * Make the radio-buttons required
+         */
+        "required"?: boolean;
+        /**
+          * The presence of this attribute will deactivate multi-selection
+         */
+        "singleSelection"?: boolean;
+        /**
+          * The listbox title that appears on the header
+         */
+        "theTitle"?: string;
+        /**
+          * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+    }
+    interface GxgListBoxItem {
+        /**
+          * The presence of this attribute sets this item as active (it is as if it was focused) Only one item at a time should be active.
+         */
+        "active"?: boolean;
+        /**
+          * The presence of this attribute will add a checkbox to the item.
+         */
+        "checkbox"?: boolean;
+        /**
+          * The presence of this attribute will make the checkbox checked.
+         */
+        "checked"?: boolean;
+        /**
+          * The presence of this attribute disabled the list-box-item
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute emits the 'checkboxChanged' event every time a checkbox value is changed.
+         */
+        "emitCheckboxChange"?: boolean;
+        /**
+          * The presence of this attribute sets this item as highlighted
+         */
+        "highlighted"?: boolean;
+        /**
+          * Any icon that belongs to Gemini icon library: https://gx-gemini.netlify.app/?path=/story/icons
+         */
+        "icon"?: string;
+        /**
+          * This property is set by the list-box item. It should not be set by the user.
+         */
+        "index"?: number;
+        /**
+          * (This event is for internal use.)
+         */
+        "onCheckboxStateChanged"?: (event: GxgListBoxItemCustomEvent<ItemChecked>) => void;
+        /**
+          * (This event is for internal use.)
+         */
+        "onItemClicked"?: (event: GxgListBoxItemCustomEvent<ItemClicked>) => void;
+        /**
+          * (This event is for internal use.)
+         */
+        "onItemLoaded"?: (event: GxgListBoxItemCustomEvent<any>) => void;
+        /**
+          * (This event is for internal use.)
+         */
+        "onItemSelected"?: (event: GxgListBoxItemCustomEvent<any>) => void;
+        /**
+          * The presence of this attribute sets this item as selected
+         */
+        "selected"?: boolean;
+        /**
+          * This property is for internal use
+         */
+        "siblingIsSelected"?: boolean;
+        /**
+          * The item value. If value is not provided, the value will be the item innerHTML.
+         */
+        "value"?: any;
+    }
+    interface GxgLoader {
+        /**
+          * The prescence of this attribute shows the loader
+         */
+        "show"?: boolean;
+        /**
+          * The text you want to show under the loader (optional)
+         */
+        "text"?: string;
+        /**
+          * The z-index positive value you want for the loader when visible (default: 100)
+         */
+        "visibleZIndex"?: string;
+    }
+    interface GxgMenu {
+        /**
+          * The menu title
+         */
+        "menuTitle"?: string;
+        /**
+          * Provide this attribute if you are using this menu on the tabs component
+         */
+        "tabs"?: boolean;
+    }
+    interface GxgMenuItem {
+        "active"?: boolean;
+        "icon"?: string;
+        "label"?: string;
+        "onMenuItemActive"?: (event: GxgMenuItemCustomEvent<any>) => void;
+    }
+    interface GxgMenuSlim {
+        /**
+          * Prevents the menu-item's text from wrapping into more than one line, adding an ellipsis at the end.
+         */
+        "ellipsis"?: boolean;
+        /**
+          * Hides or show the menu with an animation
+         */
+        "hidden"?: boolean;
+        /**
+          * Hides the menu when an item is selected.
+         */
+        "hideOnSelect"?: boolean;
+        /**
+          * The menu title
+         */
+        "menuTitle"?: string;
+        /**
+          * Provide this attribute if you are using this menu on the tabs component
+         */
+        "tabs"?: boolean;
+    }
+    interface GxgMenuSlimItem {
+        /**
+          * Sets the item as active or not
+         */
+        "active"?: boolean;
+        /**
+          * Disables the item
+         */
+        "disabled"?: boolean;
+        /**
+          * Prevents the the text from wrapping into more than one line, adding an ellipsis at the end. This property is set and inherited one the menu.
+         */
+        "ellipsis"?: boolean;
+        /**
+          * The item iconType
+         */
+        "iconType"?: string;
+        /**
+          * The item identifier
+         */
+        "itemId"?: string;
+        /**
+          * The item label
+         */
+        "label"?: string;
+        /**
+          * This events emits the item id, label, iconType, and a reference to itself
+         */
+        "onItemSelected"?: (event: GxgMenuSlimItemCustomEvent<MenuItemSelected>) => void;
+        /**
+          * This events fires when the user presses up or down keys.
+         */
+        "onKeyboardNavigation"?: (event: GxgMenuSlimItemCustomEvent<MenuItemFocusChange>) => void;
+    }
+    interface GxgMenuSlimList {
+        /**
+          * The menu-list title
+         */
+        "listTitle"?: string;
+    }
+    interface GxgModal {
+        "flavor"?: "classic" | "alternate";
+        /**
+          * The footer justify content type
+         */
+        "footerJustifyContent"?: string;
+        /**
+          * The presence of this attribute hides the footer.
+         */
+        "hideFooter"?: boolean;
+        /**
+          * The modal max-width
+         */
+        "maxWidth"?: string;
+        /**
+          * The modal title
+         */
+        "modalTitle"?: string;
+        /**
+          * Emmited when the modal was closed
+         */
+        "onModalClosed"?: (event: GxgModalCustomEvent<any>) => void;
+        /**
+          * Emmited when the modal was opened
+         */
+        "onModalOpened"?: (event: GxgModalCustomEvent<any>) => void;
+        "padding"?: padding2;
+        /**
+          * The presence of this attribute removes the sound that plays when the modal appears
+         */
+        "silent"?: boolean;
+        /**
+          * Wether the modal is visible or not
+         */
+        "visible"?: boolean;
+        /**
+          * The modal width
+         */
+        "width"?: string;
+        /**
+          * The z-index value of the modal
+         */
+        "zIndex"?: string;
+    }
+    interface GxgMoreInfo {
+        /**
+          * The label
+         */
+        "label"?: string;
+        /**
+          * (Optional) The "more-info" label. This property goes along with "url" attribute
+         */
+        "moreInfoLabel"?: string;
+        /**
+          * the tooltip position
+         */
+        "position"?: position;
+        /**
+          * The url target
+         */
+        "target"?: target;
+        /**
+          * (Optional) The "more-info" url.
+         */
+        "url"?: string;
+    }
+    interface GxgOption {
+        /**
+          * The icon name (optional)
+         */
+        "iconName"?: string;
+        "onOptionIsSelected"?: (event: GxgOptionCustomEvent<any>) => void;
+        /**
+          * The presence of this attribute makes the option selected by default
+         */
+        "selected"?: boolean;
+        /**
+          * The value
+         */
+        "value"?: string;
+    }
+    interface GxgOptionV2 {
+        /**
+          * The icon name (optional)
+         */
+        "iconName"?: string;
+        "onOptionIsSelected"?: (event: GxgOptionV2CustomEvent<any>) => void;
+        /**
+          * The presence of this attribute makes the option selected by default
+         */
+        "selected"?: boolean;
+        /**
+          * The value
+         */
+        "value"?: string;
+    }
+    interface GxgOptions {
+        "iconDirection"?: "vertical" | "horizontal";
+        "maxVisibleOptions"?: number;
+        "maxWidth"?: string;
+        "position"?: "left" | "right";
+        "width"?: string;
+        "zIndex"?: string;
+    }
+    interface GxgOptionsItem {
+        "disabled"?: boolean;
+        "onKeyDown"?: (event: GxgOptionsItemCustomEvent<any>) => void;
+        "onOptionSelected"?: (event: GxgOptionsItemCustomEvent<any>) => void;
+    }
+    interface GxgPaginator {
+        /**
+          * The paginator alignment:
+         */
+        "alignment"?: PaginatorAlignment;
+    }
+    interface GxgPill {
+        /**
+          * The presence of this attribute disables the pill
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute sets auto-height. Useful when the text overflows.
+         */
+        "heightAuto"?: boolean;
+        /**
+          * The icon
+         */
+        "icon"?: string;
+        /**
+          * The pill id
+         */
+        "id"?: string;
+        /**
+          * Stylizes the font with italic (only used in mercury)
+         */
+        "italic"?: boolean;
+        "onPillRemoved"?: (event: GxgPillCustomEvent<string>) => void;
+        /**
+          * The type of pill
+         */
+        "type"?: PillType;
+    }
+    interface GxgPills {
+    }
+    interface GxgProgressBar {
+        /**
+          * The state of the progress-bar, whether it is disabled or not.
+         */
+        "disabled"?: boolean;
+        /**
+          * The progress-bar label
+         */
+        "label"?: string;
+        /**
+          * The max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The presence of this attribute removes the sound that plays when the progress-bar finishes
+         */
+        "silent"?: boolean;
+        /**
+          * The progress value (percentage)
+         */
+        "value"?: number;
+    }
+    interface GxgScroll {
+    }
+    interface GxgSelect {
+        /**
+          * The presence of this attribute disables the component
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute stylizes the component with error attributes
+         */
+        "error"?: boolean;
+        /**
+          * This holds the value of the initial selected option
+         */
+        "initialValue"?: string | undefined;
+        /**
+          * The select label
+         */
+        "label"?: string;
+        /**
+          * The input label
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * The select max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The presence of this attribute hides the border, and sets the background to transparent when the element has no focus
+         */
+        "minimal"?: boolean;
+        /**
+          * Returns the value of the selected option
+         */
+        "onChange"?: (event: GxgSelectCustomEvent<any>) => void;
+        /**
+          * The presence of this attribute makes this input required
+         */
+        "required"?: boolean;
+        /**
+          * The maximum number of visible options
+         */
+        "size"?: string;
+        /**
+          * This holds the value of the selected option
+         */
+        "value"?: string;
+        /**
+          * The presence of this attribute stylizes the component with warning attributes
+         */
+        "warning"?: boolean;
+    }
+    interface GxgSelectV2 {
+        /**
+          * The presence of this attribute disables the component
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute stylizes the component with error attributes
+         */
+        "error"?: boolean;
+        /**
+          * The select label
+         */
+        "label"?: string;
+        /**
+          * The label position
+         */
+        "labelPosition"?: LabelPosition2;
+        /**
+          * The select max. width
+         */
+        "maxWidth"?: any;
+        /**
+          * The select min. width
+         */
+        "minWidth"?: any;
+        /**
+          * Returns the value of the selected option
+         */
+        "onChange"?: (event: GxgSelectV2CustomEvent<any>) => void;
+        /**
+          * The presence of this attribute makes this input required
+         */
+        "required"?: boolean;
+        /**
+          * The maximum number of visible options
+         */
+        "size"?: string;
+        /**
+          * This holds the value of the selected option
+         */
+        "value"?: string;
+        /**
+          * The presence of this attribute stylizes the component with warning attributes
+         */
+        "warning"?: boolean;
+        /**
+          * The select width
+         */
+        "width"?: string;
+    }
+    interface GxgSeparator {
+        /**
+          * The hr top and bottom margin
+         */
+        "margin"?: margin;
+        /**
+          * The hr style
+         */
+        "type"?: string;
+    }
+    interface GxgShortcuts {
+        "showKey"?: "F10";
+        "showTooltip"?: boolean;
+        /**
+          * The URL of the shortcut definitions.
+         */
+        "src": string;
+        "suspend"?: boolean;
+    }
+    interface GxgSlider {
+        /**
+          * The state of the slider, whether is disabled or not.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label
+         */
+        "label"?: string;
+        /**
+          * The max. value
+         */
+        "max"?: number;
+        /**
+          * The slider max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The initial value
+         */
+        "value"?: number;
+    }
+    interface GxgSpacerLayout {
+        /**
+          * Add this attribute to make the spacer-layout full height
+         */
+        "fullHeight"?: boolean;
+        /**
+          * Content justify
+         */
+        "justifyContent"?: JustifyContent;
+        /**
+          * The orientation
+         */
+        "orientation"?: Orientation;
+        /**
+          * The spacing value, taken from the "token-spacing" global values
+         */
+        "space"?: Space1;
+    }
+    interface GxgSpacerOne {
+        /**
+          * The spacing value, taken from the "token-spacing" global values
+         */
+        "space"?: string;
+    }
+    interface GxgSplit {
+    }
+    interface GxgSplitter {
+        /**
+          * The splitter direction
+         */
+        "direction"?: Direction;
+        /**
+          * The prescence of this attributes forces the splitter to collapse to zero
+         */
+        "forceCollapseZero"?: boolean;
+        /**
+          * The type of knob (simple: only draggable - bidirectional: draggable and collapsable by clicking the arrows)
+         */
+        "knob"?: Knob;
+        /**
+          * The splitter min. sizes in pixels
+         */
+        "minSize"?: string;
+        "onDragEnded"?: (event: GxgSplitterCustomEvent<any>) => void;
+        "onDragging"?: (event: GxgSplitterCustomEvent<any>) => void;
+        /**
+          * The splitter initial sizes, in percentages. The sum should equal 100
+         */
+        "sizes"?: string;
+    }
+    interface GxgStack {
+        /**
+          * The spacing value between each gxg-column (if any present)
+         */
+        "columnsSpace"?: any;
+        /**
+          * The spacing value between each stack row
+         */
+        "space"?: Space2;
+    }
+    interface GxgStepper {
+        /**
+          * The state of the stepper, whether is disabled or not.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label
+         */
+        "label"?: string | undefined;
+        /**
+          * The label position
+         */
+        "labelPosition"?: LabelPosition;
+        /**
+          * The max. value
+         */
+        "max"?: number;
+        /**
+          * The min. value
+         */
+        "min"?: number;
+        "onStepperInput"?: (event: GxgStepperCustomEvent<any>) => void;
+        /**
+          * The initial vaule
+         */
+        "value"?: number;
+    }
+    interface GxgSuggest {
+        /**
+          * The presence of this attribute makes the suggest disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * The presence of this attribute forces the suggest list items to not wrap to a second line, and it will display ellipsis. (...)
+         */
+        "ellipsis"?: boolean;
+        /**
+          * The message to display for the validation result.
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+    }
+    interface GxgTab {
+        /**
+          * The presence of this attribute makes the display of the tab 'flex' only when is open
+         */
+        "flex"?: boolean;
+        /**
+          * The presence of this attribute makes the container display flex
+         */
+        "flexContainer"?: boolean;
+        /**
+          * The container flex-direction, if container is flex.
+         */
+        "flexDirection"?: TabContainerFlexDirection;
+        /**
+          * The selected tab
+         */
+        "isSelected"?: boolean;
+        /**
+          * The presence of this attribute removes the tab .container padding
+         */
+        "noPadding"?: boolean;
+        /**
+          * The presence of this attribute makes the .container overflow property set to 'auto'
+         */
+        "overflowAuto"?: boolean;
+        /**
+          * The tab id. Should match the "tab" value of the correlative "gxg-tab"
+         */
+        "tab"?: string;
+    }
+    interface GxgTabBar {
+        /**
+          * The presence of this attribute displays a border-bottom line on the tab bar
+         */
+        "displayBorder"?: boolean;
+        /**
+          * Hides the tab-bar
+         */
+        "hidden"?: boolean;
+        /**
+          * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
+         */
+        "scrollable"?: boolean;
+    }
+    interface GxgTabButton {
+        /**
+          * Provide this attribute to make this button disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Hides the tab button
+         */
+        "hidden"?: boolean;
+        /**
+          * (Optional) provide an icon to this button
+         */
+        "icon"?: string;
+        /**
+          * Provide this attribute to make this button selected by default
+         */
+        "isSelected"?: boolean;
+        "onPrevOrNextTab"?: (event: GxgTabButtonCustomEvent<any>) => void;
+        "onTabActivated"?: (event: GxgTabButtonCustomEvent<any>) => void;
+        /**
+          * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
+         */
+        "tab"?: string;
+        /**
+          * The button label
+         */
+        "tabLabel"?: string;
+    }
+    interface GxgTabs {
+        "height"?: string;
+        "maxHeight"?: string;
+        "minWidth"?: string;
+        /**
+          * The presence of this attribute removes the background color (only for mercury)
+         */
+        "noBackground"?: boolean;
+        /**
+          * The presence of this attribute removes each tab .container padding
+         */
+        "noPadding"?: boolean;
+        "position"?: TabsPosition;
+        "tabBarBorder"?: boolean;
+    }
+    interface GxgTest {
+    }
+    interface GxgText {
+        /**
+          * Disables the interactive types of text
+         */
+        "disabled"?: boolean;
+        /**
+          * The href (for "link" or "link-gray" types
+         */
+        "href"?: string;
+        /**
+          * The gemini icon type
+         */
+        "icon"?: string;
+        /**
+          * The icon alignment on the vertical axis.
+         */
+        "iconAlign"?: "top" | "center";
+        /**
+          * It will force the icon color to be auto
+         */
+        "iconAuto"?: boolean;
+        /**
+          * Italic (only for mercury)
+         */
+        "italic"?: boolean;
+        /**
+          * Max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * Text padding
+         */
+        "padding"?: TextPadding;
+        /**
+          * The target (for "link" or "link-gray" types
+         */
+        "target"?: TargetType;
+        /**
+          * Text alignment
+         */
+        "textAlign"?: TextAlign;
+        /**
+          * Text type
+         */
+        "type"?: TextType;
+    }
+    interface GxgTitle {
+        /**
+          * Title type
+         */
+        "alignment"?: TitleAlignment;
+        /**
+          * Title type
+         */
+        "type"?: TitleType;
+    }
+    interface GxgTitleEditable {
+        /**
+          * If true, it will allow the title to be edited
+         */
+        "clickToEdit"?: boolean;
+        /**
+          * The presence of this attribute activates a debounce for the valueChanged event. This will cause the event to be emitted after 'debounceDelay' time.
+         */
+        "debounce"?: boolean;
+        /**
+          * The debounce delay value. Only applies if 'debounce' is true.
+         */
+        "debounceDelay"?: number;
+        /**
+          * If true, the title will not be editable
+         */
+        "disableEdition"?: boolean;
+        /**
+          * The presence of this attribute makes the input disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the width of the title will take only the minimum needed space
+         */
+        "fluid"?: boolean;
+        /**
+          * If true, the width of the title will take only the minimum needed space
+         */
+        "focusType"?: EditableTitleFocusType;
+        /**
+          * Shows or hides the tooltip
+         */
+        "hideTooltip"?: boolean;
+        /**
+          * Emitted when the value changes
+         */
+        "onValueChanged"?: (event: GxgTitleEditableCustomEvent<string>) => void;
+        /**
+          * The title type
+         */
+        "titleType"?: EditableTitleType;
+        /**
+          * The message to display when validation fails (error)
+         */
+        "validationMessage"?: string;
+        /**
+          * The validation status
+         */
+        "validationStatus"?: ValidationStatus;
+        /**
+          * The title value
+         */
+        "value"?: string;
+    }
+    interface GxgToggle {
+        /**
+          * The state of the toggle. Whether is disabled or not.
+         */
+        "disabled"?: boolean;
+        /**
+          * The label
+         */
+        "label"?: string | undefined;
+        /**
+          * If the toggle is active or not
+         */
+        "on"?: boolean;
+        /**
+          * This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off.
+         */
+        "onToggleSwitched"?: (event: GxgToggleCustomEvent<any>) => void;
+    }
+    interface GxgToolbar {
+        /**
+          * The toggle arrow position
+         */
+        "position"?: position1;
+        /**
+          * The toolbar title
+         */
+        "subtitle"?: string;
+        /**
+          * The toolbar subtitle
+         */
+        "toolbarTitle"?: string;
+    }
+    interface GxgToolbarItem {
+        /**
+          * The state of the toolbar-item, whether it is disabled or not
+         */
+        "disabled"?: boolean;
+        /**
+          * The toolbar-item icon
+         */
+        "icon"?: string;
+        /**
+          * The toolbar-item subtitle
+         */
+        "subtitle"?: string;
+        /**
+          * The toolbar-item title
+         */
+        "toolbarItemTitle"?: string;
+    }
+    interface GxgTooltip {
+        /**
+          * The alignment
+         */
+        "alignEnd"?: boolean;
+        /**
+          * Fixed positioned
+         */
+        "fixed"?: boolean;
+        /**
+          * Displays the tool-tip as flex
+         */
+        "flex"?: boolean;
+        /**
+          * The label
+         */
+        "label"?: string;
+        /**
+          * This presence of this property removes the border under the text
+         */
+        "noBorder"?: boolean;
+        /**
+          * the tooltip position
+         */
+        "position"?: position2;
+    }
+    interface GxgTree {
+        /**
+          * Set this attribute if you want all the items to have a checkbox.
+         */
+        "checkbox"?: boolean;
+        /**
+          * Set this attribute if you want all the items to be checked by default.
+         */
+        "checked"?: boolean;
+        /**
+          * Set this attribute if you want to allow multi selection of the items. This property should only be set on the master tree.
+         */
+        "multiSelection"?: boolean;
+        "onTreeItemStateChanged"?: (event: GxgTreeCustomEvent<TreeItemNewStateEmitted>) => void;
+        /**
+          * Set this attribute if you want all the items to be opened by default.
+         */
+        "opened"?: boolean;
+        /**
+          * Set this attribute if you want all the items checkboxes to be toggled when the parent tree item checkbox is toggled.
+         */
+        "toggleCheckboxes"?: boolean;
+    }
+    interface GxgTreeGridDivs {
+        "columns"?: Array<object>;
+        "displayChildren"?: DisplayChildren;
+        "editCell"?: { rowId: number; columnName: string };
+        "onAddRow"?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+        "onRemoveRow"?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+        "onSelectedRows"?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+        "rows"?: Array<object>;
+        "selectedRowsIds"?: number;
+        "width"?: string;
+    }
+    interface GxgTreeItem {
+        /**
+          * Set this attribute if you want this item to display a checkbox. This attribute is affected by the parent tree-item checkbox attribute, unless it is set in this item.
+         */
+        "checkbox"?: boolean;
+        /**
+          * Set this attribute if you want this item to be checked by default. This attribute is affected by the parent tree-item checked attribute, unless it is set in this item.
+         */
+        "checked"?: boolean;
+        /**
+          * The tree item description.
+         */
+        "description"?: string;
+        /**
+          * The presence of this attribute makes this tree item disabled. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+         */
+        "disabled"?: boolean;
+        /**
+          * This property is for internal use. It indicates that the item has children.
+         */
+        "hasChildTree"?: boolean;
+        /**
+          * Sets the tree item icon
+         */
+        "icon"?: string;
+        /**
+          * This property is for internal use. It indicates that the checkbox has an indeterminate state.
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The tree item label.
+         */
+        "label"?: string;
+        /**
+          * The presence of this attribute indicates that this tree-item is a leaf, meaning it has no children items. If is not a leaf, it will display a +/- icon to toggle/ontoggle the children tree
+         */
+        "leaf"?: boolean;
+        /**
+          * This property is for internal use, when using the treeModel.
+         */
+        "numberOfChildren"?: number;
+        /**
+          * Emitted when the checkbox was toggled
+         */
+        "onCheckboxToggled"?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
+        /**
+          * Emitted when the item was double-clicked
+         */
+        "onDoubleClicked"?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
+        /**
+          * Emitted when the item is not lazy anymore
+         */
+        "onLazyChanged"?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
+        /**
+          * Emitted when the icon selection was changes
+         */
+        "onSelectionChanged"?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
+        /**
+          * Emitted when the toggle icon was clicked
+         */
+        "onToggleIconClicked"?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
+        /**
+          * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
+         */
+        "opened"?: boolean;
+        /**
+          * The presence of this attribute sets the tree-item as selected
+         */
+        "selected"?: boolean;
+        /**
+          * Set this attribute if you want all the children item's checkboxes to be toggled when this item checkbox is toggled. This attribute is affected by the parent tree-item toggleCheckboxes attribute, unless it is set in this item.
+         */
+        "toggleCheckboxes"?: boolean;
+        /**
+          * This property is for passing a tree structure from the tree.
+         */
+        "treeModel"?: HTMLGxgTreeElement;
+        /**
+          * This is the tree-item type/category. This attribute is affected by the parent tree type attribute, unless it is set in this item.
+         */
+        "type"?: string;
+    }
+    interface GxgTreeView {
+        /**
+          * Callback that is executed when an element tries to drop in another item of the tree. Returns whether the drop is valid.
+         */
+        "checkDroppableZoneCallback"?: (
+    dropInformation: TreeViewDropCheckInfo
+  ) => Promise<boolean>;
+        /**
+          * Set this attribute if you want display a checkbox in all items by default.
+         */
+        "checkbox"?: boolean;
+        /**
+          * Set this attribute if you want the checkbox to be checked in all items by default. Only works if `checkbox = true`
+         */
+        "checked"?: boolean;
+        /**
+          * A CSS class to set as the `ch-tree-view` element class.
+         */
+        "cssClass"?: string;
+        /**
+          * This attribute lets you specify if the drag operation is disabled in all items by default. If `true`, the items can't be dragged.
+         */
+        "dragDisabled"?: boolean;
+        /**
+          * This attribute lets you specify if the drop operation is disabled in all items by default. If `true`, the items won't accept any drops.
+         */
+        "dropDisabled"?: boolean;
+        /**
+          * Callback that is executed when a list of items request to be dropped into another item.
+         */
+        "dropItemsCallback"?: (
+    dataTransferInfo: TreeViewDataTransferInfo
+  ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
+        /**
+          * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
+         */
+        "editableItems"?: boolean;
+        /**
+          * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+         */
+        "filter"?: string;
+        /**
+          * This property lets you determine the debounce time (in ms) that the control waits until it processes the changes to the filter property. Consecutive changes to the `filter` property between this range, reset the timeout to process the filter. Only works if `filterType = "caption" | "metadata"`.
+         */
+        "filterDebounce"?: number;
+        /**
+          * This property lets you determine the list of items that will be filtered. Only works if `filterType = "id-list"`.
+         */
+        "filterList"?: string[];
+        /**
+          * This property lets you determine the options that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
+         */
+        "filterOptions"?: TreeViewFilterOptions;
+        /**
+          * This attribute lets you define what kind of filter is applied to items. Only items that satisfy the filter predicate will be displayed.  | Value       | Details                                                                                        | | ----------- | ---------------------------------------------------------------------------------------------- | | `checked`   | Show only the items that have a checkbox and are checked.                                      | | `unchecked` | Show only the items that have a checkbox and are not checked.                                  | | `caption`   | Show only the items whose `caption` satisfies the regex determinate by the `filter` property.  | | `metadata`  | Show only the items whose `metadata` satisfies the regex determinate by the `filter` property. | | `id-list`   | Show only the items that are contained in the array determinate by the `filterList` property.  | | `none`      | Show all items.                                                                                |
+         */
+        "filterType"?: TreeViewFilterType;
+        /**
+          * Callback that is executed when a item request to load its subitems.
+         */
+        "lazyLoadTreeItemsCallback"?: (
+    treeItemId: string
+  ) => Promise<TreeViewItemModel[]>;
+        /**
+          * Callback that is executed when a item request to modify its caption.
+         */
+        "modifyItemCaptionCallback"?: (
+    treeItemId: string,
+    newCaption: string
+  ) => Promise<TreeViewOperationStatusModifyCaption>;
+        /**
+          * Set this attribute if you want to allow multi selection of the items.
+         */
+        "multiSelection"?: boolean;
+        /**
+          * Fired when the checked items change. This event does not take into account the currently filtered items.
+         */
+        "onCheckedItemsChange"?: (event: GxgTreeViewCustomEvent<Map<string, TreeViewItemModelExtended>>) => void;
+        /**
+          * Fired when an element displays its contextmenu.
+         */
+        "onItemContextmenu"?: (event: GxgTreeViewCustomEvent<TreeViewItemContextMenu>) => void;
+        /**
+          * Fired when the user interacts with an item in a way that its reference must be opened.
+         */
+        "onItemOpenReference"?: (event: GxgTreeViewCustomEvent<TreeViewItemOpenReferenceInfo>) => void;
+        /**
+          * Fired when the selected items change.
+         */
+        "onSelectedItemsChange"?: (event: GxgTreeViewCustomEvent<TreeViewItemModelExtended[]>) => void;
+        /**
+          * This property allows us to implement custom rendering of tree items.
+         */
+        "renderItem"?: (
+    itemModel: TreeViewItemModel,
+    treeState: ChTreeViewRender,
+    treeHasFilter: boolean,
+    lastItem: boolean,
+    level: number
+  ) => any;
+        /**
+          * `true` to display the relation between tree items and tree lists using lines.
+         */
+        "showLines"?: TreeViewLines;
+        /**
+          * Callback that is executed when the treeModel is changed to order its items.
+         */
+        "sortItemsCallback"?: (subModel: TreeViewItemModel[]) => void;
+        /**
+          * Set this attribute if you want all the children item's checkboxes to be checked when the parent item checkbox is checked, or to be unchecked when the parent item checkbox is unchecked. This attribute will be used in all items by default.
+         */
+        "toggleCheckboxes"?: boolean;
+        /**
+          * This property lets you define the model of the ch-tree-x control.
+         */
+        "treeModel"?: TreeViewItemModel[];
+    }
+    interface GxgWindow {
+        /**
+          * Displays the window
+         */
+        "displayWindow"?: boolean;
+        /**
+          * The window starting height
+         */
+        "initialHeight"?: string;
+        /**
+          * The window starting width
+         */
+        "initialWidth"?: string;
+        /**
+          * The window left position. By default the window is horizontally centered
+         */
+        "leftPosition"?: string;
+        /**
+          * The window max. height
+         */
+        "maxHeight"?: string;
+        /**
+          * The window max. width
+         */
+        "maxWidth"?: string;
+        /**
+          * The window min. height
+         */
+        "minHeight"?: string;
+        /**
+          * The window min. width
+         */
+        "minWidth"?: string;
+        /**
+          * The window title icon
+         */
+        "titleIcon"?: string;
+        /**
+          * The window top position. By default the window is vertically centered
+         */
+        "topPosition"?: string;
+        /**
+          * The window title
+         */
+        "windowTitle"?: string;
+    }
+    interface IntrinsicElements {
+        "gxg-accordion": GxgAccordion;
+        "gxg-accordion-item": GxgAccordionItem;
+        "gxg-alert": GxgAlert;
+        "gxg-box": GxgBox;
+        "gxg-breadcrumb": GxgBreadcrumb;
+        "gxg-breadcrumbs": GxgBreadcrumbs;
+        "gxg-button": GxgButton;
+        "gxg-button-group": GxgButtonGroup;
+        "gxg-card": GxgCard;
+        "gxg-color-picker": GxgColorPicker;
+        "gxg-column": GxgColumn;
+        "gxg-columns": GxgColumns;
+        "gxg-combo-box": GxgComboBox;
+        "gxg-combo-box-item": GxgComboBoxItem;
+        "gxg-container": GxgContainer;
+        "gxg-contextual-menu": GxgContextualMenu;
+        "gxg-contextual-menu-item": GxgContextualMenuItem;
+        "gxg-contextual-menu-submenu": GxgContextualMenuSubmenu;
+        "gxg-date-picker": GxgDatePicker;
+        "gxg-demo": GxgDemo;
+        "gxg-drag-box": GxgDragBox;
+        "gxg-drag-container": GxgDragContainer;
+        "gxg-drop-down": GxgDropDown;
+        "gxg-filter": GxgFilter;
+        "gxg-filter-item": GxgFilterItem;
+        "gxg-form-checkbox": GxgFormCheckbox;
+        "gxg-form-checkbox-group": GxgFormCheckboxGroup;
+        "gxg-form-message": GxgFormMessage;
+        "gxg-form-radio": GxgFormRadio;
+        "gxg-form-radio-group": GxgFormRadioGroup;
+        "gxg-form-text": GxgFormText;
+        "gxg-form-textarea": GxgFormTextarea;
+        "gxg-grid": GxgGrid;
+        "gxg-icon": GxgIcon;
+        "gxg-ide-loader": GxgIdeLoader;
+        "gxg-label": GxgLabel;
+        "gxg-list-box": GxgListBox;
+        "gxg-list-box-item": GxgListBoxItem;
+        "gxg-loader": GxgLoader;
+        "gxg-menu": GxgMenu;
+        "gxg-menu-item": GxgMenuItem;
+        "gxg-menu-slim": GxgMenuSlim;
+        "gxg-menu-slim-item": GxgMenuSlimItem;
+        "gxg-menu-slim-list": GxgMenuSlimList;
+        "gxg-modal": GxgModal;
+        "gxg-more-info": GxgMoreInfo;
+        "gxg-option": GxgOption;
+        "gxg-option-v2": GxgOptionV2;
+        "gxg-options": GxgOptions;
+        "gxg-options-item": GxgOptionsItem;
+        "gxg-paginator": GxgPaginator;
+        "gxg-pill": GxgPill;
+        "gxg-pills": GxgPills;
+        "gxg-progress-bar": GxgProgressBar;
+        "gxg-scroll": GxgScroll;
+        "gxg-select": GxgSelect;
+        "gxg-select-v2": GxgSelectV2;
+        "gxg-separator": GxgSeparator;
+        "gxg-shortcuts": GxgShortcuts;
+        "gxg-slider": GxgSlider;
+        "gxg-spacer-layout": GxgSpacerLayout;
+        "gxg-spacer-one": GxgSpacerOne;
+        "gxg-split": GxgSplit;
+        "gxg-splitter": GxgSplitter;
+        "gxg-stack": GxgStack;
+        "gxg-stepper": GxgStepper;
+        "gxg-suggest": GxgSuggest;
+        "gxg-tab": GxgTab;
+        "gxg-tab-bar": GxgTabBar;
+        "gxg-tab-button": GxgTabButton;
+        "gxg-tabs": GxgTabs;
+        "gxg-test": GxgTest;
+        "gxg-text": GxgText;
+        "gxg-title": GxgTitle;
+        "gxg-title-editable": GxgTitleEditable;
+        "gxg-toggle": GxgToggle;
+        "gxg-toolbar": GxgToolbar;
+        "gxg-toolbar-item": GxgToolbarItem;
+        "gxg-tooltip": GxgTooltip;
+        "gxg-tree": GxgTree;
+        "gxg-tree-grid-divs": GxgTreeGridDivs;
+        "gxg-tree-item": GxgTreeItem;
+        "gxg-tree-view": GxgTreeView;
+        "gxg-window": GxgWindow;
+    }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
-  export namespace JSX {
-    interface IntrinsicElements {
-      "gxg-accordion": LocalJSX.GxgAccordion &
-        JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
-      "gxg-accordion-item": LocalJSX.GxgAccordionItem &
-        JSXBase.HTMLAttributes<HTMLGxgAccordionItemElement>;
-      "gxg-alert": LocalJSX.GxgAlert &
-        JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
-      "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
-      "gxg-breadcrumb": LocalJSX.GxgBreadcrumb &
-        JSXBase.HTMLAttributes<HTMLGxgBreadcrumbElement>;
-      "gxg-breadcrumbs": LocalJSX.GxgBreadcrumbs &
-        JSXBase.HTMLAttributes<HTMLGxgBreadcrumbsElement>;
-      "gxg-button": LocalJSX.GxgButton &
-        JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
-      "gxg-button-group": LocalJSX.GxgButtonGroup &
-        JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
-      "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
-      "gxg-color-picker": LocalJSX.GxgColorPicker &
-        JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
-      "gxg-column": LocalJSX.GxgColumn &
-        JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
-      "gxg-columns": LocalJSX.GxgColumns &
-        JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
-      "gxg-combo-box": LocalJSX.GxgComboBox &
-        JSXBase.HTMLAttributes<HTMLGxgComboBoxElement>;
-      "gxg-combo-box-item": LocalJSX.GxgComboBoxItem &
-        JSXBase.HTMLAttributes<HTMLGxgComboBoxItemElement>;
-      "gxg-container": LocalJSX.GxgContainer &
-        JSXBase.HTMLAttributes<HTMLGxgContainerElement>;
-      "gxg-contextual-menu": LocalJSX.GxgContextualMenu &
-        JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
-      "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem &
-        JSXBase.HTMLAttributes<HTMLGxgContextualMenuItemElement>;
-      "gxg-contextual-menu-submenu": LocalJSX.GxgContextualMenuSubmenu &
-        JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
-      "gxg-date-picker": LocalJSX.GxgDatePicker &
-        JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
-      "gxg-demo": LocalJSX.GxgDemo & JSXBase.HTMLAttributes<HTMLGxgDemoElement>;
-      "gxg-drag-box": LocalJSX.GxgDragBox &
-        JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
-      "gxg-drag-container": LocalJSX.GxgDragContainer &
-        JSXBase.HTMLAttributes<HTMLGxgDragContainerElement>;
-      "gxg-drop-down": LocalJSX.GxgDropDown &
-        JSXBase.HTMLAttributes<HTMLGxgDropDownElement>;
-      "gxg-filter": LocalJSX.GxgFilter &
-        JSXBase.HTMLAttributes<HTMLGxgFilterElement>;
-      "gxg-filter-item": LocalJSX.GxgFilterItem &
-        JSXBase.HTMLAttributes<HTMLGxgFilterItemElement>;
-      "gxg-form-checkbox": LocalJSX.GxgFormCheckbox &
-        JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
-      "gxg-form-checkbox-group": LocalJSX.GxgFormCheckboxGroup &
-        JSXBase.HTMLAttributes<HTMLGxgFormCheckboxGroupElement>;
-      "gxg-form-message": LocalJSX.GxgFormMessage &
-        JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
-      "gxg-form-radio": LocalJSX.GxgFormRadio &
-        JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
-      "gxg-form-radio-group": LocalJSX.GxgFormRadioGroup &
-        JSXBase.HTMLAttributes<HTMLGxgFormRadioGroupElement>;
-      "gxg-form-text": LocalJSX.GxgFormText &
-        JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
-      "gxg-form-textarea": LocalJSX.GxgFormTextarea &
-        JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
-      "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
-      "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
-      "gxg-ide-loader": LocalJSX.GxgIdeLoader &
-        JSXBase.HTMLAttributes<HTMLGxgIdeLoaderElement>;
-      "gxg-label": LocalJSX.GxgLabel &
-        JSXBase.HTMLAttributes<HTMLGxgLabelElement>;
-      "gxg-list-box": LocalJSX.GxgListBox &
-        JSXBase.HTMLAttributes<HTMLGxgListBoxElement>;
-      "gxg-list-box-item": LocalJSX.GxgListBoxItem &
-        JSXBase.HTMLAttributes<HTMLGxgListBoxItemElement>;
-      "gxg-loader": LocalJSX.GxgLoader &
-        JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
-      "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
-      "gxg-menu-item": LocalJSX.GxgMenuItem &
-        JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
-      "gxg-menu-slim": LocalJSX.GxgMenuSlim &
-        JSXBase.HTMLAttributes<HTMLGxgMenuSlimElement>;
-      "gxg-menu-slim-item": LocalJSX.GxgMenuSlimItem &
-        JSXBase.HTMLAttributes<HTMLGxgMenuSlimItemElement>;
-      "gxg-menu-slim-list": LocalJSX.GxgMenuSlimList &
-        JSXBase.HTMLAttributes<HTMLGxgMenuSlimListElement>;
-      "gxg-modal": LocalJSX.GxgModal &
-        JSXBase.HTMLAttributes<HTMLGxgModalElement>;
-      "gxg-more-info": LocalJSX.GxgMoreInfo &
-        JSXBase.HTMLAttributes<HTMLGxgMoreInfoElement>;
-      "gxg-option": LocalJSX.GxgOption &
-        JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
-      "gxg-option-v2": LocalJSX.GxgOptionV2 &
-        JSXBase.HTMLAttributes<HTMLGxgOptionV2Element>;
-      "gxg-options": LocalJSX.GxgOptions &
-        JSXBase.HTMLAttributes<HTMLGxgOptionsElement>;
-      "gxg-options-item": LocalJSX.GxgOptionsItem &
-        JSXBase.HTMLAttributes<HTMLGxgOptionsItemElement>;
-      "gxg-paginator": LocalJSX.GxgPaginator &
-        JSXBase.HTMLAttributes<HTMLGxgPaginatorElement>;
-      "gxg-pill": LocalJSX.GxgPill & JSXBase.HTMLAttributes<HTMLGxgPillElement>;
-      "gxg-pills": LocalJSX.GxgPills &
-        JSXBase.HTMLAttributes<HTMLGxgPillsElement>;
-      "gxg-progress-bar": LocalJSX.GxgProgressBar &
-        JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
-      "gxg-scroll": LocalJSX.GxgScroll &
-        JSXBase.HTMLAttributes<HTMLGxgScrollElement>;
-      "gxg-select": LocalJSX.GxgSelect &
-        JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
-      "gxg-select-v2": LocalJSX.GxgSelectV2 &
-        JSXBase.HTMLAttributes<HTMLGxgSelectV2Element>;
-      "gxg-separator": LocalJSX.GxgSeparator &
-        JSXBase.HTMLAttributes<HTMLGxgSeparatorElement>;
-      "gxg-shortcuts": LocalJSX.GxgShortcuts &
-        JSXBase.HTMLAttributes<HTMLGxgShortcutsElement>;
-      "gxg-slider": LocalJSX.GxgSlider &
-        JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
-      "gxg-spacer-layout": LocalJSX.GxgSpacerLayout &
-        JSXBase.HTMLAttributes<HTMLGxgSpacerLayoutElement>;
-      "gxg-spacer-one": LocalJSX.GxgSpacerOne &
-        JSXBase.HTMLAttributes<HTMLGxgSpacerOneElement>;
-      "gxg-split": LocalJSX.GxgSplit &
-        JSXBase.HTMLAttributes<HTMLGxgSplitElement>;
-      "gxg-splitter": LocalJSX.GxgSplitter &
-        JSXBase.HTMLAttributes<HTMLGxgSplitterElement>;
-      "gxg-stack": LocalJSX.GxgStack &
-        JSXBase.HTMLAttributes<HTMLGxgStackElement>;
-      "gxg-stepper": LocalJSX.GxgStepper &
-        JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
-      "gxg-suggest": LocalJSX.GxgSuggest &
-        JSXBase.HTMLAttributes<HTMLGxgSuggestElement>;
-      "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;
-      "gxg-tab-bar": LocalJSX.GxgTabBar &
-        JSXBase.HTMLAttributes<HTMLGxgTabBarElement>;
-      "gxg-tab-button": LocalJSX.GxgTabButton &
-        JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
-      "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
-      "gxg-test": LocalJSX.GxgTest & JSXBase.HTMLAttributes<HTMLGxgTestElement>;
-      "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
-      "gxg-title": LocalJSX.GxgTitle &
-        JSXBase.HTMLAttributes<HTMLGxgTitleElement>;
-      "gxg-title-editable": LocalJSX.GxgTitleEditable &
-        JSXBase.HTMLAttributes<HTMLGxgTitleEditableElement>;
-      "gxg-toggle": LocalJSX.GxgToggle &
-        JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
-      "gxg-toolbar": LocalJSX.GxgToolbar &
-        JSXBase.HTMLAttributes<HTMLGxgToolbarElement>;
-      "gxg-toolbar-item": LocalJSX.GxgToolbarItem &
-        JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
-      "gxg-tooltip": LocalJSX.GxgTooltip &
-        JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
-      "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
-      "gxg-tree-grid-divs": LocalJSX.GxgTreeGridDivs &
-        JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
-      "gxg-tree-item": LocalJSX.GxgTreeItem &
-        JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
-      "gxg-tree-view": LocalJSX.GxgTreeView &
-        JSXBase.HTMLAttributes<HTMLGxgTreeViewElement>;
-      "gxg-window": LocalJSX.GxgWindow &
-        JSXBase.HTMLAttributes<HTMLGxgWindowElement>;
+    export namespace JSX {
+        interface IntrinsicElements {
+            "gxg-accordion": LocalJSX.GxgAccordion & JSXBase.HTMLAttributes<HTMLGxgAccordionElement>;
+            "gxg-accordion-item": LocalJSX.GxgAccordionItem & JSXBase.HTMLAttributes<HTMLGxgAccordionItemElement>;
+            "gxg-alert": LocalJSX.GxgAlert & JSXBase.HTMLAttributes<HTMLGxgAlertElement>;
+            "gxg-box": LocalJSX.GxgBox & JSXBase.HTMLAttributes<HTMLGxgBoxElement>;
+            "gxg-breadcrumb": LocalJSX.GxgBreadcrumb & JSXBase.HTMLAttributes<HTMLGxgBreadcrumbElement>;
+            "gxg-breadcrumbs": LocalJSX.GxgBreadcrumbs & JSXBase.HTMLAttributes<HTMLGxgBreadcrumbsElement>;
+            "gxg-button": LocalJSX.GxgButton & JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
+            "gxg-button-group": LocalJSX.GxgButtonGroup & JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
+            "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
+            "gxg-color-picker": LocalJSX.GxgColorPicker & JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
+            "gxg-column": LocalJSX.GxgColumn & JSXBase.HTMLAttributes<HTMLGxgColumnElement>;
+            "gxg-columns": LocalJSX.GxgColumns & JSXBase.HTMLAttributes<HTMLGxgColumnsElement>;
+            "gxg-combo-box": LocalJSX.GxgComboBox & JSXBase.HTMLAttributes<HTMLGxgComboBoxElement>;
+            "gxg-combo-box-item": LocalJSX.GxgComboBoxItem & JSXBase.HTMLAttributes<HTMLGxgComboBoxItemElement>;
+            "gxg-container": LocalJSX.GxgContainer & JSXBase.HTMLAttributes<HTMLGxgContainerElement>;
+            "gxg-contextual-menu": LocalJSX.GxgContextualMenu & JSXBase.HTMLAttributes<HTMLGxgContextualMenuElement>;
+            "gxg-contextual-menu-item": LocalJSX.GxgContextualMenuItem & JSXBase.HTMLAttributes<HTMLGxgContextualMenuItemElement>;
+            "gxg-contextual-menu-submenu": LocalJSX.GxgContextualMenuSubmenu & JSXBase.HTMLAttributes<HTMLGxgContextualMenuSubmenuElement>;
+            "gxg-date-picker": LocalJSX.GxgDatePicker & JSXBase.HTMLAttributes<HTMLGxgDatePickerElement>;
+            "gxg-demo": LocalJSX.GxgDemo & JSXBase.HTMLAttributes<HTMLGxgDemoElement>;
+            "gxg-drag-box": LocalJSX.GxgDragBox & JSXBase.HTMLAttributes<HTMLGxgDragBoxElement>;
+            "gxg-drag-container": LocalJSX.GxgDragContainer & JSXBase.HTMLAttributes<HTMLGxgDragContainerElement>;
+            "gxg-drop-down": LocalJSX.GxgDropDown & JSXBase.HTMLAttributes<HTMLGxgDropDownElement>;
+            "gxg-filter": LocalJSX.GxgFilter & JSXBase.HTMLAttributes<HTMLGxgFilterElement>;
+            "gxg-filter-item": LocalJSX.GxgFilterItem & JSXBase.HTMLAttributes<HTMLGxgFilterItemElement>;
+            "gxg-form-checkbox": LocalJSX.GxgFormCheckbox & JSXBase.HTMLAttributes<HTMLGxgFormCheckboxElement>;
+            "gxg-form-checkbox-group": LocalJSX.GxgFormCheckboxGroup & JSXBase.HTMLAttributes<HTMLGxgFormCheckboxGroupElement>;
+            "gxg-form-message": LocalJSX.GxgFormMessage & JSXBase.HTMLAttributes<HTMLGxgFormMessageElement>;
+            "gxg-form-radio": LocalJSX.GxgFormRadio & JSXBase.HTMLAttributes<HTMLGxgFormRadioElement>;
+            "gxg-form-radio-group": LocalJSX.GxgFormRadioGroup & JSXBase.HTMLAttributes<HTMLGxgFormRadioGroupElement>;
+            "gxg-form-text": LocalJSX.GxgFormText & JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
+            "gxg-form-textarea": LocalJSX.GxgFormTextarea & JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
+            "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
+            "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
+            "gxg-ide-loader": LocalJSX.GxgIdeLoader & JSXBase.HTMLAttributes<HTMLGxgIdeLoaderElement>;
+            "gxg-label": LocalJSX.GxgLabel & JSXBase.HTMLAttributes<HTMLGxgLabelElement>;
+            "gxg-list-box": LocalJSX.GxgListBox & JSXBase.HTMLAttributes<HTMLGxgListBoxElement>;
+            "gxg-list-box-item": LocalJSX.GxgListBoxItem & JSXBase.HTMLAttributes<HTMLGxgListBoxItemElement>;
+            "gxg-loader": LocalJSX.GxgLoader & JSXBase.HTMLAttributes<HTMLGxgLoaderElement>;
+            "gxg-menu": LocalJSX.GxgMenu & JSXBase.HTMLAttributes<HTMLGxgMenuElement>;
+            "gxg-menu-item": LocalJSX.GxgMenuItem & JSXBase.HTMLAttributes<HTMLGxgMenuItemElement>;
+            "gxg-menu-slim": LocalJSX.GxgMenuSlim & JSXBase.HTMLAttributes<HTMLGxgMenuSlimElement>;
+            "gxg-menu-slim-item": LocalJSX.GxgMenuSlimItem & JSXBase.HTMLAttributes<HTMLGxgMenuSlimItemElement>;
+            "gxg-menu-slim-list": LocalJSX.GxgMenuSlimList & JSXBase.HTMLAttributes<HTMLGxgMenuSlimListElement>;
+            "gxg-modal": LocalJSX.GxgModal & JSXBase.HTMLAttributes<HTMLGxgModalElement>;
+            "gxg-more-info": LocalJSX.GxgMoreInfo & JSXBase.HTMLAttributes<HTMLGxgMoreInfoElement>;
+            "gxg-option": LocalJSX.GxgOption & JSXBase.HTMLAttributes<HTMLGxgOptionElement>;
+            "gxg-option-v2": LocalJSX.GxgOptionV2 & JSXBase.HTMLAttributes<HTMLGxgOptionV2Element>;
+            "gxg-options": LocalJSX.GxgOptions & JSXBase.HTMLAttributes<HTMLGxgOptionsElement>;
+            "gxg-options-item": LocalJSX.GxgOptionsItem & JSXBase.HTMLAttributes<HTMLGxgOptionsItemElement>;
+            "gxg-paginator": LocalJSX.GxgPaginator & JSXBase.HTMLAttributes<HTMLGxgPaginatorElement>;
+            "gxg-pill": LocalJSX.GxgPill & JSXBase.HTMLAttributes<HTMLGxgPillElement>;
+            "gxg-pills": LocalJSX.GxgPills & JSXBase.HTMLAttributes<HTMLGxgPillsElement>;
+            "gxg-progress-bar": LocalJSX.GxgProgressBar & JSXBase.HTMLAttributes<HTMLGxgProgressBarElement>;
+            "gxg-scroll": LocalJSX.GxgScroll & JSXBase.HTMLAttributes<HTMLGxgScrollElement>;
+            "gxg-select": LocalJSX.GxgSelect & JSXBase.HTMLAttributes<HTMLGxgSelectElement>;
+            "gxg-select-v2": LocalJSX.GxgSelectV2 & JSXBase.HTMLAttributes<HTMLGxgSelectV2Element>;
+            "gxg-separator": LocalJSX.GxgSeparator & JSXBase.HTMLAttributes<HTMLGxgSeparatorElement>;
+            "gxg-shortcuts": LocalJSX.GxgShortcuts & JSXBase.HTMLAttributes<HTMLGxgShortcutsElement>;
+            "gxg-slider": LocalJSX.GxgSlider & JSXBase.HTMLAttributes<HTMLGxgSliderElement>;
+            "gxg-spacer-layout": LocalJSX.GxgSpacerLayout & JSXBase.HTMLAttributes<HTMLGxgSpacerLayoutElement>;
+            "gxg-spacer-one": LocalJSX.GxgSpacerOne & JSXBase.HTMLAttributes<HTMLGxgSpacerOneElement>;
+            "gxg-split": LocalJSX.GxgSplit & JSXBase.HTMLAttributes<HTMLGxgSplitElement>;
+            "gxg-splitter": LocalJSX.GxgSplitter & JSXBase.HTMLAttributes<HTMLGxgSplitterElement>;
+            "gxg-stack": LocalJSX.GxgStack & JSXBase.HTMLAttributes<HTMLGxgStackElement>;
+            "gxg-stepper": LocalJSX.GxgStepper & JSXBase.HTMLAttributes<HTMLGxgStepperElement>;
+            "gxg-suggest": LocalJSX.GxgSuggest & JSXBase.HTMLAttributes<HTMLGxgSuggestElement>;
+            "gxg-tab": LocalJSX.GxgTab & JSXBase.HTMLAttributes<HTMLGxgTabElement>;
+            "gxg-tab-bar": LocalJSX.GxgTabBar & JSXBase.HTMLAttributes<HTMLGxgTabBarElement>;
+            "gxg-tab-button": LocalJSX.GxgTabButton & JSXBase.HTMLAttributes<HTMLGxgTabButtonElement>;
+            "gxg-tabs": LocalJSX.GxgTabs & JSXBase.HTMLAttributes<HTMLGxgTabsElement>;
+            "gxg-test": LocalJSX.GxgTest & JSXBase.HTMLAttributes<HTMLGxgTestElement>;
+            "gxg-text": LocalJSX.GxgText & JSXBase.HTMLAttributes<HTMLGxgTextElement>;
+            "gxg-title": LocalJSX.GxgTitle & JSXBase.HTMLAttributes<HTMLGxgTitleElement>;
+            "gxg-title-editable": LocalJSX.GxgTitleEditable & JSXBase.HTMLAttributes<HTMLGxgTitleEditableElement>;
+            "gxg-toggle": LocalJSX.GxgToggle & JSXBase.HTMLAttributes<HTMLGxgToggleElement>;
+            "gxg-toolbar": LocalJSX.GxgToolbar & JSXBase.HTMLAttributes<HTMLGxgToolbarElement>;
+            "gxg-toolbar-item": LocalJSX.GxgToolbarItem & JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
+            "gxg-tooltip": LocalJSX.GxgTooltip & JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
+            "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
+            "gxg-tree-grid-divs": LocalJSX.GxgTreeGridDivs & JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
+            "gxg-tree-item": LocalJSX.GxgTreeItem & JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
+            "gxg-tree-view": LocalJSX.GxgTreeView & JSXBase.HTMLAttributes<HTMLGxgTreeViewElement>;
+            "gxg-window": LocalJSX.GxgWindow & JSXBase.HTMLAttributes<HTMLGxgWindowElement>;
+        }
     }
-  }
 }
