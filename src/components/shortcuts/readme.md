@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property           | Attribute      | Description                          | Type      | Default     |
@@ -11,18 +12,18 @@
 | `src` _(required)_ | `src`          | The URL of the shortcut definitions. | `string`  | `undefined` |
 | `suspend`          | `suspend`      |                                      | `boolean` | `false`     |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-test](../test)
+ - [gxg-test](../test)
 
 ### Depends on
 
 - ch-shortcuts
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-shortcuts --> ch-shortcuts
@@ -32,6 +33,6 @@ graph TD;
   style gxg-shortcuts fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

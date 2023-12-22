@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute            | Description                                                                                                                                         | Type                                                   | Default           |
@@ -19,17 +20,19 @@
 | `validationStatus`  | `validation-status`  | The validation status                                                                                                                               | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`             | `value`              | The title value                                                                                                                                     | `string`                                               | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                    | Type                  |
 | -------------- | ------------------------------ | --------------------- |
 | `valueChanged` | Emitted when the value changes | `CustomEvent<string>` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-card](../card)
+ - [gxg-card](../card)
 
 ### Depends on
 
@@ -39,7 +42,6 @@
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-title-editable --> gxg-button
@@ -53,6 +55,6 @@ graph TD;
   style gxg-title-editable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

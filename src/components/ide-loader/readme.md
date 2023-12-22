@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute      | Description                                  | Type          | Default     |
@@ -14,17 +15,20 @@
 | `loaderTitle`    | `loader-title` | The loader title (optional)                  | `string`      | `undefined` |
 | `show`           | `show`         | It shows the loader                          | `boolean`     | `false`     |
 
+
 ## Events
 
 | Event            | Description | Type                |
 | ---------------- | ----------- | ------------------- |
 | `loaderFinished` |             | `CustomEvent<void>` |
 
+
 ## Shadow Parts
 
 | Part               | Description |
 | ------------------ | ----------- |
 | `"loader-wrapper"` |             |
+
 
 ## Dependencies
 
@@ -36,7 +40,6 @@
 - ch-window
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-ide-loader --> gxg-title
@@ -50,6 +53,6 @@ graph TD;
   style gxg-ide-loader fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

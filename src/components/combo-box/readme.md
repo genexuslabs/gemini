@@ -17,6 +17,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute             | Description                                                                                                                                                                                                                                                                                                                  | Type                                                   | Default           |
@@ -45,6 +46,7 @@
 | `validationStatus`   | `validation-status`   | The validation status                                                                                                                                                                                                                                                                                                        | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 | `value`              | `value`               | The current combo box item value                                                                                                                                                                                                                                                                                             | `any`                                                  | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                                                                 | Type                   |
@@ -54,43 +56,73 @@
 | `toggled`      | This event is triggered when the combo dropdown has toggled (opened/closed) | `CustomEvent<boolean>` |
 | `valueChanged` | This event is triggered when the combo box value changes.                   | `CustomEvent<any>`     |
 
+
 ## Methods
 
 ### `close() => Promise<void>`
+
+
 
 #### Returns
 
 Type: `Promise<void>`
 
+
+
 ### `getValueByIndex(index: number) => Promise<string>`
+
+
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `index` | `number` |             |
 
 #### Returns
 
 Type: `Promise<string>`
 
+
+
 ### `open() => Promise<void>`
 
----
-
+*******************************
 METHODS
-
----
+*******************************
 
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `selectInputText() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
 
+
+
 ### `setValueByIndex(index: number) => Promise<boolean>`
+
+
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `index` | `number` |             |
 
 #### Returns
 
 Type: `Promise<boolean>`
+
+
+
 
 ## Dependencies
 
@@ -104,7 +136,6 @@ Type: `Promise<boolean>`
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-combo-box --> gxg-label
@@ -124,6 +155,6 @@ graph TD;
   style gxg-combo-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

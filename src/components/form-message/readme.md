@@ -7,32 +7,33 @@
 </ul>
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description         | Type                                                   | Default           |
 | -------- | --------- | ------------------- | ------------------------------------------------------ | ----------------- |
 | `type`   | `type`    | The type of message | `"error" \| "indeterminate" \| "success" \| "warning"` | `"indeterminate"` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-combo-box](../combo-box)
-- [gxg-form-checkbox](../form-checkbox)
-- [gxg-form-checkbox-group](../form-checkbox-group)
-- [gxg-form-radio-group](../form-radio-group)
-- [gxg-form-text](../form-text)
-- [gxg-form-textarea](../form-textarea)
-- [gxg-list-box](../list-box)
-- [gxg-suggest](../suggest)
-- [gxg-title-editable](../title-editable)
+ - [gxg-combo-box](../combo-box)
+ - [gxg-form-checkbox](../form-checkbox)
+ - [gxg-form-checkbox-group](../form-checkbox-group)
+ - [gxg-form-radio-group](../form-radio-group)
+ - [gxg-form-text](../form-text)
+ - [gxg-form-textarea](../form-textarea)
+ - [gxg-list-box](../list-box)
+ - [gxg-suggest](../suggest)
+ - [gxg-title-editable](../title-editable)
 
 ### Depends on
 
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-message --> gxg-icon
@@ -49,6 +50,6 @@ graph TD;
   style gxg-form-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

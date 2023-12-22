@@ -24,6 +24,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -65,6 +66,8 @@
   </script>
 ```
 
+
+
 ## Properties
 
 | Property                  | Attribute                    | Description                                                                                                                                          | Type                                                                                         | Default           |
@@ -104,6 +107,7 @@
 | `value`                   | `value`                      | The input value                                                                                                                                      | `string`                                                                                     | `undefined`       |
 | `width`                   | `width`                      | The input width                                                                                                                                      | `string`                                                                                     | `"100%"`          |
 
+
 ## Events
 
 | Event                | Description                  | Type                    |
@@ -114,33 +118,47 @@
 | `input`              | Returns the input value      | `CustomEvent<any>`      |
 | `valueChanged`       | The clear button was clicked | `CustomEvent<string>`   |
 
+
 ## Methods
 
 ### `clearInput() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `openFile() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
 
 ### `selectInputText() => Promise<void>`
 
+
+
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 
 ### Used by
 
-- [gxg-accordion-item](../accordion-item)
-- [gxg-combo-box](../combo-box)
-- [gxg-filter](../filter)
+ - [gxg-accordion-item](../accordion-item)
+ - [gxg-combo-box](../combo-box)
+ - [gxg-filter](../filter)
 
 ### Depends on
 
@@ -150,7 +168,6 @@ Type: `Promise<void>`
 - [gxg-tooltip](../tooltip)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-text --> gxg-icon
@@ -166,6 +183,6 @@ graph TD;
   style gxg-form-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

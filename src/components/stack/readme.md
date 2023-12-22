@@ -7,6 +7,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute       | Description                                                | Type                                | Default     |
@@ -14,6 +15,7 @@
 | `columnsSpace` | `columns-space` | The spacing value between each gxg-column (if any present) | `any`                               | `undefined` |
 | `space`        | `space`         | The spacing value between each stack row                   | `"l" \| "m" \| "s" \| "xl" \| "xs"` | `"xs"`      |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

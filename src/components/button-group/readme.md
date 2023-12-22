@@ -16,6 +16,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -27,6 +28,8 @@
     <button id="button3">Button 3</button>
 </gxg-button-group>
 ```
+
+
 
 ## Properties
 
@@ -42,18 +45,18 @@
 | `titleAlignment`       | `title-alignment`         | The button group title alignment                                                                                    | `"center" \| "end" \| "start"` | `"start"`   |
 | `type`                 | `type`                    | The buttons style                                                                                                   | `"primary" \| "secondary"`     | `"primary"` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [gxg-color-picker](../color-picker)
+ - [gxg-color-picker](../color-picker)
 
 ### Depends on
 
 - [gxg-label](../label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-button-group --> gxg-label
@@ -62,6 +65,6 @@ graph TD;
   style gxg-button-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

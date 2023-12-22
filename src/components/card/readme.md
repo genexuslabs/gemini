@@ -14,6 +14,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -27,6 +28,8 @@
     <q>Be who you are and say what you feel, because those who mind don’t matter, and those who matter don’t mind.– Bernard M. Baruch</q>
 </gxg-card>
 ```
+
+
 
 ## Properties
 
@@ -55,6 +58,7 @@
 | `subtitleLink`   | `subtitle-link`    | An optional subtitle link                                                                                              | `string`                                                                                                                                                                                                                 | `undefined` |
 | `titleSemibold`  | `title-semibold`   | Card title semibold                                                                                                    | `boolean`                                                                                                                                                                                                                | `false`     |
 
+
 ## Dependencies
 
 ### Depends on
@@ -63,7 +67,6 @@
 - [gxg-title-editable](../title-editable)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-card --> gxg-icon
@@ -78,6 +81,6 @@ graph TD;
   style gxg-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

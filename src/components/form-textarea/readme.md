@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -32,6 +33,8 @@ btnShowErrors.addEventListener("click", function(){
 </script>
 ```
 
+
+
 ## Properties
 
 | Property                | Attribute                 | Description                                                                                                                                                    | Type                                                   | Default           |
@@ -59,6 +62,7 @@ btnShowErrors.addEventListener("click", function(){
 | `value`                 | `value`                   | The textarea value                                                                                                                                             | `string`                                               | `undefined`       |
 | `warning`               | `warning`                 | The presence of this attribute gives the component warning styles                                                                                              | `boolean`                                              | `false`           |
 
+
 ## Events
 
 | Event            | Description                                                                                  | Type               |
@@ -68,12 +72,14 @@ btnShowErrors.addEventListener("click", function(){
 | `enter`          | Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant | `CustomEvent<any>` |
 | `input`          | Returns the textarea value                                                                   | `CustomEvent<any>` |
 
+
 ## Shadow Parts
 
 | Part                 | Description |
 | -------------------- | ----------- |
 | `"textarea"`         |             |
 | `"textarea-wrapper"` |             |
+
 
 ## Dependencies
 
@@ -85,7 +91,6 @@ btnShowErrors.addEventListener("click", function(){
 - [gxg-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   gxg-form-textarea --> gxg-label
@@ -98,6 +103,6 @@ graph TD;
   style gxg-form-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

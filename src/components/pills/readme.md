@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Usage
 
 ### Usage
@@ -13,16 +14,27 @@
 <gxg-pill icon="gx-server/changes-commit-pending" type="button-with-action">Salt</gxg-pill>
 ```
 
+
+
 ## Methods
 
 ### `getPills(onlyEnabled?: boolean) => Promise<string[]>`
 
 Returns an array with the id's of all the pills
 
+#### Parameters
+
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| `onlyEnabled` | `boolean` |             |
+
 #### Returns
 
 Type: `Promise<string[]>`
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
