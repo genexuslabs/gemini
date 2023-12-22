@@ -111,7 +111,7 @@ export class GxgColorPicker {
     observer.observe(this.element);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.pickr.destroy();
   }
 

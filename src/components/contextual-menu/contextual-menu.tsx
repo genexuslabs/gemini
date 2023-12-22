@@ -87,7 +87,7 @@ export class GxgContextualMenu {
     document.addEventListener("contextmenu", this.detectClickOutsideMenu);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     document.removeEventListener("click", this.detectClickOutsideMenu);
     document.removeEventListener("contextmenu", this.detectClickOutsideMenu);
   }

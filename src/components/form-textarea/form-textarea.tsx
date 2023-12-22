@@ -206,7 +206,7 @@ export class GxgFormTextarea implements FormComponent {
     this.value = this.textArea.value;
   }
 
-  handleInput = (e: KeyboardEvent): void => {
+  handleInput = (e: InputEvent): void => {
     e.stopPropagation();
     const target = e.target as HTMLTextAreaElement;
     this.value = target.value;
