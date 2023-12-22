@@ -125,6 +125,126 @@ import {
 } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
+export { mode } from "./components/accordion/accordion";
+export { mode as mode1 } from "./components/accordion/accordion";
+export { status } from "./components/accordion-item/accordion-item";
+export {
+  ActiveTime,
+  AlertPosition,
+  AlertType,
+  Spacing,
+} from "./components/alert/alert";
+export { background, padding } from "./components/box/box";
+export { ButtonType } from "./components/button/button";
+export {
+  LabelPosition,
+  TitleAlignment,
+  ValidationStatus,
+} from "./common/types";
+export {
+  background as background1,
+  CardType,
+  elevation,
+  padding as padding1,
+} from "./components/card/card";
+export { Color } from "./components/icon/icon";
+export { WidthType } from "./components/column/column";
+export { AlignY, CollapseBellow, Space } from "./components/columns/columns";
+export { ComboBoxItemValue } from "./components/combo-box-item/combo-box-item";
+export { ListPosition } from "./components/combo-box/combo-box";
+export {
+  ComboBoxItemValue as ComboBoxItemValue1,
+  ItemInformation,
+} from "./components/combo-box-item/combo-box-item";
+export {
+  footerJustify,
+  headingJustify,
+  sectionsPadding,
+} from "./components/container/container";
+export { DatePickerDate } from "./components/date-picker/date-picker";
+export { Padding } from "./components/drag-box/drag-box";
+export { Padding as Padding1 } from "./components/drag-box/drag-box";
+export { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
+export { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form-checkbox-group";
+export { Message } from "./components/form-message/form-message";
+export { RadioData } from "./components/form-radio/form-radio";
+export { RadioData as RadioData1 } from "./components/form-radio/form-radio";
+export {
+  IconPosition,
+  InputType,
+  LabelPosition as LabelPosition1,
+  Style,
+} from "./components/form-text/form-text";
+export { Color as Color1, Size } from "./components/icon/icon";
+export { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
+export {
+  ItemsInformation,
+  KeyboardSuggestions,
+  SelectionChangedEvent,
+} from "./components/list-box/list-box";
+export {
+  ItemChecked,
+  ItemClicked,
+} from "./components/list-box-item/list-box-item";
+export {
+  MenuItemFocusChange,
+  MenuItemSelected,
+} from "./components/menu-slim/item/item";
+export { padding as padding2 } from "./components/modal/modal";
+export { position, target } from "./components/more-info/more-info";
+export { PaginatorAlignment } from "./components/paginator/gxg-paginator";
+export { PillType } from "./components/pills/pill";
+export { LabelPosition as LabelPosition2 } from "./components/form-select-v2/gxg-select-v2";
+export { margin } from "./components/separator/separator";
+export {
+  JustifyContent,
+  Orientation,
+  Space as Space1,
+} from "./components/spacer-layout/spacer-layout";
+export { Direction, Knob } from "./components/splitter/splitter";
+export { Space as Space2 } from "./components/stack/stack";
+export { TabContainerFlexDirection } from "./components/tab/tab";
+export { TabsPosition } from "./components/tabs/tabs";
+export {
+  TargetType,
+  TextAlign,
+  TextPadding,
+  TextType,
+} from "./components/text/text";
+export { TitleType } from "./components/title/title";
+export {
+  EditableTitleFocusType,
+  EditableTitleType,
+} from "./components/title-editable/title-editable";
+export { position as position1 } from "./components/toolbar/toolbar";
+export { position as position2 } from "./components/tooltip/tooltip";
+export {
+  ToggledGxgTreeItem,
+  TreeItemNewStateEmitted,
+} from "./components/tree/gxg-tree";
+export {
+  GxgTreeItemData,
+  GxgTreeItemSelectedData,
+} from "./components/tree-item/gxg-tree-item";
+export { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
+export { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
+export {
+  TreeViewDataTransferInfo,
+  TreeViewDropCheckInfo,
+  TreeViewItemContextMenu,
+  TreeViewItemExpandedInfo,
+  TreeViewItemModel,
+  TreeViewItemOpenReferenceInfo,
+  TreeViewLines,
+} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
+export {
+  TreeViewFilterOptions,
+  TreeViewFilterType,
+  TreeViewItemModelExtended,
+  TreeViewOperationStatusModifyCaption,
+} from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+export { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
+export { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
   interface GxgAccordion {
     /**
@@ -180,7 +300,7 @@ export namespace Components {
     /**
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
-    mode: mode;
+    mode: mode1;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
@@ -353,7 +473,7 @@ export namespace Components {
     /**
      * The background color
      */
-    background: background;
+    background: background1;
     /**
      * An optional subtitle
      */
@@ -417,7 +537,7 @@ export namespace Components {
     /**
      * The card padding
      */
-    padding: padding;
+    padding: padding1;
     /**
      * The icon color
      */
@@ -595,7 +715,7 @@ export namespace Components {
     /**
      * The item value. If value is not provided, an automatic value will be generated with the innerText.
      */
-    value: ComboBoxItemValue;
+    value: ComboBoxItemValue1;
   }
   interface GxgContainer {
     /**
@@ -757,7 +877,7 @@ export namespace Components {
     /**
      * The padding (internal spacing) of the gxg-drag-boxes
      */
-    padding: Padding;
+    padding: Padding1;
   }
   interface GxgDropDown {
     /**
@@ -1033,7 +1153,7 @@ export namespace Components {
     /**
      * The label position
      */
-    labelPosition: LabelPosition;
+    labelPosition: LabelPosition1;
     /**
      * The label width
      */
@@ -1211,7 +1331,7 @@ export namespace Components {
     /**
      * The color of the icon.
      */
-    color: Color;
+    color: Color1;
     /**
      * The size of the icon. Possible values: regular, small.
      */
@@ -1485,7 +1605,7 @@ export namespace Components {
      * The modal title
      */
     modalTitle: string;
-    padding: padding;
+    padding: padding2;
     /**
      * The presence of this attribute removes the sound that plays when the modal appears
      */
@@ -1688,7 +1808,7 @@ export namespace Components {
     /**
      * The label position
      */
-    labelPosition: LabelPosition;
+    labelPosition: LabelPosition2;
     /**
      * The select max. width
      */
@@ -1775,7 +1895,7 @@ export namespace Components {
     /**
      * The spacing value, taken from the "token-spacing" global values
      */
-    space: Space;
+    space: Space1;
   }
   interface GxgSpacerOne {
     /**
@@ -1818,7 +1938,7 @@ export namespace Components {
     /**
      * The spacing value between each stack row
      */
-    space: Space;
+    space: Space2;
   }
   interface GxgStepper {
     /**
@@ -2077,7 +2197,7 @@ export namespace Components {
     /**
      * The toggle arrow position
      */
-    position: position;
+    position: position1;
     /**
      * The toolbar title
      */
@@ -2129,7 +2249,7 @@ export namespace Components {
     /**
      * the tooltip position
      */
-    position: position;
+    position: position2;
   }
   interface GxgTree {
     /**
@@ -2337,6 +2457,10 @@ export namespace Components {
       afterProperties?: Partial<TreeViewItemModel>
     ) => Promise<void>;
     /**
+     * Given a list of ids, removes the items and their children in the tree.
+     */
+    removeItems: (items: string[]) => Promise<void>;
+    /**
      * This property allows us to implement custom rendering of tree items.
      */
     renderItem: (
@@ -2347,9 +2471,12 @@ export namespace Components {
       level: number
     ) => any;
     /**
-     * Given an item id, it displays and scrolls into the item view.
+     * Given the path of the item (represent by a sorted array containing all ids from the root to the item) and the additional properties to update after, it displays and scrolls into the item view. The path can also be a string representing the id of the item to scroll into.
      */
-    scrollIntoVisible: (treeItemId: string) => Promise<void>;
+    scrollIntoVisible: (
+      path: string | string[],
+      afterProperties?: Partial<TreeViewItemModel>
+    ) => Promise<void>;
     /**
      * `true` to display the relation between tree items and tree lists using lines.
      */
@@ -2451,6 +2578,158 @@ export namespace Components {
     windowTitle: string;
   }
 }
+export interface GxgAccordionItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgAccordionItemElement;
+}
+export interface GxgBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgBreadcrumbElement;
+}
+export interface GxgColorPickerCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgColorPickerElement;
+}
+export interface GxgComboBoxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgComboBoxElement;
+}
+export interface GxgComboBoxItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgComboBoxItemElement;
+}
+export interface GxgContextualMenuItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgContextualMenuItemElement;
+}
+export interface GxgDatePickerCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDatePickerElement;
+}
+export interface GxgDragBoxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDragBoxElement;
+}
+export interface GxgDragContainerCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDragContainerElement;
+}
+export interface GxgDropDownCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgDropDownElement;
+}
+export interface GxgFilterItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFilterItemElement;
+}
+export interface GxgFormCheckboxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormCheckboxElement;
+}
+export interface GxgFormCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormCheckboxGroupElement;
+}
+export interface GxgFormRadioCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormRadioElement;
+}
+export interface GxgFormRadioGroupCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormRadioGroupElement;
+}
+export interface GxgFormTextCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormTextElement;
+}
+export interface GxgFormTextareaCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgFormTextareaElement;
+}
+export interface GxgIdeLoaderCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgIdeLoaderElement;
+}
+export interface GxgListBoxCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgListBoxElement;
+}
+export interface GxgListBoxItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgListBoxItemElement;
+}
+export interface GxgMenuItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgMenuItemElement;
+}
+export interface GxgMenuSlimItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgMenuSlimItemElement;
+}
+export interface GxgModalCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgModalElement;
+}
+export interface GxgOptionCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgOptionElement;
+}
+export interface GxgOptionV2CustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgOptionV2Element;
+}
+export interface GxgOptionsItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgOptionsItemElement;
+}
+export interface GxgPillCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgPillElement;
+}
+export interface GxgSelectCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgSelectElement;
+}
+export interface GxgSelectV2CustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgSelectV2Element;
+}
+export interface GxgSplitterCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgSplitterElement;
+}
+export interface GxgStepperCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgStepperElement;
+}
+export interface GxgTabButtonCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTabButtonElement;
+}
+export interface GxgTitleEditableCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTitleEditableElement;
+}
+export interface GxgToggleCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgToggleElement;
+}
+export interface GxgTreeCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeElement;
+}
+export interface GxgTreeGridDivsCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeGridDivsElement;
+}
+export interface GxgTreeItemCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeItemElement;
+}
+export interface GxgTreeViewCustomEvent<T> extends CustomEvent<T> {
+  detail: T;
+  target: HTMLGxgTreeViewElement;
+}
 declare global {
   interface HTMLGxgAccordionElement
     extends Components.GxgAccordion,
@@ -2459,9 +2738,62 @@ declare global {
     prototype: HTMLGxgAccordionElement;
     new (): HTMLGxgAccordionElement;
   };
+  interface HTMLGxgAccordionItemElementEventMap {
+    accordionItemClicked: any;
+    accordionItemLoaded: any;
+    accordionTitleClicked: any;
+    titleChanged: any;
+  }
   interface HTMLGxgAccordionItemElement
     extends Components.GxgAccordionItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgAccordionItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgAccordionItemElement,
+        ev: GxgAccordionItemCustomEvent<HTMLGxgAccordionItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgAccordionItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgAccordionItemElement,
+        ev: GxgAccordionItemCustomEvent<HTMLGxgAccordionItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgAccordionItemElement: {
     prototype: HTMLGxgAccordionItemElement;
     new (): HTMLGxgAccordionItemElement;
@@ -2478,9 +2810,59 @@ declare global {
     prototype: HTMLGxgBoxElement;
     new (): HTMLGxgBoxElement;
   };
+  interface HTMLGxgBreadcrumbElementEventMap {
+    breadcrumbClicked: any;
+  }
   interface HTMLGxgBreadcrumbElement
     extends Components.GxgBreadcrumb,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgBreadcrumbElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgBreadcrumbElement,
+        ev: GxgBreadcrumbCustomEvent<HTMLGxgBreadcrumbElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgBreadcrumbElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgBreadcrumbElement,
+        ev: GxgBreadcrumbCustomEvent<HTMLGxgBreadcrumbElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgBreadcrumbElement: {
     prototype: HTMLGxgBreadcrumbElement;
     new (): HTMLGxgBreadcrumbElement;
@@ -2511,9 +2893,61 @@ declare global {
     prototype: HTMLGxgCardElement;
     new (): HTMLGxgCardElement;
   };
+  interface HTMLGxgColorPickerElementEventMap {
+    save: any;
+    nameInputEvent: any;
+    change: any;
+  }
   interface HTMLGxgColorPickerElement
     extends Components.GxgColorPicker,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgColorPickerElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgColorPickerElement,
+        ev: GxgColorPickerCustomEvent<HTMLGxgColorPickerElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgColorPickerElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgColorPickerElement,
+        ev: GxgColorPickerCustomEvent<HTMLGxgColorPickerElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgColorPickerElement: {
     prototype: HTMLGxgColorPickerElement;
     new (): HTMLGxgColorPickerElement;
@@ -2532,16 +2966,121 @@ declare global {
     prototype: HTMLGxgColumnsElement;
     new (): HTMLGxgColumnsElement;
   };
+  interface HTMLGxgComboBoxElementEventMap {
+    valueChanged: ComboBoxItemValue;
+    opened: any;
+    closed: any;
+    toggled: boolean;
+  }
   interface HTMLGxgComboBoxElement
     extends Components.GxgComboBox,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgComboBoxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgComboBoxElement,
+        ev: GxgComboBoxCustomEvent<HTMLGxgComboBoxElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgComboBoxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgComboBoxElement,
+        ev: GxgComboBoxCustomEvent<HTMLGxgComboBoxElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgComboBoxElement: {
     prototype: HTMLGxgComboBoxElement;
     new (): HTMLGxgComboBoxElement;
   };
+  interface HTMLGxgComboBoxItemElementEventMap {
+    itemSelected: ItemInformation;
+    itemDidLoad: ItemInformation;
+    keyDownPressed: any;
+  }
   interface HTMLGxgComboBoxItemElement
     extends Components.GxgComboBoxItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgComboBoxItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgComboBoxItemElement,
+        ev: GxgComboBoxItemCustomEvent<HTMLGxgComboBoxItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgComboBoxItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgComboBoxItemElement,
+        ev: GxgComboBoxItemCustomEvent<HTMLGxgComboBoxItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgComboBoxItemElement: {
     prototype: HTMLGxgComboBoxItemElement;
     new (): HTMLGxgComboBoxItemElement;
@@ -2560,9 +3099,65 @@ declare global {
     prototype: HTMLGxgContextualMenuElement;
     new (): HTMLGxgContextualMenuElement;
   };
+  interface HTMLGxgContextualMenuItemElementEventMap {
+    contextualMenuItemSelected: string;
+  }
   interface HTMLGxgContextualMenuItemElement
     extends Components.GxgContextualMenuItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgContextualMenuItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgContextualMenuItemElement,
+        ev: GxgContextualMenuItemCustomEvent<
+          HTMLGxgContextualMenuItemElementEventMap[K]
+        >
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<
+      K extends keyof HTMLGxgContextualMenuItemElementEventMap
+    >(
+      type: K,
+      listener: (
+        this: HTMLGxgContextualMenuItemElement,
+        ev: GxgContextualMenuItemCustomEvent<
+          HTMLGxgContextualMenuItemElementEventMap[K]
+        >
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgContextualMenuItemElement: {
     prototype: HTMLGxgContextualMenuItemElement;
     new (): HTMLGxgContextualMenuItemElement;
@@ -2574,9 +3169,59 @@ declare global {
     prototype: HTMLGxgContextualMenuSubmenuElement;
     new (): HTMLGxgContextualMenuSubmenuElement;
   };
+  interface HTMLGxgDatePickerElementEventMap {
+    valueChanged: DatePickerDate;
+  }
   interface HTMLGxgDatePickerElement
     extends Components.GxgDatePicker,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgDatePickerElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDatePickerElement,
+        ev: GxgDatePickerCustomEvent<HTMLGxgDatePickerElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgDatePickerElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDatePickerElement,
+        ev: GxgDatePickerCustomEvent<HTMLGxgDatePickerElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgDatePickerElement: {
     prototype: HTMLGxgDatePickerElement;
     new (): HTMLGxgDatePickerElement;
@@ -2586,23 +3231,179 @@ declare global {
     prototype: HTMLGxgDemoElement;
     new (): HTMLGxgDemoElement;
   };
+  interface HTMLGxgDragBoxElementEventMap {
+    clicked: any;
+    deleted: any;
+  }
   interface HTMLGxgDragBoxElement
     extends Components.GxgDragBox,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgDragBoxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDragBoxElement,
+        ev: GxgDragBoxCustomEvent<HTMLGxgDragBoxElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgDragBoxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDragBoxElement,
+        ev: GxgDragBoxCustomEvent<HTMLGxgDragBoxElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgDragBoxElement: {
     prototype: HTMLGxgDragBoxElement;
     new (): HTMLGxgDragBoxElement;
   };
+  interface HTMLGxgDragContainerElementEventMap {
+    itemDragStart: any;
+    itemDrop: any;
+    itemDragOver: any;
+    itemDragLeave: any;
+    itemDragEnter: any;
+  }
   interface HTMLGxgDragContainerElement
     extends Components.GxgDragContainer,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgDragContainerElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDragContainerElement,
+        ev: GxgDragContainerCustomEvent<HTMLGxgDragContainerElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgDragContainerElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDragContainerElement,
+        ev: GxgDragContainerCustomEvent<HTMLGxgDragContainerElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgDragContainerElement: {
     prototype: HTMLGxgDragContainerElement;
     new (): HTMLGxgDragContainerElement;
   };
+  interface HTMLGxgDropDownElementEventMap {
+    opened: any;
+    closed: any;
+  }
   interface HTMLGxgDropDownElement
     extends Components.GxgDropDown,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgDropDownElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDropDownElement,
+        ev: GxgDropDownCustomEvent<HTMLGxgDropDownElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgDropDownElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgDropDownElement,
+        ev: GxgDropDownCustomEvent<HTMLGxgDropDownElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgDropDownElement: {
     prototype: HTMLGxgDropDownElement;
     new (): HTMLGxgDropDownElement;
@@ -2614,23 +3415,179 @@ declare global {
     prototype: HTMLGxgFilterElement;
     new (): HTMLGxgFilterElement;
   };
+  interface HTMLGxgFilterItemElementEventMap {
+    itemClickedEvent: any;
+  }
   interface HTMLGxgFilterItemElement
     extends Components.GxgFilterItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFilterItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFilterItemElement,
+        ev: GxgFilterItemCustomEvent<HTMLGxgFilterItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgFilterItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFilterItemElement,
+        ev: GxgFilterItemCustomEvent<HTMLGxgFilterItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFilterItemElement: {
     prototype: HTMLGxgFilterItemElement;
     new (): HTMLGxgFilterItemElement;
   };
+  interface HTMLGxgFormCheckboxElementEventMap {
+    change: CheckboxInfo;
+  }
   interface HTMLGxgFormCheckboxElement
     extends Components.GxgFormCheckbox,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFormCheckboxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormCheckboxElement,
+        ev: GxgFormCheckboxCustomEvent<HTMLGxgFormCheckboxElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgFormCheckboxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormCheckboxElement,
+        ev: GxgFormCheckboxCustomEvent<HTMLGxgFormCheckboxElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFormCheckboxElement: {
     prototype: HTMLGxgFormCheckboxElement;
     new (): HTMLGxgFormCheckboxElement;
   };
+  interface HTMLGxgFormCheckboxGroupElementEventMap {
+    groupValuesChanged: CheckboxesGroupValues;
+  }
   interface HTMLGxgFormCheckboxGroupElement
     extends Components.GxgFormCheckboxGroup,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFormCheckboxGroupElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormCheckboxGroupElement,
+        ev: GxgFormCheckboxGroupCustomEvent<
+          HTMLGxgFormCheckboxGroupElementEventMap[K]
+        >
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<
+      K extends keyof HTMLGxgFormCheckboxGroupElementEventMap
+    >(
+      type: K,
+      listener: (
+        this: HTMLGxgFormCheckboxGroupElement,
+        ev: GxgFormCheckboxGroupCustomEvent<
+          HTMLGxgFormCheckboxGroupElementEventMap[K]
+        >
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFormCheckboxGroupElement: {
     prototype: HTMLGxgFormCheckboxGroupElement;
     new (): HTMLGxgFormCheckboxGroupElement;
@@ -2642,30 +3599,242 @@ declare global {
     prototype: HTMLGxgFormMessageElement;
     new (): HTMLGxgFormMessageElement;
   };
+  interface HTMLGxgFormRadioElementEventMap {
+    radioChecked: RadioData;
+    keyPressed: any;
+  }
   interface HTMLGxgFormRadioElement
     extends Components.GxgFormRadio,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFormRadioElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormRadioElement,
+        ev: GxgFormRadioCustomEvent<HTMLGxgFormRadioElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgFormRadioElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormRadioElement,
+        ev: GxgFormRadioCustomEvent<HTMLGxgFormRadioElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFormRadioElement: {
     prototype: HTMLGxgFormRadioElement;
     new (): HTMLGxgFormRadioElement;
   };
+  interface HTMLGxgFormRadioGroupElementEventMap {
+    change: RadioData1;
+  }
   interface HTMLGxgFormRadioGroupElement
     extends Components.GxgFormRadioGroup,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFormRadioGroupElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormRadioGroupElement,
+        ev: GxgFormRadioGroupCustomEvent<
+          HTMLGxgFormRadioGroupElementEventMap[K]
+        >
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgFormRadioGroupElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormRadioGroupElement,
+        ev: GxgFormRadioGroupCustomEvent<
+          HTMLGxgFormRadioGroupElementEventMap[K]
+        >
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFormRadioGroupElement: {
     prototype: HTMLGxgFormRadioGroupElement;
     new (): HTMLGxgFormRadioGroupElement;
   };
+  interface HTMLGxgFormTextElementEventMap {
+    input: any;
+    change: any;
+    clearButtonClicked: any;
+    valueChanged: string;
+    fileSelected: FileList;
+  }
   interface HTMLGxgFormTextElement
     extends Components.GxgFormText,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFormTextElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormTextElement,
+        ev: GxgFormTextCustomEvent<HTMLGxgFormTextElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgFormTextElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormTextElement,
+        ev: GxgFormTextCustomEvent<HTMLGxgFormTextElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFormTextElement: {
     prototype: HTMLGxgFormTextElement;
     new (): HTMLGxgFormTextElement;
   };
+  interface HTMLGxgFormTextareaElementEventMap {
+    input: any;
+    change: any;
+    enter: any;
+    arrowUpPressed: any;
+  }
   interface HTMLGxgFormTextareaElement
     extends Components.GxgFormTextarea,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgFormTextareaElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormTextareaElement,
+        ev: GxgFormTextareaCustomEvent<HTMLGxgFormTextareaElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgFormTextareaElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgFormTextareaElement,
+        ev: GxgFormTextareaCustomEvent<HTMLGxgFormTextareaElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgFormTextareaElement: {
     prototype: HTMLGxgFormTextareaElement;
     new (): HTMLGxgFormTextareaElement;
@@ -2680,9 +3849,59 @@ declare global {
     prototype: HTMLGxgIconElement;
     new (): HTMLGxgIconElement;
   };
+  interface HTMLGxgIdeLoaderElementEventMap {
+    loaderFinished: void;
+  }
   interface HTMLGxgIdeLoaderElement
     extends Components.GxgIdeLoader,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgIdeLoaderElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgIdeLoaderElement,
+        ev: GxgIdeLoaderCustomEvent<HTMLGxgIdeLoaderElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgIdeLoaderElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgIdeLoaderElement,
+        ev: GxgIdeLoaderCustomEvent<HTMLGxgIdeLoaderElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgIdeLoaderElement: {
     prototype: HTMLGxgIdeLoaderElement;
     new (): HTMLGxgIdeLoaderElement;
@@ -2694,16 +3913,120 @@ declare global {
     prototype: HTMLGxgLabelElement;
     new (): HTMLGxgLabelElement;
   };
+  interface HTMLGxgListBoxElementEventMap {
+    selectionChanged: SelectionChangedEvent;
+    checkedChanged: any;
+  }
   interface HTMLGxgListBoxElement
     extends Components.GxgListBox,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgListBoxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgListBoxElement,
+        ev: GxgListBoxCustomEvent<HTMLGxgListBoxElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgListBoxElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgListBoxElement,
+        ev: GxgListBoxCustomEvent<HTMLGxgListBoxElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgListBoxElement: {
     prototype: HTMLGxgListBoxElement;
     new (): HTMLGxgListBoxElement;
   };
+  interface HTMLGxgListBoxItemElementEventMap {
+    itemClicked: ItemClicked;
+    itemLoaded: any;
+    itemSelected: any;
+    checkboxStateChanged: ItemChecked;
+  }
   interface HTMLGxgListBoxItemElement
     extends Components.GxgListBoxItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgListBoxItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgListBoxItemElement,
+        ev: GxgListBoxItemCustomEvent<HTMLGxgListBoxItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgListBoxItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgListBoxItemElement,
+        ev: GxgListBoxItemCustomEvent<HTMLGxgListBoxItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgListBoxItemElement: {
     prototype: HTMLGxgListBoxItemElement;
     new (): HTMLGxgListBoxItemElement;
@@ -2720,9 +4043,59 @@ declare global {
     prototype: HTMLGxgMenuElement;
     new (): HTMLGxgMenuElement;
   };
+  interface HTMLGxgMenuItemElementEventMap {
+    menuItemActive: any;
+  }
   interface HTMLGxgMenuItemElement
     extends Components.GxgMenuItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgMenuItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgMenuItemElement,
+        ev: GxgMenuItemCustomEvent<HTMLGxgMenuItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgMenuItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgMenuItemElement,
+        ev: GxgMenuItemCustomEvent<HTMLGxgMenuItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgMenuItemElement: {
     prototype: HTMLGxgMenuItemElement;
     new (): HTMLGxgMenuItemElement;
@@ -2734,9 +4107,60 @@ declare global {
     prototype: HTMLGxgMenuSlimElement;
     new (): HTMLGxgMenuSlimElement;
   };
+  interface HTMLGxgMenuSlimItemElementEventMap {
+    keyboardNavigation: MenuItemFocusChange;
+    itemSelected: MenuItemSelected;
+  }
   interface HTMLGxgMenuSlimItemElement
     extends Components.GxgMenuSlimItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgMenuSlimItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgMenuSlimItemElement,
+        ev: GxgMenuSlimItemCustomEvent<HTMLGxgMenuSlimItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgMenuSlimItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgMenuSlimItemElement,
+        ev: GxgMenuSlimItemCustomEvent<HTMLGxgMenuSlimItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgMenuSlimItemElement: {
     prototype: HTMLGxgMenuSlimItemElement;
     new (): HTMLGxgMenuSlimItemElement;
@@ -2748,9 +4172,60 @@ declare global {
     prototype: HTMLGxgMenuSlimListElement;
     new (): HTMLGxgMenuSlimListElement;
   };
+  interface HTMLGxgModalElementEventMap {
+    modalClosed: any;
+    modalOpened: any;
+  }
   interface HTMLGxgModalElement
     extends Components.GxgModal,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgModalElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgModalElement,
+        ev: GxgModalCustomEvent<HTMLGxgModalElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgModalElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgModalElement,
+        ev: GxgModalCustomEvent<HTMLGxgModalElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgModalElement: {
     prototype: HTMLGxgModalElement;
     new (): HTMLGxgModalElement;
@@ -2762,16 +4237,116 @@ declare global {
     prototype: HTMLGxgMoreInfoElement;
     new (): HTMLGxgMoreInfoElement;
   };
+  interface HTMLGxgOptionElementEventMap {
+    optionIsSelected: any;
+  }
   interface HTMLGxgOptionElement
     extends Components.GxgOption,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgOptionElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgOptionElement,
+        ev: GxgOptionCustomEvent<HTMLGxgOptionElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgOptionElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgOptionElement,
+        ev: GxgOptionCustomEvent<HTMLGxgOptionElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgOptionElement: {
     prototype: HTMLGxgOptionElement;
     new (): HTMLGxgOptionElement;
   };
+  interface HTMLGxgOptionV2ElementEventMap {
+    optionIsSelected: any;
+  }
   interface HTMLGxgOptionV2Element
     extends Components.GxgOptionV2,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgOptionV2ElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgOptionV2Element,
+        ev: GxgOptionV2CustomEvent<HTMLGxgOptionV2ElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgOptionV2ElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgOptionV2Element,
+        ev: GxgOptionV2CustomEvent<HTMLGxgOptionV2ElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgOptionV2Element: {
     prototype: HTMLGxgOptionV2Element;
     new (): HTMLGxgOptionV2Element;
@@ -2783,9 +4358,60 @@ declare global {
     prototype: HTMLGxgOptionsElement;
     new (): HTMLGxgOptionsElement;
   };
+  interface HTMLGxgOptionsItemElementEventMap {
+    keyDown: any;
+    optionSelected: any;
+  }
   interface HTMLGxgOptionsItemElement
     extends Components.GxgOptionsItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgOptionsItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgOptionsItemElement,
+        ev: GxgOptionsItemCustomEvent<HTMLGxgOptionsItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgOptionsItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgOptionsItemElement,
+        ev: GxgOptionsItemCustomEvent<HTMLGxgOptionsItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgOptionsItemElement: {
     prototype: HTMLGxgOptionsItemElement;
     new (): HTMLGxgOptionsItemElement;
@@ -2797,7 +4423,57 @@ declare global {
     prototype: HTMLGxgPaginatorElement;
     new (): HTMLGxgPaginatorElement;
   };
-  interface HTMLGxgPillElement extends Components.GxgPill, HTMLStencilElement {}
+  interface HTMLGxgPillElementEventMap {
+    pillRemoved: string;
+  }
+  interface HTMLGxgPillElement extends Components.GxgPill, HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgPillElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgPillElement,
+        ev: GxgPillCustomEvent<HTMLGxgPillElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgPillElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgPillElement,
+        ev: GxgPillCustomEvent<HTMLGxgPillElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgPillElement: {
     prototype: HTMLGxgPillElement;
     new (): HTMLGxgPillElement;
@@ -2823,16 +4499,116 @@ declare global {
     prototype: HTMLGxgScrollElement;
     new (): HTMLGxgScrollElement;
   };
+  interface HTMLGxgSelectElementEventMap {
+    change: any;
+  }
   interface HTMLGxgSelectElement
     extends Components.GxgSelect,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgSelectElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgSelectElement,
+        ev: GxgSelectCustomEvent<HTMLGxgSelectElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgSelectElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgSelectElement,
+        ev: GxgSelectCustomEvent<HTMLGxgSelectElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgSelectElement: {
     prototype: HTMLGxgSelectElement;
     new (): HTMLGxgSelectElement;
   };
+  interface HTMLGxgSelectV2ElementEventMap {
+    change: any;
+  }
   interface HTMLGxgSelectV2Element
     extends Components.GxgSelectV2,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgSelectV2ElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgSelectV2Element,
+        ev: GxgSelectV2CustomEvent<HTMLGxgSelectV2ElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgSelectV2ElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgSelectV2Element,
+        ev: GxgSelectV2CustomEvent<HTMLGxgSelectV2ElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgSelectV2Element: {
     prototype: HTMLGxgSelectV2Element;
     new (): HTMLGxgSelectV2Element;
@@ -2879,9 +4655,60 @@ declare global {
     prototype: HTMLGxgSplitElement;
     new (): HTMLGxgSplitElement;
   };
+  interface HTMLGxgSplitterElementEventMap {
+    dragging: any;
+    dragEnded: any;
+  }
   interface HTMLGxgSplitterElement
     extends Components.GxgSplitter,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgSplitterElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgSplitterElement,
+        ev: GxgSplitterCustomEvent<HTMLGxgSplitterElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgSplitterElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgSplitterElement,
+        ev: GxgSplitterCustomEvent<HTMLGxgSplitterElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgSplitterElement: {
     prototype: HTMLGxgSplitterElement;
     new (): HTMLGxgSplitterElement;
@@ -2893,9 +4720,59 @@ declare global {
     prototype: HTMLGxgStackElement;
     new (): HTMLGxgStackElement;
   };
+  interface HTMLGxgStepperElementEventMap {
+    stepperInput: any;
+  }
   interface HTMLGxgStepperElement
     extends Components.GxgStepper,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgStepperElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgStepperElement,
+        ev: GxgStepperCustomEvent<HTMLGxgStepperElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgStepperElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgStepperElement,
+        ev: GxgStepperCustomEvent<HTMLGxgStepperElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgStepperElement: {
     prototype: HTMLGxgStepperElement;
     new (): HTMLGxgStepperElement;
@@ -2919,9 +4796,60 @@ declare global {
     prototype: HTMLGxgTabBarElement;
     new (): HTMLGxgTabBarElement;
   };
+  interface HTMLGxgTabButtonElementEventMap {
+    tabActivated: any;
+    PrevOrNextTab: any;
+  }
   interface HTMLGxgTabButtonElement
     extends Components.GxgTabButton,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgTabButtonElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTabButtonElement,
+        ev: GxgTabButtonCustomEvent<HTMLGxgTabButtonElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgTabButtonElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTabButtonElement,
+        ev: GxgTabButtonCustomEvent<HTMLGxgTabButtonElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgTabButtonElement: {
     prototype: HTMLGxgTabButtonElement;
     new (): HTMLGxgTabButtonElement;
@@ -2948,16 +4876,116 @@ declare global {
     prototype: HTMLGxgTitleElement;
     new (): HTMLGxgTitleElement;
   };
+  interface HTMLGxgTitleEditableElementEventMap {
+    valueChanged: string;
+  }
   interface HTMLGxgTitleEditableElement
     extends Components.GxgTitleEditable,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgTitleEditableElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTitleEditableElement,
+        ev: GxgTitleEditableCustomEvent<HTMLGxgTitleEditableElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgTitleEditableElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTitleEditableElement,
+        ev: GxgTitleEditableCustomEvent<HTMLGxgTitleEditableElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgTitleEditableElement: {
     prototype: HTMLGxgTitleEditableElement;
     new (): HTMLGxgTitleEditableElement;
   };
+  interface HTMLGxgToggleElementEventMap {
+    toggleSwitched: any;
+  }
   interface HTMLGxgToggleElement
     extends Components.GxgToggle,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgToggleElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgToggleElement,
+        ev: GxgToggleCustomEvent<HTMLGxgToggleElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgToggleElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgToggleElement,
+        ev: GxgToggleCustomEvent<HTMLGxgToggleElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgToggleElement: {
     prototype: HTMLGxgToggleElement;
     new (): HTMLGxgToggleElement;
@@ -2983,28 +5011,237 @@ declare global {
     prototype: HTMLGxgTooltipElement;
     new (): HTMLGxgTooltipElement;
   };
-  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {}
+  interface HTMLGxgTreeElementEventMap {
+    treeItemStateChanged: TreeItemNewStateEmitted;
+  }
+  interface HTMLGxgTreeElement extends Components.GxgTree, HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgTreeElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeElement,
+        ev: GxgTreeCustomEvent<HTMLGxgTreeElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgTreeElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeElement,
+        ev: GxgTreeCustomEvent<HTMLGxgTreeElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgTreeElement: {
     prototype: HTMLGxgTreeElement;
     new (): HTMLGxgTreeElement;
   };
+  interface HTMLGxgTreeGridDivsElementEventMap {
+    selectedRows: any;
+    addRow: any;
+    removeRow: any;
+  }
   interface HTMLGxgTreeGridDivsElement
     extends Components.GxgTreeGridDivs,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgTreeGridDivsElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeGridDivsElement,
+        ev: GxgTreeGridDivsCustomEvent<HTMLGxgTreeGridDivsElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgTreeGridDivsElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeGridDivsElement,
+        ev: GxgTreeGridDivsCustomEvent<HTMLGxgTreeGridDivsElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgTreeGridDivsElement: {
     prototype: HTMLGxgTreeGridDivsElement;
     new (): HTMLGxgTreeGridDivsElement;
   };
+  interface HTMLGxgTreeItemElementEventMap {
+    checkboxToggled: GxgTreeItemData1;
+    doubleClicked: GxgTreeItemData1;
+    lazyChanged: GxgTreeItemData1;
+    selectionChanged: GxgTreeItemData1;
+    toggleIconClicked: GxgTreeItemData1;
+  }
   interface HTMLGxgTreeItemElement
     extends Components.GxgTreeItem,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgTreeItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeItemElement,
+        ev: GxgTreeItemCustomEvent<HTMLGxgTreeItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgTreeItemElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeItemElement,
+        ev: GxgTreeItemCustomEvent<HTMLGxgTreeItemElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgTreeItemElement: {
     prototype: HTMLGxgTreeItemElement;
     new (): HTMLGxgTreeItemElement;
   };
+  interface HTMLGxgTreeViewElementEventMap {
+    checkedItemsChange: Map<string, TreeViewItemModelExtended>;
+    itemContextmenu: TreeViewItemContextMenu;
+    itemOpenReference: TreeViewItemOpenReferenceInfo;
+    selectedItemsChange: TreeViewItemModelExtended[];
+  }
   interface HTMLGxgTreeViewElement
     extends Components.GxgTreeView,
-      HTMLStencilElement {}
+      HTMLStencilElement {
+    addEventListener<K extends keyof HTMLGxgTreeViewElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeViewElement,
+        ev: GxgTreeViewCustomEvent<HTMLGxgTreeViewElementEventMap[K]>
+      ) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLGxgTreeViewElementEventMap>(
+      type: K,
+      listener: (
+        this: HTMLGxgTreeViewElement,
+        ev: GxgTreeViewCustomEvent<HTMLGxgTreeViewElementEventMap[K]>
+      ) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof DocumentEventMap>(
+      type: K,
+      listener: (this: Document, ev: DocumentEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof HTMLElementEventMap>(
+      type: K,
+      listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
   var HTMLGxgTreeViewElement: {
     prototype: HTMLGxgTreeViewElement;
     new (): HTMLGxgTreeViewElement;
@@ -3158,23 +5395,23 @@ declare namespace LocalJSX {
     /**
      * The accordion flavor (No need to set this attribute on each of the the accordion-item's, only once at gxg-accordion)
      */
-    mode?: mode;
+    mode?: mode1;
     /**
      * This event is for internal use
      */
-    onAccordionItemClicked?: (event: CustomEvent<any>) => void;
+    onAccordionItemClicked?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * This event is for internal use
      */
-    onAccordionItemLoaded?: (event: CustomEvent<any>) => void;
+    onAccordionItemLoaded?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * Subscribe to this event to know when the "title" was clicked
      */
-    onAccordionTitleClicked?: (event: CustomEvent<any>) => void;
+    onAccordionTitleClicked?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * If "editable-title" attribute is present, this event emmits the title value when it has changed
      */
-    onTitleChanged?: (event: CustomEvent<any>) => void;
+    onTitleChanged?: (event: GxgAccordionItemCustomEvent<any>) => void;
     /**
      * Set the status to "open" if you want the accordion-item open by default
      */
@@ -3264,7 +5501,7 @@ declare namespace LocalJSX {
     /**
      * This event emmits the breadcrumb index
      */
-    onBreadcrumbClicked?: (event: CustomEvent<any>) => void;
+    onBreadcrumbClicked?: (event: GxgBreadcrumbCustomEvent<any>) => void;
   }
   interface GxgBreadcrumbs {}
   interface GxgButton {
@@ -3351,7 +5588,7 @@ declare namespace LocalJSX {
     /**
      * The background color
      */
-    background?: background;
+    background?: background1;
     /**
      * An optional subtitle
      */
@@ -3415,7 +5652,7 @@ declare namespace LocalJSX {
     /**
      * The card padding
      */
-    padding?: padding;
+    padding?: padding1;
     /**
      * The icon color
      */
@@ -3438,9 +5675,9 @@ declare namespace LocalJSX {
      * The label of the color picker (optional)
      */
     label?: any;
-    onChange?: (event: CustomEvent<any>) => void;
-    onNameInputEvent?: (event: CustomEvent<any>) => void;
-    onSave?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgColorPickerCustomEvent<any>) => void;
+    onNameInputEvent?: (event: GxgColorPickerCustomEvent<any>) => void;
+    onSave?: (event: GxgColorPickerCustomEvent<any>) => void;
     /**
      * The color value, such as "red", #CCDDEE, or rgba(220,140,40,.5)
      */
@@ -3530,19 +5767,19 @@ declare namespace LocalJSX {
     /**
      * This event is triggered when the combo dropdown has closed
      */
-    onClosed?: (event: CustomEvent<any>) => void;
+    onClosed?: (event: GxgComboBoxCustomEvent<any>) => void;
     /**
      * This event is triggered when the combo dropdown is opened
      */
-    onOpened?: (event: CustomEvent<any>) => void;
+    onOpened?: (event: GxgComboBoxCustomEvent<any>) => void;
     /**
      * This event is triggered when the combo dropdown has toggled (opened/closed)
      */
-    onToggled?: (event: CustomEvent<boolean>) => void;
+    onToggled?: (event: GxgComboBoxCustomEvent<boolean>) => void;
     /**
      * This event is triggered when the combo box value changes.
      */
-    onValueChanged?: (event: CustomEvent<ComboBoxItemValue>) => void;
+    onValueChanged?: (event: GxgComboBoxCustomEvent<ComboBoxItemValue>) => void;
     /**
      * The combo placeholder
      */
@@ -3600,15 +5837,19 @@ declare namespace LocalJSX {
     /**
      * This event is fired when the item has loaded
      */
-    onItemDidLoad?: (event: CustomEvent<ItemInformation>) => void;
+    onItemDidLoad?: (
+      event: GxgComboBoxItemCustomEvent<ItemInformation>
+    ) => void;
     /**
      * This event is triggered when the user clicks on an item. event.detail contains the item index, item value, and item icon.
      */
-    onItemSelected?: (event: CustomEvent<ItemInformation>) => void;
+    onItemSelected?: (
+      event: GxgComboBoxItemCustomEvent<ItemInformation>
+    ) => void;
     /**
      * This event is for internal use. This event is triggered when the user presses keyboard "arrow up" on the first item. This event is caputred on "combo" component and then focus is set on "search" input.
      */
-    onKeyDownPressed?: (event: CustomEvent<any>) => void;
+    onKeyDownPressed?: (event: GxgComboBoxItemCustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this combo-item selected.
      */
@@ -3616,7 +5857,7 @@ declare namespace LocalJSX {
     /**
      * The item value. If value is not provided, an automatic value will be generated with the innerText.
      */
-    value?: ComboBoxItemValue;
+    value?: ComboBoxItemValue1;
   }
   interface GxgContainer {
     /**
@@ -3699,7 +5940,9 @@ declare namespace LocalJSX {
      * The id
      */
     id?: string;
-    onContextualMenuItemSelected?: (event: CustomEvent<string>) => void;
+    onContextualMenuItemSelected?: (
+      event: GxgContextualMenuItemCustomEvent<string>
+    ) => void;
   }
   interface GxgContextualMenuSubmenu {}
   interface GxgDatePicker {
@@ -3734,7 +5977,7 @@ declare namespace LocalJSX {
     /**
      * Emits the new selected date
      */
-    onValueChanged?: (event: CustomEvent<DatePickerDate>) => void;
+    onValueChanged?: (event: GxgDatePickerCustomEvent<DatePickerDate>) => void;
     /**
      * initial date
      */
@@ -3761,11 +6004,11 @@ declare namespace LocalJSX {
     /**
      * This event is for internal use
      */
-    onClicked?: (event: CustomEvent<any>) => void;
+    onClicked?: (event: GxgDragBoxCustomEvent<any>) => void;
     /**
      * This event fires when the "delete" button is pressed
      */
-    onDeleted?: (event: CustomEvent<any>) => void;
+    onDeleted?: (event: GxgDragBoxCustomEvent<any>) => void;
     /**
      * The padding (internal spacing) of the drag-box (Set it on the drag-container to apply the same padding to all of the gxg-drag-box items)
      */
@@ -3788,15 +6031,15 @@ declare namespace LocalJSX {
      * The max-width of the box container
      */
     maxWidth?: string;
-    onItemDragEnter?: (event: CustomEvent<any>) => void;
-    onItemDragLeave?: (event: CustomEvent<any>) => void;
-    onItemDragOver?: (event: CustomEvent<any>) => void;
-    onItemDragStart?: (event: CustomEvent<any>) => void;
-    onItemDrop?: (event: CustomEvent<any>) => void;
+    onItemDragEnter?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDragLeave?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDragOver?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDragStart?: (event: GxgDragContainerCustomEvent<any>) => void;
+    onItemDrop?: (event: GxgDragContainerCustomEvent<any>) => void;
     /**
      * The padding (internal spacing) of the gxg-drag-boxes
      */
-    padding?: Padding;
+    padding?: Padding1;
   }
   interface GxgDropDown {
     /**
@@ -3822,11 +6065,11 @@ declare namespace LocalJSX {
     /**
      * This events gets fired when the dropdown is closed
      */
-    onClosed?: (event: CustomEvent<any>) => void;
+    onClosed?: (event: GxgDropDownCustomEvent<any>) => void;
     /**
      * This events gets fired when the dropdown is opened
      */
-    onOpened?: (event: CustomEvent<any>) => void;
+    onOpened?: (event: GxgDropDownCustomEvent<any>) => void;
     /**
      * The container 'items container' position
      */
@@ -3862,7 +6105,7 @@ declare namespace LocalJSX {
     /**
      * This event is fired when the user clicks on an item. event.detail carries the item id, type, and text.
      */
-    onItemClickedEvent?: (event: CustomEvent<any>) => void;
+    onItemClickedEvent?: (event: GxgFilterItemCustomEvent<any>) => void;
     /**
      * The type (optional)
      */
@@ -3905,7 +6148,7 @@ declare namespace LocalJSX {
      * The checkbox name
      */
     name?: string;
-    onChange?: (event: CustomEvent<CheckboxInfo>) => void;
+    onChange?: (event: GxgFormCheckboxCustomEvent<CheckboxInfo>) => void;
     /**
      * The presence of this attribute makes the commbo required
      */
@@ -3933,7 +6176,9 @@ declare namespace LocalJSX {
      * An informative message to help the user filling the information
      */
     informationMessage?: string;
-    onGroupValuesChanged?: (event: CustomEvent<CheckboxesGroupValues>) => void;
+    onGroupValuesChanged?: (
+      event: GxgFormCheckboxGroupCustomEvent<CheckboxesGroupValues>
+    ) => void;
     /**
      * The presence of this attribute makes the checkboxes be displayed with flex "row", instead of flex "column"
      */
@@ -3977,11 +6222,11 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use)
      */
-    onKeyPressed?: (event: CustomEvent<any>) => void;
+    onKeyPressed?: (event: GxgFormRadioCustomEvent<any>) => void;
     /**
      * Emits the id and value of the radio when is checked.
      */
-    onRadioChecked?: (event: CustomEvent<RadioData>) => void;
+    onRadioChecked?: (event: GxgFormRadioCustomEvent<RadioData>) => void;
     /**
      * The radio id
      */
@@ -4011,7 +6256,7 @@ declare namespace LocalJSX {
     /**
      * Emits the value when is changed, and the radio id.
      */
-    onChange?: (event: CustomEvent<RadioData>) => void;
+    onChange?: (event: GxgFormRadioGroupCustomEvent<RadioData1>) => void;
     /**
      * Make the radio-buttons required
      */
@@ -4093,7 +6338,7 @@ declare namespace LocalJSX {
     /**
      * The label position
      */
-    labelPosition?: LabelPosition;
+    labelPosition?: LabelPosition1;
     /**
      * The label width
      */
@@ -4121,23 +6366,23 @@ declare namespace LocalJSX {
     /**
      * Returns the input value
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgFormTextCustomEvent<any>) => void;
     /**
      * The clear button was clicked
      */
-    onClearButtonClicked?: (event: CustomEvent<any>) => void;
+    onClearButtonClicked?: (event: GxgFormTextCustomEvent<any>) => void;
     /**
      * File Selected
      */
-    onFileSelected?: (event: CustomEvent<FileList>) => void;
+    onFileSelected?: (event: GxgFormTextCustomEvent<FileList>) => void;
     /**
      * Returns the input value
      */
-    onInput?: (event: CustomEvent<any>) => void;
+    onInput?: (event: GxgFormTextCustomEvent<any>) => void;
     /**
      * The clear button was clicked
      */
-    onValueChanged?: (event: CustomEvent<string>) => void;
+    onValueChanged?: (event: GxgFormTextCustomEvent<string>) => void;
     /**
      * The presence of this attribute sets the text color to white. Usefull when "minimal" attribute is applied and the background behind the input is dark
      */
@@ -4243,19 +6488,19 @@ declare namespace LocalJSX {
     /**
      * Emits the ArrowUp keydown event. Only available if ai is true.
      */
-    onArrowUpPressed?: (event: CustomEvent<any>) => void;
+    onArrowUpPressed?: (event: GxgFormTextareaCustomEvent<any>) => void;
     /**
      * Returns the textarea value
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgFormTextareaCustomEvent<any>) => void;
     /**
      * Emits the enter keydown event. It emits the actual textarea value. Used for the Ai-Assistant
      */
-    onEnter?: (event: CustomEvent<any>) => void;
+    onEnter?: (event: GxgFormTextareaCustomEvent<any>) => void;
     /**
      * Returns the textarea value
      */
-    onInput?: (event: CustomEvent<any>) => void;
+    onInput?: (event: GxgFormTextareaCustomEvent<any>) => void;
     /**
      * The textarea placeholder
      */
@@ -4305,7 +6550,7 @@ declare namespace LocalJSX {
     /**
      * The color of the icon.
      */
-    color?: Color;
+    color?: Color1;
     /**
      * The size of the icon. Possible values: regular, small.
      */
@@ -4340,7 +6585,7 @@ declare namespace LocalJSX {
      * The loader title (optional)
      */
     loaderTitle?: string;
-    onLoaderFinished?: (event: CustomEvent<void>) => void;
+    onLoaderFinished?: (event: GxgIdeLoaderCustomEvent<void>) => void;
     /**
      * It shows the loader
      */
@@ -4407,11 +6652,13 @@ declare namespace LocalJSX {
      * The presence of this attribute disables the border all around
      */
     noBorder?: boolean;
-    onCheckedChanged?: (event: CustomEvent<any>) => void;
+    onCheckedChanged?: (event: GxgListBoxCustomEvent<any>) => void;
     /**
      * This event emits the items that are currently selected. event.detail contains the selected items as objects. Each object contains the item idex and the item value. If value was not provided, the value will be the item innerText.
      */
-    onSelectionChanged?: (event: CustomEvent<SelectionChangedEvent>) => void;
+    onSelectionChanged?: (
+      event: GxgListBoxCustomEvent<SelectionChangedEvent>
+    ) => void;
     /**
      * Make the radio-buttons required
      */
@@ -4469,19 +6716,21 @@ declare namespace LocalJSX {
     /**
      * (This event is for internal use.)
      */
-    onCheckboxStateChanged?: (event: CustomEvent<ItemChecked>) => void;
+    onCheckboxStateChanged?: (
+      event: GxgListBoxItemCustomEvent<ItemChecked>
+    ) => void;
     /**
      * (This event is for internal use.)
      */
-    onItemClicked?: (event: CustomEvent<ItemClicked>) => void;
+    onItemClicked?: (event: GxgListBoxItemCustomEvent<ItemClicked>) => void;
     /**
      * (This event is for internal use.)
      */
-    onItemLoaded?: (event: CustomEvent<any>) => void;
+    onItemLoaded?: (event: GxgListBoxItemCustomEvent<any>) => void;
     /**
      * (This event is for internal use.)
      */
-    onItemSelected?: (event: CustomEvent<any>) => void;
+    onItemSelected?: (event: GxgListBoxItemCustomEvent<any>) => void;
     /**
      * The presence of this attribute sets this item as selected
      */
@@ -4523,7 +6772,7 @@ declare namespace LocalJSX {
     active?: boolean;
     icon?: string;
     label?: string;
-    onMenuItemActive?: (event: CustomEvent<any>) => void;
+    onMenuItemActive?: (event: GxgMenuItemCustomEvent<any>) => void;
   }
   interface GxgMenuSlim {
     /**
@@ -4575,11 +6824,15 @@ declare namespace LocalJSX {
     /**
      * This events emits the item id, label, iconType, and a reference to itself
      */
-    onItemSelected?: (event: CustomEvent<MenuItemSelected>) => void;
+    onItemSelected?: (
+      event: GxgMenuSlimItemCustomEvent<MenuItemSelected>
+    ) => void;
     /**
      * This events fires when the user presses up or down keys.
      */
-    onKeyboardNavigation?: (event: CustomEvent<MenuItemFocusChange>) => void;
+    onKeyboardNavigation?: (
+      event: GxgMenuSlimItemCustomEvent<MenuItemFocusChange>
+    ) => void;
   }
   interface GxgMenuSlimList {
     /**
@@ -4608,12 +6861,12 @@ declare namespace LocalJSX {
     /**
      * Emmited when the modal was closed
      */
-    onModalClosed?: (event: CustomEvent<any>) => void;
+    onModalClosed?: (event: GxgModalCustomEvent<any>) => void;
     /**
      * Emmited when the modal was opened
      */
-    onModalOpened?: (event: CustomEvent<any>) => void;
-    padding?: padding;
+    onModalOpened?: (event: GxgModalCustomEvent<any>) => void;
+    padding?: padding2;
     /**
      * The presence of this attribute removes the sound that plays when the modal appears
      */
@@ -4658,7 +6911,7 @@ declare namespace LocalJSX {
      * The icon name (optional)
      */
     iconName?: string;
-    onOptionIsSelected?: (event: CustomEvent<any>) => void;
+    onOptionIsSelected?: (event: GxgOptionCustomEvent<any>) => void;
     /**
      * The presence of this attribute makes the option selected by default
      */
@@ -4673,7 +6926,7 @@ declare namespace LocalJSX {
      * The icon name (optional)
      */
     iconName?: string;
-    onOptionIsSelected?: (event: CustomEvent<any>) => void;
+    onOptionIsSelected?: (event: GxgOptionV2CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes the option selected by default
      */
@@ -4693,8 +6946,8 @@ declare namespace LocalJSX {
   }
   interface GxgOptionsItem {
     disabled?: boolean;
-    onKeyDown?: (event: CustomEvent<any>) => void;
-    onOptionSelected?: (event: CustomEvent<any>) => void;
+    onKeyDown?: (event: GxgOptionsItemCustomEvent<any>) => void;
+    onOptionSelected?: (event: GxgOptionsItemCustomEvent<any>) => void;
   }
   interface GxgPaginator {
     /**
@@ -4723,7 +6976,7 @@ declare namespace LocalJSX {
      * Stylizes the font with italic (only used in mercury)
      */
     italic?: boolean;
-    onPillRemoved?: (event: CustomEvent<string>) => void;
+    onPillRemoved?: (event: GxgPillCustomEvent<string>) => void;
     /**
      * The type of pill
      */
@@ -4785,7 +7038,7 @@ declare namespace LocalJSX {
     /**
      * Returns the value of the selected option
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgSelectCustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this input required
      */
@@ -4819,7 +7072,7 @@ declare namespace LocalJSX {
     /**
      * The label position
      */
-    labelPosition?: LabelPosition;
+    labelPosition?: LabelPosition2;
     /**
      * The select max. width
      */
@@ -4831,7 +7084,7 @@ declare namespace LocalJSX {
     /**
      * Returns the value of the selected option
      */
-    onChange?: (event: CustomEvent<any>) => void;
+    onChange?: (event: GxgSelectV2CustomEvent<any>) => void;
     /**
      * The presence of this attribute makes this input required
      */
@@ -4910,7 +7163,7 @@ declare namespace LocalJSX {
     /**
      * The spacing value, taken from the "token-spacing" global values
      */
-    space?: Space;
+    space?: Space1;
   }
   interface GxgSpacerOne {
     /**
@@ -4936,8 +7189,8 @@ declare namespace LocalJSX {
      * The splitter min. sizes in pixels
      */
     minSize?: string;
-    onDragEnded?: (event: CustomEvent<any>) => void;
-    onDragging?: (event: CustomEvent<any>) => void;
+    onDragEnded?: (event: GxgSplitterCustomEvent<any>) => void;
+    onDragging?: (event: GxgSplitterCustomEvent<any>) => void;
     /**
      * The splitter initial sizes, in percentages. The sum should equal 100
      */
@@ -4951,7 +7204,7 @@ declare namespace LocalJSX {
     /**
      * The spacing value between each stack row
      */
-    space?: Space;
+    space?: Space2;
   }
   interface GxgStepper {
     /**
@@ -4974,7 +7227,7 @@ declare namespace LocalJSX {
      * The min. value
      */
     min?: number;
-    onStepperInput?: (event: CustomEvent<any>) => void;
+    onStepperInput?: (event: GxgStepperCustomEvent<any>) => void;
     /**
      * The initial vaule
      */
@@ -5059,8 +7312,8 @@ declare namespace LocalJSX {
      * Provide this attribute to make this button selected by default
      */
     isSelected?: boolean;
-    onPrevOrNextTab?: (event: CustomEvent<any>) => void;
-    onTabActivated?: (event: CustomEvent<any>) => void;
+    onPrevOrNextTab?: (event: GxgTabButtonCustomEvent<any>) => void;
+    onTabActivated?: (event: GxgTabButtonCustomEvent<any>) => void;
     /**
      * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
      */
@@ -5178,7 +7431,7 @@ declare namespace LocalJSX {
     /**
      * Emitted when the value changes
      */
-    onValueChanged?: (event: CustomEvent<string>) => void;
+    onValueChanged?: (event: GxgTitleEditableCustomEvent<string>) => void;
     /**
      * The title type
      */
@@ -5212,13 +7465,13 @@ declare namespace LocalJSX {
     /**
      * This event is triggered when the toggle is switched. 'event.detail' will display true when the toggle is on, or false when the toggle is off.
      */
-    onToggleSwitched?: (event: CustomEvent<any>) => void;
+    onToggleSwitched?: (event: GxgToggleCustomEvent<any>) => void;
   }
   interface GxgToolbar {
     /**
      * The toggle arrow position
      */
-    position?: position;
+    position?: position1;
     /**
      * The toolbar title
      */
@@ -5270,7 +7523,7 @@ declare namespace LocalJSX {
     /**
      * the tooltip position
      */
-    position?: position;
+    position?: position2;
   }
   interface GxgTree {
     /**
@@ -5286,7 +7539,7 @@ declare namespace LocalJSX {
      */
     multiSelection?: boolean;
     onTreeItemStateChanged?: (
-      event: CustomEvent<TreeItemNewStateEmitted>
+      event: GxgTreeCustomEvent<TreeItemNewStateEmitted>
     ) => void;
     /**
      * Set this attribute if you want all the items to be opened by default.
@@ -5301,9 +7554,9 @@ declare namespace LocalJSX {
     columns?: Array<object>;
     displayChildren?: DisplayChildren;
     editCell?: { rowId: number; columnName: string };
-    onAddRow?: (event: CustomEvent<any>) => void;
-    onRemoveRow?: (event: CustomEvent<any>) => void;
-    onSelectedRows?: (event: CustomEvent<any>) => void;
+    onAddRow?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+    onRemoveRow?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
+    onSelectedRows?: (event: GxgTreeGridDivsCustomEvent<any>) => void;
     rows?: Array<object>;
     selectedRowsIds?: number;
     width?: string;
@@ -5352,23 +7605,29 @@ declare namespace LocalJSX {
     /**
      * Emitted when the checkbox was toggled
      */
-    onCheckboxToggled?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onCheckboxToggled?: (
+      event: GxgTreeItemCustomEvent<GxgTreeItemData1>
+    ) => void;
     /**
      * Emitted when the item was double-clicked
      */
-    onDoubleClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onDoubleClicked?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
     /**
      * Emitted when the item is not lazy anymore
      */
-    onLazyChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onLazyChanged?: (event: GxgTreeItemCustomEvent<GxgTreeItemData1>) => void;
     /**
      * Emitted when the icon selection was changes
      */
-    onSelectionChanged?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onSelectionChanged?: (
+      event: GxgTreeItemCustomEvent<GxgTreeItemData1>
+    ) => void;
     /**
      * Emitted when the toggle icon was clicked
      */
-    onToggleIconClicked?: (event: CustomEvent<GxgTreeItemData>) => void;
+    onToggleIconClicked?: (
+      event: GxgTreeItemCustomEvent<GxgTreeItemData1>
+    ) => void;
     /**
      * Set this attribute if you want this items child tree to be opened by default. This attribute is affected by the parent tree-item opened attribute, unless it is set in this item.
      */
@@ -5468,23 +7727,25 @@ declare namespace LocalJSX {
      * Fired when the checked items change. This event does not take into account the currently filtered items.
      */
     onCheckedItemsChange?: (
-      event: CustomEvent<Map<string, TreeViewItemModelExtended>>
+      event: GxgTreeViewCustomEvent<Map<string, TreeViewItemModelExtended>>
     ) => void;
     /**
      * Fired when an element displays its contextmenu.
      */
-    onItemContextmenu?: (event: CustomEvent<TreeViewItemContextMenu>) => void;
+    onItemContextmenu?: (
+      event: GxgTreeViewCustomEvent<TreeViewItemContextMenu>
+    ) => void;
     /**
      * Fired when the user interacts with an item in a way that its reference must be opened.
      */
     onItemOpenReference?: (
-      event: CustomEvent<TreeViewItemOpenReferenceInfo>
+      event: GxgTreeViewCustomEvent<TreeViewItemOpenReferenceInfo>
     ) => void;
     /**
      * Fired when the selected items change.
      */
     onSelectedItemsChange?: (
-      event: CustomEvent<TreeViewItemModelExtended[]>
+      event: GxgTreeViewCustomEvent<TreeViewItemModelExtended[]>
     ) => void;
     /**
      * This property allows us to implement custom rendering of tree items.
