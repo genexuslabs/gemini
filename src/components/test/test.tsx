@@ -1,8 +1,8 @@
-import { Component, h, Prop, Listen, State, Element } from "@stencil/core";
+import { Component, h, Element } from "@stencil/core";
 @Component({
   tag: "gxg-test",
   styleUrl: "test.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgTest {
   @Element() el: HTMLElement;
@@ -60,7 +60,7 @@ export class GxgTest {
           </div>
         </section>
       </div>,
-      <gxg-shortcuts src="../assets/json/shortcuts.json"></gxg-shortcuts>,
+      <gxg-shortcuts src="../assets/json/shortcuts.json"></gxg-shortcuts>
     ];
   }
 }

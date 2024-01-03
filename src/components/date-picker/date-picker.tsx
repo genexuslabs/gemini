@@ -7,7 +7,7 @@ import {
   State,
   Event,
   EventEmitter,
-  Watch,
+  Watch
 } from "@stencil/core";
 import datepicker from "js-datepicker";
 import state from "../store";
@@ -17,11 +17,11 @@ import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-date-picker",
   styleUrl: "date-picker.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgDatePicker {
   private parts = {
-    input: "input",
+    input: "input"
   };
   private exportparts: string;
   private valueBeforeDisabled;
@@ -115,9 +115,6 @@ export class GxgDatePicker {
       this.rtl = true;
     }
 
-    //Datepicker Options
-    let value = new Date();
-
     if (this.value !== undefined && this.value !== "") {
       //default/initial date
       const d = new Date(this.value);
@@ -128,17 +125,11 @@ export class GxgDatePicker {
           // date is not valid
         } else {
           // date is valid
-          value = new Date(this.value);
         }
       } else {
         // not a date
       }
     }
-
-    //default date
-    const valueYear = value.getFullYear();
-    const valueMonth = value.getMonth();
-    const valueDay = value.getDate();
 
     //min date
     const minDate = this.minDate ? new Date(this.minDate) : undefined;
@@ -154,7 +145,7 @@ export class GxgDatePicker {
     const pickerSelector = this.el.shadowRoot.querySelector("#date-picker");
     const picker = datepicker(pickerSelector, {
       // Event callbacks.
-      onSelect: (instance) => {
+      onSelect: instance => {
         const newValue = instance.dateSelected;
         this.value = newValue;
       },
@@ -188,7 +179,7 @@ export class GxgDatePicker {
         "September",
         "October",
         "November",
-        "December",
+        "December"
       ],
       customOverlayMonths: [
         "JAN",
@@ -202,7 +193,7 @@ export class GxgDatePicker {
         "SEP",
         "OCT",
         "NOV",
-        "DEC",
+        "DEC"
       ],
       overlayButton: "Go!",
       overlayPlaceholder: "Enter a 4-digit year",
@@ -217,13 +208,13 @@ export class GxgDatePicker {
 
       // Disabling things.
       noWeekends: this.noWeekends, // Saturday's and Sunday's will be unselectable.
-      disabler: (date) => date.getDay() === 2 && date.getMonth() === 9, // Disabled every Tuesday in October
+      disabler: date => date.getDay() === 2 && date.getMonth() === 9, // Disabled every Tuesday in October
       // disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
       disableMobile: true, // Conditionally disabled on mobile devices.
       disableYearOverlay: false, // Clicking the year or month will *not* bring up the year overlay.
 
       // ID - be sure to provide a 2nd picker with the same id to create a daterange pair.
-      id: "date-picker",
+      id: "date-picker"
     });
     //picker.setDate(new Date(2099, 0, 1), true);
     picker.calendarContainer.style.setProperty("font-size", "9px");
@@ -235,10 +226,10 @@ export class GxgDatePicker {
         class={{
           rtl: this.rtl,
           large: state.large,
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
         style={{
-          maxWidth: this.maxWidth,
+          maxWidth: this.maxWidth
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >

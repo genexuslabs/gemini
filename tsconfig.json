@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2022",
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noUnusedParameters": false,
     "jsx": "react",
     "jsxFactory": "h"

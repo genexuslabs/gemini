@@ -6,13 +6,12 @@ import {
   h,
   Event,
   EventEmitter,
-  Watch,
-  State,
+  State
 } from "@stencil/core";
 import {
   requiredLabel,
   formMessageLogic,
-  formTooltipLogic,
+  formTooltipLogic
 } from "../../common/form";
 import state from "../store";
 import { FormComponent } from "../../common/interfaces";
@@ -23,11 +22,11 @@ import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-form-textarea",
   styleUrl: "form-textarea.scss",
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgFormTextarea implements FormComponent {
   private parts = {
-    textarea: "textarea",
+    textarea: "textarea"
   };
   private exportparts: string;
 
@@ -265,7 +264,7 @@ export class GxgFormTextarea implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
@@ -282,11 +281,11 @@ export class GxgFormTextarea implements FormComponent {
 
         <div class="textarea-wrapper" part="textarea-wrapper">
           <textarea
-            ref={(el) => (this.textArea = el as HTMLTextAreaElement)}
+            ref={el => (this.textArea = el as HTMLTextAreaElement)}
             class={{
               "form-element": true,
               textarea: true,
-              "textarea--resize": this.resize,
+              "textarea--resize": this.resize
             }}
             placeholder={this.placeholder}
             disabled={this.disabled}
