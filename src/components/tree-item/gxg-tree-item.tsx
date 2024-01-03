@@ -8,7 +8,7 @@ import {
   State,
   h,
   Method,
-  Watch,
+  Watch
 } from "@stencil/core";
 import { exportParts } from "../../common/export-parts";
 
@@ -16,7 +16,7 @@ import { exportParts } from "../../common/export-parts";
   tag: "gxg-tree-item",
   styleUrl: "gxg-tree-item.scss",
   shadow: true,
-  assetsDirs: ["tree-item-assets"],
+  assetsDirs: ["tree-item-assets"]
 })
 export class GxgTreeItem {
   /*
@@ -48,7 +48,7 @@ INDEX:
   private parts = {
     item: "item",
     checkbox: "checkbox",
-    toggleButton: "toggle-button",
+    toggleButton: "toggle-button"
   };
   private exportparts: string;
 
@@ -78,7 +78,7 @@ INDEX:
    */
   @Prop({ mutable: true }) checked: boolean = undefined;
   @Watch("checked")
-  checkedHandler(newValue: boolean, oldValue: boolean): void {
+  checkedHandler(_, oldValue: boolean): void {
     if (oldValue !== undefined) {
       this.checkboxToggled.emit(this.getItemData(false));
     }
@@ -89,7 +89,7 @@ INDEX:
    */
   @Prop() opened: boolean = undefined;
   @Watch("opened")
-  openedHandler(newValue: boolean, oldValue: boolean): void {
+  openedHandler(_, oldValue: boolean): void {
     if (oldValue !== undefined) {
       this.toggleIconClicked.emit(this.getItemData(false));
     }
@@ -228,7 +228,7 @@ INDEX:
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
     let checked = 0;
     if (allChildren?.length) {
-      Array.from(allChildren).forEach((item) => {
+      Array.from(allChildren).forEach(item => {
         if (item.checked) {
           checked++;
         }
@@ -262,7 +262,7 @@ INDEX:
     }
   };
 
-  private observer = new MutationObserver((mutationsList) => {
+  private observer = new MutationObserver(mutationsList => {
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
         this.lazy = false;
@@ -318,9 +318,8 @@ INDEX:
       );
       if (!this.parentTreeIsMasterTree) {
         const lastDirectTreeItem = directTreeItems[directTreeItems.length - 1];
-        const lastDirectItemItemsLength = lastDirectTreeItem.querySelectorAll(
-          "gxg-tree-item"
-        ).length;
+        const lastDirectItemItemsLength =
+          lastDirectTreeItem.querySelectorAll("gxg-tree-item").length;
         total = allItemsLength - lastDirectItemItemsLength;
       } else {
         total = allItemsLength;
@@ -385,9 +384,8 @@ INDEX:
       } else {
         const childTree = this.el.querySelector("gxg-tree");
         const childTreeFirstChildren = childTree.querySelector("gxg-tree-item");
-        const childTreeFirstChildrenLiText = childTreeFirstChildren.shadowRoot.querySelector(
-          ".li-text"
-        );
+        const childTreeFirstChildrenLiText =
+          childTreeFirstChildren.shadowRoot.querySelector(".li-text");
         (childTreeFirstChildrenLiText as HTMLElement).focus();
       }
     }
@@ -431,9 +429,8 @@ INDEX:
         if (e.shiftKey && e.key !== "Tab") {
           //if shift key was pressed, navigate to the previous sibling
           if (prevElementSibling !== null) {
-            prevItem = prevElementSibling.shadowRoot.querySelector(
-              "li .li-text"
-            );
+            prevItem =
+              prevElementSibling.shadowRoot.querySelector("li .li-text");
           }
         } else {
           if (prevElementSibling === null) {
@@ -441,27 +438,28 @@ INDEX:
             const parentParentItem = parentItem.parentElement;
             prevItem = parentParentItem.shadowRoot.querySelector("li .li-text");
           } else {
-            prevItem = prevElementSibling.shadowRoot.querySelector(
-              "li .li-text"
-            );
+            prevItem =
+              prevElementSibling.shadowRoot.querySelector("li .li-text");
             if (prevElementSibling !== null) {
               //If the preceding tree-item has tree inside...
-              const prevElementSiblingHasChildTree = ((prevElementSibling as unknown) as GxgTreeItem)
-                .hasChildTree;
+              const prevElementSiblingHasChildTree = (
+                prevElementSibling as unknown as GxgTreeItem
+              ).hasChildTree;
               if (prevElementSiblingHasChildTree) {
-                const prevElementSiblingHasOpenTree = ((prevElementSibling as unknown) as GxgTreeItem)
-                  .opened;
+                const prevElementSiblingHasOpenTree = (
+                  prevElementSibling as unknown as GxgTreeItem
+                ).opened;
                 if (prevElementSiblingHasOpenTree) {
                   //If preceding tree-item tree is opened, then the prev item is the last item of that tree
-                  const prevElemSiblingTreeItem = this.el
-                    .previousElementSibling;
-                  const prevElemSiblingTreeItemTree = prevElemSiblingTreeItem.querySelector(
-                    "gxg-tree"
-                  );
+                  const prevElemSiblingTreeItem =
+                    this.el.previousElementSibling;
+                  const prevElemSiblingTreeItemTree =
+                    prevElemSiblingTreeItem.querySelector("gxg-tree");
                   //
                   if (
-                    ((prevElemSiblingTreeItemTree.lastElementChild as unknown) as GxgTreeItem)
-                      .hasChildTree
+                    (
+                      prevElemSiblingTreeItemTree.lastElementChild as unknown as GxgTreeItem
+                    ).hasChildTree
                   ) {
                     if (
                       prevElemSiblingTreeItemTree.lastElementChild.shadowRoot
@@ -474,21 +472,24 @@ INDEX:
                           "li .li-text"
                         );
                     } else {
-                      prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-                        "li .li-text"
-                      );
+                      prevItem =
+                        prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                          "li .li-text"
+                        );
                     }
                   } else {
-                    prevItem = prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
-                      "li .li-text"
-                    );
+                    prevItem =
+                      prevElemSiblingTreeItemTree.lastElementChild.shadowRoot.querySelector(
+                        "li .li-text"
+                      );
                   }
                   //
                 } else {
                   //The preciding item has a tree, but it is closed
-                  prevItem = this.el.previousElementSibling.shadowRoot.querySelector(
-                    "li .li-text"
-                  );
+                  prevItem =
+                    this.el.previousElementSibling.shadowRoot.querySelector(
+                      "li .li-text"
+                    );
                 }
               }
             }
@@ -509,16 +510,18 @@ INDEX:
         if (e.shiftKey) {
           //if shift key was pressed, navigate to the next sibling
           if (this.el.nextElementSibling !== null) {
-            nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
-              "li .li-text"
-            );
+            nextItem =
+              this.el.nextElementSibling.shadowRoot.querySelector(
+                "li .li-text"
+              );
           }
         } else {
           if (this.lastTreeItem) {
             if (this.hasChildTree && this.opened) {
-              nextItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
-                ".li-text"
-              );
+              nextItem =
+                this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
+                  ".li-text"
+                );
             } else {
               const thisTree = this.el.parentElement;
               const thisTreeParent = thisTree.parentElement;
@@ -528,14 +531,15 @@ INDEX:
                   thisTreeParent.parentElement.parentElement
                     .nextElementSibling !== null
                 ) {
-                  nextItem = thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
-                    ".li-text"
-                  );
+                  nextItem =
+                    thisTreeParent.parentElement.parentElement.nextElementSibling.shadowRoot.querySelector(
+                      ".li-text"
+                    );
                 }
               } else {
-                nextItem = (thisTreeParentNextTree as HTMLElement).shadowRoot.querySelector(
-                  ".li-text"
-                );
+                nextItem = (
+                  thisTreeParentNextTree as HTMLElement
+                ).shadowRoot.querySelector(".li-text");
               }
             }
           } else {
@@ -544,9 +548,8 @@ INDEX:
                 .querySelector("gxg-tree gxg-tree-item")
                 .shadowRoot.querySelector("li .li-text");
             } else {
-              nextItem = this.el.nextElementSibling.shadowRoot.querySelector(
-                ".li-text"
-              );
+              nextItem =
+                this.el.nextElementSibling.shadowRoot.querySelector(".li-text");
             }
           }
         }
@@ -556,9 +559,10 @@ INDEX:
       } else {
         //Last element of parent tree
         if (!this.leaf && this.opened) {
-          const childTreeFirstTreeItem = this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
-            "li .li-text"
-          );
+          const childTreeFirstTreeItem =
+            this.el.firstElementChild.firstElementChild.shadowRoot.querySelector(
+              "li .li-text"
+            );
           (childTreeFirstTreeItem as HTMLElement).focus();
         }
       }
@@ -585,7 +589,7 @@ INDEX:
         this.toggleChildrenCheckboxes(this.checked);
       }
       const parentItems = this.getParentItems();
-      parentItems.forEach((parentItem) => {
+      parentItems.forEach(parentItem => {
         parentItem.evaluateCheckboxStatus();
       });
     }
@@ -595,7 +599,7 @@ INDEX:
     this.indeterminate = false;
     const allChildren = this.el.querySelectorAll("gxg-tree-item");
     if (allChildren?.length) {
-      Array.from(allChildren).forEach((item) => {
+      Array.from(allChildren).forEach(item => {
         item.indeterminate = false;
         item.checked = checked;
       });
@@ -656,7 +660,7 @@ INDEX:
       lazy: this.lazy,
       leaf: this.leaf,
       opened: this.opened,
-      selected: this.selected,
+      selected: this.selected
     };
   };
 
@@ -672,7 +676,7 @@ INDEX:
           class={{
             "tree-open": this.opened,
             "tree-closed": !this.opened,
-            disabled: this.disabled,
+            disabled: this.disabled
           }}
         >
           <div
@@ -682,7 +686,7 @@ INDEX:
               "li-text--leaf": this.leaf,
               "li-text--first-tree-item": this.firstItem,
               "li-text--has-child-tree": this.hasChildTree,
-              "li-text--selected": this.selected,
+              "li-text--selected": this.selected
             }}
             style={{ paddingLeft: this.leftPadding }}
             onClick={this.liTextClickedHandler.bind(this)}
@@ -697,7 +701,7 @@ INDEX:
                     class={{ "vertical-line": true }}
                     style={{
                       height: this.lineHeight,
-                      left: this.verticalLineStartPosition,
+                      left: this.verticalLineStartPosition
                     }}
                   ></span>,
                   <div class={{ "closed-opened-icons": true }}>
@@ -708,17 +712,17 @@ INDEX:
                       class="icon toggle-icon"
                       part={this.parts.toggleButton}
                     ></gxg-icon>
-                  </div>,
+                  </div>
                 ]
               : null}
             {this.numberOfParentTrees > 1 ? (
               <span
                 class={{
-                  "horizontal-line": true,
+                  "horizontal-line": true
                 }}
                 style={{
                   left: this.horizontalLineStartPosition,
-                  width: this.horizontalLineWidth,
+                  width: this.horizontalLineWidth
                 }}
               ></span>
             ) : null}
@@ -739,7 +743,7 @@ INDEX:
                 color="auto"
                 class="icon icon--left"
                 style={{
-                  "--icon-size": "14px",
+                  "--icon-size": "14px"
                 }}
               ></gxg-icon>
             ) : null}

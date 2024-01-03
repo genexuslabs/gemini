@@ -6,13 +6,13 @@ import {
   EventEmitter,
   h,
   Host,
-  Watch,
+  Watch
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-form-radio",
   styleUrl: "form-radio.scss",
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgFormRadio {
   radioInput!: HTMLInputElement;
@@ -77,12 +77,12 @@ export class GxgFormRadio {
     if (newValue) {
       this.radioChecked.emit({
         id: this.radioId,
-        value: this.value,
+        value: this.value
       });
     }
   }
 
-  private clickedHandler = (e): void => {
+  private clickedHandler = () => {
     this.checked = true;
   };
 
@@ -100,7 +100,7 @@ export class GxgFormRadio {
           onClick={this.clickedHandler}
         >
           <input
-            ref={(el) => (this.radioInput = el as HTMLInputElement)}
+            ref={el => (this.radioInput = el as HTMLInputElement)}
             type="radio"
             name={this.name}
             value={this.value}

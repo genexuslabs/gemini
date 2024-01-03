@@ -9,7 +9,7 @@
     "module": "esnext",
     "target": "es2022",
     "noUnusedLocals": true,
-    "noUnusedParameters": false,
+    "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h"
   },
