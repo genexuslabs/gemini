@@ -9,7 +9,7 @@ import {
   Listen,
   State,
   Method,
-  Watch,
+  Watch
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -24,7 +24,7 @@ import { ValidationStatus } from "../../common/types";
 @Component({
   tag: "gxg-list-box",
   styleUrl: "list-box.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgListBox implements FormComponent {
   /**
@@ -71,7 +71,7 @@ export class GxgListBox implements FormComponent {
    */
   @Prop() keyboardSuggestions: KeyboardSuggestions = {
     checkCheckbox: "to check a checkbox press (shift + space)",
-    uncheckCheckbox: "to uncheck a checkbox press (shift + ctrl + space)",
+    uncheckCheckbox: "to uncheck a checkbox press (shift + ctrl + space)"
   };
 
   /**
@@ -173,15 +173,16 @@ export class GxgListBox implements FormComponent {
 
   @Method()
   async getSelectedItems(): Promise<ItemsInformation[]> {
-    const selectedItems: HTMLGxgListBoxItemElement[] = this.getSelectedItemsFunc();
+    const selectedItems: HTMLGxgListBoxItemElement[] =
+      this.getSelectedItemsFunc();
     const selectedItemsInformation: ItemsInformation[] = [];
-    selectedItems.forEach((selectedItem) => {
+    selectedItems.forEach(selectedItem => {
       selectedItemsInformation.push({
         active: selectedItem.active,
         selected: selectedItem.selected,
         checked: selectedItem.checked,
         index: selectedItem.index,
-        value: selectedItem.value,
+        value: selectedItem.value
       });
     });
     return selectedItemsInformation;
@@ -199,6 +200,7 @@ export class GxgListBox implements FormComponent {
 
   componentDidLoad(): void {
     this.setInitialActive();
+    this.emitInitialSelectedItems();
   }
 
   initialSetup = (): void => {
@@ -219,9 +221,10 @@ export class GxgListBox implements FormComponent {
     /*/conditions to do setup*/
     if (doSetup) {
       const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
-      const selectedItems: HTMLGxgListBoxItemElement[] = this.getSelectedItemsFunc();
+      const selectedItems: HTMLGxgListBoxItemElement[] =
+        this.getSelectedItemsFunc();
       if (selectItem) {
-        const firstDeselectedItem = enabledItems.find((item) => {
+        const firstDeselectedItem = enabledItems.find(item => {
           return !item.selected;
         });
         firstDeselectedItem && (firstDeselectedItem.selected = true);
@@ -234,13 +237,13 @@ export class GxgListBox implements FormComponent {
         }
       }
       if (setCheckbox) {
-        enabledItems.forEach((item) => {
+        enabledItems.forEach(item => {
           item.checkbox = true;
           !this.disableSuggestions && (item.emitCheckboxChange = true);
         });
       }
       if (disableListbox) {
-        enabledItems.forEach((item) => {
+        enabledItems.forEach(item => {
           item.disabled = true;
         });
       }
@@ -255,6 +258,10 @@ export class GxgListBox implements FormComponent {
       this.setActiveItem(firstSelectedItem);
     }
   };
+
+  private emitInitialSelectedItems() {
+    this.updateSelectedItems();
+  }
 
   @Listen("itemLoaded")
   itemLoadedHandler(): void {
@@ -334,12 +341,12 @@ export class GxgListBox implements FormComponent {
   disabledHandler(disabled: boolean): void {
     if (disabled) {
       const enabledItems = this.getEnabledItems();
-      enabledItems?.forEach((item) => {
+      enabledItems?.forEach(item => {
         item.disabled = true;
       });
     } else {
       const disabledItems = this.getDisabledItems();
-      disabledItems?.forEach((item) => {
+      disabledItems?.forEach(item => {
         item.disabled = false;
       });
     }
@@ -365,7 +372,7 @@ export class GxgListBox implements FormComponent {
     const checkedItemsArray: ItemsInformation[] = [];
     const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
     if (enabledItems?.length) {
-      enabledItems.forEach((enabledItem) => {
+      enabledItems.forEach(enabledItem => {
         let item: HTMLGxgListBoxItemElement;
         if (enabledItem === checkedItemEl) {
           item = checkedItemEl;
@@ -380,7 +387,7 @@ export class GxgListBox implements FormComponent {
             selected: item.selected,
             checked: checked,
             index: item.index,
-            value: item.value || item.textContent,
+            value: item.value || item.textContent
           });
         }
       });
@@ -536,7 +543,7 @@ export class GxgListBox implements FormComponent {
         )
       : this.el.querySelectorAll("gxg-list-box-item[selected]");
     if (actualSelectedItems.length > 0) {
-      actualSelectedItems.forEach((item) => {
+      actualSelectedItems.forEach(item => {
         this.unselectItems(item as HTMLGxgListBoxItemElement);
       });
     }
@@ -550,7 +557,7 @@ export class GxgListBox implements FormComponent {
     const selectedItemsArray: HTMLGxgListBoxItemElement[] = [];
     const enabledItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
     if (enabledItems?.length) {
-      enabledItems.forEach((item) => {
+      enabledItems.forEach(item => {
         item.selected && selectedItemsArray.push(item);
       });
     }
@@ -576,7 +583,7 @@ export class GxgListBox implements FormComponent {
   unhighlightAll(ignoreActiveItem = false): number {
     const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
     if (enabledItems?.length) {
-      enabledItems.forEach((item) => {
+      enabledItems.forEach(item => {
         ignoreActiveItem && item === this.activeItem
           ? null
           : (item.highlighted = false);
@@ -588,7 +595,7 @@ export class GxgListBox implements FormComponent {
 
   toggleHighlightedItems(): void {
     const highlightedItems = this.getHighlightedItems();
-    highlightedItems.forEach((item) => {
+    highlightedItems.forEach(item => {
       this.toggleItem(item);
     });
   }
@@ -606,7 +613,7 @@ export class GxgListBox implements FormComponent {
   clearHighlightedItems(): void {
     const enabledItems = this.getEnabledItems();
     if (enabledItems?.length) {
-      enabledItems.forEach((item) => {
+      enabledItems.forEach(item => {
         item.highlighted && this.unhighlightItem(item);
       });
     }
@@ -616,7 +623,7 @@ export class GxgListBox implements FormComponent {
     const highlightedItemsArray: HTMLGxgListBoxItemElement[] = [];
     const enabledItems = this.getEnabledItems();
     if (enabledItems?.length) {
-      enabledItems.forEach((item) => {
+      enabledItems.forEach(item => {
         item.highlighted && highlightedItemsArray.push(item);
       });
     }
@@ -631,7 +638,7 @@ export class GxgListBox implements FormComponent {
     let highlightedItemsLength = 0;
     const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
     if (enabledItems?.length) {
-      enabledItems.forEach((item) => {
+      enabledItems.forEach(item => {
         this.highlightItem(item, true);
         highlightedItemsLength++;
       });
@@ -645,7 +652,7 @@ export class GxgListBox implements FormComponent {
     const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
     let itemByIndex;
     if (enabledItems?.length) {
-      itemByIndex = enabledItems.find((item) => item.index === index);
+      itemByIndex = enabledItems.find(item => item.index === index);
     }
     return itemByIndex;
   }
@@ -654,7 +661,7 @@ export class GxgListBox implements FormComponent {
     let index;
     const enabledItems = this.getEnabledItems();
     if (enabledItems?.length) {
-      const element = enabledItems.find((item) => item === el);
+      const element = enabledItems.find(item => item === el);
       element && (index = element.index);
     }
     return index;
@@ -697,7 +704,7 @@ export class GxgListBox implements FormComponent {
   ): number {
     let selected = 0;
     if (items && Array.isArray(items) && items.length > 0) {
-      items.forEach((item) => {
+      items.forEach(item => {
         if (!item.selected && !item.disabled) {
           (item.selected = true) && selected++;
         }
@@ -724,7 +731,7 @@ export class GxgListBox implements FormComponent {
       items.length > 0 &&
       selectedItemsLength > 0
     ) {
-      items.forEach((item) => {
+      items.forEach(item => {
         if (item.selected && !item.disabled) {
           if (this.allowsEmpty) {
             item.selected = false;
@@ -762,13 +769,13 @@ export class GxgListBox implements FormComponent {
   updateSelectedItems = (): void => {
     const selectedItemsArray: ItemsInformation[] = [];
     const selectedItems = this.getSelectedItemsFunc();
-    selectedItems.forEach((item) => {
+    selectedItems.forEach(item => {
       selectedItemsArray.push({
         active: item.active,
         selected: item.selected,
         checked: item.checked,
         index: item.index,
-        value: item.value || item.textContent,
+        value: item.value || item.textContent
       });
     });
     this.selectedItems = [...selectedItemsArray];
@@ -778,7 +785,7 @@ export class GxgListBox implements FormComponent {
 
   getActiveItem(): HTMLGxgListBoxItemElement {
     const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
-    return enabledItems.find((item) => item.active);
+    return enabledItems.find(item => item.active);
   }
 
   setActiveItem(item: HTMLGxgListBoxItemElement): boolean {
@@ -805,7 +812,7 @@ export class GxgListBox implements FormComponent {
   getEnabledItems(): HTMLGxgListBoxItemElement[] {
     const enabledItemsArray: HTMLGxgListBoxItemElement[] = [];
     const enabledItems = this.el.querySelectorAll("gxg-list-box-item");
-    enabledItems.forEach((item) => {
+    enabledItems.forEach(item => {
       !item.disabled && enabledItemsArray.push(item);
     });
     return enabledItemsArray;
@@ -816,7 +823,7 @@ export class GxgListBox implements FormComponent {
   getDisabledItems(): HTMLGxgListBoxItemElement[] {
     const disabledItemsArray: HTMLGxgListBoxItemElement[] = [];
     const allItems = this.el.querySelectorAll("gxg-list-box-item");
-    allItems.forEach((item) => {
+    allItems.forEach(item => {
       item.disabled && disabledItemsArray.push(item);
     });
     return disabledItemsArray;
@@ -830,7 +837,7 @@ export class GxgListBox implements FormComponent {
   ): number {
     if (items && Array.isArray(items) && items.length !== 0) {
       let changed = 0;
-      items.forEach((item) => {
+      items.forEach(item => {
         if (!item.checked && check) {
           item.checked = true;
           changed++;
@@ -859,7 +866,7 @@ export class GxgListBox implements FormComponent {
     const allItemsArray: HTMLGxgListBoxItemElement[] = [];
     const allItems = this.el.querySelectorAll("gxg-list-box-item");
     if (allItems?.length) {
-      allItems.forEach((item) => {
+      allItems.forEach(item => {
         allItemsArray.push(item);
       });
     }
@@ -942,19 +949,19 @@ export class GxgListBox implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
         onKeyDown={this.handleKeyDown}
       >
         <div
           class={{ container: true, "form-element": true }}
           tabindex={this.disabled ? "-1" : "0"}
-          ref={(el) => (this.containerEl = el as HTMLDivElement)}
+          ref={el => (this.containerEl = el as HTMLDivElement)}
         >
           {this.theTitle ? (
             <header
               class={{ header: true }}
-              ref={(el) => (this.header = el as HTMLElement)}
+              ref={el => (this.header = el as HTMLElement)}
             >
               {this.theTitle}
             </header>
@@ -964,12 +971,12 @@ export class GxgListBox implements FormComponent {
             : null}
           <main
             class={{
-              main: true,
+              main: true
             }}
             style={{
-              height: `calc(100% - ${this.headerHeight}px)`,
+              height: `calc(100% - ${this.headerHeight}px)`
             }}
-            ref={(el) => (this.main = el as HTMLElement)}
+            ref={el => (this.main = el as HTMLElement)}
           >
             <slot></slot>
           </main>

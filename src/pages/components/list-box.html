@@ -55,6 +55,7 @@
           min-height="50%"
           no-border
           emit-empty-selection
+          id="list-box"
         >
           <gxg-list-box-item
             >0.Common this is a large, very large list
@@ -208,13 +209,13 @@
           <gxg-list-box-item icon="objects/business-process-diagram"
             >1.BPM</gxg-list-box-item
           >
-          <gxg-list-box-item icon="objects/conversational-flows"
+          <gxg-list-box-item selected icon="objects/conversational-flows"
             >2.Chatbots</gxg-list-box-item
           >
           <gxg-list-box-item icon="objects/data-provider"
             >3.Data Management</gxg-list-box-item
           >
-          <gxg-list-box-item icon="objects/bg-color"
+          <gxg-list-box-item selected icon="objects/bg-color"
             >4.Resources</gxg-list-box-item
           >
           <gxg-list-box-item value="user-interface" icon="objects/webpanel"
@@ -410,18 +411,18 @@
         const listBoxTitle = listBox.getAttribute("data-title");
         listBox.setAttribute("the-title", `${i} - ${listBoxTitle}`);
         //selectionChanged listener
-        listBox.addEventListener("selectionChanged", (e) => {
+        listBox.addEventListener("selectionChanged", e => {
           console.log(`selectionChanged ${i}: `, e.detail);
         });
         //checkedChanged listener
-        listBox.addEventListener("checkedChanged", (e) => {
+        listBox.addEventListener("checkedChanged", e => {
           console.log(`checkedChanged ${i}: `, e.detail);
         });
         //get selected items
         if (i !== 0 && i !== 1) {
           const getSelectedBtn = document.createElement("button");
           getSelectedBtn.addEventListener("click", () => {
-            listBox.getSelectedItems().then((selectedItems) => {
+            listBox.getSelectedItems().then(selectedItems => {
               console.log(`checkedChanged ${i}: `, selectedItems);
             });
           });
