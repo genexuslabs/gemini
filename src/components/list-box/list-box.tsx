@@ -200,7 +200,6 @@ export class GxgListBox implements FormComponent {
 
   componentDidLoad(): void {
     this.setInitialActive();
-    this.emitInitialSelectedItems();
   }
 
   initialSetup = (): void => {
@@ -256,12 +255,17 @@ export class GxgListBox implements FormComponent {
     const firstSelectedItem = this.getFirstSelectedItem();
     if (firstSelectedItem) {
       this.setActiveItem(firstSelectedItem);
+      this.selectedItems = [
+        {
+          active: firstSelectedItem.active,
+          selected: firstSelectedItem.selected,
+          checked: firstSelectedItem.checked,
+          index: firstSelectedItem.index,
+          value: firstSelectedItem.value || firstSelectedItem.textContent
+        }
+      ];
     }
   };
-
-  private emitInitialSelectedItems() {
-    this.updateSelectedItems();
-  }
 
   @Listen("itemLoaded")
   itemLoadedHandler(): void {
@@ -288,7 +292,7 @@ export class GxgListBox implements FormComponent {
       }
     } else {
       /*multiple-selection allowed*/
-      if (shiftKey || !ctrlKey) {
+      if (shiftKey || (!cmdKey && !cmdKey)) {
         this.clearHighlightedItems();
         this.clearSelectedItems();
       }
@@ -307,7 +311,7 @@ export class GxgListBox implements FormComponent {
           fromIndex = 0;
         }
         this.selectMultipleItems(fromIndex, toIndex);
-      } else if (ctrlKey) {
+      } else if (ctrlKey || cmdKey) {
         if (
           !this.allowsEmpty &&
           this.selectedItemsLength() === 1 &&

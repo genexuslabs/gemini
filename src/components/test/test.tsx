@@ -7,10 +7,6 @@ import { Component, h, Element } from "@stencil/core";
 export class GxgTest {
   @Element() el: HTMLElement;
 
-  private sendClickHandler = () => {
-    console.log("clicked");
-  };
-
   render() {
     return [
       <div class="container">
@@ -53,7 +49,6 @@ export class GxgTest {
               id="enviar"
               data-shortcut="Enter"
               data-shortcut-action="click"
-              onClick={this.sendClickHandler}
             >
               Enviar
             </button>

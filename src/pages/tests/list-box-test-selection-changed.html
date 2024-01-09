@@ -14,7 +14,6 @@
   </head>
   <body>
     <gxg-list-box
-      single-selection
       id="list-box-errors"
       the-title="listbox single-selection"
       height="100%"
@@ -48,16 +47,24 @@
         >9.Structured Data Type</gxg-list-box-item
       >
     </gxg-list-box>
+    <br />
+    <button id="get-selected-btn">get selected</button>
     <script>
       const listBox = document.querySelector("gxg-list-box");
-      listBox.addEventListener("selectionChanged", (e) => {
-        console.table("selectionChanged", e.detail.items);
-        // if (e.detail.items.length > 0) {
-        // }
+      listBox.addEventListener("selectionChanged", e => {
+        console.log(`selectionChanged: `, e.detail);
       });
-      listBox.addEventListener("checkedChanged", (e) => {
+      listBox.addEventListener("checkedChanged", e => {
         console.table("checkedChanged", e.detail);
       });
+      const getSelectedBtn = document.getElementById("get-selected-btn");
+      if (getSelectedBtn) {
+        getSelectedBtn.addEventListener("click", () => {
+          listBox.getSelectedItems().then(selectedItems => {
+            console.log(`selectedItems: `, selectedItems);
+          });
+        });
+      }
     </script>
   </body>
 </html>

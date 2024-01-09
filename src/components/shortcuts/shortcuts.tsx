@@ -3,7 +3,7 @@ import { Component, Host, h, Prop, State } from "@stencil/core";
 @Component({
   tag: "gxg-shortcuts",
   styleUrl: "shortcuts.scss",
-  shadow: false,
+  shadow: false
 })
 export class GxgShortcuts {
   /**
@@ -24,7 +24,6 @@ export class GxgShortcuts {
   }
 
   render() {
-    console.log("render");
     return (
       <Host>
         <ch-shortcuts
