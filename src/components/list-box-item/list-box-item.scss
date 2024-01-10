@@ -69,7 +69,7 @@
 /*ACTIVE*/
 :host([active]) {
   @include form-element-common-styles-focus-type-1();
-  background-color: var(--gxg-background-color--hover);
+  //background-color: var(--gxg-background-color--hover);
   color: var(--gxg-color--hover);
 }
 /*SELECTED*/

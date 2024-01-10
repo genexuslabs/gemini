@@ -194,82 +194,63 @@ export class GxgListBox implements FormComponent {
     }
   }
 
-  componentWillLoad(): void {
-    this.initialSetup();
-  }
-
   componentDidLoad(): void {
-    this.setInitialActive();
+    //this.setInitialActive();
   }
 
-  initialSetup = (): void => {
-    /*set index to every item*/
-    const allItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
-    if (allItems?.length)
-      allItems.forEach((item, i) => {
-        item.index = i;
-      });
-    /*conditions to do setup*/
-    const selectItem = !this.allowsEmpty && this.selectedItemsLength() === 0;
-    const unselectItems =
-      this.singleSelection && this.selectedItemsLength() > 1;
-    const setCheckbox = this.checkboxes;
-    const disableListbox = this.disabled;
-    const doSetup =
-      selectItem || setCheckbox || unselectItems || disableListbox;
-    /*/conditions to do setup*/
-    if (doSetup) {
-      const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
-      const selectedItems: HTMLGxgListBoxItemElement[] =
-        this.getSelectedItemsFunc();
-      if (selectItem) {
-        const firstDeselectedItem = enabledItems.find(item => {
-          return !item.selected;
-        });
-        firstDeselectedItem && (firstDeselectedItem.selected = true);
-      } else if (unselectItems) {
-        if (selectedItems?.length) {
-          selectedItems.forEach((item, i) => {
-            /*keep only the first one selected*/
-            i !== 0 && (item.selected = false);
-          });
-        }
-      }
-      if (setCheckbox) {
-        enabledItems.forEach(item => {
-          item.checkbox = true;
-          !this.disableSuggestions && (item.emitCheckboxChange = true);
-        });
-      }
-      if (disableListbox) {
-        enabledItems.forEach(item => {
-          item.disabled = true;
-        });
-      }
-    }
-    /*Do updateSelectedItems to initialize this.getSelectedItems array*/
-    this.selectedItemsLength() > 0 && this.updateSelectedItems();
+  private setIndexes = () => {
+    const allItems = this.getAllItems();
+    allItems.forEach((item, i) => {
+      item.index = i;
+    });
   };
 
-  private setInitialActive = () => {
-    const firstSelectedItem = this.getFirstSelectedItem();
-    if (firstSelectedItem) {
-      this.setActiveItem(firstSelectedItem);
-      this.selectedItems = [
-        {
-          active: firstSelectedItem.active,
-          selected: firstSelectedItem.selected,
-          checked: firstSelectedItem.checked,
-          index: firstSelectedItem.index,
-          value: firstSelectedItem.value || firstSelectedItem.textContent
+  private initialSetup = () => {
+    const enabledItems: HTMLGxgListBoxItemElement[] = this.getEnabledItems();
+    const selectedItemsLength = this.selectedItemsLength();
+    //1. Select item if allowsEmpty is false and no item is currently selected
+    const selectItem = !this.allowsEmpty && selectedItemsLength === 0;
+    if (selectItem) {
+      const firstDeselectedItem = enabledItems.find(item => {
+        return !item.selected;
+      });
+      firstDeselectedItem && (firstDeselectedItem.selected = true);
+    } else if (this.singleSelection && selectedItemsLength > 1) {
+      //Only one item can be selected. Unselect every selected items, except the first one.
+      const selectedItems = this.getSelectedItemsFunc();
+      selectedItems.forEach((selectedItem: HTMLGxgListBoxItemElement, i) => {
+        if (i !== 0) {
+          selectedItem.selected = false;
         }
-      ];
+      });
+    }
+    //2. Set active item, if not active item exists yet
+    const currentActiveItem = this.getActiveItem();
+    if (!currentActiveItem) {
+      const firstEnabledItem = this.getEnabledItems()[0];
+      if (firstEnabledItem) {
+        firstEnabledItem.active = true;
+        this.activeItem = firstEnabledItem;
+      }
+    }
+    //3. Set index on every item
+    this.setIndexes();
+    //4. disable items
+    if (this.disabled) {
+      this.disabledHandler(true);
+    }
+    //5. set checkboxes
+    if (this.checkboxes) {
+      const allItems = this.getAllItems();
+      allItems.forEach(item => {
+        item.checkbox = true;
+      });
     }
   };
 
   @Listen("itemLoaded")
-  itemLoadedHandler(): void {
-    //this.initialSetup();
+  itemLoadedHandler(e): void {
+    this.initialSetup();
   }
 
   @Listen("itemClicked")
@@ -278,7 +259,10 @@ export class GxgListBox implements FormComponent {
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
     //this.clearActiveItem();
     if (this.singleSelection) {
-      if (this.activeItem === clickedItem && !this.allowsEmpty) {
+      if (
+        (clickedItem as HTMLGxgListBoxItemElement).selected &&
+        !this.allowsEmpty
+      ) {
         /*same item. do nothing.*/
         return;
       }
@@ -416,7 +400,7 @@ export class GxgListBox implements FormComponent {
     const ctrlKey = e.ctrlKey;
     const cmdKey = e.metaKey;
     const shiftKey = e.shiftKey;
-    const activeItemIndex = this.getIndexByElement(this.activeItem);
+    //const activeItemIndex = this.getIndexByElement(this.activeItem);
     if (
       e.code === "ArrowDown" ||
       e.code === "ArrowUp" ||
@@ -429,7 +413,7 @@ export class GxgListBox implements FormComponent {
     }
 
     if (e.code === "ArrowDown" || e.code === "ArrowUp") {
-      this.HandleArrow(e.code, shiftKey, activeItemIndex);
+      this.handleArrow(e.code, shiftKey);
     } else if (e.code === "Space") {
       if (shiftKey && ctrlKey) {
         /*uncheck checkbox*/
@@ -438,7 +422,7 @@ export class GxgListBox implements FormComponent {
           false
         );
         changedLength > 0 && (this.hideKeyboardSuggestions = true);
-      } else if (shiftKey && !ctrlKey) {
+      } else if (shiftKey && (!ctrlKey || !cmdKey)) {
         const changedLength = this.setCheckboxState(
           this.getHighlightedItems(),
           true
@@ -462,7 +446,8 @@ export class GxgListBox implements FormComponent {
           if (ctrlKey || cmdKey) {
             this.clearHighlightedItems();
           } else {
-            this.selectHighlightedItems();
+            this.selectItems(this.activeItem);
+            //this.selectHighlightedItems();
           }
         }
       }
@@ -479,22 +464,14 @@ export class GxgListBox implements FormComponent {
     }
   };
 
-  HandleArrow = (
-    direction: HandleArrow,
-    shiftKey: boolean,
-    activeItemIndex: number
-  ): void => {
+  handleArrow = (direction: HandleArrow, shiftKey: boolean): void => {
     /*Get the next element*/
     let newElement: HTMLGxgListBoxItemElement;
-    if (activeItemIndex >= 0) {
+    const activeElement = this.getActiveItem();
+    newElement =
       direction === "ArrowDown"
-        ? (newElement = this.getNextItem(activeItemIndex))
-        : (newElement = this.getPrevItem(activeItemIndex));
-    } else {
-      direction === "ArrowDown"
-        ? (newElement = this.getFirstEnabledItem())
-        : null;
-    }
+        ? (newElement = this.getNextItem(activeElement))
+        : (newElement = this.getPrevItem(activeElement));
     /*Handle*/
     if (newElement) {
       this.singleSelection &&
@@ -673,32 +650,34 @@ export class GxgListBox implements FormComponent {
 
   /* PREV/NEXT */
 
-  getNextItem(index: number): HTMLGxgListBoxItemElement {
-    const allItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
-    if (index === -1) {
-      return allItems[0];
+  getNextItem(
+    currentActive: HTMLGxgListBoxItemElement
+  ): HTMLGxgListBoxItemElement {
+    const enabledItems = this.getEnabledItems();
+    const enabledActiveItemIndex = enabledItems.findIndex(enabledItem => {
+      return enabledItem === currentActive;
+    });
+    //If is the last item, select the first one
+    if (enabledActiveItemIndex === enabledItems.length - 1) {
+      return enabledItems[0];
+    } else {
+      return enabledItems[enabledActiveItemIndex + 1];
     }
-    const allItemsLength = allItems.length;
-    let nextItemIndex = index + 1;
-    while (nextItemIndex < allItemsLength && allItems[nextItemIndex].disabled) {
-      nextItemIndex++;
-    }
-    if (nextItemIndex < allItemsLength && !allItems[nextItemIndex].disabled) {
-      return allItems[nextItemIndex];
-    }
-    return null;
   }
 
-  getPrevItem(index: number): HTMLGxgListBoxItemElement {
-    const allItems: HTMLGxgListBoxItemElement[] = this.getAllItems();
-    let prevItemIndex = index - 1;
-    while (prevItemIndex > -1 && allItems[prevItemIndex].disabled) {
-      prevItemIndex--;
+  getPrevItem(
+    currentActive: HTMLGxgListBoxItemElement
+  ): HTMLGxgListBoxItemElement {
+    const enabledItems = this.getEnabledItems();
+    const enabledActiveItemIndex = enabledItems.findIndex(enabledItem => {
+      return enabledItem === currentActive;
+    });
+    //If is the first item, select the last one
+    if (enabledActiveItemIndex === 0) {
+      return enabledItems[enabledItems.length - 1];
+    } else {
+      return enabledItems[enabledActiveItemIndex - 1];
     }
-    if (prevItemIndex > -1 && !allItems[prevItemIndex].disabled) {
-      return allItems[prevItemIndex];
-    }
-    return null;
   }
 
   /* SELECTED */

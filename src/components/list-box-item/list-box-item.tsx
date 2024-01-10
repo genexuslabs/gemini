@@ -8,7 +8,7 @@ import {
   EventEmitter,
   State,
   Listen,
-  Watch,
+  Watch
 } from "@stencil/core";
 import state from "../store";
 import { commonClassesNames } from "../../common/classesNames";
@@ -18,11 +18,11 @@ import { exportParts } from "../../common/export-parts";
 @Component({
   tag: "gxg-list-box-item",
   styleUrl: "list-box-item.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgListboxItem {
   private parts = {
-    checkbox: "checkbox",
+    checkbox: "checkbox"
   };
   private exportparts: string;
 
@@ -117,7 +117,7 @@ export class GxgListboxItem {
     this.emitCheckboxChange &&
       this.checkboxStateChanged.emit({
         checkedItem: this.el as HTMLGxgListBoxItemElement,
-        checked: checked,
+        checked: checked
       });
   }
   handleCheckboxClick = (e): void => {
@@ -147,7 +147,7 @@ export class GxgListboxItem {
   };
 
   componentDidLoad() {
-    this.itemLoaded.emit();
+    this.itemLoaded.emit({ value: this.value });
   }
 
   itemClickedFunc(e) {
@@ -156,7 +156,7 @@ export class GxgListboxItem {
       ctrlKey: e.ctrlKey,
       cmdKey: e.metaKey,
       shiftKey: e.shiftKey,
-      index: this.index,
+      index: this.index
     });
   }
 
@@ -175,7 +175,7 @@ export class GxgListboxItem {
           "has-icon": this.icon !== undefined,
           "no-checkbox": !this.checkbox,
           large: state.large,
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
         onClick={this.itemClickedFunc.bind(this)}
         // onMouseOver={this.onMouseOver.bind(this)}
