@@ -1,7 +1,1 @@
 @import "../../globals/mixins";
-
-.card {
-  overflow: auto;
-  @include gxg-scrollbar();
-  height: 100px;
-}

@@ -21,26 +21,17 @@ export class GxgTest {
       {
         id: "uva",
         name: "uva",
-        selected: false,
-        disabled: false
+        selected: false
       },
       {
         id: "manzana",
         name: "manzana",
-        selected: true,
-        disabled: false
+        selected: false
       },
       {
         id: "pera",
         name: "pera",
-        selected: false,
-        disabled: false
-      },
-      {
-        id: "sandia",
-        name: "sandía",
-        selected: false,
-        disabled: true
+        selected: false
       }
     ];
   };
@@ -49,26 +40,17 @@ export class GxgTest {
       {
         id: "uva",
         name: "uva",
-        selected: false,
-        disabled: false
+        selected: false
       },
       {
         id: "manzana",
         name: "manzana",
-        selected: true,
-        disabled: false
+        selected: true
       },
       {
         id: "pera",
         name: "pera",
-        selected: false,
-        disabled: false
-      },
-      {
-        id: "sandia",
-        name: "sandía",
-        selected: false,
-        disabled: true
+        selected: false
       }
     ];
   };
@@ -77,26 +59,17 @@ export class GxgTest {
       {
         id: "uva",
         name: "uva",
-        selected: false,
-        disabled: false
+        selected: false
       },
       {
         id: "manzana",
         name: "manzana",
-        selected: false,
-        disabled: true
+        selected: true
       },
       {
         id: "pera",
         name: "pera",
-        selected: true,
-        disabled: false
-      },
-      {
-        id: "sandia",
-        name: "sandía",
-        selected: true,
-        disabled: true
+        selected: true
       }
     ];
   };
@@ -105,26 +78,17 @@ export class GxgTest {
       {
         id: "uva",
         name: "uva",
-        selected: false,
-        disabled: false
+        selected: false
       },
       {
         id: "manzana",
         name: "manzana",
-        selected: false,
-        disabled: true
+        selected: true
       },
       {
         id: "pera",
         name: "pera",
-        selected: true,
-        disabled: false
-      },
-      {
-        id: "sandia",
-        name: "sandía",
-        selected: false,
-        disabled: true
+        selected: false
       }
     ];
   };
@@ -151,7 +115,6 @@ export class GxgTest {
               value={kb["id"]}
               key={kb["id"]}
               selected={kb["selected"]}
-              disabled={kb["disabled"]}
             >
               {kb["name"]}
             </gxg-list-box-item>
@@ -162,10 +125,8 @@ export class GxgTest {
       <div>
         <p>single selection allows empty</p>
         <gxg-list-box
-          singleSelection
           // disabled={this.selectionKbDisabled}
           // ref={(el: HTMLElement) => (this.listBoxEl = el)}
-          allowsEmpty
           onSelectionChanged={this.selectionHasChanged}
           part="kbs"
           // onSelectionChanged={this.kbsOnSelectionChangedHandler}
@@ -175,29 +136,6 @@ export class GxgTest {
               value={kb["id"]}
               key={kb["id"]}
               selected={kb["selected"]}
-              disabled={kb["disabled"]}
-            >
-              {kb["name"]}
-            </gxg-list-box-item>
-          ))}
-        </gxg-list-box>
-      </div>,
-      <br />,
-      <div>
-        <p>multi selection</p>
-        <gxg-list-box
-          // disabled={this.selectionKbDisabled}
-          // ref={(el: HTMLElement) => (this.listBoxEl = el)}
-          onSelectionChanged={this.singleSelectionChanged}
-          part="kbs"
-          // onSelectionChanged={this.kbsOnSelectionChangedHandler}
-        >
-          {this.kbs.map(kb => (
-            <gxg-list-box-item
-              value={kb["id"]}
-              key={kb["id"]}
-              selected={kb["selected"]}
-              disabled={kb["disabled"]}
             >
               {kb["name"]}
             </gxg-list-box-item>
@@ -210,6 +148,7 @@ export class GxgTest {
         <gxg-list-box
           // disabled={this.selectionKbDisabled}
           // ref={(el: HTMLElement) => (this.listBoxEl = el)}
+          singleSelection
           allowsEmpty
           onSelectionChanged={this.selectionHasChanged}
           part="kbs"
@@ -220,7 +159,6 @@ export class GxgTest {
               value={kb["id"]}
               key={kb["id"]}
               selected={kb["selected"]}
-              disabled={kb["disabled"]}
             >
               {kb["name"]}
             </gxg-list-box-item>
@@ -229,33 +167,11 @@ export class GxgTest {
       </div>,
       <br />,
       <div>
-        <p>disabled</p>
+        <p>multi selection</p>
         <gxg-list-box
           // disabled={this.selectionKbDisabled}
           // ref={(el: HTMLElement) => (this.listBoxEl = el)}
-          disabled
-          onSelectionChanged={this.selectionHasChanged}
-          part="kbs"
-          // onSelectionChanged={this.kbsOnSelectionChangedHandler}
-        >
-          {this.kbs.map(kb => (
-            <gxg-list-box-item
-              value={kb["id"]}
-              key={kb["id"]}
-              selected={kb["selected"]}
-            >
-              {kb["name"]}
-            </gxg-list-box-item>
-          ))}
-        </gxg-list-box>
-      </div>,
-      <br />,
-      <div>
-        <p>with checkboxes</p>
-        <gxg-list-box
-          // disabled={this.selectionKbDisabled}
-          // ref={(el: HTMLElement) => (this.listBoxEl = el)}
-          checkboxes
+          allowsEmpty
           onSelectionChanged={this.selectionHasChanged}
           part="kbs"
           // onSelectionChanged={this.kbsOnSelectionChangedHandler}
