@@ -51,6 +51,10 @@ Type: `Promise<ItemsInformation[]>`
 
 ## Dependencies
 
+### Used by
+
+ - [gxg-test](../test)
+
 ### Depends on
 
 - [gxg-button](../button)
@@ -68,6 +72,7 @@ graph TD;
   gxg-button --> gxg-icon
   gxg-icon --> ch-icon
   gxg-form-message --> gxg-icon
+  gxg-test --> gxg-list-box
   style gxg-list-box fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

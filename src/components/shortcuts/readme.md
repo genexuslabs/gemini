@@ -15,10 +15,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [gxg-test](../test)
-
 ### Depends on
 
 - ch-shortcuts
@@ -29,7 +25,6 @@ graph TD;
   gxg-shortcuts --> ch-shortcuts
   ch-shortcuts --> ch-window
   ch-window --> ch-window-close
-  gxg-test --> gxg-shortcuts
   style gxg-shortcuts fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
