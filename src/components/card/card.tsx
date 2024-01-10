@@ -6,7 +6,7 @@ import { hiChar } from "../../common/hiChar";
 @Component({
   tag: "gxg-card",
   styleUrl: "card.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgCard {
   @Element() el!: HTMLElement;
@@ -170,25 +170,26 @@ export class GxgCard {
           "card--section": this.cardType === "section",
           "card--article": this.cardType === "article",
           "card--mini": this.cardType === "mini",
+          "card--default": this.cardType === "default",
           "card--title": this.cardTitle !== undefined,
           "card--actionable":
             this.actionable &&
             (this.cardType === "article" || this.cardType === "mini"),
           "title-semibold": this.titleSemibold,
           "card--no-shadow": this.noShadow,
-          "no-header-border": this.noHeaderBorder,
+          "no-header-border": this.noHeaderBorder
         }}
         style={{
           maxWidth: this.maxWidth,
           minHeight: this.minHeight,
-          height: this.height,
+          height: this.height
         }}
       >
         <div
           role={this.actionable ? "button" : "none"}
           class={{
             wrapper: true,
-            "wrapper--header": this.cardTitle !== undefined,
+            "wrapper--header": this.cardTitle !== undefined
           }}
         >
           {this.cardTitle ? (
@@ -257,4 +258,8 @@ export type padding = "0" | "xs" | "s" | "m" | "l" | "xl" | "xxl" | "xxxl";
 
 export type background = "white" | "gray-01";
 
-export type CardType = "section" | "article" | "mini"; /*only for mercury*/
+export type CardType =
+  | "default"
+  | "section"
+  | "article"
+  | "mini"; /*only for mercury*/

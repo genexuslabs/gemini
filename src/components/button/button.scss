@@ -18,7 +18,7 @@
 
 :host(.button) .button-native {
   width: 100%;
-  height: 100%;
+  height: 20px;
   --svg-icon-regular-scale: var(
     --svg-icon-small-scale
   ); // Force Icon size inside button to always be small size.
