@@ -249,7 +249,7 @@ export class GxgListBox implements FormComponent {
   };
 
   @Listen("itemLoaded")
-  itemLoadedHandler(e): void {
+  itemLoadedHandler(): void {
     this.initialSetup();
   }
 
