@@ -5,16 +5,16 @@
 :host {
   display: block;
   background: var(--color-on-primary);
-  box-shadow: var(--box-shadow-card);
+  box-shadow: var(--box-shadow-01);
   border-radius: var(--border-radius-md);
   @include gxg-text();
 }
 //Box shadow
 :host([elevation="xs"]) {
-  box-shadow: var(--box-shadow-card);
+  box-shadow: var(--box-shadow-01);
 }
 :host([elevation="m"]) {
-  box-shadow: var(--box-shadow-card);
+  box-shadow: var(--box-shadow-03);
 }
 
 //Padding
@@ -127,19 +127,20 @@
   }
 }
 
+/*--- Default ---*/
+:host(.card--default) {
+  background: var(--color-background);
+  .content {
+    padding: 0;
+  }
+}
+
 /*--- Section ---*/
 :host(.card--section) {
   font-size: 13px;
   border-radius: var(--border-radius-lg);
   padding: 0;
-}
-
-/*--- Default ---*/
-:host(.card--default) {
-  background: var(--color-background);
-  .content {
-    padding: var(--spacing-comp-03);
-  }
+  box-shadow: var(--box-shadow-card);
 }
 
 /*--- Article ---*/
@@ -148,6 +149,7 @@
   font-size: 12px;
   border: 1px solid var(--gray-02);
   border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-card);
   padding: 0;
   .card__header {
     .card__title {
@@ -180,6 +182,7 @@
 
 /*--- Mini ---*/
 :host(.card--mini) {
+  box-shadow: var(--box-shadow-card);
   background-color: var(--gray-01);
   font-size: 12px;
   border: 1px solid var(--gray-02);
