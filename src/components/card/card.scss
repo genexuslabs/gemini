@@ -134,6 +134,14 @@
   padding: 0;
 }
 
+/*--- Default ---*/
+:host(.card--default) {
+  background: var(--color-background);
+  .content {
+    padding: var(--spacing-comp-03);
+  }
+}
+
 /*--- Article ---*/
 :host(.card--article) {
   background-color: var(--gray-01);

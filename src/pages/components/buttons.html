@@ -166,9 +166,8 @@
 
     <button id="set-focus-button">Set focus</button>
     <script>
-      let buttonsWithAction = document.getElementsByClassName(
-        "button-with-action"
-      );
+      let buttonsWithAction =
+        document.getElementsByClassName("button-with-action");
       for (let button of buttonsWithAction) {
         button.addEventListener("click", function () {
           alert("hola");

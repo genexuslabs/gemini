@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="dark gxg-large">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -70,6 +70,16 @@
       <!-- card "section" -->
       <article>
         <h2 class="h2"><code>type="section"</code></h2>
+
+        <gxg-card card-type="default">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae
+            necessitatibus inventore incidunt adipisci facilis cumque dolores
+            vero dolorum deserunt at illo, fugiat enim obcaecati repudiandae
+            eligendi quia veniam reprehenderit harum?
+          </p>
+        </gxg-card>
+
         <div class="card-container" style="height: 300px">
           <gxg-card
             card-title="Project Detail Project DetailProject Detail Project Detail Project Detail Project Detail Project Detail"
@@ -380,7 +390,7 @@
         <script>
           const hiCharCard = document.getElementById("hi-char-card");
           const hiChardFormText = document.getElementById("hi-char-form-text");
-          hiChardFormText.addEventListener("input", (e) => {
+          hiChardFormText.addEventListener("input", e => {
             const searchValue = e.detail;
             hiCharCard.filterValue = searchValue;
           });
