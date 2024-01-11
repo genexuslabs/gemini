@@ -128,7 +128,6 @@ export class GxgListBox implements FormComponent {
 
   @State() headerHeight = 0;
 
-  private firstChange = true;
   private activeItem: HTMLGxgListBoxItemElement;
   private selectedItemsState: string[] = [];
 
