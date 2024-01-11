@@ -2269,6 +2269,14 @@ export namespace Components {
          */
         "editableItems": boolean;
         /**
+          * Specifies if a tree-view-item is expanded on click interaction. If `true` the tree-view-item is expanded on click interaction. If `false`, with mouse interaction the tree-view-item will only be expanded on double click.
+         */
+        "expandOnClick": boolean;
+        /**
+          * Specifies what kind of expandable button is displayed in the items by default.  - `"expandableButton"`: Expandable button that allows to expand/collapse     the items of the control.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item.
+         */
+        "expandableButton": "action" | "decorative" | "no";
+        /**
           * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
          */
         "filter": string;
@@ -5951,6 +5959,14 @@ declare namespace LocalJSX {
          */
         "editableItems"?: boolean;
         /**
+          * Specifies if a tree-view-item is expanded on click interaction. If `true` the tree-view-item is expanded on click interaction. If `false`, with mouse interaction the tree-view-item will only be expanded on double click.
+         */
+        "expandOnClick"?: boolean;
+        /**
+          * Specifies what kind of expandable button is displayed in the items by default.  - `"expandableButton"`: Expandable button that allows to expand/collapse     the items of the control.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item.
+         */
+        "expandableButton"?: "action" | "decorative" | "no";
+        /**
           * This property lets you determine the expression that will be applied to the filter. Only works if `filterType = "caption" | "metadata"`.
          */
         "filter"?: string;
@@ -5988,7 +6004,7 @@ declare namespace LocalJSX {
          */
         "multiSelection"?: boolean;
         /**
-          * Fired when the checked items change. This event does not take into account the currently filtered items.
+          * Fired when the checked items change. This event does take into account the currently filtered items.
          */
         "onCheckedItemsChange"?: (event: GxgTreeViewCustomEvent<Map<string, TreeViewItemModelExtended>>) => void;
         /**
@@ -6000,7 +6016,7 @@ declare namespace LocalJSX {
          */
         "onItemOpenReference"?: (event: GxgTreeViewCustomEvent<TreeViewItemOpenReferenceInfo>) => void;
         /**
-          * Fired when the selected items change.
+          * Fired when the selected items change. This event can be fired by the following conditions:   1. A user changes the selected items interacting with the Tree View.    2. The `multiSelection` value is changed from `true` to `false`.    3. A selected item is no longer rendered because it does not satisfies a      filter condition.    4. TODO: The `treeModel` property is updated and contains different selected      items. Even if it does not contains different selected items, this      event is fired because the selected items can have a different path      than before the `treeModel` update.    5. The `updateItemsProperties` method is executed, changing the item      selection.    6. A selected item is removed.    7. TODO: A selected item is moved into a new parent with drag and drop.      In this case, since the detail of the event contains the information      of the parent, this event must be fired to update the information.    8. Executing `scrollIntoVisible` method and updating the selected value      of the scrolled item.    9. TODO: An external item is dropped into the Tree View and the item is      selected.   10. TODO: Lazy loading content that has selected items?  Thing that does not fire this event:   - TODO: Renaming a selected item.    - TODO: Applying a filter that keeps all selected items rendered.
          */
         "onSelectedItemsChange"?: (event: GxgTreeViewCustomEvent<TreeViewItemModelExtended[]>) => void;
         /**
