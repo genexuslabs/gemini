@@ -5,7 +5,7 @@ import {
   h,
   Prop,
   Method,
-  getAssetPath,
+  getAssetPath
 } from "@stencil/core";
 import {
   TreeViewDataTransferInfo,
@@ -14,13 +14,13 @@ import {
   TreeViewItemModel,
   TreeViewLines,
   TreeViewItemExpandedInfo,
-  TreeViewItemOpenReferenceInfo,
+  TreeViewItemOpenReferenceInfo
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
 import {
   TreeViewFilterOptions,
   TreeViewFilterType,
   TreeViewItemModelExtended,
-  TreeViewOperationStatusModifyCaption,
+  TreeViewOperationStatusModifyCaption
 } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
@@ -96,7 +96,7 @@ const defaultRenderItem = (
 @Component({
   tag: "gxg-tree-view",
   styleUrl: "tree-view.scss",
-  shadow: false,
+  shadow: false
 })
 export class ChTreeViewRenderWrapper {
   // Refs
@@ -360,8 +360,8 @@ export class ChTreeViewRenderWrapper {
     itemId: string,
     beforeProperties?: Partial<TreeViewItemModel>,
     afterProperties?: Partial<TreeViewItemModel>
-  ) {
-    this.treeRef.reloadItems(itemId, beforeProperties, afterProperties);
+  ): Promise<boolean> {
+    return this.treeRef.reloadItems(itemId, beforeProperties, afterProperties);
   }
 
   /**
@@ -370,13 +370,22 @@ export class ChTreeViewRenderWrapper {
    * it displays and scrolls into the item view.
    * The path can also be a string representing the id of the item to scroll
    * into.
+   *
+   * When using a path, this method will fail if:
+   *   - The path does not start from the root element.
+   *   - The path contains a cycle.
+   *   - The path does not correspond to a valid path on the server:
+   *     - One of the item of the path, except for the last one, is a leaf.
+   *     - An item in the path does not exists on the server.
+   *     - The path has repeated items.
+   *     - And so on.
    */
   @Method()
   async scrollIntoVisible(
     path: string | string[],
     afterProperties?: Partial<TreeViewItemModel>
-  ) {
-    this.treeRef.scrollIntoVisible(path, afterProperties);
+  ): Promise<boolean> {
+    return this.treeRef.scrollIntoVisible(path, afterProperties);
   }
 
   /**
@@ -461,7 +470,7 @@ export class ChTreeViewRenderWrapper {
         sortItemsCallback={this.sortItemsCallback}
         toggleCheckboxes={this.toggleCheckboxes}
         treeModel={this.treeModel}
-        ref={(el) => (this.treeRef = el)}
+        ref={el => (this.treeRef = el)}
       ></ch-tree-view-render>
     );
   }
