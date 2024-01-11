@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large">
+<html dir="ltr" lang="en" class="gxg-large dark">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,6 +11,11 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: var(--color-background);
+      }
+    </style>
   </head>
   <body>
     <gxg-list-box
@@ -32,7 +37,9 @@
       <gxg-list-box-item icon="objects/data-provider"
         >3.Data Management</gxg-list-box-item
       >
-      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
+      <gxg-list-box-item selected icon="objects/bg-color"
+        >4.Resources</gxg-list-box-item
+      >
       <gxg-list-box-item value="user-interface" icon="objects/webpanel"
         >5.User interface</gxg-list-box-item
       >
@@ -52,7 +59,7 @@
     <script>
       const listBox = document.querySelector("gxg-list-box");
       listBox.addEventListener("selectionChanged", e => {
-        console.log(`selectionChanged: `, e.detail);
+        console.info(`selectionChanged: `, e.detail.items);
       });
       listBox.addEventListener("checkedChanged", e => {
         console.table("checkedChanged", e.detail);

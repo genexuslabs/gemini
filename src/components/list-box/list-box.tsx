@@ -130,6 +130,7 @@ export class GxgListBox implements FormComponent {
 
   private firstChange = true;
   private activeItem: HTMLGxgListBoxItemElement;
+  private selectedItemsState: string[] = [];
 
   /*********************************
   PROPERTIES FOR VALIDATION 
@@ -182,7 +183,7 @@ export class GxgListBox implements FormComponent {
         selected: selectedItem.selected,
         checked: selectedItem.checked,
         index: selectedItem.index,
-        value: selectedItem.value
+        value: selectedItem.value || selectedItem.textContent
       });
     });
     return selectedItemsInformation;
@@ -251,12 +252,16 @@ export class GxgListBox implements FormComponent {
   @Listen("itemLoaded")
   itemLoadedHandler(): void {
     this.initialSetup();
+    this.updateSelectedItems();
   }
 
   @Listen("itemClicked")
   itemClickedHandler(event: ItemClicked): void {
-    this.containerEl.focus();
     const { clickedItem, ctrlKey, cmdKey, shiftKey, index } = event["detail"];
+    if (this.singleSelection) {
+      this.setActiveItem(clickedItem);
+    }
+    this.containerEl.focus();
     //this.clearActiveItem();
     if (this.singleSelection) {
       if (
@@ -312,14 +317,12 @@ export class GxgListBox implements FormComponent {
       }
     }
     this.setActiveItem(clickedItem);
+    this.evaluateSelectedItems();
   }
 
   @Watch("selectedItems")
   selectedItemsHandler(newArray: ItemsInformation[]): void {
-    if (!this.firstChange && (newArray.length > 0 || this.emitEmptySelection)) {
-      this.selectionChanged.emit({ items: newArray });
-    }
-    this.firstChange = false;
+    this.selectionChanged.emit({ items: newArray });
   }
   @Watch("checkedItems")
   checkedItemsHandler(newArray: Array<ItemsInformation>): void {
@@ -462,6 +465,7 @@ export class GxgListBox implements FormComponent {
       /*Deselect highlighted items*/
       this.unselectHighlightedItems();
     }
+    this.evaluateSelectedItems();
   };
 
   handleArrow = (direction: HandleArrow, shiftKey: boolean): void => {
@@ -699,7 +703,7 @@ export class GxgListBox implements FormComponent {
       }
       this.activeItem !== items && this.unhighlightItem(items);
     }
-    this.updateSelectedItems();
+    //this.updateSelectedItems();
     return selected;
   }
 
@@ -737,7 +741,7 @@ export class GxgListBox implements FormComponent {
       }
       this.activeItem !== items && this.unhighlightItem(items);
     }
-    unselected > 0 && this.updateSelectedItems();
+    //unselected > 0 && this.updateSelectedItems();
     return unselected;
   }
 
@@ -749,19 +753,45 @@ export class GxgListBox implements FormComponent {
     }
   }
 
-  updateSelectedItems = (): void => {
-    const selectedItemsArray: ItemsInformation[] = [];
-    const selectedItems = this.getSelectedItemsFunc();
-    selectedItems.forEach(item => {
-      selectedItemsArray.push({
-        active: item.active,
-        selected: item.selected,
-        checked: item.checked,
-        index: item.index,
-        value: item.value || item.textContent
+  private evaluateSelectedItems = () => {
+    const selectedItemsArray: string[] = [];
+    const selectedItemsArrayFullInfo: ItemsInformation[] = [];
+    const selectedItems = this.getSelectedItems();
+    selectedItems.then(result => {
+      result.forEach(item => {
+        selectedItemsArray.push(item.value);
+        selectedItemsArrayFullInfo.push({
+          active: item.active,
+          selected: item.selected,
+          checked: item.checked,
+          index: item.index,
+          value: item.value
+        });
       });
+      const arraysDiffer =
+        JSON.stringify(this.selectedItemsState) !==
+        JSON.stringify(selectedItemsArray);
+      if (arraysDiffer) {
+        this.selectedItemsState = selectedItemsArray;
+        this.selectedItems = [...selectedItemsArrayFullInfo];
+      }
     });
-    this.selectedItems = [...selectedItemsArray];
+  };
+
+  updateSelectedItems = (): void => {
+    const selectedItemsArray: string[] = [];
+    const selectedItems = this.getSelectedItems();
+    selectedItems.then(result => {
+      result.forEach(item => {
+        selectedItemsArray.push(item.value);
+      });
+      const arraysDiffer =
+        JSON.stringify(this.selectedItemsState) !==
+        JSON.stringify(selectedItemsArray);
+      if (arraysDiffer) {
+        this.selectedItemsState = selectedItemsArray;
+      }
+    });
   };
 
   /* ACTIVE */
