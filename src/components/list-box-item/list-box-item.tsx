@@ -120,7 +120,7 @@ export class GxgListboxItem {
         checked: checked
       });
   }
-  handleCheckboxClick = (e): void => {
+  handleCheckboxClick = (e: MouseEvent): void => {
     e.stopPropagation();
     (e.target as HTMLGxgFormCheckboxElement).checked
       ? (this.checked = true)

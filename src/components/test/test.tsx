@@ -15,6 +15,9 @@ export class GxgTest {
   private selectionHasChanged = e => {
     console.log(e.detail);
   };
+  private checkboxChanged = e => {
+    console.log(e.detail);
+  };
 
   private updateKbs1 = () => {
     this.kbs = [
@@ -257,6 +260,7 @@ export class GxgTest {
           // ref={(el: HTMLElement) => (this.listBoxEl = el)}
           checkboxes
           onSelectionChanged={this.selectionHasChanged}
+          onCheckedChanged={this.checkboxChanged}
           part="kbs"
           // onSelectionChanged={this.kbsOnSelectionChangedHandler}
         >
