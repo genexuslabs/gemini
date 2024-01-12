@@ -1,0 +1,128 @@
+@import "../../globals/common-css-classes";
+@import "../../globals/mixins";
+@import "../../globals/form-validation";
+
+:host {
+  display: block;
+  font-size: var(--ds-base-font-size);
+  font-family: var(--ds-base-font-family-primary);
+  background-color: var(--ds-base-background-color);
+  color: var(--ds-base-font-color);
+  height: 100%;
+  .container {
+    height: 100%;
+    border: var(--ds-border-common-styles);
+    border-radius: var(--ds-form-control-border-radius);
+    overflow: hidden;
+  }
+  .header {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+    background-color: var(--gxg-list-box-header__background-color);
+    border-bottom: var(--ds-border-common-styles);
+    padding: var(--gxg-list-box-header__padding);
+    text-transform: capitalize;
+    font-size: inherit;
+    font-weight: var(--gxg-list-box-header__font-weight);
+    color: var(--gxg-list-box-header__color);
+  }
+  .icon {
+    margin-inline-end: var(--spacing-comp-01);
+  }
+  .checkbox {
+    margin-inline-end: var(--spacing-comp-01);
+  }
+}
+
+.main {
+  overflow-y: auto;
+  @include gxg-scrollbar();
+
+  &--no-border {
+    border: none;
+  }
+}
+
+.container:focus-within {
+  outline: none;
+}
+.container:not(:focus-within) {
+  --ds-border-color--focused: transparent;
+}
+
+:host([no-border]) {
+  .container {
+    border: none;
+  }
+}
+
+/*SUGGESTION LIST*/
+.suggestions {
+  &__container {
+    background-color: var(
+      --gxg-list-box-suggestions-container__background-color
+    );
+    color: var(--gxg-list-box-suggestions-container__color);
+    font-family: inherit;
+    font-size: var(--gxg-list-box-suggestions-container__font-size);
+    padding: var(--gxg-list-box-suggestions-container__padding);
+    display: flex;
+    gap: var(--gxg-list-box-suggestions-container__gap);
+    align-items: center;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex-grow: 1;
+  }
+  &__item {
+  }
+  &__button {
+  }
+}
+
+/*BORDERS*/
+:host([no-border]) {
+  .container {
+    border: none;
+  }
+}
+:host([border-top]) {
+  .container {
+    border-top: 1px solid var(--ds-border-color--regular);
+  }
+}
+:host([border-end]) {
+  .container {
+    border-inline-end: 1px solid var(--ds-border-color--regular);
+  }
+}
+:host([border-bottom]) {
+  .container {
+    border-bottom: 1px solid var(--ds-border-color--regular);
+  }
+}
+:host([border-start]) {
+  .container {
+    border-inline-start: 1px solid var(--ds-border-color--regular);
+  }
+}
+
+/*Disabled*/
+:host(.gxg--disabled) {
+  .header {
+    color: var(--ds-color--disabled);
+    border-bottom-color: var(--ds-border-color-disabled);
+  }
+}
+
+/*********************************************
+VALIDATION
+**********************************************/
+.messages-wrapper {
+  @include messages-wrapper();
+}
