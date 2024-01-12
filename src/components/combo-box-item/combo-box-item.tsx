@@ -6,7 +6,7 @@ import {
   Event,
   EventEmitter,
   Element,
-  State,
+  State
 } from "@stencil/core";
 import { Color } from "../icon/icon";
 import state from "../store";
@@ -15,7 +15,7 @@ import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-combo-box-item",
   styleUrl: "combo-box-item.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgComboBoxItem {
   @Element() el: HTMLElement;
@@ -86,7 +86,7 @@ export class GxgComboBoxItem {
       el: this.el as HTMLGxgComboBoxItemElement,
       index: this.index,
       value: this.value,
-      icon: this.icon,
+      icon: this.icon
     });
   }
 
@@ -105,7 +105,7 @@ export class GxgComboBoxItem {
       el: this.el as HTMLGxgComboBoxItemElement,
       index: this.index,
       value: this.value,
-      icon: this.icon,
+      icon: this.icon
     });
   };
 
@@ -126,14 +126,14 @@ export class GxgComboBoxItem {
         class={{
           large: state.large,
           "no-icon": !this.icon,
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
       >
         <div class={{ container: true, "form-element": true }}>
           {this.icon ? (
             <gxg-icon
               color={this.iconColorHandler()}
-              size={state.large ? "regular" : "small"}
+              size="small"
               type={this.icon}
             ></gxg-icon>
           ) : null}

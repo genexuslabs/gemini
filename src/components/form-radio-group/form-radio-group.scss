@@ -6,12 +6,12 @@
   .label {
     @include form-element-common-styles-label-group();
     display: inline-block;
-    margin-bottom: var(--spacing-comp-02);
+    margin-bottom: var(--gxg-radio-group-margin);
   }
   .radios-wrapper {
     display: flex;
     flex-direction: column;
-    gap: var(--gxg-form-control-gap--vertical);
+    gap: var(--ds-form-control-gap--vertical);
   }
 }
 .messages-wrapper {
@@ -20,7 +20,7 @@
 :host(.gxg-form-radio-group--row) {
   .radios-wrapper {
     flex-direction: row;
-    gap: var(--gxg-form-control-gap--horizontal);
+    gap: var(--ds-form-control-gap--horizontal);
     align-items: center;
   }
 }

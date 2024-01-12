@@ -2,34 +2,17 @@
 @import "../../globals/mixins";
 @import "../../globals/form-validation";
 
-.popover {
-  margin: 0;
-  top: 435px;
-}
-
 :host {
-  $itemsContainerBorderRadius: var(--border-radius-md);
-  font-family: var(--font-family-primary);
+  $itemsContainerBorderRadius: var(--ds-form-control-border-radius);
+  font-family: var(--ds-base-font-family-primary);
   display: block;
-
-  gxg-form-text::part(input) {
-    padding-inline-end: var(--spacing-comp-05);
-  }
-  gxg-form-text.clear-icon::part(input) {
-    padding-inline-end: calc(var(--spacing-comp-05) * 2);
-  }
 
   .main-container {
     .outer-wrapper {
       display: flex;
-      //gap: var(--spacing-comp-01);
       align-items: center;
     }
 
-    .label {
-      font-size: var(--font-size-sm);
-      margin-bottom: var(--spacing-lay-xs);
-    }
     width: 100%;
     position: relative;
 
@@ -38,33 +21,30 @@
       position: relative;
       .buttons-wrapper {
         position: absolute;
-        top: 2px;
-        height: calc(100% - 4px);
         display: flex;
         align-items: center;
-        padding-inline-start: var(--spacing-comp-01);
-        inset-inline-end: 2px;
-
-        .button-icon {
-          height: 20px;
-          width: 20px;
-        }
+        height: 100%;
+        top: 0;
+        inset-inline-end: var(--gxg-combo-box-items-buttons-wrapper--iie);
       }
     }
     .items-container {
-      border: var(--border-width-sm) solid var(--gxg-border-color--regular);
+      color: var(--gxg-combo-box-items-container_color);
+      font-size: var(--gxg-combo-box-items-container_font-size);
+      border: var(--ds-border-common-styles);
       border-radius: $itemsContainerBorderRadius;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-top-width: 0;
       overflow-y: auto;
       overscroll-behavior: contain;
-      background-color: var(--color-background);
+      background-color: var(--gxg-combo-box-items-container_background-color);
       position: fixed;
       width: inherit;
       box-sizing: border-box;
       z-index: 999;
       box-sizing: border-box;
+      padding: var(--gxg-combo-box-items-container_padding);
 
       &--not-popover {
         display: none;
@@ -77,15 +57,14 @@
       }
 
       .no-ocurrences-found {
-        font-family: var(--font-family-primary);
-        font-size: var(--font-size-sm);
-        color: var(--color-on-background);
-        padding: var(--spacing-comp-01);
-        background-color: var(--color-background);
+        font-size: var(--gxg-combo-box-no-occurrences_font-size);
+        color: var(--gxg-combo-box-no-occurrences_color);
+        padding: var(--gxg-combo-box-no-occurrences_padding);
+        background-color: var(--gxg-combo-box-no-occurrences_background-color);
 
         span {
           display: block;
-          color: var(--gray-04);
+          color: var(--gxg-combo-box-no-occurrences_command-color);
         }
       }
 
@@ -136,24 +115,4 @@ VALIDATION
 **********************************************/
 .messages-wrapper {
   @include messages-wrapper();
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-
-:host(.large) {
-  .main-container {
-    .label {
-      display: flex;
-      font-size: var(--font-size-lg);
-      margin-bottom: var(--spacing-lay-xs);
-      line-height: 1.455em;
-    }
-    .items-container {
-      .no-ocurrences-found {
-        font-size: var(--font-size-lg);
-      }
-    }
-  }
 }

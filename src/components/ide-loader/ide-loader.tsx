@@ -6,13 +6,13 @@ import {
   Watch,
   State,
   Event,
-  EventEmitter,
+  EventEmitter
 } from "@stencil/core";
 
 @Component({
   tag: "gxg-ide-loader",
   styleUrl: "ide-loader.scss",
-  shadow: true,
+  shadow: true
 })
 export class IdeLoader {
   /*
@@ -151,9 +151,7 @@ INDEX:
     return this.cancelLabel ? (
       <gxg-button
         class={{
-          [`loader__cancel-button`]: true,
-          "loader__cancel-button--move-up":
-            this.loaderTitle && !this.description,
+          [`loader__cancel-button`]: true
         }}
         type="secondary-text-icon"
         onClick={this.cancelProcess}
@@ -189,7 +187,7 @@ INDEX:
           <div
             class={{
               [`loader__wrapper`]: true,
-              "loader__wrapper--visible": this.showWrapper,
+              "loader__wrapper--visible": this.showWrapper
             }}
             part="loader-wrapper"
           >
@@ -198,7 +196,7 @@ INDEX:
               class={{
                 "loader__content-wrapper": true,
                 "loader__content-wrapper--hidden":
-                  !this.description && !this.loaderTitle && !this.cancelLabel,
+                  !this.description && !this.loaderTitle && !this.cancelLabel
               }}
             >
               {this.renderTitle()}

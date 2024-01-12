@@ -7,9 +7,15 @@ ICON
 :host {
   display: inline-block;
   line-height: 0;
-  height: 20px;
-  width: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+:host(.icon-size--regular) {
+  height: var(--ds-icon-size-box--regular);
+  width: var(--ds-icon-size-box--regular);
+}
+:host(.icon-size--small) {
+  height: var(--ds-icon-size-box--small);
+  width: var(--ds-icon-size-box--small);
 }

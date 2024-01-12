@@ -4,17 +4,17 @@
 
 :host {
   display: block;
-  background: var(--color-on-primary);
-  box-shadow: var(--box-shadow-01);
-  border-radius: var(--border-radius-md);
+  background-color: var(--gxg-card_background-color);
+  box-shadow: var(--gxg-card_box-shadow);
+  border-radius: var(--gxg-card_border-radius);
   @include gxg-text();
 }
 //Box shadow
 :host([elevation="xs"]) {
-  box-shadow: var(--box-shadow-01);
+  box-shadow: var(--gxg-card_box-shadow);
 }
 :host([elevation="m"]) {
-  box-shadow: var(--box-shadow-03);
+  box-shadow: var(--gxg-card_box-shadow);
 }
 
 //Padding
@@ -22,32 +22,32 @@
   padding: 0;
 }
 :host([padding="xs"]) {
-  padding: var(--spacing-comp-01);
+  padding: var(--gxg-card_padding-xs);
 }
 :host([padding="s"]) {
-  padding: var(--spacing-comp-02);
+  padding: var(--gxg-card_padding-s);
 }
 :host([padding="m"]) {
-  padding: var(--spacing-comp-03);
+  padding: var(--gxg-card_padding-m);
 }
 :host([padding="l"]) {
-  padding: var(--spacing-comp-04);
+  padding: var(--gxg-card_padding-l);
 }
 :host([padding="xl"]) {
-  padding: var(--spacing-comp-05);
+  padding: var(--gxg-card_padding-xl);
 }
 :host([padding="xxl"]) {
-  padding: var(--spacing-comp-06);
+  padding: var(--gxg-card_padding-xxl);
 }
 :host([padding="xxxl"]) {
-  padding: var(--spacing-comp-07);
+  padding: var(--gxg-card_padding-xxxl);
 }
 
 :host([background="white"]) {
-  background: var(--color-background);
+  background: var(--gxg-card_background-white);
 }
 :host([background="gray-01"]) {
-  background: var(--gray-01);
+  background: var(--gxg-card_background-gray);
 }
 
 .content {
@@ -69,24 +69,23 @@
   grid-template-rows: auto 1fr;
 }
 :host(.card) {
-  background-color: var(--gray-00);
+  background-color: var(--gxg-card_background-color);
 
   .card__header {
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: var(--spacing-comp-04) var(--spacing-comp-04) 0
-      var(--spacing-comp-04);
-    padding-block-end: var(--spacing-comp-04);
-    border-block-end: 1px solid var(--gray-02);
-    gap: var(--spacing-comp-06);
+    margin: var(--gxg-card-header_margin);
+    padding-block-end: var(--gxg-card-header_padding-block-end);
+    border-block-end: var(--gxg-card-header_border-block-end);
+    gap: var(--gxg-card-header_gap);
 
     &--left {
       display: flex;
       align-items: center;
-      gap: var(--spacing-comp-03);
-      width: 50%;
+      gap: var(--gxg-card-header-left_gap);
+      width: var(--gxg-card-header-left_width);
 
       .card-title-wrapper {
         width: 100%;
@@ -99,31 +98,33 @@
       flex-direction: row;
       align-items: center;
       justify-content: end;
-      gap: var(--spacing-comp-03);
+      gap: var(--gxg-card-header-right_gap);
       font-size: var(--font-size-xl);
-      width: 50%;
+      width: var(--gxg-card-header-right_width);
       overflow: hidden;
       white-space: nowrap;
     }
     .subtitle-wrapper {
       overflow: hidden;
       text-overflow: ellipsis;
-      color: var(--color-on-background);
-      padding-inline-end: 3px; /*prevents text cut text if italic, due to ellipsis*/
+      color: var(--gxg-card-subtitle_color);
+      padding-inline-end: var(
+        --gxg-card-subtitle-wrapper_padding-inline-end
+      ); /*prevents text cut text if italic, due to ellipsis*/
       a {
-        color: var(--gray-06);
+        color: var(--gxg-card-subtitle-wrapper_link-color);
       }
     }
     .subtitle {
       white-space: nowrap;
-      color: var(--color-on-background);
+      color: var(--gxg-card-subtitle-wrapper_color);
     }
   }
   .content {
-    padding: var(--spacing-comp-04);
-    font-size: inherit;
-    line-height: var(--line-height-default);
-    color: var(--gray-06);
+    padding: var(--gxg-card-content_padding);
+    font-size: var(--gxg-card-content_font-size);
+    line-height: var(--gxg-card-content_line-height);
+    color: var(--gxg-card-content_color);
   }
 }
 
@@ -137,79 +138,76 @@
 
 /*--- Section ---*/
 :host(.card--section) {
-  font-size: 13px;
-  border-radius: var(--border-radius-lg);
-  padding: 0;
-  box-shadow: var(--box-shadow-card);
+  font-size: var(--gxg-card-section_font-size);
+  border-radius: var(--gxg-card-section_border-radius);
+  padding: var(--gxg-card-section_padding);
 }
 
 /*--- Article ---*/
 :host(.card--article) {
-  background-color: var(--gray-01);
-  font-size: 12px;
-  border: 1px solid var(--gray-02);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--box-shadow-card);
-  padding: 0;
+  background-color: var(--gxg-card-article_background-color);
+  font-size: var(--gxg-card-article_font-size);
+  border: var(--gxg-card-article_border);
+  border-radius: var(--gxg-card-article_border-radius);
+  padding: var(--gxg-card-article_padding);
   .card__header {
     .card__title {
-      margin: 0;
-      color: var(--gray-06);
+      margin: var(--gxg-card-article-title_margin);
+      color: var(--gxg-card-article-title_color);
       overflow: hidden;
       text-overflow: ellipsis;
-      font-weight: var(--font-weight-regular);
-      font-size: 14px;
+      font-weight: var(--gxg-card-article-title_font-weight);
+      font-size: var(--gxg-card-article-title_font-size);
     }
     .subtitle-wrapper {
-      color: var(--gray-06);
-      font-style: italic;
+      color: var(--gxg-card-article-subtitle-wrapper_color);
+      font-style: var(--gxg-card-article-subtitle-wrapper_font-style);
     }
   }
   .content {
-    font-style: italic;
-    color: var(--gray-04);
-    line-height: var(--line-height-comfortable);
+    font-style: var(--gxg-card-article-subtitle-content_font-style);
+    color: var(--gxg-card-article-content_color);
+    line-height: var(--gxg-card-article-subtitle-content_line-height);
   }
 }
 /*semibold*/
 :host(.card--article.title-semibold) {
   .card__header {
     .card__title {
-      font-weight: var(--font-weight-semibold);
+      font-weight: var(--gxg-card-article-title-semibold_font-weight);
     }
   }
 }
 
 /*--- Mini ---*/
 :host(.card--mini) {
-  box-shadow: var(--box-shadow-card);
-  background-color: var(--gray-01);
-  font-size: 12px;
-  border: 1px solid var(--gray-02);
-  border-radius: var(--border-radius-md);
-  padding: 0;
+  background-color: var(--gxg-card-mini_background-color);
+  font-size: var(--gxg-card-mini_font-size);
+  border: var(--gxg-card-mini_border);
+  border-radius: var(--gxg-card-mini_border-radius);
+  padding: var(--gxg-card-mini_padding);
   .card__header {
-    margin: var(--spacing-comp-02) var(--spacing-comp-02) 0
-      var(--spacing-comp-02);
-    padding-block-end: var(--spacing-comp-02);
-    border-bottom: 0;
+    margin: var(--gxg-card-mini-header_margin);
+    padding-block-end: var(--gxg-card-mini-header_padding-block-end);
+    border-bottom: var(--gxg-card-mini-header_border-bottom);
     .card__header--left {
-      width: 100%;
+      width: var(--gxg-card-mini-header-left_width);
+      gap: var(--gxg-card-mini-header-left_gap);
     }
     .card__title {
-      margin: 0;
+      margin: var(--gxg-card-mini-title_margin);
       overflow: hidden;
       text-overflow: ellipsis;
-      font-weight: 600;
-      font-size: 12px;
-      color: var(--gray-06);
+      font-weight: var(--gxg-card-mini-title_font-weight);
+      font-size: var(--gxg-card-mini-title_font-size);
+      color: var(--gxg-card-mini-title_color);
     }
   }
   .content {
-    font-style: italic;
-    padding: 0 var(--spacing-comp-02) var(--spacing-comp-02)
-      var(--spacing-comp-02);
-    color: var(--gray-04);
+    font-style: var(--gxg-card-mini-content_font-style);
+    font-size: var(--gxg-card-mini_font-size);
+    padding: var(--gxg-card-mini-content_padding);
+    color: var(--gxg-card-mini-content_color);
   }
 }
 
@@ -221,9 +219,8 @@
 
 /*actionable*/
 :host(.card--actionable:hover) {
-  filter: brightness(var(--gxg-filter-brightness--hover));
-  background-color: var(--gray-01);
-  border-color: var(--gray-03);
+  filter: brightness(var(--gxg-card-actionable-hover_filter-brightness));
+  .wrapper,
   .card__header,
   .content {
     cursor: pointer;
@@ -240,8 +237,3 @@
 
 /*hiChar*/
 @include hiChar;
-
-/*********************************************
-Mercury
-**********************************************/
-@import "./card-mercury";

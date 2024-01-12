@@ -18,13 +18,14 @@ const COLOR_MAPPINGS = {
   success: "color-success-dark",
   warning: "color-warning-dark",
   mercury: "gray-03",
+  "mercury-primary": "mer-icon__primary"
 };
 
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
   shadow: true,
-  assetsDirs: ["icon-assets"],
+  assetsDirs: ["icon-assets"]
 })
 export class GxgIcon {
   @Element() element: HTMLElement;
@@ -34,7 +35,6 @@ export class GxgIcon {
   *********************************/
   /**
    * The color of the icon.
-   *
    */
   @Prop() color: Color;
 
@@ -58,19 +58,24 @@ export class GxgIcon {
 
   iconSize() {
     if (this.size === "regular") {
-      return "16px";
+      return "var(--ds-icon-size--regular)";
     } else if (this.size === "small") {
-      return "12px";
+      return "var(--ds-icon-size--small)";
     }
   }
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          "icon-size--regular": this.size === "regular",
+          "icon-size--small": this.size === "small"
+        }}
+      >
         <ch-icon
           style={{
             "--icon-color": this.mapColorToCssVar(COLOR_MAPPINGS[this.color]),
-            "--icon-size": this.iconSize(),
+            "--icon-size": this.iconSize()
           }}
           auto-color={this.color === "auto"}
           src={this.getSrcPath()}
@@ -81,12 +86,8 @@ export class GxgIcon {
   }
 
   private mapColorToCssVar(color: string): string {
-    if (color) {
-      return `var(--${color})`;
-    } else {
-      //default color
-      return `var(--color-on-background)`;
-    }
+    //return `var(--color-on-background)`;
+    return `var(--gxg-icon-color, var(--${color}))`;
   }
 }
 
@@ -104,6 +105,7 @@ export type Color =
   | "warning"
   | "alwaysblack"
   | "auto"
-  | "mercury";
+  | "mercury"
+  | "mercury-primary";
 
 export type Size = "regular" | "small";

@@ -98,6 +98,7 @@ export class GxgFormRadio {
           class="label"
           disabled={this.disabled}
           onClick={this.clickedHandler}
+          labelPosition="end"
         >
           <input
             ref={el => (this.radioInput = el as HTMLInputElement)}

@@ -1,28 +1,31 @@
 @import "../../globals/common-css-classes";
 
 :host {
+  --ds-icon-size--small: var(--gxg-combo-box-item_icon-size);
   display: block;
   cursor: pointer;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
-  background-color: var(--color-background);
-  color: var(--color-on-background);
+  //font-family: var(--font-family-primary);
+  font-size: inherit;
+  color: inherit;
   opacity: 1;
   overflow: hidden;
+  border-radius: var(--gxg-combo-box-item_border-radius);
 
   .container {
     display: flex;
     align-items: center;
-    padding: var(--spacing-comp-00) var(--spacing-comp-01);
+    padding: var(--gxg-combo-box-item_padding);
     width: 100%;
-    height: var(--gxg-list-item-height);
+    height: var(--ds-list-item-height--spaced);
     box-sizing: border-box; /*items with icon are this tall*/
+    gap: var(--gxg-combo-box-item_container-gap);
   }
   gxg-icon {
     flex-shrink: 0;
+    --gxg-icon-color: var(--gxg-combo-box-item--active_icon-color);
   }
 }
 .description {
@@ -33,7 +36,7 @@
 }
 :host(.no-icon) {
   .container {
-    padding-left: var(--spacing-comp-02);
+    padding-inline-start: var(--gxg-combo-box-item_container-no-icon-pis);
   }
 }
 :host([hidden]) {
@@ -43,27 +46,21 @@
   display: none;
 }
 :host(:hover) {
-  background-color: var(--gxg-background-color--hover);
+  background-color: var(--ds-item-background-color--hover);
+
+  .container {
+    color: var(--gxg-combo-box-item_container-color--hover);
+  }
 }
 :host([selected]) {
-  background-color: var(--gxg-background-color--selected);
-  color: var(--gxg-color--selected);
+  background-color: var(--ds-item-background-color--selected);
+  color: var(--gxg-combo-box-item--selected_color);
 }
 :host([selected]:hover) {
-  background-color: var(--gxg-background-color--selected-hover);
+  background-color: var(--ds-item-background-color--selected-hover);
+  color: var(--gxg-combo-box-item--selected_color);
 }
 :host([exact-match]) {
   // background-color: var(--color-success-light);
   // color: var(--color-success-dark);
-}
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-
-:host(.large) {
-  font-size: var(--font-size-lg);
-  min-height: auto;
-  gxg-icon {
-    margin-right: var(--spacing-comp-01);
-  }
 }

@@ -1,18 +1,16 @@
-import { Component, Element, h, Host, Prop, State } from "@stencil/core";
-import { Color } from "../icon/icon";
+import { Component, Element, h, Host, Prop } from "@stencil/core";
 import { Size } from "../icon/icon";
-import state from "../store";
 import { exportParts } from "../../common/export-parts";
 
 @Component({
   tag: "gxg-button",
   styleUrl: "button.scss",
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgButton {
   private parts = {
     button: "button",
-    caption: "caption",
+    caption: "caption"
   };
   private exportparts: string;
 
@@ -50,6 +48,11 @@ export class GxgButton {
   @Prop() fullWidth = false;
 
   /**
+   * The presence of this attribute makes the button small (only for buttons that include an icon)
+   */
+  @Prop() small = false;
+
+  /**
    * The button icon
    */
   @Prop() icon;
@@ -68,9 +71,6 @@ export class GxgButton {
    * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
    */
   @Prop() buttonStylesEditable = false;
-
-  @State() mouseEnter = false;
-  @State() focusIn = false;
 
   private noTabIndex = false;
 
@@ -130,7 +130,6 @@ export class GxgButton {
       return (
         <gxg-icon
           type={this.icon}
-          color={this.iconColor()}
           size={this.iconSize()}
           part="icon"
         ></gxg-icon>
@@ -140,7 +139,10 @@ export class GxgButton {
 
   iconSize() {
     let iSize: Size;
-    if (this.type === "secondary-icon-only" || this.type === "tertiary") {
+    if (
+      this.type === "secondary-icon-only" ||
+      (this.type === "tertiary" && !this.small)
+    ) {
       iSize = "regular";
     } else {
       iSize = "small";
@@ -148,66 +150,10 @@ export class GxgButton {
     return iSize;
   }
 
-  iconColor() {
-    let iColor: Color;
-    if (this.type.includes("primary")) {
-      iColor = "negative";
-      if (this.disabled) {
-        iColor = "ondisabled";
-      }
-    } else if (this.type.includes("secondary")) {
-      if (this.disabled) {
-        iColor = "disabled";
-      } else {
-        if (this.mouseEnter) {
-          iColor = "primary-hover";
-        } else {
-          if (this.focusIn) {
-            iColor = "primary-active";
-          } else {
-            iColor = "primary-enabled";
-          }
-        }
-      }
-    } else if (this.type.includes("tertiary")) {
-      if (this.disabled) {
-        iColor = "disabled";
-      } else {
-        if (this.alwaysBlack) {
-          iColor = "alwaysblack";
-        } else if (this.negative) {
-          iColor = "negative";
-        } else {
-          iColor = "onbackground";
-        }
-      }
-    } else if (this.type.includes("outlined")) {
-      iColor = "primary-active";
-      if (this.disabled) {
-        iColor = "ondisabled";
-      }
-    }
-    return iColor;
-  }
-
   clickHandler(e) {
     if (this.disabled) {
       e.preventDefault();
     }
-  }
-
-  onMouseEnter() {
-    this.mouseEnter = true;
-  }
-  onMouseLeave() {
-    this.mouseEnter = false;
-  }
-  onFocusIn() {
-    this.focusIn = true;
-    this.mouseEnter = false;
-  }
-  onFocusOut() {
-    this.focusIn = false;
   }
 
   render() {
@@ -217,29 +163,18 @@ export class GxgButton {
         class={{
           button: true,
           "button--primary": this.type.includes("primary"),
-          "button--primary-text-only": this.type === "primary-text-only",
-          "button--primary-text-icon": this.type === "primary-text-icon",
-          "button--primary-icon-only": this.type === "primary-icon-only",
-          "button--secondary-text-only": this.type === "secondary-text-only",
-          "button--secondary-text-icon": this.type === "secondary-text-icon",
-          "button--secondary-icon-only": this.type === "secondary-icon-only",
-          "button--outlined": this.type === "outlined",
-          "button--outlined-text-icon": this.type === "outlined-text-icon",
+          "button--secondary": this.type.includes("secondary"),
+          "button--tertiary": this.type.includes("tertiary"),
+          "button--outlined": this.type.includes("outlined"),
+          "button--has-icon": this.type.includes("icon"),
+          "button--icon-only":
+            this.type.includes("icon-only") || this.type === "tertiary",
           "button--disabled": this.disabled === true,
-          "button--tertiary": this.type === "tertiary",
           "button--fullwidth": this.fullWidth === true,
           "button--fit": this.fit,
-          "button--icon-only":
-            this.type === "primary-icon-only" ||
-            this.type === "secondary-icon-only" ||
-            this.type === "tertiary",
-          large: state.large,
+          "button--small": this.small
         }}
         onClick={this.clickHandler.bind(this)}
-        onMouseEnter={this.onMouseEnter.bind(this)}
-        onMouseLeave={this.onMouseLeave.bind(this)}
-        onfocusin={this.onFocusIn.bind(this)}
-        onfocusout={this.onFocusOut.bind(this)}
         exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.disabled ? <div class="disabled-layer"></div> : null}
@@ -247,10 +182,10 @@ export class GxgButton {
           class={{
             "button-native": true,
             "gxg-text-general": true,
-            "no-tab-index": this.noTabIndex,
+            "no-tab-index": this.noTabIndex
           }}
           disabled={this.disabled === true}
-          ref={(el) => (this.button = el as HTMLButtonElement)}
+          ref={el => (this.button = el as HTMLButtonElement)}
           part={this.parts.button}
         >
           {this.emptyDiv()}

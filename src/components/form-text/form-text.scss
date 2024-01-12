@@ -3,33 +3,79 @@
 @import "../../globals/form-validation";
 @import "../../globals/common-css-classes";
 
+$iconOffset: calc(
+  (var(--ds-form-control-height) - var(--gxg-form-text-icon-size)) / 2
+);
+
 :host {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
 
-/*****************************************************
-FORM ELEMENT WRAPPER
-*****************************************************/
-:host {
+  /*outer wrapper*/
   .outer-wrapper {
     @include form-element-common-styles-wrapper();
   }
+
+  /*inner wrapper*/
   .inner-wrapper {
     display: flex;
     flex-direction: column;
     position: relative;
     flex: 1;
+    height: var(--gxg-form-text-height);
 
     gxg-icon {
       position: absolute;
     }
   }
+
+  /*input*/
+  input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    @include form-element-common-styles();
+
+    &:focus {
+      @include form-element-common-styles-focus-type-1;
+    }
+
+    /*no border*/
+    &.input--borderless {
+      border-color: transparent !important;
+    }
+
+    /*readonly*/
+    &[readonly] {
+      cursor: default;
+    }
+  }
+
+  /*icon*/
+  gxg-icon {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /*messages wrapper*/
+  .messages-wrapper {
+    @include messages-wrapper();
+  }
+
+  /*clear icon*/
+  .clear-button {
+    right: $iconOffset;
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
-/*****************************************************
-TOOLTIP
-*****************************************************/
+
+/*--- Tooltip ---*/
 :host(.tooltip) {
   .inner-wrapper {
     flex-direction: row;
@@ -37,70 +83,60 @@ TOOLTIP
     justify-content: center;
     //gap: var(--spacing-comp-01);
   }
-  .tooltip-container {
-    width: 0;
-    overflow: hidden;
-    transition: width (--timing-01);
-  }
 }
-:host(.tooltip--visible) {
-  .tooltip-container {
-    width: 20px;
-  }
-}
-/*****************************************************
-LABEL
-*****************************************************/
-:host {
-  label {
-    @include form-element-common-styles-label();
-    .required {
-      padding-inline-start: 2px;
-    }
-  }
 
-  input {
-    position: relative;
-    width: 100%;
-  }
-}
-/*label position*/
+/*--- Label Position ---*/
 :host([label-position="start"]) {
   .outer-wrapper {
     display: flex;
     flex-direction: row;
   }
 }
-/*****************************************************
-TEXT
-*****************************************************/
-:host {
-  input[type="text"],
-  input[type="password"] {
-    @include form-element-common-styles();
-    height: var(--gxg-form-text-height);
-    box-sizing: border-box;
 
-    &:focus {
-      @include form-element-common-styles-focus-type-1;
-    }
-    &:hover {
-    }
+/*--- Icon Styles ---*/
+/*icon position start*/
+:host(.icon-start) {
+  .inner-wrapper .custom-icon {
+    left: $iconOffset;
   }
-  input[disabled] {
-    @include form-element-common-styles-disabled();
-  }
-  input[disabled]::-webkit-input-placeholder {
-    color: var(--gray-04);
-  }
-  .input--borderless {
-    border-color: transparent !important;
-  }
-  input[readonly] {
-    cursor: default;
+  input {
+    padding-inline-start: calc(
+      var(--gxg-form-text-icon-size) + var(--ds-form-control-height) -
+        var(--gxg-form-text-icon-size)
+    );
   }
 }
-//borderless and transparent background
+/*icon position end*/
+:host(.icon-end) {
+  .inner-wrapper {
+    .custom-icon {
+      right: $iconOffset;
+    }
+  }
+  input {
+    padding-inline-end: calc(
+      var(--gxg-form-text-icon-size) + var(--ds-form-control-height) -
+        var(--gxg-form-text-icon-size)
+    );
+  }
+}
+/*icon position end double*/
+:host(.icon-end--double) {
+  input {
+    padding-inline-end: calc(
+      (var(--gxg-form-text-icon-size) * 2) +
+        (var(--ds-form-control-height) - var(--gxg-form-text-icon-size)) * 2
+    );
+  }
+  .custom-icon {
+    right: calc(
+      var(--gxg-form-text-icon-size) +
+        (var(--ds-form-control-height) - var(--gxg-form-text-icon-size))
+    );
+  }
+}
+
+/*--- Minimal ---*/
 :host([minimal]) {
   input[type="text"]:not(:focus),
   input[type="password"]:not(:focus) {
@@ -108,105 +144,42 @@ TEXT
     background-color: transparent;
   }
   input.cursor-inside {
-    border-color: var(--gray-02) !important;
-    background-color: var(--color-background);
+    border-color: var(--ds-border-color--regular) !important;
+    background-color: var(--ds-base-background-color);
   }
   input[type="text"]:focus,
   input[type="password"]:focus {
     border-color: transparent;
   }
 }
+/*minimal: icon position start*/
 :host([minimal]:not([icon-position="start"])) {
   input[type="text"],
   input[type="password"] {
     padding-inline-start: 0;
   }
   input.cursor-inside {
-    padding-inline-start: var(--spacing-comp-01);
+    padding-inline-start: var(
+      --gxg-form-text-minimal-icon-not-start_cursor-inside-pis
+    );
   }
   input[type="text"]:focus,
   input[type="password"]:focus {
-    padding-inline-start: var(--spacing-comp-01);
+    padding-inline-start: var(--gxg-form-text-minimal-icon-not-start_focus-pis);
   }
 }
-//If the form-text is minimal and is on a dark background
+/*minimal:over dark background*/
 :host([minimal][over-dark-background]) {
   input[type="text"]:not(:focus),
   input[type="password"]:not(:focus) {
-    color: var(--color-on-primary);
-  }
-}
-/*****************************************************
-INPUT TEXT ICON
-*****************************************************/
-:host {
-  gxg-icon {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-:host([icon-position="end"]) {
-  .clear-button {
-    gxg-icon:not(.clear-button) {
-      right: 16px;
-    }
+    color: var(--gxg-form-text-minimal-over-dark-background);
   }
 }
 
-// Input with icon (on the left, or on the right)
-:host(.has-icon[icon-position="start"]) input {
-  padding-inline-start: 20px;
-}
-
-:host([icon-position="end"]) input {
-  padding-inline-end: 20px;
-}
-:host([icon-position="end"]) .inner-wrapper {
-  flex-direction: row-reverse;
-}
-
-/*****************************************************
-CLEAR BUTTON
-*****************************************************/
-:host {
-  gxg-icon.clear-button {
-    left: auto;
-    opacity: 0.5;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-:host([clear-button][icon-position="end"]) {
-  gxg-icon:not(.clear-button) {
-    right: 16px;
-  }
-  input {
-    padding-inline-end: 36px;
-  }
-}
-
-/*****************************************************
-CUSTOM ICON
-*****************************************************/
-.custom-icon:has(+ .clear-button) {
-  /* Styles for the target element if the next sibling has the class */
-}
-
-/*****************************************************
-VALIDATION
-*****************************************************/
-.messages-wrapper {
-  @include messages-wrapper();
-}
-/*****************************************************
-STYLE
-*****************************************************/
+/*--- Text Styles ---*/
 :host([text-style="regular"]) {
   input {
-    @include gxg-text();
+    //@include gxg-text();
   }
 }
 :host([text-style="quote"]) {
@@ -239,18 +212,16 @@ STYLE
     @include gxg-title-05();
   }
 }
-/*****************************************************
-INPUT TYPE FILE
-*****************************************************/
+
+/*--- File Type ---*/
 :host(.file) {
   .form-element--readonly {
     user-select: none;
     cursor: pointer;
   }
 }
-/*****************************************************
-Reading direction RTL
-*****************************************************/
+
+/*--- Reading Direction ---*/
 :host(.rtl[icon-position="start"]) {
   gxg-icon {
     right: 0;
@@ -262,58 +233,4 @@ Reading direction RTL
     right: auto;
     left: 0;
   }
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) {
-  label {
-    @include form-element-common-styles-label-large();
-  }
-  input {
-    font-size: var(--font-size-lg);
-  }
-  input[type="text"],
-  input[type="password"] {
-    padding-left: 7px;
-    padding-right: 7px;
-  }
-}
-// Input with icon (on the left, or on the right)
-:host(.large.has-icon[icon-position="start"]) input {
-  padding-inline-start: var(--spacing-comp-05);
-  .inner-wrapper gxg-icon {
-    left: 2px;
-  }
-}
-:host(.large[icon-position="end"]) input {
-  padding-inline-end: var(--spacing-comp-05);
-}
-:host(.large[icon-position="start"]) {
-  .inner-wrapper gxg-icon {
-    left: 2px;
-  }
-}
-:host(.large[icon-position="end"]) {
-  .inner-wrapper gxg-icon {
-    right: 4px;
-    left: auto;
-  }
-}
-//clear button
-:host(.large) gxg-icon.clear-button {
-  right: 5px !important;
-  left: auto !important;
-}
-:host(.large[icon-position="end"][clear-button]) {
-  .inner-wrapper gxg-icon {
-    right: 26px;
-  }
-}
-:host(.large.has-icon[icon-position="start"][clear-button]) input {
-  padding-inline-end: 26px;
-}
-:host(.large[icon-position="end"][clear-button]) input {
-  padding-inline-end: 48px;
 }

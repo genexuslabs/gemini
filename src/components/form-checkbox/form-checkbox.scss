@@ -4,159 +4,39 @@
 @import "../../globals/common-css-classes";
 
 :host {
-  --box-border-color: var(--color-primary-active);
   display: block;
   line-height: 0;
-  .gxg-form-checkbox__wrapper {
-    display: inline-flex;
-    align-items: center;
-    &--align-top {
-      align-items: flex-start;
-      .checkbox {
-        margin-top: var(--spacing-comp-00);
-      }
-    }
+}
+.gxg-form-checkbox__wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.wrapper {
+  @include checkbox("container");
+  &--checked {
+    @include checkbox("container--checked");
   }
-  .label:last-child {
-    margin-bottom: 0;
+  &--indeterminate {
+    @include checkbox("container--indeterminate");
   }
-  input:focus + .box {
-    @include form-element-common-styles-focus-type-1();
-  }
-  input[disabled] {
-    cursor: not-allowed;
-  }
-  input[disabled] + .box {
-    border-color: var(--gxg-border-color--disabled) !important;
-    pointer-events: none;
-  }
-  input:checked[disabled] + .box:after {
-    border-color: var(--gxg-border-color--disabled) !important;
+  &:focus-within {
+    @include checkbox("container--focus-within");
   }
 }
-
-:host([inline]) .outer-wrapper {
-  display: flex;
+.input {
+  @include checkbox("input");
 }
-:host([inline]) .label {
-  margin-inline-end: var(--spacing-comp-04);
-  margin-bottom: 0;
-}
-
-:host {
-  /* The label */
-  .label,
+/*Disabled*/
+:host([disabled]) {
+  .gxg-form-checkbox__wrapper,
+  .input {
+    cursor: initial;
+  }
   .wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-    cursor: default;
-    @include form-element-common-styles-label();
+    border-color: var(--ds-border-color-disabled);
+    background-color: var(--gxg-checkbox-disabled-background-color);
   }
-  .label__required {
-    @include form-element-common-styles-label-required();
-  }
-  /* Hide the browser's default checkbox */
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  .label input[on-focus] + .box {
-    box-shadow: inset 0px 0px 0px 1px var(--color-primary-active);
-    border-color: var(--color-primary-active) !important;
-  }
-  .box:focus {
-    box-shadow: none;
-  }
-
-  /* Create a custom checkbox */
-  .box {
-    display: inline-block;
-    position: relative;
-    margin-inline-end: var(--spacing-comp-02);
-    height: var(--spacing-comp-04);
-    width: var(--spacing-comp-04);
-    //background-color: transparent;
-    border-width: var(--border-width-sm);
-    border-style: var(--border-style-regular);
-    border-radius: var(--border-radius-md);
-    border-color: var(--gray-04);
-    box-sizing: border-box;
-    flex-shrink: 0;
-    background: var(--color-background);
-    &.no-label {
-      margin-inline-end: 0;
-    }
-    &.has-icon {
-      margin-inline-end: var(--spacing-comp-01);
-    }
-    &.indeterminate:after {
-      left: 50%;
-      top: 50%;
-      width: 8px;
-      height: 1.5px;
-      border: 0;
-      background-color: var(--color-primary-active);
-      -webkit-transform: rotate(0) translateY(-50%) translateX(-50%);
-      -ms-transform: rotate(0) translateY(-50%) translateX(-50%);
-      transform: rotate(0) translateY(-50%) translateX(-50%);
-    }
-  }
-
-  /* When the checkbox is checked, add a blue background */
-
-  /* Create the box/indicator (hidden when not checked) */
-  .box:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-
-  input ~ .box:after {
-    display: block;
-    border-color: transparent;
-  }
-  /* Show the box when checked */
-  input:checked ~ .box:after {
-    display: block;
-    border-color: var(--box-border-color);
-    @include ui-animation(border-color);
-  }
-
-  /* Style the box/indicator */
-  .box:after {
-    left: 5px;
-    top: 2px;
-    width: 3px;
-    height: 7px;
-    border: solid;
-    border-color: var(--box-border-color);
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-}
-/*indeterminate*/
-:host([indeterminate]) .label input:checked ~ .box:after {
-  display: block;
-  width: 10px;
-  height: 2px;
-  transform: rotate(0deg);
-  border: 0;
-  background-color: var(--box-border-color);
-  left: 2px;
-  top: 6px;
-}
-:host([disabled="true"]) label {
-  cursor: not-allowed;
-}
-:host(.disabled) {
-  cursor: not-allowed;
 }
 
 /*********************************************

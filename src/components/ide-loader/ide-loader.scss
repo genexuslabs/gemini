@@ -20,47 +20,42 @@ ch-window::part(window) {
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: rgba(var(--color-background--rgb), 0.45);
-    backdrop-filter: blur(15px);
-    padding: var(--spacing-comp-05);
+    background-color: var(--gxg-ide-loader-wrapper__background-color--from);
+    backdrop-filter: var(--gxg-ide-loader-wrapper__backdrop-filter);
+    padding: var(--gxg-ide-loader-wrapper__padding);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
     -webkit-animation: wrapper 0.6s infinite alternate;
     animation: wrapper 0.6s infinite alternate;
-    color: var(--color-on-secondary);
+    color: var(--gxg-ide-loader-wrapper__color);
 
     &--visible {
       opacity: 1;
     }
   }
   &__spinner {
-    border: 2px var(--gray-01) solid;
-    border-top: 2px var(--color-primary-enabled) solid;
+    border: var(--gxg-ide-loader-spinner__border);
+    border-top: var(--gxg-ide-loader-spinner__border-top);
     border-radius: 50%;
     -webkit-animation: spinner 0.6s infinite linear;
     animation: spinner 0.6s infinite linear;
-    width: 30px;
-    height: 30px;
+    width: var(--gxg-ide-loader-spinner__width);
+    height: var(--gxg-ide-loader-spinner__width);
+    flex-shrink: 0;
   }
 
   &__content-wrapper {
     display: flex;
     flex-direction: column;
-    margin-block-start: var(--spacing-comp-05);
-    gap: var(--spacing-comp-02);
-    max-width: 400px;
+    margin-block-start: var(
+      --gxg-ide-loader-content-wrapper__margin-block-start
+    );
+    gap: var(--gxg-ide-loader-content-wrapper__gap);
+    max-width: var(--gxg-ide-loader-content-wrapper__max-width);
     &--hidden {
       display: none;
-    }
-  }
-
-  &__cancel-button {
-    &--move-up {
-      /*If the loader has title, but no description, the space between the title and the button is a little too much. Move up a little bit*/
-      position: relative;
-      top: -4px;
     }
   }
 }
@@ -68,10 +63,10 @@ ch-window::part(window) {
 /*background color animation*/
 @keyframes wrapper {
   from {
-    background-color: rgba(var(--color-background--rgb), 0.45);
+    background-color: var(--gxg-ide-loader-wrapper__background-color--from);
   }
   to {
-    background-color: rgba(var(--color-background--rgb), 0.25);
+    background-color: var(--gxg-ide-loader-wrapper__background-color--to);
   }
 }
 /*spinner animation*/

@@ -1,17 +1,25 @@
 @import "../../globals/mixins";
 
-$borderColor: var(--gray-02);
+/**************************
+GENERAL
+**************************/
+$borderColor: var(--ds-border-color--regular);
 $iconSize: 70%;
 
 :root {
-  --indent: var(--spacing-comp-02);
+  --indent: var(--gxg-grid__indent);
 }
 gxg-grid {
   display: contents;
 }
 ch-grid {
-  border: 1px solid $borderColor;
-  --focus-style: 2px solid var(--color-primary-active);
+  border: var(--gxg-grid-base__border-width) solid $borderColor;
+  border-radius: var(--gxg-grid-base__border-radius);
+  --focus-style: var(--ds-focus-border-width) solid var(--ds-focus-border-color);
+  font-family: var(--ds-base-font-family-primary);
+  font-size: var(--gxg-grid-base__font-size);
+  color: var(--gxg-grid-base__font-color);
+  overflow: hidden;
 }
 ch-grid::part(main) {
   @include gxg-scrollbar();
@@ -19,6 +27,7 @@ ch-grid::part(main) {
 gxg-grid.no-border {
   ch-grid {
     border: 0;
+    border-radius: 0;
   }
 }
 gxg-grid:focus-visible,
@@ -26,12 +35,18 @@ ch-grid:focus-visible {
   outline: none;
 }
 
+/**************************
+HEADER / FOOTER
+**************************/
 ch-grid::part(header),
 ch-grid::part(footer) {
   /*padding: var(--spacing-comp-01);*/
-  background-color: var(--color-background);
+  background-color: var(--gxg-grid-header__background-color);
 }
 
+/**************************
+BUTTONS/ICONS
+**************************/
 ch-grid-actionbar ch-grid-action-refresh,
 ch-grid-actionbar ch-grid-action-settings,
 ch-grid-column::part(bar-sort-ascending),
@@ -53,20 +68,19 @@ ch-grid-rowset-legend::part(caret) {
     -webkit-mask-position: center;
     width: $iconSize;
     height: $iconSize;
-    background-color: var(--color-on-secondary);
+    background-color: var(--gxg-grid-button__icon-color);
   }
 }
-
 ch-grid-action-refresh,
 ch-grid-action-settings {
-  width: var(--spacing-comp-05);
-  height: var(--spacing-comp-05);
+  width: var(--gxg-grid-button__size);
+  height: var(--gxg-grid-button__size);
   cursor: pointer;
-  background-color: var(--color-secondary-enabled);
+  background-color: var(--gxg-grid-button__background-color);
   display: inline-block;
 
   &:hover {
-    background-color: var(--color-secondary-hover);
+    background-color: var(--gxg-grid-button__background-color--hover);
   }
 
   &:focus-visible {
@@ -80,19 +94,17 @@ ch-grid-action-settings:before {
   -webkit-mask-image: var(--settingshIconUrl);
 }
 
-ch-grid {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
-  color: var(--gray-06);
-}
+/**************************
+COLUMN
+**************************/
 ch-grid-column {
-  background-color: var(--color-background);
-  font-weight: var(--font-weight-bold);
-  padding: var(--spacing-comp-02) !important;
+  background-color: var(--gxg-grid-column__background-color);
+  font-weight: var(--gxg-grid-column__font-weight);
+  padding: var(--gxg-grid-column__padding) !important;
   cursor: pointer;
 }
 ch-grid-column::part(bar) {
-  gap: var(--spacing-comp-02);
+  gap: var(--gxg-grid-column-bar__gap);
   width: 100%;
 }
 ch-grid-column:not([sort-direction])::part(bar-sort) {
@@ -105,8 +117,8 @@ ch-grid-column::part(bar-sort-ascending),
 ch-grid-column::part(bar-sort-descending) {
   width: var(--spacing-comp-03);
   height: var(--spacing-comp-03);
-  margin-left: var(--spacing-comp-02);
-  margin-right: var(--spacing-comp-01);
+  margin-inline-start: var(--spacing-comp-02);
+  margin-inline-end: var(--spacing-comp-01);
 }
 ch-grid-column::part(bar-sort-ascending):before,
 ch-grid-column::part(bar-sort-descending):before {
@@ -121,22 +133,25 @@ ch-grid-column::part(bar-sort-ascending):before {
   -webkit-mask-image: var(--barSortAscendingIconUrl);
 }
 ch-grid-column::part(bar-resize-split) {
-  width: 3px;
-  background-color: var(--gray-02);
+  width: var(--gxg-grid-column-par-bar-resize-split__width);
+  border-radius: var(--gxg-grid-column-par-bar-resize-split__border-radius);
+  background-color: var(--gxg-grid-column-bar-resize-split__background-color);
 }
 ch-grid-column:last-child::part(bar-resize-split) {
   display: none;
 }
 ch-grid-column::part(bar-settings-button) {
   padding: 0;
-  width: var(--spacing-comp-05);
-  height: var(--spacing-comp-05);
+  width: var(--gxg-grid-column-bar-settings-button__width);
+  height: var(--gxg-grid-column-bar-settings-button__width);
   border: none;
   background-color: transparent;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--gray-02);
+    background-color: var(
+      --gxg-grid-column-bar-settings-button__background-color--hover
+    );
   }
   &:focus-visible {
     outline: var(--focus-style);
@@ -145,57 +160,75 @@ ch-grid-column::part(bar-settings-button) {
 ch-grid-column::part(bar-settings-button):before {
   -webkit-mask-image: var(--barSettingsButtonIconUrl);
 }
+
+/**************************
+ROW
+**************************/
 ch-grid-row {
-  background-color: var(--color-background);
-  color: var(--gray-04);
-  border: 2px solid transparent;
+  background-color: var(--gxg-grid-row__background-color);
+  color: var(--gxg-grid-row__color);
+  border: var(--gxg-grid-row__border-width) solid transparent;
   ch-grid-cell {
-    border-top-width: 1px;
+    border-top-width: var(--gxg-grid-cell__border-top-width);
+  }
+  &:nth-of-type(even) {
+    background-color: var(--ds-row-background-color-even);
   }
   &:nth-of-type(odd) {
-    background-color: var(--gray-00);
+    background-color: var(--ds-row-background-color-odd);
   }
 }
 ch-grid-row[highlighted] {
-  background-color: var(--gxg-background-color--hover);
+  &:nth-child(odd) {
+    background-color: var(--ds-row-background-color-odd--hover);
+  }
+  &:nth-child(even) {
+    background-color: var(--ds-row-background-color-even--hover);
+  }
+  //background-color: var(--ds-item-background-color--hover);
 }
 ch-grid-row[dragging] {
-  box-shadow: var(--box-shadow-03);
+  box-shadow: var(--gxg-grid-row__box-shadow--dragging);
 }
 ch-grid-row[focused] {
 }
 ch-grid-row[selected] {
   > ch-grid-cell:not([selected]) {
-    background-color: var(--gxg-background-color--selected);
+    background-color: var(--ds-item-background-color--selected);
   }
 }
+
+/**************************
+CELL
+**************************/
 ch-grid-cell[selected] {
   z-index: 1;
-  background-color: var(--gxg-background-color--selected) !important;
+  background-color: var(--ds-item-background-color--selected) !important;
 }
 ch-grid-row[selected] {
   > ch-grid-cell {
-    color: var(--color-on-secondary);
+    color: var(--gxg-grid-row-cell__color--selected);
   }
   + ch-grid-row[selected] {
     ch-grid-cell {
-      border-top-color: var(--gxg-border-color--selected);
+      border-top-color: var(--ds-item-border-color--selected);
     }
   }
   &:hover {
     > ch-grid-cell {
-      background-color: var(--gxg-background-color--selected-hover) !important;
+      background-color: var(
+        --ds-item-background-color--selected-hover
+      ) !important;
     }
   }
 }
 ch-grid-cell {
   box-sizing: border-box;
-  padding-inline-start: var(--spacing-comp-02) !important;
-  padding-inline-end: var(--spacing-comp-02) !important;
-  padding-block-start: var(--spacing-comp-01);
-  padding-block-end: var(--spacing-comp-01);
+  padding-inline-start: var(--gxg-grid-cell__padding-inline-start) !important;
+  padding-inline-end: var(--gxg-grid-cell__padding-inline-end) !important;
+  padding-block-start: var(--gxg-grid-cell__padding-block-start);
+  padding-block-end: var(--gxg-grid-cell__padding-block-end);
   align-items: center;
-  font-size: var(--font-size-md);
   line-height: var(--line-height-regular);
 }
 ch-grid-cell:first-child {
@@ -210,42 +243,42 @@ ch-grid-column::part(settings-mask),
 ch-grid::part(settings-mask) {
   background-color: rgba(0, 0, 0, 0.3);
   cursor: arrow;
-  color: var(--color-on-secondary);
+  color: var(--gxg-grid-settings-mask__color);
 }
 ch-grid-column::part(settings-window),
 ch-grid::part(settings-window) {
-  background-color: var(--color-background);
+  background-color: var(--gxg-grid-settings-window__background-color);
   width: 100%;
   max-width: 600px;
-  padding: var(--spacing-comp-03);
-  border-radius: var(--border-width-lg);
-  box-shadow: var(--box-shadow-04);
+  padding: var(--gxg-grid-settings-window__padding);
+  border-radius: var(--gxg-grid-base__border-radius);
+  box-shadow: var(--gxg-grid-settings-window__box-shadow);
 }
 ch-grid::part(settings-window) {
-  margin: 0 var(--spacing-comp-05);
+  margin: 0 var(--gxg-grid-settings-window__margin);
 }
 ch-grid-column::part(settings-header),
 ch-grid::part(settings-header) {
   display: flex;
   align-items: center;
-  gap: var(--spacing-comp-04);
+  gap: var(--gxg-grid-settings-header__gap);
   justify-content: space-between;
-  border-bottom: var(--border-width-sm) solid $borderColor;
-  padding-bottom: var(--spacing-comp-02);
-  margin-bottom: var(--spacing-comp-03);
-  font-weight: var(--font-weight-bold);
+  border-bottom: var(--gxg-grid-base__border-width) solid $borderColor;
+  padding-bottom: var(--gxg-grid-settings-padding-bottom);
+  margin-bottom: var(--gxg-grid-settings-margin-bottom);
+  font-weight: var(--gxg-grid-settings-font-weight);
 }
 ch-grid-column::part(settings-close),
 ch-grid::part(settings-close) {
   padding: 0;
-  width: var(--spacing-comp-05);
-  height: var(--spacing-comp-05);
+  width: var(--gxg-grid-settings-close__size);
+  height: var(--gxg-grid-settings-close__size);
   cursor: pointer;
-  background-color: var(--color-secondary-enabled);
+  background-color: var(--gxg-grid-settings-close__background-color);
   font-size: 0;
   border: 0;
   &:hover {
-    background-color: var(--color-secondary-hover);
+    background-color: var(--gxg-grid-settings-close__background-color--hover);
   }
   &:before {
     -webkit-mask-image: var(--settingsCloseIconUrl);
@@ -256,14 +289,14 @@ ch-grid::part(settings-close) {
 }
 
 ch-grid::part(settings-columns) {
-  gap: var(--spacing-comp-03);
+  gap: var(--gxg-grid-settings-columns__gap);
 }
 ch-grid::part(settings-columns-label) {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-comp-03);
+  gap: var(--gxg-grid-settings-columns-label__gap);
   cursor: pointer;
-  height: var(--spacing-comp-04);
+  height: var(--gxg-grid-settings-columns-label__height);
 }
 /*Checkboxes*/
 ch-grid::part(settings-columns-visible),
@@ -271,13 +304,17 @@ ch-grid-cell::part(selector),
 ch-grid-column::part(selector) {
   position: relative;
   margin: 0;
-  height: var(--spacing-comp-04);
-  width: var(--spacing-comp-04);
+  height: var(--gxg-checkbox-size);
+  width: var(--gxg-checkbox-size);
+  appearance: none;
+  border-radius: var(--gxg-checkbox-border-radius);
 
   &:focus-visible {
     outline: var(--focus-style);
+    outline-offset: 0;
   }
 }
+
 ch-grid::part(settings-columns-visible):before,
 ch-grid-cell::part(selector):before,
 ch-grid-column::part(selector):before {
@@ -285,15 +322,15 @@ ch-grid-column::part(selector):before {
   content: "";
   display: inline-block;
   position: relative;
-  height: var(--spacing-comp-04);
-  width: var(--spacing-comp-04);
-  border-width: var(--border-width-sm);
-  border-style: var(--border-style-regular);
-  border-radius: var(--border-radius-md);
-  border-color: var(--gray-04);
+  height: var(--gxg-checkbox-size);
+  width: var(--gxg-checkbox-size);
+  border-width: var(--gxg-checkbox-border-width);
+  border-style: solid;
+  border-radius: var(--gxg-checkbox-border-radius);
+  border-color: var(--gxg-checkbox-border-color);
   box-sizing: border-box;
   flex-shrink: 0;
-  background: var(--color-background);
+  background: var(--gxg-checkbox-background-color);
 }
 ch-grid::part(settings-columns-visible):after,
 ch-grid-cell::part(selector):after,
@@ -307,7 +344,7 @@ ch-grid-column::part(selector):after {
   width: 3px;
   height: 7px;
   border: solid;
-  border-color: var(--color-primary-hover);
+  border-color: var(--gxg-checkbox-indicator-color);
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -327,7 +364,7 @@ ch-grid-column::part(indeterminate):after {
   width: 8px;
   height: 1.5px;
   border: 0;
-  background-color: var(--color-primary-hover);
+  background-color: var(--gxg-checkbox-indicator-color);
   -webkit-transform: rotate(0) translateY(-50%) translateX(-50%);
   -ms-transform: rotate(0) translateY(-50%) translateX(-50%);
   transform: rotate(0) translateY(-50%) translateX(-50%);
@@ -335,7 +372,7 @@ ch-grid-column::part(indeterminate):after {
 ch-grid::part(settings-columns-visible-checked):before,
 ch-grid-cell::part(checked):before,
 ch-grid-column::part(checked):before {
-  border-color: var(--color-primary-hover);
+  border-color: var(--gxg-checkbox-border-color);
 }
 ch-grid::part(settings-columns-visible-checked):after,
 ch-grid-cell::part(checked):after,
@@ -344,8 +381,8 @@ ch-grid-column::part(checked):after {
 }
 /*Drag*/
 ch-grid-cell::part(drag-icon):before {
-  width: var(--spacing-comp-04);
-  height: var(--spacing-comp-04);
+  width: var(--gxg-grid-cell-drag-icon__size);
+  height: var(--gxg-grid-cell-drag-icon__size);
   cursor: grab;
 }
 ch-grid-cell::part(drag-icon):before {
@@ -353,8 +390,8 @@ ch-grid-cell::part(drag-icon):before {
 }
 /*Row actions*/
 ch-grid::part(row-actions) {
-  padding-top: 2px;
-  right: var(--spacing-comp-02);
+  padding-top: var(--gxg-grid-row-actions__padding-top);
+  right: var(--gxg-grid-row-actions__right);
 }
 /*Selector*/
 ch-grid-column::part(selector) {
@@ -362,32 +399,38 @@ ch-grid-column::part(selector) {
 }
 /*legend*/
 ch-grid-rowset-legend {
-  background-color: var(--gray-01);
-  padding-inline-start: var(--spacing-comp-02);
-  padding-inline-end: var(--spacing-comp-02);
-  padding-block-start: var(--spacing-comp-01);
-  padding-block-end: var(--spacing-comp-01);
+  background-color: var(--gxg-grid-rowset-legend__background-color);
+  background-color: var(--mer-color_neutral-gray--1100);
+  padding-inline-start: var(--gxg-grid-rowset-legend__padding-inline-start);
+  padding-inline-end: var(--gxg-grid-rowset-legend__padding-inline-end);
+  padding-block-start: var(--gxg-grid-rowset-legend__padding-block-start);
+  padding-block-end: var(--gxg-grid-rowset-legend__padding-block-end);
 }
-/*columnset*/
 ch-grid > ch-grid-rowset:first-of-type ch-grid-rowset-legend {
-  border-top: 1px solid var(--color-background);
+  // border-top: var(--gxg-grid-base__border-width) solid
+  //   var(--gxg-grid-base__border-color);
 }
 ch-grid-rowset-legend {
-  margin-inline-start: calc(var(--indent) * (var(--level) - 1));
+  //margin-inline-start: calc(var(--indent) * (var(--level) - 1));
+  margin-inline-start: 0;
+  padding-inline-start: calc(
+    var(--gxg-grid-rowset-legend__padding-inline-start) +
+      (var(--indent) * (var(--level) - 1))
+  );
   display: flex;
   align-items: center;
-  gap: var(--spacing-comp-01);
+  gap: var(--gxg-grid-rowset-legend__gap);
   cursor: pointer;
 }
 /*caret*/
 ch-grid-rowset-legend::part(caret),
 ch-grid-cell::part(caret) {
-  width: var(--spacing-comp-04);
-  height: var(--spacing-comp-04);
+  width: var(--gxg-grid-part-caret__size);
+  height: var(--gxg-grid-part-caret__size);
 }
 ch-grid-cell::part(caret) {
   cursor: pointer;
-  margin-right: var(--spacing-comp-01);
+  margin-inline-end: var(--gxg-grid-part-caret__margin-inline-end);
 }
 ch-grid-rowset > ch-grid-rowset-legend::part(caret):before,
 ch-grid-row > ch-grid-cell::part(caret):before {
@@ -398,7 +441,8 @@ ch-grid-row[collapsed] > ch-grid-cell::part(caret):before {
   -webkit-mask-image: var(--caretExpandIconUrl);
 }
 ch-grid-rowset[collapsed] ch-grid-rowset-legend {
-  border-bottom: 1px solid var(--color-background);
+  border-bottom: var(--gxg-grid-base__border-width) solid
+    var(--ds-base-background-color);
 }
 /*paginator*/
 ch-grid gxg-paginator {
@@ -435,17 +479,4 @@ gxg-grid[ellipsis-cell-wrapper] {
 }
 gxg-grid[ellipsis-cell-wrapper] ch-grid-column::part(bar-resize-split) {
   display: none;
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-gxg-grid.large {
-  ch-grid {
-    font-size: var(--font-size-lg);
-  }
-  ch-grid-cell {
-    // padding-block-start: calc(var(--spacing-comp-01) * 1.5);
-    // padding-block-end: calc(var(--spacing-comp-01) * 1.5);
-  }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
+    <title>Navigation/level-down</title>
     <g id="Navigation/level-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M15,4 C15.517767,4 15.9436271,4.39349973 15.9948371,4.89775581 L16,5 L16,15 C16,15.517767 15.6065003,15.9436271 15.1022442,15.9948371 L15,16 L5,16 C4.48223305,16 4.05637288,15.6065003 4.00516289,15.1022442 L4,15 L4,5 C4,4.48223305 4.39349973,4.05637288 4.89775581,4.00516289 L5,4 L15,4 Z M10.5,6 L9.5,6 L9.5,12.1266667 L7,9.64666667 L6.32,10.3533333 L10,14.04 L13.6866667,10.36 L12.98,9.64666667 L10.5,12.1266667 L10.5,6 Z" id="Shape" fill="#000000"></path>
     </g>

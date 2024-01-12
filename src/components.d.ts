@@ -290,6 +290,10 @@ export namespace Components {
          */
         "negative": boolean;
         /**
+          * The presence of this attribute makes the button small (only for buttons that include an icon)
+         */
+        "small": boolean;
+        /**
           * The kind of button
          */
         "type": ButtonType;
@@ -527,6 +531,10 @@ export namespace Components {
           * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
          */
         "popOver": boolean;
+        /**
+          * If true, it will prevent Enter key propagation only when the list is open. This prop. was created to prevent issues with ch-shortcuts, when an Enter key has to fire a callback on another element (such as a button) but it has to be ignored when the list is open, since an Enter key on a list-box-item, has to select the item only.
+         */
+        "preventEnterPropagation": boolean;
         /**
           * The presence of this attribute makes the commbo required
          */
@@ -2320,7 +2328,7 @@ export namespace Components {
         /**
           * Given an item id and the additional properties to update before and after reload, it reloads the items of the `itemId` node by using the `lazyLoadTreeItemsCallback` property.
          */
-        "reloadItems": (itemId: string, beforeProperties?: Partial<TreeViewItemModel>, afterProperties?: Partial<TreeViewItemModel>) => Promise<void>;
+        "reloadItems": (itemId: string, beforeProperties?: Partial<TreeViewItemModel>, afterProperties?: Partial<TreeViewItemModel>) => Promise<boolean>;
         /**
           * Given a list of ids, removes the items and their children in the tree.
          */
@@ -2336,9 +2344,9 @@ export namespace Components {
     level: number
   ) => any;
         /**
-          * Given the path of the item (represent by a sorted array containing all ids from the root to the item) and the additional properties to update after, it displays and scrolls into the item view. The path can also be a string representing the id of the item to scroll into.
+          * Given the path of the item (represent by a sorted array containing all ids from the root to the item) and the additional properties to update after, it displays and scrolls into the item view. The path can also be a string representing the id of the item to scroll into.  When using a path, this method will fail if:   - The path does not start from the root element.   - The path contains a cycle.   - The path does not correspond to a valid path on the server:     - One of the item of the path, except for the last one, is a leaf.     - An item in the path does not exists on the server.     - The path has repeated items.     - And so on.
          */
-        "scrollIntoVisible": (path: string | string[], afterProperties?: Partial<TreeViewItemModel>) => Promise<void>;
+        "scrollIntoVisible": (path: string | string[], afterProperties?: Partial<TreeViewItemModel>) => Promise<boolean>;
         /**
           * `true` to display the relation between tree items and tree lists using lines.
          */
@@ -3829,6 +3837,10 @@ declare namespace LocalJSX {
          */
         "negative"?: boolean;
         /**
+          * The presence of this attribute makes the button small (only for buttons that include an icon)
+         */
+        "small"?: boolean;
+        /**
           * The kind of button
          */
         "type"?: ButtonType;
@@ -4079,6 +4091,10 @@ declare namespace LocalJSX {
           * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
          */
         "popOver"?: boolean;
+        /**
+          * If true, it will prevent Enter key propagation only when the list is open. This prop. was created to prevent issues with ch-shortcuts, when an Enter key has to fire a callback on another element (such as a button) but it has to be ignored when the list is open, since an Enter key on a list-box-item, has to select the item only.
+         */
+        "preventEnterPropagation"?: boolean;
         /**
           * The presence of this attribute makes the commbo required
          */

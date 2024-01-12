@@ -1,10 +1,19 @@
 ch-suggest-list-item {
+  font-size: inherit;
+  border-radius: var(--gxg-suggest-list-item__border-radius);
   /*button*/
   &::part(button) {
-    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    padding: var(--gxg-suggest-list-item-button__padding);
     align-items: center;
-    gap: var(--spacing-comp-01);
+    gap: var(--gxg-suggest-list-item-button__gap);
     box-sizing: border-box;
+    line-height: var(--gxg-suggest-list-item__line-height);
+    height: var(--gxg-suggest-list-item-button__height);
+    box-sizing: border-box;
+    overflow: hidden;
+    &:hover {
+      color: var(--gxg-suggest-list-item-button__color--hover);
+    }
   }
   &::part(button):focus {
     @include form-element-common-styles-focus-type-1();
@@ -13,11 +22,14 @@ ch-suggest-list-item {
     content: " - ";
   }
   gxg-icon::part(ch-icon) {
-    --icon-size: 16px;
-    margin-right: 2px;
+    --icon-size: var(--gxg-suggest-list-item-icon__size);
+    margin-right: var(--gxg-suggest-list-item-icon__margin-right);
   }
 
   &:hover {
-    background-color: var(--gxg-background-color--hover);
+    background-color: var(--ds-item-background-color--hover);
   }
+}
+ch-suggest-list-item + ch-suggest-list {
+  margin-block-start: var(--spacing-comp-02);
 }

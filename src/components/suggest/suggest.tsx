@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop } from "@stencil/core";
-import state from "../store";
 import { ValidationStatus } from "../../common/types";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -8,7 +7,7 @@ import { commonClassesNames } from "../../common/classesNames";
 @Component({
   tag: "gxg-suggest",
   styleUrl: "styles.scss",
-  shadow: false,
+  shadow: false
 })
 export class GxgSuggest implements FormComponent {
   /* VALIDATION */
@@ -37,7 +36,6 @@ export class GxgSuggest implements FormComponent {
     return (
       <Host
         class={{
-          large: state.large,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -46,7 +44,7 @@ export class GxgSuggest implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
       >
         <slot></slot>

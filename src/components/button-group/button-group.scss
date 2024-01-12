@@ -5,175 +5,133 @@
   display: inline-block;
   line-height: 0;
   outline: none;
+  gap: 1px;
 
-  .button-group-header-label {
-  }
   .button-group-container {
-    font-size: 0; //removes the space between buttons
-    position: relative;
+    display: flex;
+    background-color: var(--gxg-button-group-container-bg-color);
+    gap: var(--gxg-button-group-container-gap);
+    overflow: hidden;
+    border-radius: var(--gxg-button-border-radius);
   }
-
-  ::slotted(button) {
-    @include gxg-button-styles;
-    /*button styles are included on a mixin, because they are used on both, gxg-button, and gxg-button-group elements*/
-    @include gxg-label--negative;
-
-    /*button styles overrides*/
-    background-color: var(--gray-00);
-    color: var(--color-primary);
-    border-inline-end: 1px solid var(--gray-02);
-    padding-left: var(--spacing-comp-03);
-    padding-right: var(--spacing-comp-03);
-    height: 20px;
-  }
+  /*--- Reset border radius ---*/
   ::slotted(button:first-child) {
-    border-top-left-radius: var(--border-radius-xs);
-    border-bottom-left-radius: var(--border-radius-xs);
-  }
-  ::slotted(button:last-child) {
-    border-top-right-radius: var(--border-radius-xs);
-    border-bottom-right-radius: var(--border-radius-xs);
-  }
-  ::slotted(button:focus) {
-    outline: none;
-  }
-  ::slotted(button[data-active]) {
-    color: var(--color-on-primary);
-    background-color: var(--color-primary-enabled);
-    border-right-color: var(--color-primary-enabled);
-  }
-  ::slotted(button:not([outlined]):hover) {
-    color: var(--color-on-primary);
-    background-color: var(--color-primary-hover);
-    cursor: pointer;
-  }
-}
-:host([disable-active]) {
-  ::slotted(button[data-active]) {
-    pointer-events: none;
-  }
-}
-/*Disabled*/
-:host(:not([outlined])) {
-  ::slotted(button[data-active]) {
-    --gxg-border-color--focused: var(--color-primary-active--inverted);
-    color: var(--color-on-primary);
-    background-color: var(--color-primary-enabled);
-    border-right-color: var(--color-primary-enabled);
-  }
-  ::slotted(button[disabled]) {
-    background-color: var(--gxg-background-color--disabled);
-    color: var(--gxg-color--disabled);
-    border-inline-end-color: var(--gxg-border-color--disabled);
-    pointer-events: none;
-  }
-}
-:host([outlined]) {
-  ::slotted(button[disabled]),
-  ::slotted(button[data-active][disabled]) {
-    background-color: var(--color-background);
-    color: var(--gxg-color--disabled);
-    border-color: var(--gxg-border-color--disabled);
-    pointer-events: none;
-    cursor: cell;
-  }
-}
-:host(.button-group:not([disabled])) {
-  ::slotted(button:focus) {
-    outline: none;
-    @include form-element-common-styles-focus-type-1();
-  }
-}
-//reading directior rtl
-:host(.rtl) {
-  ::slotted(button:last-child) {
-    border-top-left-radius: var(--border-radius-md);
-    border-bottom-left-radius: var(--border-radius-md);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  ::slotted(button:first-child) {
-    border-top-right-radius: var(--border-radius-md);
-    border-bottom-right-radius: var(--border-radius-md);
+  ::slotted(button:last-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+  ::slotted(button:not(:first-child):not(:last-child)) {
+    border-radius: 0;
+  }
+
+  /*--- Primary (default) ---*/
   ::slotted(button) {
-    border-left: 1px solid var(--gray-02);
-    border-right: 0;
+    @include gxg-button-styles;
+    background-color: var(--ds-background-color-disabled);
+    color: var(--gxg-button-primary-bg-color);
+    border-color: var(--ds-background-color-disabled);
   }
-  ::slotted(button:last-child) {
-    border-left: 0;
+  /*data-active*/
+  ::slotted(button[data-active]) {
+    background-color: var(--gxg-button-primary-bg-color);
+    color: var(--gxg-button-primary-color);
+    border-color: var(--gxg-button-primary-border-color);
   }
-}
-/*OUTLINED*/
-:host(.button-group:not([outlined])) {
-  ::slotted(button:last-child) {
-    border-right: none;
+  /*hover*/
+  ::slotted(button:hover) {
+    background-color: var(--gxg-button-primary-bg-color-hover);
+    color: var(--gxg-button-primary-color-hover);
+    border-color: var(--gxg-button-primary-border-color-hover);
   }
-}
-:host([outlined]) ::slotted(button) {
-  background: var(--color-background);
-  border-width: var(--border-width-sm);
-  border-style: var(--border-style-regular);
-  border-color: var(--color-primary-enabled);
-}
-:host([outlined]) ::slotted(button[data-active]) {
-  color: var(--color-primary-hover);
-  background-color: var(--color-primary-hover-opacity-01);
-}
-:host([outlined]) ::slotted(button:hover) {
-  color: var(--color-primary-hover) !important;
-  background-color: var(--color-primary-hover-opacity-01) !important;
-}
-:host([outlined]) ::slotted(button:not(:last-child)) {
-  border-right: 0;
-}
-:host(.button-group:not([outlined])) {
-  ::slotted(button:last-child) {
-    border-right: none;
+  /*active*/
+  ::slotted(button:active) {
+    background-color: var(--gxg-button-primary-bg-color-active);
+    color: var(--gxg-button-primary-color-active);
+    border-color: var(--gxg-button-primary-border-color-active);
   }
-}
-/*CENTER*/
-:host([title-alignment="center"]) {
-  /*Title alignment*/
-  .button-group-header-title {
-    justify-content: center;
+  /*focus within*/
+  ::slotted(button:focus-visible) {
+    @include form-element-common-styles-focus-type-1("inside");
+    outline-color: var(--color-primary-active--inverted);
   }
-}
-:host([title-alignment="right"]) {
-  /*Title alignment*/
-  .button-group-header-title {
-    justify-content: flex-end;
+  /*disabled*/
+  ::slotted(button[disabled]) {
+    color: var(--ds-color-on-disabled);
+    pointer-events: none;
   }
 }
 
+/*--- Outlined ---*/
+:host([outlined]) {
+  .button-group-container {
+    background-color: transparent;
+    gap: 0;
+  }
+  ::slotted(button) {
+    background-color: var(--gxg-button-outlined-bg-color);
+    color: var(--gxg-button-outlined-color);
+    border-color: var(--gxg-button-outlined-border-color);
+    position: relative;
+    z-index: 0;
+  }
+  $n: 10;
+  @for $i from 1 through $n {
+    ::slotted(button:nth-child(#{$i})) {
+      left: calc(1px * #{$i - 1} * -1);
+    }
+  }
+  ::slotted(button:nth-child(1)) {
+    left: 0;
+  }
+  /*data-active*/
+  ::slotted(button[data-active]) {
+    background-color: var(--gxg-button-outlined-bg-color-active);
+    color: var(--gxg-button-outlined-color-active);
+    border-color: var(--gxg-button-outlined-border-color-hover);
+    z-index: 1;
+  }
+  ::slotted(button[data-active]:hover) {
+  }
+  /*hover*/
+  ::slotted(button:hover) {
+    background-color: var(--gxg-button-outlined-bg-color-hover);
+    color: var(--gxg-button-outlined-color-hover);
+    border-color: var(--gxg-button-outlined-border-color-hover);
+    z-index: 1;
+  }
+  /*active*/
+  ::slotted(button:active) {
+    background-color: var(--gxg-button-outlined-bg-color-active);
+    color: var(--gxg-button-outlined-color-active);
+    border-color: var(--gxg-button-outlined-border-color-active);
+    z-index: 1;
+  }
+  /*focus within*/
+  ::slotted(button:focus-within) {
+    outline-color: var(--ds-focus-border-color);
+  }
+  ::slotted(button[disabled]),
+  ::slotted(button[data-active][disabled]) {
+    background-color: var(--gxg-button-outlined-bg-color);
+    color: var(--ds-color-disabled);
+    border-color: var(--ds-border-color-disabled);
+  }
+}
+
+/*--- Full Width ---*/
 //full width
 :host([full-width]) {
   display: block;
   width: 100%;
 
   .button-group-container {
-    display: flex;
-  }
-}
-:host([full-width]) {
-  .button-group-container {
-    ::slotted(*) {
-      flex: 1 1 auto !important;
-    }
-  }
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.button-group.large) {
-  .button-group-header-title {
-    font-size: var(--font-size-lg);
+    width: 100%;
   }
   ::slotted(button) {
-    height: var(--spacing-comp-05);
-    font-size: var(--font-size-lg) !important;
+    flex-grow: 1;
+    @include gxg-ellipsis;
   }
 }

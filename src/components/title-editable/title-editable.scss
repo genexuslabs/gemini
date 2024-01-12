@@ -4,9 +4,9 @@
 
 :host {
   display: block;
-  color: var(--mc-editable-title-color);
+  color: var(--gxg-title-editable__color);
   .wrapper {
-    font-family: var(--font-family-primary);
+    font-family: var(--ds-base-font-family-primary);
     position: relative;
     max-width: 100%;
   }
@@ -32,7 +32,8 @@
 .wrapper {
   display: flex;
   align-items: center;
-  gap: var(--spacing-comp-02);
+  gap: var(--gxg-title-editable-wrapper__gap);
+  font-weight: var(--gxg-title-editable__font-weight);
 }
 /*editing*/
 :host(:not([editing])) {
@@ -52,27 +53,13 @@
 /*title types*/
 :host([title-type="h1"]) {
   .wrapper {
-    font-size: var(--mc-font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--gxg-title-editable-h1__font-size);
     text-transform: capitalize;
   }
 }
 :host([title-type="h2"]) {
   .wrapper {
-    font-size: var(--mc-font-size-sm);
-    font-weight: var(--font-weight-bold);
-  }
-}
-:host([title-type="h3"]) {
-  .wrapper {
-    font-size: var(--mc-font-size-xs);
-    font-weight: var(--font-weight-semibold);
-  }
-}
-:host([title-type="h4"]) {
-  .wrapper {
-    font-size: var(--mc-font-size-xxs);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--gxg-title-editable-h2__font-size);
   }
 }
 /*fluid*/
@@ -84,13 +71,13 @@
 /*focus (optional)*/
 :host(.focus--text.editing) {
   input {
-    color: var(--gxg-editable-title-focus-color);
+    color: var(--gxg-title-editable__color--editing);
   }
 }
 /*focus (optional)*/
 :host(.focus--line.editing) {
   input {
-    border-bottom-color: var(--gxg-editable-title-focus-color);
+    border-bottom-color: var(--gxg-title-editable__color--editing);
   }
 }
 
@@ -107,4 +94,9 @@
   bottom: 0;
   left: 0;
   transform: translate(-100%, -100%);
+}
+
+.right-wrapper {
+  display: flex;
+  align-items: center;
 }

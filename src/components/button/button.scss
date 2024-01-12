@@ -1,336 +1,84 @@
 @import "../../globals/normalize.scss";
 @import "../../globals/mixins";
 
-/*****************************************************
-'PRIMARY TEXT ONLY' && 'PRIMARY TEXT ICON' BUTTON TYPE
-*****************************************************/
-
-:host {
-  --gxg-button-icon-size: 20px;
+/*General*/
+:host(.button) {
   display: inline-block;
   line-height: 0;
   position: relative;
-
-  .ghost-icon {
-    width: 0;
-  }
-}
-
-:host(.button) .button-native {
-  width: 100%;
-  height: 20px;
-  --svg-icon-regular-scale: var(
-    --svg-icon-small-scale
-  ); // Force Icon size inside button to always be small size.
-  position: relative;
-
-  @include gxg-button-styles;
-  border: 1px solid transparent;
-  /*button styles are included on a mixin, because they are used on both, gxg-button, and gxg-button-group elements*/
-
-  &:hover:not([disabled]) {
-    background: var(--color-primary-hover);
-    cursor: pointer;
-  }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    background: var(--color-primary-enabled);
-    @include form-element-common-styles-focus-type-1();
-  }
-  &:active:not([disabled]) {
-    background: var(--color-primary-active);
-  }
-}
-:host(.button.button--disabled) .button-native {
-  background: var(--gxg-background-color--disabled);
-  @include gxg-label--disabled;
-  pointer-events: none;
-}
-:host(.button.button--disabled) {
-  pointer-events: none;
-}
-
-/*********************************
-PRIMARY
-*********************************/
-:host(.button--primary) {
-  --gxg-border-color--focused: var(--color-primary-active--inverted);
-}
-
-/*********************************
-PRIMARY 'TEXT ONLY' BUTTON TYPE
-*********************************/
-:host(.button--primary-text-only) .button-native {
-  @include gxg-label--negative;
-  padding-inline-start: var(--spacing-comp-04);
-  padding-inline-end: var(--spacing-comp-04);
-}
-:host(.button--primary-text-only.button--disabled) .button-native {
-  @include gxg-label--negative-disabled;
-}
-
-/*********************************
-PRIMARY 'TEXT + ICON' BUTTON TYPE
-*********************************/
-:host(.button--primary-text-icon) .button-native {
-  @include gxg-label--negative;
-  padding-inline-start: var(--spacing-comp-01);
-  padding-inline-end: var(--spacing-comp-02);
-  gxg-icon:not(.ghost-icon) {
-    padding-inline-end: var(--spacing-comp-01);
-  }
-}
-:host(.button--primary-text-icon.button--disabled) .button-native {
-  @include gxg-label--negative-disabled;
-}
-
-/*********************************
-'PRIMARY ICON ONLY' BUTTON TYPE
-*********************************/
-:host(.button--primary-icon-only) .button-native {
-  background: var(--color-primary-enabled);
-  color: var(--color-on-primary);
-
-  &:hover:not([disabled]) {
-    background: var(--color-primary-hover);
-    @include gxg-label--hover;
-  }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    background: var(--color-primary-enabled);
-    @include gxg-label--hover;
-  }
-  &:active:not([disabled]) {
-    background: var(--color-primary-active);
-    color: var(--color-on-primary);
-  }
-  &:focus {
-    outline: none;
-  }
-}
-
-/*********************************
-SECONDARY 'TEXT ONLY' BUTTON TYPE
-*********************************/
-:host(.button--secondary-text-only) .button-native {
-  // This are the styles for 'secondary button' type.
-
-  //Enabled
-  background: transparent;
-  padding-inline-start: var(--spacing-comp-04);
-  padding-inline-end: var(--spacing-comp-04);
-
-  &:hover:not([disabled]) {
-    @include gxg-label--hover;
-    background: transparent;
-  }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    @include gxg-label--focus;
-    background: transparent;
-  }
-  &:active:not([disabled]) {
-    @include gxg-label--active;
-    box-shadow: none;
-  }
-  &:focus {
-    outline: none;
-  }
-}
-:host(.button--secondary-text-only.button--disabled) .button-native {
-  background: transparent;
-  @include gxg-label--disabled;
-}
-
-/*********************************
-SECONDARY 'TEXT ICON' BUTTON TYPE
-*********************************/
-:host(.button--secondary-text-icon) .button-native {
-  // This are the styles for 'secondary button' type.
-
-  //Enabled
-  background: transparent;
-  padding-inline-start: 0;
-
-  padding-inline-start: var(--spacing-comp-01);
-  padding-inline-end: var(--spacing-comp-02);
-  gxg-icon:not(.ghost-icon) {
-    padding-inline-end: var(--spacing-comp-01);
-  }
-
-  &:hover:not([disabled]) {
-    @include gxg-label--hover;
-    background: transparent;
-  }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    @include gxg-label--focus;
-    background: transparent;
-  }
-  &:active:not([disabled]) {
-    @include gxg-label--active;
-    box-shadow: none;
-  }
-}
-:host(.button--secondary-text-icon.button--disabled) .button-native {
-  //Redefine icon color for this button type
-  gxg-icon {
-    --icon-color: #{$gxg-label--disabled-color};
-  }
-  background: transparent;
-  @include gxg-label--disabled;
-}
-
-/*********************************
-'SECONDARY ICON ONLY' BUTTON TYPE
-*********************************/
-:host(.button--secondary-icon-only) .button-native {
-  background: transparent;
-
-  &:hover:not([disabled]) {
-    background: transparent;
-  }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    background: transparent;
-  }
-  &:active:not([disabled]) {
-    background: transparent;
-  }
-}
-:host(.button--secondary-icon-only.button--disabled) .button-native {
-  background: transparent;
-}
-
-/*********************************
-'OUTLINED' BUTTON TYPE
-*********************************/
-:host(.button--outlined) .button-native,
-:host(.button--outlined-text-icon) .button-native {
-  // This are the styles for 'outlined button' type.
-
-  border-color: var(--color-primary-enabled);
-
-  //Enabled
-  background: var(--color-background);
-  padding-inline-start: var(--spacing-comp-04);
-  padding-inline-end: var(--spacing-comp-04);
-
-  &:hover:not([disabled]) {
-    @include gxg-label--hover;
-    border-color: var(--color-primary-hover);
-    background: var(--color-primary-hover-opacity-01);
-  }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    @include gxg-label--focus;
-    background: transparent;
-    @include form-element-common-styles-focus-type-1();
-  }
-  &:active:not([disabled]) {
-    @include gxg-label--active;
-    background: transparent;
-  }
-  gxg-icon:not(.ghost-icon) {
-    padding-inline-end: var(--spacing-comp-01);
-  }
-}
-:host(.button--outlined.button--disabled) .button-native,
-:host(.button--outlined-text-icon.button--disabled) .button-native {
-  border-color: var(--gxg-border-color--disabled);
-  background: var(--color-transparent);
-  @include gxg-label--disabled;
-}
-:host(.button--outlined-text-icon) .button-native {
-  padding-inline-start: var(--spacing-comp-03);
-}
-
-/*********************************
-'TERTIARY' BUTTON TYPE
-*********************************/
-:host(.button--tertiary) .button-native {
-  background: transparent;
-  padding-inline-end: 0;
-  padding-inline-start: 0;
-
-  &:hover:not([disabled]) {
-    background: transparent;
-    gxg-icon {
-      --color-on-background: var(--gray-05);
-      //transform: scale(0.75);
+  .button-native {
+    @include gxg-button-styles;
+    --svg-icon-regular-scale: var(--svg-icon-small-scale);
+    position: relative;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    &:focus-visible {
+      @include form-element-common-styles-focus-type-1("outside");
     }
   }
-  &:focus:not([disabled]):not(.no-tab-index) {
-    background: transparent;
-    @include form-element-common-styles-focus-type-1();
+  gxg-icon {
+    margin-inline-end: var(--gxg-button-icon-margin-inline-end);
   }
-  &:active:not([disabled]) {
-    background: transparent;
-  }
-}
-:host(.button--tertiary.button--disabled) .button-native {
-  background: transparent;
 }
 
-//Full width button
-:host(.button--fullwidth) {
-  display: block;
+/*Has icon*/
+:host(.button--has-icon) {
   .button-native {
-    width: 100%;
-  }
-}
-:host(.button--fit) {
-  .button-native {
-    height: 100% !important;
-    width: 100% !important;
+    padding-inline-start: var(--gxg-button-icon-padding-start);
   }
 }
 
-/********************************************************************
-ICON TOOLTIP (ONLY FOR PRIMARY-ICON-ONLY & SECONDARY-ICON-ONLY TYPES)
-*********************************************************************/
-:host {
-  .icon-tooltip {
-    position: absolute;
-    border-width: 0.5px;
-    border-style: solid;
-    border-color: var(--gray-04);
-    color: var(--color-on-background);
-    background-color: var(--gray-01);
-    font-size: 8px;
-    font-weight: var(--font-weight-regular);
-    font-family: var(--font-family-primary);
-    padding: 1px 5px;
-    width: max-content;
-    left: 0;
-    top: 20px;
-    display: none;
-    opacity: 0;
-    @include ui-animation(opacity);
-  }
-}
-:host(.display-tooltip) {
-  .icon-tooltip {
-    display: block;
-  }
-}
-:host(.show-tooltip) {
-  .icon-tooltip {
-    opacity: 1;
-  }
-}
-
-/*********************************
-ICON ONLY
-*********************************/
+/*Icon only*/
 :host(.button--icon-only) {
-  width: var(--gxg-button-icon-size);
-  height: var(--gxg-button-icon-size);
   .button-native {
-    padding: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    width: var(--gxg-button-height);
+  }
+  gxg-icon {
+    --icon-size: 30px;
+    margin-inline-end: 0;
   }
 }
 
-/*********************************
-GRAB ATTENTION ANIMATION
-*********************************/
-:host(.button--primary-text-only[grab-attention]:not([disabled])),
-:host(.button--primary-text-icon[grab-attention]:not([disabled])),
-:host(.button--primary-icon-only[grab-attention]:not([disabled])) {
+/*Primary*/
+:host(.button--primary) {
+  .button-native {
+    background-color: var(--gxg-button-primary-bg-color);
+    color: var(--gxg-button-primary-color);
+    border-color: var(--gxg-button-primary-border-color);
+    --gxg-icon-color: var(--gxg-button-primary-icon-color);
+    &:focus-visible {
+      outline-color: var(--gxg-button-primary-focus-outline-color);
+    }
+    &:hover {
+      background-color: var(--gxg-button-primary-bg-color-hover);
+      color: var(--gxg-button-primary-color-hover);
+      border-color: var(--gxg-button-primary-border-color-hover);
+      --gxg-icon-color: var(--gxg-button-primary-icon-color-hover);
+    }
+    &:active {
+      background-color: var(--gxg-button-primary-bg-color-active);
+      color: var(--gxg-button-primary-color-active);
+      border-color: var(--gxg-button-primary-border-color-active);
+      --gxg-icon-color: var(--gxg-button-primary-icon-color-active);
+    }
+  }
+}
+:host(.button--primary.button--disabled) {
+  /*Disabled*/
+  .button-native {
+    color: var(--ds-color-on-disabled);
+    background-color: var(--ds-background-color-disabled);
+    border-color: var(--ds-border-color-disabled);
+    --gxg-icon-color: var(--ds-icon-color-on-disabled);
+  }
+}
+:host(.button--primary[grab-attention]:not([disabled])) {
+  /*Grab Attention*/
   .button-native:not(:hover) {
     animation-name: grabAttentionPrimary;
     animation-duration: 500ms;
@@ -340,42 +88,124 @@ GRAB ATTENTION ANIMATION
 }
 @keyframes grabAttentionPrimary {
   from {
-    background-color: var(--color-primary-enabled);
+    background-color: var(--gxg-button-primary-bg-color);
   }
   to {
-    background-color: var(--color-primary-hover);
+    background-color: var(--gxg-button-primary-bg-color-hover);
   }
 }
 
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) {
-  --gxg-button-icon-size: 24px;
+/*Secondary*/
+:host(.button--secondary) {
+  .button-native {
+    padding-inline-start: var(--gxg-button-secondary-lateral-padding);
+    padding-inline-end: var(--gxg-button-secondary-lateral-padding);
+    background-color: var(--gxg-button-secondary-bg-color);
+    color: var(--gxg-button-secondary-color);
+    border-color: var(--gxg-button-secondary-border-color);
+    --gxg-icon-color: var(--gxg-button-secondary-icon-color);
+
+    &:hover {
+      background-color: var(--gxg-button-secondary-bg-color-hover);
+      color: var(--gxg-button-secondary-color-hover);
+      border-color: var(--gxg-button-secondary-border-color-hover);
+      --gxg-icon-color: var(--gxg-button-secondary-icon-color-hover);
+    }
+    &:active {
+      background-color: var(--gxg-button-secondary-bg-color-active);
+      color: var(--gxg-button-secondary-color-active);
+      border-color: var(--gxg-button-secondary-border-color-active);
+      --gxg-icon-color: var(--gxg-button-secondary-icon-color-active);
+    }
+  }
 }
-:host(.large) .button-native {
-  height: var(--spacing-comp-05);
-  font-size: var(--font-size-lg) !important;
+:host(.button--secondary.button--disabled) {
+  /*Disabled*/
+  .button-native {
+    color: var(--ds-color-disabled);
+    --gxg-icon-color: var(--ds-icon-color-disabled);
+  }
 }
-//PRIMARY 'TEXT + ICON' BUTTON TYPE
-:host(.button--primary-text-icon.large) .button-native {
-  padding-inline-start: var(--spacing-comp-02);
-  padding-inline-end: var(--spacing-comp-03);
+
+/*Tertiary*/
+:host(.button--tertiary) {
+  .button-native {
+    background-color: var(--gxg-button-tertiary-bg-color);
+    color: var(--gxg-button-tertiary-color);
+    border-color: var(--gxg-button-tertiary-border-color);
+    --gxg-icon-color: var(--gxg-button-tertiary-icon-color);
+
+    &:hover {
+      background-color: var(--gxg-button-tertiary-bg-color-hover);
+      color: var(--gxg-button-tertiary-color-hover);
+      border-color: var(--gxg-button-tertiary-border-color-hover);
+      --gxg-icon-color: var(--gxg-button-tertiary-icon-color-hover);
+    }
+    &:active {
+      background-color: var(--gxg-button-tertiary-bg-color-active);
+      color: var(--gxg-button-tertiary-color-active);
+      border-color: var(--gxg-button-tertiary-border-color-active);
+      --gxg-icon-color: var(--gxg-button-tertiary-icon-color-active);
+    }
+  }
 }
-//'PRIMARY ICON ONLY' BUTTON TYPE
-:host(.button--primary-icon-only.large) .button-native {
-  height: var(--spacing-comp-05);
+:host(.button--tertiary.button--disabled) {
+  /*Disabled*/
+  .button-native {
+    --gxg-icon-color: var(--ds-icon-color-disabled);
+  }
 }
-//SECONDARY 'TEXT ICON' BUTTON TYPE
-:host(.button--secondary-text-icon.large) .button-native {
-  padding-inline-start: var(--spacing-comp-02);
-  padding-inline-end: var(--spacing-comp-03);
+
+/*Outlined*/
+:host(.button--outlined) {
+  .button-native {
+    background-color: var(--gxg-button-outlined-bg-color);
+    color: var(--gxg-button-outlined-color);
+    border-color: var(--gxg-button-outlined-border-color);
+    --gxg-icon-color: var(--gxg-button-outlined-icon-color);
+    &:hover {
+      background-color: var(--gxg-button-outlined-bg-color-hover);
+      color: var(--gxg-button-outlined-color-hover);
+      border-color: var(--gxg-button-outlined-border-color-hover);
+      --gxg-icon-color: var(--gxg-button-outlined-icon-color-hover);
+    }
+    &:active {
+      background-color: var(--gxg-button-outlined-bg-color-active);
+      color: var(--gxg-button-outlined-color-active);
+      border-color: var(--gxg-button-outlined-border-color-active);
+      --gxg-icon-color: var(--gxg-button-outlined-icon-color-active);
+    }
+  }
 }
-//'SECONDARY ICON ONLY' BUTTON TYPE
-:host(.button--secondary-icon-only.large) .button-native {
-  height: var(--spacing-comp-05);
+:host(.button--outlined.button--disabled) {
+  .button-native {
+    color: var(--ds-color-disabled);
+    border-color: var(--ds-border-color-disabled);
+    --gxg-icon-color: var(--ds-icon-color-disabled);
+  }
 }
-//'TERTIARY' BUTTON TYPE
-:host(.button--tertiary.large) .button-native {
-  height: var(--spacing-comp-05);
+
+/*Disabled General*/
+:host(.button--disabled) {
+  .button-native {
+    pointer-events: none;
+    color: var(--ds-color--disabled);
+  }
+}
+
+/*Fit*/
+:host(.button--fit) .button-native {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/*Small*/
+:host(.button--small.button--icon-only) .button-native {
+  height: var(--ds-icon-size-box--small);
+  width: var(--ds-icon-size-box--small);
+}
+
+/*Icon only*/
+:host(.button--icon-only) .button-native {
+  padding: 0;
 }
