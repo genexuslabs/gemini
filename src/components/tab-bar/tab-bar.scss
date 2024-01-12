@@ -13,9 +13,10 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    background-color: var(--gxg-tab-bar-background-color);
 
     &--border {
-      border-bottom: 1px solid var(--gxg-border-color--regular);
+      border-bottom: var(--ds-border-common-styles);
     }
   }
 
@@ -25,11 +26,14 @@
     display: flex !important;
     margin-bottom: 0;
     margin-top: 0;
-    font-family: var(--font-family-primary);
   }
   .tab-bar__menu {
     display: flex;
     align-items: center;
+    &-button {
+      padding-right: 4px;
+      transform: scale(0.9);
+    }
   }
   .tab-bar-menu {
     border-radius: var(--border-width-md);
@@ -72,24 +76,7 @@
   .nav {
     width: 100%;
     overflow-y: auto;
-    // Scroll bar
-    &::-webkit-scrollbar {
-      height: var(--gxg-scrollbar-width);
-    }
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background-color: var(--gxg-scrollbar-track-background);
-      border-radius: var(--gxg-scrollbar-track-border-radius);
-    }
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: var(--gxg-scrollbar-track-thumb-background);
-      border-radius: var(--gxg-scrollbar-track-thumb-radius);
-    }
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: var(--gxg-scrollbar-track-thumb-hover-background);
-    }
+    @include gxg-scrollbar;
   }
 }
 :host(.gxg-tab-bar--hidden) {
@@ -101,8 +88,3 @@
     right: auto;
   }
 }
-
-/*********************************************
-Mercury
-**********************************************/
-@import "./tab-bar-mercury";

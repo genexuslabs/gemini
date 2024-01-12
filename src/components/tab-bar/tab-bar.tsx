@@ -7,7 +7,7 @@ import {
   Listen,
   Watch,
   Prop,
-  Method,
+  Method
 } from "@stencil/core";
 import state from "../store";
 
@@ -17,18 +17,17 @@ import { exportParts } from "../../common/export-parts";
 @Component({
   tag: "gxg-tab-bar",
   styleUrl: "tab-bar.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgTabBar {
   private parts = {
-    buttonMenu: "button-menu",
+    buttonMenu: "button-menu"
   };
   private exportparts: string;
 
   constructor() {
-    this.detectClickOutsideTabBarMenu = this.detectClickOutsideTabBarMenu.bind(
-      this
-    );
+    this.detectClickOutsideTabBarMenu =
+      this.detectClickOutsideTabBarMenu.bind(this);
   }
   // Indicate that name should be a public property on the component
   // @Prop() name: string;
@@ -118,7 +117,7 @@ export class GxgTabBar {
     const allTabButtons = this.el.querySelectorAll("gxg-tab-button");
 
     if (allTabButtons) {
-      allTabButtons.forEach((tabButton) => {
+      allTabButtons.forEach(tabButton => {
         if (!tabButton.disabled && !tabButton.hidden) {
           tabEnabledButtons.push(tabButton);
         }
@@ -127,7 +126,7 @@ export class GxgTabBar {
 
     const arrowPressed: string = e.detail["arrowPressed"];
     const targetButton: HTMLGxgTabButtonElement = e.target;
-    const clickedButtonIndex = tabEnabledButtons.findIndex((button) => {
+    const clickedButtonIndex = tabEnabledButtons.findIndex(button => {
       return button === targetButton;
     });
 
@@ -161,7 +160,9 @@ export class GxgTabBar {
       //get the last item of the nodeList
       const lastTabButton = tabButtons[tabButtons.length - 1];
       if (lastTabButton) {
-        this.lastAddedOrRemovedTabBarButtonWidth = (lastTabButton as HTMLElement).offsetWidth;
+        this.lastAddedOrRemovedTabBarButtonWidth = (
+          lastTabButton as HTMLElement
+        ).offsetWidth;
         //add "menu-button" class to button component, in order to stylize the buttons inside the menu differently
         lastTabButton.classList.add("menu-button");
         lastTabButton.setAttribute("slot", "tab-menu");
@@ -177,7 +178,9 @@ export class GxgTabBar {
       if (menuFirstButton) {
         menuFirstButton.classList.remove("menu-button");
         menuFirstButton.setAttribute("slot", "tab-bar");
-        this.lastAddedOrRemovedTabBarButtonWidth = (menuFirstButton as HTMLElement).offsetWidth;
+        this.lastAddedOrRemovedTabBarButtonWidth = (
+          menuFirstButton as HTMLElement
+        ).offsetWidth;
 
         this.appendedButtons--;
       }
@@ -210,7 +213,7 @@ export class GxgTabBar {
     }
 
     if (!this.scrollable) {
-      const myObserver = new ResizeObserver((entries) => {
+      const myObserver = new ResizeObserver(entries => {
         entries.forEach(() => {
           //get any button space between text and button border
           this.appendTabItemsToMenu();
@@ -251,10 +254,11 @@ export class GxgTabBar {
       return (
         <div class="tab-bar__menu">
           <gxg-button
+            class="tab-bar__menu-button"
             onClick={this.openMenu.bind(this)}
             type="tertiary"
             icon="gemini-tools/show-more-vertical"
-            ref={(el) =>
+            ref={el =>
               (this.tabBarMenuToggleButton = el as HTMLGxgButtonElement)
             }
             part={this.parts.buttonMenu}
@@ -290,14 +294,14 @@ export class GxgTabBar {
 
   private enableTabIndex = () => {
     const allButtons = this.el.querySelectorAll("gxg-tab-button");
-    allButtons.forEach((button) => {
+    allButtons.forEach(button => {
       button.removeAttribute("tabindex");
     });
   };
 
   private disableTabIndex = () => {
     const menuButtons = this.el.querySelectorAll("[slot=tab-menu]");
-    menuButtons.forEach((button) => {
+    menuButtons.forEach(button => {
       button.setAttribute("tabindex", "-1");
     });
   };
@@ -309,19 +313,19 @@ export class GxgTabBar {
           rtl: this.rtl,
           "gxg-tab-bar": true,
           "gxg-tab-bar--hidden": this.hidden,
-          mercury: state.mercury,
+          mercury: state.mercury
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
         <nav
           class={{
             nav: true,
-            "nav--border": this.displayBorder,
+            "nav--border": this.displayBorder
           }}
         >
           <ul
             class="tab-bar"
-            ref={(el) => (this.tabBar = el as HTMLUListElement)}
+            ref={el => (this.tabBar = el as HTMLUListElement)}
           >
             <slot name="tab-bar"></slot>
           </ul>
@@ -333,13 +337,13 @@ export class GxgTabBar {
               top: this.tabBarMenuPosition === "top",
               right: this.tabBarMenuPosition === "right",
               bottom: this.tabBarMenuPosition === "bottom",
-              left: this.tabBarMenuPosition === "left",
+              left: this.tabBarMenuPosition === "left"
             }}
             style={{
               "--tabBarMenuHeight": this.tabBarMenuHeight,
-              "--tabBarMenuWidth": this.tabBarMenuWidth,
+              "--tabBarMenuWidth": this.tabBarMenuWidth
             }}
-            ref={(el) => (this.tabBarMenu = el as HTMLUListElement)}
+            ref={el => (this.tabBarMenu = el as HTMLUListElement)}
           >
             <slot name="tab-menu"></slot>
           </ul>
