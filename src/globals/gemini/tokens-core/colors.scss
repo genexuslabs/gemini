@@ -1,4 +1,5 @@
 //STATES
+
 //Primary
 :root {
   --color-primary-enabled: #0266a0;
@@ -6,14 +7,6 @@
   --color-primary-hover: #0077de;
   --color-primary-disabled: #828385;
   --color-primary-active--inverted: #4ba3d4; /*Added by Bruno (improve button primary focus contrast)*/
-
-  &.mercury {
-    --color-primary-enabled: #2070ce;
-    //--color-primary-active: no está definida
-    //--color-primary-hover:  no está definida
-    --color-primary-disabled: #b3b3b3;
-    --color-primary-active--inverted: #005688; /*Added by Bruno (improve button primary focus contrast)*/
-  }
 }
 :root.dark {
   --color-primary-enabled: #91c8e4;
@@ -21,14 +14,6 @@
   --color-primary-hover: #8dcbff;
   --color-primary-disabled: #828385;
   --color-primary-active--inverted: #335884; /*Added by Bruno (improve button primary focus contrast)*/
-
-  &.mercury {
-    --color-primary-enabled: #5ba7ff;
-    --color-primary-active: #335884;
-    --color-primary-hover: #437dc0;
-    --color-primary-disabled: #333333;
-    //--color-primary-active--inverted: #005688; /*Added by Bruno (improve button primary focus contrast)*/
-  }
 }
 //Secondary
 :root {
@@ -37,15 +22,6 @@
   --color-secondary-active: #6a8c9f;
   --color-secondary-hover: #97b0bf;
   --color-secondary-disabled: #828385;
-
-  // No están definidos
-  // &.mercury {
-  //   --color-secondary-enabled: ;
-  //   --color-secondary-enabled--hover: ; /*added by Bruno*/
-  //   --color-secondary-active: ;
-  //   --color-secondary-hover: ;
-  //   --color-secondary-disabled: ;
-  // }
 }
 :root.dark {
   --color-secondary-enabled: #5d7c8d;
@@ -53,15 +29,6 @@
   --color-secondary-active: #3f5460;
   --color-secondary-hover: #4d6776;
   --color-secondary-disabled: #828385;
-
-  // No están definidos
-  // &.mercury {
-  //   --color-secondary-enabled: ;
-  //   --color-secondary-enabled--hover: ; /*added by Bruno*/
-  //   --color-secondary-active: ;
-  //   --color-secondary-hover: ;
-  //   --color-secondary-disabled: ;
-  // }
 }
 //Opacity 0.1
 :root {
@@ -70,6 +37,7 @@
 :root.dark {
   --color-primary-hover-opacity-01: rgba(141, 203, 255, 0.1);
 }
+
 //ON COLORS
 :root {
   --color-on-primary: #fff;
@@ -79,16 +47,6 @@
   --color-on-disabled: #a4a5a6;
   --color-always-black: #000;
   --color-always-white: #fff;
-
-  &.mercury {
-    --color-on-primary: #ffffff;
-    //--color-on-secondary: ; no está definido
-    --color-on-background: #696969;
-    --color-on-alert: #ffffff;
-    --color-on-disabled: #7f7f7f;
-    --color-always-black: #000;
-    --color-always-white: #fff;
-  }
 }
 :root.dark {
   --color-on-primary: #1d1e22;
@@ -98,50 +56,27 @@
   --color-on-disabled: #616164;
   --color-always-black: #000;
   --color-always-white: #fff;
-
-  &.mercury {
-    --color-on-primary: #1a1a1a;
-    //--color-on-secondary: ; no está definido
-    --color-on-background: #999999;
-    --color-on-alert: #333333;
-    --color-on-disabled: #666666;
-    --color-always-black: #000;
-    --color-always-white: #fff;
-  }
 }
+
 //GEMINI COLORS
 :root {
   --color-primary: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
-  &.mercury {
-    --color-primary: #2070ce;
-    //--color-secondary: ; no está definido
-  }
 }
 :root.dark {
   --color-primary-rgb: var(--color-primary-enabled);
   --color-secondary: var(--color-secondary-enabled);
-  &.mercury {
-    --color-primary: #5ba7ff;
-    //--color-secondary: ; no está definido
-  }
 }
 //BACKGROUND COLORS
 :root {
   --color-background: #fff;
   --color-background--rgb: 255, 255, 255; /*added by Bruno for the ide-loader*/
   --color-shadow--rgb: 0, 0, 0; /*added by Bruno for gx-ide-ui shadows*/
-  &.mercury {
-    --color-background: #ffffff;
-  }
 }
 :root.dark {
   --color-background: #1d1e22;
   --color-background--rgb: 0, 0, 0; /*added by Bruno for the ide-loader*/
   --color-shadow--rgb: 255, 255, 255; /*added by Bruno for gx-ide-ui shadows*/
-  &.mercury {
-    --color-background: #1a1d20;
-  }
 }
 //ALERT COLORS
 :root {
@@ -151,14 +86,6 @@
   --color-warning-light: #ffe7e6;
   --color-success-dark: #02a08b;
   --color-success-light: #e1f3f1;
-  &.mercury {
-    --color-error-dark: #e35861;
-    --color-error-light: #fb7c84;
-    --color-warning-dark: #f9bd56;
-    --color-warning-light: #ffc96b;
-    --color-success-dark: #5dc599;
-    --color-success-light: #64d9a8;
-  }
 }
 :root.dark {
   --color-error-dark: #f9464e;
@@ -167,14 +94,6 @@
   --color-warning-light: #292011;
   --color-success-dark: #50beae;
   --color-success-light: #172221;
-  &.mercury {
-    --color-error-dark: #e35861;
-    --color-error-light: #fb7c84;
-    --color-warning-dark: #f9bd56;
-    --color-warning-light: #ffc96b;
-    --color-success-dark: #5dc599;
-    --color-success-light: #64d9a8;
-  }
 }
 
 //GRAY COLORS
@@ -188,25 +107,6 @@
   --gray-05: #616164;
   --gray-06: #3e3f42;
   --gray-07: #28292d;
-
-  &.mercury {
-    --gray-00: #ffffff;
-    --gray-01: #cccccc;
-    --gray-02: #b3b3b3;
-    --gray-02--rgb: 179, 179, 179; /*added by Bruno for the ide-loader*/
-    --gray-03: #999999;
-    --gray-04: #7f7f7f;
-    --gray-05: #666666;
-    --gray-06: #4d4d4d;
-    --gray-07: #333333;
-    /*new (only for mercury)*/
-    --gray-08: #cccccc;
-    --gray-09: #ffffff;
-    --gray-10: #f8f8f8;
-    --gray-11: #f1f1f1;
-    --gray-12: #e4e4e4;
-    --gray-13: #dedede;
-  }
 }
 
 :root.dark {
@@ -219,25 +119,6 @@
   --gray-05: #a4a5a6;
   --gray-06: #c6c6c7;
   --gray-07: #e8e8e9;
-
-  &.mercury {
-    --gray-00: #333333;
-    --gray-01: #4d4d4d;
-    --gray-02: #666666;
-    --gray-02--rgb: 102, 102, 102; /*added by Bruno for the ide-loader*/
-    --gray-03: #7f7f7f;
-    --gray-04: #999999;
-    --gray-05: #b3b3b3;
-    --gray-06: #cccccc;
-    --gray-07: #ffffff;
-    /*new (only for mercury)*/
-    --gray-08: #1a1a1a;
-    --gray-09: #000000;
-    --gray-10: #1f2225;
-    --gray-11: #24272a;
-    --gray-12: #2d3032;
-    --gray-13: #3b3e40;
-  }
 }
 //ICONS
 :root {
@@ -333,4 +214,13 @@
   --color-bpm-end: #ff261b;
   --color-bpm-gateways: #2dcf76;
   --color-bpm-intermediate: #c6c6c7;
+}
+
+//OTHER
+:root {
+  /*gxg-tabs boundary is not clear on dark. A subtle gray border only for dark helps fix this problem.*/
+  --border-color-dark-only: transparent;
+}
+:root.dark {
+  --border-color-dark-only: var(--gray-02);
 }

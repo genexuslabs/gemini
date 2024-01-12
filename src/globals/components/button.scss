@@ -1,0 +1,180 @@
+/*--- Gemini ---*/
+:root {
+  /*--- General ---*/
+  --gxg-button-icon-size: 20px;
+  --gxg-button-border-radius: var(--border-radius-xs);
+  --gxg-button-border-width: var(--border-width-sm);
+  --gxg-button-padding-horizontal: var(--spacing-comp-04);
+  --gxg-button-icon-padding-start: var(--spacing-comp-03);
+  --gxg-button-height: var(--ds-form-control-height);
+  --gxg-button-font-size: var(--font-size-lg);
+  --gxg-button-font-weight: var(--font-weight-semi-bold);
+  --gxg-button-icon-margin-inline-end: var(--spacing-comp-01);
+  --gxg-button-primary-focus-outline-color: var(
+    --color-primary-active--inverted
+  );
+  /*--- Primary ---*/
+  --gxg-button-primary-bg-color: var(--color-primary-enabled);
+  --gxg-button-primary-color: var(--color-on-primary);
+  --gxg-button-primary-border-color: var(--color-primary-enabled);
+  --gxg-button-primary-icon-color: var(--gxg-button-primary-color);
+  --gxg-button-primary-icon-color-disabled: var(--ds-color--disabled);
+  /*hover*/
+  --gxg-button-primary-bg-color-hover: var(--color-primary-hover);
+  --gxg-button-primary-color-hover: var(--color-on-primary);
+  --gxg-button-primary-border-color-hover: var(--color-primary-hover);
+  --gxg-button-primary-icon-color-hover: var(--gxg-button-primary-color-hover);
+  /*active*/
+  --gxg-button-primary-bg-color-active: var(--color-primary-active);
+  --gxg-button-primary-color-active: var(--color-on-primary);
+  --gxg-button-primary-border-color-active: var(--color-primary-active);
+  --gxg-button-primary-icon-color-active: var(
+    --gxg-button-primary-color-active
+  );
+
+  /*--- Secondary ---*/
+  --gxg-button-secondary-bg-color: transparent;
+  --gxg-button-secondary-color: var(--color-primary-enabled);
+  --gxg-button-secondary-border-color: transparent;
+  --gxg-button-secondary-lateral-padding: var(--spacing-comp-03);
+  --gxg-button-secondary-text-decoration: none;
+  --gxg-button-secondary-icon-color: var(--gxg-button-secondary-color);
+  --gxg-button-secondary-icon-color-disabled: var(--ds-color--disabled);
+  /*hover*/
+  --gxg-button-secondary-bg-color-hover: var(--color-primary-hover-opacity-01);
+  --gxg-button-secondary-color-hover: var(--color-primary-hover);
+  --gxg-button-secondary-border-color-hover: transparent;
+  --gxg-button-secondary-icon-color-hover: var(
+    --gxg-button-secondary-color-hover
+  );
+  /*active*/
+  --gxg-button-secondary-bg-color-active: var(--color-primary-hover-opacity-01);
+  --gxg-button-secondary-color-active: var(--color-primary-active);
+  --gxg-button-secondary-border-color-active: transparent;
+  --gxg-button-secondary-icon-color-active: var(
+    --gxg-button-secondary-color-active
+  );
+
+  /*--- Tertiary ---*/
+  --gxg-button-tertiary-bg-color: transparent;
+  --gxg-button-tertiary-border-color: transparent;
+  --gxg-button-tertiary-icon-color: var(--color-on-background);
+  --gxg-button-tertiary-icon-color-disabled: var(--ds-color--disabled);
+  /*hover*/
+  --gxg-button-tertiary-bg-color-hover: transparent;
+  --gxg-button-tertiary-border-color-hover: transparent;
+  --gxg-button-tertiary-icon-color-hover: var(--gray-05);
+  /*active*/
+  --gxg-button-tertiary-bg-color-active: transparent;
+  --gxg-button-tertiary-border-color-active: transparent;
+  --gxg-button-tertiary-icon-color-active: var(--gray-07);
+
+  /*--- Outlined ---*/
+  --gxg-button-outlined-bg-color: transparent;
+  --gxg-button-outlined-color: var(--color-primary-enabled);
+  --gxg-button-outlined-border-color: var(--color-primary-enabled);
+  --gxg-button-outlined-icon-color: var(--gxg-button-outlined-color);
+  --gxg-button-outlined-icon-color-disabled: var(--ds-color--disabled);
+
+  /*hover*/
+  --gxg-button-outlined-bg-color-hover: var(--color-primary-hover-opacity-01);
+  --gxg-button-outlined-color-hover: var(--color-primary-hover);
+  --gxg-button-outlined-border-color-hover: var(--color-primary-hover);
+  --gxg-button-outlined-icon-color-hover: var(
+    --gxg-button-outlined-color-hover
+  );
+  /*active*/
+  --gxg-button-outlined-bg-color-active: var(--color-primary-hover-opacity-01);
+  --gxg-button-outlined-color-active: var(--color-primary-active);
+  --gxg-button-outlined-border-color-active: var(--color-primary-active);
+  --gxg-button-outlined-icon-color-active: var(
+    --gxg-button-outlined-color-active
+  );
+}
+
+/*--- Mercury ---*/
+:root.mercury {
+  /*general*/
+  --gxg-button-icon-size: 20px;
+  --gxg-button-border-radius: var(--mer-border__radius--sm);
+  --gxg-button-border-width: var(--mer-border__width--sm);
+  --gxg-button-padding-horizontal: var(--mer-spacing__comp--sm);
+  --gxg-button-icon-padding-start: var(--mer-spacing__comp--sm);
+  --gxg-button-height: var(--mer-spacing__comp--xl);
+  --gxg-button-font-size: var(--mer-font__size--xs);
+  --gxg-button-font-weight: var(--mer-font__weight--semi-bold);
+  --gxg-button-icon-margin-inline-end: var(--mer-spacing__comp--xs);
+  --gxg-button-primary-focus-outline-color: var(--ds-focus-border-color);
+
+  /*--- Primary ---*/
+  --gxg-button-primary-bg-color: var(--mer__accent__primary);
+  --gxg-button-primary-color: var(--mer-text__on-primary);
+  --gxg-button-primary-border-color: var(--mer-border-color__primary);
+  --gxg-button-primary-icon-color: var(--mer-icon__on-primary);
+  --gxg-button-primary-icon-color-disabled: var(--mer-icon__on-disabled);
+  /*hover*/
+  --gxg-button-primary-bg-color-hover: var(--mer-accent__primary--hover);
+  --gxg-button-primary-color-hover: var(--mer-text__on-primary);
+  --gxg-button-primary-border-color-hover: var(
+    --mer-border-color__primary--hover
+  );
+  --gxg-button-primary-icon-color-hover: var(--mer-icon__on-primary);
+  /*active*/
+  --gxg-button-primary-bg-color-active: var(--mer-accent__primary--active);
+  --gxg-button-primary-color-active: var(--mer-text__on-primary--active);
+  --gxg-button-primary-border-color-active: var(
+    --mer-border-color__primary--active
+  );
+  --gxg-button-primary-icon-color-active: var(--mer-icon__on-primary--active);
+
+  /*--- Secondary ---*/
+  --gxg-button-secondary-bg-color: transparent;
+  --gxg-button-secondary-color: var(--mer-text__primary);
+  --gxg-button-secondary-border-color: transparent;
+  --gxg-button-secondary-icon-color: var(--mer-icon__primary);
+  --gxg-button-secondary-lateral-padding: 0;
+  /*hover*/
+  --gxg-button-secondary-bg-color-hover: transparent;
+  --gxg-button-secondary-color-hover: var(--mer-text__primary--hover);
+  --gxg-button-secondary-border-color-hover: transparent;
+  --gxg-button-secondary-icon-color-hover: var(--mer-icon__primary--hover);
+  /*active*/
+  --gxg-button-secondary-bg-color-active: transparent;
+  --gxg-button-secondary-color-active: var(--mer-text__primary--active);
+  --gxg-button-secondary-border-color-active: transparent;
+  --gxg-button-secondary-icon-color-active: var(--mer-icon__primary--active);
+
+  /*--- Tertiary ---*/
+  --gxg-button-tertiary-bg-color: transparent;
+  --gxg-button-tertiary-border-color: transparent;
+  --gxg-button-tertiary-icon-color: var(--mer-icon__primary);
+  --gxg-button-tertiary-icon-color-disabled: var(--ds-icon-color-disabled);
+  /*hover*/
+  --gxg-button-tertiary-bg-color-hover: transparent;
+  --gxg-button-tertiary-border-color-hover: transparent;
+  --gxg-button-tertiary-icon-color-hover: var(--mer-icon__primary--hover);
+  /*active*/
+  --gxg-button-tertiary-bg-color-active: transparent;
+  --gxg-button-tertiary-border-color-active: transparent;
+  --gxg-button-tertiary-icon-color-active: var(--mer-icon__primary--active);
+
+  /*--- Outlined ---*/
+  --gxg-button-outlined-bg-color: transparent;
+  --gxg-button-outlined-color: var(--mer-text__neutral);
+  --gxg-button-outlined-border-color: var(--mer-border-color__neutral);
+  --gxg-button-outlined-icon-color: var(--mer-icon__neutral);
+  /*hover*/
+  --gxg-button-outlined-bg-color-hover: transparent;
+  --gxg-button-outlined-color-hover: var(--mer-text__primary--hover);
+  --gxg-button-outlined-border-color-hover: var(
+    --mer-border-color__primary--hover
+  );
+  --gxg-button-outlined-icon-color-hover: var(--mer-icon__primary--hover);
+  /*active*/
+  --gxg-button-outlined-bg-color-active: transparent;
+  --gxg-button-outlined-color-active: var(--mer-text__on-primary--active);
+  --gxg-button-outlined-border-color-active: var(
+    --mer-border-color__primary--active
+  );
+  --gxg-button-outlined-icon-color-active: var(--mer-icon__on-primary--active);
+}

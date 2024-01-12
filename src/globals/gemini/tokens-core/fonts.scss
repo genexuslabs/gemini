@@ -1,7 +1,5 @@
 /*gemini*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
-/*mercury*/
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 /*********************************
 TOKENS FOR FONTS
 *********************************/
@@ -13,7 +11,7 @@ TOKENS FOR FONTS
 
   /*font weights*/
   --font-weight-regular: 400;
-  --font-weight-semibold: 600;
+  --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
   --font-weight-extra-bold: 800;
 
@@ -26,32 +24,25 @@ TOKENS FOR FONTS
   --font-size-xl: 13px;
 
   /*font sizes (mercury only)*/
-  --mc-font-size-xxs: 12px;
-  --mc-font-size-xs: 14px;
-  --mc-font-size-sm: 16px;
-  --mc-font-size-md: 20px;
-  --mc-font-size-lg: 24px;
-  --mc-font-size-xl: 36px;
+  --mer-font_size-xxs: 12px;
+  --mer-font_size-xs: 14px;
+  --mer-font_size-s: 16px;
+  --mer-font_size-m: 20px;
+  --mer-font_size-l: 24px;
+  --mer-font_size-xl: 36px;
 
   /*font styles*/
   --font-style-regular: normal;
 
   /*font line heights*/
   --line-height-regular: normal;
-  --line-height-default: 1.6em;
-  --line-height-comfortable: 1.8em;
+  --line-height-comfortable: 1.7em;
 
   /*font letter spacings*/
   --letter-spacing-xs: 0.2px;
   --letter-spacing-sm: 0.25px;
   --letter-spacing-md: 0.3px;
   --letter-spacing-lg: 0.6px;
-
-  &.mercury {
-    /*font families*/
-    --font-family-primary: "Inter", sans-serif;
-    --font-family-secondary: sans-serif; /*None, at the time of writing*/
-  }
 }
 
 /*********************************

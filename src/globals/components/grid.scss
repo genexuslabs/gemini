@@ -1,0 +1,163 @@
+/*Gemini*/
+:root {
+  /*--- General ---*/
+  --gxg-grid-base__border-color: var(--gray-02);
+  --gxg-grid-base__border-width: var(--border-width-sm);
+  --gxg-grid-base__border-radius: var(--border-radius-sm);
+  --gxg-grid-base__font-size: var(--font-size-lg);
+  --gxg-grid-base__font-color: var(--gray-06);
+  --gxg-grid__indent: var(--spacing-comp-02);
+  --gxg-grid-row-actions__padding-top: var(--spacing-comp-00);
+  --gxg-grid-row-actions__right: var(--spacing-comp-02);
+  --gxg-grid-part-caret__size: var(--spacing-comp-04);
+  --gxg-grid-part-caret__margin-inline-end: var(--spacing-comp-01);
+  /*settings*/
+  --gxg-grid-settings-mask__color: var(--color-on-secondary);
+  --gxg-grid-settings-window__background-color: var(--color-background);
+  --gxg-grid-settings-window__padding: var(--spacing-comp-03);
+  --gxg-grid-settings-window__border-radius: var(--border-width-lg);
+  --gxg-grid-settings-window__box-shadow: var(--box-shadow-04);
+  --gxg-grid-settings-window__margin: var(--spacing-comp-05);
+  --gxg-grid-settings-header__gap: var(--spacing-comp-04);
+  --gxg-grid-settings-padding-bottom: var(--spacing-comp-02);
+  --gxg-grid-settings-margin-bottom: var(--spacing-comp-03);
+  --gxg-grid-settings-font-weight: var(--font-weight-bold);
+  --gxg-grid-settings-close__size: var(--spacing-comp-05);
+  --gxg-grid-settings-close__background-color: var(--color-secondary-enabled);
+  --gxg-grid-settings-close__background-color--hover: var(
+    --color-secondary-hover
+  );
+  --gxg-grid-settings-columns__gap: var(--spacing-comp-03);
+  --gxg-grid-settings-columns-label__gap: var(--spacing-comp-03);
+  --gxg-grid-settings-columns-label__height: var(--spacing-comp-04);
+  /*--- Header & Footer ---*/
+  --gxg-grid-header__background-color: var(--color-background);
+  /*--- Button/Icon ---*/
+  --gxg-grid-button__icon-color: var(--color-on-secondary);
+  --gxg-grid-button__size: var(--spacing-comp-05);
+  --gxg-grid-button__background-color: var(--color-secondary-enabled);
+  --gxg-grid-button__background-color--hover: var(--color-secondary-hover);
+  /*--- Column ---*/
+  --gxg-grid-column__background-color: var(--color-background);
+  --gxg-grid-column__font-weight: var(--font-weight-bold);
+  --gxg-grid-column__padding: var(--spacing-comp-02) !important;
+  --gxg-grid-column-bar__gap: var(--spacing-comp-02);
+  --gxg-grid-column-bar-sort__width: var(--spacing-comp-03);
+  --gxg-grid-column-bar-sort__height: var(--spacing-comp-03);
+  --gxg-grid-column-bar-sort__margin-start: var(--spacing-comp-02);
+  --gxg-grid-column-bar-sort__margin-end: var(--spacing-comp-01);
+  --gxg-grid-column-bar-resize-split__background-color: var(--gray-02);
+  --gxg-grid-column-bar-settings-button__width: var(--spacing-comp-05);
+  --gxg-grid-column-bar-settings-button__height: var(--spacing-comp-05);
+  --gxg-grid-column-bar-settings-button__background-color--hover: var(
+    --gray-02
+  );
+  --gxg-grid-column-par-bar-resize-split__width: var(--border-width-md);
+  --gxg-grid-column-par-bar-resize-split__border-radius: 0;
+  /*--- Row ---*/
+  --gxg-grid-row__background-color: var(--color-background);
+  --gxg-grid-row__color: var(--gray-04);
+  --gxg-grid-row__border-width: var(--border-width-md);
+  --gxg-grid-row__box-shadow--dragging: var(--box-shadow-03);
+  --gxg-grid-row-cell__color--selected: var(--color-on-secondary);
+  /*--- Rowset Legend ---*/
+  --gxg-grid-rowset-legend__background-color: var(--gray-01);
+  --gxg-grid-rowset-legend__padding-inline-start: var(--spacing-comp-02);
+  --gxg-grid-rowset-legend__padding-inline-end: var(--spacing-comp-02);
+  --gxg-grid-rowset-legend__padding-block-start: var(--spacing-comp-01);
+  --gxg-grid-rowset-legend__padding-block-end: var(--spacing-comp-01);
+  --gxg-grid-rowset-legend__gap: var(--spacing-comp-01);
+  /*--- Cell ---*/
+  --gxg-grid-cell__border-top-width: var(--border-width-sm);
+  --gxg-grid-cell__padding-inline-start: var(--spacing-comp-02);
+  --gxg-grid-cell__padding-inline-end: var(--spacing-comp-02);
+  --gxg-grid-cell__padding-block-start: var(--spacing-comp-01);
+  --gxg-grid-cell__padding-block-end: var(--spacing-comp-01);
+  --gxg-grid-cell-drag-icon__size: var(--spacing-comp-04);
+}
+
+/*Mercury*/
+:root.mercury {
+  /*--- General ---*/
+  --gxg-grid-base__border-color: var(--mer-border-color__neutral);
+  --gxg-grid-base__border-width: var(--mer-border__width--sm);
+  --gxg-grid-base__border-radius: var(--mer-border__radius--md);
+  --gxg-grid-base__font-size: var(--mer-font__size--xs);
+  --gxg-grid-base__font-color: var(--mer-text__on-surface);
+  --gxg-grid__indent: var(--mer-spacing__comp--xs);
+  --gxg-grid-row-actions__padding-top: var(--mer-spacing__comp--xxxs);
+  --gxg-grid-row-actions__right: var(--mer-spacing__comp--xs);
+  --gxg-grid-part-caret__size: var(--mer-spacing__comp--md);
+  --gxg-grid-part-caret__margin-inline-end: var(--mer-spacing__comp--xxs);
+  /*settings*/
+  --gxg-grid-settings-mask__color: var(--mer-text__on-surface);
+  --gxg-grid-settings-window__background-color: var(--mer-color__surface);
+  --gxg-grid-settings-window__padding: var(--mer-spacing__comp--sm);
+  --gxg-grid-settings-window__border-radius: var(--mer-border__width--lg);
+  --gxg-grid-settings-window__box-shadow: var(--box-shadow-04);
+  --gxg-grid-settings-window__margin: var(--mer-spacing__comp--lg);
+  --gxg-grid-settings-header__gap: var(--mer-spacing__comp--md);
+  --gxg-grid-settings-padding-bottom: var(--mer-spacing__comp--xs);
+  --gxg-grid-settings-margin-bottom: var(--mer-spacing__comp--sm);
+  --gxg-grid-settings-font-weight: var(--mer-font__weight--bold);
+  --gxg-grid-settings-close__size: var(--mer-spacing__comp--lg);
+  --gxg-grid-settings-close__background-color: var(
+    --mer-accent__primary--active
+  );
+  --gxg-grid-settings-close__background-color--hover: var(
+    --mer-accent__primary--hover
+  );
+  --gxg-grid-settings-columns__gap: var(--mer-spacing__comp--sm);
+  --gxg-grid-settings-columns-label__gap: var(--mer-spacing__comp--sm);
+  --gxg-grid-settings-columns-label__height: var(--mer-spacing__comp--md);
+  /*--- Header & Footer ---*/
+  --gxg-grid-header__background-color: var(--mer-color__surface);
+  /*--- Button/Icon ---*/
+  --gxg-grid-button__icon-color: var();
+  --gxg-grid-button__size: var();
+  --gxg-grid-button__background-color: var(--mer-accent__primary--active);
+  --gxg-grid-button__background-color--hover: var(--mer-accent__primary--hover);
+  /*--- Column ---*/
+  --gxg-grid-column__background-color: var(--mer-color__surface);
+  --gxg-grid-column__font-weight: var(--mer-font__weight--bold);
+  --gxg-grid-column__padding: var(--mer-spacing__comp--xs) !important;
+  --gxg-grid-column-bar__gap: var(--mer-spacing__comp--xs);
+  --gxg-grid-column-bar-sort__width: var(--mer-spacing__comp--sm);
+  --gxg-grid-column-bar-sort__height: var(--mer-spacing__comp--sm);
+  --gxg-grid-column-bar-sort__margin-start: var(--mer-spacing__comp--xs);
+  --gxg-grid-column-bar-sort__margin-end: var(--mer-spacing__comp--xs);
+  --gxg-grid-column-bar-resize-split__background-color: var(
+    --mer-color__neutral-gray--300
+  );
+  --gxg-grid-column-bar-settings-button__width: var(--mer-spacing__comp--lg);
+  --gxg-grid-column-bar-settings-button__height: var(--mer-spacing__comp--lg);
+  --gxg-grid-column-bar-settings-button__background-color--hover: var(
+    --mer-border-color__neutral
+  );
+  --gxg-grid-column-par-bar-resize-split__width: var(--mer-border__width--md);
+  --gxg-grid-column-par-bar-resize-split__border-radius: var(
+    --mer-border__radius--xs
+  );
+  /*--- Row ---*/
+  --gxg-grid-row__background-color: var(--mer-color__surface);
+  --gxg-grid-row__color: var(--mer-text__on-surface);
+  --gxg-grid-row__border-width: var(--mer-border__width--md);
+  --gxg-grid-row__box-shadow--dragging: var(--box-shadow-03);
+  --gxg-grid-row-cell__color--selected: var(--mer-color__neutral-gray--100);
+  /*--- Rowset Legend ---*/
+  --gxg-grid-rowset-legend__background-color: var(
+    --mer-color__neutral-gray--900
+  );
+  --gxg-grid-rowset-legend__padding-inline-start: var(--mer-spacing__comp--xs);
+  --gxg-grid-rowset-legend__padding-inline-end: var(--mer-spacing__comp--xs);
+  --gxg-grid-rowset-legend__padding-block-start: var(--mer-spacing__comp--xxs);
+  --gxg-grid-rowset-legend__padding-block-end: var(--mer-spacing__comp--xxs);
+  --gxg-grid-rowset-legend__gap: var(--mer-spacing__comp--md);
+  /*--- Cell ---*/
+  --gxg-grid-cell__border-top-width: var(--mer-border__width--sm);
+  --gxg-grid-cell__padding-inline-start: var(--mer-spacing__comp--xs);
+  --gxg-grid-cell__padding-inline-end: var(--mer-spacing__comp--xs);
+  --gxg-grid-cell__padding-block-start: var(--mer-spacing__comp--xxs);
+  --gxg-grid-cell__padding-block-end: var(--mer-spacing__comp--xxs);
+  --gxg-grid-cell-drag-icon__size: var(--mer-spacing__comp--md);
+}

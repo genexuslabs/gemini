@@ -1,0 +1,23 @@
+:root {
+  --gxg-radio-group-margin: var(--spacing-comp-02);
+  --gxg-radio-size: var(--spacing-comp-04);
+  --gxg-radio-border-width: var(--border-width-sm);
+  --gxg-radio-border-color: var(--gray-04);
+  --gxg-radio-background-color: var(--color-background);
+  --gxg-radio-indicator-size: var(--spacing-comp-02);
+  --gxg-radio-indicator-color: var(--color-primary-enabled);
+  /*disabled*/
+  --gxg-radio-background-color-disabled: var(--ds-background-color-disabled);
+
+  &.mercury {
+    --gxg-radio-group-margin: var(--mer-spacing__comp--xs);
+    --gxg-radio-size: var(--mer-spacing__comp--md);
+    --gxg-radio-border-width: var(--mer-border__width--sm);
+    --gxg-radio-border-color: var(--mer-border-color__neutral);
+    --gxg-radio-background-color: transparent;
+    --gxg-radio-indicator-size: var(--mer-spacing__comp--xs);
+    --gxg-radio-indicator-color: var(--color-primary-enabled);
+    /*disabled*/
+    --gxg-radio-background-color-disabled: transparent;
+  }
+}

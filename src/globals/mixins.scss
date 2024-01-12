@@ -34,13 +34,13 @@ TYPOGRAPHY
 
 /*Title 01 (Positive)*/
 @mixin gxg-title-01 {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-md);
-  letter-spacing: var(--letter-spacing-md);
-  color: var(--color-on-background);
+  font-family: var(--ds-base-font-family-primary);
+  font-weight: var(--ds-title-01-font-weight);
+  font-size: var(--ds-title-01-font-size);
+  letter-spacing: var(--ds-base-font-letter-spacing--comfortable);
+  color: var(--ds-base-font-color);
   text-align: start;
-  line-height: 1.455em;
+  line-height: var(--ds-base-font-line-height--comfortable);
 }
 .gxg-title-01 {
   @include gxg-title-01;
@@ -49,7 +49,7 @@ TYPOGRAPHY
 /*Title 01 (Negative)*/
 @mixin gxg-title-01--negative {
   @include gxg-title-01;
-  color: var(--color-on-primary);
+  color: var(--ds-base-font-color--negative);
 }
 .gxg-title-01--negative {
   @include gxg-title-01--negative;
@@ -57,14 +57,14 @@ TYPOGRAPHY
 
 /*Title 02 (Positive)*/
 @mixin gxg-title-02 {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-sm);
-  letter-spacing: var(--letter-spacing-sm);
-  color: var(--color-on-background);
+  font-family: var(--ds-base-font-family-primary);
+  font-weight: var(--ds-title-02-font-weight);
+  font-size: var(--ds-title-02-font-size);
+  letter-spacing: var(--ds-base-font-letter-spacing--regular);
+  color: var(--ds-base-font-color);
   text-align: start;
   text-transform: uppercase;
-  line-height: 1.556em;
+  line-height: var(--ds-base-font-line-height--comfortable);
 }
 .gxg-title-02 {
   @include gxg-title-02;
@@ -79,21 +79,21 @@ TYPOGRAPHY
 
 /*Title 03*/
 @mixin gxg-title-03 {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-xs);
-  letter-spacing: var(--letter-spacing-sm);
-  color: var(--color-on-background);
+  font-family: var(--ds-base-font-family-primary);
+  font-weight: var(--ds-title-03-font-weight);
+  font-size: var(--ds-title-03-font-size);
+  letter-spacing: var(--ds-base-font-letter-spacing--regular);
+  color: var(--ds-base-font-color);
   text-align: start;
   text-transform: uppercase;
-  line-height: 1.556em;
+  line-height: var(--ds-base-font-line-height--comfortable);
 }
 .gxg-title-03 {
   @include gxg-title-03;
 }
 @mixin gxg-title-03--negative {
   @include gxg-title-03;
-  color: var(--color-on-primary);
+  color: var(--ds-base-font-color--negative);
 }
 .gxg-title-03--negative {
   @include gxg-title-03--negative;
@@ -101,20 +101,20 @@ TYPOGRAPHY
 
 /*Title 04*/
 @mixin gxg-title-04 {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-md);
-  letter-spacing: var(--letter-spacing-md);
-  color: var(--color-on-background);
+  font-family: var(--ds-base-font-family-primary);
+  font-weight: var(--ds-title-04-font-weight);
+  font-size: var(--ds-title-04-font-size);
+  letter-spacing: var(--ds-base-font-letter-spacing--comfortable);
+  color: var(--ds-base-font-color);
   text-align: start;
-  line-height: 1.455em;
+  line-height: var(--ds-base-font-line-height--comfortable);
 }
 .gxg-title-04 {
   @include gxg-title-04;
 }
 @mixin gxg-title-04--negative {
   @include gxg-title-04;
-  color: var(--color-on-primary);
+  color: var(--ds-base-font-color--negative);
 }
 .gxg-title-04--negative {
   @include gxg-title-04--negative;
@@ -122,20 +122,20 @@ TYPOGRAPHY
 
 /*Title 05*/
 @mixin gxg-title-05 {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-sm);
-  letter-spacing: var(--letter-spacing-sm);
-  color: var(--color-on-background);
+  font-family: var(--ds-base-font-family-primary);
+  font-weight: var(--ds-title-05-font-weight);
+  font-size: var(--ds-title-05-font-size);
+  letter-spacing: var(--ds-base-font-letter-spacing--regular);
+  color: var(--ds-base-font-color);
   text-align: start;
-  line-height: 1.556em;
+  line-height: var(--ds-base-font-line-height--comfortable);
 }
 .gxg-title-05 {
   @include gxg-title-05;
 }
 @mixin gxg-title-05--negative {
   @include gxg-title-05;
-  color: var(--color-on-primary);
+  color: var(--ds-base-font-color--negative);
 }
 .gxg-title-05--negative {
   @include gxg-title-05--negative;
@@ -143,27 +143,25 @@ TYPOGRAPHY
 
 /*Text*/
 @mixin gxg-text {
-  font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-sm);
-  letter-spacing: var(--letter-spacing-xs);
-  color: var(--color-on-background);
-  text-align: start;
-  line-height: 1.455em;
+  font-family: var(--ds-base-font-family-primary);
+  font-size: var(--ds-base-font-size);
+  color: var(--ds-base-font-size-color);
+  font-weight: var(--ds-base-font-size-weight);
+  line-height: var(--ds-base-font-line-height--comfortable);
 }
 .gxg-text {
   @include gxg-text;
 }
 @mixin gxg-text--negative {
   @include gxg-text;
-  color: var(--color-on-primary);
+  color: var(--ds-base-font-color--negative);
 }
 .gxg-text--negative {
   @include gxg-text--negative;
 }
 @mixin gxg-text--gray {
   @include gxg-text;
-  color: var(--gray-05);
+  color: var(--ds-base-font-color--dimmed);
 }
 .gxg-text--gray {
   @include gxg-text--gray;
@@ -178,7 +176,7 @@ TYPOGRAPHY
   @include gxg-quote;
 }
 @mixin gxg-quote--negative {
-  color: var(--color-on-primary);
+  color: var(--ds-base-font-color--negative);
 }
 .gxg-quote--negative {
   @include gxg-quote--negative;
@@ -186,25 +184,26 @@ TYPOGRAPHY
 
 /*Link*/
 @mixin gxg-link {
+  line-height: unset;
   @include gxg-text;
-  color: var(--color-primary);
+  color: var(--ds-base-font-color--link);
   text-decoration: underline;
   cursor: pointer;
   display: inline-block;
 }
 @mixin gxg-link--hover {
-  color: var(--color-primary-hover);
+  color: var(--ds-base-font-color--link-hover);
 }
 @mixin gxg-link--active {
-  color: var(--color-primary-active);
+  color: var(--ds-base-font-color--link-active);
 }
 @mixin gxg-link-gray {
   @include gxg-link;
-  color: var(--gray-04);
+  color: var(--ds-base-font-color--dimmed);
 }
 @mixin gxg-link-gray--hover {
   @include gxg-link-gray;
-  color: var(--gray-06);
+  filter: brightness(1.4);
 }
 .gxg-link {
   @include gxg-link;
@@ -225,7 +224,7 @@ TYPOGRAPHY
 /*Alerts*/
 @mixin gxg-alert-error {
   @include gxg-text;
-  color: var(--color-error-dark);
+  color: var(--ds-base-font-color--error);
   display: inline-block;
 }
 .gxg-alert-error {
@@ -233,7 +232,7 @@ TYPOGRAPHY
 }
 @mixin gxg-alert-warning {
   @include gxg-text;
-  color: var(--color-warning-dark);
+  color: var(--ds-base-font-color--warning);
   display: inline-block;
 }
 .gxg-alert-warning {
@@ -241,7 +240,7 @@ TYPOGRAPHY
 }
 @mixin gxg-alert-success {
   @include gxg-text;
-  color: var(--color-success-dark);
+  color: var(--ds-base-font-color--success);
   display: inline-block;
 }
 .gxg-alert-success {
@@ -253,7 +252,7 @@ TYPOGRAPHY
   font-weight: var(--font-weight-bold);
 }
 @mixin gxg-tab {
-  font-family: var(--font-family-primary);
+  font-family: var(--ds-base-font-family-primary);
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
   letter-spacing: var(--letter-spacing-lg);
@@ -277,19 +276,16 @@ TYPOGRAPHY
 }
 
 /*Label*/
-$gxg-label-color: var(--color-primary-enabled);
+$gxg-label-color: var(--gxg-label-color);
 @mixin gxg-label {
-  font-family: var(
-    --font-family-primary
-  ) !important; //!Important to prevent style overring on storybook
-  font-weight: var(--font-weight-semibold);
-  font-size: var(
-    --font-size-sm
-  ) !important; //!Important to prevent style overring on storybook
-  letter-spacing: var(--letter-spacing-xs);
-  color: $gxg-label-color;
+  font-family: var(--ds-base-font-family-primary);
+  font-weight: var(--gxg-label-font-weight);
+  font-size: var(--gxg-label-font-size);
+  color: var(--gxg-label-color);
   text-align: center;
   line-height: 1.455em;
+  display: flex;
+  align-items: center;
 }
 $gxg-label--hover-color: var(--color-primary-hover);
 @mixin gxg-label--hover {
@@ -341,28 +337,30 @@ $gxg-label--negative-disabled-color: var(--color-on-disabled);
 GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
 *****************************************************/
 @mixin gxg-button-styles {
-  @include gxg-label;
-  background: var(--color-primary-enabled);
-  border: 0;
-  box-shadow: inset 0px 0px 0px 1px transparent;
-  border-radius: var(--border-radius-xs);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 2.5px;
-  padding-right: var(--spacing-comp-03);
-  padding-bottom: 2.5px;
-  padding-left: var(--spacing-comp-03);
-  line-height: var(--line-height-regular);
+  font-family: var(--ds-base-font-family-primary);
+  font-size: var(--gxg-button-font-size);
+  font-weight: var(--gxg-button-font-weight);
+  height: var(--gxg-button-height);
+  border-width: var(--gxg-button-border-width);
+  border-radius: var(--gxg-button-border-radius);
+  padding: 0 var(--gxg-button-padding-horizontal);
+  border-style: solid;
+  cursor: pointer;
+}
+@mixin gxg-button-icon-outlined {
+  height: var(--spacing-comp-05);
+  width: var(--spacing-comp-05);
+  background-color: var(--color-background);
+  color: var(--color-primary-hover);
+  border: 1px solid var(--color-primary-hover);
+  box-sizing: border-box;
+  cursor: pointer;
 
-  //Transition
-  // transition: background $ui-animaton-speed $ui-animation-timing-function,
-  //   color $ui-animaton-speed $ui-animation-timing-function,
-  //   box-shadow $ui-animaton-speed $ui-animation-timing-function;
+  &:hover {
+    background-color: var(--color-primary-hover-opacity-01);
+  }
 }
-.gxg-button-styles {
-  @include gxg-label;
-}
+
 @mixin ui-animation($properties...) {
   transition-property: $properties;
   transition-duration: $ui-animaton-speed;
@@ -380,24 +378,30 @@ GXG-BUTTON and GXG-BUTTON-GROUP COMMON STYLES
   transition-duration: $ui-animaton-speed-slow;
   transition-timing-function: $ui-animation-timing-function;
 }
-@mixin gxg-button-icon-outlined {
-  height: var(--spacing-comp-05);
-  width: var(--spacing-comp-05);
-  background-color: var(--color-background);
-  color: var(--color-primary-hover);
-  border: 1px solid var(--color-primary-hover);
-  box-sizing: border-box;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-primary-hover-opacity-01);
-  }
-}
-
 /*****************************************************
 FORM ELEMENTS
 *****************************************************/
 
+@mixin form-element-common-styles {
+  border: var(--ds-form-control-border);
+  border-radius: var(--ds-form-control-border-radius);
+  color: var(--ds-form-control-color);
+  background-color: var(--ds-form-control-background-color);
+  font-size: var(--ds-form-control-font-size);
+  font-family: var(--ds-base-font-family-primary);
+  padding-inline-start: var(--ds-form-control-padding-horizontal);
+  padding-inline-end: var(--ds-form-control-padding-horizontal);
+  padding-block-start: 0;
+  padding-block-end: 0;
+  &::placeholder {
+    color: var(--ds-form-control-placeholder-color);
+    opacity: 1; /* Firefox */
+  }
+  &::-ms-input-placeholder {
+    /* Edge 12-18 */
+    color: var(--ds-form-control-placeholder-color);
+  }
+}
 @mixin form-element-common-styles-label() {
   @include gxg-text();
   display: flex;
@@ -416,16 +420,6 @@ FORM ELEMENTS
   font-size: var(--font-size-xs);
   padding-left: var(--spacing-lay-xs);
 }
-@mixin form-element-common-styles {
-  border-width: var(--border-width-sm);
-  border-color: var(--gray-02);
-  border-style: var(--border-style-regular);
-  border-radius: var(--border-radius-sm);
-  padding-left: var(--spacing-comp-01);
-  padding-right: var(--spacing-comp-01);
-  color: var(--color-on-background);
-  background-color: var(--color-background);
-}
 @mixin form-element-common-styles-disabled {
   background-color: var(--gray-01);
   color: var(--color-on-disabled);
@@ -437,7 +431,7 @@ FORM ELEMENTS
 }
 
 @mixin form-element-common-styles-focus-type-1($direction: "inside") {
-  outline: var(--border-width-md) solid var(--gxg-border-color--focused);
+  outline: var(--ds-focus-border-width) solid var(--ds-focus-border-color);
   @if $direction == "inside" {
     outline-offset: -2px;
   }
@@ -529,8 +523,8 @@ FORM ELEMENTS
 @mixin checkbox($part) {
   //enabled
   @if $part == "container" {
-    border-color: var(--gray-04);
-    background-color: var(--color-background);
+    border-color: var(--gxg-checkbox-border-color);
+    background-color: var(--gxg-checkbox-background-color);
     &:after {
       content: "";
       position: absolute;
@@ -539,20 +533,32 @@ FORM ELEMENTS
       border-color: transparent;
       z-index: 0;
     }
+    /*additional styles*/
+    width: var(--gxg-checkbox-size);
+    height: var(--gxg-checkbox-size);
+    position: relative;
+    border-width: var(--gxg-checkbox-border-width);
+    border-style: solid;
+    border-color: var(--gxg-checkbox-border-color);
+    border-radius: var(--gxg-checkbox-border-radius);
   }
   @if $part == "input" {
     position: relative;
     z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
   }
   @if $part == "option" {
     display: none;
   }
   //focus
   @if $part == "container--focus-within" {
-    outline-style: solid;
-    outline-color: var(--gxg-border-color--focused);
-    outline-width: var(--border-width-md);
-    outline-offset: -2px;
+    @include form-element-common-styles-focus-type-1("outside");
   }
   //checked
   @if $part == "container--checked" {
@@ -565,10 +571,7 @@ FORM ELEMENTS
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
-      border-color: var(--color-primary-active);
-      transition-property: border-color;
-      transition-duration: var(--ui-animaton-speed);
-      transition-timing-function: ease;
+      border-color: var(--gxg-checkbox-indicator-color);
     }
   }
   //indeterminate
@@ -579,7 +582,7 @@ FORM ELEMENTS
       width: 8px;
       height: 1.5px;
       border: 0;
-      background-color: var(--color-primary-active);
+      background-color: var(--gxg-checkbox-indicator-color);
       -webkit-transform: rotate(0) translateY(-50%) translateX(-50%);
       -ms-transform: rotate(0) translateY(-50%) translateX(-50%);
       transform: rotate(0) translateY(-50%) translateX(-50%);

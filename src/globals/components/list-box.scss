@@ -1,0 +1,74 @@
+/*Gemini*/
+:root {
+  /*--- Header ---*/
+  --gxg-list-box-header__background-color: var(--gray-01);
+  --gxg-list-box-header__padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  --gxg-list-box-header__font-weight: var(--font-weight-semi-bold);
+  --gxg-list-box-header__color: var(--ds-base-font-color);
+  /*--- Icon ---*/
+  --gxg-list-box-icon__margin-inline-end: var(--spacing-comp-01);
+  /*--- Checkbox ---*/
+  --gxg-list-box-checkbox__margin-inline-end: var(--spacing-comp-01);
+  /*--- List ---*/
+  --gxg-list-box-suggestions-container__background-color: var(--gray-01);
+  --gxg-list-box-suggestions-container__color: var(--gray-06);
+  --gxg-list-box-suggestions-container__font-size: var(--font-size-sm);
+  --gxg-list-box-suggestions-container__padding: var(--spacing-comp-01)
+    var(--spacing-comp-02);
+  --gxg-list-box-suggestions-container__gap: var(--spacing-comp-01);
+  /*--- Item ---*/
+  --gxg-list-box-item__background-color--hover: var(
+    --ds-item-background-color--hover
+  );
+  --gxg-tree-view-item__outline-offset--active: -2px;
+  /*--- Item > Container ---*/
+  --gxg-list-box-item-container__padding: var(--spacing-comp-00)
+    var(--spacing-comp-02);
+  --gxg-list-box-item-container-icon-no-checkbox__padding-inline-start: var(
+    --spacing-comp-01
+  );
+  /*--- Item > Icon ---*/
+  --gxg-list-box-item-icon__margin-inline-end: var(--spacing-comp-01);
+  --gxg-list-box-item-checkbox__margin-inline-end: var(--spacing-comp-01);
+  --gxg-list-box-item-icon__size-box--regular: var(--ds-icon-size-box--regular);
+  --gxg-list-box-item-icon__size--regular: var(--ds-icon-size--regular);
+}
+/*Mercury*/
+:root.mercury {
+  /*--- Header ---*/
+  --gxg-list-box-header__background-color: var(--mer-color__neutral-gray--1200);
+  --gxg-list-box-header__padding: var(--mer-spacing__comp--xxs)
+    var(--mer-spacing__comp--xs);
+  --gxg-list-box-header__font-weight: var(--mer-font__weight--semi-bold);
+  --gxg-list-box-header__color: var(--ds-base-font-color);
+  /*--- Icon ---*/
+  --gxg-list-box-icon__margin-inline-end: var(--mer-spacing__comp--xxs);
+  /*--- Checkbox ---*/
+  --gxg-list-box-checkbox__margin-inline-end: var(--mer-spacing__comp--xxs);
+  /*--- List ---*/
+  --gxg-list-box-suggestions-container__background-color: var();
+  --gxg-list-box-suggestions-container__color: var(
+    --mer-color__neutral-gray--800
+  );
+  --gxg-list-box-suggestions-container__font-size: var(--mer-font__size--xxs);
+  --gxg-list-box-suggestions-container__padding: var() var(--spacing-comp-02);
+  --gxg-list-box-suggestions-container__gap: var();
+  /*--- Item ---*/
+  --gxg-list-box-item__background-color--hover: var(
+    --ds-item-background-color--hover
+  );
+  --gxg-tree-view-item__outline-offset--active: -1px;
+  /*--- Item > Container ---*/
+  --gxg-list-box-item-container__padding: var(--mer-spacing__comp--xxxs)
+    var(--mer-spacing__comp--xs);
+  --gxg-list-box-item-container-icon-no-checkbox__padding-inline-start: var(
+    --mer-spacing__comp--xxs
+  );
+  /*--- Item > Icon ---*/
+  --gxg-list-box-item-icon__margin-inline-end: var(--mer-spacing__comp--xxs);
+  --gxg-list-box-item-checkbox__margin-inline-end: var(
+    --mer-spacing__comp--xxs
+  );
+  --gxg-list-box-item-icon__size-box--regular: var(--ds-icon-size-box--small);
+  --gxg-list-box-item-icon__size--regular: var(--ds-icon-size--small);
+}

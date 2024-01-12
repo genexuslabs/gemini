@@ -8,12 +8,6 @@ TOKENS FOR BORDERS
   --border-width-md: 2px;
   --border-width-lg: 4px;
 
-  &.mercury {
-    --border-width-sm: 1px;
-    --border-width-md: 2px;
-    --border-width-lg: 4px;
-  }
-
   // border styles
   --border-style-regular: solid;
 
@@ -22,14 +16,6 @@ TOKENS FOR BORDERS
   --border-radius-sm: 2px;
   --border-radius-md: 3px;
   --border-radius-lg: 8px;
-
-  &.mercury {
-    --border-radius-xs: 2px;
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 12px;
-    --border-radius-xl: 30px;
-  }
 
   // box shadow
   --box-shadow-values: inset 0px 0px 0px 2px;

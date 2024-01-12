@@ -1,0 +1,9 @@
+:root {
+  --gxg-button-group-container-gap: var(--border-width-sm);
+  --gxg-button-group-container-bg-color: var(--gray-02);
+
+  &.mercury {
+    --gxg-button-group-container-gap: var(--mer-border__width--sm);
+    --gxg-button-group-container-bg-color: var(--mer-color__neutral-gray--700);
+  }
+}

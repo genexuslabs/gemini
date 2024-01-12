@@ -1,0 +1,86 @@
+The following is the list of mixins that have been transformed to be 
+used on gemini as well as on mercury ✔️
+
+//other
+- gxg-flex-justify
+- gxg-ellipsis
+
+//text
+- gxg-title-01 ✔️
+- gxg-title-01--negative ✔️ 
+- gxg-title-02 ✔️
+- gxg-title-02--negative ✔️
+- gxg-title-03 ✔️
+- gxg-title-03--negative ✔️
+- gxg-title-04 ✔️
+- gxg-title-04--negative ✔️ 
+- gxg-title-05 ✔️
+- gxg-title-05--negative ✔️
+
+//text
+- gxg-text ✔️
+- gxg-text--negative ✔️
+- gxg-text--gray ✔️
+
+//quote
+- gxg-quote ✔️
+- gxg-quote--negative ✔️
+
+//link
+- gxg-link ✔️
+- gxg-link--hover ✔️
+- gxg-link--active ✔️
+- gxg-link-gray ✔️
+- gxg-link-gray--hover ✔️
+
+//alert
+- gxg-alert-error ✔️
+- gxg-alert-warning ✔️
+- gxg-alert-success ✔️
+
+//tab
+- gxg-tab--active
+- gxg-tab
+- gxg-tab--disabled
+
+//label
+- gxg-label ✔️
+- gxg-label--hover
+- gxg-label--focus
+- gxg-label--active
+- gxg-label--disabled
+- gxg-label--negative
+- gxg-label--negative-disabled
+
+//button
+- gxg-button-styles ✔️
+- gxg-button-icon-outlined
+
+//animation
+- ui-animation
+- ui-animation-fast
+- ui-animation-slow
+
+//form
+- form-element-common-styles-label
+- form-element-common-styles-label-large
+- form-element-common-styles-label-group
+- form-element-common-styles-label-required
+- form-element-common-styles ✔️
+- form-element-common-styles-disabled
+- form-element-common-styles-wrapper
+- form-element-common-styles-focus-type-1
+- form-element-common-styles-focus-type-2
+- form-element-validation
+- form-element-validation-focus
+- form-element-common-styles-warning
+- form-element-common-styles-warning-focus
+- form-element-common-styles-error
+- form-element-common-styles-error-focus
+- messages-wrapper
+
+//scrollbar
+- gxg-scrollbar
+
+//checkbox
+- checkbox ✔️

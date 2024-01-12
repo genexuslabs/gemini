@@ -1,0 +1,74 @@
+:root {
+  /*--- Tabs ---*/
+  --gxg-tabs-border-width: var(--border-width-sm);
+  --gxg-tabs-border-color: var(--ds-border-color-dark-only);
+  --gxg-tabs-border-radius: var(--border-width-md);
+  /*--- Tab Bar ---*/
+  --gxg-tab-bar-background-color: var(--color-background);
+  --gxg-tab-bar-border-width: var(--border-width-sm);
+  --gxg-tab-bar-border-color: var(--gxg-border-color--regular);
+  /*--- Tab Button ---*/
+  --gxg-tab-button-color: var(--color-on-background);
+  --gxg-tab-button-icon-color: var(--color-on-background);
+  --gxg-tab-button-font-size: var(--font-size-lg);
+  --gxg-tab-button-font-text-transform: uppercase;
+  --gxg-tab-button-font-weight: var(--font-weight-semibold);
+  --gxg-tab-button-font-weight-selected: var(--font-weight-semibold);
+  --gxg-tab-button-horizontal-padding: var(--spacing-comp-05);
+  --gxg-tab-button-height: var(--spacing-comp-06);
+  /*line*/
+  --gxg-tab-button-line-height: var(--spacing-comp-01);
+  --gxg-tab-button-line-background-color: var(--color-primary-enabled);
+  --gxg-tab-button-line-background-color-hover: var(--color-primary-hover);
+  --gxg-tab-button-line-background-color-active: var(--color-primary-active);
+  /*--- Tab ---*/
+  --gxg-tab-background-color: var(--color-background);
+  --gxg-tab-color: var(--color-on-background);
+  --gxg-tab-font-size: var(--ds-base-font-size);
+  --gxg-tab-horizontal-padding: var(--spacing-comp-03);
+  --gxg-tab-vertical-padding: var(--spacing-comp-03);
+  /*font-family, font-size, color. font-weight, and line-height should be defined by using the 'gxg-text' mixin*/
+  /*--- Menu Tab Button ---*/
+  --gxg-tab-menu-button-padding: var(--spacing-comp-02);
+  --gxg-tab-menu-button-min-height: var(--spacing-comp-06);
+  --gxg-tab-menu-button-font-size: var(--font-size-md);
+
+  &.mercury {
+    /*--- Tabs ---*/
+    --gxg-tabs-border-width: var(--mer-border__width--sm);
+    --gxg-tabs-border-radius: var(--mer-border__width--lg);
+    /*--- Tab Bar ---*/
+    --gxg-tab-bar-background-color: var(--mer-elevation--01);
+    --gxg-tab-bar-border-width: var(--mer-border__width--sm);
+    --gxg-tab-bar-border-color: transparent;
+    /*--- Tab Button ---*/
+    --gxg-tab-button-color: var(--mer-text__on-elevation);
+    --gxg-tab-button-icon-color: var(--mer-icon__on-elevation);
+    --gxg-tab-button-font-size: var(--mer-font__size--xs);
+    --gxg-tab-button-font-text-transform: capitalize;
+    --gxg-tab-button-font-weight: var(--mer-font__weight--regular);
+    --gxg-tab-button-font-weight-selected: var(--mer-font__weight--semi-bold);
+    --gxg-tab-button-horizontal-padding: var(--mer-spacing__comp--sm);
+    --gxg-tab-button-height: var(--mer-spacing__comp--xl);
+    /*line*/
+    --gxg-tab-button-line-height: var(--mer-border__width--sm);
+    --gxg-tab-button-line-background-color: var(--mer-border-color__primary);
+    --gxg-tab-button-line-background-color-hover: var(
+      --mer-border-color__primary--hover
+    );
+    --gxg-tab-button-line-background-color-active: var(
+      --mer-border-color__primary--active
+    );
+    /*--- Tab ---*/
+    --gxg-tab-background-color: var(--mer-elevation--01);
+    --gxg-tab-color: var(--mer-text__on-surface);
+    --gxg-tab-font-size: var(--ds-base-font-size);
+    --gxg-tab-horizontal-padding: var(--mer-spacing__comp--sm);
+    --gxg-tab-vertical-padding: var(--mer-spacing__comp--sm);
+    /*font-family, font-size, color. font-weight, and line-height should be defined by using the 'gxg-text' mixin*/
+    /*--- Menu Tab Button ---*/
+    --gxg-tab-menu-button-padding: var(--mer-spacing__comp--xs);
+    --gxg-tab-menu-button-min-height: var(--mer-spacing__comp--xl);
+    --gxg-tab-menu-button-font-size: var(--mer-font__size--xs);
+  }
+}
