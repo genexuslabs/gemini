@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Icons | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+      .icons-container {
+        display: flex;
+        gap: var(--ds-form-control-gap--horizontal);
+      }
+      .icons-container.mercury {
+        display: none;
+      }
+      html.mercury .icons-container {
+        display: none;
+      }
+      html.mercury .icons-container.mercury {
+        display: flex;
+      }
+      .icons-colors {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .icons-colors li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+      }
+      .icons-colors li .color-sample {
+        border: 1px solid transparent;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+      }
+      .icons-colors li .color-sample.display-border {
+        border-color: var(--gray-07);
+      }
+      /*article*/
+      html.mercury article.gemini {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-icon</h1>
+      <!-----------------
+      Size
+      ------------------>
+      <section data-title="size">
+        <div class="articles-container">
+          <!-- regular -->
+          <article data-title="regular">
+            <code pill>size="regular"</code>
+            <div class="example">
+              <!-- gemini -->
+              <div class="icons-container gemini">
+                <gxg-icon
+                  color="onbackground"
+                  type="objects/conversational-flows"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="objects/bg-color"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="objects/webpanel"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="objects/deployment-unit"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="objects/structured-data-type"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="objects/url-rewrite"
+                ></gxg-icon>
+              </div>
+
+              <!-- mercury -->
+              <div class="icons-container mercury">
+                <gxg-icon
+                  color="onbackground"
+                  type="mercury/applications"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="mercury/assistant"
+                ></gxg-icon>
+                <gxg-icon color="onbackground" type="mercury/launch"></gxg-icon>
+                <gxg-icon color="onbackground" type="mercury/mobile"></gxg-icon>
+                <gxg-icon color="onbackground" type="mercury/send"></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  type="mercury/success"
+                ></gxg-icon>
+              </div>
+            </div>
+          </article>
+
+          <!-- small -->
+          <article data-title="small">
+            <code pill>size="small"</code>
+            <div class="example">
+              <!-- gemini -->
+              <div class="icons-container gemini">
+                <gxg-icon
+                  color="onbackground"
+                  size="small"
+                  type="objects/conversational-flows"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  size="small"
+                  type="objects/bg-color"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  size="small"
+                  type="objects/webpanel"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  size="small"
+                  type="objects/deployment-unit"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  size="small"
+                  type="objects/structured-data-type"
+                ></gxg-icon>
+                <gxg-icon
+                  color="onbackground"
+                  size="small"
+                  type="objects/url-rewrite"
+                ></gxg-icon>
+              </div>
+
+              <!-- mercury -->
+              <div class="icons-container mercury">
+                <gxg-icon
+                  size="small"
+                  color="onbackground"
+                  type="mercury/applications"
+                ></gxg-icon>
+                <gxg-icon
+                  size="small"
+                  color="onbackground"
+                  type="mercury/assistant"
+                ></gxg-icon>
+                <gxg-icon
+                  size="small"
+                  color="onbackground"
+                  type="mercury/launch"
+                ></gxg-icon>
+                <gxg-icon
+                  size="small"
+                  color="onbackground"
+                  type="mercury/mobile"
+                ></gxg-icon>
+                <gxg-icon
+                  size="small"
+                  color="onbackground"
+                  type="mercury/send"
+                ></gxg-icon>
+                <gxg-icon
+                  size="small"
+                  color="onbackground"
+                  type="mercury/success"
+                ></gxg-icon>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Color
+      ------------------>
+
+      <section data-title="color">
+        <div class="articles-container">
+          <!-- Auto Color -->
+          <article data-title="auto" class="gemini">
+            <code pill>color="auto"</code>
+            <div class="example">
+              <!-- gemini -->
+              <div class="icons-container">
+                <gxg-icon
+                  color="auto"
+                  type="objects/conversational-flows"
+                ></gxg-icon>
+                <gxg-icon color="auto" type="objects/bg-color"></gxg-icon>
+                <gxg-icon color="auto" type="objects/webpanel"></gxg-icon>
+                <gxg-icon
+                  color="auto"
+                  type="objects/deployment-unit"
+                ></gxg-icon>
+                <gxg-icon
+                  color="auto"
+                  type="objects/structured-data-type"
+                ></gxg-icon>
+                <gxg-icon color="auto" type="objects/url-rewrite"></gxg-icon>
+              </div>
+            </div>
+          </article>
+
+          <!-- Primary Active -->
+          <article data-title="primary-active" class="gemini">
+            <code pill>color="primary-active"</code>
+            <div class="example">
+              <div class="icons-container">
+                <gxg-icon
+                  color="primary-active"
+                  type="objects/conversational-flows"
+                ></gxg-icon>
+                <gxg-icon
+                  color="primary-active"
+                  type="objects/bg-color"
+                ></gxg-icon>
+                <gxg-icon
+                  color="primary-active"
+                  type="objects/webpanel"
+                ></gxg-icon>
+                <gxg-icon
+                  color="primary-active"
+                  type="objects/deployment-unit"
+                ></gxg-icon>
+                <gxg-icon
+                  color="primary-active"
+                  type="objects/structured-data-type"
+                ></gxg-icon>
+                <gxg-icon
+                  color="primary-active"
+                  type="objects/url-rewrite"
+                ></gxg-icon>
+              </div>
+            </div>
+          </article>
+
+          <!-- Error -->
+          <article data-title="error">
+            <div class="example">
+              <!-- gemini -->
+              <div class="icons-container">
+                <gxg-icon
+                  color="error"
+                  type="objects/conversational-flows"
+                ></gxg-icon>
+                <gxg-icon color="error" type="objects/bg-color"></gxg-icon>
+                <gxg-icon color="error" type="objects/webpanel"></gxg-icon>
+                <gxg-icon
+                  color="error"
+                  type="objects/deployment-unit"
+                ></gxg-icon>
+                <gxg-icon
+                  color="error"
+                  type="objects/structured-data-type"
+                ></gxg-icon>
+                <gxg-icon color="error" type="objects/url-rewrite"></gxg-icon>
+              </div>
+
+              <!-- mercury -->
+              <div class="icons-container mercury">
+                <gxg-icon color="error" type="mercury/applications"></gxg-icon>
+                <gxg-icon color="error" type="mercury/assistant"></gxg-icon>
+                <gxg-icon color="error" type="mercury/launch"></gxg-icon>
+                <gxg-icon color="error" type="mercury/mobile"></gxg-icon>
+                <gxg-icon color="error" type="mercury/send"></gxg-icon>
+                <gxg-icon color="error" type="mercury/success"></gxg-icon>
+              </div>
+            </div>
+          </article>
+
+          <!-- Full Color List (Gemini) -->
+          <article data-title="full color list" class="gemini">
+            <div class="example">
+              <ul class="icons-colors">
+                <li>primary-enabled</li>
+                <li>primary-active</li>
+                <li>primary-hover</li>
+                <li>onbackground</li>
+                <li>indeterminate</li>
+                <li>negative</li>
+                <li>disabled</li>
+                <li>ondisabled</li>
+                <li>error</li>
+                <li>success</li>
+                <li>warning</li>
+                <li>alwaysblack</li>
+                <li>auto</li>
+                <li>mercury</li>
+              </ul>
+            </div>
+            <script>
+              const COLOR_MAPPINGS = {
+                alwaysblack: "color-always-black",
+                disabled: "color-primary-disabled",
+                ondisabled: "color-on-disabled",
+                error: "color-error-dark",
+                negative: "color-on-primary",
+                onbackground: "color-on-background",
+                indeterminate: "color-primary-active",
+                "primary-enabled": "color-primary-enabled",
+                "primary-active": "color-primary-active",
+                "primary-hover": "color-primary-hover",
+                success: "color-success-dark",
+                warning: "color-warning-dark",
+                mercury: "gray-03"
+              };
+
+              const colorMap = iconColor => {
+                return COLOR_MAPPINGS[iconColor];
+              };
+
+              const defineBorderColor = (colorSample, iconColor) => {
+                if (iconColor === "negative" || iconColor === "auto") {
+                  colorSample.classList.add("display-border");
+                }
+              };
+
+              const iconsColors = document.querySelector(".icons-colors");
+              const colorSamples = iconsColors.querySelectorAll("li");
+              colorSamples.forEach(color => {
+                const colorValue = color.innerText;
+                const colorSample = document.createElement("span");
+                colorSample.classList.add("color-sample");
+                colorSample.style.backgroundColor = `var(--${colorMap(
+                  colorValue
+                )})`;
+                defineBorderColor(colorSample, colorValue);
+                color.insertBefore(colorSample, color.firstChild);
+              });
+            </script>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

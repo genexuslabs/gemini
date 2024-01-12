@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Checkbox | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-checkbox</h1>
+      <!-----------------
+      Single
+      ------------------>
+      <section data-title="single">
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+
+          <!-- checked -->
+          <article data-title="checked">
+            <code pill>checked</code>
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                checked
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+
+          <!-- indeterminate -->
+          <article data-title="indeterminate">
+            <code pill>indeterminate</code>
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                indeterminate
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+
+          <!-- disabled -->
+          <article data-title="disabled">
+            <code pill>disabled</code>
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                disabled
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+
+          <!-- with information message -->
+          <article data-title="information message">
+            <code pill>information-message="..."</code>
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Checkbox Group
+      ------------------>
+      <section data-title="group">
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example">
+              <gxg-form-checkbox-group>
+                <gxg-form-checkbox
+                  id="red"
+                  value="Red"
+                  label="Red"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="blue"
+                  value="Blue"
+                  label="Blue"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="green"
+                  value="Green"
+                  label="Green"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="yellow"
+                  value="Yellow"
+                  label="Yellow"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="purple"
+                  value="Purple"
+                  label="Purple"
+                ></gxg-form-checkbox>
+              </gxg-form-checkbox-group>
+            </div>
+          </article>
+
+          <!-- row -->
+          <article data-title="row">
+            <code pill>row (on gxg-form-checkbox-group)</code>
+            <div class="example">
+              <gxg-form-checkbox-group row>
+                <gxg-form-checkbox
+                  id="red"
+                  value="Red"
+                  label="Red"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="blue"
+                  value="Blue"
+                  label="Blue"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="green"
+                  value="Green"
+                  label="Green"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="yellow"
+                  value="Yellow"
+                  label="Yellow"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="purple"
+                  value="Purple"
+                  label="Purple"
+                ></gxg-form-checkbox>
+              </gxg-form-checkbox-group>
+            </div>
+          </article>
+
+          <!-- information message -->
+          <article data-title="information message">
+            <code pill>information-message="..."</code>
+            <div class="example">
+              <gxg-form-checkbox-group
+                row
+                information-message="Pick any color that you would like"
+              >
+                <gxg-form-checkbox
+                  id="red"
+                  value="Red"
+                  label="Red"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="blue"
+                  value="Blue"
+                  label="Blue"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="green"
+                  value="Green"
+                  label="Green"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="yellow"
+                  value="Yellow"
+                  label="Yellow"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="purple"
+                  value="Purple"
+                  label="Purple"
+                ></gxg-form-checkbox>
+              </gxg-form-checkbox-group>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Messages
+      ------------------>
+      <section data-title="messages">
+        <div class="articles-container">
+          <!-- with information message -->
+          <article data-title="information message">
+            <code pill>information-message="..."</code>
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                information-message="Insert your full name with the following pattern: '^[a-z]{3}$'"
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+
+          <!-- status messages -->
+          <article data-title="status messages">
+            <code pill
+              >display-validation-message + validation-message="..."</code
+            >
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                id="checkbox-status-messages"
+                display-validation-message
+              ></gxg-form-checkbox>
+            </div>
+            <div class="actions">
+              <button id="btn-show-success">success message</button>
+              <button id="btn-show-warning">warning message</button>
+              <button id="btn-show-error">error message</button>
+            </div>
+            <script>
+              const checkboxStatusMessages = document.getElementById(
+                "checkbox-status-messages"
+              );
+              /*show success message*/
+              const showSuccessBtn =
+                document.getElementById("btn-show-success");
+              showSuccessBtn.addEventListener("click", e => {
+                checkboxStatusMessages.validationStatus = "success";
+                checkboxStatusMessages.validationMessage =
+                  "This is an success validation message";
+              });
+              /*show warning message*/
+              const showWarningBtn =
+                document.getElementById("btn-show-warning");
+              showWarningBtn.addEventListener("click", e => {
+                checkboxStatusMessages.validationStatus = "warning";
+                checkboxStatusMessages.validationMessage =
+                  "This is an warning validation message";
+              });
+              /*show error message*/
+              const showErrorBtn = document.getElementById("btn-show-error");
+              showErrorBtn.addEventListener("click", e => {
+                checkboxStatusMessages.validationStatus = "error";
+                checkboxStatusMessages.validationMessage =
+                  "This is an error validation message";
+              });
+            </script>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

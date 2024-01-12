@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="gxg-large dark">
+<html dir="ltr" lang="en" class="gxg-large">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -11,14 +11,10 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-    <style>
-      body {
-        background-color: var(--color-background);
-      }
-    </style>
   </head>
   <body>
     <gxg-list-box
+      single-selection
       id="list-box-errors"
       the-title="listbox single-selection"
       height="100%"
@@ -37,9 +33,7 @@
       <gxg-list-box-item icon="objects/data-provider"
         >3.Data Management</gxg-list-box-item
       >
-      <gxg-list-box-item selected icon="objects/bg-color"
-        >4.Resources</gxg-list-box-item
-      >
+      <gxg-list-box-item icon="objects/bg-color">4.Resources</gxg-list-box-item>
       <gxg-list-box-item value="user-interface" icon="objects/webpanel"
         >5.User interface</gxg-list-box-item
       >
@@ -54,24 +48,16 @@
         >9.Structured Data Type</gxg-list-box-item
       >
     </gxg-list-box>
-    <br />
-    <button id="get-selected-btn">get selected</button>
     <script>
       const listBox = document.querySelector("gxg-list-box");
-      listBox.addEventListener("selectionChanged", e => {
-        console.info(`selectionChanged: `, e.detail.items);
+      listBox.addEventListener("selectionChanged", (e) => {
+        console.table("selectionChanged", e.detail.items);
+        // if (e.detail.items.length > 0) {
+        // }
       });
-      listBox.addEventListener("checkedChanged", e => {
+      listBox.addEventListener("checkedChanged", (e) => {
         console.table("checkedChanged", e.detail);
       });
-      const getSelectedBtn = document.getElementById("get-selected-btn");
-      if (getSelectedBtn) {
-        getSelectedBtn.addEventListener("click", () => {
-          listBox.getSelectedItems().then(selectedItems => {
-            console.log(`selectedItems: `, selectedItems);
-          });
-        });
-      }
     </script>
   </body>
 </html>

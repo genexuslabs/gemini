@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Template | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      h3 {
+        color: var(--color-primary-enabled);
+      }
+      p {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-title-editable</h1>
+      <!-----------------
+      H1
+      ------------------>
+      <section data-title="h1">
+        <div class="articles-container">
+          <!-- H1 | default -->
+          <article data-title="default">
+            <p>Estado natural del título, sin ninguna propiedad adicional.</p>
+            <div class="example">
+              <gxg-title-editable
+                id="gxg-editable-title"
+                value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+                debounce
+              >
+              </gxg-title-editable>
+            </div>
+            <script>
+              const title = document.getElementById("gxg-editable-title");
+              title.addEventListener("valueChanged", e => {
+                console.log(e.detail);
+              });
+            </script>
+          </article>
+
+          <!-- H1 | clickToEdit -->
+          <article data-title="click on title to edit">
+            <code pill>click-to-edit</code>
+            <p>
+              Permite editar el texto también haciendo click en cualquier área
+              del componente (no sólo en el lápiz).
+            </p>
+            <div class="example">
+              <gxg-title-editable
+                value="Space is not entirely empty"
+                click-to-edit
+              >
+              </gxg-title-editable>
+            </div>
+          </article>
+
+          <!-- H1 | fluid -->
+          <article data-title="fluído">
+            <code pill>fluid</code>
+            <p>
+              El ancho del título es fluído. Crece a medida que necesita
+              espacio.
+            </p>
+            <div class="example">
+              <gxg-title-editable
+                value="Space is not entirely empty"
+                fluid
+              ></gxg-title-editable>
+            </div>
+          </article>
+
+          <!-- H1 | disable-edition -->
+          <article data-title="deshabilitar la edición">
+            <code pill>disableEdition</code>
+            <p>Deshabilita la edición. Contradictorio, pero...</p>
+            <div class="example">
+              <gxg-title-editable
+                disable-edition
+                click-to-edit
+                value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+              >
+              </gxg-title-editable>
+            </div>
+          </article>
+
+          <!-- H1 | focusType="color" -->
+          <article data-title="color en foco">
+            <code pill>focusType="color"</code>
+            <p>
+              Le pone foco al título cuando esta en modo editable, resaltando el
+              color del texto.
+            </p>
+            <div class="example">
+              <gxg-title-editable
+                click-to-edit
+                focus-type="text"
+                value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+              >
+              </gxg-title-editable>
+            </div>
+          </article>
+
+          <!-- H1 | focusType="line" -->
+          <article data-title="línea en foco">
+            <code pill>focusType="color"</code>
+            <p>
+              Le pone foco al título cuando esta en modo editable, mostrando una
+              línea de color debajo.
+            </p>
+            <div class="example">
+              <gxg-title-editable
+                click-to-edit
+                focus-type="line"
+                value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+              >
+              </gxg-title-editable>
+            </div>
+          </article>
+
+          <!-- H1 | error -->
+          <article data-title="mensaje de error">
+            <code pill>validationStatus="error" + validationMessage="..."</code>
+            <p>Título con mensaje de error</p>
+            <div class="example">
+              <gxg-title-editable
+                id="title-with-error"
+                click-to-edit
+                focus-type="line"
+                value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+              >
+              </gxg-title-editable>
+            </div>
+            <div>
+              <button id="show-error-btn">show error</button>
+            </div>
+            <script>
+              const titleWithError =
+                document.getElementById("title-with-error");
+              const showErrorBtn = document.getElementById("show-error-btn");
+              showErrorBtn.addEventListener("click", () => {
+                titleWithError.validationStatus = "error";
+                titleWithError.validationMessage =
+                  "The tile caption is ugly. You better change it.";
+                //titleWithError.hideTooltip = false;
+              });
+            </script>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      H2
+      ------------------>
+      <section data-title="h2">
+        <div class="articles-container">
+          <!-- H2 -->
+          <article data-title="default h2">
+            <code pill>titleType="h2"</code>
+            <p>
+              Título tipo <em>h2</em>. Aplican las mismas propiedades que las
+              mencionadas anteriormente.
+            </p>
+            <div class="example">
+              <gxg-title-editable
+                title-type="h2"
+                value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+              >
+              </gxg-title-editable>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

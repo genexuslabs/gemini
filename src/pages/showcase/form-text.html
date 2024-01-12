@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Form Text | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      .example > * {
+        flex: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-form-text</h1>
+      <!-----------------
+      Labels
+      ------------------>
+      <section data-title="label">
+        <div class="articles-container">
+          <!-- label before -->
+          <article data-title="label before">
+            <code pill>labelPosition="before"</code>
+            <div class="example">
+              <gxg-form-text
+                label="Enter your full name:"
+                placeholder="John Smith"
+              ></gxg-form-text>
+            </div>
+          </article>
+
+          <!-- label above -->
+          <article data-title="label above start">
+            <code pill>labelPosition="start"</code>
+            <div class="example">
+              <gxg-form-text
+                label-position="above"
+                label="Enter your full name:"
+                placeholder="John Smith"
+              ></gxg-form-text>
+            </div>
+          </article>
+
+          <!-- center label -->
+          <article data-title="label above center">
+            <code pill>labelPosition="start" | centerLabel</code>
+            <div class="example">
+              <gxg-form-text
+                center-label
+                label-position="above"
+                label="Enter your full name:"
+                placeholder="John Smith"
+              ></gxg-form-text>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Icon
+      ------------------>
+      <section data-title="icon">
+        <div class="articles-container">
+          <!-- icon start -->
+          <article data-title="icon start">
+            <code pill>icon="..." | iconPosition="start"</code>
+            <div class="example">
+              <gxg-form-text
+                icon="gemini-tools/edit"
+                icon-position="start"
+                placeholder="John Smith"
+              ></gxg-form-text>
+            </div>
+          </article>
+
+          <!-- icon end -->
+          <article data-title="icon end">
+            <code pill>icon="..." | iconPosition="end"</code>
+            <div class="example">
+              <gxg-form-text
+                icon="gemini-tools/edit"
+                icon-position="end"
+                placeholder="John Smith"
+              ></gxg-form-text>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Clear
+      ------------------>
+      <section data-title="clear button">
+        <div class="articles-container">
+          <!-- clear button -->
+          <article data-title="clear button only">
+            <code pill>clearButton</code>
+            <div class="example">
+              <gxg-form-text
+                placeholder="John Smith"
+                clear-button
+              ></gxg-form-text>
+            </div>
+          </article>
+
+          <!-- clear button + icon end-->
+          <article data-title="clear button + icon end">
+            <code pill>clearButton | icon="..." | iconPosition="end"</code>
+            <div class="example">
+              <gxg-form-text
+                icon="gemini-tools/edit"
+                icon-position="end"
+                placeholder="John Smith"
+                clear-button
+              ></gxg-form-text>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      File 
+      ------------------>
+      <section data-title="input file">
+        <div class="articles-container">
+          <!-- clear -->
+          <article>
+            <code pill>type="file" | clearButton | acceptFile=".mp3"</code>
+            <div class="example">
+              <gxg-form-text
+                clear-button
+                icon="gemini-tools/edit"
+                label="Select a song:"
+                placeholder="Flying in a Blue Dream"
+                id="gxg-form-text-file"
+                type="file"
+                multiple
+                accept-file=".mp3"
+              ></gxg-form-text>
+            </div>
+            <div class="actions">
+              <button id="open-file-btn">open file</button>
+              <button id="clear-file-btn">clear</button>
+              <script>
+                const openFileBtn = document.getElementById("open-file-btn");
+                const clearFileBtn = document.getElementById("clear-file-btn");
+                const inputFile = document.getElementById("gxg-form-text-file");
+                openFileBtn.addEventListener("click", () => {
+                  inputFile.openFile();
+                });
+                clearFileBtn.addEventListener("click", e => {
+                  inputFile.clearInput();
+                });
+                inputFile.addEventListener("fileSelected", e => {
+                  console.log("file selected", e);
+                });
+              </script>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      disabled & validation
+      ------------------>
+      <section data-title="disabled & validation">
+        <div class="articles-container">
+          <!-- disabled -->
+          <article data-title="disabled">
+            <code pill>disabled</code>
+            <div class="example">
+              <gxg-form-text
+                icon="gemini-tools/edit"
+                icon-position="start"
+                label="Enter your full name:"
+                label-position="above"
+                placeholder="John Smith"
+                disabled
+              ></gxg-form-text>
+            </div>
+          </article>
+
+          <!-- validation -->
+          <article data-title="validation">
+            <code pill>validationStatus="error" | validationMessage="..."</code>
+            <div class="example">
+              <div class="form-text-container">
+                <gxg-form-text
+                  label="Label above"
+                  label-position="above"
+                  class="form-component"
+                  value="This is a text"
+                  tool-tip
+                  id="form-text-label-above"
+                ></gxg-form-text>
+                <br />
+                <gxg-form-text
+                  label="Label before"
+                  class="form-component"
+                  value="This is a text"
+                  tool-tip
+                  id="form-text-label-before"
+                ></gxg-form-text>
+              </div>
+            </div>
+            <div class="actions">
+              <button id="form-text-btn-error">Error</button>
+              <button id="form-text-btn-warning">Warning</button>
+              <button id="form-text-btn-success">Success</button>
+              <script>
+                const formTextLabelAbove = document.getElementById(
+                  "form-text-label-above"
+                );
+                const formTextLabelBefore = document.getElementById(
+                  "form-text-label-before"
+                );
+                const formTextErrorBtn = document.getElementById(
+                  "form-text-btn-error"
+                );
+                /*error*/
+                formTextErrorBtn.addEventListener("click", () => {
+                  formTextLabelAbove.validationStatus = "error";
+                  formTextLabelAbove.validationMessage =
+                    "Failed to load module 'module.js'. Try setting another configuration.";
+                  formTextLabelBefore.validationStatus = "error";
+                  formTextLabelBefore.validationMessage =
+                    "Failed to load module 'module.js'. Try setting another configuration.";
+                });
+                const formTextWarningBtn = document.getElementById(
+                  "form-text-btn-warning"
+                );
+
+                /*warning*/
+                formTextWarningBtn.addEventListener("click", () => {
+                  formTextLabelAbove.validationStatus = "warning";
+                  formTextLabelAbove.validationMessage =
+                    "🚨 Warning: Your spaceship is about to crash! Brace for impact! 🚀💥";
+                  formTextLabelBefore.validationStatus = "warning";
+                  formTextLabelBefore.validationMessage =
+                    "🚨 Warning: Your spaceship is about to crash! Brace for impact! 🚀💥";
+                });
+                const formTextSuccessBtn = document.getElementById(
+                  "form-text-btn-success"
+                );
+
+                /*success*/
+                formTextSuccessBtn.addEventListener("click", () => {
+                  formTextLabelAbove.validationStatus = "success";
+                  formTextLabelAbove.validationMessage =
+                    "Success! Your masterpiece is complete. 🎉👏";
+                  formTextLabelBefore.validationStatus = "success";
+                  formTextLabelBefore.validationMessage =
+                    "Success! Your masterpiece is complete. 🎉👏";
+                });
+              </script>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

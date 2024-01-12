@@ -1,498 +1,78 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="darks">
+<html dir="ltr" lang="en" class="mercury dark">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>Tree View</title>
+    <title>Tree View | Gemini</title>
 
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
     <style>
+      /* .example > * {
+        flex: 1;
+      } */
       * {
         box-sizing: border-box;
       }
-
       body {
         display: flex;
         margin: 0;
         min-height: 100vh;
         background-color: var(--color-background);
       }
-
       .tree-container {
         display: flex;
+        height: 800px;
       }
-
-      /* .main-container {
-        display: grid;
-        grid-auto-rows: min-content;
-        align-self: stretch;
-        width: 100%;
-        padding-inline: 16px;
-      }
-
-      .section-dev {
-        height: 55vh;
-      }
-
-      .scroll {
-        overflow-y: auto;
-        height: 100%;
-      } */
-
-      /* .ch-tree-x-list-item--success::part(action)::before {
-        grid-area: first-img;
-        content: "";
-        width: 12px;
-        height: 12px;
-        margin-inline-end: 4px;
-        background-color: rgb(69, 150, 96);
-        border-radius: 50%;
-      }
-
-      .ch-tree-x-list-item--success::part(action) {
-        grid-template: "first-img left-img text right-img" / max-content max-content 1fr max-content;
-      }
-
-      .configuration {
-        display: grid;
-        grid-template-columns: max-content max-content max-content max-content;
-        grid-template-rows: min-content min-content min-content min-content;
-        gap: 12px 24px;
-      }
-
-      gxg-tree-view {
-        display: grid;
-        grid-template-columns: 500px max-content;
-        grid-template-rows: 1fr;
-        height: 100%;
-      }
-
-      .tree-buttons {
-        display: grid;
-        grid-auto-rows: max-content;
-        row-gap: 8px;
-      }
-
-      :not(.ch-tree-x-dragging-item)
-        ch-tree-x-list-item:not([selected])::part(header):hover {
-        background-color: rgb(232, 232, 233);
-      }
-
-      .ch-tree-x-list-item--drag-enter {
-        background-color: #eee;
-        box-shadow: inset 0 0 1px 0px black;
-
-        &[selected]::part(header) {
-          background-color: #eee;
-        }
-      } */
-
-      /* ch-tree-x-list-item {
-        &::part(header) {
-          border: 1px solid transparent;
-        }
-
-        &[selected]::part(header) {
-          background-color: rgb(207, 222, 230);
-          border-color: rgb(2, 102, 160);
-        }
-
-        &.ch-tree-x-list-item--editing::part(header) {
-          background-color: rgb(207, 222, 230, 0.5);
-          border-color: transparent;
-        }
-
-        &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
-          border-color: black;
-          z-index: 1;
-        }
-      }
-
-      .ch-tree-x-drag-info {
-        padding-inline: 6px;
-        padding-block: 2px;
-        background-color: rgb(207, 222, 230);
-        border: 1px solid rgb(2, 102, 160);
-        border-radius: 10px;
-        font-size: 8px;
-      } */
-
       .main-container {
         display: grid;
         grid-template-rows: 1fr min-content;
         align-self: stretch;
         width: 100%;
-        padding-inline: 4px;
+        /* padding-inline: 4px; */
         gap: 8px;
-        margin: 16px;
+        /* margin: 16px; */
       }
-
       .section-dev {
+        max-width: 600px;
+      }
+      /* .section-dev {
         display: grid;
         grid-template-columns: 250px 500px max-content;
         gap: 32px;
         height: 100%;
-      }
+      } */
     </style>
   </head>
   <body>
-    <div class="main-container">
-      <div class="section-dev">
-        <ch-tree-x
-          id="markup-tree"
-          toggle-checkboxes="false"
-          show-lines
-          multi-selection
-        >
-          <ch-tree-x-list>
-            <ch-tree-x-list-item
-              opened
-              left-img-src="/build/ch-icon-assets/generator"
-              caption="Meats"
-              checkbox
-            >
-              <ch-tree-x-list slot="tree">
-                <ch-tree-x-list-item
-                  checkbox
-                  checked
-                  toggle-checkboxes
-                  left-img-src="/build/ch-icon-assets/patterns"
-                  caption="White meats"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="./objects/file"
-                      caption="Chicken"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java"
-                      caption="Turkey"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="./objects/file"
-                      caption="Duck"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  left-img-src="/build/ch-icon-assets/knowledge-base"
-                  caption="Red meats"
-                >
-                  <ch-tree-x-list checkbox slot="tree">
-                    <ch-tree-x-list-item
-                      left-img-src="./objects/file"
-                      caption="Beef"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      left-img-src="./objects/file"
-                      caption="Lamb and mutton"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      left-img-src="/build/tree-item-assets/download"
-                      caption="Pork"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-              </ch-tree-x-list>
-            </ch-tree-x-list-item>
-            <ch-tree-x-list-item
-              id="fish"
-              left-img-src="./objects/file"
-              checkbox
-              checked="false"
-              disabled
-              right-img-src="/build/tree-item-assets/download"
-              caption="Fish"
-            >
-            </ch-tree-x-list-item>
-            <ch-tree-x-list-item
-              left-img-src="/build/tree-item-assets/download"
-              caption="Fruits"
-              checked="false"
-            >
-              <ch-tree-x-list slot="tree">
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="/build/ch-icon-assets/java"
-                  caption="Orange"
-                  leaf
-                >
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="./objects/file"
-                  opened
-                  caption="Banana"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      left-img-src="/build/ch-icon-assets/knowledge-base"
-                      checkbox
-                      caption="Pisang"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java"
-                      caption="Red Banana"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      left-img-src="/build/ch-icon-assets/knowledge-base"
-                      caption="Cavendish"
-                      show-expandable-button="false"
-                    >
-                      <ch-tree-x-list slot="tree">
-                        <ch-tree-x-list-item
-                          caption="Big"
-                          leaf
-                          show-expandable-button="false"
-                        >
-                        </ch-tree-x-list-item>
-                        <ch-tree-x-list-item
-                          left-img-src="objects/patterns"
-                          caption="Small"
-                          leaf
-                        >
-                        </ch-tree-x-list-item>
-                        <ch-tree-x-list-item
-                          left-img-src="/build/ch-icon-assets/knowledge-base"
-                          caption="Mini (empty items)"
-                        >
-                          <ch-tree-x-list> </ch-tree-x-list>
-                        </ch-tree-x-list-item>
-                      </ch-tree-x-list>
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="./objects/file"
-                  caption="Strawberry"
-                  expanded
-                  show-expandable-button="false"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java"
-                      caption="Albion"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java"
-                      opened
-                      caption="Tillamook"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/knowledge-base"
-                      caption="Northeaster"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-              </ch-tree-x-list>
-            </ch-tree-x-list-item>
-            <ch-tree-x-list-item
-              opened
-              expanded
-              left-img-src="/build/ch-icon-assets/java"
-              empty-tree
-              caption="Nuts"
-              show-expandable-button="false"
-            >
-              <ch-tree-x-list slot="tree">
-                <ch-tree-x-list-item
-                  opened
-                  checkbox
-                  left-img-src="objects/patterns"
-                  caption="Almonds"
-                >
-                  <ch-tree-x-list slot="tree">
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="objects/patterns"
-                      opened
-                      caption="Mollar de Tarragona"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="/build/ch-icon-assets/java"
-                      caption="Ferragnès"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                    <ch-tree-x-list-item
-                      checkbox
-                      left-img-src="objects/patterns"
-                      caption="Verdal"
-                      leaf
-                    >
-                    </ch-tree-x-list-item>
-                  </ch-tree-x-list>
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  left-img-src="objects/patterns"
-                  opened
-                  caption="Brazil nuts"
-                  leaf
-                >
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="objects/patterns"
-                  caption="Cashews (lazy)"
-                  lazy-load
-                >
-                </ch-tree-x-list-item>
-                <ch-tree-x-list-item
-                  checkbox
-                  left-img-src="objects/patterns"
-                  caption="Chestnuts (lazy)"
-                  lazy-load
-                  drag-enabled="false"
-                >
-                </ch-tree-x-list-item>
-              </ch-tree-x-list>
-            </ch-tree-x-list-item>
-          </ch-tree-x-list>
-        </ch-tree-x>
-
-        <div class="tree-container">
-          <gxg-tree-view></gxg-tree-view>
+    <div class="container no-separator">
+      <h1>gxg-tree-view</h1>
+      <!-----------------
+      Template
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!--  -->
+          <article>
+            <!-- <code pill>some property</code> -->
+            <div class="example">
+              <div class="main-container">
+                <div class="section-dev">
+                  <div class="tree-container">
+                    <gxg-tree-view></gxg-tree-view>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
-
-        <div>
-          <ch-textblock id="contextmenu-textblock"
-            >+ + + + + + + Context + + + + + + +</ch-textblock
-          >
-
-          <ch-textblock id="open-reference-textblock"
-            ><br />+ + + + + Open Reference + + + + +</ch-textblock
-          >
-
-          <ch-textblock id="selected-items-textblock"
-            ><br />+ + + + + Selected Items + + + + +</ch-textblock
-          >
-
-          <ch-textblock id="checked-items-textblock"
-            ><br />+ + + + + Checked items + + + + +<br /><br />+ + + + +
-            Unchecked items + + + + +</ch-textblock
-          >
-        </div>
-      </div>
-
-      <div class="configuration">
-        <button id="expand-all" type="button">Expand All</button>
-
-        <ch-checkbox
-          id="multi-selection"
-          checked-value="true"
-          un-checked-value="false"
-          value="false"
-          caption="Multi selection"
-        ></ch-checkbox>
-
-        <ch-checkbox
-          id="editable"
-          checked-value="true"
-          un-checked-value="false"
-          value="true"
-          caption="Editable Items"
-        ></ch-checkbox>
-
-        <ch-checkbox
-          id="check-all"
-          checked-value="true"
-          un-checked-value="false"
-          value="false"
-          caption="Check / uncheck all"
-        ></ch-checkbox>
-
-        <label>
-          Lines
-          <select name="lines" id="lines">
-            <option value="all">All lines</option>
-            <option value="last">Last line</option>
-            <option value="none" selected>None</option>
-          </select>
-        </label>
-
-        <button id="collapse-all" type="button">Collapse All</button>
-
-        <ch-checkbox
-          id="drag-enabled"
-          checked-value="true"
-          un-checked-value="false"
-          value="true"
-          caption="Drag Enabled"
-        ></ch-checkbox>
-
-        <ch-checkbox
-          id="drop-enabled"
-          checked-value="true"
-          un-checked-value="false"
-          value="true"
-          caption="Drop Enabled"
-        ></ch-checkbox>
-
-        <div>
-          <input id="input-scroll-into-visible" type="text" />
-          <button id="btn-scroll-into-visible" type="button">
-            Scroll into visible
-          </button>
-        </div>
-
-        <div>
-          <label>
-            Item id
-            <input id="item-id-to-reload" type="text" />
-          </label>
-          <button id="button-to-reload-items">Reload items</button>
-        </div>
-      </div>
-
-      <div class="buttons-wrapper">
-        <button id="load-model-btn">Load model (click first)</button>
-        <button id="update-model-btn">Update model (click second)</button>
-        <button id="update-model-again-btn">
-          Update model again (click third)
-        </button>
-        <button id="update-big-model-btn">Set big model</button>
-        <button id="kb-explorer-model-btn">KB Explorer</button>
-        <button id="import-objects-model-btn">Import Objects</button>
-      </div>
+      </section>
     </div>
 
     <script>
@@ -501,7 +81,7 @@
           id: "number-1",
           caption: "number-1 label (always editable)",
           leftImgSrc: "./objects/knowledge-base",
-          editable: true,
+          editable: true
         },
         {
           id: "number-2",
@@ -512,9 +92,9 @@
             {
               id: "number-2.1",
               caption: "number-2.1",
-              leftImgSrc: "./objects/file",
-            },
-          ],
+              leftImgSrc: "./objects/file"
+            }
+          ]
         },
         {
           id: "number-3",
@@ -524,17 +104,17 @@
             {
               id: "number-3.1",
               caption: "number-3.1",
-              leftImgSrc: "/build/ch-icon-assets/java",
-            },
-          ],
-        },
+              leftImgSrc: "/build/ch-icon-assets/java"
+            }
+          ]
+        }
       ];
 
       const modelTinyUpdated = [
         {
           id: "number-1",
           caption: "number-1",
-          leftImgSrc: "./build/ch-icon-assets/csharp",
+          leftImgSrc: "./build/ch-icon-assets/csharp"
         },
         {
           id: "number-2",
@@ -549,11 +129,11 @@
                 {
                   id: "number-2.1.1",
                   caption: "number-2.1.1",
-                  leftImgSrc: "/build/ch-icon-assets/java",
-                },
-              ],
-            },
-          ],
+                  leftImgSrc: "/build/ch-icon-assets/java"
+                }
+              ]
+            }
+          ]
         },
         {
           id: "number-3",
@@ -563,10 +143,10 @@
             {
               id: "number-3.1",
               caption: "number-3.1",
-              leftImgSrc: "./objects/datastore",
-            },
-          ],
-        },
+              leftImgSrc: "./objects/datastore"
+            }
+          ]
+        }
       ];
 
       const modelTinyUpdatedAgain = [
@@ -575,7 +155,7 @@
           caption: "number-a (always editable)",
           leaf: true,
           leftImgSrc: "./objects/apple",
-          editable: true,
+          editable: true
         },
         {
           id: "number-b",
@@ -599,20 +179,20 @@
                       id: "number-2.1.1.1",
                       caption: "number-2.1.1.1",
                       leaf: true,
-                      leftImgSrc: "/build/tree-item-assets/download",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
+                      leftImgSrc: "/build/tree-item-assets/download"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           id: "number-3",
           caption: "number-3",
           leaf: true,
-          leftImgSrc: "/build/ch-icon-assets/patterns",
-        },
+          leftImgSrc: "/build/ch-icon-assets/patterns"
+        }
       ];
 
       const model = [
@@ -635,7 +215,7 @@
                   id: "number-1-1-1",
                   caption: "number-1-1-1",
                   leaf: true,
-                  leftImgSrc: "./objects/knowledge-base",
+                  leftImgSrc: "./objects/knowledge-base"
                 },
                 {
                   id: "number-1-1-2",
@@ -651,25 +231,25 @@
                       lazy: true,
                       checkbox: true,
                       dragDisabled: true,
-                      toggleCheckboxes: true,
+                      toggleCheckboxes: true
                     },
                     {
                       id: "number-1-1-2-2",
                       caption: "number-1-1-2-2",
                       leaf: true,
-                      leftImgSrc: "/build/ch-icon-assets/java",
-                    },
-                  ],
-                },
-              ],
+                      leftImgSrc: "/build/ch-icon-assets/java"
+                    }
+                  ]
+                }
+              ]
             },
             {
               id: "number-1-2",
               caption: "number-1-2",
               leaf: true,
-              leftImgSrc: "./objects/knowledge-base",
-            },
-          ],
+              leftImgSrc: "./objects/knowledge-base"
+            }
+          ]
         },
         {
           id: "number-2",
@@ -681,16 +261,16 @@
               id: "number-2-1",
               caption: "number-2-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/java",
+              leftImgSrc: "/build/ch-icon-assets/java"
             },
             {
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "./objects/knowledge-base",
-            },
-          ],
-        },
+              leftImgSrc: "./objects/knowledge-base"
+            }
+          ]
+        }
       ];
 
       const updatedModel = [
@@ -711,7 +291,7 @@
                   id: "number-1-1-1",
                   caption: "number-1-1-1",
                   leaf: true,
-                  leftImgSrc: "./objects/knowledge-base",
+                  leftImgSrc: "./objects/knowledge-base"
                 },
                 {
                   id: "number-1-1-2",
@@ -730,21 +310,21 @@
                           caption: "new-item-added-1",
                           disabled: true,
                           leaf: true,
-                          leftImgSrc: "./objects/knowledge-base",
+                          leftImgSrc: "./objects/knowledge-base"
                         },
                         {
                           id: "new-item-added-2",
                           caption: "new-item-added-2",
                           disabled: false,
                           leaf: true,
-                          leftImgSrc: "./objects/knowledge-base",
+                          leftImgSrc: "./objects/knowledge-base"
                         },
                         {
                           id: "new-item-added-3",
                           caption: "new-item-added-3",
                           disabled: true,
                           leaf: true,
-                          leftImgSrc: "./objects/knowledge-base",
+                          leftImgSrc: "./objects/knowledge-base"
                         },
                         {
                           id: "new-item-added-4",
@@ -759,7 +339,7 @@
                               caption: "new-item-added-4-1",
                               disabled: false,
                               leaf: true,
-                              leftImgSrc: "./objects/knowledge-base",
+                              leftImgSrc: "./objects/knowledge-base"
                             },
                             {
                               id: "new-item-added-4-2",
@@ -782,41 +362,41 @@
                                       caption: "new-item-added-4-2-1-1",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base",
+                                      leftImgSrc: "./objects/knowledge-base"
                                     },
                                     {
                                       id: "new-item-added-4-2-1-2",
                                       caption: "new-item-added-4-2-1-2",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base",
+                                      leftImgSrc: "./objects/knowledge-base"
                                     },
                                     {
                                       id: "new-item-added-4-2-1-3",
                                       caption: "new-item-added-4-2-1-3",
                                       disabled: true,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base",
+                                      leftImgSrc: "./objects/knowledge-base"
                                     },
                                     {
                                       id: "new-item-added-4-2-1-4",
                                       caption: "new-item-added-4-2-1-4",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base",
-                                    },
-                                  ],
+                                      leftImgSrc: "./objects/knowledge-base"
+                                    }
+                                  ]
                                 },
                                 {
                                   id: "new-item-added-4-2-2",
                                   caption: "new-item-added-4-2-2",
                                   disabled: true,
                                   leaf: true,
-                                  leftImgSrc: "./objects/knowledge-base",
-                                },
-                              ],
-                            },
-                          ],
+                                  leftImgSrc: "./objects/knowledge-base"
+                                }
+                              ]
+                            }
+                          ]
                         },
                         {
                           id: "new-item-added-5",
@@ -831,36 +411,36 @@
                               caption: "new-item-added-5-1",
                               disabled: false,
                               leaf: true,
-                              leftImgSrc: "./objects/knowledge-base",
+                              leftImgSrc: "./objects/knowledge-base"
                             },
                             {
                               id: "new-item-added-5-2",
                               caption: "new-item-added-5-2",
                               disabled: true,
                               leaf: true,
-                              leftImgSrc: "./objects/knowledge-base",
-                            },
-                          ],
-                        },
-                      ],
+                              leftImgSrc: "./objects/knowledge-base"
+                            }
+                          ]
+                        }
+                      ]
                     },
                     {
                       id: "number-1-1-2-2",
                       caption: "number-1-1-2-2",
                       leaf: true,
-                      leftImgSrc: "./objects/knowledge-base",
-                    },
-                  ],
-                },
-              ],
+                      leftImgSrc: "./objects/knowledge-base"
+                    }
+                  ]
+                }
+              ]
             },
             {
               id: "number-1-2",
               caption: "number-1-2",
               leaf: true,
-              leftImgSrc: "./objects/knowledge-base",
-            },
-          ],
+              leftImgSrc: "./objects/knowledge-base"
+            }
+          ]
         },
         {
           id: "number-2",
@@ -872,22 +452,22 @@
               id: "number-2-1",
               caption: "number-2-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/patterns",
+              leftImgSrc: "/build/ch-icon-assets/patterns"
             },
             {
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "objects/patterns",
+              leftImgSrc: "objects/patterns"
             },
             {
               id: "number-2-3",
               caption: "number-2-3",
               disabled: true,
               leaf: true,
-              leftImgSrc: "objects/patterns",
-            },
-          ],
+              leftImgSrc: "objects/patterns"
+            }
+          ]
         },
         {
           id: "number-3",
@@ -901,23 +481,23 @@
               id: "number-3-1",
               caption: "number-3-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/patterns",
+              leftImgSrc: "/build/ch-icon-assets/patterns"
             },
             {
               id: "number-3-2",
               caption: "number-3-2",
               disabled: true,
               leaf: true,
-              leftImgSrc: "objects/patterns",
+              leftImgSrc: "objects/patterns"
             },
             {
               id: "number-3-3",
               caption: "number-3-3",
               leaf: true,
-              leftImgSrc: "objects/patterns",
-            },
-          ],
-        },
+              leftImgSrc: "objects/patterns"
+            }
+          ]
+        }
       ];
 
       const modelLazyUpdated1 = [
@@ -927,7 +507,7 @@
           leaf: true,
           leftImgSrc: "objects/patterns",
           checkbox: true,
-          dragDisabled: true,
+          dragDisabled: true
         },
         {
           id: "lazy-loaded-2",
@@ -938,8 +518,8 @@
           checkbox: true,
           dragDisabled: true,
           dropDisabled: true,
-          toggleCheckboxes: true,
-        },
+          toggleCheckboxes: true
+        }
       ];
 
       const modelLazyUpdated2 = [
@@ -949,7 +529,7 @@
           leaf: true,
           leftImgSrc: "objects/patterns",
           checkbox: true,
-          dragDisabled: true,
+          dragDisabled: true
         },
         {
           id: "lazy-loaded-4",
@@ -957,8 +537,8 @@
           leaf: true,
           leftImgSrc: "objects/patterns",
           checkbox: true,
-          dragDisabled: true,
-        },
+          dragDisabled: true
+        }
       ];
 
       const importObjectsModel = [
@@ -971,9 +551,9 @@
               id: "Category.Main_Programs",
               caption: "Main Programs",
               leftImgSrc: "objects/category",
-              leaf: true,
-            },
-          ],
+              leaf: true
+            }
+          ]
         },
         {
           id: "Design System",
@@ -984,33 +564,33 @@
               id: "Design_System.ActionGroup",
               caption: "ActionGroup",
               leftImgSrc: "objects/dso",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Design_System.DynamicActionGroup",
               caption: "DynamicActionGroup",
               leftImgSrc: "objects/dso",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Design_System.UserControls",
               caption: "UserControls",
               leftImgSrc: "objects/dso",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Design_System.Dropdown",
               caption: "Dropdown",
               leftImgSrc: "objects/dso",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Design_System.UnanimoAngularWithoutUserControls",
               caption: "UnanimoAngularWithoutUserControls",
               leftImgSrc: "objects/dso",
-              leaf: true,
-            },
-          ],
+              leaf: true
+            }
+          ]
         },
         {
           id: "Module",
@@ -1022,41 +602,41 @@
               id: "Module.General",
               caption: "General",
               leftImgSrc: "objects/module",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Module.General.UI",
               caption: "General.UI",
               leftImgSrc: "objects/module",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Module.General.Services",
               caption: "General.Services",
               leftImgSrc: "objects/module",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Module.GeneralReporting",
               caption: "GeneralReporting",
               leftImgSrc: "objects/module",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Module.GeneXusUnanimo",
               caption: "GeneXusUnanimo",
               checked: false,
               leftImgSrc: "objects/module",
-              leaf: true,
+              leaf: true
             },
             {
               id: "Module.GeneXus",
               caption: "GeneXus",
               checked: false,
               leftImgSrc: "objects/module",
-              leaf: true,
-            },
-          ],
+              leaf: true
+            }
+          ]
         },
         {
           id: "Data Provider",
@@ -1067,10 +647,10 @@
               id: "Data_Provider.General.UI.SidebarItemsDP",
               caption: "General.UI.SidebarItemsDP",
               leftImgSrc: "objects/data-provider",
-              leaf: true,
-            },
-          ],
-        },
+              leaf: true
+            }
+          ]
+        }
       ];
 
       const KB_EXPLORER_ORDER = {
@@ -1087,7 +667,7 @@
         domain: 5,
         localization: 6,
         files: 7,
-        images: 8,
+        images: 8
       };
 
       const kbExplorerModel = [
@@ -1099,6 +679,7 @@
           leftImgSrc: "objects/version",
           dragDisabled: true,
           dropDisabled: true,
+          expanded: true,
           items: [
             {
               id: "Main_Programs",
@@ -1109,16 +690,16 @@
               dropDisabled: true,
               lazy: true,
               order: 0,
+              expanded: true
             },
             {
               id: "Root_Module",
-              caption:
-                "The universe is vast, and one fascinating fact is that it contains more stars than there are grains of sand on all the beaches on Earth.",
+              caption: "Objects",
               editable: false,
               class: "tree-view-item tree-view-item--module",
               dragDisabled: true,
               lazy: true,
-              order: 1,
+              order: 1
             },
             {
               id: "References",
@@ -1128,6 +709,7 @@
               dragDisabled: true,
               dropDisabled: true,
               order: 2,
+              leaf: true
             },
             {
               id: "Customization",
@@ -1137,7 +719,7 @@
               dragDisabled: true,
               dropDisabled: true,
               lazy: true,
-              order: 3,
+              order: 3
             },
             {
               id: "Documentation",
@@ -1147,9 +729,10 @@
               dragDisabled: true,
               dropDisabled: true,
               order: 4,
-            },
-          ],
-        },
+              leaf: true
+            }
+          ]
+        }
       ];
 
       const kbExplorerModel_MainPrograms = [
@@ -1159,8 +742,8 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/sd-panel",
-          order: KB_EXPLORER_ORDER.sdPanel,
+          leftImgSrc: "objects/api",
+          order: KB_EXPLORER_ORDER.sdPanel
         },
         {
           id: "Main_Programs.ApiHealthCheck",
@@ -1169,7 +752,7 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/api",
-          order: KB_EXPLORER_ORDER.api,
+          order: KB_EXPLORER_ORDER.api
         },
         {
           id: "Main_Programs.BackHome",
@@ -1177,8 +760,8 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/web-panel",
-          order: KB_EXPLORER_ORDER.webPanel,
+          leftImgSrc: "objects/api",
+          order: KB_EXPLORER_ORDER.webPanel
         },
         {
           id: "Main_Programs.Login",
@@ -1186,8 +769,8 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/web-panel",
-          order: KB_EXPLORER_ORDER.webPanel,
+          leftImgSrc: "objects/api",
+          order: KB_EXPLORER_ORDER.webPanel
         },
         {
           id: "Main_Programs.ProvisioningServices",
@@ -1196,7 +779,7 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/api",
-          order: KB_EXPLORER_ORDER.api,
+          order: KB_EXPLORER_ORDER.api
         },
         {
           id: "Main_Programs.VersionCheck",
@@ -1205,8 +788,8 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/procedure",
-          order: KB_EXPLORER_ORDER.procedure,
-        },
+          order: KB_EXPLORER_ORDER.procedure
+        }
       ];
 
       const kbExplorerModel_RootModule = [
@@ -1215,43 +798,49 @@
           caption: "IDE",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.BL",
           caption: "BL",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.General",
           caption: "General",
           class: "tree-view-item tree-view-item--module",
           lazy: true,
-          order: KB_EXPLORER_ORDER.module,
+          order: KB_EXPLORER_ORDER.module
         },
         {
           id: "Root_Module.AWS_internal",
           caption: "AWS_internal",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.DataModel",
           caption: "DataModel",
           class: "tree-view-item tree-view-item--folder",
           order: KB_EXPLORER_ORDER.folder,
+          leaf: true
         },
         {
           id: "Root_Module.Back",
           caption: "Back",
           class: "tree-view-item tree-view-item--folder",
           order: KB_EXPLORER_ORDER.folder,
+          leaf: true
         },
         {
           id: "Root_Module.Tests",
           caption: "Tests",
           class: "tree-view-item tree-view-item--folder",
           order: KB_EXPLORER_ORDER.folder,
+          leaf: true
         },
         {
           id: "Root_Module.Images",
@@ -1260,21 +849,21 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/image",
-          order: KB_EXPLORER_ORDER.images,
+          order: KB_EXPLORER_ORDER.images
         },
         {
           id: "Root_Module.GXNext",
           caption: "GXNext",
           leaf: true,
           leftImgSrc: "objects/dso",
-          order: KB_EXPLORER_ORDER.dso,
+          order: KB_EXPLORER_ORDER.dso
         },
         {
           id: "Root_Module.GeneXusNext",
           caption: "GeneXusNext",
           leaf: true,
           leftImgSrc: "objects/dso",
-          order: KB_EXPLORER_ORDER.dso,
+          order: KB_EXPLORER_ORDER.dso
         },
         {
           id: "Root_Module.Files",
@@ -1284,7 +873,7 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/file",
-          order: KB_EXPLORER_ORDER.files,
+          order: KB_EXPLORER_ORDER.files
         },
         {
           id: "Root_Module.Domain",
@@ -1294,8 +883,8 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/domain",
-          order: KB_EXPLORER_ORDER.domain,
-        },
+          order: KB_EXPLORER_ORDER.domain
+        }
       ];
 
       const kbExplorerModel_Customization = [
@@ -1304,20 +893,22 @@
           caption: "Files",
           leftImgSrc: "objects/file",
           order: KB_EXPLORER_ORDER.files,
+          leaf: true
         },
         {
           id: "Customization.Images",
           caption: "Images",
           leftImgSrc: "objects/image",
           order: KB_EXPLORER_ORDER.images,
+          leaf: true
         },
         {
           id: "Customization.Localization",
           caption: "Localization",
           lazy: true,
           leftImgSrc: "objects/lenguage",
-          order: KB_EXPLORER_ORDER.localization,
-        },
+          order: KB_EXPLORER_ORDER.localization
+        }
       ];
 
       const kbExplorerModel_Customization_Localization = [
@@ -1327,7 +918,7 @@
           checkbox: true,
           leaf: true,
           leftImgSrc: "objects/lenguage",
-          order: KB_EXPLORER_ORDER.localization,
+          order: KB_EXPLORER_ORDER.localization
         },
         {
           id: "Customization.Localization.English",
@@ -1336,7 +927,7 @@
           checked: true,
           leaf: true,
           leftImgSrc: "objects/lenguage",
-          order: KB_EXPLORER_ORDER.localization,
+          order: KB_EXPLORER_ORDER.localization
         },
         {
           id: "Customization.Localization.Spanish",
@@ -1344,7 +935,7 @@
           checkbox: true,
           leaf: true,
           leftImgSrc: "objects/lenguage",
-          order: KB_EXPLORER_ORDER.localization,
+          order: KB_EXPLORER_ORDER.localization
         },
         {
           id: "Customization.Localization.Italian",
@@ -1352,8 +943,8 @@
           checkbox: true,
           leaf: true,
           leftImgSrc: "objects/lenguage",
-          order: KB_EXPLORER_ORDER.localization,
-        },
+          order: KB_EXPLORER_ORDER.localization
+        }
       ];
 
       const kbExplorerModel_RootModule_General = [
@@ -1362,19 +953,21 @@
           caption: "Security",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.General.Services",
           caption: "Services",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.General.UI",
           caption: "UI",
           class: "tree-view-item tree-view-item--module",
           lazy: true,
-          order: KB_EXPLORER_ORDER.module,
+          order: KB_EXPLORER_ORDER.module
         },
         {
           id: "Root_Module.General.Domain",
@@ -1384,7 +977,7 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/domain",
-          order: KB_EXPLORER_ORDER.domain,
+          order: KB_EXPLORER_ORDER.domain
         },
         {
           id: "Root_Module.General.GlobalEvents",
@@ -1394,8 +987,8 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/external-object",
-          order: KB_EXPLORER_ORDER.globalEvents,
-        },
+          order: KB_EXPLORER_ORDER.globalEvents
+        }
       ];
 
       const kbExplorerModel_RootModule_General_UI = [
@@ -1404,26 +997,28 @@
           caption: "DesignSystem",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.General.UI.Q2",
           caption: "Q2",
           class: "tree-view-item tree-view-item--folder",
           lazy: true,
-          order: KB_EXPLORER_ORDER.folder,
+          order: KB_EXPLORER_ORDER.folder
         },
         {
           id: "Root_Module.General.UI.Popups",
           caption: "Popups",
           class: "tree-view-item tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
+          leaf: true
         },
         {
           id: "Root_Module.General.UI.Stencils",
           caption: "Stencils",
           class: "tree-view-item tree-view-item--folder",
           lazy: true,
-          order: KB_EXPLORER_ORDER.folder,
+          order: KB_EXPLORER_ORDER.folder
         },
         {
           id: "Root_Module.General.UI.Domain",
@@ -1433,16 +1028,16 @@
           dropDisabled: true,
           leaf: true,
           leftImgSrc: "objects/domain",
-          order: KB_EXPLORER_ORDER.domain,
+          order: KB_EXPLORER_ORDER.domain
         },
         {
           id: "Root_Module.General.UI.Login",
           caption: "Login",
           class: "tree-view-item tree-view-item--pending-commit",
           leaf: true,
-          leftImgSrc: "objects/sd-panel",
-          order: KB_EXPLORER_ORDER.sdPanel,
-        },
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.sdPanel
+        }
       ];
 
       const kbExplorerModel_RootModule_General_UI_Q2 = [
@@ -1450,24 +1045,24 @@
           id: "Root_Module.General.UI.Q2.ContactUs",
           caption: "ContactUs",
           leaf: true,
-          leftImgSrc: "objects/sd-panel",
-          order: KB_EXPLORER_ORDER.sdPanel,
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.sdPanel
         },
         {
           id: "Root_Module.General.UI.Q2.ProjectDetail",
           caption: "ProjectDetail",
           class: "tree-view-item tree-view-item--pending-commit",
           leaf: true,
-          leftImgSrc: "objects/sd-panel",
-          order: KB_EXPLORER_ORDER.sdPanel,
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.sdPanel
         },
         {
           id: "Root_Module.General.UI.Q2.MyApps",
           caption: "MyApps",
           leaf: true,
-          leftImgSrc: "objects/sd-panel",
-          order: KB_EXPLORER_ORDER.sdPanel,
-        },
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.sdPanel
+        }
       ];
 
       const kbExplorerModel_RootModule_General_UI_Stencils = [
@@ -1476,19 +1071,21 @@
           caption: "StencilPublishProject",
           leaf: true,
           leftImgSrc: "objects/stencil",
-          order: KB_EXPLORER_ORDER.stencil,
-        },
+          order: KB_EXPLORER_ORDER.stencil
+        }
       ];
 
       const lazyLoadItemsDictionary = {
         Main_Programs: kbExplorerModel_MainPrograms,
         Root_Module: kbExplorerModel_RootModule,
         Customization: kbExplorerModel_Customization,
-        "Customization.Localization": kbExplorerModel_Customization_Localization,
+        "Customization.Localization":
+          kbExplorerModel_Customization_Localization,
         "Root_Module.General": kbExplorerModel_RootModule_General,
         "Root_Module.General.UI": kbExplorerModel_RootModule_General_UI,
         "Root_Module.General.UI.Q2": kbExplorerModel_RootModule_General_UI_Q2,
-        "Root_Module.General.UI.Stencils": kbExplorerModel_RootModule_General_UI_Stencils,
+        "Root_Module.General.UI.Stencils":
+          kbExplorerModel_RootModule_General_UI_Stencils
       };
 
       const bigModel = [];
@@ -1504,7 +1101,7 @@
           lazy: true,
           leaf: false,
           leftImgSrc: "objects/patterns",
-          items: [],
+          items: []
         });
       }
 
@@ -1525,7 +1122,7 @@
               id: subSubModelId,
               caption: subSubModelId,
               leaf: true,
-              leftImgSrc: "./objects/file",
+              leftImgSrc: "./objects/file"
             });
           }
 
@@ -1535,7 +1132,7 @@
             expanded: true,
             leaf: false,
             leftImgSrc: "./objects/knowledge-base",
-            items: subSubEagerLargeModel,
+            items: subSubEagerLargeModel
           });
         }
 
@@ -1545,7 +1142,7 @@
           expanded: true,
           leaf: false,
           leftImgSrc: "objects/patterns",
-          items: subEagerLargeModel,
+          items: subEagerLargeModel
         });
       }
     </script>
@@ -1556,8 +1153,8 @@
         {
           id: "number-2-2",
           caption: "number-2-2",
-          leftImgSrc: "./objects/knowledge-base",
-        },
+          leftImgSrc: "./objects/knowledge-base"
+        }
       ];
 
       // WA to remove extra handlers in appload event
@@ -1574,144 +1171,11 @@
 
         testTreeX.treeModel = kbExplorerModel;
 
-        const multiSelectionCheckbox = document.getElementById(
-          "multi-selection"
-        );
-        multiSelectionCheckbox.addEventListener("input", (event) => {
-          testTreeX.multiSelection = event.target.checked;
-        });
-
-        const editableCheckbox = document.getElementById("editable");
-        editableCheckbox.addEventListener("input", (event) => {
-          testTreeX.editableItems = event.target.checked;
-        });
-
-        /*(va)*/
-        const checkAllCheckbox = document.getElementById("check-all");
-        checkAllCheckbox.addEventListener("input", (event) => {
-          const checked = event.target.checked;
-
-          checkAllCheckbox.indeterminate = false;
-          testTreeX.updateAllItemsProperties({ checked: checked });
-        });
-
-        const expandAllBtn = document.getElementById("expand-all");
-        expandAllBtn.addEventListener("click", (event) => {
-          testTreeX.updateAllItemsProperties({ expanded: true });
-        });
-
-        const collapseAllBtn = document.getElementById("collapse-all");
-        collapseAllBtn.addEventListener("click", (event) => {
-          testTreeX.updateAllItemsProperties({ expanded: false });
-        });
-
-        const dragEnabledCheckbox = document.getElementById("drag-enabled");
-        dragEnabledCheckbox.addEventListener("input", (event) => {
-          const checked = event.target.checked;
-
-          testTreeX.dragDisabled = !checked;
-        });
-
-        const dropEnabledCheckbox = document.getElementById("drop-enabled");
-        dropEnabledCheckbox.addEventListener("input", (event) => {
-          const checked = event.target.checked;
-
-          testTreeX.dropDisabled = !checked;
-        });
-
-        const linesSelect = document.getElementById("lines");
-        linesSelect.addEventListener("input", (event) => {
-          const selectedOption = event.target.value;
-          testTreeX.showLines = selectedOption;
-        });
-
-        const loadModelBtn = document.getElementById("load-model-btn");
-        loadModelBtn.addEventListener("click", () => {
-          testTreeX.treeModel = model;
-        });
-
-        const updateModelBtn = document.getElementById("update-model-btn");
-        updateModelBtn.addEventListener("click", () => {
-          testTreeX.treeModel = updatedModel;
-        });
-
-        const updateModelAgainBtn = document.getElementById(
-          "update-model-again-btn"
-        );
-        updateModelAgainBtn.addEventListener("click", () => {
-          testTreeX.treeModel = modelTinyUpdatedAgain;
-        });
-
-        const updateBigModelBtn = document.getElementById(
-          "update-big-model-btn"
-        );
-        updateBigModelBtn.addEventListener("click", () => {
-          testTreeX.treeModel = bigModel;
-        });
-
-        const kbExplorerBtn = document.getElementById("kb-explorer-model-btn");
-        kbExplorerBtn.addEventListener("click", () => {
-          testTreeX.checkbox = false;
-          testTreeX.checked = false;
-          testTreeX.toggleCheckboxes = false;
-
-          testTreeX.treeModel = kbExplorerModel;
-        });
-
-        const importObjectsBtn = document.getElementById(
-          "import-objects-model-btn"
-        );
-        importObjectsBtn.addEventListener("click", () => {
-          testTreeX.checkbox = true; /*va en el render del tree*/
-          testTreeX.checked = true;
-          testTreeX.toggleCheckboxes = true; /*va en el render del tree*/
-
-          // It must be the last property updated, since with HTML the
-          // properties change won't be queued to be updated in the same lifecycle
-          testTreeX.treeModel = importObjectsModel;
-        });
-
-        const scrollIntoVisibleBtn = document.getElementById(
-          "btn-scroll-into-visible"
-        );
-        const scrollIntoVisibleInput = document.getElementById(
-          "input-scroll-into-visible"
-        );
-
-        scrollIntoVisibleBtn.addEventListener("click", () => {
-          testTreeX.scrollIntoVisible(scrollIntoVisibleInput.value);
-          scrollIntoVisibleInput.value = "";
-        });
-
-        const contextMenuTextBlock = document.getElementById(
-          "contextmenu-textblock"
-        );
-
-        // Reload items
-        const reloadItemsBtn = document.getElementById(
-          "button-to-reload-items"
-        );
-        const reloadItemsInput = document.getElementById("item-id-to-reload");
-        reloadItemsBtn.addEventListener("click", () => {
-          testTreeX.reloadItems(reloadItemsInput.value);
-          reloadItemsInput.value = "";
-        });
-
-        testTreeX.addEventListener("itemContextmenu", (event) => {
-          contextMenuTextBlock.innerHTML = `+ + + + + + + Context + + + + + + +<br>
-          ${event.detail.id}<br>
-          level: ${event.detail.itemRef.level}<br>
-          Drop Enabled: ${!event.detail.itemRef.dropDisabled}<br>
-          ScreenX: ${event.detail.contextmenuEvent.screenX}<br>
-          ScreenY: ${event.detail.contextmenuEvent.screenY}<br>
-          `;
-        });
-
         const openReferenceTextBlock = document.getElementById(
           "open-reference-textblock"
         );
 
-        testTreeX.addEventListener("itemOpenReference", (event) => {
+        testTreeX.addEventListener("itemOpenReference", event => {
           openReferenceTextBlock.innerHTML = `<br>+ + + + + Open Reference + + + + +<br>
           Item ID: ${event.detail.id}<br>
           Item Leaf: ${event.detail.leaf}<br>
@@ -1722,86 +1186,8 @@
           "checked-items-textblock"
         );
 
-        /*checked items*/
-        testTreeX.addEventListener("checkedItemsChange", (event) => {
-          if (event.detail == null) {
-            checkAllCheckbox.checked = false;
-            checkAllCheckbox.indeterminate = false;
-            return;
-          }
-          const allItemsWithCheckbox = [...event.detail.values()];
-
-          if (allItemsWithCheckbox.length === 0) {
-            checkAllCheckbox.checked = false;
-            checkAllCheckbox.indeterminate = false;
-            return;
-          }
-
-          const firstItemCheckedValue = allItemsWithCheckbox[0].item.checked;
-
-          const allItemsHaveTheSameCheckedValue = allItemsWithCheckbox.every(
-            (treeItem) => treeItem.item.checked === firstItemCheckedValue
-          );
-
-          checkAllCheckbox.checked = firstItemCheckedValue;
-          checkAllCheckbox.indeterminate = !allItemsHaveTheSameCheckedValue;
-
-          // Dummy way to check if the current treeModel is "Import Objects"
-          /*Este if es innecesario para los dialogos pero el contenido si va (no va)*/
-          if (testTreeX.treeModel[0]?.id === "Category") {
-            allItemsWithCheckbox.forEach((itemUIModel) => {
-              const itemInfo = itemUIModel.item;
-
-              // Update the amount of checked values
-              if (itemInfo.leaf !== true) {
-                const totalItems = itemInfo.items.length;
-                // console.log(itemInfo.items);
-
-                const totalItemsChecked = itemInfo.items.filter(
-                  (itemUIModel) => itemUIModel.checked
-                ).length;
-
-                const newItemCaption =
-                  totalItems !== totalItemsChecked
-                    ? `${itemInfo.id} (${totalItemsChecked}/${totalItems})`
-                    : `${itemInfo.id} (${totalItems})`;
-
-                // Only update the item caption if needed
-                if (newItemCaption !== itemInfo.caption) {
-                  testTreeX.updateItemsProperties([itemInfo.id], {
-                    caption: newItemCaption,
-                  });
-                }
-              }
-            });
-          }
-
-          // Print checked items /*Esto se va tambien (no va)*/
-          checkedItemsTextBlock.innerHTML = `<br>+ + + + + Checked items + + + + +<br>
-          ${allItemsWithCheckbox
-            .filter((itemUIModel) => itemUIModel.item.checked)
-            .map((itemUIModel) => itemUIModel.item.id)
-            .join("<br>")}
-          <br>
-          <br>+ + + + + Unchecked items + + + + +<br>
-          ${allItemsWithCheckbox
-            .filter((itemUIModel) => !itemUIModel.item.checked)
-            .map((itemUIModel) => itemUIModel.item.id)
-            .join("<br>")}
-          `;
-        });
-
-        const selectedItemsTextBlock = document.getElementById(
-          "selected-items-textblock"
-        );
-
-        testTreeX.addEventListener("selectedItemsChange", (event) => {
-          selectedItemsTextBlock.innerHTML = `<br>+ + + + + Selected Items + + + + +<br>
-          ${event.detail.map((el) => el.item.id).join("<br>")}`;
-        });
-
         /*Lazy Load Promise*/
-        testTreeX.lazyLoadTreeItemsCallback = (modelId) =>
+        testTreeX.lazyLoadTreeItemsCallback = modelId =>
           new Promise((resolve, reject) => {
             let lazyModel =
               modelId === "lazy-loaded-2"
@@ -1820,7 +1206,7 @@
                     id: subModelId + "-" + k,
                     caption: subModelId + "-" + k,
                     leaf: true,
-                    leftImgSrc: "./objects/file",
+                    leftImgSrc: "./objects/file"
                   });
                 }
 
@@ -1830,7 +1216,7 @@
                   expanded: true,
                   leaf: false,
                   leftImgSrc: "./objects/knowledge-base",
-                  items: subModelItems,
+                  items: subModelItems
                 });
               }
             }
@@ -1865,7 +1251,7 @@
               resolve({
                 success: status,
                 errorMessage:
-                  "Apologies, an error ocurred while changing the item caption.",
+                  "Apologies, an error ocurred while changing the item caption."
               });
             }, 15); // Resolves after 15 ms
           });
@@ -1892,7 +1278,7 @@
         /**
          * @param {TreeXItemModel[]} subModel
          */
-        const sortItems = (subModel) =>
+        const sortItems = subModel =>
           subModel.sort((a, b) => {
             if (a.order < b.order) {
               return -1;

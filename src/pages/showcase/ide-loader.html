@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>IDE Loader | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .show-loader-btn {
+        width: 125px;
+        margin-top: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-ide-loader</h1>
+      <!-----------------
+      Template
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example">
+              <div class="wrapper">
+                <gxg-grid>
+                  <ch-grid
+                    id="container"
+                    row-selection-mode="multiple"
+                    id="ch-grid-second"
+                  >
+                    <ch-grid-columnset>
+                      <ch-grid-column
+                        column-name=""
+                        settingable="false"
+                        column-type="rich"
+                        rich-row-drag
+                        size="min-content"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name=""
+                        settingable="false"
+                        column-type="rich"
+                        rich-row-selector
+                        size="min-content"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name="Property"
+                        settingable="false"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name="Value"
+                        settingable="false"
+                      ></ch-grid-column>
+                    </ch-grid-columnset>
+
+                    <ch-grid-row selected rowid="nombre-productos">
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Nombreeee</ch-grid-cell>
+                      <ch-grid-cell>Productos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                      <ch-grid-cell>Products</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Português</ch-grid-cell>
+                      <ch-grid-cell>Produtos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                      <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                      <ch-grid-cell>Found</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Url amigable</ch-grid-cell>
+                      <ch-grid-cell>productos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                      <ch-grid-cell>products</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Português</ch-grid-cell>
+                      <ch-grid-cell>produtos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Id</ch-grid-cell>
+                      <ch-grid-cell>7867</ch-grid-cell>
+                    </ch-grid-row>
+                    <!-- <div slot="row-actions">
+                      <gxg-button
+                        type="primary-text-icon"
+                        icon="controls/action-group"
+                        >Action A</gxg-button
+                      >
+                      <gxg-button
+                        type="primary-text-icon"
+                        icon="controls/action-group"
+                        >Action B</gxg-button
+                      >
+                    </div> -->
+                  </ch-grid>
+                </gxg-grid>
+                <gxg-button class="show-loader-btn">show loader</gxg-button>
+                <gxg-ide-loader
+                  loader-title="Loading kbs..."
+                  cancel-label="Cancel"
+                ></gxg-ide-loader>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+    <script>
+      const loader = document.querySelector("gxg-ide-loader");
+      const containerRef = document.getElementById("container");
+      const showLoaderBtn = document.querySelector(".show-loader-btn");
+      showLoaderBtn.addEventListener("click", () => {
+        loader.show = true;
+      });
+      loader.container = containerRef;
+      /*event loaderFinished*/
+      loader.addEventListener("loaderFinished", () => {
+        console.log("loaderFinished event");
+      });
+    </script>
+  </body>
+</html>

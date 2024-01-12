@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&family=Rubik:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
 :root {
   --gwds__color--dark-900: #1b1f23;
   --gwds__color--dark-800: #3b4044;
@@ -7,9 +9,9 @@
   --gwds__color--violet-300: #9a7fda;
   --gwds__color--violet-500: #6c48c9;
   --gwds__color--white: #fff;
-  --gwds__space--m: 32px;
+  --gwds__space--md: 32px;
   --gwds__space--xs: 8px;
-  --gwds__space--s: 16px;
+  --gwds__space--sm: 16px;
   --gwds__font-weight--regular: 400;
   --gwds__radius--xs: 8px;
 }
@@ -26,7 +28,7 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 body {
-  font-family: "Rubik", sans-serif;
+  /*font-family: "Rubik", sans-serif;*/
 }
 body.dark {
   background-color: #1b1f23;
@@ -240,8 +242,8 @@ body {
 .header-dev {
   background-color: var(--gray-07);
   color: var(--gray-01);
-  padding: var(--gwds__space--s) var(--gwds__space--s);
-  margin-bottom: var(--gwds__space--m);
+  padding: var(--gwds__space--sm) var(--gwds__space--sm);
+  margin-bottom: var(--gwds__space--md);
   display: flex;
   justify-content: space-between;
 }
@@ -256,11 +258,11 @@ body {
 }
 .code-wrapper {
   color: var(--gray-07);
-  padding: var(--gwds__space--s);
-  margin-top: var(--gwds__space--s);
+  padding: var(--gwds__space--sm);
+  margin-top: var(--gwds__space--sm);
   border: 1px solid var(--gray-02);
   display: block;
-  margin-bottom: var(--gwds__space--s);
+  margin-bottom: var(--gwds__space--sm);
   font-size: 12px;
 }
 .code-wrapper .note {
@@ -273,24 +275,28 @@ body {
 }
 .title {
   margin-bottom: 0;
-  margin-top: var(--gwds__space--m);
+  margin-top: var(--gwds__space--md);
+}
+p {
+  font-family: var(--ds-base-font-family-primary);
 }
 .list {
+  font-family: var(--ds-base-font-family-primary);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 1fr;
   grid-gap: var(--gwds__space--xs);
-  margin-top: var(--gwds__space--m);
+  margin-top: var(--gwds__space--md);
   font-weight: var(--gwds__font-weight--regular);
   padding: 0;
-  margin-bottom: var(--gwds__space--s);
+  margin-bottom: var(--gwds__space--sm);
   list-style-type: none;
 }
 .list li a {
   display: block;
   border-radius: var(--gwds__radius--xxs);
   border: 1px solid var(--gwds__color--dark-700);
-  padding: var(--gwds__space--s);
+  padding: var(--gwds__space--sm);
   text-decoration: none;
   color: var(--gwds__color--violet-300);
   border: 1px solid var(--gwds__color--violet-500);
@@ -380,4 +386,130 @@ pre[class*="language-"] {
 }
 /********************************
 /END OF PRISM SYNTAX HIGHLIGHTER
+********************************/
+
+/********************************
+SINGLE PAGE
+********************************/
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+html {
+  --separation-space: 48px;
+  --nav-bar-height: 32px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 36px 36px 72px 36px;
+  border-block-end: 3px dotted var(--color-primary-enabled);
+}
+.container.no-separator {
+  border-block-end: 0;
+}
+body {
+  background-color: var(--ds-base-background-color);
+  color: var(--ds-base-font-color);
+}
+body:not(.home) h1 {
+  font-family: "Ubuntu Mono";
+  font-size: 20px;
+  color: var(--color-primary-enabled);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+section h2 {
+  margin-top: -8px; /*fix line height space*/
+  margin-block-end: var(--separation-space);
+  font-size: 36px;
+  font-weight: 400;
+}
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: var(--mer-font__size--md);
+  font-weight: var(--font-weight-bold);
+}
+section {
+  padding: var(--separation-space) 0 calc(var(--separation-space) + 6px) 0;
+  border-block-end: 1px solid var(--gray-01);
+}
+section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+section[borderless] {
+  border-block-end: 0;
+}
+article {
+  gap: var(--spacing-comp-03);
+}
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.articles-container article {
+  display: flex;
+  flex-direction: column;
+}
+.articles-container article > * {
+  font-family: var(--ds-base-font-family-primary);
+}
+.articles-container article p {
+  line-height: var(--ds-base-font-line-height--comfortable);
+}
+article .example {
+  margin-top: 16px;
+  /* display: flex;
+  gap: 16px; */
+}
+article > p {
+  /*font-size: 13px;*/
+  margin-bottom: 0;
+}
+.actions {
+  margin-block-start: 16px;
+}
+code {
+  display: block;
+  font-size: 16px;
+  color: var(--gray-03);
+  font-family: "Ubuntu Mono";
+  display: inline-block;
+  /*padding: var(--spacing-comp-01) var(--spacing-comp-02);*/
+}
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  color: black;
+  height: var(--nav-bar-height);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+}
+html.has-navbar body {
+  margin-top: var(--nav-bar-height);
+}
+code[pill] {
+  /* border: 2px solid var(--gray-00);
+  border-radius: var(--border-radius-sm);
+  align-self: flex-start; */
+}
+/* .pills-container {
+  display: flex;
+  gap: 8px;
+}
+.no-margin {
+  margin: 0;
+} */
+/********************************
+/ SINGLE PAGE
 ********************************/

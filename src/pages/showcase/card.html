@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Card | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      p:last-child {
+        margin-bottom: 0;
+      }
+      gxg-card {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-card</h1>
+
+      <!-----------------
+      Card "Section"
+      ------------------>
+      <section data-title="card: section">
+        <div class="articles-container">
+          <!-- with title -->
+          <article data-title="with title">
+            <code pill>card-title="Project Detail"</code>
+            <div class="example">
+              <gxg-card
+                card-title="Project Detail"
+                icon="editing-structures/attribute-formula"
+              >
+                <p>
+                  In our Genexus Knowledge Base project, we embarked on a
+                  journey to redefine user interactions. Leveraging Genexus's
+                  robust features, we seamlessly integrated cutting-edge
+                  technologies, ensuring a responsive and intuitive web
+                  experience for our users.
+                </p>
+                <p>
+                  The heart of our Genexus KB beats with innovation. We
+                  meticulously crafted a dynamic data management system,
+                  employing Genexus's power to streamline information flow.
+                  Navigating through the KB becomes a breeze, offering users a
+                  cohesive and efficient platform.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- with subtitle -->
+          <article data-title="with subtitle">
+            <code pill
+              >card-subtitle="Modified 27/9/23 15:45"
+              subtitle-link="www.some-link.com"</code
+            >
+            <div class="example">
+              <gxg-card
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+                subtitle-icon="general/knowledge-base"
+                subtitle-link="www.some-link.com"
+              >
+                <p>
+                  In our Genexus Knowledge Base project, we embarked on a
+                  journey to redefine user interactions. Leveraging Genexus's
+                  robust features, we seamlessly integrated cutting-edge
+                  technologies, ensuring a responsive and intuitive web
+                  experience for our users.
+                </p>
+                <p>
+                  The heart of our Genexus KB beats with innovation. We
+                  meticulously crafted a dynamic data management system,
+                  employing Genexus's power to streamline information flow.
+                  Navigating through the KB becomes a breeze, offering users a
+                  cohesive and efficient platform.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- with slotted header -->
+          <article data-title="with slotted header">
+            <code pill>slot="header"</code>
+            <div class="example">
+              <gxg-card
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+              >
+                <gxg-form-text slot="header"></gxg-form-text>
+                <p>
+                  In our Genexus Knowledge Base project, we embarked on a
+                  journey to redefine user interactions. Leveraging Genexus's
+                  robust features, we seamlessly integrated cutting-edge
+                  technologies, ensuring a responsive and intuitive web
+                  experience for our users.
+                </p>
+                <p>
+                  The heart of our Genexus KB beats with innovation. We
+                  meticulously crafted a dynamic data management system,
+                  employing Genexus's power to streamline information flow.
+                  Navigating through the KB becomes a breeze, offering users a
+                  cohesive and efficient platform.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- overflowed -->
+          <article data-title="overflowed">
+            <code pill>overflowed title, subtitle, and content</code>
+            <div class="example" style="height: 200px">
+              <gxg-card
+                card-title="Unified Solutions Hub: Revolutionizing Experiences Through Genexus-Powered Web and Mobile Applications"
+                card-subtitle="Mastering Genexus: Crafting Seamless Experiences with Advanced Web and Mobile Solutions"
+                icon="editing-structures/attribute-formula"
+                height="100%"
+              >
+                <p>
+                  In our Genexus Knowledge Base project, we embarked on a
+                  journey to redefine user interactions. Leveraging Genexus's
+                  robust features, we seamlessly integrated cutting-edge
+                  technologies, ensuring a responsive and intuitive web
+                  experience for our users.
+                </p>
+                <p>
+                  The heart of our Genexus KB beats with innovation. We
+                  meticulously crafted a dynamic data management system,
+                  employing Genexus's power to streamline information flow.
+                  Navigating through the KB becomes a breeze, offering users a
+                  cohesive and efficient platform.
+                </p>
+                <p>
+                  As the sun sets on traditional development, our Genexus
+                  project rises. We embraced a modular approach, revolutionizing
+                  code organization. With Genexus's agility, updates are now a
+                  joy, empowering developers to sculpt a cohesive digital
+                  landscape.
+                </p>
+                <p>
+                  Our Genexus project unfolds like a digital tapestry, weaving
+                  together the threads of innovation and efficiency. With a
+                  focus on user-centric design, we harnessed Genexus's prowess
+                  to sculpt an interface that transcends expectations. From
+                  streamlined data management to dynamic UI components, our
+                  project is a testament to the limitless possibilities Genexus
+                  affords.
+                </p>
+                <p>
+                  In the symphony of technology, our Genexus endeavor is the
+                  conductor orchestrating harmony. We delved into the
+                  intricacies of backend development, employing Genexus's robust
+                  capabilities to create a responsive and scalable
+                  infrastructure. The result? A Genexus project that not only
+                  meets but exceeds the demands of the ever-evolving digital
+                  landscape.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Card "Article"
+      ------------------>
+      <section data-title="card: article">
+        <div class="articles-container">
+          <!-- title and subtitle -->
+          <article data-title="title and subtitle">
+            <div class="example">
+              <gxg-card
+                card-type="article"
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23"
+                icon="editing-structures/attribute-formula"
+                subtitle-icon="general/knowledge-base"
+              >
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- title semibold -->
+          <article data-title="title semibold">
+            <code pill>titleSemibold</code>
+            <div class="example">
+              <gxg-card
+                card-type="article"
+                card-title="Project Detail"
+                icon="editing-structures/attribute-formula"
+                title-semibold
+              >
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- with content -->
+          <article data-title="with content">
+            <div class="example">
+              <gxg-card
+                card-type="article"
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- no header border -->
+          <article data-title="no header border">
+            <code pill>noHeaderBorder</code>
+            <div class="example">
+              <gxg-card
+                card-type="article"
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+                no-header-border
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- actionable -->
+          <article data-title="actionable">
+            <code pill>actionable</code>
+            <div class="example">
+              <gxg-card
+                card-type="article"
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+                actionable
+                onclick="alert('Do something interesting!')"
+              >
+              </gxg-card>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Card "Mini"
+      ------------------>
+      <section data-title="card: mini">
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example">
+              <gxg-card
+                card-type="mini"
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- actionable -->
+          <article data-title="actionable">
+            <code pill>actionable</code>
+            <div class="example">
+              <gxg-card
+                card-type="mini"
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+                actionable
+                onclick="alert('Do something interesting!')"
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Other
+      ------------------>
+      <section data-title="other / general">
+        <div class="articles-container">
+          <!-- card "section" without shadow -->
+          <article data-title="card 'section' without shadow">
+            <code pill>noShadow</code>
+            <div class="example">
+              <gxg-card
+                card-type="section"
+                card-title="Project Detail"
+                icon="editing-structures/attribute-formula"
+                no-shadow
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- card "article" without shadow -->
+          <article data-title="card 'article' without shadow">
+            <code pill>noShadow</code>
+            <div class="example">
+              <gxg-card
+                card-type="article"
+                card-title="Project Detail"
+                icon="editing-structures/attribute-formula"
+                no-shadow
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- card "mini" without shadow -->
+          <article data-title="card 'mini' without shadow">
+            <code pill>noShadow</code>
+            <div class="example">
+              <gxg-card
+                card-type="mini"
+                card-title="Project Detail"
+                icon="editing-structures/attribute-formula"
+                no-shadow
+              >
+                <p>
+                  The updates include Conversational Development in GeneXus
+                  Next, new experiences and interaction capabilities in GeneXus
+                  Enterprise AI (code name SAIA), Super App generation, and over
+                  500 enhancements in GeneXus 18.
+                </p>
+              </gxg-card>
+            </div>
+          </article>
+
+          <!-- nested cards -->
+          <style>
+            .cards-container {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+            }
+          </style>
+          <article data-title="nested cards (section + article)">
+            <div class="example" style="height: 100%">
+              <gxg-card
+                card-title="Project Detail"
+                card-subtitle="Modified 27/9/23 15:45"
+                icon="editing-structures/attribute-formula"
+                height="300px"
+              >
+                <div class="cards-container">
+                  <gxg-card
+                    card-type="article"
+                    card-title="WebDev101"
+                    card-subtitle="Last opened: Today 23:19"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="UXMasters"
+                    card-subtitle="Last opened: Yesterday 01:14"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="CodeCrafters"
+                    card-subtitle="Last opened: Tuesday 01:14"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="ResponsiveRealms"
+                    card-subtitle="Last opened: June 27 01:14"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="DesignGenius"
+                    card-subtitle="Last opened: 11/16/2022 15:15"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="TestersHub"
+                    card-subtitle="Last opened: 11/14/2021 18:45"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="DevElevation"
+                    card-subtitle="Last opened: 11/05/2021 20:30"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                  <gxg-card
+                    card-type="article"
+                    card-title="UIInnovate"
+                    card-subtitle="Last opened: 03/05/2021 20:30"
+                    icon="editing-structures/attribute-formula"
+                    actionable
+                    no-shadow
+                  >
+                  </gxg-card>
+                </div>
+              </gxg-card>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
