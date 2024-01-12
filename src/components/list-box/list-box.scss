@@ -51,6 +51,7 @@
 }
 .container:not(:focus-within) {
   --ds-border-color--focused: transparent;
+  --ds-focus-border-color: transparent;
 }
 
 :host([no-border]) {

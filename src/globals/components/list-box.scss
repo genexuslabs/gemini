@@ -28,7 +28,7 @@
     --spacing-comp-01
   );
   /*--- Item > Icon ---*/
-  --gxg-list-box-item-icon__margin-inline-end: var(--spacing-comp-01);
+  --gxg-list-box-item-icon__margin-inline-end: var(--spacing-comp-02);
   --gxg-list-box-item-checkbox__margin-inline-end: var(--spacing-comp-01);
   --gxg-list-box-item-icon__size-box--regular: var(--ds-icon-size-box--regular);
   --gxg-list-box-item-icon__size--regular: var(--ds-icon-size--regular);
@@ -37,7 +37,7 @@
 :root.mercury {
   /*--- Header ---*/
   --gxg-list-box-header__background-color: var(--mer-color__neutral-gray--1200);
-  --gxg-list-box-header__padding: var(--mer-spacing__comp--xxs)
+  --gxg-list-box-header__padding: var(--mer-spacing__comp--xs)
     var(--mer-spacing__comp--xs);
   --gxg-list-box-header__font-weight: var(--mer-font__weight--semi-bold);
   --gxg-list-box-header__color: var(--ds-base-font-color);
