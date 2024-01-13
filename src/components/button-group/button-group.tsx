@@ -5,7 +5,7 @@ import { TitleAlignment } from "../../common/types";
 @Component({
   tag: "gxg-button-group",
   styleUrl: "button-group.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgButtonGroup {
   @Element() el: HTMLElement;
@@ -63,7 +63,7 @@ export class GxgButtonGroup {
     const allButtons = this.el.querySelectorAll("button");
     let newActiveButton: HTMLButtonElement;
     this.removeFocusAll();
-    allButtons.forEach((button) => {
+    allButtons.forEach(button => {
       if (button.id === newValue) {
         newActiveButton = button;
       }
@@ -78,7 +78,7 @@ export class GxgButtonGroup {
 
   private removeFocusAll = () => {
     const allButtons = this.el.querySelectorAll("button");
-    allButtons.forEach((button) => {
+    allButtons.forEach(button => {
       button.blur();
     });
   };
@@ -104,6 +104,7 @@ export class GxgButtonGroup {
     if (dirHtml === "rtl" || dirBody === "rtl") {
       this.rtl = true;
     }
+    //this.setActiveSibling();
   }
 
   /*********************************
@@ -150,7 +151,7 @@ export class GxgButtonGroup {
     //get id of all buttons into array
     const buttonsHtmlCollection = this.el.children;
     const buttonsIdsArray = [];
-    Array.from(buttonsHtmlCollection).forEach((button) => {
+    Array.from(buttonsHtmlCollection).forEach(button => {
       const b = button as HTMLElement;
       b.setAttribute("tabindex", "0");
       if (b.getAttribute("id") !== "") {
@@ -171,7 +172,7 @@ export class GxgButtonGroup {
       this.el.children[0].setAttribute("aria-pressed", "true");
     } else {
       if (buttonsIdsArray.includes(this.defaultSelectedBtnId)) {
-        Array.from(buttonsHtmlCollection).forEach((button) => {
+        Array.from(buttonsHtmlCollection).forEach(button => {
           const b = button as HTMLElement;
 
           if (b.id == this.defaultSelectedBtnId) {
@@ -213,7 +214,7 @@ export class GxgButtonGroup {
     if (this.buttonGroupTitle !== undefined) {
       header = (
         <header class="button-group-header">
-          <gxg-label class="button-group-header-label">
+          <gxg-label class="button-group-header-label" labelPosition="above">
             {this.buttonGroupTitle}
           </gxg-label>
         </header>
@@ -228,6 +229,7 @@ export class GxgButtonGroup {
           "button-group": true,
           rtl: this.rtl,
           large: state.large,
+          mercury: state.mercury
         }}
         value={this.value}
         title-alignment={this.titleAlignment}

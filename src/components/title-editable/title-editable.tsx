@@ -7,7 +7,7 @@ import {
   State,
   Watch,
   Event,
-  EventEmitter,
+  EventEmitter
 } from "@stencil/core";
 import { formTooltipLogic } from "../../common/form";
 import { formClasses } from "../../common/classesNames";
@@ -19,7 +19,7 @@ import { ValidationStatus } from "../../common/types";
 @Component({
   tag: "gxg-title-editable",
   styleUrl: "title-editable.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgTitleEditable implements FormComponent {
   textInput!: HTMLInputElement;
@@ -145,7 +145,8 @@ export class GxgTitleEditable implements FormComponent {
   };
 
   private positionCursorAtTheEnd = (): void => {
-    this.textInput.selectionStart = this.textInput.selectionEnd = this.textInput.value.length;
+    this.textInput.selectionStart = this.textInput.selectionEnd =
+      this.textInput.value.length;
     this.textInput.focus();
   };
 
@@ -202,7 +203,7 @@ export class GxgTitleEditable implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
       >
         <div
@@ -213,34 +214,36 @@ export class GxgTitleEditable implements FormComponent {
             this.wrapperClickedHandler
           }
           class={{
-            wrapper: true,
+            wrapper: true
           }}
-          ref={(el) => (this.wrapperEl = el as HTMLDivElement)}
+          ref={el => (this.wrapperEl = el as HTMLDivElement)}
         >
           {this.fluid ? (
             <div
               class="ghost"
-              ref={(el) => (this.ghostDiv = el as HTMLDivElement)}
+              ref={el => (this.ghostDiv = el as HTMLDivElement)}
             ></div>
           ) : null}
           <input
             type="text"
             value={this.value}
             readOnly={!this.editing}
-            ref={(el) => (this.textInput = el as HTMLInputElement)}
+            ref={el => (this.textInput = el as HTMLInputElement)}
             onKeyDown={this.inputKeyDownHandler}
             onInput={this.inputInputHandler}
             tabIndex={this.editing ? 0 : -1}
           />
-          {!this.disableEdition ? (
-            <gxg-button
-              type="secondary-icon-only"
-              icon="gemini-tools/edit"
-              onClick={this.edit}
-              ref={(el) => (this.editButtonEl = el as HTMLGxgButtonElement)}
-            ></gxg-button>
-          ) : null}
-          {formTooltipLogic(this, this.hideTooltip)}
+          <div class="right-wrapper">
+            {!this.disableEdition ? (
+              <gxg-button
+                type="secondary-icon-only"
+                icon="gemini-tools/edit"
+                onClick={this.edit}
+                ref={el => (this.editButtonEl = el as HTMLGxgButtonElement)}
+              ></gxg-button>
+            ) : null}
+            {formTooltipLogic(this, this.hideTooltip)}
+          </div>
         </div>
       </Host>
     );

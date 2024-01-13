@@ -64,7 +64,7 @@ Type: `Promise<void>`
 
 
 
-### `reloadItems(itemId: string, beforeProperties?: Partial<TreeViewItemModel>, afterProperties?: Partial<TreeViewItemModel>) => Promise<void>`
+### `reloadItems(itemId: string, beforeProperties?: Partial<TreeViewItemModel>, afterProperties?: Partial<TreeViewItemModel>) => Promise<boolean>`
 
 Given an item id and the additional properties to update before and after
 reload, it reloads the items of the `itemId` node by using the
@@ -80,7 +80,7 @@ reload, it reloads the items of the `itemId` node by using the
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<boolean>`
 
 
 
@@ -100,13 +100,22 @@ Type: `Promise<void>`
 
 
 
-### `scrollIntoVisible(path: string | string[], afterProperties?: Partial<TreeViewItemModel>) => Promise<void>`
+### `scrollIntoVisible(path: string | string[], afterProperties?: Partial<TreeViewItemModel>) => Promise<boolean>`
 
 Given the path of the item (represent by a sorted array containing all ids
 from the root to the item) and the additional properties to update after,
 it displays and scrolls into the item view.
 The path can also be a string representing the id of the item to scroll
 into.
+
+When using a path, this method will fail if:
+  - The path does not start from the root element.
+  - The path contains a cycle.
+  - The path does not correspond to a valid path on the server:
+    - One of the item of the path, except for the last one, is a leaf.
+    - An item in the path does not exists on the server.
+    - The path has repeated items.
+    - And so on.
 
 #### Parameters
 
@@ -117,7 +126,7 @@ into.
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<boolean>`
 
 
 

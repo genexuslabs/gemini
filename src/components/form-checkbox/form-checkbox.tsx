@@ -7,6 +7,7 @@ import {
   Event,
   EventEmitter,
   Watch,
+  State,
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -80,6 +81,11 @@ export class GxgFormCheckbox implements FormComponent {
    * Aligns the checkbox to the top of the label (useful when the label is too long)
    */
   @Prop() alignTop = false;
+
+  /**
+   * The input has focus
+   */
+  @State() hasFocus = false;
 
   @Event() change: EventEmitter<CheckboxInfo>;
 
@@ -183,6 +189,14 @@ export class GxgFormCheckbox implements FormComponent {
     }
   }
 
+  private focusHandler = () => {
+    //this.hasFocus = true;
+  };
+
+  private blurHandler = () => {
+    //this.hasFocus = false;
+  };
+
   private renderCheckbox = (): JSXElement[] => {
     return [
       <input
@@ -196,6 +210,8 @@ export class GxgFormCheckbox implements FormComponent {
         disabled={this.disabled}
         onChange={this.changed.bind(this)}
         onKeyUp={this.handlerOnKeyUp.bind(this)}
+        onFocus={this.focusHandler}
+        onBlur={this.blurHandler}
         tabindex="0"
         onClick={this.handleInputClick}
         part={this.parts.input}
@@ -246,12 +262,20 @@ export class GxgFormCheckbox implements FormComponent {
         >
           {this.label ? (
             [
-              this.renderCheckbox(),
+              <div
+                class={{
+                  wrapper: true,
+                  "wrapper--checked": this.checked,
+                  "wrapper--indeterminate": this.indeterminate,
+                  "wrapper--focus": this.hasFocus,
+                }}
+              >
+                {this.renderCheckbox()}
+              </div>,
               <gxg-label
                 class="label"
                 disabled={this.disabled}
                 labelPosition="end"
-                noMargin
                 tooltip={this.tooltip}
               >
                 {this.label}

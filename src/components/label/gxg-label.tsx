@@ -53,6 +53,11 @@ export class GxgLabel {
       (this.center === undefined && this.labelPosition === "end")
     ) {
       this.center = true;
+    } else if (
+      (this.center === undefined && this.labelPosition === "above") ||
+      (this.center === undefined && this.labelPosition === "below")
+    ) {
+      this.center = false;
     }
   }
 

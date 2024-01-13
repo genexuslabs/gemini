@@ -9,11 +9,11 @@ import {
   Watch,
   Method,
   Event,
-  EventEmitter,
+  EventEmitter
 } from "@stencil/core";
 import {
   ComboBoxItemValue,
-  ItemInformation,
+  ItemInformation
 } from "../combo-box-item/combo-box-item";
 import { formMessageLogic, formTooltipLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -28,13 +28,13 @@ import { HTMLPopOverElement } from "../../HTMLPopOverElement";
   tag: "gxg-combo-box",
   styleUrl: "combo-box.scss",
   //shadow: { delegatesFocus: true },
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgComboBox implements FormComponent {
   private parts = {
     input: "input",
     clearButton: "clear-button",
-    toggleButton: "toggle-button",
+    toggleButton: "toggle-button"
   };
   private exportparts: string;
   private _mo;
@@ -76,6 +76,11 @@ export class GxgComboBox implements FormComponent {
   mainContainer!: HTMLDivElement;
   itemsContainer!: HTMLPopOverElement;
   searchItemsContainer!: HTMLDivElement;
+
+  /**
+   * If true, it will prevent Enter key propagation only when the list is open. This prop. was created to prevent issues with ch-shortcuts, when an Enter key has to fire a callback on another element (such as a button) but it has to be ignored when the list is open, since an Enter key on a list-box-item, has to select the item only.
+   */
+  @Prop() preventEnterPropagation = false;
 
   /**
    * A fixed icon that will show on the combo, ignoring the combo-box-item's icons.
@@ -261,14 +266,14 @@ export class GxgComboBox implements FormComponent {
   @Method()
   async getValueByIndex(index: number): Promise<string> {
     const enabledItems = this.getEnabledItems();
-    const foundItem = enabledItems.filter((item) => item.index === index)[0];
+    const foundItem = enabledItems.filter(item => item.index === index)[0];
     return foundItem?.value;
   }
 
   @Method()
   async setValueByIndex(index: number): Promise<boolean> {
     const enabledItems = this.getEnabledItems();
-    const foundItem = enabledItems.filter((item) => item.index === index)[0];
+    const foundItem = enabledItems.filter(item => item.index === index)[0];
     if (foundItem && foundItem.value) {
       this.value = foundItem.value;
       return true;
@@ -300,10 +305,10 @@ export class GxgComboBox implements FormComponent {
   keyDownComboItemHandler(event): void {
     event.stopPropagation();
     if (event.detail === "ArrowUp") {
-      ((this.inputText as unknown) as HTMLElement).focus();
+      (this.inputText as unknown as HTMLElement).focus();
     } else if (event.detail === "Tab" || event.detail === "Escape") {
       this.listIsOpen = false;
-      ((this.inputText as unknown) as HTMLElement).focus();
+      (this.inputText as unknown as HTMLElement).focus();
     }
   }
 
@@ -338,6 +343,9 @@ export class GxgComboBox implements FormComponent {
       newItem?.value && (this.value = newItem?.value);
       repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_UP);
     } else if (e.code === KK.ENTER) {
+      if (this.preventEnterPropagation && this.listIsOpen) {
+        e.stopPropagation();
+      }
       this.hideList();
       this.showAllItems();
     } else if (e.code === KK.SPACE) {
@@ -350,7 +358,7 @@ export class GxgComboBox implements FormComponent {
     }
   };
 
-  private handleValueChangeFormText = (e) => {
+  private handleValueChangeFormText = e => {
     this.value = e.detail;
   };
 
@@ -447,7 +455,7 @@ export class GxgComboBox implements FormComponent {
     const enabledItems = this.getEnabledItems();
     const filteredItems: HTMLGxgComboBoxItemElement[] = [];
     if (enabledItems.length) {
-      enabledItems.forEach((item) => {
+      enabledItems.forEach(item => {
         const itemText = !this.caseSensitive
           ? item.textContent.toLocaleLowerCase()
           : item.textContent;
@@ -469,7 +477,7 @@ export class GxgComboBox implements FormComponent {
 
   private showAllItems = () => {
     const enabledItems = this.getEnabledItems();
-    enabledItems?.forEach((item) => {
+    enabledItems?.forEach(item => {
       item?.hidden && (item.hidden = false);
     });
   };
@@ -496,7 +504,7 @@ export class GxgComboBox implements FormComponent {
   private getEnabledItems = (): HTMLGxgComboBoxItemElement[] => {
     const enabledItems: HTMLGxgComboBoxItemElement[] = [];
     const allItems: HTMLGxgComboBoxItemElement[] = this.getAllItems();
-    allItems.forEach((item) => {
+    allItems.forEach(item => {
       !item.disabled && enabledItems.push(item);
     });
     return enabledItems;
@@ -505,7 +513,7 @@ export class GxgComboBox implements FormComponent {
   private getFilteredItems = (): HTMLGxgComboBoxItemElement[] => {
     const enabledItems: HTMLGxgComboBoxItemElement[] = this.getEnabledItems();
     const filteredItems: HTMLGxgComboBoxItemElement[] = [];
-    enabledItems.forEach((item) => {
+    enabledItems.forEach(item => {
       !item.hidden && filteredItems.push(item);
     });
     return filteredItems;
@@ -514,7 +522,7 @@ export class GxgComboBox implements FormComponent {
   private getAllItems = (): HTMLGxgComboBoxItemElement[] => {
     const allItems: HTMLGxgComboBoxItemElement[] = [];
     const allItemsNodeList = this.el.querySelectorAll("gxg-combo-box-item");
-    allItemsNodeList.forEach((item) => {
+    allItemsNodeList.forEach(item => {
       allItems.push(item as HTMLGxgComboBoxItemElement);
     });
     return allItems;
@@ -526,7 +534,7 @@ export class GxgComboBox implements FormComponent {
     let item: HTMLGxgComboBoxItemElement;
     if (value) {
       const enabledItems: HTMLGxgComboBoxItemElement[] = this.getEnabledItems();
-      item = enabledItems.find((item) => {
+      item = enabledItems.find(item => {
         return !item.disabled && item?.value && item.value === value;
       });
     }
@@ -535,7 +543,7 @@ export class GxgComboBox implements FormComponent {
 
   private clearSelectedItem = () => {
     const enabledItems = this.getEnabledItems();
-    enabledItems?.forEach((item) => {
+    enabledItems?.forEach(item => {
       item.selected && (item.selected = false);
     });
     this.selectedItem = undefined;
@@ -545,7 +553,7 @@ export class GxgComboBox implements FormComponent {
   private getValueByText = (text: string): ComboBoxItemValue => {
     !this.caseSensitive && (text = text.toLowerCase());
     const enabledItems = this.getEnabledItems();
-    const item = enabledItems?.find((item) => {
+    const item = enabledItems?.find(item => {
       const itemText = !this.caseSensitive
         ? item.textContent.toLocaleLowerCase()
         : item.textContent;
@@ -558,7 +566,7 @@ export class GxgComboBox implements FormComponent {
     direction: "prev" | "next"
   ): HTMLGxgComboBoxItemElement | null => {
     const filteredItems = this.getFilteredItems();
-    const indexInFiltered = filteredItems?.findIndex((item) => {
+    const indexInFiltered = filteredItems?.findIndex(item => {
       return item.selected;
     });
     if (direction === "next") {
@@ -665,7 +673,7 @@ export class GxgComboBox implements FormComponent {
   }
 
   focus(): void {
-    ((this.inputText as unknown) as HTMLElement).focus();
+    (this.inputText as unknown as HTMLElement).focus();
   }
 
   detectClickOutsideComboFunc(event): void {
@@ -708,7 +716,7 @@ export class GxgComboBox implements FormComponent {
   }
 
   resizeObserver(): void {
-    this.myObserver = new ResizeObserver((entries) => {
+    this.myObserver = new ResizeObserver(entries => {
       entries.forEach(() => {
         this.repositionItemsContainer();
       });
@@ -750,19 +758,18 @@ export class GxgComboBox implements FormComponent {
     return (
       <Host
         class={{
-          "list-is-opem": this.listIsOpen,
           "gxg-combo-box--disabled": this.disableFilter,
           tooltip: this.toolTip,
-          large: state.large,
+          large: state.large
         }}
         style={{ maxWidth: this.maxWidth, minWidth: this.minWidth }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
         <div
           class={{
-            "main-container": true,
+            "main-container": true
           }}
-          ref={(el) => (this.mainContainer = el as HTMLDivElement)}
+          ref={el => (this.mainContainer = el as HTMLDivElement)}
         >
           {this.label ? (
             <gxg-label
@@ -776,7 +783,7 @@ export class GxgComboBox implements FormComponent {
           <div class="outer-wrapper">
             <div
               class="search-and-items-container"
-              ref={(el) => (this.searchItemsContainer = el as HTMLDivElement)}
+              ref={el => (this.searchItemsContainer = el as HTMLDivElement)}
             >
               <div class={{ "search-container": true }}>
                 <gxg-form-text
@@ -788,13 +795,16 @@ export class GxgComboBox implements FormComponent {
                   icon={this.fixedIcon || this.inputTextIcon}
                   iconPosition="start"
                   readonly={this.disableFilter}
-                  ref={(el) => (this.inputText = el as HTMLGxgFormTextElement)}
+                  ref={el => (this.inputText = el as HTMLGxgFormTextElement)}
                   validationStatus={this.validationStatus}
                   disabled={this.disabled}
                   onValueChanged={this.handleValueChangeFormText}
                   cursorEnd={this.cursorEnd}
                   preventValueChangedEmit
-                  class={{ "clear-icon": clearIcon }}
+                  class={{
+                    "icon-end--double": clearIcon,
+                    "icon-end": !clearIcon
+                  }}
                   part={this.parts.input}
                 ></gxg-form-text>
                 <div class="buttons-wrapper">
@@ -805,21 +815,21 @@ export class GxgComboBox implements FormComponent {
                       type="tertiary"
                       onClick={() => this.clearCombo()}
                       tabindex="-1"
-                      fit
                       disabled={this.disabled}
                       part={this.parts.clearButton}
+                      small
                     ></gxg-button>
                   ) : null}
 
                   <gxg-button
                     class={{ "button-icon": true }}
                     icon="navigation/arrow-down"
-                    type="secondary-icon-only"
+                    type="tertiary"
                     onClick={this.toggleListButtonClickHandler}
-                    fit
                     disabled={this.disabled}
                     tabindex="-1"
                     part={this.parts.toggleButton}
+                    small
                   ></gxg-button>
                 </div>
               </div>
@@ -832,15 +842,15 @@ export class GxgComboBox implements FormComponent {
                   "items-container--popover": this.popOver,
                   "items-container--no-match": this.noMatch,
                   "items-container--below": this.listPosition === "below",
-                  "items-container--above": this.listPosition === "above",
+                  "items-container--above": this.listPosition === "above"
                 }}
                 style={{ maxHeight: this.listMaxHeight }}
-                ref={(el) =>
-                  (this.itemsContainer = (el as unknown) as HTMLPopOverElement)
+                ref={el =>
+                  (this.itemsContainer = el as unknown as HTMLPopOverElement)
                 }
               >
                 <slot></slot>
-                {this.noMatch && this.strict ? (
+                {false && this.strict ? (
                   <div class="no-ocurrences-found">
                     No occurrences found
                     <span>ctrl/cmd + backspace to erase</span>

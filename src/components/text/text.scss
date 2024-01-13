@@ -3,7 +3,6 @@
 
 :host {
   display: flex;
-  font-size: 14px;
   .wrapper {
     display: flex;
     flex-direction: row;
@@ -15,7 +14,6 @@
     display: block;
     margin: 0;
     padding: 0;
-    line-height: 1.6em;
 
     &.no-line {
       text-decoration: none;
@@ -23,7 +21,7 @@
   }
   .disabled {
     pointer-events: none;
-    color: var(--gxg-color--disabled) !important;
+    color: var(--ds-color--disabled) !important;
   }
 }
 /*text align*/
@@ -83,10 +81,7 @@
   }
 }
 
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) {
+:host {
   .gxg-text,
   .gxg-text--gray,
   .gxg-quote,
@@ -95,8 +90,6 @@ LARGE VERSION (html tag has 'gxg-large' class)
   .gxg-alert-error,
   .gxg-alert-warning,
   .gxg-alert-success {
-    font-size: var(--font-size-lg);
+    font-size: var(--ds-base-font-size);
   }
 }
-
-@import "./text-mercury";

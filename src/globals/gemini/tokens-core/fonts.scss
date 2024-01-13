@@ -1,0 +1,148 @@
+/*gemini*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
+/*********************************
+TOKENS FOR FONTS
+*********************************/
+
+:root {
+  /*font families*/
+  --font-family-primary: "Open Sans", sans-serif;
+  --font-family-secondary: sans-serif; /*None, at the time of writing*/
+
+  /*font weights*/
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+  /*font sizes*/
+  --font-size-xxs: 8px;
+  --font-size-xs: 9px;
+  --font-size-sm: 10px;
+  --font-size-md: 11px;
+  --font-size-lg: 12px;
+  --font-size-xl: 13px;
+
+  /*font sizes (mercury only)*/
+  --mer-font_size-xxs: 12px;
+  --mer-font_size-xs: 14px;
+  --mer-font_size-s: 16px;
+  --mer-font_size-m: 20px;
+  --mer-font_size-l: 24px;
+  --mer-font_size-xl: 36px;
+
+  /*font styles*/
+  --font-style-regular: normal;
+
+  /*font line heights*/
+  --line-height-regular: normal;
+  --line-height-comfortable: 1.7em;
+
+  /*font letter spacings*/
+  --letter-spacing-xs: 0.2px;
+  --letter-spacing-sm: 0.25px;
+  --letter-spacing-md: 0.3px;
+  --letter-spacing-lg: 0.6px;
+}
+
+/*********************************
+TITLES STYLES
+*********************************/
+
+/*Title 01*/
+.gxg-title-01 {
+  @include gxg-title-01;
+  &--negative {
+    @include gxg-title-01--negative;
+  }
+}
+/*Title 02*/
+.gxg-title-02 {
+  @include gxg-title-02;
+  &--negative {
+    @include gxg-title-02--negative;
+  }
+}
+/*Title 03*/
+.gxg-title-03 {
+  @include gxg-title-03;
+  &--negative {
+    @include gxg-title-03--negative;
+  }
+}
+/*Title 04*/
+.gxg-title-04 {
+  @include gxg-title-04;
+  &--negative {
+    @include gxg-title-04--negative;
+  }
+}
+/*Title 05*/
+.gxg-title-05 {
+  @include gxg-title-05;
+  &--negative {
+    @include gxg-title-05--negative;
+  }
+}
+/*Text*/
+.gxg-text {
+  @include gxg-text;
+  cursor: pointer;
+  &--negative {
+    @include gxg-text--negative;
+  }
+  &--gray {
+    @include gxg-text--gray;
+  }
+}
+/*Link*/
+.gxg-link {
+  @include gxg-link;
+
+  &:hover {
+    @include gxg-link--hover;
+  }
+  &:active {
+    @include gxg-link--active;
+  }
+}
+/*Quote*/
+.gxg-quote {
+  @include gxg-quote;
+  &--negative {
+    @include gxg-quote--negative;
+  }
+}
+/*Tab*/
+.gxg-tab {
+  @include gxg-tab;
+  &--active {
+    @include gxg-tab--active;
+  }
+  &--disabled {
+    @include gxg-tab--disabled;
+  }
+}
+/*label*/
+.gxg-label {
+  @include gxg-label;
+
+  &--disabled {
+    @include gxg-label--disabled;
+  }
+  &:not(.gxg-label--negative):not(.gxg-label--negative-disabled):not(.gxg-label--disabled):hover {
+    @include gxg-label--hover;
+  }
+  &:not(.gxg-label--negative):not(.gxg-label--negative-disabled):not(.gxg-label--disabled):focus {
+    @include gxg-label--focus;
+  }
+  &:not(.gxg-label--negative):not(.gxg-label--negative-disabled):not(.gxg-label--disabled):active {
+    @include gxg-label--active;
+  }
+  &--negative {
+    @include gxg-label--negative;
+  }
+  &--negative-disabled {
+    @include gxg-label--negative-disabled;
+  }
+}

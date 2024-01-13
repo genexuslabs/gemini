@@ -37,6 +37,7 @@
   }
 }
 .tooltip-inner-wrapper {
+  --margin-inline-start: 6px;
   overflow: hidden;
   transition: 150ms width;
   width: 0;
@@ -45,10 +46,11 @@
     position: relative !important;
     top: 0 !important;
     transform: none !important;
-    margin-inline-start: var(--spacing-comp-01);
+    margin-inline-start: var(--margin-inline-start);
+    box-sizing: border-box;
   }
   &--visible {
-    width: 24px;
+    width: calc(var(--ds-icon-size-box--small) + var(--margin-inline-start));
   }
   &--hidden {
     display: none;

@@ -1,0 +1,6 @@
+:root {
+  --gxg-form-message-icon__margin-inline-end: var(--spacing-comp-01);
+}
+:root.mercury {
+  --gxg-form-message-icon__margin-inline-end: var(--mer-border__radius--md);
+}

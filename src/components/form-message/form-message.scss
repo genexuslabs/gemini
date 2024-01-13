@@ -9,14 +9,14 @@
   gxg-icon {
     height: 10px;
     width: 15px;
-    margin-right: var(--spacing-comp-01);
+    margin-inline-end: var(--gxg-form-message-icon__margin-inline-end);
   }
 }
 :host([type="error"]) {
-  color: var(--color-error-dark);
+  color: var(---ds-base-font-color--error);
 }
 :host([type="warning"]) {
-  color: var(--color-warning-dark);
+  color: var(--ds-base-font-color--warning);
 }
 
 @keyframes errorMessage {
@@ -28,12 +28,4 @@
     top: 0;
     opacity: 1;
   }
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-
-:host(.large) {
-  font-size: var(--font-size-sm);
 }

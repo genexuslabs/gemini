@@ -11,9 +11,31 @@
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
     <link href="/build/gemini.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./pages/assets/dev-styles.css" />
+    <link rel="stylesheet" href="./pages/assets/styles.css" />
     <script>
-      //Components
+      //Gemini & Mercury Components
+      const showcase = [
+        "buttons",
+        "tabs",
+        "label",
+        "form-checkbox",
+        "form-radio",
+        "form-text",
+        "form-textarea",
+        "card",
+        "list-box",
+        "combo-box",
+        "tree-view",
+        "grid",
+        "text",
+        "title",
+        "ide-loader",
+        "suggest",
+        "icon",
+        "title-editable"
+      ];
+
+      //Gemini Components
       const components = [
         "title-editable",
         "columns",
@@ -69,10 +91,10 @@
         "tree",
         "window",
         "tooltip",
-        "shortcuts",
+        "shortcuts"
       ];
 
-      //Tests
+      //Gemini Tests
       const tests = [
         "tree-view-spacing",
         "ch-grid-inside-dialog",
@@ -114,34 +136,50 @@
         "popover",
         "focus",
         "cards-gemini",
-        "cards-mercury",
+        "cards-mercury"
       ];
     </script>
   </head>
-  <body class="dark" style="text-align: center">
-    <div class="container">
-      <h1 class="title h2">Gemini</h1>
+  <body class="dark home" style="text-align: center">
+    <div class="container no-separator">
+      <h1 class="title h2">Gemini or Mercury</h1>
       <p style="max-width: 300px; margin: 16px auto 0 auto; line-height: 1.6em">
         A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
       </p>
-      <h2 class="title h4 align-left">Components:</h2>
-      <ul class="list unstyled" id="componentsUl">
-        <!-- populated dinamically with javascript -->
-      </ul>
-    </div>
 
-    <div class="container">
-      <h2 class="title h4 align-left">Tests:</h2>
-      <ul class="list unstyled in-progress" id="testsUl">
-        <!-- populated dinamically with javascript -->
+      <h2 class="title h4 align-left">Gemini or Mercury Showcase:</h2>
+      <ul class="list unstyled" id="showcaseUl">
+        <!-- populated dynamically with javascript -->
       </ul>
+      <div hidden>
+        <h2 class="title h4 align-left">Gemini Components:</h2>
+        <ul class="list unstyled" id="componentsUl">
+          <!-- populated dynamically with javascript -->
+        </ul>
+
+        <h2 class="title h4 align-left">Gemini Tests:</h2>
+        <ul class="list unstyled in-progress" id="testsUl">
+          <!-- populated dynamically with javascript -->
+        </ul>
+      </div>
     </div>
   </body>
 
   <script>
+    //showcase
+    const showcaseUl = document.getElementById("showcaseUl");
+    showcase.sort().forEach(el => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.setAttribute("href", `/pages/showcase/${el}.html`);
+      a.innerText = el;
+      li.appendChild(a);
+      showcaseUl.appendChild(li);
+    });
+
     //components
     const componentsUl = document.getElementById("componentsUl");
-    components.sort().forEach((el) => {
+    components.sort().forEach(el => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.setAttribute("href", `/pages/components/${el}.html`);
@@ -152,7 +190,7 @@
 
     //In Progress
     const testsUl = document.getElementById("testsUl");
-    tests.forEach((el) => {
+    tests.forEach(el => {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.setAttribute("href", `/pages/tests/${el}.html`);

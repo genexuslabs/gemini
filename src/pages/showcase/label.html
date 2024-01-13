@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Mercury Components | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      .box {
+        width: 150px;
+        height: 25px;
+        border-radius: 2px;
+        opacity: 0.75;
+        background-color: rgb(156 156 156);
+      }
+      html.dark {
+        .box {
+          background-color: rgb(55 55 55);
+        }
+      }
+      .example {
+        display: flex;
+      }
+      .example--start,
+      .example--end {
+        flex-direction: row;
+      }
+      .example--above,
+      .example--below {
+        flex-direction: column;
+      }
+      /*center*/
+      .example--center {
+        align-content: center;
+        width: 200px;
+      }
+      .example--center .box {
+        width: 100%;
+      }
+      .example--start.example--center,
+      .example--end.example--center {
+        width: 350px;
+      }
+      .example--start.example--center .box,
+      .example--end.example--center .box {
+        width: 100px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-label</h1>
+
+      <!-----------------
+      Horizontal Position
+      ------------------>
+      <section data-title="horizontal position">
+        <div class="articles-container">
+          <!-- position start -->
+          <article data-title="position start">
+            <code pill>labelPosition="start"</code>
+            <div class="example example--start">
+              <gxg-label label-position="start"
+                >Label before the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+
+          <!-- position end -->
+          <article data-title="position start">
+            <code pill>labelPosition="end"</code>
+            <div class="example example--end">
+              <div class="box"></div>
+              <gxg-label label-position="end"
+                >Label after the content</gxg-label
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Vertical Position
+      ------------------>
+      <section data-title="vertical position">
+        <div class="articles-container">
+          <!-- position above -->
+          <article data-title="position start">
+            <code pill>labelPosition="start"</code>
+            <div class="example example--above">
+              <gxg-label label-position="above"
+                >Label above the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+
+          <!-- position below -->
+          <article data-title="position start">
+            <code pill>labelPosition="end"</code>
+            <div class="example example--below">
+              <div class="box"></div>
+              <gxg-label label-position="below"
+                >Label below the content</gxg-label
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Centered
+      ------------------>
+      <section data-title="centered">
+        <div class="articles-container">
+          <!-- centered above -->
+          <article data-title="centered above">
+            <code pill>labelPosition="above" center</code>
+            <div class="example example--above example--center">
+              <gxg-label label-position="above" center
+                >Label above the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+
+          <!-- centered after -->
+          <article data-title="centered after">
+            <code pill>labelPosition="end"</code>
+            <div class="example example--end example--center">
+              <div class="box"></div>
+              <gxg-label label-position="end"
+                >Label after the content</gxg-label
+              >
+            </div>
+          </article>
+
+          <!-- centered below -->
+          <article data-title="centered below">
+            <code pill>labelPosition="below" center</code>
+            <div class="example example--below example--center">
+              <div class="box"></div>
+              <gxg-label label-position="below" center
+                >Label below the content</gxg-label
+              >
+            </div>
+          </article>
+
+          <!-- centered start -->
+          <article data-title="centered before">
+            <code pill>labelPosition="start"</code>
+            <div class="example example--start example--center">
+              <gxg-label label-position="start"
+                >Label before the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Not Centered
+      ------------------>
+      <section data-title="not centered">
+        <div class="articles-container">
+          <!-- not centered above -->
+          <article data-title="not centered above">
+            <code pill>labelPosition="above"</code>
+            <div class="example example--above example--center">
+              <gxg-label label-position="above"
+                >Label above the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+
+          <!-- not centered after -->
+          <article data-title="not centered after">
+            <code pill>labelPosition="end" center="false'</code>
+            <div class="example example--end example--center">
+              <div class="box"></div>
+              <gxg-label label-position="end" center="false"
+                >Label after the content</gxg-label
+              >
+            </div>
+          </article>
+
+          <!-- not centered below -->
+          <article data-title="not centered below">
+            <code pill>labelPosition="below"</code>
+            <div class="example example--below example--center">
+              <div class="box"></div>
+              <gxg-label label-position="below"
+                >Label below the content</gxg-label
+              >
+            </div>
+          </article>
+
+          <!-- not centered before -->
+          <article data-title="not centered before">
+            <code pill>labelPosition="start" center="false"</code>
+            <div class="example example--start example--center">
+              <gxg-label label-position="start" center="false"
+                >Label before the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      No Margin
+      ------------------>
+      <section data-title="no margin">
+        <div class="articles-container">
+          <!-- no margin + position start -->
+          <article data-title="position start">
+            <code pill>noMargin labelPosition="start"</code>
+            <div class="example example--start">
+              <gxg-label no-margin label-position="start"
+                >Label before the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+
+          <!-- no margin + position end -->
+          <article data-title="position end">
+            <code pill>noMargin labelPosition="end"</code>
+            <div class="example example--end">
+              <div class="box"></div>
+              <gxg-label no-margin label-position="end"
+                >Label after the content</gxg-label
+              >
+            </div>
+          </article>
+
+          <!-- no margin + position above -->
+          <article data-title="position above">
+            <code pill>noMargin labelPosition="above"</code>
+            <div class="example example--above">
+              <gxg-label no-margin label-position="above"
+                >Label above the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+
+          <!-- no margin + position below -->
+          <article data-title="position start">
+            <code pill>noMargin labelPosition="end"</code>
+            <div class="example example--below">
+              <div class="box"></div>
+              <gxg-label no-margin label-position="below"
+                >Label below the content</gxg-label
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Other
+      ------------------>
+      <section data-title="other">
+        <div class="articles-container">
+          <!-- disabled -->
+          <article data-title="disabled">
+            <code pill>disabled</code>
+            <div class="example example--start">
+              <gxg-label no-margin label-position="start" disabled
+                >Label before the content</gxg-label
+              >
+              <div class="box"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

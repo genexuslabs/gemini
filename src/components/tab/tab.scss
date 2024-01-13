@@ -7,10 +7,18 @@
 
   .container {
     @include gxg-text();
+    @include gxg-scrollbar();
+    font-size: var(--gxg-tab-font-size);
+    color: var(--gxg-tab-color);
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-    padding: var(--spacing-comp-03);
+    padding-block-start: var(--gxg-tab-vertical-padding);
+    padding-inline-end: var(--gxg-tab-horizontal-padding);
+    padding-block-end: var(--gxg-tab-vertical-padding);
+    padding-inline-start: var(--gxg-tab-horizontal-padding);
+    overflow-y: auto;
+    background-color: var(--gxg-tab-background-color);
   }
 }
 :host(.not-selected) {
@@ -34,32 +42,5 @@
   }
   &.flex-row {
     flex-direction: row;
-  }
-}
-
-/*scrollbar*/
-.container {
-  overflow-y: auto;
-  @include gxg-scrollbar();
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) {
-  .container {
-    font-size: var(--font-size-lg);
-  }
-}
-
-:host(.mercury) {
-  .container {
-    line-height: var(--line-height-default);
-    font-size: var(--mc-font-size-xs);
-  }
-}
-:host(.mercury:not(.no-padding)) {
-  .container {
-    padding: var(--spacing-comp-05) var(--spacing-comp-04);
   }
 }

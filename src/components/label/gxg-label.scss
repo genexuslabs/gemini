@@ -3,20 +3,20 @@
   display: flex;
   align-items: baseline;
   label {
-    @include form-element-common-styles-label();
+    @include gxg-label();
   }
 }
 :host(.position-above) {
-  margin-block-end: var(--gxg-label-margin-vertical);
+  margin-block-end: var(--gxg-label-separation-vertical);
 }
 :host(.position-end) {
-  margin-inline-start: var(--gxg-label-margin-horizontal);
+  margin-inline-start: var(--gxg-label-separation-horizontal);
 }
 :host(.position-below) {
-  margin-block-start: var(--gxg-label-margin-vertical);
+  margin-block-start: var(--gxg-label-separation-vertical);
 }
 :host(.position-start) {
-  margin-inline-end: var(--gxg-label-margin-horizontal);
+  margin-inline-end: var(--gxg-label-separation-horizontal);
 }
 :host(.gxg-label--no-margin) {
   margin: 0 !important;
@@ -33,7 +33,7 @@
 /*DISABLED*/
 :host([disabled]) {
   label {
-    color: var(--gxg-color--disabled);
+    color: var(--gxg-label-color-disabled);
   }
 }
 /*********************************************

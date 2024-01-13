@@ -8,12 +8,12 @@ import {
   EventEmitter,
   State,
   Watch,
-  Method,
+  Method
 } from "@stencil/core";
 import {
   requiredLabel,
   formMessageLogic,
-  formTooltipLogic,
+  formTooltipLogic
 } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
@@ -25,16 +25,17 @@ import { ValidationStatus } from "../../common/types";
 @Component({
   tag: "gxg-form-text",
   styleUrl: "form-text.scss",
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgFormText implements FormComponent {
   private parts = {
-    input: "input",
+    input: "input"
   };
   private exportparts: string;
   @Element() el: HTMLElement;
   textInput!: HTMLInputElement;
   fileInputEl!: HTMLInputElement;
+  htmlMO: MutationObserver;
 
   /*********************************
   PROPERTIES & STATE
@@ -246,13 +247,18 @@ export class GxgFormText implements FormComponent {
   @State() inputSize = "auto";
   @State() mouseCoordinates: object = {
     x: null,
-    y: null,
+    y: null
   };
 
   /**
    * Reading direction
    */
   @State() rtl = false;
+
+  /**
+   * True if the actual design system is mercury, false otherwise
+   */
+  @State() iconColor: "auto" | "mercury-primary";
 
   @Watch("value")
   watchValueHandler(newValue): void {
@@ -294,7 +300,39 @@ export class GxgFormText implements FormComponent {
     this.evaluateIcon();
     this.attachExportParts();
     this.evaluateLabelAlignment();
+    this.attachMutationObserver();
   }
+
+  disconnectedCallback() {
+    if (this.minimal) {
+      document.removeEventListener("mousemove", this.mouseMoveHandler);
+    }
+    this.htmlMO.disconnect();
+  }
+
+  private attachMutationObserver = () => {
+    /*Attach mutation observer on html class, to update gxg-icon color from "auto" (gemini) to "blue-200" (mercury) when "mercury" class is added or removed from html tag*/
+
+    const callback = mutationList => {
+      mutationList.forEach(mutation => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          const mercury = (mutation.target as HTMLElement).classList.contains(
+            "mercury"
+          );
+          this.iconColor = mercury ? "mercury-primary" : "auto";
+        }
+      });
+    };
+    const html = document.querySelector("html");
+    this.htmlMO = new MutationObserver(callback);
+    this.htmlMO.observe(html, {
+      attributes: true
+    });
+  };
+
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
     const exportPartsResult = exportParts(part, this.parts);
@@ -326,14 +364,13 @@ export class GxgFormText implements FormComponent {
   }
 
   inputIcon(): void {
-    const iconSize = this.iconSize();
     if (this.iconPosition !== null && this.icon !== null) {
       if (this.validationStatus === "warning") {
         return (
           <gxg-icon
             class="custom-icon"
             type={this.icon}
-            size={iconSize}
+            size="small"
             color="warning"
           ></gxg-icon>
         );
@@ -343,19 +380,21 @@ export class GxgFormText implements FormComponent {
           <gxg-icon
             class="custom-icon"
             type={this.icon}
-            size={iconSize}
+            size="small"
             color="error"
           ></gxg-icon>
         );
       }
-      return (
-        <gxg-icon
-          class="custom-icon"
-          type={this.icon}
-          size={iconSize}
-          color={this.disabled ? "disabled" : "auto"}
-        ></gxg-icon>
-      );
+      {
+        return this.icon ? (
+          <gxg-icon
+            class="custom-icon"
+            type={this.icon}
+            size="small"
+            color={this.disabled ? "disabled" : this.iconColor}
+          ></gxg-icon>
+        ) : null;
+      }
     }
   }
 
@@ -366,7 +405,7 @@ export class GxgFormText implements FormComponent {
     this.input.emit(target.value);
   }
 
-  private handleKeyDown = (e) => {
+  private handleKeyDown = e => {
     if (e.key === "Enter" && this.type === "file") {
       this.textInput.click();
     }
@@ -504,16 +543,17 @@ export class GxgFormText implements FormComponent {
           const resizeObserver = new ResizeObserver(() => {
             input.style.width = "0px";
             const innerWrapperWidth =
-              (this.el.shadowRoot.querySelector(
-                ".inner-wrapper"
-              ) as HTMLElement).offsetWidth - 5;
+              (
+                this.el.shadowRoot.querySelector(
+                  ".inner-wrapper"
+                ) as HTMLElement
+              ).offsetWidth - 5;
 
             input.style.maxWidth = innerWrapperWidth + "px";
             input.style.width = ghostSpanWidth + "px";
           });
-          const innerWrapper = this.el.shadowRoot.querySelector(
-            ".inner-wrapper"
-          );
+          const innerWrapper =
+            this.el.shadowRoot.querySelector(".inner-wrapper");
           resizeObserver.observe(innerWrapper);
         }.bind(this)
       );
@@ -533,20 +573,6 @@ export class GxgFormText implements FormComponent {
     }
   }
 
-  disconnectedCallback(): void {
-    if (this.minimal) {
-      document.removeEventListener("mousemove", this.mouseMoveHandler);
-    }
-  }
-
-  iconSize(): "regular" | "small" {
-    if (state.large) {
-      return "regular";
-    } else {
-      return "small";
-    }
-  }
-
   evaluateType(): "password" | "text" {
     if (this.password) {
       return "password";
@@ -555,7 +581,7 @@ export class GxgFormText implements FormComponent {
     }
   }
 
-  private inputFileChangedHandler = (e) => {
+  private inputFileChangedHandler = e => {
     const selectedFiles: FileList = e.target.files;
     this.fileList = selectedFiles;
     this.fileSelected.emit(selectedFiles);
@@ -574,7 +600,7 @@ export class GxgFormText implements FormComponent {
           type="file"
           multiple={this.multiple}
           accept={this.acceptFile}
-          ref={(el) => (this.fileInputEl = el as HTMLInputElement)}
+          ref={el => (this.fileInputEl = el as HTMLInputElement)}
           onChange={this.inputFileChangedHandler}
           style={{ display: "none" }}
         ></input>
@@ -590,7 +616,7 @@ export class GxgFormText implements FormComponent {
         icon-position={this.iconPositionFunc()}
         style={{
           width: this.width,
-          maxWidth: this.maxWidth,
+          maxWidth: this.maxWidth
         }}
         class={{
           rtl: this.rtl,
@@ -600,6 +626,13 @@ export class GxgFormText implements FormComponent {
           file: this.type === "file",
           tooltip: this.toolTip,
           "has-icon": this.icon,
+          "icon-start": this.icon && this.iconPosition === "start",
+          "icon-end":
+            (this.icon && this.iconPosition === "end" && !this.clearButton) ||
+            (!this.icon && this.clearButton) ||
+            (this.icon && this.iconPosition === "start" && this.clearButton),
+          "icon-end--double":
+            this.icon && this.iconPosition === "end" && this.clearButton,
           [formClasses["VALIDATION_INDETERMINATE_CLASS"]]:
             this.validationStatus === "indeterminate",
           [formClasses["VALIDATION_WARNING_CLASS"]]:
@@ -608,14 +641,14 @@ export class GxgFormText implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
         {this.minimal ? <span class="ghost-span">{this.value}</span> : null}
         <div
           class={{
-            "outer-wrapper": true,
+            "outer-wrapper": true
           }}
         >
           {this.label ? (
@@ -633,7 +666,7 @@ export class GxgFormText implements FormComponent {
           <div
             class={{
               "inner-wrapper": true,
-              "clear-button": this.clearButton === true,
+              "has-clear-button": this.clearButton === true
             }}
           >
             <input
@@ -645,10 +678,11 @@ export class GxgFormText implements FormComponent {
                 "form-element": true,
                 "form-element--readonly": this.readonly,
                 "cursor-inside": this.cursorInside,
-                "clear-button": this.clearButton === true,
-                "custom-icon": this.icon,
+                "has-clear-button": this.clearButton === true,
+                "has-custom-icon": this.icon,
+                "custom-icon--start": this.iconPosition === "start",
                 "custom-icon--end": this.iconPosition === "end",
-                "input--borderless": this.borderless,
+                "input--borderless": this.borderless
               }}
               placeholder={this.placeholder}
               disabled={this.disabled}
@@ -661,7 +695,7 @@ export class GxgFormText implements FormComponent {
               required={this.required}
               onMouseEnter={this.mouseEnterHandler.bind(this)}
               onMouseOut={this.mouseOutHandler.bind(this)}
-              ref={(el) => (this.textInput = el as HTMLInputElement)}
+              ref={el => (this.textInput = el as HTMLInputElement)}
               maxLength={this.maxLength ? parseInt(this.maxLength) : null}
               minLength={this.minLength ? parseInt(this.minLength) : null}
             ></input>
@@ -670,7 +704,7 @@ export class GxgFormText implements FormComponent {
               <gxg-icon
                 class="clear-button"
                 type="gemini-tools/close"
-                size={this.iconSize()}
+                size="small"
                 color="onbackground"
                 onClick={this.clearButtonFunc.bind(this)}
               ></gxg-icon>

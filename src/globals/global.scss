@@ -1,4 +1,6 @@
 @import "./mixins";
 @import "./mixins-mercury";
-@import "./tokens";
-@import "./semantic-tokens";
+@import "./gemini/tokens.scss";
+@import "./mercury/tokens.scss";
+@import "./tokens-semantic.scss";
+@import "./components.scss";

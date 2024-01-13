@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Mercury Components | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <style>
+      html {
+        --separation-space: 36px;
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 36px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: var(--separation-space);
+      }
+      .h2 {
+        margin-block-start: 0;
+        margin-block-end: var(--separation-space);
+        font-size: 16px;
+        font-weight: var(--font-weight-regular);
+      }
+      body {
+        font-family: var(--font-family-primary);
+        background-color: var(--color-background);
+        color: var(--color-on-background);
+      }
+      article {
+        padding: var(--separation-space) 0;
+        border-block-end: 1px solid var(--gray-01);
+      }
+      .pills-container {
+        display: flex;
+        gap: 8px;
+      }
+      .no-margin {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Test de componentes para Mercury</h1>
+
+      <!-- Textarea -->
+      <article>
+        <h2 class="h2">
+          textarea | <code>max-width="600px" + height="300px"</code>
+        </h2>
+        <gxg-form-textarea
+          id="text-area-focus"
+          max-width="600px"
+          height="100px"
+          value="Sure, Bruno! The universe is mind-blowingly vast. It contains over 100 billion galaxies, each with billions of stars. And it's estimated to be around 13.8 billion years old! 🌌✨ The observable universe is estimated to be about 93 billion light-years in diameter. Neutron stars, which are incredibly dense, can have a mass greater than that of our sun but be only about 12 miles in diameter. The most distant known galaxy, GN-z11, is located 13.4 billion light-years away from Earth. Black holes can be incredibly massive; the one at the center of our Milky Way galaxy, called Sagittarius A*, has a mass equivalent to about 4.1 million suns. 🌌🌟🕳️"
+        >
+        </gxg-form-textarea>
+        <br />
+        <button id="set-focus-btn">set focus</button>
+        <script>
+          const textAreaFocus = document.getElementById("text-area-focus");
+          const setFocusBtn = document.getElementById("set-focus-btn");
+          setFocusBtn.addEventListener("click", () => {
+            textAreaFocus.focus();
+          });
+        </script>
+      </article>
+
+      <!-- Textarea grow-->
+      <article>
+        <h2 class="h2">textarea | <code>grow + max-height="150px"</code></h2>
+        <gxg-form-textarea
+          max-width="600px"
+          ai
+          max-height="150px"
+          id="ai-textarea"
+        >
+        </gxg-form-textarea>
+        <script>
+          const aiTextarea = document.getElementById("ai-textarea");
+          aiTextarea.addEventListener("input", e => {
+            //console.log("input", e);
+          });
+          aiTextarea.addEventListener("change", e => {
+            //console.log("change", e);
+          });
+          aiTextarea.addEventListener("enter", e => {
+            console.log("enter", e.detail);
+          });
+          aiTextarea.addEventListener("arrowUpPressed", e => {
+            console.log("arrowUpPressed", e.detail);
+          });
+        </script>
+      </article>
+
+      <!-- button primary-text-only -->
+      <article>
+        <h2 class="h2">button primary-text-only</h2>
+        <gxg-button type="primary-text-only">Label</gxg-button>
+      </article>
+
+      <!-- button primary-text-icon -->
+      <article>
+        <h2 class="h2">button primary-text-icon</h2>
+        <gxg-button type="primary-text-icon" icon="navigation/arrow-down"
+          >Label</gxg-button
+        >
+      </article>
+
+      <!-- button primary-icon-only -->
+      <article>
+        <h2 class="h2">button primary-icon-only</h2>
+        <gxg-button type="primary-icon-only" icon="gemini-tools/folder"
+          >Label</gxg-button
+        >
+      </article>
+
+      <!-- button secondary-text-only -->
+      <article>
+        <h2 class="h2">button secondary-text-only</h2>
+        <gxg-button type="secondary-text-only">Label</gxg-button>
+      </article>
+
+      <!-- button secondary-text-icon -->
+      <article>
+        <h2 class="h2">button secondary-text-icon</h2>
+        <gxg-button type="secondary-text-icon" icon="gemini-tools/folder"
+          >Label</gxg-button
+        >
+      </article>
+
+      <!-- button secondary-icon-only -->
+      <article>
+        <h2 class="h2">button secondary-icon-only</h2>
+        <gxg-button
+          type="secondary-icon-only"
+          icon="gemini-tools/edit"
+        ></gxg-button>
+      </article>
+
+      <!-- button outlined -->
+      <article>
+        <h2 class="h2">button outlined</h2>
+        <gxg-button type="outlined">Label</gxg-button>
+      </article>
+
+      <!-- pills -->
+      <article>
+        <h2 class="h2">pills</h2>
+        <div class="pills-container">
+          <gxg-pills>
+            <gxg-pill icon="objects/procedure" type="static">Salt</gxg-pill>
+            <gxg-pill icon="objects/procedure" type="static-with-action"
+              >Salt</gxg-pill
+            >
+            <!--
+            <gxg-pill icon="gx-server/lock-without-changes" type="button"
+              >Salt</gxg-pill
+            >
+            <gxg-pill
+              icon="gx-server/changes-commit-pending"
+              type="button-with-action"
+            
+              >Salt</gxg-pill
+            >
+            -->
+          </gxg-pills>
+        </div>
+      </article>
+
+      <!--tabs -->
+      <article>
+        <h2 class="h2">tabs</h2>
+        <gxg-tabs id="gxgTabs" position="top">
+          <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="apples"
+              tab="apples"
+              key="apples"
+              is-selected
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="bananas"
+              tab="bananas"
+              key="bananas"
+              icon="gemini-tools/settings"
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab="cherries"
+              key="cherries"
+              icon="gemini-tools/settings"
+              hidden
+            ></gxg-tab-button>
+          </gxg-tab-bar>
+          <gxg-tab tab="apples" key="apples" isSelected="true">
+            <p class="no-margin">
+              An apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus.
+            </p></gxg-tab
+          >
+
+          <gxg-tab tab="bananas" key="bananas" isSelected="false">
+            A banana is an elongated, edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in
+            the genus Musa. In some countries, bananas used for cooking may be
+            called "plantains", distinguishing them from dessert bananas.
+          </gxg-tab>
+          <gxg-tab tab="cherries" key="cherries" isSelected="false">
+            A cherry is the fruit of many plants of the genus Prunus, and is a
+            fleshy drupe. Commercial cherries are obtained from cultivars of
+            several species, such as the sweet Prunus avium and the sour Prunus
+            cerasus.
+          </gxg-tab>
+        </gxg-tabs>
+      </article>
+
+      <!--tabs -->
+      <article>
+        <h2 class="h2">tabs | <code>noPadding on gxg-tab</code></h2>
+        <gxg-tabs id="gxgTabs" position="top">
+          <gxg-tab-bar slot="tab-bar-container" id="tab-bar" display-border>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="apples"
+              tab="apples"
+              key="apples"
+              is-selected
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab-label="bananas"
+              tab="bananas"
+              key="bananas"
+              icon="gemini-tools/settings"
+            ></gxg-tab-button>
+            <gxg-tab-button
+              slot="tab-bar"
+              tab="cherries"
+              key="cherries"
+              icon="gemini-tools/settings"
+              hidden
+            ></gxg-tab-button>
+          </gxg-tab-bar>
+          <gxg-tab tab="apples" key="apples" isSelected="true" no-padding>
+            <p class="no-margin">
+              An apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus. The tree originated in Central Asia,
+              where its wild ancestor, Malus sieversii, is still found today. An
+              apple is a sweet, edible fruit produced by an apple tree. Apple
+              trees are cultivated worldwide and are the most widely grown
+              species in the genus Malus.
+            </p></gxg-tab
+          >
+
+          <gxg-tab tab="bananas" key="bananas" isSelected="false">
+            A banana is an elongated, edible fruit – botanically a berry –
+            produced by several kinds of large herbaceous flowering plants in
+            the genus Musa. In some countries, bananas used for cooking may be
+            called "plantains", distinguishing them from dessert bananas.
+          </gxg-tab>
+          <gxg-tab tab="cherries" key="cherries" isSelected="false">
+            A cherry is the fruit of many plants of the genus Prunus, and is a
+            fleshy drupe. Commercial cherries are obtained from cultivars of
+            several species, such as the sweet Prunus avium and the sour Prunus
+            cerasus.
+          </gxg-tab>
+        </gxg-tabs>
+      </article>
+
+      <!-- text-regular -->
+      <article>
+        <h2 class="h2">gxg-text | <code>type="regular"</code></h2>
+        <gxg-text type="text-regular">
+          Created YYYY-MM-DD 12:41 - Last Build YYYY-MM-DD 16:34
+        </gxg-text>
+      </article>
+
+      <!-- text-regular italic -->
+      <article>
+        <h2 class="h2">gxg-text | <code>italic</code></h2>
+        <gxg-text type="text-regular" italic>
+          Created YYYY-MM-DD 12:41 - Last Build YYYY-MM-DD 16:34
+        </gxg-text>
+      </article>
+
+      <!-- text-regular -->
+      <article>
+        <h2 class="h2">
+          gxg-text | <code>type="regular" + icon + iconAlign="center"</code>
+        </h2>
+        <gxg-text icon="gx-server/delete" max-width="300px">
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth.
+        </gxg-text>
+      </article>
+
+      <!-- text-regular -->
+      <article>
+        <h2 class="h2">
+          gxg-text | <code>type="regular" + icon + iconAlign="top"</code>
+        </h2>
+        <gxg-text icon="gemini-tools/edit" icon-align="top" max-width="300px">
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth.
+        </gxg-text>
+      </article>
+
+      <!-- text-link -->
+      <article>
+        <h2 class="h2">gxg-text | <code>type="text-link" + icon</code></h2>
+        <gxg-text icon="gemini-tools/edit" type="text-link">
+          Edit Description
+        </gxg-text>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="section"</code></h2>
+        <gxg-card>
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth. It's mind-boggling! 🌌🌟
+        </gxg-card>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">gxg-card with title | <code>type="section"</code></h2>
+        <gxg-card card-title="project detail">
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth. It's mind-boggling! 🌌🌟
+        </gxg-card>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">gxg-card with icon | <code>type="section"</code></h2>
+        <gxg-card
+          card-title="project detail"
+          icon="editing-structures/attribute-formula"
+        >
+          The universe is incredibly vast and mysterious. One interesting fact
+          is that there are more stars in the observable universe than there are
+          grains of sand on all the beaches on Earth. It's mind-boggling! 🌌🌟
+        </gxg-card>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">gxg-card with scroll | <code>type="section"</code></h2>
+        <gxg-card
+          card-title="project detail"
+          icon="editing-structures/attribute-formula"
+          height="200px"
+        >
+          <p>
+            The universe is incredibly vast and mysterious. One interesting fact
+            is that there are more stars in the observable universe than there
+            are grains of sand on all the beaches on Earth. It's mind-boggling!
+            🌌🌟
+          </p>
+          <p>
+            The universe is about 13.8 billion years old, but we can only
+            observe a tiny fraction of it due to the speed of light.
+          </p>
+          <p>
+            Black holes can be both incredibly massive and incredibly small.
+            Some are as tiny as a single atom but contain the mass of a
+            mountain!
+          </p>
+          <p>
+            There's a phenomenon called "dark matter," which makes up about 27%
+            of the universe's mass, yet we can't see or detect it directly. It's
+            a big cosmic mystery.
+          </p>
+          <p>
+            The Hubble Space Telescope has captured images of galaxies that are
+            billions of light-years away, showing us what they looked like in
+            the distant past.
+          </p>
+        </gxg-card>
+      </article>
+
+      <!-- card "section" -->
+      <article>
+        <h2 class="h2">
+          gxg-card | <code>type="section" + noPaddingTop</code>
+        </h2>
+        <gxg-card
+          card-title="project detail"
+          icon="editing-structures/attribute-formula"
+          no-padding-top
+        >
+          <p style="margin-top: 0">
+            The universe is incredibly vast and mysterious. One interesting fact
+            is that there are more stars in the observable universe than there
+            are grains of sand on all the beaches on Earth. It's mind-boggling!
+            🌌🌟
+          </p>
+        </gxg-card>
+      </article>
+
+      <!-- card "article" -->
+      <style>
+        .article-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .col {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+        }
+        .col--right {
+          font-style: italic;
+        }
+        .card-article h2 {
+          margin-bottom: 0;
+        }
+        .card-article > * {
+          font-size: inherit;
+        }
+      </style>
+
+      <!-- card type article (without title) -->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="article"</code></h2>
+        <gxg-card card-type="article" class="card-article">
+          <div class="article-wrapper">
+            <div class="col col--left">
+              <gxg-icon type="gx-test/image" color="auto"></gxg-icon>
+              <span>Event Tweets</span>
+            </div>
+            <div class="col col--right">
+              <span>Modified 27/9/23 15:45</span>
+              <gxg-icon type="gx-test/explorer" color="auto"></gxg-icon>
+            </div>
+          </div>
+        </gxg-card>
+      </article>
+
+      <!-- card type article (with title) -->
+      <style>
+        .frontends {
+          display: flex;
+          gap: 16px;
+        }
+        .frontend {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .frontend .label {
+          font-weight: 400;
+          margin: 0;
+        }
+      </style>
+      <article>
+        <h2 class="h2">gxg-card | <code>type="mini"</code></h2>
+        <gxg-card
+          card-type="mini"
+          class="card-article"
+          card-title="frontend languages"
+        >
+          <div class="frontends">
+            <!--Angular-->
+            <div class="frontend">
+              <gxg-icon type="general/angular" color="mercury"></gxg-icon>
+              <span class="label">Web - Angular</span>
+            </div>
+            <!--iOS-->
+            <div class="frontend">
+              <gxg-icon type="general/apple" color="mercury"></gxg-icon>
+              <span class="label">iOS</span>
+            </div>
+            <!--Android-->
+            <div class="frontend">
+              <gxg-icon type="general/android" color="mercury"></gxg-icon>
+              <span class="label">Android</span>
+            </div>
+          </div>
+        </gxg-card>
+      </article>
+
+      <!-- card type article (without title) -->
+      <article>
+        <h2 class="h2">gxg-card | <code>type="article"</code></h2>
+        <gxg-card card-type="article" class="card-article" actionable>
+          <div class="article-wrapper">
+            <div class="col col--left">
+              <gxg-icon type="gx-test/image" color="auto"></gxg-icon>
+              <span>Event Tweets</span>
+            </div>
+            <div class="col col--right">
+              <span>Modified 27/9/23 15:45</span>
+              <gxg-icon type="gx-test/explorer" color="auto"></gxg-icon>
+            </div>
+          </div>
+        </gxg-card>
+      </article>
+
+      <!-- card type actionable (mini) -->
+      <style>
+        .frontends {
+          display: flex;
+          gap: 16px;
+        }
+        .frontend {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .frontend .label {
+          font-weight: 400;
+          margin: 0;
+        }
+      </style>
+      <article>
+        <h2 class="h2">gxg-card <em>mini</em> | <code>actionable</code></h2>
+        <gxg-card
+          card-type="mini"
+          class="card-article"
+          card-title="frontend languages"
+          actionable
+        >
+          <div class="frontends">
+            <!--Angular-->
+            <div class="frontend">
+              <gxg-icon type="general/angular" color="mercury"></gxg-icon>
+              <span class="label">Web - Angular</span>
+            </div>
+            <!--iOS-->
+            <div class="frontend">
+              <gxg-icon type="general/apple" color="mercury"></gxg-icon>
+              <span class="label">iOS</span>
+            </div>
+            <!--Android-->
+            <div class="frontend">
+              <gxg-icon type="general/android" color="mercury"></gxg-icon>
+              <span class="label">Android</span>
+            </div>
+          </div>
+        </gxg-card>
+      </article>
+    </div>
+  </body>
+</html>

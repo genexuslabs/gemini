@@ -34,7 +34,6 @@ LABEL
     transition: height 200ms;
     width: 100%;
     @include gxg-text();
-    font-size: inherit;
   }
 }
 
@@ -45,6 +44,7 @@ TEXTAREA
   textarea {
     resize: none;
     @include form-element-common-styles();
+    color: var(--ds-base-font-color);
 
     &:focus {
       @include form-element-common-styles-focus-type-1();
@@ -111,17 +111,17 @@ LARGE VERSION (html tag has 'gxg-large' class)
   }
 }
 
-/*********************************************
-Ai
-**********************************************/
+/*Ai*/
 :host([ai]) {
   textarea {
     box-sizing: border-box;
     resize: none;
     height: auto;
+    min-height: 24px;
   }
 }
+
 /*********************************************
 Mercury
 **********************************************/
-@import "./form-textarea-mercury";
+//@import "./form-textarea-mercury";

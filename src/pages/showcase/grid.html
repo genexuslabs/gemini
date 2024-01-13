@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Grid | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      p:last-child {
+        margin-bottom: 0;
+      }
+      .grid-container {
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-grid</h1>
+      <!-----------------
+      Grid
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- multi-selection -->
+          <article data-title="multi-selection">
+            <div class="example grid-container">
+              <gxg-grid>
+                <ch-grid row-selection-mode="multiple" id="ch-grid-second">
+                  <ch-grid-columnset>
+                    <ch-grid-column
+                      column-name=""
+                      settingable="false"
+                      column-type="rich"
+                      rich-row-drag
+                      size="min-content"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-name=""
+                      settingable="false"
+                      column-type="rich"
+                      rich-row-selector
+                      size="min-content"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-name="Property"
+                      settingable="false"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-name="Value"
+                      settingable="false"
+                    ></ch-grid-column>
+                  </ch-grid-columnset>
+
+                  <ch-grid-row selected rowid="nombre-productos">
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Nombreeee</ch-grid-cell>
+                    <ch-grid-cell>Productos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>English</ch-grid-cell>
+                    <ch-grid-cell>Products</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Português</ch-grid-cell>
+                    <ch-grid-cell>Produtos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                    <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                    <ch-grid-cell>Found</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Url amigable</ch-grid-cell>
+                    <ch-grid-cell>productos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>English</ch-grid-cell>
+                    <ch-grid-cell>products</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Português</ch-grid-cell>
+                    <ch-grid-cell>produtos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Id</ch-grid-cell>
+                    <ch-grid-cell>7867</ch-grid-cell>
+                  </ch-grid-row>
+                  <!-- <div slot="row-actions">
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action A</gxg-button
+                    >
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action B</gxg-button
+                    >
+                  </div> -->
+                </ch-grid>
+              </gxg-grid>
+            </div>
+          </article>
+
+          <!-- full-height + ellipsis -->
+          <article data-title="full height + ellipsis">
+            <div class="example grid-container">
+              <gxg-grid full-height ellipsis>
+                <ch-grid row-selection-mode="none">
+                  <ch-grid-columnset>
+                    <ch-grid-column
+                      column-id="code"
+                      column-name="Country Code"
+                      settingable="false"
+                      size="min-content"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-id="name"
+                      column-name="Country Name"
+                      settingable="false"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-id="population"
+                      column-name="Country Population"
+                      settingable="false"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-id="language"
+                      column-name="Country Language"
+                      settingable="false"
+                    ></ch-grid-column>
+                  </ch-grid-columnset>
+
+                  <ch-grid-rowset>
+                    <ch-grid-rowset-legend
+                      >América del Norte</ch-grid-rowset-legend
+                    >
+                    <ch-grid-row rowid="ca">
+                      <ch-grid-cell>CA</ch-grid-cell>
+                      <ch-grid-cell
+                        >Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Omnis incidunt optio nulla nihil minima corrupti
+                        neque sapiente tempora laboriosam consectetur quo
+                        magnam, repellat modi eveniet perspiciatis sed assumenda
+                        soluta molestiae.</ch-grid-cell
+                      >
+                      <ch-grid-cell>38.000.000</ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="mx">
+                      <ch-grid-cell>MX</ch-grid-cell>
+                      <ch-grid-cell>México</ch-grid-cell>
+                      <ch-grid-cell>126.000.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="us">
+                      <ch-grid-cell>US</ch-grid-cell>
+                      <ch-grid-cell>Estados Unidos</ch-grid-cell>
+                      <ch-grid-cell>331.000.000</ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                    </ch-grid-row>
+                  </ch-grid-rowset>
+                  <ch-grid-rowset>
+                    <ch-grid-rowset-legend
+                      >América del Sur</ch-grid-rowset-legend
+                    >
+                    <ch-grid-row rowid="bo">
+                      <ch-grid-cell>BO</ch-grid-cell>
+                      <ch-grid-cell>Bolivia</ch-grid-cell>
+                      <ch-grid-cell>11.800.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="cl">
+                      <ch-grid-cell>CL</ch-grid-cell>
+                      <ch-grid-cell>Chile</ch-grid-cell>
+                      <ch-grid-cell>19.500.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="ec">
+                      <ch-grid-cell>EC</ch-grid-cell>
+                      <ch-grid-cell>Ecuador</ch-grid-cell>
+                      <ch-grid-cell>17.600.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="py">
+                      <ch-grid-cell>PY</ch-grid-cell>
+                      <ch-grid-cell>Paraguay</ch-grid-cell>
+                      <ch-grid-cell>7.500.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="pe">
+                      <ch-grid-cell>PE</ch-grid-cell>
+                      <ch-grid-cell>Perú</ch-grid-cell>
+                      <ch-grid-cell>32.800.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row rowid="ve">
+                      <ch-grid-cell>VE</ch-grid-cell>
+                      <ch-grid-cell>Venezuela</ch-grid-cell>
+                      <ch-grid-cell>28.500.000</ch-grid-cell>
+                      <ch-grid-cell>Español</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-rowset>
+                      <ch-grid-rowset-legend
+                        >Campeones del mundo</ch-grid-rowset-legend
+                      >
+                      <ch-grid-row rowid="ar">
+                        <ch-grid-cell>AR</ch-grid-cell>
+                        <ch-grid-cell>Argentina</ch-grid-cell>
+                        <ch-grid-cell>45.400.000</ch-grid-cell>
+                        <ch-grid-cell>Español</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row rowid="br">
+                        <ch-grid-cell>BR</ch-grid-cell>
+                        <ch-grid-cell>Brasil</ch-grid-cell>
+                        <ch-grid-cell>212.600.000</ch-grid-cell>
+                        <ch-grid-cell>Português</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row rowid="uy">
+                        <ch-grid-cell>UY</ch-grid-cell>
+                        <ch-grid-cell>Uruguay</ch-grid-cell>
+                        <ch-grid-cell>3.500.000</ch-grid-cell>
+                        <ch-grid-cell>Español</ch-grid-cell>
+                      </ch-grid-row>
+                    </ch-grid-rowset>
+                  </ch-grid-rowset>
+                </ch-grid>
+              </gxg-grid>
+            </div>
+          </article>
+
+          <!-- no border -->
+          <article data-title="no border">
+            <div class="example grid-container">
+              <gxg-grid class="no-border">
+                <ch-grid row-selection-mode="multiple" id="ch-grid-second">
+                  <ch-grid-columnset>
+                    <ch-grid-column
+                      column-name=""
+                      settingable="false"
+                      column-type="rich"
+                      rich-row-drag
+                      size="min-content"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-name=""
+                      settingable="false"
+                      column-type="rich"
+                      rich-row-selector
+                      size="min-content"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-name="Property"
+                      settingable="false"
+                    ></ch-grid-column>
+                    <ch-grid-column
+                      column-name="Value"
+                      settingable="false"
+                    ></ch-grid-column>
+                  </ch-grid-columnset>
+
+                  <ch-grid-row selected rowid="nombre-productos">
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Nombreeee</ch-grid-cell>
+                    <ch-grid-cell>Productos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>English</ch-grid-cell>
+                    <ch-grid-cell>Products</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Português</ch-grid-cell>
+                    <ch-grid-cell>Produtos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                    <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                    <ch-grid-cell>Found</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Url amigable</ch-grid-cell>
+                    <ch-grid-cell>productos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>English</ch-grid-cell>
+                    <ch-grid-cell>products</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Português</ch-grid-cell>
+                    <ch-grid-cell>produtos</ch-grid-cell>
+                  </ch-grid-row>
+                  <ch-grid-row>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell></ch-grid-cell>
+                    <ch-grid-cell>Id</ch-grid-cell>
+                    <ch-grid-cell>7867</ch-grid-cell>
+                  </ch-grid-row>
+                  <!-- <div slot="row-actions">
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action A</gxg-button
+                    >
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action B</gxg-button
+                    >
+                  </div> -->
+                </ch-grid>
+              </gxg-grid>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

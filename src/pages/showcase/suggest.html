@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Suggest | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+      article > p {
+        margin-top: 0;
+      }
+      .datos-prueba {
+        height: 0;
+        overflow: hidden;
+      }
+      .suggest-list {
+        font-family: var(--ds-base-font-family-primary);
+        font-size: var(--ds-base-font-size);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-suggest</h1>
+      <!-----------------
+      Suggest
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- gxg-suggest -->
+          <article data-title="ch-suggest">
+            <!-- <code pill>some property</code> -->
+            <p>type "a" to display suggestions</p>
+            <div class="example">
+              <div class="datos-prueba">
+                <ul data-category="frutas" class="data-list">
+                  <li
+                    data-value="manzana-123"
+                    data-icon="general/db2"
+                    data-id="my-manzana-id"
+                  >
+                    Manzanas Label
+                  </li>
+                  <li>bananas</li>
+                  <li>naranjas</li>
+                  <li>uvas</li>
+                  <li>frutillas</li>
+                </ul>
+                <!-- granos -->
+                <span><strong>(sin categoría)</strong></span>
+                <ul class="data-list">
+                  <li>porotos</li>
+                  <li>garbanzos</li>
+                  <li>lentejas</li>
+                  <li>chia</li>
+                </ul>
+                <!-- verduras -->
+                <span><strong>verduras</strong></span>
+                <ul data-category="verduras" class="data-list">
+                  <li>lecuhgas</li>
+                  <li>tomates</li>
+                  <li>cebollas</li>
+                  <li>apio</li>
+                  <li>papas</li>
+                  <li>lecuhgas</li>
+                  <li>tomates</li>
+                  <li>cebollas</li>
+                  <li>apio</li>
+                  <li>papas</li>
+                  <li>lecuhgas</li>
+                  <li>tomates</li>
+                  <li>cebollas</li>
+                  <li>apio</li>
+                  <li>papas</li>
+                  <li>lecuhgas</li>
+                  <li>tomates</li>
+                  <li>cebollas</li>
+                  <li>apio</li>
+                  <li>papas</li>
+                  <li>lecuhgas</li>
+                  <li>tomates</li>
+                  <li>cebollas</li>
+                  <li>apio</li>
+                  <li>papas</li>
+                  <li>lecuhgas</li>
+                  <li>tomates</li>
+                  <li>cebollas</li>
+                  <li>apio</li>
+                  <li>papas</li>
+                </ul>
+              </div>
+
+              <gxg-suggest elipsis>
+                <ch-suggest
+                  label="This is the label"
+                  suggest-title="Select your food"
+                  label-position="start"
+                  suggest-value="una-descripción-inicial"
+                  input-value="Una descripción inicial"
+                >
+                </ch-suggest>
+              </gxg-suggest>
+
+              <script>
+                const chSuggest = document.querySelector("ch-suggest");
+                chSuggest.cursorEnd = true;
+              </script>
+
+              <script>
+                let fragment;
+                const lists = document.querySelectorAll(".data-list");
+                chSuggest.addEventListener("valueChanged", e => {
+                  const inputValue = e.detail.trim();
+                  if (inputValue) {
+                    let filteredItems = [];
+                    fragment = document.createDocumentFragment();
+                    lists.forEach(list => {
+                      const category = list.getAttribute("data-category");
+                      const items = list.querySelectorAll("li");
+                      filteredItems = Array.from(items).filter(item => {
+                        return item.innerText.toLowerCase().includes(e.detail);
+                      });
+                      if (filteredItems.length > 0) {
+                        const chSuggestList =
+                          document.createElement("ch-suggest-list");
+                        if (category) {
+                          chSuggestList.setAttribute("label", category);
+                        }
+                        filteredItems.forEach(item => {
+                          const chSuggestListItem = document.createElement(
+                            "ch-suggest-list-item"
+                          );
+                          chSuggestListItem.innerText = item.innerText;
+                          chSuggestListItem.value =
+                            item.getAttribute("data-value");
+                          chSuggestListItem.itemId =
+                            item.getAttribute("data-id");
+                          if (category) {
+                            chSuggestList.appendChild(chSuggestListItem);
+                          } else {
+                            //chSuggest.appendChild(chSuggestListItem);
+                            fragment.appendChild(chSuggestListItem);
+                          }
+                          const iconSrc = item.getAttribute("data-icon");
+                          if (iconSrc) {
+                            const icon = document.createElement("gxg-icon");
+                            icon.setAttribute("type", iconSrc);
+                            icon.setAttribute("color", "auto");
+                            icon.setAttribute("slot", "icon");
+                            chSuggestListItem.appendChild(icon);
+                          }
+                        });
+                        if (category) {
+                          //chSuggest.appendChild(chSuggestList);
+                          fragment.appendChild(chSuggestList);
+                        }
+                      }
+                    });
+                    setTimeout(() => {
+                      chSuggest.innerHTML = "";
+                      chSuggest.appendChild(fragment);
+                      fragment = null;
+                    }, 200);
+                  } else {
+                    chSuggest.innerHTML = "";
+                  }
+                });
+              </script>
+            </div>
+          </article>
+
+          <article data-title="ch-suggest-list">
+            <!-- <code pill>some property</code> -->
+            <div class="example suggest-list">
+              <gxg-suggest>
+                <ch-suggest-list label="fruits">
+                  <ch-suggest-list-item>
+                    <gxg-icon
+                      color="auto"
+                      type="general/db2"
+                      slot="icon"
+                    ></gxg-icon>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen
+                  </ch-suggest-list-item>
+                  <ch-suggest-list-item>
+                    <gxg-icon
+                      color="auto"
+                      type="general/db2"
+                      slot="icon"
+                    ></gxg-icon>
+                    Apple
+                  </ch-suggest-list-item>
+                  <ch-suggest-list-item>
+                    <gxg-icon
+                      color="auto"
+                      type="general/db2"
+                      slot="icon"
+                    ></gxg-icon>
+                    Orange
+                  </ch-suggest-list-item>
+                </ch-suggest-list>
+              </gxg-suggest>
+            </div>
+          </article>
+
+          <!-- gxg-suggest label above -->
+          <article data-title="label above">
+            <!-- <code pill>some property</code> -->
+            <div class="example">
+              <gxg-suggest>
+                <ch-suggest
+                  label-position="above"
+                  label="Label Warning"
+                  show-label
+                ></ch-suggest>
+              </gxg-suggest>
+            </div>
+          </article>
+
+          <!-- gxg-suggest warning state -->
+          <article data-title="warning state">
+            <!-- <code pill>some property</code> -->
+            <div class="example">
+              <gxg-suggest
+                validation-status="warning"
+                validation-message="Some warning message"
+              >
+                <ch-suggest label="Label Warning" show-label></ch-suggest>
+              </gxg-suggest>
+            </div>
+          </article>
+
+          <!-- gxg-suggest error state -->
+          <article data-title="error state">
+            <!-- <code pill>some property</code> -->
+            <div class="example">
+              <gxg-suggest
+                validation-status="error"
+                validation-message="Some error message"
+              >
+                <ch-suggest
+                  label="Label Error"
+                  show-label
+                  label-position="above"
+                  disabled
+                ></ch-suggest>
+              </gxg-suggest>
+            </div>
+          </article>
+
+          <!-- gxg-suggest disabled -->
+          <article data-title="disabled">
+            <!-- <code pill>some property</code> -->
+            <div class="example">
+              <gxg-suggest disabled>
+                <ch-suggest
+                  label="Label (disabled)"
+                  show-label
+                  label-position="above"
+                  value="hola"
+                ></ch-suggest>
+              </gxg-suggest>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Text | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-text</h1>
+      <!-----------------
+      Default
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- regular -->
+          <article data-title="regular">
+            <code pill>type="text-regular"</code>
+            <div class="example">
+              <gxg-text type="text-regular" max-width="640px"
+                >Cosmic inflation is a theory that suggests the universe
+                underwent an exponential expansion during the first few moments
+                after the Big Bang. This rapid expansion, occurring within a
+                fraction of a second, helps to explain various observed
+                phenomena in the universe's large-scale structure. Proposed by
+                physicist Alan Guth in the early 1980s, the theory addresses
+                issues like the uniformity of the cosmic microwave background
+                radiation and the large-scale structure of the cosmos.</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- gray -->
+          <article data-title="gray">
+            <code pill>type="text-gray"</code>
+            <div class="example">
+              <gxg-text type="text-gray" max-width="640px"
+                >Cosmic inflation is a theory that suggests the universe
+                underwent an exponential expansion during the first few moments
+                after the Big Bang. This rapid expansion, occurring within a
+                fraction of a second, helps to explain various observed
+                phenomena in the universe's large-scale structure. Proposed by
+                physicist Alan Guth in the early 1980s, the theory addresses
+                issues like the uniformity of the cosmic microwave background
+                radiation and the large-scale structure of the cosmos.</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- quote -->
+          <article data-title="quote">
+            <code pill>type="text-quote"</code>
+            <div class="example">
+              <gxg-text type="text-quote" max-width="640px"
+                >Cosmic inflation is a theory that suggests the universe
+                underwent an exponential expansion during the first few moments
+                after the Big Bang. This rapid expansion, occurring within a
+                fraction of a second, helps to explain various observed
+                phenomena in the universe's large-scale structure. Proposed by
+                physicist Alan Guth in the early 1980s, the theory addresses
+                issues like the uniformity of the cosmic microwave background
+                radiation and the large-scale structure of the cosmos.</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- link -->
+          <article data-title="link">
+            <code pill>type="text-link"</code>
+            <div class="example">
+              <gxg-text type="text-link">Click here to learn more</gxg-text>
+            </div>
+          </article>
+
+          <!-- gray link -->
+          <article data-title="gray link">
+            <code pill>type="text-link-gray"</code>
+            <div class="example">
+              <gxg-text type="text-link-gray"
+                >Click here to learn more</gxg-text
+              >
+            </div>
+          </article>
+
+          <!--link no underline -->
+          <article data-title="link no underline">
+            <code pill>type="text-link-no-line"</code>
+            <div class="example">
+              <gxg-text type="text-link-no-line"
+                >Click here to learn more</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- gray link no underline -->
+          <article data-title="gray link no underline">
+            <code pill>type="text-link-gray-no-line"</code>
+            <div class="example">
+              <gxg-text type="text-link-gray-no-line"
+                >Click here to learn more</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- button like -->
+          <article data-title="button like">
+            <code pill>type="button-like"</code>
+            <div class="example">
+              <gxg-text type="button-like">Click here to learn more</gxg-text>
+            </div>
+          </article>
+
+          <!-- alert error -->
+          <article data-title="alert error">
+            <code pill>type="text-alert-error"</code>
+            <div class="example">
+              <gxg-text type="text-alert-error"
+                >Error 404: Page Not Found</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- alert warning -->
+          <article data-title="alert warning">
+            <code pill>type="text-alert-warning"</code>
+            <div class="example">
+              <gxg-text type="text-alert-warning"
+                >Warning: Entering uncharted coding territories</gxg-text
+              >
+            </div>
+          </article>
+
+          <!-- alert success -->
+          <article data-title="alert success">
+            <code pill>type="text-alert-success"</code>
+            <div class="example">
+              <gxg-text type="text-alert-success"
+                >Success: You've reached the summit of coding excellence!
+              </gxg-text>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,49 +1,32 @@
 @import "../../globals/form-validation";
 
 ch-suggest {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-lg);
-  color: var(--color-on-background);
+  font-family: var(--ds-base-font-family-primary);
+  font-size: var(--ds-base-font-size);
+  color: var(--ds-base-font-color);
   @include gxg-scrollbar();
-  // Scroll bar
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background-color: var(--gray-02);
-    border-radius: 10px;
-  }
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--gray-05);
-    border-radius: 10px;
-  }
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--gray-04);
-    cursor: pointer;
-  }
   /* Label */
   &::part(label) {
     @include form-element-common-styles-label();
     font-size: inherit;
+    flex-shrink: 0;
   }
   &[label-position="start"]::part(label) {
-    margin-inline-end: var(--gxg-label-margin-horizontal);
+    margin-inline-end: var(--gxg-label-separation-horizontal);
   }
   &[label-position="above"]::part(label) {
-    margin-block-end: var(--gxg-label-margin-vertical);
+    margin-block-end: var(--gxg-label-separation-vertical);
   }
   /*Input*/
   &::part(input) {
-    height: var(--spacing-comp-05);
-    border: var(--border-width-sm) solid var(--gxg-border-color--regular);
-    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    height: var(--gxg-suggest-input__height);
+    border: var(--ds-form-control-border);
+    border-radius: var(--ds-form-control-border-radius);
+    padding: var(--gxg-suggest-input__padding);
     box-sizing: border-box;
-    background-color: var(--color-background);
+    background-color: var(--gxg-suggest-input__background-color);
     width: 100%;
+    flex: auto;
   }
   &::part(input):focus {
     @include form-element-common-styles-focus-type-1();
@@ -54,7 +37,7 @@ ch-suggest {
   /*header*/
   &::part(header) {
     display: block;
-    padding-block-end: var(--spacing-comp-02);
+    padding-block-end: var(--gxg-suggest-header__padding-block-end);
     display: flex;
     justify-content: flex-end;
   }
@@ -66,7 +49,7 @@ ch-suggest {
     content: "✖";
     width: 100%;
     display: block;
-    line-height: 24px;
+    line-height: var(--gxg-suggest-close-button__line-height--after);
     text-align: center;
   }
   &::part(close-button):focus {
@@ -75,31 +58,11 @@ ch-suggest {
   /*window*/
   &::part(dropdown) {
     /*mixin shadow*/
-    background-color: var(--color-background);
-    margin-top: var(--spacing-comp-01);
-    padding: var(--spacing-comp-02);
-    box-shadow: var(--box-shadow-02);
+    background-color: var(--gxg-suggest-drop-down__background-color);
+    margin-top: var(--gxg-suggest-drop-down__margin-top);
+    padding: var(--gxg-suggest-drop-down__padding);
+    box-shadow: var(--gxg-suggest-drop-down__box-shadow);
     @include gxg-scrollbar();
-    // Scroll bar
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background-color: var(--gray-02);
-      border-radius: 10px;
-    }
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: var(--gray-05);
-      border-radius: 10px;
-    }
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--gray-04);
-      cursor: pointer;
-    }
   }
 }
 

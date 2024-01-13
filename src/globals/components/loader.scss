@@ -1,0 +1,49 @@
+/*Gemini*/
+:root {
+  /*--- Wrapper ---*/
+  --gxg-ide-loader-wrapper__background-color--from: rgba(
+    var(--color-background--rgb),
+    0.45
+  );
+  --gxg-ide-loader-wrapper__background-color--to: rgba(
+    var(--color-background--rgb),
+    0.25
+  );
+  --gxg-ide-loader-wrapper__backdrop-filter: blur(15px);
+  --gxg-ide-loader-wrapper__padding: var(--spacing-comp-05);
+  --gxg-ide-loader-wrapper__color: var(--color-on-secondary);
+  /*--- Spinner ---*/
+  --gxg-ide-loader-spinner__border: 2px var(--gray-01) solid;
+  --gxg-ide-loader-spinner__border-top: 2px var(--color-primary-enabled) solid;
+  --gxg-ide-loader-spinner__width: 30px;
+  --gxg-ide-loader-spinner__height: 30px;
+  /*--- Content Wrapper ---*/
+  --gxg-ide-loader-content-wrapper__mbs: var(--spacing-comp-05);
+  --gxg-ide-loader-content-wrapper__gap: var(--spacing-comp-02);
+  --gxg-ide-loader-content-wrapper__max-width: 400px;
+}
+/*Mercury*/
+:root.mercury {
+  /*--- Wrapper ---*/
+  --gxg-ide-loader-wrapper__background-color--from: rgba(255, 255, 255, 0.45);
+  --gxg-ide-loader-wrapper__background-color--to: rgba(204, 204, 204, 0.25);
+  --gxg-ide-loader-wrapper__backdrop-filter: blur(15px);
+  --gxg-ide-loader-wrapper__padding: var(--mer-spacing__comp--xl);
+  --gxg-ide-loader-wrapper__color: var(--mer-text__on-surface);
+  /*--- Spinner ---*/
+  --gxg-ide-loader-spinner__border: var(--mer-border__width--lg)
+    var(--mer-border-color__dim) solid;
+  --gxg-ide-loader-spinner__border-top: var(--mer-border__width--lg)
+    var(--mer-border-color__primary) solid;
+  --gxg-ide-loader-spinner__width: var(--mer-spacing__comp--xl);
+  --gxg-ide-loader-spinner__height: var(--mer-spacing__comp--xl);
+  /*--- Content Wrapper ---*/
+  --gxg-ide-loader-content-wrapper__mbs: var(--mer-spacing__comp--l);
+  --gxg-ide-loader-content-wrapper__gap: var(--mer-spacing__comp--xs);
+  --gxg-ide-loader-content-wrapper__max-width: 400px;
+}
+:root.mercury.dark {
+  /*--- Wrapper ---*/
+  --gxg-ide-loader-wrapper__background-color--from: rgba(26, 26, 26, 0.45);
+  --gxg-ide-loader-wrapper__background-color--to: rgba(41, 41, 41, 0.25);
+}

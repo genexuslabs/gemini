@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Mercury Components | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-tabs</h1>
+      <!-----------------
+      Tabs
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example" style="height: 300px">
+              <gxg-tabs id="gxgTabs" position="top">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                    hidden
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                  <p>
+                    Apples have a fascinating history, dating back thousands of
+                    years. Originating in Central Asia, they've been cultivated
+                    and enjoyed worldwide. The diversity in apple varieties
+                    extends to their uses, ranging from fresh eating and juicing
+                    to cooking and making cider. Each type brings its unique
+                    flavor profile, contributing to the versatility of this
+                    fruit.
+                  </p>
+                  <p>
+                    In the realm of web development, you can draw inspiration
+                    from the apple's diversity when creating a dynamic and
+                    engaging user interface. Consider implementing interactive
+                    features that allow users to explore various aspects of
+                    apples, such as nutritional information, recipes, or even an
+                    interactive orchard map. This not only showcases your
+                    technical skills but also enhances the overall user
+                    experience by providing valuable and enjoyable content.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- no padding -->
+          <article data-title="no-padding">
+            <code pill>noPadding (on gxg-tab)</code>
+            <div class="example">
+              <gxg-tabs id="gxgTabs" position="top">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                    hidden
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true" no-padding>
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p></gxg-tab
+                >
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- disabled -->
+          <article data-title="disabled">
+            <code pill>disabled (on gxg-tab-button)</code>
+            <div class="example">
+              <gxg-tabs id="gxgTabs" position="top">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                    disabled
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                    disabled
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                    hidden
+                    disabled
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- buttons overflow (menu style) -->
+          <article data-title="buttons overflow (menu)">
+            <div class="example" style="height: 300px">
+              <gxg-tabs id="gxgTabs" position="top">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="cherries"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="mangoes"
+                    tab="mangoes"
+                    key="mangoes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="strawberries"
+                    tab="strawberries"
+                    key="strawberries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="pineapples"
+                    tab="pineapples"
+                    key="pineapples"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="grapes"
+                    tab="grapes"
+                    key="grapes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="avocados"
+                    tab="avocados"
+                    key="avocados"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="watermelons"
+                    tab="watermelons"
+                    key="watermelons"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                  <p>
+                    Apples have a fascinating history, dating back thousands of
+                    years. Originating in Central Asia, they've been cultivated
+                    and enjoyed worldwide. The diversity in apple varieties
+                    extends to their uses, ranging from fresh eating and juicing
+                    to cooking and making cider. Each type brings its unique
+                    flavor profile, contributing to the versatility of this
+                    fruit.
+                  </p>
+                  <p>
+                    In the realm of web development, you can draw inspiration
+                    from the apple's diversity when creating a dynamic and
+                    engaging user interface. Consider implementing interactive
+                    features that allow users to explore various aspects of
+                    apples, such as nutritional information, recipes, or even an
+                    interactive orchard map. This not only showcases your
+                    technical skills but also enhances the overall user
+                    experience by providing valuable and enjoyable content.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+                <gxg-tab tab="mangoes" key="mangoes" isSelected="false">
+                  Mangoes are known as the "king of fruits." They come in
+                  various varieties, each with a unique flavor and texture.
+                  Mangoes are a good source of vitamin C and fiber.
+                </gxg-tab>
+                <gxg-tab
+                  tab="strawberries"
+                  key="strawberries"
+                  isSelected="false"
+                >
+                  Strawberries are not true berries but aggregate fruits. They
+                  are high in antioxidants and vitamin C. Strawberries have
+                  seeds on the outside, with an average of around 200 seeds per
+                  fruit.
+                </gxg-tab>
+                <gxg-tab tab="pineapples" key="pineapples" isSelected="false">
+                  Pineapples contain bromelain, an enzyme that aids in
+                  digestion. They are a tropical fruit with a sweet and tangy
+                  taste. Pineapples take about two years to reach maturity.
+                </gxg-tab>
+                <gxg-tab tab="grapes" key="grapes" isSelected="false">
+                  Grapes can be red, green, or purple. They are used to make
+                  various products, including wine and raisins. Grapes are rich
+                  in antioxidants and have been associated with heart health
+                  benefits.
+                </gxg-tab>
+                <gxg-tab tab="avocados" key="avocados" isSelected="false">
+                  Avocados are technically berries and are a great source of
+                  healthy monounsaturated fats. They contain more potassium than
+                  bananas. Avocado trees do not self-pollinate; they rely on
+                  bees for pollination.
+                </gxg-tab>
+                <gxg-tab tab="watermelons" key="watermelons" isSelected="false">
+                  Watermelons are made up of about 92% water. The rind is also
+                  edible and can be pickled. Watermelons belong to the gourd
+                  family and are related to cucumbers and pumpkins.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- buttons overflow (scroll style) -->
+          <article data-title="buttons overflow (scroll)">
+            <div class="example" style="height: 300px">
+              <gxg-tabs id="gxgTabs" position="top">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="cherries"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="mangoes"
+                    tab="mangoes"
+                    key="mangoes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="strawberries"
+                    tab="strawberries"
+                    key="strawberries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="pineapples"
+                    tab="pineapples"
+                    key="pineapples"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="grapes"
+                    tab="grapes"
+                    key="grapes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="avocados"
+                    tab="avocados"
+                    key="avocados"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="watermelons"
+                    tab="watermelons"
+                    key="watermelons"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                  <p>
+                    Apples have a fascinating history, dating back thousands of
+                    years. Originating in Central Asia, they've been cultivated
+                    and enjoyed worldwide. The diversity in apple varieties
+                    extends to their uses, ranging from fresh eating and juicing
+                    to cooking and making cider. Each type brings its unique
+                    flavor profile, contributing to the versatility of this
+                    fruit.
+                  </p>
+                  <p>
+                    In the realm of web development, you can draw inspiration
+                    from the apple's diversity when creating a dynamic and
+                    engaging user interface. Consider implementing interactive
+                    features that allow users to explore various aspects of
+                    apples, such as nutritional information, recipes, or even an
+                    interactive orchard map. This not only showcases your
+                    technical skills but also enhances the overall user
+                    experience by providing valuable and enjoyable content.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+                <gxg-tab tab="mangoes" key="mangoes" isSelected="false">
+                  Mangoes are known as the "king of fruits." They come in
+                  various varieties, each with a unique flavor and texture.
+                  Mangoes are a good source of vitamin C and fiber.
+                </gxg-tab>
+                <gxg-tab
+                  tab="strawberries"
+                  key="strawberries"
+                  isSelected="false"
+                >
+                  Strawberries are not true berries but aggregate fruits. They
+                  are high in antioxidants and vitamin C. Strawberries have
+                  seeds on the outside, with an average of around 200 seeds per
+                  fruit.
+                </gxg-tab>
+                <gxg-tab tab="pineapples" key="pineapples" isSelected="false">
+                  Pineapples contain bromelain, an enzyme that aids in
+                  digestion. They are a tropical fruit with a sweet and tangy
+                  taste. Pineapples take about two years to reach maturity.
+                </gxg-tab>
+                <gxg-tab tab="grapes" key="grapes" isSelected="false">
+                  Grapes can be red, green, or purple. They are used to make
+                  various products, including wine and raisins. Grapes are rich
+                  in antioxidants and have been associated with heart health
+                  benefits.
+                </gxg-tab>
+                <gxg-tab tab="avocados" key="avocados" isSelected="false">
+                  Avocados are technically berries and are a great source of
+                  healthy monounsaturated fats. They contain more potassium than
+                  bananas. Avocado trees do not self-pollinate; they rely on
+                  bees for pollination.
+                </gxg-tab>
+                <gxg-tab tab="watermelons" key="watermelons" isSelected="false">
+                  Watermelons are made up of about 92% water. The rind is also
+                  edible and can be pickled. Watermelons belong to the gourd
+                  family and are related to cucumbers and pumpkins.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

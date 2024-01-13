@@ -4,13 +4,11 @@
 gxg-tree-view
 ---------------------------*/
 gxg-tree-view {
-  --gxg-tree-view-icon-size: var(--spacing-comp-03);
-
+  font-family: var(--ds-base-font-family-primary);
+  font-size: var(--ds-base-font-size);
+  font-weight: var(--ds-base-font-weight);
+  color: var(--ds-base-font-color);
   display: contents;
-  color: var(--color-on-background);
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
 }
 
 /*---------------------------
@@ -20,7 +18,7 @@ gxg-tree-view {
   @include gxg-scrollbar;
 
   .ch-tree-view-container {
-    padding: 7px; /*although this value does not exists in gemini ds space tokens, it is the value that works best with gx-ide*/
+    padding: var(--gxg-tree-view-container__padding);
   }
 }
 
@@ -29,112 +27,128 @@ gxg-tree-view {
 ---------------------------*/
 .tree-view-item {
   /*-- Custom vars ---*/
-  --ch-tree-view-view__checkbox-size: var(--gxg-checkbox-size);
-  --ch-tree-view-view__expandable-button-width: var(--gxg-tree-view-icon-size);
+  --ch-tree-view-view__checkbox-size: var(--ds-checkbox-size);
+  --ch-tree-view-view__expandable-button-width: var(--gxg-tree-view-icon__size);
   // --ch-tree-view-item__dashed-line--inset-inline-start: 0px;
   // --ch-tree-view-item__dashed-line--inset-inline-end: 4px;
-  --ch-tree-view-item-gap: var(--spacing-comp-02);
-  --ch-tree-view-item-custom-padding-inline-start: var(--spacing-comp-01);
-  --ch-tree-view-item-custom-padding-inline-end: var(--spacing-comp-01);
+  --ch-tree-view-item-gap: var(--gxg-tree-view-item__gap);
+  --ch-tree-view-item-custom-padding-inline-start: var(
+    --gxg-tree-view-item__custom-padding-inline-start
+  );
+  --ch-tree-view-item-custom-padding-inline-end: var(
+    --gxg-tree-view-item__custom-padding-inline-end
+  );
 
   /*-- Parts ---*/
   &::part(dashed-line) {
-    border-color: var(--gray-02);
+    border-color: var(--gxg-tree-view-item-dashed-line__border-color);
   }
 
-  // Header
+  //header
   &::part(header) {
-    min-height: var(--spacing-comp-05);
-    padding-top: var(--spacing-comp-00);
-    padding-bottom: var(--spacing-comp-00);
-    padding-inline-end: var(--spacing-comp-02);
+    //min-height: var(--gxg-tree-view-item-header__min-height);
+    border-radius: var(--gxg-tree-view-item-header__border-radius);
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: var(--gxg-tree-view-item-header__padding-top);
+    padding-bottom: var(--gxg-tree-view-item-header__padding-bottom);
+    padding-inline-end: var(--gxg-tree-view-item-header__padding-inline-end);
 
     &:hover {
-      background-color: var(--gxg-background-color--hover);
-      color: var(--gxg-color--hover);
+      color: var(--gxg-tree-view-item__color--hover);
     }
 
+    &:first-child {
+    }
+    &:before {
+      content: "";
+      display: block;
+    }
+    &:hover {
+      background-color: var(--ds-item-background-color--hover);
+      //color: var(--ds-item-color--hover);
+    }
     &:focus {
       @include form-element-common-styles-focus-type-1();
+      outline-offset: var(--gxg-tree-view-item-header__outline-offset--focus);
     }
   }
-
   &[selected]::part(header) {
-    background-color: var(--gxg-background-color--selected);
+    color: var(--gxg-grid-row-cell__color--selected);
+    background-color: var(--ds-item-background-color--selected);
     &:hover {
-      background-color: var(--gxg-background-color--selected-hover);
+      background-color: var(--ds-item-background-color--selected-hover);
     }
   }
 
   //expandable-button
   &::part(expandable-button) {
-    background-color: var(--gray-00);
+    background-color: var(
+      --gxg-tree-view-item-expandable-button__background-color
+    );
 
+    //margin-inline-end: 0;
     &::before {
-      background-color: var(--gray-04);
+      background-color: var(
+        --gxg-tree-view-item-expandable-button__background-color--before
+      );
       -webkit-mask-position: center;
       -webkit-mask-repeat: no-repeat;
     }
-
     &:hover {
-      background-color: var(--color-background);
+      background-color: var(
+        --gxg-tree-view-item-expandable-button__background-color--hover
+      );
     }
-
     &:focus {
       @include form-element-common-styles-focus-type-1("outside");
     }
   }
 
   //action
-  // &::part(action) {
-  // }
+  &::part(action) {
+  }
 
   //action / left-img
   &::part(left-img) {
-    width: var(--spacing-comp-04);
-    height: var(--spacing-comp-04);
+    width: var(--gxg-tree-view-item-left-img__size);
+    height: var(--gxg-tree-view-item-left-img__size);
   }
 
   //downloading
   &::part(downloading) {
-    width: var(--spacing-comp-03);
-    height: var(--spacing-comp-03);
+    width: var(--gxg-tree-view-item-downloading__size);
+    height: var(--gxg-tree-view-item-downloading__size);
     //border: var(--border-radius-sm) solid var(--color-primary-enabled);
     //border-color: var(--color-primary-enabled);
-    border: var(--border-width-md) solid var(--color-primary-enabled);
+    border: var(--gxg-tree-view-item-downloading__border);
     border-inline-start-color: transparent;
   }
 
   /*-- Parts for checkbox ---*/
-  // container
+  //container
   &::part(checkbox__container) {
     @include checkbox("container");
   }
-
-  // focus
+  //focus
   &::part(checkbox__container):focus-within {
     box-shadow: none;
     @include form-element-common-styles-focus-type-1();
   }
-
-  // checkbox
+  //checkbox
   &::part(checkbox) {
   }
-
   &::part(checkbox__option) {
     @include checkbox("option");
   }
-
   /*checked*/
   &::part(checkbox__container checkbox__checked) {
     @include checkbox("container--checked");
   }
-
   /*indeterminate*/
   &::part(checkbox__container checkbox__indeterminate) {
     @include checkbox("container--indeterminate");
   }
-
   &::part(checkbox__input) {
     @include checkbox("input");
   }
@@ -144,26 +158,22 @@ gxg-tree-view {
   &--module::part(action)::before {
     grid-area: left-img;
     content: "";
-    width: var(--gxg-tree-view-icon-size);
-    height: var(--gxg-tree-view-icon-size);
+    width: var(--gxg-tree-view-icon__size);
+    height: var(--gxg-tree-view-icon__size);
     margin-inline-end: var(--ch-tree-view-item-gap);
     background-repeat: no-repeat;
   }
-
-  // Folder
+  //folder
   &--folder::part(action)::before {
     background-image: url("/build/icon-assets/objects/folder.svg");
   }
-
   &--folder::part(action expanded)::before {
     background-image: url("/build/icon-assets/objects/folder-open.svg");
   }
-
-  // Module
+  //module
   &--module::part(action)::before {
     background-image: url("/build/icon-assets/objects/module.svg");
   }
-
   &--module::part(action expanded)::before {
     background-image: url("/build/icon-assets/objects/module-open.svg");
   }
@@ -193,7 +203,6 @@ gxg-tree-view {
     // background-color: rgb(207, 222, 230, 0.5);
     // border-color: transparent;
   }
-
   &--drag-enter {
     //to do
     // background-color: #eee;
@@ -203,7 +212,6 @@ gxg-tree-view {
     //   background-color: #eee;
     // }
   }
-
   &:not(.ch-tree-view-item--editing)::part(header):focus-visible {
     //to do
     // border-color: black;
@@ -221,9 +229,8 @@ gxg-tree-view {
   border-radius: 10px;
   font-size: 8px;
 }
-
-// :not(.ch-tree-view-dragging-item)
-//   ch-tree-view-item:not([selected])::part(header):hover {
-//   //to do
-//   // background-color: rgb(232, 232, 233);
-// }
+:not(.ch-tree-view-dragging-item)
+  ch-tree-view-item:not([selected])::part(header):hover {
+  //to do
+  // background-color: rgb(232, 232, 233);
+}

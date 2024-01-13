@@ -1,0 +1,24 @@
+/*--- Gemini ---*/
+:root {
+  /*--- General ---*/
+  --gxg-title-editable__color: var(--ds-base-font-color);
+  --gxg-title-editable__color--editing: var(--color-primary-enabled);
+  --gxg-title-editable-wrapper__gap: var(--spacing-comp-02);
+  --gxg-title-editable__font-weight: var(--mer-font__weight--bold);
+  /*--- h1 ---*/
+  --gxg-title-editable-h1__font-size: 20px;
+  /*--- h2 ---*/
+  --gxg-title-editable-h2__font-size: 16px;
+}
+/*--- Mercury ---*/
+:root.mercury {
+  /*--- General ---*/
+  --gxg-title-editable__color: var(--mer-color__neutral-gray--100);
+  --gxg-title-editable__color--editing: var(--mer-color__primary-blue--200);
+  --gxg-title-editable-wrapper__gap: var(--mer-spacing__comp--xs);
+  --gxg-title-editable__font-weight: var(--mer-font__weight--bold);
+  /*--- h1 ---*/
+  --gxg-title-editable-h1__font-size: var(--mer-font__size--lg);
+  /*--- h2 ---*/
+  --gxg-title-editable-h2__font-size: var(--mer-font__size--sm);
+}

@@ -33,32 +33,32 @@
       <ul data-category="frutas" class="data-list">
         <li
           data-value="manzana-123"
-          data-icon="./assets/icons/apple.svg"
+          data-icon="general/db2"
           data-id="my-manzana-id"
         >
-          zManzanas Label
+          Manzanas Label
         </li>
-        <li>zbananas</li>
-        <li>znaranjas</li>
-        <li>zuvas</li>
-        <li>zfrutillas</li>
+        <li>bananas</li>
+        <li>naranjas</li>
+        <li>uvas</li>
+        <li>frutillas</li>
       </ul>
       <!-- granos -->
       <span><strong>(sin categoría)</strong></span>
       <ul class="data-list">
-        <li>zporotos</li>
-        <li>zgarbanzos</li>
-        <li>zlentejas</li>
-        <li>zchia</li>
+        <li>porotos</li>
+        <li>garbanzos</li>
+        <li>lentejas</li>
+        <li>chia</li>
       </ul>
       <!-- verduras -->
       <span><strong>verduras</strong></span>
       <ul data-category="verduras" class="data-list">
-        <li>zlecuhgas</li>
-        <li>ztomates</li>
-        <li>zcebollas</li>
-        <li>zapio</li>
-        <li>zpapas</li>
+        <li>lecuhgas</li>
+        <li>tomates</li>
+        <li>cebollas</li>
+        <li>apio</li>
+        <li>papas</li>
       </ul>
 
       <!-- ch-suggest -->
@@ -86,12 +86,12 @@
         chSuggest.cursorEnd = true;
         /*Select text button*/
         const selectTextButton = document.getElementById("select-text-button");
-        selectTextButton.addEventListener("click", async (e) => {
+        selectTextButton.addEventListener("click", async e => {
           await chSuggest.selectInputText();
         });
         /*Focus button*/
         const focusButton = document.getElementById("focus-button");
-        focusButton.addEventListener("click", (e) => {
+        focusButton.addEventListener("click", e => {
           chSuggest.focus();
         });
       </script>
@@ -100,27 +100,15 @@
       <section class="section-dev" data-title="ch-suggest-list">
         <ch-suggest-list label="fruits">
           <ch-suggest-list-item>
-            <ch-icon
-              auto-color
-              src="./assets/icons/apple.svg"
-              slot="icon"
-            ></ch-icon>
+            <gxg-icon color="auto" type="general/db2" slot="icon"></gxg-icon>
             apple
           </ch-suggest-list-item>
           <ch-suggest-list-item>
-            <ch-icon
-              auto-color
-              src="./assets/icons/apple.svg"
-              slot="icon"
-            ></ch-icon>
-            banana
+            <gxg-icon color="auto" type="general/db2" slot="icon"></gxg-icon>
+            bananas
           </ch-suggest-list-item>
           <ch-suggest-list-item>
-            <ch-icon
-              auto-color
-              src="./assets/icons/apple.svg"
-              slot="icon"
-            ></ch-icon>
+            <gxg-icon color="auto" type="general/db2" slot="icon"></gxg-icon>
             orange
           </ch-suggest-list-item>
         </ch-suggest-list>
@@ -129,11 +117,11 @@
       <!-- ch-suggest-list-item -->
       <section class="section-dev" data-title="ch-suggest-list-item">
         <ch-suggest-list-item>
-          <ch-icon
+          <gxg-icon
             auto-color
             src="./assets/icons/apple.svg"
             slot="icon"
-          ></ch-icon>
+          ></gxg-icon>
           apple
         </ch-suggest-list-item>
       </section>
@@ -142,15 +130,15 @@
     <script>
       let fragment;
       const lists = document.querySelectorAll(".data-list");
-      chSuggest.addEventListener("valueChanged", (e) => {
+      chSuggest.addEventListener("valueChanged", e => {
         const inputValue = e.detail.trim();
         if (inputValue) {
           let filteredItems = [];
           fragment = document.createDocumentFragment();
-          lists.forEach((list) => {
+          lists.forEach(list => {
             const category = list.getAttribute("data-category");
             const items = list.querySelectorAll("li");
-            filteredItems = Array.from(items).filter((item) => {
+            filteredItems = Array.from(items).filter(item => {
               return item.innerText.toLowerCase().includes(e.detail);
             });
             if (filteredItems.length > 0) {
@@ -158,7 +146,7 @@
               if (category) {
                 chSuggestList.setAttribute("label", category);
               }
-              filteredItems.forEach((item) => {
+              filteredItems.forEach(item => {
                 const chSuggestListItem = document.createElement(
                   "ch-suggest-list-item"
                 );
@@ -173,8 +161,8 @@
                 }
                 const iconSrc = item.getAttribute("data-icon");
                 if (iconSrc) {
-                  const icon = document.createElement("ch-icon");
-                  icon.setAttribute("src", iconSrc);
+                  const icon = document.createElement("gxg-icon");
+                  icon.setAttribute("type", iconSrc);
                   icon.setAttribute("slot", "icon");
                   chSuggestListItem.appendChild(icon);
                 }
@@ -235,11 +223,11 @@
       setFocusBtn.addEventListener("click", function () {
         chSuggest.focus();
       });
-      chSuggest.addEventListener("valueChanged", (e) => {
+      chSuggest.addEventListener("valueChanged", e => {
         console.log("valueChanged event:", e.detail);
       });
 
-      chSuggest.addEventListener("itemSelected", (e) => {
+      chSuggest.addEventListener("itemSelected", e => {
         console.log("itemSelected event:", e.detail);
       });
     </script>

@@ -21,24 +21,107 @@
         display: flex;
         margin: 0;
         min-height: 100vh;
+        background-color: var(--color-background);
       }
 
-      fieldset {
-        display: grid;
-        grid-template-columns: max-content max-content max-content;
-        gap: 8px;
-      }
-
-      .flex-container {
+      .tree-container {
         display: flex;
-        gap: 8px;
       }
 
-      .scroll-context {
+      /* .main-container {
         display: grid;
-        max-height: calc(100vh - 274px);
-        overflow: auto;
+        grid-auto-rows: min-content;
+        align-self: stretch;
+        width: 100%;
+        padding-inline: 16px;
       }
+
+      .section-dev {
+        height: 55vh;
+      }
+
+      .scroll {
+        overflow-y: auto;
+        height: 100%;
+      } */
+
+      /* .ch-tree-x-list-item--success::part(action)::before {
+        grid-area: first-img;
+        content: "";
+        width: 12px;
+        height: 12px;
+        margin-inline-end: 4px;
+        background-color: rgb(69, 150, 96);
+        border-radius: 50%;
+      }
+
+      .ch-tree-x-list-item--success::part(action) {
+        grid-template: "first-img left-img text right-img" / max-content max-content 1fr max-content;
+      }
+
+      .configuration {
+        display: grid;
+        grid-template-columns: max-content max-content max-content max-content;
+        grid-template-rows: min-content min-content min-content min-content;
+        gap: 12px 24px;
+      }
+
+      gxg-tree-view {
+        display: grid;
+        grid-template-columns: 500px max-content;
+        grid-template-rows: 1fr;
+        height: 100%;
+      }
+
+      .tree-buttons {
+        display: grid;
+        grid-auto-rows: max-content;
+        row-gap: 8px;
+      }
+
+      :not(.ch-tree-x-dragging-item)
+        ch-tree-x-list-item:not([selected])::part(header):hover {
+        background-color: rgb(232, 232, 233);
+      }
+
+      .ch-tree-x-list-item--drag-enter {
+        background-color: #eee;
+        box-shadow: inset 0 0 1px 0px black;
+
+        &[selected]::part(header) {
+          background-color: #eee;
+        }
+      } */
+
+      /* ch-tree-x-list-item {
+        &::part(header) {
+          border: 1px solid transparent;
+        }
+
+        &[selected]::part(header) {
+          background-color: rgb(207, 222, 230);
+          border-color: rgb(2, 102, 160);
+        }
+
+        &.ch-tree-x-list-item--editing::part(header) {
+          background-color: rgb(207, 222, 230, 0.5);
+          border-color: transparent;
+        }
+
+        &:not(.ch-tree-x-list-item--editing)::part(header):focus-visible {
+          border-color: black;
+          z-index: 1;
+        }
+      }
+
+      .ch-tree-x-drag-info {
+        padding-inline: 6px;
+        padding-block: 2px;
+        background-color: rgb(207, 222, 230);
+        border: 1px solid rgb(2, 102, 160);
+        border-radius: 10px;
+        font-size: 8px;
+      } */
 
       .main-container {
         display: grid;
@@ -52,37 +135,265 @@
 
       .section-dev {
         display: grid;
-        grid-template-columns: 350px 500px;
+        grid-template-columns: 250px 500px max-content;
         gap: 32px;
         height: 100%;
-        margin-inline-start: 100px;
-      }
-
-      .scroll {
-        overflow-y: auto;
-        height: 100%;
-      }
-
-      .configuration {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: min-content min-content min-content;
-        gap: 12px 24px;
-      }
-
-      .configuration > div {
-        display: grid;
-        grid-template-columns: max-content max-content;
-        gap: 16px;
       }
     </style>
   </head>
   <body>
     <div class="main-container">
       <div class="section-dev">
-        <gxg-tree-view show-lines="all" multi-selection="true"></gxg-tree-view>
+        <ch-tree-x
+          id="markup-tree"
+          toggle-checkboxes="false"
+          show-lines
+          multi-selection
+        >
+          <ch-tree-x-list>
+            <ch-tree-x-list-item
+              opened
+              left-img-src="/build/ch-icon-assets/generator"
+              caption="Meats"
+              checkbox
+            >
+              <ch-tree-x-list slot="tree">
+                <ch-tree-x-list-item
+                  checkbox
+                  checked
+                  toggle-checkboxes
+                  left-img-src="/build/ch-icon-assets/patterns"
+                  caption="White meats"
+                >
+                  <ch-tree-x-list slot="tree">
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="./objects/file"
+                      caption="Chicken"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="/build/ch-icon-assets/java"
+                      caption="Turkey"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="./objects/file"
+                      caption="Duck"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                  </ch-tree-x-list>
+                </ch-tree-x-list-item>
+                <ch-tree-x-list-item
+                  left-img-src="/build/ch-icon-assets/knowledge-base"
+                  caption="Red meats"
+                >
+                  <ch-tree-x-list checkbox slot="tree">
+                    <ch-tree-x-list-item
+                      left-img-src="./objects/file"
+                      caption="Beef"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      left-img-src="./objects/file"
+                      caption="Lamb and mutton"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      left-img-src="/build/tree-item-assets/download"
+                      caption="Pork"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                  </ch-tree-x-list>
+                </ch-tree-x-list-item>
+              </ch-tree-x-list>
+            </ch-tree-x-list-item>
+            <ch-tree-x-list-item
+              id="fish"
+              left-img-src="./objects/file"
+              checkbox
+              checked="false"
+              disabled
+              right-img-src="/build/tree-item-assets/download"
+              caption="Fish"
+            >
+            </ch-tree-x-list-item>
+            <ch-tree-x-list-item
+              left-img-src="/build/tree-item-assets/download"
+              caption="Fruits"
+              checked="false"
+            >
+              <ch-tree-x-list slot="tree">
+                <ch-tree-x-list-item
+                  checkbox
+                  left-img-src="/build/ch-icon-assets/java"
+                  caption="Orange"
+                  leaf
+                >
+                </ch-tree-x-list-item>
+                <ch-tree-x-list-item
+                  checkbox
+                  left-img-src="./objects/file"
+                  opened
+                  caption="Banana"
+                >
+                  <ch-tree-x-list slot="tree">
+                    <ch-tree-x-list-item
+                      left-img-src="/build/ch-icon-assets/knowledge-base"
+                      checkbox
+                      caption="Pisang"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="/build/ch-icon-assets/java"
+                      caption="Red Banana"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      left-img-src="/build/ch-icon-assets/knowledge-base"
+                      caption="Cavendish"
+                      show-expandable-button="false"
+                    >
+                      <ch-tree-x-list slot="tree">
+                        <ch-tree-x-list-item
+                          caption="Big"
+                          leaf
+                          show-expandable-button="false"
+                        >
+                        </ch-tree-x-list-item>
+                        <ch-tree-x-list-item
+                          left-img-src="objects/patterns"
+                          caption="Small"
+                          leaf
+                        >
+                        </ch-tree-x-list-item>
+                        <ch-tree-x-list-item
+                          left-img-src="/build/ch-icon-assets/knowledge-base"
+                          caption="Mini (empty items)"
+                        >
+                          <ch-tree-x-list> </ch-tree-x-list>
+                        </ch-tree-x-list-item>
+                      </ch-tree-x-list>
+                    </ch-tree-x-list-item>
+                  </ch-tree-x-list>
+                </ch-tree-x-list-item>
+                <ch-tree-x-list-item
+                  checkbox
+                  left-img-src="./objects/file"
+                  caption="Strawberry"
+                  expanded
+                  show-expandable-button="false"
+                >
+                  <ch-tree-x-list slot="tree">
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="/build/ch-icon-assets/java"
+                      caption="Albion"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="/build/ch-icon-assets/java"
+                      opened
+                      caption="Tillamook"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="/build/ch-icon-assets/knowledge-base"
+                      caption="Northeaster"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                  </ch-tree-x-list>
+                </ch-tree-x-list-item>
+              </ch-tree-x-list>
+            </ch-tree-x-list-item>
+            <ch-tree-x-list-item
+              opened
+              expanded
+              left-img-src="/build/ch-icon-assets/java"
+              empty-tree
+              caption="Nuts"
+              show-expandable-button="false"
+            >
+              <ch-tree-x-list slot="tree">
+                <ch-tree-x-list-item
+                  opened
+                  checkbox
+                  left-img-src="objects/patterns"
+                  caption="Almonds"
+                >
+                  <ch-tree-x-list slot="tree">
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="objects/patterns"
+                      opened
+                      caption="Mollar de Tarragona"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="/build/ch-icon-assets/java"
+                      caption="Ferragnès"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                    <ch-tree-x-list-item
+                      checkbox
+                      left-img-src="objects/patterns"
+                      caption="Verdal"
+                      leaf
+                    >
+                    </ch-tree-x-list-item>
+                  </ch-tree-x-list>
+                </ch-tree-x-list-item>
+                <ch-tree-x-list-item
+                  left-img-src="objects/patterns"
+                  opened
+                  caption="Brazil nuts"
+                  leaf
+                >
+                </ch-tree-x-list-item>
+                <ch-tree-x-list-item
+                  checkbox
+                  left-img-src="objects/patterns"
+                  caption="Cashews (lazy)"
+                  lazy-load
+                >
+                </ch-tree-x-list-item>
+                <ch-tree-x-list-item
+                  checkbox
+                  left-img-src="objects/patterns"
+                  caption="Chestnuts (lazy)"
+                  lazy-load
+                  drag-enabled="false"
+                >
+                </ch-tree-x-list-item>
+              </ch-tree-x-list>
+            </ch-tree-x-list-item>
+          </ch-tree-x-list>
+        </ch-tree-x>
 
-        <div class="scroll-context">
+        <div class="tree-container">
+          <gxg-tree-view></gxg-tree-view>
+        </div>
+
+        <div>
           <ch-textblock id="contextmenu-textblock"
             >+ + + + + + + Context + + + + + + +</ch-textblock
           >
@@ -103,300 +414,159 @@
       </div>
 
       <div class="configuration">
+        <button id="expand-all" type="button">Expand All</button>
+
+        <ch-checkbox
+          id="multi-selection"
+          checked-value="true"
+          un-checked-value="false"
+          value="false"
+          caption="Multi selection"
+        ></ch-checkbox>
+
+        <ch-checkbox
+          id="editable"
+          checked-value="true"
+          un-checked-value="false"
+          value="true"
+          caption="Editable Items"
+        ></ch-checkbox>
+
+        <ch-checkbox
+          id="check-all"
+          checked-value="true"
+          un-checked-value="false"
+          value="false"
+          caption="Check / uncheck all"
+        ></ch-checkbox>
+
+        <label>
+          Lines
+          <select name="lines" id="lines">
+            <option value="all">All lines</option>
+            <option value="last">Last line</option>
+            <option value="none" selected>None</option>
+          </select>
+        </label>
+
+        <button id="collapse-all" type="button">Collapse All</button>
+
+        <ch-checkbox
+          id="drag-enabled"
+          checked-value="true"
+          un-checked-value="false"
+          value="true"
+          caption="Drag Enabled"
+        ></ch-checkbox>
+
+        <ch-checkbox
+          id="drop-enabled"
+          checked-value="true"
+          un-checked-value="false"
+          value="true"
+          caption="Drop Enabled"
+        ></ch-checkbox>
+
         <div>
-          <fieldset>
-            <legend>Properties</legend>
-
-            <ch-checkbox
-              id="multi-selection"
-              checked-value="true"
-              un-checked-value="false"
-              value="true"
-              caption="Multi selection"
-            ></ch-checkbox>
-
-            <ch-checkbox
-              id="editable"
-              checked-value="true"
-              un-checked-value="false"
-              value="true"
-              caption="Editable Items"
-            ></ch-checkbox>
-
-            <ch-checkbox
-              id="drag-enabled"
-              checked-value="true"
-              un-checked-value="false"
-              value="true"
-              caption="Drag Enabled"
-            ></ch-checkbox>
-
-            <ch-checkbox
-              id="drop-enabled"
-              checked-value="true"
-              un-checked-value="false"
-              value="true"
-              caption="Drop Enabled"
-            ></ch-checkbox>
-
-            <label style="display: flex; flex-direction: column">
-              Lines
-              <select name="lines" id="lines">
-                <option value="all" selected>All lines</option>
-                <option value="last">Last line</option>
-                <option value="none">None</option>
-              </select>
-            </label>
-
-            <label style="display: flex; flex-direction: column">
-              Expandable button
-              <select name="expandable-button" id="expandable-button">
-                <option value="action">Action</option>
-                <option value="decorative" selected>Decorative</option>
-                <option value="no">None</option>
-              </select>
-            </label>
-
-            <ch-checkbox
-              id="expand-on-click"
-              checked-value="true"
-              un-checked-value="false"
-              value="true"
-              caption="Expand on click"
-            ></ch-checkbox>
-          </fieldset>
-
-          <fieldset>
-            <legend>Methods</legend>
-
-            <div style="display: grid; gap: 8px">
-              <button id="expand-all" type="button">Expand All</button>
-              <button id="collapse-all" type="button">Collapse All</button>
-            </div>
-
-            <fieldset style="grid-template-columns: max-content max-content">
-              <legend>Update items properties</legend>
-
-              <div class="flex-container" style="flex-direction: column">
-                <ch-checkbox
-                  id="update-items-properties-selected"
-                  checked-value="true"
-                  un-checked-value="false"
-                  value="false"
-                  caption="Selected"
-                ></ch-checkbox>
-
-                <ch-checkbox
-                  id="update-items-properties-checked"
-                  checked-value="true"
-                  un-checked-value="false"
-                  value="false"
-                  caption="Checked"
-                ></ch-checkbox>
-              </div>
-
-              <div class="flex-container">
-                <input
-                  aria-label="Items to update"
-                  id="items-to-update"
-                  placeholder="ItemId1,ItemId2,ItemId3"
-                  type="text"
-                />
-                <button id="button-items-to-update">Update items</button>
-              </div>
-            </fieldset>
-
-            <fieldset style="grid-template-columns: max-content max-content">
-              <legend>Scroll into visible</legend>
-
-              <div class="flex-container" style="flex-direction: column">
-                <ch-checkbox
-                  id="scroll-into-visible-selected"
-                  checked-value="true"
-                  un-checked-value="false"
-                  value="false"
-                  caption="Selected"
-                ></ch-checkbox>
-
-                <ch-checkbox
-                  id="scroll-into-visible-checked"
-                  checked-value="true"
-                  un-checked-value="false"
-                  value="false"
-                  caption="Checked"
-                ></ch-checkbox>
-              </div>
-
-              <div class="flex-container">
-                <input id="input-scroll-into-visible" type="text" />
-                <button id="btn-scroll-into-visible" type="button">
-                  Scroll into visible
-                </button>
-              </div>
-            </fieldset>
-
-            <ch-checkbox
-              id="check-all"
-              checked-value="true"
-              un-checked-value="false"
-              value="false"
-              caption="Check / uncheck all"
-            ></ch-checkbox>
-
-            <div class="flex-container">
-              <input
-                aria-label="Reload items"
-                id="item-id-to-reload"
-                placeholder="ItemId1"
-                type="text"
-              />
-              <button id="button-to-reload-items">Reload items</button>
-            </div>
-
-            <div class="flex-container">
-              <input
-                aria-label="Remove items"
-                id="items-to-remove"
-                placeholder="ItemId1,ItemId2,ItemId3"
-                type="text"
-              />
-              <button id="button-items-to-remove">Remove items</button>
-            </div>
-          </fieldset>
+          <input id="input-scroll-into-visible" type="text" />
+          <button id="btn-scroll-into-visible" type="button">
+            Scroll into visible
+          </button>
         </div>
 
         <div>
-          <fieldset>
-            <legend>Filters</legend>
-
-            <label>
-              Filter type
-              <select name="filter-type" id="filter-type">
-                <option value="checked">Checked</option>
-                <option value="unchecked">Unchecked</option>
-                <option value="caption">Caption</option>
-                <option value="metadata">Metadata</option>
-                <option value="id-list">List of ids</option>
-                <option value="none" selected>None</option>
-              </select>
-            </label>
-
-            <label>
-              Filter
-              <input id="filter" value="" />
-            </label>
-
-            <ch-checkbox
-              id="camel-case"
-              checked-value="true"
-              un-checked-value="false"
-              value="false"
-              caption="Apply camel casing to filter"
-            ></ch-checkbox>
-
-            <ch-checkbox
-              id="hide-matches"
-              checked-value="true"
-              un-checked-value="false"
-              value="false"
-              caption="Hide matches and show non-matches"
-            ></ch-checkbox>
-          </fieldset>
-
-          <fieldset>
-            <legend>Models</legend>
-
-            <button id="load-model-btn">Load model (click first)</button>
-            <button id="update-model-btn">Update model (click second)</button>
-            <button id="update-model-again-btn">
-              Update model again (click third)
-            </button>
-            <button id="update-big-model-btn">Set big model</button>
-            <button id="kb-explorer-model-btn">KB Explorer</button>
-            <button id="import-objects-model-btn">Import Objects</button>
-          </fieldset>
+          <label>
+            Item id
+            <input id="item-id-to-reload" type="text" />
+          </label>
+          <button id="button-to-reload-items">Reload items</button>
         </div>
+      </div>
+
+      <div class="buttons-wrapper">
+        <button id="load-model-btn">Load model (click first)</button>
+        <button id="update-model-btn">Update model (click second)</button>
+        <button id="update-model-again-btn">
+          Update model again (click third)
+        </button>
+        <button id="update-big-model-btn">Set big model</button>
+        <button id="kb-explorer-model-btn">KB Explorer</button>
+        <button id="import-objects-model-btn">Import Objects</button>
       </div>
     </div>
 
-    <script type="module">
-      import {
-        lazyLoadItemsDictionary,
-        kbExplorerModel,
-        importObjectsModel
-      } from "../assets/models/tree.js";
-
+    <script>
       const modelTiny = [
         {
           id: "number-1",
           caption: "number-1 label (always editable)",
-          leftImgSrc: "./assets/icons/knowledge-base.svg",
-          editable: true
+          leftImgSrc: "./objects/knowledge-base",
+          editable: true,
         },
         {
           id: "number-2",
           caption: "number-2 (always editable)",
-          leftImgSrc: "./assets/icons/datastore.svg",
+          leftImgSrc: "./objects/datastore",
           editable: true,
           items: [
             {
               id: "number-2.1",
               caption: "number-2.1",
-              leftImgSrc: "./assets/icons/file.svg"
-            }
-          ]
+              leftImgSrc: "./objects/file",
+            },
+          ],
         },
         {
           id: "number-3",
           caption: "number-3",
-          leftImgSrc: "/build/ch-icon-assets/patterns.svg",
+          leftImgSrc: "/build/ch-icon-assets/patterns",
           items: [
             {
               id: "number-3.1",
               caption: "number-3.1",
-              leftImgSrc: "/build/ch-icon-assets/java.svg"
-            }
-          ]
-        }
+              leftImgSrc: "/build/ch-icon-assets/java",
+            },
+          ],
+        },
       ];
 
       const modelTinyUpdated = [
         {
           id: "number-1",
           caption: "number-1",
-          leftImgSrc: "./build/ch-icon-assets/csharp.svg.svg"
+          leftImgSrc: "./build/ch-icon-assets/csharp",
         },
         {
           id: "number-2",
           caption: "number-2",
-          leftImgSrc: "./assets/icons/datastore.svg",
+          leftImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-2.1",
               caption: "number-2.1",
-              leftImgSrc: "/build/ch-icon-assets/patterns.svg",
+              leftImgSrc: "/build/ch-icon-assets/patterns",
               items: [
                 {
                   id: "number-2.1.1",
                   caption: "number-2.1.1",
-                  leftImgSrc: "/build/ch-icon-assets/java.svg"
-                }
-              ]
-            }
-          ]
+                  leftImgSrc: "/build/ch-icon-assets/java",
+                },
+              ],
+            },
+          ],
         },
         {
           id: "number-3",
           caption: "number-3",
-          leftImgSrc: "./assets/icons/datastore.svg",
+          leftImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-3.1",
               caption: "number-3.1",
-              leftImgSrc: "./assets/icons/datastore.svg"
-            }
-          ]
-        }
+              leftImgSrc: "./objects/datastore",
+            },
+          ],
+        },
       ];
 
       const modelTinyUpdatedAgain = [
@@ -404,45 +574,45 @@
           id: "number-a",
           caption: "number-a (always editable)",
           leaf: true,
-          leftImgSrc: "./assets/icons/apple.svg",
-          editable: true
+          leftImgSrc: "./objects/apple",
+          editable: true,
         },
         {
           id: "number-b",
           caption: "number-b",
           leaf: false,
-          leftImgSrc: "./assets/icons/file.svg",
+          leftImgSrc: "./objects/file",
           items: [
             {
               id: "number-2.1",
               caption: "number-2.1",
               leaf: false,
-              leftImgSrc: "/build/ch-icon-assets/patterns.svg",
+              leftImgSrc: "/build/ch-icon-assets/patterns",
               items: [
                 {
                   id: "number-2.1.1",
                   caption: "number-2.1.1",
                   leaf: false,
-                  leftImgSrc: "/build/ch-icon-assets/java.svg",
+                  leftImgSrc: "/build/ch-icon-assets/java",
                   items: [
                     {
                       id: "number-2.1.1.1",
                       caption: "number-2.1.1.1",
                       leaf: true,
-                      leftImgSrc: "/build/tree-item-assets/download.svg"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+                      leftImgSrc: "/build/tree-item-assets/download",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
         {
           id: "number-3",
           caption: "number-3",
           leaf: true,
-          leftImgSrc: "/build/ch-icon-assets/patterns.svg"
-        }
+          leftImgSrc: "/build/ch-icon-assets/patterns",
+        },
       ];
 
       const model = [
@@ -451,55 +621,55 @@
           caption: "number-1 label (always editable)",
           class: "tree-view-item tree-view-item--success",
           leaf: false,
-          leftImgSrc: "./assets/icons/datastore.svg",
+          leftImgSrc: "./objects/datastore",
           editable: true,
           items: [
             {
               id: "number-1-1",
               caption: "number-1-1 (always editable)",
               leaf: false,
-              leftImgSrc: "/build/ch-icon-assets/patterns.svg",
+              leftImgSrc: "/build/ch-icon-assets/patterns",
               editable: true,
               items: [
                 {
                   id: "number-1-1-1",
                   caption: "number-1-1-1",
                   leaf: true,
-                  leftImgSrc: "./assets/icons/knowledge-base.svg"
+                  leftImgSrc: "./objects/knowledge-base",
                 },
                 {
                   id: "number-1-1-2",
                   caption: "number-1-1-2",
                   leaf: false,
-                  leftImgSrc: "./assets/icons/knowledge-base.svg",
+                  leftImgSrc: "./objects/knowledge-base",
                   items: [
                     {
                       id: "number-1-1-2-1",
                       caption: "number-1-1-2-1 (lazy, drag disabled)",
                       leaf: false,
-                      leftImgSrc: "./assets/icons/knowledge-base.svg",
+                      leftImgSrc: "./objects/knowledge-base",
                       lazy: true,
                       checkbox: true,
                       dragDisabled: true,
-                      toggleCheckboxes: true
+                      toggleCheckboxes: true,
                     },
                     {
                       id: "number-1-1-2-2",
                       caption: "number-1-1-2-2",
                       leaf: true,
-                      leftImgSrc: "/build/ch-icon-assets/java.svg"
-                    }
-                  ]
-                }
-              ]
+                      leftImgSrc: "/build/ch-icon-assets/java",
+                    },
+                  ],
+                },
+              ],
             },
             {
               id: "number-1-2",
               caption: "number-1-2",
               leaf: true,
-              leftImgSrc: "./assets/icons/knowledge-base.svg"
-            }
-          ]
+              leftImgSrc: "./objects/knowledge-base",
+            },
+          ],
         },
         {
           id: "number-2",
@@ -511,16 +681,16 @@
               id: "number-2-1",
               caption: "number-2-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/java.svg"
+              leftImgSrc: "/build/ch-icon-assets/java",
             },
             {
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "./assets/icons/knowledge-base.svg"
-            }
-          ]
-        }
+              leftImgSrc: "./objects/knowledge-base",
+            },
+          ],
+        },
       ];
 
       const updatedModel = [
@@ -528,53 +698,53 @@
           id: "number-1",
           caption: "number-1",
           leaf: false,
-          leftImgSrc: "./assets/icons/knowledge-base.svg",
+          leftImgSrc: "./objects/knowledge-base",
           items: [
             {
               id: "number-1-1",
               caption: "number-1-1",
-              class: "ch-tree-view-item--success",
+              class: "ch-tree-x-list-item--success",
               leaf: false,
-              leftImgSrc: "./assets/icons/knowledge-base.svg",
+              leftImgSrc: "./objects/knowledge-base",
               items: [
                 {
                   id: "number-1-1-1",
                   caption: "number-1-1-1",
                   leaf: true,
-                  leftImgSrc: "./assets/icons/knowledge-base.svg"
+                  leftImgSrc: "./objects/knowledge-base",
                 },
                 {
                   id: "number-1-1-2",
                   caption: "number-1-1-2",
                   leaf: false,
-                  leftImgSrc: "./assets/icons/knowledge-base.svg",
+                  leftImgSrc: "./objects/knowledge-base",
                   items: [
                     {
                       id: "number-1-1-2-1",
                       caption: "number-1-1-2-1",
                       leaf: false,
-                      leftImgSrc: "./assets/icons/knowledge-base.svg",
+                      leftImgSrc: "./objects/knowledge-base",
                       items: [
                         {
                           id: "new-item-added-1",
                           caption: "new-item-added-1",
                           disabled: true,
                           leaf: true,
-                          leftImgSrc: "./assets/icons/knowledge-base.svg"
+                          leftImgSrc: "./objects/knowledge-base",
                         },
                         {
                           id: "new-item-added-2",
                           caption: "new-item-added-2",
                           disabled: false,
                           leaf: true,
-                          leftImgSrc: "./assets/icons/knowledge-base.svg"
+                          leftImgSrc: "./objects/knowledge-base",
                         },
                         {
                           id: "new-item-added-3",
                           caption: "new-item-added-3",
                           disabled: true,
                           leaf: true,
-                          leftImgSrc: "./assets/icons/knowledge-base.svg"
+                          leftImgSrc: "./objects/knowledge-base",
                         },
                         {
                           id: "new-item-added-4",
@@ -582,14 +752,14 @@
                           disabled: false,
                           expanded: true,
                           leaf: false,
-                          leftImgSrc: "./assets/icons/knowledge-base.svg",
+                          leftImgSrc: "./objects/knowledge-base",
                           items: [
                             {
                               id: "new-item-added-4-1",
                               caption: "new-item-added-4-1",
                               disabled: false,
                               leaf: true,
-                              leftImgSrc: "./assets/icons/knowledge-base.svg"
+                              leftImgSrc: "./objects/knowledge-base",
                             },
                             {
                               id: "new-item-added-4-2",
@@ -597,7 +767,7 @@
                               disabled: true,
                               expanded: true,
                               leaf: false,
-                              leftImgSrc: "./assets/icons/knowledge-base.svg",
+                              leftImgSrc: "./objects/knowledge-base",
                               items: [
                                 {
                                   id: "new-item-added-4-2-1",
@@ -605,54 +775,48 @@
                                   disabled: true,
                                   expanded: true,
                                   leaf: false,
-                                  leftImgSrc:
-                                    "./assets/icons/knowledge-base.svg",
+                                  leftImgSrc: "./objects/knowledge-base",
                                   items: [
                                     {
                                       id: "new-item-added-4-2-1-1",
                                       caption: "new-item-added-4-2-1-1",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc:
-                                        "./assets/icons/knowledge-base.svg"
+                                      leftImgSrc: "./objects/knowledge-base",
                                     },
                                     {
                                       id: "new-item-added-4-2-1-2",
                                       caption: "new-item-added-4-2-1-2",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc:
-                                        "./assets/icons/knowledge-base.svg"
+                                      leftImgSrc: "./objects/knowledge-base",
                                     },
                                     {
                                       id: "new-item-added-4-2-1-3",
                                       caption: "new-item-added-4-2-1-3",
                                       disabled: true,
                                       leaf: true,
-                                      leftImgSrc:
-                                        "./assets/icons/knowledge-base.svg"
+                                      leftImgSrc: "./objects/knowledge-base",
                                     },
                                     {
                                       id: "new-item-added-4-2-1-4",
                                       caption: "new-item-added-4-2-1-4",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc:
-                                        "./assets/icons/knowledge-base.svg"
-                                    }
-                                  ]
+                                      leftImgSrc: "./objects/knowledge-base",
+                                    },
+                                  ],
                                 },
                                 {
                                   id: "new-item-added-4-2-2",
                                   caption: "new-item-added-4-2-2",
                                   disabled: true,
                                   leaf: true,
-                                  leftImgSrc:
-                                    "./assets/icons/knowledge-base.svg"
-                                }
-                              ]
-                            }
-                          ]
+                                  leftImgSrc: "./objects/knowledge-base",
+                                },
+                              ],
+                            },
+                          ],
                         },
                         {
                           id: "new-item-added-5",
@@ -660,70 +824,70 @@
                           disabled: true,
                           expanded: true,
                           leaf: false,
-                          leftImgSrc: "./assets/icons/knowledge-base.svg",
+                          leftImgSrc: "./objects/knowledge-base",
                           items: [
                             {
                               id: "new-item-added-5-1",
                               caption: "new-item-added-5-1",
                               disabled: false,
                               leaf: true,
-                              leftImgSrc: "./assets/icons/knowledge-base.svg"
+                              leftImgSrc: "./objects/knowledge-base",
                             },
                             {
                               id: "new-item-added-5-2",
                               caption: "new-item-added-5-2",
                               disabled: true,
                               leaf: true,
-                              leftImgSrc: "./assets/icons/knowledge-base.svg"
-                            }
-                          ]
-                        }
-                      ]
+                              leftImgSrc: "./objects/knowledge-base",
+                            },
+                          ],
+                        },
+                      ],
                     },
                     {
                       id: "number-1-1-2-2",
                       caption: "number-1-1-2-2",
                       leaf: true,
-                      leftImgSrc: "./assets/icons/knowledge-base.svg"
-                    }
-                  ]
-                }
-              ]
+                      leftImgSrc: "./objects/knowledge-base",
+                    },
+                  ],
+                },
+              ],
             },
             {
               id: "number-1-2",
               caption: "number-1-2",
               leaf: true,
-              leftImgSrc: "./assets/icons/knowledge-base.svg"
-            }
-          ]
+              leftImgSrc: "./objects/knowledge-base",
+            },
+          ],
         },
         {
           id: "number-2",
           caption: "number-2",
           leaf: false,
-          leftImgSrc: "./assets/icons/datastore.svg",
+          leftImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-2-1",
               caption: "number-2-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/patterns.svg"
+              leftImgSrc: "/build/ch-icon-assets/patterns",
             },
             {
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg"
+              leftImgSrc: "objects/patterns",
             },
             {
               id: "number-2-3",
               caption: "number-2-3",
               disabled: true,
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg"
-            }
-          ]
+              leftImgSrc: "objects/patterns",
+            },
+          ],
         },
         {
           id: "number-3",
@@ -731,29 +895,29 @@
           leaf: false,
           disabled: true,
           expanded: true,
-          leftImgSrc: "./assets/icons/datastore.svg",
+          leftImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-3-1",
               caption: "number-3-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/patterns.svg"
+              leftImgSrc: "/build/ch-icon-assets/patterns",
             },
             {
               id: "number-3-2",
               caption: "number-3-2",
               disabled: true,
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg"
+              leftImgSrc: "objects/patterns",
             },
             {
               id: "number-3-3",
               caption: "number-3-3",
               leaf: true,
-              leftImgSrc: "assets/icons/patterns.svg"
-            }
-          ]
-        }
+              leftImgSrc: "objects/patterns",
+            },
+          ],
+        },
       ];
 
       const modelLazyUpdated1 = [
@@ -761,21 +925,21 @@
           id: "lazy-loaded-1",
           caption: "Lazy Loaded 1 (drag disabled)",
           leaf: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "objects/patterns",
           checkbox: true,
-          dragDisabled: true
+          dragDisabled: true,
         },
         {
           id: "lazy-loaded-2",
           caption: "Lazy Loaded 2 (lazy, drag disabled, drop disabled)",
           leaf: false,
           lazy: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "objects/patterns",
           checkbox: true,
           dragDisabled: true,
           dropDisabled: true,
-          toggleCheckboxes: true
-        }
+          toggleCheckboxes: true,
+        },
       ];
 
       const modelLazyUpdated2 = [
@@ -783,19 +947,549 @@
           id: "lazy-loaded-3",
           caption: "Lazy Loaded 3 (drag disabled)",
           leaf: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "objects/patterns",
           checkbox: true,
-          dragDisabled: true
+          dragDisabled: true,
         },
         {
           id: "lazy-loaded-4",
           caption: "Lazy Loaded 4 (drag disabled)",
           leaf: true,
-          leftImgSrc: "assets/icons/patterns.svg",
+          leftImgSrc: "objects/patterns",
           checkbox: true,
-          dragDisabled: true
-        }
+          dragDisabled: true,
+        },
       ];
+
+      const importObjectsModel = [
+        {
+          id: "Category",
+          caption: "Category (1)",
+          leftImgSrc: "objects/category",
+          items: [
+            {
+              id: "Category.Main_Programs",
+              caption: "Main Programs",
+              leftImgSrc: "objects/category",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "Design System",
+          caption: "Design System (5)",
+          leftImgSrc: "objects/dso",
+          items: [
+            {
+              id: "Design_System.ActionGroup",
+              caption: "ActionGroup",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.DynamicActionGroup",
+              caption: "DynamicActionGroup",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.UserControls",
+              caption: "UserControls",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.Dropdown",
+              caption: "Dropdown",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+            {
+              id: "Design_System.UnanimoAngularWithoutUserControls",
+              caption: "UnanimoAngularWithoutUserControls",
+              leftImgSrc: "objects/dso",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "Module",
+          caption: "Module (4/6)",
+          leftImgSrc: "objects/module",
+          indeterminate: true,
+          items: [
+            {
+              id: "Module.General",
+              caption: "General",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.General.UI",
+              caption: "General.UI",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.General.Services",
+              caption: "General.Services",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.GeneralReporting",
+              caption: "GeneralReporting",
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.GeneXusUnanimo",
+              caption: "GeneXusUnanimo",
+              checked: false,
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+            {
+              id: "Module.GeneXus",
+              caption: "GeneXus",
+              checked: false,
+              leftImgSrc: "objects/module",
+              leaf: true,
+            },
+          ],
+        },
+        {
+          id: "Data Provider",
+          caption: "Data Provider (1)",
+          leftImgSrc: "objects/data-provider",
+          items: [
+            {
+              id: "Data_Provider.General.UI.SidebarItemsDP",
+              caption: "General.UI.SidebarItemsDP",
+              leftImgSrc: "objects/data-provider",
+              leaf: true,
+            },
+          ],
+        },
+      ];
+
+      const KB_EXPLORER_ORDER = {
+        module: 1,
+        folder: 2,
+        api: 3,
+        dso: 3,
+        stencil: 3,
+        sdPanel: 3,
+        masterPanel: 3,
+        procedure: 3,
+        webPanel: 3,
+        globalEvents: 4,
+        domain: 5,
+        localization: 6,
+        files: 7,
+        images: 8,
+      };
+
+      const kbExplorerModel = [
+        {
+          id: "root",
+          caption: "GeneXusNext Develop",
+          editable: false,
+          leaf: false,
+          leftImgSrc: "objects/version",
+          dragDisabled: true,
+          dropDisabled: true,
+          items: [
+            {
+              id: "Main_Programs",
+              caption: "Main Programs",
+              editable: false,
+              leftImgSrc: "objects/category",
+              dragDisabled: true,
+              dropDisabled: true,
+              lazy: true,
+              order: 0,
+            },
+            {
+              id: "Root_Module",
+              caption:
+                "The universe is vast, and one fascinating fact is that it contains more stars than there are grains of sand on all the beaches on Earth.",
+              editable: false,
+              class: "tree-view-item tree-view-item--module",
+              dragDisabled: true,
+              lazy: true,
+              order: 1,
+            },
+            {
+              id: "References",
+              caption: "References",
+              editable: false,
+              leftImgSrc: "objects/references",
+              dragDisabled: true,
+              dropDisabled: true,
+              order: 2,
+            },
+            {
+              id: "Customization",
+              caption: "Customization",
+              editable: false,
+              leftImgSrc: "objects/customization",
+              dragDisabled: true,
+              dropDisabled: true,
+              lazy: true,
+              order: 3,
+            },
+            {
+              id: "Documentation",
+              caption: "Documentation",
+              editable: false,
+              leftImgSrc: "objects/document",
+              dragDisabled: true,
+              dropDisabled: true,
+              order: 4,
+            },
+          ],
+        },
+      ];
+
+      const kbExplorerModel_MainPrograms = [
+        {
+          id: "Main_Programs.Prompt",
+          caption: "Prompt",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/sd-panel",
+          order: KB_EXPLORER_ORDER.sdPanel,
+        },
+        {
+          id: "Main_Programs.ApiHealthCheck",
+          caption: "ApiHealthCheck",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/api",
+          order: KB_EXPLORER_ORDER.api,
+        },
+        {
+          id: "Main_Programs.BackHome",
+          caption: "BackHome",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/web-panel",
+          order: KB_EXPLORER_ORDER.webPanel,
+        },
+        {
+          id: "Main_Programs.Login",
+          caption: "Login",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/web-panel",
+          order: KB_EXPLORER_ORDER.webPanel,
+        },
+        {
+          id: "Main_Programs.ProvisioningServices",
+          caption: "ProvisioningServices",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/api",
+          order: KB_EXPLORER_ORDER.api,
+        },
+        {
+          id: "Main_Programs.VersionCheck",
+          caption: "VersionCheck",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/procedure",
+          order: KB_EXPLORER_ORDER.procedure,
+        },
+      ];
+
+      const kbExplorerModel_RootModule = [
+        {
+          id: "Root_Module.IDE",
+          caption: "IDE",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.BL",
+          caption: "BL",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.General",
+          caption: "General",
+          class: "tree-view-item tree-view-item--module",
+          lazy: true,
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.AWS_internal",
+          caption: "AWS_internal",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.DataModel",
+          caption: "DataModel",
+          class: "tree-view-item tree-view-item--folder",
+          order: KB_EXPLORER_ORDER.folder,
+        },
+        {
+          id: "Root_Module.Back",
+          caption: "Back",
+          class: "tree-view-item tree-view-item--folder",
+          order: KB_EXPLORER_ORDER.folder,
+        },
+        {
+          id: "Root_Module.Tests",
+          caption: "Tests",
+          class: "tree-view-item tree-view-item--folder",
+          order: KB_EXPLORER_ORDER.folder,
+        },
+        {
+          id: "Root_Module.Images",
+          caption: "Images",
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/image",
+          order: KB_EXPLORER_ORDER.images,
+        },
+        {
+          id: "Root_Module.GXNext",
+          caption: "GXNext",
+          leaf: true,
+          leftImgSrc: "objects/dso",
+          order: KB_EXPLORER_ORDER.dso,
+        },
+        {
+          id: "Root_Module.GeneXusNext",
+          caption: "GeneXusNext",
+          leaf: true,
+          leftImgSrc: "objects/dso",
+          order: KB_EXPLORER_ORDER.dso,
+        },
+        {
+          id: "Root_Module.Files",
+          caption: "Files",
+          editable: false,
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/file",
+          order: KB_EXPLORER_ORDER.files,
+        },
+        {
+          id: "Root_Module.Domain",
+          caption: "Domain",
+          editable: false,
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.domain,
+        },
+      ];
+
+      const kbExplorerModel_Customization = [
+        {
+          id: "Customization.Files",
+          caption: "Files",
+          leftImgSrc: "objects/file",
+          order: KB_EXPLORER_ORDER.files,
+        },
+        {
+          id: "Customization.Images",
+          caption: "Images",
+          leftImgSrc: "objects/image",
+          order: KB_EXPLORER_ORDER.images,
+        },
+        {
+          id: "Customization.Localization",
+          caption: "Localization",
+          lazy: true,
+          leftImgSrc: "objects/lenguage",
+          order: KB_EXPLORER_ORDER.localization,
+        },
+      ];
+
+      const kbExplorerModel_Customization_Localization = [
+        {
+          id: "Customization.Localization.Arabic",
+          caption: "Arabic",
+          checkbox: true,
+          leaf: true,
+          leftImgSrc: "objects/lenguage",
+          order: KB_EXPLORER_ORDER.localization,
+        },
+        {
+          id: "Customization.Localization.English",
+          caption: "English",
+          checkbox: true,
+          checked: true,
+          leaf: true,
+          leftImgSrc: "objects/lenguage",
+          order: KB_EXPLORER_ORDER.localization,
+        },
+        {
+          id: "Customization.Localization.Spanish",
+          caption: "Spanish",
+          checkbox: true,
+          leaf: true,
+          leftImgSrc: "objects/lenguage",
+          order: KB_EXPLORER_ORDER.localization,
+        },
+        {
+          id: "Customization.Localization.Italian",
+          caption: "Italian",
+          checkbox: true,
+          leaf: true,
+          leftImgSrc: "objects/lenguage",
+          order: KB_EXPLORER_ORDER.localization,
+        },
+      ];
+
+      const kbExplorerModel_RootModule_General = [
+        {
+          id: "Root_Module.General.Security",
+          caption: "Security",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.General.Services",
+          caption: "Services",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.General.UI",
+          caption: "UI",
+          class: "tree-view-item tree-view-item--module",
+          lazy: true,
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.General.Domain",
+          caption: "Domain",
+          editable: false,
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.domain,
+        },
+        {
+          id: "Root_Module.General.GlobalEvents",
+          caption: "GlobalEvents",
+          editable: false,
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/external-object",
+          order: KB_EXPLORER_ORDER.globalEvents,
+        },
+      ];
+
+      const kbExplorerModel_RootModule_General_UI = [
+        {
+          id: "Root_Module.General.UI.DesignSystem",
+          caption: "DesignSystem",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.General.UI.Q2",
+          caption: "Q2",
+          class: "tree-view-item tree-view-item--folder",
+          lazy: true,
+          order: KB_EXPLORER_ORDER.folder,
+        },
+        {
+          id: "Root_Module.General.UI.Popups",
+          caption: "Popups",
+          class: "tree-view-item tree-view-item--module",
+          order: KB_EXPLORER_ORDER.module,
+        },
+        {
+          id: "Root_Module.General.UI.Stencils",
+          caption: "Stencils",
+          class: "tree-view-item tree-view-item--folder",
+          lazy: true,
+          order: KB_EXPLORER_ORDER.folder,
+        },
+        {
+          id: "Root_Module.General.UI.Domain",
+          caption: "Domain",
+          editable: false,
+          dragDisabled: true,
+          dropDisabled: true,
+          leaf: true,
+          leftImgSrc: "objects/domain",
+          order: KB_EXPLORER_ORDER.domain,
+        },
+        {
+          id: "Root_Module.General.UI.Login",
+          caption: "Login",
+          class: "tree-view-item tree-view-item--pending-commit",
+          leaf: true,
+          leftImgSrc: "objects/sd-panel",
+          order: KB_EXPLORER_ORDER.sdPanel,
+        },
+      ];
+
+      const kbExplorerModel_RootModule_General_UI_Q2 = [
+        {
+          id: "Root_Module.General.UI.Q2.ContactUs",
+          caption: "ContactUs",
+          leaf: true,
+          leftImgSrc: "objects/sd-panel",
+          order: KB_EXPLORER_ORDER.sdPanel,
+        },
+        {
+          id: "Root_Module.General.UI.Q2.ProjectDetail",
+          caption: "ProjectDetail",
+          class: "tree-view-item tree-view-item--pending-commit",
+          leaf: true,
+          leftImgSrc: "objects/sd-panel",
+          order: KB_EXPLORER_ORDER.sdPanel,
+        },
+        {
+          id: "Root_Module.General.UI.Q2.MyApps",
+          caption: "MyApps",
+          leaf: true,
+          leftImgSrc: "objects/sd-panel",
+          order: KB_EXPLORER_ORDER.sdPanel,
+        },
+      ];
+
+      const kbExplorerModel_RootModule_General_UI_Stencils = [
+        {
+          id: "Root_Module.General.UI.Stencils.StencilPublishProject",
+          caption: "StencilPublishProject",
+          leaf: true,
+          leftImgSrc: "objects/stencil",
+          order: KB_EXPLORER_ORDER.stencil,
+        },
+      ];
+
+      const lazyLoadItemsDictionary = {
+        Main_Programs: kbExplorerModel_MainPrograms,
+        Root_Module: kbExplorerModel_RootModule,
+        Customization: kbExplorerModel_Customization,
+        "Customization.Localization": kbExplorerModel_Customization_Localization,
+        "Root_Module.General": kbExplorerModel_RootModule_General,
+        "Root_Module.General.UI": kbExplorerModel_RootModule_General_UI,
+        "Root_Module.General.UI.Q2": kbExplorerModel_RootModule_General_UI_Q2,
+        "Root_Module.General.UI.Stencils": kbExplorerModel_RootModule_General_UI_Stencils,
+      };
 
       const bigModel = [];
 
@@ -809,8 +1503,8 @@
           caption: "item-" + i,
           lazy: true,
           leaf: false,
-          leftImgSrc: "assets/icons/patterns.svg",
-          items: []
+          leftImgSrc: "objects/patterns",
+          items: [],
         });
       }
 
@@ -831,7 +1525,7 @@
               id: subSubModelId,
               caption: subSubModelId,
               leaf: true,
-              leftImgSrc: "./assets/icons/file.svg"
+              leftImgSrc: "./objects/file",
             });
           }
 
@@ -840,8 +1534,8 @@
             caption: subModelId,
             expanded: true,
             leaf: false,
-            leftImgSrc: "./assets/icons/knowledge-base.svg",
-            items: subSubEagerLargeModel
+            leftImgSrc: "./objects/knowledge-base",
+            items: subSubEagerLargeModel,
           });
         }
 
@@ -850,17 +1544,20 @@
           caption: modelId,
           expanded: true,
           leaf: false,
-          leftImgSrc: "assets/icons/patterns.svg",
-          items: subEagerLargeModel
+          leftImgSrc: "objects/patterns",
+          items: subEagerLargeModel,
         });
       }
+    </script>
+    <br />
 
+    <script>
       const modelMinimal = [
         {
           id: "number-2-2",
           caption: "number-2-2",
-          leftImgSrc: "./assets/icons/knowledge-base.svg"
-        }
+          leftImgSrc: "./objects/knowledge-base",
+        },
       ];
 
       // WA to remove extra handlers in appload event
@@ -880,26 +1577,18 @@
         const multiSelectionCheckbox = document.getElementById(
           "multi-selection"
         );
-        multiSelectionCheckbox.addEventListener("input", event => {
+        multiSelectionCheckbox.addEventListener("input", (event) => {
           testTreeX.multiSelection = event.target.checked;
         });
 
         const editableCheckbox = document.getElementById("editable");
-        editableCheckbox.addEventListener("input", event => {
+        editableCheckbox.addEventListener("input", (event) => {
           testTreeX.editableItems = event.target.checked;
         });
 
-        // Expand on click
-        const expandOnClickCheckbox = document.getElementById(
-          "expand-on-click"
-        );
-        expandOnClickCheckbox.addEventListener("input", event => {
-          const checked = event.target.checked;
-          testTreeX.expandOnClick = checked;
-        });
-
+        /*(va)*/
         const checkAllCheckbox = document.getElementById("check-all");
-        checkAllCheckbox.addEventListener("input", event => {
+        checkAllCheckbox.addEventListener("input", (event) => {
           const checked = event.target.checked;
 
           checkAllCheckbox.indeterminate = false;
@@ -907,73 +1596,33 @@
         });
 
         const expandAllBtn = document.getElementById("expand-all");
-        expandAllBtn.addEventListener("click", event => {
+        expandAllBtn.addEventListener("click", (event) => {
           testTreeX.updateAllItemsProperties({ expanded: true });
         });
 
         const collapseAllBtn = document.getElementById("collapse-all");
-        collapseAllBtn.addEventListener("click", event => {
+        collapseAllBtn.addEventListener("click", (event) => {
           testTreeX.updateAllItemsProperties({ expanded: false });
         });
 
         const dragEnabledCheckbox = document.getElementById("drag-enabled");
-        dragEnabledCheckbox.addEventListener("input", event => {
+        dragEnabledCheckbox.addEventListener("input", (event) => {
           const checked = event.target.checked;
 
           testTreeX.dragDisabled = !checked;
         });
 
         const dropEnabledCheckbox = document.getElementById("drop-enabled");
-        dropEnabledCheckbox.addEventListener("input", event => {
+        dropEnabledCheckbox.addEventListener("input", (event) => {
           const checked = event.target.checked;
 
           testTreeX.dropDisabled = !checked;
         });
 
-        // Lines
         const linesSelect = document.getElementById("lines");
-        linesSelect.addEventListener("input", event => {
+        linesSelect.addEventListener("input", (event) => {
           const selectedOption = event.target.value;
           testTreeX.showLines = selectedOption;
-        });
-
-        // Expandable button
-        const expandableButtonSelect = document.getElementById(
-          "expandable-button"
-        );
-        expandableButtonSelect.addEventListener("input", event => {
-          const selectedOption = event.target.value;
-          testTreeX.expandableButton = selectedOption;
-        });
-
-        const filterTypeSelect = document.getElementById("filter-type");
-        filterTypeSelect.addEventListener("input", event => {
-          const selectedFilterType = event.target.value;
-          testTreeX.filterType = selectedFilterType;
-        });
-
-        const filterInput = document.getElementById("filter");
-        filterInput.addEventListener("input", event => {
-          const filter = event.target.value;
-          testTreeX.filter = filter;
-        });
-
-        const camelCaseCheckbox = document.getElementById("camel-case");
-        camelCaseCheckbox.addEventListener("input", event => {
-          const checked = event.target.checked;
-
-          const newOptions = { ...testTreeX.filterOptions };
-          newOptions.matchCase = checked;
-          testTreeX.filterOptions = newOptions;
-        });
-
-        const hideMatchesCheckbox = document.getElementById("hide-matches");
-        hideMatchesCheckbox.addEventListener("input", event => {
-          const checked = event.target.checked;
-
-          const newOptions = { ...testTreeX.filterOptions };
-          newOptions.hideMatchesAndShowNonMatches = checked;
-          testTreeX.filterOptions = newOptions;
         });
 
         const loadModelBtn = document.getElementById("load-model-btn");
@@ -1013,16 +1662,15 @@
           "import-objects-model-btn"
         );
         importObjectsBtn.addEventListener("click", () => {
-          testTreeX.checkbox = true;
+          testTreeX.checkbox = true; /*va en el render del tree*/
           testTreeX.checked = true;
-          testTreeX.toggleCheckboxes = true;
+          testTreeX.toggleCheckboxes = true; /*va en el render del tree*/
 
           // It must be the last property updated, since with HTML the
           // properties change won't be queued to be updated in the same lifecycle
           testTreeX.treeModel = importObjectsModel;
         });
 
-        // - - - - - - - - - - - - - -   Scroll into visible   - - - - - - - - - - - - - -
         const scrollIntoVisibleBtn = document.getElementById(
           "btn-scroll-into-visible"
         );
@@ -1030,52 +1678,14 @@
           "input-scroll-into-visible"
         );
 
-        const scrollIntoVisibleCheckedCheckbox = document.getElementById(
-          "scroll-into-visible-checked"
-        );
-        const scrollIntoVisibleSelectedCheckbox = document.getElementById(
-          "scroll-into-visible-selected"
-        );
-
         scrollIntoVisibleBtn.addEventListener("click", () => {
-          testTreeX.scrollIntoVisible(scrollIntoVisibleInput.value, {
-            checked: scrollIntoVisibleCheckedCheckbox.value === "true",
-            selected: scrollIntoVisibleSelectedCheckbox.value === "true"
-          });
+          testTreeX.scrollIntoVisible(scrollIntoVisibleInput.value);
           scrollIntoVisibleInput.value = "";
         });
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        // - - - - - - - - - - - - - - Update items properties - - - - - - - - - - - - - -
-        const updateItemsBtn = document.getElementById(
-          "button-items-to-update"
+        const contextMenuTextBlock = document.getElementById(
+          "contextmenu-textblock"
         );
-        const updateItemsInput = document.getElementById("items-to-update");
-
-        const updateItemsCheckedCheckbox = document.getElementById(
-          "update-items-properties-checked"
-        );
-        const updateItemsSelectedCheckbox = document.getElementById(
-          "update-items-properties-selected"
-        );
-
-        updateItemsBtn.addEventListener("click", () => {
-          /** @type string */
-          const itemsString = updateItemsInput.value;
-
-          if (!itemsString) {
-            return;
-          }
-
-          const itemsToRemove = itemsString.split(/\s*,\s*/);
-
-          testTreeX.updateItemsProperties(itemsToRemove, {
-            checked: updateItemsCheckedCheckbox.value === "true",
-            selected: updateItemsSelectedCheckbox.value === "true"
-          });
-          updateItemsInput.value = "";
-        });
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
         // Reload items
         const reloadItemsBtn = document.getElementById(
@@ -1083,38 +1693,11 @@
         );
         const reloadItemsInput = document.getElementById("item-id-to-reload");
         reloadItemsBtn.addEventListener("click", () => {
-          testTreeX.reloadItems(
-            reloadItemsInput.value,
-            { downloading: true },
-            { downloading: false }
-          );
+          testTreeX.reloadItems(reloadItemsInput.value);
           reloadItemsInput.value = "";
         });
 
-        // Remove items
-        const removeItemsBtn = document.getElementById(
-          "button-items-to-remove"
-        );
-        const removeItemsInput = document.getElementById("items-to-remove");
-        removeItemsBtn.addEventListener("click", () => {
-          /** @type string */
-          const itemsString = removeItemsInput.value;
-
-          if (!itemsString) {
-            return;
-          }
-
-          const itemsToRemove = itemsString.split(/\s*,\s*/);
-
-          testTreeX.removeItems(itemsToRemove);
-          removeItemsInput.value = "";
-        });
-
-        const contextMenuTextBlock = document.getElementById(
-          "contextmenu-textblock"
-        );
-
-        testTreeX.addEventListener("itemContextmenu", event => {
+        testTreeX.addEventListener("itemContextmenu", (event) => {
           contextMenuTextBlock.innerHTML = `+ + + + + + + Context + + + + + + +<br>
           ${event.detail.id}<br>
           level: ${event.detail.itemRef.level}<br>
@@ -1128,7 +1711,7 @@
           "open-reference-textblock"
         );
 
-        testTreeX.addEventListener("itemOpenReference", event => {
+        testTreeX.addEventListener("itemOpenReference", (event) => {
           openReferenceTextBlock.innerHTML = `<br>+ + + + + Open Reference + + + + +<br>
           Item ID: ${event.detail.id}<br>
           Item Leaf: ${event.detail.leaf}<br>
@@ -1139,7 +1722,8 @@
           "checked-items-textblock"
         );
 
-        testTreeX.addEventListener("checkedItemsChange", event => {
+        /*checked items*/
+        testTreeX.addEventListener("checkedItemsChange", (event) => {
           if (event.detail == null) {
             checkAllCheckbox.checked = false;
             checkAllCheckbox.indeterminate = false;
@@ -1150,25 +1734,22 @@
           if (allItemsWithCheckbox.length === 0) {
             checkAllCheckbox.checked = false;
             checkAllCheckbox.indeterminate = false;
-
-            checkedItemsTextBlock.innerHTML =
-              "<br>+ + + + + Checked items + + + + +<br><br><br>+ + + + + Unchecked items + + + + +<br>";
-
             return;
           }
 
           const firstItemCheckedValue = allItemsWithCheckbox[0].item.checked;
 
           const allItemsHaveTheSameCheckedValue = allItemsWithCheckbox.every(
-            treeItem => treeItem.item.checked === firstItemCheckedValue
+            (treeItem) => treeItem.item.checked === firstItemCheckedValue
           );
 
           checkAllCheckbox.checked = firstItemCheckedValue;
           checkAllCheckbox.indeterminate = !allItemsHaveTheSameCheckedValue;
 
           // Dummy way to check if the current treeModel is "Import Objects"
+          /*Este if es innecesario para los dialogos pero el contenido si va (no va)*/
           if (testTreeX.treeModel[0]?.id === "Category") {
-            allItemsWithCheckbox.forEach(itemUIModel => {
+            allItemsWithCheckbox.forEach((itemUIModel) => {
               const itemInfo = itemUIModel.item;
 
               // Update the amount of checked values
@@ -1177,7 +1758,7 @@
                 // console.log(itemInfo.items);
 
                 const totalItemsChecked = itemInfo.items.filter(
-                  itemUIModel => itemUIModel.checked
+                  (itemUIModel) => itemUIModel.checked
                 ).length;
 
                 const newItemCaption =
@@ -1188,24 +1769,24 @@
                 // Only update the item caption if needed
                 if (newItemCaption !== itemInfo.caption) {
                   testTreeX.updateItemsProperties([itemInfo.id], {
-                    caption: newItemCaption
+                    caption: newItemCaption,
                   });
                 }
               }
             });
           }
 
-          // Print checked items
+          // Print checked items /*Esto se va tambien (no va)*/
           checkedItemsTextBlock.innerHTML = `<br>+ + + + + Checked items + + + + +<br>
           ${allItemsWithCheckbox
-            .filter(itemUIModel => itemUIModel.item.checked)
-            .map(itemUIModel => itemUIModel.item.id)
+            .filter((itemUIModel) => itemUIModel.item.checked)
+            .map((itemUIModel) => itemUIModel.item.id)
             .join("<br>")}
           <br>
           <br>+ + + + + Unchecked items + + + + +<br>
           ${allItemsWithCheckbox
-            .filter(itemUIModel => !itemUIModel.item.checked)
-            .map(itemUIModel => itemUIModel.item.id)
+            .filter((itemUIModel) => !itemUIModel.item.checked)
+            .map((itemUIModel) => itemUIModel.item.id)
             .join("<br>")}
           `;
         });
@@ -1214,15 +1795,13 @@
           "selected-items-textblock"
         );
 
-        testTreeX.addEventListener("selectedItemsChange", event => {
-          console.log("selectedItemsChange...");
-
+        testTreeX.addEventListener("selectedItemsChange", (event) => {
           selectedItemsTextBlock.innerHTML = `<br>+ + + + + Selected Items + + + + +<br>
-          ${event.detail.map(el => el.item.id).join("<br>")}`;
+          ${event.detail.map((el) => el.item.id).join("<br>")}`;
         });
 
         /*Lazy Load Promise*/
-        testTreeX.lazyLoadTreeItemsCallback = modelId =>
+        testTreeX.lazyLoadTreeItemsCallback = (modelId) =>
           new Promise((resolve, reject) => {
             let lazyModel =
               modelId === "lazy-loaded-2"
@@ -1241,7 +1820,7 @@
                     id: subModelId + "-" + k,
                     caption: subModelId + "-" + k,
                     leaf: true,
-                    leftImgSrc: "./assets/icons/file.svg"
+                    leftImgSrc: "./objects/file",
                   });
                 }
 
@@ -1250,8 +1829,8 @@
                   caption: subModelId,
                   expanded: true,
                   leaf: false,
-                  leftImgSrc: "./assets/icons/knowledge-base.svg",
-                  items: subModelItems
+                  leftImgSrc: "./objects/knowledge-base",
+                  items: subModelItems,
                 });
               }
             }
@@ -1265,7 +1844,7 @@
 
             setTimeout(() => {
               resolve(structuredClone(lazyModel));
-            }, 500); // Resolves or rejects after 500ms second
+            }, 250); // Resolves or rejects after 0.25 second
           });
 
         testTreeX.dropItemsCallback = () =>
@@ -1286,7 +1865,7 @@
               resolve({
                 success: status,
                 errorMessage:
-                  "Apologies, an error ocurred while changing the item caption."
+                  "Apologies, an error ocurred while changing the item caption.",
               });
             }, 15); // Resolves after 15 ms
           });
@@ -1313,7 +1892,7 @@
         /**
          * @param {TreeXItemModel[]} subModel
          */
-        const sortItems = subModel =>
+        const sortItems = (subModel) =>
           subModel.sort((a, b) => {
             if (a.order < b.order) {
               return -1;

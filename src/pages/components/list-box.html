@@ -33,6 +33,44 @@
     </style>
   </head>
   <body>
+    <gxg-list-box
+      data-title="max height2"
+      height="100%"
+      min-height="50%"
+      no-border
+      emit-empty-selection
+    >
+      <gxg-list-box-item
+        >0.Common this is a large, very large list
+        description</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/business-process-diagram" disabled
+        >1.BPM</gxg-list-box-item
+      >
+      <gxg-list-box-item checked icon="objects/conversational-flows"
+        >2.Chatbots</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/data-provider" disabled
+        >3.Data Management</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/bg-color" disabled
+        >4.Resources</gxg-list-box-item
+      >
+      <gxg-list-box-item value="user-interface" icon="objects/webpanel"
+        >5.User interface</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dashboard"
+        >6.Dashboard</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/deployment-unit"
+        >7.Deployment Unit</gxg-list-box-item
+      >
+      <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+      <gxg-list-box-item icon="objects/structured-data-type"
+        >9.Structured Data Type</gxg-list-box-item
+      >
+    </gxg-list-box>
+
     <div class="container">
       <button>button before focus</button>
       <br /><br />
@@ -50,12 +88,11 @@
         "
       >
         <gxg-list-box
-          data-title="max height"
+          data-title="max height2"
           height="100%"
           min-height="50%"
           no-border
           emit-empty-selection
-          id="list-box"
         >
           <gxg-list-box-item
             >0.Common this is a large, very large list
@@ -209,13 +246,13 @@
           <gxg-list-box-item icon="objects/business-process-diagram"
             >1.BPM</gxg-list-box-item
           >
-          <gxg-list-box-item selected icon="objects/conversational-flows"
+          <gxg-list-box-item icon="objects/conversational-flows"
             >2.Chatbots</gxg-list-box-item
           >
           <gxg-list-box-item icon="objects/data-provider"
             >3.Data Management</gxg-list-box-item
           >
-          <gxg-list-box-item selected icon="objects/bg-color"
+          <gxg-list-box-item icon="objects/bg-color"
             >4.Resources</gxg-list-box-item
           >
           <gxg-list-box-item value="user-interface" icon="objects/webpanel"

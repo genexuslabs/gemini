@@ -2,7 +2,6 @@
 
 :host {
   display: block;
-  //flex: 1 1 auto !important;
   align-self: center !important;
   line-height: 0;
 
@@ -16,69 +15,72 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    font-family: var(--font-family-primary);
-    text-transform: uppercase;
-    color: var(--color-on-background);
+    font-size: var(--gxg-tab-button-font-size);
+    font-weight: var(--gxg-tab-button-font-weight);
+    font-family: inherit;
+    text-transform: var(--gxg-tab-button-font-text-transform);
+    color: var(--gxg-tab-button-color);
     letter-spacing: var(--letter-spacing-regular);
     padding-top: 0;
-    padding-right: var(--spacing-comp-05);
+    padding-inline-end: var(--gxg-tab-button-horizontal-padding);
     padding-bottom: 0;
-    padding-left: var(--spacing-comp-05);
+    padding-inline-start: var(--gxg-tab-button-horizontal-padding);
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
     border: 0;
     width: 100%;
-    min-height: var(--spacing-comp-06);
+    height: var(--gxg-tab-button-height);
     position: relative;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    transition: box-shadow 0.2s ease-in-out;
-    background: transparent;
-    @include ui-animation(box-shadow);
-    &:focus {
-      @include form-element-common-styles-focus-type-1;
+    background-color: transparent;
+    &:focus-visible {
+      @include form-element-common-styles-focus-type-1("inside");
     }
 
     &:after {
       content: "";
       width: 100%;
-      height: var(--spacing-comp-01);
+      height: var(--gxg-tab-button-line-height);
       left: 0;
       bottom: 0;
       position: absolute;
       background-color: transparent;
-      @include ui-animation(background-color);
     }
 
     &:hover {
-      &:focus {
-        outline-color: var(--color-primary-hover);
+      &:focus-visible {
+        outline-color: var(--gxg-tab-button-line-background-color-hover);
       }
       cursor: pointer;
       &:after {
-        background-color: var(--color-primary-hover);
+        background-color: var(--gxg-tab-button-line-background-color-hover);
       }
     }
     &:active {
+      &:focus-visible {
+        outline-color: var(--gxg-tab-button-line-background-color-active);
+      }
       &:after {
-        background-color: var(--color-primary-active);
+        background-color: var(--gxg-tab-button-line-background-color-active);
       }
     }
     &[disabled] {
-      color: var(--color-primary-disabled);
+      color: var(--ds-color-disabled);
       pointer-events: none;
       &:after {
-        background-color: var(--gxg-border-color--disabled);
+        background-color: var(--ds-background-color-disabled);
+      }
+      gxg-icon {
+        --gxg-icon-color: var(--ds-icon-color-disabled);
       }
     }
     &--selected {
       &:after {
-        background-color: var(--color-primary-active);
+        background-color: var(--gxg-tab-button-line-background-color);
       }
     }
     &--text-icon gxg-icon {
@@ -86,6 +88,9 @@
     }
     &--hidden {
       display: none;
+    }
+    gxg-icon {
+      --gxg-icon-color: var(--gxg-tab-button-icon-color);
     }
   }
   .tab-button__text {
@@ -100,23 +105,22 @@
   }
 }
 
-//is button is inside menu
+//if button is inside menu
 :host(.menu-button) {
   width: 100%;
   box-sizing: border-box;
   .tab-button {
-    padding: 0 var(--spacing-comp-02);
-    min-height: calc(var(--spacing-comp-06) * 0.85);
+    padding: 0 var(--gxg-tab-menu-button-padding);
+    min-height: calc(var(--gxg-tab-menu-button-min-height) * 0.85);
     justify-content: flex-start;
   }
-  @include ui-animation(background-color);
   .tab-button {
     &:after {
       display: none;
     }
   }
   .tab-button__text {
-    font-size: var(--font-size-md);
+    font-size: var(--gxg-tab-menu-button-font-size);
   }
   gxg-icon {
     //display: none;
@@ -124,19 +128,5 @@
   }
 }
 :host(.menu-button:hover) {
-  background: var(--color-secondary);
+  background: var(--ds-item-background-color--hover);
 }
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) {
-  .tab-button {
-    font-size: var(--font-size-lg);
-  }
-}
-
-/*********************************************
-Mercury
-**********************************************/
-@import "./tab-button-mercury";

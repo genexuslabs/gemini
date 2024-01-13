@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Text Area | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-form-textarea</h1>
+      <!-----------------
+      Template
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example">
+              <gxg-form-textarea
+                max-width="600px"
+                height="100px"
+                value="The universe is mind-blowingly vast. It contains over 100 billion galaxies, each with billions of stars. And it's estimated to be around 13.8 billion years old! 🌌✨ The observable universe is estimated to be about 93 billion light-years in diameter. Neutron stars, which are incredibly dense, can have a mass greater than that of our sun but be only about 12 miles in diameter. The most distant known galaxy, GN-z11, is located 13.4 billion light-years away from Earth. Black holes can be incredibly massive; the one at the center of our Milky Way galaxy, called Sagittarius A*, has a mass equivalent to about 4.1 million suns. 🌌🌟🕳️"
+              >
+              </gxg-form-textarea>
+            </div>
+          </article>
+
+          <!-- grow -->
+          <article data-title="default">
+            <code pill>ai</code>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+              similique soluta inventore eveniet impedit possimus aut fugit
+              voluptate id. Alias, sapiente? Obcaecati iste eveniet vitae, illo
+              nulla soluta nemo iure!
+            </p>
+            <div class="example">
+              <gxg-form-textarea ai max-width="600px" max-height="150px">
+              </gxg-form-textarea>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

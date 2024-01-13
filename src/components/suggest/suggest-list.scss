@@ -1,7 +1,8 @@
 ch-suggest-list {
-  margin-block-start: var(--spacing-comp-02);
   font-family: inherit;
-  border: var(--border-width-sm) solid var(--gxg-border-color--regular);
+  border: var(--gxg-suggest-list__border);
+  border-radius: var(--gxg-suggest-list__border-radius);
+  padding: var(--gxg-suggest-list__padding);
   &:first-child {
     margin-block-start: 0;
   }
@@ -10,9 +11,10 @@ ch-suggest-list {
   }
   &::part(title) {
     text-transform: uppercase;
-    font-weight: var(--font-weight-semibold);
-    margin: var(--spacing-comp-01) 0 0 0;
-    padding: var(--spacing-comp-01) var(--spacing-comp-02);
+    font-weight: var(--gxg-suggest-list-title__font-weight);
+    margin: var(--gxg-suggest-list-title__margin);
+    padding: var(--gxg-suggest-list-title__padding);
+    color: var(--gxg-suggest-list-title__color);
   }
   &:first-child {
     margin-block-start: 0;
@@ -24,4 +26,9 @@ ch-suggest-list + ch-suggest-list {
   &::part(title) {
     margin-block-start: 0;
   }
+}
+ch-suggest-list + ch-suggest-list-item {
+  margin-block-start: var(
+    --gxg-suggest-list-item-next-sibling__margin-block-start
+  );
 }

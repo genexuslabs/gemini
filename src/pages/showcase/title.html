@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Title | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+      .articles-container--multiline {
+        max-width: 360px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-title</h1>
+      <!-----------------
+      Single Line
+      ------------------>
+      <section data-title="single line">
+        <div class="articles-container">
+          <!-- h1 -->
+          <article data-title="h1 type">
+            <code pill>type="title-01"</code>
+            <div class="example">
+              <gxg-title type="title-01">This is a title type 01</gxg-title>
+            </div>
+          </article>
+          <!-- h2 -->
+          <article data-title="h2 type">
+            <code pill>type="title-02"</code>
+            <div class="example">
+              <gxg-title type="title-02">This is a title type 02</gxg-title>
+            </div>
+          </article>
+          <!-- h3 -->
+          <article data-title="h3 type">
+            <code pill>type="title-03"</code>
+            <div class="example">
+              <gxg-title type="title-03">This is a title type 03</gxg-title>
+            </div>
+          </article>
+          <!-- h4 -->
+          <article data-title="h4 type">
+            <code pill>type="title-04"</code>
+            <div class="example">
+              <gxg-title type="title-04">This is a title type 04</gxg-title>
+            </div>
+          </article>
+          <!-- h5 -->
+          <article data-title="h5 type">
+            <code pill>type="title-05"</code>
+            <div class="example">
+              <gxg-title type="title-05">This is a title type 05</gxg-title>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Multiple Lines (line-height)
+      ------------------>
+      <section data-title="multiple lines">
+        <div class="articles-container articles-container--multiline">
+          <!-- h1 -->
+          <article data-title="h1 type">
+            <code pill>type="title-01"</code>
+            <div class="example">
+              <gxg-title type="title-01"
+                >The atoms in your body are forged in the cores of stars through
+                nuclear fusion processes</gxg-title
+              >
+            </div>
+          </article>
+          <!-- h2 -->
+          <article data-title="h2 type">
+            <code pill>type="title-02"</code>
+            <div class="example">
+              <gxg-title type="title-02"
+                >The atoms in your body are forged in the cores of stars through
+                nuclear fusion processes</gxg-title
+              >
+            </div>
+          </article>
+          <!-- h3 -->
+          <article data-title="h3 type">
+            <code pill>type="title-03"</code>
+            <div class="example">
+              <gxg-title type="title-03"
+                >The atoms in your body are forged in the cores of stars through
+                nuclear fusion processes</gxg-title
+              >
+            </div>
+          </article>
+          <!-- h4 -->
+          <article data-title="h4 type">
+            <code pill>type="title-04"</code>
+            <div class="example">
+              <gxg-title type="title-04"
+                >The atoms in your body are forged in the cores of stars through
+                nuclear fusion processes</gxg-title
+              >
+            </div>
+          </article>
+          <!-- h5 -->
+          <article data-title="h5 type">
+            <code pill>type="title-05"</code>
+            <div class="example">
+              <gxg-title type="title-05"
+                >The atoms in your body are forged in the cores of stars through
+                nuclear fusion processes</gxg-title
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

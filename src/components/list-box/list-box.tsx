@@ -660,9 +660,9 @@ export class GxgListBox implements FormComponent {
     const enabledActiveItemIndex = enabledItems.findIndex(enabledItem => {
       return enabledItem === currentActive;
     });
-    //If is the last item, select the first one
+    //If is the last item, do nothing
     if (enabledActiveItemIndex === enabledItems.length - 1) {
-      return enabledItems[0];
+      return null;
     } else {
       return enabledItems[enabledActiveItemIndex + 1];
     }
@@ -675,9 +675,9 @@ export class GxgListBox implements FormComponent {
     const enabledActiveItemIndex = enabledItems.findIndex(enabledItem => {
       return enabledItem === currentActive;
     });
-    //If is the first item, select the last one
+    //If is the first item, do nothing
     if (enabledActiveItemIndex === 0) {
-      return enabledItems[enabledItems.length - 1];
+      return null;
     } else {
       return enabledItems[enabledActiveItemIndex - 1];
     }

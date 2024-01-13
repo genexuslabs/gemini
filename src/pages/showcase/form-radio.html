@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Radio | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-form-radio</h1>
+      <!-----------------
+      Template
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- radio-group vertical -->
+          <article data-title="radio-group vertical">
+            <div class="example">
+              <gxg-form-radio-group label="my favorite color">
+                <gxg-form-radio
+                  label="red"
+                  value="red"
+                  disabled
+                ></gxg-form-radio>
+                <gxg-form-radio
+                  label="blue"
+                  value="blue"
+                  id="radio-blue"
+                ></gxg-form-radio>
+                <gxg-form-radio label="green" value="green"></gxg-form-radio>
+                <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
+              </gxg-form-radio-group>
+            </div>
+          </article>
+
+          <!-- radio-group horizontal -->
+          <article data-title="radio-group horizontal">
+            <code pill>row (on gxg-form-radio-group)</code>
+            <div class="example">
+              <gxg-form-radio-group row label="my favorite color">
+                <gxg-form-radio
+                  label="red"
+                  value="red"
+                  disabled
+                ></gxg-form-radio>
+                <gxg-form-radio
+                  label="blue"
+                  value="blue"
+                  id="radio-blue"
+                ></gxg-form-radio>
+                <gxg-form-radio label="green" value="green"></gxg-form-radio>
+                <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
+              </gxg-form-radio-group>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
