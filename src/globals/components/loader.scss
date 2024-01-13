@@ -18,7 +18,7 @@
   --gxg-ide-loader-spinner__width: 30px;
   --gxg-ide-loader-spinner__height: 30px;
   /*--- Content Wrapper ---*/
-  --gxg-ide-loader-content-wrapper__margin-block-start: var(--spacing-comp-05);
+  --gxg-ide-loader-content-wrapper__mbs: var(--spacing-comp-05);
   --gxg-ide-loader-content-wrapper__gap: var(--spacing-comp-02);
   --gxg-ide-loader-content-wrapper__max-width: 400px;
 }
@@ -38,9 +38,7 @@
   --gxg-ide-loader-spinner__width: var(--mer-spacing__comp--xl);
   --gxg-ide-loader-spinner__height: var(--mer-spacing__comp--xl);
   /*--- Content Wrapper ---*/
-  --gxg-ide-loader-content-wrapper__margin-block-start: var(
-    --mer-spacing__comp--l
-  );
+  --gxg-ide-loader-content-wrapper__mbs: var(--mer-spacing__comp--l);
   --gxg-ide-loader-content-wrapper__gap: var(--mer-spacing__comp--xs);
   --gxg-ide-loader-content-wrapper__max-width: 400px;
 }

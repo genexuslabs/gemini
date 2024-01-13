@@ -49,9 +49,7 @@ ch-window::part(window) {
   &__content-wrapper {
     display: flex;
     flex-direction: column;
-    margin-block-start: var(
-      --gxg-ide-loader-content-wrapper__margin-block-start
-    );
+    margin-block-start: var(--gxg-ide-loader-content-wrapper__mbs);
     gap: var(--gxg-ide-loader-content-wrapper__gap);
     max-width: var(--gxg-ide-loader-content-wrapper__max-width);
     &--hidden {
