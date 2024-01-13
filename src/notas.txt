@@ -8,6 +8,7 @@ private exportparts: string;
 
 componentWillLoad() {
   this.attachExportParts();
+  
 }
 
 private attachExportParts = (): void => {
