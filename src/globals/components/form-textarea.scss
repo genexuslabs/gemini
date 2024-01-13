@@ -1,0 +1,9 @@
+/*Gemini*/
+:root {
+  --gxg-textarea-padding: var(--spacing-comp-01) var(--spacing-comp-02);
+}
+/*Mercury*/
+:root.mercury {
+  --gxg-textarea-padding: var(--mer-spacing__comp--xxs)
+    var(--mer-spacing__comp--xs);
+}
