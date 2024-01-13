@@ -51,6 +51,7 @@
 }
 .container:not(:focus-within) {
   --ds-border-color--focused: transparent;
+  --ds-focus-border-color: transparent;
 }
 
 :host([no-border]) {
@@ -78,10 +79,6 @@
     padding: 0;
     list-style-type: none;
     flex-grow: 1;
-  }
-  &__item {
-  }
-  &__button {
   }
 }
 

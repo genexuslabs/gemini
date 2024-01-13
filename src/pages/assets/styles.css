@@ -431,7 +431,7 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: var(--mer-font__size--md);
-  font-weight: var(--font-weight-bold);
+  font-weight: 500;
 }
 section {
   padding: var(--separation-space) 0 calc(var(--separation-space) + 6px) 0;
