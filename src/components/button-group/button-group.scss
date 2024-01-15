@@ -63,6 +63,12 @@
     pointer-events: none;
   }
 }
+:host(:not([outlined])) {
+  ::slotted(button[disabled]) {
+    background-color: var(--ds-background-color-disabled);
+    border-color: var(--ds-background-color-disabled);
+  }
+}
 
 /*--- Outlined ---*/
 :host([outlined]) {
@@ -120,6 +126,12 @@
     border-color: var(--ds-border-color-disabled);
   }
 }
+/*--- Disabled ---*/
+:host([outlined][disabled]) {
+  ::slotted(button) {
+    color: var(--ds-color-disabled);
+  }
+}
 
 /*--- Full Width ---*/
 //full width
@@ -133,5 +145,12 @@
   ::slotted(button) {
     flex-grow: 1;
     @include gxg-ellipsis;
+  }
+}
+
+/*--- Disabled ---*/
+:host([disabled]) {
+  ::slotted(button) {
+    color: var(--ds-color-on-disabled);
   }
 }
