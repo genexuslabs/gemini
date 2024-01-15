@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>form-text mixin | Gemini</title>
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: var(--mer-color__surface);
+      }
+      input {
+        border: var(--ds-form-control-border);
+        border-radius: var(--ds-form-control-border-radius);
+        color: var(--ds-form-control-color);
+        background-color: var(--ds-form-control-background-color);
+        font-size: var(--ds-form-control-font-size);
+        font-family: var(--ds-base-font-family-primary);
+        padding-inline-start: var(--ds-form-control-padding-horizontal);
+        padding-inline-end: var(--ds-form-control-padding-horizontal);
+        padding-block-start: 0;
+        padding-block-end: 0;
+        height: var(--gxg-form-text-height);
+      }
+    </style>
+  </head>
+  <body>
+    <gxg-form-text value="Hey"></gxg-form-text>
+    <input type="text" value="Hey native" />
+  </body>
+</html>
