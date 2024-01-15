@@ -14,7 +14,7 @@ gxg-grid {
   display: contents;
 }
 ch-grid {
-  border: var(--gxg-grid-base__border-width) solid $borderColor;
+  border: var(--ds-border-common-styles);
   border-radius: var(--gxg-grid-base__border-radius);
   --focus-style: var(--ds-focus-border-width) solid var(--ds-focus-border-color);
   font-family: var(--ds-base-font-family-primary);
