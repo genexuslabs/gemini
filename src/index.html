@@ -35,6 +35,9 @@
         "title-editable"
       ];
 
+      //Other
+      const other = ["mercury-tokens"];
+
       //Gemini Components
       const components = [
         "title-editable",
@@ -148,17 +151,23 @@
         A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
       </p>
 
-      <h2 class="title h4 align-left">Gemini or Mercury Showcase:</h2>
+      <h2 class="title h4 align-left">Gemini or Mercury Showcase</h2>
       <ul class="list unstyled" id="showcaseUl">
         <!-- populated dynamically with javascript -->
       </ul>
+
+      <h2 class="title h4 align-left">Other</h2>
+      <ul class="list unstyled" id="otherUl">
+        <!-- populated dynamically with javascript -->
+      </ul>
+
       <div hidden>
-        <h2 class="title h4 align-left">Gemini Components:</h2>
+        <h2 class="title h4 align-left">Gemini Components</h2>
         <ul class="list unstyled" id="componentsUl">
           <!-- populated dynamically with javascript -->
         </ul>
 
-        <h2 class="title h4 align-left">Gemini Tests:</h2>
+        <h2 class="title h4 align-left">Gemini Tests</h2>
         <ul class="list unstyled in-progress" id="testsUl">
           <!-- populated dynamically with javascript -->
         </ul>
@@ -176,6 +185,17 @@
       a.innerText = el;
       li.appendChild(a);
       showcaseUl.appendChild(li);
+    });
+
+    //other
+    const otherUl = document.getElementById("otherUl");
+    other.sort().forEach(el => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.setAttribute("href", `/pages/other/${el}.html`);
+      a.innerText = el;
+      li.appendChild(a);
+      otherUl.appendChild(li);
     });
 
     //components

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Tokens | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+      .box {
+        width: 100%;
+        height: 300px;
+        background-color: transparent;
+        border-radius: 12px;
+      }
+      .elevation--01 {
+        box-shadow: var(--mer-elevation--01);
+      }
+      .elevation--02 {
+        box-shadow: var(--mer-elevation--02);
+      }
+      .elevation--03 {
+        box-shadow: var(--mer-elevation--03);
+      }
+      .elevation--04 {
+        box-shadow: var(--mer-elevation--04);
+      }
+      .navbar button {
+        /*display only toggle-dark button*/
+        display: none;
+      }
+      .navbar button:last-child {
+        /*display only toggle-dark button*/
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>mercury tokens</h1>
+      <section data-title="elevation">
+        <div class="articles-container">
+          <!-- elevation 01 -->
+          <article data-title="01">
+            <code pill>--mer-elevation--01</code>
+            <div class="example">
+              <div class="box elevation--01"></div>
+            </div>
+          </article>
+
+          <!-- elevation 02 -->
+          <article data-title="02">
+            <code pill>--mer-elevation--02</code>
+            <div class="example">
+              <div class="box elevation--02"></div>
+            </div>
+          </article>
+
+          <!-- elevation 03 -->
+          <article data-title="03">
+            <code pill>--mer-elevation--03</code>
+            <div class="example">
+              <div class="box elevation--03"></div>
+            </div>
+          </article>
+
+          <!-- elevation 04 -->
+          <article data-title="04">
+            <code pill>--mer-elevation--04</code>
+            <div class="example">
+              <div class="box elevation--04"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
