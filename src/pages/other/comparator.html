@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Template | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      .comparator {
+        display: flex;
+      }
+      .comparator--side {
+        flex: 1;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body mercury>
+    <div class="container no-separator">
+      <h1>mercury comparator</h1>
+      <section class="comparator">
+        <!--left side-->
+        <div class="comparator--side left-side">
+          <div class="articles-container">
+            <!-- *** GXG-BUTTON PRIMARY | COMP *** -->
+            <!-- primary text only -->
+            <article data-title="button" hidden>
+              <code pill>primary text-only</code>
+              <div class="example">
+                <gxg-button type="primary-text-only">Caption</gxg-button>
+              </div>
+            </article>
+
+            <!-- primary text icon -->
+            <article data-title="button" hidden>
+              <code pill>primary text-icon</code>
+              <div class="example">
+                <gxg-button
+                  type="primary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- primary icon only -->
+            <article data-title="button" hidden>
+              <code pill>primary icon-only</code>
+              <div class="example">
+                <gxg-button type="primary-icon-only" icon="gemini-tools/folder"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- primary disabled -->
+            <article data-title="button" hidden>
+              <code pill>primary disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="primary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON SECONDARY | COMP *** -->
+
+            <!-- secondary text only -->
+            <article data-title="button" hidden>
+              <code pill>secondary text-only</code>
+              <div class="example">
+                <gxg-button type="secondary-text-only">Caption</gxg-button>
+              </div>
+            </article>
+
+            <!-- secondary text icon -->
+            <article data-title="button" hidden>
+              <code pill>secondary text-icon</code>
+              <div class="example">
+                <gxg-button
+                  type="secondary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- secondary icon only -->
+            <article data-title="button" hidden>
+              <code pill>secondary icon-only</code>
+              <div class="example">
+                <gxg-button
+                  type="secondary-icon-only"
+                  icon="gemini-tools/folder"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- secondary disabled -->
+            <article data-title="button" hidden>
+              <code pill>secondary disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="secondary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON TERTIARY | COMP *** -->
+
+            <!-- tertiary -->
+            <article data-title="button" hidden>
+              <code pill>tertiary</code>
+              <div class="example">
+                <gxg-button type="tertiary" icon="controls/google-analytics"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- disabled -->
+            <article data-title="button" hidden>
+              <code pill>tertiary disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="tertiary"
+                  icon="controls/google-analytics"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON OUTLINED | COMP *** -->
+
+            <article data-title="outlined" hidden>
+              <code pill>outlined</code>
+              <div class="example">
+                <gxg-button type="outlined">Caption</gxg-button>
+              </div>
+            </article>
+
+            <!-- outlined text icon -->
+            <article data-title="outlined-text-icon" hidden>
+              <code pill>outlined text-icon</code>
+              <div class="example">
+                <gxg-button
+                  type="outlined-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- outlined disabled -->
+            <article data-title="disabled" hidden>
+              <code pill>outlined disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="outlined-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON-GROUP | COMP *** -->
+
+            <!-- primary -->
+            <article data-title="button-group">
+              <code pill>(default)</code>
+              <div class="example">
+                <gxg-button-group default-selected-btn-id="button2">
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- primary disabled -->
+            <article data-title="button-group">
+              <code pill>disabled</code>
+              <div class="example">
+                <gxg-button-group type="primary" disabled>
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- primary disabled (individual button)-->
+            <article data-title="button-group">
+              <code pill>disabled (individual button)</code>
+              <div class="example">
+                <gxg-button-group type="primary">
+                  <button disabled id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button disabled id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- full-width -->
+            <article data-title="button-group">
+              <code pill>full-width</code>
+              <div class="example" style="width: 400px">
+                <gxg-button-group full-width type="primary">
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- label -->
+            <article data-title="button-group">
+              <code pill>with label</code>
+              <div class="example">
+                <gxg-button-group
+                  type="primary"
+                  button-group-title="Select an option"
+                >
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- gxg-button -->
+            <article data-title="gxg-button">
+              <code pill></code>
+              <div class="example"></div>
+            </article>
+
+            <!-- gxg-button -->
+            <article data-title="gxg-button">
+              <code pill></code>
+              <div class="example"></div>
+            </article>
+
+            <!-- gxg-button -->
+            <article data-title="gxg-button">
+              <code pill></code>
+              <div class="example"></div>
+            </article>
+
+            <!-- gxg-button -->
+            <article data-title="gxg-button">
+              <code pill></code>
+              <div class="example"></div>
+            </article>
+
+            <!-- gxg-button -->
+            <article data-title="gxg-button">
+              <code pill></code>
+              <div class="example"></div>
+            </article>
+          </div>
+        </div>
+        <!--right side-->
+        <div class="comparator--side right-side">
+          <div class="articles-container">
+            <!-- first-case -->
+            <article data-title="gxg-button">
+              <code pill>primary</code>
+              <div class="example">
+                <gxg-button type="primary-text-only">Caption</gxg-button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+    <section></section>
+  </body>
+</html>
