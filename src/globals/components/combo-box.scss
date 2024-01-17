@@ -31,7 +31,9 @@
   //iie: inset inline end
   //pis: padding inline start
   /*--- Combo Box ---*/
-  --gxg-combo-box-items-container_background-color: var(--mer-elevation--02);
+  --gxg-combo-box-items-container_background-color: var(
+    var(--mer-color__neutral-gray--1000) ;
+  );
   --gxg-combo-box-items-container_color: var(--ds-base-font-color);
   --gxg-combo-box-items-container_font-size: var(--ds-base-font-size);
   --gxg-combo-box-items-container_padding: var(--mer-spacing__comp--sm);

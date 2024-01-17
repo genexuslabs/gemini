@@ -7,3 +7,24 @@
   font-weight: var(--font-weight-regular);
   box-sizing: border-box;
 }
+/*--- Elevation ---*/
+@mixin --mer-elevation--01() {
+  background-color: var(--mer-elevation__background-color--01);
+  border-color: var(--mer-elevation__border-color--01);
+  box-shadow: var(--mer-elevation__box-shadow--01);
+}
+@mixin --mer-elevation--02() {
+  background-color: var(--mer-elevation__background-color--02);
+  border-color: var(--mer-elevation__border-color--02);
+  box-shadow: var(--mer-elevation__box-shadow--02);
+}
+@mixin --mer-elevation--03() {
+  background-color: var(--mer-elevation__background-color--03);
+  border-color: var(--mer-elevation__border-color--03);
+  box-shadow: var(--mer-elevation__box-shadow--03);
+}
+@mixin --mer-elevation--04() {
+  background-color: var(--mer-elevation__background-color--04);
+  border-color: var(--mer-elevation__border-color--04);
+  box-shadow: var(--mer-elevation__box-shadow--04);
+}

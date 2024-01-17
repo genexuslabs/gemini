@@ -40,6 +40,7 @@
   --gxg-card-section_font-size: 13px;
   --gxg-card-section_border-radius: var(--border-radius-lg);
   --gxg-card-section_padding: 0;
+  --gxg-card-section-title_font-weight: var(--font-weight-bold);
 
   /*--- Card 'Article' ---*/
   --gxg-card-article_background-color: var(--gray-01);
@@ -49,7 +50,7 @@
   --gxg-card-article_padding: 0;
   --gxg-card-article-title_margin: 0;
   --gxg-card-article-title_color: var(--gray-06);
-  --gxg-card-article-title_font-weight: var(--font-weight-regular);
+  --gxg-card-article-title_font-weight: var(--font-weight-bold);
   --gxg-card-article-title_font-size: 14px;
   --gxg-card-article-subtitle-wrapper_color: var(--gray-06);
   --gxg-card-article-subtitle-wrapper_font-style: italic;
@@ -134,21 +135,20 @@
   --gxg-card-content_color: var(--mer-color__neutral-gray--200);
 
   /*--- Card 'Section' ---*/
-  --gxg-card-section_background-color: var(--mer-color__neutral-gray--1000);
+  //--gxg-card-section_background-color: var(--mer-color__neutral-gray--1000);
   --gxg-card-section_font-size: var(--mer-font__size--xs);
   --gxg-card-section_border-radius: var(--mer-border__radius--sm);
   --gxg-card-section_padding: 0;
+  --gxg-card-section-title_font-weight: var(--mer-font__weight--bold);
 
   /*--- Card 'Article' ---*/
   --gxg-card-article_background-color: var(--mer-color__neutral-gray--800);
   --gxg-card-article_font-size: var(--mer-font__size--xs);
-  --gxg-card-article_border: var(--mer-border__width--sm) solid
-    var(--mer-color__neutral-gray--700);
   --gxg-card-article_border-radius: var(--mer-border__radius--sm);
   --gxg-card-article_padding: 0;
   --gxg-card-article-title_margin: 0;
   --gxg-card-article-title_color: var(--mer-color__neutral-gray--100);
-  --gxg-card-article-title_font-weight: var(--mer-font__weight--regular);
+  --gxg-card-article-title_font-weight: var(--mer-font__weight--bold);
   --gxg-card-article-title_font-size: var(--mer-font__size--xs);
   --gxg-card-article-subtitle-wrapper_color: var(--mer-text__on-surface);
   --gxg-card-article-subtitle-wrapper_font-style: italic;
@@ -191,5 +191,12 @@
   --gxg-card-box-shadow: none;
   &.dark {
     --gxg-card-box-shadow: var(--mer-elevation--01);
+  }
+}
+
+:root {
+  --gxg-card-actionable-brightness--hover: 1.02;
+  &.dark {
+    --gxg-card-actionable-brightness--hover: 1.1;
   }
 }

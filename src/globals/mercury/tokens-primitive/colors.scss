@@ -90,16 +90,4 @@
   &.dark {
     --mer-color__surface: #1a1d20;
   }
-
-  //Elevations
-  --mer-elevation--01: #202428;
-  --mer-elevation--02: #262a2f;
-  --mer-elevation--03: var(--mer-color__neutral-gray--900);
-  --mer-elevation--04: var(--mer-color__neutral-gray--900);
-  &.dark {
-    --mer-elevation--01: var(--mer-color__neutral-gray--1000);
-    --mer-elevation--02: var(--mer-color__neutral-gray--1100);
-    --mer-elevation--03: var(--mer-color__neutral-gray--1200);
-    --mer-elevation--04: var(--mer-color__neutral-gray--1300);
-  }
 }
