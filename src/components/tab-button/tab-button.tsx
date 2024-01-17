@@ -7,18 +7,18 @@ import {
   Element,
   Host,
   Method,
-  Watch,
+  Watch
 } from "@stencil/core";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
 @Component({
   tag: "gxg-tab-button",
   styleUrl: "tab-button.scss",
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgTabButton {
   private parts = {
-    button: "button",
+    button: "button"
   };
   private exportparts: string;
 
@@ -90,7 +90,7 @@ export class GxgTabButton {
     const index = parseInt(this.el.getAttribute("data-index"), 10);
     this.tabActivated.emit({
       tab: this.tab,
-      index: index,
+      index: index
     });
   }
 
@@ -98,7 +98,7 @@ export class GxgTabButton {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
       this.PrevOrNextTab.emit({
         originTab: this.tab,
-        arrowPressed: e.key,
+        arrowPressed: e.key
       });
     } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
       e.preventDefault();
@@ -109,10 +109,15 @@ export class GxgTabButton {
     if (this.icon !== null) {
       if (this.disabled) {
         return (
-          <gxg-icon color="disabled" type={this.icon} part="icon"></gxg-icon>
+          <gxg-icon
+            size="small"
+            color="disabled"
+            type={this.icon}
+            part="icon"
+          ></gxg-icon>
         );
       }
-      return <gxg-icon type={this.icon} part="icon"></gxg-icon>;
+      return <gxg-icon size="small" type={this.icon} part="icon"></gxg-icon>;
     }
   }
 
@@ -138,7 +143,7 @@ export class GxgTabButton {
       <Host
         class={{
           large: state.large,
-          mercury: state.mercury,
+          mercury: state.mercury
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
@@ -151,11 +156,11 @@ export class GxgTabButton {
               "tab-button--selected": this.isSelected === true,
               "tab-button--text-icon":
                 this.tabLabel !== null && this.icon !== null,
-              large: state.large,
+              large: state.large
             }}
             onClick={this.buttonClickHandler.bind(this)}
             onKeyDown={this.buttonKeyDownHandler.bind(this)}
-            ref={(el) => (this.tabButton = el as HTMLButtonElement)}
+            ref={el => (this.tabButton = el as HTMLButtonElement)}
             part={this.parts.button}
           >
             {this.printIcon()}
