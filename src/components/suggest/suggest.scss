@@ -31,9 +31,6 @@ ch-suggest {
   &::part(input):focus {
     @include form-element-common-styles-focus-type-1();
   }
-  &::part(input):focus {
-    @include form-element-common-styles-focus-type-1();
-  }
   /*header*/
   &::part(header) {
     display: block;

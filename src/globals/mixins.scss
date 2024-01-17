@@ -431,8 +431,9 @@ FORM ELEMENTS
   width: 100%;
 }
 
-@mixin form-element-common-styles-focus-type-1($direction: "inside") {
-  outline: var(--ds-focus-border-width) solid var(--ds-focus-border-color);
+@mixin form-element-common-styles-focus-type-1($direction: "outside") {
+  outline: var(--ds-focus-border-width) solid
+    var(--ds-border-color-control--focused);
   @if $direction == "inside" {
     outline-offset: -2px;
   }
@@ -448,38 +449,37 @@ FORM ELEMENTS
 
 //VALIDATION
 @mixin form-element-validation($status) {
-  border-color: var(--color-#{$status}-dark);
-  //background-color: var(--color-#{$status}-light);
+  border-color: var(--ds-border-color--#{$status});
 }
 @mixin form-element-validation-focus($status) {
-  outline-color: var(--color-#{$status}-dark);
-  border-color: var(--color-#{$status}-dark);
+  outline-color: var(--ds-border-color--#{$status});
+  border-color: var(--ds-border-color--#{$status});
   //just for the checkbox
   & + .checkmark {
-    --checkmark-border-color: var(--color-#{$status}-dark);
+    --checkmark-border-color: var(--ds-border-color--#{$status});
   }
 }
 
 //Warning (remove)
 @mixin form-element-common-styles-warning {
-  border-color: var(--color-warning-dark);
-  background-color: var(--color-warning-light);
+  border-color: var(--ds-border-color--warning);
+  background-color: var(--ds-warning-color--light);
   margin-bottom: 0;
 }
 @mixin form-element-common-styles-warning-focus {
-  outline-color: var(--color-warning-dark);
-  border-color: var(--color-warning-dark);
+  outline-color: var(--ds-border-color--warning);
+  border-color: var(--ds-border-color--warning);
 }
 
 //Error (remove)
 @mixin form-element-common-styles-error {
-  border-color: var(--color-error-dark);
-  background-color: var(--color-error-light);
+  border-color: var(--ds-border-color--error);
+  background-color: var(--ds-error-color--light);
   margin-bottom: 0;
 }
 @mixin form-element-common-styles-error-focus {
-  outline-color: var(--color-error-dark);
-  border-color: var(--color-error-dark);
+  outline-color: var(--ds-border-color--error);
+  border-color: var(--ds-border-color--error);
 }
 @mixin messages-wrapper {
   margin-top: var(--spacing-comp-02);

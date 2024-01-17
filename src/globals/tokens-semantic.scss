@@ -10,9 +10,9 @@
   --ds-base-font-color--link: var(--color-primary);
   --ds-base-font-color--link-hover: var(--color-primary-hover);
   --ds-base-font-color--link-active: var(--color-primary-active);
-  --ds-base-font-color--warning: var(--color-error-warning);
-  --ds-base-font-color--error: var(--color-error-dark);
-  --ds-base-font-color--success: var(--color-error-success);
+  --ds-base-font-color--warning: var(--ds-warning-color--dark);
+  --ds-base-font-color--error: var(--ds-alert-color--dark);
+  --ds-base-font-color--success: var(--ds-success-color--dark);
   --ds-base-font-weight: var(--font-weight-regular);
   --ds-base-font-line-height--regular: var(--line-height-regular);
   --ds-base-font-line-height--comfortable: var(--line-height-comfortable);
@@ -23,6 +23,11 @@
   --ds-form-text-height: 20px;
   --ds-border-common-styles: var(--border-width-sm) solid
     var(--ds-border-color--regular);
+  /*--- Border ---*/
+  --ds-border-color--error: var(--color-error-dark);
+  --ds-border-color--warning: var(--color-warning-dark);
+  --ds-border-color--success: var(--color-success-dark);
+  --ds-border-color-control--focused: var(--color-primary-enabled);
   /*--- Icon ---*/
   --ds-icon-mask-size: 100%;
   --ds-icon-size-box--regular: 20px;
@@ -97,6 +102,13 @@
   --ds-title-04-font-weight: var(--font-weight-semibold);
   --ds-title-05-font-size: var(--font-size-lg);
   --ds-title-05-font-weight: var(--font-weight-semibold);
+  /*Alert / Warning / Message */
+  --ds-alert-color--dark: var(--color-error-dark);
+  --ds-alert-color--light: var(--color-error-light);
+  --ds-warning-color--dark: var(--color-warning-dark);
+  --ds-warning-color--light: var(--color-warning-light);
+  --ds-success-color--dark: var(--color-success-dark);
+  --ds-success-color--light: var(--color-success-light);
 
   &.mercury {
     /*--- General ---*/
@@ -110,9 +122,9 @@
     --ds-base-font-color--link: var(--mer-text__primary);
     --ds-base-font-color--link-hover: var(--mer-text__primary--hover);
     --ds-base-font-color--link-active: var(--mer-text__primary--active);
-    --ds-base-font-color--warning: var(--mer-color__message-yellow--200);
-    --ds-base-font-color--error: var(--mer-color__message-red--200);
-    --ds-base-font-color--success: var(--mer-color__message-green--200);
+    // --ds-base-font-color--warning: var();
+    // --ds-base-font-color--error: var();
+    // --ds-base-font-color--success: var();
     --ds-base-font-weight: var(--mer-font__weight--regular);
     --ds-base-font-line-height--regular: var(--mer-line-height--regular);
     --ds-base-font-line-height--comfortable: var(
@@ -127,6 +139,13 @@
     --ds-form-text-height: 20px;
     --ds-border-common-styles: var(--mer-border__width--sm) solid
       var(--ds-border-color--regular);
+    /*--- Border ---*/
+    --ds-border-color--error: var(--mer-border-color__error);
+    --ds-border-color--warning: var(--mer-border-color__warning);
+    --ds-border-color--success: var(--mer-border-color__success);
+    --ds-border-color-control--focused: var(
+      --mer-border-color__control--focused
+    );
     /*--- Icon ---*/
     --ds-icon-mask-size: 100%;
     --ds-icon-size-box--regular: 32px;
@@ -200,6 +219,13 @@
     --ds-title-04-font-weight: var(--mer-font__weight--semi-bold);
     --ds-title-05-font-size: var(--mer-font__size-xs);
     --ds-title-05-font-weight: var(--mer-font__weight--semi-bold);
+    /*Alert / Warning / Message */
+    --ds-alert-color--dark: var(--mer-color__message-red--200);
+    --ds-alert-color--light: var(--mer-color__message-red--100);
+    --ds-warning-color--dark: var(--mer-color__message-yellow--200);
+    --ds-warning-color--light: var(--mer-color__message-yellow--100);
+    --ds-success-color--dark: var(--mer-color__message-green--200);
+    --ds-success-color--light: var(--mer-color__message-green--100);
   }
 }
 
