@@ -29,13 +29,18 @@
     </style>
   </head>
   <body mercury>
+    <!--
+      Notes: 
+      search for "#COMP" to jump to the next component
+    -->
+
     <div class="container no-separator">
       <h1>comparator</h1>
       <section class="comparator">
         <!--left side-->
         <div class="comparator--side left-side">
           <div class="articles-container">
-            <!-- *** GXG-BUTTON PRIMARY | COMP *** -->
+            <!-- *** GXG-BUTTON PRIMARY | #COMP *** -->
             <!-- primary text only -->
             <article data-title="button" hidden>
               <code pill>primary text-only</code>
@@ -79,7 +84,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-BUTTON SECONDARY | COMP *** -->
+            <!-- *** GXG-BUTTON SECONDARY | #COMP *** -->
 
             <!-- secondary text only -->
             <article data-title="button" hidden>
@@ -126,7 +131,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-BUTTON TERTIARY | COMP *** -->
+            <!-- *** GXG-BUTTON TERTIARY | #COMP *** -->
 
             <!-- tertiary -->
             <article data-title="button" hidden>
@@ -151,7 +156,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-BUTTON OUTLINED | COMP *** -->
+            <!-- *** GXG-BUTTON OUTLINED | #COMP *** -->
 
             <article data-title="button" hidden>
               <code pill>outlined</code>
@@ -185,7 +190,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-BUTTON-GROUP PRIMARY | COMP *** -->
+            <!-- *** GXG-BUTTON-GROUP PRIMARY | #COMP *** -->
 
             <!-- primary -->
             <article data-title="button-group" hidden>
@@ -250,7 +255,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-BUTTON-GROUP OUTLINED | COMP *** -->
+            <!-- *** GXG-BUTTON-GROUP OUTLINED | #COMP *** -->
 
             <article data-title="button-group" hidden>
               <code pill>outlined default</code>
@@ -315,7 +320,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-CARD SECTION | COMP *** -->
+            <!-- *** GXG-CARD SECTION | #COMP *** -->
             <article data-title="card" hidden>
               <code pill>card type "section"</code>
               <div class="example" style="height: 300px">
@@ -368,7 +373,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-CARD ARTICLE | COMP *** -->
+            <!-- *** GXG-CARD ARTICLE | #COMP *** -->
             <article data-title="card" hidden>
               <code pill>card type "article"</code>
               <div class="example">
@@ -388,7 +393,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-CARD MINI | COMP *** -->
+            <!-- *** GXG-CARD MINI | #COMP *** -->
             <article data-title="card" hidden>
               <code pill>card type "mini"</code>
               <div class="example">
@@ -408,7 +413,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-COMBO-BOX | COMP *** -->
+            <!-- *** GXG-COMBO-BOX | #COMP *** -->
             <article data-title="combo-box" hidden>
               <div class="example">
                 <gxg-combo-box
@@ -463,7 +468,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-FORM-CHECKBOX-GROUP | COMP *** -->
+            <!-- *** GXG-FORM-CHECKBOX-GROUP | #COMP *** -->
             <!-- column (default) -->
             <article data-title="checkbox-group" hidden>
               <code pill>orientation: column (default)</code>
@@ -548,7 +553,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-FORM-RADIO-GROUP | COMP *** -->
+            <!-- *** GXG-FORM-RADIO-GROUP | #COMP *** -->
 
             <!-- radio-group vertical -->
             <article data-title="radio-group" hidden>
@@ -598,7 +603,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-FORM-TEXT | COMP *** -->
+            <!-- *** GXG-FORM-TEXT | #COMP *** -->
 
             <!-- label before -->
             <article data-title="form-text" hidden>
@@ -628,7 +633,7 @@
             </article>
 
             <!-- disabled -->
-            <article data-title="form-text">
+            <article data-title="form-text" hidden>
               <code pill>disabled</code>
               <div class="example">
                 <gxg-form-text
@@ -642,7 +647,7 @@
               </div>
             </article>
 
-            <!-- *** GXG-FORM-TEXTAREA | COMP *** -->
+            <!-- *** GXG-FORM-TEXTAREA | #COMP *** -->
 
             <!-- enabled -->
             <article data-title="textarea" hidden>
@@ -668,6 +673,328 @@
                   value="The universe is mind-blowingly vast. It contains over 100 billion galaxies, each with billions of stars. And it's estimated to be around 13.8 billion years old! 🌌✨ The observable universe is estimated to be about 93 billion light-years in diameter. Neutron stars, which are incredibly dense, can have a mass greater than that of our sun but be only about 12 miles in diameter. The most distant known galaxy, GN-z11, is located 13.4 billion light-years away from Earth. Black holes can be incredibly massive; the one at the center of our Milky Way galaxy, called Sagittarius A*, has a mass equivalent to about 4.1 million suns. 🌌🌟🕳️"
                 >
                 </gxg-form-textarea>
+              </div>
+            </article>
+
+            <!-- *** GXG-GRID | #COMP *** -->
+
+            <article data-title="grid" hidden>
+              <div class="example grid-container">
+                <gxg-grid>
+                  <ch-grid row-selection-mode="multiple" id="ch-grid-second">
+                    <ch-grid-columnset>
+                      <ch-grid-column
+                        column-name=""
+                        settingable="false"
+                        column-type="rich"
+                        rich-row-drag
+                        size="min-content"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name=""
+                        settingable="false"
+                        column-type="rich"
+                        rich-row-selector
+                        size="min-content"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name="Property"
+                        settingable="false"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name="Value"
+                        settingable="false"
+                      ></ch-grid-column>
+                    </ch-grid-columnset>
+
+                    <ch-grid-row selected rowid="nombre-productos">
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Nombreeee</ch-grid-cell>
+                      <ch-grid-cell>Productos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                      <ch-grid-cell>Products</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Português</ch-grid-cell>
+                      <ch-grid-cell>Produtos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                      <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                      <ch-grid-cell>Found</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Url amigable</ch-grid-cell>
+                      <ch-grid-cell>productos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                      <ch-grid-cell>products</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Português</ch-grid-cell>
+                      <ch-grid-cell>produtos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Id</ch-grid-cell>
+                      <ch-grid-cell>7867</ch-grid-cell>
+                    </ch-grid-row>
+                    <!-- <div slot="row-actions">
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action A</gxg-button
+                    >
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action B</gxg-button
+                    >
+                  </div> -->
+                  </ch-grid>
+                </gxg-grid>
+              </div>
+            </article>
+
+            <!-- *** IDE-LOADER | #COMP *** -->
+
+            <style>
+              .ide-loader-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              }
+              .show-loader-btn {
+                width: 125px;
+                margin-top: 32px;
+              }
+            </style>
+
+            <!-- default -->
+            <article data-title="loader">
+              <div class="example">
+                <div class="ide-loader-wrapper">
+                  <gxg-grid>
+                    <ch-grid
+                      id="container"
+                      row-selection-mode="multiple"
+                      id="ch-grid-second"
+                    >
+                      <ch-grid-columnset>
+                        <ch-grid-column
+                          column-name=""
+                          settingable="false"
+                          column-type="rich"
+                          rich-row-drag
+                          size="min-content"
+                        ></ch-grid-column>
+                        <ch-grid-column
+                          column-name=""
+                          settingable="false"
+                          column-type="rich"
+                          rich-row-selector
+                          size="min-content"
+                        ></ch-grid-column>
+                        <ch-grid-column
+                          column-name="Property"
+                          settingable="false"
+                        ></ch-grid-column>
+                        <ch-grid-column
+                          column-name="Value"
+                          settingable="false"
+                        ></ch-grid-column>
+                      </ch-grid-columnset>
+
+                      <ch-grid-row selected rowid="nombre-productos">
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Nombreeee</ch-grid-cell>
+                        <ch-grid-cell>Productos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>English</ch-grid-cell>
+                        <ch-grid-cell>Products</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Português</ch-grid-cell>
+                        <ch-grid-cell>Produtos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                        <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                        <ch-grid-cell>Found</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Url amigable</ch-grid-cell>
+                        <ch-grid-cell>productos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>English</ch-grid-cell>
+                        <ch-grid-cell>products</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Português</ch-grid-cell>
+                        <ch-grid-cell>produtos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Id</ch-grid-cell>
+                        <ch-grid-cell>7867</ch-grid-cell>
+                      </ch-grid-row>
+                    </ch-grid>
+                  </gxg-grid>
+                  <gxg-button class="show-loader-btn">show loader</gxg-button>
+                  <gxg-ide-loader
+                    loader-title="Loading kbs..."
+                    cancel-label="Cancel"
+                  ></gxg-ide-loader>
+                </div>
+              </div>
+
+              <script>
+                const loader = document.querySelector("gxg-ide-loader");
+                const containerRef = document.getElementById("container");
+                const showLoaderBtn =
+                  document.querySelector(".show-loader-btn");
+                showLoaderBtn.addEventListener("click", () => {
+                  loader.show = true;
+                });
+                loader.container = containerRef;
+                /*event loaderFinished*/
+                loader.addEventListener("loaderFinished", () => {
+                  console.log("loaderFinished event");
+                });
+              </script>
+            </article>
+
+            <!-- *** GXG-ICON | #COMP *** -->
+
+            <style>
+              .icons-container {
+                display: flex;
+                gap: var(--ds-form-control-gap--horizontal);
+              }
+            </style>
+
+            <!-- regular -->
+            <article data-title="icon" hidden>
+              <code pill>size: regular</code>
+              <div class="example">
+                <div class="icons-container">
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/applications"
+                  ></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/assistant"
+                  ></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/launch"
+                  ></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/mobile"
+                  ></gxg-icon>
+                  <gxg-icon color="onbackground" type="mercury/send"></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/success"
+                  ></gxg-icon>
+                </div>
+              </div>
+            </article>
+
+            <!-- small -->
+            <article data-title="icon" hidden>
+              <code pill>size: small</code>
+              <div class="example">
+                <div class="icons-container">
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/applications"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/assistant"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/launch"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/mobile"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/send"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/success"
+                  ></gxg-icon>
+                </div>
+              </div>
+            </article>
+
+            <!-- *** GXG-LABEL | #COMP *** -->
+
+            <!-- position start -->
+            <article data-title="position start">
+              <code pill>labelPosition="start"</code>
+              <div class="example example--start">
+                <gxg-label label-position="start"
+                  >Label before the content</gxg-label
+                >
+                <div class="box"></div>
               </div>
             </article>
 
