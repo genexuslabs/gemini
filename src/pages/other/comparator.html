@@ -23,6 +23,12 @@
       [hidden] {
         display: none !important;
       }
+      gxg-card {
+        border: 1px solid var(--mer-border-color__dim);
+      }
+      .right-side {
+        display: none;
+      }
     </style>
   </head>
   <body mercury>
@@ -309,6 +315,81 @@
                   <button id="button2">Button 2</button>
                   <button id="button2">Button 3</button>
                 </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- *** GXG-CARD SECTION | COMP *** -->
+            <article data-title="card" hidden>
+              <code pill>card type "section"</code>
+              <div class="example" style="height: 300px">
+                <gxg-card
+                  card-title="Unified Solutions Hub: Revolutionizing Experiences Through Genexus-Powered Web and Mobile Applications"
+                  card-subtitle="Mastering Genexus: Crafting Seamless Experiences with Advanced Web and Mobile Solutions"
+                  icon="editing-structures/attribute-formula"
+                  height="100%"
+                >
+                  <p>
+                    In our Genexus Knowledge Base project, we embarked on a
+                    journey to redefine user interactions. Leveraging Genexus's
+                    robust features, we seamlessly integrated cutting-edge
+                    technologies, ensuring a responsive and intuitive web
+                    experience for our users.
+                  </p>
+                  <p>
+                    The heart of our Genexus KB beats with innovation. We
+                    meticulously crafted a dynamic data management system,
+                    employing Genexus's power to streamline information flow.
+                    Navigating through the KB becomes a breeze, offering users a
+                    cohesive and efficient platform.
+                  </p>
+                  <p>
+                    As the sun sets on traditional development, our Genexus
+                    project rises. We embraced a modular approach,
+                    revolutionizing code organization. With Genexus's agility,
+                    updates are now a joy, empowering developers to sculpt a
+                    cohesive digital landscape.
+                  </p>
+                  <p>
+                    Our Genexus project unfolds like a digital tapestry, weaving
+                    together the threads of innovation and efficiency. With a
+                    focus on user-centric design, we harnessed Genexus's prowess
+                    to sculpt an interface that transcends expectations. From
+                    streamlined data management to dynamic UI components, our
+                    project is a testament to the limitless possibilities
+                    Genexus affords.
+                  </p>
+                  <p>
+                    In the symphony of technology, our Genexus endeavor is the
+                    conductor orchestrating harmony. We delved into the
+                    intricacies of backend development, employing Genexus's
+                    robust capabilities to create a responsive and scalable
+                    infrastructure. The result? A Genexus project that not only
+                    meets but exceeds the demands of the ever-evolving digital
+                    landscape.
+                  </p>
+                </gxg-card>
+              </div>
+            </article>
+
+            <!-- *** GXG-CARD ARTICLE | COMP *** -->
+            <article data-title="card">
+              <code pill>card type "article"</code>
+              <div class="example">
+                <gxg-card
+                  card-type="article"
+                  card-title="Project Detail"
+                  card-subtitle="Modified 27/9/23 15:45"
+                  icon="editing-structures/attribute-formula"
+                  actionable
+                  onclick="alert('Do something interesting!')"
+                >
+                  <p>
+                    The updates include Conversational Development in GeneXus
+                    Next, new experiences and interaction capabilities in
+                    GeneXus Enterprise AI (code name SAIA), Super App
+                    generation, and over 500 enhancements in GeneXus 18.
+                  </p>
+                </gxg-card>
               </div>
             </article>
 

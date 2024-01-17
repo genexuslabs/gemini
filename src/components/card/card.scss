@@ -141,6 +141,7 @@
   font-size: var(--gxg-card-section_font-size);
   border-radius: var(--gxg-card-section_border-radius);
   padding: var(--gxg-card-section_padding);
+  background-color: var(--gxg-card-section_background-color);
 }
 
 /*--- Article ---*/
@@ -219,7 +220,8 @@
 
 /*actionable*/
 :host(.card--actionable:hover) {
-  filter: brightness(var(--gxg-card-actionable-hover_filter-brightness));
+  background-color: #24272a;
+  //border-color: ;
   .wrapper,
   .card__header,
   .content {
