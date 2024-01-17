@@ -987,14 +987,61 @@
 
             <!-- *** GXG-LABEL | #COMP *** -->
 
+            <style>
+              .label-box {
+                width: 150px;
+                height: 25px;
+                border-radius: 2px;
+                opacity: 0.75;
+                background-color: rgb(156 156 156);
+              }
+              .example--start,
+              .example--end {
+                display: flex;
+                flex-direction: row;
+              }
+              .example--above,
+              .example--below {
+                flex-direction: column;
+              }
+              /*center*/
+              .example--center {
+                align-content: center;
+                width: 200px;
+              }
+              .example--center .label-box {
+                width: 100%;
+              }
+              .example--start.example--center,
+              .example--end.example--center {
+                width: 350px;
+              }
+              .example--start.example--center .label-box,
+              .example--end.example--center .label-box {
+                width: 100px;
+                height: 50px;
+              }
+            </style>
+
             <!-- position start -->
-            <article data-title="position start">
-              <code pill>labelPosition="start"</code>
+            <article data-title="label" hidden>
+              <code pill>position: start</code>
               <div class="example example--start">
                 <gxg-label label-position="start"
                   >Label before the content</gxg-label
                 >
-                <div class="box"></div>
+                <div class="label-box"></div>
+              </div>
+            </article>
+
+            <!-- position above -->
+            <article data-title="label" hidden>
+              <code pill>position: above</code>
+              <div class="example example--above">
+                <gxg-label label-position="above"
+                  >Label above the content</gxg-label
+                >
+                <div class="label-box"></div>
               </div>
             </article>
 
