@@ -11,6 +11,11 @@
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    .wrapper {
+      border-color: var(--gxg-checkbox-border-color--hover);
+    }
+  }
 }
 .wrapper {
   @include checkbox("container");

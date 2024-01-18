@@ -3,6 +3,7 @@
   --gxg-radio-size: var(--spacing-comp-04);
   --gxg-radio-border-width: var(--border-width-sm);
   --gxg-radio-border-color: var(--gray-04);
+  --gxg-radio-border-color--hover: var(--gxg-radio-border-color);
   --gxg-radio-background-color: var(--color-background);
   --gxg-radio-indicator-size: var(--spacing-comp-02);
   --gxg-radio-indicator-color: var(--color-primary-enabled);
@@ -10,13 +11,14 @@
   --gxg-radio-background-color-disabled: var(--ds-background-color-disabled);
 
   &.mercury {
-    --gxg-radio-group-margin: var(--mer-spacing__comp--xs);
-    --gxg-radio-size: var(--mer-spacing__comp--md);
+    --gxg-radio-group-margin: var(--mer-spacing--xs);
+    --gxg-radio-size: var(--mer-spacing--md);
     --gxg-radio-border-width: var(--mer-border__width--sm);
-    --gxg-radio-border-color: var(--mer-border-color__neutral);
+    --gxg-radio-border-color: var(--mer-border-color__dim);
+    --gxg-radio-border-color--hover: var(--mer-color__neutral-gray--00);
     --gxg-radio-background-color: transparent;
-    --gxg-radio-indicator-size: var(--mer-spacing__comp--xs);
-    --gxg-radio-indicator-color: var(--color-primary-enabled);
+    --gxg-radio-indicator-size: var(--mer-spacing--xs);
+    --gxg-radio-indicator-color: var(--mer-color__neutral-gray--00);
     /*disabled*/
     --gxg-radio-background-color-disabled: transparent;
   }

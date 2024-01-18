@@ -37,14 +37,13 @@
 :root.mercury {
   /*--- Header ---*/
   --gxg-list-box-header__background-color: var(--mer-color__neutral-gray--1200);
-  --gxg-list-box-header__padding: var(--mer-spacing__comp--xs)
-    var(--mer-spacing__comp--xs);
+  --gxg-list-box-header__padding: var(--mer-spacing--xs) var(--mer-spacing--xs);
   --gxg-list-box-header__font-weight: var(--mer-font__weight--semi-bold);
   --gxg-list-box-header__color: var(--ds-base-font-color);
   /*--- Icon ---*/
-  --gxg-list-box-icon__margin-inline-end: var(--mer-spacing__comp--xxs);
+  --gxg-list-box-icon__margin-inline-end: var(--mer-spacing--xxs);
   /*--- Checkbox ---*/
-  --gxg-list-box-checkbox__margin-inline-end: var(--mer-spacing__comp--xxs);
+  --gxg-list-box-checkbox__margin-inline-end: var(--mer-spacing--xxs);
   /*--- List ---*/
   --gxg-list-box-suggestions-container__background-color: var();
   --gxg-list-box-suggestions-container__color: var(
@@ -59,16 +58,14 @@
   );
   --gxg-tree-view-item__outline-offset--active: -1px;
   /*--- Item > Container ---*/
-  --gxg-list-box-item-container__padding: var(--mer-spacing__comp--xxxs)
-    var(--mer-spacing__comp--xs);
+  --gxg-list-box-item-container__padding: var(--mer-spacing--xxxs)
+    var(--mer-spacing--xs);
   --gxg-list-box-item-container-icon-no-checkbox__padding-inline-start: var(
-    --mer-spacing__comp--xxs
+    --mer-spacing--xxs
   );
   /*--- Item > Icon ---*/
-  --gxg-list-box-item-icon__margin-inline-end: var(--mer-spacing__comp--xxs);
-  --gxg-list-box-item-checkbox__margin-inline-end: var(
-    --mer-spacing__comp--xxs
-  );
+  --gxg-list-box-item-icon__margin-inline-end: var(--mer-spacing--xxs);
+  --gxg-list-box-item-checkbox__margin-inline-end: var(--mer-spacing--xxs);
   --gxg-list-box-item-icon__size-box--regular: var(--ds-icon-size-box--small);
   --gxg-list-box-item-icon__size--regular: var(--ds-icon-size--small);
 }

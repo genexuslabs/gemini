@@ -7,8 +7,7 @@
   &.mercury {
     --gxg-tooltip__background-color: var(--mer-color__neutral-gray--700);
     --gxg-tooltip__color: var(--ds-base-font-color);
-    --gxg-tooltip__padding: var(--mer-spacing__comp--xxs)
-      var(--mer-spacing__comp--xs);
+    --gxg-tooltip__padding: var(--mer-spacing--xxs) var(--mer-spacing--xs);
     --gxg-tooltip__font-size: var(--mer-font__size--xxs);
     --gxg-tooltip__border-radius: var(--mer-border__width--sm);
   }

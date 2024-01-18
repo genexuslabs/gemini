@@ -147,6 +147,7 @@
   //background-color: var(--gxg-card-section_background-color);
   .card__title {
     font-weight: var(--gxg-card-section-title_font-weight);
+    font-size: var(--gxg-card-section-title_font-size);
   }
   @include --mer-elevation--01();
 }

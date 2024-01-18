@@ -35,26 +35,22 @@
 /*Mercury*/
 :root.mercury {
   /*--- General ---*/
-  --gxg-tree-view-container__padding: var(--mer-spacing__comp--xs);
+  --gxg-tree-view-container__padding: var(--mer-spacing--xs);
   --gxg-tree-view-item-dashed-line__border-color: var(
     --ds-border-color--regular
   );
   /*--- Item ---*/
-  --gxg-tree-view-item__gap: var(--mer-spacing__comp--xs);
-  --gxg-tree-view-item__custom-padding-inline-start: var(
-    --mer-spacing__comp--xxs
-  );
-  --gxg-tree-view-item__custom-padding-inline-end: var(
-    --mer-spacing__comp--xxs
-  );
+  --gxg-tree-view-item__gap: var(--mer-spacing--xs);
+  --gxg-tree-view-item__custom-padding-inline-start: var(--mer-spacing--xxs);
+  --gxg-tree-view-item__custom-padding-inline-end: var(--mer-spacing--xxs);
   --gxg-tree-view-item__color--hover: var(--mer-color__neutral-gray--100);
   /*--- Icon ---*/
-  --gxg-tree-view-icon__size: var(--mer-spacing__comp--md);
+  --gxg-tree-view-icon__size: var(--mer-spacing--md);
   /*--- Header ---*/
-  --gxg-tree-view-item-header__min-height: var(--mer-spacing__comp--xl);
-  --gxg-tree-view-item-header__padding-top: var(--mer-spacing__comp--xxs);
-  --gxg-tree-view-item-header__padding-bottom: var(--mer-spacing__comp--xxs);
-  --gxg-tree-view-item-header__padding-inline-end: var(--mer-spacing__comp--xs);
+  --gxg-tree-view-item-header__min-height: var(--mer-spacing--xl);
+  --gxg-tree-view-item-header__padding-top: var(--mer-spacing--xxs);
+  --gxg-tree-view-item-header__padding-bottom: var(--mer-spacing--xxs);
+  --gxg-tree-view-item-header__padding-inline-end: var(--mer-spacing--xs);
   --gxg-tree-view-item-header__outline-offset--focus: -1px;
   --gxg-tree-view-item-header__border-radius: var(--mer-border__radius--sm);
   /*--- Expandable Button ---*/
@@ -68,9 +64,9 @@
     --mer-color__neutral-gray--900
   );
   /*--- Left Image ---*/
-  --gxg-tree-view-item-left-img__size: var(--mer-spacing__comp--md);
+  --gxg-tree-view-item-left-img__size: var(--mer-spacing--md);
   /*--- Downloading ---*/
-  --gxg-tree-view-item-downloading__size: var(--mer-spacing__comp--sm);
+  --gxg-tree-view-item-downloading__size: var(--mer-spacing--sm);
   --gxg-tree-view-item-downloading__border: var(--mer-border__width--md) solid
     var(--mer-accent__primary--active);
 }

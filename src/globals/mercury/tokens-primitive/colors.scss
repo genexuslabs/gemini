@@ -44,29 +44,29 @@
   }
 
   //Tinted Grays
-  --mer-color__tinted-gray-yellow--5: #ffc96b0d;
-  --mer-color__tinted-gray-yellow--60: #ffc96b99;
-  --mer-color__tinted-gray-red--5: #fb7c840d;
-  --mer-color__tinted-gray-red--60: #fb7c8499;
-  --mer-color__tinted-gray-green--5: #64d9a80d;
-  --mer-color__tinted-gray-green--60: #64d9a899;
-  --mer-color__tinted-gray-blue--5: #2070ce0d;
-  --mer-color__tinted-gray-green--8: #2070ce14;
-  --mer-color__tinted-gray-green--10: #2070ce1a;
-  --mer-color__tinted-gray-green--20: #2070ce33;
-  --mer-color__tinted-gray-green--50: #2070ce80;
+  --mer-color__tinted-yellow--5: #ffc96b0d;
+  --mer-color__tinted-yellow--60: #ffc96b99;
+  --mer-color__tinted-red--5: #fb7c840d;
+  --mer-color__tinted-red--60: #fb7c8499;
+  --mer-color__tinted-green--5: #64d9a80d;
+  --mer-color__tinted-green--60: #64d9a899;
+  --mer-color__tinted-blue--5: #2070ce0d;
+  --mer-color__tinted-blue--8: #2070ce14;
+  --mer-color__tinted-blue--10: #2070ce1a;
+  --mer-color__tinted-blue--20: #2070ce33;
+  --mer-color__tinted-blue--50: #2070ce80;
   &.dark {
-    --mer-color__tinted-gray-yellow--5: #ffc96b0d;
-    --mer-color__tinted-gray-yellow--60: #ffc96b99;
-    --mer-color__tinted-gray-red--5: #fb7c840d;
-    --mer-color__tinted-gray-red--60: #fb7c8499;
-    --mer-color__tinted-gray-green--50: #64d9a80d;
-    --mer-color__tinted-gray-green--60: #64d9a899;
-    --mer-color__tinted-gray-blue--5: #0d5ba70d;
-    --mer-color__tinted-gray-green--8: #5ba7ff14;
-    --mer-color__tinted-gray-green--10: #5ba7ff1a;
-    --mer-color__tinted-gray-green--20: #5ba7ff33;
-    --mer-color__tinted-gray-green--50: #5ba7ff80;
+    --mer-color__tinted-yellow--5: #ffc96b0d;
+    --mer-color__tinted-yellow--60: #ffc96b99;
+    --mer-color__tinted-red--5: #fb7c840d;
+    --mer-color__tinted-red--60: #fb7c8499;
+    --mer-color__tinted-green--50: #64d9a80d;
+    --mer-color__tinted-green--60: #64d9a899;
+    --mer-color__tinted-blue--5: #0d5ba70d;
+    --mer-color__tinted-blue--8: #5ba7ff14;
+    --mer-color__tinted-blue--10: #5ba7ff1a;
+    --mer-color__tinted-blue--20: #5ba7ff33;
+    --mer-color__tinted-blue--50: #5ba7ff80;
   }
 
   //Message

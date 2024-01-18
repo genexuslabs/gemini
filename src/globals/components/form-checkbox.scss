@@ -1,6 +1,7 @@
 :root {
   --gxg-checkbox-size: var(--spacing-comp-04);
   --gxg-checkbox-border-color: var(--gray-04);
+  --gxg-checkbox-border-color--hover: var(--gxg-checkbox-border-color);
   --gxg-checkbox-border-width: var(--border-width-sm);
   --gxg-checkbox-border-radius: var(--border-radius-md);
   --gxg-checkbox-background-color: var(--color-background);
@@ -13,8 +14,9 @@
   --gxg-checkbox-disabled-background-color: var(--ds-background-color-disabled);
 
   &.mercury {
-    --gxg-checkbox-size: var(--mer-spacing__comp--md);
-    --gxg-checkbox-border-color: var(--mer-border-color__neutral);
+    --gxg-checkbox-size: var(--mer-spacing--md);
+    --gxg-checkbox-border-color: var(--mer-border-color__dim);
+    --gxg-checkbox-border-color--hover: var(--mer-color__neutral-gray--00);
     --gxg-checkbox-border-width: var(--mer-border__width--sm);
     --gxg-checkbox-border-radius: var(--mer-border__radius--xs);
     --gxg-checkbox-background-color: transparent;

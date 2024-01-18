@@ -54,47 +54,46 @@
   /*SUGGEST*/
   /*--- input ---*/
   --gxg-suggest-input__height: var(--ds-form-control-height);
-  --gxg-suggest-input__padding: var(--mer-spacing__comp--xxs)
-    var(--mer-spacing__comp--xs);
+  --gxg-suggest-input__padding: var(--mer-spacing--xxs) var(--mer-spacing--xs);
   --gxg-suggest-input__background-color: var(--ds-base-background-color);
   /*--- header ---*/
   --gxg-suggest-header__padding-block-end: var(
     --gxg-suggest-header__padding-block-end
   );
   /*--- close-button ---*/
-  --gxg-suggest-close-button__line-height--after: var(--mer-spacing__comp--lg);
+  --gxg-suggest-close-button__line-height--after: var(--mer-spacing--lg);
   /*--- drop-down ---*/
   --gxg-suggest-drop-down__background-color: var(--ds-base-background-color);
-  --gxg-suggest-drop-down__margin-top: var(--mer-spacing__comp--xxs);
-  --gxg-suggest-drop-down__padding: var(--mer-spacing__comp--sm);
+  --gxg-suggest-drop-down__margin-top: var(--mer-spacing--xxs);
+  --gxg-suggest-drop-down__padding: var(--mer-spacing--sm);
   --gxg-suggest-drop-down__box-shadow: var(--box-shadow-02);
   /*SUGGEST LIST*/
   --gxg-suggest-list__padding: var(--mer-border__radius--md);
   --gxg-suggest-list__border: var(--ds-border-common-styles);
   --gxg-suggest-list__border-radius: var(--ds-form-control-border-radius);
   --gxg-suggest-list-title__font-weight: var(--mer-font__weight--semi-bold);
-  --gxg-suggest-list-title__margin: var(--mer-spacing__comp--xxs) 0;
-  --gxg-suggest-list-title__padding: var(--mer-spacing__comp--xxs)
-    var(--mer-spacing__comp--xs);
+  --gxg-suggest-list-title__margin: var(--mer-spacing--xxs) 0;
+  --gxg-suggest-list-title__padding: var(--mer-spacing--xxs)
+    var(--mer-spacing--xs);
   --gxg-suggest-list-title__color: var(--mer-color__neutral-gray--100);
   --gxg-suggest-list-item-next-sibling__margin-block-start: var(
-    --mer-spacing__comp--xs
+    --mer-spacing--xs
   );
   --gxg-suggest-list-after-list-item__margin-block-start: var(
-    --mer-spacing__comp--xs
+    --mer-spacing--xs
   );
   /*SUGGEST LIST ITEM*/
-  --gxg-suggest-list-item-button__padding: var(--mer-spacing__comp--xxxs)
-    var(--mer-spacing__comp--xs);
+  --gxg-suggest-list-item-button__padding: var(--mer-spacing--xxxs)
+    var(--mer-spacing--xs);
   --gxg-suggest-list-item-button__padding--with-icon: var(--spacing-comp-01)
     var(--spacing-comp-01);
-  --gxg-suggest-list-item-button__gap: var(--mer-spacing__comp--xxs);
+  --gxg-suggest-list-item-button__gap: var(--mer-spacing--xxs);
   --gxg-suggest-list-item-button__color--hover: var(
     --mer-color__neutral-gray--100
   );
   --gxg-suggest-list-item-button__height: var(--gxg-suggest-input__height);
-  --gxg-suggest-list-item-icon__size: var(--mer-spacing__comp--md);
-  --gxg-suggest-list-item-icon__margin-right: var(--mer-spacing__comp--xxxs);
+  --gxg-suggest-list-item-icon__size: var(--mer-spacing--md);
+  --gxg-suggest-list-item-icon__margin-right: var(--mer-spacing--xxxs);
   --gxg-suggest-list-item-icon__background-color--hover: var(
     --ds-item-background-color--hover
   );

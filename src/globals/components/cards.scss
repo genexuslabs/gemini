@@ -40,6 +40,7 @@
   --gxg-card-section_font-size: 13px;
   --gxg-card-section_border-radius: var(--border-radius-lg);
   --gxg-card-section_padding: 0;
+  --gxg-card-section-title_font-size: var(--font-size--xl);
   --gxg-card-section-title_font-weight: var(--font-weight-bold);
 
   /*--- Card 'Article' ---*/
@@ -103,25 +104,25 @@
   --gxg-card_background-gray: var(--mer-elevation--01);
   --gxg-card_box-shadow: none;
   --gxg-card_border-radius: var(--mer-border__radius--sm);
-  --gxg-card_padding-xs: var(--mer-spacing__comp--xxs);
-  --gxg-card_padding-s: var(--mer-spacing__comp--xs);
-  --gxg-card_padding-m: var(--mer-spacing__comp--sm);
-  --gxg-card_padding-l: var(--mer-spacing__comp--md);
-  --gxg-card_padding-xl: var(--mer-spacing__comp--lg);
-  --gxg-card_padding-xxl: var(--mer-spacing__comp--xl);
-  --gxg-card_padding-xxxl: var(--mer-spacing__comp--xxl);
+  --gxg-card_padding-xs: var(--mer-spacing--xxs);
+  --gxg-card_padding-s: var(--mer-spacing--xs);
+  --gxg-card_padding-m: var(--mer-spacing--sm);
+  --gxg-card_padding-l: var(--mer-spacing--md);
+  --gxg-card_padding-xl: var(--mer-spacing--lg);
+  --gxg-card_padding-xxl: var(--mer-spacing--xl);
+  --gxg-card_padding-xxxl: var(--mer-spacing--xxl);
   /*header*/
-  --gxg-card-header_margin: var(--mer-spacing__comp--md)
-    var(--mer-spacing__comp--md) 0 var(--mer-spacing__comp--md);
-  --gxg-card-header_padding-block-end: var(--mer-spacing__comp--md);
+  --gxg-card-header_margin: var(--mer-spacing--sm) var(--mer-spacing--sm) 0
+    var(--mer-spacing--sm);
+  --gxg-card-header_padding-block-end: var(--mer-spacing--sm);
   --gxg-card-header_border-block-end: var(--mer-border__width--sm) solid
     var(--mer-color__neutral-gray--1300);
-  --gxg-card-header_gap: var(--mer-spacing__comp--xl);
+  --gxg-card-header_gap: var(--mer-spacing--xl);
   /*header left col*/
-  --gxg-card-header-left_gap: var(--mer-spacing__comp--md);
+  --gxg-card-header-left_gap: var(--mer-spacing--md);
   --gxg-card-header-left_width: 60%;
   /*header right col*/
-  --gxg-card-header-right_gap: var(--mer-spacing__comp--md);
+  --gxg-card-header-right_gap: var(--mer-spacing--md);
   --gxg-card-header-right_width: 40%;
   --gxg-card-header-right_font-size: var(--mer-font__size--xxs);
   /*subtitle wrapper*/
@@ -129,7 +130,7 @@
   --gxg-card-subtitle-wrapper_padding-inline-end: 3px;
   --gxg-card-subtitle-wrapper_link-color: var(--mer-color__neutral-gray--00);
   /*content*/
-  --gxg-card-content_padding: var(--mer-spacing__comp--md);
+  --gxg-card-content_padding: var(--mer-spacing--sm);
   --gxg-card-content_font-size: var(--mer-font__size--xs);
   --gxg-card-content_line-height: var(--mer-line-height--comfortable);
   --gxg-card-content_color: var(--mer-color__neutral-gray--200);
@@ -139,6 +140,7 @@
   --gxg-card-section_font-size: var(--mer-font__size--xs);
   --gxg-card-section_border-radius: var(--mer-border__radius--sm);
   --gxg-card-section_padding: 0;
+  --gxg-card-section-title_font-size: var(--mer-font__size--xs);
   --gxg-card-section-title_font-weight: var(--mer-font__weight--bold);
 
   /*--- Card 'Article' ---*/
@@ -168,19 +170,19 @@
     var(--mer-color__neutral-gray--1100);
   --gxg-card-mini_border-radius: var(--mer-border__radius--sm);
   --gxg-card-mini_padding: 0;
-  --gxg-card-mini-header_margin: var(--mer-spacing__comp--xs)
-    var(--mer-spacing__comp--xs) 0 var(--mer-spacing__comp--xs);
-  --gxg-card-mini-header_padding-block-end: var(--mer-spacing__comp--xs);
+  --gxg-card-mini-header_margin: var(--mer-spacing--xs) var(--mer-spacing--xs) 0
+    var(--mer-spacing--xs);
+  --gxg-card-mini-header_padding-block-end: var(--mer-spacing--xs);
   --gxg-card-mini-header_border-bottom: none;
   --gxg-card-mini-header-left_width: 60%;
-  --gxg-card-mini-header-left_gap: var(--mer-spacing__comp--sm);
+  --gxg-card-mini-header-left_gap: var(--mer-spacing--sm);
   --gxg-card-mini-title_margin: 0;
   --gxg-card-mini-title_font-weight: var(--mer-font__weight--semi-bold);
   --gxg-card-mini-title_font-size: var(--mer-font__size--xxs);
   --gxg-card-mini-title_color: var(--mer-color__neutral-gray--100);
   --gxg-card-mini-content_font-style: normal;
-  --gxg-card-mini-content_padding: 0 var(--mer-spacing__comp--sm)
-    var(--mer-spacing__comp--xs) var(--mer-spacing__comp--sm);
+  --gxg-card-mini-content_padding: 0 var(--mer-spacing--sm)
+    var(--mer-spacing--xs) var(--mer-spacing--sm);
   --gxg-card-mini-content_color: var(--mer-color__neutral-gray--200);
 
   /*--- Other ---*/

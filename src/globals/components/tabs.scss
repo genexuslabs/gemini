@@ -48,8 +48,8 @@
     --gxg-tab-button-font-text-transform: capitalize;
     --gxg-tab-button-font-weight: var(--mer-font__weight--regular);
     --gxg-tab-button-font-weight-selected: var(--mer-font__weight--semi-bold);
-    --gxg-tab-button-horizontal-padding: var(--mer-spacing__comp--sm);
-    --gxg-tab-button-height: var(--mer-spacing__comp--xl);
+    --gxg-tab-button-horizontal-padding: var(--mer-spacing--sm);
+    --gxg-tab-button-height: var(--mer-spacing--xl);
     /*line*/
     --gxg-tab-button-line-height: var(--mer-border__width--sm);
     --gxg-tab-button-line-background-color: var(--mer-border-color__primary);
@@ -63,12 +63,12 @@
     --gxg-tab-background-color: var(--mer-elevation--01);
     --gxg-tab-color: var(--mer-text__on-surface);
     --gxg-tab-font-size: var(--ds-base-font-size);
-    --gxg-tab-horizontal-padding: var(--mer-spacing__comp--sm);
-    --gxg-tab-vertical-padding: var(--mer-spacing__comp--sm);
+    --gxg-tab-horizontal-padding: var(--mer-spacing--sm);
+    --gxg-tab-vertical-padding: var(--mer-spacing--sm);
     /*font-family, font-size, color. font-weight, and line-height should be defined by using the 'gxg-text' mixin*/
     /*--- Menu Tab Button ---*/
-    --gxg-tab-menu-button-padding: var(--mer-spacing__comp--xs);
-    --gxg-tab-menu-button-min-height: var(--mer-spacing__comp--xl);
+    --gxg-tab-menu-button-padding: var(--mer-spacing--xs);
+    --gxg-tab-menu-button-min-height: var(--mer-spacing--xl);
     --gxg-tab-menu-button-font-size: var(--mer-font__size--xs);
   }
 }

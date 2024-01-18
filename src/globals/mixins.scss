@@ -402,6 +402,9 @@ FORM ELEMENTS
     /* Edge 12-18 */
     color: var(--ds-form-control-placeholder-color);
   }
+  &:hover {
+    border-color: var(--ds-form-control-border-color--hover);
+  }
 }
 @mixin form-element-common-styles-label() {
   @include gxg-text();
