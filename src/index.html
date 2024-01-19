@@ -16,6 +16,7 @@
       //Gemini & Mercury Components
       const showcase = [
         "buttons",
+        "buttons-container",
         "tabs",
         "label",
         "form-checkbox",
@@ -36,7 +37,7 @@
       ];
 
       //Other
-      const other = ["mercury-tokens"];
+      const other = ["mercury-tokens", "comparator"];
 
       //Gemini Components
       const components = [
@@ -156,10 +157,12 @@
         <!-- populated dynamically with javascript -->
       </ul>
 
-      <h2 class="title h4 align-left">Other</h2>
-      <ul class="list unstyled" id="otherUl">
-        <!-- populated dynamically with javascript -->
-      </ul>
+      <div hidden>
+        <h2 class="title h4 align-left">Other</h2>
+        <ul class="list unstyled" id="otherUl">
+          <!-- populated dynamically with javascript -->
+        </ul>
+      </div>
 
       <div hidden>
         <h2 class="title h4 align-left">Gemini Components</h2>

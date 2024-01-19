@@ -53,7 +53,7 @@ used on gemini as well as on mercury ✔️
 - gxg-label--negative-disabled
 
 //button
-- gxg-button-styles ✔️
+- gxg-button-base-styles ✔️
 - gxg-button-icon-outlined
 
 //animation

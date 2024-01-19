@@ -8,7 +8,7 @@ ch-suggest-list-item {
     gap: var(--gxg-suggest-list-item-button__gap);
     box-sizing: border-box;
     line-height: var(--gxg-suggest-list-item__line-height);
-    height: var(--gxg-suggest-list-item-button__height);
+
     box-sizing: border-box;
     overflow: hidden;
     &:hover {
@@ -27,7 +27,7 @@ ch-suggest-list-item {
   }
 
   &:hover {
-    background-color: var(--ds-item-background-color--hover);
+    background-color: var(--gxg-suggest-list-item-button__background-color);
   }
 }
 ch-suggest-list-item + ch-suggest-list {

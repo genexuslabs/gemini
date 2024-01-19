@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="dark mercury">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Buttons Container | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+      .not-flex {
+        display: block !important;
+      }
+      gxg-buttons-container {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container no-separator">
+      <h1>gxg-buttons-container</h1>
+
+      <section>
+        <div class="articles-container">
+          <!-- enabled -->
+          <article data-title="enabled">
+            <!-- <code pill>some property</code> -->
+            <gxg-buttons-container id="buttons-container">
+              <gxg-button id="button-1" type="primary-text-only" selected
+                >Caption 1</gxg-button
+              >
+              <gxg-button id="button-2" type="primary-text-only"
+                >Caption 2</gxg-button
+              >
+              <gxg-button id="button-3" type="primary-text-only"
+                >Caption 3</gxg-button
+              >
+            </gxg-buttons-container>
+          </article>
+
+          <!-- disabled -->
+          <article data-title="disabled">
+            <!-- <code pill>some property</code> -->
+            <gxg-buttons-container>
+              <gxg-button disabled id="button-1" type="primary-text-only"
+                >Caption 1</gxg-button
+              >
+              <gxg-button
+                disabled
+                id="button-2"
+                type="primary-text-only"
+                unselected
+                >Caption 2</gxg-button
+              >
+              <gxg-button
+                disabled
+                id="button-3"
+                type="primary-text-only"
+                unselected
+                >Caption 3</gxg-button
+              >
+            </gxg-buttons-container>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const button1 = document.getElementById("button-1");
+      button1.addEventListener("click", () => {});
+
+      const buttonsContainer = document.getElementById("buttons-container");
+      buttonsContainer.addEventListener("selectedButtonChanged", e => {
+        console.log(e.detail);
+      });
+    </script>
+  </body>
+</html>

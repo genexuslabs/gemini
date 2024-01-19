@@ -3,8 +3,7 @@
 /**************************
 GENERAL
 **************************/
-$borderColor: var(--gxg-grid-base__border-color);
-$borderColor: var(--mer-border-color__dim);
+$borderColor: var(--ds-border-color--regular);
 $iconSize: 70%;
 
 :root {
@@ -171,6 +170,7 @@ ch-grid-row {
   border: var(--gxg-grid-row__border-width) solid transparent;
   ch-grid-cell {
     border-top-width: var(--gxg-grid-cell__border-top-width);
+    border-top-color: var(--mer-border-color__on-elevation--01);
   }
   &:nth-of-type(even) {
     background-color: var(--ds-row-background-color-even);

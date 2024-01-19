@@ -60,7 +60,7 @@ function formMessageLogic(comp: FormComponent): JSX.Element {
             <gxg-form-message type={comp.validationStatus}>
               {comp.validationMessage}
             </gxg-form-message>
-          ) : null,
+          ) : null
         ])
       : null;
   }
@@ -81,7 +81,7 @@ export function formTooltipLogic(
         class={{
           "tooltip-inner-wrapper": true,
           "tooltip-inner-wrapper--visible": show,
-          "tooltip--hidden": hideTooltip,
+          "tooltip--hidden": hideTooltip
         }}
       >
         <gxg-tooltip
@@ -92,6 +92,7 @@ export function formTooltipLogic(
           fixed
         >
           <gxg-icon
+            size="small"
             color={color}
             type={`gemini-tools/${comp.validationStatus}`}
           ></gxg-icon>
@@ -107,5 +108,5 @@ export {
   formHandleValidation,
   formMessage,
   formMessageLogic,
-  FormComponent,
+  FormComponent
 };

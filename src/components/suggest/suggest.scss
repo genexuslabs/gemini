@@ -31,9 +31,6 @@ ch-suggest {
   &::part(input):focus {
     @include form-element-common-styles-focus-type-1();
   }
-  &::part(input):focus {
-    @include form-element-common-styles-focus-type-1();
-  }
   /*header*/
   &::part(header) {
     display: block;
@@ -62,6 +59,9 @@ ch-suggest {
     margin-top: var(--gxg-suggest-drop-down__margin-top);
     padding: var(--gxg-suggest-drop-down__padding);
     box-shadow: var(--gxg-suggest-drop-down__box-shadow);
+    border: var(--gxg-suggest-general__border);
+    position: relative;
+    top: 2px;
     @include gxg-scrollbar();
   }
 }

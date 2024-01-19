@@ -10,9 +10,9 @@
   --ds-base-font-color--link: var(--color-primary);
   --ds-base-font-color--link-hover: var(--color-primary-hover);
   --ds-base-font-color--link-active: var(--color-primary-active);
-  --ds-base-font-color--warning: var(--color-error-warning);
-  --ds-base-font-color--error: var(--color-error-dark);
-  --ds-base-font-color--success: var(--color-error-success);
+  --ds-base-font-color--warning: var(--ds-warning-color--dark);
+  --ds-base-font-color--error: var(--ds-alert-color--dark);
+  --ds-base-font-color--success: var(--ds-success-color--dark);
   --ds-base-font-weight: var(--font-weight-regular);
   --ds-base-font-line-height--regular: var(--line-height-regular);
   --ds-base-font-line-height--comfortable: var(--line-height-comfortable);
@@ -23,6 +23,11 @@
   --ds-form-text-height: 20px;
   --ds-border-common-styles: var(--border-width-sm) solid
     var(--ds-border-color--regular);
+  /*--- Border ---*/
+  --ds-border-color--error: var(--color-error-dark);
+  --ds-border-color--warning: var(--color-warning-dark);
+  --ds-border-color--success: var(--color-success-dark);
+  --ds-border-color-control--focused: var(--color-primary-enabled);
   /*--- Icon ---*/
   --ds-icon-mask-size: 100%;
   --ds-icon-size-box--regular: 20px;
@@ -42,6 +47,7 @@
   --ds-form-control-border: var(--border-width-sm) solid
     var(--ds-border-color--regular);
   --ds-form-control-border-radius: var(--border-radius-sm);
+  --ds-form-control-border-color--hover: var(--ds-border-color--regular);
   --ds-form-control-font-size: var(--font-size-lg);
   --ds-form-control-padding-horizontal: var(--spacing-comp-02);
   --ds-form-control-padding-vertical: var(--spacing-comp-02);
@@ -97,6 +103,20 @@
   --ds-title-04-font-weight: var(--font-weight-semibold);
   --ds-title-05-font-size: var(--font-size-lg);
   --ds-title-05-font-weight: var(--font-weight-semibold);
+  /*Alert / Warning / Message */
+  --ds-alert-color--dark: var(--color-error-dark);
+  --ds-alert-color--light: var(--color-error-light);
+  --ds-warning-color--dark: var(--color-warning-dark);
+  --ds-warning-color--light: var(--color-warning-light);
+  --ds-success-color--dark: var(--color-success-dark);
+  --ds-success-color--light: var(--color-success-light);
+
+  &.dark:not(.mercury) {
+    --ds-item-background-color--selected: var(--color-secondary-active);
+    --ds-item-background-color--selected--hover: var(
+      --color-secondary-enabled--hover
+    );
+  }
 
   &.mercury {
     /*--- General ---*/
@@ -110,9 +130,9 @@
     --ds-base-font-color--link: var(--mer-text__primary);
     --ds-base-font-color--link-hover: var(--mer-text__primary--hover);
     --ds-base-font-color--link-active: var(--mer-text__primary--active);
-    --ds-base-font-color--warning: var(--mer-color__message-yellow--200);
-    --ds-base-font-color--error: var(--mer-color__message-red--200);
-    --ds-base-font-color--success: var(--mer-color__message-green--200);
+    // --ds-base-font-color--warning: var();
+    // --ds-base-font-color--error: var();
+    // --ds-base-font-color--success: var();
     --ds-base-font-weight: var(--mer-font__weight--regular);
     --ds-base-font-line-height--regular: var(--mer-line-height--regular);
     --ds-base-font-line-height--comfortable: var(
@@ -127,6 +147,13 @@
     --ds-form-text-height: 20px;
     --ds-border-common-styles: var(--mer-border__width--sm) solid
       var(--ds-border-color--regular);
+    /*--- Border ---*/
+    --ds-border-color--error: var(--mer-border-color__error);
+    --ds-border-color--warning: var(--mer-border-color__warning);
+    --ds-border-color--success: var(--mer-border-color__success);
+    --ds-border-color-control--focused: var(
+      --mer-border-color__control--focused
+    );
     /*--- Icon ---*/
     --ds-icon-mask-size: 100%;
     --ds-icon-size-box--regular: 32px;
@@ -134,41 +161,47 @@
     --ds-icon-size--regular: 22px;
     --ds-icon-size--small: 16px;
     /*--- List Item ---*/
-    --ds-list-item-height: var(--mer-spacing__comp--lg);
-    --ds-list-item-height--spaced: var(--mer-spacing__comp--xl);
+    --ds-list-item-height: var(--mer-spacing--lg);
+    --ds-list-item-height--spaced: var(--mer-spacing--xl);
     /*--- Form Control ---*/
-    --ds-form-control-height: var(--mer-spacing__comp--xl);
-    --ds-form-control-gap--vertical: var(--mer-spacing__comp--md);
-    --ds-form-control-gap--horizontal: var(--mer-spacing__comp--md);
+    --ds-form-control-height: var(--mer-spacing--xl);
+    --ds-form-control-gap--vertical: var(--mer-spacing--md);
+    --ds-form-control-gap--horizontal: var(--mer-spacing--md);
     --ds-form-control-color: var(--mer-text__bright);
     --ds-form-control-placeholder-color: var(--mer-text__on-surface);
     --ds-form-control-background-color: var(--mer-color__surface);
     --ds-form-control-border: var(--mer-border__width--sm) solid
-      var(--mer-border-color__neutral);
+      var(--mer-border-color__dim);
+    --ds-form-control-border-color--hover: var(--mer-color__neutral-gray--00);
     --ds-form-control-border-radius: var(--mer-border__width--lg);
     --ds-form-control-font-size: var(--mer-font__size--xs);
-    --ds-form-control-padding-horizontal: var(--mer-spacing__comp--xs);
-    --ds-form-control-padding-vertical: var(--mer-spacing__comp--xs);
+    --ds-form-control-padding-horizontal: var(--mer-spacing--xs);
+    --ds-form-control-padding-vertical: var(--mer-spacing--xs);
     /*--- Colors ---*/
-    --ds-row-background-color-odd: var(--mer-color__neutral-gray--1200);
+    --ds-row-background-color-odd: var(--mer-color__surface);
     --ds-row-background-color-even: var(--mer-color__surface);
-    --ds-row-background-color-odd--hover: var(--mer-color__neutral-gray--1100);
-    --ds-row-background-color-even--hover: var(--mer-color__neutral-gray--1300);
+    --ds-row-background-color-odd--hover: var(
+      --ds-item-background-color--hover
+    );
+    --ds-row-background-color-even--hover: var(
+      --ds-item-background-color--hover
+    );
     --ds-border-color--regular: var(--mer-border-color__dim);
+    --ds-border-color--regular: var(--mer-border-color__on-elevation--01);
     /*hover*/
-    --ds-item-background-color--hover: var(--mer-color__neutral-gray--1200);
+    --ds-item-background-color--hover: var(--mer-color__tinted-blue--8);
     --ds-item-color--hover: var();
     /*focus*/
     --ds-focus-border-width: var(--mer-border__width--sm);
     --ds-focus-border-color: var(--mer-border-color__primary--focused);
     /*selected*/
-    //to do:
-    // --ds-item-background-color--selected: var(--mer-color__tinted-gray-blue--5);
-    // --ds-item-background-color--selected-hover: var(
-    //   --mer-accent__primary--hover
-    // );
-    --ds-item-border-color--selected: var();
-    --ds-item-color--selected: var(--mer-text__on-primary);
+
+    --ds-item-background-color--selected: var(--mer-color__tinted-blue--20);
+    --ds-item-background-color--selected-hover: var(
+      --mer-color__tinted-blue--20
+    );
+    --ds-item-border-color--selected: var(--mer-color__tinted-blue--10);
+    --ds-item-color--selected: var(--mer-color__neutral-gray--00);
     /*active*/
     --ds-item-background-color--active: var();
     --ds-color--active: var();
@@ -200,17 +233,18 @@
     --ds-title-04-font-weight: var(--mer-font__weight--semi-bold);
     --ds-title-05-font-size: var(--mer-font__size-xs);
     --ds-title-05-font-weight: var(--mer-font__weight--semi-bold);
+    /*Alert / Warning / Message */
+    --ds-alert-color--dark: var(--mer-color__message-red--200);
+    --ds-alert-color--light: var(--mer-color__message-red--100);
+    --ds-warning-color--dark: var(--mer-color__message-yellow--200);
+    --ds-warning-color--light: var(--mer-color__message-yellow--100);
+    --ds-success-color--dark: var(--mer-color__message-green--200);
+    --ds-success-color--light: var(--mer-color__message-green--100);
   }
 }
 
 :root.gxg-large {
   --ds-form-text-height: var(--spacing-comp-05);
-}
-:root.dark {
-  --ds-item-background-color--selected: var(--color-secondary-active);
-  --ds-item-background-color--selected--hover: var(
-    --color-secondary-enabled--hover
-  );
 }
 :root.dark:not(.mercury) {
   --ds-filter-brightness--hover: 1.1;

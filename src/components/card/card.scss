@@ -7,6 +7,9 @@
   background-color: var(--gxg-card_background-color);
   box-shadow: var(--gxg-card_box-shadow);
   border-radius: var(--gxg-card_border-radius);
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
   @include gxg-text();
 }
 //Box shadow
@@ -141,15 +144,22 @@
   font-size: var(--gxg-card-section_font-size);
   border-radius: var(--gxg-card-section_border-radius);
   padding: var(--gxg-card-section_padding);
+  //background-color: var(--gxg-card-section_background-color);
+  .card__title {
+    font-weight: var(--gxg-card-section-title_font-weight);
+    font-size: var(--gxg-card-section-title_font-size);
+  }
+  @include mer-elevation--01();
 }
 
 /*--- Article ---*/
 :host(.card--article) {
-  background-color: var(--gxg-card-article_background-color);
   font-size: var(--gxg-card-article_font-size);
-  border: var(--gxg-card-article_border);
   border-radius: var(--gxg-card-article_border-radius);
   padding: var(--gxg-card-article_padding);
+  //background-color: var(--gxg-card-article_background-color);
+  //border: var(--gxg-card-article_border);
+  @include mer-elevation--02();
   .card__header {
     .card__title {
       margin: var(--gxg-card-article-title_margin);
@@ -181,11 +191,13 @@
 
 /*--- Mini ---*/
 :host(.card--mini) {
-  background-color: var(--gxg-card-mini_background-color);
   font-size: var(--gxg-card-mini_font-size);
-  border: var(--gxg-card-mini_border);
   border-radius: var(--gxg-card-mini_border-radius);
   padding: var(--gxg-card-mini_padding);
+  // background-color: var(--gxg-card-mini_background-color);
+  // border: var(--gxg-card-mini_border);
+  @include mer-elevation--02();
+  border-color: transparent;
   .card__header {
     margin: var(--gxg-card-mini-header_margin);
     padding-block-end: var(--gxg-card-mini-header_padding-block-end);
@@ -219,7 +231,7 @@
 
 /*actionable*/
 :host(.card--actionable:hover) {
-  filter: brightness(var(--gxg-card-actionable-hover_filter-brightness));
+  filter: brightness(var(--gxg-card-actionable-brightness--hover));
   .wrapper,
   .card__header,
   .content {

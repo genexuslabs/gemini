@@ -8,15 +8,15 @@ const COLOR_MAPPINGS = {
   alwaysblack: "color-always-black",
   disabled: "color-primary-disabled",
   ondisabled: "color-on-disabled",
-  error: "color-error-dark",
+  error: "ds-alert-color--dark",
   negative: "color-on-primary",
   onbackground: "color-on-background",
   indeterminate: "color-primary-active",
   "primary-enabled": "color-primary-enabled",
   "primary-active": "color-primary-active",
   "primary-hover": "color-primary-hover",
-  success: "color-success-dark",
-  warning: "color-warning-dark",
+  success: "ds-success-color--dark",
+  warning: "ds-warning-color--dark",
   mercury: "gray-03",
   "mercury-primary": "mer-icon__primary"
 };

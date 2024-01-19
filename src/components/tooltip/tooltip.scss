@@ -6,12 +6,12 @@
   .tooltip {
     cursor: pointer;
     position: relative;
-    border-bottom: 1px dotted var(--color-on-secondary);
+    border-bottom: 1px dotted var(--gxg-tooltip__background-color);
     text-decoration: none;
 
     .tooltiptext {
       @include gxg-text();
-      font-size: var(--font-size-xs);
+      font-size: var(--gxg-tooltip__font-size);
       visibility: hidden;
       opacity: 0;
       @include ui-animation(opacity);
@@ -22,12 +22,13 @@
 
       &__content {
         width: fit-content;
-        background-color: var(--gray-07);
-        padding: var(--spacing-comp-01) var(--spacing-comp-02);
+        background-color: var(--gxg-tooltip__background-color);
+        padding: var(--gxg-tooltip__padding);
         border-radius: var(--border-width-md);
-        color: var(--color-on-primary);
+        color: var(--gxg-tooltip__color);
         display: inline-block;
         text-align: left;
+        line-height: var(--ds-base-font-line-height--regular);
       }
 
       &:after {
@@ -37,7 +38,7 @@
         height: 0;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
-        border-bottom: 5px solid var(--gray-07);
+        border-bottom: 5px solid var(--gxg-tooltip__background-color);
         position: absolute;
       }
     }
@@ -166,7 +167,7 @@
           height: 0;
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
-          border-bottom: 5px solid var(--gray-07);
+          border-bottom: 5px solid var(--gxg-tooltip__background-color);
           position: absolute;
           right: 0;
           transform: translateX(-3px) rotate(180deg);

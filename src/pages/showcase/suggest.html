@@ -28,6 +28,9 @@
         font-family: var(--ds-base-font-family-primary);
         font-size: var(--ds-base-font-size);
       }
+      article[hidden] {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -180,7 +183,7 @@
             </div>
           </article>
 
-          <article data-title="ch-suggest-list">
+          <article data-title="ch-suggest-list" hidden>
             <!-- <code pill>some property</code> -->
             <div class="example suggest-list">
               <gxg-suggest>

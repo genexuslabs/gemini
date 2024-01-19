@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Comparator</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      .comparator {
+        display: flex;
+        flex-direction: column;
+      }
+      .comparator--side {
+        flex: 1;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .right-side {
+        display: none;
+      }
+    </style>
+  </head>
+  <body mercury>
+    <!--
+      Notes: 
+      search for "#COMP" to jump to the next component
+    -->
+
+    <div class="container no-separator">
+      <h1>comparator</h1>
+      <section class="comparator">
+        <!--left side-->
+        <div class="comparator--side left-side">
+          <div class="articles-container">
+            <!-- *** GXG-BUTTON PRIMARY | #COMP *** -->
+            <!-- primary text only -->
+            <article data-title="button" hidden>
+              <code pill>primary text-only</code>
+              <div class="example">
+                <gxg-button type="primary-text-only">Caption</gxg-button>
+              </div>
+            </article>
+
+            <!-- primary text icon -->
+            <article data-title="button" hidden>
+              <code pill>primary text-icon</code>
+              <div class="example">
+                <gxg-button
+                  type="primary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- primary icon only -->
+            <article data-title="button" hidden>
+              <code pill>primary icon-only</code>
+              <div class="example">
+                <gxg-button type="primary-icon-only" icon="gemini-tools/folder"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- primary disabled -->
+            <article data-title="button" hidden>
+              <code pill>primary disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="primary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON SECONDARY | #COMP *** -->
+
+            <!-- secondary text only -->
+            <article data-title="button" hidden>
+              <code pill>secondary text-only</code>
+              <div class="example">
+                <gxg-button type="secondary-text-only">Caption</gxg-button>
+              </div>
+            </article>
+
+            <!-- secondary text icon -->
+            <article data-title="button" hidden>
+              <code pill>secondary text-icon</code>
+              <div class="example">
+                <gxg-button
+                  type="secondary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- secondary icon only -->
+            <article data-title="button" hidden>
+              <code pill>secondary icon-only</code>
+              <div class="example">
+                <gxg-button
+                  type="secondary-icon-only"
+                  icon="gemini-tools/folder"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- secondary disabled -->
+            <article data-title="button" hidden>
+              <code pill>secondary disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="secondary-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON TERTIARY | #COMP *** -->
+
+            <!-- tertiary -->
+            <article data-title="button" hidden>
+              <code pill>tertiary</code>
+              <div class="example">
+                <gxg-button type="tertiary" icon="controls/google-analytics"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- disabled -->
+            <article data-title="button" hidden>
+              <code pill>tertiary disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="tertiary"
+                  icon="controls/google-analytics"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON OUTLINED | #COMP *** -->
+
+            <article data-title="button" hidden>
+              <code pill>outlined</code>
+              <div class="example">
+                <gxg-button type="outlined">Caption</gxg-button>
+              </div>
+            </article>
+
+            <!-- outlined text icon -->
+            <article data-title="button" hidden>
+              <code pill>outlined text-icon</code>
+              <div class="example">
+                <gxg-button
+                  type="outlined-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- outlined disabled -->
+            <article data-title="button" hidden>
+              <code pill>outlined disabled</code>
+              <div class="example">
+                <gxg-button
+                  disabled
+                  type="outlined-text-icon"
+                  icon="controls/action-group"
+                  >Caption</gxg-button
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON-GROUP PRIMARY | #COMP *** -->
+
+            <!-- primary -->
+            <article data-title="button-group" hidden>
+              <code pill>primary default</code>
+              <div class="example">
+                <gxg-button-group default-selected-btn-id="button2">
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- primary disabled -->
+            <article data-title="button-group" hidden>
+              <code pill>primary disabled</code>
+              <div class="example">
+                <gxg-button-group type="primary" disabled>
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- primary disabled (individual button)-->
+            <article data-title="button-group" hidden>
+              <code pill>primary disabled (individual button)</code>
+              <div class="example">
+                <gxg-button-group type="primary">
+                  <button disabled id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button disabled id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- full-width -->
+            <article data-title="button-group" hidden>
+              <code pill>primary full-width</code>
+              <div class="example" style="width: 400px">
+                <gxg-button-group full-width type="primary">
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- label -->
+            <article data-title="button-group" hidden>
+              <code pill>primary with label</code>
+              <div class="example">
+                <gxg-button-group
+                  type="primary"
+                  button-group-title="Select an option"
+                >
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- *** GXG-BUTTON-GROUP OUTLINED | #COMP *** -->
+
+            <article data-title="button-group" hidden>
+              <code pill>outlined default</code>
+              <div class="example">
+                <gxg-button-group outlined>
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- outlined disabled -->
+            <article data-title="button-group" hidden>
+              <code pill>outlined disabled</code>
+              <div class="example">
+                <gxg-button-group outlined disabled>
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- outlined disabled (individual button) -->
+            <article data-title="button-group" hidden>
+              <code pill>outlined disabled (individual button)</code>
+              <div class="example">
+                <gxg-button-group outlined>
+                  <button id="button1">Button 1</button>
+                  <button disabled id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- outlined full-width -->
+            <article data-title="button-group" hidden>
+              <code pill>outlined full-width</code>
+              <div class="example" style="width: 400px">
+                <gxg-button-group outlined full-width>
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- label -->
+            <article data-title="button-group" hidden>
+              <code pill>with label</code>
+              <div class="example">
+                <gxg-button-group
+                  outlined
+                  type="primary"
+                  button-group-title="Select an option"
+                >
+                  <button id="button1">Button 1</button>
+                  <button id="button2">Button 2</button>
+                  <button id="button2">Button 3</button>
+                </gxg-button-group>
+              </div>
+            </article>
+
+            <!-- *** GXG-CARD SECTION | #COMP *** -->
+            <article data-title="card" hidden>
+              <code pill>card type "section"</code>
+              <div class="example" style="height: 300px">
+                <gxg-card
+                  card-title="Unified Solutions Hub: Revolutionizing Experiences Through Genexus-Powered Web and Mobile Applications"
+                  card-subtitle="Mastering Genexus: Crafting Seamless Experiences with Advanced Web and Mobile Solutions"
+                  icon="editing-structures/attribute-formula"
+                  height="100%"
+                >
+                  <p>
+                    In our Genexus Knowledge Base project, we embarked on a
+                    journey to redefine user interactions. Leveraging Genexus's
+                    robust features, we seamlessly integrated cutting-edge
+                    technologies, ensuring a responsive and intuitive web
+                    experience for our users.
+                  </p>
+                  <p>
+                    The heart of our Genexus KB beats with innovation. We
+                    meticulously crafted a dynamic data management system,
+                    employing Genexus's power to streamline information flow.
+                    Navigating through the KB becomes a breeze, offering users a
+                    cohesive and efficient platform.
+                  </p>
+                  <p>
+                    As the sun sets on traditional development, our Genexus
+                    project rises. We embraced a modular approach,
+                    revolutionizing code organization. With Genexus's agility,
+                    updates are now a joy, empowering developers to sculpt a
+                    cohesive digital landscape.
+                  </p>
+                  <p>
+                    Our Genexus project unfolds like a digital tapestry, weaving
+                    together the threads of innovation and efficiency. With a
+                    focus on user-centric design, we harnessed Genexus's prowess
+                    to sculpt an interface that transcends expectations. From
+                    streamlined data management to dynamic UI components, our
+                    project is a testament to the limitless possibilities
+                    Genexus affords.
+                  </p>
+                  <p>
+                    In the symphony of technology, our Genexus endeavor is the
+                    conductor orchestrating harmony. We delved into the
+                    intricacies of backend development, employing Genexus's
+                    robust capabilities to create a responsive and scalable
+                    infrastructure. The result? A Genexus project that not only
+                    meets but exceeds the demands of the ever-evolving digital
+                    landscape.
+                  </p>
+                </gxg-card>
+              </div>
+            </article>
+
+            <!-- *** GXG-CARD ARTICLE | #COMP *** -->
+            <article data-title="card" hidden>
+              <code pill>card type "article"</code>
+              <div class="example">
+                <gxg-card
+                  card-type="article"
+                  card-title="Project Detail"
+                  card-subtitle="Modified 27/9/23 15:45"
+                  icon="editing-structures/attribute-formula"
+                >
+                  <p>
+                    The updates include Conversational Development in GeneXus
+                    Next, new experiences and interaction capabilities in
+                    GeneXus Enterprise AI (code name SAIA), Super App
+                    generation, and over 500 enhancements in GeneXus 18.
+                  </p>
+                </gxg-card>
+              </div>
+            </article>
+
+            <!-- *** GXG-CARD MINI | #COMP *** -->
+            <article data-title="card" hidden>
+              <code pill>card type "mini"</code>
+              <div class="example">
+                <gxg-card
+                  card-type="mini"
+                  card-title="Project Detail"
+                  card-subtitle="Modified 27/9/23 15:45"
+                  icon="editing-structures/attribute-formula"
+                >
+                  <p>
+                    The updates include Conversational Development in GeneXus
+                    Next, new experiences and interaction capabilities in
+                    GeneXus Enterprise AI (code name SAIA), Super App
+                    generation, and over 500 enhancements in GeneXus 18.
+                  </p>
+                </gxg-card>
+              </div>
+            </article>
+
+            <!-- *** GXG-COMBO-BOX | #COMP *** -->
+            <article data-title="combo-box" hidden>
+              <div class="example">
+                <gxg-combo-box
+                  placeholder="Select item"
+                  label="Select:"
+                  value="bpm"
+                  strict
+                >
+                  <gxg-combo-box-item>Common Elements</gxg-combo-box-item>
+                  <gxg-combo-box-item value="bpm" icon=""
+                    >BPM</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item icon="objects/conversational-flows"
+                    >Chatbots</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item value="data-management"
+                    >Data Management</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item value="resources" icon="objects/bg-color"
+                    >Resources</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item
+                    value="user-interface"
+                    icon="objects/webpanel"
+                    >User interface</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item value="dashboard" icon="objects/dashboard"
+                    >Dashboard</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item
+                    value="deployment-unit"
+                    icon="objects/deployment-unit"
+                    >Deployment Unit</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item value="dso" icon="objects/dso"
+                    >DSO</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item
+                    value="structured-data-type"
+                    icon="objects/structured-data-type"
+                    >Structured Data Type</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item
+                    value="url-rewrite"
+                    icon="objects/url-rewrite"
+                    >URL Rewrite</gxg-combo-box-item
+                  >
+                  <gxg-combo-box-item value="stencil" icon="objects/stencil"
+                    >Stencil</gxg-combo-box-item
+                  >
+                </gxg-combo-box>
+              </div>
+            </article>
+
+            <!-- *** GXG-FORM-CHECKBOX-GROUP | #COMP *** -->
+            <!-- column (default) -->
+            <article data-title="checkbox-group" hidden>
+              <code pill>orientation: column (default)</code>
+              <div class="example">
+                <gxg-form-checkbox-group>
+                  <gxg-form-checkbox
+                    id="red"
+                    value="Red"
+                    label="Red"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="blue"
+                    value="Blue"
+                    label="Blue"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="green"
+                    value="Green"
+                    label="Green"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="yellow"
+                    value="Yellow"
+                    label="Yellow"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="purple"
+                    value="Purple"
+                    label="Purple"
+                  ></gxg-form-checkbox>
+                </gxg-form-checkbox-group>
+              </div>
+            </article>
+
+            <!-- row -->
+            <article data-title="checkbox-group" hidden>
+              <code pill>orientation: row</code>
+              <div class="example">
+                <gxg-form-checkbox-group row>
+                  <gxg-form-checkbox
+                    id="red"
+                    value="Red"
+                    label="Red"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="blue"
+                    value="Blue"
+                    label="Blue"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="green"
+                    value="Green"
+                    label="Green"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="yellow"
+                    value="Yellow"
+                    label="Yellow"
+                  ></gxg-form-checkbox>
+                  <gxg-form-checkbox
+                    checkbox-id="purple"
+                    value="Purple"
+                    label="Purple"
+                  ></gxg-form-checkbox>
+                </gxg-form-checkbox-group>
+              </div>
+            </article>
+
+            <!-- disabled -->
+            <article data-title="checkbox" hidden>
+              <code pill>disabled</code>
+              <div class="example">
+                <gxg-form-checkbox
+                  label="Show Inherited Classes"
+                  disabled
+                ></gxg-form-checkbox>
+              </div>
+              <div class="example">
+                <gxg-form-checkbox
+                  label="Show Inherited Classes"
+                ></gxg-form-checkbox>
+              </div>
+            </article>
+
+            <!-- *** GXG-FORM-RADIO-GROUP | #COMP *** -->
+
+            <!-- radio-group vertical -->
+            <article data-title="radio-group" hidden>
+              <code pill>orientation: column (default)</code>
+              <div class="example">
+                <gxg-form-radio-group label="my favorite color">
+                  <gxg-form-radio
+                    label="red"
+                    value="red"
+                    disabled
+                  ></gxg-form-radio>
+                  <gxg-form-radio
+                    label="blue"
+                    value="blue"
+                    id="radio-blue"
+                  ></gxg-form-radio>
+                  <gxg-form-radio label="green" value="green"></gxg-form-radio>
+                  <gxg-form-radio
+                    label="yellow"
+                    value="yellow"
+                  ></gxg-form-radio>
+                </gxg-form-radio-group>
+              </div>
+            </article>
+
+            <!-- radio-group horizontal -->
+            <article data-title="radio-group" hidden>
+              <code pill>orientation: row</code>
+              <div class="example">
+                <gxg-form-radio-group row label="my favorite color">
+                  <gxg-form-radio
+                    label="red"
+                    value="red"
+                    disabled
+                  ></gxg-form-radio>
+                  <gxg-form-radio
+                    label="blue"
+                    value="blue"
+                    id="radio-blue"
+                  ></gxg-form-radio>
+                  <gxg-form-radio label="green" value="green"></gxg-form-radio>
+                  <gxg-form-radio
+                    label="yellow"
+                    value="yellow"
+                  ></gxg-form-radio>
+                </gxg-form-radio-group>
+              </div>
+            </article>
+
+            <!-- *** GXG-FORM-TEXT | #COMP *** -->
+
+            <!-- label before -->
+            <article data-title="form-text" hidden>
+              <code pill>label position: above</code>
+              <div class="example">
+                <gxg-form-text
+                  label="Enter your full name:"
+                  placeholder="John Smith"
+                  icon="gemini-tools/edit"
+                  icon-position="start"
+                ></gxg-form-text>
+              </div>
+            </article>
+
+            <!-- label above -->
+            <article data-title="form-text" hidden>
+              <code pill>label position: before</code>
+              <div class="example">
+                <gxg-form-text
+                  label-position="above"
+                  label="Enter your full name:"
+                  placeholder="John Smith"
+                  icon="gemini-tools/edit"
+                  icon-position="start"
+                ></gxg-form-text>
+              </div>
+            </article>
+
+            <!-- disabled -->
+            <article data-title="form-text" hidden>
+              <code pill>disabled</code>
+              <div class="example">
+                <gxg-form-text
+                  disabled
+                  label-position="above"
+                  label="Enter your full name:"
+                  placeholder="John Smith"
+                  icon="gemini-tools/edit"
+                  icon-position="start"
+                ></gxg-form-text>
+              </div>
+            </article>
+
+            <!-- *** GXG-FORM-TEXTAREA | #COMP *** -->
+
+            <!-- enabled -->
+            <article data-title="textarea" hidden>
+              <code pill>enabled</code>
+              <div class="example">
+                <gxg-form-textarea
+                  max-width="600px"
+                  height="100px"
+                  value="The universe is mind-blowingly vast. It contains over 100 billion galaxies, each with billions of stars. And it's estimated to be around 13.8 billion years old! 🌌✨ The observable universe is estimated to be about 93 billion light-years in diameter. Neutron stars, which are incredibly dense, can have a mass greater than that of our sun but be only about 12 miles in diameter. The most distant known galaxy, GN-z11, is located 13.4 billion light-years away from Earth. Black holes can be incredibly massive; the one at the center of our Milky Way galaxy, called Sagittarius A*, has a mass equivalent to about 4.1 million suns. 🌌🌟🕳️"
+                >
+                </gxg-form-textarea>
+              </div>
+            </article>
+
+            <!-- disabled -->
+            <article data-title="textarea" hidden>
+              <code pill>disabled</code>
+              <div class="example">
+                <gxg-form-textarea
+                  disabled
+                  max-width="600px"
+                  height="100px"
+                  value="The universe is mind-blowingly vast. It contains over 100 billion galaxies, each with billions of stars. And it's estimated to be around 13.8 billion years old! 🌌✨ The observable universe is estimated to be about 93 billion light-years in diameter. Neutron stars, which are incredibly dense, can have a mass greater than that of our sun but be only about 12 miles in diameter. The most distant known galaxy, GN-z11, is located 13.4 billion light-years away from Earth. Black holes can be incredibly massive; the one at the center of our Milky Way galaxy, called Sagittarius A*, has a mass equivalent to about 4.1 million suns. 🌌🌟🕳️"
+                >
+                </gxg-form-textarea>
+              </div>
+            </article>
+
+            <!-- *** GXG-GRID | #COMP *** -->
+
+            <article data-title="grid" hidden>
+              <div class="example grid-container">
+                <gxg-grid>
+                  <ch-grid row-selection-mode="multiple" id="ch-grid-second">
+                    <ch-grid-columnset>
+                      <ch-grid-column
+                        column-name=""
+                        settingable="false"
+                        column-type="rich"
+                        rich-row-drag
+                        size="min-content"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name=""
+                        settingable="false"
+                        column-type="rich"
+                        rich-row-selector
+                        size="min-content"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name="Property"
+                        settingable="false"
+                      ></ch-grid-column>
+                      <ch-grid-column
+                        column-name="Value"
+                        settingable="false"
+                      ></ch-grid-column>
+                    </ch-grid-columnset>
+
+                    <ch-grid-row selected rowid="nombre-productos">
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Nombreeee</ch-grid-cell>
+                      <ch-grid-cell>Productos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                      <ch-grid-cell>Products</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Português</ch-grid-cell>
+                      <ch-grid-cell>Produtos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                      <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                      <ch-grid-cell>Found</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Url amigable</ch-grid-cell>
+                      <ch-grid-cell>productos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>English</ch-grid-cell>
+                      <ch-grid-cell>products</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Português</ch-grid-cell>
+                      <ch-grid-cell>produtos</ch-grid-cell>
+                    </ch-grid-row>
+                    <ch-grid-row>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell></ch-grid-cell>
+                      <ch-grid-cell>Id</ch-grid-cell>
+                      <ch-grid-cell>7867</ch-grid-cell>
+                    </ch-grid-row>
+                    <!-- <div slot="row-actions">
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action A</gxg-button
+                    >
+                    <gxg-button
+                      type="primary-text-icon"
+                      icon="controls/action-group"
+                      >Action B</gxg-button
+                    >
+                  </div> -->
+                  </ch-grid>
+                </gxg-grid>
+              </div>
+            </article>
+
+            <!-- *** IDE-LOADER | #COMP *** -->
+
+            <style>
+              .ide-loader-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              }
+              .show-loader-btn {
+                width: 125px;
+                margin-top: 32px;
+              }
+            </style>
+
+            <!-- default -->
+            <article data-title="loader" hidden>
+              <div class="example">
+                <div class="ide-loader-wrapper">
+                  <gxg-grid>
+                    <ch-grid
+                      id="container"
+                      row-selection-mode="multiple"
+                      id="ch-grid-second"
+                    >
+                      <ch-grid-columnset>
+                        <ch-grid-column
+                          column-name=""
+                          settingable="false"
+                          column-type="rich"
+                          rich-row-drag
+                          size="min-content"
+                        ></ch-grid-column>
+                        <ch-grid-column
+                          column-name=""
+                          settingable="false"
+                          column-type="rich"
+                          rich-row-selector
+                          size="min-content"
+                        ></ch-grid-column>
+                        <ch-grid-column
+                          column-name="Property"
+                          settingable="false"
+                        ></ch-grid-column>
+                        <ch-grid-column
+                          column-name="Value"
+                          settingable="false"
+                        ></ch-grid-column>
+                      </ch-grid-columnset>
+
+                      <ch-grid-row selected rowid="nombre-productos">
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Nombreeee</ch-grid-cell>
+                        <ch-grid-cell>Productos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>English</ch-grid-cell>
+                        <ch-grid-cell>Products</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Português</ch-grid-cell>
+                        <ch-grid-cell>Produtos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Redireccionar a</ch-grid-cell>
+                        <ch-grid-cell>Tecnologías soportadas</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Tipo de redirección</ch-grid-cell>
+                        <ch-grid-cell>Found</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Url amigable</ch-grid-cell>
+                        <ch-grid-cell>productos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>English</ch-grid-cell>
+                        <ch-grid-cell>products</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Português</ch-grid-cell>
+                        <ch-grid-cell>produtos</ch-grid-cell>
+                      </ch-grid-row>
+                      <ch-grid-row>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell></ch-grid-cell>
+                        <ch-grid-cell>Id</ch-grid-cell>
+                        <ch-grid-cell>7867</ch-grid-cell>
+                      </ch-grid-row>
+                    </ch-grid>
+                  </gxg-grid>
+                  <gxg-button class="show-loader-btn">show loader</gxg-button>
+                  <gxg-ide-loader
+                    loader-title="Loading kbs..."
+                    cancel-label="Cancel"
+                  ></gxg-ide-loader>
+                </div>
+              </div>
+
+              <script>
+                const loader = document.querySelector("gxg-ide-loader");
+                const containerRef = document.getElementById("container");
+                const showLoaderBtn =
+                  document.querySelector(".show-loader-btn");
+                showLoaderBtn.addEventListener("click", () => {
+                  loader.show = true;
+                });
+                loader.container = containerRef;
+                /*event loaderFinished*/
+                loader.addEventListener("loaderFinished", () => {
+                  console.log("loaderFinished event");
+                });
+              </script>
+            </article>
+
+            <!-- *** GXG-ICON | #COMP *** -->
+
+            <style>
+              .icons-container {
+                display: flex;
+                gap: var(--ds-form-control-gap--horizontal);
+              }
+            </style>
+
+            <!-- regular -->
+            <article data-title="icon" hidden>
+              <code pill>size: regular</code>
+              <div class="example">
+                <div class="icons-container">
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/applications"
+                  ></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/assistant"
+                  ></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/launch"
+                  ></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/mobile"
+                  ></gxg-icon>
+                  <gxg-icon color="onbackground" type="mercury/send"></gxg-icon>
+                  <gxg-icon
+                    color="onbackground"
+                    type="mercury/success"
+                  ></gxg-icon>
+                </div>
+              </div>
+            </article>
+
+            <!-- small -->
+            <article data-title="icon" hidden>
+              <code pill>size: small</code>
+              <div class="example">
+                <div class="icons-container">
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/applications"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/assistant"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/launch"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/mobile"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/send"
+                  ></gxg-icon>
+                  <gxg-icon
+                    size="small"
+                    color="onbackground"
+                    type="mercury/success"
+                  ></gxg-icon>
+                </div>
+              </div>
+            </article>
+
+            <!-- *** GXG-LABEL | #COMP *** -->
+
+            <style>
+              .label-box {
+                width: 150px;
+                height: 25px;
+                border-radius: 2px;
+                opacity: 0.75;
+                background-color: rgb(156 156 156);
+              }
+              .example--start,
+              .example--above {
+                display: flex;
+              }
+              .example--above {
+                flex-direction: column;
+              }
+            </style>
+
+            <!-- position start -->
+            <article data-title="label" hidden>
+              <code pill>position: start</code>
+              <div class="example example--start">
+                <gxg-label label-position="start"
+                  >Label before the content</gxg-label
+                >
+                <div class="label-box"></div>
+              </div>
+            </article>
+
+            <!-- position above -->
+            <article data-title="label" hidden>
+              <code pill>position: above</code>
+              <div class="example example--above">
+                <gxg-label label-position="above"
+                  >Label above the content</gxg-label
+                >
+                <div class="label-box"></div>
+              </div>
+            </article>
+
+            <!-- *** GXG-LIST-BOX | #COMP *** -->
+
+            <style>
+              .list-box-max-height {
+                height: 300px;
+              }
+            </style>
+
+            <!-- max-height -->
+            <article data-title="list-box" hidden>
+              <!-- <code pill></code> -->
+              <div class="example list-box-max-height">
+                <gxg-list-box
+                  the-title="max height"
+                  height="100%"
+                  min-height="50%"
+                  emit-empty-selection
+                >
+                  <gxg-list-box-item
+                    >0.Common this is a large, very large list
+                    description</gxg-list-box-item
+                  >
+                  <gxg-list-box-item
+                    icon="objects/business-process-diagram"
+                    disabled
+                    >1.BPM</gxg-list-box-item
+                  >
+                  <gxg-list-box-item checked icon="objects/conversational-flows"
+                    >2.Chatbots</gxg-list-box-item
+                  >
+                  <gxg-list-box-item icon="objects/data-provider" disabled
+                    >3.Data Management</gxg-list-box-item
+                  >
+                  <gxg-list-box-item icon="objects/bg-color" disabled
+                    >4.Resources</gxg-list-box-item
+                  >
+                  <gxg-list-box-item
+                    value="user-interface"
+                    icon="objects/webpanel"
+                    >5.User interface</gxg-list-box-item
+                  >
+                  <gxg-list-box-item icon="objects/dashboard"
+                    >6.Dashboard</gxg-list-box-item
+                  >
+                  <gxg-list-box-item icon="objects/deployment-unit"
+                    >7.Deployment Unit</gxg-list-box-item
+                  >
+                  <gxg-list-box-item icon="objects/dso"
+                    >8.DSO</gxg-list-box-item
+                  >
+                  <gxg-list-box-item icon="objects/structured-data-type"
+                    >9.Structured Data Type</gxg-list-box-item
+                  >
+                </gxg-list-box>
+              </div>
+            </article>
+
+            <!-- *** GXG-SUGGEST | #COMP *** -->
+
+            <style>
+              .datos-prueba-suggest {
+                height: 0;
+                overflow: hidden;
+              }
+            </style>
+
+            <article data-title="suggest" hidden>
+              <code pill>type "a" to display suggestions</code>
+              <div class="example">
+                <div class="datos-prueba-suggest">
+                  <ul data-category="frutas" class="data-list">
+                    <li
+                      data-value="manzana-123"
+                      data-icon="general/db2"
+                      data-id="my-manzana-id"
+                    >
+                      Manzanas Label
+                    </li>
+                    <li>bananas</li>
+                    <li>naranjas</li>
+                    <li>uvas</li>
+                    <li>frutillas</li>
+                  </ul>
+                  <!-- granos -->
+                  <span><strong>(sin categoría)</strong></span>
+                  <ul class="data-list">
+                    <li>porotos</li>
+                    <li>garbanzos</li>
+                    <li>lentejas</li>
+                    <li>chia</li>
+                  </ul>
+                  <!-- verduras -->
+                  <span><strong>verduras</strong></span>
+                  <ul data-category="verduras" class="data-list">
+                    <li>lecuhgas</li>
+                    <li>tomates</li>
+                    <li>cebollas</li>
+                    <li>apio</li>
+                    <li>papas</li>
+                    <li>lecuhgas</li>
+                    <li>tomates</li>
+                    <li>cebollas</li>
+                    <li>apio</li>
+                    <li>papas</li>
+                    <li>lecuhgas</li>
+                    <li>tomates</li>
+                    <li>cebollas</li>
+                    <li>apio</li>
+                    <li>papas</li>
+                    <li>lecuhgas</li>
+                    <li>tomates</li>
+                    <li>cebollas</li>
+                    <li>apio</li>
+                    <li>papas</li>
+                    <li>lecuhgas</li>
+                    <li>tomates</li>
+                    <li>cebollas</li>
+                    <li>apio</li>
+                    <li>papas</li>
+                    <li>lecuhgas</li>
+                    <li>tomates</li>
+                    <li>cebollas</li>
+                    <li>apio</li>
+                    <li>papas</li>
+                  </ul>
+                </div>
+
+                <gxg-suggest elipsis>
+                  <ch-suggest
+                    label="Type for suggestions:"
+                    suggest-title="Select your food"
+                    label-position="above"
+                  >
+                  </ch-suggest>
+                </gxg-suggest>
+
+                <script>
+                  const chSuggest = document.querySelector("ch-suggest");
+                  chSuggest.cursorEnd = true;
+                </script>
+
+                <script>
+                  let fragment;
+                  const lists = document.querySelectorAll(".data-list");
+                  chSuggest.addEventListener("valueChanged", e => {
+                    const inputValue = e.detail.trim();
+                    if (inputValue) {
+                      let filteredItems = [];
+                      fragment = document.createDocumentFragment();
+                      lists.forEach(list => {
+                        const category = list.getAttribute("data-category");
+                        const items = list.querySelectorAll("li");
+                        filteredItems = Array.from(items).filter(item => {
+                          return item.innerText
+                            .toLowerCase()
+                            .includes(e.detail);
+                        });
+                        if (filteredItems.length > 0) {
+                          const chSuggestList =
+                            document.createElement("ch-suggest-list");
+                          if (category) {
+                            chSuggestList.setAttribute("label", category);
+                          }
+                          filteredItems.forEach(item => {
+                            const chSuggestListItem = document.createElement(
+                              "ch-suggest-list-item"
+                            );
+                            chSuggestListItem.innerText = item.innerText;
+                            chSuggestListItem.value =
+                              item.getAttribute("data-value");
+                            chSuggestListItem.itemId =
+                              item.getAttribute("data-id");
+                            if (category) {
+                              chSuggestList.appendChild(chSuggestListItem);
+                            } else {
+                              //chSuggest.appendChild(chSuggestListItem);
+                              fragment.appendChild(chSuggestListItem);
+                            }
+                            const iconSrc = item.getAttribute("data-icon");
+                            if (iconSrc) {
+                              const icon = document.createElement("gxg-icon");
+                              icon.setAttribute("type", iconSrc);
+                              icon.setAttribute("color", "auto");
+                              icon.setAttribute("slot", "icon");
+                              chSuggestListItem.appendChild(icon);
+                            }
+                          });
+                          if (category) {
+                            //chSuggest.appendChild(chSuggestList);
+                            fragment.appendChild(chSuggestList);
+                          }
+                        }
+                      });
+                      setTimeout(() => {
+                        chSuggest.innerHTML = "";
+                        chSuggest.appendChild(fragment);
+                        fragment = null;
+                      }, 200);
+                    } else {
+                      chSuggest.innerHTML = "";
+                    }
+                  });
+                </script>
+              </div>
+            </article>
+
+            <!-- *** GXG-TABS | #COMP *** -->
+
+            <article data-title="tabs" hidden>
+              <div class="example" style="height: 300px">
+                <gxg-tabs id="gxgTabs" position="top">
+                  <gxg-tab-bar
+                    slot="tab-bar-container"
+                    id="tab-bar"
+                    display-border
+                    scrollable
+                  >
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="apples"
+                      tab="apples"
+                      key="apples"
+                      is-selected
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="bananas"
+                      tab="bananas"
+                      key="bananas"
+                      icon="gemini-tools/settings"
+                      disabled
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="cherries"
+                      tab="cherries"
+                      key="cherries"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="mangoes"
+                      tab="mangoes"
+                      key="mangoes"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="strawberries"
+                      tab="strawberries"
+                      key="strawberries"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="pineapples"
+                      tab="pineapples"
+                      key="pineapples"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="grapes"
+                      tab="grapes"
+                      key="grapes"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="avocados"
+                      tab="avocados"
+                      key="avocados"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                    <gxg-tab-button
+                      slot="tab-bar"
+                      tab-label="watermelons"
+                      tab="watermelons"
+                      key="watermelons"
+                      icon="gemini-tools/settings"
+                    ></gxg-tab-button>
+                  </gxg-tab-bar>
+                  <gxg-tab tab="apples" key="apples" isSelected="true">
+                    <p class="no-margin">
+                      Apples are not only a popular and delicious fruit but also
+                      come in a variety of types, such as Granny Smith, Fuji,
+                      Gala, and more. They are rich in fiber, vitamins, and
+                      antioxidants, promoting overall health. With their sweet
+                      and crisp taste, apples are a versatile ingredient used in
+                      both sweet and savory dishes.
+                    </p>
+                    <p>
+                      From a web developer's perspective, imagine creating a
+                      website for apple enthusiasts. The design could
+                      incorporate vibrant images of different apple varieties,
+                      and the user interface could feature smooth navigation to
+                      explore apple-related content. Incorporating responsive
+                      design ensures an optimal user experience, whether someone
+                      accesses the site from a desktop or a mobile device.
+                    </p>
+                    <p>
+                      Testing the website's functionality across various
+                      browsers ensures that apple lovers using different
+                      platforms have a seamless experience. As a front-end
+                      developer with a keen interest in design and user
+                      experience, you might appreciate the parallels between
+                      crafting a delightful website and the appeal of a
+                      perfectly designed and tasty apple.
+                    </p>
+                    <p>
+                      Apples have a fascinating history, dating back thousands
+                      of years. Originating in Central Asia, they've been
+                      cultivated and enjoyed worldwide. The diversity in apple
+                      varieties extends to their uses, ranging from fresh eating
+                      and juicing to cooking and making cider. Each type brings
+                      its unique flavor profile, contributing to the versatility
+                      of this fruit.
+                    </p>
+                    <p>
+                      In the realm of web development, you can draw inspiration
+                      from the apple's diversity when creating a dynamic and
+                      engaging user interface. Consider implementing interactive
+                      features that allow users to explore various aspects of
+                      apples, such as nutritional information, recipes, or even
+                      an interactive orchard map. This not only showcases your
+                      technical skills but also enhances the overall user
+                      experience by providing valuable and enjoyable content.
+                    </p>
+                  </gxg-tab>
+
+                  <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                    A banana is an elongated, edible fruit – botanically a berry
+                    – produced by several kinds of large herbaceous flowering
+                    plants in the genus Musa. In some countries, bananas used
+                    for cooking may be called "plantains", distinguishing them
+                    from dessert bananas.
+                  </gxg-tab>
+                  <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                    A cherry is the fruit of many plants of the genus Prunus,
+                    and is a fleshy drupe. Commercial cherries are obtained from
+                    cultivars of several species, such as the sweet Prunus avium
+                    and the sour Prunus cerasus.
+                  </gxg-tab>
+                  <gxg-tab tab="mangoes" key="mangoes" isSelected="false">
+                    Mangoes are known as the "king of fruits." They come in
+                    various varieties, each with a unique flavor and texture.
+                    Mangoes are a good source of vitamin C and fiber.
+                  </gxg-tab>
+                  <gxg-tab
+                    tab="strawberries"
+                    key="strawberries"
+                    isSelected="false"
+                  >
+                    Strawberries are not true berries but aggregate fruits. They
+                    are high in antioxidants and vitamin C. Strawberries have
+                    seeds on the outside, with an average of around 200 seeds
+                    per fruit.
+                  </gxg-tab>
+                  <gxg-tab tab="pineapples" key="pineapples" isSelected="false">
+                    Pineapples contain bromelain, an enzyme that aids in
+                    digestion. They are a tropical fruit with a sweet and tangy
+                    taste. Pineapples take about two years to reach maturity.
+                  </gxg-tab>
+                  <gxg-tab tab="grapes" key="grapes" isSelected="false">
+                    Grapes can be red, green, or purple. They are used to make
+                    various products, including wine and raisins. Grapes are
+                    rich in antioxidants and have been associated with heart
+                    health benefits.
+                  </gxg-tab>
+                  <gxg-tab tab="avocados" key="avocados" isSelected="false">
+                    Avocados are technically berries and are a great source of
+                    healthy monounsaturated fats. They contain more potassium
+                    than bananas. Avocado trees do not self-pollinate; they rely
+                    on bees for pollination.
+                  </gxg-tab>
+                  <gxg-tab
+                    tab="watermelons"
+                    key="watermelons"
+                    isSelected="false"
+                  >
+                    Watermelons are made up of about 92% water. The rind is also
+                    edible and can be pickled. Watermelons belong to the gourd
+                    family and are related to cucumbers and pumpkins.
+                  </gxg-tab>
+                </gxg-tabs>
+              </div>
+            </article>
+
+            <!-- *** GXG-TABS | #COMP *** -->
+
+            <!-- regular -->
+            <article data-title="text" hidden>
+              <code pill>type: text-regular"</code>
+              <div class="example">
+                <gxg-text type="text-regular" max-width="640px"
+                  >Cosmic inflation is a theory that suggests the universe
+                  underwent an exponential expansion during the first few
+                  moments after the Big Bang. This rapid expansion, occurring
+                  within a fraction of a second, helps to explain various
+                  observed phenomena in the universe's large-scale structure.
+                  Proposed by physicist Alan Guth in the early 1980s, the theory
+                  addresses issues like the uniformity of the cosmic microwave
+                  background radiation and the large-scale structure of the
+                  cosmos.</gxg-text
+                >
+              </div>
+            </article>
+
+            <!-- link -->
+            <article data-title="text" hidden>
+              <code pill>type: text-link</code>
+              <div class="example">
+                <gxg-text type="text-link">Click here to learn more</gxg-text>
+              </div>
+            </article>
+
+            <!-- gray link -->
+            <article data-title="text" hidden>
+              <code pill>type: text-link-gray</code>
+              <div class="example">
+                <gxg-text type="text-link-gray"
+                  >Click here to learn more</gxg-text
+                >
+              </div>
+            </article>
+
+            <!-- alert error -->
+            <article data-title="text" hidden>
+              <code pill>type: text-alert-error"</code>
+              <div class="example">
+                <gxg-text type="text-alert-error"
+                  >Error 404: Page Not Found</gxg-text
+                >
+              </div>
+            </article>
+
+            <!-- alert warning -->
+            <article data-title="text" hidden>
+              <code pill>type: text-alert-warning"</code>
+              <div class="example">
+                <gxg-text type="text-alert-warning"
+                  >Warning: Entering uncharted coding territories</gxg-text
+                >
+              </div>
+            </article>
+
+            <!-- alert success -->
+            <article data-title="text" hidden>
+              <code pill>type: text-alert-success"</code>
+              <div class="example">
+                <gxg-text type="text-alert-success"
+                  >Success: You've reached the summit of coding excellence!
+                </gxg-text>
+              </div>
+            </article>
+
+            <!-- *** GXG-TITLE-EDITABLE | #COMP *** -->
+
+            <article data-title="title-editable" hidden>
+              <code pill>focus type: color</code>
+              <div class="example">
+                <gxg-title-editable
+                  click-to-edit
+                  focus-type="text"
+                  value="Space is completely silent because it's a vacuum, so there's no air to carry sound waves."
+                >
+                </gxg-title-editable>
+              </div>
+            </article>
+
+            <!-- *** GXG-TITLE | #COMP *** -->
+
+            <style>
+              .title-container {
+                max-width: 360px;
+              }
+            </style>
+
+            <!-- h1 -->
+            <article data-title="title" class="title-container" hidden>
+              <code pill>type: title-01</code>
+              <div class="example">
+                <gxg-title type="title-01"
+                  >The atoms in your body are forged in the cores of stars
+                  through nuclear fusion processes</gxg-title
+                >
+              </div>
+            </article>
+
+            <!-- h2 -->
+            <article data-title="title" class="title-container" hidden>
+              <code pill>type: title-02</code>
+              <div class="example">
+                <gxg-title type="title-02"
+                  >The atoms in your body are forged in the cores of stars
+                  through nuclear fusion processes</gxg-title
+                >
+              </div>
+            </article>
+
+            <!-- h3 -->
+            <article data-title="title" class="title-container" hidden>
+              <code pill>type: title-03</code>
+              <div class="example">
+                <gxg-title type="title-03"
+                  >The atoms in your body are forged in the cores of stars
+                  through nuclear fusion processes</gxg-title
+                >
+              </div>
+            </article>
+
+            <!-- h4 -->
+            <article data-title="title" class="title-container" hidden>
+              <code pill>type: title-04</code>
+              <div class="example">
+                <gxg-title type="title-04"
+                  >The atoms in your body are forged in the cores of stars
+                  through nuclear fusion processes</gxg-title
+                >
+              </div>
+            </article>
+
+            <!-- h5 -->
+            <article data-title="title" class="title-container" hidden>
+              <code pill>type: title-05</code>
+              <div class="example">
+                <gxg-title type="title-05"
+                  >The atoms in your body are forged in the cores of stars
+                  through nuclear fusion processes</gxg-title
+                >
+              </div>
+            </article>
+
+            <!-- *** GXG-TREE-VIEW | #COMP *** -->
+
+            <style>
+              .tree-container {
+                display: flex;
+                height: 800px;
+              }
+              .main-container {
+                display: grid;
+                grid-template-rows: 1fr min-content;
+                align-self: stretch;
+                width: 100%;
+                gap: 8px;
+                /* padding-inline: 4px; */
+                /* margin: 16px; */
+              }
+            </style>
+
+            <article data-title="tree-view">
+              <!-- <code pill>some property</code> -->
+              <div class="example">
+                <div class="main-container">
+                  <div class="section-dev">
+                    <div class="tree-container">
+                      <gxg-tree-view></gxg-tree-view>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                const modelLazyUpdated1 = [
+                  {
+                    id: "lazy-loaded-1",
+                    caption: "Lazy Loaded 1 (drag disabled)",
+                    leaf: true,
+                    leftImgSrc: "objects/patterns",
+                    checkbox: true,
+                    dragDisabled: true
+                  },
+                  {
+                    id: "lazy-loaded-2",
+                    caption:
+                      "Lazy Loaded 2 (lazy, drag disabled, drop disabled)",
+                    leaf: false,
+                    lazy: true,
+                    leftImgSrc: "objects/patterns",
+                    checkbox: true,
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    toggleCheckboxes: true
+                  }
+                ];
+
+                const modelLazyUpdated2 = [
+                  {
+                    id: "lazy-loaded-3",
+                    caption: "Lazy Loaded 3 (drag disabled)",
+                    leaf: true,
+                    leftImgSrc: "objects/patterns",
+                    checkbox: true,
+                    dragDisabled: true
+                  },
+                  {
+                    id: "lazy-loaded-4",
+                    caption: "Lazy Loaded 4 (drag disabled)",
+                    leaf: true,
+                    leftImgSrc: "objects/patterns",
+                    checkbox: true,
+                    dragDisabled: true
+                  }
+                ];
+
+                const KB_EXPLORER_ORDER = {
+                  module: 1,
+                  folder: 2,
+                  api: 3,
+                  dso: 3,
+                  stencil: 3,
+                  sdPanel: 3,
+                  masterPanel: 3,
+                  procedure: 3,
+                  webPanel: 3,
+                  globalEvents: 4,
+                  domain: 5,
+                  localization: 6,
+                  files: 7,
+                  images: 8
+                };
+
+                const kbExplorerModel = [
+                  {
+                    checkbox: true,
+                    id: "root",
+                    caption: "GeneXusNext Develop",
+                    editable: false,
+                    leaf: false,
+                    leftImgSrc: "objects/version",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    expanded: true,
+                    items: [
+                      {
+                        checkbox: true,
+                        id: "Main_Programs",
+                        caption: "Main Programs",
+                        editable: false,
+                        leftImgSrc: "objects/category",
+                        dragDisabled: true,
+                        dropDisabled: true,
+                        lazy: true,
+                        order: 0,
+                        expanded: true
+                      },
+                      {
+                        checkbox: true,
+                        id: "Root_Module",
+                        caption: "Objects",
+                        editable: false,
+                        class: "tree-view-item tree-view-item--module",
+                        dragDisabled: true,
+                        lazy: true,
+                        order: 1
+                      },
+                      {
+                        checkbox: true,
+                        id: "References",
+                        caption: "References",
+                        editable: false,
+                        leftImgSrc: "objects/references",
+                        dragDisabled: true,
+                        dropDisabled: true,
+                        order: 2,
+                        leaf: true
+                      },
+                      {
+                        checkbox: true,
+                        id: "Customization",
+                        caption: "Customization",
+                        editable: false,
+                        leftImgSrc: "objects/customization",
+                        dragDisabled: true,
+                        dropDisabled: true,
+                        lazy: true,
+                        order: 3
+                      },
+                      {
+                        checkbox: true,
+                        id: "Documentation",
+                        caption: "Documentation",
+                        editable: false,
+                        leftImgSrc: "objects/document",
+                        dragDisabled: true,
+                        dropDisabled: true,
+                        order: 4,
+                        leaf: true
+                      }
+                    ]
+                  }
+                ];
+
+                const kbExplorerModel_MainPrograms = [
+                  {
+                    checkbox: true,
+                    id: "Main_Programs.Prompt",
+                    caption: "Prompt",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/api",
+                    order: KB_EXPLORER_ORDER.sdPanel
+                  },
+                  {
+                    checkbox: true,
+                    id: "Main_Programs.ApiHealthCheck",
+                    caption: "ApiHealthCheck",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/api",
+                    order: KB_EXPLORER_ORDER.api
+                  },
+                  {
+                    checkbox: true,
+                    id: "Main_Programs.BackHome",
+                    caption: "BackHome",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/api",
+                    order: KB_EXPLORER_ORDER.webPanel
+                  },
+                  {
+                    checkbox: true,
+                    id: "Main_Programs.Login",
+                    caption: "Login",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/api",
+                    order: KB_EXPLORER_ORDER.webPanel
+                  },
+                  {
+                    checkbox: true,
+                    id: "Main_Programs.ProvisioningServices",
+                    caption: "ProvisioningServices",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/api",
+                    order: KB_EXPLORER_ORDER.api
+                  },
+                  {
+                    checkbox: true,
+                    id: "Main_Programs.VersionCheck",
+                    caption: "VersionCheck",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/procedure",
+                    order: KB_EXPLORER_ORDER.procedure
+                  }
+                ];
+
+                const kbExplorerModel_RootModule = [
+                  {
+                    checkbox: true,
+                    id: "Root_Module.IDE",
+                    caption: "IDE",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.BL",
+                    caption: "BL",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General",
+                    caption: "General",
+                    class: "tree-view-item tree-view-item--module",
+                    lazy: true,
+                    order: KB_EXPLORER_ORDER.module
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.AWS_internal",
+                    caption: "AWS_internal",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.DataModel",
+                    caption: "DataModel",
+                    class: "tree-view-item tree-view-item--folder",
+                    order: KB_EXPLORER_ORDER.folder,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.Back",
+                    caption: "Back",
+                    class: "tree-view-item tree-view-item--folder",
+                    order: KB_EXPLORER_ORDER.folder,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.Tests",
+                    caption: "Tests",
+                    class: "tree-view-item tree-view-item--folder",
+                    order: KB_EXPLORER_ORDER.folder,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.Images",
+                    caption: "Images",
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/image",
+                    order: KB_EXPLORER_ORDER.images
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.GXNext",
+                    caption: "GXNext",
+                    leaf: true,
+                    leftImgSrc: "objects/dso",
+                    order: KB_EXPLORER_ORDER.dso
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.GeneXusNext",
+                    caption: "GeneXusNext",
+                    leaf: true,
+                    leftImgSrc: "objects/dso",
+                    order: KB_EXPLORER_ORDER.dso
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.Files",
+                    caption: "Files",
+                    editable: false,
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/file",
+                    order: KB_EXPLORER_ORDER.files
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.Domain",
+                    caption: "Domain",
+                    editable: false,
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.domain
+                  }
+                ];
+
+                const kbExplorerModel_Customization = [
+                  {
+                    checkbox: true,
+                    id: "Customization.Files",
+                    caption: "Files",
+                    leftImgSrc: "objects/file",
+                    order: KB_EXPLORER_ORDER.files,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Customization.Images",
+                    caption: "Images",
+                    leftImgSrc: "objects/image",
+                    order: KB_EXPLORER_ORDER.images,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Customization.Localization",
+                    caption: "Localization",
+                    lazy: true,
+                    leftImgSrc: "objects/lenguage",
+                    order: KB_EXPLORER_ORDER.localization
+                  }
+                ];
+
+                const kbExplorerModel_Customization_Localization = [
+                  {
+                    checkbox: true,
+                    id: "Customization.Localization.Arabic",
+                    caption: "Arabic",
+                    leaf: true,
+                    leftImgSrc: "objects/lenguage",
+                    order: KB_EXPLORER_ORDER.localization
+                  },
+                  {
+                    checkbox: true,
+                    id: "Customization.Localization.English",
+                    caption: "English",
+                    checked: true,
+                    leaf: true,
+                    leftImgSrc: "objects/lenguage",
+                    order: KB_EXPLORER_ORDER.localization
+                  },
+                  {
+                    checkbox: true,
+                    id: "Customization.Localization.Spanish",
+                    caption: "Spanish",
+                    leaf: true,
+                    leftImgSrc: "objects/lenguage",
+                    order: KB_EXPLORER_ORDER.localization
+                  },
+                  {
+                    checkbox: true,
+                    id: "Customization.Localization.Italian",
+                    caption: "Italian",
+                    leaf: true,
+                    leftImgSrc: "objects/lenguage",
+                    order: KB_EXPLORER_ORDER.localization
+                  }
+                ];
+
+                const kbExplorerModel_RootModule_General = [
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.Security",
+                    caption: "Security",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.Services",
+                    caption: "Services",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI",
+                    caption: "UI",
+                    class: "tree-view-item tree-view-item--module",
+                    lazy: true,
+                    order: KB_EXPLORER_ORDER.module
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.Domain",
+                    caption: "Domain",
+                    editable: false,
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.domain
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.GlobalEvents",
+                    caption: "GlobalEvents",
+                    editable: false,
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/external-object",
+                    order: KB_EXPLORER_ORDER.globalEvents
+                  }
+                ];
+
+                const kbExplorerModel_RootModule_General_UI = [
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.DesignSystem",
+                    caption: "DesignSystem",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Q2",
+                    caption: "Q2",
+                    class: "tree-view-item tree-view-item--folder",
+                    lazy: true,
+                    order: KB_EXPLORER_ORDER.folder
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Popups",
+                    caption: "Popups",
+                    class: "tree-view-item tree-view-item--module",
+                    order: KB_EXPLORER_ORDER.module,
+                    leaf: true
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Stencils",
+                    caption: "Stencils",
+                    class: "tree-view-item tree-view-item--folder",
+                    lazy: true,
+                    order: KB_EXPLORER_ORDER.folder
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Domain",
+                    caption: "Domain",
+                    editable: false,
+                    dragDisabled: true,
+                    dropDisabled: true,
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.domain
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Login",
+                    caption: "Login",
+                    class: "tree-view-item tree-view-item--pending-commit",
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.sdPanel
+                  }
+                ];
+
+                const kbExplorerModel_RootModule_General_UI_Q2 = [
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Q2.ContactUs",
+                    caption: "ContactUs",
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.sdPanel
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Q2.ProjectDetail",
+                    caption: "ProjectDetail",
+                    class: "tree-view-item tree-view-item--pending-commit",
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.sdPanel
+                  },
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Q2.MyApps",
+                    caption: "MyApps",
+                    leaf: true,
+                    leftImgSrc: "objects/domain",
+                    order: KB_EXPLORER_ORDER.sdPanel
+                  }
+                ];
+
+                const kbExplorerModel_RootModule_General_UI_Stencils = [
+                  {
+                    checkbox: true,
+                    id: "Root_Module.General.UI.Stencils.StencilPublishProject",
+                    caption: "StencilPublishProject",
+                    leaf: true,
+                    leftImgSrc: "objects/stencil",
+                    order: KB_EXPLORER_ORDER.stencil
+                  }
+                ];
+
+                const lazyLoadItemsDictionary = {
+                  Main_Programs: kbExplorerModel_MainPrograms,
+                  Root_Module: kbExplorerModel_RootModule,
+                  Customization: kbExplorerModel_Customization,
+                  "Customization.Localization":
+                    kbExplorerModel_Customization_Localization,
+                  "Root_Module.General": kbExplorerModel_RootModule_General,
+                  "Root_Module.General.UI":
+                    kbExplorerModel_RootModule_General_UI,
+                  "Root_Module.General.UI.Q2":
+                    kbExplorerModel_RootModule_General_UI_Q2,
+                  "Root_Module.General.UI.Stencils":
+                    kbExplorerModel_RootModule_General_UI_Stencils
+                };
+
+                const bigModel = [];
+
+                const FIRST_LEVEL_SIZE = 10;
+                const SECOND_LEVEL_SIZE = 20;
+                const THIRD_LEVEL_SIZE = 20;
+
+                for (let i = 0; i < FIRST_LEVEL_SIZE; i++) {
+                  bigModel.push({
+                    id: "item-" + i,
+                    caption: "item-" + i,
+                    lazy: true,
+                    leaf: false,
+                    leftImgSrc: "objects/patterns",
+                    items: []
+                  });
+                }
+
+                const eagerLargeModel = [];
+
+                for (let i = 0; i < FIRST_LEVEL_SIZE; i++) {
+                  const subEagerLargeModel = [];
+                  const modelId = "item-" + i;
+
+                  for (let j = 0; j < SECOND_LEVEL_SIZE; j++) {
+                    const subModelId = modelId + "-" + j;
+                    const subSubEagerLargeModel = [];
+
+                    for (let k = 0; k < THIRD_LEVEL_SIZE; k++) {
+                      const subSubModelId = subModelId + "-" + k;
+
+                      subSubEagerLargeModel.push({
+                        id: subSubModelId,
+                        caption: subSubModelId,
+                        leaf: true,
+                        leftImgSrc: "./objects/file"
+                      });
+                    }
+
+                    subEagerLargeModel.push({
+                      id: subModelId,
+                      caption: subModelId,
+                      expanded: true,
+                      leaf: false,
+                      leftImgSrc: "./objects/knowledge-base",
+                      items: subSubEagerLargeModel
+                    });
+                  }
+
+                  eagerLargeModel.push({
+                    id: modelId,
+                    caption: modelId,
+                    expanded: true,
+                    leaf: false,
+                    leftImgSrc: "objects/patterns",
+                    items: subEagerLargeModel
+                  });
+                }
+              </script>
+              <br />
+
+              <script>
+                const modelMinimal = [
+                  {
+                    id: "number-2-2",
+                    caption: "number-2-2",
+                    leftImgSrc: "./objects/knowledge-base"
+                  }
+                ];
+
+                // WA to remove extra handlers in appload event
+                let appLoadFinish = false;
+
+                window.addEventListener("appload", () => {
+                  if (appLoadFinish) {
+                    return;
+                  }
+
+                  appLoadFinish = true;
+
+                  const testTreeX = document.querySelector("gxg-tree-view");
+
+                  testTreeX.treeModel = kbExplorerModel;
+
+                  const openReferenceTextBlock = document.getElementById(
+                    "open-reference-textblock"
+                  );
+
+                  testTreeX.addEventListener("itemOpenReference", event => {
+                    openReferenceTextBlock.innerHTML = `<br>+ + + + + Open Reference + + + + +<br>
+                    Item ID: ${event.detail.id}<br>
+                    Item Leaf: ${event.detail.leaf}<br>
+                    Item Metadata: ${!event.detail.metadata}<br>`;
+                  });
+
+                  const checkedItemsTextBlock = document.getElementById(
+                    "checked-items-textblock"
+                  );
+
+                  /*Lazy Load Promise*/
+                  testTreeX.lazyLoadTreeItemsCallback = modelId =>
+                    new Promise((resolve, reject) => {
+                      let lazyModel =
+                        modelId === "lazy-loaded-2"
+                          ? modelLazyUpdated2
+                          : modelLazyUpdated1;
+
+                      if (modelId.startsWith("item-")) {
+                        lazyModel = [];
+
+                        for (let j = 0; j < SECOND_LEVEL_SIZE; j++) {
+                          const subModelId = modelId + "-" + j;
+                          const subModelItems = [];
+
+                          for (let k = 0; k < THIRD_LEVEL_SIZE; k++) {
+                            subModelItems.push({
+                              id: subModelId + "-" + k,
+                              caption: subModelId + "-" + k,
+                              leaf: true,
+                              leftImgSrc: "./objects/file"
+                            });
+                          }
+
+                          lazyModel.push({
+                            id: subModelId,
+                            caption: subModelId,
+                            expanded: true,
+                            leaf: false,
+                            leftImgSrc: "./objects/knowledge-base",
+                            items: subModelItems
+                          });
+                        }
+                      }
+
+                      const lazyModelResultFromDictionary =
+                        lazyLoadItemsDictionary[modelId];
+
+                      if (lazyModelResultFromDictionary) {
+                        lazyModel = lazyModelResultFromDictionary;
+                      }
+
+                      setTimeout(() => {
+                        resolve(structuredClone(lazyModel));
+                      }, 250); // Resolves or rejects after 0.25 second
+                    });
+
+                  testTreeX.dropItemsCallback = () =>
+                    new Promise((resolve, reject) => {
+                      setTimeout(() => {
+                        resolve({ acceptDrop: true, items: modelTiny });
+                      }, 25); // Resolves after 25 ms
+                    });
+
+                  let randomSuccess = true;
+
+                  testTreeX.modifyItemCaptionCallback = (
+                    treeItemId,
+                    newCaption
+                  ) =>
+                    new Promise((resolve, reject) => {
+                      const status = newCaption.trim() !== "" && randomSuccess;
+                      // randomSuccess = !randomSuccess;
+
+                      setTimeout(() => {
+                        resolve({
+                          success: status,
+                          errorMessage:
+                            "Apologies, an error ocurred while changing the item caption."
+                        });
+                      }, 15); // Resolves after 15 ms
+                    });
+
+                  let randomAccept = true;
+
+                  testTreeX.checkDroppableZoneCallback = () =>
+                    new Promise((resolve, reject) => {
+                      const accept = randomAccept;
+                      // randomAccept = !randomAccept;
+
+                      setTimeout(() => {
+                        resolve(randomAccept);
+                      }, 500); // Resolves after 500 ms
+                    });
+
+                  /**
+                   * @typedef TreeXItemModel
+                   * @type {object}
+                   * @property {string} id
+                   * @property {string} caption
+                   * @property {number} order
+                   */
+                  /**
+                   * @param {TreeXItemModel[]} subModel
+                   */
+                  const sortItems = subModel =>
+                    subModel.sort((a, b) => {
+                      if (a.order < b.order) {
+                        return -1;
+                      }
+
+                      if (a.order > b.order) {
+                        return 0;
+                      }
+
+                      return a.caption <= b.caption ? -1 : 0;
+                    });
+
+                  testTreeX.sortItemsCallback = sortItems;
+
+                  // Eager large model
+                  // testTreeX.treeModel = eagerLargeModel;
+                });
+              </script>
+            </article>
+
+            <!-- /.articles-container -->
+          </div>
+          <!-- /.comparator--side -->
+        </div>
+
+        <!--right side-->
+        <div class="comparator--side right-side">
+          <div class="articles-container">
+            <!--populated dynamically with the same content of the left-side-->
+          </div>
+        </div>
+      </section>
+    </div>
+    <section></section>
+  </body>
+</html>

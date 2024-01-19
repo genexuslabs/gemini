@@ -31,27 +31,28 @@
   //iie: inset inline end
   //pis: padding inline start
   /*--- Combo Box ---*/
-  --gxg-combo-box-items-container_background-color: var(--mer-elevation--02);
+  --gxg-combo-box-items-container_background-color: var(
+    var(--mer-color__neutral-gray--1000) ;
+  );
   --gxg-combo-box-items-container_color: var(--ds-base-font-color);
   --gxg-combo-box-items-container_font-size: var(--ds-base-font-size);
-  --gxg-combo-box-items-container_padding: var(--mer-spacing__comp--sm);
-  --gxg-combo-box-items-buttons-wrapper--iie: var(--mer-spacing__comp--xxs);
+  --gxg-combo-box-items-container_padding: var(--mer-spacing--sm);
+  --gxg-combo-box-items-buttons-wrapper--iie: var(--mer-spacing--xxs);
   --gxg-combo-box-no-occurrences_font-size: var(--mer-font__size--xxs);
   --gxg-combo-box-no-occurrences_color: var(--ds-form-control-color);
-  --gxg-combo-box-no-occurrences_padding: var(--mer-spacing__comp--xs);
+  --gxg-combo-box-no-occurrences_padding: var(--mer-spacing--xs);
   --gxg-combo-box-no-occurrences_background-color: transparent;
   --gxg-combo-box-no-occurrences_command-color: var(--mer-text__on-surface);
 
   /*--- Combo Box Item ---*/
-  --gxg-combo-box-item_padding: var(--mer-spacing__comp--sm)
-    var(--mer-spacing__comp--sm) var(--mer-spacing__comp--sm)
-    var(--mer-spacing__comp--xs);
+  --gxg-combo-box-item_padding: var(--mer-spacing--sm) var(--mer-spacing--sm)
+    var(--mer-spacing--sm) var(--mer-spacing--xs);
   --gxg-combo-box-item_border-radius: var(--mer-border__radius--sm);
-  --gxg-combo-box-item_container-gap: var(--mer-spacing__comp--xs);
+  --gxg-combo-box-item_container-gap: var(--mer-spacing--xs);
   --gxg-combo-box-item_container-color--hover: var(
     --mer-color__neutral-gray--100
   );
-  --gxg-combo-box-item_container-no-icon-pis: var(--mer-spacing__comp--sm);
+  --gxg-combo-box-item_container-no-icon-pis: var(--mer-spacing--sm);
   --gxg-combo-box-item_icon-size: var(--ds-icon-size--small);
   --gxg-combo-box-item_font-weight: var(--mer-font__weight--semi-bold);
   --gxg-combo-box-item--selected_icon-color: var(--mer-icon__highlighted);

@@ -58,7 +58,7 @@ export class GxgButton {
   @Prop() icon;
 
   /**
-   * The prescence of this attribute turns the icon white
+   * The presence of this attribute turns the icon white
    */
   @Prop() negative = false;
 
@@ -71,6 +71,11 @@ export class GxgButton {
    * The presence of this attribute lets the button styles be editable from outside of the component by referencing the "native-button" part.
    */
   @Prop() buttonStylesEditable = false;
+
+  /**
+   * This property is for the button-container component
+   */
+  @Prop() selected = false;
 
   private noTabIndex = false;
 
@@ -172,7 +177,8 @@ export class GxgButton {
           "button--disabled": this.disabled === true,
           "button--fullwidth": this.fullWidth === true,
           "button--fit": this.fit,
-          "button--small": this.small
+          "button--small": this.small,
+          "button--unselected": !this.selected
         }}
         onClick={this.clickHandler.bind(this)}
         exportParts={this.exportparts ? this.exportparts : null}

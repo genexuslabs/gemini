@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap");
 :root {
   /*Families*/
   --mer-font-family--primary: "Inter", sans-serif;
 
   /*Weights*/
+  --mer-font__weight--light: 300;
   --mer-font__weight--regular: 400;
   --mer-font__weight--semi-bold: 600;
   --mer-font__weight--bold: 700;

@@ -1,0 +1,14 @@
+:root {
+  --gxg-tooltip__background-color: var(--gray-02);
+  --gxg-tooltip__color: var(--ds-base-font-color);
+  --gxg-tooltip__padding: var(--spacing-comp-01) var(--spacing-comp-02);
+  --gxg-tooltip__font-size: var(--font-size-xs);
+  --gxg-tooltip__border-radius: var(--border-width-md);
+  &.mercury {
+    --gxg-tooltip__background-color: var(--mer-color__neutral-gray--700);
+    --gxg-tooltip__color: var(--ds-base-font-color);
+    --gxg-tooltip__padding: var(--mer-spacing--xxs) var(--mer-spacing--xs);
+    --gxg-tooltip__font-size: var(--mer-font__size--xxs);
+    --gxg-tooltip__border-radius: var(--mer-border__width--sm);
+  }
+}

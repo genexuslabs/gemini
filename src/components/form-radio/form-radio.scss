@@ -15,6 +15,9 @@
     position: relative;
     cursor: pointer;
     @include form-element-common-styles-label();
+    &:hover {
+      --gxg-radio-border-color: var(--gxg-radio-border-color--hover);
+    }
   }
 
   /* Hide the browser's default checkbox */

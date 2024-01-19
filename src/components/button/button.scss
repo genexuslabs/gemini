@@ -98,8 +98,8 @@
 /*Secondary*/
 :host(.button--secondary) {
   .button-native {
-    padding-inline-start: var(--gxg-button-secondary-lateral-padding);
-    padding-inline-end: var(--gxg-button-secondary-lateral-padding);
+    // padding-inline-start: var(--gxg-button-secondary-lateral-padding);
+    // padding-inline-end: var(--gxg-button-secondary-lateral-padding);
     background-color: var(--gxg-button-secondary-bg-color);
     color: var(--gxg-button-secondary-color);
     border-color: var(--gxg-button-secondary-border-color);
