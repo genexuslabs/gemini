@@ -36,9 +36,10 @@
   &.mercury {
     /*--- Tabs ---*/
     --gxg-tabs-border-width: var(--mer-border__width--sm);
+    --gxg-tabs-border-color: var(--ds-border-color--regular);
     --gxg-tabs-border-radius: var(--mer-border__width--lg);
     /*--- Tab Bar ---*/
-    --gxg-tab-bar-background-color: var(--mer-elevation--01);
+    --gxg-tab-bar-background-color: var(--mer-color__surface);
     --gxg-tab-bar-border-width: var(--mer-border__width--sm);
     --gxg-tab-bar-border-color: transparent;
     /*--- Tab Button ---*/
@@ -60,7 +61,7 @@
       --mer-border-color__primary--active
     );
     /*--- Tab ---*/
-    --gxg-tab-background-color: var(--mer-elevation--01);
+    --gxg-tab-background-color: var(--mer-color__surface);
     --gxg-tab-color: var(--mer-text__on-surface);
     --gxg-tab-font-size: var(--ds-base-font-size);
     --gxg-tab-horizontal-padding: var(--mer-spacing--sm);
