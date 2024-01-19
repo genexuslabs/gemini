@@ -27,8 +27,8 @@ ch-window::part(window) {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    -webkit-animation: wrapper 0.8s infinite alternate;
-    animation: wrapper 0.8s infinite alternate;
+    // -webkit-animation: wrapper 0.5s infinite alternate;
+    // animation: wrapper 0.5s infinite alternate;
     color: var(--gxg-ide-loader-wrapper__color);
 
     &--visible {
