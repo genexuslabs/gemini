@@ -1,3 +1,4 @@
+/*--- Gemini ---*/
 :root {
   /*background color*/
   --mer-elevation__background-color--01: var(--gray-00);
@@ -14,7 +15,7 @@
   --mer-elevation__box-shadow--02: var(--box-shadow-02);
   --mer-elevation__box-shadow--03: none;
   --mer-elevation__box-shadow--04: none;
-  &.mercury {
+  &.dark {
     /*background color*/
     --mer-elevation__background-color--01: var(--gray-00);
     --mer-elevation__background-color--02: var(--gray-01);
@@ -33,24 +34,7 @@
   }
 }
 
-:root.dark {
-  /*background color*/
-  --mer-elevation__background-color--01: var(--gray-00);
-  --mer-elevation__background-color--02: var(--gray-01);
-  --mer-elevation__background-color--03: var(--gray-01);
-  --mer-elevation__background-color--04: var(--gray-01);
-  /*border*/
-  --mer-elevation__border-01: transparent;
-  --mer-elevation__border-02: 1px solid var(--gray-02);
-  --mer-elevation__border-03: transparent;
-  --mer-elevation__border-04: transparent;
-  /*box shadow*/
-  --mer-elevation__box-shadow--01: var(--box-shadow-02);
-  --mer-elevation__box-shadow--02: var(--box-shadow-02);
-  --mer-elevation__box-shadow--03: none;
-  --mer-elevation__box-shadow--04: none;
-}
-
+/*--- Mercury ---*/
 :root.mercury {
   /*background color*/
   --mer-elevation__background-color--01: var(--mer-color__neutral-gray--900);
