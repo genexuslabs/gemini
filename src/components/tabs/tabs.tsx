@@ -8,7 +8,6 @@ import {
   Prop,
   Method
 } from "@stencil/core";
-import state from "../store";
 import { GxgTab } from "../tab/tab";
 
 @Component({
