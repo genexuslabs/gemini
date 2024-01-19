@@ -7,7 +7,7 @@ import {
   Event,
   EventEmitter,
   Watch,
-  State,
+  State
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
@@ -21,11 +21,11 @@ import { ValidationStatus } from "../../common/types";
 @Component({
   tag: "gxg-form-checkbox",
   styleUrl: "form-checkbox.scss",
-  shadow: { delegatesFocus: true },
+  shadow: { delegatesFocus: true }
 })
 export class GxgFormCheckbox implements FormComponent {
   private parts = {
-    input: "input",
+    input: "input"
   };
   private exportparts: string;
   @Element() el: HTMLElement;
@@ -155,7 +155,7 @@ export class GxgFormCheckbox implements FormComponent {
     this.change.emit({
       id: this.checkboxId,
       value: this.checked,
-      disabled: this.disabled,
+      disabled: this.disabled
     });
   }
 
@@ -200,7 +200,7 @@ export class GxgFormCheckbox implements FormComponent {
   private renderCheckbox = (): JSXElement[] => {
     return [
       <input
-        ref={(el) => (this.checkboxInput = el as HTMLInputElement)}
+        ref={el => (this.checkboxInput = el as HTMLInputElement)}
         type="checkbox"
         checked={this.checked}
         class="input"
@@ -224,11 +224,11 @@ export class GxgFormCheckbox implements FormComponent {
           "has-icon": !!this.iconName,
           "form-element": true,
           indeterminate: this.indeterminate,
-          checkbox: true,
+          checkbox: true
         }}
         role="checkbox"
       ></span>,
-      this.icon(),
+      this.icon()
     ];
   };
 
@@ -249,14 +249,14 @@ export class GxgFormCheckbox implements FormComponent {
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
             this.validationStatus === "success",
-          [commonClassesNames["DISABLED_CLASS"]]: this.disabled,
+          [commonClassesNames["DISABLED_CLASS"]]: this.disabled
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
         <div
           class={{
             "gxg-form-checkbox__wrapper": true,
-            "gxg-form-checkbox__wrapper--align-top": this.alignTop,
+            "gxg-form-checkbox__wrapper--align-top": this.alignTop
           }}
           onClick={this.handleGxgLabelClick}
         >
@@ -268,18 +268,22 @@ export class GxgFormCheckbox implements FormComponent {
                   "wrapper--checked": this.checked,
                   "wrapper--indeterminate": this.indeterminate,
                   "wrapper--focus": this.hasFocus,
+                  "wrapper--has-icon": !!this.iconName
                 }}
-              >
-                {this.renderCheckbox()}
-              </div>,
+              ></div>,
+              this.renderCheckbox(),
               <gxg-label
-                class="label"
+                class={{
+                  label: true,
+                  "label--has-icon": !!this.iconName
+                }}
                 disabled={this.disabled}
                 labelPosition="end"
                 tooltip={this.tooltip}
+                noMargin={!!this.iconName}
               >
                 {this.label}
-              </gxg-label>,
+              </gxg-label>
             ]
           ) : (
             <div class="wrapper">{this.renderCheckbox()}</div>

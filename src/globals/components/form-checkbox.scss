@@ -1,4 +1,5 @@
 :root {
+  --gxg-checkbox-spacing: var(--spacing-comp-01);
   --gxg-checkbox-size: var(--spacing-comp-04);
   --gxg-checkbox-border-color: var(--gray-04);
   --gxg-checkbox-border-color--hover: var(--gxg-checkbox-border-color);
@@ -14,6 +15,7 @@
   --gxg-checkbox-disabled-background-color: var(--ds-background-color-disabled);
 
   &.mercury {
+    --gxg-checkbox-spacing: var(--mer-spacing--xxs);
     --gxg-checkbox-size: var(--mer-spacing--md);
     --gxg-checkbox-border-color: var(--mer-border-color__dim);
     --gxg-checkbox-border-color--hover: var(--mer-color__neutral-gray--00);
