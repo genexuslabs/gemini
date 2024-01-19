@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
   navBar.classList.add("navbar");
 
   const mercuryOnly = document.body.hasAttribute("mercury");
-  console.log(mercuryOnly);
   if (!mercuryOnly) {
     /*gemini button*/
     const geminiButton = document.createElement("button");

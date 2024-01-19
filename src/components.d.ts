@@ -2452,6 +2452,10 @@ export interface GxgBreadcrumbCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGxgBreadcrumbElement;
 }
+export interface GxgButtonsContainerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGxgButtonsContainerElement;
+}
 export interface GxgColorPickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGxgColorPickerElement;
@@ -2670,7 +2674,18 @@ declare global {
         prototype: HTMLGxgButtonGroupElement;
         new (): HTMLGxgButtonGroupElement;
     };
+    interface HTMLGxgButtonsContainerElementEventMap {
+        "selectedButtonChanged": string;
+    }
     interface HTMLGxgButtonsContainerElement extends Components.GxgButtonsContainer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGxgButtonsContainerElementEventMap>(type: K, listener: (this: HTMLGxgButtonsContainerElement, ev: GxgButtonsContainerCustomEvent<HTMLGxgButtonsContainerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGxgButtonsContainerElementEventMap>(type: K, listener: (this: HTMLGxgButtonsContainerElement, ev: GxgButtonsContainerCustomEvent<HTMLGxgButtonsContainerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGxgButtonsContainerElement: {
         prototype: HTMLGxgButtonsContainerElement;
@@ -3905,6 +3920,7 @@ declare namespace LocalJSX {
         "type"?: "primary" | "secondary";
     }
     interface GxgButtonsContainer {
+        "onSelectedButtonChanged"?: (event: GxgButtonsContainerCustomEvent<string>) => void;
         /**
           * The id of the currently selected button, or null if all are disabled
          */

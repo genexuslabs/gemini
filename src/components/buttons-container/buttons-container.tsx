@@ -45,6 +45,7 @@ INDEX:
   // 4.PUBLIC PROPERTY API | WATCH'S //
 
   // 5.EVENTS (EMIT) //
+  @Event() selectedButtonChanged: EventEmitter<string>;
 
   // 6.COMPONENT LIFECYCLE METHODS //
 
@@ -78,6 +79,7 @@ INDEX:
         }
       });
       clickedButton.selected = true;
+      this.selectedButtonChanged.emit(clickedButton.id);
       this.updateSelectedButtonId();
     }
   };
