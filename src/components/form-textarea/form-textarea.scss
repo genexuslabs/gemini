@@ -75,7 +75,7 @@ TEXTAREA
 :host(.shrink[single-line]) {
   .textarea {
     box-sizing: border-box;
-    height: 24px !important;
+    height: var(--ds-form-control-height) !important;
     overflow: hidden;
   }
 }

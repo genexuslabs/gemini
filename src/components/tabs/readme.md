@@ -122,6 +122,7 @@
 | `maxHeight`    | `max-height`     |                                                                                | `string`                                 | `"100%"`  |
 | `minWidth`     | `min-width`      |                                                                                | `string`                                 | `"200px"` |
 | `noBackground` | `no-background`  | The presence of this attribute removes the background color (only for mercury) | `boolean`                                | `false`   |
+| `noBorder`     | `no-border`      |                                                                                | `boolean`                                | `false`   |
 | `noPadding`    | `no-padding`     | The presence of this attribute removes each tab .container padding             | `boolean`                                | `false`   |
 | `position`     | `position`       |                                                                                | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
 | `tabBarBorder` | `tab-bar-border` |                                                                                | `boolean`                                | `false`   |

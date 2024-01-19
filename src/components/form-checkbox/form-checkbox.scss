@@ -26,9 +26,6 @@
   &--indeterminate {
     @include checkbox("container--indeterminate");
   }
-  &:focus-within {
-    @include checkbox("container--focus-within");
-  }
   &--has-icon {
     margin-inline-end: var(--gxg-checkbox-spacing);
   }
@@ -37,6 +34,10 @@
   @include checkbox("input");
   height: 0;
   width: 0;
+}
+.input:focus + .wrapper {
+  @include checkbox("container--focus-within");
+  outline-offset: -1px;
 }
 .label {
   &--has-icon {

@@ -342,6 +342,10 @@ export namespace Components {
     }
     interface GxgButtonsContainer {
         /**
+          * Used to reduce the height when the button-container is next to a form-text
+         */
+        "reduced": boolean;
+        /**
           * The id of the currently selected button, or null if all are disabled
          */
         "selectedButtonId": string;
@@ -1952,6 +1956,7 @@ export namespace Components {
           * The presence of this attribute removes the background color (only for mercury)
          */
         "noBackground": boolean;
+        "noBorder": boolean;
         /**
           * The presence of this attribute removes each tab .container padding
          */
@@ -3922,6 +3927,10 @@ declare namespace LocalJSX {
     interface GxgButtonsContainer {
         "onSelectedButtonChanged"?: (event: GxgButtonsContainerCustomEvent<string>) => void;
         /**
+          * Used to reduce the height when the button-container is next to a form-text
+         */
+        "reduced"?: boolean;
+        /**
           * The id of the currently selected button, or null if all are disabled
          */
         "selectedButtonId"?: string;
@@ -5669,6 +5678,7 @@ declare namespace LocalJSX {
           * The presence of this attribute removes the background color (only for mercury)
          */
         "noBackground"?: boolean;
+        "noBorder"?: boolean;
         /**
           * The presence of this attribute removes each tab .container padding
          */

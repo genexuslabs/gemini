@@ -5,6 +5,7 @@
   --gxg-tabs-border-radius: var(--border-width-md);
   /*--- Tab Bar ---*/
   --gxg-tab-bar-background-color: var(--color-background);
+  --gxg-tab-button-color--selected: var(--color-background);
   --gxg-tab-bar-border-width: var(--border-width-sm);
   --gxg-tab-bar-border-color: var(--gxg-border-color--regular);
   /*--- Tab Button ---*/
@@ -43,7 +44,8 @@
     --gxg-tab-bar-border-width: var(--mer-border__width--sm);
     --gxg-tab-bar-border-color: transparent;
     /*--- Tab Button ---*/
-    --gxg-tab-button-color: var(--mer-text__on-elevation);
+    --gxg-tab-button-color: var(--mer-text__on-surface);
+    --gxg-tab-button-color--selected: var(--mer-text__on-elevation);
     --gxg-tab-button-icon-color: var(--mer-icon__on-elevation);
     --gxg-tab-button-font-size: var(--mer-font__size--xs);
     --gxg-tab-button-font-text-transform: capitalize;

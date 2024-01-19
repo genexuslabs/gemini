@@ -216,6 +216,15 @@ export class GxgFormCheckbox implements FormComponent {
         onClick={this.handleInputClick}
         part={this.parts.input}
       ></input>,
+      <div
+        class={{
+          wrapper: true,
+          "wrapper--checked": this.checked,
+          "wrapper--indeterminate": this.indeterminate,
+          "wrapper--focus": this.hasFocus,
+          "wrapper--has-icon": !!this.iconName
+        }}
+      ></div>,
       <span
         part="box"
         class={{
@@ -262,15 +271,6 @@ export class GxgFormCheckbox implements FormComponent {
         >
           {this.label ? (
             [
-              <div
-                class={{
-                  wrapper: true,
-                  "wrapper--checked": this.checked,
-                  "wrapper--indeterminate": this.indeterminate,
-                  "wrapper--focus": this.hasFocus,
-                  "wrapper--has-icon": !!this.iconName
-                }}
-              ></div>,
               this.renderCheckbox(),
               <gxg-label
                 class={{
@@ -286,7 +286,17 @@ export class GxgFormCheckbox implements FormComponent {
               </gxg-label>
             ]
           ) : (
-            <div class="wrapper">{this.renderCheckbox()}</div>
+            <div
+              class={{
+                wrapper: true,
+                "wrapper--checked": this.checked,
+                "wrapper--indeterminate": this.indeterminate,
+                "wrapper--focus": this.hasFocus,
+                "wrapper--has-icon": !!this.iconName
+              }}
+            >
+              {this.renderCheckbox()}
+            </div>
           )}
         </div>
         {this.formMessageLogic(this)}
