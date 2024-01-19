@@ -1,0 +1,16 @@
+@import "../../globals/mixins-mercury";
+
+:host {
+  --ds-background-color-disabled: transparent;
+  --ds-border-color-disabled: transparent;
+  display: block;
+  .container {
+    @include mer-elevation--01();
+    box-shadow: none;
+    display: inline-flex;
+    padding: var(--gxg-buttons-group__padding);
+    gap: var(--gxg-buttons-group__gap);
+    border-radius: var(--gxg-buttons-group__border-radius);
+    border: 1px solid var(--mer-color__elevation__03);
+  }
+}

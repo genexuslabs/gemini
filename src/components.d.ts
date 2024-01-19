@@ -286,7 +286,7 @@ export namespace Components {
          */
         "icon": any;
         /**
-          * The prescence of this attribute turns the icon white
+          * The presence of this attribute turns the icon white
          */
         "negative": boolean;
         /**
@@ -297,6 +297,10 @@ export namespace Components {
           * The kind of button
          */
         "type": ButtonType;
+        /**
+          * Gives the button unselected styles
+         */
+        "unselected": boolean;
     }
     interface GxgButtonGroup {
         /**
@@ -335,6 +339,12 @@ export namespace Components {
           * The buttons style
          */
         "type": "primary" | "secondary";
+    }
+    interface GxgButtonsContainer {
+        /**
+          * The id of the currently selected button, or null if all are disabled
+         */
+        "selectedButtonId": string;
     }
     interface GxgCard {
         /**
@@ -2660,6 +2670,12 @@ declare global {
         prototype: HTMLGxgButtonGroupElement;
         new (): HTMLGxgButtonGroupElement;
     };
+    interface HTMLGxgButtonsContainerElement extends Components.GxgButtonsContainer, HTMLStencilElement {
+    }
+    var HTMLGxgButtonsContainerElement: {
+        prototype: HTMLGxgButtonsContainerElement;
+        new (): HTMLGxgButtonsContainerElement;
+    };
     interface HTMLGxgCardElement extends Components.GxgCard, HTMLStencilElement {
     }
     var HTMLGxgCardElement: {
@@ -3560,6 +3576,7 @@ declare global {
         "gxg-breadcrumbs": HTMLGxgBreadcrumbsElement;
         "gxg-button": HTMLGxgButtonElement;
         "gxg-button-group": HTMLGxgButtonGroupElement;
+        "gxg-buttons-container": HTMLGxgButtonsContainerElement;
         "gxg-card": HTMLGxgCardElement;
         "gxg-color-picker": HTMLGxgColorPickerElement;
         "gxg-column": HTMLGxgColumnElement;
@@ -3833,7 +3850,7 @@ declare namespace LocalJSX {
          */
         "icon"?: any;
         /**
-          * The prescence of this attribute turns the icon white
+          * The presence of this attribute turns the icon white
          */
         "negative"?: boolean;
         /**
@@ -3844,6 +3861,10 @@ declare namespace LocalJSX {
           * The kind of button
          */
         "type"?: ButtonType;
+        /**
+          * Gives the button unselected styles
+         */
+        "unselected"?: boolean;
     }
     interface GxgButtonGroup {
         /**
@@ -3882,6 +3903,12 @@ declare namespace LocalJSX {
           * The buttons style
          */
         "type"?: "primary" | "secondary";
+    }
+    interface GxgButtonsContainer {
+        /**
+          * The id of the currently selected button, or null if all are disabled
+         */
+        "selectedButtonId"?: string;
     }
     interface GxgCard {
         /**
@@ -6117,6 +6144,7 @@ declare namespace LocalJSX {
         "gxg-breadcrumbs": GxgBreadcrumbs;
         "gxg-button": GxgButton;
         "gxg-button-group": GxgButtonGroup;
+        "gxg-buttons-container": GxgButtonsContainer;
         "gxg-card": GxgCard;
         "gxg-color-picker": GxgColorPicker;
         "gxg-column": GxgColumn;
@@ -6207,6 +6235,7 @@ declare module "@stencil/core" {
             "gxg-breadcrumbs": LocalJSX.GxgBreadcrumbs & JSXBase.HTMLAttributes<HTMLGxgBreadcrumbsElement>;
             "gxg-button": LocalJSX.GxgButton & JSXBase.HTMLAttributes<HTMLGxgButtonElement>;
             "gxg-button-group": LocalJSX.GxgButtonGroup & JSXBase.HTMLAttributes<HTMLGxgButtonGroupElement>;
+            "gxg-buttons-container": LocalJSX.GxgButtonsContainer & JSXBase.HTMLAttributes<HTMLGxgButtonsContainerElement>;
             "gxg-card": LocalJSX.GxgCard & JSXBase.HTMLAttributes<HTMLGxgCardElement>;
             "gxg-color-picker": LocalJSX.GxgColorPicker & JSXBase.HTMLAttributes<HTMLGxgColorPickerElement>;
             "gxg-column": LocalJSX.GxgColumn & JSXBase.HTMLAttributes<HTMLGxgColumnElement>;

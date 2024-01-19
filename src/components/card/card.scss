@@ -149,7 +149,7 @@
     font-weight: var(--gxg-card-section-title_font-weight);
     font-size: var(--gxg-card-section-title_font-size);
   }
-  @include --mer-elevation--01();
+  @include mer-elevation--01();
 }
 
 /*--- Article ---*/
@@ -159,7 +159,7 @@
   padding: var(--gxg-card-article_padding);
   //background-color: var(--gxg-card-article_background-color);
   //border: var(--gxg-card-article_border);
-  @include --mer-elevation--02();
+  @include mer-elevation--02();
   .card__header {
     .card__title {
       margin: var(--gxg-card-article-title_margin);
@@ -196,7 +196,7 @@
   padding: var(--gxg-card-mini_padding);
   // background-color: var(--gxg-card-mini_background-color);
   // border: var(--gxg-card-mini_border);
-  @include --mer-elevation--02();
+  @include mer-elevation--02();
   border-color: transparent;
   .card__header {
     margin: var(--gxg-card-mini-header_margin);

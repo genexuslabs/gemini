@@ -4,7 +4,7 @@
   --gxg-button-icon-size: 20px;
   --gxg-button-border-radius: var(--border-radius-xs);
   --gxg-button-border-width: var(--border-width-sm);
-  --gxg-button-padding-horizontal: var(--spacing-comp-04);
+  --gxg-button-padding-horizontal: var(--spacing-comp-03);
   --gxg-button-icon-padding-start: var(--spacing-comp-03);
   --gxg-button-height: var(--ds-form-control-height);
   --gxg-button-font-size: var(--font-size-lg);
@@ -90,6 +90,26 @@
   --gxg-button-outlined-icon-color-active: var(
     --gxg-button-outlined-color-active
   );
+
+  /*--- Unselected ---*/
+  /*enabled*/
+  --gxg-button-unselected-bg-color--enabled: transparent;
+  --gxg-button-unselected-color--enabled: var(--color-primary-enabled);
+  /*hover*/
+  --gxg-button-unselected-bg-color--hover: var(
+    --gxg-button-secondary-bg-color-hover
+  );
+  --gxg-button-unselected-color--hover: var(--color-primary-enabled);
+  /*active*/
+  --gxg-button-unselected-bg-color--active: var(
+    --gxg-button-secondary-bg-color-active
+  );
+  --gxg-button-unselected-color--active: var(
+    --gxg-button-secondary-color-active
+  );
+  /*disabled*/
+  --gxg-button-unselected-bg-color--disabled: transparent;
+  --gxg-button-unselected-color--disabled: var(--ds-color-disabled);
 }
 
 /*--- Mercury ---*/
@@ -177,4 +197,22 @@
     --mer-border-color__primary--active
   );
   --gxg-button-outlined-icon-color-active: var(--mer-icon__on-primary--active);
+
+  /*--- Unselected ---*/
+  /*enabled*/
+  --gxg-button-unselected-bg-color--enabled: transparent;
+  --gxg-button-unselected-color--enabled: var(--mer-text__neutral);
+  /*hover*/
+  --gxg-button-unselected-bg-color--hover: var(
+    --gxg-button-primary-bg-color-hover
+  );
+  --gxg-button-unselected-color--hover: var(--gxg-button-primary-color-hover);
+  /*active*/
+  --gxg-button-unselected-bg-color--active: var(
+    --gxg-button-primary-bg-color-active
+  );
+  --gxg-button-unselected-color--active: var(--gxg-button-primary-color-active);
+  /*disabled*/
+  --gxg-button-unselected-bg-color--disabled: transparent;
+  --gxg-button-unselected-color--disabled: var();
 }

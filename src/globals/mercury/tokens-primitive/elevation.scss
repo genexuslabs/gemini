@@ -5,10 +5,10 @@
   --mer-elevation__background-color--03: var(--gray-01);
   --mer-elevation__background-color--04: var(--gray-01);
   /*border*/
-  --mer-elevation__border-color--01: transparent;
-  --mer-elevation__border-color--02: var(--gray-01);
-  --mer-elevation__border-color--03: transparent;
-  --mer-elevation__border-color--04: transparent;
+  --mer-elevation__border-01: transparent;
+  --mer-elevation__border-02: 1px solid var(--gray-01);
+  --mer-elevation__border-03: transparent;
+  --mer-elevation__border-04: transparent;
   /*box shadow*/
   --mer-elevation__box-shadow--01: var(--box-shadow-02);
   --mer-elevation__box-shadow--02: var(--box-shadow-02);
@@ -16,24 +16,20 @@
   --mer-elevation__box-shadow--04: none;
   &.mercury {
     /*background color*/
-    --mer-elevation__background-color--01: var(--mer-color__neutral-gray--900);
-    --mer-elevation__background-color--02: var(--mer-color__neutral-gray--900);
-    --mer-elevation__background-color--03: var(--mer-color__neutral-gray--900);
-    --mer-elevation__background-color--04: var(--mer-color__neutral-gray--900);
+    --mer-elevation__background-color--01: var(--gray-00);
+    --mer-elevation__background-color--02: var(--gray-01);
+    --mer-elevation__background-color--03: var(--gray-01);
+    --mer-elevation__background-color--04: var(--gray-01);
     /*border*/
-    --mer-elevation__border-color--01: transparent;
-    --mer-elevation__border-color--02: transparent;
-    --mer-elevation__border-color--03: transparent;
-    --mer-elevation__border-color--04: transparent;
+    --mer-elevation__border-01: transparent;
+    --mer-elevation__border-02: 1px solid var(--gray-02);
+    --mer-elevation__border-03: transparent;
+    --mer-elevation__border-04: transparent;
     /*box shadow*/
-    --mer-elevation__box-shadow--01: 0px 2px 1px -1px rgba(0, 0, 0, 0.08),
-      0px 1px 4px 0px rgba(0, 0, 0, 0.06);
-    --mer-elevation__box-shadow--02: 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
-      0px 2px 4px -1px rgba(0, 0, 0, 0.1);
-    --mer-elevation__box-shadow--03: 0px 3px 14px 2px rgba(0, 0, 0, 0.12),
-      0px 5px 5px -3px rgba(0, 0, 0, 0.1);
-    --mer-elevation__box-shadow--04: 0px 5px 22px 4px rgba(0, 0, 0, 0.12),
-      0px 7px 8px -4px rgba(0, 0, 0, 0.1);
+    --mer-elevation__box-shadow--01: var(--box-shadow-02);
+    --mer-elevation__box-shadow--02: var(--box-shadow-02);
+    --mer-elevation__box-shadow--03: none;
+    --mer-elevation__box-shadow--04: none;
   }
 }
 
@@ -44,26 +40,49 @@
   --mer-elevation__background-color--03: var(--gray-01);
   --mer-elevation__background-color--04: var(--gray-01);
   /*border*/
-  --mer-elevation__border-color--01: transparent;
-  --mer-elevation__border-color--02: var(--gray-02);
-  --mer-elevation__border-color--03: transparent;
-  --mer-elevation__border-color--04: transparent;
+  --mer-elevation__border-01: transparent;
+  --mer-elevation__border-02: 1px solid var(--gray-02);
+  --mer-elevation__border-03: transparent;
+  --mer-elevation__border-04: transparent;
   /*box shadow*/
   --mer-elevation__box-shadow--01: var(--box-shadow-02);
   --mer-elevation__box-shadow--02: var(--box-shadow-02);
   --mer-elevation__box-shadow--03: none;
   --mer-elevation__box-shadow--04: none;
-  &.mercury {
+}
+
+:root.mercury {
+  /*background color*/
+  --mer-elevation__background-color--01: var(--mer-color__neutral-gray--900);
+  --mer-elevation__background-color--02: var(--mer-color__neutral-gray--900);
+  --mer-elevation__background-color--03: var(--mer-color__neutral-gray--900);
+  --mer-elevation__background-color--04: var(--mer-color__neutral-gray--900);
+  /*border*/
+  --mer-elevation__border-01: transparent;
+  --mer-elevation__border-02: transparent;
+  --mer-elevation__border-03: transparent;
+  --mer-elevation__border-04: transparent;
+  /*box shadow*/
+  --mer-elevation__box-shadow--01: 0px 2px 1px -1px rgba(0, 0, 0, 0.08),
+    0px 1px 4px 0px rgba(0, 0, 0, 0.06);
+  --mer-elevation__box-shadow--02: 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --mer-elevation__box-shadow--03: 0px 3px 14px 2px rgba(0, 0, 0, 0.12),
+    0px 5px 5px -3px rgba(0, 0, 0, 0.1);
+  --mer-elevation__box-shadow--04: 0px 5px 22px 4px rgba(0, 0, 0, 0.12),
+    0px 7px 8px -4px rgba(0, 0, 0, 0.1);
+
+  &.dark {
     /*background color*/
-    --mer-elevation__background-color--01: #202428;
-    --mer-elevation__background-color--02: #262a2f;
-    --mer-elevation__background-color--03: #2d3338;
-    --mer-elevation__background-color--04: var(--mer-color__neutral-gray--1300);
+    --mer-elevation__background-color--01: var(--mer-color__elevation__01);
+    --mer-elevation__background-color--02: var(--mer-color__elevation__02);
+    --mer-elevation__background-color--03: var(--mer-color__elevation__03);
+    --mer-elevation__background-color--04: var(--mer-color__elevation__04);
     /*border*/
-    --mer-elevation__border-color--01: transparent;
-    --mer-elevation__border-color--02: var(--mer-color__neutral-gray--1300);
-    --mer-elevation__border-color--03: transparent;
-    --mer-elevation__border-color--04: transparent;
+    --mer-elevation__border-01: 1px solid var(--mer-color__elevation__03);
+    --mer-elevation__border-02: 1px solid var(--mer-color__elevation__03)
+    --mer-elevation__border-03: transparent;
+    --mer-elevation__border-04: transparent;
     /*box shadow*/
     --mer-elevation__box-shadow--01: none;
     --mer-elevation__box-shadow--02: none;
