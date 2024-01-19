@@ -38,6 +38,11 @@ INDEX:
    */
   @Prop() selectedButtonId: string;
 
+  /**
+   * Used to reduce the height when the button-container is next to a form-text
+   */
+  @Prop() reduced: boolean = false;
+
   // 2. REFERENCE TO ELEMENTS //
 
   // 3.STATE() VARIABLES //
@@ -102,7 +107,7 @@ INDEX:
     return (
       <Host>
         <div
-          class="container"
+          class={{ container: true, "container--reduced": this.reduced }}
           ref={el => (this.containerEl = el as HTMLDivElement)}
           onClick={this.setSelectedButton}
         >

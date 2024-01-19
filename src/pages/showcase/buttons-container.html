@@ -70,6 +70,37 @@
               >
             </gxg-buttons-container>
           </article>
+
+          <!-- reduced -->
+          <style>
+            .text-buttons-container {
+              display: flex;
+              align-items: end;
+              gap: 24px;
+            }
+          </style>
+          <article data-title="reduced">
+            <code pill>Reduced height</code>
+            <div class="text-buttons-container">
+              <gxg-form-text
+                label="Enter your full name:"
+                label-position="above"
+                placeholder="John Smith"
+                width="300px"
+              ></gxg-form-text>
+              <gxg-buttons-container reduced>
+                <gxg-button selected id="button-1" type="primary-text-only"
+                  >Caption 1</gxg-button
+                >
+                <gxg-button id="button-2" type="primary-text-only" unselected
+                  >Caption 2</gxg-button
+                >
+                <gxg-button id="button-3" type="primary-text-only" unselected
+                  >Caption 3</gxg-button
+                >
+              </gxg-buttons-container>
+            </div>
+          </article>
         </div>
       </section>
     </div>

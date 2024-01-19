@@ -12,6 +12,12 @@
     gap: var(--gxg-buttons-group__gap);
     border-radius: var(--gxg-buttons-group__border-radius);
     border: 1px solid var(--mer-color__elevation__03);
+
+    &--reduced {
+      --gxg-button-height: calc(
+        var(--gxg-form-text-height) - var(--mer-spacing--xs) - 2px
+      );
+    }
   }
 
   ::slotted(.button--unselected) {

@@ -18,6 +18,7 @@
   }
 }
 .wrapper {
+  flex-shrink: 0;
   @include checkbox("container");
   &--checked {
     @include checkbox("container--checked");
@@ -25,12 +26,23 @@
   &--indeterminate {
     @include checkbox("container--indeterminate");
   }
-  &:focus-within {
-    @include checkbox("container--focus-within");
+  &--has-icon {
+    margin-inline-end: var(--gxg-checkbox-spacing);
   }
 }
 .input {
   @include checkbox("input");
+  height: 0;
+  width: 0;
+}
+.input:focus + .wrapper {
+  @include checkbox("container--focus-within");
+  outline-offset: -1px;
+}
+.label {
+  &--has-icon {
+    padding-inline-start: var(--gxg-checkbox-spacing);
+  }
 }
 /*Disabled*/
 :host([disabled]) {
@@ -49,11 +61,4 @@ VALIDATION
 **********************************************/
 .messages-wrapper {
   @include messages-wrapper();
-}
-
-/*********************************************
-LARGE VERSION (html tag has 'gxg-large' class)
-**********************************************/
-:host(.large) .label {
-  font-size: var(--font-size-lg);
 }

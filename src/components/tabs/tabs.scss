@@ -20,6 +20,10 @@
   border-color: var(--gxg-tabs-border-color);
   border-radius: var(--gxg-tabs-border-radius);
   overflow: hidden;
+
+  &--no-border {
+    border: none;
+  }
 }
 
 .tabs-container {
@@ -59,8 +63,3 @@
   .tab-bar-menu {
   }
 }
-
-/*********************************************
-Mercury
-**********************************************/
-@import "./tabs-mercury";

@@ -6,15 +6,14 @@ import {
   h,
   State,
   Prop,
-  Method,
+  Method
 } from "@stencil/core";
-import state from "../store";
 import { GxgTab } from "../tab/tab";
 
 @Component({
   tag: "gxg-tabs",
   styleUrl: "tabs.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgTabs {
   @Element() el: HTMLGxgTabsElement;
@@ -24,6 +23,7 @@ export class GxgTabs {
   @Prop() maxHeight = "100%";
   @Prop() minWidth = "200px";
   @Prop() tabBarBorder = false;
+  @Prop() noBorder = false;
 
   /**
    * The presence of this attribute removes the background color (only for mercury)
@@ -64,8 +64,8 @@ export class GxgTabs {
   configureTabs() {
     const tabs = this.el.querySelectorAll("gxg-tab");
     if (this.noPadding) {
-      tabs.forEach((tab) => {
-        ((tab as unknown) as GxgTab).noPadding = true;
+      tabs.forEach(tab => {
+        (tab as unknown as GxgTab).noPadding = true;
       });
     }
   }
@@ -91,11 +91,15 @@ export class GxgTabs {
         style={{
           height: this.height,
           maxHeight: this.maxHeight,
-          minWidth: this.minWidth,
+          minWidth: this.minWidth
         }}
-        class={{ mercury: state.mercury }}
       >
-        <div class="main-container">
+        <div
+          class={{
+            "main-container": true,
+            "main-container--no-border": this.noBorder
+          }}
+        >
           {this.position === "bottom"
             ? [
                 <div class="tabs-container">
@@ -103,7 +107,7 @@ export class GxgTabs {
                 </div>,
                 <div class="tab-bar-container">
                   <slot name="tab-bar-container" />
-                </div>,
+                </div>
               ]
             : [
                 <div class="tab-bar-container">
@@ -111,7 +115,7 @@ export class GxgTabs {
                 </div>,
                 <div class="tabs-container">
                   <slot></slot>
-                </div>,
+                </div>
               ]}
         </div>
       </Host>

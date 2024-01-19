@@ -1,8 +1,0 @@
-:host(.mercury) {
-  background-color: var(--gray-00);
-  border-radius: 0;
-  box-shadow: none;
-}
-:host(.mercury[no-background]) {
-  background-color: transparent;
-}
