@@ -56,4 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   body.appendChild(navBar);
   html.classList.add("has-navbar");
+
+  //reveal body
+  body.classList.remove("opacity-0");
 });

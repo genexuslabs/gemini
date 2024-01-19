@@ -415,6 +415,11 @@ html {
 body {
   background-color: var(--ds-base-background-color);
   color: var(--ds-base-font-color);
+  transition: 250ms opacity;
+  opacity: 1;
+}
+body.opacity-0 {
+  opacity: 0;
 }
 body:not(.home) h1 {
   font-family: "Ubuntu Mono";
