@@ -73,9 +73,9 @@ export class GxgButton {
   @Prop() buttonStylesEditable = false;
 
   /**
-   * Gives the button unselected styles
+   * This property is for the button-container component
    */
-  @Prop() unselected = false;
+  @Prop() selected = false;
 
   private noTabIndex = false;
 
@@ -178,7 +178,7 @@ export class GxgButton {
           "button--fullwidth": this.fullWidth === true,
           "button--fit": this.fit,
           "button--small": this.small,
-          "button--unselected": this.unselected
+          "button--unselected": !this.selected
         }}
         onClick={this.clickHandler.bind(this)}
         exportParts={this.exportparts ? this.exportparts : null}

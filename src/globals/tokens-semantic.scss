@@ -178,13 +178,18 @@
     --ds-form-control-padding-horizontal: var(--mer-spacing--xs);
     --ds-form-control-padding-vertical: var(--mer-spacing--xs);
     /*--- Colors ---*/
-    --ds-row-background-color-odd: var(--mer-color__neutral-gray--1200);
+    --ds-row-background-color-odd: var(--mer-color__surface);
     --ds-row-background-color-even: var(--mer-color__surface);
-    --ds-row-background-color-odd--hover: var(--mer-color__neutral-gray--1100);
-    --ds-row-background-color-even--hover: var(--mer-color__neutral-gray--1300);
+    --ds-row-background-color-odd--hover: var(
+      --ds-item-background-color--hover
+    );
+    --ds-row-background-color-even--hover: var(
+      --ds-item-background-color--hover
+    );
     --ds-border-color--regular: var(--mer-border-color__dim);
+    --ds-border-color--regular: var(--mer-border-color__on-elevation--01);
     /*hover*/
-    --ds-item-background-color--hover: var(--mer-color__neutral-gray--1200);
+    --ds-item-background-color--hover: var(--mer-color__tinted-blue--8);
     --ds-item-color--hover: var();
     /*focus*/
     --ds-focus-border-width: var(--mer-border__width--sm);
@@ -195,7 +200,7 @@
     --ds-item-background-color--selected-hover: var(
       --mer-color__tinted-blue--20
     );
-    --ds-item-border-color--selected: var();
+    --ds-item-border-color--selected: var(--mer-color__tinted-blue--10);
     --ds-item-color--selected: var(--mer-color__neutral-gray--00);
     /*active*/
     --ds-item-background-color--active: var();

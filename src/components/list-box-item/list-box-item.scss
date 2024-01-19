@@ -18,15 +18,16 @@
   user-select: none;
   -o-user-select: none;
   outline: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: var(--gxg-list-box-item__border) !important;
 
   .container {
     display: flex;
     align-items: center;
-    padding: var(--spacing-comp-00) var(--spacing-comp-02);
+    padding: var(--gxg-list-box-item-container__padding);
     width: 100%;
     height: var(--ds-list-item-height--spaced);
     box-sizing: border-box;
+    //border-bottom: var(--gxg-list-box-item__border);
   }
 
   .icon {
@@ -47,6 +48,7 @@
 :host([disabled]) {
   pointer-events: none;
   border-bottom: transparent;
+  color: var(--ds-color-on-disabled);
 }
 :host(:hover:not([selected])) {
   background-color: var(--gxg-list-box-item__background-color--hover);
@@ -70,7 +72,7 @@
 /*ACTIVE*/
 :host([active]) {
   @include form-element-common-styles-focus-type-1();
-  background-color: var(--ds-item-background-color--hover);
+
   color: var(--ds-item-color--hover);
   outline-offset: var(--gxg-tree-view-item__outline-offset--active);
 }
@@ -80,11 +82,14 @@
   color: var(--gxg-grid-row-cell__color--selected);
 }
 :host([selected][sibling-is-selected]:not(.gxg--disabled)) {
-  border-bottom-color: var(--ds-item-border-color--selected);
+  border-bottom-color: var(--ds-item-border-color--selected) !important;
 }
 :host([selected]:hover) {
   background-color: var(--ds-item-background-color--selected-hover);
 }
 :host(:not([sibling-is-selected])) {
-  border-bottom-color: transparent;
+  //border-bottom-color: transparent;
+}
+:host:last-child {
+  border-bottom: none;
 }

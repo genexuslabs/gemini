@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
-    <title>Button Container | Gemini</title>
+    <title>Buttons Container | Gemini</title>
 
     <script type="module" src="/build/gemini.esm.js"></script>
     <script nomodule src="/build/gemini.js"></script>
@@ -27,17 +27,31 @@
   </head>
   <body>
     <div class="container no-separator">
-      <h1>gxg-button-container</h1>
-      <!-----------------
-      Template
-      ------------------>
+      <h1>gxg-buttons-container</h1>
+
       <section>
         <div class="articles-container">
-          <!-- first-case -->
-          <article data-title="template">
-            <code pill>some property</code>
+          <!-- enabled -->
+          <article data-title="enabled">
+            <!-- <code pill>some property</code> -->
             <gxg-buttons-container>
-              <gxg-button id="button-1" type="primary-text-only"
+              <gxg-button id="button-1" type="primary-text-only" selected
+                >Caption 1</gxg-button
+              >
+              <gxg-button id="button-2" type="primary-text-only"
+                >Caption 2</gxg-button
+              >
+              <gxg-button id="button-3" type="primary-text-only"
+                >Caption 3</gxg-button
+              >
+            </gxg-buttons-container>
+          </article>
+
+          <!-- disabled -->
+          <article data-title="disabled">
+            <!-- <code pill>some property</code> -->
+            <gxg-buttons-container>
+              <gxg-button disabled id="button-1" type="primary-text-only"
                 >Caption 1</gxg-button
               >
               <gxg-button
@@ -47,26 +61,14 @@
                 unselected
                 >Caption 2</gxg-button
               >
-              <gxg-button id="button-3" type="primary-text-only" unselected
+              <gxg-button
+                disabled
+                id="button-3"
+                type="primary-text-only"
+                unselected
                 >Caption 3</gxg-button
               >
             </gxg-buttons-container>
-          </article>
-
-          <div>
-            <button id="disable-button">disable button</button>
-          </div>
-
-          <article class="not-flex">
-            <gxg-button unselected type="primary-text-only">Caption</gxg-button>
-          </article>
-          <article class="not-flex">
-            <gxg-button unselected disabled type="primary-text-only"
-              >Caption</gxg-button
-            >
-          </article>
-          <article class="not-flex">
-            <gxg-button type="secondary-text-only">Caption</gxg-button>
           </article>
         </div>
       </section>

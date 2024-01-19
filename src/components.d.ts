@@ -290,6 +290,10 @@ export namespace Components {
          */
         "negative": boolean;
         /**
+          * This property is for the button-container component
+         */
+        "selected": boolean;
+        /**
           * The presence of this attribute makes the button small (only for buttons that include an icon)
          */
         "small": boolean;
@@ -297,10 +301,6 @@ export namespace Components {
           * The kind of button
          */
         "type": ButtonType;
-        /**
-          * Gives the button unselected styles
-         */
-        "unselected": boolean;
     }
     interface GxgButtonGroup {
         /**
@@ -3854,6 +3854,10 @@ declare namespace LocalJSX {
          */
         "negative"?: boolean;
         /**
+          * This property is for the button-container component
+         */
+        "selected"?: boolean;
+        /**
           * The presence of this attribute makes the button small (only for buttons that include an icon)
          */
         "small"?: boolean;
@@ -3861,10 +3865,6 @@ declare namespace LocalJSX {
           * The kind of button
          */
         "type"?: ButtonType;
-        /**
-          * Gives the button unselected styles
-         */
-        "unselected"?: boolean;
     }
     interface GxgButtonGroup {
         /**

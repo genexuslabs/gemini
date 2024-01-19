@@ -65,7 +65,7 @@ INDEX:
       return;
     } else {
       const clickedButton = event.target as HTMLGxgButtonElement;
-      if (clickedButton.disabled || !clickedButton.unselected) {
+      if (clickedButton.disabled || clickedButton.selected) {
         //button is disabled or is the current selected
         return;
       }
@@ -73,12 +73,11 @@ INDEX:
       Array.from(gxgButtonsHtmlCollection).forEach(function (
         button: HTMLGxgButtonElement
       ) {
-        if (!button.unselected) {
-          button.unselected = true;
-        } else if (!button.disabled) {
-          button.unselected = false;
+        if (button.selected) {
+          button.selected = false;
         }
       });
+      clickedButton.selected = true;
       this.updateSelectedButtonId();
     }
   };
@@ -87,7 +86,7 @@ INDEX:
     const gxgButtonsHtmlCollection = this.el.children;
     const selectedButton = Array.from(gxgButtonsHtmlCollection).find(
       (button: HTMLGxgButtonElement) => {
-        return !button.unselected && !button.disabled;
+        return button.selected && !button.disabled;
       }
     );
     if (selectedButton as HTMLGxgButtonElement) {

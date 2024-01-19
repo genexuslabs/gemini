@@ -20,6 +20,7 @@ ch-suggest-list {
     color: var(--gxg-suggest-list-title__color);
     background-color: var(--gxg-suggest-list-title__background-color);
     border-bottom: var(--gxg-suggest-general__border);
+    border-bottom-width: 2px;
   }
   &:first-child {
     margin-block-start: 0;

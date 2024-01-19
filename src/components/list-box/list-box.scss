@@ -11,8 +11,8 @@
   height: 100%;
   .container {
     height: 100%;
-    border: var(--ds-border-common-styles);
-    border-radius: var(--ds-form-control-border-radius);
+    border: var(--gxg-list-box-container__border);
+    border-radius: var(--gxg-list-box-general__border-radius);
     overflow: hidden;
   }
   .header {
@@ -40,7 +40,7 @@
 .main {
   overflow-y: auto;
   @include gxg-scrollbar();
-
+  padding: var(--gxg-list-box-main__padding);
   &--no-border {
     border: none;
   }
