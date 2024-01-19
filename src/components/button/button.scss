@@ -209,24 +209,3 @@
 :host(.button--icon-only) .button-native {
   padding: 0;
 }
-
-/*Unselected*/
-:host(.button--unselected) .button-native {
-  border-color: transparent;
-  background-color: var(--gxg-button-unselected-bg-color--enabled);
-  color: var(--gxg-button-unselected-color--enabled);
-  &:hover {
-    border-color: transparent;
-    background-color: var(--gxg-button-unselected-bg-color--hover);
-    color: var(--gxg-button-unselected-color--hover);
-  }
-  &:active {
-    border-color: transparent;
-    background-color: var(--gxg-button-unselected-bg-color--active);
-    color: var(--gxg-button-unselected-color--active);
-  }
-}
-/*Unselected (disabled)*/
-:host(.button--unselected.button--disabled) .button-native {
-  color: var(--ds-color-on-disabled);
-}
