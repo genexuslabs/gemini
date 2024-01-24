@@ -393,7 +393,7 @@ export class GxgListBox implements FormComponent {
       !this.disableSuggestions &&
       this.userUsedKeyboard
     ) {
-      this.hideKeyboardSuggestions = false;
+      // this.hideKeyboardSuggestions = false;
     }
   }
 
@@ -423,13 +423,13 @@ export class GxgListBox implements FormComponent {
           this.getHighlightedItems(),
           false
         );
-        changedLength > 0 && (this.hideKeyboardSuggestions = true);
+        //changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (shiftKey && (!ctrlKey || !cmdKey)) {
         const changedLength = this.setCheckboxState(
           this.getHighlightedItems(),
           true
         );
-        changedLength > 0 && (this.hideKeyboardSuggestions = true);
+        // changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (
         !shiftKey &&
         (ctrlKey || cmdKey) &&
@@ -453,6 +453,17 @@ export class GxgListBox implements FormComponent {
           }
         }
       }
+      //toggle checkboxes based on the first item checkbox state
+      // if (!ctrlKey || !cmdKey) {
+      //   const selectedItems = this.getSelectedItemsFunc();
+      //   let checked = false;
+      //   selectedItems.forEach((item, i) => {
+      //     if (i === 0) {
+      //       checked = item.checked;
+      //     }
+      //     item.checked = !checked;
+      //   });
+      // }
     } else if (
       e.code === "KeyA" &&
       (ctrlKey || cmdKey) &&

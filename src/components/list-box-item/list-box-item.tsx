@@ -102,7 +102,7 @@ export class GxgListboxItem {
   /**
    * The presence of this attribute will make the checkbox checked.
    */
-  @Prop() checked = false;
+  @Prop({ mutable: true }) checked: boolean = false;
 
   @Watch("selected")
   watchPropHandler() {
@@ -110,6 +110,11 @@ export class GxgListboxItem {
   }
 
   @State() mouseOver = false;
+
+  @Listen("checked")
+  checkedChangedHandler(e: boolean): void {
+    this.checked = e;
+  }
 
   @Listen("change")
   checkboxChangedHandler(e: CustomEvent<CheckboxInfo>): void {
