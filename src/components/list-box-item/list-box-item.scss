@@ -35,12 +35,12 @@
     flex-shrink: 0;
   }
 
-  gxg-form-checkbox {
-    margin-inline-end: var(--gxg-list-box-item-checkbox__margin-inline-end);
-  }
   gxg-form-checkbox::part(box) {
     outline: none;
   }
+}
+.checkbox {
+  margin-inline-end: 8px;
 }
 :host(:not([disabled])) {
   cursor: pointer !important;

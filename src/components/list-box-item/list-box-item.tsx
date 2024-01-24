@@ -90,6 +90,11 @@ export class GxgListboxItem {
   @Event() checkboxStateChanged: EventEmitter<ItemChecked>;
 
   /**
+   * (This event is for internal use.)
+   */
+  @Event() checkboxClicked: EventEmitter;
+
+  /**
    * The item value. If value is not provided, the value will be the item innerHTML.
    */
   @Prop() value: any = undefined;
@@ -126,6 +131,7 @@ export class GxgListboxItem {
       });
   }
   handleCheckboxClick = (e: MouseEvent): void => {
+    this.checkboxClicked.emit();
     e.stopPropagation();
     (e.target as HTMLGxgFormCheckboxElement).checked
       ? (this.checked = true)
@@ -195,6 +201,7 @@ export class GxgListboxItem {
               onClick={this.handleCheckboxClick}
               disabled={this.disabled}
               part={this.parts.checkbox}
+              class="checkbox"
             ></gxg-form-checkbox>
           ) : null}
           {this.icon !== undefined ? (

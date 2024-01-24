@@ -3084,6 +3084,7 @@ declare global {
         "itemLoaded": any;
         "itemSelected": any;
         "checkboxStateChanged": ItemChecked;
+        "checkboxClicked": any;
     }
     interface HTMLGxgListBoxItemElement extends Components.GxgListBoxItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGxgListBoxItemElementEventMap>(type: K, listener: (this: HTMLGxgListBoxItemElement, ev: GxgListBoxItemCustomEvent<HTMLGxgListBoxItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -5063,6 +5064,10 @@ declare namespace LocalJSX {
           * This property is set by the list-box item. It should not be set by the user.
          */
         "index"?: number;
+        /**
+          * (This event is for internal use.)
+         */
+        "onCheckboxClicked"?: (event: GxgListBoxItemCustomEvent<any>) => void;
         /**
           * (This event is for internal use.)
          */

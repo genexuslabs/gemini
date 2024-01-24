@@ -248,6 +248,11 @@ export class GxgListBox implements FormComponent {
     }
   };
 
+  @Listen("checkboxClicked")
+  checkboxClickedHandler(): void {
+    this.el.focus;
+  }
+
   @Listen("itemLoaded")
   itemLoadedHandler(): void {
     this.initialSetup();
@@ -435,7 +440,7 @@ export class GxgListBox implements FormComponent {
         (ctrlKey || cmdKey) &&
         this.selectedItemsLength() >= 1
       ) {
-        this.unselectHighlightedItems();
+        this.unselectHighlightedItems(true);
       } else if (!ctrlKey && !cmdKey) {
         if (this.singleSelection) {
           if (this.activeItem === this.getSelectedItemsFunc()[0]) {
@@ -454,16 +459,16 @@ export class GxgListBox implements FormComponent {
         }
       }
       //toggle checkboxes based on the first item checkbox state
-      // if (!ctrlKey || !cmdKey) {
-      //   const selectedItems = this.getSelectedItemsFunc();
-      //   let checked = false;
-      //   selectedItems.forEach((item, i) => {
-      //     if (i === 0) {
-      //       checked = item.checked;
-      //     }
-      //     item.checked = !checked;
-      //   });
-      // }
+      const selectedItems = this.getSelectedItemsFunc();
+      if (!ctrlKey || !cmdKey) {
+        selectedItems.forEach(item => {
+          item.checked = true;
+        });
+      } else {
+        selectedItems.forEach(item => {
+          item.checked = false;
+        });
+      }
     } else if (
       e.code === "KeyA" &&
       (ctrlKey || cmdKey) &&
@@ -475,7 +480,7 @@ export class GxgListBox implements FormComponent {
       /*Deselect highlighted items*/
       this.unselectHighlightedItems();
     }
-    this.evaluateSelectedItems();
+    //this.evaluateSelectedItems();
   };
 
   handleArrow = (direction: HandleArrow, shiftKey: boolean): void => {
@@ -600,8 +605,8 @@ export class GxgListBox implements FormComponent {
     return selectedItems;
   }
 
-  unselectHighlightedItems(): number {
-    const length = this.unselectItems(this.getHighlightedItems());
+  unselectHighlightedItems(spacePressed: boolean = false): number {
+    const length = this.unselectItems(this.getHighlightedItems(), spacePressed);
     return length;
   }
 
@@ -718,7 +723,8 @@ export class GxgListBox implements FormComponent {
   }
 
   unselectItems(
-    items: HTMLGxgListBoxItemElement | HTMLGxgListBoxItemElement[]
+    items: HTMLGxgListBoxItemElement | HTMLGxgListBoxItemElement[],
+    spacePressed: boolean = false
   ): number {
     let unselected = 0;
     let selectedItemsLength = this.selectedItemsLength();
@@ -743,10 +749,16 @@ export class GxgListBox implements FormComponent {
           }
         }
         this.activeItem !== item && this.unhighlightItem(item);
+        if (spacePressed) {
+          item.checked = false;
+        }
       });
     } else if (items && !Array.isArray(items)) {
       if (items.selected && !items.disabled) {
         items.selected = false;
+        if (spacePressed) {
+          items.checked = false;
+        }
         unselected++;
       }
       this.activeItem !== items && this.unhighlightItem(items);

@@ -24,6 +24,7 @@
 
 | Event                  | Description                       | Type                                                                                                                            |
 | ---------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `checkboxClicked`      | (This event is for internal use.) | `CustomEvent<any>`                                                                                                              |
 | `checkboxStateChanged` | (This event is for internal use.) | `CustomEvent<{ checkedItem: HTMLGxgListBoxItemElement; checked: boolean; }>`                                                    |
 | `itemClicked`          | (This event is for internal use.) | `CustomEvent<{ clickedItem: HTMLGxgListBoxItemElement; ctrlKey: boolean; cmdKey: boolean; shiftKey: boolean; index: number; }>` |
 | `itemLoaded`           | (This event is for internal use.) | `CustomEvent<any>`                                                                                                              |
