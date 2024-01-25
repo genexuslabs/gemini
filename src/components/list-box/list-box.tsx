@@ -250,7 +250,7 @@ export class GxgListBox implements FormComponent {
 
   @Listen("checkboxClicked")
   checkboxClickedHandler(): void {
-    this.el.focus;
+    this.containerEl.focus();
   }
 
   @Listen("itemLoaded")
@@ -424,16 +424,16 @@ export class GxgListBox implements FormComponent {
     } else if (e.code === "Space") {
       if (shiftKey && ctrlKey) {
         /*uncheck checkbox*/
-        const changedLength = this.setCheckboxState(
-          this.getHighlightedItems(),
-          false
-        );
+        // const changedLength = this.setCheckboxState(
+        //   this.getHighlightedItems(),
+        //   false
+        // );
         //changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (shiftKey && (!ctrlKey || !cmdKey)) {
-        const changedLength = this.setCheckboxState(
-          this.getHighlightedItems(),
-          true
-        );
+        // const changedLength = this.setCheckboxState(
+        //   this.getHighlightedItems(),
+        //   true
+        // );
         // changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (
         !shiftKey &&
@@ -458,7 +458,6 @@ export class GxgListBox implements FormComponent {
           }
         }
       }
-      //toggle checkboxes based on the first item checkbox state
       const selectedItems = this.getSelectedItemsFunc();
       if (!ctrlKey || !cmdKey) {
         selectedItems.forEach(item => {
