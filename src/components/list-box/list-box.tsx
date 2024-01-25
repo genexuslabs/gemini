@@ -249,7 +249,7 @@ export class GxgListBox implements FormComponent {
   };
 
   @Listen("checkboxClicked")
-  checkboxClickedHandler(e): void {
+  checkboxClickedHandler(): void {
     this.containerEl.focus();
   }
 
@@ -430,10 +430,10 @@ export class GxgListBox implements FormComponent {
         // );
         //changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (shiftKey && (!ctrlKey || !cmdKey)) {
-        const changedLength = this.setCheckboxState(
-          this.getHighlightedItems(),
-          true
-        );
+        // const changedLength = this.setCheckboxState(
+        //   this.getHighlightedItems(),
+        //   true
+        // );
         // changedLength > 0 && (this.hideKeyboardSuggestions = true);
       } else if (
         !shiftKey &&
