@@ -269,35 +269,23 @@ export class GxgFormCheckbox implements FormComponent {
           }}
           onClick={this.handleGxgLabelClick}
         >
-          {this.label ? (
-            [
-              this.renderCheckbox(),
-              <gxg-label
-                class={{
-                  label: true,
-                  "label--has-icon": !!this.iconName
-                }}
-                disabled={this.disabled}
-                labelPosition="end"
-                tooltip={this.tooltip}
-                noMargin={!!this.iconName}
-              >
-                {this.label}
-              </gxg-label>
-            ]
-          ) : (
-            <div
-              class={{
-                wrapper: true,
-                "wrapper--checked": this.checked,
-                "wrapper--indeterminate": this.indeterminate,
-                "wrapper--focus": this.hasFocus,
-                "wrapper--has-icon": !!this.iconName
-              }}
-            >
-              {this.renderCheckbox()}
-            </div>
-          )}
+          {this.label
+            ? [
+                this.renderCheckbox(),
+                <gxg-label
+                  class={{
+                    label: true,
+                    "label--has-icon": !!this.iconName
+                  }}
+                  disabled={this.disabled}
+                  labelPosition="end"
+                  tooltip={this.tooltip}
+                  noMargin={!!this.iconName}
+                >
+                  {this.label}
+                </gxg-label>
+              ]
+            : this.renderCheckbox()}
         </div>
         {this.formMessageLogic(this)}
       </Host>

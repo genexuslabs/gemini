@@ -50,6 +50,7 @@
   outline: none;
 }
 .container:not(:focus-within) {
+  --ds-border-color-control--focused: transparent;
   --ds-border-color--focused: transparent;
   --ds-focus-border-color: transparent;
 }

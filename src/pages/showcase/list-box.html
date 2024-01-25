@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" class="dark">
+<html dir="ltr" lang="en" class="mercury dark">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -23,13 +23,40 @@
     </style>
   </head>
   <body class="opacity-0">
+    <gxg-form-checkbox label="Show Inherited Classes"></gxg-form-checkbox>
+
     <div class="container no-separator">
       <h1>gxg-list-box</h1>
-      <!-----------------
-      Template
-      ------------------>
+
       <section>
         <div class="articles-container">
+          <!-- checkboxes -->
+          <article data-title="multi-selection">
+            <!-- <code pill></code> -->
+            <div class="example">
+              <gxg-list-box the-title="checkboxes" checkboxes>
+                <gxg-list-box-item>0.Common</gxg-list-box-item>
+                <gxg-list-box-item icon="objects/business-process-diagram"
+                  >1.BPM</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/conversational-flows"
+                  >2.Chatbots</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/data-provider"
+                  >3.Data Management</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/bg-color"
+                  >4.Resources</gxg-list-box-item
+                >
+                <gxg-list-box-item
+                  value="user-interface"
+                  icon="objects/webpanel"
+                  >5.User interface</gxg-list-box-item
+                >
+              </gxg-list-box>
+            </div>
+          </article>
+
           <!-- max-height -->
           <article data-title="max-height">
             <!-- <code pill></code> -->
