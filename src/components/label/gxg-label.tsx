@@ -45,7 +45,7 @@ export class GxgLabel {
   /*
    * The label size
    */
-  @Prop() size: "regular" | "large" = "regular";
+  @Prop() size: size = "regular";
 
   /*
    * An optional label tooltip (Useful if the label is too long).
@@ -93,3 +93,5 @@ export class GxgLabel {
     );
   }
 }
+
+export type size = "regular" | "large";

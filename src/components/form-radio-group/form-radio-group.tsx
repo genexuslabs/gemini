@@ -7,17 +7,19 @@ import {
   Host,
   Event,
   EventEmitter,
-  Watch,
+  Watch
 } from "@stencil/core";
 import { requiredLabel, formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { formClasses } from "../../common/classesNames";
 import { ValidationStatus } from "../../common/types";
 import { RadioData } from "../form-radio/form-radio";
+import { size } from "../label/gxg-label";
+
 @Component({
   tag: "gxg-form-radio-group",
   styleUrl: "form-radio-group.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgFormRadioGroup implements FormComponent {
   showValidationMessage = false;
@@ -60,6 +62,8 @@ export class GxgFormRadioGroup implements FormComponent {
    */
   @Prop({ mutable: true }) validationMessage: string;
 
+  @Prop({ mutable: true }) radiosLabelSize: size = "regular";
+
   /*VALIDATION*/
 
   formMessageLogic = formMessageLogic;
@@ -100,15 +104,14 @@ export class GxgFormRadioGroup implements FormComponent {
 
   @Watch("value")
   watchValueHandler(newValue: string): void {
-    const newCheckedRadio: HTMLGxgFormRadioElement = this.getCheckboxByValue(
-      newValue
-    );
+    const newCheckedRadio: HTMLGxgFormRadioElement =
+      this.getCheckboxByValue(newValue);
     this.uncheckAll(newCheckedRadio);
     if (this._componentDidLoad) {
       //_componentDidLoad prevents change event being emitted the first time.
       this.change.emit({
         id: newCheckedRadio.radioId,
-        value: this.value,
+        value: this.value
       });
     }
   }
@@ -126,7 +129,7 @@ export class GxgFormRadioGroup implements FormComponent {
     const radiosArray = Array.from(
       this.el.querySelectorAll("gxg-form-radio:not([disabled])")
     );
-    const currentRadioIndex = radiosArray.findIndex((radio) => {
+    const currentRadioIndex = radiosArray.findIndex(radio => {
       return currentRadio === radio;
     });
     if (currentRadioIndex !== -1) {
@@ -152,6 +155,10 @@ export class GxgFormRadioGroup implements FormComponent {
       this.disableAllRadios();
     }
     this.setValue();
+    const radios = this.el.querySelectorAll("gxg-form-radio");
+    Array.from(radios).forEach(radio => {
+      radio.labelSize = this.radiosLabelSize;
+    });
   }
 
   componentDidLoad() {
@@ -161,7 +168,7 @@ export class GxgFormRadioGroup implements FormComponent {
   renderLabel(): void {
     if (this.label) {
       return (
-        <gxg-label class="label">
+        <gxg-label class="label" size="large">
           {this.label}
           {requiredLabel(this)}
         </gxg-label>
@@ -172,7 +179,7 @@ export class GxgFormRadioGroup implements FormComponent {
   private uncheckAll = (checkedRadio: HTMLGxgFormRadioElement): void => {
     const enabledRadios = this.getEnabledRadios();
     if (enabledRadios.length) {
-      enabledRadios.forEach((radio) => {
+      enabledRadios.forEach(radio => {
         if (checkedRadio !== radio && radio.checked) radio.checked = false;
       });
     }
@@ -181,7 +188,7 @@ export class GxgFormRadioGroup implements FormComponent {
   private setValue = (): void => {
     const enabledRadios = this.getEnabledRadios();
     let checkedRadio: HTMLGxgFormRadioElement;
-    enabledRadios.forEach((radio) => {
+    enabledRadios.forEach(radio => {
       if (!radio.disabled && !checkedRadio) {
         !checkedRadio && radio.checked && (checkedRadio = radio);
       }
@@ -193,11 +200,9 @@ export class GxgFormRadioGroup implements FormComponent {
         this.value = checkedRadio.value;
       }
     } else if (this.value && !checkedRadio) {
-      const foundRadio: HTMLGxgFormRadioElement = enabledRadios.find(
-        (radio) => {
-          return radio.value === this.value;
-        }
-      );
+      const foundRadio: HTMLGxgFormRadioElement = enabledRadios.find(radio => {
+        return radio.value === this.value;
+      });
       if (foundRadio) {
         foundRadio.checked = true;
       } else {
@@ -218,7 +223,7 @@ export class GxgFormRadioGroup implements FormComponent {
   private disableAllRadios = (): void => {
     if (this.disabled) {
       const radios = this.el.querySelectorAll("gxg-form-radio");
-      radios.forEach((radio) => {
+      radios.forEach(radio => {
         (radio as HTMLGxgFormRadioElement).disabled = true;
       });
     }
@@ -226,10 +231,9 @@ export class GxgFormRadioGroup implements FormComponent {
 
   private enableAllRadios = (): void => {
     if (!this.disabled) {
-      const radios: NodeListOf<HTMLGxgFormRadioElement> = this.el.querySelectorAll(
-        "gxg-form-radio"
-      );
-      radios.forEach((radio) => {
+      const radios: NodeListOf<HTMLGxgFormRadioElement> =
+        this.el.querySelectorAll("gxg-form-radio");
+      radios.forEach(radio => {
         radio.disabled = false;
         if (radio.value === this.value) {
           radio.checked = true;
@@ -241,7 +245,7 @@ export class GxgFormRadioGroup implements FormComponent {
   private getEnabledRadios = (): HTMLGxgFormRadioElement[] => {
     const allRadios = this.el.querySelectorAll("gxg-form-radio");
     const enabledRadios: HTMLGxgFormRadioElement[] = [];
-    allRadios.forEach((radio) => {
+    allRadios.forEach(radio => {
       if (!radio.disabled) {
         enabledRadios.push(radio);
       }
@@ -253,7 +257,7 @@ export class GxgFormRadioGroup implements FormComponent {
     const enabledRadios = this.getEnabledRadios();
     let radio: HTMLGxgFormRadioElement;
     if (enabledRadios.length) {
-      radio = enabledRadios.find((radio) => {
+      radio = enabledRadios.find(radio => {
         return radio.value === value;
       });
     }
@@ -274,7 +278,7 @@ export class GxgFormRadioGroup implements FormComponent {
           [formClasses["VALIDATION_ERROR_CLASS"]]:
             this.validationStatus === "error",
           [formClasses["VALIDATION_SUCCESS_CLASS"]]:
-            this.validationStatus === "success",
+            this.validationStatus === "success"
         }}
       >
         {this.renderLabel()}

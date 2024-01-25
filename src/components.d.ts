@@ -23,6 +23,7 @@ import { footerJustify, headingJustify, sectionsPadding } from "./components/con
 import { DatePickerDate } from "./components/date-picker/date-picker";
 import { Padding } from "./components/drag-box/drag-box";
 import { Padding as Padding1 } from "./components/drag-box/drag-box";
+import { size } from "./components/label/gxg-label";
 import { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
 import { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form-checkbox-group";
 import { Message } from "./components/form-message/form-message";
@@ -31,6 +32,7 @@ import { RadioData as RadioData1 } from "./components/form-radio/form-radio";
 import { IconPosition, InputType, LabelPosition as LabelPosition1, Style } from "./components/form-text/form-text";
 import { Color as Color1, Size } from "./components/icon/icon";
 import { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
+import { size as size1 } from "./components/label/gxg-label";
 import { ItemsInformation, KeyboardSuggestions, SelectionChangedEvent } from "./components/list-box/list-box";
 import { ItemChecked, ItemClicked } from "./components/list-box-item/list-box-item";
 import { MenuItemFocusChange, MenuItemSelected } from "./components/menu-slim/item/item";
@@ -76,6 +78,7 @@ export { footerJustify, headingJustify, sectionsPadding } from "./components/con
 export { DatePickerDate } from "./components/date-picker/date-picker";
 export { Padding } from "./components/drag-box/drag-box";
 export { Padding as Padding1 } from "./components/drag-box/drag-box";
+export { size } from "./components/label/gxg-label";
 export { CheckboxInfo } from "./components/form-checkbox/form-checkbox";
 export { CheckboxesGroupValues } from "./components/form-checkbox-group/gxg-form-checkbox-group";
 export { Message } from "./components/form-message/form-message";
@@ -84,6 +87,7 @@ export { RadioData as RadioData1 } from "./components/form-radio/form-radio";
 export { IconPosition, InputType, LabelPosition as LabelPosition1, Style } from "./components/form-text/form-text";
 export { Color as Color1, Size } from "./components/icon/icon";
 export { IdeLoaderCancelCallback } from "./components/ide-loader/ide-loader";
+export { size as size1 } from "./components/label/gxg-label";
 export { ItemsInformation, KeyboardSuggestions, SelectionChangedEvent } from "./components/list-box/list-box";
 export { ItemChecked, ItemClicked } from "./components/list-box-item/list-box-item";
 export { MenuItemFocusChange, MenuItemSelected } from "./components/menu-slim/item/item";
@@ -861,6 +865,10 @@ export namespace Components {
          */
         "label": string | undefined;
         /**
+          * The checkbox label size
+         */
+        "labelSize": size;
+        /**
           * The checkbox name
          */
         "name": string;
@@ -883,6 +891,7 @@ export namespace Components {
         "value": string;
     }
     interface GxgFormCheckboxGroup {
+        "checkboxesLabelSize": size;
         /**
           * The presence of this attribute makes all the checkboxes disabled
          */
@@ -932,6 +941,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * the label size
+         */
+        "labelSize": size;
+        /**
           * The radio name (should be the same for every radio of the same radio-group)
          */
         "name": string;
@@ -961,6 +974,7 @@ export namespace Components {
           * The radio group label
          */
         "label": string;
+        "radiosLabelSize": size;
         /**
           * Make the radio-buttons required
          */
@@ -1270,7 +1284,7 @@ export namespace Components {
          */
         "labelPosition": LabelPosition;
         "noMargin": boolean;
-        "size": "regular" | "large";
+        "size": size1;
         "tooltip": string;
         "width": string;
     }
@@ -4501,6 +4515,10 @@ declare namespace LocalJSX {
          */
         "label"?: string | undefined;
         /**
+          * The checkbox label size
+         */
+        "labelSize"?: size;
+        /**
           * The checkbox name
          */
         "name"?: string;
@@ -4524,6 +4542,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface GxgFormCheckboxGroup {
+        "checkboxesLabelSize"?: size;
         /**
           * The presence of this attribute makes all the checkboxes disabled
          */
@@ -4570,6 +4589,10 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * the label size
+         */
+        "labelSize"?: size;
+        /**
           * The radio name (should be the same for every radio of the same radio-group)
          */
         "name"?: string;
@@ -4611,6 +4634,7 @@ declare namespace LocalJSX {
           * Emits the value when is changed, and the radio id.
          */
         "onChange"?: (event: GxgFormRadioGroupCustomEvent<RadioData1>) => void;
+        "radiosLabelSize"?: size;
         /**
           * Make the radio-buttons required
          */
@@ -4954,7 +4978,7 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: LabelPosition;
         "noMargin"?: boolean;
-        "size"?: "regular" | "large";
+        "size"?: size1;
         "tooltip"?: string;
         "width"?: string;
     }

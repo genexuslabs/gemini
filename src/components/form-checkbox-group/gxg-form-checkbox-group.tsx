@@ -8,18 +8,19 @@ import {
   Listen,
   Element,
   Watch,
-  Method,
+  Method
 } from "@stencil/core";
 import { formMessageLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
 import { CheckboxInfo } from "../form-checkbox/form-checkbox";
 import { formClasses } from "../../common/classesNames";
 import { ValidationStatus } from "../../common/types";
+import { size } from "../label/gxg-label";
 
 @Component({
   tag: "gxg-form-checkbox-group",
   styleUrl: "gxg-form-checkbox-group.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgFormCheckboxGroup implements FormComponent {
   @Element() el: HTMLGxgFormCheckboxGroupElement;
@@ -43,6 +44,8 @@ export class GxgFormCheckboxGroup implements FormComponent {
    * The required message if this input is required and no value is provided (optional). If this is not provided, the default browser required message will show up
    */
   @Prop({ mutable: true }) validationMessage: string;
+
+  @Prop({ mutable: true }) checkboxesLabelSize: size = "regular";
 
   /**
    * An informative message to help the user filling the information
@@ -72,7 +75,13 @@ export class GxgFormCheckboxGroup implements FormComponent {
     if (this.disabled) {
       this.disableGroup();
     }
+    const checkboxes = this.el.querySelectorAll("gxg-form-checkbox");
+    Array.from(checkboxes).forEach(checkbox => {
+      checkbox.labelSize = this.checkboxesLabelSize;
+    });
   }
+
+  componentDidLoad() {}
 
   @Listen("change")
   changeHandler(event: CustomEvent<CheckboxInfo>) {
@@ -86,11 +95,11 @@ export class GxgFormCheckboxGroup implements FormComponent {
   private getCheckboxesInfo = (): CheckboxesGroupValues => {
     const checkboxesArray: CheckboxesGroupValues = [];
     const checkboxes = this.el.querySelectorAll("gxg-form-checkbox");
-    checkboxes.forEach((checkbox) => {
+    checkboxes.forEach(checkbox => {
       checkboxesArray.push({
         id: checkbox.checkboxId,
         value: checkbox.checked,
-        disabled: checkbox.disabled,
+        disabled: checkbox.disabled
       });
     });
     return checkboxesArray;
@@ -124,7 +133,7 @@ export class GxgFormCheckboxGroup implements FormComponent {
             [formClasses["VALIDATION_ERROR_CLASS"]]:
               this.validationStatus === "error",
             [formClasses["VALIDATION_SUCCESS_CLASS"]]:
-              this.validationStatus === "success",
+              this.validationStatus === "success"
           }}
         >
           <slot></slot>

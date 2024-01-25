@@ -17,6 +17,7 @@ import state from "../store";
 import { JSXElement } from "@babel/types";
 import { exportParts } from "../../common/export-parts";
 import { ValidationStatus } from "../../common/types";
+import { size } from "../label/gxg-label";
 
 @Component({
   tag: "gxg-form-checkbox",
@@ -61,6 +62,11 @@ export class GxgFormCheckbox implements FormComponent {
    * The checkbox label
    */
   @Prop() label: string | undefined = undefined;
+
+  /**
+   * The checkbox label size
+   */
+  @Prop() labelSize: size = "regular";
 
   /**
    * The checkbox value
@@ -281,6 +287,7 @@ export class GxgFormCheckbox implements FormComponent {
                   labelPosition="end"
                   tooltip={this.tooltip}
                   noMargin={!!this.iconName}
+                  size={this.labelSize}
                 >
                   {this.label}
                 </gxg-label>

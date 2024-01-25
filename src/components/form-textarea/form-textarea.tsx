@@ -19,6 +19,7 @@ import { formClasses } from "../../common/classesNames";
 import { exportParts } from "../../common/export-parts";
 import { ValidationStatus, LabelPosition } from "../../common/types";
 import { commonClassesNames } from "../../common/classesNames";
+
 @Component({
   tag: "gxg-form-textarea",
   styleUrl: "form-textarea.scss",
@@ -62,6 +63,11 @@ export class GxgFormTextarea implements FormComponent {
    * The textarea label
    */
   @Prop({ reflect: true }) label: string;
+
+  /**
+   * the label size
+   */
+  //@Prop() labelSize: labelSize = "regular";
 
   /**
    * The label position
@@ -273,6 +279,7 @@ export class GxgFormTextarea implements FormComponent {
             labelPosition={this.labelPosition}
             center={this.centerLabel}
             width={this.labelWidth}
+            //size={this.labelSize}
           >
             {this.label}
             {requiredLabel(this)}

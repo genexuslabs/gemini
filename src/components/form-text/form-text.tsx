@@ -99,6 +99,11 @@ export class GxgFormText implements FormComponent {
   @Prop() label: string;
 
   /**
+   * the label size
+   */
+  //@Prop() labelSize: labelSize = "regular";
+
+  /**
    * The label position
    */
   @Prop({ reflect: true }) labelPosition: LabelPosition = "start";

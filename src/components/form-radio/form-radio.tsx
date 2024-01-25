@@ -9,6 +9,8 @@ import {
   Watch
 } from "@stencil/core";
 
+import { size } from "../label/gxg-label";
+
 @Component({
   tag: "gxg-form-radio",
   styleUrl: "form-radio.scss",
@@ -59,6 +61,11 @@ export class GxgFormRadio {
   @Prop() label: string;
 
   /**
+   * the label size
+   */
+  @Prop() labelSize: size = "regular";
+
+  /**
    * The radio name (should be the same for every radio of the same radio-group)
    */
   @Prop() name: string;
@@ -99,6 +106,7 @@ export class GxgFormRadio {
           disabled={this.disabled}
           onClick={this.clickedHandler}
           labelPosition="end"
+          size={this.labelSize}
         >
           <input
             ref={el => (this.radioInput = el as HTMLInputElement)}

@@ -27,11 +27,21 @@
       ------------------>
       <section data-title="single">
         <div class="articles-container">
-          <!-- default -->
-          <article data-title="default">
+          <!-- size regular -->
+          <article data-title="size regular">
             <div class="example">
               <gxg-form-checkbox
                 label="Show Inherited Classes"
+              ></gxg-form-checkbox>
+            </div>
+          </article>
+
+          <!-- size large -->
+          <article data-title="size large">
+            <div class="example">
+              <gxg-form-checkbox
+                label="Show Inherited Classes"
+                label-size="large"
               ></gxg-form-checkbox>
             </div>
           </article>
@@ -83,12 +93,12 @@
       </section>
 
       <!-----------------
-      Checkbox Group
+      Checkbox Group Vertical
       ------------------>
-      <section data-title="group">
+      <section data-title="group vertical">
         <div class="articles-container">
           <!-- default -->
-          <article data-title="default">
+          <article data-title="size regular">
             <div class="example">
               <gxg-form-checkbox-group>
                 <gxg-form-checkbox
@@ -120,9 +130,47 @@
             </div>
           </article>
 
-          <!-- row -->
-          <article data-title="row">
-            <code pill>row (on gxg-form-checkbox-group)</code>
+          <article data-title="size large">
+            <div class="example">
+              <gxg-form-checkbox-group checkboxes-label-size="large">
+                <gxg-form-checkbox
+                  id="red"
+                  value="Red"
+                  label="Red"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="blue"
+                  value="Blue"
+                  label="Blue"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="green"
+                  value="Green"
+                  label="Green"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="yellow"
+                  value="Yellow"
+                  label="Yellow"
+                ></gxg-form-checkbox>
+                <gxg-form-checkbox
+                  checkbox-id="purple"
+                  value="Purple"
+                  label="Purple"
+                ></gxg-form-checkbox>
+              </gxg-form-checkbox-group>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Checkbox Group Horzontal
+      ------------------>
+      <section data-title="group horizontal">
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="size regular">
             <div class="example">
               <gxg-form-checkbox-group row>
                 <gxg-form-checkbox
@@ -154,14 +202,9 @@
             </div>
           </article>
 
-          <!-- information message -->
-          <article data-title="information message">
-            <code pill>information-message="..."</code>
+          <article data-title="size large">
             <div class="example">
-              <gxg-form-checkbox-group
-                row
-                information-message="Pick any color that you would like"
-              >
+              <gxg-form-checkbox-group checkboxes-label-size="large" row>
                 <gxg-form-checkbox
                   id="red"
                   value="Red"
