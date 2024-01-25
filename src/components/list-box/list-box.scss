@@ -14,6 +14,7 @@
     border: var(--gxg-list-box-container__border);
     border-radius: var(--gxg-list-box-general__border-radius);
     overflow: hidden;
+    box-sizing: border-box;
   }
   .header {
     width: 100%;
@@ -41,6 +42,7 @@
   overflow-y: auto;
   @include gxg-scrollbar();
   padding: var(--gxg-list-box-main__padding);
+  box-sizing: border-box;
   &--no-border {
     border: none;
   }

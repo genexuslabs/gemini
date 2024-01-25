@@ -1,5 +1,6 @@
 :root {
-  --gxg-label-font-size: var(--font-size-lg);
+  --gxg-label-font-size--regular: var(--font-size-lg);
+  --gxg-label-font-size--large: var(--font-size-lg);
   --gxg-label-font-weight: var(--font-weight-regular);
   --gxg-label-color: var(--color-on-background);
   --gxg-label-color-disabled: var(--ds-color-disabled);
@@ -7,11 +8,12 @@
   --gxg-label-separation-vertical: var(--spacing-lay-xs);
 
   &.mercury {
-    --gxg-label-font-size: var(--mer-font__size--xs);
+    --gxg-label-font-size--regular: var(--mer-font__size--xxxs);
+    --gxg-label-font-size--large: var(--mer-font__size--xs);
     --gxg-label-font-weight: var(--mer-font__weight--semi-bold);
     --gxg-label-color: var(--mer-text__bright);
     --gxg-label-color-disabled: var(--mer-text__primary--disabled);
-    --gxg-label-separation-horizontal: var(--mer-spacing--sm);
+    --gxg-label-separation-horizontal: var(--mer-spacing--xs);
     --gxg-label-separation-vertical: var(--mer-spacing--xs);
   }
 }

@@ -12,6 +12,7 @@
 | `for`           | `for`            |                                                                                    | `string`                                 | `undefined` |
 | `labelPosition` | `label-position` | ******************************* PROPERTIES & STATE ******************************* | `"above" \| "below" \| "end" \| "start"` | `"start"`   |
 | `noMargin`      | `no-margin`      |                                                                                    | `boolean`                                | `false`     |
+| `size`          | `size`           |                                                                                    | `"large" \| "regular"`                   | `"regular"` |
 | `tooltip`       | `tooltip`        |                                                                                    | `string`                                 | `undefined` |
 | `width`         | `width`          |                                                                                    | `string`                                 | `"auto"`    |
 

@@ -80,6 +80,7 @@
     }
     &--selected {
       color: var(--gxg-tab-button-color--selected);
+      font-weight: var(--gxg-tab-button-font-weight-selected);
       &:after {
         background-color: var(--gxg-tab-button-line-background-color);
       }
