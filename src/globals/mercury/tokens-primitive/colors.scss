@@ -94,14 +94,14 @@
   }
 
   //Elevation
-  --mer-color__elevation__01: var(--mer-color__neutral-gray--900);
-  --mer-color__elevation__02: var(--mer-color__neutral-gray--900);
-  --mer-color__elevation__03: var(--mer-color__neutral-gray--900);
-  --mer-color__elevation__04: var(--mer-color__neutral-gray--900);
+  --mer-color__elevation--01: var(--mer-color__neutral-gray--900);
+  --mer-color__elevation--02: var(--mer-color__neutral-gray--900);
+  --mer-color__elevation--03: var(--mer-color__neutral-gray--900);
+  --mer-color__elevation--04: var(--mer-color__neutral-gray--900);
   &.dark {
-    --mer-color__elevation__01: #202428;
-    --mer-color__elevation__02: #262a2f;
-    --mer-color__elevation__03: #2b3237;
-    --mer-color__elevation__04: #3b4044;
+    --mer-color__elevation--01: #202428;
+    --mer-color__elevation--02: #262a2f;
+    --mer-color__elevation--03: #2b3237;
+    --mer-color__elevation--04: #3b4044;
   }
 }

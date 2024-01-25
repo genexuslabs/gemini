@@ -58,19 +58,20 @@
   --ds-row-background-color-even--hover: var(--gray-01);
   --ds-border-color--regular: var(--gray-02);
   /*hover*/
-  --ds-item-background-color--hover: var(--gray-01);
+
   --ds-item-color--hover: var(--color-on-background);
   --ds-filter-brightness--hover: 1.03;
   /*focus*/
   --ds-focus-border-width: var(--border-width-md);
   --ds-focus-border-color: var(--color-primary-enabled);
-  /*selected*/
+  /*item*/
+  --ds-item-background-color--hover: var(--gray-01);
   --ds-item-background-color--selected: var(--color-secondary-enabled);
   --ds-item-background-color--selected-hover: var(
     --color-secondary-enabled--hover
   );
+  --ds-item-border-color: var(--gray-00);
   --ds-item-border-color--selected: var(--color-secondary-hover);
-  // --ds-item-color--selected: var(--color-on-background);
   --ds-item-color--selected: var(--mer-color__neutral-gray--100);
   /*active*/
   --ds-item-background-color--active: var(--color-secondary-active);
@@ -158,7 +159,7 @@
     --ds-icon-mask-size: 100%;
     --ds-icon-size-box--regular: 32px;
     --ds-icon-size-box--small: 24px;
-    --ds-icon-size--regular: 22px;
+    --ds-icon-size--regular: 18px;
     --ds-icon-size--small: 16px;
     /*--- List Item ---*/
     --ds-list-item-height: var(--mer-spacing--lg);
@@ -188,20 +189,20 @@
     );
     --ds-border-color--regular: var(--mer-border-color__dim);
     --ds-border-color--regular: var(--mer-border-color__on-elevation--01);
-    /*hover*/
-    --ds-item-background-color--hover: var(--mer-color__tinted-blue--8);
-    --ds-item-color--hover: var();
     /*focus*/
     --ds-focus-border-width: var(--mer-border__width--sm);
     --ds-focus-border-color: var(--mer-border-color__primary--focused);
-    /*selected*/
-
-    --ds-item-background-color--selected: var(--mer-color__tinted-blue--20);
-    --ds-item-background-color--selected-hover: var(
-      --mer-color__tinted-blue--20
+    /*item*/
+    --ds-item-background-color--hover: var(--mer-item__background-color--hover);
+    --ds-item-background-color--selected: var(
+      --mer-item__background-color--selected
     );
-    --ds-item-border-color--selected: var(--mer-color__tinted-blue--10);
-    --ds-item-color--selected: var(--mer-color__neutral-gray--00);
+    --ds-item-background-color--selected-hover: var(
+      --mer-item__background-color--selected-hover
+    );
+    --ds-item-border-color: var(--mer-color__elevation--01);
+    --ds-item-border-color--selected: var(--mer-item__border-color--selected);
+    --ds-item-color--selected: var(--mer-text__on-surface);
     /*active*/
     --ds-item-background-color--active: var();
     --ds-color--active: var();

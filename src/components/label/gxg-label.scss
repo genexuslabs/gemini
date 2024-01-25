@@ -36,6 +36,13 @@
     color: var(--gxg-label-color-disabled);
   }
 }
+/*Size*/
+:host(.gxg-label--regular) {
+  --gxg-label-font-size: var(--gxg-label-font-size--regular);
+}
+:host(.gxg-label--large) {
+  --gxg-label-font-size: var(--gxg-label-font-size--large);
+}
 /*********************************************
 LARGE VERSION (html tag has 'gxg-large' class)
 **********************************************/

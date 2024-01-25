@@ -5,7 +5,7 @@ import { LabelPosition } from "../../common/types";
 @Component({
   tag: "gxg-label",
   styleUrl: "gxg-label.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgLabel {
   /*********************************
@@ -43,6 +43,11 @@ export class GxgLabel {
   @Prop() width = "auto";
 
   /*
+   * The label size
+   */
+  @Prop() size: "regular" | "large" = "regular";
+
+  /*
    * An optional label tooltip (Useful if the label is too long).
    */
   @Prop() tooltip: string;
@@ -68,10 +73,12 @@ export class GxgLabel {
           large: state.large,
           "gxg-label--no-margin": this.noMargin,
           "gxg-label--center": this.center,
-          [`position-${this.labelPosition}`]: true,
+          "gxg-label--regular": this.size === "regular",
+          "gxg-label--large": this.size === "large",
+          [`position-${this.labelPosition}`]: true
         }}
         style={{
-          width: this.width,
+          width: this.width
         }}
       >
         <label htmlFor={this.for}>

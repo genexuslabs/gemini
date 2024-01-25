@@ -58,12 +58,12 @@
 
   &.dark {
     /*background color*/
-    --mer-elevation__background-color--01: var(--mer-color__elevation__01);
-    --mer-elevation__background-color--02: var(--mer-color__elevation__02);
-    --mer-elevation__background-color--03: var(--mer-color__elevation__03);
-    --mer-elevation__background-color--04: var(--mer-color__elevation__04);
+    --mer-elevation__background-color--01: var(--mer-color__elevation--01);
+    --mer-elevation__background-color--02: var(--mer-color__elevation--02);
+    --mer-elevation__background-color--03: var(--mer-color__elevation--03);
+    --mer-elevation__background-color--04: var(--mer-color__elevation--04);
     /*border*/
-    --mer-elevation__border-01: 1px solid var(--mer-color__elevation__03);
+    --mer-elevation__border-01: 1px solid var(--mer-color__elevation--03);
     --mer-elevation__border-03: transparent;
     --mer-elevation__border-04: transparent;
     /*box shadow*/

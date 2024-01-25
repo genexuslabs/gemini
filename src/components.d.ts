@@ -1270,6 +1270,7 @@ export namespace Components {
          */
         "labelPosition": LabelPosition;
         "noMargin": boolean;
+        "size": "regular" | "large";
         "tooltip": string;
         "width": string;
     }
@@ -4953,6 +4954,7 @@ declare namespace LocalJSX {
          */
         "labelPosition"?: LabelPosition;
         "noMargin"?: boolean;
+        "size"?: "regular" | "large";
         "tooltip"?: string;
         "width"?: string;
     }
