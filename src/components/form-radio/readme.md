@@ -20,15 +20,16 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                 | Type      | Default     |
-| ---------- | ---------- | --------------------------------------------------------------------------- | --------- | ----------- |
-| `checked`  | `checked`  | The presence of this attribute makes the radio selected by default          | `boolean` | `false`     |
-| `disabled` | `disabled` | The presence of this attribute disables the radio                           | `boolean` | `false`     |
-| `error`    | `error`    | Styles the radio-button with error attributes                               | `boolean` | `false`     |
-| `label`    | `label`    | The radio label                                                             | `string`  | `undefined` |
-| `name`     | `name`     | The radio name (should be the same for every radio of the same radio-group) | `string`  | `undefined` |
-| `radioId`  | `radio-id` | The radio id                                                                | `string`  | `undefined` |
-| `value`    | `value`    | The radio value                                                             | `string`  | `undefined` |
+| Property    | Attribute    | Description                                                                 | Type                   | Default     |
+| ----------- | ------------ | --------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `checked`   | `checked`    | The presence of this attribute makes the radio selected by default          | `boolean`              | `false`     |
+| `disabled`  | `disabled`   | The presence of this attribute disables the radio                           | `boolean`              | `false`     |
+| `error`     | `error`      | Styles the radio-button with error attributes                               | `boolean`              | `false`     |
+| `label`     | `label`      | The radio label                                                             | `string`               | `undefined` |
+| `labelSize` | `label-size` | the label size                                                              | `"large" \| "regular"` | `"regular"` |
+| `name`      | `name`       | The radio name (should be the same for every radio of the same radio-group) | `string`               | `undefined` |
+| `radioId`   | `radio-id`   | The radio id                                                                | `string`               | `undefined` |
+| `value`     | `value`      | The radio value                                                             | `string`               | `undefined` |
 
 
 ## Events

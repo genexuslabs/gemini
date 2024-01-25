@@ -25,6 +25,7 @@
 | `indeterminate`      | `indeterminate`       | The presence of this attribute makes the checkbox indeterminate                 | `boolean`                                              | `false`           |
 | `informationMessage` | `information-message` | An informative message to help the user filling the information                 | `string`                                               | `undefined`       |
 | `label`              | `label`               | The checkbox label                                                              | `string`                                               | `undefined`       |
+| `labelSize`          | `label-size`          | The checkbox label size                                                         | `"large" \| "regular"`                                 | `"regular"`       |
 | `name`               | `name`                | The checkbox name                                                               | `string`                                               | `undefined`       |
 | `required`           | `required`            | The presence of this attribute makes the commbo required                        | `boolean`                                              | `false`           |
 | `tooltip`            | `tooltip`             |                                                                                 | `string`                                               | `undefined`       |

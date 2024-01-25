@@ -21,6 +21,8 @@ import { commonClassesNames } from "../../common/classesNames";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
 import { ValidationStatus } from "../../common/types";
+import { size } from "../label/gxg-label";
+//import { size as labelSize } from "../label/gxg-label";
 
 @Component({
   tag: "gxg-form-text",
@@ -97,6 +99,11 @@ export class GxgFormText implements FormComponent {
    * The input label
    */
   @Prop() label: string;
+
+  /**
+   * the label size
+   */
+  //@Prop() labelSize: labelSize = "regular";
 
   /**
    * The label position

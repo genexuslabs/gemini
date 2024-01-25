@@ -23,12 +23,48 @@
     <div class="container no-separator">
       <h1>gxg-form-radio</h1>
       <!-----------------
-      Template
+      Form Radio
       ------------------>
-      <section>
+
+      <!-- single radio -->
+      <section data-title="single">
         <div class="articles-container">
-          <!-- radio-group vertical -->
-          <article data-title="radio-group vertical">
+          <!-- size regular -->
+          <article data-title="label-size regular">
+            <div class="example">
+              <gxg-form-radio label="red" value="red"></gxg-form-radio>
+            </div>
+          </article>
+
+          <!-- size large -->
+          <article data-title="label-size large">
+            <div class="example">
+              <gxg-form-radio
+                label-size="large"
+                label="red"
+                value="red"
+              ></gxg-form-radio>
+            </div>
+          </article>
+
+          <!-- disabled -->
+          <article data-title="disabled">
+            <div class="example">
+              <gxg-form-radio
+                label-size="large"
+                label="red"
+                value="red"
+                disabled
+              ></gxg-form-radio>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section data-title="group vertical">
+        <!-- radio-group vertical -->
+        <div class="articles-container">
+          <article data-title="size regular">
             <div class="example">
               <gxg-form-radio-group label="my favorite color">
                 <gxg-form-radio
@@ -48,10 +84,60 @@
           </article>
 
           <!-- radio-group horizontal -->
-          <article data-title="radio-group horizontal">
-            <code pill>row (on gxg-form-radio-group)</code>
+          <article data-title="size large">
             <div class="example">
-              <gxg-form-radio-group row label="my favorite color">
+              <gxg-form-radio-group
+                label="my favorite color"
+                radios-label-size="large"
+              >
+                <gxg-form-radio
+                  label="red"
+                  value="red"
+                  disabled
+                ></gxg-form-radio>
+                <gxg-form-radio
+                  label="blue"
+                  value="blue"
+                  id="radio-blue"
+                ></gxg-form-radio>
+                <gxg-form-radio label="green" value="green"></gxg-form-radio>
+                <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
+              </gxg-form-radio-group>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section data-title="group horizontal">
+        <!-- radio-group horizontal -->
+        <div class="articles-container">
+          <article data-title="size regular">
+            <div class="example">
+              <gxg-form-radio-group label="my favorite color" row>
+                <gxg-form-radio
+                  label="red"
+                  value="red"
+                  disabled
+                ></gxg-form-radio>
+                <gxg-form-radio
+                  label="blue"
+                  value="blue"
+                  id="radio-blue"
+                ></gxg-form-radio>
+                <gxg-form-radio label="green" value="green"></gxg-form-radio>
+                <gxg-form-radio label="yellow" value="yellow"></gxg-form-radio>
+              </gxg-form-radio-group>
+            </div>
+          </article>
+
+          <!-- radio-group horizontal -->
+          <article data-title="size large">
+            <div class="example">
+              <gxg-form-radio-group
+                label="my favorite color"
+                radios-label-size="large"
+                row
+              >
                 <gxg-form-radio
                   label="red"
                   value="red"
