@@ -507,8 +507,8 @@ FORM ELEMENTS
   &::-webkit-scrollbar-thumb {
     background-color: var(--gxg-scrollbar-track-thumb-background, --gray-05);
     border-radius: var(--gxg-scrollbar-track-thumb-radius, 10px);
-    border: var(--gxg-scrollbar-track-thumb-border);
-    background-clip: padding-box;
+    // border: var(--gxg-scrollbar-track-thumb-border);
+    // background-clip: padding-box;
   }
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
