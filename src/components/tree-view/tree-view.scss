@@ -5,7 +5,7 @@ gxg-tree-view
 ---------------------------*/
 gxg-tree-view {
   font-family: var(--ds-base-font-family-primary);
-  font-size: var(--ds-base-font-size);
+  font-size: var(--gxg-tree-view-item__font-size);
   font-weight: var(--ds-base-font-weight);
   color: var(--ds-base-font-color);
   display: contents;
