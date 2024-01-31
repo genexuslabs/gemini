@@ -74,6 +74,7 @@
   --gxg-grid-cell__padding-block-start: var(--spacing-comp-01);
   --gxg-grid-cell__padding-block-end: var(--spacing-comp-01);
   --gxg-grid-cell-drag-icon__size: var(--spacing-comp-04);
+  --gxg-grid-cell__font-size: var(--font-size-lg);
 }
 
 /*Mercury*/
@@ -160,4 +161,5 @@
   --gxg-grid-cell__padding-block-start: var(--mer-spacing--xxs);
   --gxg-grid-cell__padding-block-end: var(--mer-spacing--xxs);
   --gxg-grid-cell-drag-icon__size: var(--mer-spacing--md);
+  --gxg-grid-cell__font-size: var(--mer-font__size--xxs);
 }

@@ -165,6 +165,7 @@ ch-grid-column::part(bar-settings-button):before {
 ROW
 **************************/
 ch-grid-row {
+  font-size: var(--gxg-grid-cell__font-size);
   background-color: var(--gxg-grid-row__background-color);
   color: var(--gxg-grid-row__color);
   border: var(--gxg-grid-row__border-width) solid transparent;
