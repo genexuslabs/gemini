@@ -4,10 +4,6 @@
 gxg-tree-view
 ---------------------------*/
 gxg-tree-view {
-  font-family: var(--ds-base-font-family-primary);
-  font-size: var(--gxg-tree-view-item__font-size);
-  font-weight: var(--ds-base-font-weight);
-  color: var(--ds-base-font-color);
   display: contents;
 }
 
@@ -16,7 +12,10 @@ gxg-tree-view {
 ---------------------------*/
 .tree-view {
   @include gxg-scrollbar;
-
+  font-family: var(--ds-base-font-family-primary);
+  font-size: var(--gxg-tree-view-item__font-size);
+  font-weight: var(--ds-base-font-weight);
+  color: var(--ds-base-font-color);
   .ch-tree-view-container {
     padding: var(--gxg-tree-view-container__padding);
   }
@@ -48,10 +47,8 @@ gxg-tree-view {
   &::part(header) {
     //min-height: var(--gxg-tree-view-item-header__min-height);
     border-radius: var(--gxg-tree-view-item-header__border-radius);
-    overflow: hidden;
-    box-sizing: border-box;
-    padding-top: var(--gxg-tree-view-item-header__padding-top);
-    padding-bottom: var(--gxg-tree-view-item-header__padding-bottom);
+    padding-block-start: var(--gxg-tree-view-item-header__padding-top);
+    padding-block-end: var(--gxg-tree-view-item-header__padding-bottom);
     padding-inline-end: var(--gxg-tree-view-item-header__padding-inline-end);
 
     &:hover {

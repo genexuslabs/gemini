@@ -43,6 +43,7 @@
   --ds-form-control-gap--horizontal: var(--spacing-comp-04);
   --ds-form-control-color: var(--color-on-background);
   --ds-form-control-placeholder-color: var(--gray-05);
+  --ds-form-control-placeholder-style: regular;
   --ds-form-control-background-color: var(--color-background);
   --ds-form-control-border: var(--border-width-sm) solid
     var(--ds-border-color--regular);
@@ -170,6 +171,7 @@
     --ds-form-control-gap--horizontal: var(--mer-spacing--md);
     --ds-form-control-color: var(--mer-text__bright);
     --ds-form-control-placeholder-color: var(--mer-text__on-surface);
+    --ds-form-control-placeholder-style: italic;
     --ds-form-control-background-color: var(--mer-color__surface);
     --ds-form-control-border: var(--mer-border__width--sm) solid
       var(--mer-border-color__dim);
@@ -217,12 +219,14 @@
     --ds-checkbox-size: var();
     /*scrollbar*/
     --gxg-scrollbar-width: 6px;
-    --gxg-scrollbar-track-background: var(--gray-02);
+    --gxg-scrollbar-track-background: var(--mer-color__elevation--03);
     --gxg-scrollbar-track-border-radius: 10px;
-    --gxg-scrollbar-track-thumb-background: var(--gray-04);
+    --gxg-scrollbar-track-thumb-background: var(--mer-color__elevation--04);
     --gxg-scrollbar-track-thumb-radius: 10px;
     --gxg-scrollbar-track-thumb-border: none;
-    --gxg-scrollbar-track-thumb-hover-background: var(--gray-05);
+    --gxg-scrollbar-track-thumb-hover-background: var(
+      --mer-color__elevation--04
+    );
     /*Titles*/
     --ds-title-01-font-size: var(--mer-font__size--sm);
     --ds-title-01-font-weight: var(--mer-font__weight--bold);
