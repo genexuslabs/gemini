@@ -1,17 +1,23 @@
 /*This style-sheet being included in ch-style on globals/global.js. It helps styling chameleon-controls-library components styles that are inaccesible by using parts, such as the scrollbar*/
 ::-webkit-scrollbar {
-  width: var(--gxg-scrollbar-width, 6px);
-  height: var(--gxg-scrollbar-width, 6px);
+  width: var(--gxg-scrollbar-width);
+  height: var(--gxg-scrollbar-width);
 }
+/* Track */
 ::-webkit-scrollbar-track {
-  background-color: var(--gxg-scrollbar-track-background, --gray-02);
-  border-radius: var(--gxg-scrollbar-track-border-radius, 10px);
+  background-color: var(--gxg-scrollbar-track-background);
+  border-radius: var(--gxg-scrollbar-track-border-radius);
 }
+/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--gxg-scrollbar-track-thumb-background, --gray-05);
-  border-radius: var(--gxg-scrollbar-track-thumb-radius, 10px);
+  background-color: var(--gxg-scrollbar-track-thumb-background);
+  border-radius: var(--gxg-scrollbar-track-thumb-radius);
 }
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gxg-scrollbar-track-thumb-hover-background, --gray-04);
-  cursor: pointer;
+  background-color: var(--gxg-scrollbar-track-thumb-hover-background);
 }
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+cursor: initial;
