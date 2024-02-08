@@ -24,6 +24,7 @@ export class GxgTabs {
   @Prop() minWidth = "200px";
   @Prop() tabBarBorder = false;
   @Prop() noBorder = false;
+  @Prop() buttonsBorderAbove = false;
 
   /**
    * The presence of this attribute removes the background color (only for mercury)
@@ -68,6 +69,10 @@ export class GxgTabs {
         (tab as unknown as GxgTab).noPadding = true;
       });
     }
+    if (this.buttonsBorderAbove) {
+      const tabButtons = this.el.querySelectorAll("gxg-tab-button");
+      tabButtons.forEach(tabButton => (tabButton.borderAbove = true));
+    }
   }
 
   @Method()
@@ -78,6 +83,19 @@ export class GxgTabs {
         this.updateActiveChildren(tab, "gxg-tab-button");
         this.updateActiveChildren(tab, "gxg-tab");
       }
+    }
+  }
+
+  /**
+   * Sets the first tab that is not disabled and hidden as the active tab
+   */
+  @Method()
+  async setFirstActiveTab() {
+    const allTabs = Array.from(this.el.querySelectorAll("gxg-tab-button"));
+    const firstEnabledTab = allTabs.find(tab => !tab.hidden && !tab.disabled);
+    if (firstEnabledTab && firstEnabledTab.tab) {
+      this.updateActiveChildren(firstEnabledTab.tab, "gxg-tab-button");
+      this.updateActiveChildren(firstEnabledTab.tab, "gxg-tab");
     }
   }
 
