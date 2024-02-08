@@ -55,6 +55,11 @@ export class GxgTabButton {
    */
   @Prop() icon: string = null;
 
+  /**
+   * Displays the border above
+   */
+  @Prop({ reflect: true }) borderAbove: boolean = false;
+
   //Events
   @Event()
   tabActivated: EventEmitter;
@@ -156,7 +161,8 @@ export class GxgTabButton {
               "tab-button--selected": this.isSelected === true,
               "tab-button--text-icon":
                 this.tabLabel !== null && this.icon !== null,
-              large: state.large
+              large: state.large,
+              "tab-button--border-above": this.borderAbove
             }}
             onClick={this.buttonClickHandler.bind(this)}
             onKeyDown={this.buttonKeyDownHandler.bind(this)}

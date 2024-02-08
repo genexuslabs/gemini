@@ -91,6 +91,10 @@
     &--hidden {
       display: none;
     }
+    &--border-above:after {
+      top: 0;
+      bottom: auto;
+    }
     gxg-icon {
       --gxg-icon-color: var(--gxg-tab-button-icon-color);
     }

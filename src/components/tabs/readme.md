@@ -116,16 +116,17 @@
 
 ## Properties
 
-| Property       | Attribute        | Description                                                                    | Type                                     | Default   |
-| -------------- | ---------------- | ------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
-| `height`       | `height`         |                                                                                | `string`                                 | `"100%"`  |
-| `maxHeight`    | `max-height`     |                                                                                | `string`                                 | `"100%"`  |
-| `minWidth`     | `min-width`      |                                                                                | `string`                                 | `"200px"` |
-| `noBackground` | `no-background`  | The presence of this attribute removes the background color (only for mercury) | `boolean`                                | `false`   |
-| `noBorder`     | `no-border`      |                                                                                | `boolean`                                | `false`   |
-| `noPadding`    | `no-padding`     | The presence of this attribute removes each tab .container padding             | `boolean`                                | `false`   |
-| `position`     | `position`       |                                                                                | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
-| `tabBarBorder` | `tab-bar-border` |                                                                                | `boolean`                                | `false`   |
+| Property             | Attribute              | Description                                                                    | Type                                     | Default   |
+| -------------------- | ---------------------- | ------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
+| `buttonsBorderAbove` | `buttons-border-above` |                                                                                | `boolean`                                | `false`   |
+| `height`             | `height`               |                                                                                | `string`                                 | `"100%"`  |
+| `maxHeight`          | `max-height`           |                                                                                | `string`                                 | `"100%"`  |
+| `minWidth`           | `min-width`            |                                                                                | `string`                                 | `"200px"` |
+| `noBackground`       | `no-background`        | The presence of this attribute removes the background color (only for mercury) | `boolean`                                | `false`   |
+| `noBorder`           | `no-border`            |                                                                                | `boolean`                                | `false`   |
+| `noPadding`          | `no-padding`           | The presence of this attribute removes each tab .container padding             | `boolean`                                | `false`   |
+| `position`           | `position`             |                                                                                | `"bottom" \| "left" \| "right" \| "top"` | `"top"`   |
+| `tabBarBorder`       | `tab-bar-border`       |                                                                                | `boolean`                                | `false`   |
 
 
 ## Methods
@@ -139,6 +140,16 @@
 | Name  | Type     | Description |
 | ----- | -------- | ----------- |
 | `tab` | `string` |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setFirstActiveTab() => Promise<void>`
+
+Sets the first tab that is not disabled and hidden as the active tab
 
 #### Returns
 

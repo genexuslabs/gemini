@@ -1938,6 +1938,10 @@ export namespace Components {
     }
     interface GxgTabButton {
         /**
+          * Displays the border above
+         */
+        "borderAbove": boolean;
+        /**
           * Provide this attribute to make this button disabled
          */
         "disabled": boolean;
@@ -1964,6 +1968,7 @@ export namespace Components {
         "tabLabel": string;
     }
     interface GxgTabs {
+        "buttonsBorderAbove": boolean;
         "height": string;
         "maxHeight": string;
         "minWidth": string;
@@ -1978,6 +1983,10 @@ export namespace Components {
         "noPadding": boolean;
         "position": TabsPosition;
         "setActiveTab": (tab: string) => Promise<void>;
+        /**
+          * Sets the first tab that is not disabled and hidden as the active tab
+         */
+        "setFirstActiveTab": () => Promise<void>;
         "tabBarBorder": boolean;
     }
     interface GxgTest {
@@ -5675,6 +5684,10 @@ declare namespace LocalJSX {
     }
     interface GxgTabButton {
         /**
+          * Displays the border above
+         */
+        "borderAbove"?: boolean;
+        /**
           * Provide this attribute to make this button disabled
          */
         "disabled"?: boolean;
@@ -5702,6 +5715,7 @@ declare namespace LocalJSX {
         "tabLabel"?: string;
     }
     interface GxgTabs {
+        "buttonsBorderAbove"?: boolean;
         "height"?: string;
         "maxHeight"?: string;
         "minWidth"?: string;
