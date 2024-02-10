@@ -17,6 +17,7 @@ gxg-tree-view {
   font-weight: var(--ds-base-font-weight);
   color: var(--ds-base-font-color);
   .ch-tree-view-container {
+    min-inline-size: max-content;
     padding: var(--gxg-tree-view-container__padding);
   }
 }

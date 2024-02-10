@@ -33,10 +33,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [gxg-test](../test)
-
 ### Depends on
 
 - [gxg-form-checkbox](../form-checkbox)
@@ -54,7 +50,6 @@ graph TD;
   gxg-icon --> ch-icon
   gxg-label --> gxg-tooltip
   gxg-form-message --> gxg-icon
-  gxg-test --> gxg-list-box-item
   style gxg-list-box-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
