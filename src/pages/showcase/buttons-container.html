@@ -72,25 +72,6 @@
                 >Caption 3</gxg-button
               >
             </gxg-buttons-container>
-            <div>
-              <button id="enable-buttons-btn">enable</button>
-              <button id="disable-buttons-btn">disable</button>
-            </div>
-            <script>
-              const disabledBtn1 = document.getElementById("button-disabled-1");
-              disabledBtn1.addEventListener("click", () => {
-                console.log("button 1 disabled clicked");
-              });
-              const disabledButtonsContainer = document.getElementById(
-                "buttons-container-disabled"
-              );
-              const enableBtn = document.getElementById("enable-buttons-btn");
-              enableBtn.addEventListener("click", () => {});
-              const disableBtn = document.getElementById("disable-buttons-btn");
-              disableBtn.addEventListener("click", () => {
-                disabledButtonsContainer.disabled = false;
-              });
-            </script>
           </article>
 
           <!-- reduced -->
@@ -101,8 +82,8 @@
               gap: 24px;
             }
           </style>
-          <article data-title="reduced">
-            <code pill>Reduced height</code>
+          <article data-title="reduced height">
+            <code pill>reduced</code>
             <div class="text-buttons-container">
               <gxg-form-text
                 label="Enter your full name:"
