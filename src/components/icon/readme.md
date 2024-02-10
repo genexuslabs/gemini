@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                            | Type                                                                                                                                                                                                                                          | Default     |
-| -------- | --------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`  | `color`   | The color of the icon.                                 | `"alwaysblack" \| "auto" \| "disabled" \| "error" \| "indeterminate" \| "mercury" \| "mercury-primary" \| "negative" \| "onbackground" \| "ondisabled" \| "primary-active" \| "primary-enabled" \| "primary-hover" \| "success" \| "warning"` | `undefined` |
-| `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                                                                                                                        | `"regular"` |
-| `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                                                                                                                         | `undefined` |
+| Property | Attribute | Description                                            | Type                                                                                                                                                                                                                                                                                               | Default     |
+| -------- | --------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `color`  | `color`   | The color of the icon.                                 | `"alwaysblack" \| "auto" \| "disabled" \| "error" \| "indeterminate" \| "mercury" \| "mercury-on-primary" \| "mercury-primary" \| "mercury-text-on-message" \| "negative" \| "onbackground" \| "ondisabled" \| "primary-active" \| "primary-enabled" \| "primary-hover" \| "success" \| "warning"` | `undefined` |
+| `size`   | `size`    | The size of the icon. Possible values: regular, small. | `"regular" \| "small"`                                                                                                                                                                                                                                                                             | `"regular"` |
+| `type`   | `type`    | The type of icon.                                      | `any`                                                                                                                                                                                                                                                                                              | `undefined` |
 
 
 ## Shadow Parts
@@ -53,6 +53,7 @@
  - [gxg-title-editable](../title-editable)
  - [gxg-toolbar](../toolbar)
  - [gxg-toolbar-item](../toolbar-item)
+ - [gxg-top-state-bar](../top-state-bar)
  - [gxg-tree-grid-divs](../tree-grid-divs)
  - [gxg-tree-item](../tree-item)
  - [gxg-window](../window)
@@ -95,6 +96,7 @@ graph TD;
   gxg-title-editable --> gxg-icon
   gxg-toolbar --> gxg-icon
   gxg-toolbar-item --> gxg-icon
+  gxg-top-state-bar --> gxg-icon
   gxg-tree-grid-divs --> gxg-icon
   gxg-tree-item --> gxg-icon
   gxg-window --> gxg-icon

@@ -453,11 +453,17 @@ section[borderless] {
 }
 article {
   gap: var(--spacing-comp-03);
+  padding: 32px 0;
+}
+article:first-child {
+  padding-top: 0;
+}
+article:last-child {
+  padding-bottom: 0;
 }
 .articles-container {
   display: flex;
   flex-direction: column;
-  gap: 64px;
 }
 .articles-container article {
   display: flex;

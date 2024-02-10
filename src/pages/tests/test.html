@@ -17,9 +17,88 @@
         background-color: var(--color-background);
         color: var(--color-on-background);
       }
+      .container {
+        border: 1px solid gray;
+      }
+      .wrapper {
+        height: 200px;
+        display: flex;
+      }
+      .col-left {
+        flex: 1;
+      }
+      .col-right {
+        flex: 2;
+      }
+      .wrapper.shrunk .col-left {
+        flex: 0.5;
+      }
+      .wrapper.shrunk .col-right {
+        flex: 2.5;
+      }
     </style>
   </head>
   <body>
-    <gxg-test></gxg-test>
+    <div class="container">
+      <h2>outside shadow</h2>
+      <div class="wrapper">
+        <div class="col-left">
+          <gxg-tree-view id="gxg-tree-view-outside-shadow"></gxg-tree-view>
+        </div>
+        <p class="col-right">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi
+          quibusdam nesciunt aspernatur recusandae iure. Optio, sed voluptate
+          doloribus iure molestiae numquam consequuntur dolor magni deserunt nam
+          necessitatibus. Perspiciatis, porro illum?
+        </p>
+      </div>
+      <button id="shrink">shrink</button>
+      <script>
+        const wrapper = document.querySelector(".wrapper");
+        const shrinkButton = document.getElementById("shrink");
+        const tree = document.getElementById("gxg-tree-view-outside-shadow");
+        shrinkButton.addEventListener("click", () => {
+          wrapper.classList.toggle("shrunk");
+        });
+        const modelTiny = [
+          {
+            id: "number-1",
+            caption: "number-1 label (always editable)",
+            leftImgSrc: "./objects/knowledge-base",
+            editable: true
+          },
+          {
+            id: "number-2",
+            caption: "number-2 (always editable)",
+            leftImgSrc: "./objects/datastore",
+            editable: true,
+            items: [
+              {
+                id: "number-2.1",
+                caption: "number-2.1",
+                leftImgSrc: "./objects/file"
+              }
+            ]
+          },
+          {
+            id: "number-3",
+            caption: "number-3",
+            leftImgSrc: "/build/ch-icon-assets/patterns",
+            items: [
+              {
+                id: "number-3.1",
+                caption: "number-3.1",
+                leftImgSrc: "/build/ch-icon-assets/java"
+              }
+            ]
+          }
+        ];
+        tree.treeModel = modelTiny;
+      </script>
+    </div>
+    <div class="container">
+      <h2>inside shadow</h2>
+      <gxg-test></gxg-test>
+    </div>
   </body>
 </html>

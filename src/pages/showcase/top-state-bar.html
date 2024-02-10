@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Template | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+      .block {
+        background-color: var(--mer-color__neutral-gray--1100);
+        height: 40px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="opacity-0">
+    <div class="container no-separator">
+      <h1>gxg-top-state-bar</h1>
+      <!-----------------
+      States
+      ------------------>
+      <section data-title="states">
+        <div class="articles-container active-bars">
+          <!-- accent -->
+          <article data-title="accent">
+            <code pill>stateType: accent (default)</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Project about being published"
+                state-type="accent"
+                active
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+
+          <!-- success -->
+          <article data-title="success">
+            <code pill>stateType: success</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Project published"
+                state-type="success"
+                active
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+
+          <!-- warning -->
+          <article data-title="warning">
+            <code pill>stateType: warning</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Connection lost - Retrying..."
+                state-type="warning"
+                active
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+
+          <!-- error -->
+          <article data-title="error">
+            <code pill>stateType: error</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Project could not be published"
+                state-type="error"
+                active
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+
+          <!-- in progress -->
+          <article data-title="in progress">
+            <code pill>stateType: in-progress</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Publishing project - Please hang on"
+                state-type="in-progress"
+                active
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      in action
+      ------------------>
+      <section data-title="in action">
+        <div class="articles-container">
+          <!-- default -->
+          <article data-title="default">
+            <div class="example">
+              <div class="block"></div>
+              <gxg-top-state-bar
+                caption="Publishing project"
+                state-type="in-progress"
+                id="top-state-bar-default"
+              ></gxg-top-state-bar>
+              <div class="block"></div>
+            </div>
+            <div>
+              <button id="activate-btn-default">activate</button>
+              <button id="deactivate-btn-default">deactivate</button>
+              <script>
+                const topStateBarDefault = document.getElementById(
+                  "top-state-bar-default"
+                );
+                const activateBtnDefault = document.getElementById(
+                  "activate-btn-default"
+                );
+                const deactivateBtnDefault = document.getElementById(
+                  "deactivate-btn-default"
+                );
+                activateBtnDefault.addEventListener("click", () => {
+                  topStateBarDefault.setAttribute("active", true);
+                });
+                deactivateBtnDefault.addEventListener("click", () => {
+                  topStateBarDefault.removeAttribute("active");
+                });
+              </script>
+            </div>
+          </article>
+
+          <!-- with progress bar -->
+          <article data-title="with progress bar">
+            <code pill>withProgressBar</code>
+            <div class="example">
+              <div class="block"></div>
+              <gxg-top-state-bar
+                caption="Publishing project"
+                state-type="in-progress"
+                id="top-state-bar-progress"
+                with-progress-bar
+              ></gxg-top-state-bar>
+              <div class="block"></div>
+            </div>
+            <div>
+              <button id="activate-btn-progress">activate</button>
+              <button id="deactivate-btn-progress">deactivate</button>
+              <script>
+                const topStateBarProgress = document.getElementById(
+                  "top-state-bar-progress"
+                );
+                const activateBtnProgress = document.getElementById(
+                  "activate-btn-progress"
+                );
+                const deactivateBtnProgress = document.getElementById(
+                  "deactivate-btn-progress"
+                );
+                activateBtnProgress.addEventListener("click", () => {
+                  topStateBarProgress.stateType = "in-progress";
+                  topStateBarProgress.caption = "Publishing project";
+                  topStateBarProgress.setAttribute("active", true);
+                  setTimeout(() => {
+                    topStateBarProgress.progress = 20;
+                    setTimeout(() => {
+                      topStateBarProgress.progress = 45;
+                      setTimeout(() => {
+                        topStateBarProgress.progress = 80;
+                        setTimeout(() => {
+                          topStateBarProgress.progress = 100;
+                          topStateBarProgress.caption = "Project published";
+                          topStateBarProgress.stateType = "success";
+                        }, 500);
+                      }, 300);
+                    }, 700);
+                  }, 300);
+                });
+                deactivateBtnProgress.addEventListener("click", () => {
+                  topStateBarProgress.removeAttribute("active");
+                });
+              </script>
+            </div>
+          </article>
+
+          <!-- with progress bar + auto close -->
+          <article data-title="auto close">
+            <code pill>withProgressBar autoClose</code>
+            <div class="example">
+              <div class="block"></div>
+              <gxg-top-state-bar
+                caption="Publishing project"
+                state-type="in-progress"
+                id="top-state-bar-auto-close"
+                with-progress-bar
+                auto-close
+              ></gxg-top-state-bar>
+              <div class="block"></div>
+            </div>
+            <div>
+              <button id="activate-btn-auto-close">activate</button>
+              <script>
+                const topStateBarAutoClose = document.getElementById(
+                  "top-state-bar-auto-close"
+                );
+                const activateBtnAutoClose = document.getElementById(
+                  "activate-btn-auto-close"
+                );
+                const deactivateBtnAutoClose = document.getElementById(
+                  "deactivate-btn-auto-close"
+                );
+                activateBtnAutoClose.addEventListener("click", () => {
+                  topStateBarAutoClose.setAttribute("active", true);
+                  setTimeout(() => {
+                    topStateBarAutoClose.progress = 20;
+                    setTimeout(() => {
+                      topStateBarAutoClose.progress = 45;
+                      setTimeout(() => {
+                        topStateBarAutoClose.progress = 80;
+                        setTimeout(() => {
+                          topStateBarAutoClose.progress = 100;
+                        }, 500);
+                      }, 300);
+                    }, 700);
+                  }, 300);
+                });
+              </script>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      comic sans
+      ------------------>
+      <section data-title="comic sans">
+        <div class="articles-container">
+          <article data-title="">
+            <code pill>comicSans</code>
+            <div class="example">
+              <div class="block"></div>
+              <div class="comic-sans">
+                <img
+                  src="https://raw.githubusercontent.com/bsastregx/resources/main/images/comic-sans.jpg"
+                  alt="comic sans"
+                />
+              </div>
+              <div class="block"></div>
+            </div>
+            <div>
+              <button id="activate-btn-comic-sans">activate</button>
+              <style>
+                .comic-sans {
+                  font-size: 0;
+                  overflow: hidden;
+                  height: 0;
+                  transition: 200ms height;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background-color: var(--mer-color__neutral-gray--1100);
+                }
+                .comic-sans.visible {
+                  height: 320px;
+                }
+                .comic-sans img {
+                  border-radius: 60px;
+                }
+              </style>
+              <script>
+                const comicSans = document.querySelector(".comic-sans");
+                const activateBtnComicSans = document.getElementById(
+                  "activate-btn-comic-sans"
+                );
+                activateBtnComicSans.addEventListener("click", () => {
+                  comicSans.classList.add("visible");
+                  setTimeout(() => {
+                    window.scrollTo(0, document.body.scrollHeight);
+                  }, 400);
+                });
+              </script>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

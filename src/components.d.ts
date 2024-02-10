@@ -52,6 +52,7 @@ import { TitleType } from "./components/title/title";
 import { EditableTitleFocusType, EditableTitleType } from "./components/title-editable/title-editable";
 import { position as position1 } from "./components/toolbar/toolbar";
 import { position as position2 } from "./components/tooltip/tooltip";
+import { topStateBarType } from "./components/top-state-bar/gxg-top-state-bar";
 import { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/gxg-tree";
 import { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
@@ -107,6 +108,7 @@ export { TitleType } from "./components/title/title";
 export { EditableTitleFocusType, EditableTitleType } from "./components/title-editable/title-editable";
 export { position as position1 } from "./components/toolbar/toolbar";
 export { position as position2 } from "./components/tooltip/tooltip";
+export { topStateBarType } from "./components/top-state-bar/gxg-top-state-bar";
 export { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/gxg-tree";
 export { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 export { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
@@ -2169,6 +2171,32 @@ export namespace Components {
          */
         "position": position2;
     }
+    interface GxgTopStateBar {
+        /**
+          * The top-bar active state. If false it will be hidden
+         */
+        "active": boolean;
+        /**
+          * It true, it will auto-close when the progress is 100
+         */
+        "autoClose": boolean;
+        /**
+          * The top-bar title
+         */
+        "caption": string;
+        /**
+          * The progress bar progress
+         */
+        "progress": number;
+        /**
+          * The top-bar title
+         */
+        "stateType": topStateBarType;
+        /**
+          * It will display a progress bar
+         */
+        "withProgressBar": boolean;
+    }
     interface GxgTree {
         /**
           * Set this attribute if you want all the items to have a checkbox.
@@ -3529,6 +3557,12 @@ declare global {
         prototype: HTMLGxgTooltipElement;
         new (): HTMLGxgTooltipElement;
     };
+    interface HTMLGxgTopStateBarElement extends Components.GxgTopStateBar, HTMLStencilElement {
+    }
+    var HTMLGxgTopStateBarElement: {
+        prototype: HTMLGxgTopStateBarElement;
+        new (): HTMLGxgTopStateBarElement;
+    };
     interface HTMLGxgTreeElementEventMap {
         "treeItemStateChanged": TreeItemNewStateEmitted;
     }
@@ -3693,6 +3727,7 @@ declare global {
         "gxg-toolbar": HTMLGxgToolbarElement;
         "gxg-toolbar-item": HTMLGxgToolbarItemElement;
         "gxg-tooltip": HTMLGxgTooltipElement;
+        "gxg-top-state-bar": HTMLGxgTopStateBarElement;
         "gxg-tree": HTMLGxgTreeElement;
         "gxg-tree-grid-divs": HTMLGxgTreeGridDivsElement;
         "gxg-tree-item": HTMLGxgTreeItemElement;
@@ -5919,6 +5954,32 @@ declare namespace LocalJSX {
          */
         "position"?: position2;
     }
+    interface GxgTopStateBar {
+        /**
+          * The top-bar active state. If false it will be hidden
+         */
+        "active"?: boolean;
+        /**
+          * It true, it will auto-close when the progress is 100
+         */
+        "autoClose"?: boolean;
+        /**
+          * The top-bar title
+         */
+        "caption"?: string;
+        /**
+          * The progress bar progress
+         */
+        "progress"?: number;
+        /**
+          * The top-bar title
+         */
+        "stateType"?: topStateBarType;
+        /**
+          * It will display a progress bar
+         */
+        "withProgressBar"?: boolean;
+    }
     interface GxgTree {
         /**
           * Set this attribute if you want all the items to have a checkbox.
@@ -6287,6 +6348,7 @@ declare namespace LocalJSX {
         "gxg-toolbar": GxgToolbar;
         "gxg-toolbar-item": GxgToolbarItem;
         "gxg-tooltip": GxgTooltip;
+        "gxg-top-state-bar": GxgTopStateBar;
         "gxg-tree": GxgTree;
         "gxg-tree-grid-divs": GxgTreeGridDivs;
         "gxg-tree-item": GxgTreeItem;
@@ -6378,6 +6440,7 @@ declare module "@stencil/core" {
             "gxg-toolbar": LocalJSX.GxgToolbar & JSXBase.HTMLAttributes<HTMLGxgToolbarElement>;
             "gxg-toolbar-item": LocalJSX.GxgToolbarItem & JSXBase.HTMLAttributes<HTMLGxgToolbarItemElement>;
             "gxg-tooltip": LocalJSX.GxgTooltip & JSXBase.HTMLAttributes<HTMLGxgTooltipElement>;
+            "gxg-top-state-bar": LocalJSX.GxgTopStateBar & JSXBase.HTMLAttributes<HTMLGxgTopStateBarElement>;
             "gxg-tree": LocalJSX.GxgTree & JSXBase.HTMLAttributes<HTMLGxgTreeElement>;
             "gxg-tree-grid-divs": LocalJSX.GxgTreeGridDivs & JSXBase.HTMLAttributes<HTMLGxgTreeGridDivsElement>;
             "gxg-tree-item": LocalJSX.GxgTreeItem & JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
