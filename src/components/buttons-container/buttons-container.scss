@@ -8,15 +8,19 @@
     @include mer-elevation--01();
     box-shadow: none;
     display: inline-flex;
+    align-items: center;
     padding: var(--gxg-buttons-group__padding);
+    box-sizing: border-box;
     gap: var(--gxg-buttons-group__gap);
     border-radius: var(--gxg-buttons-group__border-radius);
     border: 1px solid var(--mer-color__elevation__03);
 
     &--reduced {
-      --gxg-button-height: calc(
-        var(--gxg-form-text-height) - var(--mer-spacing--xs) - 2px
-      );
+      height: calc(var(--gxg-form-text-height) + 2px);
+      ::slotted(gxg-button) {
+        height: 100%;
+      }
+      --gxg-button-height: 100%;
     }
   }
 

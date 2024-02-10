@@ -23,6 +23,9 @@
     margin-inline-end: var(--gxg-button-icon-margin-inline-end);
   }
 }
+:host(.button--disabled) {
+  pointer-events: none;
+}
 
 /*Has icon*/
 :host(.button--has-icon) {
