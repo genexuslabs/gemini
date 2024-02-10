@@ -50,25 +50,47 @@
           <!-- disabled -->
           <article data-title="disabled">
             <!-- <code pill>some property</code> -->
-            <gxg-buttons-container>
-              <gxg-button disabled id="button-1" type="primary-text-only"
+            <gxg-buttons-container id="buttons-container-disabled">
+              <gxg-button
+                disabled
+                id="button-disabled-1"
+                type="primary-text-only"
                 >Caption 1</gxg-button
               >
               <gxg-button
                 disabled
-                id="button-2"
+                id="button-disabled-2"
                 type="primary-text-only"
                 unselected
                 >Caption 2</gxg-button
               >
               <gxg-button
                 disabled
-                id="button-3"
+                id="button-disabled-3"
                 type="primary-text-only"
                 unselected
                 >Caption 3</gxg-button
               >
             </gxg-buttons-container>
+            <div>
+              <button id="enable-buttons-btn">enable</button>
+              <button id="disable-buttons-btn">disable</button>
+            </div>
+            <script>
+              const disabledBtn1 = document.getElementById("button-disabled-1");
+              disabledBtn1.addEventListener("click", () => {
+                console.log("button 1 disabled clicked");
+              });
+              const disabledButtonsContainer = document.getElementById(
+                "buttons-container-disabled"
+              );
+              const enableBtn = document.getElementById("enable-buttons-btn");
+              enableBtn.addEventListener("click", () => {});
+              const disableBtn = document.getElementById("disable-buttons-btn");
+              disableBtn.addEventListener("click", () => {
+                disabledButtonsContainer.disabled = false;
+              });
+            </script>
           </article>
 
           <!-- reduced -->

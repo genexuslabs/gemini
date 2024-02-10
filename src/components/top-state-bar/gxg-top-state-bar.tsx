@@ -6,7 +6,44 @@ import { Component, Host, h, Prop, State, Watch, Element } from "@stencil/core";
   shadow: true
 })
 export class GxgTopStateBar {
+  /*
+INDEX:
+1.OWN PROPERTIES 
+2.REFERENCE TO ELEMENTS
+3.STATE() VARIABLES
+4.PUBLIC PROPERTY API | WATCH'S
+5.EVENTS (EMIT)
+6.COMPONENT LIFECYCLE METHODS
+7.LISTENERS
+8.PUBLIC METHODS API
+9.LOCAL METHODS
+10.RENDER() FUNCTION
+*/
+
+  // 1.OWN PROPERTIES //
+
+  // 2. REFERENCE TO ELEMENTS //
+
   @Element() el: HTMLGxgTopStateBarElement;
+
+  // 3.STATE() VARIABLES //
+
+  /**
+   * If true it will display a close icon
+   */
+  @State() stateWithAction: boolean = false;
+
+  /**
+   * If true it will display the caption
+   */
+  @State() captionVisible: boolean = false;
+
+  /**
+   * If true it will display bar
+   */
+  @State() visible: boolean = false;
+
+  // 4.PUBLIC PROPERTY API //
 
   /**
    * The top-bar title
@@ -66,20 +103,9 @@ export class GxgTopStateBar {
    */
   @Prop() autoClose = false;
 
-  /**
-   * If true it will display a close icon
-   */
-  @State() stateWithAction: boolean = false;
+  // 5.EVENTS (EMIT) //
 
-  /**
-   * If true it will display the caption
-   */
-  @State() captionVisible: boolean = false;
-
-  /**
-   * If true it will display bar
-   */
-  @State() visible: boolean = false;
+  // 6.COMPONENT LIFECYCLE EVENTS //
 
   componentWillLoad() {
     this.evaluateWithAction();
@@ -88,6 +114,12 @@ export class GxgTopStateBar {
       this.captionVisible = true;
     }
   }
+
+  // 7.LISTENERS //
+
+  // 8.PUBLIC METHODS API //
+
+  // 9.LOCAL METHODS //
 
   private evaluateWithAction = () => {
     if (
@@ -102,6 +134,8 @@ export class GxgTopStateBar {
   private closeButtonHandler = () => {
     this.active = false;
   };
+
+  //  10.RENDER() FUNCTION //
 
   render() {
     return (
