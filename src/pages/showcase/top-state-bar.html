@@ -233,60 +233,6 @@
           </article>
         </div>
       </section>
-
-      <!-----------------
-      comic sans
-      ------------------>
-      <section data-title="comic sans">
-        <div class="articles-container">
-          <article data-title="">
-            <code pill>comicSans</code>
-            <div class="example">
-              <div class="block"></div>
-              <div class="comic-sans">
-                <img
-                  src="https://raw.githubusercontent.com/bsastregx/resources/main/images/comic-sans.jpg"
-                  alt="comic sans"
-                />
-              </div>
-              <div class="block"></div>
-            </div>
-            <div>
-              <button id="activate-btn-comic-sans">activate</button>
-              <style>
-                .comic-sans {
-                  font-size: 0;
-                  overflow: hidden;
-                  height: 0;
-                  transition: 200ms height;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  background-color: var(--mer-color__neutral-gray--1100);
-                }
-                .comic-sans.visible {
-                  height: 320px;
-                }
-                .comic-sans img {
-                  border-radius: 60px;
-                }
-              </style>
-              <script>
-                const comicSans = document.querySelector(".comic-sans");
-                const activateBtnComicSans = document.getElementById(
-                  "activate-btn-comic-sans"
-                );
-                activateBtnComicSans.addEventListener("click", () => {
-                  comicSans.classList.add("visible");
-                  setTimeout(() => {
-                    window.scrollTo(0, document.body.scrollHeight);
-                  }, 400);
-                });
-              </script>
-            </div>
-          </article>
-        </div>
-      </section>
     </div>
   </body>
 </html>
