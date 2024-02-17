@@ -11,18 +11,20 @@ export const repositionScroll = (
   if (hasVerticalScrollbar && activeItem) {
     const scrollableElementScrollTop = scrollableElement.scrollTop;
     if (direction === KK.ARROW_UP) {
-      const scrollableElementTop = scrollableElement.getBoundingClientRect()
-        .top;
+      const scrollableElementTop =
+        scrollableElement.getBoundingClientRect().top;
       const selectedItemTop = activeItem.getBoundingClientRect().top;
       if (selectedItemTop < scrollableElementTop) {
         const offset = scrollableElementTop - selectedItemTop;
         scrollableElement.scrollTo(0, scrollableElementScrollTop - offset);
       }
     } else if (direction === KK.ARROW_DOWN) {
-      const scrollableElementBottom = scrollableElement.getBoundingClientRect()
-        .bottom;
+      const scrollableElementBottom =
+        scrollableElement.getBoundingClientRect().bottom;
       const selectedItemBottom = activeItem.getBoundingClientRect().bottom;
       if (selectedItemBottom > scrollableElementBottom) {
+        console.log("selectedItemBottom", selectedItemBottom);
+        console.log("scrollableElementBottom", scrollableElementBottom);
         const offset = selectedItemBottom - scrollableElementBottom;
         scrollableElement.scrollTo(0, scrollableElementScrollTop + offset);
       }

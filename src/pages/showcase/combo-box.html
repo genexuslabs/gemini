@@ -78,6 +78,12 @@
                 >
               </gxg-combo-box>
             </div>
+            <script>
+              const combo = document.querySelector("gxg-combo-box");
+              combo.addEventListener("valueChanged", e => {
+                console.log(e);
+              });
+            </script>
           </article>
 
           <!-- No Filter -->
