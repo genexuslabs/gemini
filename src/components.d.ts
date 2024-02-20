@@ -1919,6 +1919,10 @@ export namespace Components {
          */
         "overflowAuto": boolean;
         /**
+          * The presence of this attribute will make the font size smaller.
+         */
+        "reduced": boolean;
+        /**
           * The tab id. Should match the "tab" value of the correlative "gxg-tab"
          */
         "tab": string;
@@ -1960,6 +1964,10 @@ export namespace Components {
          */
         "isSelected": boolean;
         /**
+          * The presence of this attribute will hide the icon, and reduce the font size a little bit.
+         */
+        "reduced": boolean;
+        /**
           * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
          */
         "tab": string;
@@ -1970,6 +1978,10 @@ export namespace Components {
         "tabLabel": string;
     }
     interface GxgTabs {
+        /**
+          * The actual active tab, and tab-button
+         */
+        "activeTab": string;
         "buttonsBorderAbove": boolean;
         "height": string;
         "maxHeight": string;
@@ -1984,6 +1996,10 @@ export namespace Components {
          */
         "noPadding": boolean;
         "position": TabsPosition;
+        /**
+          * The presence of this attribute will make buttons and tabs reduced, meaning that the font size and padding, will be smaller. Also, the icons in the buttons will not be displayed.
+         */
+        "reduced": boolean;
         "setActiveTab": (tab: string) => Promise<void>;
         /**
           * Sets the first tab that is not disabled and hidden as the active tab
@@ -5699,6 +5715,10 @@ declare namespace LocalJSX {
          */
         "overflowAuto"?: boolean;
         /**
+          * The presence of this attribute will make the font size smaller.
+         */
+        "reduced"?: boolean;
+        /**
           * The tab id. Should match the "tab" value of the correlative "gxg-tab"
          */
         "tab"?: string;
@@ -5741,6 +5761,10 @@ declare namespace LocalJSX {
         "onPrevOrNextTab"?: (event: GxgTabButtonCustomEvent<any>) => void;
         "onTabActivated"?: (event: GxgTabButtonCustomEvent<any>) => void;
         /**
+          * The presence of this attribute will hide the icon, and reduce the font size a little bit.
+         */
+        "reduced"?: boolean;
+        /**
           * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
          */
         "tab"?: string;
@@ -5750,6 +5774,10 @@ declare namespace LocalJSX {
         "tabLabel"?: string;
     }
     interface GxgTabs {
+        /**
+          * The actual active tab, and tab-button
+         */
+        "activeTab"?: string;
         "buttonsBorderAbove"?: boolean;
         "height"?: string;
         "maxHeight"?: string;
@@ -5764,6 +5792,10 @@ declare namespace LocalJSX {
          */
         "noPadding"?: boolean;
         "position"?: TabsPosition;
+        /**
+          * The presence of this attribute will make buttons and tabs reduced, meaning that the font size and padding, will be smaller. Also, the icons in the buttons will not be displayed.
+         */
+        "reduced"?: boolean;
         "tabBarBorder"?: boolean;
     }
     interface GxgTest {

@@ -98,6 +98,13 @@
     gxg-icon {
       --gxg-icon-color: var(--gxg-tab-button-icon-color);
     }
+
+    &--reduced {
+      padding-inline-end: var(--gxg-tab-button-horizontal-padding--reduced);
+      padding-inline-start: var(--gxg-tab-button-horizontal-padding--reduced);
+      font-size: var(--gxg-tab-button-font-size--reduced);
+      height: var(--gxg-tab-button-height--reduced);
+    }
   }
   .tab-button__text {
     display: inline-block;

@@ -28,7 +28,7 @@
       <section>
         <div class="articles-container">
           <!-- default -->
-          <article data-title="default">
+          <article data-title="1 | default">
             <div class="example" style="height: 300px">
               <gxg-tabs id="gxgTabs" position="top">
                 <gxg-tab-bar
@@ -41,7 +41,6 @@
                     tab-label="apples"
                     tab="apples"
                     key="apples"
-                    is-selected
                   ></gxg-tab-button>
                   <gxg-tab-button
                     slot="tab-bar"
@@ -58,7 +57,7 @@
                     hidden
                   ></gxg-tab-button>
                 </gxg-tab-bar>
-                <gxg-tab tab="apples" key="apples" isSelected="true">
+                <gxg-tab tab="apples" key="apples">
                   <p class="no-margin">
                     Apples are not only a popular and delicious fruit but also
                     come in a variety of types, such as Granny Smith, Fuji,
@@ -105,14 +104,14 @@
                   </p>
                 </gxg-tab>
 
-                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                <gxg-tab tab="bananas" key="bananas">
                   A banana is an elongated, edible fruit – botanically a berry –
                   produced by several kinds of large herbaceous flowering plants
                   in the genus Musa. In some countries, bananas used for cooking
                   may be called "plantains", distinguishing them from dessert
                   bananas.
                 </gxg-tab>
-                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                <gxg-tab tab="cherries" key="cherries">
                   A cherry is the fruit of many plants of the genus Prunus, and
                   is a fleshy drupe. Commercial cherries are obtained from
                   cultivars of several species, such as the sweet Prunus avium
@@ -123,7 +122,7 @@
           </article>
 
           <!-- disabled -->
-          <article data-title="disabled">
+          <article data-title="2 | disabled">
             <code pill>disabled (on gxg-tab-button)</code>
             <div class="example">
               <gxg-tabs id="gxgTabs" position="top">
@@ -203,7 +202,7 @@
           </article>
 
           <!-- buttons overflow (menu style) -->
-          <article data-title="buttons overflow (menu)">
+          <article data-title="3 | buttons overflow (menu)">
             <div class="example" style="height: 300px">
               <gxg-tabs id="gxgTabs" position="top">
                 <gxg-tab-bar
@@ -377,7 +376,7 @@
           </article>
 
           <!-- buttons overflow (scroll style) -->
-          <article data-title="buttons overflow (scroll)">
+          <article data-title="4 | buttons overflow (scroll)">
             <div class="example" style="height: 300px">
               <gxg-tabs id="gxgTabs" position="top">
                 <gxg-tab-bar
@@ -552,7 +551,7 @@
           </article>
 
           <!-- no padding -->
-          <article data-title="no-padding">
+          <article data-title="5 | no-padding">
             <code pill>noPadding (on gxg-tab)</code>
             <div class="example">
               <gxg-tabs id="gxgTabs" position="top">
@@ -629,7 +628,7 @@
           </article>
 
           <!-- buttons border above -->
-          <article data-title="buttons border above">
+          <article data-title="6 | buttons border above">
             <code pill>buttonsBorderAbove (on gxg-tabs)</code>
             <div class="example">
               <gxg-tabs id="gxgTabs" position="top" buttons-border-above>
@@ -706,7 +705,7 @@
           </article>
 
           <!-- no border -->
-          <article data-title="no border">
+          <article data-title="7 | no border">
             <div class="example" style="height: 300px">
               <gxg-tabs id="gxgTabs" position="top" no-border>
                 <gxg-tab-bar
@@ -795,6 +794,847 @@
                   is a fleshy drupe. Commercial cherries are obtained from
                   cultivars of several species, such as the sweet Prunus avium
                   and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- vertical orientation (right) -->
+          <article data-title="8 | position: right-stacked">
+            <div class="example" style="height: 200px">
+              <gxg-tabs id="gxgTabs" position="right-stacked">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="cherries"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                  <p>
+                    Apples have a fascinating history, dating back thousands of
+                    years. Originating in Central Asia, they've been cultivated
+                    and enjoyed worldwide. The diversity in apple varieties
+                    extends to their uses, ranging from fresh eating and juicing
+                    to cooking and making cider. Each type brings its unique
+                    flavor profile, contributing to the versatility of this
+                    fruit.
+                  </p>
+                  <p>
+                    In the realm of web development, you can draw inspiration
+                    from the apple's diversity when creating a dynamic and
+                    engaging user interface. Consider implementing interactive
+                    features that allow users to explore various aspects of
+                    apples, such as nutritional information, recipes, or even an
+                    interactive orchard map. This not only showcases your
+                    technical skills but also enhances the overall user
+                    experience by providing valuable and enjoyable content.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- vertical orientation (left) -->
+          <article data-title="9 | position: left">
+            <div class="example" style="height: 200px">
+              <gxg-tabs id="gxgTabs" position="left">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="cherries"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                  <p>
+                    Apples have a fascinating history, dating back thousands of
+                    years. Originating in Central Asia, they've been cultivated
+                    and enjoyed worldwide. The diversity in apple varieties
+                    extends to their uses, ranging from fresh eating and juicing
+                    to cooking and making cider. Each type brings its unique
+                    flavor profile, contributing to the versatility of this
+                    fruit.
+                  </p>
+                  <p>
+                    In the realm of web development, you can draw inspiration
+                    from the apple's diversity when creating a dynamic and
+                    engaging user interface. Consider implementing interactive
+                    features that allow users to explore various aspects of
+                    apples, such as nutritional information, recipes, or even an
+                    interactive orchard map. This not only showcases your
+                    technical skills but also enhances the overall user
+                    experience by providing valuable and enjoyable content.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- reduced -->
+          <article data-title="10 | reduced">
+            <code pill
+              >it reduces tob-bar space, by removing icons and using a smaller
+              font-size</code
+            >
+            <div class="example" style="height: 200px">
+              <gxg-tabs id="gxgTabs" position="top" reduced>
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="apples"
+                    tab="apples"
+                    key="apples"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="bananas"
+                    tab="bananas"
+                    key="bananas"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="cherries"
+                    tab="cherries"
+                    key="cherries"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="apples" key="apples" isSelected="true">
+                  <p class="no-margin">
+                    Apples are not only a popular and delicious fruit but also
+                    come in a variety of types, such as Granny Smith, Fuji,
+                    Gala, and more. They are rich in fiber, vitamins, and
+                    antioxidants, promoting overall health. With their sweet and
+                    crisp taste, apples are a versatile ingredient used in both
+                    sweet and savory dishes.
+                  </p>
+                  <p>
+                    From a web developer's perspective, imagine creating a
+                    website for apple enthusiasts. The design could incorporate
+                    vibrant images of different apple varieties, and the user
+                    interface could feature smooth navigation to explore
+                    apple-related content. Incorporating responsive design
+                    ensures an optimal user experience, whether someone accesses
+                    the site from a desktop or a mobile device.
+                  </p>
+                  <p>
+                    Testing the website's functionality across various browsers
+                    ensures that apple lovers using different platforms have a
+                    seamless experience. As a front-end developer with a keen
+                    interest in design and user experience, you might appreciate
+                    the parallels between crafting a delightful website and the
+                    appeal of a perfectly designed and tasty apple.
+                  </p>
+                  <p>
+                    Apples have a fascinating history, dating back thousands of
+                    years. Originating in Central Asia, they've been cultivated
+                    and enjoyed worldwide. The diversity in apple varieties
+                    extends to their uses, ranging from fresh eating and juicing
+                    to cooking and making cider. Each type brings its unique
+                    flavor profile, contributing to the versatility of this
+                    fruit.
+                  </p>
+                  <p>
+                    In the realm of web development, you can draw inspiration
+                    from the apple's diversity when creating a dynamic and
+                    engaging user interface. Consider implementing interactive
+                    features that allow users to explore various aspects of
+                    apples, such as nutritional information, recipes, or even an
+                    interactive orchard map. This not only showcases your
+                    technical skills but also enhances the overall user
+                    experience by providing valuable and enjoyable content.
+                  </p>
+                </gxg-tab>
+
+                <gxg-tab tab="bananas" key="bananas" isSelected="false">
+                  A banana is an elongated, edible fruit – botanically a berry –
+                  produced by several kinds of large herbaceous flowering plants
+                  in the genus Musa. In some countries, bananas used for cooking
+                  may be called "plantains", distinguishing them from dessert
+                  bananas.
+                </gxg-tab>
+                <gxg-tab tab="cherries" key="cherries" isSelected="false">
+                  A cherry is the fruit of many plants of the genus Prunus, and
+                  is a fleshy drupe. Commercial cherries are obtained from
+                  cultivars of several species, such as the sweet Prunus avium
+                  and the sour Prunus cerasus.
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- reduced nested-->
+          <article data-title="11 | reduced + nested">
+            <code pill>a reduced tabs that is nested</code>
+            <div class="example" style="height: 200px">
+              <gxg-tabs id="gxgTabs" position="top">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="colors"
+                    tab="colors"
+                    key="colors"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="shapes"
+                    tab="shapes"
+                    key="shapes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="sizes"
+                    tab="sizes"
+                    key="sizes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="colors" key="colors" isSelected="true">
+                  <!--Colors-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="blue"
+                        tab="blue"
+                        key="blue"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="red"
+                        tab="red"
+                        key="red"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="yellow"
+                        tab="yellow"
+                        key="yellow"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab tab="blue" key="blue" isSelected="true">
+                      <p>These are the blue colors</p>
+                    </gxg-tab>
+
+                    <gxg-tab tab="red" key="red" isSelected="false">
+                      <p>These are the red colors</p>
+                    </gxg-tab>
+                    <gxg-tab tab="yellow" key="yellow" isSelected="false">
+                      <p>These are the yellow colors</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+
+                <gxg-tab tab="shapes" key="shapes" isSelected="false">
+                  <!--Shapes-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="circle"
+                        tab="circle"
+                        key="circle"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="square"
+                        tab="square"
+                        key="square"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="triangle"
+                        tab="triangle"
+                        key="triangle"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab tab="circle" key="circle" isSelected="true">
+                      <p>These are the circled shapes</p>
+                    </gxg-tab>
+
+                    <gxg-tab tab="square" key="square" isSelected="false">
+                      <p>These are the squared shapes</p>
+                    </gxg-tab>
+                    <gxg-tab tab="triangle" key="triangle" isSelected="false">
+                      <p>These are the triangle shapes</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+
+                <gxg-tab tab="sizes" key="sizes" isSelected="false">
+                  <!--Sizes-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="small size"
+                        tab="small-size"
+                        key="small-size"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="regular size"
+                        tab="regular-size"
+                        key="regular-size"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="large size"
+                        tab="large-size"
+                        key="large-size"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab
+                      tab="small-size"
+                      key="small-size"
+                      isSelected="true"
+                    >
+                      <p>These are the small sizes</p>
+                    </gxg-tab>
+
+                    <gxg-tab
+                      tab="regular-size"
+                      key="regular-size"
+                      isSelected="false"
+                    >
+                      <p>These are the regular sizes</p>
+                    </gxg-tab>
+                    <gxg-tab
+                      tab="large-size"
+                      key="large-size"
+                      isSelected="false"
+                    >
+                      <p>These are the large sizes</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- reduced nested + position="right"-->
+          <article data-title="12 | reduced + nested + position right">
+            <code pill
+              >a reduced tabs that is nested inside a position="right"
+              tabs.</code
+            >
+            <div class="example" style="height: 200px">
+              <gxg-tabs id="gxgTabs" position="right">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="colors"
+                    tab="colors"
+                    key="colors"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="shapes"
+                    tab="shapes"
+                    key="shapes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="sizes"
+                    tab="sizes"
+                    key="sizes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="colors" key="colors" isSelected="true">
+                  <!--Colors-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="blue"
+                        tab="blue"
+                        key="blue"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="red"
+                        tab="red"
+                        key="red"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="yellow"
+                        tab="yellow"
+                        key="yellow"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab tab="blue" key="blue" isSelected="true">
+                      <p>These are the blue colors</p>
+                    </gxg-tab>
+
+                    <gxg-tab tab="red" key="red" isSelected="false">
+                      <p>These are the red colors</p>
+                    </gxg-tab>
+                    <gxg-tab tab="yellow" key="yellow" isSelected="false">
+                      <p>These are the yellow colors</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+
+                <gxg-tab tab="shapes" key="shapes" isSelected="false">
+                  <!--Shapes-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="circle"
+                        tab="circle"
+                        key="circle"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="square"
+                        tab="square"
+                        key="square"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="triangle"
+                        tab="triangle"
+                        key="triangle"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab tab="circle" key="circle" isSelected="true">
+                      <p>These are the circled shapes</p>
+                    </gxg-tab>
+
+                    <gxg-tab tab="square" key="square" isSelected="false">
+                      <p>These are the squared shapes</p>
+                    </gxg-tab>
+                    <gxg-tab tab="triangle" key="triangle" isSelected="false">
+                      <p>These are the triangle shapes</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+
+                <gxg-tab tab="sizes" key="sizes" isSelected="false">
+                  <!--Sizes-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="small size"
+                        tab="small-size"
+                        key="small-size"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="regular size"
+                        tab="regular-size"
+                        key="regular-size"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="large size"
+                        tab="large-size"
+                        key="large-size"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab
+                      tab="small-size"
+                      key="small-size"
+                      isSelected="true"
+                    >
+                      <p>These are the small sizes</p>
+                    </gxg-tab>
+
+                    <gxg-tab
+                      tab="regular-size"
+                      key="regular-size"
+                      isSelected="false"
+                    >
+                      <p>These are the regular sizes</p>
+                    </gxg-tab>
+                    <gxg-tab
+                      tab="large-size"
+                      key="large-size"
+                      isSelected="false"
+                    >
+                      <p>These are the large sizes</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+              </gxg-tabs>
+            </div>
+          </article>
+
+          <!-- reduced nested + position="right" (no padding)-->
+          <article data-title="13 | reduced + nested + no padding">
+            <code pill
+              >a reduced tabs that is nested inside a tabs with no padding</code
+            >
+            <div class="example" style="height: 200px">
+              <gxg-tabs id="gxgTabs">
+                <gxg-tab-bar
+                  slot="tab-bar-container"
+                  id="tab-bar"
+                  display-border
+                  scrollable
+                >
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="colors"
+                    tab="colors"
+                    key="colors"
+                    is-selected
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="shapes"
+                    tab="shapes"
+                    key="shapes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                  <gxg-tab-button
+                    slot="tab-bar"
+                    tab-label="sizes"
+                    tab="sizes"
+                    key="sizes"
+                    icon="gemini-tools/settings"
+                  ></gxg-tab-button>
+                </gxg-tab-bar>
+                <gxg-tab tab="colors" key="colors" isSelected="true" no-padding>
+                  <!--Colors-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced no-border>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="blue"
+                        tab="blue"
+                        key="blue"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="red"
+                        tab="red"
+                        key="red"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="yellow"
+                        tab="yellow"
+                        key="yellow"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab tab="blue" key="blue" isSelected="true">
+                      <p>These are the blue colors</p>
+                    </gxg-tab>
+
+                    <gxg-tab tab="red" key="red" isSelected="false">
+                      <p>These are the red colors</p>
+                    </gxg-tab>
+                    <gxg-tab tab="yellow" key="yellow" isSelected="false">
+                      <p>These are the yellow colors</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+
+                <gxg-tab
+                  tab="shapes"
+                  key="shapes"
+                  isSelected="false"
+                  no-padding
+                >
+                  <!--Shapes-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced no-border>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="circle"
+                        tab="circle"
+                        key="circle"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="square"
+                        tab="square"
+                        key="square"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="triangle"
+                        tab="triangle"
+                        key="triangle"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab tab="circle" key="circle" isSelected="true">
+                      <p>These are the circled shapes</p>
+                    </gxg-tab>
+                    <gxg-tab tab="square" key="square" isSelected="false">
+                      <p>These are the squared shapes</p>
+                    </gxg-tab>
+                    <gxg-tab tab="triangle" key="triangle" isSelected="false">
+                      <p>These are the triangle shapes</p>
+                    </gxg-tab>
+                  </gxg-tabs>
+                </gxg-tab>
+
+                <gxg-tab tab="sizes" key="sizes" isSelected="false" no-padding>
+                  <!--Sizes-->
+                  <gxg-tabs id="gxgTabs" position="top" reduced no-border>
+                    <gxg-tab-bar
+                      slot="tab-bar-container"
+                      id="tab-bar"
+                      display-border
+                      scrollable
+                    >
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="small size"
+                        tab="small-size"
+                        key="small-size"
+                        is-selected
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="regular size"
+                        tab="regular-size"
+                        key="regular-size"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                      <gxg-tab-button
+                        slot="tab-bar"
+                        tab-label="large size"
+                        tab="large-size"
+                        key="large-size"
+                        icon="gemini-tools/settings"
+                      ></gxg-tab-button>
+                    </gxg-tab-bar>
+                    <gxg-tab
+                      tab="small-size"
+                      key="small-size"
+                      isSelected="true"
+                    >
+                      <p>These are the small sizes</p>
+                    </gxg-tab>
+
+                    <gxg-tab
+                      tab="regular-size"
+                      key="regular-size"
+                      isSelected="false"
+                    >
+                      <p>These are the regular sizes</p>
+                    </gxg-tab>
+                    <gxg-tab
+                      tab="large-size"
+                      key="large-size"
+                      isSelected="false"
+                    >
+                      <p>These are the large sizes</p>
+                    </gxg-tab>
+                  </gxg-tabs>
                 </gxg-tab>
               </gxg-tabs>
             </div>

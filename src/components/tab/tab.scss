@@ -19,6 +19,14 @@
     padding-inline-start: var(--gxg-tab-horizontal-padding);
     overflow-y: auto;
     background-color: var(--gxg-tab-background-color);
+
+    &--reduced {
+      font-size: var(--gxg-tab-font-size--reduced);
+      padding-block-start: var(--gxg-tab-vertical-padding--reduced);
+      padding-inline-end: var(--gxg-tab-horizontal-padding--reduced);
+      padding-block-end: var(--gxg-tab-vertical-padding--reduced);
+      padding-inline-start: var(--gxg-tab-horizontal-padding--reduced);
+    }
   }
 }
 :host(.not-selected) {

@@ -34,6 +34,15 @@
   --gxg-tab-menu-button-min-height: var(--spacing-comp-06);
   --gxg-tab-menu-button-font-size: var(--font-size-md);
 
+  /*--- Reduced ---*/
+  --gxg-tab-button-font-size--reduced: var(--font-size-sm);
+  --gxg-tab-button-height--reduced: var(--spacing-comp-05);
+  --gxg-tab-button-vertical-padding--reduced: var(--spacing-comp-02);
+  --gxg-tab-button-horizontal-padding--reduced: var(--spacing-comp-02);
+  --gxg-tab-font-size--reduced: var(--gxg-tab-button-font-size--reduced);
+  --gxg-tab-horizontal-padding--reduced: var(--spacing-comp-02);
+  --gxg-tab-vertical-padding--reduced: var(--spacing-comp-02);
+
   &.mercury {
     /*--- Tabs ---*/
     --gxg-tabs-border-width: var(--mer-border__width--sm);
@@ -73,5 +82,15 @@
     --gxg-tab-menu-button-padding: var(--mer-spacing--xs);
     --gxg-tab-menu-button-min-height: var(--mer-spacing--xl);
     --gxg-tab-menu-button-font-size: var(--mer-font__size--xs);
+
+    /*--- Reduced ---*/
+    --gxg-tab-button-font-size--reduced: var(--mer-font__size--xxs);
+    --gxg-tab-button-height--reduced: var(--mer-spacing--lg);
+    --gxg-tab-button-vertical-padding--reduced: var(--mer-spacing--xs);
+    --gxg-tab-button-horizontal-padding--reduced: var(--mer-spacing--xs);
+    --gxg-tab-font-size--reduced: var(--gxg-tab-button-font-size--reduced);
+    --gxg-tab-font-size--reduced: var(--gxg-tab-button-font-size--reduced);
+    --gxg-tab-horizontal-padding--reduced: var(--mer-spacing--xs);
+    --gxg-tab-vertical-padding--reduced: var(--mer-spacing--xs);
   }
 }

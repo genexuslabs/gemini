@@ -194,6 +194,7 @@ export class GxgTabBar {
   componentWillLoad() {
     this.attachExportParts();
   }
+
   private attachExportParts = (): void => {
     const part = this.el.getAttribute("part");
     const exportPartsResult = exportParts(part, this.parts);
