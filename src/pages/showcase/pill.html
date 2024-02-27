@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Pill | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+    </style>
+  </head>
+  <body class="opacity-0">
+    <div class="container no-separator">
+      <h1>gxg-pill</h1>
+      <!-----------------
+      Pill Types
+      ------------------>
+      <section data-title="types">
+        <div class="articles-container">
+          <!-- static -->
+          <article data-title="static">
+            <code pill>type="static"</code>
+            <div class="example">
+              <gxg-pill type="static">Static Pill</gxg-pill>
+            </div>
+          </article>
+
+          <!-- static with action -->
+          <article data-title="static with action">
+            <code pill>type="static-with-action"</code>
+            <div class="example">
+              <gxg-pill type="static-with-action">Static With Action</gxg-pill>
+            </div>
+          </article>
+
+          <!-- button -->
+          <article data-title="button">
+            <code pill>type="button"</code>
+            <div class="example">
+              <gxg-pill type="button">Button</gxg-pill>
+            </div>
+          </article>
+
+          <!-- button with action -->
+          <article data-title="button with action">
+            <code pill>type="button-with-action"</code>
+            <div class="example">
+              <gxg-pill type="button-with-action">Button With Action</gxg-pill>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      Pills Grouped
+      ------------------>
+      <section data-title="other">
+        <div class="articles-container">
+          <!-- grouped -->
+          <article data-title="pills grouped">
+            <code pill>gxg-pills + gxg-pill</code>
+            <div class="example">
+              <gxg-pills style="max-width: 300px"
+                ><gxg-pill type="static">Orange</gxg-pill
+                ><gxg-pill type="static">Strawberry</gxg-pill
+                ><gxg-pill type="static">Lemon</gxg-pill
+                ><gxg-pill type="static">Banana</gxg-pill
+                ><gxg-pill type="static">Avocado</gxg-pill
+                ><gxg-pill type="static">Grape</gxg-pill
+                ><gxg-pill type="static">Melon</gxg-pill></gxg-pills
+              >
+            </div>
+          </article>
+
+          <!-- with icon -->
+          <article data-title="with icon">
+            <code pill>icon="general/environment-no-select"</code>
+            <div class="example">
+              <gxg-pill icon="general/environment-no-select" type="static"
+                >Button With Icon</gxg-pill
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
