@@ -13,6 +13,7 @@
 | `autoClose`      | `auto-close`      | It true, it will auto-close when the progress is 100         | `boolean`                                                        | `false`         |
 | `caption`        | `caption`         | The top-bar title                                            | `string`                                                         | `undefined`     |
 | `closedCallback` | `closed-callback` | A callback that gets called when the top-state-bar is closed | `boolean`                                                        | `false`         |
+| `minimal`        | `minimal`         | It will only display the bar (no title, no close button)     | `boolean`                                                        | `false`         |
 | `noBorder`       | `no-border`       | It removes the border (actually is box shadow)               | `boolean`                                                        | `false`         |
 | `progress`       | `progress`        | The progress bar progress                                    | `number`                                                         | `undefined`     |
 | `stateType`      | `state-type`      | The top-bar title                                            | `"accent" \| "error" \| "in-progress" \| "success" \| "warning"` | `"in-progress"` |

@@ -96,7 +96,10 @@
         overflow: hidden;
       }
       &-full-width {
-        width: 100%;
+        width: 100% !important;
+        .card-title-wrapper {
+          white-space: unset;
+        }
       }
     }
     &--right {

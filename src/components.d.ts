@@ -2219,6 +2219,10 @@ export namespace Components {
          */
         "closedCallback": boolean;
         /**
+          * It will only display the bar (no title, no close button)
+         */
+        "minimal": boolean;
+        /**
           * It removes the border (actually is box shadow)
          */
         "noBorder": boolean;
@@ -6050,6 +6054,10 @@ declare namespace LocalJSX {
           * A callback that gets called when the top-state-bar is closed
          */
         "closedCallback"?: boolean;
+        /**
+          * It will only display the bar (no title, no close button)
+         */
+        "minimal"?: boolean;
         /**
           * It removes the border (actually is box shadow)
          */
