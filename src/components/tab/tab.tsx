@@ -4,7 +4,7 @@ import state from "../store";
 @Component({
   tag: "gxg-tab",
   styleUrl: "tab.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgTab {
   @Element() el: HTMLElement;
@@ -44,6 +44,11 @@ export class GxgTab {
    */
   @Prop({ reflect: true }) isSelected = false;
 
+  /**
+   * The presence of this attribute will make the font size smaller.
+   */
+  @Prop() reduced: boolean = false;
+
   render() {
     return (
       <Host
@@ -54,7 +59,7 @@ export class GxgTab {
           "not-selected": !this.isSelected,
           "no-padding": this.noPadding,
           large: state.large,
-          mercury: state.mercury,
+          mercury: state.mercury
         }}
       >
         <div
@@ -63,6 +68,7 @@ export class GxgTab {
             "container--flex": this.flexContainer,
             "flex-column": this.flexDirection === "column",
             "flex-row": this.flexDirection === "row",
+            "container--reduced": this.reduced
           }}
           part="container"
         >

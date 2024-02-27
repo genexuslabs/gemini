@@ -6,7 +6,7 @@ import { hiChar } from "../../common/hiChar";
 @Component({
   tag: "gxg-card",
   styleUrl: "card.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgCard {
   @Element() el!: HTMLElement;
@@ -45,6 +45,11 @@ export class GxgCard {
    * Disables box-shadow
    */
   @Prop() noShadow = false;
+
+  /**
+   * Removes border
+   */
+  @Prop() noBorder = false;
 
   /**
    * This allows to highlight any character on the card title, or subtitle.
@@ -176,25 +181,31 @@ export class GxgCard {
             (this.cardType === "article" || this.cardType === "mini"),
           "title-semibold": this.titleSemibold,
           "card--no-shadow": this.noShadow,
-          "no-header-border": this.noHeaderBorder,
+          "card--no-border": this.noBorder,
+          "no-header-border": this.noHeaderBorder
         }}
         style={{
           maxWidth: this.maxWidth,
           minHeight: this.minHeight,
-          height: this.height,
+          height: this.height
         }}
       >
         <div
           role={this.actionable ? "button" : "none"}
           class={{
             wrapper: true,
-            "wrapper--header": this.cardTitle !== undefined,
+            "wrapper--header": this.cardTitle !== undefined
           }}
         >
           {this.cardTitle ? (
             <header class="card__header">
               {/*Title*/}
-              <div class="card__header--left">
+              <div
+                class={{
+                  "card__header--left": true,
+                  "card__header--left-full-width": !this.cardSubtitle
+                }}
+              >
                 {this.icon ? (
                   <gxg-icon type={this.icon} color={this.iconColor}></gxg-icon>
                 ) : null}

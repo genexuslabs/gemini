@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="mercury dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Window | Gemini</title>
+
+    <script type="module" src="/build/gemini.esm.js"></script>
+    <script nomodule src="/build/gemini.js"></script>
+    <link href="/build/gemini.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <script src="../assets/scripts.js"></script>
+    <style>
+      /* .example > * {
+        flex: 1;
+      } */
+    </style>
+  </head>
+  <body class="opacity-0">
+    <div class="container no-separator">
+      <h1>gxg-window</h1>
+      <!-----------------
+      Template
+      ------------------>
+      <section>
+        <div class="articles-container">
+          <!-- first-case -->
+          <article data-title="template">
+            <!-- <code pill></code> -->
+            <div class="example">
+              <gxg-window-v2></gxg-window-v2>
+
+              <button id="show-window-btn">Show window</button>
+
+              <script>
+                const gxgWindow = document.querySelector("gxg-window");
+                const showWindowBtn =
+                  document.getElementById("show-window-btn");
+                showWindowBtn.addEventListener("click", function () {
+                  gxgWindow.displayWindow = true;
+                });
+              </script>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

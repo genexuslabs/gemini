@@ -1,4 +1,5 @@
 $transitionSpeed: 200ms;
+$border: 1px solid var(--mer-color__elevation--04);
 :host {
   --top-bar-progress: 0%;
   display: grid;
@@ -12,59 +13,129 @@ $transitionSpeed: 200ms;
   grid-template-rows: 1fr;
 }
 .top-state-bar {
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--mer-color__elevation--04);
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    left: var(--mer-border__width--sm);
+    top: var(--mer-border__width--sm);
+    width: calc(100% - var(--mer-border__width--sm) * 2);
+    height: calc(100% - var(--mer-border__width--sm) * 2);
+    position: absolute;
+    background-color: var(--mer-color__surface);
+    z-index: 0;
+    border-radius: var(--mer-border__width--lg);
+  }
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+  border-radius: var(--mer-border__width--lg);
+  list-style: var(--mer-font__size--xxs);
+  display: flex;
+  opacity: 0;
+  transition: 150ms opacity;
   &__wrapper {
-    padding: 0 var(--mer-spacing--md);
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: var(--mer-spacing--xxl);
+    flex-direction: column;
+    gap: var(--mer-spacing--xs);
+    padding: var(--mer-spacing--sm) var(--mer-spacing--sm);
   }
   &__caption {
-    opacity: 0;
-    transition: 150ms opacity;
     color: var(--mer-text__on-message);
     font-family: var(--ds-base-font-family-primary);
-    font-size: var(--mer-font__size--sm);
-    font-weight: var(--mer-font__weight--semi-bold);
-    &--visible {
-      opacity: 1;
-    }
+    font-size: var(--mer-font__size--xxs);
+    line-height: var(--mer-font__size--xxs);
+    font-weight: var(--mer-font__weight--regular);
+    display: flex;
+    align-items: baseline;
+    font-style: italic;
   }
-  &__close {
-    opacity: 0;
-    transition: $transitionSpeed opacity;
+  &__progress-wrapper {
+    height: var(--mer-spacing--xxs);
+    background-color: var(--mer-color__elevation--04);
+  }
+  &__close-wrapper {
     cursor: pointer;
+    border-inline-start: $border;
+    display: flex;
+    align-items: center;
+    transition: $transitionSpeed background-color;
     &:hover {
-      opacity: 0.75;
+      .top-state-bar__close {
+        opacity: 0.75;
+      }
     }
-    &--visible {
-      opacity: 1;
+    &:active {
+      .top-state-bar__close {
+        opacity: 0.5;
+      }
     }
   }
   /*states*/
   &--accent {
-    .top-state-bar__wrapper {
+    .progress-bar {
       background-color: var(--mer-accent__primary);
-      color: var(--mer-text__on-primary);
+    }
+    .top-state-bar__caption {
+      color: var(--mer-accent__primary);
     }
   }
   &--success {
-    .top-state-bar__wrapper {
+    .progress-bar {
       background-color: var(--mer-color__message-green--100);
+    }
+    .top-state-bar__caption {
+      color: var(--mer-color__message-green--100);
     }
   }
   &--warning {
-    .top-state-bar__wrapper {
+    .progress-bar {
       background-color: var(--mer-color__message-yellow--100);
+    }
+    .top-state-bar__caption {
+      color: var(--mer-color__message-yellow--100);
     }
   }
   &--error {
-    .top-state-bar__wrapper {
+    .progress-bar {
       background-color: var(--mer-color__message-red--100);
+    }
+    .top-state-bar__caption {
+      color: var(--mer-color__message-red--100);
     }
   }
   &--in-progress {
-    .top-state-bar__wrapper {
+    &:before {
+      height: 0;
+      width: 120%;
+      padding-top: 60%;
+      padding-bottom: 60%;
+      background: linear-gradient(
+        90deg,
+        rgba(91, 167, 255, 1) 0%,
+        rgba(63, 168, 155, 1) 100%
+      );
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-animation: inProgressBackgroundColor 1s linear infinite;
+      animation: inProgressBackgroundColor 1s linear infinite;
+    }
+    .top-state-bar__close-wrapper {
+      border-inline-start-color: rgba(63, 168, 155, 1);
+      -webkit-animation: inProgressBorderColor 1s linear infinite;
+      animation: inProgressBorderColor 1s linear infinite;
+    }
+    .progress-bar {
       position: relative;
       overflow: hidden;
       z-index: 1;
@@ -82,33 +153,38 @@ $transitionSpeed: 200ms;
           rgba(147, 245, 235, 1) 66%,
           rgba(26, 163, 255, 1) 100%
         );
-        animation-name: inProgress;
+        animation-name: inProgressBar;
         animation-duration: 2s;
         animation-iteration-count: infinite;
       }
     }
     .top-state-bar__caption {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      z-index: 2;
+      color: #3fa89b;
     }
   }
-  /*with action*/
-  &--with-action {
-    .top-state-bar__caption {
-      flex: 1;
-      text-align: center;
-    }
-    .top-state-bar__wrapper {
-      padding-inline-end: var(--mer-spacing--xxs);
-    }
+  &--visible {
+    opacity: 1;
   }
 }
 
 /*in progress animation*/
-@-webkit-keyframes inProgress {
+@-webkit-keyframes inProgressBorderColor {
+  0% {
+    border-inline-start-color: rgba(63, 168, 155, 1);
+  }
+  100% {
+    border-inline-start-color: rgba(91, 167, 255, 1);
+  }
+}
+@-webkit-keyframes inProgressBackgroundColor {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+@-webkit-keyframes inProgressBar {
   0% {
     left: 0%;
   }
@@ -116,7 +192,7 @@ $transitionSpeed: 200ms;
     left: -200%;
   }
 }
-@-moz-keyframes inProgress {
+@-moz-keyframes inProgressBar {
   0% {
     left: 0%;
   }
@@ -124,7 +200,7 @@ $transitionSpeed: 200ms;
     left: 200%;
   }
 }
-@keyframes inProgress {
+@keyframes inProgressBar {
   0% {
     left: 0%;
   }
@@ -134,12 +210,22 @@ $transitionSpeed: 200ms;
 }
 
 .progress-bar {
+  display: block;
   transition: all $transitionSpeed;
   width: var(--top-bar-progress);
-  background-color: var(--mer-accent__primary);
-  height: var(--mer-spacing--xxs);
+  border-radius: calc(var(--mer-spacing--xxs) / 2);
+  height: 100%;
+}
 
-  &--hidden {
-    height: 0;
+:host([no-border]) {
+  .top-state-bar {
+    position: relative;
+    &:before,
+    &:after {
+      display: none;
+    }
+    &__close-wrapper {
+      border-inline-start: none;
+    }
   }
 }

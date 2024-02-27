@@ -20,6 +20,7 @@
       .block {
         background-color: var(--mer-color__neutral-gray--1100);
         height: 40px;
+        display: none;
       }
       html {
         scroll-behavior: smooth;
@@ -90,6 +91,21 @@
                 caption="Publishing project - Please hang on"
                 state-type="in-progress"
                 active
+                progress="50"
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+
+          <!-- in progress with close -->
+          <article data-title="in progress : with close">
+            <code pill>stateType: in-progress</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Publishing project - Please hang on"
+                state-type="in-progress"
+                active
+                progress="50"
+                with-close
               ></gxg-top-state-bar>
             </div>
           </article>
@@ -229,6 +245,26 @@
                   }, 300);
                 });
               </script>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-----------------
+      other
+      ------------------>
+      <section data-title="other">
+        <div class="articles-container">
+          <!-- success -->
+          <article data-title="no border">
+            <code pill>noBorder</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Project published"
+                state-type="success"
+                active
+                no-border
+              ></gxg-top-state-bar>
             </div>
           </article>
         </div>

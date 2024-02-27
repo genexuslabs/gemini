@@ -17,7 +17,6 @@ import {
 } from "../combo-box-item/combo-box-item";
 import { formMessageLogic, formTooltipLogic } from "../../common/form";
 import { FormComponent } from "../../common/interfaces";
-import { repositionScroll } from "../../common/reposition-scroll";
 import { KeyboardKeys as KK } from "../../common/types";
 import { exportParts } from "../../common/export-parts";
 import state from "../store";
@@ -38,7 +37,7 @@ export class GxgComboBox implements FormComponent {
   };
   private exportparts: string;
   private _mo;
-  private componentDidLoadFlag = false;
+  private prevEmittedValue: ComboBoxItemValue = null;
 
   /**
    * The presence of this attribute applies the popover attribute to the list of items. This is useful if the combo-box is wrapped inside a "@container" responsive container, since at the time of writing, fixed positioned elements that are inside a "@container" container, are relative to the container, not the viewport.
@@ -242,7 +241,6 @@ export class GxgComboBox implements FormComponent {
 
   componentDidLoad(): void {
     this.resizeObserver();
-    this.componentDidLoadFlag = true;
     this.evaluatePopOver();
   }
   disconnectedCallback(): void {
@@ -319,12 +317,16 @@ export class GxgComboBox implements FormComponent {
   private inputHandler = (e): void => {
     this.userTyped = true;
     const value = this.sanitizeString(e.detail);
-    const filteredItems = this.filterList(value);
+    this.filterList(value);
     if (!this.strict) {
       this.value = value;
-    } else if (filteredItems.length === 1) {
-      /*on strict mode, only set value if there is an exact match*/
-      this.value = filteredItems[0].value;
+    } else {
+      const item = this.getItemByValue(value);
+      if (item) {
+        this.value = value;
+      } else {
+        this.value = undefined;
+      }
     }
   };
 
@@ -336,18 +338,17 @@ export class GxgComboBox implements FormComponent {
     if (e.code === KK.ARROW_DOWN) {
       newItem = this.getNewItem("next");
       newItem?.value && (this.value = newItem?.value);
-      repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_DOWN);
       e.altKey && this.showList();
     } else if (e.code === KK.ARROW_UP) {
       newItem = this.getNewItem("prev");
       newItem?.value && (this.value = newItem?.value);
-      repositionScroll(this.itemsContainer, this.selectedItem, KK.ARROW_UP);
     } else if (e.code === KK.ENTER) {
       if (this.preventEnterPropagation && this.listIsOpen) {
         e.stopPropagation();
       }
       this.hideList();
       this.showAllItems();
+      this.evaluateValueChangedEmit();
     } else if (e.code === KK.SPACE) {
       this.showList();
     } else if (e.code === KK.ESCAPE) {
@@ -355,6 +356,33 @@ export class GxgComboBox implements FormComponent {
       this.hideList();
     } else if (e.code === KK.TAB && this.showList) {
       this.hideList();
+    }
+  };
+
+  private evaluateValueChangedEmit = () => {
+    if (this.strict && this.value === undefined) {
+      this.text = "";
+      this.value = this.prevEmittedValue;
+    } else if (this.value !== this.prevEmittedValue) {
+      this.valueChanged.emit(this.value);
+      this.prevEmittedValue = this.value;
+    }
+  };
+
+  private evaluateScroll = () => {
+    if (this.selectedItem) {
+      const selectedITemTop = this.selectedItem.getBoundingClientRect().top;
+      const selectedITemBottom =
+        this.selectedItem.getBoundingClientRect().bottom;
+      const containerTop = this.itemsContainer.getBoundingClientRect().top;
+      const containerBottom =
+        this.itemsContainer.getBoundingClientRect().bottom;
+      if (
+        selectedITemTop < containerTop ||
+        selectedITemBottom > containerBottom
+      ) {
+        this.selectedItem.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -369,9 +397,6 @@ export class GxgComboBox implements FormComponent {
   @Watch("value")
   onValueChanged(newValue: ComboBoxItemValue): void {
     setTimeout(() => {
-      if (this.componentDidLoadFlag) {
-        this.valueChanged.emit(newValue);
-      }
       this.clearSelectedItem();
       let value;
       let newItem: HTMLGxgComboBoxItemElement = undefined;
@@ -385,11 +410,15 @@ export class GxgComboBox implements FormComponent {
       if (newItem) {
         this.setSelectedItem(newItem);
         this.setIcon(newItem.icon);
-        newItem?.textContent && (this.text = newItem.textContent);
+        const textContent = newItem.textContent;
+        if (textContent.length > 0) {
+          this.text = textContent;
+        } else {
+          this.text = newItem.value;
+        }
       } else {
         //this.setIcon(undefined);
         if (this.strict) {
-          this.text = undefined;
           this.value = undefined;
         } else {
           this.text = newValue;
@@ -428,6 +457,9 @@ export class GxgComboBox implements FormComponent {
   @Watch("selectedItem")
   selectedItemHandler(newItem: HTMLGxgComboBoxItemElement): void {
     newItem && (newItem.selected = true);
+    if (this.listIsOpen) {
+      this.evaluateScroll();
+    }
   }
 
   @Watch("removedItem")
@@ -551,15 +583,19 @@ export class GxgComboBox implements FormComponent {
   };
 
   private getValueByText = (text: string): ComboBoxItemValue => {
-    !this.caseSensitive && (text = text.toLowerCase());
-    const enabledItems = this.getEnabledItems();
-    const item = enabledItems?.find(item => {
-      const itemText = !this.caseSensitive
-        ? item.textContent.toLocaleLowerCase()
-        : item.textContent;
-      return !item.disabled && itemText === text;
-    });
-    return item?.value;
+    if (text) {
+      !this.caseSensitive && (text = text.toLowerCase());
+      const enabledItems = this.getEnabledItems();
+      const item = enabledItems?.find(item => {
+        const itemText = !this.caseSensitive
+          ? item.textContent.toLocaleLowerCase()
+          : item.textContent;
+        return !item.disabled && itemText === text;
+      });
+      return item?.value;
+    } else {
+      return undefined;
+    }
   };
 
   private getNewItem = (
@@ -624,6 +660,11 @@ export class GxgComboBox implements FormComponent {
         }
       }
     }
+    this.prevEmittedValue = this.value;
+  };
+
+  private onBlurHandler = () => {
+    this.evaluateValueChangedEmit();
   };
 
   private toggleListButtonClickHandler = (): void => {
@@ -791,6 +832,7 @@ export class GxgComboBox implements FormComponent {
                   onInput={this.inputHandler.bind(this)}
                   onKeyDown={this.keyDownHandler}
                   onClick={this.inputTextClickHandler}
+                  onBlur={this.onBlurHandler}
                   value={this.text}
                   icon={this.fixedIcon || this.inputTextIcon}
                   iconPosition="start"

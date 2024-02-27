@@ -4,9 +4,9 @@ import {
   Listen,
   Host,
   h,
-  State,
   Prop,
-  Method
+  Method,
+  Watch
 } from "@stencil/core";
 import { GxgTab } from "../tab/tab";
 
@@ -36,7 +36,21 @@ export class GxgTabs {
    */
   @Prop() noPadding = false;
 
-  @State() activeTab = "";
+  /**
+   * The presence of this attribute will make buttons and tabs reduced, meaning that the font size and padding, will be smaller. Also, the icons in the buttons will not be displayed.
+   */
+  @Prop({ reflect: true }) reduced = false;
+
+  /**
+   * The actual active tab, and tab-button
+   */
+  @Prop() activeTab: string;
+  @Watch("activeTab")
+  watchActiveTabHandler(activeTab: string) {
+    if (activeTab?.length > 0) {
+      this.activateTab();
+    }
+  }
 
   @Listen("tabActivated")
   tabActivatedHandler(event) {
@@ -47,7 +61,46 @@ export class GxgTabs {
 
   componentWillLoad() {
     this.configureTabs();
+    this.evaluateReduced();
+    if (this.activeTab) {
+      this.activateTab();
+    }
+    this.evaluateStacked();
   }
+
+  private evaluateStacked = () => {
+    if (this.position === "left-stacked" || this.position === "right-stacked") {
+      //stacked tabBar
+      const tabBar = this.el.querySelector("gxg-tab-bar");
+      if (tabBar) {
+        tabBar.stacked = this.position;
+      }
+      const tabButtons = this.el.querySelectorAll("gxg-tab-button");
+      if (tabButtons) {
+        tabButtons.forEach(tabButton => {
+          tabButton.stackedStyle = true;
+        });
+      }
+      //stacked buttons
+    }
+  };
+
+  private evaluateReduced = () => {
+    if (this.reduced) {
+      //tab buttons
+      const gxgTabButtons = Array.from(
+        this.el.querySelectorAll("gxg-tab-button")
+      );
+      gxgTabButtons.forEach(tabButton => {
+        tabButton.reduced = true;
+      });
+      //tabs
+      const gxgTabs = Array.from(this.el.querySelectorAll("gxg-tab"));
+      gxgTabs.forEach(tab => {
+        tab.reduced = true;
+      });
+    }
+  };
 
   updateActiveChildren(activeTab: string, tagName: string) {
     let children;
@@ -103,6 +156,31 @@ export class GxgTabs {
     return this.el.querySelector(`gxg-tab-button[key=${tab}]`);
   };
 
+  private activateTab = () => {
+    //buttons
+    const tabButtons: HTMLGxgTabButtonElement[] = Array.from(
+      this.el.querySelectorAll("gxg-tab-button")
+    );
+    tabButtons.forEach(tabButton => {
+      if (tabButton.tab !== this.activeTab) {
+        tabButton.isSelected = false;
+      } else {
+        tabButton.isSelected = true;
+      }
+    });
+    //tabs
+    const tabs: HTMLGxgTabElement[] = Array.from(
+      this.el.querySelectorAll("gxg-tab")
+    );
+    tabs.forEach(tab => {
+      if (tab.tab !== this.activeTab) {
+        tab.isSelected = false;
+      } else {
+        tab.isSelected = true;
+      }
+    });
+  };
+
   render() {
     return (
       <Host
@@ -141,4 +219,10 @@ export class GxgTabs {
   }
 }
 
-export type TabsPosition = "top" | "bottom" | "left" | "right";
+export type TabsPosition =
+  | "top"
+  | "bottom"
+  | "left-rotated"
+  | "left-stacked"
+  | "right-rotated"
+  | "right-stacked";
