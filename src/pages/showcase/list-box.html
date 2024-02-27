@@ -128,6 +128,63 @@
               </gxg-list-box>
             </div>
           </article>
+
+          <!-- scroll to item -->
+          <article data-title="scroll to item">
+            <!-- <code pill></code> -->
+            <div class="example max-height">
+              <gxg-list-box
+                height="100%"
+                min-height="50%"
+                class="list-box-scroll"
+                initial-scroll-to-selected
+              >
+                <gxg-list-box-item
+                  >0.Common this is a large, very large list
+                  description</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/business-process-diagram"
+                  >1.BPM</gxg-list-box-item
+                >
+                <gxg-list-box-item checked icon="objects/conversational-flows"
+                  >2.Chatbots</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/data-provider"
+                  >3.Data Management</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/bg-color"
+                  >4.Resources</gxg-list-box-item
+                >
+                <gxg-list-box-item
+                  value="user-interface"
+                  icon="objects/webpanel"
+                  >5.User interface</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/dashboard"
+                  >6.Dashboard</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/deployment-unit"
+                  >7.Deployment Unit</gxg-list-box-item
+                >
+                <gxg-list-box-item icon="objects/dso">8.DSO</gxg-list-box-item>
+                <gxg-list-box-item selected icon="objects/structured-data-type"
+                  >9.Structured Data Type</gxg-list-box-item
+                >
+              </gxg-list-box>
+            </div>
+            <div>
+              <gxg-button id="scroll-to-item-5">scroll to item 5</gxg-button>
+              <script>
+                const listBoxScroll =
+                  document.querySelector(".list-box-scroll");
+                const scrollToItem5 =
+                  document.getElementById("scroll-to-item-5");
+                scrollToItem5.addEventListener("click", () => {
+                  listBoxScroll.scrollToSelected();
+                });
+              </script>
+            </div>
+          </article>
         </div>
       </section>
     </div>

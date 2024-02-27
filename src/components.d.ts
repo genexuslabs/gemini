@@ -1342,6 +1342,10 @@ export namespace Components {
          */
         "informationMessage": string;
         /**
+          * Scrolls to the first selected item after componentDidLoad
+         */
+        "initialScrollToSelected": boolean;
+        /**
           * An object with suggestions about the possible keyboard combinations
          */
         "keyboardSuggestions": KeyboardSuggestions;
@@ -1353,6 +1357,7 @@ export namespace Components {
           * Make the radio-buttons required
          */
         "required": boolean;
+        "scrollToSelected": () => Promise<void>;
         /**
           * The presence of this attribute will deactivate multi-selection
          */
@@ -5126,6 +5131,10 @@ declare namespace LocalJSX {
           * An informative message to help the user filling the information
          */
         "informationMessage"?: string;
+        /**
+          * Scrolls to the first selected item after componentDidLoad
+         */
+        "initialScrollToSelected"?: boolean;
         /**
           * An object with suggestions about the possible keyboard combinations
          */

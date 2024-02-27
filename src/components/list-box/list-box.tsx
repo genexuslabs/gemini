@@ -107,6 +107,11 @@ export class GxgListBox implements FormComponent {
   @Prop({ reflect: true }) borderStart = false;
 
   /**
+   * Scrolls to the first selected item after componentDidLoad
+   */
+  @Prop({ reflect: true }) initialScrollToSelected = false;
+
+  /**
    * this variable keeps an array of the selected items.
    */
   @State() selectedItems: ItemsInformation[] = [];
@@ -188,6 +193,15 @@ export class GxgListBox implements FormComponent {
     return selectedItemsInformation;
   }
 
+  @Method()
+  async scrollToSelected() {
+    const selectedItems = this.getSelectedItemsFunc();
+    if (selectedItems.length) {
+      const firstSelectedItem = selectedItems[0];
+      firstSelectedItem.scrollIntoView();
+    }
+  }
+
   componentDidRender(): void {
     if (this.theTitle) {
       this.headerHeight = this.header.clientHeight;
@@ -196,6 +210,7 @@ export class GxgListBox implements FormComponent {
 
   componentDidLoad(): void {
     //this.setInitialActive();
+    this.initialScrollToSelected && this.scrollToSelected();
   }
 
   private setIndexes = () => {
