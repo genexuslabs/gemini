@@ -3,10 +3,6 @@
 }
 .pills-wrapper {
   display: flex;
-  gap: var(--spacing-comp-02);
+  gap: var(--gxg-pills__gap);
   flex-wrap: wrap;
 }
-/*********************************************
-Mercury
-**********************************************/
-@import "./pills-mercury";
