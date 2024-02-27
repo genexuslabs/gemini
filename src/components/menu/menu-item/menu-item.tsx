@@ -3,7 +3,7 @@ import { Component, Event, EventEmitter, Prop, h, Host } from "@stencil/core";
 @Component({
   tag: "gxg-menu-item",
   styleUrl: "menu-item.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgMenuItem {
   //A reference to the input
@@ -29,8 +29,12 @@ export class GxgMenuItem {
 
   render() {
     return (
-      <Host onClick={this.setActive.bind(this)}>
-        <li class="menu-item" ref={(el) => (this.listItem = el as HTMLElement)}>
+      <Host>
+        <li
+          class="menu-item"
+          ref={el => (this.listItem = el as HTMLElement)}
+          onClick={this.setActive.bind(this)}
+        >
           <div class="menu-item__container">
             {this.includeIcon()}
             {this.label}

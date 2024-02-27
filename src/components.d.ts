@@ -46,6 +46,7 @@ import { JustifyContent, Orientation, Space as Space1 } from "./components/space
 import { Direction, Knob } from "./components/splitter/splitter";
 import { Space as Space2 } from "./components/stack/stack";
 import { TabContainerFlexDirection } from "./components/tab/tab";
+import { TabsStackedPosition } from "./components/tab-bar/tab-bar";
 import { TabsPosition } from "./components/tabs/tabs";
 import { TargetType, TextAlign, TextPadding, TextType } from "./components/text/text";
 import { TitleType } from "./components/title/title";
@@ -102,6 +103,7 @@ export { JustifyContent, Orientation, Space as Space1 } from "./components/space
 export { Direction, Knob } from "./components/splitter/splitter";
 export { Space as Space2 } from "./components/stack/stack";
 export { TabContainerFlexDirection } from "./components/tab/tab";
+export { TabsStackedPosition } from "./components/tab-bar/tab-bar";
 export { TabsPosition } from "./components/tabs/tabs";
 export { TargetType, TextAlign, TextPadding, TextType } from "./components/text/text";
 export { TitleType } from "./components/title/title";
@@ -413,6 +415,10 @@ export namespace Components {
           * The component min. height
          */
         "minHeight": string;
+        /**
+          * Removes border
+         */
+        "noBorder": boolean;
         /**
           * Removes the header border
          */
@@ -1941,6 +1947,10 @@ export namespace Components {
           * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
          */
         "scrollable": boolean;
+        /**
+          * If true the buttons will be stacked on each other, instead of inline. (used for "position:left-stacked", or "position:right-stacked" on gxg-tabs)
+         */
+        "stacked": TabsStackedPosition;
     }
     interface GxgTabButton {
         /**
@@ -1967,6 +1977,10 @@ export namespace Components {
           * The presence of this attribute will hide the icon, and reduce the font size a little bit.
          */
         "reduced": boolean;
+        /**
+          * Stylize the button for the gxg-tab-bar "stacked" version.
+         */
+        "stackedStyle": boolean;
         /**
           * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
          */
@@ -2201,6 +2215,14 @@ export namespace Components {
          */
         "caption": string;
         /**
+          * A callback that gets called when the top-state-bar is closed
+         */
+        "closedCallback": boolean;
+        /**
+          * It removes the border (actually is box shadow)
+         */
+        "noBorder": boolean;
+        /**
           * The progress bar progress
          */
         "progress": number;
@@ -2209,9 +2231,9 @@ export namespace Components {
          */
         "stateType": topStateBarType;
         /**
-          * It will display a progress bar
+          * It will display a close action button
          */
-        "withProgressBar": boolean;
+        "withClose": boolean;
     }
     interface GxgTree {
         /**
@@ -2515,6 +2537,12 @@ export namespace Components {
           * The window title
          */
         "windowTitle": string;
+    }
+    interface GxgWindowV2 {
+        /**
+          * If true it displays the component title on the header
+         */
+        "displayTitle": false;
     }
 }
 export interface GxgAccordionItemCustomEvent<T> extends CustomEvent<T> {
@@ -3662,6 +3690,12 @@ declare global {
         prototype: HTMLGxgWindowElement;
         new (): HTMLGxgWindowElement;
     };
+    interface HTMLGxgWindowV2Element extends Components.GxgWindowV2, HTMLStencilElement {
+    }
+    var HTMLGxgWindowV2Element: {
+        prototype: HTMLGxgWindowV2Element;
+        new (): HTMLGxgWindowV2Element;
+    };
     interface HTMLElementTagNameMap {
         "gxg-accordion": HTMLGxgAccordionElement;
         "gxg-accordion-item": HTMLGxgAccordionItemElement;
@@ -3749,6 +3783,7 @@ declare global {
         "gxg-tree-item": HTMLGxgTreeItemElement;
         "gxg-tree-view": HTMLGxgTreeViewElement;
         "gxg-window": HTMLGxgWindowElement;
+        "gxg-window-v2": HTMLGxgWindowV2Element;
     }
 }
 declare namespace LocalJSX {
@@ -4068,6 +4103,10 @@ declare namespace LocalJSX {
           * The component min. height
          */
         "minHeight"?: string;
+        /**
+          * Removes border
+         */
+        "noBorder"?: boolean;
         /**
           * Removes the header border
          */
@@ -5736,6 +5775,10 @@ declare namespace LocalJSX {
           * The presence of this attribute with display a scrollbar if the buttons total width is greater than the tab-bar width.
          */
         "scrollable"?: boolean;
+        /**
+          * If true the buttons will be stacked on each other, instead of inline. (used for "position:left-stacked", or "position:right-stacked" on gxg-tabs)
+         */
+        "stacked"?: TabsStackedPosition;
     }
     interface GxgTabButton {
         /**
@@ -5764,6 +5807,10 @@ declare namespace LocalJSX {
           * The presence of this attribute will hide the icon, and reduce the font size a little bit.
          */
         "reduced"?: boolean;
+        /**
+          * Stylize the button for the gxg-tab-bar "stacked" version.
+         */
+        "stackedStyle"?: boolean;
         /**
           * The tab id. Must be unique, and match the "tab" value of the correlative "gxg-tab" element
          */
@@ -6000,6 +6047,14 @@ declare namespace LocalJSX {
          */
         "caption"?: string;
         /**
+          * A callback that gets called when the top-state-bar is closed
+         */
+        "closedCallback"?: boolean;
+        /**
+          * It removes the border (actually is box shadow)
+         */
+        "noBorder"?: boolean;
+        /**
           * The progress bar progress
          */
         "progress"?: number;
@@ -6008,9 +6063,9 @@ declare namespace LocalJSX {
          */
         "stateType"?: topStateBarType;
         /**
-          * It will display a progress bar
+          * It will display a close action button
          */
-        "withProgressBar"?: boolean;
+        "withClose"?: boolean;
     }
     interface GxgTree {
         /**
@@ -6299,6 +6354,12 @@ declare namespace LocalJSX {
          */
         "windowTitle"?: string;
     }
+    interface GxgWindowV2 {
+        /**
+          * If true it displays the component title on the header
+         */
+        "displayTitle"?: false;
+    }
     interface IntrinsicElements {
         "gxg-accordion": GxgAccordion;
         "gxg-accordion-item": GxgAccordionItem;
@@ -6386,6 +6447,7 @@ declare namespace LocalJSX {
         "gxg-tree-item": GxgTreeItem;
         "gxg-tree-view": GxgTreeView;
         "gxg-window": GxgWindow;
+        "gxg-window-v2": GxgWindowV2;
     }
 }
 export { LocalJSX as JSX };
@@ -6478,6 +6540,7 @@ declare module "@stencil/core" {
             "gxg-tree-item": LocalJSX.GxgTreeItem & JSXBase.HTMLAttributes<HTMLGxgTreeItemElement>;
             "gxg-tree-view": LocalJSX.GxgTreeView & JSXBase.HTMLAttributes<HTMLGxgTreeViewElement>;
             "gxg-window": LocalJSX.GxgWindow & JSXBase.HTMLAttributes<HTMLGxgWindowElement>;
+            "gxg-window-v2": LocalJSX.GxgWindowV2 & JSXBase.HTMLAttributes<HTMLGxgWindowV2Element>;
         }
     }
 }

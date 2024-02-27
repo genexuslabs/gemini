@@ -32,43 +32,11 @@
   overflow-y: auto;
 }
 
-//Tab bar left positioned
-:host([position="left-stacked"]) {
+//Position rotated
+:host([position="left-rotated"]),
+:host([position="right-rotated"]) {
   .main-container {
     flex-direction: row;
-  }
-  .tab-bar-container {
-    // height: 100%;
-    // overflow: auto;
-    // width: 40px;
-    // position: relative;
-    @include gxg-scrollbar;
-  }
-  ::slotted(gxg-tab-bar) {
-    // transform: rotate(-90deg) translate(-100%, 0);
-    // transform-origin: left top;
-    // position: absolute;
-    // z-index: 10;
-  }
-  ::slotted(gxg-tab) {
-    border-left-width: var(--gxg-tabs-border-width);
-    border-left-style: solid;
-    border-left-color: var(--gxg-tabs-border-color);
-  }
-  .tabs-container {
-    //width: calc(100% - 32px);
-  }
-  .tab-bar-menu {
-  }
-}
-
-//Tab bar right positioned
-:host([position="right-stacked"]) {
-  opacity: 0.2;
-  background-color: red;
-  .main-container {
-    background-color: red;
-    flex-direction: row-reverse;
   }
   .tab-bar-container {
     height: 100%;
@@ -84,14 +52,46 @@
     z-index: 10;
   }
   ::slotted(gxg-tab) {
-    border-right-width: var(--gxg-tabs-border-width);
-    border-right-style: solid;
-    border-right-color: var(--gxg-tabs-border-color);
+    border-left-width: var(--gxg-tabs-border-width);
+    border-left-style: solid;
+    border-left-color: var(--gxg-tabs-border-color);
   }
   .tabs-container {
     // height: 100%;
     width: calc(100% - 32px);
   }
   .tab-bar-menu {
+  }
+}
+//Tab bar left-rotated
+:host([position="left-rotated"]) {
+  .main-container {
+    flex-direction: row;
+  }
+}
+//Tab bar right-rotated
+:host([position="right-rotated"]) {
+  .main-container {
+    flex-direction: row-reverse;
+  }
+}
+
+//Position stacked
+:host([position="left-stacked"]),
+:host([position="right-stacked"]) {
+  .main-container {
+    flex-direction: row;
+  }
+}
+//Tab bar left-stacked
+:host([position="left-stacked"]) {
+  .main-container {
+    flex-direction: row;
+  }
+}
+//Tab bar right-stacked
+:host([position="right-stacked"]) {
+  .main-container {
+    flex-direction: row-reverse;
   }
 }

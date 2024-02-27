@@ -38,9 +38,6 @@
         "window"
       ];
 
-      //Other
-      const other = ["mercury-tokens", "comparator"];
-
       //Gemini Components
       const components = [
         "title-editable",
@@ -102,48 +99,50 @@
 
       //Gemini Tests
       const tests = [
-        "tree-view-spacing",
-        "ch-grid-inside-dialog",
-        "nested-tabs",
-        "grid-full-showcase",
-        "combo-small",
-        "grid-daniel-piad",
-        "suggest-grid",
-        "ch-grid-row-checked",
-        "tree-item-line-width",
-        "tree-item-line-height",
-        "tree-test-minimal",
-        "export-parts",
-        "tree-small",
-        "buttons-alignment",
-        "ch-grid-full",
-        "ch-grid-german",
-        "chameleon",
-        "combo-box-dialog",
-        "combo-box-overflow",
-        "combo-box-inside-modal",
-        "combo-box-debug",
-        "drop-down-overflow",
-        "errors-and-disabled",
-        "errors-and-disabled-tooltip",
-        "list-box-two",
-        "modal-color-picker",
-        "parts",
-        "responsive-container",
-        "test",
-        "icon",
-        "native-label",
-        "combo-container-responsive",
-        "ch-styles",
-        "list-box-test-selection-changed",
-        "tree-view-absolute",
+        // "tree-view-spacing",
+        // "ch-grid-inside-dialog",
+        // "nested-tabs",
+        // "grid-full-showcase",
+        // "combo-small",
+        // "grid-daniel-piad",
+        // "suggest-grid",
+        // "ch-grid-row-checked",
+        // "tree-item-line-width",
+        // "tree-item-line-height",
+        // "tree-test-minimal",
+        // "export-parts",
+        // "tree-small",
+        // "buttons-alignment",
+        // "ch-grid-full",
+        // "ch-grid-german",
+        // "chameleon",
+        // "combo-box-dialog",
+        // "combo-box-overflow",
+        // "combo-box-inside-modal",
+        // "combo-box-debug",
+        // "drop-down-overflow",
+        // "errors-and-disabled",
+        // "errors-and-disabled-tooltip",
+        // "list-box-two",
+        // "modal-color-picker",
+        // "parts",
+        // "responsive-container",
+        // "test",
+        // "icon",
+        // "native-label",
+        // "combo-container-responsive",
+        // "ch-styles",
+        // "list-box-test-selection-changed",
+        // "tree-view-absolute",
+        // "mercury-tokens",
+        // "tabs-fixed",
+        // "popover",
+        // "focus",
+        // "cards-gemini",
+        // "cards-mercury",
+        // "form-text-mixin"
         "mercury-tokens",
-        "tabs-fixed",
-        "popover",
-        "focus",
-        "cards-gemini",
-        "cards-mercury",
-        "form-text-mixin"
+        "controls-height"
       ];
     </script>
   </head>
@@ -154,25 +153,22 @@
         A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
       </p>
 
-      <h2 class="title h4 align-left">Gemini or Mercury Showcase</h2>
-      <ul class="list unstyled" id="showcaseUl">
-        <!-- populated dynamically with javascript -->
-      </ul>
-
-      <div hidden>
-        <h2 class="title h4 align-left">Other</h2>
-        <ul class="list unstyled" id="otherUl">
+      <div>
+        <h2 class="title h4 align-left">Gemini or Mercury Showcase</h2>
+        <ul class="list unstyled" id="showcaseUl">
           <!-- populated dynamically with javascript -->
         </ul>
       </div>
 
       <div hidden>
-        <h2 class="title h4 align-left">Gemini Components</h2>
+        <h2 class="title h4 align-left">Components</h2>
         <ul class="list unstyled" id="componentsUl">
           <!-- populated dynamically with javascript -->
         </ul>
+      </div>
 
-        <h2 class="title h4 align-left">Gemini Tests</h2>
+      <div>
+        <h2 class="title h4 align-left">Tests</h2>
         <ul class="list unstyled in-progress" id="testsUl">
           <!-- populated dynamically with javascript -->
         </ul>
@@ -192,17 +188,6 @@
       showcaseUl.appendChild(li);
     });
 
-    //other
-    const otherUl = document.getElementById("otherUl");
-    other.sort().forEach(el => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.setAttribute("href", `/pages/other/${el}.html`);
-      a.innerText = el;
-      li.appendChild(a);
-      otherUl.appendChild(li);
-    });
-
     //components
     const componentsUl = document.getElementById("componentsUl");
     components.sort().forEach(el => {
@@ -217,6 +202,7 @@
     //In Progress
     const testsUl = document.getElementById("testsUl");
     tests.forEach(el => {
+      console.log(el);
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.setAttribute("href", `/pages/tests/${el}.html`);

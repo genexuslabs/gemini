@@ -61,6 +61,11 @@ export class GxgTabButton {
   @Prop({ reflect: true }) borderAbove: boolean = false;
 
   /**
+   * Stylize the button for the gxg-tab-bar "stacked" version.
+   */
+  @Prop() stackedStyle: boolean = false;
+
+  /**
    * The presence of this attribute will hide the icon, and reduce the font size a little bit.
    */
   @Prop() reduced: boolean = false;
@@ -153,7 +158,8 @@ export class GxgTabButton {
       <Host
         class={{
           large: state.large,
-          mercury: state.mercury
+          mercury: state.mercury,
+          stacked: this.stackedStyle
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
@@ -168,7 +174,8 @@ export class GxgTabButton {
                 this.tabLabel !== null && this.icon !== null,
               large: state.large,
               "tab-button--border-above": this.borderAbove,
-              "tab-button--reduced": this.reduced
+              "tab-button--reduced": this.reduced,
+              "tab-button--stacked-style": this.stackedStyle
             }}
             onClick={this.buttonClickHandler.bind(this)}
             onKeyDown={this.buttonKeyDownHandler.bind(this)}

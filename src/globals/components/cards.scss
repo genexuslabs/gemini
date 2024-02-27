@@ -146,6 +146,7 @@
   /*--- Card 'Article' ---*/
   --gxg-card-article_background-color: var(--mer-color__neutral-gray--800);
   --gxg-card-article_font-size: var(--mer-font__size--xs);
+  --gxg-card-article_border: 1px solid var(--mer-color__elevation--03);
   --gxg-card-article_border-radius: var(--mer-border__radius--sm);
   --gxg-card-article_padding: 0;
   --gxg-card-article-title_margin: 0;
@@ -166,8 +167,7 @@
   /*--- Card 'Mini' ---*/
   --gxg-card-mini_background-color: var(--mer-color__neutral-gray--1000);
   --gxg-card-mini_font-size: var(--mer-font__size--xxs);
-  --gxg-card-mini_border: var(--mer-border__width--sm) solid
-    var(--mer-color__neutral-gray--1100);
+  --gxg-card-mini_border: 1px solid var(--mer-color__elevation--04);
   --gxg-card-mini_border-radius: var(--mer-border__radius--sm);
   --gxg-card-mini_padding: 0;
   --gxg-card-mini-header_margin: var(--mer-spacing--xs) var(--mer-spacing--xs) 0

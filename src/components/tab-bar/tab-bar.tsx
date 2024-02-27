@@ -61,6 +61,11 @@ export class GxgTabBar {
   @Prop({ reflect: true }) scrollable = false;
 
   /**
+   * If true the buttons will be stacked on each other, instead of inline. (used for "position:left-stacked", or "position:right-stacked" on gxg-tabs)
+   */
+  @Prop() stacked: TabsStackedPosition = null;
+
+  /**
    * Reading direction
    */
   @State() rtl = false;
@@ -149,7 +154,10 @@ export class GxgTabBar {
     let sizeReference: number;
     if (gxgTabsPosition === "top" || gxgTabsPosition === "bottom") {
       sizeReference = this.el.parentElement.offsetWidth;
-    } else if (gxgTabsPosition === "right" || gxgTabsPosition === "left") {
+    } else if (
+      gxgTabsPosition === "right-rotated" ||
+      gxgTabsPosition === "left-rotated"
+    ) {
       sizeReference = this.el.parentElement.offsetHeight;
     }
     const tabBarWidth = this.tabBar.offsetWidth;
@@ -185,7 +193,10 @@ export class GxgTabBar {
         this.appendedButtons--;
       }
     }
-    if (gxgTabsPosition === "right" || gxgTabsPosition === "left") {
+    if (
+      gxgTabsPosition === "right-rotated" ||
+      gxgTabsPosition === "left-rotated"
+    ) {
       this.tabBarMenuHeight = this.appendedButtons * buttonHeight + "px";
     }
     this.evaluateMenuButtonsTabIndex(this.tabBarMenuCollapsed);
@@ -236,8 +247,8 @@ export class GxgTabBar {
       this.tabBarMenuPosition = "bottom";
     }
     //Tabbar menu on right
-    if (gxgTabsPosition === "right") {
-      this.tabBarMenuPosition = "right";
+    if (gxgTabsPosition === "right-rotated") {
+      this.tabBarMenuPosition = "right-rotated";
     }
 
     this.setIndexToTabButtons();
@@ -314,6 +325,8 @@ export class GxgTabBar {
           rtl: this.rtl,
           "gxg-tab-bar": true,
           "gxg-tab-bar--hidden": this.hidden,
+          "gxg-tab-bar--left-stacked": this.stacked === "left-stacked",
+          "gxg-tab-bar--right-stacked": this.stacked === "right-stacked",
           mercury: state.mercury
         }}
         exportParts={this.exportparts ? this.exportparts : null}
@@ -321,11 +334,13 @@ export class GxgTabBar {
         <nav
           class={{
             nav: true,
-            "nav--border": this.displayBorder
+            "nav--border": this.displayBorder && this.stacked === null
           }}
         >
           <ul
-            class="tab-bar"
+            class={{
+              "tab-bar": true
+            }}
             ref={el => (this.tabBar = el as HTMLUListElement)}
           >
             <slot name="tab-bar"></slot>
@@ -336,9 +351,9 @@ export class GxgTabBar {
               "tab-bar-menu": true,
               "tab-bar-menu--collapsed": this.tabBarMenuCollapsed,
               top: this.tabBarMenuPosition === "top",
-              right: this.tabBarMenuPosition === "right",
+              right: this.tabBarMenuPosition === "right-rotated",
               bottom: this.tabBarMenuPosition === "bottom",
-              left: this.tabBarMenuPosition === "left"
+              left: this.tabBarMenuPosition === "left-rotated"
             }}
             style={{
               "--tabBarMenuHeight": this.tabBarMenuHeight,
@@ -353,3 +368,5 @@ export class GxgTabBar {
     );
   }
 }
+
+export type TabsStackedPosition = "left-stacked" | "right-stacked" | null;

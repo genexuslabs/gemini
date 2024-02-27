@@ -62,8 +62,28 @@ export class GxgTabs {
   componentWillLoad() {
     this.configureTabs();
     this.evaluateReduced();
-    this.activateTab();
+    if (this.activeTab) {
+      this.activateTab();
+    }
+    this.evaluateStacked();
   }
+
+  private evaluateStacked = () => {
+    if (this.position === "left-stacked" || this.position === "right-stacked") {
+      //stacked tabBar
+      const tabBar = this.el.querySelector("gxg-tab-bar");
+      if (tabBar) {
+        tabBar.stacked = this.position;
+      }
+      const tabButtons = this.el.querySelectorAll("gxg-tab-button");
+      if (tabButtons) {
+        tabButtons.forEach(tabButton => {
+          tabButton.stackedStyle = true;
+        });
+      }
+      //stacked buttons
+    }
+  };
 
   private evaluateReduced = () => {
     if (this.reduced) {

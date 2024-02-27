@@ -19,7 +19,6 @@
       border-bottom: var(--ds-border-common-styles);
     }
   }
-
   .tab-bar {
     list-style-type: none;
     padding-inline-start: 0;
@@ -71,6 +70,22 @@
     }
   }
 }
+
+/*Stacked*/
+:host(.gxg-tab-bar--left-stacked),
+:host(.gxg-tab-bar--right-stacked) {
+  height: 100%;
+  .tab-bar {
+    flex-direction: column;
+  }
+}
+:host(.gxg-tab-bar--left-stacked) {
+  border-inline-end: var(--ds-border-common-styles);
+}
+:host(.gxg-tab-bar--right-stacked) {
+  border-inline-start: var(--ds-border-common-styles);
+}
+
 /*Scrollable*/
 :host([scrollable]) {
   .nav {

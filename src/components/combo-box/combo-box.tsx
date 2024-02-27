@@ -317,7 +317,7 @@ export class GxgComboBox implements FormComponent {
   private inputHandler = (e): void => {
     this.userTyped = true;
     const value = this.sanitizeString(e.detail);
-    const filteredItems = this.filterList(value);
+    this.filterList(value);
     if (!this.strict) {
       this.value = value;
     } else {

@@ -22,15 +22,40 @@
   </head>
   <body>
     <gxg-menu menu-title="foods">
-      <gxg-menu-item label="fruits"></gxg-menu-item>
-      <gxg-menu-item label="vegetables"> ></gxg-menu-item>
-      <gxg-menu-item label="meats"></gxg-menu-item>
+      <gxg-menu-item
+        label="fruits"
+        onclick="menuItemClicked(this)"
+      ></gxg-menu-item>
+
+      <gxg-menu-item label="vegetables" onclick="menuItemClicked(this)">
+        ></gxg-menu-item
+      >
+
+      <gxg-menu-item
+        label="meats"
+        onclick="menuItemClicked(this)"
+      ></gxg-menu-item>
     </gxg-menu>
     <script>
       const menu = document.querySelector("gxg-menu");
-      menu.addEventListener("menuItemActive", (e) => {
+      menu.addEventListener("menuItemActive", e => {
         console.log(e);
       });
+      function menuItemClicked(e) {
+        console.log("clicked");
+      }
+
+      function updateMenuActiveItem(selectedItem) {
+        const menu = selectedItem.parentElement;
+        menuItems = Array.from(menu.querySelectorAll("gxg-menu-item"));
+        menuItems.forEach(menuItem => {
+          if (menuItem === selectedItem) {
+            menuItem.setAttribute("active", true);
+          } else {
+            menuItem.removeAttribute("active");
+          }
+        });
+      }
     </script>
   </body>
 </html>

@@ -29,14 +29,9 @@ INDEX:
   // 3.STATE() VARIABLES //
 
   /**
-   * If true it will display a close icon
-   */
-  @State() stateWithAction: boolean = false;
-
-  /**
    * If true it will display the caption
    */
-  @State() captionVisible: boolean = false;
+  @State() topStateBarVisible: boolean = false;
 
   /**
    * If true it will display bar
@@ -59,14 +54,13 @@ INDEX:
     if (active) {
       this.visible = true;
       setTimeout(() => {
-        this.captionVisible = true;
+        this.topStateBarVisible = true;
       }, 300);
     } else {
-      this.captionVisible = false;
+      this.topStateBarVisible = false;
       setTimeout(() => {
         this.visible = false;
       }, 300);
-      this.progress = 0;
     }
   }
 
@@ -80,28 +74,40 @@ INDEX:
   }
 
   /**
-   * It will display a progress bar
-   */
-  @Prop() withProgressBar = false;
-
-  /**
    * The progress bar progress
    */
-  @Prop() progress: number = 0;
+  @Prop() progress: number = undefined;
   @Watch("progress")
   watchProgressHandler(progress: number) {
     if (progress => 0 && progress <= 100) {
       this.el.style.setProperty("--top-bar-progress", `${progress}%`);
     }
     if (progress === 100 && this.autoClose) {
-      this.active = false;
+      setTimeout(() => {
+        this.active = false;
+      }, 200);
     }
   }
+
+  /**
+   * It will display a close action button
+   */
+  @Prop() withClose: boolean = undefined;
 
   /**
    * It true, it will auto-close when the progress is 100
    */
   @Prop() autoClose = false;
+
+  /**
+   * It removes the border (actually is box shadow)
+   */
+  @Prop({ reflect: true }) noBorder = false;
+
+  /**
+   * A callback that gets called when the top-state-bar is closed
+   */
+  @Prop({ reflect: true }) closedCallback = false;
 
   // 5.EVENTS (EMIT) //
 
@@ -109,9 +115,10 @@ INDEX:
 
   componentWillLoad() {
     this.evaluateWithAction();
+    this.evaluateInitialProgress();
     if (this.active) {
       this.visible = true;
-      this.captionVisible = true;
+      this.topStateBarVisible = true;
     }
   }
 
@@ -121,13 +128,31 @@ INDEX:
 
   // 9.LOCAL METHODS //
 
+  private evaluateInitialProgress = () => {
+    if (
+      this.progress === undefined &&
+      (this.stateType === "error" ||
+        this.stateType === "warning" ||
+        this.stateType === "success")
+    ) {
+      this.progress = 100;
+    } else if (
+      this.progress === undefined &&
+      this.stateType === "in-progress"
+    ) {
+      this.progress = 0;
+    }
+    this.el.style.setProperty("--top-bar-progress", `${this.progress}%`);
+  };
+
   private evaluateWithAction = () => {
     if (
-      this.stateType === "error" ||
-      this.stateType === "warning" ||
-      this.stateType === "success"
+      this.withClose === undefined &&
+      (this.stateType === "error" ||
+        this.stateType === "warning" ||
+        this.stateType === "success")
     ) {
-      this.stateWithAction = true;
+      this.withClose = true;
     }
   };
 
@@ -147,48 +172,45 @@ INDEX:
           class={{
             "top-state-bar": true,
             [`top-state-bar--${this.stateType}`]: true,
-            "top-state-bar--with-action": this.stateWithAction
+            "top-state-bar--with-close": this.withClose,
+            "top-state-bar--visible": this.topStateBarVisible
           }}
         >
-          <div
-            class={{
-              "top-state-bar__wrapper": true
-            }}
-            part="wrapper"
-          >
+          <div class="top-state-bar__wrapper">
             <label
               id="label"
               class={{
-                "top-state-bar__caption": true,
-                "top-state-bar__caption--visible": this.captionVisible
+                "top-state-bar__caption": true
               }}
               part="label"
             >
               {this.caption}
             </label>
-            {this.stateWithAction ? (
+            <div
+              class={{
+                "top-state-bar__progress-wrapper": true
+              }}
+              part="progress-wrapper"
+            >
+              <span class="progress-bar"></span>
+            </div>
+          </div>
+          {this.withClose ? (
+            <div
+              class="top-state-bar__close-wrapper"
+              onClick={this.closeButtonHandler}
+            >
               <gxg-icon
                 class={{
-                  "top-state-bar__close": true,
-                  "top-state-bar__close--visible": this.captionVisible
+                  "top-state-bar__close": true
                 }}
                 role="button"
                 aria-label="close"
                 type="gemini-tools/close"
-                color="mercury-text-on-message"
+                color="mercury-primary"
                 tabIndex={0}
-                onClick={this.closeButtonHandler}
               ></gxg-icon>
-            ) : null}
-          </div>
-          {this.withProgressBar ? (
-            <div
-              class={{
-                "progress-bar": true,
-                "progress-bar--hidden":
-                  this.progress === 0 || this.progress === 100
-              }}
-            ></div>
+            </div>
           ) : null}
         </div>
       </Host>

@@ -105,10 +105,21 @@
       font-size: var(--gxg-tab-button-font-size--reduced);
       height: var(--gxg-tab-button-height--reduced);
     }
+    /*stacked style*/
+    &--stacked-style {
+      justify-content: flex-start;
+      &.tab-button--text-icon {
+        padding-inline-start: var(--gxg-tab-button-horizontal-padding--stacked);
+      }
+    }
   }
   .tab-button__text {
     display: inline-block;
   }
+}
+
+:host(.stacked) {
+  width: 100%;
 }
 
 :host([slot="tab-menu"]) {
