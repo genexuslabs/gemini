@@ -4,14 +4,11 @@
 :host {
   display: inline-flex;
   align-items: center;
-  border-color: var(--gray-02);
-  border-width: var(--border-width-sm);
-  border-style: var(--border-style-regular);
-  border-radius: 11px;
-  padding-inline-start: var(--spacing-comp-02);
-  padding-inline-end: var(--spacing-comp-03);
+  border-radius: var(--gxg-pill__border-radius);
+  padding-inline-start: var(--gxg-pill__padding-inline-start);
+  padding-inline-end: var(--gxg-pill__padding-inline-end);
   opacity: 1;
-  height: var(--spacing-comp-04);
+  height: var(--gxg-pill__height);
   box-sizing: border-box;
   @include ui-animation(opacity);
 
@@ -19,7 +16,6 @@
     @include gxg-text;
   }
   .clear-button {
-    margin-inline-start: 10px;
     cursor: pointer;
     opacity: 0.7;
     &:hover {
@@ -47,46 +43,44 @@
 //Static
 :host([type="static"]),
 :host([type="static-with-action"]) {
-  background-color: var(--gray-01);
-  border-color: var(--gray-01);
-  font-style: italic;
+  border: var(--gxg-pill-static__border);
+  background-color: var(--gxg-pill-static__background-color);
+  font-style: var(--gxg-pill-static__font-style);
 }
 :host([type="static-with-action"]),
 :host([type="button-with-action"]) {
   padding-inline-end: 0;
 }
 //Button / Button with action
-:host([type="button"]) {
-  padding-inline-end: var(--spacing-comp-02);
+:host([type="button"]),
+:host([type="button-with-action"]) {
+  border: var(--gxg-pill-with-action__border);
 }
 :host([type="button"]:hover),
 :host([type="button-with-action"]:hover) {
-  border-color: var(--gray-07);
+  border: var(--gxg-pill-with-action__border--hover);
   cursor: pointer;
 }
 :host([type="button"]:focus),
 :host([type="button-with-action"]:focus) {
-  border-color: var(--gray-07);
+  border: var(--gxg-pill-with-action__border--hover);
 }
 :host([type="button"]:active),
 :host([type="button-with-action"]:active) {
-  border-color: var(--gray-07);
+  border: var(--gxg-pill-with-action__border--hover);
 }
 //Button with action
 :host([type="button-with-action"]) {
-  padding-inline-end: 2px;
-
   .clear-button {
     cursor: pointer;
     opacity: 0.5;
-    margin-inline-start: 8px;
 
     &:hover {
       opacity: 0.75;
     }
   }
 }
-:host(.hide) {
+:host(.hide-pill) {
   opacity: 0;
 }
 :host(:focus) {
@@ -94,7 +88,7 @@
 }
 :host([disabled]) {
   .title {
-    color: var(--gray-03);
+    color: var(--gxg-pill__color--disabled);
   }
   gxg-icon {
     opacity: 0.3;
@@ -103,7 +97,7 @@
 }
 :host([disabled][type="button"]),
 :host([disabled][type="button-with-action"]) {
-  border-color: var(--gray-03);
+  border: var(--gxg-pill-with-action__border--disabled);
 }
 :host([disabled]:focus) {
   box-shadow: none;
@@ -126,8 +120,3 @@ LARGE VERSION (html tag has 'gxg-large' class)
     }
   }
 }
-
-/*********************************************
-Mercury
-**********************************************/
-@import "./pill-mercury";

@@ -5,18 +5,18 @@ import {
   h,
   Host,
   Event,
-  EventEmitter,
+  EventEmitter
 } from "@stencil/core";
 import state from "../store";
 import { exportParts } from "../../common/export-parts";
 @Component({
   tag: "gxg-pill",
   styleUrl: "pill.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgPill {
   private parts = {
-    removeButton: "remove-button",
+    removeButton: "remove-button"
   };
   private exportparts: string;
 
@@ -63,7 +63,7 @@ export class GxgPill {
 
   removeButtonFunc() {
     this.pillRemoved.emit(this.id);
-    this.el.classList.add("hide");
+    this.el.classList.add("hide-pill");
     setTimeout(() => {
       this.el.remove();
     }, 250);
@@ -94,7 +94,7 @@ export class GxgPill {
           "no-icon": this.icon === undefined,
           "has-icon": this.icon !== undefined,
           large: state.large,
-          mercury: state.mercury,
+          mercury: state.mercury
         }}
         exportParts={this.exportparts ? this.exportparts : null}
       >
