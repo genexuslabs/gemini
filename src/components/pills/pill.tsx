@@ -78,7 +78,7 @@ export class GxgPill {
   }
   iconColor() {
     if (state.mercury) {
-      return "mercury";
+      return "mercury-neutral";
     } else if (this.disabled) {
       return "disabled";
     } else {
