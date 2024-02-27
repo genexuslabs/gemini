@@ -152,15 +152,13 @@
           </article>
 
           <!-- with progress bar -->
-          <article data-title="with progress bar">
-            <code pill>withProgressBar</code>
+          <article data-title="progressing">
             <div class="example">
               <div class="block"></div>
               <gxg-top-state-bar
                 caption="Publishing project"
                 state-type="in-progress"
                 id="top-state-bar-progress"
-                with-progress-bar
               ></gxg-top-state-bar>
               <div class="block"></div>
             </div>
@@ -205,14 +203,13 @@
 
           <!-- with progress bar + auto close -->
           <article data-title="auto close">
-            <code pill>withProgressBar autoClose</code>
+            <code pill>autoClose</code>
             <div class="example">
               <div class="block"></div>
               <gxg-top-state-bar
                 caption="Publishing project"
                 state-type="in-progress"
                 id="top-state-bar-auto-close"
-                with-progress-bar
                 auto-close
               ></gxg-top-state-bar>
               <div class="block"></div>
@@ -255,7 +252,7 @@
       ------------------>
       <section data-title="other">
         <div class="articles-container">
-          <!-- success -->
+          <!-- no border -->
           <article data-title="no border">
             <code pill>noBorder</code>
             <div class="example">
@@ -264,6 +261,20 @@
                 state-type="success"
                 active
                 no-border
+              ></gxg-top-state-bar>
+            </div>
+          </article>
+
+          <!-- minimal -->
+          <article data-title="minimal : no title | no close button">
+            <code pill>minimal</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Project published"
+                state-type="in-progress"
+                active
+                minimal
+                progress="50"
               ></gxg-top-state-bar>
             </div>
           </article>

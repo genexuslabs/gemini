@@ -46,6 +46,11 @@ INDEX:
   @Prop() caption: string;
 
   /**
+   * It will only display the bar (no title, no close button)
+   */
+  @Prop({ reflect: true }) minimal: boolean = false;
+
+  /**
    * The top-bar active state. If false it will be hidden
    */
   @Prop() active: boolean = false;
@@ -177,15 +182,17 @@ INDEX:
           }}
         >
           <div class="top-state-bar__wrapper">
-            <label
-              id="label"
-              class={{
-                "top-state-bar__caption": true
-              }}
-              part="label"
-            >
-              {this.caption}
-            </label>
+            {!this.minimal ? (
+              <label
+                id="label"
+                class={{
+                  "top-state-bar__caption": true
+                }}
+                part="label"
+              >
+                {this.caption}
+              </label>
+            ) : null}
             <div
               class={{
                 "top-state-bar__progress-wrapper": true
@@ -195,7 +202,7 @@ INDEX:
               <span class="progress-bar"></span>
             </div>
           </div>
-          {this.withClose ? (
+          {this.withClose && !this.minimal ? (
             <div
               class="top-state-bar__close-wrapper"
               onClick={this.closeButtonHandler}
