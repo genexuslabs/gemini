@@ -17,10 +17,11 @@ const COLOR_MAPPINGS = {
   "primary-hover": "color-primary-hover",
   success: "ds-success-color--dark",
   warning: "ds-warning-color--dark",
-  mercury: "gray-03",
+  mercury: "mer-icon__primary",
   "mercury-primary": "mer-icon__primary",
   "mercury-on-primary": "mer-text__on-primary",
-  "mercury-text-on-message": "mer-text__on-message"
+  "mercury-text-on-message": "mer-text__on-message",
+  "mercury-neutral": "mer-icon__neutral"
 };
 
 @Component({
@@ -110,6 +111,7 @@ export type Color =
   | "mercury"
   | "mercury-primary"
   | "mercury-on-primary"
-  | "mercury-text-on-message";
+  | "mercury-text-on-message"
+  | "mercury-neutral";
 
 export type Size = "regular" | "small";
