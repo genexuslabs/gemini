@@ -7,10 +7,10 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
-      copy: [{ src: "globals/mixins.scss" }, { src: "globals/ch-styles.css" }],
+      copy: [{ src: "globals/mixins.scss" }]
     },
     {
-      type: "docs-readme",
+      type: "docs-readme"
     },
     {
       type: "www",
@@ -18,11 +18,11 @@ export const config: Config = {
       copy: [
         { src: "assets" },
         { src: "pages" },
-        { src: "globals/ch-styles.css" },
-      ],
-    },
+        { src: "globals/ch-styles.css" }
+      ]
+    }
   ],
   globalStyle: "src/globals/global.scss",
   globalScript: "src/globals/global.js",
-  plugins: [sass()],
+  plugins: [sass()]
 };
