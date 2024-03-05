@@ -132,6 +132,11 @@ export class GxgCard {
    */
   @Prop() readonly actionable: boolean = false;
 
+  /**
+   * A way to force header slot evaluation.
+   */
+  @Prop() readonly displayHeaderSlot: boolean = false;
+
   componentWillLoad() {
     if (this.cardType === "article") {
       this.titleType = "h2";
@@ -143,7 +148,7 @@ export class GxgCard {
       this.hasSlot = true;
     }
     const headerSlot = this.el.querySelector("[slot='header']");
-    if (headerSlot) {
+    if (headerSlot || this.displayHeaderSlot) {
       this.hasHeaderSlot = true;
     }
   }

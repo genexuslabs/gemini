@@ -7,22 +7,18 @@ export const config: Config = {
     {
       type: "dist",
       esmLoaderPath: "../loader",
-      copy: [{ src: "globals/mixins.scss" }, { src: "globals/ch-styles.css" }],
+      copy: [{ src: "globals/mixins.scss" }]
     },
     {
-      type: "docs-readme",
+      type: "docs-readme"
     },
     {
       type: "www",
       serviceWorker: null, // disable service workers
-      copy: [
-        { src: "assets" },
-        { src: "pages" },
-        { src: "globals/ch-styles.css" },
-      ],
-    },
+      copy: [{ src: "assets" }, { src: "pages" }]
+    }
   ],
   globalStyle: "src/globals/global.scss",
   globalScript: "src/globals/global.js",
-  plugins: [sass()],
+  plugins: [sass()]
 };

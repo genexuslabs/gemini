@@ -380,6 +380,10 @@ export namespace Components {
          */
         "cardType": CardType;
         /**
+          * A way to force header slot evaluation.
+         */
+        "displayHeaderSlot": boolean;
+        /**
           * It makes the title editable (only for mercury)
          */
         "editableTitle": boolean;
@@ -4076,6 +4080,10 @@ declare namespace LocalJSX {
           * The card type (only for mercury)
          */
         "cardType"?: CardType;
+        /**
+          * A way to force header slot evaluation.
+         */
+        "displayHeaderSlot"?: boolean;
         /**
           * It makes the title editable (only for mercury)
          */
