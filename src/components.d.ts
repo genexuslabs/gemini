@@ -58,8 +58,8 @@ import { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/g
 import { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
-import { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
-import { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+import { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
+import { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModel, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export { mode } from "./components/accordion/accordion";
@@ -115,8 +115,8 @@ export { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/g
 export { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 export { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
-export { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
-export { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+export { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
+export { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModel, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
 export { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
 export { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
@@ -2503,7 +2503,7 @@ export namespace Components {
           * @param draggedItems Information about the dragged items.
           * @param validDrop Current state of the droppable zone.
          */
-        "updateValidDropZone": (requestTimestamp: number, newContainerId: string, draggedItems: GxDataTransferInfo[], validDrop: boolean) => Promise<void>;
+        "updateValidDropZone": (requestTimestamp: number, newContainerId: string, draggedItems: GxDataTransferInfo[], dropType: TreeViewDropType, validDrop: boolean) => Promise<void>;
     }
     interface GxgWindow {
         /**
