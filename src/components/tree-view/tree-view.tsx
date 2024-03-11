@@ -8,23 +8,23 @@ import {
   getAssetPath
 } from "@stencil/core";
 import {
+  GxDataTransferInfo,
   TreeViewDataTransferInfo,
   TreeViewDropCheckInfo,
   TreeViewItemContextMenu,
   TreeViewLines,
   TreeViewItemExpandedInfo,
   TreeViewItemOpenReferenceInfo,
-  TreeViewDropType
-} from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
-import { TreeViewItemModel } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
-import {
+  TreeViewDropType,
+  TreeViewItemModel,
   TreeViewFilterOptions,
   TreeViewFilterType,
   TreeViewItemModelExtended,
   TreeViewOperationStatusModifyCaption
-} from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
-import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
+} from "@genexus/chameleon-controls-library";
+
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
+
 import { resolveImgPath } from "./helpers";
 
 const DEFAULT_DRAG_DISABLED_VALUE = false;
@@ -32,46 +32,69 @@ const DEFAULT_DROP_DISABLED_VALUE = false;
 const DEFAULT_EDITABLE_ITEMS_VALUE = true;
 const iconAssetsPath = getAssetPath(`./icon-assets`);
 
+const isDropDisabled = (
+  itemModel: TreeViewItemModel,
+  treeState: ChTreeViewRender
+) => itemModel.dropDisabled ?? treeState.dropDisabled;
+
+const treeDropId = (treeItemId: string) => `ch-tree-view-drop__${treeItemId}`;
+
 const defaultRenderItem = (
   itemModel: TreeViewItemModel,
   treeState: ChTreeViewRender,
   treeHasFilter: boolean,
   lastItem: boolean,
-  level: number
+  level: number,
+  dropBeforeAndAfterEnabled: boolean
 ) =>
-  (treeState.filterType === "none" || itemModel.render !== false) && (
+  (treeState.filterType === "none" || itemModel.render !== false) && [
+    dropBeforeAndAfterEnabled && (
+      <ch-tree-view-drop
+        id={treeDropId(itemModel.id)}
+        level={level}
+        treeItemId={itemModel.id}
+        type="before"
+      ></ch-tree-view-drop>
+    ),
+
     <ch-tree-view-item
       key={itemModel.id}
       id={itemModel.id}
       caption={itemModel.caption}
       checkbox={itemModel.checkbox ?? treeState.checkbox}
       checked={itemModel.checked ?? treeState.checked}
-      class={`tree-view-item ${itemModel.class}`}
+      class={itemModel.class || treeState.treeViewItemCssClass}
       disabled={itemModel.disabled}
       downloading={itemModel.downloading}
       dragDisabled={itemModel.dragDisabled ?? treeState.dragDisabled}
-      dropDisabled={itemModel.dropDisabled ?? treeState.dropDisabled}
+      dropDisabled={isDropDisabled(itemModel, treeState)}
       editable={itemModel.editable ?? treeState.editableItems}
+      endImgSrc={
+        itemModel.endImgSrc
+          ? resolveImgPath(iconAssetsPath, itemModel.endImgSrc)
+          : null
+      }
+      endImgType={itemModel.endImgType ?? "background"}
       expanded={itemModel.expanded}
-      expandableButton="action"
+      expandableButton={treeState.expandableButton}
       expandOnClick={treeState.expandOnClick}
       indeterminate={itemModel.indeterminate}
       lastItem={lastItem}
       lazyLoad={itemModel.lazy}
       leaf={itemModel.leaf}
-      startImgSrc={
-        itemModel.startImgSrc
-          ? resolveImgPath(iconAssetsPath, itemModel.startImgSrc)
-          : null
-      }
       level={level}
       metadata={itemModel.metadata}
-      endImgSrc={itemModel.endImgSrc}
       selected={itemModel.selected}
       showLines={treeState.showLines}
       toggleCheckboxes={
         itemModel.toggleCheckboxes ?? treeState.toggleCheckboxes
       }
+      startImgSrc={
+        itemModel.startImgSrc
+          ? resolveImgPath(iconAssetsPath, itemModel.startImgSrc)
+          : null
+      }
+      startImgType={itemModel.startImgType ?? "background"}
     >
       {!itemModel.leaf &&
         itemModel.items != null &&
@@ -83,14 +106,28 @@ const defaultRenderItem = (
             treeState.showLines !== "none" &&
               // If there is a filter applied in the current list, use the
               // lastItemId value to calculate the last item
-              (treeHasFilter && itemModel.lastItemId !== ""
+              (treeHasFilter && itemModel.lastItemId !== undefined
                 ? subModel.id === itemModel.lastItemId
                 : index === itemModel.items.length - 1),
-            level + 1
+            level + 1,
+
+            // When dragging "before" and "after" an item and the direct parent
+            // has drops disabled, don't render the ch-tree-view-drop elements.
+            treeState.dropMode !== "above" &&
+              isDropDisabled(itemModel, treeState) !== true
           )
         )}
-    </ch-tree-view-item>
-  );
+    </ch-tree-view-item>,
+
+    dropBeforeAndAfterEnabled && lastItem && (
+      <ch-tree-view-drop
+        id={treeDropId(itemModel.id) + "-after"}
+        level={level}
+        treeItemId={itemModel.id}
+        type="after"
+      ></ch-tree-view-drop>
+    )
+  ];
 
 @Component({
   tag: "gxg-tree-view",
@@ -145,6 +182,12 @@ export class ChTreeViewRenderWrapper {
   @Prop() readonly dropItemsCallback: (
     dataTransferInfo: TreeViewDataTransferInfo
   ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
+
+  /**
+   * This attribute lets you specify which kind of drop operation can be
+   * effected in the items.
+   */
+  @Prop() readonly dropMode: "above" | "before-and-after" | "all" = "above";
 
   /**
    * This attribute lets you specify if the edit operation is enabled in all
@@ -242,7 +285,8 @@ export class ChTreeViewRenderWrapper {
     treeState: ChTreeViewRender,
     treeHasFilter: boolean,
     lastItem: boolean,
-    level: number
+    level: number,
+    dropBeforeAndAfterEnabled: boolean
   ) => any = defaultRenderItem;
 
   /**
@@ -268,6 +312,11 @@ export class ChTreeViewRenderWrapper {
    * This property lets you define the model of the ch-tree-x control.
    */
   @Prop() readonly treeModel: TreeViewItemModel[] = [];
+
+  /**
+   * A CSS class to set as the `ch-tree-view-item` element default class.
+   */
+  @Prop() readonly treeViewItemCssClass: string = "tree-view-item";
 
   /**
    * Fired when the checked items change.
@@ -428,6 +477,7 @@ export class ChTreeViewRenderWrapper {
    * @param newContainerId ID of the container where the drag is trying to be made.
    * @param draggedItems Information about the dragged items.
    * @param validDrop Current state of the droppable zone.
+   * @param dropType Type of drop that wants to be effected
    */
   @Method()
   async updateValidDropZone(
@@ -456,6 +506,7 @@ export class ChTreeViewRenderWrapper {
         dragDisabled={this.dragDisabled}
         dropDisabled={this.dropDisabled}
         dropItemsCallback={this.dropItemsCallback}
+        dropMode={this.dropMode}
         editableItems={this.editableItems}
         expandOnClick={this.expandOnClick}
         filter={this.filter}
@@ -471,6 +522,7 @@ export class ChTreeViewRenderWrapper {
         sortItemsCallback={this.sortItemsCallback}
         toggleCheckboxes={this.toggleCheckboxes}
         treeModel={this.treeModel}
+        treeViewItemCssClass={this.treeViewItemCssClass}
         ref={el => (this.treeRef = el)}
       ></ch-tree-view-render>
     );
