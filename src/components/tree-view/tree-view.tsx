@@ -11,11 +11,12 @@ import {
   TreeViewDataTransferInfo,
   TreeViewDropCheckInfo,
   TreeViewItemContextMenu,
-  TreeViewItemModel,
   TreeViewLines,
   TreeViewItemExpandedInfo,
-  TreeViewItemOpenReferenceInfo
+  TreeViewItemOpenReferenceInfo,
+  TreeViewDropType
 } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
+import { TreeViewItemModel } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
 import {
   TreeViewFilterOptions,
   TreeViewFilterType,
@@ -45,29 +46,27 @@ const defaultRenderItem = (
       caption={itemModel.caption}
       checkbox={itemModel.checkbox ?? treeState.checkbox}
       checked={itemModel.checked ?? treeState.checked}
-      class={itemModel.class}
+      class={`tree-view-item ${itemModel.class}`}
       disabled={itemModel.disabled}
       downloading={itemModel.downloading}
       dragDisabled={itemModel.dragDisabled ?? treeState.dragDisabled}
       dropDisabled={itemModel.dropDisabled ?? treeState.dropDisabled}
       editable={itemModel.editable ?? treeState.editableItems}
       expanded={itemModel.expanded}
-      expandableButton={
-        itemModel.expandableButton ?? treeState.expandableButton
-      }
+      expandableButton="action"
       expandOnClick={treeState.expandOnClick}
       indeterminate={itemModel.indeterminate}
       lastItem={lastItem}
       lazyLoad={itemModel.lazy}
       leaf={itemModel.leaf}
-      leftImgSrc={
-        itemModel.leftImgSrc
-          ? resolveImgPath(iconAssetsPath, itemModel.leftImgSrc)
+      startImgSrc={
+        itemModel.startImgSrc
+          ? resolveImgPath(iconAssetsPath, itemModel.startImgSrc)
           : null
       }
       level={level}
       metadata={itemModel.metadata}
-      rightImgSrc={itemModel.rightImgSrc}
+      endImgSrc={itemModel.endImgSrc}
       selected={itemModel.selected}
       showLines={treeState.showLines}
       toggleCheckboxes={
@@ -435,12 +434,14 @@ export class ChTreeViewRenderWrapper {
     requestTimestamp: number,
     newContainerId: string,
     draggedItems: GxDataTransferInfo[],
+    dropType: TreeViewDropType,
     validDrop: boolean
   ) {
     this.treeRef.updateValidDropZone(
       requestTimestamp,
       newContainerId,
       draggedItems,
+      dropType,
       validDrop
     );
   }

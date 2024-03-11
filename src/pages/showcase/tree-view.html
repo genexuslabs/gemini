@@ -78,31 +78,31 @@
         {
           id: "number-1",
           caption: "number-1 label (always editable)",
-          leftImgSrc: "./objects/knowledge-base",
+          startImgSrc: "./objects/knowledge-base",
           editable: true
         },
         {
           id: "number-2",
           caption: "number-2 (always editable)",
-          leftImgSrc: "./objects/datastore",
+          startImgSrc: "./objects/datastore",
           editable: true,
           items: [
             {
               id: "number-2.1",
               caption: "number-2.1",
-              leftImgSrc: "./objects/file"
+              startImgSrc: "./objects/file"
             }
           ]
         },
         {
           id: "number-3",
           caption: "number-3",
-          leftImgSrc: "/build/ch-icon-assets/patterns",
+          startImgSrc: "/build/ch-icon-assets/patterns",
           items: [
             {
               id: "number-3.1",
               caption: "number-3.1",
-              leftImgSrc: "/build/ch-icon-assets/java"
+              startImgSrc: "/build/ch-icon-assets/java"
             }
           ]
         }
@@ -112,22 +112,22 @@
         {
           id: "number-1",
           caption: "number-1",
-          leftImgSrc: "./build/ch-icon-assets/csharp"
+          startImgSrc: "./build/ch-icon-assets/csharp"
         },
         {
           id: "number-2",
           caption: "number-2",
-          leftImgSrc: "./objects/datastore",
+          startImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-2.1",
               caption: "number-2.1",
-              leftImgSrc: "/build/ch-icon-assets/patterns",
+              startImgSrc: "/build/ch-icon-assets/patterns",
               items: [
                 {
                   id: "number-2.1.1",
                   caption: "number-2.1.1",
-                  leftImgSrc: "/build/ch-icon-assets/java"
+                  startImgSrc: "/build/ch-icon-assets/java"
                 }
               ]
             }
@@ -136,12 +136,12 @@
         {
           id: "number-3",
           caption: "number-3",
-          leftImgSrc: "./objects/datastore",
+          startImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-3.1",
               caption: "number-3.1",
-              leftImgSrc: "./objects/datastore"
+              startImgSrc: "./objects/datastore"
             }
           ]
         }
@@ -152,32 +152,32 @@
           id: "number-a",
           caption: "number-a (always editable)",
           leaf: true,
-          leftImgSrc: "./objects/apple",
+          startImgSrc: "./objects/apple",
           editable: true
         },
         {
           id: "number-b",
           caption: "number-b",
           leaf: false,
-          leftImgSrc: "./objects/file",
+          startImgSrc: "./objects/file",
           items: [
             {
               id: "number-2.1",
               caption: "number-2.1",
               leaf: false,
-              leftImgSrc: "/build/ch-icon-assets/patterns",
+              startImgSrc: "/build/ch-icon-assets/patterns",
               items: [
                 {
                   id: "number-2.1.1",
                   caption: "number-2.1.1",
                   leaf: false,
-                  leftImgSrc: "/build/ch-icon-assets/java",
+                  startImgSrc: "/build/ch-icon-assets/java",
                   items: [
                     {
                       id: "number-2.1.1.1",
                       caption: "number-2.1.1.1",
                       leaf: true,
-                      leftImgSrc: "/build/tree-item-assets/download"
+                      startImgSrc: "/build/tree-item-assets/download"
                     }
                   ]
                 }
@@ -189,7 +189,7 @@
           id: "number-3",
           caption: "number-3",
           leaf: true,
-          leftImgSrc: "/build/ch-icon-assets/patterns"
+          startImgSrc: "/build/ch-icon-assets/patterns"
         }
       ];
 
@@ -197,35 +197,35 @@
         {
           id: "number-1",
           caption: "number-1 label (always editable)",
-          class: "tree-view-item tree-view-item--success",
+          class: "tree-view-item--success",
           leaf: false,
-          leftImgSrc: "./objects/datastore",
+          startImgSrc: "./objects/datastore",
           editable: true,
           items: [
             {
               id: "number-1-1",
               caption: "number-1-1 (always editable)",
               leaf: false,
-              leftImgSrc: "/build/ch-icon-assets/patterns",
+              startImgSrc: "/build/ch-icon-assets/patterns",
               editable: true,
               items: [
                 {
                   id: "number-1-1-1",
                   caption: "number-1-1-1",
                   leaf: true,
-                  leftImgSrc: "./objects/knowledge-base"
+                  startImgSrc: "./objects/knowledge-base"
                 },
                 {
                   id: "number-1-1-2",
                   caption: "number-1-1-2",
                   leaf: false,
-                  leftImgSrc: "./objects/knowledge-base",
+                  startImgSrc: "./objects/knowledge-base",
                   items: [
                     {
                       id: "number-1-1-2-1",
                       caption: "number-1-1-2-1 (lazy, drag disabled)",
                       leaf: false,
-                      leftImgSrc: "./objects/knowledge-base",
+                      startImgSrc: "./objects/knowledge-base",
                       lazy: true,
                       checkbox: true,
                       dragDisabled: true,
@@ -235,7 +235,7 @@
                       id: "number-1-1-2-2",
                       caption: "number-1-1-2-2",
                       leaf: true,
-                      leftImgSrc: "/build/ch-icon-assets/java"
+                      startImgSrc: "/build/ch-icon-assets/java"
                     }
                   ]
                 }
@@ -245,27 +245,27 @@
               id: "number-1-2",
               caption: "number-1-2",
               leaf: true,
-              leftImgSrc: "./objects/knowledge-base"
+              startImgSrc: "./objects/knowledge-base"
             }
           ]
         },
         {
           id: "number-2",
           caption: "number-2",
-          class: "tree-view-item tree-view-item--custom-image",
+          class: "tree-view-item--custom-image",
           leaf: false,
           items: [
             {
               id: "number-2-1",
               caption: "number-2-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/java"
+              startImgSrc: "/build/ch-icon-assets/java"
             },
             {
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "./objects/knowledge-base"
+              startImgSrc: "./objects/knowledge-base"
             }
           ]
         }
@@ -276,53 +276,53 @@
           id: "number-1",
           caption: "number-1",
           leaf: false,
-          leftImgSrc: "./objects/knowledge-base",
+          startImgSrc: "./objects/knowledge-base",
           items: [
             {
               id: "number-1-1",
               caption: "number-1-1",
               class: "ch-tree-x-list-item--success",
               leaf: false,
-              leftImgSrc: "./objects/knowledge-base",
+              startImgSrc: "./objects/knowledge-base",
               items: [
                 {
                   id: "number-1-1-1",
                   caption: "number-1-1-1",
                   leaf: true,
-                  leftImgSrc: "./objects/knowledge-base"
+                  startImgSrc: "./objects/knowledge-base"
                 },
                 {
                   id: "number-1-1-2",
                   caption: "number-1-1-2",
                   leaf: false,
-                  leftImgSrc: "./objects/knowledge-base",
+                  startImgSrc: "./objects/knowledge-base",
                   items: [
                     {
                       id: "number-1-1-2-1",
                       caption: "number-1-1-2-1",
                       leaf: false,
-                      leftImgSrc: "./objects/knowledge-base",
+                      startImgSrc: "./objects/knowledge-base",
                       items: [
                         {
                           id: "new-item-added-1",
                           caption: "new-item-added-1",
                           disabled: true,
                           leaf: true,
-                          leftImgSrc: "./objects/knowledge-base"
+                          startImgSrc: "./objects/knowledge-base"
                         },
                         {
                           id: "new-item-added-2",
                           caption: "new-item-added-2",
                           disabled: false,
                           leaf: true,
-                          leftImgSrc: "./objects/knowledge-base"
+                          startImgSrc: "./objects/knowledge-base"
                         },
                         {
                           id: "new-item-added-3",
                           caption: "new-item-added-3",
                           disabled: true,
                           leaf: true,
-                          leftImgSrc: "./objects/knowledge-base"
+                          startImgSrc: "./objects/knowledge-base"
                         },
                         {
                           id: "new-item-added-4",
@@ -330,14 +330,14 @@
                           disabled: false,
                           expanded: true,
                           leaf: false,
-                          leftImgSrc: "./objects/knowledge-base",
+                          startImgSrc: "./objects/knowledge-base",
                           items: [
                             {
                               id: "new-item-added-4-1",
                               caption: "new-item-added-4-1",
                               disabled: false,
                               leaf: true,
-                              leftImgSrc: "./objects/knowledge-base"
+                              startImgSrc: "./objects/knowledge-base"
                             },
                             {
                               id: "new-item-added-4-2",
@@ -345,7 +345,7 @@
                               disabled: true,
                               expanded: true,
                               leaf: false,
-                              leftImgSrc: "./objects/knowledge-base",
+                              startImgSrc: "./objects/knowledge-base",
                               items: [
                                 {
                                   id: "new-item-added-4-2-1",
@@ -353,35 +353,35 @@
                                   disabled: true,
                                   expanded: true,
                                   leaf: false,
-                                  leftImgSrc: "./objects/knowledge-base",
+                                  startImgSrc: "./objects/knowledge-base",
                                   items: [
                                     {
                                       id: "new-item-added-4-2-1-1",
                                       caption: "new-item-added-4-2-1-1",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base"
+                                      startImgSrc: "./objects/knowledge-base"
                                     },
                                     {
                                       id: "new-item-added-4-2-1-2",
                                       caption: "new-item-added-4-2-1-2",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base"
+                                      startImgSrc: "./objects/knowledge-base"
                                     },
                                     {
                                       id: "new-item-added-4-2-1-3",
                                       caption: "new-item-added-4-2-1-3",
                                       disabled: true,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base"
+                                      startImgSrc: "./objects/knowledge-base"
                                     },
                                     {
                                       id: "new-item-added-4-2-1-4",
                                       caption: "new-item-added-4-2-1-4",
                                       disabled: false,
                                       leaf: true,
-                                      leftImgSrc: "./objects/knowledge-base"
+                                      startImgSrc: "./objects/knowledge-base"
                                     }
                                   ]
                                 },
@@ -390,7 +390,7 @@
                                   caption: "new-item-added-4-2-2",
                                   disabled: true,
                                   leaf: true,
-                                  leftImgSrc: "./objects/knowledge-base"
+                                  startImgSrc: "./objects/knowledge-base"
                                 }
                               ]
                             }
@@ -402,21 +402,21 @@
                           disabled: true,
                           expanded: true,
                           leaf: false,
-                          leftImgSrc: "./objects/knowledge-base",
+                          startImgSrc: "./objects/knowledge-base",
                           items: [
                             {
                               id: "new-item-added-5-1",
                               caption: "new-item-added-5-1",
                               disabled: false,
                               leaf: true,
-                              leftImgSrc: "./objects/knowledge-base"
+                              startImgSrc: "./objects/knowledge-base"
                             },
                             {
                               id: "new-item-added-5-2",
                               caption: "new-item-added-5-2",
                               disabled: true,
                               leaf: true,
-                              leftImgSrc: "./objects/knowledge-base"
+                              startImgSrc: "./objects/knowledge-base"
                             }
                           ]
                         }
@@ -426,7 +426,7 @@
                       id: "number-1-1-2-2",
                       caption: "number-1-1-2-2",
                       leaf: true,
-                      leftImgSrc: "./objects/knowledge-base"
+                      startImgSrc: "./objects/knowledge-base"
                     }
                   ]
                 }
@@ -436,7 +436,7 @@
               id: "number-1-2",
               caption: "number-1-2",
               leaf: true,
-              leftImgSrc: "./objects/knowledge-base"
+              startImgSrc: "./objects/knowledge-base"
             }
           ]
         },
@@ -444,26 +444,26 @@
           id: "number-2",
           caption: "number-2",
           leaf: false,
-          leftImgSrc: "./objects/datastore",
+          startImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-2-1",
               caption: "number-2-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/patterns"
+              startImgSrc: "/build/ch-icon-assets/patterns"
             },
             {
               id: "number-2-2",
               caption: "number-2-2",
               leaf: true,
-              leftImgSrc: "objects/patterns"
+              startImgSrc: "objects/patterns"
             },
             {
               id: "number-2-3",
               caption: "number-2-3",
               disabled: true,
               leaf: true,
-              leftImgSrc: "objects/patterns"
+              startImgSrc: "objects/patterns"
             }
           ]
         },
@@ -473,26 +473,26 @@
           leaf: false,
           disabled: true,
           expanded: true,
-          leftImgSrc: "./objects/datastore",
+          startImgSrc: "./objects/datastore",
           items: [
             {
               id: "number-3-1",
               caption: "number-3-1",
               leaf: true,
-              leftImgSrc: "/build/ch-icon-assets/patterns"
+              startImgSrc: "/build/ch-icon-assets/patterns"
             },
             {
               id: "number-3-2",
               caption: "number-3-2",
               disabled: true,
               leaf: true,
-              leftImgSrc: "objects/patterns"
+              startImgSrc: "objects/patterns"
             },
             {
               id: "number-3-3",
               caption: "number-3-3",
               leaf: true,
-              leftImgSrc: "objects/patterns"
+              startImgSrc: "objects/patterns"
             }
           ]
         }
@@ -503,7 +503,7 @@
           id: "lazy-loaded-1",
           caption: "Lazy Loaded 1 (drag disabled)",
           leaf: true,
-          leftImgSrc: "objects/patterns",
+          startImgSrc: "objects/patterns",
           checkbox: true,
           dragDisabled: true
         },
@@ -512,7 +512,7 @@
           caption: "Lazy Loaded 2 (lazy, drag disabled, drop disabled)",
           leaf: false,
           lazy: true,
-          leftImgSrc: "objects/patterns",
+          startImgSrc: "objects/patterns",
           checkbox: true,
           dragDisabled: true,
           dropDisabled: true,
@@ -525,7 +525,7 @@
           id: "lazy-loaded-3",
           caption: "Lazy Loaded 3 (drag disabled)",
           leaf: true,
-          leftImgSrc: "objects/patterns",
+          startImgSrc: "objects/patterns",
           checkbox: true,
           dragDisabled: true
         },
@@ -533,7 +533,7 @@
           id: "lazy-loaded-4",
           caption: "Lazy Loaded 4 (drag disabled)",
           leaf: true,
-          leftImgSrc: "objects/patterns",
+          startImgSrc: "objects/patterns",
           checkbox: true,
           dragDisabled: true
         }
@@ -543,12 +543,12 @@
         {
           id: "Category",
           caption: "Category (1)",
-          leftImgSrc: "objects/category",
+          startImgSrc: "objects/category",
           items: [
             {
               id: "Category.Main_Programs",
               caption: "Main Programs",
-              leftImgSrc: "objects/category",
+              startImgSrc: "objects/category",
               leaf: true
             }
           ]
@@ -556,36 +556,36 @@
         {
           id: "Design System",
           caption: "Design System (5)",
-          leftImgSrc: "objects/dso",
+          startImgSrc: "objects/dso",
           items: [
             {
               id: "Design_System.ActionGroup",
               caption: "ActionGroup",
-              leftImgSrc: "objects/dso",
+              startImgSrc: "objects/dso",
               leaf: true
             },
             {
               id: "Design_System.DynamicActionGroup",
               caption: "DynamicActionGroup",
-              leftImgSrc: "objects/dso",
+              startImgSrc: "objects/dso",
               leaf: true
             },
             {
               id: "Design_System.UserControls",
               caption: "UserControls",
-              leftImgSrc: "objects/dso",
+              startImgSrc: "objects/dso",
               leaf: true
             },
             {
               id: "Design_System.Dropdown",
               caption: "Dropdown",
-              leftImgSrc: "objects/dso",
+              startImgSrc: "objects/dso",
               leaf: true
             },
             {
               id: "Design_System.UnanimoAngularWithoutUserControls",
               caption: "UnanimoAngularWithoutUserControls",
-              leftImgSrc: "objects/dso",
+              startImgSrc: "objects/dso",
               leaf: true
             }
           ]
@@ -593,45 +593,45 @@
         {
           id: "Module",
           caption: "Module (4/6)",
-          leftImgSrc: "objects/module",
+          startImgSrc: "objects/module",
           indeterminate: true,
           items: [
             {
               id: "Module.General",
               caption: "General",
-              leftImgSrc: "objects/module",
+              startImgSrc: "objects/module",
               leaf: true
             },
             {
               id: "Module.General.UI",
               caption: "General.UI",
-              leftImgSrc: "objects/module",
+              startImgSrc: "objects/module",
               leaf: true
             },
             {
               id: "Module.General.Services",
               caption: "General.Services",
-              leftImgSrc: "objects/module",
+              startImgSrc: "objects/module",
               leaf: true
             },
             {
               id: "Module.GeneralReporting",
               caption: "GeneralReporting",
-              leftImgSrc: "objects/module",
+              startImgSrc: "objects/module",
               leaf: true
             },
             {
               id: "Module.GeneXusUnanimo",
               caption: "GeneXusUnanimo",
               checked: false,
-              leftImgSrc: "objects/module",
+              startImgSrc: "objects/module",
               leaf: true
             },
             {
               id: "Module.GeneXus",
               caption: "GeneXus",
               checked: false,
-              leftImgSrc: "objects/module",
+              startImgSrc: "objects/module",
               leaf: true
             }
           ]
@@ -639,12 +639,12 @@
         {
           id: "Data Provider",
           caption: "Data Provider (1)",
-          leftImgSrc: "objects/data-provider",
+          startImgSrc: "objects/data-provider",
           items: [
             {
               id: "Data_Provider.General.UI.SidebarItemsDP",
               caption: "General.UI.SidebarItemsDP",
-              leftImgSrc: "objects/data-provider",
+              startImgSrc: "objects/data-provider",
               leaf: true
             }
           ]
@@ -672,9 +672,9 @@
         {
           id: "root",
           caption: "GeneXusNext Develop",
-          editable: false,
+          editable: true,
           leaf: false,
-          leftImgSrc: "objects/version",
+          startImgSrc: "objects/version",
           dragDisabled: true,
           dropDisabled: true,
           expanded: true,
@@ -682,8 +682,8 @@
             {
               id: "Main_Programs",
               caption: "Main Programs",
-              editable: false,
-              leftImgSrc: "objects/category",
+              editable: true,
+              startImgSrc: "objects/category",
               dragDisabled: true,
               dropDisabled: true,
               lazy: true,
@@ -693,8 +693,8 @@
             {
               id: "Root_Module",
               caption: "Objects",
-              editable: false,
-              class: "tree-view-item tree-view-item--module",
+              editable: true,
+              class: "tree-view-item--module",
               dragDisabled: true,
               lazy: true,
               order: 1
@@ -702,8 +702,8 @@
             {
               id: "References",
               caption: "References",
-              editable: false,
-              leftImgSrc: "objects/references",
+              editable: true,
+              startImgSrc: "objects/references",
               dragDisabled: true,
               dropDisabled: true,
               order: 2,
@@ -712,8 +712,8 @@
             {
               id: "Customization",
               caption: "Customization",
-              editable: false,
-              leftImgSrc: "objects/customization",
+              editable: true,
+              startImgSrc: "objects/customization",
               dragDisabled: true,
               dropDisabled: true,
               lazy: true,
@@ -722,8 +722,8 @@
             {
               id: "Documentation",
               caption: "Documentation",
-              editable: false,
-              leftImgSrc: "objects/document",
+              editable: true,
+              startImgSrc: "objects/document",
               dragDisabled: true,
               dropDisabled: true,
               order: 4,
@@ -740,7 +740,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/api",
+          startImgSrc: "objects/api",
           order: KB_EXPLORER_ORDER.sdPanel
         },
         {
@@ -749,7 +749,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/api",
+          startImgSrc: "objects/api",
           order: KB_EXPLORER_ORDER.api
         },
         {
@@ -758,7 +758,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/api",
+          startImgSrc: "objects/api",
           order: KB_EXPLORER_ORDER.webPanel
         },
         {
@@ -767,7 +767,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/api",
+          startImgSrc: "objects/api",
           order: KB_EXPLORER_ORDER.webPanel
         },
         {
@@ -776,7 +776,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/api",
+          startImgSrc: "objects/api",
           order: KB_EXPLORER_ORDER.api
         },
         {
@@ -785,7 +785,7 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/procedure",
+          startImgSrc: "objects/procedure",
           order: KB_EXPLORER_ORDER.procedure
         }
       ];
@@ -794,49 +794,49 @@
         {
           id: "Root_Module.IDE",
           caption: "IDE",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.BL",
           caption: "BL",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.General",
           caption: "General",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           lazy: true,
           order: KB_EXPLORER_ORDER.module
         },
         {
           id: "Root_Module.AWS_internal",
           caption: "AWS_internal",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.DataModel",
           caption: "DataModel",
-          class: "tree-view-item tree-view-item--folder",
+          class: "tree-view-item--folder",
           order: KB_EXPLORER_ORDER.folder,
           leaf: true
         },
         {
           id: "Root_Module.Back",
           caption: "Back",
-          class: "tree-view-item tree-view-item--folder",
+          class: "tree-view-item--folder",
           order: KB_EXPLORER_ORDER.folder,
           leaf: true
         },
         {
           id: "Root_Module.Tests",
           caption: "Tests",
-          class: "tree-view-item tree-view-item--folder",
+          class: "tree-view-item--folder",
           order: KB_EXPLORER_ORDER.folder,
           leaf: true
         },
@@ -846,41 +846,41 @@
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/image",
+          startImgSrc: "objects/image",
           order: KB_EXPLORER_ORDER.images
         },
         {
           id: "Root_Module.GXNext",
           caption: "GXNext",
           leaf: true,
-          leftImgSrc: "objects/dso",
+          startImgSrc: "objects/dso",
           order: KB_EXPLORER_ORDER.dso
         },
         {
           id: "Root_Module.GeneXusNext",
           caption: "GeneXusNext",
           leaf: true,
-          leftImgSrc: "objects/dso",
+          startImgSrc: "objects/dso",
           order: KB_EXPLORER_ORDER.dso
         },
         {
           id: "Root_Module.Files",
           caption: "Files",
-          editable: false,
+          editable: true,
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/file",
+          startImgSrc: "objects/file",
           order: KB_EXPLORER_ORDER.files
         },
         {
           id: "Root_Module.Domain",
           caption: "Domain",
-          editable: false,
+          editable: true,
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.domain
         }
       ];
@@ -889,14 +889,14 @@
         {
           id: "Customization.Files",
           caption: "Files",
-          leftImgSrc: "objects/file",
+          startImgSrc: "objects/file",
           order: KB_EXPLORER_ORDER.files,
           leaf: true
         },
         {
           id: "Customization.Images",
           caption: "Images",
-          leftImgSrc: "objects/image",
+          startImgSrc: "objects/image",
           order: KB_EXPLORER_ORDER.images,
           leaf: true
         },
@@ -904,7 +904,7 @@
           id: "Customization.Localization",
           caption: "Localization",
           lazy: true,
-          leftImgSrc: "objects/lenguage",
+          startImgSrc: "objects/lenguage",
           order: KB_EXPLORER_ORDER.localization
         }
       ];
@@ -915,7 +915,7 @@
           caption: "Arabic",
           checkbox: true,
           leaf: true,
-          leftImgSrc: "objects/lenguage",
+          startImgSrc: "objects/lenguage",
           order: KB_EXPLORER_ORDER.localization
         },
         {
@@ -924,7 +924,7 @@
           checkbox: true,
           checked: true,
           leaf: true,
-          leftImgSrc: "objects/lenguage",
+          startImgSrc: "objects/lenguage",
           order: KB_EXPLORER_ORDER.localization
         },
         {
@@ -932,7 +932,7 @@
           caption: "Spanish",
           checkbox: true,
           leaf: true,
-          leftImgSrc: "objects/lenguage",
+          startImgSrc: "objects/lenguage",
           order: KB_EXPLORER_ORDER.localization
         },
         {
@@ -940,7 +940,7 @@
           caption: "Italian",
           checkbox: true,
           leaf: true,
-          leftImgSrc: "objects/lenguage",
+          startImgSrc: "objects/lenguage",
           order: KB_EXPLORER_ORDER.localization
         }
       ];
@@ -949,42 +949,42 @@
         {
           id: "Root_Module.General.Security",
           caption: "Security",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.General.Services",
           caption: "Services",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.General.UI",
           caption: "UI",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           lazy: true,
           order: KB_EXPLORER_ORDER.module
         },
         {
           id: "Root_Module.General.Domain",
           caption: "Domain",
-          editable: false,
+          editable: true,
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.domain
         },
         {
           id: "Root_Module.General.GlobalEvents",
           caption: "GlobalEvents",
-          editable: false,
+          editable: true,
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/external-object",
+          startImgSrc: "objects/external-object",
           order: KB_EXPLORER_ORDER.globalEvents
         }
       ];
@@ -993,47 +993,47 @@
         {
           id: "Root_Module.General.UI.DesignSystem",
           caption: "DesignSystem",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.General.UI.Q2",
           caption: "Q2",
-          class: "tree-view-item tree-view-item--folder",
+          class: "tree-view-item--folder",
           lazy: true,
           order: KB_EXPLORER_ORDER.folder
         },
         {
           id: "Root_Module.General.UI.Popups",
           caption: "Popups",
-          class: "tree-view-item tree-view-item--module",
+          class: "tree-view-item--module",
           order: KB_EXPLORER_ORDER.module,
           leaf: true
         },
         {
           id: "Root_Module.General.UI.Stencils",
           caption: "Stencils",
-          class: "tree-view-item tree-view-item--folder",
+          class: "tree-view-item--folder",
           lazy: true,
           order: KB_EXPLORER_ORDER.folder
         },
         {
           id: "Root_Module.General.UI.Domain",
           caption: "Domain",
-          editable: false,
+          editable: true,
           dragDisabled: true,
           dropDisabled: true,
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.domain
         },
         {
           id: "Root_Module.General.UI.Login",
           caption: "Login",
-          class: "tree-view-item tree-view-item--pending-commit",
+          class: "tree-view-item--pending-commit",
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.sdPanel
         }
       ];
@@ -1043,22 +1043,22 @@
           id: "Root_Module.General.UI.Q2.ContactUs",
           caption: "ContactUs",
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.sdPanel
         },
         {
           id: "Root_Module.General.UI.Q2.ProjectDetail",
           caption: "ProjectDetail",
-          class: "tree-view-item tree-view-item--pending-commit",
+          class: "tree-view-item--pending-commit",
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.sdPanel
         },
         {
           id: "Root_Module.General.UI.Q2.MyApps",
           caption: "MyApps",
           leaf: true,
-          leftImgSrc: "objects/domain",
+          startImgSrc: "objects/domain",
           order: KB_EXPLORER_ORDER.sdPanel
         }
       ];
@@ -1068,7 +1068,7 @@
           id: "Root_Module.General.UI.Stencils.StencilPublishProject",
           caption: "StencilPublishProject",
           leaf: true,
-          leftImgSrc: "objects/stencil",
+          startImgSrc: "objects/stencil",
           order: KB_EXPLORER_ORDER.stencil
         }
       ];
@@ -1098,7 +1098,7 @@
           caption: "item-" + i,
           lazy: true,
           leaf: false,
-          leftImgSrc: "objects/patterns",
+          startImgSrc: "objects/patterns",
           items: []
         });
       }
@@ -1120,7 +1120,7 @@
               id: subSubModelId,
               caption: subSubModelId,
               leaf: true,
-              leftImgSrc: "./objects/file"
+              startImgSrc: "./objects/file"
             });
           }
 
@@ -1129,7 +1129,7 @@
             caption: subModelId,
             expanded: true,
             leaf: false,
-            leftImgSrc: "./objects/knowledge-base",
+            startImgSrc: "./objects/knowledge-base",
             items: subSubEagerLargeModel
           });
         }
@@ -1139,7 +1139,7 @@
           caption: modelId,
           expanded: true,
           leaf: false,
-          leftImgSrc: "objects/patterns",
+          startImgSrc: "objects/patterns",
           items: subEagerLargeModel
         });
       }
@@ -1151,7 +1151,7 @@
         {
           id: "number-2-2",
           caption: "number-2-2",
-          leftImgSrc: "./objects/knowledge-base"
+          startImgSrc: "./objects/knowledge-base"
         }
       ];
 
@@ -1204,7 +1204,7 @@
                     id: subModelId + "-" + k,
                     caption: subModelId + "-" + k,
                     leaf: true,
-                    leftImgSrc: "./objects/file"
+                    startImgSrc: "./objects/file"
                   });
                 }
 
@@ -1213,7 +1213,7 @@
                   caption: subModelId,
                   expanded: true,
                   leaf: false,
-                  leftImgSrc: "./objects/knowledge-base",
+                  startImgSrc: "./objects/knowledge-base",
                   items: subModelItems
                 });
               }
