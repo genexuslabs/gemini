@@ -58,10 +58,8 @@ import { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/g
 import { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
-import { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
-import { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModel, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+import { GxDataTransferInfo, TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewFilterOptions, TreeViewFilterType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemModelExtended, TreeViewItemOpenReferenceInfo, TreeViewLines, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library";
 import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
-import { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export { mode } from "./components/accordion/accordion";
 export { mode as mode1 } from "./components/accordion/accordion";
 export { status } from "./components/accordion-item/accordion-item";
@@ -115,10 +113,8 @@ export { ToggledGxgTreeItem, TreeItemNewStateEmitted } from "./components/tree/g
 export { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item/gxg-tree-item";
 export { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
-export { TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemOpenReferenceInfo, TreeViewLines } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view/types";
-export { TreeViewFilterOptions, TreeViewFilterType, TreeViewItemModel, TreeViewItemModelExtended, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/types";
+export { GxDataTransferInfo, TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewFilterOptions, TreeViewFilterType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemModelExtended, TreeViewItemOpenReferenceInfo, TreeViewLines, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library";
 export { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
-export { GxDataTransferInfo } from "@genexus/chameleon-controls-library/dist/types/common/types";
 export namespace Components {
     interface GxgAccordion {
         /**
@@ -2391,6 +2387,10 @@ export namespace Components {
     dataTransferInfo: TreeViewDataTransferInfo
   ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
         /**
+          * This attribute lets you specify which kind of drop operation can be effected in the items.
+         */
+        "dropMode": "above" | "before-and-after" | "all";
+        /**
           * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
          */
         "editableItems": boolean;
@@ -2459,7 +2459,8 @@ export namespace Components {
     treeState: ChTreeViewRender,
     treeHasFilter: boolean,
     lastItem: boolean,
-    level: number
+    level: number,
+    dropBeforeAndAfterEnabled: boolean
   ) => any;
         /**
           * Given the path of the item (represent by a sorted array containing all ids from the root to the item) and the additional properties to update after, it displays and scrolls into the item view. The path can also be a string representing the id of the item to scroll into.  When using a path, this method will fail if:   - The path does not start from the root element.   - The path contains a cycle.   - The path does not correspond to a valid path on the server:     - One of the item of the path, except for the last one, is a leaf.     - An item in the path does not exists on the server.     - The path has repeated items.     - And so on.
@@ -2489,6 +2490,10 @@ export namespace Components {
          */
         "treeModel": TreeViewItemModel[];
         /**
+          * A CSS class to set as the `ch-tree-view-item` element default class.
+         */
+        "treeViewItemCssClass": string;
+        /**
           * Given a subset of item's properties, it updates all item UI models.
          */
         "updateAllItemsProperties": (properties: { expanded?: boolean; checked?: boolean; }) => Promise<void>;
@@ -2502,6 +2507,7 @@ export namespace Components {
           * @param newContainerId ID of the container where the drag is trying to be made.
           * @param draggedItems Information about the dragged items.
           * @param validDrop Current state of the droppable zone.
+          * @param dropType Type of drop that wants to be effected
          */
         "updateValidDropZone": (requestTimestamp: number, newContainerId: string, draggedItems: GxDataTransferInfo[], dropType: TreeViewDropType, validDrop: boolean) => Promise<void>;
     }
@@ -6242,6 +6248,10 @@ declare namespace LocalJSX {
     dataTransferInfo: TreeViewDataTransferInfo
   ) => Promise<{ acceptDrop: boolean; items?: TreeViewItemModel[] }>;
         /**
+          * This attribute lets you specify which kind of drop operation can be effected in the items.
+         */
+        "dropMode"?: "above" | "before-and-after" | "all";
+        /**
           * This attribute lets you specify if the edit operation is enabled in all items by default. If `true`, the items can edit its caption in place.
          */
         "editableItems"?: boolean;
@@ -6314,7 +6324,8 @@ declare namespace LocalJSX {
     treeState: ChTreeViewRender,
     treeHasFilter: boolean,
     lastItem: boolean,
-    level: number
+    level: number,
+    dropBeforeAndAfterEnabled: boolean
   ) => any;
         /**
           * `true` to display the relation between tree items and tree lists using lines.
@@ -6332,6 +6343,10 @@ declare namespace LocalJSX {
           * This property lets you define the model of the ch-tree-x control.
          */
         "treeModel"?: TreeViewItemModel[];
+        /**
+          * A CSS class to set as the `ch-tree-view-item` element default class.
+         */
+        "treeViewItemCssClass"?: string;
     }
     interface GxgWindow {
         /**

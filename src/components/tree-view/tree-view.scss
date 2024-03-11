@@ -11,11 +11,25 @@ gxg-tree-view {
 .tree-view
 ---------------------------*/
 .tree-view {
+  --ch-tree-view-item-gap: var(--gxg-tree-view-item__gap);
+
+  --ch-tree-view-item__checkbox-size: var(--ds-checkbox-size);
+  --ch-tree-view-item__expandable-button-size: var(--mer-font__size--sm);
+  --ch-tree-view-item__image-size: var(--mer-font__size--sm);
+
+  --ch-tree-view-item-custom-padding-inline-start: var(
+    --gxg-tree-view-item__custom-padding-inline-start
+  );
+  --ch-tree-view-item-custom-padding-inline-end: var(
+    --gxg-tree-view-item__custom-padding-inline-end
+  );
+
   @include gxg-scrollbar;
   font-family: var(--ds-base-font-family-primary);
   font-size: var(--gxg-tree-view-item__font-size);
   font-weight: var(--ds-base-font-weight);
   color: var(--ds-base-font-color);
+
   .ch-tree-view-container {
     min-inline-size: max-content;
     padding: var(--gxg-tree-view-container__padding);
@@ -26,105 +40,48 @@ gxg-tree-view {
 .tree-view-item
 ---------------------------*/
 .tree-view-item {
-  /*-- Custom vars ---*/
-  --ch-tree-view-view__checkbox-size: var(--ds-checkbox-size);
-  //--ch-tree-view-item__expandable-button-size: var(--gxg-tree-view-icon__size);
-  // --ch-tree-view-item__dashed-line--inset-inline-start: 0px;
-  // --ch-tree-view-item__dashed-line--inset-inline-end: 4px;
-  --ch-tree-view-item-gap: var(--gxg-tree-view-item__gap);
-  --ch-tree-view-item-custom-padding-inline-start: var(
-    --gxg-tree-view-item__custom-padding-inline-start
-  );
-  --ch-tree-view-item-custom-padding-inline-end: var(
-    --gxg-tree-view-item__custom-padding-inline-end
-  );
-
   /*-- Parts ---*/
   &::part(dashed-line) {
-    border-color: var(--gxg-tree-view-item-dashed-line__border-color);
+    // border-color: var(--gxg-tree-view-item-dashed-line__border-color);
+    border-color: var(--ds-base-font-color); // This is a WA to improve contrast
   }
 
-  //header
+  // Header
   &::part(header) {
-    //min-height: var(--gxg-tree-view-item-header__min-height);
     border-radius: var(--gxg-tree-view-item-header__border-radius);
-    padding-block-start: var(--gxg-tree-view-item-header__padding-top);
-    padding-block-end: var(--gxg-tree-view-item-header__padding-bottom);
     padding-inline-end: var(--gxg-tree-view-item-header__padding-inline-end);
 
-    &:hover {
-      color: var(--gxg-tree-view-item__color--hover);
-    }
-
-    &:first-child {
-    }
-    &:before {
-      content: "";
-      display: block;
-    }
-    &:hover {
-      background-color: var(--ds-item-background-color--hover);
-      background-color: var(--ds-item-background-color--hover);
-      //color: var(--ds-item-color--hover);
-    }
     &:focus {
       @include form-element-common-styles-focus-type-1();
       outline-offset: var(--gxg-tree-view-item-header__outline-offset--focus);
     }
   }
+
+  // Hover only works if the there is not drag active and the item is not selected
+  .ch-tree-view-not-dragging-item &:not([selected])::part(header):hover {
+    color: var(--gxg-tree-view-item__color--hover);
+    background-color: var(--ds-item-background-color--hover);
+  }
+
   &[selected]::part(header) {
     color: var(--gxg-grid-row-cell__color--selected);
     background-color: var(--ds-item-background-color--selected);
+
     &:hover {
       background-color: var(--ds-item-background-color--selected-hover);
     }
   }
 
-  //expandable-button
-  &::part(expandable-button) {
-    background-color: var(
-      --gxg-tree-view-item-expandable-button__background-color
-    );
-
-    //margin-inline-end: 0;
-    &::before {
-      background-color: var(
-        --gxg-tree-view-item-expandable-button__background-color--before
-      );
-      -webkit-mask-position: center;
-      -webkit-mask-repeat: no-repeat;
-    }
-    &:hover {
-      background-color: var(
-        --gxg-tree-view-item-expandable-button__background-color--hover
-      );
-    }
-    &:focus {
-      @include form-element-common-styles-focus-type-1("outside");
-    }
-  }
-
-  //action
+  // Action
   &::part(action) {
-    &::before,
-    &::after {
-      inline-size: var(--mer-font__size--sm);
-      block-size: var(--mer-font__size--sm);
-    }
+    padding-block: var(--gxg-tree-view-item-header__padding-top)
+      var(--gxg-tree-view-item-header__padding-bottom);
   }
-
-  //action / left-img
-  // &::part(left-img) {
-  //   width: var(--gxg-tree-view-item-left-img__size);
-  //   height: var(--gxg-tree-view-item-left-img__size);
-  // }
 
   //downloading
   &::part(downloading) {
-    width: var(--gxg-tree-view-item-downloading__size);
-    height: var(--gxg-tree-view-item-downloading__size);
-    //border: var(--border-radius-sm) solid var(--color-primary-enabled);
-    //border-color: var(--color-primary-enabled);
+    inline-size: var(--gxg-tree-view-item-downloading__size);
+    block-size: var(--gxg-tree-view-item-downloading__size);
     border: var(--gxg-tree-view-item-downloading__border);
     border-inline-start-color: transparent;
   }
@@ -139,20 +96,22 @@ gxg-tree-view {
     box-shadow: none;
     @include form-element-common-styles-focus-type-1();
   }
-  //checkbox
-  &::part(checkbox) {
-  }
+
+  // Checkbox
   &::part(checkbox__option) {
     @include checkbox("option");
   }
-  /*checked*/
+
+  // Checkbox checked
   &::part(checkbox__container checkbox__checked) {
     @include checkbox("container--checked");
   }
-  /*indeterminate*/
+
+  // Indeterminate
   &::part(checkbox__container checkbox__indeterminate) {
     @include checkbox("container--indeterminate");
   }
+
   &::part(checkbox__input) {
     @include checkbox("input");
   }
@@ -160,35 +119,36 @@ gxg-tree-view {
   /*-- Dynamic Icons ---*/
   &--folder::part(action)::before,
   &--module::part(action)::before {
-    //grid-area: left-img;
     content: "";
-    width: var(--gxg-tree-view-icon__size);
-    height: var(--gxg-tree-view-icon__size);
-    margin-inline-end: var(--ch-tree-view-item-gap);
+    inline-size: var(--gxg-tree-view-icon__size);
+    block-size: var(--gxg-tree-view-icon__size);
     background-repeat: no-repeat;
   }
-  //folder
+
+  // Folder
   &--folder::part(action)::before {
     background-image: url("/build/icon-assets/objects/folder.svg");
   }
+
   &--folder::part(action expanded)::before {
     background-image: url("/build/icon-assets/objects/folder-open.svg");
   }
-  //module
+
+  // Module
   &--module::part(action)::before {
     background-image: url("/build/icon-assets/objects/module.svg");
   }
+
   &--module::part(action expanded)::before {
     background-image: url("/build/icon-assets/objects/module-open.svg");
   }
 
   /*-- Other ---*/
-  //pending commit
+  // Pending commit
   &--pending-commit::part(action)::before {
     content: "";
     position: relative;
     z-index: 1;
-    //grid-area: left-img;
     width: 5px;
     height: 5px;
     align-self: end;
@@ -200,41 +160,39 @@ gxg-tree-view {
 }
 
 /*-- Other Selectors (these depend on the tag class name)---*/
-.tree-view-item {
-  &--editing::part(header) {
-    border: 2px solid transparent;
-    //to do
-    // background-color: rgb(207, 222, 230, 0.5);
-    // border-color: transparent;
-  }
-  &--drag-enter {
-    //to do
-    // background-color: #eee;
-    // box-shadow: inset 0 0 1px 0px black;
+.ch-tree-view-item {
+  // TODO
+  // &--editing::part(header) {
 
-    // &[selected]::part(header) {
-    //   background-color: #eee;
-    // }
+  // }
+
+  &--drag-enter {
+    background-color: var(--ds-item-background-color--hover);
+
+    @include form-element-common-styles-focus-type-1();
+    outline-offset: var(--gxg-tree-view-item-header__outline-offset--focus);
   }
-  &:not(.ch-tree-view-item--editing)::part(header):focus-visible {
-    //to do
-    // border-color: black;
-    // z-index: 1; // Place the outline above the content
-  }
+
+  // TODO?
+  // &:not(.ch-tree-view-item--editing)::part(header):focus-visible {
+
+  //   // border-color: black;
+  //   // z-index: 1; // Place the outline above the content
+  // }
 }
 
-/*--- Revisar ---*/
+// TODO
 .tree-view .ch-tree-view-drag-info {
-  //to do
   padding-inline: 6px;
   padding-block: 2px;
-  background-color: rgb(207, 222, 230);
-  border: 1px solid rgb(2, 102, 160);
+  background-color: var(--mer-color__elevation--04);
+  border: 1px solid var(--ds-border-color--regular);
   border-radius: 10px;
+  box-shadow: var(--gxg-grid-row__box-shadow--dragging);
   font-size: 8px;
 }
-:not(.ch-tree-view-dragging-item)
-  ch-tree-view-item:not([selected])::part(header):hover {
-  //to do
-  // background-color: rgb(232, 232, 233);
+
+// WA to improve the style of the drops before and after
+ch-tree-view-drop::after {
+  background-color: var(--ds-border-color-control--focused);
 }
