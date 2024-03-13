@@ -19,6 +19,7 @@ ch-suggest {
   }
   /*Input*/
   &::part(input) {
+    font-size: var(--gxg-suggest-input__font-size);
     height: var(--gxg-suggest-input__height);
     border: var(--ds-form-control-border);
     border-radius: var(--ds-form-control-border-radius);

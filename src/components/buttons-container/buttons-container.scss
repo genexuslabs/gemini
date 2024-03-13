@@ -32,3 +32,14 @@
     --gxg-button-primary-color: var(--gxg-button-unselected-color--enabled);
   }
 }
+
+:host([full-width]) {
+  width: 100%;
+  .container {
+    width: 100%;
+    display: flex;
+  }
+  ::slotted(gxg-button) {
+    flex: 1;
+  }
+}

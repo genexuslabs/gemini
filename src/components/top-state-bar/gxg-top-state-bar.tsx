@@ -164,6 +164,15 @@ INDEX:
   private closeButtonHandler = () => {
     this.active = false;
   };
+  private closeKeyDownHandler = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      this.active = false;
+    }
+  };
+
+  private closeClickHandler = () => {
+    this.closeButtonHandler();
+  };
 
   //  10.RENDER() FUNCTION //
 
@@ -181,17 +190,35 @@ INDEX:
             "top-state-bar--visible": this.topStateBarVisible
           }}
         >
-          <div class="top-state-bar__wrapper">
+          <div class="top-state-bar__outer-wrapper">
             {!this.minimal ? (
-              <label
-                id="label"
-                class={{
-                  "top-state-bar__caption": true
-                }}
-                part="label"
-              >
-                {this.caption}
-              </label>
+              <div class="top-state-bar__inner-wrapper">
+                <label
+                  id="label"
+                  class={{
+                    "top-state-bar__caption": true
+                  }}
+                  part="label"
+                >
+                  {this.caption}
+                </label>
+
+                {this.withClose && !this.minimal ? (
+                  <gxg-icon
+                    class={{
+                      "top-state-bar__close": true
+                    }}
+                    onClick={this.closeClickHandler}
+                    onKeyDown={this.closeKeyDownHandler}
+                    role="button"
+                    aria-label="close"
+                    type="gemini-tools/close"
+                    color="mercury-on-surface"
+                    tabIndex={this.visible ? 0 : -1}
+                    size="small"
+                  ></gxg-icon>
+                ) : null}
+              </div>
             ) : null}
             <div
               class={{
@@ -202,23 +229,6 @@ INDEX:
               <span class="progress-bar"></span>
             </div>
           </div>
-          {this.withClose && !this.minimal ? (
-            <div
-              class="top-state-bar__close-wrapper"
-              onClick={this.closeButtonHandler}
-            >
-              <gxg-icon
-                class={{
-                  "top-state-bar__close": true
-                }}
-                role="button"
-                aria-label="close"
-                type="gemini-tools/close"
-                color="mercury-primary"
-                tabIndex={0}
-              ></gxg-icon>
-            </div>
-          ) : null}
         </div>
       </Host>
     );

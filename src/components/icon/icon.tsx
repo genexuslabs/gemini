@@ -21,7 +21,8 @@ const COLOR_MAPPINGS = {
   "mercury-primary": "mer-icon__primary",
   "mercury-on-primary": "mer-text__on-primary",
   "mercury-text-on-message": "mer-text__on-message",
-  "mercury-neutral": "mer-icon__neutral"
+  "mercury-neutral": "mer-icon__neutral",
+  "mercury-on-surface": "mer-icon__on-surface"
 };
 
 @Component({
@@ -112,6 +113,7 @@ export type Color =
   | "mercury-primary"
   | "mercury-on-primary"
   | "mercury-text-on-message"
-  | "mercury-neutral";
+  | "mercury-neutral"
+  | "mercury-on-surface";
 
 export type Size = "regular" | "small";
