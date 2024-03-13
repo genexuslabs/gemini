@@ -43,6 +43,11 @@ INDEX:
    */
   @Prop() reduced: boolean = false;
 
+  /**
+   * Makes the buttons-container full-width
+   */
+  @Prop({ reflect: true }) fullWidth: boolean = false;
+
   // 2. REFERENCE TO ELEMENTS //
 
   // 3.STATE() VARIABLES //
@@ -107,7 +112,10 @@ INDEX:
     return (
       <Host>
         <div
-          class={{ container: true, "container--reduced": this.reduced }}
+          class={{
+            container: true,
+            "container--reduced": this.reduced
+          }}
           ref={el => (this.containerEl = el as HTMLDivElement)}
           onClick={this.setSelectedButton}
         >

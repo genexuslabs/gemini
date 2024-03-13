@@ -346,6 +346,10 @@ export namespace Components {
     }
     interface GxgButtonsContainer {
         /**
+          * Makes the buttons-container full-width
+         */
+        "fullWidth": boolean;
+        /**
           * Used to reduce the height when the button-container is next to a form-text
          */
         "reduced": boolean;
@@ -4055,6 +4059,10 @@ declare namespace LocalJSX {
         "type"?: "primary" | "secondary";
     }
     interface GxgButtonsContainer {
+        /**
+          * Makes the buttons-container full-width
+         */
+        "fullWidth"?: boolean;
         "onSelectedButtonChanged"?: (event: GxgButtonsContainerCustomEvent<string>) => void;
         /**
           * Used to reduce the height when the button-container is next to a form-text

@@ -9,6 +9,7 @@
 
 | Property           | Attribute            | Description                                                                | Type      | Default     |
 | ------------------ | -------------------- | -------------------------------------------------------------------------- | --------- | ----------- |
+| `fullWidth`        | `full-width`         | Makes the buttons-container full-width                                     | `boolean` | `false`     |
 | `reduced`          | `reduced`            | Used to reduce the height when the button-container is next to a form-text | `boolean` | `false`     |
 | `selectedButtonId` | `selected-button-id` | The id of the currently selected button, or null if all are disabled       | `string`  | `undefined` |
 

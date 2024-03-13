@@ -4,6 +4,7 @@
   /*--- general ---*/
   --gxg-suggest-general__border: none;
   /*--- input ---*/
+  --gxg-suggest-input__font-size: var(--ds-form-control-font-size);
   --gxg-suggest-input__height: calc(var(--spacing-comp-05) * 1.15);
   --gxg-suggest-input__border: var(--ds-border-common-styles);
   --gxg-suggest-input__padding: var(--spacing-comp-01) var(--spacing-comp-02);
@@ -61,9 +62,10 @@
   /*SUGGEST*/
   /*--- general ---*/
   --gxg-suggest-general__border: var(--gxg-suggest-list__border);
-  /*--- input ---*/
   --gxg-suggest-general__border: 1px solid
     var(--mer-border-color__on-elevation--01);
+  /*--- input ---*/
+  --gxg-suggest-input__font-size: var(--ds-form-control-font-size);
   --gxg-suggest-input__height: var(--ds-form-control-height);
   --gxg-suggest-input__padding: var(--mer-spacing--xxs) var(--mer-spacing--xs);
   --gxg-suggest-input__background-color: var(--ds-base-background-color);
