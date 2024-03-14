@@ -293,7 +293,7 @@ export class ChTreeViewRenderWrapper {
    * `true` to display the relation between tree items and tree lists using
    * lines.
    */
-  @Prop() readonly showLines: TreeViewLines = "all";
+  @Prop() readonly showLines: TreeViewLines = "last";
 
   /**
    * Callback that is executed when the treeModel is changed to order its items.
