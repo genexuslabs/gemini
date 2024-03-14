@@ -98,7 +98,7 @@ export class GxgTopStateBar {
   /**
    * A callback that gets called when the top-state-bar is closed
    */
-  @Prop() closedCallback = () => Promise<Boolean>;
+  @Prop() closedCallback: () => void = () => {};
 
   // 5.EVENTS (EMIT) //
 
