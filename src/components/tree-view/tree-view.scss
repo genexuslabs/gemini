@@ -40,6 +40,7 @@ gxg-tree-view {
 .tree-view-item
 ---------------------------*/
 .tree-view-item {
+  line-height: 1.5em;
   /*-- Parts ---*/
   &::part(dashed-line) {
     // border-color: var(--gxg-tree-view-item-dashed-line__border-color);
