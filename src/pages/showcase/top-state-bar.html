@@ -278,6 +278,29 @@
               ></gxg-top-state-bar>
             </div>
           </article>
+
+          <!-- closedCallback -->
+          <article data-title="callback when closed">
+            <code pill>closedCallback</code>
+            <div class="example">
+              <gxg-top-state-bar
+                id="top-state-bar-closed-callback"
+                caption="Project published"
+                state-type="success"
+                active
+                progress="100"
+                with-close
+              ></gxg-top-state-bar>
+              <script>
+                const topStateBarClosedCallback = document.getElementById(
+                  "top-state-bar-closed-callback"
+                );
+                topStateBarClosedCallback.closedCallback = () => {
+                  console.log("closed");
+                };
+              </script>
+            </div>
+          </article>
         </div>
       </section>
     </div>

@@ -2226,7 +2226,7 @@ export namespace Components {
         /**
           * A callback that gets called when the top-state-bar is closed
          */
-        "closedCallback": boolean;
+        "closedCallback": () => { new (executor: (resolve: (value: Boolean | PromiseLike<Boolean>) => void, reject: (reason?: any) => void) => void): Promise<Boolean>; all<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>[]>; all<T extends [] | readonly unknown[]>(values: T): Promise<{ -readonly [P in keyof T]: Awaited<T[P]>; }>; race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>; race<T extends [] | readonly unknown[]>(values: T): Promise<Awaited<T[number]>>; readonly prototype: Promise<any>; reject<T = never>(reason?: any): Promise<T>; resolve(): Promise<void>; resolve<T>(value: T): Promise<Awaited<T>>; resolve<T>(value: T | PromiseLike<T>): Promise<Awaited<T>>; allSettled<T extends [] | readonly unknown[]>(values: T): Promise<{ -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; }>; allSettled<T>(values: Iterable<T | PromiseLike<T>>): Promise<PromiseSettledResult<Awaited<T>>[]>; any<T extends [] | readonly unknown[]>(values: T): Promise<Awaited<T[number]>>; any<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>; readonly [Symbol.species]: PromiseConstructor; };
         /**
           * It will only display the bar (no title, no close button)
          */
@@ -6084,7 +6084,7 @@ declare namespace LocalJSX {
         /**
           * A callback that gets called when the top-state-bar is closed
          */
-        "closedCallback"?: boolean;
+        "closedCallback"?: () => { new (executor: (resolve: (value: Boolean | PromiseLike<Boolean>) => void, reject: (reason?: any) => void) => void): Promise<Boolean>; all<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>[]>; all<T extends [] | readonly unknown[]>(values: T): Promise<{ -readonly [P in keyof T]: Awaited<T[P]>; }>; race<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>; race<T extends [] | readonly unknown[]>(values: T): Promise<Awaited<T[number]>>; readonly prototype: Promise<any>; reject<T = never>(reason?: any): Promise<T>; resolve(): Promise<void>; resolve<T>(value: T): Promise<Awaited<T>>; resolve<T>(value: T | PromiseLike<T>): Promise<Awaited<T>>; allSettled<T extends [] | readonly unknown[]>(values: T): Promise<{ -readonly [P in keyof T]: PromiseSettledResult<Awaited<T[P]>>; }>; allSettled<T>(values: Iterable<T | PromiseLike<T>>): Promise<PromiseSettledResult<Awaited<T>>[]>; any<T extends [] | readonly unknown[]>(values: T): Promise<Awaited<T[number]>>; any<T>(values: Iterable<T | PromiseLike<T>>): Promise<Awaited<T>>; readonly [Symbol.species]: PromiseConstructor; };
         /**
           * It will only display the bar (no title, no close button)
          */

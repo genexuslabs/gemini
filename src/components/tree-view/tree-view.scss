@@ -44,6 +44,7 @@ gxg-tree-view {
   &::part(dashed-line) {
     // border-color: var(--gxg-tree-view-item-dashed-line__border-color);
     border-color: var(--ds-base-font-color); // This is a WA to improve contrast
+    opacity: 0.3;
   }
 
   // Header

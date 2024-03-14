@@ -6,20 +6,6 @@ import { Component, Host, h, Prop, State, Watch, Element } from "@stencil/core";
   shadow: true
 })
 export class GxgTopStateBar {
-  /*
-INDEX:
-1.OWN PROPERTIES 
-2.REFERENCE TO ELEMENTS
-3.STATE() VARIABLES
-4.PUBLIC PROPERTY API | WATCH'S
-5.EVENTS (EMIT)
-6.COMPONENT LIFECYCLE METHODS
-7.LISTENERS
-8.PUBLIC METHODS API
-9.LOCAL METHODS
-10.RENDER() FUNCTION
-*/
-
   // 1.OWN PROPERTIES //
 
   // 2. REFERENCE TO ELEMENTS //
@@ -112,7 +98,7 @@ INDEX:
   /**
    * A callback that gets called when the top-state-bar is closed
    */
-  @Prop({ reflect: true }) closedCallback = false;
+  @Prop() closedCallback = () => Promise<Boolean>;
 
   // 5.EVENTS (EMIT) //
 
@@ -172,6 +158,7 @@ INDEX:
 
   private closeClickHandler = () => {
     this.closeButtonHandler();
+    this.closedCallback();
   };
 
   //  10.RENDER() FUNCTION //
