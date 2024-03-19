@@ -224,6 +224,8 @@ $border: 1px solid var(--mer-color__elevation--04);
 
 :host([no-border]) {
   .top-state-bar__outer-wrapper {
-    border: 0;
+    &:before {
+      display: none;
+    }
   }
 }
