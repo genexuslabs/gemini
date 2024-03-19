@@ -84,3 +84,11 @@ ch-window::part(window) {
     transform: rotate(359deg);
   }
 }
+
+:host([display-border]) {
+  .loader {
+    &__wrapper {
+      border: 1px solid var(--mer-color__elevation--02);
+    }
+  }
+}
