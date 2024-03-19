@@ -20,6 +20,7 @@
   border-color: var(--gxg-tabs-border-color);
   border-radius: var(--gxg-tabs-border-radius);
   overflow: hidden;
+  background-color: var(--gxg-tab-bar-background-color);
 
   &--no-border {
     border: none;

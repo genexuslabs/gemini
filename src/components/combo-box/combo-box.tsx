@@ -290,6 +290,7 @@ export class GxgComboBox implements FormComponent {
   @Listen("itemSelected")
   itemSelectedHandler(event: CustomEvent<ItemInformation>): void {
     this.value = event.detail.value;
+    this.prevEmittedValue = this.value;
     this.inputText.focus();
   }
 
