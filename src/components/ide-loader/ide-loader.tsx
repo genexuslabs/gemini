@@ -15,20 +15,6 @@ import {
   shadow: true
 })
 export class IdeLoader {
-  /*
-INDEX:
-1.OWN PROPERTIES
-2.REFERENCE TO ELEMENTS
-3.STATE() VARIABLES
-4.PUBLIC PROPERTY API | WATCH'S
-5.EVENTS (EMIT)
-6.COMPONENT LIFECYCLE EVENTS
-7.LISTENERS
-8.PUBLIC METHODS API
-9.LOCAL METHODS
-10.RENDER() FUNCTION
-*/
-
   // 1.OWN PROPERTIES //
 
   /**
@@ -84,6 +70,16 @@ INDEX:
    * The time the loader will await before abort.
    */
   @Prop() abortTime = 5000;
+
+  /**
+   * Displays a border all around
+   */
+  @Prop({ reflect: true }) displayBorder: boolean = false;
+
+  /**
+   * The border radius value that applies on the .loader__wrapper
+   */
+  @Prop({ reflect: true }) borderRadius: string = "0";
 
   @Watch("show")
   showHandler(show: boolean): void {
@@ -189,6 +185,7 @@ INDEX:
               [`loader__wrapper`]: true,
               "loader__wrapper--visible": this.showWrapper
             }}
+            style={{ borderRadius: this.borderRadius }}
             part="loader-wrapper"
           >
             <div class="loader__spinner"></div>

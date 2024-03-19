@@ -1263,6 +1263,10 @@ export namespace Components {
          */
         "abortTime": number;
         /**
+          * The border radius value that applies on the .loader__wrapper
+         */
+        "borderRadius": string;
+        /**
           * The cancel callback
          */
         "cancelCallback": IdeLoaderCancelCallback;
@@ -1278,6 +1282,10 @@ export namespace Components {
           * The loader description (optional)
          */
         "description": string;
+        /**
+          * Displays a border all around
+         */
+        "displayBorder": boolean;
         /**
           * The loader title (optional)
          */
@@ -5074,6 +5082,10 @@ declare namespace LocalJSX {
          */
         "abortTime"?: number;
         /**
+          * The border radius value that applies on the .loader__wrapper
+         */
+        "borderRadius"?: string;
+        /**
           * The cancel callback
          */
         "cancelCallback"?: IdeLoaderCancelCallback;
@@ -5089,6 +5101,10 @@ declare namespace LocalJSX {
           * The loader description (optional)
          */
         "description"?: string;
+        /**
+          * Displays a border all around
+         */
+        "displayBorder"?: boolean;
         /**
           * The loader title (optional)
          */
