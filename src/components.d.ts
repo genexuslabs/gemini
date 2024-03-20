@@ -2224,13 +2224,17 @@ export namespace Components {
          */
         "active": boolean;
         /**
-          * It true, it will auto-close when the progress is 100
-         */
-        "autoClose": boolean;
-        /**
           * The top-bar title
          */
         "caption": string;
+        /**
+          * How to display the close button
+         */
+        "closeType": | "auto-close"
+    | "button"
+    | "button-after-finish"
+    | "not-progress"
+    | "none";
         /**
           * A callback that gets called when the top-state-bar is closed
          */
@@ -2251,10 +2255,6 @@ export namespace Components {
           * The top-bar title
          */
         "stateType": topStateBarType;
-        /**
-          * It will display a close action button
-         */
-        "withClose": boolean;
     }
     interface GxgTree {
         /**
@@ -6090,13 +6090,17 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
-          * It true, it will auto-close when the progress is 100
-         */
-        "autoClose"?: boolean;
-        /**
           * The top-bar title
          */
         "caption"?: string;
+        /**
+          * How to display the close button
+         */
+        "closeType"?: | "auto-close"
+    | "button"
+    | "button-after-finish"
+    | "not-progress"
+    | "none";
         /**
           * A callback that gets called when the top-state-bar is closed
          */
@@ -6117,10 +6121,6 @@ declare namespace LocalJSX {
           * The top-bar title
          */
         "stateType"?: topStateBarType;
-        /**
-          * It will display a close action button
-         */
-        "withClose"?: boolean;
     }
     interface GxgTree {
         /**

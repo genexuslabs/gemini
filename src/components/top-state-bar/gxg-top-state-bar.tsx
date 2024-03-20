@@ -59,10 +59,6 @@ export class GxgTopStateBar {
    * The top-bar title
    */
   @Prop({ reflect: true }) stateType: topStateBarType = "in-progress";
-  @Watch("stateType")
-  watchStateTypeHandler() {
-    this.evaluateWithAction();
-  }
 
   /**
    * The progress bar progress
@@ -73,7 +69,7 @@ export class GxgTopStateBar {
     if (progress => 0 && progress <= 100) {
       this.el.style.setProperty("--top-bar-progress", `${progress}%`);
     }
-    if (progress === 100 && this.autoClose) {
+    if (progress === 100 && this.closeType === "auto-close") {
       setTimeout(() => {
         this.active = false;
       }, 200);
@@ -81,14 +77,14 @@ export class GxgTopStateBar {
   }
 
   /**
-   * It will display a close action button
+   * How to display the close button
    */
-  @Prop() withClose: boolean = undefined;
-
-  /**
-   * It true, it will auto-close when the progress is 100
-   */
-  @Prop() autoClose = false;
+  @Prop() closeType:
+    | "auto-close"
+    | "button"
+    | "button-after-finish"
+    | "not-progress"
+    | "none" = "button-after-finish";
 
   /**
    * It removes the border (actually is box shadow)
@@ -105,7 +101,6 @@ export class GxgTopStateBar {
   // 6.COMPONENT LIFECYCLE EVENTS //
 
   componentWillLoad() {
-    this.evaluateWithAction();
     this.evaluateInitialProgress();
     if (this.active) {
       this.visible = true;
@@ -136,17 +131,6 @@ export class GxgTopStateBar {
     this.el.style.setProperty("--top-bar-progress", `${this.progress}%`);
   };
 
-  private evaluateWithAction = () => {
-    if (
-      this.withClose === undefined &&
-      (this.stateType === "error" ||
-        this.stateType === "warning" ||
-        this.stateType === "success")
-    ) {
-      this.withClose = true;
-    }
-  };
-
   private closeButtonHandler = () => {
     this.active = false;
   };
@@ -161,6 +145,27 @@ export class GxgTopStateBar {
     this.closedCallback();
   };
 
+  private renderClose = () => {
+    return this.closeType === "button" ||
+      (this.closeType === "button-after-finish" && this.progress === 100) ||
+      (this.closeType === "not-progress" &&
+        this.stateType !== "in-progress") ? (
+      <gxg-icon
+        class={{
+          "top-state-bar__close": true
+        }}
+        onClick={this.closeClickHandler}
+        onKeyDown={this.closeKeyDownHandler}
+        role="button"
+        aria-label="close"
+        type="gemini-tools/close"
+        color="mercury-on-surface"
+        tabIndex={this.visible ? 0 : -1}
+        size="small"
+      ></gxg-icon>
+    ) : null;
+  };
+
   //  10.RENDER() FUNCTION //
 
   render() {
@@ -173,7 +178,6 @@ export class GxgTopStateBar {
           class={{
             "top-state-bar": true,
             [`top-state-bar--${this.stateType}`]: true,
-            "top-state-bar--with-close": this.withClose,
             "top-state-bar--visible": this.topStateBarVisible
           }}
         >
@@ -190,21 +194,7 @@ export class GxgTopStateBar {
                   {this.caption}
                 </label>
 
-                {this.withClose && !this.minimal ? (
-                  <gxg-icon
-                    class={{
-                      "top-state-bar__close": true
-                    }}
-                    onClick={this.closeClickHandler}
-                    onKeyDown={this.closeKeyDownHandler}
-                    role="button"
-                    aria-label="close"
-                    type="gemini-tools/close"
-                    color="mercury-on-surface"
-                    tabIndex={this.visible ? 0 : -1}
-                    size="small"
-                  ></gxg-icon>
-                ) : null}
+                {this.renderClose()}
               </div>
             ) : null}
             <div
