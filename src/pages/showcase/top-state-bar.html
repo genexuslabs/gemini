@@ -200,33 +200,37 @@
               </script>
             </div>
           </article>
+        </div>
+      </section>
 
-          <!-- with progress bar + auto close -->
+      <!-----------------
+      close type
+      ------------------>
+      <section data-title="close type">
+        <div class="articles-container">
+          <!-- close type: auto-close -->
           <article data-title="auto close">
-            <code pill>autoClose</code>
+            <code pill>closeType="autoClose"</code>
             <div class="example">
-              <div class="block"></div>
               <gxg-top-state-bar
-                caption="Publishing project"
+                caption="Caption"
                 state-type="in-progress"
                 id="top-state-bar-auto-close"
-                auto-close
+                close-type="auto-close"
               ></gxg-top-state-bar>
-              <div class="block"></div>
             </div>
             <div>
-              <button id="activate-btn-auto-close">activate</button>
+              <button id="activate-btn-progress-auto-close">activate</button>
               <script>
                 const topStateBarAutoClose = document.getElementById(
                   "top-state-bar-auto-close"
                 );
                 const activateBtnAutoClose = document.getElementById(
-                  "activate-btn-auto-close"
-                );
-                const deactivateBtnAutoClose = document.getElementById(
-                  "deactivate-btn-auto-close"
+                  "activate-btn-progress-auto-close"
                 );
                 activateBtnAutoClose.addEventListener("click", () => {
+                  topStateBarAutoClose.stateType = "in-progress";
+                  topStateBarAutoClose.caption = "Publishing project";
                   topStateBarAutoClose.setAttribute("active", true);
                   setTimeout(() => {
                     topStateBarAutoClose.progress = 20;
@@ -236,6 +240,195 @@
                         topStateBarAutoClose.progress = 80;
                         setTimeout(() => {
                           topStateBarAutoClose.progress = 100;
+                          topStateBarAutoClose.caption = "Project published";
+                          topStateBarAutoClose.stateType = "success";
+                        }, 500);
+                      }, 300);
+                    }, 700);
+                  }, 300);
+                });
+              </script>
+            </div>
+          </article>
+
+          <!-- close type: button -->
+          <article data-title="close with button">
+            <code pill>closeType="button"</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Caption"
+                state-type="in-progress"
+                id="top-state-bar-close-button"
+                close-type="button"
+              ></gxg-top-state-bar>
+            </div>
+            <div>
+              <button id="activate-btn-progress-close-button">activate</button>
+              <script>
+                const topStateBarCloseButton = document.getElementById(
+                  "top-state-bar-close-button"
+                );
+                const activateBtnCloseButton = document.getElementById(
+                  "activate-btn-progress-close-button"
+                );
+                activateBtnCloseButton.addEventListener("click", () => {
+                  console.log("clock");
+                  topStateBarCloseButton.stateType = "in-progress";
+                  topStateBarCloseButton.caption = "Publishing project";
+                  topStateBarCloseButton.setAttribute("active", true);
+                  setTimeout(() => {
+                    topStateBarCloseButton.progress = 20;
+                    setTimeout(() => {
+                      topStateBarCloseButton.progress = 45;
+                      setTimeout(() => {
+                        topStateBarCloseButton.progress = 80;
+                        setTimeout(() => {
+                          topStateBarCloseButton.progress = 100;
+                          topStateBarCloseButton.caption = "Project published";
+                          topStateBarCloseButton.stateType = "success";
+                        }, 500);
+                      }, 300);
+                    }, 700);
+                  }, 300);
+                });
+              </script>
+            </div>
+          </article>
+
+          <!-- close type: button after finish -->
+          <article data-title="close with button (after finish)">
+            <code pill>closeType="button-after-finish"</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Caption"
+                state-type="in-progress"
+                id="top-state-bar-close-button-after-finish"
+                close-type="button-after-finish"
+              ></gxg-top-state-bar>
+            </div>
+            <div>
+              <button id="activate-btn-progress-close-button-after-finish">
+                activate
+              </button>
+              <script>
+                const topStateBarCloseButtonAfterFinish =
+                  document.getElementById(
+                    "top-state-bar-close-button-after-finish"
+                  );
+                const activateBtnCloseButtonAfterFinish =
+                  document.getElementById(
+                    "activate-btn-progress-close-button-after-finish"
+                  );
+                activateBtnCloseButtonAfterFinish.addEventListener(
+                  "click",
+                  () => {
+                    console.log("clock");
+                    topStateBarCloseButtonAfterFinish.stateType = "in-progress";
+                    topStateBarCloseButtonAfterFinish.caption =
+                      "Publishing project";
+                    topStateBarCloseButtonAfterFinish.setAttribute(
+                      "active",
+                      true
+                    );
+                    setTimeout(() => {
+                      topStateBarCloseButtonAfterFinish.progress = 20;
+                      setTimeout(() => {
+                        topStateBarCloseButtonAfterFinish.progress = 45;
+                        setTimeout(() => {
+                          topStateBarCloseButtonAfterFinish.progress = 80;
+                          setTimeout(() => {
+                            topStateBarCloseButtonAfterFinish.progress = 100;
+                            topStateBarCloseButtonAfterFinish.caption =
+                              "Project published";
+                            topStateBarCloseButtonAfterFinish.stateType =
+                              "success";
+                          }, 500);
+                        }, 300);
+                      }, 700);
+                    }, 300);
+                  }
+                );
+              </script>
+            </div>
+          </article>
+
+          <!-- close type: not progress -->
+          <article data-title="close with button (not in progress)">
+            <code pill>closeType="not-progress"</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Caption"
+                state-type="in-progress"
+                id="top-state-bar-not-progress"
+                close-type="not-progress"
+              ></gxg-top-state-bar>
+            </div>
+            <div>
+              <button id="activate-btn-not-progress">activate</button>
+              <script>
+                const topStateBarNotProgress = document.getElementById(
+                  "top-state-bar-not-progress"
+                );
+                const activateBtnNotProgress = document.getElementById(
+                  "activate-btn-not-progress"
+                );
+                activateBtnNotProgress.addEventListener("click", () => {
+                  console.log("clock");
+                  topStateBarNotProgress.stateType = "in-progress";
+                  topStateBarNotProgress.caption = "Publishing project";
+                  topStateBarNotProgress.setAttribute("active", true);
+                  setTimeout(() => {
+                    topStateBarNotProgress.progress = 20;
+                    setTimeout(() => {
+                      topStateBarNotProgress.progress = 45;
+                      setTimeout(() => {
+                        topStateBarNotProgress.progress = 80;
+                        topStateBarNotProgress.caption = "Connection timed out";
+                        topStateBarNotProgress.stateType = "error";
+                      }, 300);
+                    }, 700);
+                  }, 300);
+                });
+              </script>
+            </div>
+          </article>
+
+          <!-- close type: none -->
+          <article data-title="none">
+            <code pill>closeType="none"</code>
+            <div class="example">
+              <gxg-top-state-bar
+                caption="Caption"
+                state-type="in-progress"
+                id="top-state-bar-close-type-none"
+                close-type="none"
+              ></gxg-top-state-bar>
+            </div>
+            <div>
+              <button id="activate-btn-close-type-none">activate</button>
+              <script>
+                const topStateBarCloseTypeNone = document.getElementById(
+                  "top-state-bar-close-type-none"
+                );
+                const activateBtnCloseTypeNone = document.getElementById(
+                  "activate-btn-close-type-none"
+                );
+                activateBtnCloseTypeNone.addEventListener("click", () => {
+                  console.log("clock");
+                  topStateBarCloseTypeNone.stateType = "in-progress";
+                  topStateBarCloseTypeNone.caption = "Publishing project";
+                  topStateBarCloseTypeNone.setAttribute("active", true);
+                  setTimeout(() => {
+                    topStateBarCloseTypeNone.progress = 20;
+                    setTimeout(() => {
+                      topStateBarCloseTypeNone.progress = 45;
+                      setTimeout(() => {
+                        topStateBarCloseTypeNone.progress = 80;
+                        setTimeout(() => {
+                          topStateBarCloseTypeNone.progress = 100;
+                          topStateBarCloseTypeNone.caption =
+                            "Project published";
+                          topStateBarCloseTypeNone.stateType = "success";
                         }, 500);
                       }, 300);
                     }, 700);
