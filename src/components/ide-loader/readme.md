@@ -5,15 +5,17 @@
 
 ## Properties
 
-| Property         | Attribute      | Description                                  | Type          | Default     |
-| ---------------- | -------------- | -------------------------------------------- | ------------- | ----------- |
-| `abortTime`      | `abort-time`   | The time the loader will await before abort. | `number`      | `5000`      |
-| `cancelCallback` | --             | The cancel callback                          | `() => void`  | `undefined` |
-| `cancelLabel`    | `cancel-label` | The cancel button label (optional)           | `string`      | `undefined` |
-| `container`      | --             | The container element for the loader.        | `HTMLElement` | `undefined` |
-| `description`    | `description`  | The loader description (optional)            | `string`      | `undefined` |
-| `loaderTitle`    | `loader-title` | The loader title (optional)                  | `string`      | `undefined` |
-| `show`           | `show`         | It shows the loader                          | `boolean`     | `false`     |
+| Property         | Attribute        | Description                                                  | Type          | Default     |
+| ---------------- | ---------------- | ------------------------------------------------------------ | ------------- | ----------- |
+| `abortTime`      | `abort-time`     | The time the loader will await before abort.                 | `number`      | `300000`    |
+| `borderRadius`   | `border-radius`  | The border radius value that applies on the .loader__wrapper | `string`      | `"0"`       |
+| `cancelCallback` | --               | The cancel callback                                          | `() => void`  | `undefined` |
+| `cancelLabel`    | `cancel-label`   | The cancel button label (optional)                           | `string`      | `undefined` |
+| `container`      | --               | The container element for the loader.                        | `HTMLElement` | `undefined` |
+| `description`    | `description`    | The loader description (optional)                            | `string`      | `undefined` |
+| `displayBorder`  | `display-border` | Displays a border all around                                 | `boolean`     | `false`     |
+| `loaderTitle`    | `loader-title`   | The loader title (optional)                                  | `string`      | `undefined` |
+| `show`           | `show`           | It shows the loader                                          | `boolean`     | `false`     |
 
 
 ## Events

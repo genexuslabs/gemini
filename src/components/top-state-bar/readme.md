@@ -7,17 +7,16 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                  | Type                                                             | Default         |
-| ---------------- | ----------------- | ------------------------------------------------------------ | ---------------------------------------------------------------- | --------------- |
-| `active`         | `active`          | The top-bar active state. If false it will be hidden         | `boolean`                                                        | `false`         |
-| `autoClose`      | `auto-close`      | It true, it will auto-close when the progress is 100         | `boolean`                                                        | `false`         |
-| `caption`        | `caption`         | The top-bar title                                            | `string`                                                         | `undefined`     |
-| `closedCallback` | `closed-callback` | A callback that gets called when the top-state-bar is closed | `boolean`                                                        | `false`         |
-| `minimal`        | `minimal`         | It will only display the bar (no title, no close button)     | `boolean`                                                        | `false`         |
-| `noBorder`       | `no-border`       | It removes the border (actually is box shadow)               | `boolean`                                                        | `false`         |
-| `progress`       | `progress`        | The progress bar progress                                    | `number`                                                         | `undefined`     |
-| `stateType`      | `state-type`      | The top-bar title                                            | `"accent" \| "error" \| "in-progress" \| "success" \| "warning"` | `"in-progress"` |
-| `withClose`      | `with-close`      | It will display a close action button                        | `boolean`                                                        | `undefined`     |
+| Property         | Attribute    | Description                                                  | Type                                                                            | Default                 |
+| ---------------- | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------- | ----------------------- |
+| `active`         | `active`     | The top-bar active state. If false it will be hidden         | `boolean`                                                                       | `false`                 |
+| `caption`        | `caption`    | The top-bar title                                            | `string`                                                                        | `undefined`             |
+| `closeType`      | `close-type` | How to display the close button                              | `"auto-close" \| "button" \| "button-after-finish" \| "none" \| "not-progress"` | `"button-after-finish"` |
+| `closedCallback` | --           | A callback that gets called when the top-state-bar is closed | `() => void`                                                                    | `() => {}`              |
+| `minimal`        | `minimal`    | It will only display the bar (no title, no close button)     | `boolean`                                                                       | `false`                 |
+| `noBorder`       | `no-border`  | It removes the border (actually is box shadow)               | `boolean`                                                                       | `false`                 |
+| `progress`       | `progress`   | The progress bar progress                                    | `number`                                                                        | `undefined`             |
+| `stateType`      | `state-type` | The top-bar title                                            | `"accent" \| "error" \| "in-progress" \| "success" \| "warning"`                | `"in-progress"`         |
 
 
 ## Shadow Parts
