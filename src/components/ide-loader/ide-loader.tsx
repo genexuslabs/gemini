@@ -69,7 +69,7 @@ export class IdeLoader {
   /**
    * The time the loader will await before abort.
    */
-  @Prop() abortTime = 5000;
+  @Prop() abortTime: number = 300000; // 5 minutes
 
   /**
    * Displays a border all around
