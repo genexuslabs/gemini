@@ -155,6 +155,9 @@
       const showLoaderBtn = document.querySelector(".show-loader-btn");
       showLoaderBtn.addEventListener("click", () => {
         loader.show = true;
+        setTimeout(() => {
+          loader.show = false;
+        }, 1000);
       });
       loader.container = containerRef;
       /*event loaderFinished*/
