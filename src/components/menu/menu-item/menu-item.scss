@@ -17,11 +17,12 @@
     position: relative;
 
     &__container {
-      height: var(--spacing-comp-06);
+      //height: var(--spacing-comp-06);
       background-color: transparent;
       //@include ui-animation(background);
       cursor: pointer;
-      padding: 0 var(--spacing-comp-05) 0 var(--spacing-comp-05);
+      padding: var(--spacing-comp-02) var(--spacing-comp-02);
+      line-height: var(--mer-line-height--tight);
       display: flex;
       align-items: center;
 
