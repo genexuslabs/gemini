@@ -2411,7 +2411,7 @@ export namespace Components {
          */
         "expandOnClick": boolean;
         /**
-          * Specifies what kind of expandable button is displayed in the items by default.  - `"expandableButton"`: Expandable button that allows to expand/collapse     the items of the control.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item.
+          * Specifies what kind of expandable button is displayed in the items by default.  - `"action"`: Expandable button that allows to expand/collapse     the items of the control.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item.  - `"no"`: The expandable button won't be rendered
          */
         "expandableButton": "action" | "decorative" | "no";
         /**
@@ -6284,7 +6284,7 @@ declare namespace LocalJSX {
          */
         "expandOnClick"?: boolean;
         /**
-          * Specifies what kind of expandable button is displayed in the items by default.  - `"expandableButton"`: Expandable button that allows to expand/collapse     the items of the control.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item.
+          * Specifies what kind of expandable button is displayed in the items by default.  - `"action"`: Expandable button that allows to expand/collapse     the items of the control.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item.  - `"no"`: The expandable button won't be rendered
          */
         "expandableButton"?: "action" | "decorative" | "no";
         /**
