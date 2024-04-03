@@ -198,10 +198,11 @@ export class ChTreeViewRenderWrapper {
   /**
    * Specifies what kind of expandable button is displayed in the items by
    * default.
-   *  - `"expandableButton"`: Expandable button that allows to expand/collapse
+   *  - `"action"`: Expandable button that allows to expand/collapse
    *     the items of the control.
    *  - `"decorative"`: Only a decorative icon is rendered to display the state
    *     of the item.
+   *  - `"no"`: The expandable button won't be rendered
    */
   @Prop() readonly expandableButton: "action" | "decorative" | "no" =
     "decorative";
@@ -507,6 +508,7 @@ export class ChTreeViewRenderWrapper {
         dropDisabled={this.dropDisabled}
         dropItemsCallback={this.dropItemsCallback}
         dropMode={this.dropMode}
+        expandableButton={this.expandableButton}
         editableItems={this.editableItems}
         expandOnClick={this.expandOnClick}
         filter={this.filter}
