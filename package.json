@@ -25,7 +25,8 @@
     "svgo": "svgo --folder=./src/components/icon/assets --enable removeDimensions",
     "validate": "npm run test && npm run build",
     "validate.ci": "npm run test && npm run build -- --max-workers 1 --debug",
-    "build-storybook": "build-storybook -c .storybook"
+    "build-storybook": "build-storybook -c .storybook",
+    "clean-icons": "node remove-icons-title.js"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
