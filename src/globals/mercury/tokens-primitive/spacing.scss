@@ -1,12 +1,12 @@
-:root {
-  --mer-spacing--xxxs: 2px; //xxxs
-  --mer-spacing--xxs: 4px; //xxs
+:root[enable-mercury-ds] {
+  --mer-spacing--3xs: 2px; //xxxs
+  --mer-spacing--2xs: 4px; //xxs
   --mer-spacing--xs: 8px; //xs
   --mer-spacing--sm: 12px; //s
   --mer-spacing--md: 16px; //m
   --mer-spacing--lg: 24px; //l
   --mer-spacing--xl: 32px; //xl
-  --mer-spacing--xxl: 40px; //xxl
-  --mer-spacing--xxxl: 48px; //xxxl
-  --mer-spacing--xxxxl: 64px; //xxxxl
+  --mer-spacing--2xl: 40px; //xxl
+  --mer-spacing--3xl: 48px; //xxxl
+  --mer-spacing--4xl: 64px; //xxxxl
 }

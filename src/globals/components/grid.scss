@@ -86,10 +86,10 @@
   --gxg-grid-base__font-size: var(--mer-font__size--xs);
   --gxg-grid-base__font-color: var(--mer-text__on-surface);
   --gxg-grid__indent: var(--mer-spacing--xs);
-  --gxg-grid-row-actions__padding-top: var(--mer-spacing--xxxs);
+  --gxg-grid-row-actions__padding-top: var(--mer-spacing--3xs);
   --gxg-grid-row-actions__right: var(--mer-spacing--xs);
   --gxg-grid-part-caret__size: var(--mer-spacing--md);
-  --gxg-grid-part-caret__margin-inline-end: var(--mer-spacing--xxs);
+  --gxg-grid-part-caret__margin-inline-end: var(--mer-spacing--2xs);
   /*settings*/
   --gxg-grid-settings-mask__color: var(--mer-text__on-surface);
   --gxg-grid-settings-window__background-color: var(--mer-color__surface);
@@ -151,15 +151,15 @@
   );
   --gxg-grid-rowset-legend__padding-inline-start: var(--mer-spacing--xs);
   --gxg-grid-rowset-legend__padding-inline-end: var(--mer-spacing--xs);
-  --gxg-grid-rowset-legend__padding-block-start: var(--mer-spacing--xxs);
-  --gxg-grid-rowset-legend__padding-block-end: var(--mer-spacing--xxs);
+  --gxg-grid-rowset-legend__padding-block-start: var(--mer-spacing--2xs);
+  --gxg-grid-rowset-legend__padding-block-end: var(--mer-spacing--2xs);
   --gxg-grid-rowset-legend__gap: var(--mer-spacing--md);
   /*--- Cell ---*/
   --gxg-grid-cell__border-top-width: var(--mer-border__width--sm);
   --gxg-grid-cell__padding-inline-start: var(--mer-spacing--xs);
   --gxg-grid-cell__padding-inline-end: var(--mer-spacing--xs);
-  --gxg-grid-cell__padding-block-start: var(--mer-spacing--xxs);
-  --gxg-grid-cell__padding-block-end: var(--mer-spacing--xxs);
+  --gxg-grid-cell__padding-block-start: var(--mer-spacing--2xs);
+  --gxg-grid-cell__padding-block-end: var(--mer-spacing--2xs);
   --gxg-grid-cell-drag-icon__size: var(--mer-spacing--md);
   --gxg-grid-cell__font-size: var(--mer-font__size--xxs);
 }

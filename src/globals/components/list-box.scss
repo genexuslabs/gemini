@@ -58,9 +58,9 @@
   --gxg-list-box-header__font-weight: var(--mer-font__weight--semi-bold);
   --gxg-list-box-header__color: var(--mer-text__highlighted);
   /*--- Icon ---*/
-  --gxg-list-box-icon__margin-inline-end: var(--mer-spacing--xxs);
+  --gxg-list-box-icon__margin-inline-end: var(--mer-spacing--2xs);
   /*--- Checkbox ---*/
-  --gxg-list-box-checkbox__margin-inline-end: var(--mer-spacing--xxs);
+  --gxg-list-box-checkbox__margin-inline-end: var(--mer-spacing--2xs);
   /*--- List ---*/
   --gxg-list-box-suggestions-container__background-color: var();
   --gxg-list-box-suggestions-container__color: var(
@@ -77,14 +77,14 @@
   );
   --gxg-tree-view-item__outline-offset--active: -1px;
   /*--- Item > Container ---*/
-  --gxg-list-box-item-container__padding: var(--mer-spacing--xxxs)
+  --gxg-list-box-item-container__padding: var(--mer-spacing--3xs)
     var(--mer-spacing--sm);
   --gxg-list-box-item-container-icon-no-checkbox__padding-inline-start: var(
-    --mer-spacing--xxs
+    --mer-spacing--2xs
   );
   /*--- Item > Icon ---*/
-  --gxg-list-box-item-icon__margin-inline-end: var(--mer-spacing--xxs);
-  --gxg-list-box-item-checkbox__margin-inline-end: var(--mer-spacing--xxs);
+  --gxg-list-box-item-icon__margin-inline-end: var(--mer-spacing--2xs);
+  --gxg-list-box-item-checkbox__margin-inline-end: var(--mer-spacing--2xs);
   --gxg-list-box-item-icon__size-box--regular: var(--ds-icon-size-box--small);
   --gxg-list-box-item-icon__size--regular: var(--ds-icon-size--small);
 }
