@@ -85,7 +85,7 @@ $border: 1px solid var(--mer-color__elevation--04);
     font-style: italic;
   }
   &__progress-wrapper {
-    height: var(--mer-spacing--xxs);
+    height: var(--mer-spacing--2xs);
     background-color: var(--mer-color__elevation--04);
     position: relative;
     z-index: 2;
@@ -218,7 +218,7 @@ $border: 1px solid var(--mer-color__elevation--04);
   display: block;
   transition: all $transitionSpeed;
   width: var(--top-bar-progress);
-  border-radius: calc(var(--mer-spacing--xxs) / 2);
+  border-radius: calc(var(--mer-spacing--2xs) / 2);
   height: 100%;
 }
 

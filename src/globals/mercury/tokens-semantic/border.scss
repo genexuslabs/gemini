@@ -1,4 +1,4 @@
-:root {
+:root[enable-mercury-ds] {
   --mer-border-color__primary: var(--mer-accent__primary);
   --mer-border-color__primary--hover: var(--mer-accent__primary--hover);
   --mer-border-color__primary--active: var(--mer-accent__primary--active);
@@ -15,7 +15,7 @@
   --mer-border-color__on-elevation--01: var(--mer-color__neutral-gray--1400);
 }
 /*Added by Bruno*/
-:root {
+:root[enable-mercury-ds] {
   --mer-border-color__dark-only: transparent;
   &.dark {
     --mer-border-color__dark-only: var(--mer-color__neutral-gray--1100);

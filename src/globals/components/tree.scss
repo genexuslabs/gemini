@@ -42,16 +42,16 @@
   );
   /*--- Item ---*/
   --gxg-tree-view-item__gap: var(--mer-spacing--xs);
-  --gxg-tree-view-item__custom-padding-inline-start: var(--mer-spacing--xxs);
-  --gxg-tree-view-item__custom-padding-inline-end: var(--mer-spacing--xxs);
+  --gxg-tree-view-item__custom-padding-inline-start: var(--mer-spacing--2xs);
+  --gxg-tree-view-item__custom-padding-inline-end: var(--mer-spacing--2xs);
   --gxg-tree-view-item__color--hover: var(--mer-color__neutral-gray--100);
   --gxg-tree-view-item__font-size: var(--mer-font__size--xxs);
   /*--- Icon ---*/
   --gxg-tree-view-icon__size: var(--mer-spacing--md);
   /*--- Header ---*/
   --gxg-tree-view-item-header__min-height: var(--mer-spacing--xl);
-  --gxg-tree-view-item-header__padding-top: var(--mer-spacing--xxxs);
-  --gxg-tree-view-item-header__padding-bottom: var(--mer-spacing--xxxs);
+  --gxg-tree-view-item-header__padding-top: var(--mer-spacing--3xs);
+  --gxg-tree-view-item-header__padding-bottom: var(--mer-spacing--3xs);
   --gxg-tree-view-item-header__padding-inline-end: var(--mer-spacing--xs);
   --gxg-tree-view-item-header__outline-offset--focus: -1px;
   --gxg-tree-view-item-header__border-radius: var(--mer-border__radius--sm);

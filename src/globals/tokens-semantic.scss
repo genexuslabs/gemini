@@ -195,12 +195,10 @@
     --ds-focus-border-width: var(--mer-border__width--sm);
     --ds-focus-border-color: var(--mer-border-color__primary--focused);
     /*item*/
-    --ds-item-background-color--hover: var(--mer-item__background-color--hover);
-    --ds-item-background-color--selected: var(
-      --mer-item__background-color--selected
-    );
+    --ds-item-background-color--hover: var(--mer-item__bg-color--hover);
+    --ds-item-background-color--selected: var(--mer-item__bg-color--selected);
     --ds-item-background-color--selected-hover: var(
-      --mer-item__background-color--selected-hover
+      --mer-item__bg-color--selected-hover
     );
     --ds-item-border-color: var(--mer-color__elevation--01);
     --ds-item-border-color--selected: var(--mer-item__border-color--selected);
