@@ -59,7 +59,7 @@ import { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item
 import { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 import { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
 import { GxDataTransferInfo, TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewFilterOptions, TreeViewFilterType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemModelExtended, TreeViewItemOpenReferenceInfo, TreeViewLines, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library";
-import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
+import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view-render";
 export { mode } from "./components/accordion/accordion";
 export { mode as mode1 } from "./components/accordion/accordion";
 export { status } from "./components/accordion-item/accordion-item";
@@ -114,7 +114,7 @@ export { GxgTreeItemData, GxgTreeItemSelectedData } from "./components/tree-item
 export { DisplayChildren } from "./components/tree-grid-divs/gxg-tree-grid-divs";
 export { GxgTreeItemData as GxgTreeItemData1 } from "./components/tree-item/gxg-tree-item";
 export { GxDataTransferInfo, TreeViewDataTransferInfo, TreeViewDropCheckInfo, TreeViewDropType, TreeViewFilterOptions, TreeViewFilterType, TreeViewItemContextMenu, TreeViewItemExpandedInfo, TreeViewItemModel, TreeViewItemModelExtended, TreeViewItemOpenReferenceInfo, TreeViewLines, TreeViewOperationStatusModifyCaption } from "@genexus/chameleon-controls-library";
-export { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
+export { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view-render";
 export namespace Components {
     interface GxgAccordion {
         /**
