@@ -23,7 +23,7 @@ import {
   TreeViewOperationStatusModifyCaption
 } from "@genexus/chameleon-controls-library";
 
-import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/renders/tree-view/tree-view-render";
+import { ChTreeViewRender } from "@genexus/chameleon-controls-library/dist/types/components/tree-view/tree-view-render";
 
 import { resolveImgPath } from "./helpers";
 
