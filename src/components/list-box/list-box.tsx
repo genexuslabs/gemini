@@ -483,6 +483,7 @@ export class GxgListBox implements FormComponent {
           item.checked = false;
         });
       }
+      this.evaluateSelectedItems();
     } else if (
       e.code === "KeyA" &&
       (ctrlKey || cmdKey) &&
