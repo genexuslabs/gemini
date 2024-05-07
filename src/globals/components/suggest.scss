@@ -2,6 +2,7 @@
 :root {
   /*SUGGEST*/
   /*--- general ---*/
+  --gxg-suggest-general__font-size: var(--ds-base-font-family-primary);
   --gxg-suggest-general__border: none;
   /*--- input ---*/
   --gxg-suggest-input__font-size: var(--ds-form-control-font-size);
@@ -61,6 +62,7 @@
 :root.mercury {
   /*SUGGEST*/
   /*--- general ---*/
+  --gxg-suggest-general__font-size: var(--mer-font__size--2xs);
   --gxg-suggest-general__border: var(--gxg-suggest-list__border);
   --gxg-suggest-general__border: 1px solid
     var(--mer-border-color__on-elevation--01);

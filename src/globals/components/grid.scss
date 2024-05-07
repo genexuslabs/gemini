@@ -83,7 +83,7 @@
   --gxg-grid-base__border-color: var(--mer-border-color__dim);
   --gxg-grid-base__border-width: var(--mer-border__width--sm);
   --gxg-grid-base__border-radius: var(--mer-border__radius--md);
-  --gxg-grid-base__font-size: var(--mer-font__size--xs);
+  --gxg-grid-base__font-size: var(--mer-font__size--2xs);
   --gxg-grid-base__font-color: var(--mer-text__on-surface);
   --gxg-grid__indent: var(--mer-spacing--xs);
   --gxg-grid-row-actions__padding-top: var(--mer-spacing--3xs);
@@ -161,5 +161,5 @@
   --gxg-grid-cell__padding-block-start: var(--mer-spacing--2xs);
   --gxg-grid-cell__padding-block-end: var(--mer-spacing--2xs);
   --gxg-grid-cell-drag-icon__size: var(--mer-spacing--md);
-  --gxg-grid-cell__font-size: var(--mer-font__size--xxs);
+  --gxg-grid-cell__font-size: var(--mer-font__size--2xs);
 }

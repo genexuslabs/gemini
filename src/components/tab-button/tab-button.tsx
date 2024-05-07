@@ -70,6 +70,11 @@ export class GxgTabButton {
    */
   @Prop() reduced: boolean = false;
 
+  /**
+   * If true, the tab-button border indicator will not be displayed
+   */
+  @Prop({ reflect: true }) noIndicator: boolean = false;
+
   //Events
   @Event()
   tabActivated: EventEmitter;

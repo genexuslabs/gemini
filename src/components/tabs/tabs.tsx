@@ -42,6 +42,11 @@ export class GxgTabs {
   @Prop({ reflect: true }) reduced = false;
 
   /**
+   * If true, the tab-button border indicator will not be displayed
+   */
+  @Prop() noIndicator: boolean = false;
+
+  /**
    * The actual active tab, and tab-button
    */
   @Prop() activeTab: string;
@@ -66,6 +71,7 @@ export class GxgTabs {
       this.activateTab();
     }
     this.evaluateStacked();
+    this.evaluateNoIndicator();
   }
 
   private evaluateStacked = () => {
@@ -98,6 +104,18 @@ export class GxgTabs {
       const gxgTabs = Array.from(this.el.querySelectorAll("gxg-tab"));
       gxgTabs.forEach(tab => {
         tab.reduced = true;
+      });
+    }
+  };
+
+  private evaluateNoIndicator = () => {
+    if (this.noIndicator) {
+      //tab buttons
+      const gxgTabButtons = Array.from(
+        this.el.querySelectorAll("gxg-tab-button")
+      );
+      gxgTabButtons.forEach(tabButton => {
+        tabButton.noIndicator = true;
       });
     }
   };

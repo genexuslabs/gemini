@@ -79,7 +79,7 @@
           <article data-title="multi-selection">
             <!-- <code pill></code> -->
             <div class="example">
-              <gxg-list-box the-title="multi-selection">
+              <gxg-list-box the-title="multi-selection" id="multi-selection">
                 <gxg-list-box-item>0.Common</gxg-list-box-item>
                 <gxg-list-box-item icon="objects/business-process-diagram"
                   >1.BPM</gxg-list-box-item
@@ -99,6 +99,17 @@
                   >5.User interface</gxg-list-box-item
                 >
               </gxg-list-box>
+              <script>
+                const listboxMultiSelection =
+                  document.getElementById("multi-selection");
+                console.log(listboxMultiSelection);
+                listboxMultiSelection.addEventListener(
+                  "selectionChanged",
+                  e => {
+                    console.log("e", e.detail);
+                  }
+                );
+              </script>
             </div>
           </article>
 

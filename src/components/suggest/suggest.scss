@@ -2,7 +2,7 @@
 
 ch-suggest {
   font-family: var(--ds-base-font-family-primary);
-  font-size: var(--ds-base-font-size);
+  font-size: var(--gxg-suggest-general__font-size);
   color: var(--ds-base-font-color);
   @include gxg-scrollbar();
   /* Label */

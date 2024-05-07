@@ -4,7 +4,7 @@
 
 :host {
   display: block;
-  font-size: var(--ds-base-font-size);
+  font-size: var(--gxg-list-box-general__font-size);
   font-family: var(--ds-base-font-family-primary);
   background-color: var(--ds-base-background-color);
   color: var(--ds-base-font-color);
@@ -29,6 +29,8 @@
     font-size: inherit;
     font-weight: var(--gxg-list-box-header__font-weight);
     color: var(--gxg-list-box-header__color);
+    display: flex;
+    align-items: center;
   }
   .icon {
     margin-inline-end: var(--spacing-comp-01);
