@@ -1,12 +1,14 @@
 /*Gemini*/
 :root {
   /*--- General ---*/
+  --gxg-list-box-general__font-size: var(--ds-base-font-size);
   --gxg-list-box-general__border-radius: var(--ds-form-control-border-radius);
   /*--- Main ---*/
   --gxg-list-box-main__padding: 0;
   /*--- Container ---*/
   --gxg-list-box-container__border: var(--ds-border-common-styles);
   /*--- Header ---*/
+  --gxg-list-box-header__height: 26px;
   --gxg-list-box-header__background-color: var(--gray-01);
   --gxg-list-box-header__padding: var(--spacing-comp-01) var(--spacing-comp-02);
   --gxg-list-box-header__font-weight: var(--font-weight-semi-bold);
@@ -23,6 +25,7 @@
     var(--spacing-comp-02);
   --gxg-list-box-suggestions-container__gap: var(--spacing-comp-01);
   /*--- Item ---*/
+  --gxg-list-box-item__height: var(--ds-list-item-height--spaced);
   --gxg-list-box-item__border: 1px solid var(--gray-00);
   --gxg-list-box-item__background-color--hover: var(
     --ds-item-background-color--hover
@@ -43,6 +46,7 @@
 /*Mercury*/
 :root.mercury {
   /*--- General ---*/
+  --gxg-list-box-general__font-size: var(--mer-font__size--2xs);
   --gxg-list-box-general__border-radius: 0;
   /*--- Main ---*/
   --gxg-list-box-main__padding: var(--mer-spacing--xs);
@@ -50,6 +54,7 @@
   --gxg-list-box-container__border: 1px solid
     var(--mer-border-color__on-elevation--01);
   /*--- Header ---*/
+  --gxg-list-box-header__height: 26px;
   --gxg-list-box-header__background-color: var(
     --mer-border-color__on-elevation--01
   );
@@ -66,10 +71,11 @@
   --gxg-list-box-suggestions-container__color: var(
     --mer-color__neutral-gray--800
   );
-  --gxg-list-box-suggestions-container__font-size: var(--mer-font__size--xxs);
+  --gxg-list-box-suggestions-container__font-size: var(--mer-font__size--2xs);
   --gxg-list-box-suggestions-container__padding: var() var(--spacing-comp-02);
   --gxg-list-box-suggestions-container__gap: var();
   /*--- Item ---*/
+  --gxg-list-box-item__height: 26px;
   --gxg-list-box-item__border: 1px solid
     var(--mer-border-color__on-elevation--01);
   --gxg-list-box-item__background-color--hover: var(

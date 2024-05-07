@@ -8,7 +8,7 @@ $border: 1px solid var(--mer-color__elevation--04);
   overflow: hidden;
 
   //icon
-  --ds-icon-size-box--small: var(--mer-font__size--xxs);
+  --ds-icon-size-box--small: var(--mer-font__size--2xs);
   --ds-icon-size--small: 100%;
 
   > * {
@@ -29,7 +29,7 @@ $border: 1px solid var(--mer-color__elevation--04);
     z-index: 1;
   }
   border-radius: var(--mer-border__width--lg);
-  list-style: var(--mer-font__size--xxs);
+  list-style: var(--mer-font__size--2xs);
   display: flex;
 
   &__outer-wrapper {
@@ -77,8 +77,8 @@ $border: 1px solid var(--mer-color__elevation--04);
   &__caption {
     color: var(--mer-text__on-surface);
     font-family: var(--ds-base-font-family-primary);
-    font-size: var(--mer-font__size--xxs);
-    line-height: var(--mer-font__size--xxs);
+    font-size: var(--mer-font__size--2xs);
+    line-height: var(--mer-font__size--2xs);
     font-weight: var(--mer-font__weight--regular);
     display: flex;
     align-items: baseline;

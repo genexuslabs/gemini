@@ -19,7 +19,7 @@
     align-items: center;
     padding: var(--gxg-combo-box-item_padding);
     width: 100%;
-    height: var(--ds-list-item-height--spaced);
+    height: var(--gxg-combo-box-item--height);
     box-sizing: border-box; /*items with icon are this tall*/
     gap: var(--gxg-combo-box-item_container-gap);
   }
