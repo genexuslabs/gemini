@@ -1991,6 +1991,10 @@ export namespace Components {
          */
         "isSelected": boolean;
         /**
+          * If true, the tab-button border indicator will not be displayed
+         */
+        "noIndicator": boolean;
+        /**
           * The presence of this attribute will hide the icon, and reduce the font size a little bit.
          */
         "reduced": boolean;
@@ -2022,6 +2026,10 @@ export namespace Components {
          */
         "noBackground": boolean;
         "noBorder": boolean;
+        /**
+          * If true, the tab-button border indicator will not be displayed
+         */
+        "noIndicator": boolean;
         /**
           * The presence of this attribute removes each tab .container padding
          */
@@ -5852,6 +5860,10 @@ declare namespace LocalJSX {
           * Provide this attribute to make this button selected by default
          */
         "isSelected"?: boolean;
+        /**
+          * If true, the tab-button border indicator will not be displayed
+         */
+        "noIndicator"?: boolean;
         "onPrevOrNextTab"?: (event: GxgTabButtonCustomEvent<any>) => void;
         "onTabActivated"?: (event: GxgTabButtonCustomEvent<any>) => void;
         /**
@@ -5885,6 +5897,10 @@ declare namespace LocalJSX {
          */
         "noBackground"?: boolean;
         "noBorder"?: boolean;
+        /**
+          * If true, the tab-button border indicator will not be displayed
+         */
+        "noIndicator"?: boolean;
         /**
           * The presence of this attribute removes each tab .container padding
          */

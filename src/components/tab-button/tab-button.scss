@@ -154,3 +154,11 @@
 :host(.menu-button:hover) {
   background: var(--ds-item-background-color--hover);
 }
+
+:host([no-indicator]) {
+  .tab-button {
+    &:after {
+      display: none;
+    }
+  }
+}
