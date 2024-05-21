@@ -1243,6 +1243,9 @@ export namespace Components {
         "fullHeight": boolean;
         "noBorder": boolean;
     }
+    /**
+     * @deprecated since v1.0.0
+     */
     interface GxgIcon {
         /**
           * The color of the icon.
@@ -3167,6 +3170,9 @@ declare global {
         prototype: HTMLGxgGridElement;
         new (): HTMLGxgGridElement;
     };
+    /**
+     * @deprecated since v1.0.0
+     */
     interface HTMLGxgIconElement extends Components.GxgIcon, HTMLStencilElement {
     }
     var HTMLGxgIconElement: {
@@ -5070,6 +5076,9 @@ declare namespace LocalJSX {
         "fullHeight"?: boolean;
         "noBorder"?: boolean;
     }
+    /**
+     * @deprecated since v1.0.0
+     */
     interface GxgIcon {
         /**
           * The color of the icon.
@@ -6568,6 +6577,9 @@ declare module "@stencil/core" {
             "gxg-form-text": LocalJSX.GxgFormText & JSXBase.HTMLAttributes<HTMLGxgFormTextElement>;
             "gxg-form-textarea": LocalJSX.GxgFormTextarea & JSXBase.HTMLAttributes<HTMLGxgFormTextareaElement>;
             "gxg-grid": LocalJSX.GxgGrid & JSXBase.HTMLAttributes<HTMLGxgGridElement>;
+            /**
+             * @deprecated since v1.0.0
+             */
             "gxg-icon": LocalJSX.GxgIcon & JSXBase.HTMLAttributes<HTMLGxgIconElement>;
             "gxg-ide-loader": LocalJSX.GxgIdeLoader & JSXBase.HTMLAttributes<HTMLGxgIdeLoaderElement>;
             "gxg-label": LocalJSX.GxgLabel & JSXBase.HTMLAttributes<HTMLGxgLabelElement>;
