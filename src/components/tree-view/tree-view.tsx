@@ -129,6 +129,9 @@ const defaultRenderItem = (
     )
   ];
 
+/**
+ * @deprecated since v1.0.0
+ */
 @Component({
   tag: "gxg-tree-view",
   styleUrl: "tree-view.scss",

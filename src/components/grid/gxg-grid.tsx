@@ -4,8 +4,11 @@ import state from "../store";
 @Component({
   tag: "gxg-grid",
   styleUrl: "gxg-grid.scss",
-  shadow: false,
+  shadow: false
 })
+/**
+ * @deprecated since v1.0.0
+ */
 export class GxgGrid {
   @Prop({ reflect: true }) noBorder = false;
   @Prop({ reflect: true }) fullHeight = false;

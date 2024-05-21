@@ -26,6 +26,9 @@ const COLOR_MAPPINGS = {
   "mercury-primary-disabled": "mer-icon__primary--disabled"
 };
 
+/**
+ * @deprecated since v1.0.0
+ */
 @Component({
   tag: "gxg-icon",
   styleUrl: "icon.scss",
