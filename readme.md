@@ -4,11 +4,17 @@
 
 # Gemini Design System
 
-A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows).
+---
 
-[Here](https://share.goabstract.com/5d9855b3-43b6-4815-9c65-360e405a25c8) you can find an overview of palette, typography, styles, and components.
+## ⚠️ Gemini is no longer under development
 
-You can try the design system components [here](https://gx-gemini.netlify.com/).
+This controls library is no longer under development. For the development of GeneXus extensions, the **[Chameleon Controls Library](https://github.com/genexuslabs/chameleon-controls-library)** is being used together with the **[Mercury Design System](https://github.com/genexuslabs/design-systems/tree/main/packages/mercury)**.
+
+---
+
+## About Gemini
+
+A design system for GeneXus IDEs (GeneXus M and GeneXus for Windows). [Here](https://share.goabstract.com/5d9855b3-43b6-4815-9c65-360e405a25c8) you can find an overview of palette, typography, styles, and components. You can try the design system components [here](https://gx-gemini.netlify.com/).
 
 ## Getting Started
 
