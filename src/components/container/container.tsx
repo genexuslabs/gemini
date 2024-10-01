@@ -3,7 +3,7 @@ import { Component, Host, h, Prop, Element, State } from "@stencil/core";
 @Component({
   tag: "gxg-container",
   styleUrl: "container.scss",
-  shadow: true,
+  shadow: true
 })
 export class GxgContainer {
   /*
@@ -200,7 +200,7 @@ https://stenciljs.com/docs/style-guide#code-organization
       heading: true,
       "heading--no-border": this.noHeadingBorder || this.hasOnlyHeading,
       [`heading--justify-${this.headingJustify}`]: true,
-      ["heading--no-padding"]: this.noHeadingPadding,
+      ["heading--no-padding"]: this.noHeadingPadding
     };
   };
 
@@ -208,11 +208,11 @@ https://stenciljs.com/docs/style-guide#code-organization
     return {
       content: true,
       "content--no-padding": this.noContentPadding,
-      "content--no-gap": this.noContentGap,
+      "content--no-gap": this.noContentGap
     };
   };
 
-  private footer = (): JSX.Element | null => {
+  private footer = (): any | null => {
     return this.hasFooterSlot ? (
       <footer
         class={{
@@ -223,7 +223,7 @@ https://stenciljs.com/docs/style-guide#code-organization
             !this.hasSlottedContent,
           [`footer--justify-${this.footerJustify}`]: true,
           [`footer--justify-${this.footerJustify}`]: true,
-          ["footer--no-padding"]: this.noFooterPadding,
+          ["footer--no-padding"]: this.noFooterPadding
         }}
       >
         <slot name="footer"></slot>
@@ -252,7 +252,7 @@ https://stenciljs.com/docs/style-guide#code-organization
             </div>
           ) : null}
         </fieldset>,
-        this.footer(),
+        this.footer()
       ];
     } else {
       result = [
@@ -266,7 +266,7 @@ https://stenciljs.com/docs/style-guide#code-organization
             <slot></slot>
           </div>
         ) : null,
-        this.footer(),
+        this.footer()
       ];
     }
 
@@ -279,7 +279,7 @@ https://stenciljs.com/docs/style-guide#code-organization
           "gxg-container--display-border-top": this.displayBorderTop,
           "gxg-container--display-border-end": this.displayBorderEnd,
           "gxg-container--display-border-bottom": this.displayBorderBottom,
-          "gxg-container--display-border-start": this.displayBorderStart,
+          "gxg-container--display-border-start": this.displayBorderStart
         }}
       >
         {result}
