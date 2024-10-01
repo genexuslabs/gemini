@@ -8,13 +8,13 @@ import { Color } from "../components/icon/icon";
 //   validationMessage: string | undefined;
 // }
 
-function requiredLabel(component): JSX.Element {
+function requiredLabel(component): any {
   if (component.required) {
     return <span class="required">*</span>;
   }
 }
 
-function formMessage(children?: JSX.Element[]): JSX.Element {
+function formMessage(children?: any[]): any {
   /* The following snipet of jsx is intended to be inserted at the end of every form-x component.
   The purpose of this jsx snippet is to show error or warning messages,
   inserted on the "message" slot with a gxg-form-message component
@@ -40,7 +40,7 @@ function formHandleValidation(
   }
 }
 
-function formMessageLogic(comp: FormComponent): JSX.Element {
+function formMessageLogic(comp: FormComponent): any {
   {
     return comp.informationMessage ||
       (!comp.disabled &&
@@ -69,7 +69,7 @@ function formMessageLogic(comp: FormComponent): JSX.Element {
 export function formTooltipLogic(
   comp: FormComponent,
   hideTooltip: boolean
-): JSX.Element {
+): any {
   {
     const show =
       comp.validationStatus !== "indeterminate" &&
